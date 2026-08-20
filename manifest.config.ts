@@ -3,17 +3,21 @@ import pkg from "./package.json";
 
 export default defineManifest({
   manifest_version: 3,
-  name: "Kanji N4/N3 — Học Kanji tiếng Nhật",
+  name: "Nihongo Nin - Học Tiếng Nhật",
   description:
-    "Học và ôn tập Kanji JLPT N4/N3 dành cho người Việt học tiếng Nhật.",
+    "Kiên trì học tiếng Nhật: Kanji, từ vựng, ngữ pháp và quiz ôn luyện cho mọi cấp độ JLPT — dành cho người Việt.",
   version: pkg.version,
   action: {
     default_popup: "index.html",
+  },
+  background: {
+    service_worker: "src/background/index.ts",
+    type: "module",
   },
   icons: {
     16: "public/icons/icon16.png",
     48: "public/icons/icon48.png",
     128: "public/icons/icon128.png",
   },
-  permissions: ["storage"],
+  permissions: ["storage", "alarms", "notifications"],
 });

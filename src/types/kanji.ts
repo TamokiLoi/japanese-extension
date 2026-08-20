@@ -1,6 +1,6 @@
 // Mirrors the Kanji type from the japanese-data repo (src/types/kanji.ts).
 // Keep in sync manually — duplicated here so this repo builds standalone.
-export type JlptLevel = "N4" | "N3";
+export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 
 export interface Kanji {
   id: string;
