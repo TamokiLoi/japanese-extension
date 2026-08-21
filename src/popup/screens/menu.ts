@@ -1,4 +1,4 @@
-import { ALL_KANJI } from "../kanjiState.ts";
+import { ALL_KANJI, pickReminderKanji } from "../kanjiState.ts";
 import {
   INTERVAL_OPTIONS_MINUTES,
   MAX_INTERVAL_MINUTES,
@@ -155,8 +155,8 @@ function renderReminder(settings: ReminderSettings) {
     await persist(minutes);
   });
 
-  document.getElementById("reminder-test")!.addEventListener("click", () => {
-    const k = ALL_KANJI[Math.floor(Math.random() * ALL_KANJI.length)];
+  document.getElementById("reminder-test")!.addEventListener("click", async () => {
+    const k = await pickReminderKanji();
     const meaning =
       k.meanings.vi.join(", ") || k.meanings.viDraft?.join(", ") || k.meanings.en.join(", ") || "";
     chrome.notifications.create({

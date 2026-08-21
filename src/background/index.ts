@@ -1,5 +1,5 @@
-import kanjiAllRaw from "../data/kanji-all.json";
-import type { Kanji, KanjiDataset } from "../types/kanji.ts";
+import type { Kanji } from "../types/kanji.ts";
+import { pickReminderKanji } from "../popup/kanjiState.ts";
 import {
   REMINDER_ALARM_NAME,
   applyReminderAlarm,
@@ -8,14 +8,7 @@ import {
   type ReminderSettings,
 } from "../reminder.ts";
 
-const dataset = kanjiAllRaw as unknown as KanjiDataset;
-const ALL_KANJI: Kanji[] = dataset.kanji;
-
 const REMINDER_NOTIFICATION_ID = "kanjiReminderNotification";
-
-function pickRandomKanji(): Kanji {
-  return ALL_KANJI[Math.floor(Math.random() * ALL_KANJI.length)];
-}
 
 function meaningFor(k: Kanji): string {
   if (k.meanings.vi.length > 0) return k.meanings.vi.join(", ");
@@ -23,8 +16,8 @@ function meaningFor(k: Kanji): string {
   return k.meanings.en.join(", ") || "";
 }
 
-function showReminderNotification() {
-  const k = pickRandomKanji();
+async function showReminderNotification() {
+  const k = await pickReminderKanji();
   chrome.notifications.create(REMINDER_NOTIFICATION_ID, {
     type: "basic",
     iconUrl: chrome.runtime.getURL("public/icons/icon128.png"),

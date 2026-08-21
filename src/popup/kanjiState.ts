@@ -81,3 +81,13 @@ export function getOrderedList(state: KanjiViewerState): Kanji[] {
   const filtered = ALL_KANJI.filter((k) => state.selectedLevels.includes(k.level));
   return state.randomOrder ? seededShuffle(filtered, state.shuffleSeed) : filtered;
 }
+
+// Used by reminder notifications (both the real periodic alarm and the
+// "Thu ngay" test button) so they only ever show a kanji from the levels
+// the user currently has selected in the viewer, instead of all levels.
+export async function pickReminderKanji(): Promise<Kanji> {
+  const state = await loadViewerState();
+  const pool = ALL_KANJI.filter((k) => state.selectedLevels.includes(k.level));
+  const list = pool.length > 0 ? pool : ALL_KANJI;
+  return list[Math.floor(Math.random() * list.length)];
+}
