@@ -1,0 +1,1393 @@
+{
+  "meta": {
+    "schemaVersion": "1.0.0",
+    "generatedAt": "2026-08-23T06:10:21.230Z",
+    "counts": {
+      "count": 83
+    },
+    "sources": {
+      "hantuTanoshiiVocab": {
+        "name": "Han tu Tanoshii (personal Vietnamese-authored vocab flashcard PDF set, NOT an open/licensed dataset)",
+        "url": "n/a -- user-supplied PDFs, transcribed by hand/OCR into scripts/data/hantu-tanoshii-vocab/*.json for personal use only",
+        "usedFor": "word, reading, hanViet, Vietnamese meaning, mnemonic, and example sentence, all as authored in the source PDF",
+        "license": "Unknown/unverified copyright status -- transcribed and used at the user's own instruction for personal, non-published use only. Do NOT redistribute or publish this dataset/derivative extension while populated from this source without separately clearing rights."
+      }
+    },
+    "notes": [
+      "Transcribed from the Tanoshii \"dong tu N4\" PDF flashcard book (two OCR passes merged, deduped by word)."
+    ]
+  },
+  "words": [
+    {
+      "id": "tanoshii-vocab-診る-N4",
+      "word": "診る",
+      "reading": "みる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Chẩn"
+      ],
+      "meaningVi": "Xem, khám bệnh",
+      "mnemonic": [
+        "Mi (み) nhìn đi",
+        "CHẨN: đoán bệnh qua LỜI NÓI (言) và mái TÓC (参)"
+      ],
+      "example": "医者は私に目を診ます。",
+      "exampleVi": "Bác sĩ khám mắt cho tôi."
+    },
+    {
+      "id": "tanoshii-vocab-探す、捜す-N4",
+      "word": "探す、捜す",
+      "reading": "さがす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thám",
+        "sưu"
+      ],
+      "meaningVi": "Tìm, tìm kiếm",
+      "mnemonic": [
+        "Đi xa ga (さが) ra để tìm",
+        "探: lấy tay (扌) quấn khăn (冖) đi (儿) vào rừng cây (木) thám hiểm; 捜: TAY (扌) CHÂN (叟) tự do lại tìm kiếm"
+      ],
+      "example": "彼は新しい仕事を探しています。",
+      "exampleVi": "Anh ấy đang tìm công việc mới."
+    },
+    {
+      "id": "tanoshii-vocab-に遅れる-N4",
+      "word": "に遅れる",
+      "reading": "おくれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Trì"
+      ],
+      "meaningVi": "Chậm, muộn",
+      "mnemonic": [
+        "Ông cứ rên (おくれ) nãi thế này thì muộn mất thôi",
+        "遅: con DÊ(羊) bước đi (辶) chậm chạp như cái thây ma (尸) làm muộn giờ"
+      ],
+      "example": "彼は電車に遅れました。",
+      "exampleVi": "Anh ấy đã trễ chuyến tàu."
+    },
+    {
+      "id": "tanoshii-vocab-に間に合う-N4",
+      "word": "に間に合う",
+      "reading": "まにあう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Gian hợp"
+      ],
+      "meaningVi": "Kịp",
+      "mnemonic": [
+        "Mai nì ai (まにあい) sẽ kịp đến cưới em đây",
+        "間: mặt trời (日) ở giữa 2 cánh cửa (門); 合: NGƯỜI (人) có MỘT (一) cái MIỆNG (口) là HỢP lí"
+      ],
+      "example": "彼は会議に間に合いました。",
+      "exampleVi": "Anh ấy đã kịp buổi họp."
+    },
+    {
+      "id": "tanoshii-vocab-やる-N4",
+      "word": "やる",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Làm",
+      "mnemonic": [
+        "Già rùi (やり) cả rồi, làm đi thôi"
+      ],
+      "example": "私は毎朝ジョギングをやります。",
+      "exampleVi": "Tôi chạy bộ mỗi sáng."
+    },
+    {
+      "id": "tanoshii-vocab-参加する-N4",
+      "word": "参加する",
+      "reading": "さんかする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tham gia"
+      ],
+      "meaningVi": "Tham gia, dự",
+      "mnemonic": [
+        "tham gia san cái ka (さんか) này ra",
+        "参: Mư (厶) Đại (大) Tam (彡) Tham gia chiến trận; 加: tham gia đóng góp lời nói (口) và sức lực (力)"
+      ],
+      "example": "私たちは運動会に参加します。",
+      "exampleVi": "Chúng tôi tham gia thế vận hội."
+    },
+    {
+      "id": "tanoshii-vocab-片付く-N4",
+      "word": "片付く",
+      "reading": "かたづく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Phiến phó"
+      ],
+      "meaningVi": "Được dọn dẹp",
+      "mnemonic": [
+        "Mô, xin cô mừ (もうしこむ) cho tôi tham gia đi",
+        "付: Lớp PHÓ có dáng NGƯỜI ĐỨNG (イ) nhìn rất THỐN (寸)"
+      ],
+      "example": "部屋が片付きました。",
+      "exampleVi": "Phòng đã được dọn dẹp."
+    },
+    {
+      "id": "tanoshii-vocab-出す-N4",
+      "word": "出す",
+      "reading": "だす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Xuất"
+      ],
+      "meaningVi": "Đổ, để (rác)",
+      "mnemonic": [
+        "Đừng đa sự (だす) nữa, đi đổ rác đi"
+      ],
+      "example": "ゴミを出すのを忘れないでください。",
+      "exampleVi": "Đừng quên đổ rác."
+    },
+    {
+      "id": "tanoshii-vocab-燃える-N4",
+      "word": "燃える",
+      "reading": "もえる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Nhiên"
+      ],
+      "meaningVi": "Cháy được",
+      "mnemonic": [
+        "MỒI (もえ) lửa cho cháy lên",
+        "燃: Dùng lửa (火) để đốt khí thiên nhiên (然)"
+      ],
+      "example": "火が燃えます。",
+      "exampleVi": "Lửa đang cháy."
+    },
+    {
+      "id": "tanoshii-vocab-連絡する-N4",
+      "word": "連絡する",
+      "reading": "れんらくする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Liên lạc"
+      ],
+      "meaningVi": "Liên lạc",
+      "mnemonic": [
+        "Chuyển âm: LIÊN-->れん, LẠC-->らく",
+        "連: chạy (辶) xe (車) đi liên lạc; 絡: lấy dây (糸) cột miệng các (各) vị lại làm sợi dây liên lạc"
+      ],
+      "example": "彼に連絡してください。",
+      "exampleVi": "Hãy liên lạc với anh ấy."
+    },
+    {
+      "id": "tanoshii-vocab-飼う-N4",
+      "word": "飼う",
+      "reading": "かう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tự"
+      ],
+      "meaningVi": "Nuôi (động vật)",
+      "mnemonic": [
+        "Nuôi con CÁ Ú (かう)",
+        "飼: tự (司) quản lý được đồ ăn (飠) của vật nuôi"
+      ],
+      "example": "私は犬を飼っています。",
+      "exampleVi": "Tôi nuôi chó."
+    },
+    {
+      "id": "tanoshii-vocab-建てる-N4",
+      "word": "建てる",
+      "reading": "たてる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Kiến"
+      ],
+      "meaningVi": "Xây dựng, xây",
+      "mnemonic": [
+        "Xây dựng TÒA NHÀ (たてもの)",
+        "建: Hình ảnh cây bút (聿) di chuyển (廴) chính là vẽ, KIẾN tạo, xây dựng"
+      ],
+      "example": "家を建てる。",
+      "exampleVi": "Xây nhà."
+    },
+    {
+      "id": "tanoshii-vocab-走る-N4",
+      "word": "走る",
+      "reading": "はしる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tẩu"
+      ],
+      "meaningVi": "Chạy (trên đường)",
+      "mnemonic": [
+        "Chạy trên CÁI CẦU (はし)",
+        "走: chạy tẩu thoát để lại dấu chân (足) trên đất (土)"
+      ],
+      "example": "彼は毎朝公園で走ります。",
+      "exampleVi": "Anh ấy chạy bộ ở công viên mỗi sáng."
+    },
+    {
+      "id": "tanoshii-vocab-取る-N4",
+      "word": "取る",
+      "reading": "とる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thủ"
+      ],
+      "meaningVi": "Xin (nghỉ)",
+      "mnemonic": [
+        "Tóm lấy CON CHIM(とり)",
+        "取: Lại (又) thu lấy cái tai (耳) của bọn giặc"
+      ],
+      "example": "休みを取ります。",
+      "exampleVi": "Lấy ngày nghỉ."
+    },
+    {
+      "id": "tanoshii-vocab-見える-N4",
+      "word": "見える",
+      "reading": "みえる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Kiến"
+      ],
+      "meaningVi": "Nhìn thấy",
+      "mnemonic": [
+        "Nhìn thấy MIE(みえ)"
+      ],
+      "example": "ここから、山が見えます。",
+      "exampleVi": "Từ chỗ này có thể nhìn thấy núi."
+    },
+    {
+      "id": "tanoshii-vocab-聞こえる-N4",
+      "word": "聞こえる",
+      "reading": "きこえる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Văn"
+      ],
+      "meaningVi": "Nghe thấy",
+      "mnemonic": [
+        "KHI CÔ Ế (きこえ) thì cô sẽ nghe thấy",
+        "聞: đưa tai (耳) vô của sổ (門) để nghe"
+      ],
+      "example": "皆さん、よく聞こえますか?",
+      "exampleVi": "Các bạn nghe rõ không?"
+    },
+    {
+      "id": "tanoshii-vocab-できます-N4",
+      "word": "できます",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Được xây dựng, có thể",
+      "mnemonic": [],
+      "example": "あなたは日本語ができますか?",
+      "exampleVi": "Bạn có thể nói tiếng Nhật không?"
+    },
+    {
+      "id": "tanoshii-vocab-開く-N4",
+      "word": "開く",
+      "reading": "ひらく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khai"
+      ],
+      "meaningVi": "Mở (lớp học)",
+      "mnemonic": [
+        "Mở bài từ bảng chữ cái HIRA (ひらがら)",
+        "Khai mở cổng (門) đền (开)"
+      ],
+      "example": "将来、自分の店を開きたいです。",
+      "exampleVi": "Tương lai, tôi muốn mở cửa hàng của riêng tôi."
+    },
+    {
+      "id": "tanoshii-vocab-が売れる-N4",
+      "word": "が売れる",
+      "reading": "うれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Mại"
+      ],
+      "meaningVi": "bán chạy",
+      "mnemonic": [
+        "U RÊN RỈ (うれる) vì bán được hàng",
+        "売: có kẻ sĩ (士) trùm khăn (冖) đi đi (儿) lại lại bán hàng"
+      ],
+      "example": "この商品がよく売れます。",
+      "exampleVi": "Sản phẩm này bán rất chạy."
+    },
+    {
+      "id": "tanoshii-vocab-踊る-N4",
+      "word": "踊る",
+      "reading": "おどる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Dược"
+      ],
+      "meaningVi": "Khiêu vũ, nhảy",
+      "mnemonic": [
+        "ONG ĐỐT RÙI(おどる) nhảy cỡn lên",
+        "踊: Muốn nhảy đẹp thì chân (足) phải thật DŨNG (甬) mãnh"
+      ],
+      "example": "彼女は美しく踊る。",
+      "exampleVi": "Cô ấy nhảy rất đẹp."
+    },
+    {
+      "id": "tanoshii-vocab-噛む-N4",
+      "word": "噛む",
+      "reading": "かむ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Giảo"
+      ],
+      "meaningVi": "Nhai, cắn",
+      "mnemonic": [
+        "Cắn con CÁ MÙ (かむ)",
+        "噛: RĂNG (歯) trong MIỆNG (口) dùng để nhai"
+      ],
+      "example": "犬が靴を噛みます。",
+      "exampleVi": "Con chó cắn chiếc giày."
+    },
+    {
+      "id": "tanoshii-vocab-選ぶ-N4",
+      "word": "選ぶ",
+      "reading": "えらぶ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tuyển"
+      ],
+      "meaningVi": "Chọn",
+      "mnemonic": [
+        "Ế lời RA(えら)mà còn chọn lựa",
+        "選: cần TUYỂN 22 CỘNG (共)tác viên cùng Bước (辶) ra sân"
+      ],
+      "example": "好きな本を選んでください。",
+      "exampleVi": "Hãy chọn quyển sách mà bạn thích."
+    },
+    {
+      "id": "tanoshii-vocab-違う-N4",
+      "word": "違う",
+      "reading": "ちがう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Vi"
+      ],
+      "meaningVi": "Khác",
+      "mnemonic": [
+        "Dễ rùi nè",
+        "違: vi (韋) làm sai nên chạy (辶) trên đường."
+      ],
+      "example": "その答えは違います。",
+      "exampleVi": "Câu trả lời đó sai rồi."
+    },
+    {
+      "id": "tanoshii-vocab-に通う-N4",
+      "word": "に通う",
+      "reading": "かよう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thông"
+      ],
+      "meaningVi": "Đi đi lại lại",
+      "mnemonic": [
+        "KÁ YÔ (かよ) đi, đi đi lại lại hoài",
+        "通: DŨNG (甬) cảm chạy (辶) thông qua đường"
+      ],
+      "example": "毎日、学校に通います。",
+      "exampleVi": "Mỗi ngày tôi đều đến trường."
+    },
+    {
+      "id": "tanoshii-vocab-メモします-N4",
+      "word": "メモします",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Ghi chép",
+      "mnemonic": [],
+      "example": "会議の内容をメモします。",
+      "exampleVi": "Ghi chú lại nội dung của cuộc họp."
+    },
+    {
+      "id": "tanoshii-vocab-が開く-N4",
+      "word": "が開く",
+      "reading": "あく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khai"
+      ],
+      "meaningVi": "Mở",
+      "mnemonic": [
+        "A CỨ（あく）mở cửa ra",
+        "開: Khai mở cổng (門) đền (开)"
+      ],
+      "example": "ドアが開いています。",
+      "exampleVi": "Cửa đang mở."
+    },
+    {
+      "id": "tanoshii-vocab-が閉まる-N4",
+      "word": "が閉まる",
+      "reading": "しまる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Bế"
+      ],
+      "meaningVi": "Đóng",
+      "mnemonic": [
+        "XIN MÁ RÙI(しまる) đóng cửa đi",
+        "閉: tài (才) đóng cổng gia môn (門) lại"
+      ],
+      "example": "窓が閉まっています。",
+      "exampleVi": "Cửa sổ đang đóng."
+    },
+    {
+      "id": "tanoshii-vocab-がつく-N4",
+      "word": "がつく",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Sáng",
+      "mnemonic": [
+        "CHÚ CỨ (つく) để đèn sáng hoài vậy"
+      ],
+      "example": "電気がついています",
+      "exampleVi": "Đèn đang sáng."
+    },
+    {
+      "id": "tanoshii-vocab-が消える-N4",
+      "word": "が消える",
+      "reading": "きえる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tiêu"
+      ],
+      "meaningVi": "Tắt",
+      "mnemonic": [
+        "KÌA Ế (きえ) rồi thì tắt đèn đi, bán gì nữa",
+        "消: Tiêu (肖) tiền như nước (氵)"
+      ],
+      "example": "火が消えます。",
+      "exampleVi": "Lửa tắt."
+    },
+    {
+      "id": "tanoshii-vocab-が込む-N4",
+      "word": "が込む",
+      "reading": "こむ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Nhập"
+      ],
+      "meaningVi": "Đông, tắc",
+      "mnemonic": [
+        "KỖ MỪ (こむ) mà tắc quá, không vào được",
+        "込: Nhập (入) vào đường (辶)đông"
+      ],
+      "example": "電車が込みます。",
+      "exampleVi": "Tàu điện đông người."
+    },
+    {
+      "id": "tanoshii-vocab-がすく-N4",
+      "word": "がすく",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Vắng, thoáng",
+      "mnemonic": [
+        "SƯ KỨ (すく) thế này thì Chùa vắng lắm"
+      ],
+      "example": "レストランがすいています。",
+      "exampleVi": "Nhà hàng vắng khách."
+    },
+    {
+      "id": "tanoshii-vocab-が壊れる-N4",
+      "word": "が壊れる",
+      "reading": "こわれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hoại"
+      ],
+      "meaningVi": "Hỏng",
+      "mnemonic": [
+        "KÔ QUÁ RÊN RÙI (こわれる), thế này thì hỏng hết",
+        "壊: chôn 10(十) 000 bộ y phục (衣) vứt xuống đất (土) là hủy hoại"
+      ],
+      "example": "時計が壊れます。",
+      "exampleVi": "Đồng hồ bị hỏng."
+    },
+    {
+      "id": "tanoshii-vocab-が割れる-N4",
+      "word": "が割れる",
+      "reading": "われる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Cát"
+      ],
+      "meaningVi": "Vỡ",
+      "mnemonic": [
+        "QUÁ LÊN (われ) là tan vỡ hết đó nha",
+        "割: lấy dao (刂) chém ông vua ăn hại (害) vỡ ra như hạt cát"
+      ],
+      "example": "ガラスが割れます。",
+      "exampleVi": "Kính bị vỡ."
+    },
+    {
+      "id": "tanoshii-vocab-が折れる-N4",
+      "word": "が折れる",
+      "reading": "おれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Triết"
+      ],
+      "meaningVi": "Gãy, gập",
+      "mnemonic": [
+        "ÔNG RÊN RỈ (おれる) vì bị gãy chân",
+        "折: Lấy tay (扌) và búa (斤) để TRIẾT cành"
+      ],
+      "example": "枝が折れます。",
+      "exampleVi": "Cành cây bị gãy."
+    },
+    {
+      "id": "tanoshii-vocab-が破れる-N4",
+      "word": "が破れる",
+      "reading": "やぶれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Phá"
+      ],
+      "meaningVi": "Rách",
+      "mnemonic": [
+        "GIÀ BÚI LÊN RỒI (やぶれる), đừng phá nữa rách đấy",
+        "破: Cầm đá (石) phá rách da (皮)"
+      ],
+      "example": "紙が破れます。",
+      "exampleVi": "Giấy bị rách."
+    },
+    {
+      "id": "tanoshii-vocab-が汚れる-N4",
+      "word": "が汚れる",
+      "reading": "よごれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Ô"
+      ],
+      "meaningVi": "Bẩn",
+      "mnemonic": [
+        "YÔ GỘT LÊN RÙI (RÊN)(よごれる) đi, bẩn quá rồi",
+        "汚: Nước (氵) 5 màu rất bẩn"
+      ],
+      "example": "服が汚れます。",
+      "exampleVi": "Quần áo bị bẩn."
+    },
+    {
+      "id": "tanoshii-vocab-が付く-N4",
+      "word": "が付く",
+      "reading": "つく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Phó"
+      ],
+      "meaningVi": "Có gắn",
+      "mnemonic": [
+        "CHÚ CỨ (つく) gắn lên đi",
+        "付: Lớp PHÓ có dáng NGƯỜI ĐỨNG (イ) nhìn rất THỐN (寸)"
+      ],
+      "example": "ポケットが付いている。",
+      "exampleVi": "Có túi (được đính vào)."
+    },
+    {
+      "id": "tanoshii-vocab-が外れる-N4",
+      "word": "が外れる",
+      "reading": "はずれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Ngoại"
+      ],
+      "meaningVi": "Tuột, bung",
+      "mnemonic": [
+        "HÀ DƯ cân LÊN (RÊN) RÙI (はずれる), tuột cả cúc"
+      ],
+      "example": "ボタンが外れます。",
+      "exampleVi": "Nút áo bị bung."
+    },
+    {
+      "id": "tanoshii-vocab-が止まる-N4",
+      "word": "が止まる",
+      "reading": "とまる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Chỉ"
+      ],
+      "meaningVi": "Dừng",
+      "mnemonic": [
+        "TO MÁ RÙI (とまる) dừng ăn đi"
+      ],
+      "example": "車が止まる。",
+      "exampleVi": "Xe dừng lại."
+    },
+    {
+      "id": "tanoshii-vocab-間違える-N4",
+      "word": "間違える",
+      "reading": "まちがえる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Gian vi"
+      ],
+      "meaningVi": "Nhầm, sai",
+      "mnemonic": [
+        "MÀI CHỈ GÀ É (まちがえる) á, sai rồi",
+        "間: mặt trời (日) ở giữa 2 cánh cửa (門); 違: vi (韋) làm sai nên chạy (辶) trên đường."
+      ],
+      "example": "答えを間違えます。",
+      "exampleVi": "Trả lời sai."
+    },
+    {
+      "id": "tanoshii-vocab-落とす-N4",
+      "word": "落とす",
+      "reading": "おとす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Lạc"
+      ],
+      "meaningVi": "Đánh rơi",
+      "mnemonic": [
+        "ÔNG TÔI SUI (おとす) quá, đánh rơi chìa khóa rồi",
+        "落: Hoa (艹) rơi nước (氵) chảy vị khách (各) LẠC vào khung cảnh hữu tình"
+      ],
+      "example": "彼は鍵を落としました。",
+      "exampleVi": "Anh ấy đã làm rơi chìa khóa."
+    },
+    {
+      "id": "tanoshii-vocab-が掛かる-N4",
+      "word": "が掛かる",
+      "reading": "かかる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Quải"
+      ],
+      "meaningVi": "Khóa",
+      "mnemonic": [
+        "KÀ KÀ RÙI (かかる) khóa cửa lại đi",
+        "掛: tay(扌) to(卜)mới Quải(掛) được 2 mảnh đất(土)"
+      ],
+      "example": "このドアは鍵が掛かっています。",
+      "exampleVi": "Cánh cửa này đã khóa."
+    },
+    {
+      "id": "tanoshii-vocab-掛ける-N4",
+      "word": "掛ける",
+      "reading": "かける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Quải"
+      ],
+      "meaningVi": "Treo",
+      "mnemonic": [
+        "KÀ KÊ RÙI (かける) treo lên",
+        "掛: tay(扌) to(卜)mới Quải(掛) được 2 mảnh đất(土)"
+      ],
+      "example": "彼はコートを掛けます。",
+      "exampleVi": "Anh ấy treo áo khoác."
+    },
+    {
+      "id": "tanoshii-vocab-指す-N4",
+      "word": "指す",
+      "reading": "さす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Chỉ"
+      ],
+      "meaningVi": "Chỉ",
+      "mnemonic": [
+        "đồng hồ chỉ SAI rồi (さす)",
+        "指: Tay (扌) cầm thìa (匕) chỉ chỏ cả ngày (日)"
+      ],
+      "example": "時計の針が12時を指しています。",
+      "exampleVi": "Kim đồng hồ chỉ 12 giờ."
+    },
+    {
+      "id": "tanoshii-vocab-倒れる-N4",
+      "word": "倒れる",
+      "reading": "たおれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Đảo"
+      ],
+      "meaningVi": "Đổ (cây)",
+      "mnemonic": [
+        "Gió thổi đổ cây TÁO ỔI LÊ (RÊ) RÙI (たおれる)",
+        "倒: Người (亻) đến hạn không đáo (到) thì bị lật đổ"
+      ],
+      "example": "木が風で倒れました。",
+      "exampleVi": "Cây đã bị đổ do gió."
+    },
+    {
+      "id": "tanoshii-vocab-貼る-N4",
+      "word": "貼る",
+      "reading": "はる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thiếp"
+      ],
+      "meaningVi": "Dán, dán lên",
+      "mnemonic": [
+        "Dán HA RI (WON) (はり) lên tường",
+        "貼: CHIẾM (占) TIỀN (貝) của người khác về DÁN vào mặt thê THIẾP"
+      ],
+      "example": "壁にポスターを貼ります。",
+      "exampleVi": "Dán áp phích lên tường."
+    },
+    {
+      "id": "tanoshii-vocab-飾る-N4",
+      "word": "飾る",
+      "reading": "かざる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Sức"
+      ],
+      "meaningVi": "Trang trí",
+      "mnemonic": [
+        "KÁ DA (da cá) RIM (かざる) lên mà trang sức",
+        "飾: Người có của ăn của để (食) ở thành thị (市) thường thích làm đẹp, trang trí, đeo trang SỨC"
+      ],
+      "example": "部屋を花で飾ります。",
+      "exampleVi": "Trang trí phòng bằng hoa."
+    },
+    {
+      "id": "tanoshii-vocab-並べる-N4",
+      "word": "並べる",
+      "reading": "ならべる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tịnh"
+      ],
+      "meaningVi": "Xếp hàng",
+      "mnemonic": [
+        "NA RA BỀ RÙI (ならべる) xếp hàng đi",
+        "並: Đứng xếp thành 2 hàng dọc hai hàng ngag và 1 hàng chữ V"
+      ],
+      "example": "本を棚に並べます。",
+      "exampleVi": "Sắp xếp sách lên kệ."
+    },
+    {
+      "id": "tanoshii-vocab-植える-N4",
+      "word": "植える",
+      "reading": "うえる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thực/trĩ"
+      ],
+      "meaningVi": "Trồng (cây)",
+      "mnemonic": [
+        "Trồng cây lên trên (うえる)",
+        "植: trực tiếp (直) trồng cây (木)"
+      ],
+      "example": "庭に花を植えます。",
+      "exampleVi": "Trồng hoa trong vườn."
+    },
+    {
+      "id": "tanoshii-vocab-戻す-N4",
+      "word": "戻す",
+      "reading": "もどす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Lệ"
+      ],
+      "meaningVi": "Đưa về, trả về",
+      "mnemonic": [
+        "ở MÔ ĐÓ (もどす) trả về chỗ cũ đi",
+        "戻: Việc trọng đại (大) mới quay lại cửa (戸) lấy đồ"
+      ],
+      "example": "本を元の場所に戻します。",
+      "exampleVi": "Trả sách về chỗ cũ."
+    },
+    {
+      "id": "tanoshii-vocab-戻る-N4",
+      "word": "戻る",
+      "reading": "もどる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Lệ"
+      ],
+      "meaningVi": "Quay lại",
+      "mnemonic": [
+        "戻: Việc trọng đại (大) mới quay lại cửa (戸) lấy đồ"
+      ],
+      "example": "家に戻ります。",
+      "exampleVi": "Trở về nhà."
+    },
+    {
+      "id": "tanoshii-vocab-片付ける-N4",
+      "word": "片付ける",
+      "reading": "かたづける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Phiến phó"
+      ],
+      "meaningVi": "Dọn dẹp",
+      "mnemonic": [
+        "KÁI TAY DƯ kia (かたづける) đi dọn dẹp đi"
+      ],
+      "example": "部屋を片付けます。",
+      "exampleVi": "Dọn dẹp phòng."
+    },
+    {
+      "id": "tanoshii-vocab-しまう-N4",
+      "word": "しまう",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Cất vào, để vào",
+      "mnemonic": [
+        "Cất hòn đảo đi (しまう)"
+      ],
+      "example": "洋服をたんすにしまいます。",
+      "exampleVi": "Cất quần áo vào tủ."
+    },
+    {
+      "id": "tanoshii-vocab-決める-N4",
+      "word": "決める",
+      "reading": "きめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Quyết"
+      ],
+      "meaningVi": "Quyết định",
+      "mnemonic": [
+        "KÌA, MÊ RÙI (きめる) thì quyết định đi",
+        "決: Quyết định (決) tâm tiêu diệt Thuỷ (氵) Quái (夬)"
+      ],
+      "example": "旅行の日程を決めます。",
+      "exampleVi": "Quyết định lịch trình du lịch."
+    },
+    {
+      "id": "tanoshii-vocab-知らせる-N4",
+      "word": "知らせる",
+      "reading": "しらせる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tri"
+      ],
+      "meaningVi": "Thông báo",
+      "mnemonic": [
+        "SHI RA SÊ RÙI (しらせる) thông báo cho anh ấy đi",
+        "知: người có tri thức thì miệng (口) sẽ sắt bén như mũi tên (矢)"
+      ],
+      "example": "彼にニュースを知らせます。",
+      "exampleVi": "Thông báo tin tức cho anh ấy."
+    },
+    {
+      "id": "tanoshii-vocab-相談する-N4",
+      "word": "相談する",
+      "reading": "そうだんする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tương/tương đàm"
+      ],
+      "meaningVi": "Trao đổi, bàn bạc",
+      "mnemonic": [
+        "Chuyển âm: TƯƠNG --> そう, ĐÀM --> だん",
+        "相: Cây (木) cao tương tự cái nhà 3 tầng (目); 談: nói (言) đàm thoại bên 2 đống lửa (炎)"
+      ],
+      "example": "友達と計画について相談します。",
+      "exampleVi": "Thảo luận kế hoạch với bạn bè."
+    },
+    {
+      "id": "tanoshii-vocab-予習する-N4",
+      "word": "予習する",
+      "reading": "よしゅうする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Dự tập"
+      ],
+      "meaningVi": "Chuẩn bị bài mới",
+      "mnemonic": [
+        "Chuyển âm: DỰ --> よ, TẬP --> しゅう",
+        "予: Gặp Ma DỰ sẽ hét Aaaaa, chữ MA (マ) và A（ア） trong bảng Katakana; 習: luyện tập bằng đôi cánh (羽) trắng (白)"
+      ],
+      "example": "授業の前に予習します。",
+      "exampleVi": "Chuẩn bị bài trước khi lên lớp."
+    },
+    {
+      "id": "tanoshii-vocab-復習する-N4",
+      "word": "復習する",
+      "reading": "ふくしゅうする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Phục tập"
+      ],
+      "meaningVi": "Ôn tập",
+      "mnemonic": [
+        "Chuyển âm: PHỤC --> ふく, TẬP --> しゅう",
+        "復: chân trái (彳) Phục hồi nên từ nằm 1 chỗ có thể bước đi mỗi ngày (复); 習: luyện tập bằng đôi cánh (羽) trắng (白)"
+      ],
+      "example": "試験の前に復習します。",
+      "exampleVi": "Ôn bài trước khi thi."
+    },
+    {
+      "id": "tanoshii-vocab-そのままにする-N4",
+      "word": "そのままにする",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Giữ nguyên vị trí",
+      "mnemonic": [],
+      "example": "ドアをそのままにします。",
+      "exampleVi": "Để nguyên cửa như vậy."
+    },
+    {
+      "id": "tanoshii-vocab-覚める-N4",
+      "word": "覚める",
+      "reading": "さめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Mục giác"
+      ],
+      "meaningVi": "Tỉnh giấc",
+      "mnemonic": [
+        "SA MẸ RÙI (さめる) tỉnh lại thôi",
+        "覚: bất giác nhớ ra khi nhìn (見) vương miện"
+      ],
+      "example": "毎朝6時に目が覚めます。",
+      "exampleVi": "Thức dậy lúc 6 giờ mỗi sáng."
+    },
+    {
+      "id": "tanoshii-vocab-始まる-N4",
+      "word": "始まる",
+      "reading": "はじまる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thủy"
+      ],
+      "meaningVi": "Được bắt đầu",
+      "mnemonic": [
+        "HÀ JI MÀ (はじまる) nhanh thế, đã bắt đầu rồi",
+        "始: cô (女) Thủy bắt đầu lên võ đài (台)"
+      ],
+      "example": "授業が始まります。",
+      "exampleVi": "Lớp học bắt đầu."
+    },
+    {
+      "id": "tanoshii-vocab-続ける-N4",
+      "word": "続ける",
+      "reading": "つづける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tục"
+      ],
+      "meaningVi": "Tiếp tục",
+      "mnemonic": [
+        "CHÚ DƯ KỆ (つづける) chú, tiếp tục học đây",
+        "続: tiếp tục (売) bán tơ lụa (糸)"
+      ],
+      "example": "彼は勉強を続けます。",
+      "exampleVi": "Anh ấy tiếp tục học."
+    },
+    {
+      "id": "tanoshii-vocab-が続く-N4",
+      "word": "が続く",
+      "reading": "つづく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tục"
+      ],
+      "meaningVi": "Tiếp tục (sốt)",
+      "mnemonic": [
+        "CHÚ DƯ KÚ (つづく) dư, anh đây cứ tiếp tục",
+        "続: tiếp tục (売) bán tơ lụa (糸)"
+      ],
+      "example": "雨が続いています。",
+      "exampleVi": "Mưa kéo dài."
+    },
+    {
+      "id": "tanoshii-vocab-見つける-N4",
+      "word": "見つける",
+      "reading": "みつける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Kiến"
+      ],
+      "meaningVi": "Tìm thấy",
+      "mnemonic": [],
+      "example": "鍵を見つけました。",
+      "exampleVi": "Tôi đã tìm thấy chìa khóa."
+    },
+    {
+      "id": "tanoshii-vocab-受ける-N4",
+      "word": "受ける",
+      "reading": "うける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thụ/thọ"
+      ],
+      "meaningVi": "Thi, tham gia",
+      "mnemonic": [
+        "U KÊ RÙI (うける) tui tham gia kỳ thi này",
+        "受: lại (又) nhận (受) được cái khăn (冖) thêu hình móng tay (爫)"
+      ],
+      "example": "試験を受けます。",
+      "exampleVi": "Tham gia kỳ thi."
+    },
+    {
+      "id": "tanoshii-vocab-に入学する-N4",
+      "word": "に入学する",
+      "reading": "にゅうがくする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Nhập học"
+      ],
+      "meaningVi": "Nhập học",
+      "mnemonic": [
+        "Chuyển âm: NHẬP --> にゅう, HỌC --> がく",
+        "学: Đứa trẻ học (子) ở trường"
+      ],
+      "example": "大学に入学します。",
+      "exampleVi": "Nhập học vào đại học."
+    },
+    {
+      "id": "tanoshii-vocab-卒業する-N4",
+      "word": "卒業する",
+      "reading": "そつぎょうする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tốt nghiệp"
+      ],
+      "meaningVi": "Tốt nghiệp",
+      "mnemonic": [
+        "Chuyển âm: TỐT --> そつ, NGHIỆP --> ぎょう",
+        "卒: 2 (从) người đội nón (亠) đứng trên chữ thập (十) để chờ TỐT nghiệp; 業: Nghề nghiệp (業) của tôi là đội mũ 4 lá (业) nuôi cừu (羊) 2 chân"
+      ],
+      "example": "学校を卒業しました。",
+      "exampleVi": "Đã tốt nghiệp trường."
+    },
+    {
+      "id": "tanoshii-vocab-に出席する-N4",
+      "word": "に出席する",
+      "reading": "しゅっせきする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Xuất tịch"
+      ],
+      "meaningVi": "Tham dự",
+      "mnemonic": [
+        "Chuyển âm: XUẤT --> しゅつ, TỊCH --> せき",
+        "出: Muốn đi ra phải vượt 2 ngọn núi 出; 席: CÂN (巾) ĐẦU TRÂU (廿) trong NHÀ (广) chủ TỊCH"
+      ],
+      "example": "会議に出席します。",
+      "exampleVi": "Tham dự cuộc họp."
+    },
+    {
+      "id": "tanoshii-vocab-休憩する-N4",
+      "word": "休憩する",
+      "reading": "きゅうけいする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hưu khế"
+      ],
+      "meaningVi": "Nghỉ giải lao",
+      "mnemonic": [
+        "Chuyển âm: HƯU --> きゅう, KHẾ --> けい",
+        "休: người đứng bên cạnh gốc cây để nghỉ ngơi; 憩: lúc nghỉ ngơi lưỡi (舌) và tim (心) vẫn tự (自) hoạt động"
+      ],
+      "example": "少し休憩しましょう。",
+      "exampleVi": "Hãy nghỉ ngơi một chút."
+    },
+    {
+      "id": "tanoshii-vocab-閉じる-N4",
+      "word": "閉じる",
+      "reading": "とじる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Bế"
+      ],
+      "meaningVi": "Nhắm, đóng",
+      "mnemonic": [
+        "TÔ GÌ (とじる) mà tô ghê thế, đóng sách lại đi",
+        "閉: tài (才) đóng cổng gia môn (門) lại"
+      ],
+      "example": "本を閉じます。",
+      "exampleVi": "Đóng sách lại."
+    },
+    {
+      "id": "tanoshii-vocab-集まる-N4",
+      "word": "集まる",
+      "reading": "あつまる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tập"
+      ],
+      "meaningVi": "Tập trung",
+      "mnemonic": [
+        "À CHÚ MÀY (あつまる) đi tập trung mọi người lại đi",
+        "集: chim (隹) tập trung trên cây (木)"
+      ],
+      "example": "人々が集まっています。",
+      "exampleVi": "Mọi người đang tập trung lại."
+    },
+    {
+      "id": "tanoshii-vocab-気が付く-N4",
+      "word": "気が付く",
+      "reading": "きがつく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khí phó"
+      ],
+      "meaningVi": "Để ý, nhận ra",
+      "mnemonic": [],
+      "example": "彼は間違いに気が付きました。",
+      "exampleVi": "Anh ấy nhận ra sai lầm."
+    },
+    {
+      "id": "tanoshii-vocab-運動する-N4",
+      "word": "運動する",
+      "reading": "うんどうする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Vận động"
+      ],
+      "meaningVi": "Vận động",
+      "mnemonic": [
+        "Chuyển âm: VẬN --> うん, ĐỘNG --> どう",
+        "運: Xe (車) VẬN chuyển khăn (冖) trên đường (辶); 動: dùng lực (力) di chuyển cái xe (重)"
+      ],
+      "example": "毎日運動します。",
+      "exampleVi": "Tập thể dục mỗi ngày."
+    },
+    {
+      "id": "tanoshii-vocab-成功する-N4",
+      "word": "成功する",
+      "reading": "せいこうする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thành công"
+      ],
+      "meaningVi": "Thành công",
+      "mnemonic": [
+        "Chuyển âm: THÀNH --> せい, CÔNG --> こう",
+        "成: Vượt QUA (戈) được muôn VẠN (万) khó khăn thì mới THÀNH công được; 功: Bỏ công (工), bỏ sức lực (力) thì phải thành CÔNG"
+      ],
+      "example": "彼はプロジェクトに成功しました。",
+      "exampleVi": "Anh ấy đã thành công trong dự án."
+    },
+    {
+      "id": "tanoshii-vocab-に失敗する-N4",
+      "word": "に失敗する",
+      "reading": "しっぱいする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thất bại"
+      ],
+      "meaningVi": "Thất bại",
+      "mnemonic": [
+        "Chuyển âm: THẤT --> しつ, BẠI --> ぱい",
+        "試: nói (言) thử (式) trước khi làm thì sẽ thành công; 験: Thử nghiệm cưỡi ngựa (馬) bắn cung (僉 - gần giống mũi tên)"
+      ],
+      "example": "私は試験に失敗しました。",
+      "exampleVi": "Tôi đã thất bại trong kỳ thi."
+    },
+    {
+      "id": "tanoshii-vocab-に合格する-N4",
+      "word": "に合格する",
+      "reading": "ごうかくする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hợp cách"
+      ],
+      "meaningVi": "Đỗ",
+      "mnemonic": [
+        "Chuyển âm: HỢP --> ごう, CÁCH --> かく",
+        "合: NGƯỜI (人) có MỘT (一) cái MIỆNG (口) là HỢP lí; 格: Các (各) loại cây (木) đều có cách sinh trưởng riêng"
+      ],
+      "example": "私は試験に合格しました。",
+      "exampleVi": "Tôi đã đậu kỳ thi."
+    },
+    {
+      "id": "tanoshii-vocab-がやむ-N4",
+      "word": "がやむ",
+      "reading": null,
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Tạnh (mưa)",
+      "mnemonic": [
+        "tôi GIÀ MỪ (やむ) không chịu được mưa đâu, tạnh đi"
+      ],
+      "example": "雨がやみました。",
+      "exampleVi": "Mưa đã tạnh."
+    },
+    {
+      "id": "tanoshii-vocab-晴れる-N4",
+      "word": "晴れる",
+      "reading": "はれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tình"
+      ],
+      "meaningVi": "Nắng",
+      "mnemonic": [
+        "HÀ RÊN RỦ(はれる) vì trời nắng",
+        "晴: Mặt trời (日) trong xanh (青) là nắng"
+      ],
+      "example": "明日は晴れるでしょう。",
+      "exampleVi": "Ngày mai trời sẽ nắng."
+    },
+    {
+      "id": "tanoshii-vocab-曇る-N4",
+      "word": "曇る",
+      "reading": "くもる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Đàm"
+      ],
+      "meaningVi": "Mây mù, có mây",
+      "mnemonic": [
+        "Trời MÂY(くも)",
+        "曇: 1 ngày (日) trời nhiều mây (雲)"
+      ],
+      "example": "今日の天気は曇っています。",
+      "exampleVi": "Hôm nay trời nhiều mây."
+    },
+    {
+      "id": "tanoshii-vocab-が吹く-N4",
+      "word": "が吹く",
+      "reading": "ふく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Xuy/xúy"
+      ],
+      "meaningVi": "Thổi (gió)",
+      "mnemonic": [
+        "Gió thổi PHÙ PHÙ(ふく)",
+        "吹: phồng mồm (口) lên thổi vì thiếu (欠) hơi"
+      ],
+      "example": "風が強く吹いています。",
+      "exampleVi": "Gió thổi mạnh."
+    },
+    {
+      "id": "tanoshii-vocab-が直る、治る-N4",
+      "word": "が直る、治る",
+      "reading": "なおる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Trực",
+        "trị"
+      ],
+      "meaningVi": "Sửa, khỏi",
+      "mnemonic": [
+        "NA ỐM RÙI (なおる) phải trị bệnh thui",
+        "直: 10 (十) con mắt (目) há miệng (凵) trực tiếp xem Livestream; 治: lên ĐÀI (台) cầu mưa (氵) TRỊ (治) thuỷ"
+      ],
+      "example": "パソコンが直りました。／彼は病気が治りました。",
+      "exampleVi": "Máy tính đã được sửa. / Anh ấy đã khỏi bệnh."
+    },
+    {
+      "id": "tanoshii-vocab-引く-N4",
+      "word": "引く",
+      "reading": "ひく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Dẫn"
+      ],
+      "meaningVi": "Bị (cảm)",
+      "mnemonic": [
+        "Thấp (ひく) thì dễ bị cảm lắm",
+        "引: 1(丨) Cung (弓) thủ phải là người Dẫn đầu"
+      ],
+      "example": "風邪を引きました。",
+      "exampleVi": "Bị cảm lạnh."
+    },
+    {
+      "id": "tanoshii-vocab-冷やす-N4",
+      "word": "冷やす",
+      "reading": "ひやす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Lãnh"
+      ],
+      "meaningVi": "Làm lạnh",
+      "mnemonic": [
+        "HÌ YA (RA) RÙI (ひやす) làm lạnh đi",
+        "冷: lệnh (令) thêm băng (氵) là lãnh"
+      ],
+      "example": "水で顔を冷やします。",
+      "exampleVi": "Làm mát mặt bằng nước."
+    }
+  ]
+}

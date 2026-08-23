@@ -1,0 +1,1266 @@
+{
+  "meta": {
+    "schemaVersion": "1.0.0",
+    "generatedAt": "2026-08-23T06:10:21.229Z",
+    "counts": {
+      "count": 80
+    },
+    "sources": {
+      "hantuTanoshiiVocab": {
+        "name": "Han tu Tanoshii (personal Vietnamese-authored vocab flashcard PDF set, NOT an open/licensed dataset)",
+        "url": "n/a -- user-supplied PDFs, transcribed by hand/OCR into scripts/data/hantu-tanoshii-vocab/*.json for personal use only",
+        "usedFor": "word, reading, hanViet, Vietnamese meaning, mnemonic, and example sentence, all as authored in the source PDF",
+        "license": "Unknown/unverified copyright status -- transcribed and used at the user's own instruction for personal, non-published use only. Do NOT redistribute or publish this dataset/derivative extension while populated from this source without separately clearing rights."
+      }
+    },
+    "notes": [
+      "Transcribed from the Tanoshii \"80 tinh tu N3\" PDF flashcard book."
+    ]
+  },
+  "words": [
+    {
+      "id": "tanoshii-vocab-幸せな-N3",
+      "word": "幸せな",
+      "reading": "しあわせな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "HẠNH"
+      ],
+      "meaningVi": "hạnh phúc",
+      "mnemonic": [
+        "XIN ĂN WÀI (しあわ) là sẽ hạnh phúc"
+      ],
+      "example": "幸せな人生",
+      "exampleVi": "Sống cuộc đời hạnh phúc"
+    },
+    {
+      "id": "tanoshii-vocab-得意な-N3",
+      "word": "得意な",
+      "reading": "とくいな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ĐẮC Ý"
+      ],
+      "meaningVi": "mạnh, giỏi",
+      "mnemonic": [
+        "giỏi thì TÔI CƯỜI (cười)(とくい)"
+      ],
+      "example": "彼女はギターが得意だ",
+      "exampleVi": "Cô ấy thì chơi guitar giỏi"
+    },
+    {
+      "id": "tanoshii-vocab-苦手な-N3",
+      "word": "苦手な",
+      "reading": "にがてな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "KHỔ THỦ"
+      ],
+      "meaningVi": "yếu, kém",
+      "mnemonic": [
+        "NHÌN GÀ THẾ (にがて) là yếu kém"
+      ],
+      "example": "彼女はギターが苦手だ",
+      "exampleVi": "Cô ấy chơi guitar kém"
+    },
+    {
+      "id": "tanoshii-vocab-熱心な-N3",
+      "word": "熱心な",
+      "reading": "ねっしんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "NHIỆT TÂM"
+      ],
+      "meaningVi": "chăm chỉ",
+      "mnemonic": [
+        "NHIỆT là (ねつ) TÌNH đa cấp là (しん): có xúc âm giữa Tsu và Sh"
+      ],
+      "example": "熱心な仕事ぶりが認められて昇進した",
+      "exampleVi": "Cách làm việc nhiệt tình nên được công nhận và đã thăng tiến"
+    },
+    {
+      "id": "tanoshii-vocab-夢中な-N3",
+      "word": "夢中な",
+      "reading": "むちゅうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "MỘNG TRUNG"
+      ],
+      "meaningVi": "chú tâm",
+      "mnemonic": [
+        "say sưa trong cơn MƯA CHIỀU (むちゅう)"
+      ],
+      "example": "子供のころ、SF漫画に夢中になった。",
+      "exampleVi": "Lúc nhỏ, tôi đã say mê bộ truyện tranh SF"
+    },
+    {
+      "id": "tanoshii-vocab-退屈な-N3",
+      "word": "退屈な",
+      "reading": "たいくつな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THOÁI XUẤT"
+      ],
+      "meaningVi": "chán",
+      "mnemonic": [
+        "TẠI (たい) ĐÔI GIÀY (くつ) mà chán chường"
+      ],
+      "example": "ほかの観客は笑いながら見ていたが、私には退屈な映画だった。",
+      "exampleVi": "Những người xem khác thì đã vừa cười vừa xem nhưng với tôi thì đó là bộ phim tẻ nhạt"
+    },
+    {
+      "id": "tanoshii-vocab-健康な-N3",
+      "word": "健康な",
+      "reading": "けんこうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "KIỆN KHANG"
+      ],
+      "meaningVi": "khỏe khoắn",
+      "mnemonic": [
+        "KIÊN CỐ (けんこう) thì khỏe khoắn"
+      ],
+      "example": "心も体も健康な子供を育てたい。",
+      "exampleVi": "Muốn nuôi dưỡng bọn trẻ khỏe mạnh về trái tim (tình cảm) và cơ thể"
+    },
+    {
+      "id": "tanoshii-vocab-苦しい-N3",
+      "word": "苦しい",
+      "reading": "くるしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "KHỔ"
+      ],
+      "meaningVi": "cực khổ",
+      "mnemonic": [
+        "CỨ RUN CỨ RUN (くる) thì chẳng phải khổ sao"
+      ],
+      "example": "息が苦しい",
+      "exampleVi": "Hơi thở khó nhọc"
+    },
+    {
+      "id": "tanoshii-vocab-平気な-N3",
+      "word": "平気な",
+      "reading": "へいきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BÌNH KHÍ"
+      ],
+      "meaningVi": "bình thản",
+      "mnemonic": [
+        "KHÍ (き) cứ BÌNH (へい) là bình tĩnh"
+      ],
+      "example": "彼女はどんなに悪口を言われても平気な顔をしている",
+      "exampleVi": "Cô ấy thì dù có bị nói xấu thế nào cũng mang vẻ mặt bình thản"
+    },
+    {
+      "id": "tanoshii-vocab-悔しい-N3",
+      "word": "悔しい",
+      "reading": "くやしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "HỐI"
+      ],
+      "meaningVi": "cay cú",
+      "mnemonic": [
+        "người CỨ GIÀ (くや) thì hay hối hận chuyện ngày xưa"
+      ],
+      "example": "何度練習してもうまく出来なくて、悔しい",
+      "exampleVi": "Dù luyện tập bao lần vẫn không làm được, cay thật :v"
+    },
+    {
+      "id": "tanoshii-vocab-うらやましい-N3",
+      "word": "うらやましい",
+      "reading": "うらやましい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "ghen ty",
+      "mnemonic": [
+        "người già thường nói Ừ RA (うら) tui GIÀ MÀ (やま) và ghanh tị"
+      ],
+      "example": "才能の豊かな人がうらやましい",
+      "exampleVi": "Ghen ty với người tài năng"
+    },
+    {
+      "id": "tanoshii-vocab-痒い-N3",
+      "word": "痒い",
+      "reading": "かゆい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "DƯƠNG"
+      ],
+      "meaningVi": "ngứa",
+      "mnemonic": [
+        "ăn CÀ (か) và ăn dưa (ゆい) thì bị ngứa"
+      ],
+      "example": "蚊に刺されて首がかゆい",
+      "exampleVi": "Ngứa cổ vì bị muỗi chích"
+    },
+    {
+      "id": "tanoshii-vocab-おとなしい-N3",
+      "word": "おとなしい",
+      "reading": "おとなしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "trầm lặng",
+      "mnemonic": [
+        "NGƯỜI LỚN (おとな) thì thường trầm tĩnh"
+      ],
+      "example": "彼は大人しい人だ",
+      "exampleVi": "Anh ấy là người trầm tính"
+    },
+    {
+      "id": "tanoshii-vocab-我慢強い-N3",
+      "word": "我慢強い",
+      "reading": "がまんづよい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "NGÃ MẠN CƯỜNG"
+      ],
+      "meaningVi": "chịu đựng giỏi",
+      "mnemonic": [
+        "CHỊU ĐỰNG (がまん) MẠNH/ DỮ DỘI (強い) là kiên nhẫn"
+      ],
+      "example": "我慢強い性格",
+      "exampleVi": "Tính cách chịu đựng giỏi"
+    },
+    {
+      "id": "tanoshii-vocab-正直な-N3",
+      "word": "正直な",
+      "reading": "しょうじきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "CHÍNH TRỰC"
+      ],
+      "meaningVi": "trung thực",
+      "mnemonic": [
+        "à SOU (しょう), thành tực ZỊ KÌ (じき) lắm"
+      ],
+      "example": "彼は正直な人だから、うそを付くことが出来ない",
+      "exampleVi": "Anh ấy là người trung thực nên không thể nói dối"
+    },
+    {
+      "id": "tanoshii-vocab-けちな-N3",
+      "word": "けちな",
+      "reading": "けちな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "kẹt xỉ",
+      "mnemonic": [
+        "chị keo kiệt thì KỆ CHỊ (けち)"
+      ],
+      "example": "あの人はとてもけちだ",
+      "exampleVi": "Người kia rất keo kiệt"
+    },
+    {
+      "id": "tanoshii-vocab-我がままな-N3",
+      "word": "我がままな",
+      "reading": "わがままな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "NGÃ"
+      ],
+      "meaningVi": "ích kỷ",
+      "mnemonic": [
+        "CÁI TÔI (わが) cứ giữ nguyên (まま) giữ thì ích kỉ"
+      ],
+      "example": "我がままな人",
+      "exampleVi": "Người ích kỷ"
+    },
+    {
+      "id": "tanoshii-vocab-積極的な-N3",
+      "word": "積極的な",
+      "reading": "せっきょくてきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TÍCH CỰC ĐÍCH"
+      ],
+      "meaningVi": "tích cực",
+      "mnemonic": [
+        "TÍCH chuyển âm là せき, CỰC chuyển âm là きょく, ĐÍCH là てき. Giữa TÍCH và CỰC có kk nên xúc âm"
+      ],
+      "example": "積極的な人",
+      "exampleVi": "Người tích cực"
+    },
+    {
+      "id": "tanoshii-vocab-消極的な-N3",
+      "word": "消極的な",
+      "reading": "しょうきょくてきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TIÊU CỰC ĐÍCH"
+      ],
+      "meaningVi": "tiêu cực",
+      "mnemonic": [
+        "TIÊU chuyển âm là しょう, CỰC chuyển âm là きょく, ĐÍCH là てき."
+      ],
+      "example": "消極的な人",
+      "exampleVi": "Người tiêu cực"
+    },
+    {
+      "id": "tanoshii-vocab-満足な-N3",
+      "word": "満足な",
+      "reading": "まんぞくな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "MÃN TÚC"
+      ],
+      "meaningVi": "thỏa mãn",
+      "mnemonic": [
+        "chuyển âm MÃN là まん TÚC là そく, bị biến âm thành ぞく"
+      ],
+      "example": "アルバイトだけでは満足な収入は得られない",
+      "exampleVi": "Chỉ làm thêm thì không thể nhận được nhập đủ thoả mãn"
+    },
+    {
+      "id": "tanoshii-vocab-不満な-N3",
+      "word": "不満な",
+      "reading": "ふまんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẤT MÃN"
+      ],
+      "meaningVi": "bất mãn",
+      "mnemonic": [
+        "chuyển âm BẤT là ふ MÃN là まん"
+      ],
+      "example": "この仕事に不満な点はない",
+      "exampleVi": "Công việc này không có điểm gì không hài lòng"
+    },
+    {
+      "id": "tanoshii-vocab-不安な-N3",
+      "word": "不安な",
+      "reading": "ふあんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẤT AN"
+      ],
+      "meaningVi": "bất an",
+      "mnemonic": [
+        "chuyển âm BẤT là ふ AN là あん"
+      ],
+      "example": "最近体の調子がよくない、悪い病気ではないかと不安だ",
+      "exampleVi": "Gần đây cơ thể không khoẻ, nên tôi đang lo không biết có mắc bệnh gì không?"
+    },
+    {
+      "id": "tanoshii-vocab-大変な-N3",
+      "word": "大変な",
+      "reading": "たいへんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ĐẠI BIẾN"
+      ],
+      "meaningVi": "Vất vả",
+      "mnemonic": [],
+      "example": "子育て中のお母さんは大変だ",
+      "exampleVi": "Người mẹ chăm con nhỏ thì vất vả"
+    },
+    {
+      "id": "tanoshii-vocab-無理な-N3",
+      "word": "無理な",
+      "reading": "むりな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "VÔ LÝ"
+      ],
+      "meaningVi": "Không thể, quá sức",
+      "mnemonic": [
+        "chuyển âm VÔ là む LÝ là り"
+      ],
+      "example": "たった１００万越で家を建てるなんて無理な話だ",
+      "exampleVi": "Chỉ 100 man mà xây nhà thì là chuyện không thể"
+    },
+    {
+      "id": "tanoshii-vocab-不注意な-N3",
+      "word": "不注意な",
+      "reading": "ふちゅういな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẤT CHÚ Ý"
+      ],
+      "meaningVi": "không chú ý",
+      "mnemonic": [
+        "chuyển âm BẤT là ふ CHÚ Ý là ちゅうい"
+      ],
+      "example": "不注意な人",
+      "exampleVi": "Người không chú ý (bất cẩn)"
+    },
+    {
+      "id": "tanoshii-vocab-楽な-N3",
+      "word": "楽な",
+      "reading": "らくな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "LẠC",
+        "NHẠC"
+      ],
+      "meaningVi": "thoải mái",
+      "mnemonic": [
+        "chuyển âm LẠC là らく"
+      ],
+      "example": "もう少し楽な暮らしがしたい",
+      "exampleVi": "Muốn sống cuộc sống thoải mái hơn 1 chút"
+    },
+    {
+      "id": "tanoshii-vocab-面倒な-N3",
+      "word": "面倒な",
+      "reading": "めんどうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ĐIỆN ĐẢO"
+      ],
+      "meaningVi": "phiền phức",
+      "mnemonic": [
+        "MIẾN (めん) bị ĐỔ (どう) thì thật phiền phức"
+      ],
+      "example": "ご入会には面倒な手続きはいりません",
+      "exampleVi": "Việc tham dự thì không cần thiết thủ tục phức tạp"
+    },
+    {
+      "id": "tanoshii-vocab-失礼な-N3",
+      "word": "失礼な",
+      "reading": "しつれいな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THẤT LỄ"
+      ],
+      "meaningVi": "thất lễ",
+      "mnemonic": [
+        "THẤT là しつ LỄ là れい"
+      ],
+      "example": "挨拶しても返事もしない、何で失礼な人だろう",
+      "exampleVi": "Dù đã chào mà không chịu phản hồi, không biết sao lại có người thất lễ như vậy"
+    },
+    {
+      "id": "tanoshii-vocab-当然な-N3",
+      "word": "当然な",
+      "reading": "とうぜんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ĐƯƠNG NHIÊN"
+      ],
+      "meaningVi": "đương nhiên",
+      "mnemonic": [
+        "đa cấp ĐƯƠNG là とう NHIÊN là ぜん"
+      ],
+      "example": "お金を借りたら、返すのが当然だ",
+      "exampleVi": "Mượn tiền rồi đương nhiên là phải trả"
+    },
+    {
+      "id": "tanoshii-vocab-意外な-N3",
+      "word": "意外な",
+      "reading": "いがいな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "Ý NGOẠI"
+      ],
+      "meaningVi": "không ngờ đến",
+      "mnemonic": [
+        "NGOÀI (がい) Ý (い) là bất ngờ"
+      ],
+      "example": "事故を調査するうちに意外な事実が分かった",
+      "exampleVi": "Khi điều tra vụ án đã phát hiện sự thực không ngờ đến"
+    },
+    {
+      "id": "tanoshii-vocab-結構な-N3",
+      "word": "結構な",
+      "reading": "けっこうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "KẾT CẤU"
+      ],
+      "meaningVi": "tốt, đủ",
+      "mnemonic": [
+        "có KẾT (けつ) CẤU (こう) đủ"
+      ],
+      "example": "お味はいかがですか 大変結構です",
+      "exampleVi": "Vị có ok không? Rất ok ạ."
+    },
+    {
+      "id": "tanoshii-vocab-派手な-N3",
+      "word": "派手な",
+      "reading": "はでな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "PHÁI THỦ"
+      ],
+      "meaningVi": "lòe loẹt",
+      "mnemonic": [
+        "HÀ ĐỂ (はで) móng tay lòe loẹt"
+      ],
+      "example": "派手な人",
+      "exampleVi": "Người loè loẹt"
+    },
+    {
+      "id": "tanoshii-vocab-地味な-N3",
+      "word": "地味な",
+      "reading": "じみな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ĐỊA VỊ"
+      ],
+      "meaningVi": "giản dị",
+      "mnemonic": [
+        "Dì (じ) của Mi (み) rất là giản dị"
+      ],
+      "example": "地味な人",
+      "exampleVi": "Người giản dị"
+    },
+    {
+      "id": "tanoshii-vocab-おしゃれな-N3",
+      "word": "おしゃれな",
+      "reading": "おしゃれな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "thời trang, mốt",
+      "mnemonic": [
+        "váy SA RÊ (しゃれ) thì rất thời trang"
+      ],
+      "example": "彼女はとてもおしゃれだ",
+      "exampleVi": "Cô ấy là người rất thời trang"
+    },
+    {
+      "id": "tanoshii-vocab-変な-N3",
+      "word": "変な",
+      "reading": "へんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BIẾN"
+      ],
+      "meaningVi": "lạ",
+      "mnemonic": [
+        "BIẾN chuyển âm là へん"
+      ],
+      "example": "変なメールが届いたのですぐに消した",
+      "exampleVi": "Vì có mail lạ gửi đến nên tôi xoá ngay"
+    },
+    {
+      "id": "tanoshii-vocab-不思議な-N3",
+      "word": "不思議な",
+      "reading": "ふしぎな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẤT TƯ NGHỊ"
+      ],
+      "meaningVi": "Kỳ lạ, bí ẩn",
+      "mnemonic": [
+        "chuyển âm BẤT là ふ, TƯ là し, NGHỊ là ぎ"
+      ],
+      "example": "あの村には不思議な話が伝わっている",
+      "exampleVi": "Một câu chuyện kỳ lạ đang được truyền tai tới ngôi làng đó"
+    },
+    {
+      "id": "tanoshii-vocab-ましな-N3",
+      "word": "ましな",
+      "reading": "ましな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "tốt lên",
+      "mnemonic": [
+        "MÁY XỊN (まし) tốt hơn máy cùi"
+      ],
+      "example": "せきが酷かったが、うがいをしたら前よりましになった",
+      "exampleVi": "Tôi đã ho khủng khiếp nhưng sau khi súc miệng thì có đỡ hơn trước"
+    },
+    {
+      "id": "tanoshii-vocab-むだな-N3",
+      "word": "むだな",
+      "reading": "むだな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "lãng phí",
+      "mnemonic": [
+        "Mưa (む) đá (だ) lãng phí quá"
+      ],
+      "example": "落ちると分かっているのに試験を受けるのは無駄なことだ",
+      "exampleVi": "Dự thi kỳ thi mà biết trước là trượt thì là điều lãng phí"
+    },
+    {
+      "id": "tanoshii-vocab-自由な-N3",
+      "word": "自由な",
+      "reading": "じゆうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TỰ DO"
+      ],
+      "meaningVi": "tự do",
+      "mnemonic": [
+        "chuyển âm TỰ là じ, Do là ゆう"
+      ],
+      "example": "赤ちゃんがいるので、自由な時間がほとんどない",
+      "exampleVi": "Vì có con nhỏ nên hầu như không có thời gian rảnh"
+    },
+    {
+      "id": "tanoshii-vocab-不自由な-N3",
+      "word": "不自由な",
+      "reading": "ふじゆうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẤT TỰ DO"
+      ],
+      "meaningVi": "tàn tật, không tự do",
+      "mnemonic": [
+        "chuyển âm BẤT là ふ, TỰ là じ, DO là ゆう"
+      ],
+      "example": "目が不自由な人",
+      "exampleVi": "Người khiếm thị"
+    },
+    {
+      "id": "tanoshii-vocab-濃い-N3",
+      "word": "濃い",
+      "reading": "こい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "NÙNG"
+      ],
+      "meaningVi": "đậm, đặc",
+      "mnemonic": [
+        "cá KOI (こい) màu đậm"
+      ],
+      "example": "色が濃い",
+      "exampleVi": "Màu đậm"
+    },
+    {
+      "id": "tanoshii-vocab-薄い-N3",
+      "word": "薄い",
+      "reading": "うすい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẠC"
+      ],
+      "meaningVi": "mỏng, nhạt",
+      "mnemonic": [
+        "ỨNG XỬ (うす) nhạt nhẽo"
+      ],
+      "example": "薄い本",
+      "exampleVi": "Cuốn sách mỏng"
+    },
+    {
+      "id": "tanoshii-vocab-酸っぱい-N3",
+      "word": "酸っぱい",
+      "reading": "すっぱい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TOAN"
+      ],
+      "meaningVi": "chua",
+      "mnemonic": [
+        "húp cái SỤP (すっ) 1 cái rồi BYE BYE (ぱい) vì chua"
+      ],
+      "example": "レモンは酸っぱい",
+      "exampleVi": "Chanh thì chua"
+    },
+    {
+      "id": "tanoshii-vocab-臭い-N3",
+      "word": "臭い",
+      "reading": "くさい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "XÚ"
+      ],
+      "meaningVi": "thối",
+      "mnemonic": [
+        "CỎ (くさ) hôi"
+      ],
+      "example": "納豆は臭いから嫌いだという日本人も多い",
+      "exampleVi": "Vì Natto thì thối nên đông người Nhật ghét"
+    },
+    {
+      "id": "tanoshii-vocab-おかしい-N3",
+      "word": "おかしい",
+      "reading": "おかしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "lạ",
+      "mnemonic": [
+        "ÔNG CA SĨ (おかし) thiệt kỳ lạ"
+      ],
+      "example": "山本君は授業にいつもおかしいことを言ってみんなを笑わせる",
+      "exampleVi": "Bé Yamamono thì luôn nói những việc kỳ quặc trong lớp học làm cho mọi người cười"
+    },
+    {
+      "id": "tanoshii-vocab-かっこいい-N3",
+      "word": "かっこいい",
+      "reading": "かっこいい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "bảnh bao",
+      "mnemonic": [
+        "CÁC CÔ Ý (かっこい) thật cool ngầu"
+      ],
+      "example": "あの先輩はかっこいいので人気がある",
+      "exampleVi": "Đàn anh đó thì được hâm mộ vì bảnh bao"
+    },
+    {
+      "id": "tanoshii-vocab-うまい-N3",
+      "word": "うまい",
+      "reading": "うまい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "ngon",
+      "mnemonic": [
+        "CON NGỰA (うま) thật ngon và giỏi"
+      ],
+      "example": "母は料理がうまい",
+      "exampleVi": "Mẹ nấu ăn giỏi"
+    },
+    {
+      "id": "tanoshii-vocab-親しい-N3",
+      "word": "親しい",
+      "reading": "したしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THÂN"
+      ],
+      "meaningVi": "thân thiết",
+      "mnemonic": [
+        "làm thân thiết với những người có XÌ TAI (したしい)"
+      ],
+      "example": "私は田中さんと親しい",
+      "exampleVi": "Tôi thì thân thiết với anh Tanaka"
+    },
+    {
+      "id": "tanoshii-vocab-詳しい-N3",
+      "word": "詳しい",
+      "reading": "くわしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TƯỜNG"
+      ],
+      "meaningVi": "chi tiết",
+      "mnemonic": [
+        "CỪ WÁ (くわ) biết tường tận hết luôn"
+      ],
+      "example": "この地図はとても詳しい",
+      "exampleVi": "Bản đồ này rất chi tiết"
+    },
+    {
+      "id": "tanoshii-vocab-細かい-N3",
+      "word": "細かい",
+      "reading": "こまかい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TẾ"
+      ],
+      "meaningVi": "tiểu tiết, bé",
+      "mnemonic": [
+        "CON MA CÁI (こまかい) nhỏ nhặt"
+      ],
+      "example": "新聞の字は細かくて、お年寄りには読みづらい",
+      "exampleVi": "Chữ trên báo thì nhỏ (nên) rất khó đọc đối với người lớn tuổi"
+    },
+    {
+      "id": "tanoshii-vocab-浅い-N3",
+      "word": "浅い",
+      "reading": "あさい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THIỂN"
+      ],
+      "meaningVi": "nông",
+      "mnemonic": [
+        "ANH SAI (あさい) rồi là anh nông cạn"
+      ],
+      "example": "この川は浅いので子供が泳いでも危なくない",
+      "exampleVi": "Vì con sông này nông nên dù bọn trẻ có bơi cũng không nguy hiểm"
+    },
+    {
+      "id": "tanoshii-vocab-固い・硬い-N3",
+      "word": "固い・硬い",
+      "reading": "かたい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "CỐ",
+        "NGẠNH"
+      ],
+      "meaningVi": "cứng",
+      "mnemonic": [
+        "CÁI TAI (かたい) cứng ngắc"
+      ],
+      "example": "このパンはとても固い",
+      "exampleVi": "Bánh mì này rất cứng"
+    },
+    {
+      "id": "tanoshii-vocab-ぬるい-N3",
+      "word": "ぬるい",
+      "reading": "ぬるい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "nguội",
+      "mnemonic": [
+        "NUÔI RUỒI (ぬる) bằng nước nguội"
+      ],
+      "example": "ぬるいコーヒーはおいしくない",
+      "exampleVi": "Coffee nguội thì không ngon"
+    },
+    {
+      "id": "tanoshii-vocab-まぶしい-N3",
+      "word": "まぶしい",
+      "reading": "まぶしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "chói",
+      "mnemonic": [
+        "MÁ BỰ (まぶ) thì chói mắt"
+      ],
+      "example": "カーテンを開けたら、太陽がまぶしかった",
+      "exampleVi": "Sau khi kéo rèm ra thì mặt trời đã chói chang"
+    },
+    {
+      "id": "tanoshii-vocab-蒸し暑い-N3",
+      "word": "蒸し暑い",
+      "reading": "むしあつい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "CHƯNG THỬ"
+      ],
+      "meaningVi": "nóng ẩm, oi bức",
+      "mnemonic": [
+        "CON TRÙNG (むし) NÓNG (暑い) oi bức"
+      ],
+      "example": "日本の夏は蒸し暑い",
+      "exampleVi": "Mùa hè của Nhật thì ngột ngạt, oi bức"
+    },
+    {
+      "id": "tanoshii-vocab-清潔な-N3",
+      "word": "清潔な",
+      "reading": "せいけつな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THANH KHIẾT"
+      ],
+      "meaningVi": "sạch",
+      "mnemonic": [
+        "chuyển âm THANH là せい, KHIẾT là けつ"
+      ],
+      "example": "清潔な服を身につける",
+      "exampleVi": "Mặc lên người quần áo sạch sẽ"
+    },
+    {
+      "id": "tanoshii-vocab-新鮮な-N3",
+      "word": "新鮮な",
+      "reading": "しんせんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TÂN TIÊN"
+      ],
+      "meaningVi": "tươi",
+      "mnemonic": [
+        "chuyển âm TÂN là しん, TIÊN là せん"
+      ],
+      "example": "新鮮な魚はおいしい",
+      "exampleVi": "Cá tươi thì ngon"
+    },
+    {
+      "id": "tanoshii-vocab-豊かな-N3",
+      "word": "豊かな",
+      "reading": "ゆたかな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "PHONG"
+      ],
+      "meaningVi": "giàu có",
+      "mnemonic": [
+        "đọc hơi giống áo ゆかた"
+      ],
+      "example": "豊かな自然",
+      "exampleVi": "Tự nhiên phong phú"
+    },
+    {
+      "id": "tanoshii-vocab-立派な-N3",
+      "word": "立派な",
+      "reading": "りっぱな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "LẬP PHÁI"
+      ],
+      "meaningVi": "siêu",
+      "mnemonic": [
+        "cô gái bôi son LIPice (りっ) của BÀ (ぱ) thì rạng rỡ tuyệt vời"
+      ],
+      "example": "立派な人",
+      "exampleVi": "Người tài giỏi (ra dáng, tuyệt vời)"
+    },
+    {
+      "id": "tanoshii-vocab-正確な-N3",
+      "word": "正確な",
+      "reading": "せいかくな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "CHÍNH XÁC"
+      ],
+      "meaningVi": "chính xác",
+      "mnemonic": [
+        "chuyển âm CHÍNH: せい, XÁC: かく"
+      ],
+      "example": "正確な数は分からないが、この観客は５０００人ぐらいだろう",
+      "exampleVi": "Con số chính xác thì không biết nhưng mà số khách tham quan này chắc khoảng 5000 người"
+    },
+    {
+      "id": "tanoshii-vocab-確かな-N3",
+      "word": "確かな",
+      "reading": "たしかな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "XÁC"
+      ],
+      "meaningVi": "đích thực",
+      "mnemonic": [
+        "chắc chắn là chiếc TẮC XI CAM (たしか)"
+      ],
+      "example": "新聞は確かな事実だけを伝えなければならない",
+      "exampleVi": "Báo chí phải truyền tải chỉ những việc thực tế được xác minh thôi"
+    },
+    {
+      "id": "tanoshii-vocab-重要な-N3",
+      "word": "重要な",
+      "reading": "じゅうような",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TRỌNG YẾU"
+      ],
+      "meaningVi": "quan trọng",
+      "mnemonic": [
+        "TRỌNG có 2 cách đọc ちょう và じゅう, YẾU là よう"
+      ],
+      "example": "今日は午後から重要な会議がある",
+      "exampleVi": "Hôm nay thì có cuộc họp quan trọng từ chiều"
+    },
+    {
+      "id": "tanoshii-vocab-必要な-N3",
+      "word": "必要な",
+      "reading": "ひつような",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "TẤT YẾU"
+      ],
+      "meaningVi": "cần thiết",
+      "mnemonic": [
+        "cần thiết phải HIỆN CHỮ RÕ (ひつよう)"
+      ],
+      "example": "子供に必要なのは親の暖かい愛情だ",
+      "exampleVi": "Điều cần thiết với trẻ con là tình yêu ấm áp của cha mẹ"
+    },
+    {
+      "id": "tanoshii-vocab-もったいない-N3",
+      "word": "もったいない",
+      "reading": "もったいない",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "lãng phí",
+      "mnemonic": [
+        "lãng phí MẤT (ない) MỘT TAI (もったい)"
+      ],
+      "example": "流行遅れでもまだ着られる服を捨てるのはもったいない",
+      "exampleVi": "Cho dù không còn thịnh hành nữa nhưng vứt đi trang phục còn có thể mặc thì lãng phí"
+    },
+    {
+      "id": "tanoshii-vocab-すごい-N3",
+      "word": "すごい",
+      "reading": "すごい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "ghê, siêu",
+      "mnemonic": [],
+      "example": "昨日の台風はすごかった",
+      "exampleVi": "Cơn bão hôm qua (đã) ghê quá"
+    },
+    {
+      "id": "tanoshii-vocab-ひどい-N3",
+      "word": "ひどい",
+      "reading": "ひどい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "tồi",
+      "mnemonic": [
+        "PHI ĐỘI (ひど) bay tồi tệ"
+      ],
+      "example": "一人を大勢でいじめるとはひどい",
+      "exampleVi": "Nếu đông người bắt nạt một người thì tồi quá"
+    },
+    {
+      "id": "tanoshii-vocab-激しい-N3",
+      "word": "激しい",
+      "reading": "はげしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "KÍCH"
+      ],
+      "meaningVi": "mãnh liệt",
+      "mnemonic": [
+        "HÀ GHÊ (はげ) là hà mãnh liệt"
+      ],
+      "example": "雨が激しい",
+      "exampleVi": "Cơn mưa dữ dội"
+    },
+    {
+      "id": "tanoshii-vocab-そっくりな-N3",
+      "word": "そっくりな",
+      "reading": "そっくりな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "giống",
+      "mnemonic": [
+        "SỐ CỰ LY (そっくり) chạy của các vđv giống nhau"
+      ],
+      "example": "兄は父に顔も声もそっくりだ",
+      "exampleVi": "Anh trai thì cả mặt rồi giọng nói cũng giống Bố y đúc"
+    },
+    {
+      "id": "tanoshii-vocab-急な-N3",
+      "word": "急な",
+      "reading": "きゅうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "CẤP"
+      ],
+      "meaningVi": "đột nhiên",
+      "mnemonic": [
+        "CÍU (きゅう) Cíu tôi gấp"
+      ],
+      "example": "急に歯が痛み出した",
+      "exampleVi": "Đột nhiên cơn đau răng đã bật ra"
+    },
+    {
+      "id": "tanoshii-vocab-適当な-N3",
+      "word": "適当な",
+      "reading": "てきとうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THÍCH ĐƯƠNG"
+      ],
+      "meaningVi": "phù hợp",
+      "mnemonic": [
+        "chuyển âm THÍCH là てき, ĐƯƠNG là とう"
+      ],
+      "example": "家庭教師を探しているが、適当な人がなかなかいない",
+      "exampleVi": "Dù đang tìm kiếm gia sư nhưng mà người phù hợp mãi không có"
+    },
+    {
+      "id": "tanoshii-vocab-特別な-N3",
+      "word": "特別な",
+      "reading": "とくべつな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ĐẶC BIỆT"
+      ],
+      "meaningVi": "đặc biệt",
+      "mnemonic": [
+        "chuyển âm ĐẶC là とく, BIỆT là べつ"
+      ],
+      "example": "彼女には音楽家としての特別な才能がある",
+      "exampleVi": "Cô ấy thì có tài năng đặc biệt với việc thành nhà âm nhạc"
+    },
+    {
+      "id": "tanoshii-vocab-完全な-N3",
+      "word": "完全な",
+      "reading": "かんぜんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "HOÀN TOÀN"
+      ],
+      "meaningVi": "toàn bộ",
+      "mnemonic": [
+        "chuyển âm HOÀN:かん, TOÀN:ぜん"
+      ],
+      "example": "土の中から古代の器（うつわ）が完全な形で出てきた",
+      "exampleVi": "Từ trong đất xuất hiện chiếc bát thời cổ đại còn nguyên vẹn hình dáng"
+    },
+    {
+      "id": "tanoshii-vocab-盛んな-N3",
+      "word": "盛んな",
+      "reading": "さかんな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "THỊNH"
+      ],
+      "meaningVi": "thịnh vượng",
+      "mnemonic": [
+        "thịnh hành của con gái bây giờ là SÀ (さ) vào rồi CẮN (かん) bạn trai"
+      ],
+      "example": "私のふるさとは農業が盛んだ",
+      "exampleVi": "Quê hương tôi thì nông nghiệp đã rất thịnh vượng"
+    },
+    {
+      "id": "tanoshii-vocab-様々な-N3",
+      "word": "様々な",
+      "reading": "さまざまな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "DẠNG"
+      ],
+      "meaningVi": "đa dạng",
+      "mnemonic": [
+        "SA MẠC (さま) đa dạng"
+      ],
+      "example": "インターネットから様々な情報は得られる",
+      "exampleVi": "Từ internet có thể lấy được rất nhiều loại thông tin"
+    },
+    {
+      "id": "tanoshii-vocab-可能な-N3",
+      "word": "可能な",
+      "reading": "かのうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "KHẢ NĂNG"
+      ],
+      "meaningVi": "khả thi",
+      "mnemonic": [
+        "chuyển âm KHẢ đọc là か NĂNG là のう"
+      ],
+      "example": "科学が進歩して、今まで不可能だったことも可能になった",
+      "exampleVi": "Vì khoa học tiến bộ, đến bây giờ những việc (trước đây) đã không thể thực hiện cũng trở nên thực hiện được"
+    },
+    {
+      "id": "tanoshii-vocab-不可能な-N3",
+      "word": "不可能な",
+      "reading": "ふかのうな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "BẤT KHẢ NĂNG"
+      ],
+      "meaningVi": "bất khả thi",
+      "mnemonic": [
+        "chuyển âm BẤT (ふ) KHẢ NĂNG (かのう)"
+      ],
+      "example": "不可能な計画なら初めから立てないほうがいい",
+      "exampleVi": "Kế hoạch không thể thực hiện được thì từ đầu không nên lập ra"
+    },
+    {
+      "id": "tanoshii-vocab-基本的な-N3",
+      "word": "基本的な",
+      "reading": "きほんてきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "CƠ BẢN ĐÍCH"
+      ],
+      "meaningVi": "cơ bản",
+      "mnemonic": [
+        "Chuyển âm CƠ là き, BẢN là ほん, ĐÍCH là てき"
+      ],
+      "example": "パソコンの基本的な使い方はマニュアルに書いてある",
+      "exampleVi": "Cách dùng cơ bản của máy tính thì được viết sẵn trên sách hướng dẫn"
+    },
+    {
+      "id": "tanoshii-vocab-国際的な-N3",
+      "word": "国際的な",
+      "reading": "こくさいてきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "QUỐC TẾ ĐÍCH"
+      ],
+      "meaningVi": "tính quốc tế",
+      "mnemonic": [
+        "chuyển âm QUỐC là こく, TẾ là さい, ĐÍCH là てき"
+      ],
+      "example": "東京で国際的なアニメフェスティバルが開かれた",
+      "exampleVi": "Tại Tokyo, Liên hoan phim hoạt hình quốc tế đã được tổ chức"
+    },
+    {
+      "id": "tanoshii-vocab-ばらばらな-N3",
+      "word": "ばらばらな",
+      "reading": "ばらばらな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "tung tóe, chia rẽ",
+      "mnemonic": [
+        "cứ nói bla bla (barabara) thì nói chuyện rời rạc"
+      ],
+      "example": "みんなの意見がばらばらで、なかなか結論が出ない",
+      "exampleVi": "Ý kiến mọi người rời rạc nên mãi mà không đưa ra kết luận."
+    },
+    {
+      "id": "tanoshii-vocab-ぼろぼろな-N3",
+      "word": "ぼろぼろな",
+      "reading": "ぼろぼろな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "rách nát, te tua",
+      "mnemonic": [
+        "mấy người hay cầm BÔ (ぼ) với cầm RỔ (ろ) thì rách rưới"
+      ],
+      "example": "ぼろぼろなふく",
+      "exampleVi": "Quần áo cũ kỹ, rách nát"
+    }
+  ]
+}

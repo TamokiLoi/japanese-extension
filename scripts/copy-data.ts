@@ -9,21 +9,36 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const SOURCE_DIR = join(ROOT, "..", "japanese-data", "data", "kanji");
+const DATA_ROOT = join(ROOT, "..", "japanese-data", "data");
+const KANJI_SOURCE_DIR = join(DATA_ROOT, "kanji");
+const VOCAB_TANOSHII_SOURCE_DIR = join(DATA_ROOT, "vocab-tanoshii");
 const DEST_DIR = join(ROOT, "src", "data");
 
 async function main() {
-  if (!existsSync(SOURCE_DIR)) {
+  if (!existsSync(KANJI_SOURCE_DIR)) {
     console.error(
-      `Source not found: ${SOURCE_DIR}\nExpected japanese-data as a sibling directory of japanese-extension.`,
+      `Source not found: ${KANJI_SOURCE_DIR}\nExpected japanese-data as a sibling directory of japanese-extension.`,
     );
     process.exit(1);
   }
 
   await mkdir(DEST_DIR, { recursive: true });
-  await copyFile(join(SOURCE_DIR, "all.json"), join(DEST_DIR, "kanji-all.json"));
-
+  await copyFile(join(KANJI_SOURCE_DIR, "all.json"), join(DEST_DIR, "kanji-all.json"));
   console.log(`Copied all.json -> ${join(DEST_DIR, "kanji-all.json")}`);
+
+  if (existsSync(VOCAB_TANOSHII_SOURCE_DIR)) {
+    for (const fileName of [
+      "tinhtu-n3.json",
+      "dongtu-n4.json",
+      "dongnghia-n3.json",
+      "mimikara-n3.json",
+      "jlpt-n3-history.json",
+    ]) {
+      const destName = `vocab-tanoshii-${fileName}`;
+      await copyFile(join(VOCAB_TANOSHII_SOURCE_DIR, fileName), join(DEST_DIR, destName));
+      console.log(`Copied ${fileName} -> ${join(DEST_DIR, destName)}`);
+    }
+  }
 }
 
 main().catch((err) => {

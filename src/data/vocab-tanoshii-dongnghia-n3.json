@@ -1,0 +1,716 @@
+{
+  "meta": {
+    "schemaVersion": "1.0.0",
+    "generatedAt": "2026-08-23T06:10:21.230Z",
+    "counts": {
+      "count": 77
+    },
+    "sources": {
+      "hantuTanoshiiVocab": {
+        "name": "Han tu Tanoshii (personal Vietnamese-authored vocab flashcard PDF set, NOT an open/licensed dataset)",
+        "url": "n/a -- user-supplied PDFs, transcribed by hand/OCR into scripts/data/hantu-tanoshii-vocab/*.json for personal use only",
+        "usedFor": "word, reading, hanViet, Vietnamese meaning, mnemonic, and example sentence, all as authored in the source PDF",
+        "license": "Unknown/unverified copyright status -- transcribed and used at the user's own instruction for personal, non-published use only. Do NOT redistribute or publish this dataset/derivative extension while populated from this source without separately clearing rights."
+      }
+    },
+    "notes": [
+      "Transcribed from the Tanoshii \"Tu dong nghia N3\" PDF flashcard book.",
+      "Each entry pairs a headword with one synonym given in the source book; it is not a standalone vocab entry (no independent reading/POS/mnemonic of its own)."
+    ]
+  },
+  "pairs": [
+    {
+      "id": "tanoshii-synonym-あらゆる-全部-N3",
+      "word": "あらゆる",
+      "wordReading": null,
+      "synonym": "全部",
+      "synonymReading": "ぜんぶ",
+      "level": "N3",
+      "meaningVi": "Tất cả, mỗi mọi"
+    },
+    {
+      "id": "tanoshii-synonym-おかしな-へんな-N3",
+      "word": "おかしな",
+      "wordReading": null,
+      "synonym": "へんな",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "kỳ lạ, kỳ quái"
+    },
+    {
+      "id": "tanoshii-synonym-お終い-終わり-N3",
+      "word": "お終い",
+      "wordReading": "おしまい",
+      "synonym": "終わり",
+      "synonymReading": "おわり",
+      "level": "N3",
+      "meaningVi": "Kết thúc, hết"
+    },
+    {
+      "id": "tanoshii-synonym-カーブ-曲がる-N3",
+      "word": "カーブ",
+      "wordReading": null,
+      "synonym": "曲がる",
+      "synonymReading": "まがる",
+      "level": "N3",
+      "meaningVi": "khúc cua"
+    },
+    {
+      "id": "tanoshii-synonym-がっかり-残念-N3",
+      "word": "がっかり",
+      "wordReading": null,
+      "synonym": "残念",
+      "synonymReading": "ざんねん",
+      "level": "N3",
+      "meaningVi": "Đáng tiếc, thất vọng"
+    },
+    {
+      "id": "tanoshii-synonym-きつい-大変-N3",
+      "word": "きつい",
+      "wordReading": null,
+      "synonym": "大変",
+      "synonymReading": "たいへん",
+      "level": "N3",
+      "meaningVi": "vất vả"
+    },
+    {
+      "id": "tanoshii-synonym-キッチン-台所-N3",
+      "word": "キッチン",
+      "wordReading": null,
+      "synonym": "台所",
+      "synonymReading": "だいどころ",
+      "level": "N3",
+      "meaningVi": "bếp"
+    },
+    {
+      "id": "tanoshii-synonym-この頃-最近-N3",
+      "word": "この頃",
+      "wordReading": "このごろ",
+      "synonym": "最近",
+      "synonymReading": "さいきん",
+      "level": "N3",
+      "meaningVi": "gần đây; mới đây"
+    },
+    {
+      "id": "tanoshii-synonym-サイズ-大きさ-N3",
+      "word": "サイズ",
+      "wordReading": null,
+      "synonym": "大きさ",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Cỡ; kích thước"
+    },
+    {
+      "id": "tanoshii-synonym-さっき-少し前-N3",
+      "word": "さっき",
+      "wordReading": null,
+      "synonym": "少し前",
+      "synonymReading": "すこしまえ",
+      "level": "N3",
+      "meaningVi": "vừa nãy"
+    },
+    {
+      "id": "tanoshii-synonym-しゃべらないでください-話しないでください-N3",
+      "word": "しゃべらないでください",
+      "wordReading": null,
+      "synonym": "話しないでください",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "đừng nói chuyện"
+    },
+    {
+      "id": "tanoshii-synonym-スケジュール-予定-N3",
+      "word": "スケジュール",
+      "wordReading": null,
+      "synonym": "予定",
+      "synonymReading": "よてい",
+      "level": "N3",
+      "meaningVi": "lịch trình"
+    },
+    {
+      "id": "tanoshii-synonym-そっと-静か-N3",
+      "word": "そっと",
+      "wordReading": null,
+      "synonym": "静か",
+      "synonymReading": "しずか",
+      "level": "N3",
+      "meaningVi": "nhẹ nhàng"
+    },
+    {
+      "id": "tanoshii-synonym-トレーニング-練習-N3",
+      "word": "トレーニング",
+      "wordReading": null,
+      "synonym": "練習",
+      "synonymReading": "れんしゅう",
+      "level": "N3",
+      "meaningVi": "Luyện tập, rèn luyện"
+    },
+    {
+      "id": "tanoshii-synonym-ぺこぺこ-空いてる-N3",
+      "word": "ぺこぺこ",
+      "wordReading": null,
+      "synonym": "空いてる",
+      "synonymReading": "すいてる",
+      "level": "N3",
+      "meaningVi": "Đói meo"
+    },
+    {
+      "id": "tanoshii-synonym-ぺらぺら-上手に話せる-N3",
+      "word": "ぺらぺら",
+      "wordReading": null,
+      "synonym": "上手に話せる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Nói giỏi, nói trôi chảy"
+    },
+    {
+      "id": "tanoshii-synonym-やり直す-もう一度する-N3",
+      "word": "やり直す",
+      "wordReading": "やりなおす",
+      "synonym": "もう一度する",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Làm lại"
+    },
+    {
+      "id": "tanoshii-synonym-不安-心配-N3",
+      "word": "不安",
+      "wordReading": "ふあん",
+      "synonym": "心配",
+      "synonymReading": "しんぱい",
+      "level": "N3",
+      "meaningVi": "lo âu; lo lắng"
+    },
+    {
+      "id": "tanoshii-synonym-位置-場所-N3",
+      "word": "位置",
+      "wordReading": "いち",
+      "synonym": "場所",
+      "synonymReading": "ばしょ",
+      "level": "N3",
+      "meaningVi": "vị trí, địa điểm"
+    },
+    {
+      "id": "tanoshii-synonym-余り-多すぎて残りました-N3",
+      "word": "余り",
+      "wordReading": "あまり",
+      "synonym": "多すぎて残りました",
+      "synonymReading": "おおすぎてのこりました",
+      "level": "N3",
+      "meaningVi": "Còn sót lại nhiều"
+    },
+    {
+      "id": "tanoshii-synonym-信じる-本当だと思う-N3",
+      "word": "信じる",
+      "wordReading": "しんじる",
+      "synonym": "本当だと思う",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Tin tưởng là thật"
+    },
+    {
+      "id": "tanoshii-synonym-全く-全然-N3",
+      "word": "全く",
+      "wordReading": "まったく",
+      "synonym": "全然",
+      "synonymReading": "ぜんぜん",
+      "level": "N3",
+      "meaningVi": "hoàn toàn, toàn bộ"
+    },
+    {
+      "id": "tanoshii-synonym-全て-全部-N3",
+      "word": "全て",
+      "wordReading": "すべて",
+      "synonym": "全部",
+      "synonymReading": "ぜんぶ",
+      "level": "N3",
+      "meaningVi": "tất cả"
+    },
+    {
+      "id": "tanoshii-synonym-共通点-同じところ-N3",
+      "word": "共通点",
+      "wordReading": "きょうつうてん",
+      "synonym": "同じところ",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "điểm chung"
+    },
+    {
+      "id": "tanoshii-synonym-内緒-内緒だから＝誰にも話さないで-N3",
+      "word": "内緒",
+      "wordReading": "ないしょ",
+      "synonym": "内緒だから＝誰にも話さないで",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "bí mật"
+    },
+    {
+      "id": "tanoshii-synonym-協力-手伝う-N3",
+      "word": "協力",
+      "wordReading": "きょうりょく",
+      "synonym": "手伝う",
+      "synonymReading": "てつだう",
+      "level": "N3",
+      "meaningVi": "Giúp đỡ, hiệp sức"
+    },
+    {
+      "id": "tanoshii-synonym-単純-分かりやすい-N3",
+      "word": "単純",
+      "wordReading": "たんじゅん",
+      "synonym": "分かりやすい",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Đơn giản"
+    },
+    {
+      "id": "tanoshii-synonym-喋る-話す-N3",
+      "word": "喋る",
+      "wordReading": "しゃべる",
+      "synonym": "話す",
+      "synonymReading": "はなす",
+      "level": "N3",
+      "meaningVi": "chuyện trò"
+    },
+    {
+      "id": "tanoshii-synonym-回収-集める-N3",
+      "word": "回収",
+      "wordReading": "かいしゅう",
+      "synonym": "集める",
+      "synonymReading": "あつめる",
+      "level": "N3",
+      "meaningVi": "thu thập, thu hồi"
+    },
+    {
+      "id": "tanoshii-synonym-団体-グループ-N3",
+      "word": "団体",
+      "wordReading": "だんたい",
+      "synonym": "グループ",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "đoàn thể, nhóm"
+    },
+    {
+      "id": "tanoshii-synonym-売り切る-全部売れた-N3",
+      "word": "売り切る",
+      "wordReading": "うりきる",
+      "synonym": "全部売れた",
+      "synonymReading": "ぜんぶうれた",
+      "level": "N3",
+      "meaningVi": "đã bán hết sạch"
+    },
+    {
+      "id": "tanoshii-synonym-多少-ちょっと-N3",
+      "word": "多少",
+      "wordReading": "たしょう",
+      "synonym": "ちょっと",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "1 chút"
+    },
+    {
+      "id": "tanoshii-synonym-奪われる-取られる-N3",
+      "word": "奪われる",
+      "wordReading": "うばわれる",
+      "synonym": "取られる",
+      "synonymReading": "とられる",
+      "level": "N3",
+      "meaningVi": "bị cướp, bị lấy"
+    },
+    {
+      "id": "tanoshii-synonym-学ぶ-勉強-N3",
+      "word": "学ぶ",
+      "wordReading": "まなぶ",
+      "synonym": "勉強",
+      "synonymReading": "べんきょう",
+      "level": "N3",
+      "meaningVi": "việc học hành"
+    },
+    {
+      "id": "tanoshii-synonym-年中-いつも-N3",
+      "word": "年中",
+      "wordReading": "ねんちゅう",
+      "synonym": "いつも",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "suốt năm, lúc nào cũng"
+    },
+    {
+      "id": "tanoshii-synonym-延期-後の別の日にやることになる-N3",
+      "word": "延期",
+      "wordReading": "えんき",
+      "synonym": "後の別の日にやることになる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Hoãn sang ngày khác"
+    },
+    {
+      "id": "tanoshii-synonym-当然-もちろん-N3",
+      "word": "当然",
+      "wordReading": "とうぜん",
+      "synonym": "もちろん",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "đương nhiên"
+    },
+    {
+      "id": "tanoshii-synonym-得意-上手-N3",
+      "word": "得意",
+      "wordReading": "とくい",
+      "synonym": "上手",
+      "synonymReading": "じょうず",
+      "level": "N3",
+      "meaningVi": "Giỏi, sở trường"
+    },
+    {
+      "id": "tanoshii-synonym-怒鳴る-大声で怒る-N3",
+      "word": "怒鳴る",
+      "wordReading": "どなる",
+      "synonym": "大声で怒る",
+      "synonymReading": "おおごえでおこる",
+      "level": "N3",
+      "meaningVi": "Nổi đoá lên, nổi giận hét lớn lên"
+    },
+    {
+      "id": "tanoshii-synonym-恐ろしい-怖い-N3",
+      "word": "恐ろしい",
+      "wordReading": "おそろしい",
+      "synonym": "怖い",
+      "synonymReading": "こわい",
+      "level": "N3",
+      "meaningVi": "sợ; đáng sợ"
+    },
+    {
+      "id": "tanoshii-synonym-感謝-お礼-N3",
+      "word": "感謝",
+      "wordReading": "かんしゃ",
+      "synonym": "お礼",
+      "synonymReading": "おれい",
+      "level": "N3",
+      "meaningVi": "Cảm ơn"
+    },
+    {
+      "id": "tanoshii-synonym-慌てて-急いで-N3",
+      "word": "慌てて",
+      "wordReading": "あわてて",
+      "synonym": "急いで",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Vội vàng"
+    },
+    {
+      "id": "tanoshii-synonym-手段-やり方-N3",
+      "word": "手段",
+      "wordReading": "しゅだん",
+      "synonym": "やり方",
+      "synonymReading": "やりかた",
+      "level": "N3",
+      "meaningVi": "cách làm"
+    },
+    {
+      "id": "tanoshii-synonym-指導-教える-N3",
+      "word": "指導",
+      "wordReading": "しどう",
+      "synonym": "教える",
+      "synonymReading": "おしえる",
+      "level": "N3",
+      "meaningVi": "Chỉ dạy"
+    },
+    {
+      "id": "tanoshii-synonym-整理-片づけます-N3",
+      "word": "整理",
+      "wordReading": "せいり",
+      "synonym": "片づけます",
+      "synonymReading": "かたづけます",
+      "level": "N3",
+      "meaningVi": "Dọn dẹp"
+    },
+    {
+      "id": "tanoshii-synonym-明ける-終わる-N3",
+      "word": "明ける",
+      "wordReading": "あける",
+      "synonym": "終わる",
+      "synonymReading": "おわる",
+      "level": "N3",
+      "meaningVi": "kết thúc"
+    },
+    {
+      "id": "tanoshii-synonym-案-アイデア-N3",
+      "word": "案",
+      "wordReading": "あん",
+      "synonym": "アイデア",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "đề án, ý tưởng"
+    },
+    {
+      "id": "tanoshii-synonym-楽-簡単-N3",
+      "word": "楽",
+      "wordReading": "らく",
+      "synonym": "簡単",
+      "synonymReading": "かんたん",
+      "level": "N3",
+      "meaningVi": "đơn giản"
+    },
+    {
+      "id": "tanoshii-synonym-横断禁止-渡ってはいけません-N3",
+      "word": "横断禁止",
+      "wordReading": "おうだんきんし",
+      "synonym": "渡ってはいけません",
+      "synonymReading": "わたってはいけません",
+      "level": "N3",
+      "meaningVi": "Cấm băng qua"
+    },
+    {
+      "id": "tanoshii-synonym-機会-チャンス-N3",
+      "word": "機会",
+      "wordReading": "きかい",
+      "synonym": "チャンス",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Cơ hội, dịp"
+    },
+    {
+      "id": "tanoshii-synonym-欠点-悪いところ-N3",
+      "word": "欠点",
+      "wordReading": "けってん",
+      "synonym": "悪いところ",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "điểm chưa tốt, chưa đủ"
+    },
+    {
+      "id": "tanoshii-synonym-次第-少しずつ-N3",
+      "word": "次第",
+      "wordReading": "しだい",
+      "synonym": "少しずつ",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Dần dần, từng chút 1"
+    },
+    {
+      "id": "tanoshii-synonym-気に入り-好き-N3",
+      "word": "気に入り",
+      "wordReading": "きにいり",
+      "synonym": "好き",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "thích"
+    },
+    {
+      "id": "tanoshii-synonym-決まり-規則-N3",
+      "word": "決まり",
+      "wordReading": "きまり",
+      "synonym": "規則",
+      "synonymReading": "きそく",
+      "level": "N3",
+      "meaningVi": "Quy định"
+    },
+    {
+      "id": "tanoshii-synonym-注文-頼む-N3",
+      "word": "注文",
+      "wordReading": "ちゅうもん",
+      "synonym": "頼む",
+      "synonymReading": "たのむ",
+      "level": "N3",
+      "meaningVi": "yêu cầu; đề nghị; nhờ cậy"
+    },
+    {
+      "id": "tanoshii-synonym-混雑-客がたくさんいる-N3",
+      "word": "混雑",
+      "wordReading": "こんざつ",
+      "synonym": "客がたくさんいる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Đông đúc, tắc nghẽn"
+    },
+    {
+      "id": "tanoshii-synonym-減る-少なくなる-N3",
+      "word": "減る",
+      "wordReading": "へる",
+      "synonym": "少なくなる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Giảm; suy giảm"
+    },
+    {
+      "id": "tanoshii-synonym-疑う-本当ではないと思っている-N3",
+      "word": "疑う",
+      "wordReading": "うたがう",
+      "synonym": "本当ではないと思っている",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Nghi ngờ, nghĩ là không phải sự thật"
+    },
+    {
+      "id": "tanoshii-synonym-相変わらず-前と同じ-N3",
+      "word": "相変わらず",
+      "wordReading": "あいかわらず",
+      "synonym": "前と同じ",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Không thay đổi, vẫn giống như trước đây"
+    },
+    {
+      "id": "tanoshii-synonym-眩しい-明るすぎる-N3",
+      "word": "眩しい",
+      "wordReading": "まぶしい",
+      "synonym": "明るすぎる",
+      "synonymReading": "あかるすぎる",
+      "level": "N3",
+      "meaningVi": "sáng lóa"
+    },
+    {
+      "id": "tanoshii-synonym-短期-すぐ怒る-N3",
+      "word": "短期",
+      "wordReading": "たんき",
+      "synonym": "すぐ怒る",
+      "synonymReading": "すぐおこる",
+      "level": "N3",
+      "meaningVi": "Dễ nổi nóng, nóng tính"
+    },
+    {
+      "id": "tanoshii-synonym-確かめる-チェック-N3",
+      "word": "確かめる",
+      "wordReading": "たしかめる",
+      "synonym": "チェック",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "kiểm tra"
+    },
+    {
+      "id": "tanoshii-synonym-約-大体-N3",
+      "word": "約",
+      "wordReading": "やく",
+      "synonym": "大体",
+      "synonymReading": "だいたい",
+      "level": "N3",
+      "meaningVi": "khoảng 10 km"
+    },
+    {
+      "id": "tanoshii-synonym-経つ-過ぎる-N3",
+      "word": "経つ",
+      "wordReading": "たつ",
+      "synonym": "過ぎる",
+      "synonymReading": "すぎる",
+      "level": "N3",
+      "meaningVi": "trải qua"
+    },
+    {
+      "id": "tanoshii-synonym-絶対-必ず-N3",
+      "word": "絶対",
+      "wordReading": "ぜったい",
+      "synonym": "必ず",
+      "synonymReading": "かならず",
+      "level": "N3",
+      "meaningVi": "nhất định"
+    },
+    {
+      "id": "tanoshii-synonym-翌年-次の年-N3",
+      "word": "翌年",
+      "wordReading": "よくねん",
+      "synonym": "次の年",
+      "synonymReading": "つぎのとし",
+      "level": "N3",
+      "meaningVi": "năm sau"
+    },
+    {
+      "id": "tanoshii-synonym-草臥れる-疲れる-N3",
+      "word": "草臥れる",
+      "wordReading": "くたびれる",
+      "synonym": "疲れる",
+      "synonymReading": "つかれる",
+      "level": "N3",
+      "meaningVi": "Mệt mỏi; kiệt sức"
+    },
+    {
+      "id": "tanoshii-synonym-要約-やっと-N3",
+      "word": "要約",
+      "wordReading": "ようやく",
+      "synonym": "やっと",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Cuối cùng"
+    },
+    {
+      "id": "tanoshii-synonym-訳-理由-N3",
+      "word": "訳",
+      "wordReading": "わけ",
+      "synonym": "理由",
+      "synonymReading": "りゆ",
+      "level": "N3",
+      "meaningVi": "lí do"
+    },
+    {
+      "id": "tanoshii-synonym-諦めなかった-やめようとしなっかった-N3",
+      "word": "諦めなかった",
+      "wordReading": "あきらめなかった",
+      "synonym": "やめようとしなっかった",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "không từ bỏ"
+    },
+    {
+      "id": "tanoshii-synonym-輝く-光る-N3",
+      "word": "輝く",
+      "wordReading": "かがやく",
+      "synonym": "光る",
+      "synonymReading": "ひかる",
+      "level": "N3",
+      "meaningVi": "Sáng lấp lánh"
+    },
+    {
+      "id": "tanoshii-synonym-退屈-つまらない-N3",
+      "word": "退屈",
+      "wordReading": "たいくつ",
+      "synonym": "つまらない",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "chán nản"
+    },
+    {
+      "id": "tanoshii-synonym-逆-反対-N3",
+      "word": "逆",
+      "wordReading": "ぎゃく",
+      "synonym": "反対",
+      "synonymReading": "はんたい",
+      "level": "N3",
+      "meaningVi": "ngược lại"
+    },
+    {
+      "id": "tanoshii-synonym-通勤-仕事に行ってる-N3",
+      "word": "通勤",
+      "wordReading": "つうきん",
+      "synonym": "仕事に行ってる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "đi làm"
+    },
+    {
+      "id": "tanoshii-synonym-駆ける-走る-N3",
+      "word": "駆ける",
+      "wordReading": "かける",
+      "synonym": "走る",
+      "synonymReading": "はしる",
+      "level": "N3",
+      "meaningVi": "chạy, lao"
+    },
+    {
+      "id": "tanoshii-synonym-黙る-静か-N3",
+      "word": "黙る",
+      "wordReading": "だまる",
+      "synonym": "静か",
+      "synonymReading": "しずか",
+      "level": "N3",
+      "meaningVi": "yên lặng, yên tĩnh"
+    },
+    {
+      "id": "tanoshii-synonym-黙る-何も話さない-N3",
+      "word": "黙る",
+      "wordReading": "だまる",
+      "synonym": "何も話さない",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "Im lặng, không nói gì"
+    }
+  ]
+}
