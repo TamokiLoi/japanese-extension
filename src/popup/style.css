@@ -28,6 +28,7 @@ body {
 }
 
 #app {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 380px;
@@ -105,6 +106,7 @@ body.tab-mode #app {
   padding: 16px;
   text-align: center;
   position: relative;
+  border-top: 3px solid transparent;
 }
 
 .level-badge {
@@ -315,10 +317,101 @@ body.tab-mode #app {
 
 /* Menu screen */
 .menu-header {
+  position: relative;
   padding: 12px 16px 8px;
   text-align: center;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-info-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  font-style: normal;
+  color: #888;
+}
+
+.menu-info-btn:hover {
+  background: #f0f0f0;
+  color: #b5340a;
+  border-color: #b5340a;
+}
+
+.author-info-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.author-info-modal {
+  position: relative;
+  width: 240px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+.author-info-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.author-info-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #b5340a;
+  margin-bottom: 10px;
+}
+
+.author-info-list {
+  margin: 0;
+  font-size: 12px;
+}
+
+.author-info-list dt {
+  color: #888;
+  margin-top: 8px;
+}
+
+.author-info-list dt:first-child {
+  margin-top: 0;
+}
+
+.author-info-list dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+
+.author-info-list a {
+  color: #b5340a;
+}
+
+.menu-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.menu-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
 }
 
 .menu-title {
@@ -327,10 +420,26 @@ body.tab-mode #app {
   color: #b5340a;
 }
 
-.menu-subtitle {
+.menu-title-jp {
   font-size: 12px;
-  color: #888;
-  margin-top: 2px;
+  font-weight: 400;
+  color: #999;
+  margin-left: 6px;
+}
+
+.menu-subtitle-quote {
+  font-size: 12px;
+  font-style: italic;
+  color: #b5340a;
+  margin-top: 4px;
+}
+
+.menu-subtitle-note {
+  display: block;
+  font-size: 11px;
+  font-style: italic;
+  color: #999;
+  margin-top: 1px;
 }
 
 .streak-badge {
@@ -744,8 +853,35 @@ body.tab-mode .jlpt-list {
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #888;
+  cursor: pointer;
+}
+
+.mastered-badge:hover {
+  background: #f5f5f5;
+}
+
+.mastered-badge.mastered-on {
+  border-color: #2fa84f;
   background: #d9f2df;
   color: #1c7a3a;
+}
+
+/* Colored top edge on the Kanji/Vocab card itself, so mastery status reads
+   at a glance without having to look at the small badge -- see bucketFor()
+   in progressState.ts for how a card lands in each bucket. */
+.card-mastered {
+  border-top-color: #2fa84f;
+}
+
+.card-flagged {
+  border-top-color: #d9432e;
+}
+
+.card-learning {
+  border-top-color: #e0a83a;
 }
 
 /* Quiz */
@@ -769,16 +905,36 @@ body.tab-mode .jlpt-list {
 }
 
 .quiz-radio-row {
-  display: flex;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
 }
 
 .quiz-radio {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
   font-size: 13px;
+  line-height: 1.3;
   cursor: pointer;
+}
+
+.quiz-radio:hover {
+  background: #f5f5f5;
+}
+
+.quiz-radio:has(input:checked) {
+  border-color: #b5340a;
+  background: #fdeceb;
+  font-weight: 600;
+}
+
+.quiz-radio input[type="radio"] {
+  flex: none;
 }
 
 .quiz-filter-note {
@@ -881,6 +1037,13 @@ body.tab-mode .jlpt-list {
   word-break: break-word;
 }
 
+/* Reverse-direction questions (e.g. "Hán Việt - nghĩa" or a Vietnamese
+   meaning shown as the prompt) are full phrases, not a single character or
+   short word -- too long to read comfortably at the default 40px. */
+.quiz-prompt-long {
+  font-size: 22px;
+}
+
 .quiz-choices {
   display: flex;
   flex-direction: column;
@@ -903,6 +1066,11 @@ body.tab-mode .jlpt-list {
 
 .quiz-choice:disabled {
   cursor: default;
+}
+
+.quiz-choice-char {
+  font-size: 24px;
+  text-align: center;
 }
 
 .quiz-choice-correct {
@@ -986,30 +1154,288 @@ body.tab-mode .jlpt-list {
   background: #f0f0f0;
 }
 
+.quiz-result-review-label {
+  width: 100%;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #888;
+  text-align: left;
+}
+
 .quiz-review-list {
   width: 100%;
+  display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 6px;
+  margin-top: 6px;
   text-align: left;
 }
 
 .quiz-review-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
   padding: 8px 10px;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   background: #fff;
   font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.quiz-review-item:hover {
+  background: #f5f5f5;
+}
+
+.quiz-review-num {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eee;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .quiz-review-prompt {
-  margin-bottom: 4px;
+  flex: 1;
+  font-size: 15px;
 }
 
-.quiz-review-chosen {
+.quiz-review-status {
+  flex: none;
+  font-weight: 600;
+}
+
+.quiz-review-item-correct {
+  border-color: #2fa84f;
+  background: #e6f7ea;
+}
+
+.quiz-review-item-correct .quiz-review-num {
+  background: #2fa84f;
+  color: #fff;
+}
+
+.quiz-review-item-correct .quiz-review-status {
+  color: #1c7a3a;
+}
+
+.quiz-review-item-wrong {
+  border-color: #d9432e;
+  background: #fdeceb;
+}
+
+.quiz-review-item-wrong .quiz-review-num {
+  background: #d9432e;
+  color: #fff;
+}
+
+.quiz-review-item-wrong .quiz-review-status {
   color: #a32c1c;
 }
 
-.quiz-review-correct {
+/* --- Stats screen --- */
+
+.stats-content-toggle {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px;
+}
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 12px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  background: #f5f5f5;
+}
+
+.stat-card-active {
+  border-width: 2px;
+  border-color: #b5340a;
+}
+
+.stat-card-count {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.stat-card-label {
+  font-size: 10px;
+  color: #888;
+  text-align: center;
+}
+
+.stat-card-mastered .stat-card-count {
   color: #1c7a3a;
+}
+
+.stat-card-flagged .stat-card-count {
+  color: #a32c1c;
+}
+
+.stat-card-learning .stat-card-count {
+  color: #b5340a;
+}
+
+.stat-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 12px 12px;
+}
+
+.stat-group-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.stat-group-label {
+  flex: none;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #555;
+}
+
+.stat-group-bar-wrap {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: #eee;
+  overflow: hidden;
+}
+
+.stat-group-bar {
+  display: block;
+  height: 100%;
+  background: #2fa84f;
+}
+
+.stat-group-pct {
+  flex: none;
+  width: 32px;
+  text-align: right;
+  color: #888;
+}
+
+.stat-group-num {
+  flex: none;
+  width: 52px;
+  text-align: right;
+  color: #888;
+}
+
+.stat-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+.stat-clear-filter {
+  border: none;
+  background: none;
+  color: #b5340a;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.stat-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.stat-list-item:hover {
+  background: #f5f5f5;
+}
+
+.stat-list-item-char {
+  flex: none;
+  font-size: 20px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.stat-list-item-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-list-item-title {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stat-list-item-stat {
+  font-size: 11px;
+  color: #888;
+}
+
+.stat-list-item-flagged {
+  border-color: #d9432e;
+}
+
+.stat-list-item-mastered {
+  border-color: #2fa84f;
+}
+
+.stat-list-more {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  padding: 8px 0;
 }

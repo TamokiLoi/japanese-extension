@@ -16,6 +16,11 @@ import {
 import { pickReminderItem, formatReminderNotification } from "../../reminderContent.ts";
 import type { SetReminderMessage, SetQuizReminderMessage, OpenQuizTabMessage } from "../../background/index.ts";
 
+// Hidden (not deleted) while "Luyện đọc" takes its slot in the menu -- the
+// screen, route, and data behind it are untouched, so flip this back to
+// bring it back later.
+const SHOW_JLPT_HISTORY_MENU_ITEM = false;
+
 const CONTENT_TYPE_LABELS: Record<ReminderContentType, string> = {
   kanji: "Kanji",
   vocab: "Từ vựng",
@@ -52,7 +57,7 @@ function readRowIntervalMinutes(intervalSelect: HTMLSelectElement, customInput: 
     : Number(intervalSelect.value);
 }
 
-type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory";
+type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats";
 
 export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: MenuScreen) => void) {
   const [kanjiMastered, vocabMastered, streak] = await Promise.all([
@@ -63,10 +68,32 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
 
   app.innerHTML = `
     <header class="menu-header">
-      <div class="menu-title">Nihongo Nin</div>
-      <div class="menu-subtitle">Kiên trì học tiếng Nhật</div>
+      <button id="author-info-btn" class="icon-btn menu-info-btn" title="Thông tin tác giả">ℹ</button>
+      <div class="menu-title-row">
+        <img src="${chrome.runtime.getURL("public/icons/icon48.png")}" class="menu-logo" alt="" />
+        <span class="menu-title">Nihongo Nin<span class="menu-title-jp">日本語忍</span></span>
+      </div>
+      <div class="menu-subtitle-quote">
+        石の上にも三年
+        <span class="menu-subtitle-note">(có công mài sắt, có ngày nên kim)</span>
+      </div>
       ${streak > 0 ? `<div class="streak-badge">🔥 ${streak} ngày liên tiếp</div>` : ""}
     </header>
+
+    <div id="author-info-overlay" class="author-info-overlay" style="display:none">
+      <div class="author-info-modal">
+        <button id="author-info-close" class="icon-btn author-info-close" title="Đóng">✕</button>
+        <div class="author-info-title">Thông tin tác giả</div>
+        <dl class="author-info-list">
+          <dt>Tác giả</dt>
+          <dd>Tamoki Nguyễn</dd>
+          <dt>Ngày tạo</dt>
+          <dd>20/08/2026</dd>
+          <dt>Liên hệ</dt>
+          <dd>0938947221 · <a href="https://github.com/TamokiLoi" target="_blank" rel="noopener">Github</a></dd>
+        </dl>
+      </div>
+    </div>
 
     <nav class="menu-list">
       <button class="menu-item" data-screen="search">
@@ -88,23 +115,37 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
       <button class="menu-item" data-screen="vocab">
         <span class="menu-item-icon">語</span>
         <span class="menu-item-body">
-          <span class="menu-item-title">Từ vựng</span>
+          <span class="menu-item-title">Goi</span>
           <span class="menu-item-desc">${ALL_VOCAB.length} từ, N4-N3${vocabMastered > 0 ? ` · ${vocabMastered} đã thuộc` : ""}</span>
         </span>
       </button>
 
+      ${
+        SHOW_JLPT_HISTORY_MENU_ITEM
+          ? `
       <button class="menu-item" data-screen="jlptHistory">
         <span class="menu-item-icon">📝</span>
         <span class="menu-item-body">
-          <span class="menu-item-title">Từ đã thi JLPT</span>
+          <span class="menu-item-title">Goi đã ra trong các kỳ JLPT</span>
           <span class="menu-item-desc">${ALL_JLPT_HISTORY.length} lượt xuất hiện, 2010-2024</span>
+        </span>
+      </button>
+      `
+          : ""
+      }
+
+      <button class="menu-item" disabled>
+        <span class="menu-item-icon">読</span>
+        <span class="menu-item-body">
+          <span class="menu-item-title">Luyện đọc</span>
+          <span class="menu-item-desc">Sắp ra mắt</span>
         </span>
       </button>
 
       <button class="menu-item" disabled>
         <span class="menu-item-icon">文</span>
         <span class="menu-item-body">
-          <span class="menu-item-title">Ngữ pháp</span>
+          <span class="menu-item-title">Bunpo</span>
           <span class="menu-item-desc">Sắp ra mắt</span>
         </span>
       </button>
@@ -114,6 +155,14 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
         <span class="menu-item-body">
           <span class="menu-item-title">Quiz</span>
           <span class="menu-item-desc">Trắc nghiệm Kanji & Từ vựng</span>
+        </span>
+      </button>
+
+      <button class="menu-item" data-screen="stats">
+        <span class="menu-item-icon">📊</span>
+        <span class="menu-item-body">
+          <span class="menu-item-title">Thống kê</span>
+          <span class="menu-item-desc">Từ đã thuộc, đang học, cần ôn lại</span>
         </span>
       </button>
     </nav>
@@ -128,6 +177,17 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
       <p id="reminder-apply-message" class="backup-message" style="display:none"></p>
     </div>
   `;
+
+  const authorOverlay = document.getElementById("author-info-overlay")!;
+  document.getElementById("author-info-btn")!.addEventListener("click", () => {
+    authorOverlay.style.display = "flex";
+  });
+  document.getElementById("author-info-close")!.addEventListener("click", () => {
+    authorOverlay.style.display = "none";
+  });
+  authorOverlay.addEventListener("click", (e) => {
+    if (e.target === authorOverlay) authorOverlay.style.display = "none";
+  });
 
   const isTab = document.body.classList.contains("tab-mode");
   document.querySelectorAll<HTMLButtonElement>(".menu-item[data-screen]").forEach((btn) => {
@@ -359,16 +419,20 @@ function wireReminderApplyBar() {
     ]);
 
     // Applying doubles as the old standalone "Thử ngay" button: fire one
-    // preview notification right away so the user can see what they just set.
-    const item = await pickReminderItem(contentType);
-    const { title, message: notificationMessage } = formatReminderNotification(item);
-    chrome.notifications.create({
-      type: "basic",
-      iconUrl: chrome.runtime.getURL("public/icons/icon128.png"),
-      title,
-      message: notificationMessage,
-      priority: 1,
-    });
+    // preview notification right away so the user can see what they just set
+    // -- but only for the card reminder, and only when it's actually on, so
+    // toggling just the quiz reminder doesn't also pop a Kanji/Từ vựng card.
+    if (reminderEnabled) {
+      const item = await pickReminderItem(contentType);
+      const { title, message: notificationMessage } = formatReminderNotification(item);
+      chrome.notifications.create({
+        type: "basic",
+        iconUrl: chrome.runtime.getURL("public/icons/icon128.png"),
+        title,
+        message: notificationMessage,
+        priority: 1,
+      });
+    }
 
     message.style.display = "block";
     message.className = "backup-message backup-message-ok";

@@ -9,10 +9,19 @@ import {
   resolveJumpState,
   type KanjiViewerState,
 } from "../kanjiState.ts";
-import { getProgress, loadProgressMap, toggleFlag, filterByProgress, type ItemProgress } from "../progressState.ts";
+import {
+  getProgress,
+  loadProgressMap,
+  toggleFlag,
+  toggleMastered,
+  filterByProgress,
+  bucketFor,
+  type ItemProgress,
+} from "../progressState.ts";
 import { expandToTabButtonHtml, wireExpandToTabButton } from "../tabMode.ts";
 import { vocabForKanjiChar } from "../kanjiVocabLinks.ts";
 import { levelDotHtml } from "../levelColors.ts";
+import { formatHanViet } from "../../hanVietFormat.ts";
 
 function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   if (k.meanings.vi.length > 0) {
@@ -110,15 +119,17 @@ async function paint(
       !k
         ? `<p class="empty">Không có Kanji nào ở bộ lọc này.</p>`
         : `
-    <main class="card">
+    <main class="card card-${bucketFor(progress ?? undefined)}">
       <div class="level-badge" data-level="${k.level}">${k.level}</div>
       <button id="flag" class="flag-btn ${progress?.flagged ? "flagged" : ""}" title="${progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}">🚩</button>
-      ${progress?.mastered ? `<div class="mastered-badge" title="Đã trả lời đúng ${progress.correctStreak} lần liên tiếp trong Quiz">✓ Đã thuộc</div>` : ""}
+      <button id="mastered-toggle" class="mastered-badge ${progress?.mastered ? "mastered-on" : ""}" title="${progress?.mastered ? "Bỏ đánh dấu đã thuộc" : "Đánh dấu đã thuộc"}">
+        ${progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
+      </button>
       <div class="character">${k.character}</div>
 
       <dl class="details">
         <dt>Hán Việt</dt>
-        <dd class="hanviet">${k.hanViet.length > 0 ? k.hanViet.join(", ") : "—"}</dd>
+        <dd class="hanviet">${formatHanViet(k.hanViet)}</dd>
 
         <dt>Âm On</dt>
         <dd>${k.readings.on.length > 0 ? k.readings.on.join("、") : "—"}</dd>
@@ -246,6 +257,12 @@ async function paint(
   document.getElementById("flag")?.addEventListener("click", async () => {
     if (!k) return;
     await toggleFlag(k.id);
+    await paint(app, state, list, onBack, onOpenVocab);
+  });
+
+  document.getElementById("mastered-toggle")?.addEventListener("click", async () => {
+    if (!k) return;
+    await toggleMastered(k.id);
     await paint(app, state, list, onBack, onOpenVocab);
   });
 }

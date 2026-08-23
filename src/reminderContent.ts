@@ -6,6 +6,7 @@ import type { VocabCard } from "./popup/vocabState.ts";
 import { pickReminderKanji } from "./popup/kanjiState.ts";
 import { pickReminderVocab } from "./popup/vocabState.ts";
 import type { ReminderContentType } from "./reminder.ts";
+import { formatHanViet } from "./hanVietFormat.ts";
 
 export type ReminderItem = { kind: "kanji"; data: Kanji } | { kind: "vocab"; data: VocabCard };
 
@@ -26,13 +27,13 @@ export function formatReminderNotification(item: ReminderItem): { title: string;
     const k = item.data;
     return {
       title: `${k.character}  —  ${k.level}`,
-      message: `Hán Việt: ${k.hanViet.join(", ") || "—"}\nNghĩa: ${meaningForKanji(k)}`,
+      message: `Hán Việt: ${formatHanViet(k.hanViet)}\nNghĩa: ${meaningForKanji(k)}`,
     };
   }
   const v = item.data;
   const showReading = v.reading && v.reading !== v.word;
   return {
     title: `${v.word}${showReading ? `　${v.reading}` : ""}  —  ${v.level}`,
-    message: `${v.hanViet.length > 0 ? `Hán Việt: ${v.hanViet.join(", ")}\n` : ""}Nghĩa: ${v.meaningVi || "—"}`,
+    message: `${v.hanViet.length > 0 ? `Hán Việt: ${formatHanViet(v.hanViet)}\n` : ""}Nghĩa: ${v.meaningVi || "—"}`,
   };
 }

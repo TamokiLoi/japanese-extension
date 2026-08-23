@@ -12,11 +12,13 @@ import {
   type QuizContentType,
   type QuizSettings,
   type QuizSession,
+  type KanjiQuizMode,
   type VocabQuizMode,
 } from "../quizState.ts";
 import { recordAnswer } from "../progressState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../vocabState.ts";
+import { formatHanViet } from "../../hanVietFormat.ts";
 
 export async function renderQuizScreen(
   app: HTMLElement,
@@ -97,16 +99,38 @@ async function paintSetup(
         </div>
       </div>
 
+      <div class="quiz-setup-group" id="kanji-mode-group" style="${settings.contentType === "kanji" ? "" : "display:none"}">
+        <div class="quiz-setup-label">Dạng câu hỏi</div>
+        <div class="quiz-radio-row">
+          <label class="quiz-radio">
+            <input type="radio" name="kanji-mode" value="meaning" ${settings.kanjiMode === "meaning" ? "checked" : ""} />
+            Xem chữ, đoán nghĩa
+          </label>
+          <label class="quiz-radio">
+            <input type="radio" name="kanji-mode" value="character" ${settings.kanjiMode === "character" ? "checked" : ""} />
+            Xem nghĩa, đoán chữ
+          </label>
+        </div>
+      </div>
+
       <div class="quiz-setup-group" id="vocab-mode-group" style="${settings.contentType === "vocab" ? "" : "display:none"}">
         <div class="quiz-setup-label">Dạng câu hỏi</div>
         <div class="quiz-radio-row">
           <label class="quiz-radio">
             <input type="radio" name="vocab-mode" value="meaning" ${settings.vocabMode === "meaning" ? "checked" : ""} />
-            Đoán nghĩa
+            Xem từ, đoán nghĩa
           </label>
           <label class="quiz-radio">
             <input type="radio" name="vocab-mode" value="reading" ${settings.vocabMode === "reading" ? "checked" : ""} />
-            Đoán cách đọc
+            Xem từ, đoán cách đọc
+          </label>
+          <label class="quiz-radio">
+            <input type="radio" name="vocab-mode" value="wordFromMeaning" ${settings.vocabMode === "wordFromMeaning" ? "checked" : ""} />
+            Xem nghĩa, đoán từ
+          </label>
+          <label class="quiz-radio">
+            <input type="radio" name="vocab-mode" value="wordFromReading" ${settings.vocabMode === "wordFromReading" ? "checked" : ""} />
+            Xem cách đọc, đoán từ
           </label>
         </div>
       </div>
@@ -141,6 +165,14 @@ async function paintSetup(
     });
   });
 
+  app.querySelectorAll<HTMLInputElement>('input[name="kanji-mode"]').forEach((input) => {
+    input.addEventListener("change", async () => {
+      const newSettings: QuizSettings = { ...settings, kanjiMode: input.value as KanjiQuizMode };
+      await saveQuizSettings(newSettings);
+      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab);
+    });
+  });
+
   app.querySelectorAll<HTMLInputElement>('input[name="vocab-mode"]').forEach((input) => {
     input.addEventListener("change", async () => {
       const newSettings: QuizSettings = { ...settings, vocabMode: input.value as VocabQuizMode };
@@ -158,7 +190,7 @@ async function paintSetup(
     const questionCount = Number((document.getElementById("question-count") as HTMLSelectElement).value);
     const questions =
       settings.contentType === "kanji"
-        ? await buildKanjiQuiz(questionCount)
+        ? await buildKanjiQuiz(settings.kanjiMode, questionCount)
         : await buildVocabQuiz(settings.vocabMode, questionCount);
     if (questions.length === 0) {
       await paintSetup(
@@ -193,7 +225,7 @@ function detailHtml(q: QuizQuestion): string {
     if (!k) return "";
     return `
       <div class="quiz-detail">
-        ${k.hanViet.length > 0 ? `<div class="quiz-detail-row"><b>Hán Việt:</b> ${k.hanViet.join(", ")}</div>` : ""}
+        ${k.hanViet.length > 0 ? `<div class="quiz-detail-row"><b>Hán Việt:</b> ${formatHanViet(k.hanViet)}</div>` : ""}
         ${k.readings.on.length > 0 || k.readings.kun.length > 0 ? `<div class="quiz-detail-row"><b>Âm đọc:</b> ${[...k.readings.on, ...k.readings.kun].join("、")}</div>` : ""}
         ${k.mnemonic ? `<div class="quiz-detail-row"><b>Mẹo nhớ:</b> ${k.mnemonic}</div>` : ""}
         <button class="quiz-detail-link" data-kind="kanji" data-id="${k.id}">Xem thẻ đầy đủ →</button>
@@ -204,8 +236,9 @@ function detailHtml(q: QuizQuestion): string {
   if (!v) return "";
   return `
     <div class="quiz-detail">
+      ${v.hanViet.length > 0 ? `<div class="quiz-detail-row"><b>Hán Việt:</b> ${formatHanViet(v.hanViet)}</div>` : ""}
+      ${v.meaningVi ? `<div class="quiz-detail-row"><b>Nghĩa:</b> ${v.meaningVi}</div>` : ""}
       ${v.reading ? `<div class="quiz-detail-row"><b>Cách đọc:</b> ${v.reading}</div>` : ""}
-      ${v.hanViet.length > 0 ? `<div class="quiz-detail-row"><b>Hán Việt:</b> ${v.hanViet.join(", ")}</div>` : ""}
       ${v.mnemonic.length > 0 ? `<div class="quiz-detail-row"><b>Mẹo nhớ:</b> ${v.mnemonic.join(" / ")}</div>` : ""}
       ${v.example ? `<div class="quiz-detail-row">${v.example}${v.exampleVi ? `<br /><span class="muted">${v.exampleVi}</span>` : ""}</div>` : ""}
       <button class="quiz-detail-link" data-kind="vocab" data-id="${v.id}">Xem thẻ đầy đủ →</button>
@@ -248,11 +281,12 @@ async function paintPlay(
     <main class="quiz-question">
       <div class="level-badge" data-level="${q.level}">${q.level}</div>
       <div class="quiz-prompt-label">${q.promptLabel}</div>
-      <div class="quiz-prompt">${q.prompt}</div>
+      <div class="quiz-prompt ${q.prompt.length > 6 ? "quiz-prompt-long" : ""}">${q.prompt}</div>
       <div class="quiz-choices">
         ${q.choices
           .map((c, i) => {
             const classes = ["quiz-choice"];
+            if (q.kind === "kanji" && c.text.length === 1) classes.push("quiz-choice-char");
             if (answered !== null) {
               if (c.correct) classes.push("quiz-choice-correct");
               else if (i === answered) classes.push("quiz-choice-wrong");
@@ -349,10 +383,6 @@ function paintResult(
   const unanswered = session.answers.filter((a) => a === null).length;
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
 
-  const wrongEntries = session.questions
-    .map((q, i) => ({ q, a: session.answers[i] }))
-    .filter(({ a, q }) => a !== null && !q.choices[a].correct);
-
   app.innerHTML = `
     <header class="toolbar">
       <button id="back" class="icon-btn" title="Về menu">←</button>
@@ -362,22 +392,22 @@ function paintResult(
       <div class="quiz-result-score">${score} / ${total}</div>
       <div class="quiz-result-pct">${pct}% đúng${unanswered > 0 ? ` · ${unanswered} câu chưa trả lời` : ""}</div>
       <button id="retry" class="primary-action-btn">Làm lại</button>
-      ${
-        wrongEntries.length > 0
-          ? `<button id="review-toggle" class="secondary-action-btn">Xem lại ${wrongEntries.length} câu sai</button>`
-          : ""
-      }
-      <div id="review-list" class="quiz-review-list" style="display:none">
-        ${wrongEntries
-          .map(
-            ({ q, a }) => `
-          <div class="quiz-review-item">
-            <div class="quiz-review-prompt">${q.promptLabel}: <b>${q.prompt}</b></div>
-            <div class="quiz-review-chosen">Bạn chọn: ${q.choices[a!].text}</div>
-            <div class="quiz-review-correct">Đáp án đúng: ${q.choices.find((c) => c.correct)!.text}</div>
-          </div>
-        `,
-          )
+      <div class="quiz-result-review-label">Bấm vào 1 câu để xem lại chi tiết</div>
+      <div class="quiz-review-list">
+        ${session.questions
+          .map((q, i) => {
+            const a = session.answers[i];
+            const correct = a !== null && q.choices[a].correct;
+            const stateClass = a === null ? "" : correct ? "quiz-review-item-correct" : "quiz-review-item-wrong";
+            const status = a === null ? "Chưa trả lời" : correct ? "Đúng" : "Sai";
+            return `
+          <button class="quiz-review-item ${stateClass}" data-index="${i}">
+            <span class="quiz-review-num">${i + 1}</span>
+            <span class="quiz-review-prompt">${q.prompt}</span>
+            <span class="quiz-review-status">${status}</span>
+          </button>
+        `;
+          })
           .join("")}
       </div>
     </main>
@@ -387,11 +417,10 @@ function paintResult(
     const settings = await loadQuizSettings();
     await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab);
   });
-  document.getElementById("review-toggle")?.addEventListener("click", () => {
-    const list = document.getElementById("review-list")!;
-    const btn = document.getElementById("review-toggle")!;
-    const showing = list.style.display !== "none";
-    list.style.display = showing ? "none" : "flex";
-    btn.textContent = showing ? `Xem lại ${wrongEntries.length} câu sai` : "Ẩn danh sách câu sai";
+  app.querySelectorAll<HTMLButtonElement>(".quiz-review-item").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const reviewSession = { ...session, currentIndex: Number(btn.dataset.index) };
+      await paintPlay(app, reviewSession, onBack, onOpenKanji, onOpenVocab);
+    });
   });
 }

@@ -2,6 +2,7 @@ import { ALL_KANJI } from "../kanjiState.ts";
 import { ALL_VOCAB } from "../vocabState.ts";
 import { expandToTabButtonHtml, wireExpandToTabButton } from "../tabMode.ts";
 import { levelDotHtml } from "../levelColors.ts";
+import { formatHanViet } from "../../hanVietFormat.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 
 const MAX_RESULTS = 40;
@@ -30,7 +31,7 @@ function searchKanji(q: string): SearchResult[] {
     id: k.id,
     level: k.level,
     primary: k.character,
-    secondary: k.hanViet.join(", "),
+    secondary: formatHanViet(k.hanViet, ""),
     meaning: k.meanings.vi[0] ?? k.meanings.viDraft?.[0] ?? k.meanings.en[0] ?? "",
   }));
 }

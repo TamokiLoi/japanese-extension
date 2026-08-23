@@ -3,13 +3,20 @@ import type { VocabCard } from "./vocabState.ts";
 import { getOrderedList as getKanjiOrderedList, loadViewerState as loadKanjiViewerState } from "./kanjiState.ts";
 import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabViewerState } from "./vocabState.ts";
 import { loadProgressMap, pickWeighted, type ProgressMap } from "./progressState.ts";
+import { formatHanViet } from "../hanVietFormat.ts";
 
 export const DEFAULT_QUESTION_COUNT = 10;
 export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30];
 const CHOICE_COUNT = 4;
 
 export type QuizContentType = "kanji" | "vocab";
-export type VocabQuizMode = "meaning" | "reading";
+// "meaning": show the kanji, pick its Hán Việt/nghĩa. "character": the
+// reverse -- show Hán Việt/nghĩa as the prompt, pick the matching kanji.
+export type KanjiQuizMode = "meaning" | "character";
+// "meaning"/"reading": show the word, pick its meaning/reading. The
+// "wordFrom*" pair reverses that -- show the meaning or reading as the
+// prompt, pick the matching word.
+export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFromReading";
 
 export interface QuizChoice {
   text: string;
@@ -27,6 +34,12 @@ export interface QuizQuestion {
 
 function kanjiMeaning(k: Kanji): string {
   return k.meanings.vi.join(", ") || k.meanings.viDraft?.join(", ") || k.meanings.en.join(", ") || "?";
+}
+
+// Kanji quiz answers show both readings, e.g. "ĐIỀN - ruộng", so a correct
+// pick can be recognized by Hán Việt reading alone even without the meaning.
+function kanjiAnswerText(k: Kanji): string {
+  return `${formatHanViet(k.hanViet, "?")} - ${kanjiMeaning(k)}`;
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -91,33 +104,49 @@ function buildQuestion<T extends { id: string; level: JlptLevel }>(
   return { id: target.id, kind, level: target.level, promptLabel, prompt: promptOf(target), choices };
 }
 
-export async function buildKanjiQuiz(questionCount: number): Promise<QuizQuestion[]> {
+export async function buildKanjiQuiz(mode: KanjiQuizMode, questionCount: number): Promise<QuizQuestion[]> {
   const state = await loadKanjiViewerState();
   const pool = getKanjiOrderedList({ ...state, randomOrder: false });
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
   const targets = pickQuestionTargets(pool, progressMap, questionCount);
   return targets
-    .map((k) => buildQuestion(pool, k, "kanji", kanjiMeaning, "Chữ Hán này nghĩa là gì?", (item) => item.character))
+    .map((k) =>
+      mode === "character"
+        ? buildQuestion(pool, k, "kanji", (item) => item.character, "Đây là chữ Hán nào?", kanjiAnswerText)
+        : buildQuestion(pool, k, "kanji", kanjiAnswerText, "Chữ Hán này nghĩa là gì?", (item) => item.character),
+    )
     .filter((q): q is QuizQuestion => q !== null);
 }
 
 export async function buildVocabQuiz(mode: VocabQuizMode, questionCount: number): Promise<QuizQuestion[]> {
   const state = await loadVocabViewerState();
   let pool = getVocabOrderedList({ ...state, randomOrder: false });
-  if (mode === "reading") pool = pool.filter((v) => v.reading && v.reading !== v.word);
+  if (mode === "reading" || mode === "wordFromReading") pool = pool.filter((v) => v.reading && v.reading !== v.word);
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
   const targets = pickQuestionTargets(pool, progressMap, questionCount);
-  const answerOf = (v: VocabCard) => (mode === "meaning" ? v.meaningVi || "?" : (v.reading as string));
-  const promptLabel = mode === "meaning" ? "Từ này nghĩa là gì?" : "Từ này đọc là gì?";
+
+  const meaningOf = (v: VocabCard) => v.meaningVi || "?";
+  const readingOf = (v: VocabCard) => v.reading as string;
+  const wordOf = (v: VocabCard) => v.word;
+
+  const config: Record<VocabQuizMode, { answerOf: (v: VocabCard) => string; promptLabel: string; promptOf: (v: VocabCard) => string }> = {
+    meaning: { answerOf: meaningOf, promptLabel: "Từ này nghĩa là gì?", promptOf: wordOf },
+    reading: { answerOf: readingOf, promptLabel: "Từ này đọc là gì?", promptOf: wordOf },
+    wordFromMeaning: { answerOf: wordOf, promptLabel: "Từ nào có nghĩa này?", promptOf: meaningOf },
+    wordFromReading: { answerOf: wordOf, promptLabel: "Từ nào đọc như thế này?", promptOf: readingOf },
+  };
+  const { answerOf, promptLabel, promptOf } = config[mode];
+
   return targets
-    .map((v) => buildQuestion(pool, v, "vocab", answerOf, promptLabel, (item) => item.word))
+    .map((v) => buildQuestion(pool, v, "vocab", answerOf, promptLabel, promptOf))
     .filter((q): q is QuizQuestion => q !== null);
 }
 
 export interface QuizSettings {
   contentType: QuizContentType;
+  kanjiMode: KanjiQuizMode;
   vocabMode: VocabQuizMode;
   questionCount: number;
 }
@@ -129,6 +158,7 @@ export async function loadQuizSettings(): Promise<QuizSettings> {
   const saved = stored[QUIZ_SETTINGS_KEY] as Partial<QuizSettings> | undefined;
   return {
     contentType: saved?.contentType ?? "kanji",
+    kanjiMode: saved?.kanjiMode ?? "meaning",
     vocabMode: saved?.vocabMode ?? "meaning",
     questionCount: saved?.questionCount ?? DEFAULT_QUESTION_COUNT,
   };

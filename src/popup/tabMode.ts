@@ -12,7 +12,7 @@ export function expandToTabButtonHtml(): string {
   return `<button id="expand-tab" class="icon-btn" title="Mở ở tab riêng cho thoải mái hơn">⤢</button>`;
 }
 
-export function wireExpandToTabButton(screenHash: "kanji" | "vocab" | "jlptHistory" | "search"): void {
+export function wireExpandToTabButton(screenHash: "kanji" | "vocab" | "jlptHistory" | "search" | "stats"): void {
   document.getElementById("expand-tab")?.addEventListener("click", () => {
     chrome.tabs.create({ url: chrome.runtime.getURL(`index.html?tab=1#${screenHash}`) });
     window.close();

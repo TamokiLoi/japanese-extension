@@ -11,9 +11,18 @@ import {
   type VocabSource,
   type VocabViewerState,
 } from "../vocabState.ts";
-import { getProgress, loadProgressMap, toggleFlag, filterByProgress, type ItemProgress } from "../progressState.ts";
+import {
+  getProgress,
+  loadProgressMap,
+  toggleFlag,
+  toggleMastered,
+  filterByProgress,
+  bucketFor,
+  type ItemProgress,
+} from "../progressState.ts";
 import { expandToTabButtonHtml, wireExpandToTabButton } from "../tabMode.ts";
 import { kanjiIdForChar } from "../kanjiVocabLinks.ts";
+import { formatHanViet } from "../../hanVietFormat.ts";
 
 // Renders a word with each character that's a known kanji wrapped in a
 // clickable span (data-kanji-id) so it can jump to that kanji's card.
@@ -111,10 +120,12 @@ async function paint(
       !v
         ? `<p class="empty">Không có từ vựng nào ở bộ lọc này.</p>`
         : `
-    <main class="card">
+    <main class="card card-${bucketFor(progress ?? undefined)}">
       <div class="level-badge" data-level="${v.level}">${v.level}</div>
       <button id="flag" class="flag-btn ${progress?.flagged ? "flagged" : ""}" title="${progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}">🚩</button>
-      ${progress?.mastered ? `<div class="mastered-badge" title="Đã trả lời đúng ${progress.correctStreak} lần liên tiếp trong Quiz">✓ Đã thuộc</div>` : ""}
+      <button id="mastered-toggle" class="mastered-badge ${progress?.mastered ? "mastered-on" : ""}" title="${progress?.mastered ? "Bỏ đánh dấu đã thuộc" : "Đánh dấu đã thuộc"}">
+        ${progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
+      </button>
       <div class="vocab-source-tag">${SOURCE_LABELS[v.source]}</div>
       <div class="vocab-word">${renderWordWithKanjiLinks(v.word)}</div>
       ${v.reading ? `<div class="vocab-reading">${v.reading}</div>` : ""}
@@ -122,7 +133,7 @@ async function paint(
       <dl class="details">
         ${
           v.hanViet.length > 0
-            ? `<dt>Hán Việt</dt><dd class="hanviet">${v.hanViet.join(", ")}</dd>`
+            ? `<dt>Hán Việt</dt><dd class="hanviet">${formatHanViet(v.hanViet)}</dd>`
             : ""
         }
 
@@ -231,6 +242,12 @@ async function paint(
   document.getElementById("flag")?.addEventListener("click", async () => {
     if (!v) return;
     await toggleFlag(v.id);
+    await paint(app, state, list, onBack, onOpenKanji);
+  });
+
+  document.getElementById("mastered-toggle")?.addEventListener("click", async () => {
+    if (!v) return;
+    await toggleMastered(v.id);
     await paint(app, state, list, onBack, onOpenKanji);
   });
 }

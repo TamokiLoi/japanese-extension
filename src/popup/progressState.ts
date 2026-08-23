@@ -77,6 +77,41 @@ export async function toggleFlag(id: string): Promise<ItemProgress> {
   return cur;
 }
 
+// Manual override for "mastered", separate from the automatic streak-based
+// mark in recordAnswer -- lets a card be ticked done without grinding it in
+// Quiz. It doesn't touch correctStreak, so a later wrong Quiz answer still
+// resets mastered back to false the normal way.
+export async function toggleMastered(id: string): Promise<ItemProgress> {
+  const map = await loadProgressMap();
+  const cur = { ...(map[id] ?? defaultProgress()) };
+  cur.mastered = !cur.mastered;
+  map[id] = cur;
+  await saveProgressMap(map);
+  return cur;
+}
+
+// One-word classification of a card's study state, used by the Stats
+// screen to group "đã thuộc / đang học / cần ôn lại / chưa học". Flagged
+// wins over mastered since it's an explicit manual "cần học lại" from the
+// user, even for a card that happened to hit the mastery streak before.
+export type ProgressBucket = "mastered" | "flagged" | "learning" | "new";
+
+export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {
+  if (!progress || progress.lastSeenAt === 0) return "new";
+  if (progress.flagged) return "flagged";
+  if (progress.mastered) return "mastered";
+  return "learning";
+}
+
+export function countBuckets<T extends { id: string }>(
+  items: T[],
+  map: ProgressMap,
+): Record<ProgressBucket, number> {
+  const counts: Record<ProgressBucket, number> = { mastered: 0, flagged: 0, learning: 0, new: 0 };
+  for (const item of items) counts[bucketFor(map[item.id])]++;
+  return counts;
+}
+
 // "all": no filtering. "unmastered": hide cards already mastered (keeps
 // flagged-but-mastered cards out too -- mastered wins once set). "flagged":
 // only cards the user manually marked as difficult.
