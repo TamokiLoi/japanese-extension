@@ -37,6 +37,21 @@ function formatInterval(minutes: number): string {
   return `${minutes / 60} giờ`;
 }
 
+function clampIntervalMinutes(minutes: number): number {
+  if (!Number.isFinite(minutes)) return MIN_INTERVAL_MINUTES;
+  return Math.min(MAX_INTERVAL_MINUTES, Math.max(MIN_INTERVAL_MINUTES, Math.round(minutes)));
+}
+
+// Reads the interval currently selected in one reminder row (preset select,
+// or the custom number input when "Tùy chỉnh..." is picked) without
+// persisting anything -- used both while editing a row and by the single
+// bottom "Áp dụng" button that saves every row at once.
+function readRowIntervalMinutes(intervalSelect: HTMLSelectElement, customInput: HTMLInputElement): number {
+  return intervalSelect.value === CUSTOM_OPTION_VALUE
+    ? clampIntervalMinutes(Number(customInput.value))
+    : Number(intervalSelect.value);
+}
+
 type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory";
 
 export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: MenuScreen) => void) {
@@ -108,6 +123,10 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
 
     <div id="reminder"></div>
     <div id="quiz-reminder"></div>
+    <div class="reminder-apply-bar">
+      <button id="reminder-apply" type="button" class="reminder-apply-btn">Áp dụng cài đặt nhắc nhở</button>
+      <p id="reminder-apply-message" class="backup-message" style="display:none"></p>
+    </div>
   `;
 
   const isTab = document.body.classList.contains("tab-mode");
@@ -135,6 +154,7 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
   ]);
   renderReminder(reminderSettings);
   renderQuizReminder(quizReminderSettings);
+  wireReminderApplyBar();
 }
 
 const CUSTOM_OPTION_VALUE = "custom";
@@ -144,18 +164,17 @@ function renderReminder(settings: ReminderSettings) {
   const el = document.getElementById("reminder")!;
   el.innerHTML = `
     <section class="reminder">
-      <div class="reminder-row">
+      <div class="reminder-row reminder-row-main">
         <label class="reminder-toggle">
           <input type="checkbox" id="reminder-enabled" ${settings.enabled ? "checked" : ""} />
           Nhắc ôn tập mỗi
         </label>
-        <select id="reminder-interval" ${settings.enabled ? "" : "disabled"}>
+        <select id="reminder-interval" class="reminder-select" ${settings.enabled ? "" : "disabled"}>
           ${INTERVAL_OPTIONS_MINUTES.map(
             (m) => `<option value="${m}" ${isPreset && m === settings.intervalMinutes ? "selected" : ""}>${formatInterval(m)}</option>`,
           ).join("")}
           <option value="${CUSTOM_OPTION_VALUE}" ${isPreset ? "" : "selected"}>Tùy chỉnh...</option>
         </select>
-        <button id="reminder-test" type="button" title="Gửi thử một thông báo ngay">Thử ngay</button>
       </div>
       <div class="reminder-row reminder-custom" style="${isPreset ? "display:none" : ""}">
         <input
@@ -169,12 +188,24 @@ function renderReminder(settings: ReminderSettings) {
           ${settings.enabled ? "" : "disabled"}
         />
         <span class="muted">phút (tối thiểu ${MIN_INTERVAL_MINUTES})</span>
-        <button id="reminder-custom-apply" type="button" ${settings.enabled ? "" : "disabled"}>Áp dụng</button>
+        <button id="reminder-custom-apply" type="button" ${settings.enabled ? "" : "disabled"}>Xong</button>
       </div>
-      <div class="reminder-row">
-        <label class="reminder-toggle" for="reminder-content-type">Nội dung nhắc</label>
-        <select id="reminder-content-type" ${settings.enabled ? "" : "disabled"}>
-          ${(Object.keys(CONTENT_TYPE_LABELS) as ReminderContentType[])
+      <div class="reminder-row reminder-row-main">
+        <label class="reminder-toggle">
+          <input
+            type="checkbox"
+            id="reminder-content-specific"
+            ${settings.contentType !== "both" ? "checked" : ""}
+            ${settings.enabled ? "" : "disabled"}
+          />
+          Nội dung nhắc
+        </label>
+        <select
+          id="reminder-content-type"
+          class="reminder-select"
+          ${settings.enabled && settings.contentType !== "both" ? "" : "disabled"}
+        >
+          ${(["kanji", "vocab"] as ReminderContentType[])
             .map(
               (t) =>
                 `<option value="${t}" ${t === settings.contentType ? "selected" : ""}>${CONTENT_TYPE_LABELS[t]}</option>`,
@@ -189,74 +220,44 @@ function renderReminder(settings: ReminderSettings) {
   const intervalSelect = document.getElementById("reminder-interval") as HTMLSelectElement;
   const customRow = document.querySelector(".reminder-custom") as HTMLElement;
   const customInput = document.getElementById("reminder-custom-input") as HTMLInputElement;
+  const contentSpecificCheckbox = document.getElementById("reminder-content-specific") as HTMLInputElement;
   const contentTypeSelect = document.getElementById("reminder-content-type") as HTMLSelectElement;
+  const customApply = document.getElementById("reminder-custom-apply") as HTMLButtonElement;
 
-  function clampInterval(minutes: number): number {
-    if (!Number.isFinite(minutes)) return MIN_INTERVAL_MINUTES;
-    return Math.min(MAX_INTERVAL_MINUTES, Math.max(MIN_INTERVAL_MINUTES, Math.round(minutes)));
-  }
-
-  async function persist(intervalMinutes: number) {
-    await persistReminderSettings({
-      enabled: enabledInput.checked,
-      intervalMinutes,
-      contentType: contentTypeSelect.value as ReminderContentType,
-    });
-  }
-
-  enabledInput.addEventListener("change", async () => {
+  // Rows only update their own enabled/visible state here -- nothing is
+  // persisted until the user presses the single "Áp dụng" button at the
+  // bottom of the menu screen (see wireReminderApplyBar), so every field
+  // across both reminder sections is saved together in one shot.
+  enabledInput.addEventListener("change", () => {
     intervalSelect.disabled = !enabledInput.checked;
     customInput.disabled = !enabledInput.checked;
-    contentTypeSelect.disabled = !enabledInput.checked;
-    (document.getElementById("reminder-custom-apply") as HTMLButtonElement).disabled = !enabledInput.checked;
-    const current =
-      intervalSelect.value === CUSTOM_OPTION_VALUE
-        ? clampInterval(Number(customInput.value))
-        : Number(intervalSelect.value);
-    await persist(current);
+    customApply.disabled = !enabledInput.checked;
+    contentSpecificCheckbox.disabled = !enabledInput.checked;
+    contentTypeSelect.disabled = !enabledInput.checked || !contentSpecificCheckbox.checked;
   });
 
-  contentTypeSelect.addEventListener("change", async () => {
-    const current =
-      intervalSelect.value === CUSTOM_OPTION_VALUE
-        ? clampInterval(Number(customInput.value))
-        : Number(intervalSelect.value);
-    await persist(current);
+  // Unchecked = remind with a mix of both kanji and vocab ("both"); checked
+  // reveals the select so the user can pin the reminder to just one of them.
+  contentSpecificCheckbox.addEventListener("change", () => {
+    contentTypeSelect.disabled = !contentSpecificCheckbox.checked;
   });
 
-  intervalSelect.addEventListener("change", async () => {
+  intervalSelect.addEventListener("change", () => {
     if (intervalSelect.value === CUSTOM_OPTION_VALUE) {
       customRow.style.display = "";
       customInput.focus();
       return;
     }
     customRow.style.display = "none";
-    await persist(Number(intervalSelect.value));
   });
 
-  document.getElementById("reminder-custom-apply")!.addEventListener("click", async () => {
-    const minutes = clampInterval(Number(customInput.value));
-    customInput.value = String(minutes);
-    await persist(minutes);
+  customApply.addEventListener("click", () => {
+    customInput.value = String(clampIntervalMinutes(Number(customInput.value)));
   });
 
-  customInput.addEventListener("keydown", async (e) => {
+  customInput.addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
-    const minutes = clampInterval(Number(customInput.value));
-    customInput.value = String(minutes);
-    await persist(minutes);
-  });
-
-  document.getElementById("reminder-test")!.addEventListener("click", async () => {
-    const item = await pickReminderItem(contentTypeSelect.value as ReminderContentType);
-    const { title, message } = formatReminderNotification(item);
-    chrome.notifications.create({
-      type: "basic",
-      iconUrl: chrome.runtime.getURL("public/icons/icon128.png"),
-      title,
-      message,
-      priority: 1,
-    });
+    customInput.value = String(clampIntervalMinutes(Number(customInput.value)));
   });
 }
 
@@ -269,12 +270,12 @@ function renderQuizReminder(settings: QuizReminderSettings) {
   const el = document.getElementById("quiz-reminder")!;
   el.innerHTML = `
     <section class="reminder">
-      <div class="reminder-row">
+      <div class="reminder-row reminder-row-main">
         <label class="reminder-toggle">
           <input type="checkbox" id="quiz-reminder-enabled" ${settings.enabled ? "checked" : ""} />
           Nhắc làm Quiz mỗi
         </label>
-        <select id="quiz-reminder-interval" ${settings.enabled ? "" : "disabled"}>
+        <select id="quiz-reminder-interval" class="reminder-select" ${settings.enabled ? "" : "disabled"}>
           ${INTERVAL_OPTIONS_MINUTES.map(
             (m) => `<option value="${m}" ${isPreset && m === settings.intervalMinutes ? "selected" : ""}>${formatInterval(m)}</option>`,
           ).join("")}
@@ -293,7 +294,7 @@ function renderQuizReminder(settings: QuizReminderSettings) {
           ${settings.enabled ? "" : "disabled"}
         />
         <span class="muted">phút (tối thiểu ${MIN_INTERVAL_MINUTES})</span>
-        <button id="quiz-reminder-custom-apply" type="button" ${settings.enabled ? "" : "disabled"}>Áp dụng</button>
+        <button id="quiz-reminder-custom-apply" type="button" ${settings.enabled ? "" : "disabled"}>Xong</button>
       </div>
     </section>
   `;
@@ -304,47 +305,74 @@ function renderQuizReminder(settings: QuizReminderSettings) {
   const customInput = document.getElementById("quiz-reminder-custom-input") as HTMLInputElement;
   const customApply = document.getElementById("quiz-reminder-custom-apply") as HTMLButtonElement;
 
-  function clampInterval(minutes: number): number {
-    if (!Number.isFinite(minutes)) return MIN_INTERVAL_MINUTES;
-    return Math.min(MAX_INTERVAL_MINUTES, Math.max(MIN_INTERVAL_MINUTES, Math.round(minutes)));
-  }
-
-  async function persist(intervalMinutes: number) {
-    await persistQuizReminderSettings({ enabled: enabledInput.checked, intervalMinutes });
-  }
-
-  enabledInput.addEventListener("change", async () => {
+  // Same deferred-save pattern as renderReminder: only local UI state
+  // changes here, the bottom "Áp dụng" button persists both sections at once.
+  enabledInput.addEventListener("change", () => {
     intervalSelect.disabled = !enabledInput.checked;
     customInput.disabled = !enabledInput.checked;
     customApply.disabled = !enabledInput.checked;
-    const current =
-      intervalSelect.value === CUSTOM_OPTION_VALUE
-        ? clampInterval(Number(customInput.value))
-        : Number(intervalSelect.value);
-    await persist(current);
   });
 
-  intervalSelect.addEventListener("change", async () => {
+  intervalSelect.addEventListener("change", () => {
     if (intervalSelect.value === CUSTOM_OPTION_VALUE) {
       customRow.style.display = "";
       customInput.focus();
       return;
     }
     customRow.style.display = "none";
-    await persist(Number(intervalSelect.value));
   });
 
-  customApply.addEventListener("click", async () => {
-    const minutes = clampInterval(Number(customInput.value));
-    customInput.value = String(minutes);
-    await persist(minutes);
+  customApply.addEventListener("click", () => {
+    customInput.value = String(clampIntervalMinutes(Number(customInput.value)));
   });
 
-  customInput.addEventListener("keydown", async (e) => {
+  customInput.addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
-    const minutes = clampInterval(Number(customInput.value));
-    customInput.value = String(minutes);
-    await persist(minutes);
+    customInput.value = String(clampIntervalMinutes(Number(customInput.value)));
+  });
+}
+
+function wireReminderApplyBar() {
+  const applyBtn = document.getElementById("reminder-apply") as HTMLButtonElement;
+  const message = document.getElementById("reminder-apply-message")!;
+
+  applyBtn.addEventListener("click", async () => {
+    const reminderEnabled = (document.getElementById("reminder-enabled") as HTMLInputElement).checked;
+    const reminderInterval = readRowIntervalMinutes(
+      document.getElementById("reminder-interval") as HTMLSelectElement,
+      document.getElementById("reminder-custom-input") as HTMLInputElement,
+    );
+    const contentSpecific = (document.getElementById("reminder-content-specific") as HTMLInputElement).checked;
+    const contentType: ReminderContentType = contentSpecific
+      ? ((document.getElementById("reminder-content-type") as HTMLSelectElement).value as ReminderContentType)
+      : "both";
+
+    const quizEnabled = (document.getElementById("quiz-reminder-enabled") as HTMLInputElement).checked;
+    const quizInterval = readRowIntervalMinutes(
+      document.getElementById("quiz-reminder-interval") as HTMLSelectElement,
+      document.getElementById("quiz-reminder-custom-input") as HTMLInputElement,
+    );
+
+    await Promise.all([
+      persistReminderSettings({ enabled: reminderEnabled, intervalMinutes: reminderInterval, contentType }),
+      persistQuizReminderSettings({ enabled: quizEnabled, intervalMinutes: quizInterval }),
+    ]);
+
+    // Applying doubles as the old standalone "Thử ngay" button: fire one
+    // preview notification right away so the user can see what they just set.
+    const item = await pickReminderItem(contentType);
+    const { title, message: notificationMessage } = formatReminderNotification(item);
+    chrome.notifications.create({
+      type: "basic",
+      iconUrl: chrome.runtime.getURL("public/icons/icon128.png"),
+      title,
+      message: notificationMessage,
+      priority: 1,
+    });
+
+    message.style.display = "block";
+    message.className = "backup-message backup-message-ok";
+    message.textContent = "Đã áp dụng cài đặt nhắc nhở.";
   });
 }
 

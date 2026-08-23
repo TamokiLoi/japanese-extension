@@ -245,8 +245,8 @@ body.tab-mode #app {
 .reminder {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 8px 12px;
+  gap: 4px;
+  padding: 6px 12px;
   border-top: 1px solid #e0e0e0;
   background: #f5f5f5;
   font-size: 12px;
@@ -257,6 +257,21 @@ body.tab-mode #app {
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
+}
+
+/* Rows that are just "label ... select" -- pin the label left and the
+   select right so every row's select lines up on a shared right edge. */
+.reminder-row-main {
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+/* Fixed width (not content-based) so every row's select starts at the same
+   x regardless of how long its selected option text is -- otherwise the
+   shorter "Từ vựng" option leaves a bigger gap than "1 phút" does and the
+   rows read as uneven even though they're all still right-aligned. */
+.reminder-select {
+  flex: 0 0 96px;
 }
 
 .reminder-custom input[type="number"] {
@@ -270,6 +285,14 @@ body.tab-mode #app {
   align-items: center;
   gap: 4px;
   cursor: pointer;
+}
+
+/* Align the "Nhắc ôn tập mỗi" and "Nội dung nhắc" rows in the first
+   reminder section onto the same column -- scoped to #reminder only so the
+   longer "Nhắc làm Quiz mỗi" label below isn't forced into the same width. */
+#reminder .reminder-toggle {
+  flex: 0 0 120px;
+  white-space: nowrap;
 }
 
 .reminder select {
@@ -292,7 +315,7 @@ body.tab-mode #app {
 
 /* Menu screen */
 .menu-header {
-  padding: 18px 16px 10px;
+  padding: 12px 16px 8px;
   text-align: center;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -324,15 +347,15 @@ body.tab-mode #app {
 .menu-list {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  gap: 8px;
+  padding: 8px;
+  gap: 6px;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 12px;
+  padding: 7px 12px;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background: #fff;
@@ -643,9 +666,12 @@ body.tab-mode .jlpt-list {
 }
 
 /* Backup/restore panel on the menu screen */
-.menu-backup-btn {
-  margin: 0 10px 8px;
-  width: calc(100% - 20px);
+/* #backup-toggle (id) so this width wins over the later, equal-specificity
+   .secondary-action-btn { width: 100% } rule below -- otherwise that 100%
+   plus this margin overflows the button 20px past the menu cards. */
+#backup-toggle.menu-backup-btn {
+  margin: 0 8px 6px;
+  width: calc(100% - 16px);
 }
 
 .backup-panel {
@@ -677,6 +703,31 @@ body.tab-mode .jlpt-list {
   background: #e6f7ea;
   color: #1c7a3a;
   border: 1px solid #b8e2c2;
+}
+
+.reminder-apply-bar {
+  padding: 8px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #e0e0e0;
+  background: #f5f5f5;
+}
+
+.reminder-apply-btn {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #b5340a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.reminder-apply-btn:hover {
+  background: #973007;
 }
 
 .backup-message-error {
