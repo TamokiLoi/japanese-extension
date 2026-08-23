@@ -4,14 +4,19 @@
 export const REMINDER_ALARM_NAME = "kanjiReminder";
 export const REMINDER_STORAGE_KEY = "reminderSettings";
 
+// "both" picks randomly between Kanji and vocab on each reminder.
+export type ReminderContentType = "kanji" | "vocab" | "both";
+
 export interface ReminderSettings {
   enabled: boolean;
   intervalMinutes: number;
+  contentType: ReminderContentType;
 }
 
 export const DEFAULT_REMINDER_SETTINGS: ReminderSettings = {
   enabled: false,
   intervalMinutes: 60,
+  contentType: "both",
 };
 
 export const INTERVAL_OPTIONS_MINUTES = [1, 3, 5, 10, 15, 30, 60, 120, 240];
@@ -37,5 +42,40 @@ export async function applyReminderAlarm(settings: ReminderSettings): Promise<vo
   await chrome.alarms.clear(REMINDER_ALARM_NAME);
   if (settings.enabled) {
     chrome.alarms.create(REMINDER_ALARM_NAME, { periodInMinutes: settings.intervalMinutes });
+  }
+}
+
+// Separate "go do a quiz" nudge, independent of the card reminder above --
+// no card content, just a periodic check-in. Unlike the card reminder it's
+// skipped entirely when a quiz tab is already open (see background/index.ts),
+// so it never nags while the user is already mid-quiz.
+export const QUIZ_REMINDER_ALARM_NAME = "quizReminder";
+export const QUIZ_REMINDER_STORAGE_KEY = "quizReminderSettings";
+
+export interface QuizReminderSettings {
+  enabled: boolean;
+  intervalMinutes: number;
+}
+
+export const DEFAULT_QUIZ_REMINDER_SETTINGS: QuizReminderSettings = {
+  enabled: false,
+  intervalMinutes: 30,
+};
+
+export async function loadQuizReminderSettings(): Promise<QuizReminderSettings> {
+  const stored = await chrome.storage.local.get(QUIZ_REMINDER_STORAGE_KEY);
+  const saved = stored[QUIZ_REMINDER_STORAGE_KEY] as Partial<QuizReminderSettings> | undefined;
+  return { ...DEFAULT_QUIZ_REMINDER_SETTINGS, ...saved };
+}
+
+export async function saveQuizReminderSettings(settings: QuizReminderSettings): Promise<void> {
+  await chrome.storage.local.set({ [QUIZ_REMINDER_STORAGE_KEY]: settings });
+  await applyQuizReminderAlarm(settings);
+}
+
+export async function applyQuizReminderAlarm(settings: QuizReminderSettings): Promise<void> {
+  await chrome.alarms.clear(QUIZ_REMINDER_ALARM_NAME);
+  if (settings.enabled) {
+    chrome.alarms.create(QUIZ_REMINDER_ALARM_NAME, { periodInMinutes: settings.intervalMinutes });
   }
 }

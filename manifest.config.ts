@@ -19,5 +19,5 @@ export default defineManifest({
     48: "public/icons/icon48.png",
     128: "public/icons/icon128.png",
   },
-  permissions: ["storage", "alarms", "notifications"],
+  permissions: ["storage", "alarms", "notifications", "tabs"],
 });

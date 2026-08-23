@@ -1,6 +1,19 @@
 :root {
   color-scheme: light;
   font-family: "Segoe UI", "Noto Sans", system-ui, sans-serif;
+
+  /* N5 (easiest) -> N1 (hardest), cool -> warm. Used by .level-badge and
+     .level-dot via [data-level] -- see levelColors.ts. */
+  --level-n5-bg: #dcf5ee;
+  --level-n5-text: #0d7a63;
+  --level-n4-bg: #e3f0fb;
+  --level-n4-text: #1a5fa8;
+  --level-n3-bg: #fdf3d8;
+  --level-n3-text: #96730a;
+  --level-n2-bg: #fde6d3;
+  --level-n2-text: #b5560a;
+  --level-n1-bg: #fbe0df;
+  --level-n1-text: #a32c1c;
 }
 
 * {
@@ -18,6 +31,39 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 380px;
+}
+
+/* Applied when index.html is opened as a full tab (Quiz) instead of the
+   320px popup -- see main.ts. Same layout, just wider and presented as a
+   centered card instead of filling the whole popup window. */
+html:has(body.tab-mode) {
+  background: #ececec;
+}
+
+body.tab-mode {
+  /* Center the fixed-width card with flexbox instead of a fixed body
+     width + margin:auto. That combination centers by computing a margin
+     from the viewport width, and that computed margin goes stale the
+     instant a vertical scrollbar appears/disappears (the backup panel
+     expanding is enough to trigger it) -- the ~15px scrollbar takes width
+     away from an already-fixed body, so it overflows and its content
+     visibly shifts/clips on the right edge. flexbox re-centers against
+     whatever width body actually has at layout time, so it can't go
+     stale the same way. */
+  display: flex;
+  justify-content: center;
+  width: auto;
+  margin: 0;
+  padding: 32px 0;
+}
+
+body.tab-mode #app {
+  width: 480px;
+  min-height: 560px;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .toolbar {
@@ -50,6 +96,8 @@ body {
 .counter {
   font-size: 12px;
   color: #666;
+  flex: 1;
+  text-align: center;
 }
 
 .card {
@@ -67,8 +115,54 @@ body {
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 10px;
+  /* Fallback if data-level is ever missing; each level overrides below. */
   background: #ffe8b3;
   color: #7a4b00;
+}
+
+.level-badge[data-level="N5"] {
+  background: var(--level-n5-bg);
+  color: var(--level-n5-text);
+}
+.level-badge[data-level="N4"] {
+  background: var(--level-n4-bg);
+  color: var(--level-n4-text);
+}
+.level-badge[data-level="N3"] {
+  background: var(--level-n3-bg);
+  color: var(--level-n3-text);
+}
+.level-badge[data-level="N2"] {
+  background: var(--level-n2-bg);
+  color: var(--level-n2-text);
+}
+.level-badge[data-level="N1"] {
+  background: var(--level-n1-bg);
+  color: var(--level-n1-text);
+}
+
+.level-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.level-dot[data-level="N5"] {
+  background: var(--level-n5-text);
+}
+.level-dot[data-level="N4"] {
+  background: var(--level-n4-text);
+}
+.level-dot[data-level="N3"] {
+  background: var(--level-n3-text);
+}
+.level-dot[data-level="N2"] {
+  background: var(--level-n2-text);
+}
+.level-dot[data-level="N1"] {
+  background: var(--level-n1-text);
 }
 
 .character {
@@ -216,6 +310,17 @@ body {
   margin-top: 2px;
 }
 
+.streak-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: #fff0e0;
+  color: #b5340a;
+}
+
 .menu-list {
   display: flex;
   flex-direction: column;
@@ -315,4 +420,545 @@ body {
   cursor: pointer;
   margin-left: auto;
   white-space: nowrap;
+}
+
+/* Vocab card */
+.vocab-source-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #e6f0ff;
+  color: #1a4b8f;
+}
+
+.vocab-word {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 24px 0 4px;
+  word-break: break-word;
+}
+
+.vocab-reading {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.example {
+  margin: 12px 0 0;
+  padding: 8px 10px;
+  background: #f0f7f0;
+  border: 1px solid #cfe8cf;
+  border-radius: 6px;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.example-jp {
+  color: #1a1a1a;
+}
+
+.example-vi {
+  color: #4a7a4a;
+}
+
+/* Progress: mastery badge + flag button (shared by Kanji and Vocab cards) */
+.progress-filter-row {
+  display: flex;
+  padding: 6px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.progress-filter-row select {
+  font-size: 12px;
+  padding: 3px 4px;
+}
+
+.flag-btn {
+  position: absolute;
+  top: 40px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  opacity: 0.35;
+  filter: grayscale(1);
+}
+
+.flag-btn:hover {
+  opacity: 0.7;
+}
+
+.flag-btn.flagged {
+  opacity: 1;
+  filter: none;
+}
+
+.related-vocab {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.related-vocab-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.related-vocab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.related-vocab-item {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.related-vocab-item:hover {
+  background: #fff6ee;
+  border-color: #f0c090;
+}
+
+.word-kanji-link {
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.word-kanji-link:hover {
+  background: #ffe8b3;
+}
+
+/* JLPT history list */
+.jlpt-filter-row {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.jlpt-filter-row select {
+  font-size: 12px;
+  padding: 3px 4px;
+}
+
+.jlpt-filter-row input[type="text"] {
+  flex: 1;
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.jlpt-list {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 420px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.jlpt-entry {
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+}
+
+.jlpt-entry-word {
+  font-weight: 600;
+}
+
+.jlpt-entry-meaning {
+  color: #333;
+  margin-top: 2px;
+}
+
+.jlpt-entry-occurrences {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #999;
+}
+
+body.tab-mode .jlpt-list {
+  max-height: 480px;
+}
+
+.search-result {
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background: #fff6ee;
+  border-color: #f0c090;
+}
+
+.search-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.search-tag-kanji {
+  background: #ffe8b3;
+  color: #7a4b00;
+}
+
+.search-tag-vocab {
+  background: #e6f0ff;
+  color: #1a4b8f;
+}
+
+.search-tag-level {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+  margin-left: 4px;
+}
+
+/* Backup/restore panel on the menu screen */
+.menu-backup-btn {
+  margin: 0 10px 8px;
+  width: calc(100% - 20px);
+}
+
+.backup-panel {
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 10px 10px;
+}
+
+.backup-import-label {
+  display: block;
+  text-align: center;
+}
+
+.backup-hint {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.backup-message {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.backup-message-ok {
+  background: #e6f7ea;
+  color: #1c7a3a;
+  border: 1px solid #b8e2c2;
+}
+
+.backup-message-error {
+  background: #fdeceb;
+  color: #a32c1c;
+  border: 1px solid #f0b8b0;
+}
+
+.mastered-badge {
+  position: absolute;
+  top: 40px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #d9f2df;
+  color: #1c7a3a;
+}
+
+/* Quiz */
+.quiz-setup {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.quiz-setup-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-setup-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+}
+
+.quiz-radio-row {
+  display: flex;
+  gap: 14px;
+}
+
+.quiz-radio {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.quiz-filter-note {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+}
+
+.quiz-error {
+  font-size: 12px;
+  color: #b5340a;
+  background: #fff0e6;
+  border: 1px solid #f0c090;
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin: 0;
+}
+
+.primary-action-btn {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #b5340a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.primary-action-btn:hover {
+  background: #973007;
+}
+
+.quiz-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.quiz-grid-cell {
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+
+.quiz-grid-cell:hover {
+  background: #f0f0f0;
+}
+
+.quiz-grid-cell-current {
+  border-color: #b5340a;
+  border-width: 2px;
+  font-weight: 700;
+}
+
+.quiz-grid-cell-correct {
+  background: #e6f7ea;
+  border-color: #2fa84f;
+  color: #1c7a3a;
+}
+
+.quiz-grid-cell-wrong {
+  background: #fdeceb;
+  border-color: #d9432e;
+  color: #a32c1c;
+}
+
+.quiz-question {
+  flex: 1;
+  padding: 20px 16px 16px;
+  text-align: center;
+  position: relative;
+}
+
+.quiz-question .level-badge {
+  position: static;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.quiz-prompt-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.quiz-prompt {
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+
+.quiz-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-choice {
+  padding: 10px 12px;
+  font-size: 13px;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.quiz-choice:not(:disabled):hover {
+  background: #f5f5f5;
+}
+
+.quiz-choice:disabled {
+  cursor: default;
+}
+
+.quiz-choice-correct {
+  border-color: #2fa84f;
+  background: #e6f7ea;
+  color: #1c7a3a;
+  font-weight: 600;
+}
+
+.quiz-choice-wrong {
+  border-color: #d9432e;
+  background: #fdeceb;
+  color: #a32c1c;
+}
+
+.quiz-detail {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  text-align: left;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-detail-row {
+  line-height: 1.4;
+}
+
+.quiz-detail-link {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  color: #b5340a;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.quiz-detail-link:hover {
+  text-decoration: underline;
+}
+
+.quiz-result {
+  flex: 1;
+  padding: 32px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.quiz-result-score {
+  font-size: 36px;
+  font-weight: 700;
+  color: #b5340a;
+}
+
+.quiz-result-pct {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+.secondary-action-btn {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.secondary-action-btn:hover {
+  background: #f0f0f0;
+}
+
+.quiz-review-list {
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.quiz-review-item {
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+}
+
+.quiz-review-prompt {
+  margin-bottom: 4px;
+}
+
+.quiz-review-chosen {
+  color: #a32c1c;
+}
+
+.quiz-review-correct {
+  color: #1c7a3a;
 }

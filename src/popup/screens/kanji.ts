@@ -6,8 +6,13 @@ import {
   getOrderedList,
   loadViewerState,
   saveViewerState,
+  resolveJumpState,
   type KanjiViewerState,
 } from "../kanjiState.ts";
+import { getProgress, loadProgressMap, toggleFlag, filterByProgress, type ItemProgress } from "../progressState.ts";
+import { expandToTabButtonHtml, wireExpandToTabButton } from "../tabMode.ts";
+import { vocabForKanjiChar } from "../kanjiVocabLinks.ts";
+import { levelDotHtml } from "../levelColors.ts";
 
 function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   if (k.meanings.vi.length > 0) {
@@ -19,24 +24,56 @@ function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   return { text: "(chưa có nghĩa tiếng Việt)", isDraft: false };
 }
 
-export async function renderKanjiScreen(app: HTMLElement, onBack: () => void) {
-  const state = await loadViewerState();
-  const list = getOrderedList(state);
-  state.index = Math.min(state.index, Math.max(list.length - 1, 0));
-  await saveViewerState(state);
-  paint(app, state, list, onBack);
+async function getFilteredList(state: KanjiViewerState): Promise<Kanji[]> {
+  const map = await loadProgressMap();
+  return filterByProgress(getOrderedList(state), map, state.progressFilter);
 }
 
-function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack: () => void) {
+export async function renderKanjiScreen(
+  app: HTMLElement,
+  onBack: () => void,
+  onOpenVocab: (vocabId: string) => void,
+  jumpToId?: string,
+) {
+  let state = await loadViewerState();
+  let list: Kanji[];
+
+  if (jumpToId) {
+    const jumped = resolveJumpState(state, jumpToId);
+    if (jumped) {
+      state = jumped;
+      list = getOrderedList(state);
+    } else {
+      list = await getFilteredList(state);
+      state.index = Math.min(state.index, Math.max(list.length - 1, 0));
+    }
+  } else {
+    list = await getFilteredList(state);
+    state.index = Math.min(state.index, Math.max(list.length - 1, 0));
+  }
+
+  await saveViewerState(state);
+  await paint(app, state, list, onBack, onOpenVocab);
+}
+
+async function paint(
+  app: HTMLElement,
+  state: KanjiViewerState,
+  list: Kanji[],
+  onBack: () => void,
+  onOpenVocab: (vocabId: string) => void,
+) {
   const k = list[state.index];
   const totalSelected = list.length;
+  const progress: ItemProgress | null = k ? await getProgress(k.id) : null;
+  const related = k ? vocabForKanjiChar(k.character) : null;
 
   const levelCheckboxes = AVAILABLE_LEVELS.map((level) => {
     const checked = state.selectedLevels.includes(level);
     return `
       <label class="level-check">
         <input type="checkbox" data-level="${level}" ${checked ? "checked" : ""} />
-        ${level} <span class="muted">(${countForLevel(level)})</span>
+        ${levelDotHtml(level)}${level} <span class="muted">(${countForLevel(level)})</span>
       </label>
     `;
   }).join("");
@@ -46,6 +83,7 @@ function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack:
     <header class="toolbar">
       <button id="back" class="icon-btn" title="Về menu">←</button>
       <span class="counter">${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}</span>
+      ${expandToTabButtonHtml()}
     </header>
 
     <section class="level-selector">
@@ -60,12 +98,22 @@ function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack:
       </label>
     </section>
 
+    <section class="progress-filter-row">
+      <select id="progress-filter">
+        <option value="all" ${state.progressFilter === "all" ? "selected" : ""}>Tất cả thẻ</option>
+        <option value="unmastered" ${state.progressFilter === "unmastered" ? "selected" : ""}>Chưa thuộc</option>
+        <option value="flagged" ${state.progressFilter === "flagged" ? "selected" : ""}>Đã đánh dấu khó</option>
+      </select>
+    </section>
+
     ${
       !k
         ? `<p class="empty">Không có Kanji nào ở bộ lọc này.</p>`
         : `
     <main class="card">
-      <div class="level-badge">${k.level}</div>
+      <div class="level-badge" data-level="${k.level}">${k.level}</div>
+      <button id="flag" class="flag-btn ${progress?.flagged ? "flagged" : ""}" title="${progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}">🚩</button>
+      ${progress?.mastered ? `<div class="mastered-badge" title="Đã trả lời đúng ${progress.correctStreak} lần liên tiếp trong Quiz">✓ Đã thuộc</div>` : ""}
       <div class="character">${k.character}</div>
 
       <dl class="details">
@@ -92,6 +140,24 @@ function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack:
       </dl>
 
       ${k.mnemonic ? `<p class="mnemonic"><span class="mnemonic-label">Mẹo nhớ:</span> ${k.mnemonic}</p>` : ""}
+
+      ${
+        related && related.shown.length > 0
+          ? `
+      <div class="related-vocab">
+        <div class="related-vocab-label">Từ vựng chứa chữ này${related.total > related.shown.length ? ` (${related.total})` : ""}</div>
+        <div class="related-vocab-list">
+          ${related.shown
+            .map(
+              (v) =>
+                `<button class="related-vocab-item" data-vocab-id="${v.id}">${v.word}${v.reading ? `<span class="muted"> ${v.reading}</span>` : ""}</button>`,
+            )
+            .join("")}
+        </div>
+      </div>
+      `
+          : ""
+      }
     </main>
     `
     }
@@ -104,17 +170,21 @@ function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack:
   `;
 
   document.getElementById("back")!.addEventListener("click", onBack);
+  wireExpandToTabButton("kanji");
+
+  app.querySelectorAll<HTMLButtonElement>(".related-vocab-item").forEach((btn) => {
+    btn.addEventListener("click", () => onOpenVocab(btn.dataset.vocabId!));
+  });
 
   async function applyLevelSelection(newLevels: typeof AVAILABLE_LEVELS) {
     if (newLevels.length === 0) {
       // Never allow an empty selection -- just repaint to revert the click.
-      paint(app, state, list, onBack);
+      await paint(app, state, list, onBack, onOpenVocab);
       return;
     }
     const newState: KanjiViewerState = { ...state, selectedLevels: newLevels, index: 0 };
     await saveViewerState(newState);
-    const newList = getOrderedList(newState);
-    paint(app, newState, newList, onBack);
+    await paint(app, newState, await getFilteredList(newState), onBack, onOpenVocab);
   }
 
   document.getElementById("level-all")!.addEventListener("change", (e) => {
@@ -141,21 +211,28 @@ function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack:
       index: 0,
     };
     await saveViewerState(newState);
-    paint(app, newState, getOrderedList(newState), onBack);
+    await paint(app, newState, await getFilteredList(newState), onBack, onOpenVocab);
+  });
+
+  document.getElementById("progress-filter")!.addEventListener("change", async (e) => {
+    const progressFilter = (e.target as HTMLSelectElement).value as KanjiViewerState["progressFilter"];
+    const newState: KanjiViewerState = { ...state, progressFilter, index: 0 };
+    await saveViewerState(newState);
+    await paint(app, newState, await getFilteredList(newState), onBack, onOpenVocab);
   });
 
   document.getElementById("prev")!.addEventListener("click", async () => {
     if (state.index === 0) return;
     const newState = { ...state, index: state.index - 1 };
     await saveViewerState(newState);
-    paint(app, newState, list, onBack);
+    await paint(app, newState, list, onBack, onOpenVocab);
   });
 
   document.getElementById("next")!.addEventListener("click", async () => {
     if (state.index >= list.length - 1) return;
     const newState = { ...state, index: state.index + 1 };
     await saveViewerState(newState);
-    paint(app, newState, list, onBack);
+    await paint(app, newState, list, onBack, onOpenVocab);
   });
 
   document.getElementById("jump")!.addEventListener("click", async () => {
@@ -163,6 +240,12 @@ function paint(app: HTMLElement, state: KanjiViewerState, list: Kanji[], onBack:
     const newIndex = Math.floor(Math.random() * list.length);
     const newState = { ...state, index: newIndex };
     await saveViewerState(newState);
-    paint(app, newState, list, onBack);
+    await paint(app, newState, list, onBack, onOpenVocab);
+  });
+
+  document.getElementById("flag")?.addEventListener("click", async () => {
+    if (!k) return;
+    await toggleFlag(k.id);
+    await paint(app, state, list, onBack, onOpenVocab);
   });
 }
