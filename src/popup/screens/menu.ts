@@ -1,6 +1,7 @@
 import { ALL_KANJI } from "../kanjiState.ts";
 import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_JLPT_HISTORY } from "../jlptHistoryState.ts";
+import { ALL_READING } from "../readingState.ts";
 import { countMastered, getStudyStreak } from "../progressState.ts";
 import { exportBackupJson, importBackupJson } from "../backupState.ts";
 import {
@@ -57,7 +58,7 @@ function readRowIntervalMinutes(intervalSelect: HTMLSelectElement, customInput: 
     : Number(intervalSelect.value);
 }
 
-type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats";
+type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading";
 
 export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: MenuScreen) => void) {
   const [kanjiMastered, vocabMastered, streak] = await Promise.all([
@@ -134,11 +135,11 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
           : ""
       }
 
-      <button class="menu-item" disabled>
+      <button class="menu-item" data-screen="reading">
         <span class="menu-item-icon">読</span>
         <span class="menu-item-body">
           <span class="menu-item-title">Luyện đọc</span>
-          <span class="menu-item-desc">Sắp ra mắt</span>
+          <span class="menu-item-desc">${ALL_READING.length} bài đọc N3</span>
         </span>
       </button>
 

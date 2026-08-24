@@ -5,9 +5,10 @@ import { renderQuizScreen } from "./screens/quiz.ts";
 import { renderSearchScreen } from "./screens/search.ts";
 import { renderJlptHistoryScreen } from "./screens/jlptHistory.ts";
 import { renderStatsScreen } from "./screens/stats.ts";
+import { renderReadingScreen } from "./screens/reading.ts";
 
-type Screen = "menu" | "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats";
-const VALID_SCREENS: Screen[] = ["menu", "kanji", "vocab", "quiz", "search", "jlptHistory", "stats"];
+type Screen = "menu" | "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading";
+const VALID_SCREENS: Screen[] = ["menu", "kanji", "vocab", "quiz", "search", "jlptHistory", "stats", "reading"];
 
 function navigate(screen: Screen, targetId?: string) {
   const app = document.getElementById("app")!;
@@ -40,6 +41,8 @@ function navigate(screen: Screen, targetId?: string) {
       (kanjiId) => navigate("kanji", kanjiId),
       (vocabId) => navigate("vocab", vocabId),
     );
+  } else if (screen === "reading") {
+    renderReadingScreen(app, () => navigate("menu"));
   }
 }
 
