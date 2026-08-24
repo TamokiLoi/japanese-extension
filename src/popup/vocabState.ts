@@ -2,11 +2,13 @@ import tinhtuRaw from "../data/vocab-tanoshii-tinhtu-n3.json";
 import dongtuRaw from "../data/vocab-tanoshii-dongtu-n4.json";
 import mimikaraRaw from "../data/vocab-tanoshii-mimikara-n3.json";
 import dongnghiaRaw from "../data/vocab-tanoshii-dongnghia-n3.json";
+import tangoN3Raw from "../data/vocab-tango-n3.json";
+import tangoN4Raw from "../data/vocab-tango-n4.json";
 import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
 
-export type VocabSource = "tinhtu-n3" | "dongtu-n4" | "mimikara-n3" | "dongnghia-n3";
+export type VocabSource = "tinhtu-n3" | "dongtu-n4" | "mimikara-n3" | "dongnghia-n3" | "tango-n3" | "tango-n4";
 
 export interface VocabCard {
   id: string;
@@ -27,15 +29,31 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "dongtu-n4": "Động từ N4",
   "mimikara-n3": "Mimikara N3",
   "dongnghia-n3": "Từ đồng nghĩa N3",
+  "tango-n3": "Tango N3",
+  "tango-n4": "Tango N4",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
-export const AVAILABLE_SOURCES: VocabSource[] = ["mimikara-n3", "dongtu-n4", "tinhtu-n3", "dongnghia-n3"];
+export const AVAILABLE_SOURCES: VocabSource[] = [
+  "mimikara-n3",
+  "dongtu-n4",
+  "tinhtu-n3",
+  "dongnghia-n3",
+  "tango-n3",
+  "tango-n4",
+];
 
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
 const dongtuDataset = dongtuRaw as unknown as TanoshiiVocabDataset;
 const mimikaraDataset = mimikaraRaw as unknown as MimikaraDataset;
 const dongnghiaDataset = dongnghiaRaw as unknown as TanoshiiSynonymDataset;
+// OCR-derived from personal JLPT vocab-book PDFs (see
+// assets/data/tango/_ocr_workspace/) rather than hand-authored like the
+// tanoshii sets above -- kept as its own source/label so a user who spots
+// an OCR slip knows which set it came from, instead of it being silently
+// blended into the tanoshii sources.
+const tangoN3Dataset = tangoN3Raw as unknown as TanoshiiVocabDataset;
+const tangoN4Dataset = tangoN4Raw as unknown as TanoshiiVocabDataset;
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -90,6 +108,8 @@ export const ALL_VOCAB: VocabCard[] = [
   ...fromTanoshiiVocab("dongtu-n4", dongtuDataset),
   ...fromTanoshiiVocab("tinhtu-n3", tinhtuDataset),
   ...fromDongnghia(dongnghiaDataset),
+  ...fromTanoshiiVocab("tango-n3", tangoN3Dataset),
+  ...fromTanoshiiVocab("tango-n4", tangoN4Dataset),
 ];
 
 export function countForSource(source: VocabSource): number {
@@ -113,7 +133,7 @@ const STORAGE_KEY = "vocabViewer";
 
 export function defaultViewerState(): VocabViewerState {
   return {
-    selectedSources: ["mimikara-n3", "dongtu-n4", "tinhtu-n3"],
+    selectedSources: ["mimikara-n3", "dongtu-n4", "tinhtu-n3", "tango-n3", "tango-n4"],
     randomOrder: false,
     shuffleSeed: Date.now(),
     index: 0,

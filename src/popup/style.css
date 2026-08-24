@@ -1717,6 +1717,12 @@ body.tab-mode .jlpt-list {
   background: #eef7f1;
 }
 
+.reading-tile-wrong {
+  border-color: #d9432e;
+  color: #b5340a;
+  background: #fdeceb;
+}
+
 .reading-detail {
   position: sticky;
   top: 0;

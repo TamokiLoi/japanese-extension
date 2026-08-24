@@ -13,7 +13,7 @@ export function expandToTabButtonHtml(): string {
 }
 
 export function wireExpandToTabButton(
-  screenHash: "kanji" | "vocab" | "jlptHistory" | "search" | "stats" | "reading",
+  screenHash: "kanji" | "vocab" | "jlptHistory" | "search" | "stats" | "reading" | "quizBook",
 ): void {
   document.getElementById("expand-tab")?.addEventListener("click", () => {
     chrome.tabs.create({ url: chrome.runtime.getURL(`index.html?tab=1#${screenHash}`) });

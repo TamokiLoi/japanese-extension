@@ -6,9 +6,20 @@ import { renderSearchScreen } from "./screens/search.ts";
 import { renderJlptHistoryScreen } from "./screens/jlptHistory.ts";
 import { renderStatsScreen } from "./screens/stats.ts";
 import { renderReadingScreen } from "./screens/reading.ts";
+import { renderQuizBookScreen } from "./screens/quizBook.ts";
 
-type Screen = "menu" | "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading";
-const VALID_SCREENS: Screen[] = ["menu", "kanji", "vocab", "quiz", "search", "jlptHistory", "stats", "reading"];
+type Screen = "menu" | "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading" | "quizBook";
+const VALID_SCREENS: Screen[] = [
+  "menu",
+  "kanji",
+  "vocab",
+  "quiz",
+  "search",
+  "jlptHistory",
+  "stats",
+  "reading",
+  "quizBook",
+];
 
 function navigate(screen: Screen, targetId?: string) {
   const app = document.getElementById("app")!;
@@ -43,6 +54,8 @@ function navigate(screen: Screen, targetId?: string) {
     );
   } else if (screen === "reading") {
     renderReadingScreen(app, () => navigate("menu"));
+  } else if (screen === "quizBook") {
+    renderQuizBookScreen(app, () => navigate("menu"));
   }
 }
 
