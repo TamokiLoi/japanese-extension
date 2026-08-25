@@ -29,6 +29,11 @@ export interface KanjiViewerState {
   shuffleSeed: number;
   index: number;
   progressFilter: ProgressFilter;
+  // "card": one kanji at a time (the study flow). "grid": an overview tile
+  // per kanji in the current filter, colored by mastery bucket, so "which
+  // ones do I already know" is answerable at a glance instead of paging
+  // through the whole filtered list one card at a time.
+  viewMode: "card" | "grid";
 }
 
 const STORAGE_KEY = "kanjiViewer";
@@ -40,6 +45,7 @@ export function defaultViewerState(): KanjiViewerState {
     shuffleSeed: Date.now(),
     index: 0,
     progressFilter: "all",
+    viewMode: "card",
   };
 }
 
@@ -56,6 +62,7 @@ export async function loadViewerState(): Promise<KanjiViewerState> {
     shuffleSeed: saved?.shuffleSeed ?? fallback.shuffleSeed,
     index: saved?.index ?? fallback.index,
     progressFilter: saved?.progressFilter ?? fallback.progressFilter,
+    viewMode: saved?.viewMode ?? fallback.viewMode,
   };
 }
 
@@ -105,6 +112,7 @@ export function resolveJumpState(state: KanjiViewerState, targetId: string): Kan
       ? state.selectedLevels
       : [...state.selectedLevels, target.level],
     progressFilter: "all",
+    viewMode: "card",
   };
   const list = getOrderedList(newState);
   const index = list.findIndex((k) => k.id === targetId);

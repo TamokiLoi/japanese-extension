@@ -6,7 +6,13 @@ import { loadProgressMap, pickWeighted, type ProgressMap } from "./progressState
 import { formatHanViet } from "../hanVietFormat.ts";
 
 export const DEFAULT_QUESTION_COUNT = 10;
-export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30];
+export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30, 50, 100];
+// "Toàn bộ" sentinel for the question-count select -- a plain finite number
+// (not Infinity) so it survives chrome.storage.local's JSON-based
+// serialization untouched. pickQuestionTargets() already clamps via
+// Math.min(count, pool.length), so passing this just means "use the whole
+// filtered pool" with no separate all-questions flag needed.
+export const ALL_QUESTIONS_SENTINEL = Number.MAX_SAFE_INTEGER;
 const CHOICE_COUNT = 4;
 
 export type QuizContentType = "kanji" | "vocab";

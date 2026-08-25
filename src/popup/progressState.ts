@@ -72,6 +72,11 @@ export async function toggleFlag(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.flagged = !cur.flagged;
+  // Manually touching a card is itself a "seen" event -- without this, a
+  // card only ever flagged/mastered by hand (never quizzed) keeps
+  // lastSeenAt at 0 and bucketFor() falls through to "new" regardless of
+  // the flag, since that check runs before flagged/mastered are read.
+  cur.lastSeenAt = Date.now();
   map[id] = cur;
   await saveProgressMap(map);
   return cur;
@@ -85,6 +90,7 @@ export async function toggleMastered(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.mastered = !cur.mastered;
+  cur.lastSeenAt = Date.now();
   map[id] = cur;
   await saveProgressMap(map);
   return cur;
@@ -97,11 +103,34 @@ export async function toggleMastered(id: string): Promise<ItemProgress> {
 export type ProgressBucket = "mastered" | "flagged" | "learning" | "new";
 
 export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {
-  if (!progress || progress.lastSeenAt === 0) return "new";
+  if (!progress) return "new";
+  // Checked ahead of the lastSeenAt gate so a card already saved with
+  // lastSeenAt still 0 (flagged/mastered by hand before that bug fix) reads
+  // correctly without needing to be re-toggled.
   if (progress.flagged) return "flagged";
   if (progress.mastered) return "mastered";
+  if (progress.lastSeenAt === 0) return "new";
   return "learning";
 }
+
+// Shared tile styling for any "overview grid" screen (Kanji, Vocab) --
+// reuses the .reading-tile-* classes from the Luyện đề tile grid so the
+// color language stays consistent app-wide: green = mastered, yellow/orange
+// = still learning (getting there), red = flagged as difficult/wrong a lot,
+// gray = untouched.
+export const BUCKET_TILE_CLASS: Record<ProgressBucket, string> = {
+  mastered: "reading-tile-perfect",
+  flagged: "reading-tile-wrong",
+  learning: "reading-tile-progress",
+  new: "reading-tile-todo",
+};
+
+export const BUCKET_LABEL: Record<ProgressBucket, string> = {
+  mastered: "đã thuộc",
+  flagged: "cần ôn lại",
+  learning: "đang học",
+  new: "chưa học",
+};
 
 export function countBuckets<T extends { id: string }>(
   items: T[],

@@ -127,6 +127,10 @@ export interface VocabViewerState {
   shuffleSeed: number;
   index: number;
   progressFilter: ProgressFilter;
+  // "card": one word at a time (the study flow). "grid": an overview tile
+  // per word in the current filter, colored by mastery bucket -- mirrors
+  // kanjiState.ts's viewMode.
+  viewMode: "card" | "grid";
 }
 
 const STORAGE_KEY = "vocabViewer";
@@ -138,6 +142,7 @@ export function defaultViewerState(): VocabViewerState {
     shuffleSeed: Date.now(),
     index: 0,
     progressFilter: "all",
+    viewMode: "card",
   };
 }
 
@@ -154,6 +159,7 @@ export async function loadViewerState(): Promise<VocabViewerState> {
     shuffleSeed: saved?.shuffleSeed ?? fallback.shuffleSeed,
     index: saved?.index ?? fallback.index,
     progressFilter: saved?.progressFilter ?? fallback.progressFilter,
+    viewMode: saved?.viewMode ?? fallback.viewMode,
   };
 }
 
@@ -204,6 +210,7 @@ export function resolveJumpState(state: VocabViewerState, targetId: string): Voc
       ? state.selectedSources
       : [...state.selectedSources, target.source],
     progressFilter: "all",
+    viewMode: "card",
   };
   const list = getOrderedList(newState);
   const index = list.findIndex((v) => v.id === targetId);

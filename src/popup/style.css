@@ -95,8 +95,9 @@ body.tab-mode #app {
 }
 
 .counter {
-  font-size: 12px;
-  color: #666;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
   flex: 1;
   text-align: center;
 }
@@ -971,6 +972,14 @@ body.tab-mode .jlpt-list {
   font-weight: 400;
 }
 
+.quiz-count-row select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
 .quiz-filter-note {
   font-size: 11px;
   color: #888;
@@ -1043,6 +1052,14 @@ body.tab-mode .jlpt-list {
   background: #fdeceb;
   border-color: #d9432e;
   color: #a32c1c;
+}
+
+/* Marks a not-yet-answered question whose card is already "đã thuộc" from
+   prior study -- a light heads-up, not a spoiler, so it stays subtle and
+   yields to the correct/wrong classes once the question is answered. */
+.quiz-grid-cell-mastered {
+  border-color: #c9a12a;
+  background: #fffaea;
 }
 
 .quiz-question {
@@ -1674,6 +1691,24 @@ body.tab-mode .jlpt-list {
   padding: 10px 12px;
 }
 
+/* Vocab words run 2-5+ characters, unlike the single-glyph kanji/category
+   tiles the base .reading-tile size targets -- wider columns and a
+   non-square tile so the word can wrap instead of overflowing or getting
+   squeezed unreadably small. */
+.reading-tile-grid-word {
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+}
+
+.reading-tile-word {
+  aspect-ratio: auto;
+  min-height: 56px;
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .reading-tile {
   aspect-ratio: 1;
   display: flex;
@@ -1721,6 +1756,12 @@ body.tab-mode .jlpt-list {
   border-color: #d9432e;
   color: #b5340a;
   background: #fdeceb;
+}
+
+.reading-tile-known {
+  border-color: #c9a12a;
+  color: #a3820c;
+  background: #fffaea;
 }
 
 .reading-detail {
@@ -1807,6 +1848,11 @@ body.tab-mode .jlpt-list {
 .reading-status-perfect {
   background: #dff5e4;
   color: #1f8a3b;
+}
+
+.reading-status-known {
+  background: #fdf3d0;
+  color: #a3820c;
 }
 
 .reading-progress-row {

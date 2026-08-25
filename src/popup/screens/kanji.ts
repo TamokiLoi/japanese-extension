@@ -16,6 +16,9 @@ import {
   toggleMastered,
   filterByProgress,
   bucketFor,
+  countBuckets,
+  BUCKET_TILE_CLASS,
+  BUCKET_LABEL,
   type ItemProgress,
 } from "../progressState.ts";
 import { expandToTabButtonHtml, wireExpandToTabButton } from "../tabMode.ts";
@@ -87,11 +90,15 @@ async function paint(
     `;
   }).join("");
   const allChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
+  const isGrid = state.viewMode === "grid";
+  const gridMap = isGrid ? await loadProgressMap() : null;
+  const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
 
   app.innerHTML = `
     <header class="toolbar">
       <button id="back" class="icon-btn" title="Về menu">←</button>
-      <span class="counter">${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}</span>
+      <span class="counter">${isGrid ? `${list.length} thẻ` : `${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}`}</span>
+      <button id="view-toggle" class="icon-btn" title="${isGrid ? "Xem từng thẻ" : "Xem lưới tổng quan (đã thuộc / chưa thuộc)"}">${isGrid ? "📇" : "⊞"}</button>
       ${expandToTabButtonHtml()}
     </header>
 
@@ -116,9 +123,29 @@ async function paint(
     </section>
 
     ${
-      !k
-        ? `<p class="empty">Không có Kanji nào ở bộ lọc này.</p>`
-        : `
+      isGrid
+        ? bucketCounts && gridMap
+          ? `
+    <section class="reading-list-section">
+      <div class="reading-list-summary">
+        <span>Đã thuộc <strong>${bucketCounts.mastered}</strong> · Cần ôn lại <strong>${bucketCounts.flagged}</strong> · Đang học <strong>${bucketCounts.learning}</strong> · Chưa học <strong>${bucketCounts.new}</strong></span>
+      </div>
+      ${
+        list.length === 0
+          ? `<p class="empty">Không có Kanji nào ở bộ lọc này.</p>`
+          : `<div class="reading-tile-grid">${list
+              .map((item, i) => {
+                const bucket = bucketFor(gridMap[item.id]);
+                return `<button class="reading-tile ${BUCKET_TILE_CLASS[bucket]}" data-index="${i}" title="${item.character} · ${BUCKET_LABEL[bucket]}">${item.character}</button>`;
+              })
+              .join("")}</div>`
+      }
+    </section>
+    `
+          : ""
+        : !k
+          ? `<p class="empty">Không có Kanji nào ở bộ lọc này.</p>`
+          : `
     <main class="card card-${bucketFor(progress ?? undefined)}">
       <div class="level-badge" data-level="${k.level}">${k.level}</div>
       <button id="flag" class="flag-btn ${progress?.flagged ? "flagged" : ""}" title="${progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}">🚩</button>
@@ -173,11 +200,17 @@ async function paint(
     `
     }
 
+    ${
+      isGrid
+        ? ""
+        : `
     <footer class="nav">
       <button id="prev" ${state.index === 0 ? "disabled" : ""}>← Trước</button>
       <button id="jump" title="Nhảy tới 1 thẻ bất kỳ">🎲</button>
       <button id="next" ${state.index >= list.length - 1 ? "disabled" : ""}>Tiếp →</button>
     </footer>
+    `
+    }
   `;
 
   document.getElementById("back")!.addEventListener("click", onBack);
@@ -232,21 +265,35 @@ async function paint(
     await paint(app, newState, await getFilteredList(newState), onBack, onOpenVocab);
   });
 
-  document.getElementById("prev")!.addEventListener("click", async () => {
+  document.getElementById("view-toggle")!.addEventListener("click", async () => {
+    const newState: KanjiViewerState = { ...state, viewMode: isGrid ? "card" : "grid" };
+    await saveViewerState(newState);
+    await paint(app, newState, list, onBack, onOpenVocab);
+  });
+
+  app.querySelectorAll<HTMLButtonElement>(".reading-tile-grid .reading-tile").forEach((tile) => {
+    tile.addEventListener("click", async () => {
+      const newState: KanjiViewerState = { ...state, index: Number(tile.dataset.index), viewMode: "card" };
+      await saveViewerState(newState);
+      await paint(app, newState, list, onBack, onOpenVocab);
+    });
+  });
+
+  document.getElementById("prev")?.addEventListener("click", async () => {
     if (state.index === 0) return;
     const newState = { ...state, index: state.index - 1 };
     await saveViewerState(newState);
     await paint(app, newState, list, onBack, onOpenVocab);
   });
 
-  document.getElementById("next")!.addEventListener("click", async () => {
+  document.getElementById("next")?.addEventListener("click", async () => {
     if (state.index >= list.length - 1) return;
     const newState = { ...state, index: state.index + 1 };
     await saveViewerState(newState);
     await paint(app, newState, list, onBack, onOpenVocab);
   });
 
-  document.getElementById("jump")!.addEventListener("click", async () => {
+  document.getElementById("jump")?.addEventListener("click", async () => {
     if (list.length === 0) return;
     const newIndex = Math.floor(Math.random() * list.length);
     const newState = { ...state, index: newIndex };

@@ -1,20 +1,23 @@
 import type { QuizBookQuestion, QuizBookCategory } from "../../types/quizBook.ts";
 import {
   ALL_QUIZBOOK,
-  AVAILABLE_LEVELS,
   AVAILABLE_CATEGORIES,
   AVAILABLE_BOOKS,
   CATEGORY_LABELS,
   BOOK_LABELS,
+  BOOK_LEVELS,
+  QUESTION_COUNT_OPTIONS,
+  ALL_QUESTIONS_SENTINEL,
   pickRandomQuestion,
   findQuizBookById,
   loadViewerState,
   saveViewerState,
   getQuestionProgress,
   resetQuestionAnswer,
+  recordAnswer,
+  buildSession,
   type QuizBookViewerState,
 } from "../quizBookState.ts";
-import type { JlptLevel } from "../../types/kanji.ts";
 import { levelDotHtml } from "../levelColors.ts";
 import { expandToTabButtonHtml, wireExpandToTabButton } from "../tabMode.ts";
 
@@ -29,14 +32,13 @@ export async function renderQuizBookScreen(app: HTMLElement, onBack: () => void)
 }
 
 function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolean {
-  return (
-    state.selectedLevels.includes(q.level) &&
-    state.selectedCategories.includes(q.category) &&
-    state.selectedBooks.includes(q.book)
-  );
+  return state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book);
 }
 
-function statusIcon(status: "not-started" | "done", correct: boolean): string {
+function statusIcon(status: "not-started" | "done" | "known", correct: boolean): string {
+  if (status === "known") {
+    return `<span class="reading-status-badge reading-status-known">★ đã biết</span>`;
+  }
   if (status === "done") {
     return `<span class="reading-status-badge ${correct ? "reading-status-perfect" : "reading-status-done"}">${correct ? "✓ đúng" : "✗ sai"}</span>`;
   }
@@ -44,24 +46,9 @@ function statusIcon(status: "not-started" | "done", correct: boolean): string {
 }
 
 function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => void, error?: string) {
-  const levelCheckboxes = AVAILABLE_LEVELS.map((level) => {
-    const checked = state.selectedLevels.includes(level);
-    const count = ALL_QUIZBOOK.filter(
-      (q) => q.level === level && state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book),
-    ).length;
-    return `
-      <label class="level-check">
-        <input type="checkbox" data-level="${level}" ${checked ? "checked" : ""} />
-        ${levelDotHtml(level)}${level} <span class="muted">(${count})</span>
-      </label>
-    `;
-  }).join("");
-
   const categoryCheckboxes = AVAILABLE_CATEGORIES.map((category) => {
     const checked = state.selectedCategories.includes(category);
-    const count = ALL_QUIZBOOK.filter(
-      (q) => q.category === category && state.selectedLevels.includes(q.level) && state.selectedBooks.includes(q.book),
-    ).length;
+    const count = ALL_QUIZBOOK.filter((q) => q.category === category && state.selectedBooks.includes(q.book)).length;
     return `
       <label class="quiz-radio">
         <input type="checkbox" data-category="${category}" ${checked ? "checked" : ""} />
@@ -72,14 +59,12 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
 
   const bookCheckboxes = AVAILABLE_BOOKS.map((book) => {
     const checked = state.selectedBooks.includes(book);
-    const count = ALL_QUIZBOOK.filter(
-      (q) => q.book === book && state.selectedLevels.includes(q.level) && state.selectedCategories.includes(q.category),
-    ).length;
+    const count = ALL_QUIZBOOK.filter((q) => q.book === book && state.selectedCategories.includes(q.category)).length;
     return `
       <label class="quiz-radio reading-book-radio">
         <input type="checkbox" data-book="${book}" ${checked ? "checked" : ""} />
         <span class="reading-book-radio-body">
-          <span class="reading-book-radio-title">${BOOK_LABELS[book]}</span>
+          <span class="reading-book-radio-title">${levelDotHtml(BOOK_LEVELS[book])}${BOOK_LABELS[book]}</span>
           <span class="reading-book-radio-note">${count} câu</span>
         </span>
       </label>
@@ -87,12 +72,14 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
   }).join("");
 
   const filtered = ALL_QUIZBOOK.filter((q) => matchesFilters(q, state));
-  const doneCount = filtered.filter((q) => getQuestionProgress(q.id, state.answers).status === "done").length;
-  const correctCount = filtered.filter((q) => getQuestionProgress(q.id, state.answers).correct).length;
+  const progressOf = (q: QuizBookQuestion) => getQuestionProgress(q.id, state.answers, state.correctStreaks);
+  const doneCount = filtered.filter((q) => progressOf(q).status !== "not-started").length;
+  const knownCount = filtered.filter((q) => progressOf(q).status === "known").length;
+  const correctCount = filtered.filter((q) => progressOf(q).correct).length;
 
-  const statusFilterRow = (["all", "not-started", "done"] as const)
+  const statusFilterRow = (["all", "not-started", "done", "known"] as const)
     .map((s) => {
-      const labels = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm" };
+      const labels = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm", known: "Đã biết" };
       const active = state.listStatusFilter === s;
       return `<button class="reading-status-filter-btn ${active ? "reading-status-filter-active" : ""}" data-status="${s}">${labels[s]}</button>`;
     })
@@ -100,24 +87,35 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
 
   const visibleQuestions = filtered.filter((q) => {
     if (state.listStatusFilter === "all") return true;
-    const progress = getQuestionProgress(q.id, state.answers);
-    if (state.listStatusFilter === "done") return progress.status === "done";
-    return progress.status !== "done";
+    const status = progressOf(q).status;
+    if (state.listStatusFilter === "done") return status === "done" || status === "known";
+    return status === state.listStatusFilter;
   });
 
   const CATEGORY_ICON: Record<QuizBookCategory, string> = { moji: "字", goi: "語", bunpou: "文" };
   const tileGrid = visibleQuestions
     .map((q) => {
-      const progress = getQuestionProgress(q.id, state.answers);
+      const progress = progressOf(q);
       const cls =
-        progress.status === "done"
-          ? progress.correct
-            ? "reading-tile-perfect"
-            : "reading-tile-done reading-tile-wrong"
-          : "reading-tile-todo";
+        progress.status === "known"
+          ? "reading-tile-known"
+          : progress.status === "done"
+            ? progress.correct
+              ? "reading-tile-perfect"
+              : "reading-tile-done reading-tile-wrong"
+            : "reading-tile-todo";
       return `<button class="reading-tile ${cls}" data-id="${q.id}">${CATEGORY_ICON[q.category]}</button>`;
     })
     .join("");
+
+  const quizPoolSize = filtered.length;
+  const defaultCount = Math.min(state.questionCount, quizPoolSize) || quizPoolSize;
+  const countOptions = [...QUESTION_COUNT_OPTIONS.filter((n) => n <= quizPoolSize), ALL_QUESTIONS_SENTINEL];
+  const selectedCount =
+    state.questionCount >= quizPoolSize
+      ? ALL_QUESTIONS_SENTINEL
+      : countOptions.reduce((closest, n) => (Math.abs(n - defaultCount) < Math.abs(closest - defaultCount) ? n : closest));
+  const effectiveCount = Math.min(selectedCount, quizPoolSize);
 
   app.innerHTML = `
     <header class="toolbar">
@@ -127,15 +125,6 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
     </header>
 
     <section class="quiz-setup">
-      ${
-        AVAILABLE_LEVELS.length > 1
-          ? `<div class="quiz-setup-group">
-        <div class="quiz-setup-label">Cấp độ</div>
-        <div class="level-selector-inline">${levelCheckboxes}</div>
-      </div>`
-          : ""
-      }
-
       <div class="quiz-setup-group">
         <div class="quiz-setup-label">Sách</div>
         <div class="reading-book-radio-row">${bookCheckboxes}</div>
@@ -146,14 +135,28 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
         <div class="quiz-radio-row">${categoryCheckboxes}</div>
       </div>
 
+      <div class="quiz-setup-group">
+        <div class="quiz-setup-label">Số câu (trong ${quizPoolSize} câu khớp bộ lọc)</div>
+        <div class="quiz-count-row">
+          <select id="question-count">
+            ${countOptions
+              .map(
+                (n) =>
+                  `<option value="${n}" ${n === selectedCount ? "selected" : ""}>${n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`}</option>`,
+              )
+              .join("")}
+          </select>
+        </div>
+      </div>
+
       ${error ? `<p class="quiz-error">${error}</p>` : ""}
 
-      <button id="start" class="primary-action-btn">🎲 Random câu hỏi</button>
+      <button id="start" class="primary-action-btn">🎲 Bắt đầu (${effectiveCount} câu)</button>
     </section>
 
     <section class="reading-list-section">
       <div class="reading-list-summary">
-        <span>Đã làm <strong>${doneCount}/${filtered.length}</strong> câu · đúng <strong>${correctCount}/${doneCount || 0}</strong></span>
+        <span>Đã làm <strong>${doneCount}/${filtered.length}</strong> câu · đúng <strong>${correctCount}/${doneCount || 0}</strong> · đã biết <strong>${knownCount}</strong></span>
         <div class="reading-status-filter-row">${statusFilterRow}</div>
       </div>
       <div class="reading-detail" id="quizbook-detail">
@@ -169,19 +172,6 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
 
   document.getElementById("back")!.addEventListener("click", onBack);
   wireExpandToTabButton("quizBook");
-
-  app.querySelectorAll<HTMLInputElement>("input[data-level]").forEach((input) => {
-    input.addEventListener("change", async () => {
-      const level = input.dataset.level as JlptLevel;
-      const next = input.checked
-        ? [...new Set([...state.selectedLevels, level])]
-        : state.selectedLevels.filter((l) => l !== level);
-      if (next.length === 0) return paintList(app, state, onBack);
-      const newState = { ...state, selectedLevels: next };
-      await saveViewerState(newState);
-      paintList(app, newState, onBack);
-    });
-  });
 
   app.querySelectorAll<HTMLInputElement>("input[data-category]").forEach((input) => {
     input.addEventListener("change", async () => {
@@ -216,19 +206,27 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
     });
   });
 
-  document.getElementById("start")!.addEventListener("click", async () => {
-    const q = pickRandomQuestion(state.selectedLevels, state.selectedCategories, state.selectedBooks);
-    if (!q) return paintList(app, state, onBack, "Không có câu hỏi nào khớp bộ lọc này.");
-    const newState: QuizBookViewerState = { ...state, currentQuestionId: q.id };
+  const countSelect = document.getElementById("question-count") as HTMLSelectElement;
+  countSelect.addEventListener("change", async () => {
+    const newState = { ...state, questionCount: Number(countSelect.value) };
     await saveViewerState(newState);
-    paintQuestion(app, q, newState, onBack);
+    paintList(app, newState, onBack);
+  });
+
+  document.getElementById("start")!.addEventListener("click", async () => {
+    if (filtered.length === 0) return paintList(app, state, onBack, "Không có câu hỏi nào khớp bộ lọc này.");
+    const sessionIds = buildSession(filtered, state.questionCount);
+    const first = findQuizBookById(sessionIds[0])!;
+    const newState: QuizBookViewerState = { ...state, currentQuestionId: first.id, sessionIds, sessionIndex: 0 };
+    await saveViewerState(newState);
+    paintQuestion(app, first, newState, onBack);
   });
 
   app.querySelectorAll<HTMLButtonElement>(".reading-tile").forEach((tile) => {
     tile.addEventListener("click", async () => {
       const q = findQuizBookById(tile.dataset.id!);
       if (!q) return;
-      const newState: QuizBookViewerState = { ...state, currentQuestionId: q.id };
+      const newState: QuizBookViewerState = { ...state, currentQuestionId: q.id, sessionIds: null, sessionIndex: 0 };
       await saveViewerState(newState);
       paintQuestion(app, q, newState, onBack);
     });
@@ -242,7 +240,7 @@ function wireDetailPanel(app: HTMLElement, state: QuizBookViewerState, onBack: (
   const showDetail = (id: string) => {
     const q = findQuizBookById(id);
     if (!q) return;
-    const progress = getQuestionProgress(id, state.answers);
+    const progress = getQuestionProgress(id, state.answers, state.correctStreaks);
     panel.innerHTML = `
       <div class="reading-detail-title">${q.question}</div>
       <div class="reading-detail-meta">${BOOK_LABELS[q.book]} · ${CATEGORY_LABELS[q.category]} · ${q.level}</div>
@@ -270,6 +268,9 @@ function wireDetailPanel(app: HTMLElement, state: QuizBookViewerState, onBack: (
 
 function paintQuestion(app: HTMLElement, q: QuizBookQuestion, state: QuizBookViewerState, onBack: () => void) {
   const answered = state.answers[q.id] ?? null;
+  const session = state.sessionIds;
+  const sessionPos = session ? session.indexOf(q.id) : -1;
+  const isLastInSession = session !== null && sessionPos === session.length - 1;
 
   const backToList = async () => {
     const newState = { ...state, currentQuestionId: null };
@@ -289,6 +290,7 @@ function paintQuestion(app: HTMLElement, q: QuizBookQuestion, state: QuizBookVie
         <span class="level-badge" data-level="${q.level}">${q.level}</span>
         <span class="reading-book-badge">${BOOK_LABELS[q.book]}</span>
         <span class="reading-timeline">${CATEGORY_LABELS[q.category]}</span>
+        ${session ? `<span class="reading-book-badge">Câu ${sessionPos + 1}/${session.length}</span>` : ""}
         <button id="change-filter" class="reading-change-filter" title="Về danh sách câu hỏi">☰ Danh sách</button>
       </div>
 
@@ -316,7 +318,9 @@ function paintQuestion(app: HTMLElement, q: QuizBookQuestion, state: QuizBookVie
           : ""
       }
 
-      <button id="another" class="primary-action-btn reading-another-btn">🎲 Câu khác</button>
+      <button id="another" class="primary-action-btn reading-another-btn">${
+        session ? (isLastInSession ? "🏁 Hoàn thành" : "➜ Câu tiếp theo") : "🎲 Câu khác"
+      }</button>
     </main>
   `;
 
@@ -327,7 +331,7 @@ function paintQuestion(app: HTMLElement, q: QuizBookQuestion, state: QuizBookVie
   app.querySelectorAll<HTMLButtonElement>(".quiz-choices .quiz-choice").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const oi = Number(btn.dataset.oi);
-      const newState = { ...state, answers: { ...state.answers, [q.id]: oi } };
+      const newState = recordAnswer(state, q.id, oi);
       await saveViewerState(newState);
       paintQuestion(app, q, newState, onBack);
     });
@@ -341,7 +345,19 @@ function paintQuestion(app: HTMLElement, q: QuizBookQuestion, state: QuizBookVie
   });
 
   document.getElementById("another")!.addEventListener("click", async () => {
-    const next = pickRandomQuestion(state.selectedLevels, state.selectedCategories, state.selectedBooks, q.id);
+    if (session) {
+      if (isLastInSession) {
+        const newState: QuizBookViewerState = { ...state, currentQuestionId: null, sessionIds: null, sessionIndex: 0 };
+        await saveViewerState(newState);
+        return paintList(app, newState, onBack);
+      }
+      const next = findQuizBookById(session[sessionPos + 1])!;
+      const newState: QuizBookViewerState = { ...state, currentQuestionId: next.id, sessionIndex: sessionPos + 1 };
+      await saveViewerState(newState);
+      return paintQuestion(app, next, newState, onBack);
+    }
+
+    const next = pickRandomQuestion(state.selectedCategories, state.selectedBooks, q.id);
     if (!next) {
       const newState = { ...state, currentQuestionId: null };
       await saveViewerState(newState);

@@ -8,6 +8,7 @@ import {
   clearQuizSession,
   isSessionUnfinished,
   QUESTION_COUNT_OPTIONS,
+  ALL_QUESTIONS_SENTINEL,
   type QuizQuestion,
   type QuizContentType,
   type QuizSettings,
@@ -15,7 +16,7 @@ import {
   type KanjiQuizMode,
   type VocabQuizMode,
 } from "../quizState.ts";
-import { recordAnswer } from "../progressState.ts";
+import { recordAnswer, loadProgressMap, bucketFor } from "../progressState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../vocabState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
@@ -137,11 +138,16 @@ async function paintSetup(
 
       <div class="quiz-setup-group">
         <div class="quiz-setup-label">Số câu hỏi</div>
-        <select id="question-count">
-          ${QUESTION_COUNT_OPTIONS.map(
-            (n) => `<option value="${n}" ${n === settings.questionCount ? "selected" : ""}>${n} câu</option>`,
-          ).join("")}
-        </select>
+        <div class="quiz-count-row">
+          <select id="question-count">
+            ${[...QUESTION_COUNT_OPTIONS, ALL_QUESTIONS_SENTINEL]
+              .map(
+                (n) =>
+                  `<option value="${n}" ${n === settings.questionCount ? "selected" : ""}>${n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`}</option>`,
+              )
+              .join("")}
+          </select>
+        </div>
       </div>
 
       <p class="quiz-filter-note">
@@ -259,13 +265,15 @@ async function paintPlay(
   const allAnswered = session.answers.every((a) => a !== null);
   const isLast = idx === session.questions.length - 1;
 
+  const progressMap = await loadProgressMap();
   const gridCells = session.questions
-    .map((_, i) => {
+    .map((question, i) => {
       const classes = ["quiz-grid-cell"];
       if (i === idx) classes.push("quiz-grid-cell-current");
       const stateClass = cellStateClass(session, i);
       if (stateClass) classes.push(stateClass);
-      return `<button class="${classes.join(" ")}" data-index="${i}">${i + 1}</button>`;
+      else if (bucketFor(progressMap[question.id]) === "mastered") classes.push("quiz-grid-cell-mastered");
+      return `<button class="${classes.join(" ")}" data-index="${i}" title="${stateClass ? "" : bucketFor(progressMap[question.id]) === "mastered" ? "Đã thuộc từ trước" : ""}">${i + 1}</button>`;
     })
     .join("");
 
