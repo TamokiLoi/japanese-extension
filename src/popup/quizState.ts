@@ -1,7 +1,9 @@
 import type { Kanji, JlptLevel } from "../types/kanji.ts";
 import type { VocabCard } from "./vocabState.ts";
+import type { BunpoGrammarPoint } from "../types/bunpo.ts";
 import { getOrderedList as getKanjiOrderedList, loadViewerState as loadKanjiViewerState } from "./kanjiState.ts";
 import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabViewerState } from "./vocabState.ts";
+import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
 import { loadProgressMap, pickWeighted, type ProgressMap } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
 
@@ -15,7 +17,7 @@ export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30, 50, 100];
 export const ALL_QUESTIONS_SENTINEL = Number.MAX_SAFE_INTEGER;
 const CHOICE_COUNT = 4;
 
-export type QuizContentType = "kanji" | "vocab";
+export type QuizContentType = "kanji" | "vocab" | "bunpo";
 // "meaning": show the kanji, pick its Hán Việt/nghĩa. "character": the
 // reverse -- show Hán Việt/nghĩa as the prompt, pick the matching kanji.
 export type KanjiQuizMode = "meaning" | "character";
@@ -23,6 +25,9 @@ export type KanjiQuizMode = "meaning" | "character";
 // "wordFrom*" pair reverses that -- show the meaning or reading as the
 // prompt, pick the matching word.
 export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFromReading";
+// "meaning": show the grammar pattern, pick its Vietnamese meaning.
+// "pattern": the reverse -- show the meaning, pick the matching pattern.
+export type BunpoQuizMode = "meaning" | "pattern";
 
 export interface QuizChoice {
   text: string;
@@ -150,10 +155,30 @@ export async function buildVocabQuiz(mode: VocabQuizMode, questionCount: number)
     .filter((q): q is QuizQuestion => q !== null);
 }
 
+export async function buildBunpoQuiz(mode: BunpoQuizMode, questionCount: number): Promise<QuizQuestion[]> {
+  const state = await loadBunpoViewerState();
+  const pool = getBunpoFilteredList(state);
+  if (pool.length === 0) return [];
+  const progressMap = await loadProgressMap();
+  const targets = pickQuestionTargets(pool, progressMap, questionCount);
+
+  const patternOf = (g: BunpoGrammarPoint) => g.pattern;
+  const meaningOf = (g: BunpoGrammarPoint) => g.meaningVi;
+
+  return targets
+    .map((g) =>
+      mode === "pattern"
+        ? buildQuestion(pool, g, "bunpo", patternOf, "Nghĩa này ứng với mẫu ngữ pháp nào?", meaningOf)
+        : buildQuestion(pool, g, "bunpo", meaningOf, "Mẫu ngữ pháp này nghĩa là gì?", patternOf),
+    )
+    .filter((q): q is QuizQuestion => q !== null);
+}
+
 export interface QuizSettings {
   contentType: QuizContentType;
   kanjiMode: KanjiQuizMode;
   vocabMode: VocabQuizMode;
+  bunpoMode: BunpoQuizMode;
   questionCount: number;
 }
 
@@ -166,6 +191,7 @@ export async function loadQuizSettings(): Promise<QuizSettings> {
     contentType: saved?.contentType ?? "kanji",
     kanjiMode: saved?.kanjiMode ?? "meaning",
     vocabMode: saved?.vocabMode ?? "meaning",
+    bunpoMode: saved?.bunpoMode ?? "meaning",
     questionCount: saved?.questionCount ?? DEFAULT_QUESTION_COUNT,
   };
 }

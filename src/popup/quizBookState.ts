@@ -1,17 +1,20 @@
 import quizbookN3500monRaw from "../data/quizbook-n3-500mon.json";
 import quizbookN4500monRaw from "../data/quizbook-n4-500mon.json";
 import quizbookN2500monRaw from "../data/quizbook-n2-500mon.json";
+import quizbookN3Tuvung20deRaw from "../data/quizbook-n3-tuvung-20de.json";
 import type { QuizBookDataset, QuizBookQuestion, QuizBookCategory } from "../types/quizBook.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 
 const n3500monDataset = quizbookN3500monRaw as unknown as QuizBookDataset;
 const n4500monDataset = quizbookN4500monRaw as unknown as QuizBookDataset;
 const n2500monDataset = quizbookN2500monRaw as unknown as QuizBookDataset;
+const n3Tuvung20deDataset = quizbookN3Tuvung20deRaw as unknown as QuizBookDataset;
 
 export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3500monDataset.questions,
   ...n4500monDataset.questions,
   ...n2500monDataset.questions,
+  ...n3Tuvung20deDataset.questions,
 ];
 
 const QUIZBOOK_BY_ID = new Map(ALL_QUIZBOOK.map((q) => [q.id, q]));
@@ -25,14 +28,15 @@ export const CATEGORY_LABELS: Record<QuizBookCategory, string> = {
   bunpou: "Ngữ pháp",
 };
 
-// Insertion order here drives the "Sách" list order in the quiz setup
-// screen (AVAILABLE_BOOKS below reads Object.keys() of this record) --
-// kept easiest-to-hardest (N4-5 -> N3 -> N2) to match the level ordering
-// used elsewhere.
+// Insertion order here drives the book list order within each group in the
+// quiz setup screen (AVAILABLE_BOOKS below reads Object.keys() of this
+// record) -- kept easiest-to-hardest (N4-5 -> N3 -> N2) to match the level
+// ordering used elsewhere.
 export const BOOK_LABELS: Record<string, string> = {
   "500mon-n4": n4500monDataset.meta.bookLabel,
   "500mon": n3500monDataset.meta.bookLabel,
   "500mon-n2": n2500monDataset.meta.bookLabel,
+  "n3-tuvung-20de": n3Tuvung20deDataset.meta.bookLabel,
 };
 
 // Each book currently belongs to exactly one level, so the book picker
@@ -42,6 +46,26 @@ export const BOOK_LEVELS: Record<string, JlptLevel> = {
   "500mon-n4": n4500monDataset.meta.level,
   "500mon": n3500monDataset.meta.level,
   "500mon-n2": n2500monDataset.meta.level,
+  "n3-tuvung-20de": n3Tuvung20deDataset.meta.level,
+};
+
+// Top-level grouping shown as a tab/radio switch above the book picker, so
+// "Sách" (500-mon style textbooks, continuous question numbering) and "Đề"
+// (self-contained practice sets/mock exams, e.g. the 20-round vocab drill --
+// and future real JLPT past papers) read as clearly separate pools instead
+// of one long flat book list.
+export type QuizBookGroup = "sach" | "de";
+
+export const GROUP_LABELS: Record<QuizBookGroup, string> = {
+  sach: "Sách",
+  de: "Đề",
+};
+
+export const BOOK_GROUP: Record<string, QuizBookGroup> = {
+  "500mon-n4": "sach",
+  "500mon": "sach",
+  "500mon-n2": "sach",
+  "n3-tuvung-20de": "de",
 };
 
 const CATEGORY_ORDER: QuizBookCategory[] = ["moji", "goi", "bunpou"];
@@ -55,6 +79,15 @@ export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((level) => ALL_Q
 export const AVAILABLE_BOOKS: string[] = Object.keys(BOOK_LABELS).filter((book) =>
   ALL_QUIZBOOK.some((q) => q.book === book),
 );
+
+const GROUP_ORDER: QuizBookGroup[] = ["sach", "de"];
+export const AVAILABLE_GROUPS: QuizBookGroup[] = GROUP_ORDER.filter((g) =>
+  AVAILABLE_BOOKS.some((b) => BOOK_GROUP[b] === g),
+);
+
+export function booksInGroup(group: QuizBookGroup): string[] {
+  return AVAILABLE_BOOKS.filter((b) => BOOK_GROUP[b] === group);
+}
 
 export function pickRandomQuestion(
   categories: QuizBookCategory[],
@@ -92,6 +125,7 @@ export function getQuestionProgress(
 }
 
 export interface QuizBookViewerState {
+  selectedGroup: QuizBookGroup;
   selectedCategories: QuizBookCategory[];
   selectedBooks: string[];
   currentQuestionId: string | null;
@@ -114,9 +148,11 @@ export const QUESTION_COUNT_OPTIONS = [5, 10, 20, 30, 50, 100];
 export const ALL_QUESTIONS_SENTINEL = Number.MAX_SAFE_INTEGER;
 
 export function defaultViewerState(): QuizBookViewerState {
+  const defaultGroup = AVAILABLE_GROUPS[0] ?? "sach";
   return {
+    selectedGroup: defaultGroup,
     selectedCategories: [...AVAILABLE_CATEGORIES],
-    selectedBooks: [...AVAILABLE_BOOKS],
+    selectedBooks: booksInGroup(defaultGroup),
     currentQuestionId: null,
     answers: {},
     correctStreaks: {},
@@ -131,13 +167,20 @@ export async function loadViewerState(): Promise<QuizBookViewerState> {
   const stored = await chrome.storage.local.get(STORAGE_KEY);
   const saved = stored[STORAGE_KEY] as Partial<QuizBookViewerState> | undefined;
   const fallback = defaultViewerState();
+  const selectedGroup = saved?.selectedGroup && AVAILABLE_GROUPS.includes(saved.selectedGroup) ? saved.selectedGroup : fallback.selectedGroup;
   const selectedCategories = (saved?.selectedCategories ?? fallback.selectedCategories).filter((c) =>
     AVAILABLE_CATEGORIES.includes(c),
   );
-  const selectedBooksRaw = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_BOOKS.includes(b));
-  const selectedBooks = selectedBooksRaw.length > 0 ? selectedBooksRaw : fallback.selectedBooks;
+  // Books are scoped to the selected group -- a book from a different group
+  // (e.g. saved before this group ever existed, or before switching tabs)
+  // never leaks into the current pool.
+  const selectedBooksRaw = (saved?.selectedBooks ?? booksInGroup(selectedGroup)).filter(
+    (b) => AVAILABLE_BOOKS.includes(b) && BOOK_GROUP[b] === selectedGroup,
+  );
+  const selectedBooks = selectedBooksRaw.length > 0 ? selectedBooksRaw : booksInGroup(selectedGroup);
   const sessionIds = saved?.sessionIds?.filter((id) => findQuizBookById(id)) ?? null;
   return {
+    selectedGroup,
     selectedCategories: selectedCategories.length > 0 ? selectedCategories : fallback.selectedCategories,
     selectedBooks,
     currentQuestionId:

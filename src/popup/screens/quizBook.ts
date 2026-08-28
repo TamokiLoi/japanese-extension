@@ -2,7 +2,10 @@ import type { QuizBookQuestion, QuizBookCategory } from "../../types/quizBook.ts
 import {
   ALL_QUIZBOOK,
   AVAILABLE_CATEGORIES,
-  AVAILABLE_BOOKS,
+  AVAILABLE_GROUPS,
+  GROUP_LABELS,
+  BOOK_GROUP,
+  booksInGroup,
   CATEGORY_LABELS,
   BOOK_LABELS,
   BOOK_LEVELS,
@@ -16,6 +19,7 @@ import {
   resetQuestionAnswer,
   recordAnswer,
   buildSession,
+  type QuizBookGroup,
   type QuizBookViewerState,
 } from "../quizBookState.ts";
 import { levelDotHtml } from "../levelColors.ts";
@@ -57,7 +61,18 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
     `;
   }).join("");
 
-  const bookCheckboxes = AVAILABLE_BOOKS.map((book) => {
+  const groupTabs = AVAILABLE_GROUPS.map((group) => {
+    const active = state.selectedGroup === group;
+    const count = ALL_QUIZBOOK.filter((q) => BOOK_GROUP[q.book] === group).length;
+    return `
+      <label class="quiz-radio">
+        <input type="radio" name="group" value="${group}" ${active ? "checked" : ""} />
+        ${GROUP_LABELS[group]} <span class="muted">(${count})</span>
+      </label>
+    `;
+  }).join("");
+
+  const bookCheckboxes = booksInGroup(state.selectedGroup).map((book) => {
     const checked = state.selectedBooks.includes(book);
     const count = ALL_QUIZBOOK.filter((q) => q.book === book && state.selectedCategories.includes(q.category)).length;
     return `
@@ -125,8 +140,17 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
     </header>
 
     <section class="quiz-setup">
+      ${
+        AVAILABLE_GROUPS.length > 1
+          ? `<div class="quiz-setup-group">
+        <div class="quiz-setup-label">Nguồn</div>
+        <div class="quiz-radio-row">${groupTabs}</div>
+      </div>`
+          : ""
+      }
+
       <div class="quiz-setup-group">
-        <div class="quiz-setup-label">Sách</div>
+        <div class="quiz-setup-label">${GROUP_LABELS[state.selectedGroup]}</div>
         <div class="reading-book-radio-row">${bookCheckboxes}</div>
       </div>
 
@@ -172,6 +196,16 @@ function paintList(app: HTMLElement, state: QuizBookViewerState, onBack: () => v
 
   document.getElementById("back")!.addEventListener("click", onBack);
   wireExpandToTabButton("quizBook");
+
+  app.querySelectorAll<HTMLInputElement>('input[name="group"]').forEach((input) => {
+    input.addEventListener("change", async () => {
+      const group = input.value as QuizBookGroup;
+      if (group === state.selectedGroup) return;
+      const newState: QuizBookViewerState = { ...state, selectedGroup: group, selectedBooks: booksInGroup(group) };
+      await saveViewerState(newState);
+      paintList(app, newState, onBack);
+    });
+  });
 
   app.querySelectorAll<HTMLInputElement>("input[data-category]").forEach((input) => {
     input.addEventListener("change", async () => {
@@ -312,7 +346,7 @@ function paintQuestion(app: HTMLElement, q: QuizBookQuestion, state: QuizBookVie
 
       ${
         answered !== null
-          ? `<div class="reading-question-vi">${q.explanation}</div>
+          ? `${q.explanation ? `<div class="reading-question-vi">${q.explanation}</div>` : ""}
              ${q.notes.length ? `<div class="reading-explanation">${q.notes.join(" · ")}</div>` : ""}
              <button id="reset-question" class="reading-reset-btn" title="Làm lại từ đầu">↺ Làm lại câu này</button>`
           : ""

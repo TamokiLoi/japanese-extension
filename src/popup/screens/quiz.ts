@@ -1,6 +1,7 @@
 import {
   buildKanjiQuiz,
   buildVocabQuiz,
+  buildBunpoQuiz,
   loadQuizSettings,
   saveQuizSettings,
   loadQuizSession,
@@ -15,10 +16,12 @@ import {
   type QuizSession,
   type KanjiQuizMode,
   type VocabQuizMode,
+  type BunpoQuizMode,
 } from "../quizState.ts";
 import { recordAnswer, loadProgressMap, bucketFor } from "../progressState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../vocabState.ts";
+import { loadViewerState as loadBunpoViewerState, findBunpoById, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../bunpoState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 
 export async function renderQuizScreen(
@@ -26,14 +29,15 @@ export async function renderQuizScreen(
   onBack: () => void,
   onOpenKanji: (kanjiId: string) => void,
   onOpenVocab: (vocabId: string) => void,
+  onOpenBunpo: (bunpoId: string) => void,
 ) {
   const existing = await loadQuizSession();
   if (existing && isSessionUnfinished(existing)) {
-    paintResumePrompt(app, onBack, onOpenKanji, onOpenVocab, existing);
+    paintResumePrompt(app, onBack, onOpenKanji, onOpenVocab, onOpenBunpo, existing);
     return;
   }
   const settings = await loadQuizSettings();
-  await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab);
+  await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
 }
 
 function paintResumePrompt(
@@ -41,6 +45,7 @@ function paintResumePrompt(
   onBack: () => void,
   onOpenKanji: (kanjiId: string) => void,
   onOpenVocab: (vocabId: string) => void,
+  onOpenBunpo: (bunpoId: string) => void,
   session: QuizSession,
 ) {
   const answeredCount = session.answers.filter((a) => a !== null).length;
@@ -57,12 +62,12 @@ function paintResumePrompt(
   `;
   document.getElementById("back")!.addEventListener("click", onBack);
   document.getElementById("resume")!.addEventListener("click", () => {
-    paintPlay(app, session, onBack, onOpenKanji, onOpenVocab);
+    paintPlay(app, session, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
   document.getElementById("restart")!.addEventListener("click", async () => {
     await clearQuizSession();
     const settings = await loadQuizSettings();
-    await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab);
+    await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
 }
 
@@ -72,12 +77,21 @@ async function paintSetup(
   onBack: () => void,
   onOpenKanji: (kanjiId: string) => void,
   onOpenVocab: (vocabId: string) => void,
+  onOpenBunpo: (bunpoId: string) => void,
   error?: string,
 ) {
   const kanjiState = await loadKanjiViewerState();
   const vocabState = await loadVocabViewerState();
+  const bunpoState = await loadBunpoViewerState();
   const kanjiFilterText = kanjiState.selectedLevels.join(", ") || "—";
   const vocabFilterText = vocabState.selectedSources.map((s) => SOURCE_LABELS[s]).join(", ") || "—";
+  const bunpoFilterText = bunpoState.selectedSources.map((s) => BUNPO_SOURCE_LABELS[s]).join(", ") || "—";
+  const filterTextByType: Record<QuizContentType, string> = {
+    kanji: kanjiFilterText,
+    vocab: vocabFilterText,
+    bunpo: bunpoFilterText,
+  };
+  const filterScreenLabel: Record<QuizContentType, string> = { kanji: "Kanji", vocab: "Từ vựng", bunpo: "Bunpo" };
 
   app.innerHTML = `
     <header class="toolbar">
@@ -96,6 +110,10 @@ async function paintSetup(
           <label class="quiz-radio">
             <input type="radio" name="content-type" value="vocab" ${settings.contentType === "vocab" ? "checked" : ""} />
             Từ vựng
+          </label>
+          <label class="quiz-radio">
+            <input type="radio" name="content-type" value="bunpo" ${settings.contentType === "bunpo" ? "checked" : ""} />
+            Ngữ pháp
           </label>
         </div>
       </div>
@@ -136,6 +154,20 @@ async function paintSetup(
         </div>
       </div>
 
+      <div class="quiz-setup-group" id="bunpo-mode-group" style="${settings.contentType === "bunpo" ? "" : "display:none"}">
+        <div class="quiz-setup-label">Dạng câu hỏi</div>
+        <div class="quiz-radio-row">
+          <label class="quiz-radio">
+            <input type="radio" name="bunpo-mode" value="meaning" ${settings.bunpoMode === "meaning" ? "checked" : ""} />
+            Xem mẫu ngữ pháp, đoán nghĩa
+          </label>
+          <label class="quiz-radio">
+            <input type="radio" name="bunpo-mode" value="pattern" ${settings.bunpoMode === "pattern" ? "checked" : ""} />
+            Xem nghĩa, đoán mẫu ngữ pháp
+          </label>
+        </div>
+      </div>
+
       <div class="quiz-setup-group">
         <div class="quiz-setup-label">Số câu hỏi</div>
         <div class="quiz-count-row">
@@ -151,8 +183,8 @@ async function paintSetup(
       </div>
 
       <p class="quiz-filter-note">
-        Dùng bộ lọc đang chọn ở màn ${settings.contentType === "kanji" ? "Kanji" : "Từ vựng"}:
-        <b>${settings.contentType === "kanji" ? kanjiFilterText : vocabFilterText}</b>
+        Dùng bộ lọc đang chọn ở màn ${filterScreenLabel[settings.contentType]}:
+        <b>${filterTextByType[settings.contentType]}</b>
       </p>
 
       ${error ? `<p class="quiz-error">${error}</p>` : ""}
@@ -167,7 +199,7 @@ async function paintSetup(
     input.addEventListener("change", async () => {
       const newSettings: QuizSettings = { ...settings, contentType: input.value as QuizContentType };
       await saveQuizSettings(newSettings);
-      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab);
+      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
     });
   });
 
@@ -175,7 +207,7 @@ async function paintSetup(
     input.addEventListener("change", async () => {
       const newSettings: QuizSettings = { ...settings, kanjiMode: input.value as KanjiQuizMode };
       await saveQuizSettings(newSettings);
-      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab);
+      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
     });
   });
 
@@ -183,7 +215,15 @@ async function paintSetup(
     input.addEventListener("change", async () => {
       const newSettings: QuizSettings = { ...settings, vocabMode: input.value as VocabQuizMode };
       await saveQuizSettings(newSettings);
-      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab);
+      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
+    });
+  });
+
+  app.querySelectorAll<HTMLInputElement>('input[name="bunpo-mode"]').forEach((input) => {
+    input.addEventListener("change", async () => {
+      const newSettings: QuizSettings = { ...settings, bunpoMode: input.value as BunpoQuizMode };
+      await saveQuizSettings(newSettings);
+      await paintSetup(app, newSettings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
     });
   });
 
@@ -197,7 +237,9 @@ async function paintSetup(
     const questions =
       settings.contentType === "kanji"
         ? await buildKanjiQuiz(settings.kanjiMode, questionCount)
-        : await buildVocabQuiz(settings.vocabMode, questionCount);
+        : settings.contentType === "vocab"
+          ? await buildVocabQuiz(settings.vocabMode, questionCount)
+          : await buildBunpoQuiz(settings.bunpoMode, questionCount);
     if (questions.length === 0) {
       await paintSetup(
         app,
@@ -205,6 +247,7 @@ async function paintSetup(
         onBack,
         onOpenKanji,
         onOpenVocab,
+        onOpenBunpo,
         "Không đủ dữ liệu để tạo câu hỏi với bộ lọc hiện tại — hãy chọn thêm level/nguồn ở màn tương ứng.",
       );
       return;
@@ -215,7 +258,7 @@ async function paintSetup(
       currentIndex: 0,
     };
     await saveQuizSession(session);
-    await paintPlay(app, session, onBack, onOpenKanji, onOpenVocab);
+    await paintPlay(app, session, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
 }
 
@@ -235,6 +278,18 @@ function detailHtml(q: QuizQuestion): string {
         ${k.readings.on.length > 0 || k.readings.kun.length > 0 ? `<div class="quiz-detail-row"><b>Âm đọc:</b> ${[...k.readings.on, ...k.readings.kun].join("、")}</div>` : ""}
         ${k.mnemonic ? `<div class="quiz-detail-row"><b>Mẹo nhớ:</b> ${k.mnemonic}</div>` : ""}
         <button class="quiz-detail-link" data-kind="kanji" data-id="${k.id}">Xem thẻ đầy đủ →</button>
+      </div>
+    `;
+  }
+  if (q.kind === "bunpo") {
+    const g = findBunpoById(q.id);
+    if (!g) return "";
+    return `
+      <div class="quiz-detail">
+        ${g.usage ? `<div class="quiz-detail-row"><b>Cách dùng:</b> ${g.usage}</div>` : ""}
+        ${g.examTip ? `<div class="quiz-detail-row"><b>Key JLPT:</b> ${g.examTip}</div>` : ""}
+        <div class="quiz-detail-row">${g.example}${g.exampleVi ? `<br /><span class="muted">${g.exampleVi}</span>` : ""}</div>
+        <button class="quiz-detail-link" data-kind="bunpo" data-id="${g.id}">Xem thẻ đầy đủ →</button>
       </div>
     `;
   }
@@ -258,6 +313,7 @@ async function paintPlay(
   onBack: () => void,
   onOpenKanji: (kanjiId: string) => void,
   onOpenVocab: (vocabId: string) => void,
+  onOpenBunpo: (bunpoId: string) => void,
 ) {
   const idx = session.currentIndex;
   const q = session.questions[idx];
@@ -318,7 +374,7 @@ async function paintPlay(
     btn.addEventListener("click", async () => {
       const newSession = { ...session, currentIndex: Number(btn.dataset.index) };
       await saveQuizSession(newSession);
-      await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab);
+      await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
     });
   });
 
@@ -332,7 +388,7 @@ async function paintPlay(
         newAnswers[idx] = chosenIndex;
         const newSession = { ...session, answers: newAnswers };
         await saveQuizSession(newSession);
-        await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab);
+        await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
       });
     });
   }
@@ -340,6 +396,7 @@ async function paintPlay(
   document.querySelector(".quiz-detail-link")?.addEventListener("click", (e) => {
     const el = e.currentTarget as HTMLButtonElement;
     if (el.dataset.kind === "kanji") onOpenKanji(el.dataset.id!);
+    else if (el.dataset.kind === "bunpo") onOpenBunpo(el.dataset.id!);
     else onOpenVocab(el.dataset.id!);
   });
 
@@ -347,24 +404,24 @@ async function paintPlay(
     if (idx === 0) return;
     const newSession = { ...session, currentIndex: idx - 1 };
     await saveQuizSession(newSession);
-    await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab);
+    await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
 
   document.getElementById("next")!.addEventListener("click", async () => {
     if (isLast) {
-      await finishQuiz(app, session, onBack, onOpenKanji, onOpenVocab);
+      await finishQuiz(app, session, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
       return;
     }
     const newSession = { ...session, currentIndex: idx + 1 };
     await saveQuizSession(newSession);
-    await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab);
+    await paintPlay(app, newSession, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
 
   document.getElementById("finish")!.addEventListener("click", async () => {
     if (!allAnswered && !confirm(`Còn ${session.answers.filter((a) => a === null).length} câu chưa trả lời. Vẫn nộp bài?`)) {
       return;
     }
-    await finishQuiz(app, session, onBack, onOpenKanji, onOpenVocab);
+    await finishQuiz(app, session, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
 }
 
@@ -374,9 +431,10 @@ async function finishQuiz(
   onBack: () => void,
   onOpenKanji: (kanjiId: string) => void,
   onOpenVocab: (vocabId: string) => void,
+  onOpenBunpo: (bunpoId: string) => void,
 ) {
   await clearQuizSession();
-  paintResult(app, session, onBack, onOpenKanji, onOpenVocab);
+  paintResult(app, session, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
 }
 
 function paintResult(
@@ -385,6 +443,7 @@ function paintResult(
   onBack: () => void,
   onOpenKanji: (kanjiId: string) => void,
   onOpenVocab: (vocabId: string) => void,
+  onOpenBunpo: (bunpoId: string) => void,
 ) {
   const total = session.questions.length;
   const score = session.answers.filter((a, i) => a !== null && session.questions[i].choices[a].correct).length;
@@ -423,12 +482,12 @@ function paintResult(
   document.getElementById("back")!.addEventListener("click", onBack);
   document.getElementById("retry")!.addEventListener("click", async () => {
     const settings = await loadQuizSettings();
-    await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab);
+    await paintSetup(app, settings, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
   });
   app.querySelectorAll<HTMLButtonElement>(".quiz-review-item").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const reviewSession = { ...session, currentIndex: Number(btn.dataset.index) };
-      await paintPlay(app, reviewSession, onBack, onOpenKanji, onOpenVocab);
+      await paintPlay(app, reviewSession, onBack, onOpenKanji, onOpenVocab, onOpenBunpo);
     });
   });
 }

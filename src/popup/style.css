@@ -1689,6 +1689,11 @@ body.tab-mode .jlpt-list {
   grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
   gap: 8px;
   padding: 10px 12px;
+  /* Large pools (100s of tiles) used to push the whole popup into a long
+     page-level scroll. Capping height here and scrolling inside the grid
+     instead keeps the filter/summary controls above it always in view. */
+  max-height: 520px;
+  overflow-y: auto;
 }
 
 /* Vocab words run 2-5+ characters, unlike the single-glyph kanji/category

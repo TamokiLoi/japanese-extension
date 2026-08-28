@@ -7,8 +7,9 @@ import { renderJlptHistoryScreen } from "./screens/jlptHistory.ts";
 import { renderStatsScreen } from "./screens/stats.ts";
 import { renderReadingScreen } from "./screens/reading.ts";
 import { renderQuizBookScreen } from "./screens/quizBook.ts";
+import { renderBunpoScreen } from "./screens/bunpo.ts";
 
-type Screen = "menu" | "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading" | "quizBook";
+type Screen = "menu" | "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading" | "quizBook" | "bunpo";
 const VALID_SCREENS: Screen[] = [
   "menu",
   "kanji",
@@ -19,6 +20,7 @@ const VALID_SCREENS: Screen[] = [
   "stats",
   "reading",
   "quizBook",
+  "bunpo",
 ];
 
 function navigate(screen: Screen, targetId?: string) {
@@ -35,6 +37,7 @@ function navigate(screen: Screen, targetId?: string) {
       () => navigate("menu"),
       (kanjiId) => navigate("kanji", kanjiId),
       (vocabId) => navigate("vocab", vocabId),
+      (bunpoId) => navigate("bunpo", bunpoId),
     );
   } else if (screen === "search") {
     renderSearchScreen(
@@ -56,6 +59,8 @@ function navigate(screen: Screen, targetId?: string) {
     renderReadingScreen(app, () => navigate("menu"));
   } else if (screen === "quizBook") {
     renderQuizBookScreen(app, () => navigate("menu"));
+  } else if (screen === "bunpo") {
+    renderBunpoScreen(app, () => navigate("menu"), () => navigate("reading"), () => navigate("quizBook"), targetId);
   }
 }
 

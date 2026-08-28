@@ -3,6 +3,7 @@ import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_JLPT_HISTORY } from "../jlptHistoryState.ts";
 import { ALL_READING } from "../readingState.ts";
 import { ALL_QUIZBOOK } from "../quizBookState.ts";
+import { ALL_BUNPO } from "../bunpoState.ts";
 import { countMastered, getStudyStreak } from "../progressState.ts";
 import { exportBackupJson, importBackupJson } from "../backupState.ts";
 import {
@@ -59,12 +60,13 @@ function readRowIntervalMinutes(intervalSelect: HTMLSelectElement, customInput: 
     : Number(intervalSelect.value);
 }
 
-type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading" | "quizBook";
+type MenuScreen = "kanji" | "vocab" | "quiz" | "search" | "jlptHistory" | "stats" | "reading" | "quizBook" | "bunpo";
 
 export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: MenuScreen) => void) {
-  const [kanjiMastered, vocabMastered, streak] = await Promise.all([
+  const [kanjiMastered, vocabMastered, bunpoMastered, streak] = await Promise.all([
     countMastered(ALL_KANJI.map((k) => k.id)),
     countMastered(ALL_VOCAB.map((v) => v.id)),
+    countMastered(ALL_BUNPO.map((g) => g.id)),
     getStudyStreak(),
   ]);
 
@@ -148,15 +150,15 @@ export async function renderMenuScreen(app: HTMLElement, onSelect: (screen: Menu
         <span class="menu-item-icon">解</span>
         <span class="menu-item-body">
           <span class="menu-item-title">Luyện đề</span>
-          <span class="menu-item-desc">${ALL_QUIZBOOK.length} câu N3 (theo sách, có giải thích)</span>
+          <span class="menu-item-desc">${ALL_QUIZBOOK.length} câu · theo sách & đề luyện tập</span>
         </span>
       </button>
 
-      <button class="menu-item" disabled>
+      <button class="menu-item" data-screen="bunpo">
         <span class="menu-item-icon">文</span>
         <span class="menu-item-body">
           <span class="menu-item-title">Bunpo</span>
-          <span class="menu-item-desc">Sắp ra mắt</span>
+          <span class="menu-item-desc">${ALL_BUNPO.length} mẫu ngữ pháp N3${bunpoMastered > 0 ? ` · ${bunpoMastered} đã thuộc` : ""}</span>
         </span>
       </button>
 
