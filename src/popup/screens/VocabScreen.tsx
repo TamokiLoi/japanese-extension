@@ -26,8 +26,15 @@ import {
   type ProgressMap,
 } from "../progressState.ts";
 import { ExpandTabButton } from "../TabMode.tsx";
+import { CollapsibleSection } from "../CollapsibleSection.tsx";
 import { kanjiIdForChar } from "../kanjiVocabLinks.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
+
+const PROGRESS_FILTER_LABELS: Record<VocabViewerState["progressFilter"], string> = {
+  all: "Tất cả thẻ",
+  unmastered: "Chưa thuộc",
+  flagged: "Đã đánh dấu khó",
+};
 
 // Renders a word with each character that's a known kanji wrapped in a
 // clickable span so it can jump to that kanji's card.
@@ -176,7 +183,12 @@ export function VocabScreen({
         <ExpandTabButton screenHash="vocab" />
       </header>
 
-      <section className="level-selector">
+      <CollapsibleSection
+        className="level-selector"
+        title="Nguồn"
+        defaultOpen
+        summary={`${allChecked ? "Tất cả" : `${state.selectedSources.length} nguồn`}${state.randomOrder ? " · Ngẫu nhiên" : ""}`}
+      >
         <label className="level-check level-check-all">
           <input
             type="checkbox"
@@ -214,9 +226,9 @@ export function VocabScreen({
           />
           Hiển thị ngẫu nhiên
         </label>
-      </section>
+      </CollapsibleSection>
 
-      <section className="progress-filter-row">
+      <CollapsibleSection className="progress-filter-row" title="Tiến độ" summary={PROGRESS_FILTER_LABELS[state.progressFilter]}>
         <select
           value={state.progressFilter}
           onChange={(e) => mutate({ progressFilter: e.target.value as VocabViewerState["progressFilter"], index: 0 })}
@@ -225,7 +237,7 @@ export function VocabScreen({
           <option value="unmastered">Chưa thuộc</option>
           <option value="flagged">Đã đánh dấu khó</option>
         </select>
-      </section>
+      </CollapsibleSection>
 
       {isGrid ? (
         bucketCounts && gridMap ? (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import type { BunpoGrammarPoint, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -17,6 +17,7 @@ import {
 } from "../bunpoState.ts";
 import { LevelDot } from "../LevelDot.tsx";
 import { ExpandTabButton } from "../TabMode.tsx";
+import { CollapsibleSection } from "../CollapsibleSection.tsx";
 import { useDebouncedValue } from "../useDebouncedValue.ts";
 import {
   getProgress,
@@ -29,7 +30,7 @@ import {
   type ProgressFilter,
   type ProgressMap,
 } from "../progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions } from "../bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample } from "../bunpoLinks.ts";
 import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../readingState.ts";
 import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../quizBookState.ts";
 
@@ -160,7 +161,12 @@ function ListView({
         <ExpandTabButton screenHash="bunpo" />
       </header>
 
-      <section className="level-selector">
+      <CollapsibleSection
+        className="level-selector"
+        title="Cấp độ"
+        defaultOpen
+        summary={allLevelsChecked ? "Tất cả" : `${state.selectedLevels.length} cấp độ`}
+      >
         <label className="level-check level-check-all">
           <input
             type="checkbox"
@@ -188,9 +194,13 @@ function ListView({
             </label>
           );
         })}
-      </section>
+      </CollapsibleSection>
 
-      <section className="quiz-setup">
+      <CollapsibleSection
+        className="quiz-setup"
+        title="Nguồn & bộ lọc"
+        summary={`${state.selectedSources.length}/${AVAILABLE_SOURCES.length} nguồn`}
+      >
         <div className="quiz-setup-group">
           <div className="quiz-setup-label">Nguồn</div>
           <div className="level-selector-inline">
@@ -254,7 +264,7 @@ function ListView({
             </select>
           </div>
         </div>
-      </section>
+      </CollapsibleSection>
 
       <section className="jlpt-filter-row">
         <input
@@ -372,6 +382,9 @@ function DetailView({
 
       <main className={`card card-${bucketFor(progress)}`}>
         <div className="reading-meta">
+          <button className="reading-change-filter" title="Về danh sách ngữ pháp" onClick={() => mutate({ currentGrammarId: null })}>
+            ☰ Danh sách
+          </button>
           <span className="level-badge" data-level={g.level}>
             {g.level}
           </span>
@@ -379,9 +392,6 @@ function DetailView({
             {SOURCE_LABELS[g.source]}
             {g.chapter !== undefined ? ` · Chương ${g.chapter}` : ""}
           </span>
-          <button className="reading-change-filter" title="Về danh sách ngữ pháp" onClick={() => mutate({ currentGrammarId: null })}>
-            ☰ Danh sách
-          </button>
         </div>
         {g.chapterTitle ? <div className="reading-timeline">{g.chapterTitle}</div> : null}
 
@@ -426,7 +436,17 @@ function DetailView({
         </dl>
 
         <p className="example">
-          <span className="example-jp">{g.example}</span>
+          <span className="example-jp">
+            {highlightPatternInExample(g.example, g.pattern).map((frag, i) =>
+              frag.highlighted ? (
+                <mark key={i} className="example-jp-highlight">
+                  {frag.text}
+                </mark>
+              ) : (
+                <Fragment key={i}>{frag.text}</Fragment>
+              ),
+            )}
+          </span>
           <span className="example-vi">{g.exampleVi}</span>
         </p>
 

@@ -25,6 +25,7 @@ import {
 } from "../quizBookState.ts";
 import { LevelDot } from "../LevelDot.tsx";
 import { ExpandTabButton } from "../TabMode.tsx";
+import { CollapsibleSection } from "../CollapsibleSection.tsx";
 
 function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolean {
   return state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book);
@@ -150,7 +151,12 @@ function ListView({
         <ExpandTabButton screenHash="quizBook" />
       </header>
 
-      <section className="quiz-setup">
+      <CollapsibleSection
+        className="quiz-setup"
+        title="Bộ lọc"
+        defaultOpen
+        summary={`${state.selectedBooks.length} sách · ${state.selectedCategories.length}/${AVAILABLE_CATEGORIES.length} dạng`}
+      >
         {AVAILABLE_GROUPS.length > 1 ? (
           <div className="quiz-setup-group">
             <div className="quiz-setup-label">Nguồn</div>
@@ -246,13 +252,15 @@ function ListView({
             </select>
           </div>
         </div>
+      </CollapsibleSection>
 
+      <div className="quiz-setup">
         {error ? <p className="quiz-error">{error}</p> : null}
 
         <button className="primary-action-btn" onClick={handleStart}>
           🎲 Bắt đầu ({effectiveCount} câu)
         </button>
-      </section>
+      </div>
 
       <section className="reading-list-section">
         <div className="reading-list-summary">
@@ -377,6 +385,9 @@ function QuestionView({
 
       <main className="reading-card">
         <div className="reading-meta">
+          <button className="reading-change-filter" title="Về danh sách câu hỏi" onClick={() => mutate({ currentQuestionId: null })}>
+            ☰ Danh sách
+          </button>
           <span className="level-badge" data-level={q.level}>
             {q.level}
           </span>
@@ -387,9 +398,6 @@ function QuestionView({
               Câu {sessionPos + 1}/{session.length}
             </span>
           ) : null}
-          <button className="reading-change-filter" title="Về danh sách câu hỏi" onClick={() => mutate({ currentQuestionId: null })}>
-            ☰ Danh sách
-          </button>
         </div>
 
         <div className="reading-question">

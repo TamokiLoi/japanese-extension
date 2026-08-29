@@ -25,8 +25,15 @@ import {
 } from "../progressState.ts";
 import { ExpandTabButton } from "../TabMode.tsx";
 import { LevelDot } from "../LevelDot.tsx";
+import { CollapsibleSection } from "../CollapsibleSection.tsx";
 import { vocabForKanjiChar } from "../kanjiVocabLinks.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
+
+const PROGRESS_FILTER_LABELS: Record<KanjiViewerState["progressFilter"], string> = {
+  all: "Tất cả thẻ",
+  unmastered: "Chưa thuộc",
+  flagged: "Đã đánh dấu khó",
+};
 
 function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   if (k.meanings.vi.length > 0) {
@@ -167,7 +174,12 @@ export function KanjiScreen({
         <ExpandTabButton screenHash="kanji" />
       </header>
 
-      <section className="level-selector">
+      <CollapsibleSection
+        className="level-selector"
+        title="Cấp độ"
+        defaultOpen
+        summary={`${allChecked ? "Tất cả" : `${state.selectedLevels.length} cấp độ`}${state.randomOrder ? " · Ngẫu nhiên" : ""}`}
+      >
         <label className="level-check level-check-all">
           <input
             type="checkbox"
@@ -206,9 +218,9 @@ export function KanjiScreen({
           />
           Hiển thị ngẫu nhiên
         </label>
-      </section>
+      </CollapsibleSection>
 
-      <section className="progress-filter-row">
+      <CollapsibleSection className="progress-filter-row" title="Tiến độ" summary={PROGRESS_FILTER_LABELS[state.progressFilter]}>
         <select
           value={state.progressFilter}
           onChange={(e) => mutate({ progressFilter: e.target.value as KanjiViewerState["progressFilter"], index: 0 })}
@@ -217,7 +229,7 @@ export function KanjiScreen({
           <option value="unmastered">Chưa thuộc</option>
           <option value="flagged">Đã đánh dấu khó</option>
         </select>
-      </section>
+      </CollapsibleSection>
 
       {isGrid ? (
         bucketCounts && gridMap ? (

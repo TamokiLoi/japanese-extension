@@ -19,6 +19,7 @@ import {
 import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../LevelDot.tsx";
 import { ExpandTabButton } from "../TabMode.tsx";
+import { CollapsibleSection } from "../CollapsibleSection.tsx";
 
 function matchesFilters(p: ReadingPassage, state: ReadingViewerState): boolean {
   return state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && state.selectedBooks.includes(p.book);
@@ -180,7 +181,12 @@ function ListView({
         <ExpandTabButton screenHash="reading" />
       </header>
 
-      <section className="quiz-setup">
+      <CollapsibleSection
+        className="quiz-setup"
+        title="Bộ lọc"
+        defaultOpen
+        summary={`${state.selectedBooks.length}/${AVAILABLE_BOOKS.length} sách`}
+      >
         {AVAILABLE_LEVELS.length > 1 ? (
           <div className="quiz-setup-group">
             <div className="quiz-setup-label">Cấp độ</div>
@@ -272,13 +278,15 @@ function ListView({
             })}
           </div>
         </div>
+      </CollapsibleSection>
 
+      <div className="quiz-setup">
         {error ? <p className="quiz-error">{error}</p> : null}
 
         <button className="primary-action-btn" onClick={handleStart}>
           🎲 Random bài đọc
         </button>
-      </section>
+      </div>
 
       <section className="reading-list-section">
         <div className="reading-list-summary">
@@ -392,14 +400,14 @@ function PassageView({
 
       <main className="reading-card">
         <div className="reading-meta">
+          <button className="reading-change-filter" title="Về danh sách bài đọc" onClick={() => mutate({ currentPassageId: null })}>
+            ☰ Danh sách
+          </button>
           <span className="level-badge" data-level={passage.level}>
             {passage.level}
           </span>
           <span className="reading-book-badge">{BOOK_LABELS[passage.book]}</span>
           <span className="reading-timeline">{timelineLabel(passage)}</span>
-          <button className="reading-change-filter" title="Về danh sách bài đọc" onClick={() => mutate({ currentPassageId: null })}>
-            ☰ Danh sách
-          </button>
         </div>
         <h2 className="reading-title">{passage.title}</h2>
 

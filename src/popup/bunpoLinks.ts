@@ -55,3 +55,49 @@ export function findMatchingQuizBookQuestions(g: BunpoGrammarPoint, limit = MAX_
   }
   return matches;
 }
+
+export interface ExampleFragment {
+  text: string;
+  highlighted: boolean;
+}
+
+// Lower than extractMatchChunks's >=3 floor -- this only drives a visual
+// highlight (a soft hint), not a content-matching filter, so a slightly
+// too-eager match is much cheaper here than in findMatchingReadingPassages/
+// findMatchingQuizBookQuestions above.
+const MIN_HIGHLIGHT_CHUNK_LEN = 2;
+
+// Japanese example sentences conjugate the pattern (e.g. pattern "〜ように
+// なる" but the example uses "…読めるようになった") so a literal full-chunk
+// substring match against the example fails for a large fraction of
+// patterns. Recover most of those by right-trimming the chunk down to
+// MIN_HIGHLIGHT_CHUNK_LEN and taking the longest prefix that does appear.
+function resolveChunkInExample(chunk: string, example: string): string | null {
+  for (let len = chunk.length; len >= MIN_HIGHLIGHT_CHUNK_LEN; len--) {
+    const candidate = chunk.slice(0, len);
+    if (example.includes(candidate)) return candidate;
+  }
+  return null;
+}
+
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Splits an example sentence into fragments, marking the substring(s) that
+// correspond to the grammar pattern as highlighted. Returns the whole
+// sentence as a single non-highlighted fragment if nothing resolves (some
+// patterns are phrased too differently from their example to recover a
+// substring match at all) -- callers can render the result unconditionally.
+export function highlightPatternInExample(example: string, pattern: string): ExampleFragment[] {
+  const chunks = extractMatchChunks(pattern);
+  const resolved = [...new Set(chunks.map((c) => resolveChunkInExample(c, example)).filter((c): c is string => c !== null))];
+  if (resolved.length === 0) return [{ text: example, highlighted: false }];
+
+  const sorted = resolved.slice().sort((a, b) => b.length - a.length);
+  const re = new RegExp(`(${sorted.map(escapeRegExp).join("|")})`, "g");
+  return example
+    .split(re)
+    .filter((s) => s.length > 0)
+    .map((s) => ({ text: s, highlighted: resolved.includes(s) }));
+}
