@@ -194,15 +194,18 @@ body.tab-mode #app {
 .details {
   text-align: left;
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 86px 1fr;
   row-gap: 6px;
   column-gap: 8px;
   font-size: 13px;
 }
 
 .details dt {
+  display: flex;
+  align-items: center;
   color: #888;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .details dd {
@@ -689,13 +692,14 @@ body.tab-mode #app {
    explaining conjugation-form shorthand (V辞書形, Vて形, ...) once instead
    of annotating every occurrence inline. */
 .usage-glossary-btn {
+  flex: none;
   border: none;
   background: none;
   color: #999;
   cursor: pointer;
-  font-size: 12px;
-  padding: 0 0 0 4px;
-  vertical-align: middle;
+  font-size: 11px;
+  line-height: 1;
+  padding: 0 0 0 3px;
 }
 
 .usage-glossary-btn:hover {
