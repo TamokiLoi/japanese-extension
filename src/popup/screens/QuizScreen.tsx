@@ -61,6 +61,16 @@ export function QuizScreen({
 
   const openCallbacks: OpenCallbacks = { onOpenKanji, onOpenVocab, onOpenBunpo };
 
+  // Setup/resume are the "top" of Quiz's own internal flow, so their "←"
+  // leaves the screen entirely (pops the app's navigation stack). Play and
+  // result are internal steps reached from setup without a stack push, so
+  // their "←" should step back to setup instead of jumping straight past
+  // Quiz to whatever screen was open before it.
+  async function backToSetup() {
+    const settings = await loadQuizSettings();
+    setMode({ kind: "setup", settings });
+  }
+
   if (mode.kind === "loading") {
     return (
       <header className="toolbar">
@@ -109,10 +119,10 @@ export function QuizScreen({
   }
 
   if (mode.kind === "play") {
-    return <PlayView session={mode.session} onBack={onBack} setMode={setMode} {...openCallbacks} />;
+    return <PlayView session={mode.session} onBack={backToSetup} setMode={setMode} {...openCallbacks} />;
   }
 
-  return <ResultView session={mode.session} onBack={onBack} setMode={setMode} />;
+  return <ResultView session={mode.session} onBack={backToSetup} setMode={setMode} />;
 }
 
 function SetupView({
@@ -478,7 +488,7 @@ function PlayView({
   return (
     <>
       <header className="toolbar">
-        <button className="icon-btn" title="Về menu" onClick={onBack}>
+        <button className="icon-btn" title="Về màn thiết lập" onClick={onBack}>
           ←
         </button>
         <span className="counter">
@@ -592,7 +602,7 @@ function ResultView({
   return (
     <>
       <header className="toolbar">
-        <button className="icon-btn" title="Về menu" onClick={onBack}>
+        <button className="icon-btn" title="Về màn thiết lập" onClick={onBack}>
           ←
         </button>
         <span className="counter">Kết quả</span>
