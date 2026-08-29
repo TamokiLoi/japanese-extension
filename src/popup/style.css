@@ -925,6 +925,11 @@ body.tab-mode .jlpt-list {
   color: #1a4b8f;
 }
 
+.search-tag-bunpo {
+  background: #f0e0ff;
+  color: #6a2fa8;
+}
+
 .search-tag-level {
   display: inline-block;
   font-size: 10px;
@@ -1026,6 +1031,21 @@ body.tab-mode .jlpt-list {
   border-color: #2fa84f;
   background: #d9f2df;
   color: #1c7a3a;
+}
+
+/* Shown on a mastered card once its fixed-interval review time has passed
+   -- see isDueForReview() in progressState.ts. Sits below .mastered-badge
+   (top: 40px) so the two never overlap. */
+.due-review-badge {
+  position: absolute;
+  top: 68px;
+  left: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #fff2d9;
+  color: #a3690a;
 }
 
 /* Colored top edge on the Kanji/Vocab card itself, so mastery status reads

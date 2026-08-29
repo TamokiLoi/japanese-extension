@@ -20,6 +20,7 @@ import {
   filterByProgress,
   bucketFor,
   countBuckets,
+  isDueForReview,
   BUCKET_TILE_CLASS,
   BUCKET_LABEL,
   type ItemProgress,
@@ -34,6 +35,7 @@ const PROGRESS_FILTER_LABELS: Record<VocabViewerState["progressFilter"], string>
   all: "Tất cả thẻ",
   unmastered: "Chưa thuộc",
   flagged: "Đã đánh dấu khó",
+  due: "Đến hạn ôn lại",
 };
 
 // Renders a word with each character that's a known kanji wrapped in a
@@ -236,6 +238,7 @@ export function VocabScreen({
           <option value="all">Tất cả thẻ</option>
           <option value="unmastered">Chưa thuộc</option>
           <option value="flagged">Đã đánh dấu khó</option>
+          <option value="due">Đến hạn ôn lại</option>
         </select>
       </CollapsibleSection>
 
@@ -296,6 +299,7 @@ export function VocabScreen({
           >
             {progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
           </button>
+          {isDueForReview(progress ?? undefined) ? <span className="due-review-badge">⏰ Đến hạn ôn lại</span> : null}
           <div className="vocab-source-tag">{SOURCE_LABELS[v.source]}</div>
           <div className="vocab-word">
             <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />

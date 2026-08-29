@@ -18,6 +18,7 @@ import {
   filterByProgress,
   bucketFor,
   countBuckets,
+  isDueForReview,
   BUCKET_TILE_CLASS,
   BUCKET_LABEL,
   type ItemProgress,
@@ -33,6 +34,7 @@ const PROGRESS_FILTER_LABELS: Record<KanjiViewerState["progressFilter"], string>
   all: "Tất cả thẻ",
   unmastered: "Chưa thuộc",
   flagged: "Đã đánh dấu khó",
+  due: "Đến hạn ôn lại",
 };
 
 function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
@@ -228,6 +230,7 @@ export function KanjiScreen({
           <option value="all">Tất cả thẻ</option>
           <option value="unmastered">Chưa thuộc</option>
           <option value="flagged">Đã đánh dấu khó</option>
+          <option value="due">Đến hạn ôn lại</option>
         </select>
       </CollapsibleSection>
 
@@ -288,6 +291,7 @@ export function KanjiScreen({
           >
             {progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
           </button>
+          {isDueForReview(progress ?? undefined) ? <span className="due-review-badge">⏰ Đến hạn ôn lại</span> : null}
           <div className="character">{k.character}</div>
 
           <dl className="details">

@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { ALL_KANJI } from "../kanjiState.ts";
 import { ALL_VOCAB } from "../vocabState.ts";
+import { ALL_BUNPO } from "../bunpoState.ts";
 import { ExpandTabButton } from "../TabMode.tsx";
 import { LevelDot } from "../LevelDot.tsx";
 import { useDebouncedValue } from "../useDebouncedValue.ts";
@@ -10,7 +11,7 @@ import type { JlptLevel } from "../../types/kanji.ts";
 const MAX_RESULTS = 40;
 
 interface SearchResult {
-  kind: "kanji" | "vocab";
+  kind: "kanji" | "vocab" | "bunpo";
   id: string;
   level: JlptLevel;
   primary: string;
@@ -55,21 +56,37 @@ function searchVocab(q: string): SearchResult[] {
   }));
 }
 
+function searchBunpo(q: string): SearchResult[] {
+  return ALL_BUNPO.filter((g) => g.pattern.toLowerCase().includes(q) || g.meaningVi.toLowerCase().includes(q)).map((g) => ({
+    kind: "bunpo" as const,
+    id: g.id,
+    level: g.level,
+    primary: g.pattern,
+    secondary: "",
+    meaning: g.meaningVi,
+  }));
+}
+
 export function SearchScreen({
   onBack,
   onOpenKanji,
   onOpenVocab,
+  onOpenBunpo,
 }: {
   onBack: () => void;
   onOpenKanji: (kanjiId: string) => void;
   onOpenVocab: (vocabId: string) => void;
+  onOpenBunpo: (bunpoId: string) => void;
 }) {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebouncedValue(query, 150);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const q = debouncedQuery.trim().toLowerCase();
-  const results = useMemo(() => (q ? [...searchKanji(q), ...searchVocab(q)].slice(0, MAX_RESULTS) : []), [q]);
+  const results = useMemo(
+    () => (q ? [...searchKanji(q), ...searchVocab(q), ...searchBunpo(q)].slice(0, MAX_RESULTS) : []),
+    [q],
+  );
 
   return (
     <>
@@ -101,7 +118,13 @@ export function SearchScreen({
           <p className="empty">Không tìm thấy gì.</p>
         ) : (
           results.map((r) => (
-            <SearchResultRow key={`${r.kind}-${r.id}`} r={r} onOpenKanji={onOpenKanji} onOpenVocab={onOpenVocab} />
+            <SearchResultRow
+              key={`${r.kind}-${r.id}`}
+              r={r}
+              onOpenKanji={onOpenKanji}
+              onOpenVocab={onOpenVocab}
+              onOpenBunpo={onOpenBunpo}
+            />
           ))
         )}
       </main>
@@ -109,23 +132,37 @@ export function SearchScreen({
   );
 }
 
+const KIND_LABELS: Record<SearchResult["kind"], string> = {
+  kanji: "Kanji",
+  vocab: "Từ vựng",
+  bunpo: "Ngữ pháp",
+};
+
+const KIND_CLASSES: Record<SearchResult["kind"], string> = {
+  kanji: "search-tag-kanji",
+  vocab: "search-tag-vocab",
+  bunpo: "search-tag-bunpo",
+};
+
 function SearchResultRow({
   r,
   onOpenKanji,
   onOpenVocab,
+  onOpenBunpo,
 }: {
   r: SearchResult;
   onOpenKanji: (id: string) => void;
   onOpenVocab: (id: string) => void;
+  onOpenBunpo: (id: string) => void;
 }) {
-  const kindLabel = r.kind === "kanji" ? "Kanji" : "Từ vựng";
-  const kindClass = r.kind === "kanji" ? "search-tag-kanji" : "search-tag-vocab";
+  function handleClick() {
+    if (r.kind === "kanji") onOpenKanji(r.id);
+    else if (r.kind === "vocab") onOpenVocab(r.id);
+    else onOpenBunpo(r.id);
+  }
   return (
-    <div
-      className="jlpt-entry search-result"
-      onClick={() => (r.kind === "kanji" ? onOpenKanji(r.id) : onOpenVocab(r.id))}
-    >
-      <span className={`search-tag ${kindClass}`}>{kindLabel}</span>
+    <div className="jlpt-entry search-result" onClick={handleClick}>
+      <span className={`search-tag ${KIND_CLASSES[r.kind]}`}>{KIND_LABELS[r.kind]}</span>
       <span className="search-tag-level">
         <LevelDot level={r.level} />
         {r.level}

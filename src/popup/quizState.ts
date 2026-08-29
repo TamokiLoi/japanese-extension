@@ -38,10 +38,30 @@ export interface QuizChoice {
 export interface QuizQuestion {
   id: string;
   kind: QuizContentType;
+  // Which quiz direction/mode this specific question drilled (e.g.
+  // "meaning"/"character" for Kanji) -- recorded per-question (not just
+  // read from the current settings) since a whole session's questions are
+  // built once from whatever mode was selected at start time, and mastery
+  // tracking needs to know exactly which direction each answer came from.
+  mode: string;
   level: JlptLevel;
   promptLabel: string;
   prompt: string;
   choices: QuizChoice[];
+}
+
+// Which directions must each independently reach the mastery streak before
+// a card of that kind counts as "mastered" -- Kanji/Vocab require every
+// direction to be proven, not just whichever one the user happened to
+// drill; Bunpo keeps the old single-direction behavior (see
+// requiredDirectionsFor below).
+export const KANJI_MASTERY_DIRECTIONS: KanjiQuizMode[] = ["meaning", "character"];
+export const VOCAB_MASTERY_DIRECTIONS: VocabQuizMode[] = ["meaning", "reading", "wordFromMeaning", "wordFromReading"];
+
+export function requiredDirectionsFor(question: QuizQuestion): string[] {
+  if (question.kind === "kanji") return KANJI_MASTERY_DIRECTIONS;
+  if (question.kind === "vocab") return VOCAB_MASTERY_DIRECTIONS;
+  return [question.mode];
 }
 
 function kanjiMeaning(k: Kanji): string {
@@ -102,6 +122,7 @@ function buildQuestion<T extends { id: string; level: JlptLevel }>(
   pool: T[],
   target: T,
   kind: QuizContentType,
+  mode: string,
   answerOf: (item: T) => string,
   promptLabel: string,
   promptOf: (item: T) => string,
@@ -113,7 +134,7 @@ function buildQuestion<T extends { id: string; level: JlptLevel }>(
     { text: correctText, correct: true },
     ...distractorTexts.map((text) => ({ text, correct: false })),
   ]);
-  return { id: target.id, kind, level: target.level, promptLabel, prompt: promptOf(target), choices };
+  return { id: target.id, kind, mode, level: target.level, promptLabel, prompt: promptOf(target), choices };
 }
 
 export async function buildKanjiQuiz(mode: KanjiQuizMode, questionCount: number): Promise<QuizQuestion[]> {
@@ -125,8 +146,8 @@ export async function buildKanjiQuiz(mode: KanjiQuizMode, questionCount: number)
   return targets
     .map((k) =>
       mode === "character"
-        ? buildQuestion(pool, k, "kanji", (item) => item.character, "Đây là chữ Hán nào?", kanjiAnswerText)
-        : buildQuestion(pool, k, "kanji", kanjiAnswerText, "Chữ Hán này nghĩa là gì?", (item) => item.character),
+        ? buildQuestion(pool, k, "kanji", mode, (item) => item.character, "Đây là chữ Hán nào?", kanjiAnswerText)
+        : buildQuestion(pool, k, "kanji", mode, kanjiAnswerText, "Chữ Hán này nghĩa là gì?", (item) => item.character),
     )
     .filter((q): q is QuizQuestion => q !== null);
 }
@@ -152,7 +173,7 @@ export async function buildVocabQuiz(mode: VocabQuizMode, questionCount: number)
   const { answerOf, promptLabel, promptOf } = config[mode];
 
   return targets
-    .map((v) => buildQuestion(pool, v, "vocab", answerOf, promptLabel, promptOf))
+    .map((v) => buildQuestion(pool, v, "vocab", mode, answerOf, promptLabel, promptOf))
     .filter((q): q is QuizQuestion => q !== null);
 }
 
@@ -169,8 +190,8 @@ export async function buildBunpoQuiz(mode: BunpoQuizMode, questionCount: number)
   return targets
     .map((g) =>
       mode === "pattern"
-        ? buildQuestion(pool, g, "bunpo", patternOf, "Nghĩa này ứng với mẫu ngữ pháp nào?", meaningOf)
-        : buildQuestion(pool, g, "bunpo", meaningOf, "Mẫu ngữ pháp này nghĩa là gì?", patternOf),
+        ? buildQuestion(pool, g, "bunpo", mode, patternOf, "Nghĩa này ứng với mẫu ngữ pháp nào?", meaningOf)
+        : buildQuestion(pool, g, "bunpo", mode, meaningOf, "Mẫu ngữ pháp này nghĩa là gì?", patternOf),
     )
     .filter((q): q is QuizQuestion => q !== null);
 }

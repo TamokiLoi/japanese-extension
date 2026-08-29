@@ -14,17 +14,39 @@ export interface ItemProgress {
   mastered: boolean;
   flagged: boolean;
   lastSeenAt: number;
+  // Correct-in-a-row count per quiz direction/mode (e.g. "meaning",
+  // "character" for Kanji) -- mastered only flips to true once every
+  // direction the caller requires has independently reached the streak
+  // threshold, so drilling only one direction 3x isn't enough on its own
+  // for content types with more than one quiz direction.
+  directionStreaks: Record<string, number>;
+  // Epoch ms of the next scheduled review, set once a card first becomes
+  // mastered (and refreshed each time a due review is answered correctly
+  // again) -- a fixed-interval reminder, not a full Anki-style growing
+  // interval scheduler.
+  dueAt?: number;
 }
 
 export type ProgressMap = Record<string, ItemProgress>;
 
 const STORAGE_KEY = "itemProgress";
 
-// Consecutive correct answers in Quiz needed to mark a card "mastered".
+// Consecutive correct answers (per direction) needed to mark a card "mastered".
 export const MASTERY_STREAK_THRESHOLD = 3;
 
+// Fixed interval before a mastered card is surfaced for review again.
+export const REVIEW_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
+
 export function defaultProgress(): ItemProgress {
-  return { correctStreak: 0, correctCount: 0, wrongCount: 0, mastered: false, flagged: false, lastSeenAt: 0 };
+  return {
+    correctStreak: 0,
+    correctCount: 0,
+    wrongCount: 0,
+    mastered: false,
+    flagged: false,
+    lastSeenAt: 0,
+    directionStreaks: {},
+  };
 }
 
 export async function loadProgressMap(): Promise<ProgressMap> {
@@ -47,20 +69,49 @@ export async function countMastered(ids: string[]): Promise<number> {
   return ids.filter((id) => map[id]?.mastered).length;
 }
 
-// Called once per Quiz answer. Correct: streak up, mastered once the streak
-// crosses the threshold. Wrong: streak resets and mastered is cleared (a
-// card that regresses needs review again, even if it hit the streak once).
-export async function recordAnswer(id: string, correct: boolean): Promise<ItemProgress> {
+// Called once per Quiz answer. `direction` is the quiz mode just drilled
+// (e.g. "meaning"/"character" for Kanji); `requiredDirections` is the full
+// set of directions that content kind must pass before the card counts as
+// mastered (e.g. both Kanji directions, all 4 Vocab directions) -- callers
+// with only one meaningful direction (Bunpo) just pass `[direction]` so the
+// threshold is reached immediately, same as the old single-direction
+// behavior. Correct: that direction's streak goes up, mastered flips once
+// every required direction has independently crossed the threshold. Wrong:
+// only the just-drilled direction's streak resets (progress in other
+// directions is kept), and mastered is cleared (a card that regresses needs
+// review again, even if it hit the streak once).
+export async function recordAnswer(
+  id: string,
+  correct: boolean,
+  direction: string,
+  requiredDirections: string[],
+): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
+  cur.directionStreaks = { ...cur.directionStreaks };
+  const wasMastered = cur.mastered;
+  const wasDue = isDueForReview(cur);
   if (correct) {
     cur.correctStreak += 1;
     cur.correctCount += 1;
-    if (cur.correctStreak >= MASTERY_STREAK_THRESHOLD) cur.mastered = true;
+    cur.directionStreaks[direction] = (cur.directionStreaks[direction] ?? 0) + 1;
+    const allDirectionsMastered = requiredDirections.every(
+      (d) => (cur.directionStreaks[d] ?? 0) >= MASTERY_STREAK_THRESHOLD,
+    );
+    if (allDirectionsMastered) cur.mastered = true;
+    // Schedule (or reschedule, if this was a due review answered correctly
+    // again) the next review -- but not on every correct answer of an
+    // already-mastered-and-not-yet-due card, which would push it out
+    // forever without ever coming due.
+    if ((!wasMastered && cur.mastered) || wasDue) {
+      cur.dueAt = Date.now() + REVIEW_INTERVAL_MS;
+    }
   } else {
     cur.correctStreak = 0;
+    cur.directionStreaks[direction] = 0;
     cur.wrongCount += 1;
     cur.mastered = false;
+    cur.dueAt = undefined;
   }
   cur.lastSeenAt = Date.now();
   map[id] = cur;
@@ -91,10 +142,18 @@ export async function toggleMastered(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.mastered = !cur.mastered;
+  cur.dueAt = cur.mastered ? Date.now() + REVIEW_INTERVAL_MS : undefined;
   cur.lastSeenAt = Date.now();
   map[id] = cur;
   await saveProgressMap(map);
   return cur;
+}
+
+// A mastered card whose scheduled review time has passed -- surfaced with
+// higher quiz weight and a dedicated list filter so it doesn't just sit
+// mastered forever without ever coming back up.
+export function isDueForReview(progress: ItemProgress | undefined): boolean {
+  return !!progress?.mastered && progress.dueAt !== undefined && Date.now() >= progress.dueAt;
 }
 
 // One-word classification of a card's study state, used by the Stats
@@ -144,8 +203,9 @@ export function countBuckets<T extends { id: string }>(
 
 // "all": no filtering. "unmastered": hide cards already mastered (keeps
 // flagged-but-mastered cards out too -- mastered wins once set). "flagged":
-// only cards the user manually marked as difficult.
-export type ProgressFilter = "all" | "unmastered" | "flagged";
+// only cards the user manually marked as difficult. "due": only mastered
+// cards whose fixed-interval review time has passed.
+export type ProgressFilter = "all" | "unmastered" | "flagged" | "due";
 
 export function filterByProgress<T extends { id: string }>(
   items: T[],
@@ -154,6 +214,7 @@ export function filterByProgress<T extends { id: string }>(
 ): T[] {
   if (filter === "all") return items;
   if (filter === "flagged") return items.filter((item) => map[item.id]?.flagged);
+  if (filter === "due") return items.filter((item) => isDueForReview(map[item.id]));
   return items.filter((item) => !map[item.id]?.mastered);
 }
 
@@ -164,6 +225,7 @@ export function filterByProgress<T extends { id: string }>(
 export function weightFor(progress: ItemProgress | undefined): number {
   if (!progress) return 3; // never seen -- treat like an unmastered card
   if (progress.flagged) return 5;
+  if (isDueForReview(progress)) return 4; // due for its scheduled review -- resurface it
   if (!progress.mastered) return 3;
   return 1;
 }

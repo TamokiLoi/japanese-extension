@@ -18,6 +18,7 @@ import {
   type KanjiQuizMode,
   type VocabQuizMode,
   type BunpoQuizMode,
+  requiredDirectionsFor,
 } from "../quizState.ts";
 import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../progressState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
@@ -538,7 +539,7 @@ function PlayView({
                 className={classes.join(" ")}
                 disabled={answered !== null}
                 onClick={async () => {
-                  await recordAnswer(q.id, c.correct);
+                  await recordAnswer(q.id, c.correct, q.mode, requiredDirectionsFor(q));
                   const newAnswers = [...session.answers];
                   newAnswers[idx] = i;
                   const newSession = { ...session, answers: newAnswers };

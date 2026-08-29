@@ -36,8 +36,13 @@ const VALID_SCREENS: Screen[] = [
   "bunpo",
 ];
 
+interface Route {
+  screen: Screen;
+  targetId?: string;
+}
+
 function App() {
-  const [{ screen, targetId }, setRoute] = useState<{ screen: Screen; targetId?: string }>(() => {
+  const [stack, setStack] = useState<Route[]>(() => {
     const initialScreen = location.hash.slice(1) as Screen;
     if (initialScreen && initialScreen !== "menu") {
       // The hash is only meant to steer this one page load (e.g. the tab
@@ -46,11 +51,23 @@ function App() {
       // Menu instead of silently re-entering Quiz/Kanji/Vocab every time.
       history.replaceState(null, "", location.pathname + location.search);
     }
-    return { screen: VALID_SCREENS.includes(initialScreen) ? initialScreen : "menu" };
+    return [{ screen: VALID_SCREENS.includes(initialScreen) ? initialScreen : "menu" }];
   });
 
+  const { screen, targetId } = stack[stack.length - 1];
+
+  // Every cross-screen navigation pushes a new entry, so the in-app "←"
+  // button (goBack) can pop back to wherever the user actually came from
+  // instead of always jumping to Menu -- e.g. Bunpo -> related vocab ->
+  // Vocab -> "←" returns to that Bunpo card, not the menu. Navigating
+  // within a single screen (flipping cards, changing a filter) never calls
+  // this, so the stack only grows on real screen-to-screen jumps.
   function navigate(next: Screen, id?: string) {
-    setRoute({ screen: next, targetId: id });
+    setStack((s) => [...s, { screen: next, targetId: id }]);
+  }
+
+  function goBack() {
+    setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
   }
 
   if (screen === "menu") {
@@ -59,40 +76,41 @@ function App() {
   if (screen === "search") {
     return (
       <SearchScreen
-        onBack={() => navigate("menu")}
+        onBack={goBack}
         onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)}
         onOpenVocab={(vocabId) => navigate("vocab", vocabId)}
+        onOpenBunpo={(bunpoId) => navigate("bunpo", bunpoId)}
       />
     );
   }
   if (screen === "jlptHistory") {
-    return <JlptHistoryScreen onBack={() => navigate("menu")} />;
+    return <JlptHistoryScreen onBack={goBack} />;
   }
   if (screen === "stats") {
     return (
       <StatsScreen
-        onBack={() => navigate("menu")}
+        onBack={goBack}
         onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)}
         onOpenVocab={(vocabId) => navigate("vocab", vocabId)}
       />
     );
   }
   if (screen === "vocab") {
-    return <VocabScreen onBack={() => navigate("menu")} onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)} jumpToId={targetId} />;
+    return <VocabScreen onBack={goBack} onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)} jumpToId={targetId} />;
   }
   if (screen === "kanji") {
-    return <KanjiScreen onBack={() => navigate("menu")} onOpenVocab={(vocabId) => navigate("vocab", vocabId)} jumpToId={targetId} />;
+    return <KanjiScreen onBack={goBack} onOpenVocab={(vocabId) => navigate("vocab", vocabId)} jumpToId={targetId} />;
   }
   if (screen === "quizBook") {
-    return <QuizBookScreen onBack={() => navigate("menu")} />;
+    return <QuizBookScreen onBack={goBack} />;
   }
   if (screen === "reading") {
-    return <ReadingScreen onBack={() => navigate("menu")} />;
+    return <ReadingScreen onBack={goBack} />;
   }
   if (screen === "bunpo") {
     return (
       <BunpoScreen
-        onBack={() => navigate("menu")}
+        onBack={goBack}
         onOpenReading={() => navigate("reading")}
         onOpenQuizBook={() => navigate("quizBook")}
         targetId={targetId}
@@ -101,7 +119,7 @@ function App() {
   }
   return (
     <QuizScreen
-      onBack={() => navigate("menu")}
+      onBack={goBack}
       onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)}
       onOpenVocab={(vocabId) => navigate("vocab", vocabId)}
       onOpenBunpo={(bunpoId) => navigate("bunpo", bunpoId)}
