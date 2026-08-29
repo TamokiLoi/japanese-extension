@@ -4,6 +4,7 @@ import quizbookN2500monRaw from "../data/quizbook-n2-500mon.json";
 import quizbookN3Tuvung20deRaw from "../data/quizbook-n3-tuvung-20de.json";
 import type { QuizBookDataset, QuizBookQuestion, QuizBookCategory } from "../types/quizBook.ts";
 import type { JlptLevel } from "../types/kanji.ts";
+import { storageGet, storageSet } from "../platform/storage";
 
 const n3500monDataset = quizbookN3500monRaw as unknown as QuizBookDataset;
 const n4500monDataset = quizbookN4500monRaw as unknown as QuizBookDataset;
@@ -164,8 +165,7 @@ export function defaultViewerState(): QuizBookViewerState {
 }
 
 export async function loadViewerState(): Promise<QuizBookViewerState> {
-  const stored = await chrome.storage.local.get(STORAGE_KEY);
-  const saved = stored[STORAGE_KEY] as Partial<QuizBookViewerState> | undefined;
+  const saved = await storageGet<Partial<QuizBookViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const selectedGroup = saved?.selectedGroup && AVAILABLE_GROUPS.includes(saved.selectedGroup) ? saved.selectedGroup : fallback.selectedGroup;
   const selectedCategories = (saved?.selectedCategories ?? fallback.selectedCategories).filter((c) =>
@@ -195,7 +195,7 @@ export async function loadViewerState(): Promise<QuizBookViewerState> {
 }
 
 export async function saveViewerState(state: QuizBookViewerState): Promise<void> {
-  await chrome.storage.local.set({ [STORAGE_KEY]: state });
+  await storageSet(STORAGE_KEY, state);
 }
 
 export function resetQuestionAnswer(state: QuizBookViewerState, id: string): QuizBookViewerState {

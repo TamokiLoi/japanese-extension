@@ -1,3 +1,5 @@
+import { storageGet, storageSet } from "../platform/storage";
+
 // Per-card mastery/flag tracking, shared between Kanji cards and Vocab
 // cards (both already have a globally-unique `id` string, so one flat map
 // works for both without a namespace collision). Inspired by ai-cert-quiz's
@@ -26,12 +28,11 @@ export function defaultProgress(): ItemProgress {
 }
 
 export async function loadProgressMap(): Promise<ProgressMap> {
-  const stored = await chrome.storage.local.get(STORAGE_KEY);
-  return (stored[STORAGE_KEY] as ProgressMap | undefined) ?? {};
+  return (await storageGet<ProgressMap>(STORAGE_KEY)) ?? {};
 }
 
 async function saveProgressMap(map: ProgressMap): Promise<void> {
-  await chrome.storage.local.set({ [STORAGE_KEY]: map });
+  await storageSet(STORAGE_KEY, map);
 }
 
 export async function getProgress(id: string): Promise<ItemProgress> {
@@ -189,20 +190,18 @@ function dayKey(d: Date): string {
 }
 
 async function markStudiedToday(): Promise<void> {
-  const stored = await chrome.storage.local.get(STUDY_LOG_KEY);
-  const log: string[] = stored[STUDY_LOG_KEY] ?? [];
+  const log: string[] = (await storageGet<string[]>(STUDY_LOG_KEY)) ?? [];
   const today = dayKey(new Date());
   if (log.includes(today)) return;
   const next = [...log, today].sort().slice(-STUDY_LOG_MAX_DAYS);
-  await chrome.storage.local.set({ [STUDY_LOG_KEY]: next });
+  await storageSet(STUDY_LOG_KEY, next);
 }
 
 // Consecutive days ending today. If today hasn't been studied yet, that
 // doesn't break the streak (the day isn't over) -- counting instead starts
 // from yesterday, same reasoning as ai-cert-quiz's streak calc.
 export async function getStudyStreak(): Promise<number> {
-  const stored = await chrome.storage.local.get(STUDY_LOG_KEY);
-  const log: string[] = stored[STUDY_LOG_KEY] ?? [];
+  const log: string[] = (await storageGet<string[]>(STUDY_LOG_KEY)) ?? [];
   const studied = new Set(log);
 
   const cursor = new Date();

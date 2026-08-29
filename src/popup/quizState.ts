@@ -6,6 +6,7 @@ import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabView
 import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
 import { loadProgressMap, pickWeighted, type ProgressMap } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
+import { storageGet, storageSet, storageRemove } from "../platform/storage";
 
 export const DEFAULT_QUESTION_COUNT = 10;
 export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30, 50, 100];
@@ -185,8 +186,7 @@ export interface QuizSettings {
 const QUIZ_SETTINGS_KEY = "quizSettings";
 
 export async function loadQuizSettings(): Promise<QuizSettings> {
-  const stored = await chrome.storage.local.get(QUIZ_SETTINGS_KEY);
-  const saved = stored[QUIZ_SETTINGS_KEY] as Partial<QuizSettings> | undefined;
+  const saved = await storageGet<Partial<QuizSettings>>(QUIZ_SETTINGS_KEY);
   return {
     contentType: saved?.contentType ?? "kanji",
     kanjiMode: saved?.kanjiMode ?? "meaning",
@@ -197,7 +197,7 @@ export async function loadQuizSettings(): Promise<QuizSettings> {
 }
 
 export async function saveQuizSettings(settings: QuizSettings): Promise<void> {
-  await chrome.storage.local.set({ [QUIZ_SETTINGS_KEY]: settings });
+  await storageSet(QUIZ_SETTINGS_KEY, settings);
 }
 
 // A quiz in progress, persisted so it survives a popup/tab reload instead
@@ -216,16 +216,15 @@ export interface QuizSession {
 const QUIZ_SESSION_KEY = "quizSession";
 
 export async function loadQuizSession(): Promise<QuizSession | null> {
-  const stored = await chrome.storage.local.get(QUIZ_SESSION_KEY);
-  return (stored[QUIZ_SESSION_KEY] as QuizSession | undefined) ?? null;
+  return (await storageGet<QuizSession>(QUIZ_SESSION_KEY)) ?? null;
 }
 
 export async function saveQuizSession(session: QuizSession): Promise<void> {
-  await chrome.storage.local.set({ [QUIZ_SESSION_KEY]: session });
+  await storageSet(QUIZ_SESSION_KEY, session);
 }
 
 export async function clearQuizSession(): Promise<void> {
-  await chrome.storage.local.remove(QUIZ_SESSION_KEY);
+  await storageRemove(QUIZ_SESSION_KEY);
 }
 
 export function isSessionUnfinished(session: QuizSession): boolean {

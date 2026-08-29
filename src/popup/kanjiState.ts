@@ -1,6 +1,7 @@
 import kanjiAllRaw from "../data/kanji-all.json";
 import type { Kanji, KanjiDataset, JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
+import { storageGet, storageSet } from "../platform/storage";
 
 const dataset = kanjiAllRaw as unknown as KanjiDataset;
 export const ALL_KANJI: Kanji[] = dataset.kanji;
@@ -50,8 +51,7 @@ export function defaultViewerState(): KanjiViewerState {
 }
 
 export async function loadViewerState(): Promise<KanjiViewerState> {
-  const stored = await chrome.storage.local.get(STORAGE_KEY);
-  const saved = stored[STORAGE_KEY] as Partial<KanjiViewerState> | undefined;
+  const saved = await storageGet<Partial<KanjiViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) =>
     AVAILABLE_LEVELS.includes(l),
@@ -67,7 +67,7 @@ export async function loadViewerState(): Promise<KanjiViewerState> {
 }
 
 export async function saveViewerState(state: KanjiViewerState): Promise<void> {
-  await chrome.storage.local.set({ [STORAGE_KEY]: state });
+  await storageSet(STORAGE_KEY, state);
 }
 
 // Deterministic PRNG (mulberry32) so a shuffle order is reproducible from a

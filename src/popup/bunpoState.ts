@@ -3,6 +3,7 @@ import bunpoTheoChuongRaw from "../data/bunpo-n3-theo-chuong.json";
 import type { BunpoDataset, BunpoGrammarPoint, BunpoSource } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
+import { storageGet, storageSet } from "../platform/storage";
 
 const jlptDaRaDataset = bunpoJlptDaRaRaw as unknown as BunpoDataset;
 const theoChuongDataset = bunpoTheoChuongRaw as unknown as BunpoDataset;
@@ -64,8 +65,7 @@ export function defaultViewerState(): BunpoViewerState {
 }
 
 export async function loadViewerState(): Promise<BunpoViewerState> {
-  const stored = await chrome.storage.local.get(STORAGE_KEY);
-  const saved = stored[STORAGE_KEY] as Partial<BunpoViewerState> | undefined;
+  const saved = await storageGet<Partial<BunpoViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => AVAILABLE_LEVELS.includes(l));
   const selectedSources = (saved?.selectedSources ?? fallback.selectedSources).filter((s) =>
@@ -86,7 +86,7 @@ export async function loadViewerState(): Promise<BunpoViewerState> {
 }
 
 export async function saveViewerState(state: BunpoViewerState): Promise<void> {
-  await chrome.storage.local.set({ [STORAGE_KEY]: state });
+  await storageSet(STORAGE_KEY, state);
 }
 
 // Shared by the Bunpo screen's list filter and the Quiz screen's "Ngữ

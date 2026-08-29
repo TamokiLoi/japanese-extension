@@ -3,6 +3,7 @@ import readingN3SpeedmasterRaw from "../data/reading-n3-speedmaster.json";
 import readingN3TaisakuRaw from "../data/reading-n3-taisaku.json";
 import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
+import { storageGet, storageSet } from "../platform/storage";
 
 const shinkanzenDataset = readingN3ShinkanzenRaw as unknown as ReadingDataset;
 const speedmasterDataset = readingN3SpeedmasterRaw as unknown as ReadingDataset;
@@ -128,8 +129,7 @@ export function defaultViewerState(): ReadingViewerState {
 }
 
 export async function loadViewerState(): Promise<ReadingViewerState> {
-  const stored = await chrome.storage.local.get(STORAGE_KEY);
-  const saved = stored[STORAGE_KEY] as Partial<ReadingViewerState> | undefined;
+  const saved = await storageGet<Partial<ReadingViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => AVAILABLE_LEVELS.includes(l));
   const selectedLengths = (saved?.selectedLengths ?? fallback.selectedLengths).filter((l) =>
@@ -151,7 +151,7 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
 }
 
 export async function saveViewerState(state: ReadingViewerState): Promise<void> {
-  await chrome.storage.local.set({ [STORAGE_KEY]: state });
+  await storageSet(STORAGE_KEY, state);
 }
 
 // Clears one passage's saved answers so it shows as "chưa làm" again --

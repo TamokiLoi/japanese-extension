@@ -1,3 +1,5 @@
+import { storageGetMany, storageSetMany } from "../platform/storage";
+
 // Export/import all of this extension's chrome.storage.local state as one
 // JSON file, so progress (mastery, flags, streak) and settings survive a
 // browser reinstall / profile switch instead of being stuck to one Chrome
@@ -25,7 +27,7 @@ interface BackupPayload {
 }
 
 export async function exportBackupJson(): Promise<string> {
-  const stored = await chrome.storage.local.get([...BACKUP_KEYS]);
+  const stored = await storageGetMany([...BACKUP_KEYS]);
   const payload: BackupPayload = {
     version: BACKUP_VERSION,
     exportedAt: new Date().toISOString(),
@@ -72,6 +74,6 @@ export async function importBackupJson(json: string): Promise<ImportResult> {
     return { ok: false, error: "File sao lưu không chứa dữ liệu nào nhận diện được." };
   }
 
-  await chrome.storage.local.set(toRestore);
+  await storageSetMany(toRestore);
   return { ok: true, restoredKeys };
 }

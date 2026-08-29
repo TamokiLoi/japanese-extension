@@ -7,6 +7,7 @@ import tangoN4Raw from "../data/vocab-tango-n4.json";
 import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
+import { storageGet, storageSet } from "../platform/storage";
 
 export type VocabSource = "tinhtu-n3" | "dongtu-n4" | "mimikara-n3" | "dongnghia-n3" | "tango-n3" | "tango-n4";
 
@@ -147,8 +148,7 @@ export function defaultViewerState(): VocabViewerState {
 }
 
 export async function loadViewerState(): Promise<VocabViewerState> {
-  const stored = await chrome.storage.local.get(STORAGE_KEY);
-  const saved = stored[STORAGE_KEY] as Partial<VocabViewerState> | undefined;
+  const saved = await storageGet<Partial<VocabViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const selectedSources = (saved?.selectedSources ?? fallback.selectedSources).filter((s) =>
     AVAILABLE_SOURCES.includes(s),
@@ -164,7 +164,7 @@ export async function loadViewerState(): Promise<VocabViewerState> {
 }
 
 export async function saveViewerState(state: VocabViewerState): Promise<void> {
-  await chrome.storage.local.set({ [STORAGE_KEY]: state });
+  await storageSet(STORAGE_KEY, state);
 }
 
 // Same deterministic PRNG approach as kanjiState.ts -- kept as a separate
