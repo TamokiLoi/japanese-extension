@@ -26,12 +26,7 @@ import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS }
 import { loadViewerState as loadBunpoViewerState, findBunpoById, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../bunpoState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 
-type QuizMode =
-  | { kind: "loading" }
-  | { kind: "resume"; session: QuizSession }
-  | { kind: "setup"; settings: QuizSettings; error?: string }
-  | { kind: "play"; session: QuizSession }
-  | { kind: "result"; session: QuizSession };
+type QuizStep = "resume" | "setup" | "play" | "result";
 
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
@@ -39,39 +34,52 @@ type OpenCallbacks = {
   onOpenBunpo: (bunpoId: string) => void;
 };
 
+// "Which step is showing" is owned by the app's outer navigation stack
+// (main.tsx), not local state -- so the in-app "←" button naturally pops
+// back to the right place (e.g. from "play"/"result" back to "setup")
+// through the same router every other screen uses, instead of a bespoke
+// back handler. `step` is undefined only for the brief moment before the
+// screen has determined whether to resume or start fresh; once known, it
+// is written back via `onStepReplace` (doesn't grow the back-stack).
+// Loaded data (settings/session/error) stays local since it's not part of
+// "where am I", only "what am I showing there".
 export function QuizScreen({
   onBack,
+  step,
+  onStepChange,
+  onStepReplace,
   onOpenKanji,
   onOpenVocab,
   onOpenBunpo,
-}: { onBack: () => void } & OpenCallbacks) {
-  const [mode, setMode] = useState<QuizMode>({ kind: "loading" });
+}: {
+  onBack: () => void;
+  step?: string;
+  onStepChange: (step: QuizStep) => void;
+  onStepReplace: (step: QuizStep) => void;
+} & OpenCallbacks) {
+  const [session, setSession] = useState<QuizSession | null>(null);
+  const [settings, setSettings] = useState<QuizSettings | null>(null);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
+    if (step !== undefined) return;
     (async () => {
       const existing = await loadQuizSession();
       if (existing && isSessionUnfinished(existing)) {
-        setMode({ kind: "resume", session: existing });
+        setSession(existing);
+        onStepReplace("resume");
         return;
       }
-      const settings = await loadQuizSettings();
-      setMode({ kind: "setup", settings });
+      const loadedSettings = await loadQuizSettings();
+      setSettings(loadedSettings);
+      onStepReplace("setup");
     })();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step]);
 
   const openCallbacks: OpenCallbacks = { onOpenKanji, onOpenVocab, onOpenBunpo };
 
-  // Setup/resume are the "top" of Quiz's own internal flow, so their "←"
-  // leaves the screen entirely (pops the app's navigation stack). Play and
-  // result are internal steps reached from setup without a stack push, so
-  // their "←" should step back to setup instead of jumping straight past
-  // Quiz to whatever screen was open before it.
-  async function backToSetup() {
-    const settings = await loadQuizSettings();
-    setMode({ kind: "setup", settings });
-  }
-
-  if (mode.kind === "loading") {
+  function loadingHeader() {
     return (
       <header className="toolbar">
         <button className="icon-btn" title="Về menu" onClick={onBack}>
@@ -82,8 +90,13 @@ export function QuizScreen({
     );
   }
 
-  if (mode.kind === "resume") {
-    const answeredCount = mode.session.answers.filter((a) => a !== null).length;
+  if (step === undefined) {
+    return loadingHeader();
+  }
+
+  if (step === "resume") {
+    if (!session) return loadingHeader();
+    const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
       <>
         <header className="toolbar">
@@ -94,17 +107,18 @@ export function QuizScreen({
         </header>
         <section className="quiz-setup">
           <p className="quiz-filter-note">
-            Bạn có 1 bài quiz đang làm dở ({answeredCount}/{mode.session.questions.length} câu đã trả lời).
+            Bạn có 1 bài quiz đang làm dở ({answeredCount}/{session.questions.length} câu đã trả lời).
           </p>
-          <button className="primary-action-btn" onClick={() => setMode({ kind: "play", session: mode.session })}>
+          <button className="primary-action-btn" onClick={() => onStepChange("play")}>
             Tiếp tục
           </button>
           <button
             className="secondary-action-btn"
             onClick={async () => {
               await clearQuizSession();
-              const settings = await loadQuizSettings();
-              setMode({ kind: "setup", settings });
+              const loadedSettings = await loadQuizSettings();
+              setSettings(loadedSettings);
+              onStepReplace("setup");
             }}
           >
             Bắt đầu bài mới
@@ -114,28 +128,70 @@ export function QuizScreen({
     );
   }
 
-  if (mode.kind === "setup") {
-    return <SetupView settings={mode.settings} error={mode.error} onBack={onBack} setMode={setMode} {...openCallbacks} />;
+  if (step === "setup") {
+    if (!settings) return loadingHeader();
+    return (
+      <SetupView
+        settings={settings}
+        error={error}
+        onBack={onBack}
+        onSettingsChange={setSettings}
+        onError={setError}
+        onStart={(newSession) => {
+          setSession(newSession);
+          setError(undefined);
+          onStepChange("play");
+        }}
+      />
+    );
   }
 
-  if (mode.kind === "play") {
-    return <PlayView session={mode.session} onBack={backToSetup} setMode={setMode} {...openCallbacks} />;
+  if (step === "play") {
+    if (!session) return loadingHeader();
+    return (
+      <PlayView
+        session={session}
+        onBack={onBack}
+        onSessionChange={setSession}
+        onFinish={() => onStepReplace("result")}
+        {...openCallbacks}
+      />
+    );
   }
 
-  return <ResultView session={mode.session} onBack={backToSetup} setMode={setMode} />;
+  if (!session) return loadingHeader();
+  return (
+    <ResultView
+      session={session}
+      onBack={onBack}
+      onRetry={async () => {
+        const loadedSettings = await loadQuizSettings();
+        setSettings(loadedSettings);
+        onStepReplace("setup");
+      }}
+      onReviewQuestion={(index) => {
+        setSession({ ...session, currentIndex: index });
+        onStepReplace("play");
+      }}
+    />
+  );
 }
 
 function SetupView({
   settings,
   error,
   onBack,
-  setMode,
+  onSettingsChange,
+  onError,
+  onStart,
 }: {
   settings: QuizSettings;
   error?: string;
   onBack: () => void;
-  setMode: (m: QuizMode) => void;
-} & OpenCallbacks) {
+  onSettingsChange: (next: QuizSettings) => void;
+  onError: (msg: string | undefined) => void;
+  onStart: (session: QuizSession) => void;
+}) {
   const [kanjiFilterText, setKanjiFilterText] = useState("—");
   const [vocabFilterText, setVocabFilterText] = useState("—");
   const [bunpoFilterText, setBunpoFilterText] = useState("—");
@@ -164,7 +220,7 @@ function SetupView({
   async function updateSettings(partial: Partial<QuizSettings>) {
     const next = { ...settings, ...partial };
     await saveQuizSettings(next);
-    setMode({ kind: "setup", settings: next });
+    onSettingsChange(next);
   }
 
   async function handleStart() {
@@ -175,11 +231,7 @@ function SetupView({
           ? await buildVocabQuiz(settings.vocabMode, questionCount)
           : await buildBunpoQuiz(settings.bunpoMode, questionCount);
     if (questions.length === 0) {
-      setMode({
-        kind: "setup",
-        settings,
-        error: "Không đủ dữ liệu để tạo câu hỏi với bộ lọc hiện tại — hãy chọn thêm level/nguồn ở màn tương ứng.",
-      });
+      onError("Không đủ dữ liệu để tạo câu hỏi với bộ lọc hiện tại — hãy chọn thêm level/nguồn ở màn tương ứng.");
       return;
     }
     const session: QuizSession = {
@@ -188,7 +240,8 @@ function SetupView({
       currentIndex: 0,
     };
     await saveQuizSession(session);
-    setMode({ kind: "play", session });
+    onError(undefined);
+    onStart(session);
   }
 
   return (
@@ -455,12 +508,14 @@ function QuestionDetail({ q, ...open }: { q: QuizQuestion } & OpenCallbacks) {
 function PlayView({
   session,
   onBack,
-  setMode,
+  onSessionChange,
+  onFinish,
   ...open
 }: {
   session: QuizSession;
   onBack: () => void;
-  setMode: (m: QuizMode) => void;
+  onSessionChange: (session: QuizSession) => void;
+  onFinish: () => void;
 } & OpenCallbacks) {
   const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
 
@@ -476,13 +531,13 @@ function PlayView({
 
   async function finish() {
     await clearQuizSession();
-    setMode({ kind: "result", session });
+    onFinish();
   }
 
   async function goTo(newIndex: number) {
     const newSession = { ...session, currentIndex: newIndex };
     await saveQuizSession(newSession);
-    setMode({ kind: "play", session: newSession });
+    onSessionChange(newSession);
   }
 
   return (
@@ -554,7 +609,7 @@ function PlayView({
                   newAnswers[idx] = i;
                   const newSession = { ...session, answers: newAnswers };
                   await saveQuizSession(newSession);
-                  setMode({ kind: "play", session: newSession });
+                  onSessionChange(newSession);
                 }}
               >
                 {c.text}
@@ -588,11 +643,13 @@ function PlayView({
 function ResultView({
   session,
   onBack,
-  setMode,
+  onRetry,
+  onReviewQuestion,
 }: {
   session: QuizSession;
   onBack: () => void;
-  setMode: (m: QuizMode) => void;
+  onRetry: () => void;
+  onReviewQuestion: (index: number) => void;
 }) {
   const total = session.questions.length;
   const score = session.answers.filter((a, i) => a !== null && session.questions[i].choices[a].correct).length;
@@ -614,13 +671,7 @@ function ResultView({
         <div className="quiz-result-pct">
           {pct}% đúng{unanswered > 0 ? ` · ${unanswered} câu chưa trả lời` : ""}
         </div>
-        <button
-          className="primary-action-btn"
-          onClick={async () => {
-            const settings = await loadQuizSettings();
-            setMode({ kind: "setup", settings });
-          }}
-        >
+        <button className="primary-action-btn" onClick={onRetry}>
           Làm lại
         </button>
         <div className="quiz-result-review-label">Bấm vào 1 câu để xem lại chi tiết</div>
@@ -631,11 +682,7 @@ function ResultView({
             const stateClass = a === null ? "" : correct ? "quiz-review-item-correct" : "quiz-review-item-wrong";
             const status = a === null ? "Chưa trả lời" : correct ? "Đúng" : "Sai";
             return (
-              <button
-                key={q.id}
-                className={`quiz-review-item ${stateClass}`}
-                onClick={() => setMode({ kind: "play", session: { ...session, currentIndex: i } })}
-              >
+              <button key={q.id} className={`quiz-review-item ${stateClass}`} onClick={() => onReviewQuestion(i)}>
                 <span className="quiz-review-num">{i + 1}</span>
                 <span className="quiz-review-prompt">{q.prompt}</span>
                 <span className="quiz-review-status">{status}</span>

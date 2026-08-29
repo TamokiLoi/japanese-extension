@@ -39,6 +39,7 @@ const VALID_SCREENS: Screen[] = [
 interface Route {
   screen: Screen;
   targetId?: string;
+  step?: string;
 }
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
     return [{ screen: VALID_SCREENS.includes(initialScreen) ? initialScreen : "menu" }];
   });
 
-  const { screen, targetId } = stack[stack.length - 1];
+  const { screen, targetId, step } = stack[stack.length - 1];
 
   // Every cross-screen navigation pushes a new entry, so the in-app "←"
   // button (goBack) can pop back to wherever the user actually came from
@@ -62,12 +63,24 @@ function App() {
   // Vocab -> "←" returns to that Bunpo card, not the menu. Navigating
   // within a single screen (flipping cards, changing a filter) never calls
   // this, so the stack only grows on real screen-to-screen jumps.
-  function navigate(next: Screen, id?: string) {
-    setStack((s) => [...s, { screen: next, targetId: id }]);
+  function navigate(next: Screen, id?: string, initialStep?: string) {
+    setStack((s) => [...s, { screen: next, targetId: id, step: initialStep }]);
   }
 
   function goBack() {
     setStack((s) => (s.length > 1 ? s.slice(0, -1) : s));
+  }
+
+  // For a screen with its own internal "steps" (currently only Quiz:
+  // setup/play/result), some step transitions shouldn't be back-able
+  // (e.g. resolving on mount whether to show "resume" or "setup", or
+  // starting a new quiz after finishing one) -- those replace the step on
+  // the current stack entry in place instead of pushing a new one.
+  function replaceStep(newStep: string) {
+    setStack((s) => {
+      const top = s[s.length - 1];
+      return [...s.slice(0, -1), { ...top, step: newStep }];
+    });
   }
 
   if (screen === "menu") {
@@ -120,6 +133,9 @@ function App() {
   return (
     <QuizScreen
       onBack={goBack}
+      step={step}
+      onStepChange={(next) => navigate("quiz", undefined, next)}
+      onStepReplace={replaceStep}
       onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)}
       onOpenVocab={(vocabId) => navigate("vocab", vocabId)}
       onOpenBunpo={(bunpoId) => navigate("bunpo", bunpoId)}
