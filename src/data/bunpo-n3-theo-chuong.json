@@ -1,168 +1,2256 @@
 {
   "grammarPoints": [
-    { "id": "bunpo-chuong1-1", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ように", "meaningVi": "Để, nhằm; mong đạt trạng thái", "usage": "V辞書形・Vない", "examTip": "Dùng với động từ không điều khiển được.", "example": "日本語が話せるように毎日練習している。", "exampleVi": "Tôi luyện tập mỗi ngày để có thể nói tiếng Nhật." },
-    { "id": "bunpo-chuong1-2", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ようになる", "meaningVi": "Trở nên; thay đổi trạng thái", "usage": "V辞書形", "examTip": "Nhấn sự thay đổi tự nhiên theo thời gian.", "example": "日本語が少し話せるようになった。", "exampleVi": "Tôi đã có thể nói tiếng Nhật một chút." },
-    { "id": "bunpo-chuong1-3", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ようにする", "meaningVi": "Cố gắng tạo thói quen; chú ý làm", "usage": "V辞書形・Vない", "examTip": "Thể hiện nỗ lực chủ động của bản thân.", "example": "健康のために、毎日野菜を食べるようにしている。", "exampleVi": "Vì sức khỏe nên tôi cố gắng ăn rau mỗi ngày." },
-    { "id": "bunpo-chuong1-4", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ために", "meaningVi": "Để; vì mục đích", "usage": "V辞書形・Nの", "examTip": "Mục đích rõ ràng, có lý do cụ thể.", "example": "日本で働くために日本語を勉強している。", "exampleVi": "Tôi học tiếng Nhật để làm việc ở Nhật." },
-    { "id": "bunpo-chuong1-5", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ことになる", "meaningVi": "Được quyết định; trở thành (bị động)", "usage": "V辞書形", "examTip": "Quyết định từ bên ngoài, không phải do mình.", "example": "来月から大阪へ転勤することになった。", "exampleVi": "Đã được quyết định là tháng sau chuyển công tác tới Osaka." },
-    { "id": "bunpo-chuong1-6", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ことにする", "meaningVi": "Tự quyết định làm gì", "usage": "V辞書形", "examTip": "Quyết định chủ động từ bản thân.", "example": "健康のために、お酒をやめることにした。", "exampleVi": "Tôi đã quyết định bỏ rượu vì sức khỏe." },
-    { "id": "bunpo-chuong1-7", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ことになっている", "meaningVi": "Quy định; được sắp xếp sẵn", "usage": "Vない形・Nの", "examTip": "Quy tắc, quy định, lịch trình đã được định sẵn.", "example": "この図書館では、飲み物を持ち込まないことになっている。", "exampleVi": "Ở thư viện này có quy định không mang đồ uống vào." },
-    { "id": "bunpo-chuong1-8", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜ようとする", "meaningVi": "Định làm; vừa chuẩn bị làm", "usage": "V意向形＋とする", "examTip": "Hành động chưa bắt đầu, mới có ý định.", "example": "出かけようとした時、友だちから電話が来た。", "exampleVi": "Đúng lúc định đi ra ngoài thì bạn gọi điện." },
-    { "id": "bunpo-chuong1-9", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜つもりだ", "meaningVi": "Dự định; có ý định trong tương lai", "usage": "V辞書形・Vない", "examTip": "Kế hoạch của bản thân (chưa chắc chắn 100%).", "example": "来年、日本へ留学するつもりだ。", "exampleVi": "Tôi dự định năm sau du học Nhật." },
-    { "id": "bunpo-chuong1-10", "level": "N3", "source": "theo-chuong", "chapter": 1, "chapterTitle": "Biểu hiện mục đích / thay đổi", "pattern": "〜予定だ", "meaningVi": "Kế hoạch; lịch trình dự kiến", "usage": "V辞書形・Nの", "examTip": "Thường dùng cho lịch trình chính thức, đã lên kế hoạch.", "example": "来週、東京へ出張する予定です。", "exampleVi": "Tuần sau tôi có kế hoạch đi công tác Tokyo." },
-
-    { "id": "bunpo-chuong2-1", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜たことがある", "meaningVi": "Đã từng (làm gì đó)", "usage": "Vた形＋ことがある", "examTip": "Kinh nghiệm trong quá khứ.", "example": "富士山に登ったことがある。", "exampleVi": "Tôi đã từng leo núi Phú Sĩ." },
-    { "id": "bunpo-chuong2-2", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜たばかり", "meaningVi": "Vừa mới (làm gì đó)", "usage": "Vた形＋ばかり", "examTip": "Hành động vừa mới hoàn tất.", "example": "ご飯を食べたばかりです。", "exampleVi": "Tôi vừa mới ăn cơm." },
-    { "id": "bunpo-chuong2-3", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜ところだ", "meaningVi": "Đúng lúc; vừa mới chuẩn bị", "usage": "V辞書形＋ところだ", "examTip": "Hành động đang ở thời điểm nói.", "example": "今、出かけるところです。", "exampleVi": "Giờ tôi đang định đi ra ngoài." },
-    { "id": "bunpo-chuong2-4", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜ているところだ", "meaningVi": "Đang (làm gì đó)", "usage": "Vている＋ところだ", "examTip": "Hành động đang diễn ra ngay lúc nói.", "example": "宿題をしているところです。", "exampleVi": "Tôi đang làm bài tập về nhà." },
-    { "id": "bunpo-chuong2-5", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜たところだ", "meaningVi": "Vừa mới (làm xong)", "usage": "Vた形＋ところだ", "examTip": "Làm xong ngay trước thời điểm nói.", "example": "今、起きたところです。", "exampleVi": "Tôi vừa mới thức dậy." },
-    { "id": "bunpo-chuong2-6", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜うちに", "meaningVi": "Trong khi; trước khi (có mốc thời gian)", "usage": "Vている／Vた＋うちに", "examTip": "Hành động trước khi sự việc khác xảy ra.", "example": "雨が降るうちに、洗濯物を取り込んだ。", "exampleVi": "Tôi đã thu quần áo vào trước khi trời mưa." },
-    { "id": "bunpo-chuong2-7", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜あいだに", "meaningVi": "Trong khi; trong khoảng thời gian (giữa hai mốc)", "usage": "Nのあいだに／Vた＋あいだに", "examTip": "Hành động xảy ra trong khoảng giữa 2 mốc.", "example": "家族が寝ているあいだに、映画を見た。", "exampleVi": "Tôi đã xem phim trong khi gia đình đang ngủ." },
-    { "id": "bunpo-chuong2-8", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜最中に", "meaningVi": "Trong lúc; ngay khi đang (làm gì đó)", "usage": "Vている最中に", "examTip": "Hành động bị gián đoạn bởi sự việc khác.", "example": "電話をしている最中に、電車が止まった。", "exampleVi": "Trong lúc đang gọi điện thì tàu bị dừng." },
-    { "id": "bunpo-chuong2-9", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜て以来", "meaningVi": "Kể từ khi; từ lúc ~ đến nay", "usage": "Vて＋以来", "examTip": "Một mốc thời gian đến hiện tại.", "example": "日本に来て以来、日本語を勉強している。", "exampleVi": "Kể từ khi đến Nhật, tôi luôn học tiếng Nhật." },
-    { "id": "bunpo-chuong2-10", "level": "N3", "source": "theo-chuong", "chapter": 2, "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình", "pattern": "〜ようやく", "meaningVi": "Cuối cùng; rốt cuộc", "usage": "Vた形＋ようやく", "examTip": "Sau nhiều khó khăn, chờ đợi.", "example": "やっと試験に合格した！", "exampleVi": "Cuối cùng tôi cũng đỗ kỳ thi!" },
-
-    { "id": "bunpo-chuong3-1", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜ながら", "meaningVi": "Vừa... vừa...", "usage": "V辞書形＋ながら", "examTip": "Hai hành động diễn ra đồng thời.", "example": "音楽を聞きながら、宿題をしている。", "exampleVi": "Tôi vừa nghe nhạc vừa làm bài tập." },
-    { "id": "bunpo-chuong3-2", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜つづける", "meaningVi": "Tiếp tục làm...", "usage": "V辞書形＋つづける", "examTip": "Diễn tả hành động kéo dài liên tục.", "example": "毎日、ジョギングをつづけている。", "exampleVi": "Tôi tiếp tục chạy bộ mỗi ngày." },
-    { "id": "bunpo-chuong3-3", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜始める", "meaningVi": "Bắt đầu làm...", "usage": "V辞書形＋始める", "examTip": "Điểm bắt đầu của hành động.", "example": "先週から、日本語の勉強を始めた。", "exampleVi": "Từ tuần trước, tôi bắt đầu học tiếng Nhật." },
-    { "id": "bunpo-chuong3-4", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜出す", "meaningVi": "Bắt đầu phát sinh, xảy ra...", "usage": "V辞書形＋出す", "examTip": "Diễn tả sự xuất hiện của cảm xúc, triệu chứng...", "example": "緊張して、手が震え出した。", "exampleVi": "Vì căng thẳng nên tay tôi bắt đầu run." },
-    { "id": "bunpo-chuong3-5", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜終わる", "meaningVi": "Kết thúc...", "usage": "V辞書形＋終わる", "examTip": "Kết thúc hành động, sự việc.", "example": "会議は5時に終わった。", "exampleVi": "Cuộc họp kết thúc lúc 5 giờ." },
-    { "id": "bunpo-chuong3-6", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜ていく", "meaningVi": "(Từng bước) tiến dần, dần dần...", "usage": "Vて形＋いく", "examTip": "Diễn tả sự thay đổi theo chiều hướng.", "example": "年をとるにつれて、物忘れが増えていく。", "exampleVi": "Càng lớn tuổi thì tôi càng hay quên." },
-    { "id": "bunpo-chuong3-7", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜てくる", "meaningVi": "Tiến tới người nói, bắt đầu cảm nhận...", "usage": "Vて形＋くる", "examTip": "Thay đổi đi tới người nói, cảm thấy rõ hơn.", "example": "だんだん寒くなってきた。", "exampleVi": "Trời bắt đầu lạnh dần tới đây." },
-    { "id": "bunpo-chuong3-8", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜てしまう", "meaningVi": "(Lỡ) quá, không mong muốn...", "usage": "Vて形＋しまう", "examTip": "Kết quả ngoài ý muốn, hối tiếc.", "example": "うっかり電車を乗り過ごしてしまった。", "exampleVi": "Lỡ tay đi quá ga tàu mất rồi." },
-    { "id": "bunpo-chuong3-9", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜ておく", "meaningVi": "Làm trước (chuẩn bị trước)...", "usage": "Vて形＋おく", "examTip": "Chuẩn bị trước để tiện sau này.", "example": "明日の会議の資料を作っておいた。", "exampleVi": "Tôi đã chuẩn bị tài liệu cho cuộc họp ngày mai." },
-    { "id": "bunpo-chuong3-10", "level": "N3", "source": "theo-chuong", "chapter": 3, "chapterTitle": "Song song / tiếp diễn / biến đổi", "pattern": "〜てみる", "meaningVi": "Thử làm..., (để trải nghiệm)", "usage": "Vて形＋みる", "examTip": "Thử nghiệm, trải nghiệm điều mới.", "example": "一度やってみないと、わからない。", "exampleVi": "Không thử làm thì không biết được." },
-
-    { "id": "bunpo-chuong4-1", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜たら", "meaningVi": "Nếu..., thì...", "usage": "Vた形＋ら", "examTip": "Điều kiện có thể xảy ra trong tương lai.", "example": "家に帰ったら、すぐに電話してね。", "exampleVi": "Nếu về nhà rồi thì gọi điện cho mình nhé." },
-    { "id": "bunpo-chuong4-2", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜ば", "meaningVi": "Nếu..., thì...", "usage": "Vば形", "examTip": "Điều kiện luôn đúng / sự thật hiển nhiên.", "example": "雨が降れば、試合は中止になります。", "exampleVi": "Nếu trời mưa thì trận đấu sẽ bị hủy." },
-    { "id": "bunpo-chuong4-3", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜なら", "meaningVi": "Nếu..., thì... (nếu là..., thì...)", "usage": "Nなら／Vた形なら", "examTip": "Điều kiện có tính lựa chọn.", "example": "時間があるなら、一緒に行きましょう。", "exampleVi": "Nếu bạn có thời gian thì chúng ta đi cùng nhé." },
-    { "id": "bunpo-chuong4-4", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜と", "meaningVi": "Nếu..., thì... (khi...)", "usage": "V辞書形／な形／N＋と", "examTip": "Điều kiện tự nhiên, kèm theo kết quả.", "example": "早く起きると、時間に間に合います。", "exampleVi": "Nếu dậy sớm thì sẽ kịp giờ." },
-    { "id": "bunpo-chuong4-5", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜ても", "meaningVi": "Dù... thì...", "usage": "Vて形＋も", "examTip": "Nhấn mạnh sự đối lập / bất chấp.", "example": "どんなに忙しくても、運動は続けたい。", "exampleVi": "Dù bận đến đâu tôi cũng muốn tiếp tục tập thể dục." },
-    { "id": "bunpo-chuong4-6", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜ば〜ほど", "meaningVi": "Càng..., càng...", "usage": "Vば形＋ほど", "examTip": "Càng nhiều thì mức độ kết quả càng lớn.", "example": "勉強すればするほど、日本語が上手になります。", "exampleVi": "Càng học thì tiếng Nhật càng giỏi." },
-    { "id": "bunpo-chuong4-7", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜ないことには", "meaningVi": "Nếu không..., thì không...", "usage": "Vない形＋ことには", "examTip": "Không làm điều kiện thì kết quả không xảy ra.", "example": "練習しないことには、上手くなりません。", "exampleVi": "Nếu không luyện tập thì không thể giỏi lên." },
-    { "id": "bunpo-chuong4-8", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "たとえ〜ても", "meaningVi": "Dù cho..., vẫn...", "usage": "たとえ＋〜ても", "examTip": "Nhấn mạnh sự nhượng bộ mạnh.", "example": "たとえ失敗しても、あきらめません。", "exampleVi": "Dù cho thất bại, tôi cũng không nản lòng." },
-    { "id": "bunpo-chuong4-9", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜としても", "meaningVi": "Dù cho... (coi như là...) thì...", "usage": "Vた形／N＋としても", "examTip": "Giả sử ngay cả khi... thì kết quả vẫn vậy.", "example": "1万円としても、高すぎます。", "exampleVi": "Giả sử là 10.000 yên đi nữa thì vẫn quá đắt." },
-    { "id": "bunpo-chuong4-10", "level": "N3", "source": "theo-chuong", "chapter": 4, "chapterTitle": "Giả định / điều kiện", "pattern": "〜場合（は）", "meaningVi": "Trong trường hợp...", "usage": "Nの場合（は）／Vた場合（は）", "examTip": "Diễn tả điều kiện theo tình huống cụ thể.", "example": "地震の場合は、すぐに避難してください。", "exampleVi": "Trong trường hợp xảy ra động đất, hãy sơ tán ngay." },
-
-    { "id": "bunpo-chuong5-1", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜ので", "meaningVi": "Vì... nên / bởi vì...", "usage": "V普通形＋ので／いA（い）＋ので／N＋なので", "examTip": "Nguyên nhân khách quan, lý do hiển nhiên.", "example": "雨が降っているので、出かけません。", "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài." },
-    { "id": "bunpo-chuong5-2", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜ため", "meaningVi": "Vì... / để...", "usage": "V辞書形＋ため／N＋のため", "examTip": "Lý do có chủ đích, mục đích (chủ động).", "example": "日本語の能力を上げるために、毎日勉強します。", "exampleVi": "Vì muốn nâng cao năng lực tiếng Nhật nên tôi học mỗi ngày." },
-    { "id": "bunpo-chuong5-3", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜おかげで", "meaningVi": "Nhờ... nên...", "usage": "N＋のおかげで／V辞書形＋おかげで", "examTip": "Nhấn mạnh sự biết ơn, kết quả tốt.", "example": "先生のおかげで、合格することができました。", "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ." },
-    { "id": "bunpo-chuong5-4", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜せいで", "meaningVi": "Vì... (nên kết quả xấu) / tại vì...", "usage": "N＋のせいで／V辞書形＋せいで", "examTip": "Nhấn mạnh kết quả không mong muốn.", "example": "寝坊したせいで、電車に乗り遅れました。", "exampleVi": "Vì ngủ quên nên tôi đã lỡ tàu." },
-    { "id": "bunpo-chuong5-5", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜せいか", "meaningVi": "Nhờ... nên... (nguyên nhân mơ hồ)", "usage": "N＋のせいか／V辞書形＋せいか", "examTip": "Nguyên nhân không rõ ràng, cảm tính.", "example": "最近、運動したせいか、体が軽くなった。", "exampleVi": "Dạo này, có lẽ nhờ tập thể dục nên cơ thể nhẹ hơn." },
-    { "id": "bunpo-chuong5-6", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜ことから", "meaningVi": "Từ việc... có thể suy ra / vì...", "usage": "N＋ことから／V辞書形＋ことから", "examTip": "Suy luận dựa trên sự việc, dẫn chứng.", "example": "彼の話し方から、優しい人だと分かります。", "exampleVi": "Từ cách nói chuyện của cậu ấy, có thể biết cậu ấy là người tốt." },
-    { "id": "bunpo-chuong5-7", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜結果（として）", "meaningVi": "Kết quả là... / cuối cùng...", "usage": "N＋の結果（として）／V普通形＋結果（として）", "examTip": "Nêu kết quả rõ ràng, trang trọng.", "example": "いろいろ考えた結果（として）、この道を選びました。", "exampleVi": "Sau khi suy nghĩ nhiều, kết quả là tôi đã chọn con đường này." },
-    { "id": "bunpo-chuong5-8", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜あまり", "meaningVi": "Vì... quá / do... quá nên...", "usage": "Aい（あまり）／Aな（あまり）／V普通形（あまり）＋ので", "examTip": "Nguyên nhân do mức độ vượt quá giới hạn.", "example": "緊張しすぎたあまり、うまく話せませんでした。", "exampleVi": "Vì quá căng thẳng nên tôi đã không nói tốt được." },
-    { "id": "bunpo-chuong5-9", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜ほど", "meaningVi": "Càng... thì càng... / bao nhiêu... bấy nhiêu...", "usage": "V普通形（辞書形）＋ほど／Aい＋ほど／N＋ほど", "examTip": "Mức độ tỷ lệ thuận.", "example": "勉強すればするほど、分かることが増えます。", "exampleVi": "Càng học càng hiểu nhiều hơn." },
-    { "id": "bunpo-chuong5-10", "level": "N3", "source": "theo-chuong", "chapter": 5, "chapterTitle": "Nguyên nhân / kết quả", "pattern": "〜ことになる", "meaningVi": "Kết quả là phải... / cuối cùng thì...", "usage": "V辞書形＋ことになる／N＋ことになる", "examTip": "Kết quả tất yếu, không thể tránh.", "example": "忘れてしまって、結局もう一度買うことになった。", "exampleVi": "Vì quên mất nên cuối cùng phải mua lại." },
-
-    { "id": "bunpo-chuong6-1", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜そうだ（伝聞）", "meaningVi": "Nghe nói là... (thông tin gián tiếp)", "usage": "V辞書形＋そうだ", "examTip": "Dùng khi truyền đạt thông tin mình nghe được.", "example": "このレストランはおいしいそうです。", "exampleVi": "Nghe nói nhà hàng này ngon." },
-    { "id": "bunpo-chuong6-2", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜らしい", "meaningVi": "Hình như là... (dựa trên thông tin, dấu hiệu)", "usage": "Vらしい／Nらしい／な形容詞らしい", "examTip": "Suy đoán dựa trên tin tức, dấu hiệu.", "example": "彼は医者らしい。", "exampleVi": "Hình như anh ấy là bác sĩ." },
-    { "id": "bunpo-chuong6-3", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜ようだ", "meaningVi": "Có vẻ là... (dựa trên quan sát, tình hình)", "usage": "V辞書形＋ようだ／な形容詞＋なようだ", "examTip": "Suy đoán dựa trên tình huống trước mắt.", "example": "雨が降りそうだ。", "exampleVi": "Có vẻ trời sắp mưa." },
-    { "id": "bunpo-chuong6-4", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜みたいだ", "meaningVi": "Giống như là... / có vẻ như là...", "usage": "Vみたいだ／な形容詞＋みたいだ", "examTip": "Vừa suy đoán, vừa so sánh \"giống như\".", "example": "このケーキは宝石みたいだ。", "exampleVi": "Chiếc bánh này trông giống như đá quý." },
-    { "id": "bunpo-chuong6-5", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜かもしれない", "meaningVi": "Có thể là... (khả năng, không chắc chắn)", "usage": "Vかもしれない／いA＋かもしれない", "examTip": "Diễn tả khả năng, sự không chắc chắn.", "example": "明日は雨が降るかもしれない。", "exampleVi": "Có thể ngày mai sẽ mưa." },
-    { "id": "bunpo-chuong6-6", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜に違いない", "meaningVi": "Chắc chắn là... (mức độ chắc chắn cao)", "usage": "N／な形容詞＋に違いない", "examTip": "Diễn tả sự khẳng định mạnh mẽ.", "example": "彼は合格したに違いない。", "exampleVi": "Chắc chắn là cậu ấy đã đỗ." },
-    { "id": "bunpo-chuong6-7", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜はずだ", "meaningVi": "Lẽ ra là... / chắc là... (dựa trên logic, lý lẽ)", "usage": "Vはずだ／Nのはずだ／な形容詞のはずだ", "examTip": "Dự đoán hợp lý, đúng lẽ thường.", "example": "もう着いたはずだ。", "exampleVi": "Lẽ ra đã đến rồi." },
-    { "id": "bunpo-chuong6-8", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜はずがない", "meaningVi": "Không thể là... (mâu thuẫn, phủ định mạnh)", "usage": "Vはずがない／な形容詞のはずがない", "examTip": "Khẳng định phủ định, chắc chắn không phải.", "example": "彼が嘘をつくはずがない。", "exampleVi": "Không thể nào anh ấy nói dối được." },
-    { "id": "bunpo-chuong6-9", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜わけだ", "meaningVi": "Thì ra là... (hiểu ra nguyên nhân / lý do)", "usage": "V辞書形＋わけだ／Nのわけだ", "examTip": "Nhận ra lý do, nguyên nhân của sự việc.", "example": "この道が混んでいるわけだ。", "exampleVi": "Thì ra con đường này tắc là vì vậy." },
-    { "id": "bunpo-chuong6-10", "level": "N3", "source": "theo-chuong", "chapter": 6, "chapterTitle": "Suy đoán / khả năng / phán đoán", "pattern": "〜だろう／でしょう", "meaningVi": "Chắc là... nhỉ? (dự đoán, phỏng đoán)", "usage": "Vだろう／でしょう／Nだろう／でしょう", "examTip": "Dùng khi suy đoán, thường nhẹ nhàng hơn はずだ.", "example": "彼も来るだろう。", "exampleVi": "Chắc là anh ấy cũng sẽ đến." },
-
-    { "id": "bunpo-chuong7-1", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜ために", "meaningVi": "Để..., nhằm...", "usage": "V辞書形＋ために／N＋のために", "examTip": "Diễn tả mục đích, lý do chủ động.", "example": "日本語を上手になるために、毎日勉強します。", "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày." },
-    { "id": "bunpo-chuong7-2", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜ので", "meaningVi": "Vì..., bởi vì... (nói lý do, giải thích)", "usage": "V普通形＋ので／N＋なので", "examTip": "Nêu lý do, giải thích một cách khách quan.", "example": "雨が降っているので、傘を持って行きます。", "exampleVi": "Vì trời đang mưa nên tôi mang ô đi." },
-    { "id": "bunpo-chuong7-3", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜から", "meaningVi": "Vì..., nên... (nguyên nhân, kết quả)", "usage": "V普通形＋から／N＋だから", "examTip": "Nói lý do, nguyên nhân dẫn đến kết quả.", "example": "お腹が痛いから、早く帰ります。", "exampleVi": "Vì đau bụng nên tôi về sớm." },
-    { "id": "bunpo-chuong7-4", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜からには", "meaningVi": "Đã..., thì... / một khi đã... thì...", "usage": "V辞書形＋からには／N＋だからには", "examTip": "Diễn tả quyết tâm sau khi đã quyết định.", "example": "やると決めたからには、最後まで頑張ります。", "exampleVi": "Một khi đã quyết định làm thì tôi sẽ cố đến cùng." },
-    { "id": "bunpo-chuong7-5", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜せいで", "meaningVi": "Do... nên / tại... mà... (nguyên nhân không tốt)", "usage": "N＋のせいで／V普通形＋せいで", "examTip": "Nói nguyên nhân gây ra kết quả không tốt.", "example": "寝不足のせいで、テストに遅刻しました。", "exampleVi": "Vì thiếu ngủ nên tôi bị muộn thi." },
-    { "id": "bunpo-chuong7-6", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜おかげで", "meaningVi": "Nhờ... mà / vì... nên (kết quả tốt)", "usage": "N＋のおかげで／V普通形＋おかげで", "examTip": "Nói nguyên nhân dẫn đến kết quả tốt.", "example": "先生のおかげで、合格することができました。", "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ." },
-    { "id": "bunpo-chuong7-7", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜によると", "meaningVi": "Theo..., dựa theo..., theo lời...", "usage": "N＋によると／V普通形＋によると", "examTip": "Dựa vào thông tin, lời nói của người khác.", "example": "天気予報によると、明日は雨らしいです。", "exampleVi": "Theo dự báo thời tiết, hình như ngày mai trời mưa." },
-    { "id": "bunpo-chuong7-8", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜によって（は）", "meaningVi": "Do..., tuỳ theo... / bởi... mà...", "usage": "N＋によって（は）／V普通形＋によって（は）", "examTip": "Diễn tả sự khác nhau do nguyên nhân, điều kiện.", "example": "やり方によって、結果が変わります。", "exampleVi": "Kết quả thay đổi tuỳ theo cách làm." },
-    { "id": "bunpo-chuong7-9", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜にとって", "meaningVi": "Đối với..., đối với ai đó thì...", "usage": "N＋にとって", "examTip": "Diễn tả mối quan hệ, tầm quan trọng với ai đó.", "example": "家族にとって、健康が一番大切です。", "exampleVi": "Đối với gia đình tôi, sức khỏe là quan trọng nhất." },
-    { "id": "bunpo-chuong7-10", "level": "N3", "source": "theo-chuong", "chapter": 7, "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân", "pattern": "〜について", "meaningVi": "Về..., đối với..., liên quan đến...", "usage": "N＋について", "examTip": "Nói chủ đề, nội dung cần nói.", "example": "この問題について、みんなで話し合いましょう。", "exampleVi": "Về vấn đề này, chúng ta hãy thảo luận nhé." },
-
-    { "id": "bunpo-chuong8-1", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜たら", "meaningVi": "Nếu..., thì...", "usage": "Vた形＋ら", "examTip": "Diễn tả điều kiện xảy ra trong tương lai.", "example": "ドアを開けたら、猫がいました。", "exampleVi": "Nếu tôi mở cửa ra thì có con mèo." },
-    { "id": "bunpo-chuong8-2", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜ば", "meaningVi": "Nếu..., thì... (điều kiện chung, quen thuộc)", "usage": "Vば形", "examTip": "Diễn tả điều kiện luôn đúng / sự thật hiển nhiên.", "example": "雨が降れば、試合は中止になります。", "exampleVi": "Nếu trời mưa thì trận đấu sẽ bị hủy." },
-    { "id": "bunpo-chuong8-3", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜と", "meaningVi": "Khi..., lúc... / Nếu...", "usage": "Nの＋とき／Vた形＋と", "examTip": "Diễn tả thời điểm hoặc điều kiện.", "example": "家に着くと、電話が鳴りました。", "exampleVi": "Khi tôi về đến nhà thì điện thoại reo." },
-    { "id": "bunpo-chuong8-4", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜た時", "meaningVi": "Khi..., lúc... (thời gian đã xảy ra trong quá khứ)", "usage": "Nの＋時／Vた時", "examTip": "Diễn tả thời điểm cụ thể trong quá khứ.", "example": "子どもの時、日本に住んでいました。", "exampleVi": "Khi còn nhỏ tôi đã sống ở Nhật." },
-    { "id": "bunpo-chuong8-5", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜前に", "meaningVi": "Trước khi...", "usage": "Nの＋前に／Vる前に", "examTip": "Diễn tả hành động diễn ra trước hành động khác.", "example": "出かける前に、宿題を終わらせました。", "exampleVi": "Trước khi đi ra ngoài, tôi đã làm xong bài tập." },
-    { "id": "bunpo-chuong8-6", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜間に", "meaningVi": "Trong khi... / Trước khi... (trong khoảng thời gian)", "usage": "N＋の＋間に", "examTip": "Diễn tả hành động xảy ra trong một khoảng thời gian.", "example": "食事の間に、宿題を終えました。", "exampleVi": "Trong lúc ăn, tôi đã làm xong bài tập." },
-    { "id": "bunpo-chuong8-7", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜後に", "meaningVi": "Sau khi...", "usage": "N＋の＋後に／Vた後に", "examTip": "Diễn tả hành động xảy ra sau hành động khác.", "example": "昼ご飯を食べた後に、運動します。", "exampleVi": "Sau khi ăn trưa, tôi sẽ tập thể dục." },
-    { "id": "bunpo-chuong8-8", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜うちに", "meaningVi": "Khi còn... / Trước khi... (cơ hội, thời gian tốt)", "usage": "N＋の＋うちに／Vるうちに", "examTip": "Diễn tả việc nên làm trước khi cơ hội qua đi.", "example": "元気なうちに、いろいろな所へ行きたいです。", "exampleVi": "Khi còn khỏe, tôi muốn đi nhiều nơi." },
-    { "id": "bunpo-chuong8-9", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜限り", "meaningVi": "Miễn là... / Chỉ cần... (trong phạm vi cho phép)", "usage": "N＋の＋限り／Vる限り", "examTip": "Diễn tả điều kiện cho phép.", "example": "ルールを守る限り、自由に使っていいです。", "exampleVi": "Miễn là tuân thủ quy tắc thì có thể dùng tự do." },
-    { "id": "bunpo-chuong8-10", "level": "N3", "source": "theo-chuong", "chapter": 8, "chapterTitle": "Tình huống / điều kiện / thời gian", "pattern": "〜たびに", "meaningVi": "Mỗi khi... / Mỗi lần...", "usage": "N＋の＋たびに／Vたびに", "examTip": "Diễn tả hành động lặp lại mỗi khi hành động khác xảy ra.", "example": "彼に会うたびに、元気をもらいます。", "exampleVi": "Mỗi khi gặp anh ấy, tôi lại nhận được năng lượng." },
-
-    { "id": "bunpo-chuong9-1", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜より", "meaningVi": "Hơn..., so với...", "usage": "N＋より＋N／V（辞書形）", "examTip": "Diễn tả so sánh hơn giữa 2 đối tượng.", "example": "日本はベトナムより寒いです。", "exampleVi": "Nhật Bản lạnh hơn Việt Nam." },
-    { "id": "bunpo-chuong9-2", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜のほうが", "meaningVi": "Về phía..., ... hơn (nói đậm ý kiến người nói)", "usage": "N＋のほうが＋N＋より＋V（辞書形）", "examTip": "So sánh hơn, nhấn mạnh lựa chọn của người nói.", "example": "夏より冬のほうが好きです。", "exampleVi": "Tôi thích mùa đông hơn mùa hè." },
-    { "id": "bunpo-chuong9-3", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜ほど", "meaningVi": "Bằng..., đến mức... / Càng.., càng...", "usage": "N＋ほど〜N／V（辞書形）ほど", "examTip": "So sánh mức độ, biểu thị giới hạn.", "example": "日本語は勉強するほど面白くなります。", "exampleVi": "Càng học tiếng Nhật thì càng thú vị." },
-    { "id": "bunpo-chuong9-4", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜くらい", "meaningVi": "Khoảng..., chừng..., xấp xỉ... / Ngang bằng...", "usage": "N＋くらい（な）＋N／V（辞書形）", "examTip": "Diễn tả mức độ gần bằng, xấp xỉ.", "example": "今の気温は20度くらいです。", "exampleVi": "Nhiệt độ bây giờ khoảng 20 độ." },
-    { "id": "bunpo-chuong9-5", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜みたいに", "meaningVi": "Giống như..., như kiểu...", "usage": "N＋みたいに／V（辞書形）みたいに", "examTip": "So sánh ví dụ, dùng trong văn nói, thân mật.", "example": "子どものころ、よくアニメみたいに遊びました。", "exampleVi": "Hồi nhỏ, tôi hay chơi giống như trong anime." },
-    { "id": "bunpo-chuong9-6", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜ように", "meaningVi": "Giống như..., như là... / Sao cho...", "usage": "N＋のように／V（辞書形）ように", "examTip": "Dùng trong văn viết, trang trọng; mục đích, cách thức.", "example": "風邪をひかないように、気をつけてください。", "exampleVi": "Hãy cẩn thận để không bị cảm nhé." },
-    { "id": "bunpo-chuong9-7", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜に対して", "meaningVi": "Đối với..., so với...", "usage": "N＋に対して", "examTip": "So sánh, đối chiếu hai mặt của vấn đề.", "example": "彼は仕事に対して真剣です。", "exampleVi": "Anh ấy rất nghiêm túc đối với công việc." },
-    { "id": "bunpo-chuong9-8", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜一方（で）", "meaningVi": "Một mặt..., mặt khác...", "usage": "N＋は一方（で）", "examTip": "Đối lập hai sự việc, hai mặt khác nhau.", "example": "都会は便利な一方で、物価が高いです。", "exampleVi": "Thành phố thì tiện lợi, một mặt khác giá cả thì cao." },
-    { "id": "bunpo-chuong9-9", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜反対に／〜逆に", "meaningVi": "Ngược lại..., trái lại...", "usage": "反対に／逆に＋N／V（辞書形）", "examTip": "Diễn tả sự đối lập với ý kiến vừa nêu.", "example": "彼は優しいですが、反対に厳しいところもあります。", "exampleVi": "Anh ấy hiền, nhưng ngược lại cũng nghiêm khắc." },
-    { "id": "bunpo-chuong9-10", "level": "N3", "source": "theo-chuong", "chapter": 9, "chapterTitle": "So sánh / đối chiếu / tương phản", "pattern": "〜でも", "meaningVi": "Tuy... nhưng... / Dù... thì...", "usage": "A＋でも、B", "examTip": "Biểu thị sự đối lập, nhượng bộ; nối 2 ý trái ngược.", "example": "忙しくても、毎日運動しています。", "exampleVi": "Dù bận, tôi vẫn tập thể dục mỗi ngày." },
-
-    { "id": "bunpo-chuong10-1", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜ために", "meaningVi": "Để..., nhằm..., vì... (mục đích)", "usage": "V辞書形＋ために／Nのために", "examTip": "Diễn tả mục đích, ý do chủ động.", "example": "日本語を上手になるために、毎日勉強します。", "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày." },
-    { "id": "bunpo-chuong10-2", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜ので", "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)", "usage": "V普通形＋ので／N＋なので", "examTip": "Diễn tả lý do, giải thích một cách khách quan.", "example": "雨が降っているので、出かけません。", "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài." },
-    { "id": "bunpo-chuong10-3", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜から", "meaningVi": "Vì..., bởi..., do... (lý do nói về nguyên nhân)", "usage": "V普通形＋から／N＋だから", "examTip": "Diễn tả nguyên nhân dẫn đến kết quả.", "example": "お腹が痛いから、早く帰ります。", "exampleVi": "Vì đau bụng nên tôi về sớm." },
-    { "id": "bunpo-chuong10-4", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜理由で（／の理由で）", "meaningVi": "Với lý do..., vì lý do... (nói rõ lý do)", "usage": "N＋の理由で／V辞書形＋理由で", "examTip": "Diễn tả nguyên nhân cụ thể, rõ ràng.", "example": "体調が悪い理由で、休みます。", "exampleVi": "Vì lý do sức khỏe không tốt nên tôi nghỉ." },
-    { "id": "bunpo-chuong10-5", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜おかげで", "meaningVi": "Nhờ..., nhờ vào... (kết quả tích cực)", "usage": "N＋のおかげで／V辞書形＋おかげで", "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.", "example": "先生のおかげで、合格することができました。", "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ." },
-    { "id": "bunpo-chuong10-6", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜せいで", "meaningVi": "Tại vì..., do..., vì... nên... (kết quả tiêu cực)", "usage": "N＋のせいで／V辞書形＋せいで", "examTip": "Diễn tả kết quả không tốt do một nguyên nhân.", "example": "寝不足のせいで、テストに遅刻しました。", "exampleVi": "Tại vì thiếu ngủ nên tôi bị muộn thi." },
-    { "id": "bunpo-chuong10-7", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜からには", "meaningVi": "Vì đã..., nên...; đã làm gì thì phải... (quyết tâm)", "usage": "V普通形＋からには", "examTip": "Diễn tả quyết tâm, quyết định mạnh mẽ.", "example": "一度決めたからには、最後までやり遂げます。", "exampleVi": "Vì đã quyết định rồi thì sẽ làm đến cùng." },
-    { "id": "bunpo-chuong10-8", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜おそれがある（／あり）", "meaningVi": "Có nguy cơ..., có khả năng... (nguyên nhân tiềm ẩn)", "usage": "V辞書形＋おそれがある／あり", "examTip": "Diễn tả khả năng xảy ra do nguyên nhân.", "example": "このままだと、事故が起きるおそれがあります。", "exampleVi": "Nếu cứ thế này thì có nguy cơ xảy ra tai nạn." },
-    { "id": "bunpo-chuong10-9", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜ことによって（／で）", "meaningVi": "Nhờ..., thông qua..., bằng cách... (nhờ vào)", "usage": "N＋ことによって／で", "examTip": "Diễn tả kết quả, thay đổi nhờ một hành động.", "example": "勉強を続けることによって、力がつきました。", "exampleVi": "Nhờ tiếp tục học mà tôi đã tiến bộ." },
-    { "id": "bunpo-chuong10-10", "level": "N3", "source": "theo-chuong", "chapter": 10, "chapterTitle": "Mục đích / lý do / nguyên nhân", "pattern": "〜ため（の）に", "meaningVi": "Để..., vì... (mục đích/lý do, trang trọng hơn)", "usage": "N＋のために／V辞書形＋ため（の）に", "examTip": "Diễn tả mục đích hoặc lý do (trang trọng hơn).", "example": "家族のために、一生懸命働いています。", "exampleVi": "Vì gia đình nên tôi làm việc hết sức." },
-
-    { "id": "bunpo-chuong11-1", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜ために", "meaningVi": "Để..., nhằm... (mục đích)", "usage": "V辞書形＋ために／N のために", "examTip": "Diễn tả mục đích, ý do chủ động.", "example": "日本語を上手になるために、毎日勉強します。", "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày." },
-    { "id": "bunpo-chuong11-2", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜ので", "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)", "usage": "V普通形＋ので／N＋なので", "examTip": "Diễn tả lý do, giải thích một cách khách quan.", "example": "雨が降っているので、出かけません。", "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài." },
-    { "id": "bunpo-chuong11-3", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜から", "meaningVi": "Vì..., bởi..., do... (lý do nói về nguyên nhân)", "usage": "V普通形＋から／N＋だから", "examTip": "Diễn tả nguyên nhân dẫn đến kết quả.", "example": "お腹が痛いから、早く帰ります。", "exampleVi": "Vì đau bụng nên tôi về sớm." },
-    { "id": "bunpo-chuong11-4", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜理由で（／の理由で）", "meaningVi": "Với lý do..., vì lý do... (nói rõ lý do)", "usage": "N＋の理由で／V辞書形＋理由で", "examTip": "Diễn tả nguyên nhân cụ thể, rõ ràng.", "example": "体調が悪い理由で、休みます。", "exampleVi": "Vì lý do sức khỏe không tốt nên tôi nghỉ." },
-    { "id": "bunpo-chuong11-5", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜おかげで", "meaningVi": "Nhờ..., nhờ vào... (kết quả tích cực)", "usage": "N＋のおかげで／V辞書形＋おかげで", "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.", "example": "先生のおかげで、合格することができました。", "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ." },
-    { "id": "bunpo-chuong11-6", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜せいで", "meaningVi": "Tại vì..., do..., vì... nên... (kết quả tiêu cực)", "usage": "N＋のせいで／V辞書形＋せいで", "examTip": "Diễn tả kết quả không tốt do một nguyên nhân.", "example": "寝不足のせいで、テストに遅刻しました。", "exampleVi": "Tại vì thiếu ngủ nên tôi bị muộn thi." },
-    { "id": "bunpo-chuong11-7", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜からには", "meaningVi": "Vì đã..., nên...; đã làm gì thì phải... (quyết tâm)", "usage": "V辞書形＋からには", "examTip": "Diễn tả quyết tâm, quyết định mạnh mẽ.", "example": "一度決めたからには、最後までやり遂げます。", "exampleVi": "Vì đã quyết định rồi thì sẽ làm đến cùng." },
-    { "id": "bunpo-chuong11-8", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜おそれがある（／あり）", "meaningVi": "Có nguy cơ..., có khả năng... (nguyên nhân tiềm ẩn)", "usage": "V辞書形＋おそれがある／あり", "examTip": "Diễn tả khả năng xảy ra do nguyên nhân.", "example": "このままだと、事故が起きるおそれがあります。", "exampleVi": "Nếu cứ thế này thì có nguy cơ xảy ra tai nạn." },
-    { "id": "bunpo-chuong11-9", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜ことによって（／で）", "meaningVi": "Nhờ..., thông qua..., bằng cách... (nhờ vào)", "usage": "N＋ことによって／で", "examTip": "Diễn tả kết quả, thay đổi nhờ một hành động.", "example": "勉強を続けることによって、力がつきました。", "exampleVi": "Nhờ tiếp tục học mà tôi đã tiến bộ." },
-    { "id": "bunpo-chuong11-10", "level": "N3", "source": "theo-chuong", "chapter": 11, "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức", "pattern": "〜ため（の）に", "meaningVi": "Để..., vì... (mục đích/lý do, trang trọng hơn)", "usage": "N＋のために／V辞書形＋ため（の）に", "examTip": "Diễn tả mục đích hoặc lý do (trang trọng hơn).", "example": "家族のために、一生懸命働いています。", "exampleVi": "Vì gia đình nên tôi làm việc hết sức." },
-
-    { "id": "bunpo-chuong12-1", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜ために", "meaningVi": "Để..., nhằm...", "usage": "V辞書形＋ために／Nのために", "examTip": "Diễn tả mục đích, lý do chủ động.", "example": "日本語を上手になるために、毎日勉強します。", "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày." },
-    { "id": "bunpo-chuong12-2", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜ので", "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)", "usage": "V普通形＋ので／N＋なので", "examTip": "Diễn tả lý do, giải thích một cách khách quan.", "example": "雨が降っているので、出かけません。", "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài." },
-    { "id": "bunpo-chuong12-3", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜から", "meaningVi": "Vì..., bởi..., do... (lý do nói về nguyên nhân)", "usage": "V普通形＋から／N＋だから", "examTip": "Diễn tả nguyên nhân dẫn đến kết quả.", "example": "お腹が痛いから、早く帰ります。", "exampleVi": "Vì đau bụng nên tôi về sớm." },
-    { "id": "bunpo-chuong12-4", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜ので（〜から）", "meaningVi": "Vì... nên... (kết quả tất yếu của nguyên nhân)", "usage": "V普通形＋ので（から）、...", "examTip": "Diễn tả kết quả tất yếu từ nguyên nhân.", "example": "雨が降っているので（から）、試合は中止です。", "exampleVi": "Vì trời mưa nên trận đấu bị hủy." },
-    { "id": "bunpo-chuong12-5", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜おかげで", "meaningVi": "Nhờ... nên... (kết quả tích cực)", "usage": "N＋のおかげで／V辞書形＋おかげで", "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.", "example": "先生のおかげで、合格することができました。", "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ." },
-    { "id": "bunpo-chuong12-6", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜せいで", "meaningVi": "Tại vì..., do... nên... (kết quả tiêu cực)", "usage": "N＋のせいで／V辞書形＋せいで", "examTip": "Diễn tả kết quả không tốt do một nguyên nhân.", "example": "寝不足のせいで、テストに遅刻しました。", "exampleVi": "Tại vì thiếu ngủ nên tôi bị muộn thi." },
-    { "id": "bunpo-chuong12-7", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜理由で（〜の理由で）", "meaningVi": "Vì lý do... (nêu rõ lý do cụ thể)", "usage": "N＋の理由で／V辞書形＋理由で", "examTip": "Diễn tả nguyên nhân, lý do một cách rõ ràng.", "example": "体調が悪い理由で、休みます。", "exampleVi": "Vì lý do sức khỏe không tốt nên tôi nghỉ." },
-    { "id": "bunpo-chuong12-8", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜からには", "meaningVi": "Đã..., thì... (quyết tâm, quyết định)", "usage": "V普通形＋からには", "examTip": "Diễn tả quyết tâm làm đến cùng.", "example": "一度決めたからには、最後までやり遂げます。", "exampleVi": "Vì đã quyết định rồi thì sẽ làm đến cùng." },
-    { "id": "bunpo-chuong12-9", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜ことによって（／で）", "meaningVi": "Nhờ..., bằng cách... (kết quả nhờ một hành động)", "usage": "N＋ことによって／で", "examTip": "Diễn tả kết quả, thay đổi nhờ một hành động.", "example": "毎日運動することによって、健康になりました。", "exampleVi": "Nhờ tập thể dục mỗi ngày nên tôi đã khỏe hơn." },
-    { "id": "bunpo-chuong12-10", "level": "N3", "source": "theo-chuong", "chapter": 12, "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện", "pattern": "〜を使って（／使って）", "meaningVi": "Dùng... để... / Bằng cách sử dụng...", "usage": "N＋を使って／V辞書形＋を使って", "examTip": "Diễn tả phương tiện, cách thức để làm việc gì.", "example": "このアプリを使って、簡単に写真を編集できます。", "exampleVi": "Dùng ứng dụng này, bạn có thể chỉnh sửa ảnh dễ dàng." },
-
-    { "id": "bunpo-chuong13-1", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜から", "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)", "usage": "V普通形＋から", "examTip": "Diễn tả lý do, giải thích một cách khách quan.", "example": "今日は雨が降っているから、試合は中止です。", "exampleVi": "Vì trời đang mưa nên trận đấu bị hủy." },
-    { "id": "bunpo-chuong13-2", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜ので", "meaningVi": "Vì..., bởi vì... (lý do chủ quan, ý kiến người nói)", "usage": "V普通形＋ので", "examTip": "Diễn tả lý do theo suy nghĩ, cảm nhận của người nói.", "example": "お腹が痛いので、早く帰ります。", "exampleVi": "Vì đau bụng nên tôi về sớm." },
-    { "id": "bunpo-chuong13-3", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜ために", "meaningVi": "Để..., nhằm... (mục đích)", "usage": "V辞書形＋ために", "examTip": "Diễn tả mục đích, lý do chủ động.", "example": "日本語を上手になるために、毎日勉強します。", "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày." },
-    { "id": "bunpo-chuong13-4", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜ので（許可）", "meaningVi": "Vì..., nên... (cho phép/đồng ý)", "usage": "V辞書形＋ので", "examTip": "Dùng khi người nói cho phép ai đó làm gì.", "example": "いいですよ。行きたいので、行ってもいいですよ。", "exampleVi": "Được thôi. Vì bạn muốn đi nên bạn có thể đi." },
-    { "id": "bunpo-chuong13-5", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜てもいいです", "meaningVi": "Có thể..., cũng được... (cho phép)", "usage": "V辞書形＋てもいいです", "examTip": "Dùng để cho phép, hỏi xin phép lịch sự.", "example": "ここで写真を撮ってもいいですか。", "exampleVi": "Tôi có thể chụp ảnh ở đây được không?" },
-    { "id": "bunpo-chuong13-6", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜ことができます", "meaningVi": "Có thể... (khả năng làm được)", "usage": "V辞書形＋ことができます", "examTip": "Diễn tả khả năng làm được điều gì đó.", "example": "このボタンを押すと、ドアを開けることができます。", "exampleVi": "Nhấn nút này là có thể mở cửa." },
-    { "id": "bunpo-chuong13-7", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜ことができます（受身）", "meaningVi": "Có thể... (dưới tác động của người khác/bị động)", "usage": "V辞書形＋ことができます（受身）", "examTip": "Diễn tả khả năng được ai đó cho phép hoặc bị động.", "example": "先生に質問すれば、問題を解決することができます。", "exampleVi": "Nếu hỏi thầy thì có thể giải quyết vấn đề." },
-    { "id": "bunpo-chuong13-8", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜れる／〜られる（受身）", "meaningVi": "Bị..., được... (bị động/nhận tác động)", "usage": "V辞書形＋れる／られる", "examTip": "Diễn tả bị động, chịu tác động từ người khác.", "example": "この本は友達に借りられました。", "exampleVi": "Quyển sách này đã bị bạn mượn." },
-    { "id": "bunpo-chuong13-9", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜させる／〜させられる", "meaningVi": "Khiến cho... / Bị khiến cho...", "usage": "V辞書形＋させる／させられる", "examTip": "Diễn tả chủ động khiến ai đó làm gì/bị bị động.", "example": "親に早く寝るように言われて、寝させられました。", "exampleVi": "Bị bố mẹ bảo nên tôi đã bị bắt đi ngủ sớm." },
-    { "id": "bunpo-chuong13-10", "level": "N3", "source": "theo-chuong", "chapter": 13, "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động", "pattern": "〜せる／〜させる（使役）", "meaningVi": "Khiến cho... (bắt ai đó làm gì)", "usage": "V辞書形＋せる／させる", "examTip": "Diễn tả khiến người khác làm một việc nào đó.", "example": "先生は私にこの問題を解かせました。", "exampleVi": "Thầy giáo đã khiến tôi làm bài này." },
-
-    { "id": "bunpo-chuong14-1", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜時に", "meaningVi": "Vào lúc...", "usage": "N＋時に", "examTip": "Diễn tả thời điểm xảy ra hành động.", "example": "私は7時に起きます。", "exampleVi": "Tôi thức dậy lúc 7 giờ." },
-    { "id": "bunpo-chuong14-2", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜時から〜時まで", "meaningVi": "Từ... giờ đến... giờ", "usage": "N＋時から＋N＋時まで", "examTip": "Diễn tả khoảng thời gian bắt đầu và kết thúc.", "example": "8時から12時まで勉強します。", "exampleVi": "Tôi học từ 8 giờ đến 12 giờ." },
-    { "id": "bunpo-chuong14-3", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜時間", "meaningVi": "Trong... tiếng / ... giờ", "usage": "N＋時間", "examTip": "Diễn tả khoảng thời gian kéo dài.", "example": "この仕事は2時間かかります。", "exampleVi": "Công việc này mất 2 giờ." },
-    { "id": "bunpo-chuong14-4", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜分", "meaningVi": "Trong... phút / ... phút", "usage": "N＋分", "examTip": "Diễn tả khoảng thời gian ngắn tính bằng phút.", "example": "駅まで5分かかります。", "exampleVi": "Đi đến ga mất 5 phút." },
-    { "id": "bunpo-chuong14-5", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜ごとに", "meaningVi": "Mỗi... / Đều đặn sau mỗi...", "usage": "N＋ごとに", "examTip": "Diễn tả sự lặp lại theo khoảng cách thời gian.", "example": "1時間ごとに休けいします。", "exampleVi": "Tôi nghỉ giải lao mỗi giờ." },
-    { "id": "bunpo-chuong14-6", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜たびに", "meaningVi": "Mỗi lần... (mỗi khi...)", "usage": "N＋たびに", "examTip": "Diễn tả mỗi khi làm một việc gì đó.", "example": "日本へ行くたびに、新しい発見があります。", "exampleVi": "Mỗi lần đi Nhật, tôi lại có những phát hiện mới." },
-    { "id": "bunpo-chuong14-7", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "しょっちゅう／よく", "meaningVi": "Thường xuyên / hay / thường hay", "usage": "しょっちゅう／よく＋V", "examTip": "Diễn tả tần suất cao.", "example": "彼はしょっちゅう映画を見ます。", "exampleVi": "Anh ấy thường xuyên xem phim." },
-    { "id": "bunpo-chuong14-8", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "たまに／ときどき", "meaningVi": "Thỉnh thoảng / đôi khi", "usage": "たまに／ときどき＋V", "examTip": "Diễn tả tần suất trung bình.", "example": "たまに友だちとカフェに行きます。", "exampleVi": "Thỉnh thoảng tôi đi cà phê với bạn." },
-    { "id": "bunpo-chuong14-9", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "あまり〜ない／〜ません", "meaningVi": "Không thường / hiếm khi...", "usage": "あまり＋Vない／Vません", "examTip": "Diễn tả tần suất thấp.", "example": "私はあまり外食しません。", "exampleVi": "Tôi hiếm khi ăn ngoài." },
-    { "id": "bunpo-chuong14-10", "level": "N3", "source": "theo-chuong", "chapter": 14, "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm", "pattern": "〜うちに", "meaningVi": "Trong khi còn... / Khi còn chưa...", "usage": "N＋うちに", "examTip": "Diễn tả thời điểm trước khi tình trạng thay đổi.", "example": "時間があるうちに、やっておきましょう。", "exampleVi": "Hãy làm khi còn có thời gian." },
-
-    { "id": "bunpo-chuong15-1", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜たら（条件）", "meaningVi": "Nếu..., thì...", "usage": "Vた形＋ら", "examTip": "Diễn tả điều kiện và kết quả xảy ra.", "example": "雨が降ったら、試合は中止です。", "exampleVi": "Nếu trời mưa, trận đấu sẽ bị hủy." },
-    { "id": "bunpo-chuong15-2", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜ば（条件）", "meaningVi": "Nếu..., thì...", "usage": "Vば形（辞書形＋ば）", "examTip": "Diễn tả điều kiện và kết quả; dùng phổ biến.", "example": "時間があれば、映画を見に行きます。", "exampleVi": "Nếu có thời gian, tôi sẽ đi xem phim." },
-    { "id": "bunpo-chuong15-3", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜たらいいです", "meaningVi": "Nếu... thì tốt. / Thì tốt hơn.", "usage": "Vた形＋らいいです／Vばいいです", "examTip": "Đưa ra lời khuyên, đề xuất.", "example": "疲れたら、休んだらいいですよ。", "exampleVi": "Nếu mệt thì bạn nên nghỉ ngơi." },
-    { "id": "bunpo-chuong15-4", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜ことにする（quyết định）", "meaningVi": "Quyết định sẽ...", "usage": "N＋ことにする／V辞書形＋ことにする", "examTip": "Diễn tả quyết định sau khi cân nhắc.", "example": "来年から、日本語を勉強することにします。", "exampleVi": "Từ năm sau, tôi quyết định sẽ học tiếng Nhật." },
-    { "id": "bunpo-chuong15-5", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜つもりだ（dự định）", "meaningVi": "Dự định sẽ...", "usage": "V辞書形＋つもりだ／つもりです", "examTip": "Diễn tả dự định, ý định của bản thân.", "example": "来月、旅行に行くつもりです。", "exampleVi": "Tôi dự định đi du lịch vào tháng sau." },
-    { "id": "bunpo-chuong15-6", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜予定です（kế hoạch）", "meaningVi": "Dự kiến sẽ... / Theo kế hoạch sẽ...", "usage": "N＋の予定です／V予定です", "examTip": "Diễn tả kế hoạch đã định trước.", "example": "来週、友達と会う予定です。", "exampleVi": "Tuần sau, tôi dự định gặp bạn." },
-    { "id": "bunpo-chuong15-7", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜はずだ（suy đoán chắc chắn）", "meaningVi": "Chắc chắn là... / Lẽ ra là...", "usage": "N＋はずだ／Vはずだ", "examTip": "Diễn tả suy đoán dựa trên lý do rõ ràng.", "example": "彼はもう家に着いたはずです。", "exampleVi": "Anh ấy chắc chắn đã đến nhà rồi." },
-    { "id": "bunpo-chuong15-8", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜と思う（suy đoán theo ý kiến）", "meaningVi": "Tôi nghĩ là... / Theo tôi thì...", "usage": "N＋だと思う／V＋と思う", "examTip": "Diễn tả suy đoán dựa trên suy nghĩ cá nhân.", "example": "この問題は難しいと思います。", "exampleVi": "Tôi nghĩ bài toán này khó." },
-    { "id": "bunpo-chuong15-9", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜かもしれない（có khả năng）", "meaningVi": "Có lẽ là... / Có khả năng là...", "usage": "N＋かもしれない／Vかもしれない", "examTip": "Diễn tả khả năng, không chắc chắn.", "example": "明日は雨が降るかもしれません。", "exampleVi": "Ngày mai có lẽ sẽ mưa." },
-    { "id": "bunpo-chuong15-10", "level": "N3", "source": "theo-chuong", "chapter": 15, "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định", "pattern": "〜だろう（có vẻ/suy đoán）", "meaningVi": "Có vẻ là... / Chắc là...", "usage": "N＋だろう／Vだろう", "examTip": "Diễn tả suy đoán dựa trên tình huống, cảm nhận.", "example": "あの人は先生だろう。", "exampleVi": "Có vẻ người đó là giáo viên." }
+    {
+      "id": "bunpo-chuong1-1",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ように",
+      "meaningVi": "Để, nhằm; mong đạt trạng thái",
+      "usage": "V辞書形・Vない",
+      "examTip": "Dùng với động từ không điều khiển được.",
+      "example": "日本語が話せるように毎日練習している。",
+      "exampleVi": "Tôi luyện tập mỗi ngày để có thể nói tiếng Nhật.",
+      "sources": [
+        "theo-chuong",
+        "400-mau-thong-dung"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-2",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ようになる",
+      "meaningVi": "Trở nên; thay đổi trạng thái",
+      "usage": "V辞書形",
+      "examTip": "Nhấn sự thay đổi tự nhiên theo thời gian.",
+      "example": "日本語が少し話せるようになった。",
+      "exampleVi": "Tôi đã có thể nói tiếng Nhật một chút.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-3",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ようにする",
+      "meaningVi": "Cố gắng tạo thói quen; chú ý làm",
+      "usage": "V辞書形・Vない",
+      "examTip": "Thể hiện nỗ lực chủ động của bản thân.",
+      "example": "健康のために、毎日野菜を食べるようにしている。",
+      "exampleVi": "Vì sức khỏe nên tôi cố gắng ăn rau mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-4",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ために",
+      "meaningVi": "Để; vì mục đích",
+      "usage": "V辞書形・Nの",
+      "examTip": "Mục đích rõ ràng, có lý do cụ thể.",
+      "example": "日本で働くために日本語を勉強している。",
+      "exampleVi": "Tôi học tiếng Nhật để làm việc ở Nhật.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-5",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ことになる",
+      "meaningVi": "Được quyết định; trở thành (bị động)",
+      "usage": "V辞書形",
+      "examTip": "Quyết định từ bên ngoài, không phải do mình.",
+      "example": "来月から大阪へ転勤することになった。",
+      "exampleVi": "Đã được quyết định là tháng sau chuyển công tác tới Osaka.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-6",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ことにする",
+      "meaningVi": "Tự quyết định làm gì",
+      "usage": "V辞書形",
+      "examTip": "Quyết định chủ động từ bản thân.",
+      "example": "健康のために、お酒をやめることにした。",
+      "exampleVi": "Tôi đã quyết định bỏ rượu vì sức khỏe.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-7",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ことになっている",
+      "meaningVi": "Quy định; được sắp xếp sẵn",
+      "usage": "Vない形・Nの",
+      "examTip": "Quy tắc, quy định, lịch trình đã được định sẵn.",
+      "example": "この図書館では、飲み物を持ち込まないことになっている。",
+      "exampleVi": "Ở thư viện này có quy định không mang đồ uống vào.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-8",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜ようとする",
+      "meaningVi": "Định làm; vừa chuẩn bị làm",
+      "usage": "V意向形＋とする",
+      "examTip": "Hành động chưa bắt đầu, mới có ý định.",
+      "example": "出かけようとした時、友だちから電話が来た。",
+      "exampleVi": "Đúng lúc định đi ra ngoài thì bạn gọi điện.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-9",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜つもりだ",
+      "meaningVi": "Dự định; có ý định trong tương lai",
+      "usage": "V辞書形・Vない",
+      "examTip": "Kế hoạch của bản thân (chưa chắc chắn 100%).",
+      "example": "来年、日本へ留学するつもりだ。",
+      "exampleVi": "Tôi dự định năm sau du học Nhật.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong1-10",
+      "level": "N3",
+      "chapter": 1,
+      "chapterTitle": "Biểu hiện mục đích / thay đổi",
+      "pattern": "〜予定だ",
+      "meaningVi": "Kế hoạch; lịch trình dự kiến",
+      "usage": "V辞書形・Nの",
+      "examTip": "Thường dùng cho lịch trình chính thức, đã lên kế hoạch.",
+      "example": "来週、東京へ出張する予定です。",
+      "exampleVi": "Tuần sau tôi có kế hoạch đi công tác Tokyo.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-1",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜たことがある",
+      "meaningVi": "Đã từng (làm gì đó)",
+      "usage": "Vた形＋ことがある",
+      "examTip": "Kinh nghiệm trong quá khứ.",
+      "example": "富士山に登ったことがある。",
+      "exampleVi": "Tôi đã từng leo núi Phú Sĩ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-2",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜たばかり",
+      "meaningVi": "Vừa mới (làm gì đó)",
+      "usage": "Vた形＋ばかり",
+      "examTip": "Hành động vừa mới hoàn tất.",
+      "example": "ご飯を食べたばかりです。",
+      "exampleVi": "Tôi vừa mới ăn cơm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-3",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜ところだ",
+      "meaningVi": "Đúng lúc; vừa mới chuẩn bị",
+      "usage": "V辞書形＋ところだ",
+      "examTip": "Hành động đang ở thời điểm nói.",
+      "example": "今、出かけるところです。",
+      "exampleVi": "Giờ tôi đang định đi ra ngoài.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-4",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜ているところだ",
+      "meaningVi": "Đang (làm gì đó)",
+      "usage": "Vている＋ところだ",
+      "examTip": "Hành động đang diễn ra ngay lúc nói.",
+      "example": "宿題をしているところです。",
+      "exampleVi": "Tôi đang làm bài tập về nhà.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-5",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜たところだ",
+      "meaningVi": "Vừa mới (làm xong)",
+      "usage": "Vた形＋ところだ",
+      "examTip": "Làm xong ngay trước thời điểm nói.",
+      "example": "今、起きたところです。",
+      "exampleVi": "Tôi vừa mới thức dậy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-6",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜うちに",
+      "meaningVi": "Trong khi; trước khi (có mốc thời gian)",
+      "usage": "Vている／Vた＋うちに",
+      "examTip": "Hành động trước khi sự việc khác xảy ra.",
+      "example": "雨が降るうちに、洗濯物を取り込んだ。",
+      "exampleVi": "Tôi đã thu quần áo vào trước khi trời mưa.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-7",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜あいだに",
+      "meaningVi": "Trong khi; trong khoảng thời gian (giữa hai mốc)",
+      "usage": "Nのあいだに／Vた＋あいだに",
+      "examTip": "Hành động xảy ra trong khoảng giữa 2 mốc.",
+      "example": "家族が寝ているあいだに、映画を見た。",
+      "exampleVi": "Tôi đã xem phim trong khi gia đình đang ngủ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-8",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜最中に",
+      "meaningVi": "Trong lúc; ngay khi đang (làm gì đó)",
+      "usage": "Vている最中に",
+      "examTip": "Hành động bị gián đoạn bởi sự việc khác.",
+      "example": "電話をしている最中に、電車が止まった。",
+      "exampleVi": "Trong lúc đang gọi điện thì tàu bị dừng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-9",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜て以来",
+      "meaningVi": "Kể từ khi; từ lúc ~ đến nay",
+      "usage": "Vて＋以来",
+      "examTip": "Một mốc thời gian đến hiện tại.",
+      "example": "日本に来て以来、日本語を勉強している。",
+      "exampleVi": "Kể từ khi đến Nhật, tôi luôn học tiếng Nhật.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong2-10",
+      "level": "N3",
+      "chapter": 2,
+      "chapterTitle": "Kinh nghiệm / thời điểm / tiến trình",
+      "pattern": "〜ようやく",
+      "meaningVi": "Cuối cùng; rốt cuộc",
+      "usage": "Vた形＋ようやく",
+      "examTip": "Sau nhiều khó khăn, chờ đợi.",
+      "example": "やっと試験に合格した！",
+      "exampleVi": "Cuối cùng tôi cũng đỗ kỳ thi!",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-1",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜ながら",
+      "meaningVi": "Vừa... vừa...",
+      "usage": "V辞書形＋ながら",
+      "examTip": "Hai hành động diễn ra đồng thời.",
+      "example": "音楽を聞きながら、宿題をしている。",
+      "exampleVi": "Tôi vừa nghe nhạc vừa làm bài tập.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-2",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜つづける",
+      "meaningVi": "Tiếp tục làm...",
+      "usage": "V辞書形＋つづける",
+      "examTip": "Diễn tả hành động kéo dài liên tục.",
+      "example": "毎日、ジョギングをつづけている。",
+      "exampleVi": "Tôi tiếp tục chạy bộ mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-3",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜始める",
+      "meaningVi": "Bắt đầu làm...",
+      "usage": "V辞書形＋始める",
+      "examTip": "Điểm bắt đầu của hành động.",
+      "example": "先週から、日本語の勉強を始めた。",
+      "exampleVi": "Từ tuần trước, tôi bắt đầu học tiếng Nhật.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-4",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜出す",
+      "meaningVi": "Bắt đầu phát sinh, xảy ra...",
+      "usage": "V辞書形＋出す",
+      "examTip": "Diễn tả sự xuất hiện của cảm xúc, triệu chứng...",
+      "example": "緊張して、手が震え出した。",
+      "exampleVi": "Vì căng thẳng nên tay tôi bắt đầu run.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-5",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜終わる",
+      "meaningVi": "Kết thúc...",
+      "usage": "V辞書形＋終わる",
+      "examTip": "Kết thúc hành động, sự việc.",
+      "example": "会議は5時に終わった。",
+      "exampleVi": "Cuộc họp kết thúc lúc 5 giờ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-6",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜ていく",
+      "meaningVi": "(Từng bước) tiến dần, dần dần...",
+      "usage": "Vて形＋いく",
+      "examTip": "Diễn tả sự thay đổi theo chiều hướng.",
+      "example": "年をとるにつれて、物忘れが増えていく。",
+      "exampleVi": "Càng lớn tuổi thì tôi càng hay quên.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-7",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜てくる",
+      "meaningVi": "Tiến tới người nói, bắt đầu cảm nhận...",
+      "usage": "Vて形＋くる",
+      "examTip": "Thay đổi đi tới người nói, cảm thấy rõ hơn.",
+      "example": "だんだん寒くなってきた。",
+      "exampleVi": "Trời bắt đầu lạnh dần tới đây.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-8",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜てしまう",
+      "meaningVi": "(Lỡ) quá, không mong muốn...",
+      "usage": "Vて形＋しまう",
+      "examTip": "Kết quả ngoài ý muốn, hối tiếc.",
+      "example": "うっかり電車を乗り過ごしてしまった。",
+      "exampleVi": "Lỡ tay đi quá ga tàu mất rồi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-9",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜ておく",
+      "meaningVi": "Làm trước (chuẩn bị trước)...",
+      "usage": "Vて形＋おく",
+      "examTip": "Chuẩn bị trước để tiện sau này.",
+      "example": "明日の会議の資料を作っておいた。",
+      "exampleVi": "Tôi đã chuẩn bị tài liệu cho cuộc họp ngày mai.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong3-10",
+      "level": "N3",
+      "chapter": 3,
+      "chapterTitle": "Song song / tiếp diễn / biến đổi",
+      "pattern": "〜てみる",
+      "meaningVi": "Thử làm..., (để trải nghiệm)",
+      "usage": "Vて形＋みる",
+      "examTip": "Thử nghiệm, trải nghiệm điều mới.",
+      "example": "一度やってみないと、わからない。",
+      "exampleVi": "Không thử làm thì không biết được.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-1",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜たら",
+      "meaningVi": "Nếu..., thì...",
+      "usage": "Vた形＋ら",
+      "examTip": "Điều kiện có thể xảy ra trong tương lai.",
+      "example": "家に帰ったら、すぐに電話してね。",
+      "exampleVi": "Nếu về nhà rồi thì gọi điện cho mình nhé.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-2",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜ば",
+      "meaningVi": "Nếu..., thì...",
+      "usage": "Vば形",
+      "examTip": "Điều kiện luôn đúng / sự thật hiển nhiên.",
+      "example": "雨が降れば、試合は中止になります。",
+      "exampleVi": "Nếu trời mưa thì trận đấu sẽ bị hủy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-3",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜なら",
+      "meaningVi": "Nếu..., thì... (nếu là..., thì...)",
+      "usage": "Nなら／Vた形なら",
+      "examTip": "Điều kiện có tính lựa chọn.",
+      "example": "時間があるなら、一緒に行きましょう。",
+      "exampleVi": "Nếu bạn có thời gian thì chúng ta đi cùng nhé.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-4",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜と",
+      "meaningVi": "Nếu..., thì... (khi...)",
+      "usage": "V辞書形／な形／N＋と",
+      "examTip": "Điều kiện tự nhiên, kèm theo kết quả.",
+      "example": "早く起きると、時間に間に合います。",
+      "exampleVi": "Nếu dậy sớm thì sẽ kịp giờ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-5",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜ても",
+      "meaningVi": "Dù... thì...",
+      "usage": "Vて形＋も",
+      "examTip": "Nhấn mạnh sự đối lập / bất chấp.",
+      "example": "どんなに忙しくても、運動は続けたい。",
+      "exampleVi": "Dù bận đến đâu tôi cũng muốn tiếp tục tập thể dục.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-6",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜ば〜ほど",
+      "meaningVi": "Càng..., càng...",
+      "usage": "Vば形＋ほど",
+      "examTip": "Càng nhiều thì mức độ kết quả càng lớn.",
+      "example": "勉強すればするほど、日本語が上手になります。",
+      "exampleVi": "Càng học thì tiếng Nhật càng giỏi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-7",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜ないことには",
+      "meaningVi": "Nếu không..., thì không...",
+      "usage": "Vない形＋ことには",
+      "examTip": "Không làm điều kiện thì kết quả không xảy ra.",
+      "example": "練習しないことには、上手くなりません。",
+      "exampleVi": "Nếu không luyện tập thì không thể giỏi lên.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-8",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "たとえ〜ても",
+      "meaningVi": "Dù cho..., vẫn...",
+      "usage": "たとえ＋〜ても",
+      "examTip": "Nhấn mạnh sự nhượng bộ mạnh.",
+      "example": "たとえ失敗しても、あきらめません。",
+      "exampleVi": "Dù cho thất bại, tôi cũng không nản lòng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-9",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜としても",
+      "meaningVi": "Dù cho... (coi như là...) thì...",
+      "usage": "Vた形／N＋としても",
+      "examTip": "Giả sử ngay cả khi... thì kết quả vẫn vậy.",
+      "example": "1万円としても、高すぎます。",
+      "exampleVi": "Giả sử là 10.000 yên đi nữa thì vẫn quá đắt.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong4-10",
+      "level": "N3",
+      "chapter": 4,
+      "chapterTitle": "Giả định / điều kiện",
+      "pattern": "〜場合（は）",
+      "meaningVi": "Trong trường hợp...",
+      "usage": "Nの場合（は）／Vた場合（は）",
+      "examTip": "Diễn tả điều kiện theo tình huống cụ thể.",
+      "example": "地震の場合は、すぐに避難してください。",
+      "exampleVi": "Trong trường hợp xảy ra động đất, hãy sơ tán ngay.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-1",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜ので",
+      "meaningVi": "Vì... nên / bởi vì...",
+      "usage": "V普通形＋ので／いA（い）＋ので／N＋なので",
+      "examTip": "Nguyên nhân khách quan, lý do hiển nhiên.",
+      "example": "雨が降っているので、出かけません。",
+      "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-2",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜ため",
+      "meaningVi": "Vì... / để...",
+      "usage": "V辞書形＋ため／N＋のため",
+      "examTip": "Lý do có chủ đích, mục đích (chủ động).",
+      "example": "日本語の能力を上げるために、毎日勉強します。",
+      "exampleVi": "Vì muốn nâng cao năng lực tiếng Nhật nên tôi học mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-3",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜おかげで",
+      "meaningVi": "Nhờ... nên...",
+      "usage": "N＋のおかげで／V辞書形＋おかげで",
+      "examTip": "Nhấn mạnh sự biết ơn, kết quả tốt.",
+      "example": "先生のおかげで、合格することができました。",
+      "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-4",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜せいで",
+      "meaningVi": "Vì... (nên kết quả xấu) / tại vì...",
+      "usage": "N＋のせいで／V辞書形＋せいで",
+      "examTip": "Nhấn mạnh kết quả không mong muốn.",
+      "example": "寝坊したせいで、電車に乗り遅れました。",
+      "exampleVi": "Vì ngủ quên nên tôi đã lỡ tàu.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-5",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜せいか",
+      "meaningVi": "Nhờ... nên... (nguyên nhân mơ hồ)",
+      "usage": "N＋のせいか／V辞書形＋せいか",
+      "examTip": "Nguyên nhân không rõ ràng, cảm tính.",
+      "example": "最近、運動したせいか、体が軽くなった。",
+      "exampleVi": "Dạo này, có lẽ nhờ tập thể dục nên cơ thể nhẹ hơn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-6",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜ことから",
+      "meaningVi": "Từ việc... có thể suy ra / vì...",
+      "usage": "N＋ことから／V辞書形＋ことから",
+      "examTip": "Suy luận dựa trên sự việc, dẫn chứng.",
+      "example": "彼の話し方から、優しい人だと分かります。",
+      "exampleVi": "Từ cách nói chuyện của cậu ấy, có thể biết cậu ấy là người tốt.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-7",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜結果（として）",
+      "meaningVi": "Kết quả là... / cuối cùng...",
+      "usage": "N＋の結果（として）／V普通形＋結果（として）",
+      "examTip": "Nêu kết quả rõ ràng, trang trọng.",
+      "example": "いろいろ考えた結果（として）、この道を選びました。",
+      "exampleVi": "Sau khi suy nghĩ nhiều, kết quả là tôi đã chọn con đường này.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-8",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜あまり",
+      "meaningVi": "Vì... quá / do... quá nên...",
+      "usage": "Aい（あまり）／Aな（あまり）／V普通形（あまり）＋ので",
+      "examTip": "Nguyên nhân do mức độ vượt quá giới hạn.",
+      "example": "緊張しすぎたあまり、うまく話せませんでした。",
+      "exampleVi": "Vì quá căng thẳng nên tôi đã không nói tốt được.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-9",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜ほど",
+      "meaningVi": "Càng... thì càng... / bao nhiêu... bấy nhiêu...",
+      "usage": "V普通形（辞書形）＋ほど／Aい＋ほど／N＋ほど",
+      "examTip": "Mức độ tỷ lệ thuận.",
+      "example": "勉強すればするほど、分かることが増えます。",
+      "exampleVi": "Càng học càng hiểu nhiều hơn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong5-10",
+      "level": "N3",
+      "chapter": 5,
+      "chapterTitle": "Nguyên nhân / kết quả",
+      "pattern": "〜ことになる",
+      "meaningVi": "Kết quả là phải... / cuối cùng thì...",
+      "usage": "V辞書形＋ことになる／N＋ことになる",
+      "examTip": "Kết quả tất yếu, không thể tránh.",
+      "example": "忘れてしまって、結局もう一度買うことになった。",
+      "exampleVi": "Vì quên mất nên cuối cùng phải mua lại.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-1",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜そうだ（伝聞）",
+      "meaningVi": "Nghe nói là... (thông tin gián tiếp)",
+      "usage": "V辞書形＋そうだ",
+      "examTip": "Dùng khi truyền đạt thông tin mình nghe được.",
+      "example": "このレストランはおいしいそうです。",
+      "exampleVi": "Nghe nói nhà hàng này ngon.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-2",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜らしい",
+      "meaningVi": "Hình như là... (dựa trên thông tin, dấu hiệu)",
+      "usage": "Vらしい／Nらしい／な形容詞らしい",
+      "examTip": "Suy đoán dựa trên tin tức, dấu hiệu.",
+      "example": "彼は医者らしい。",
+      "exampleVi": "Hình như anh ấy là bác sĩ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-3",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜ようだ",
+      "meaningVi": "Có vẻ là... (dựa trên quan sát, tình hình)",
+      "usage": "V辞書形＋ようだ／な形容詞＋なようだ",
+      "examTip": "Suy đoán dựa trên tình huống trước mắt.",
+      "example": "雨が降りそうだ。",
+      "exampleVi": "Có vẻ trời sắp mưa.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-4",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜みたいだ",
+      "meaningVi": "Giống như là... / có vẻ như là...",
+      "usage": "Vみたいだ／な形容詞＋みたいだ",
+      "examTip": "Vừa suy đoán, vừa so sánh \"giống như\".",
+      "example": "このケーキは宝石みたいだ。",
+      "exampleVi": "Chiếc bánh này trông giống như đá quý.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-5",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜かもしれない",
+      "meaningVi": "Có thể là... (khả năng, không chắc chắn)",
+      "usage": "Vかもしれない／いA＋かもしれない",
+      "examTip": "Diễn tả khả năng, sự không chắc chắn.",
+      "example": "明日は雨が降るかもしれない。",
+      "exampleVi": "Có thể ngày mai sẽ mưa.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-6",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜に違いない",
+      "meaningVi": "Chắc chắn là... (mức độ chắc chắn cao)",
+      "usage": "N／な形容詞＋に違いない",
+      "examTip": "Diễn tả sự khẳng định mạnh mẽ.",
+      "example": "彼は合格したに違いない。",
+      "exampleVi": "Chắc chắn là cậu ấy đã đỗ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-7",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜はずだ",
+      "meaningVi": "Lẽ ra là... / chắc là... (dựa trên logic, lý lẽ)",
+      "usage": "Vはずだ／Nのはずだ／な形容詞のはずだ",
+      "examTip": "Dự đoán hợp lý, đúng lẽ thường.",
+      "example": "もう着いたはずだ。",
+      "exampleVi": "Lẽ ra đã đến rồi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-8",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜はずがない",
+      "meaningVi": "Không thể là... (mâu thuẫn, phủ định mạnh)",
+      "usage": "Vはずがない／な形容詞のはずがない",
+      "examTip": "Khẳng định phủ định, chắc chắn không phải.",
+      "example": "彼が嘘をつくはずがない。",
+      "exampleVi": "Không thể nào anh ấy nói dối được.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-9",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜わけだ",
+      "meaningVi": "Thì ra là... (hiểu ra nguyên nhân / lý do)",
+      "usage": "V辞書形＋わけだ／Nのわけだ",
+      "examTip": "Nhận ra lý do, nguyên nhân của sự việc.",
+      "example": "この道が混んでいるわけだ。",
+      "exampleVi": "Thì ra con đường này tắc là vì vậy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong6-10",
+      "level": "N3",
+      "chapter": 6,
+      "chapterTitle": "Suy đoán / khả năng / phán đoán",
+      "pattern": "〜だろう／でしょう",
+      "meaningVi": "Chắc là... nhỉ? (dự đoán, phỏng đoán)",
+      "usage": "Vだろう／でしょう／Nだろう／でしょう",
+      "examTip": "Dùng khi suy đoán, thường nhẹ nhàng hơn はずだ.",
+      "example": "彼も来るだろう。",
+      "exampleVi": "Chắc là anh ấy cũng sẽ đến.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-1",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜ために",
+      "meaningVi": "Để..., nhằm...",
+      "usage": "V辞書形＋ために／N＋のために",
+      "examTip": "Diễn tả mục đích, lý do chủ động.",
+      "example": "日本語を上手になるために、毎日勉強します。",
+      "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-2",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜ので",
+      "meaningVi": "Vì..., bởi vì... (nói lý do, giải thích)",
+      "usage": "V普通形＋ので／N＋なので",
+      "examTip": "Nêu lý do, giải thích một cách khách quan.",
+      "example": "雨が降っているので、傘を持って行きます。",
+      "exampleVi": "Vì trời đang mưa nên tôi mang ô đi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-3",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜から",
+      "meaningVi": "Vì..., nên... (nguyên nhân, kết quả)",
+      "usage": "V普通形＋から／N＋だから",
+      "examTip": "Nói lý do, nguyên nhân dẫn đến kết quả.",
+      "example": "お腹が痛いから、早く帰ります。",
+      "exampleVi": "Vì đau bụng nên tôi về sớm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-4",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜からには",
+      "meaningVi": "Đã..., thì... / một khi đã... thì...",
+      "usage": "V辞書形＋からには／N＋だからには",
+      "examTip": "Diễn tả quyết tâm sau khi đã quyết định.",
+      "example": "やると決めたからには、最後まで頑張ります。",
+      "exampleVi": "Một khi đã quyết định làm thì tôi sẽ cố đến cùng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-5",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜せいで",
+      "meaningVi": "Do... nên / tại... mà... (nguyên nhân không tốt)",
+      "usage": "N＋のせいで／V普通形＋せいで",
+      "examTip": "Nói nguyên nhân gây ra kết quả không tốt.",
+      "example": "寝不足のせいで、テストに遅刻しました。",
+      "exampleVi": "Vì thiếu ngủ nên tôi bị muộn thi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-6",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜おかげで",
+      "meaningVi": "Nhờ... mà / vì... nên (kết quả tốt)",
+      "usage": "N＋のおかげで／V普通形＋おかげで",
+      "examTip": "Nói nguyên nhân dẫn đến kết quả tốt.",
+      "example": "先生のおかげで、合格することができました。",
+      "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-7",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜によると",
+      "meaningVi": "Theo..., dựa theo..., theo lời...",
+      "usage": "N＋によると／V普通形＋によると",
+      "examTip": "Dựa vào thông tin, lời nói của người khác.",
+      "example": "天気予報によると、明日は雨らしいです。",
+      "exampleVi": "Theo dự báo thời tiết, hình như ngày mai trời mưa.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-8",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜によって（は）",
+      "meaningVi": "Do..., tuỳ theo... / bởi... mà...",
+      "usage": "N＋によって（は）／V普通形＋によって（は）",
+      "examTip": "Diễn tả sự khác nhau do nguyên nhân, điều kiện.",
+      "example": "やり方によって、結果が変わります。",
+      "exampleVi": "Kết quả thay đổi tuỳ theo cách làm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-9",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜にとって",
+      "meaningVi": "Đối với..., đối với ai đó thì...",
+      "usage": "N＋にとって",
+      "examTip": "Diễn tả mối quan hệ, tầm quan trọng với ai đó.",
+      "example": "家族にとって、健康が一番大切です。",
+      "exampleVi": "Đối với gia đình tôi, sức khỏe là quan trọng nhất.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong7-10",
+      "level": "N3",
+      "chapter": 7,
+      "chapterTitle": "Tác động / ảnh hưởng / nguyên nhân",
+      "pattern": "〜について",
+      "meaningVi": "Về..., đối với..., liên quan đến...",
+      "usage": "N＋について",
+      "examTip": "Nói chủ đề, nội dung cần nói.",
+      "example": "この問題について、みんなで話し合いましょう。",
+      "exampleVi": "Về vấn đề này, chúng ta hãy thảo luận nhé.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-1",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜たら",
+      "meaningVi": "Nếu..., thì...",
+      "usage": "Vた形＋ら",
+      "examTip": "Diễn tả điều kiện xảy ra trong tương lai.",
+      "example": "ドアを開けたら、猫がいました。",
+      "exampleVi": "Nếu tôi mở cửa ra thì có con mèo.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-2",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜ば",
+      "meaningVi": "Nếu..., thì... (điều kiện chung, quen thuộc)",
+      "usage": "Vば形",
+      "examTip": "Diễn tả điều kiện luôn đúng / sự thật hiển nhiên.",
+      "example": "雨が降れば、試合は中止になります。",
+      "exampleVi": "Nếu trời mưa thì trận đấu sẽ bị hủy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-3",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜と",
+      "meaningVi": "Khi..., lúc... / Nếu...",
+      "usage": "Nの＋とき／Vた形＋と",
+      "examTip": "Diễn tả thời điểm hoặc điều kiện.",
+      "example": "家に着くと、電話が鳴りました。",
+      "exampleVi": "Khi tôi về đến nhà thì điện thoại reo.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-4",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜た時",
+      "meaningVi": "Khi..., lúc... (thời gian đã xảy ra trong quá khứ)",
+      "usage": "Nの＋時／Vた時",
+      "examTip": "Diễn tả thời điểm cụ thể trong quá khứ.",
+      "example": "子どもの時、日本に住んでいました。",
+      "exampleVi": "Khi còn nhỏ tôi đã sống ở Nhật.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-5",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜前に",
+      "meaningVi": "Trước khi...",
+      "usage": "Nの＋前に／Vる前に",
+      "examTip": "Diễn tả hành động diễn ra trước hành động khác.",
+      "example": "出かける前に、宿題を終わらせました。",
+      "exampleVi": "Trước khi đi ra ngoài, tôi đã làm xong bài tập.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-6",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜間に",
+      "meaningVi": "Trong khi... / Trước khi... (trong khoảng thời gian)",
+      "usage": "N＋の＋間に",
+      "examTip": "Diễn tả hành động xảy ra trong một khoảng thời gian.",
+      "example": "食事の間に、宿題を終えました。",
+      "exampleVi": "Trong lúc ăn, tôi đã làm xong bài tập.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-7",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜後に",
+      "meaningVi": "Sau khi...",
+      "usage": "N＋の＋後に／Vた後に",
+      "examTip": "Diễn tả hành động xảy ra sau hành động khác.",
+      "example": "昼ご飯を食べた後に、運動します。",
+      "exampleVi": "Sau khi ăn trưa, tôi sẽ tập thể dục.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-8",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜うちに",
+      "meaningVi": "Khi còn... / Trước khi... (cơ hội, thời gian tốt)",
+      "usage": "N＋の＋うちに／Vるうちに",
+      "examTip": "Diễn tả việc nên làm trước khi cơ hội qua đi.",
+      "example": "元気なうちに、いろいろな所へ行きたいです。",
+      "exampleVi": "Khi còn khỏe, tôi muốn đi nhiều nơi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-9",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜限り",
+      "meaningVi": "Miễn là... / Chỉ cần... (trong phạm vi cho phép)",
+      "usage": "N＋の＋限り／Vる限り",
+      "examTip": "Diễn tả điều kiện cho phép.",
+      "example": "ルールを守る限り、自由に使っていいです。",
+      "exampleVi": "Miễn là tuân thủ quy tắc thì có thể dùng tự do.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong8-10",
+      "level": "N3",
+      "chapter": 8,
+      "chapterTitle": "Tình huống / điều kiện / thời gian",
+      "pattern": "〜たびに",
+      "meaningVi": "Mỗi khi... / Mỗi lần...",
+      "usage": "N＋の＋たびに／Vたびに",
+      "examTip": "Diễn tả hành động lặp lại mỗi khi hành động khác xảy ra.",
+      "example": "彼に会うたびに、元気をもらいます。",
+      "exampleVi": "Mỗi khi gặp anh ấy, tôi lại nhận được năng lượng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-1",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜より",
+      "meaningVi": "Hơn..., so với...",
+      "usage": "N＋より＋N／V（辞書形）",
+      "examTip": "Diễn tả so sánh hơn giữa 2 đối tượng.",
+      "example": "日本はベトナムより寒いです。",
+      "exampleVi": "Nhật Bản lạnh hơn Việt Nam.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-2",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜のほうが",
+      "meaningVi": "Về phía..., ... hơn (nói đậm ý kiến người nói)",
+      "usage": "N＋のほうが＋N＋より＋V（辞書形）",
+      "examTip": "So sánh hơn, nhấn mạnh lựa chọn của người nói.",
+      "example": "夏より冬のほうが好きです。",
+      "exampleVi": "Tôi thích mùa đông hơn mùa hè.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-3",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜ほど",
+      "meaningVi": "Bằng..., đến mức... / Càng.., càng...",
+      "usage": "N＋ほど〜N／V（辞書形）ほど",
+      "examTip": "So sánh mức độ, biểu thị giới hạn.",
+      "example": "日本語は勉強するほど面白くなります。",
+      "exampleVi": "Càng học tiếng Nhật thì càng thú vị.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-4",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜くらい",
+      "meaningVi": "Khoảng..., chừng..., xấp xỉ... / Ngang bằng...",
+      "usage": "N＋くらい（な）＋N／V（辞書形）",
+      "examTip": "Diễn tả mức độ gần bằng, xấp xỉ.",
+      "example": "今の気温は20度くらいです。",
+      "exampleVi": "Nhiệt độ bây giờ khoảng 20 độ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-5",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜みたいに",
+      "meaningVi": "Giống như..., như kiểu...",
+      "usage": "N＋みたいに／V（辞書形）みたいに",
+      "examTip": "So sánh ví dụ, dùng trong văn nói, thân mật.",
+      "example": "子どものころ、よくアニメみたいに遊びました。",
+      "exampleVi": "Hồi nhỏ, tôi hay chơi giống như trong anime.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-6",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜ように",
+      "meaningVi": "Giống như..., như là... / Sao cho...",
+      "usage": "N＋のように／V（辞書形）ように",
+      "examTip": "Dùng trong văn viết, trang trọng; mục đích, cách thức.",
+      "example": "風邪をひかないように、気をつけてください。",
+      "exampleVi": "Hãy cẩn thận để không bị cảm nhé.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-7",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜に対して",
+      "meaningVi": "Đối với..., so với...",
+      "usage": "N＋に対して",
+      "examTip": "So sánh, đối chiếu hai mặt của vấn đề.",
+      "example": "彼は仕事に対して真剣です。",
+      "exampleVi": "Anh ấy rất nghiêm túc đối với công việc.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-8",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜一方（で）",
+      "meaningVi": "Một mặt..., mặt khác...",
+      "usage": "N＋は一方（で）",
+      "examTip": "Đối lập hai sự việc, hai mặt khác nhau.",
+      "example": "都会は便利な一方で、物価が高いです。",
+      "exampleVi": "Thành phố thì tiện lợi, một mặt khác giá cả thì cao.",
+      "sources": [
+        "theo-chuong",
+        "400-mau-thong-dung"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-9",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜反対に／〜逆に",
+      "meaningVi": "Ngược lại..., trái lại...",
+      "usage": "反対に／逆に＋N／V（辞書形）",
+      "examTip": "Diễn tả sự đối lập với ý kiến vừa nêu.",
+      "example": "彼は優しいですが、反対に厳しいところもあります。",
+      "exampleVi": "Anh ấy hiền, nhưng ngược lại cũng nghiêm khắc.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong9-10",
+      "level": "N3",
+      "chapter": 9,
+      "chapterTitle": "So sánh / đối chiếu / tương phản",
+      "pattern": "〜でも",
+      "meaningVi": "Tuy... nhưng... / Dù... thì...",
+      "usage": "A＋でも、B",
+      "examTip": "Biểu thị sự đối lập, nhượng bộ; nối 2 ý trái ngược.",
+      "example": "忙しくても、毎日運動しています。",
+      "exampleVi": "Dù bận, tôi vẫn tập thể dục mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-1",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜ために",
+      "meaningVi": "Để..., nhằm..., vì... (mục đích)",
+      "usage": "V辞書形＋ために／Nのために",
+      "examTip": "Diễn tả mục đích, ý do chủ động.",
+      "example": "日本語を上手になるために、毎日勉強します。",
+      "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-2",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜ので",
+      "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)",
+      "usage": "V普通形＋ので／N＋なので",
+      "examTip": "Diễn tả lý do, giải thích một cách khách quan.",
+      "example": "雨が降っているので、出かけません。",
+      "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-3",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜から",
+      "meaningVi": "Vì..., bởi..., do... (lý do nói về nguyên nhân)",
+      "usage": "V普通形＋から／N＋だから",
+      "examTip": "Diễn tả nguyên nhân dẫn đến kết quả.",
+      "example": "お腹が痛いから、早く帰ります。",
+      "exampleVi": "Vì đau bụng nên tôi về sớm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-4",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜理由で（／の理由で）",
+      "meaningVi": "Với lý do..., vì lý do... (nói rõ lý do)",
+      "usage": "N＋の理由で／V辞書形＋理由で",
+      "examTip": "Diễn tả nguyên nhân cụ thể, rõ ràng.",
+      "example": "体調が悪い理由で、休みます。",
+      "exampleVi": "Vì lý do sức khỏe không tốt nên tôi nghỉ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-5",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜おかげで",
+      "meaningVi": "Nhờ..., nhờ vào... (kết quả tích cực)",
+      "usage": "N＋のおかげで／V辞書形＋おかげで",
+      "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.",
+      "example": "先生のおかげで、合格することができました。",
+      "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-6",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜せいで",
+      "meaningVi": "Tại vì..., do..., vì... nên... (kết quả tiêu cực)",
+      "usage": "N＋のせいで／V辞書形＋せいで",
+      "examTip": "Diễn tả kết quả không tốt do một nguyên nhân.",
+      "example": "寝不足のせいで、テストに遅刻しました。",
+      "exampleVi": "Tại vì thiếu ngủ nên tôi bị muộn thi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-7",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜からには",
+      "meaningVi": "Vì đã..., nên...; đã làm gì thì phải... (quyết tâm)",
+      "usage": "V普通形＋からには",
+      "examTip": "Diễn tả quyết tâm, quyết định mạnh mẽ.",
+      "example": "一度決めたからには、最後までやり遂げます。",
+      "exampleVi": "Vì đã quyết định rồi thì sẽ làm đến cùng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-8",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜おそれがある（／あり）",
+      "meaningVi": "Có nguy cơ..., có khả năng... (nguyên nhân tiềm ẩn)",
+      "usage": "V辞書形＋おそれがある／あり",
+      "examTip": "Diễn tả khả năng xảy ra do nguyên nhân.",
+      "example": "このままだと、事故が起きるおそれがあります。",
+      "exampleVi": "Nếu cứ thế này thì có nguy cơ xảy ra tai nạn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-9",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜ことによって（／で）",
+      "meaningVi": "Nhờ..., thông qua..., bằng cách... (nhờ vào)",
+      "usage": "N＋ことによって／で",
+      "examTip": "Diễn tả kết quả, thay đổi nhờ một hành động.",
+      "example": "勉強を続けることによって、力がつきました。",
+      "exampleVi": "Nhờ tiếp tục học mà tôi đã tiến bộ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong10-10",
+      "level": "N3",
+      "chapter": 10,
+      "chapterTitle": "Mục đích / lý do / nguyên nhân",
+      "pattern": "〜ため（の）に",
+      "meaningVi": "Để..., vì... (mục đích/lý do, trang trọng hơn)",
+      "usage": "N＋のために／V辞書形＋ため（の）に",
+      "examTip": "Diễn tả mục đích hoặc lý do (trang trọng hơn).",
+      "example": "家族のために、一生懸命働いています。",
+      "exampleVi": "Vì gia đình nên tôi làm việc hết sức.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-1",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜ために",
+      "meaningVi": "Để..., nhằm... (mục đích)",
+      "usage": "V辞書形＋ために／N のために",
+      "examTip": "Diễn tả mục đích, ý do chủ động.",
+      "example": "日本語を上手になるために、毎日勉強します。",
+      "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-2",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜ので",
+      "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)",
+      "usage": "V普通形＋ので／N＋なので",
+      "examTip": "Diễn tả lý do, giải thích một cách khách quan.",
+      "example": "雨が降っているので、出かけません。",
+      "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-3",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜から",
+      "meaningVi": "Vì..., bởi..., do... (lý do nói về nguyên nhân)",
+      "usage": "V普通形＋から／N＋だから",
+      "examTip": "Diễn tả nguyên nhân dẫn đến kết quả.",
+      "example": "お腹が痛いから、早く帰ります。",
+      "exampleVi": "Vì đau bụng nên tôi về sớm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-4",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜理由で（／の理由で）",
+      "meaningVi": "Với lý do..., vì lý do... (nói rõ lý do)",
+      "usage": "N＋の理由で／V辞書形＋理由で",
+      "examTip": "Diễn tả nguyên nhân cụ thể, rõ ràng.",
+      "example": "体調が悪い理由で、休みます。",
+      "exampleVi": "Vì lý do sức khỏe không tốt nên tôi nghỉ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-5",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜おかげで",
+      "meaningVi": "Nhờ..., nhờ vào... (kết quả tích cực)",
+      "usage": "N＋のおかげで／V辞書形＋おかげで",
+      "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.",
+      "example": "先生のおかげで、合格することができました。",
+      "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-6",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜せいで",
+      "meaningVi": "Tại vì..., do..., vì... nên... (kết quả tiêu cực)",
+      "usage": "N＋のせいで／V辞書形＋せいで",
+      "examTip": "Diễn tả kết quả không tốt do một nguyên nhân.",
+      "example": "寝不足のせいで、テストに遅刻しました。",
+      "exampleVi": "Tại vì thiếu ngủ nên tôi bị muộn thi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-7",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜からには",
+      "meaningVi": "Vì đã..., nên...; đã làm gì thì phải... (quyết tâm)",
+      "usage": "V辞書形＋からには",
+      "examTip": "Diễn tả quyết tâm, quyết định mạnh mẽ.",
+      "example": "一度決めたからには、最後までやり遂げます。",
+      "exampleVi": "Vì đã quyết định rồi thì sẽ làm đến cùng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-8",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜おそれがある（／あり）",
+      "meaningVi": "Có nguy cơ..., có khả năng... (nguyên nhân tiềm ẩn)",
+      "usage": "V辞書形＋おそれがある／あり",
+      "examTip": "Diễn tả khả năng xảy ra do nguyên nhân.",
+      "example": "このままだと、事故が起きるおそれがあります。",
+      "exampleVi": "Nếu cứ thế này thì có nguy cơ xảy ra tai nạn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-9",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜ことによって（／で）",
+      "meaningVi": "Nhờ..., thông qua..., bằng cách... (nhờ vào)",
+      "usage": "N＋ことによって／で",
+      "examTip": "Diễn tả kết quả, thay đổi nhờ một hành động.",
+      "example": "勉強を続けることによって、力がつきました。",
+      "exampleVi": "Nhờ tiếp tục học mà tôi đã tiến bộ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong11-10",
+      "level": "N3",
+      "chapter": 11,
+      "chapterTitle": "Nguyên nhân / lý do / phương tiện / cách thức",
+      "pattern": "〜ため（の）に",
+      "meaningVi": "Để..., vì... (mục đích/lý do, trang trọng hơn)",
+      "usage": "N＋のために／V辞書形＋ため（の）に",
+      "examTip": "Diễn tả mục đích hoặc lý do (trang trọng hơn).",
+      "example": "家族のために、一生懸命働いています。",
+      "exampleVi": "Vì gia đình nên tôi làm việc hết sức.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-1",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜ために",
+      "meaningVi": "Để..., nhằm...",
+      "usage": "V辞書形＋ために／Nのために",
+      "examTip": "Diễn tả mục đích, lý do chủ động.",
+      "example": "日本語を上手になるために、毎日勉強します。",
+      "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-2",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜ので",
+      "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)",
+      "usage": "V普通形＋ので／N＋なので",
+      "examTip": "Diễn tả lý do, giải thích một cách khách quan.",
+      "example": "雨が降っているので、出かけません。",
+      "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-3",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜から",
+      "meaningVi": "Vì..., bởi..., do... (lý do nói về nguyên nhân)",
+      "usage": "V普通形＋から／N＋だから",
+      "examTip": "Diễn tả nguyên nhân dẫn đến kết quả.",
+      "example": "お腹が痛いから、早く帰ります。",
+      "exampleVi": "Vì đau bụng nên tôi về sớm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-4",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜ので（〜から）",
+      "meaningVi": "Vì... nên... (kết quả tất yếu của nguyên nhân)",
+      "usage": "V普通形＋ので（から）、...",
+      "examTip": "Diễn tả kết quả tất yếu từ nguyên nhân.",
+      "example": "雨が降っているので（から）、試合は中止です。",
+      "exampleVi": "Vì trời mưa nên trận đấu bị hủy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-5",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜おかげで",
+      "meaningVi": "Nhờ... nên... (kết quả tích cực)",
+      "usage": "N＋のおかげで／V辞書形＋おかげで",
+      "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.",
+      "example": "先生のおかげで、合格することができました。",
+      "exampleVi": "Nhờ thầy/cô nên tôi đã có thể đỗ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-6",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜せいで",
+      "meaningVi": "Tại vì..., do... nên... (kết quả tiêu cực)",
+      "usage": "N＋のせいで／V辞書形＋せいで",
+      "examTip": "Diễn tả kết quả không tốt do một nguyên nhân.",
+      "example": "寝不足のせいで、テストに遅刻しました。",
+      "exampleVi": "Tại vì thiếu ngủ nên tôi bị muộn thi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-7",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜理由で（〜の理由で）",
+      "meaningVi": "Vì lý do... (nêu rõ lý do cụ thể)",
+      "usage": "N＋の理由で／V辞書形＋理由で",
+      "examTip": "Diễn tả nguyên nhân, lý do một cách rõ ràng.",
+      "example": "体調が悪い理由で、休みます。",
+      "exampleVi": "Vì lý do sức khỏe không tốt nên tôi nghỉ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-8",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜からには",
+      "meaningVi": "Đã..., thì... (quyết tâm, quyết định)",
+      "usage": "V普通形＋からには",
+      "examTip": "Diễn tả quyết tâm làm đến cùng.",
+      "example": "一度決めたからには、最後までやり遂げます。",
+      "exampleVi": "Vì đã quyết định rồi thì sẽ làm đến cùng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-9",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜ことによって（／で）",
+      "meaningVi": "Nhờ..., bằng cách... (kết quả nhờ một hành động)",
+      "usage": "N＋ことによって／で",
+      "examTip": "Diễn tả kết quả, thay đổi nhờ một hành động.",
+      "example": "毎日運動することによって、健康になりました。",
+      "exampleVi": "Nhờ tập thể dục mỗi ngày nên tôi đã khỏe hơn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong12-10",
+      "level": "N3",
+      "chapter": 12,
+      "chapterTitle": "Nguyên nhân / lý do / cách thức / phương tiện",
+      "pattern": "〜を使って（／使って）",
+      "meaningVi": "Dùng... để... / Bằng cách sử dụng...",
+      "usage": "N＋を使って／V辞書形＋を使って",
+      "examTip": "Diễn tả phương tiện, cách thức để làm việc gì.",
+      "example": "このアプリを使って、簡単に写真を編集できます。",
+      "exampleVi": "Dùng ứng dụng này, bạn có thể chỉnh sửa ảnh dễ dàng.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-1",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜から",
+      "meaningVi": "Vì..., bởi vì... (lý do khách quan, sự việc hiển nhiên)",
+      "usage": "V普通形＋から",
+      "examTip": "Diễn tả lý do, giải thích một cách khách quan.",
+      "example": "今日は雨が降っているから、試合は中止です。",
+      "exampleVi": "Vì trời đang mưa nên trận đấu bị hủy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-2",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜ので",
+      "meaningVi": "Vì..., bởi vì... (lý do chủ quan, ý kiến người nói)",
+      "usage": "V普通形＋ので",
+      "examTip": "Diễn tả lý do theo suy nghĩ, cảm nhận của người nói.",
+      "example": "お腹が痛いので、早く帰ります。",
+      "exampleVi": "Vì đau bụng nên tôi về sớm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-3",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜ために",
+      "meaningVi": "Để..., nhằm... (mục đích)",
+      "usage": "V辞書形＋ために",
+      "examTip": "Diễn tả mục đích, lý do chủ động.",
+      "example": "日本語を上手になるために、毎日勉強します。",
+      "exampleVi": "Để giỏi tiếng Nhật, tôi học mỗi ngày.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-4",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜ので（許可）",
+      "meaningVi": "Vì..., nên... (cho phép/đồng ý)",
+      "usage": "V辞書形＋ので",
+      "examTip": "Dùng khi người nói cho phép ai đó làm gì.",
+      "example": "いいですよ。行きたいので、行ってもいいですよ。",
+      "exampleVi": "Được thôi. Vì bạn muốn đi nên bạn có thể đi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-5",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜てもいいです",
+      "meaningVi": "Có thể..., cũng được... (cho phép)",
+      "usage": "V辞書形＋てもいいです",
+      "examTip": "Dùng để cho phép, hỏi xin phép lịch sự.",
+      "example": "ここで写真を撮ってもいいですか。",
+      "exampleVi": "Tôi có thể chụp ảnh ở đây được không?",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-6",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜ことができます",
+      "meaningVi": "Có thể... (khả năng làm được)",
+      "usage": "V辞書形＋ことができます",
+      "examTip": "Diễn tả khả năng làm được điều gì đó.",
+      "example": "このボタンを押すと、ドアを開けることができます。",
+      "exampleVi": "Nhấn nút này là có thể mở cửa.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-7",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜ことができます（受身）",
+      "meaningVi": "Có thể... (dưới tác động của người khác/bị động)",
+      "usage": "V辞書形＋ことができます（受身）",
+      "examTip": "Diễn tả khả năng được ai đó cho phép hoặc bị động.",
+      "example": "先生に質問すれば、問題を解決することができます。",
+      "exampleVi": "Nếu hỏi thầy thì có thể giải quyết vấn đề.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-8",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜れる／〜られる（受身）",
+      "meaningVi": "Bị..., được... (bị động/nhận tác động)",
+      "usage": "V辞書形＋れる／られる",
+      "examTip": "Diễn tả bị động, chịu tác động từ người khác.",
+      "example": "この本は友達に借りられました。",
+      "exampleVi": "Quyển sách này đã bị bạn mượn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-9",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜させる／〜させられる",
+      "meaningVi": "Khiến cho... / Bị khiến cho...",
+      "usage": "V辞書形＋させる／させられる",
+      "examTip": "Diễn tả chủ động khiến ai đó làm gì/bị bị động.",
+      "example": "親に早く寝るように言われて、寝させられました。",
+      "exampleVi": "Bị bố mẹ bảo nên tôi đã bị bắt đi ngủ sớm.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong13-10",
+      "level": "N3",
+      "chapter": 13,
+      "chapterTitle": "Nguyên nhân / lý do / cho phép / khả năng / bị động",
+      "pattern": "〜せる／〜させる（使役）",
+      "meaningVi": "Khiến cho... (bắt ai đó làm gì)",
+      "usage": "V辞書形＋せる／させる",
+      "examTip": "Diễn tả khiến người khác làm một việc nào đó.",
+      "example": "先生は私にこの問題を解かせました。",
+      "exampleVi": "Thầy giáo đã khiến tôi làm bài này.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-1",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜時に",
+      "meaningVi": "Vào lúc...",
+      "usage": "N＋時に",
+      "examTip": "Diễn tả thời điểm xảy ra hành động.",
+      "example": "私は7時に起きます。",
+      "exampleVi": "Tôi thức dậy lúc 7 giờ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-2",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜時から〜時まで",
+      "meaningVi": "Từ... giờ đến... giờ",
+      "usage": "N＋時から＋N＋時まで",
+      "examTip": "Diễn tả khoảng thời gian bắt đầu và kết thúc.",
+      "example": "8時から12時まで勉強します。",
+      "exampleVi": "Tôi học từ 8 giờ đến 12 giờ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-3",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜時間",
+      "meaningVi": "Trong... tiếng / ... giờ",
+      "usage": "N＋時間",
+      "examTip": "Diễn tả khoảng thời gian kéo dài.",
+      "example": "この仕事は2時間かかります。",
+      "exampleVi": "Công việc này mất 2 giờ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-4",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜分",
+      "meaningVi": "Trong... phút / ... phút",
+      "usage": "N＋分",
+      "examTip": "Diễn tả khoảng thời gian ngắn tính bằng phút.",
+      "example": "駅まで5分かかります。",
+      "exampleVi": "Đi đến ga mất 5 phút.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-5",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜ごとに",
+      "meaningVi": "Mỗi... / Đều đặn sau mỗi...",
+      "usage": "N＋ごとに",
+      "examTip": "Diễn tả sự lặp lại theo khoảng cách thời gian.",
+      "example": "1時間ごとに休けいします。",
+      "exampleVi": "Tôi nghỉ giải lao mỗi giờ.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-6",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜たびに",
+      "meaningVi": "Mỗi lần... (mỗi khi...)",
+      "usage": "N＋たびに",
+      "examTip": "Diễn tả mỗi khi làm một việc gì đó.",
+      "example": "日本へ行くたびに、新しい発見があります。",
+      "exampleVi": "Mỗi lần đi Nhật, tôi lại có những phát hiện mới.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-7",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "しょっちゅう／よく",
+      "meaningVi": "Thường xuyên / hay / thường hay",
+      "usage": "しょっちゅう／よく＋V",
+      "examTip": "Diễn tả tần suất cao.",
+      "example": "彼はしょっちゅう映画を見ます。",
+      "exampleVi": "Anh ấy thường xuyên xem phim.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-8",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "たまに／ときどき",
+      "meaningVi": "Thỉnh thoảng / đôi khi",
+      "usage": "たまに／ときどき＋V",
+      "examTip": "Diễn tả tần suất trung bình.",
+      "example": "たまに友だちとカフェに行きます。",
+      "exampleVi": "Thỉnh thoảng tôi đi cà phê với bạn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-9",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "あまり〜ない／〜ません",
+      "meaningVi": "Không thường / hiếm khi...",
+      "usage": "あまり＋Vない／Vません",
+      "examTip": "Diễn tả tần suất thấp.",
+      "example": "私はあまり外食しません。",
+      "exampleVi": "Tôi hiếm khi ăn ngoài.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong14-10",
+      "level": "N3",
+      "chapter": 14,
+      "chapterTitle": "Thời gian / tần suất / khoảng thời gian / thời điểm",
+      "pattern": "〜うちに",
+      "meaningVi": "Trong khi còn... / Khi còn chưa...",
+      "usage": "N＋うちに",
+      "examTip": "Diễn tả thời điểm trước khi tình trạng thay đổi.",
+      "example": "時間があるうちに、やっておきましょう。",
+      "exampleVi": "Hãy làm khi còn có thời gian.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-1",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜たら（条件）",
+      "meaningVi": "Nếu..., thì...",
+      "usage": "Vた形＋ら",
+      "examTip": "Diễn tả điều kiện và kết quả xảy ra.",
+      "example": "雨が降ったら、試合は中止です。",
+      "exampleVi": "Nếu trời mưa, trận đấu sẽ bị hủy.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-2",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜ば（条件）",
+      "meaningVi": "Nếu..., thì...",
+      "usage": "Vば形（辞書形＋ば）",
+      "examTip": "Diễn tả điều kiện và kết quả; dùng phổ biến.",
+      "example": "時間があれば、映画を見に行きます。",
+      "exampleVi": "Nếu có thời gian, tôi sẽ đi xem phim.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-3",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜たらいいです",
+      "meaningVi": "Nếu... thì tốt. / Thì tốt hơn.",
+      "usage": "Vた形＋らいいです／Vばいいです",
+      "examTip": "Đưa ra lời khuyên, đề xuất.",
+      "example": "疲れたら、休んだらいいですよ。",
+      "exampleVi": "Nếu mệt thì bạn nên nghỉ ngơi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-4",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜ことにする（quyết định）",
+      "meaningVi": "Quyết định sẽ...",
+      "usage": "N＋ことにする／V辞書形＋ことにする",
+      "examTip": "Diễn tả quyết định sau khi cân nhắc.",
+      "example": "来年から、日本語を勉強することにします。",
+      "exampleVi": "Từ năm sau, tôi quyết định sẽ học tiếng Nhật.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-5",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜つもりだ（dự định）",
+      "meaningVi": "Dự định sẽ...",
+      "usage": "V辞書形＋つもりだ／つもりです",
+      "examTip": "Diễn tả dự định, ý định của bản thân.",
+      "example": "来月、旅行に行くつもりです。",
+      "exampleVi": "Tôi dự định đi du lịch vào tháng sau.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-6",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜予定です（kế hoạch）",
+      "meaningVi": "Dự kiến sẽ... / Theo kế hoạch sẽ...",
+      "usage": "N＋の予定です／V予定です",
+      "examTip": "Diễn tả kế hoạch đã định trước.",
+      "example": "来週、友達と会う予定です。",
+      "exampleVi": "Tuần sau, tôi dự định gặp bạn.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-7",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜はずだ（suy đoán chắc chắn）",
+      "meaningVi": "Chắc chắn là... / Lẽ ra là...",
+      "usage": "N＋はずだ／Vはずだ",
+      "examTip": "Diễn tả suy đoán dựa trên lý do rõ ràng.",
+      "example": "彼はもう家に着いたはずです。",
+      "exampleVi": "Anh ấy chắc chắn đã đến nhà rồi.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-8",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜と思う（suy đoán theo ý kiến）",
+      "meaningVi": "Tôi nghĩ là... / Theo tôi thì...",
+      "usage": "N＋だと思う／V＋と思う",
+      "examTip": "Diễn tả suy đoán dựa trên suy nghĩ cá nhân.",
+      "example": "この問題は難しいと思います。",
+      "exampleVi": "Tôi nghĩ bài toán này khó.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-9",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜かもしれない（có khả năng）",
+      "meaningVi": "Có lẽ là... / Có khả năng là...",
+      "usage": "N＋かもしれない／Vかもしれない",
+      "examTip": "Diễn tả khả năng, không chắc chắn.",
+      "example": "明日は雨が降るかもしれません。",
+      "exampleVi": "Ngày mai có lẽ sẽ mưa.",
+      "sources": [
+        "theo-chuong"
+      ]
+    },
+    {
+      "id": "bunpo-chuong15-10",
+      "level": "N3",
+      "chapter": 15,
+      "chapterTitle": "Điều kiện / giả định / lý do suy đoán / kế hoạch / dự định",
+      "pattern": "〜だろう（có vẻ/suy đoán）",
+      "meaningVi": "Có vẻ là... / Chắc là...",
+      "usage": "N＋だろう／Vだろう",
+      "examTip": "Diễn tả suy đoán dựa trên tình huống, cảm nhận.",
+      "example": "あの人は先生だろう。",
+      "exampleVi": "Có vẻ người đó là giáo viên.",
+      "sources": [
+        "theo-chuong"
+      ]
+    }
   ]
 }

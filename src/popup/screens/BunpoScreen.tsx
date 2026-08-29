@@ -222,7 +222,7 @@ function ListView({
           <div className="level-selector-inline">
             {AVAILABLE_SOURCES.map((source) => {
               const checked = state.selectedSources.includes(source);
-              const count = ALL_BUNPO.filter((g) => g.source === source).length;
+              const count = ALL_BUNPO.filter((g) => g.sources.includes(source)).length;
               return (
                 <label key={source} className="level-check">
                   <input
@@ -406,7 +406,7 @@ function DetailView({
             {g.level}
           </span>
           <span className="reading-book-badge">
-            {SOURCE_LABELS[g.source]}
+            {g.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}
             {g.chapter !== undefined ? ` · Chương ${g.chapter}` : ""}
           </span>
         </div>

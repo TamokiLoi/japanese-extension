@@ -1,0 +1,4316 @@
+{
+  "grammarPoints": [
+    {
+      "id": "bunpo-400-1",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "んですか",
+      "meaningVi": "Dùng để nhấn mạnh ý quan tâm, ngạc nhiên khi hỏi về lí do, nguyên nhân hoặc tình trạng.",
+      "example": "どうして日本へ来たんですか。",
+      "exampleVi": "Tại sao lại đến Nhật?"
+    },
+    {
+      "id": "bunpo-400-2",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜んです",
+      "meaningVi": "Trả lời cho câu hỏi nhấn mạnh どうして và どうした, trình bày nguyên nhân cho điều đã nói phía trước.",
+      "example": "どうして日本へ来たんですか。日本語を勉強したいんです。",
+      "exampleVi": "Tại sao lại đến Nhật? Vì mình muốn học tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-3",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ていただけませんか",
+      "meaningVi": "Làm ... giúp tôi được không? (đề nghị người khác một cách lịch sự)",
+      "example": "先生、わからないことがあるんですが、教えていただけませんか。",
+      "exampleVi": "Thưa thầy, có chỗ em không hiểu ạ, thầy chỉ cho em có được không ạ?"
+    },
+    {
+      "id": "bunpo-400-4",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜疑問詞＋たらいいですか",
+      "meaningVi": "Xin lời gợi ý từ người khác (Học ai, mua ở đâu, làm thế nào...)",
+      "example": "日本語をどこで勉強したらいいですか。",
+      "exampleVi": "Nên học tiếng Nhật ở đâu thì tốt?"
+    },
+    {
+      "id": "bunpo-400-5",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜可能形",
+      "meaningVi": "Có thể (Thể hiện năng lực, điều kiện thực hiện hoạt động nào đó)",
+      "example": "お酒が飲めます。すしも食べられます。",
+      "exampleVi": "Tôi có thể uống rượu Sake và thể ăn Sushi."
+    },
+    {
+      "id": "bunpo-400-6",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "N が見える・聞こえる",
+      "meaningVi": "Nhìn thấy, nghe thấy một cách tự nhiên",
+      "example": "部屋からホアンキェム湖が見えます。",
+      "exampleVi": "Từ phòng tôi có thể nhìn thấy hồ Hoàn Kiếm."
+    },
+    {
+      "id": "bunpo-400-7",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "N1は…が、N2は",
+      "meaningVi": "N1 thì... nhưng N2 thì... (2 đối tượng có tính chất trái ngược)",
+      "example": "てんぷらは食べられますが、すしは食べられません。",
+      "exampleVi": "Tempura thì tôi ăn được nhưng Sushi thì không."
+    },
+    {
+      "id": "bunpo-400-8",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "V1ながら、V2",
+      "meaningVi": "Vừa làm V1 vừa làm V2",
+      "example": "音楽を聞きながら、パンを食べます。",
+      "exampleVi": "Tôi vừa ăn bánh mì vừa nghe nhạc."
+    },
+    {
+      "id": "bunpo-400-9",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜し",
+      "meaningVi": "Dùng để liệt kê",
+      "example": "田中さんは親切だし、ユーモアもあります。",
+      "exampleVi": "Tanaka tốt bụng này, lại hài hước nữa."
+    },
+    {
+      "id": "bunpo-400-10",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜それで",
+      "meaningVi": "Vị thế..., Vì vậy...",
+      "example": "田中さんは親切だし、ユーモアもあります。それで、女の子に人気があります。",
+      "exampleVi": "Tanaka tốt bụng này, lại hài hước nữa. Vì thế mà tụi con gái rất thích."
+    },
+    {
+      "id": "bunpo-400-11",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜それに",
+      "meaningVi": "Hơn nữa..., thêm nữa..., thêm vào đó...",
+      "example": "田中さんは親切だし、ユーモアもあるし、それに、勉強も上手です。",
+      "exampleVi": "Tanaka tốt bụng này, lại hài hước, hơn nữa còn học rất giỏi."
+    },
+    {
+      "id": "bunpo-400-12",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜状態動詞（Vている）",
+      "meaningVi": "Trạng thái của sự vật, hiện tượng (tự động từ)",
+      "example": "電気がついている。窓が開いている。外は雨が降っている。",
+      "exampleVi": "Điện bật, cửa sổ mở, bên ngoài mưa đang rơi."
+    },
+    {
+      "id": "bunpo-400-13",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vてしまう",
+      "meaningVi": "Làm hết V, hoặc tiếc nuối khi V xảy ra...",
+      "example": "スーパーで買ったお酒を全部飲んでしまいました。",
+      "exampleVi": "Tôi đã uống hết chỗ rượu mua ở siêu thị."
+    },
+    {
+      "id": "bunpo-400-14",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vてある",
+      "meaningVi": "Trạng thái của sự vật, hiện tượng do ai đó gây ra (tha động từ)",
+      "example": "部屋に入ったら、机の上に花瓶が置いてある。",
+      "exampleVi": "Tôi bước vào phòng. Trên bàn có đặt lọ hoa."
+    },
+    {
+      "id": "bunpo-400-15",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vておく",
+      "meaningVi": "Chuẩn bị trước, giải pháp tạm thời hoặc giữ nguyên hiện trạng",
+      "example": "会議の前に、資料を準備しておいてください。",
+      "exampleVi": "Trước khi có cuộc họp, hãy chuẩn bị sẵn tài liệu đi."
+    },
+    {
+      "id": "bunpo-400-16",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜意向形",
+      "meaningVi": "Thể ý chí, dạng ngắn của V ましょう",
+      "example": "行こう。食べよう。勉強しよう。",
+      "exampleVi": "Đi nào! Ăn nào! Học nào!"
+    },
+    {
+      "id": "bunpo-400-17",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜V意向形＋と思っています",
+      "meaningVi": "Định làm V",
+      "example": "来週、ふるさとへ帰ろうと思っています。",
+      "exampleVi": "Tôi định tuần sau về quê."
+    },
+    {
+      "id": "bunpo-400-18",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜つもりです",
+      "meaningVi": "Định làm V, không định làm V",
+      "example": "日本語を勉強するつもりです。",
+      "exampleVi": "Tôi dự định sẽ học tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-19",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜予定です",
+      "meaningVi": "Dự định, kế hoạch...",
+      "example": "7月の終わりに日本へ出張する予定です。",
+      "exampleVi": "Cuối tháng 7 tôi có kế hoạch đi công tác Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-20",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜でしょう",
+      "meaningVi": "Có lẽ...",
+      "example": "彼は来ないでしょう。",
+      "exampleVi": "Có lẽ anh ấy sẽ không đến."
+    },
+    {
+      "id": "bunpo-400-21",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜かもしれない",
+      "meaningVi": "Có lẽ...",
+      "example": "田中さんはあの会社を辞めるかもしれない。",
+      "exampleVi": "Có lẽ anh Tanaka sẽ nghỉ việc công ty kia."
+    },
+    {
+      "id": "bunpo-400-22",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜命令形",
+      "meaningVi": "Làm V đi (thể mệnh lệnh) thể hiện sắc thái áp đặt mạnh mẽ như ép buộc ai đó làm gì",
+      "example": "走れ！続けろ！集中しろ！",
+      "exampleVi": "Chạy đi! Tiếp tục đi! Tập trung vào!"
+    },
+    {
+      "id": "bunpo-400-23",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜禁止形",
+      "meaningVi": "Không được làm (thể cấm chỉ) sắc thái áp đặt mạnh cấm ai đó làm gì",
+      "example": "酒を飲むな！",
+      "exampleVi": "Không được uống rượu!"
+    },
+    {
+      "id": "bunpo-400-24",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と読みます・〜と書いてあります",
+      "meaningVi": "Đọc là..., Viết là...",
+      "example": "「営業中」この漢字は「えいぎょうちゅう」と読みます。",
+      "exampleVi": "Chữ Kanji này đọc là Eigyouchuu."
+    },
+    {
+      "id": "bunpo-400-25",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜どういう意味ですか。〜という意味です",
+      "meaningVi": "Ý nghĩa như thế nào? Nghĩa là...",
+      "example": "このマークはどういう意味ですか。「右に曲がるなという意味です。」",
+      "exampleVi": "Kí hiệu này có ý nghĩa gì vậy? [Có nghĩa là không được rẽ phải.]"
+    },
+    {
+      "id": "bunpo-400-26",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と言っていました",
+      "meaningVi": "Nói là...",
+      "example": "社長は「明日、9時に駅前で集まってください」と言っていました。",
+      "exampleVi": "Giám đốc đã nói \"Ngày mai hãy tập trung trước ga lúc 9h\"."
+    },
+    {
+      "id": "bunpo-400-27",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vたほうがいいです・〜ないほうがいいです",
+      "meaningVi": "Nên..., không nên làm V",
+      "example": "たくさん野菜を食べたほうがいいです。",
+      "exampleVi": "Nên ăn nhiều rau xanh."
+    },
+    {
+      "id": "bunpo-400-28",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜しかVません",
+      "meaningVi": "Chỉ V",
+      "example": "日本料理はすししか食べられません。",
+      "exampleVi": "Món Nhật thì tôi chỉ có thể ăn Sushi thôi."
+    },
+    {
+      "id": "bunpo-400-29",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜まだVています",
+      "meaningVi": "Vẫn đang V.",
+      "example": "田中さんはまだ仕事をしている。",
+      "exampleVi": "Anh Tanaka vẫn đang làm việc."
+    },
+    {
+      "id": "bunpo-400-30",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜まだVていません",
+      "meaningVi": "Vẫn chưa V.",
+      "example": "山田さんはまだ来ていません。",
+      "exampleVi": "Anh Yamada vẫn chưa đến."
+    },
+    {
+      "id": "bunpo-400-31",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と伝えていただけませんか",
+      "meaningVi": "Có thể nhắn giùm, chuyển lời là... giúp tôi được không?",
+      "example": "木村さん、今日欠席した名村さんに「明日、テストがあります」と伝えていただけませんか。",
+      "exampleVi": "Kimura, em có thể nhắn tới bạn Namura hôm nay vắng là ngày mai có bài kiểm tra giúp tôi không?"
+    },
+    {
+      "id": "bunpo-400-32",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とおりに",
+      "meaningVi": "Theo đúng như...",
+      "example": "聞いたとおりに、ノートに書いておきました。",
+      "exampleVi": "Tôi đã viết sẵn vào vở theo đúng những gì nghe được."
+    },
+    {
+      "id": "bunpo-400-33",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜あとで",
+      "meaningVi": "Sau khi...",
+      "example": "仕事が終わったあとで、飲みに行かない？",
+      "exampleVi": "Sau khi công việc kết thúc, đi uống chứ?"
+    },
+    {
+      "id": "bunpo-400-34",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "V1て、V2・V1ないで、V2",
+      "meaningVi": "Làm V2 trong trạng thái V1, làm V2 mà không V1",
+      "example": "立って話す。めがねをかけないで、本を読む。",
+      "exampleVi": "Đứng nói chuyện. Không đeo kính đọc sách."
+    },
+    {
+      "id": "bunpo-400-35",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜条件形",
+      "meaningVi": "Nếu (Dùng thể điều kiện)",
+      "example": "お金があれば、ぜひ旅行したい。",
+      "exampleVi": "Nếu có tiền nhất định tôi muốn đi du lịch."
+    },
+    {
+      "id": "bunpo-400-36",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜なら",
+      "meaningVi": "Nếu là... (Giới hạn chủ đề trong câu khuyên nhủ, gợi ý)",
+      "example": "ハノイの料理ならフォと春巻きとか本当にいいよ。",
+      "exampleVi": "Nếu là món ăn Hà Nội ấy, thì phở này, nem này, ngon lắm."
+    },
+    {
+      "id": "bunpo-400-37",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜疑問詞＋V条件形いいですか",
+      "meaningVi": "Xin lời khuyên (giống 疑問詞＋Vたらいいですか)",
+      "example": "漢字の本を買いたいんだけど、どこで買えばいいかな？",
+      "exampleVi": "Tớ muốn mua sách Kanji. Mua ở đâu thì được nhỉ?"
+    },
+    {
+      "id": "bunpo-400-38",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ば〜ほど",
+      "meaningVi": "Càng...càng...",
+      "example": "日本語は勉強すれば勉強するほどおもしろい。",
+      "exampleVi": "Tiếng Nhật càng học càng thú vị."
+    },
+    {
+      "id": "bunpo-400-39",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ように",
+      "meaningVi": "Để, sao cho... (mục đích)",
+      "example": "日本語がうまく話せるように、週2回日本人の友達に会って、話します。",
+      "exampleVi": "Để có thể nói giỏi tiếng Nhật, tuần 2 lần tôi gặp và nói chuyện với bạn người Nhật."
+    },
+    {
+      "id": "bunpo-400-40",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ようになります",
+      "meaningVi": "Trở nên có thể... (có năng lực, thói quen mà trước không có)",
+      "example": "うちの子は自分で歩けるようになったよ。",
+      "exampleVi": "Con tớ tự đi bộ được rồi đấy."
+    },
+    {
+      "id": "bunpo-400-41",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜なくなります",
+      "meaningVi": "Trở nên không thể... (mất đi năng lực vốn có trước kia)",
+      "example": "最近、人の名前を覚えられなくなった。",
+      "exampleVi": "Gần đây, không còn nhớ được tên người khác nữa."
+    },
+    {
+      "id": "bunpo-400-42",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ようにします",
+      "meaningVi": "Cố gắng...",
+      "example": "毎日、いくら忙しくても、2時間日本語を勉強するようにしています。",
+      "exampleVi": "Mỗi ngày dù bận đến mấy tôi vẫn luôn cố gắng dành 2 tiếng để học tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-43",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とか",
+      "meaningVi": "Như là...như là... (dùng để liệt kê)",
+      "example": "赤の果物が大好きだ。いちごとかりんごとか。",
+      "exampleVi": "Tôi rất thích các loại quả màu đỏ. Như là dâu này, táo này."
+    },
+    {
+      "id": "bunpo-400-44",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "S1はS2にV受身形",
+      "meaningVi": "S1 bị S2 V (hành động tác động trực tiếp vào S1) (bị động trực tiếp)",
+      "example": "弟は母に叱られた。",
+      "exampleVi": "Em tôi bị mẹ mắng."
+    },
+    {
+      "id": "bunpo-400-45",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "S1はS2にNをV受身形",
+      "meaningVi": "S1 bị S2 làm V ảnh hưởng đến N thuộc S1 (bị động gián tiếp)",
+      "example": "弟にシャツを汚された。",
+      "exampleVi": "Tôi bị em trai làm bẩn cái áo sơ mi"
+    },
+    {
+      "id": "bunpo-400-46",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "NはV受身形",
+      "meaningVi": "N được, bị... (bị động không quan tâm đến tác nhân thực hiện)",
+      "example": "ベトナムの米は日本へ輸出されている。",
+      "exampleVi": "Gạo Việt Nam được xuất khẩu sang Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-47",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "SによってV受身形",
+      "meaningVi": "V được làm bởi S (V là động từ mang tính sáng tạo, S là người nổi tiếng)",
+      "example": "電話はベルによって発明された。",
+      "exampleVi": "Điện thoại được phát minh bởi Bell."
+    },
+    {
+      "id": "bunpo-400-48",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜から・でV受身形",
+      "meaningVi": "Được làm bằng..., được làm từ...",
+      "example": "このパンは小麦粉で作られた。このワインは米から作られた。",
+      "exampleVi": "Bánh mì này được làm bằng bột mì. Rượu này được làm từ gạo."
+    },
+    {
+      "id": "bunpo-400-49",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のは",
+      "meaningVi": "Danh từ hóa động từ.",
+      "example": "友達と映画館で映画を見るのはおもしろい。",
+      "exampleVi": "Xem phim với bạn bè ở rạp thật thú vị."
+    },
+    {
+      "id": "bunpo-400-50",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のが",
+      "meaningVi": "Danh từ hóa động từ.",
+      "example": "新しい友達と話すのが大好きです。",
+      "exampleVi": "Tôi thích nói chuyện với những người bạn mới."
+    },
+    {
+      "id": "bunpo-400-51",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のを知っていますか",
+      "meaningVi": "Có biết... (danh từ hóa động từ)",
+      "example": "彼女は来月結婚するのを知っていますか。",
+      "exampleVi": "Có biết tháng sau cô ấy lấy chồng không?"
+    },
+    {
+      "id": "bunpo-400-52",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のを忘れました",
+      "meaningVi": "Quên... (danh từ hóa động từ)",
+      "example": "レポートを書くのを忘れてしまった。",
+      "exampleVi": "Quên mất phải viết báo cáo rồi."
+    },
+    {
+      "id": "bunpo-400-53",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜て（Vて・Aくて・Aで・Nで）",
+      "meaningVi": "Vì...",
+      "example": "部屋が暑くて、勉強できない。",
+      "exampleVi": "Vì phòng nóng nên không thể học được."
+    },
+    {
+      "id": "bunpo-400-54",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ので",
+      "meaningVi": "Vì...",
+      "example": "用事があるので、明日休ませていただけませんか。",
+      "exampleVi": "Vì có việc bận nên mai cho phép tôi nghỉ được không?"
+    },
+    {
+      "id": "bunpo-400-55",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜途中で",
+      "meaningVi": "Trên đường...",
+      "example": "家へ帰る途中で、田中さんに会った。",
+      "exampleVi": "Trên đường về nhà, tôi gặp anh Tanaka."
+    },
+    {
+      "id": "bunpo-400-56",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜疑問詞＋か、〜",
+      "meaningVi": "Chèn câu nghi vấn có từ để hỏi",
+      "example": "彼女はどこで働いているか、知っていますか。",
+      "exampleVi": "Có biết cô ấy đang làm việc ở đâu không?"
+    },
+    {
+      "id": "bunpo-400-57",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜かどうか、〜",
+      "meaningVi": "Chèn câu nghi vấn không có từ để hỏi",
+      "example": "彼は明日来るかどうか、わかりません。",
+      "exampleVi": "Tôi không biết ngày mai anh ấy có đến hay không?"
+    },
+    {
+      "id": "bunpo-400-58",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vてみます",
+      "meaningVi": "Thử làm V...",
+      "example": "日本のすしを食べてみたいです。",
+      "exampleVi": "Tôi muốn thử ăn món Sushi của Nhật."
+    },
+    {
+      "id": "bunpo-400-59",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "やります",
+      "meaningVi": "Mình cho người dưới, động vật, thực vật cái gì đó...",
+      "example": "弟にお菓子をやりました。",
+      "exampleVi": "Tôi cho em trai kẹo."
+    },
+    {
+      "id": "bunpo-400-60",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "それ・その",
+      "meaningVi": "Dùng khi đề cập đến điều đã nói trước đó.",
+      "example": "彼に出会った日を決して忘れられない。その日、彼に助けてもらわなかったら、死んだと思う。",
+      "exampleVi": "Tôi không thể quên được ngày gặp anh ấy. Ngày hôm đó, nếu không được anh ta cứu thì tôi đã chết rồi."
+    },
+    {
+      "id": "bunpo-400-61",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vてくださいませんか",
+      "meaningVi": "Bạn làm V giúp tôi được không?",
+      "example": "私の宿題を手伝ってくださいませんか。",
+      "exampleVi": "Bạn có thể giúp mình làm bài tập về nhà được không?"
+    },
+    {
+      "id": "bunpo-400-62",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "ために",
+      "meaningVi": "Vì..., Để...",
+      "example": "留学するために、日本語を勉強するつもりです。",
+      "exampleVi": "Tôi dự định học tiếng Nhật để đi du học."
+    },
+    {
+      "id": "bunpo-400-63",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vるのに・Nに",
+      "meaningVi": "Trình bày công dụng, đánh giá... (danh từ hóa động từ)",
+      "example": "このやかんはお湯を沸かすのに使う。",
+      "exampleVi": "Cái ấm này dùng để đun sôi nước."
+    },
+    {
+      "id": "bunpo-400-64",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜数量詞＋で",
+      "meaningVi": "Làm gì đó với 1 lượng sẵn có (thời gian, tiền...)",
+      "example": "ここからハノイ駅まで10分で行けますか。",
+      "exampleVi": "Từ đây có thể đi đến ga Hà Nội trong 10 phút không?"
+    },
+    {
+      "id": "bunpo-400-65",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜数量詞＋は",
+      "meaningVi": "Lượng tối thiểu khi làm 1 việc gì đó.",
+      "example": "パーティーの準備に10人は必要だ。",
+      "exampleVi": "Cần ít nhất 10 người để chuẩn bị bữa tiệc."
+    },
+    {
+      "id": "bunpo-400-66",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜数量詞＋も",
+      "meaningVi": "Lượng mà người nói cho rằng là nhiều khi làm 1 việc gì đó.",
+      "example": "ビデオを修理するのに1万円もかかりました。",
+      "exampleVi": "Mất những 1 man để sửa cuốn băng Video."
+    },
+    {
+      "id": "bunpo-400-67",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜そうです",
+      "meaningVi": "Có vẻ..., sắp... (thể様態)",
+      "example": "このケーキはおいしそうですね。",
+      "exampleVi": "Bánh này có vẻ ngon nhỉ."
+    },
+    {
+      "id": "bunpo-400-68",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vてきます",
+      "meaningVi": "Làm gì đó rồi quay lại...",
+      "example": "ちょっとコンビニで飲み物を買ってきます。",
+      "exampleVi": "Tôi đi mua nước ở Combini một lát rồi quay lại."
+    },
+    {
+      "id": "bunpo-400-69",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜すぎます",
+      "meaningVi": "Quá...",
+      "example": "パンはかたすぎて、食べられない。",
+      "exampleVi": "Vì bánh mì quá cứng nên không thể ăn được."
+    },
+    {
+      "id": "bunpo-400-70",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vやすいです",
+      "meaningVi": "Dễ V",
+      "example": "この薬は甘いから、飲みやすい。",
+      "exampleVi": "Thuốc này ngọt nên dễ uống."
+    },
+    {
+      "id": "bunpo-400-71",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vにくいです",
+      "meaningVi": "Khó V...",
+      "example": "レポートに間違いがたくさんあるから、直しにくい。",
+      "exampleVi": "Vì báo cáo có nhiều lỗi sai nên khó sửa quá."
+    },
+    {
+      "id": "bunpo-400-72",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Aくします・Aにします・Nにします",
+      "meaningVi": "Làm...",
+      "example": "部屋を明るくしましょう！",
+      "exampleVi": "Làm sáng phòng nên nào."
+    },
+    {
+      "id": "bunpo-400-73",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "AくV・AにV",
+      "meaningVi": "Làm V một cách...",
+      "example": "彼はレポートをていねいに書きました。",
+      "exampleVi": "Anh ấy viết báo cáo một cách rất cẩn thận."
+    },
+    {
+      "id": "bunpo-400-74",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜場合は",
+      "meaningVi": "Trong trường hợp...",
+      "example": "地震が起こった場合は落ち着いて行動してください。",
+      "exampleVi": "Trong trường hợp xảy ra động đất, hãy bình tĩnh xử lí."
+    },
+    {
+      "id": "bunpo-400-75",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "普通形＋のに",
+      "meaningVi": "Thế mà...",
+      "example": "このケーキはあまりおいしくないのに、高すぎるね。",
+      "exampleVi": "Bánh này không ngon lắm thế mà đắt quá."
+    },
+    {
+      "id": "bunpo-400-76",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vるところ",
+      "meaningVi": "Sắp làm V...",
+      "example": "今から出かけるところだから、後で電話してね！",
+      "exampleVi": "Tôi sắp ra ngoài nên cậu gọi lại sau nhé."
+    },
+    {
+      "id": "bunpo-400-77",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vているところ",
+      "meaningVi": "Đang làm V...",
+      "example": "ただ今、公園で恋人と遊んでいる。",
+      "exampleVi": "Lúc này đây, tôi đang chơi với người yêu ở công viên."
+    },
+    {
+      "id": "bunpo-400-78",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のが見える・聞こえる・感じる",
+      "meaningVi": "Nhìn, nghe, cảm thấy...",
+      "example": "夜中遠くから誰かが泣いているのが聞こえる。とても怖い。",
+      "exampleVi": "Giữa đêm, tôi nghe thấy tiếng ai đó khóc từ xa. Sợ dã man."
+    },
+    {
+      "id": "bunpo-400-79",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vたところ",
+      "meaningVi": "Vừa mới làm V (chính xác là vừa làm xong)",
+      "example": "たった今、東京駅に着いたところだよ。",
+      "exampleVi": "Tôi vừa đến ga Tokyo."
+    },
+    {
+      "id": "bunpo-400-80",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vたばかり",
+      "meaningVi": "Vừa mới làm V (chỉ là cảm nhận của người nói)",
+      "example": "先月、日本に来たばかりなので、わからないことが多い。",
+      "exampleVi": "Vì tôi vừa đến Nhật tháng trước nên có nhiều điều không biết."
+    },
+    {
+      "id": "bunpo-400-81",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜はずです",
+      "meaningVi": "Chắc chắn...",
+      "example": "これは有名なレストランの料理だから、とてもおいしいはずだよね。",
+      "exampleVi": "Vì đây là món của nhà hàng nổi tiếng nên chắc chắn ngon lắm nhỉ."
+    },
+    {
+      "id": "bunpo-400-82",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "そうです（伝聞）",
+      "meaningVi": "Nghe nói...",
+      "example": "天気予報によると、明日雪が降るそうです。",
+      "exampleVi": "Theo dự báo thời tiết thì nghe nói ngày mai tuyết rơi."
+    },
+    {
+      "id": "bunpo-400-83",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ようです",
+      "meaningVi": "Hình như...",
+      "example": "窓のガラスが割れてしまったね。昨日の晩、泥棒が部屋に入ってきたようだね。",
+      "exampleVi": "Kính cửa sổ vỡ. Hình như tối qua trộm đã vào."
+    },
+    {
+      "id": "bunpo-400-84",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜S1はS2をV使役形",
+      "meaningVi": "S1 bắt hoặc cho phép S2 làm gì (V là tự động từ)",
+      "example": "息子を日本へ留学させます。",
+      "exampleVi": "Tôi cho phép con trai đi du học Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-85",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜S1はS2にV使役形",
+      "meaningVi": "S1 bắt hoặc cho phép S2 làm gì (V là tha động từ)",
+      "example": "娘にピアノを習わせます。",
+      "exampleVi": "Tôi cho con gái học Piano."
+    },
+    {
+      "id": "bunpo-400-86",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vさせていただけませんか",
+      "meaningVi": "Cho phép tôi làm V được không?",
+      "example": "しばらくここに車を止めさせていただけませんか。",
+      "exampleVi": "Xin lỗi, cho tôi đỗ xe ở đây 1 lát được không?"
+    },
+    {
+      "id": "bunpo-400-87",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "V受身形",
+      "meaningVi": "Thể bị động - tôn kính ngữ đơn giản nhất.",
+      "example": "社長、明日の会議に出席されますか。",
+      "exampleVi": "Giám đốc sẽ tham gia hội nghị ngày mai chứ ạ?"
+    },
+    {
+      "id": "bunpo-400-88",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "おVになります・ごVになります",
+      "meaningVi": "Tôn kính ngữ của Vます。",
+      "example": "社長はもうお帰りになりました。",
+      "exampleVi": "Giám đốc đã về rồi."
+    },
+    {
+      "id": "bunpo-400-89",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "おVですか",
+      "meaningVi": "Tôn kính ngữ của Vていますか。",
+      "example": "お客様、何番の紙をお持ちですか。",
+      "exampleVi": "Quý khách đang cầm tờ giấy số bao nhiêu ạ?"
+    },
+    {
+      "id": "bunpo-400-90",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "おVください・ごVください",
+      "meaningVi": "Tôn kính ngữ của Vてください...",
+      "example": "少々お待ちください。",
+      "exampleVi": "Xin vui lòng chờ một chút."
+    },
+    {
+      "id": "bunpo-400-91",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜特別な尊敬語",
+      "meaningVi": "Tôn kính ngữ đặc biệt...",
+      "example": "どうぞ召し上がってください。",
+      "exampleVi": "Xin mời thưởng thức (ăn, uống cái gì đó)."
+    },
+    {
+      "id": "bunpo-400-92",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "おVします・ごVします",
+      "meaningVi": "Khiêm nhường ngữ...",
+      "example": "先生にクラスの状況をお知らせします。",
+      "exampleVi": "Tôi sẽ thông báo cho thầy giáo về tình hình của lớp."
+    },
+    {
+      "id": "bunpo-400-93",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "おVいただきます・ごVいただきます",
+      "meaningVi": "Tôn kính ngữ, ai đó là V cho mình...",
+      "example": "メンバーにご登録いただきます。",
+      "exampleVi": "Sẽ nhận được việc đăng kí từ các thành viên."
+    },
+    {
+      "id": "bunpo-400-94",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vてもよろしいでしょうか",
+      "meaningVi": "Tôi làm V có được không?",
+      "example": "あのう、このパンフレットをもらってもよろしいでしょうか。",
+      "exampleVi": "Tôi nhận cái tờ quảng cáo này được không?"
+    },
+    {
+      "id": "bunpo-400-95",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "SにNをいただきます",
+      "meaningVi": "Mình nhận gì từ người trên.",
+      "example": "卒業式で校長先生に花をいただきました。",
+      "exampleVi": "Tôi nhận hoa từ thầy hiệu trưởng trong ngày tốt nghiệp."
+    },
+    {
+      "id": "bunpo-400-96",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "SはNをくださいます",
+      "meaningVi": "Người trên cho, tặng mình (hoặc người nhà mình) cái gì đó...",
+      "example": "部長は私の誕生日に赤いネクタイをくださいました。",
+      "exampleVi": "Trưởng phòng tặng tôi cái cà vạt đỏ trong ngày sinh nhật."
+    },
+    {
+      "id": "bunpo-400-97",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "SはNをさしあげます",
+      "meaningVi": "Mình cho, tặng, biếu người trên cái gì.",
+      "example": "私は社長にフランスのワインをさしあげました。",
+      "exampleVi": "Tôi biếu sếp chai rượu vang Pháp."
+    },
+    {
+      "id": "bunpo-400-98",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てくださいます",
+      "meaningVi": "Người trên làm gì cho mình.",
+      "example": "先生は作文を直してくださいました。",
+      "exampleVi": "Thầy giáo sửa bài văn cho tôi."
+    },
+    {
+      "id": "bunpo-400-99",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てさしあげます",
+      "meaningVi": "Làm gì cho người trên.",
+      "example": "部長に出張のスケジュールを確認してさしあげました。",
+      "exampleVi": "Tôi xác nhận lịch trình chuyến công tác giúp trưởng phòng."
+    },
+    {
+      "id": "bunpo-400-100",
+      "level": "N5",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てやります",
+      "meaningVi": "Làm gì cho người dưới, cho động, thực vật...",
+      "example": "毎晩、弟に日本語を教えてやります。",
+      "exampleVi": "Mỗi tối tôi dạy em trai tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-101",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜間…",
+      "meaningVi": "Trong lúc, trong khi...",
+      "example": "先生が教えている間、彼は携帯でゲームをしている。",
+      "exampleVi": "Trong lúc thầy đang giảng bài thì hắn lại dùng điện thoại chơi game."
+    },
+    {
+      "id": "bunpo-400-102",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜間に…",
+      "meaningVi": "Trong lúc, trong khi",
+      "example": "留守の間に、泥棒が家に入って来たのでしょう。",
+      "exampleVi": "Trong lúc vắng nhà thì kẻ trộm chắc đã mò vào."
+    },
+    {
+      "id": "bunpo-400-103",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てからでないと、〜てからでなければ…",
+      "meaningVi": "Nếu không... thì không...",
+      "example": "きちんと勉強してからでないと、N3レベルに合格するのは難しい。",
+      "exampleVi": "Nếu không học cẩn thận thì khó mà đỗ N3 được."
+    },
+    {
+      "id": "bunpo-400-104",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "辞書形＋ところ",
+      "meaningVi": "Sắp làm V",
+      "example": "今から、御飯を食べるところだ。",
+      "exampleVi": "Tôi chuẩn bị ăn cơm ngay bây giờ đây."
+    },
+    {
+      "id": "bunpo-400-105",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "ているところ",
+      "meaningVi": "Đang làm V",
+      "example": "ただ今、日本語を勉強しているところだ。",
+      "exampleVi": "Lúc này, tôi đang học tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-106",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vたところ",
+      "meaningVi": "Vừa mới làm V",
+      "example": "たった今、駅で木村さんに会ったところだ。",
+      "exampleVi": "Tôi vừa mới gặp anh Nakamura ở ga."
+    },
+    {
+      "id": "bunpo-400-107",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ところだった",
+      "meaningVi": "Suýt...",
+      "example": "ありがとう。注意してもらわなかったら忘れていたところだったよ。",
+      "exampleVi": "Cảm ơn nhé, cậu không nhắc thì suýt nữa tớ quên mất đấy."
+    },
+    {
+      "id": "bunpo-400-108",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "ところで…",
+      "meaningVi": "Nhân đây, tiện đây, à mà",
+      "example": "今日はお疲れ様でした。ところで、駅のそばに新しい日本料理屋ができたんですけど、今夜行ってみませんか。",
+      "exampleVi": "Hôm nay vất vả rồi. À mà, ở gần ga có nhà hàng Nhật mới mở, tối nay chúng ta đi thử nhé."
+    },
+    {
+      "id": "bunpo-400-109",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ところで…（đúng vào lúc）",
+      "meaningVi": "Đúng vào lúc",
+      "example": "テストの最後の一行を書いたところで、突然気を失った。",
+      "exampleVi": "Đúng vào lúc viết dòng cuối cùng của bài kiểm tra thì đột nhiên ngất xỉu."
+    },
+    {
+      "id": "bunpo-400-110",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ところに…／〜ところへ…",
+      "meaningVi": "Đúng vào lúc",
+      "example": "パーティーをしているところへ（ところに）母が帰った。",
+      "exampleVi": "Mẹ về đúng vào lúc chúng tôi đang quẩy."
+    },
+    {
+      "id": "bunpo-400-111",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ところを…",
+      "meaningVi": "Trong lúc",
+      "example": "隣の人の答えを見ているところを先生に見られた。",
+      "exampleVi": "Trong lúc đang xem bài thằng bên cạnh thì bị thầy nhìn thấy."
+    },
+    {
+      "id": "bunpo-400-112",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "ところが…",
+      "meaningVi": "Nhưng",
+      "example": "いつもは8時半ごろ会社に着く。ところが、今日は1時間遅く到着した。",
+      "exampleVi": "Tôi luôn đến công ty lúc khoảng 8 rưỡi nhưng hôm nay tôi đã đến muộn 1 tiếng."
+    },
+    {
+      "id": "bunpo-400-113",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "とおり「に」、どおり「に」",
+      "meaningVi": "Theo đúng như..., theo như...",
+      "example": "地図のとおりに、会場に来た。",
+      "exampleVi": "Tôi đã đến hội trường theo đúng như bản đồ."
+    },
+    {
+      "id": "bunpo-400-114",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜によっては",
+      "meaningVi": "Phụ thuộc vào, tùy theo...",
+      "example": "この薬は人によっては副作用が出ることがある。",
+      "exampleVi": "Thuốc này có tác dụng phụ đối với một số người."
+    },
+    {
+      "id": "bunpo-400-115",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜たびに、…",
+      "meaningVi": "Mỗi lần, cứ...thì lại...",
+      "example": "この歌を聞くたびに、学生時代を思い出す。",
+      "exampleVi": "Mỗi lần nghe bài hát này, thì tôi lại nhớ thời sinh viên."
+    },
+    {
+      "id": "bunpo-400-116",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "【ば】ほど、【ければ】ほど、【なら】ほど",
+      "meaningVi": "Càng... càng...",
+      "example": "給料は多ければ多いほどいい。",
+      "exampleVi": "Lương càng cao càng tốt."
+    },
+    {
+      "id": "bunpo-400-117",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ついでに…",
+      "meaningVi": "Nhân tiện, tiện thể...",
+      "example": "買い物のついでに本屋に寄った。",
+      "exampleVi": "Tiện thể đi mua sắm, tôi đã ghé vào hiệu sách."
+    },
+    {
+      "id": "bunpo-400-118",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜くらい…／〜ぐらい…／〜ほど…",
+      "meaningVi": "Khoảng",
+      "example": "今の教室には人が百人くらい（ぐらい・ほど）いる。",
+      "exampleVi": "Lớp học hôm nay có khoảng 100 người."
+    },
+    {
+      "id": "bunpo-400-119",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜くらい…／〜ぐらい…（so sánh）",
+      "meaningVi": "Khoảng..., cỡ...",
+      "example": "このボールはりんごくらいの大きさだ。",
+      "exampleVi": "Quả bóng này to cỡ quả táo."
+    },
+    {
+      "id": "bunpo-400-120",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜くらい…／〜ぐらい…（mức độ）",
+      "meaningVi": "Đến mức, đến cỡ",
+      "example": "顔も見たくないくらい嫌いだ。",
+      "exampleVi": "Tôi ghét đến mức chẳng thèm nhìn mặt."
+    },
+    {
+      "id": "bunpo-400-121",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Nくらい（ぐらい／ほど）…はない",
+      "meaningVi": "Không gì... bằng N",
+      "example": "僕ぐらいあなたに親切にする人はいない。",
+      "exampleVi": "Chẳng có ai tốt với em bằng anh đâu."
+    },
+    {
+      "id": "bunpo-400-122",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜くらいなら・ぐらいなら…",
+      "meaningVi": "Nếu phải... thì thà...",
+      "example": "自分でバイクに乗るくらいなら、歩いて行ったほうがいい。",
+      "exampleVi": "Nếu phải tự lái xe máy thì tôi thà đi bộ còn hơn."
+    },
+    {
+      "id": "bunpo-400-123",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に限る",
+      "meaningVi": "Là nhất / là tốt nhất.",
+      "example": "今日ぐらい寒いときは鍋に限る。",
+      "exampleVi": "Lạnh như hôm nay thì lẩu là nhất."
+    },
+    {
+      "id": "bunpo-400-124",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に対して…",
+      "meaningVi": "Trái với..., ngược lại với..., khác với...",
+      "example": "兄は毎日スポーツをしているのに対して、私はあまりしない。",
+      "exampleVi": "Trái với anh tôi ngày nào cũng chơi thể thao, tôi thì chẳng mấy khi."
+    },
+    {
+      "id": "bunpo-400-125",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜反面…",
+      "meaningVi": "Ngược lại, mặt khác, một mặt thì... mặt khác thì",
+      "example": "Son Tung MTPには好きな人が多い反面、嫌いな人もたくさんいる。",
+      "exampleVi": "Sơn Tùng MTP người thích cũng lắm nhưng người ghét cũng nhiều."
+    },
+    {
+      "id": "bunpo-400-126",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜というより…",
+      "meaningVi": "Là ... thì đúng hơn",
+      "example": "彼女は恋人というよりお前のお母さんよ。",
+      "exampleVi": "Cô ta là mẹ thì đúng hơn là người yêu mày đấy."
+    },
+    {
+      "id": "bunpo-400-127",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜かわりに…",
+      "meaningVi": "Thay cho, ngược lại, bù lại, thay vì...",
+      "example": "私のかわりに（私にかわって）、田中さんが会議に出席する予定だ。",
+      "exampleVi": "Anh Tanaka dự định sẽ tham dự cuộc họp thay tôi."
+    },
+    {
+      "id": "bunpo-400-128",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ために…（mục đích）",
+      "meaningVi": "Vì, để... (mục đích)",
+      "example": "日本を旅行するために日本語を勉強している。",
+      "exampleVi": "Tôi học tiếng Nhật để đi du lịch Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-129",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ために…、〜ためだ（nguyên nhân）",
+      "meaningVi": "Vì, do... (nguyên nhân)",
+      "example": "運転手は注意しなかったために、電柱に車が衝突してしまった。",
+      "exampleVi": "Vì tài xế không cẩn thận nên xe đã va vào cột điện."
+    },
+    {
+      "id": "bunpo-400-130",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜によって…、〜による…（nguyên nhân）",
+      "meaningVi": "Vì, do... (nguyên nhân)",
+      "example": "睡眠不足によって、仕事に集中できない。",
+      "exampleVi": "Do thiếu ngủ nên tôi không thể tập trung vào công việc."
+    },
+    {
+      "id": "bunpo-400-131",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜によって…、〜による…（phương pháp）",
+      "meaningVi": "Nhờ có, bằng... (phương pháp)",
+      "example": "インターネットによって、世界中の情報が簡単に手に入る。",
+      "exampleVi": "Nhờ Internet mà có thể dễ dàng có được mọi thông tin trên khắp thế giới."
+    },
+    {
+      "id": "bunpo-400-132",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜から…、〜ことから",
+      "meaningVi": "Vì, do... (nguyên nhân)",
+      "example": "小さな火から大火災になる場合もある。",
+      "exampleVi": "Từ một ngọn lửa nhỏ có thể gây ra một vụ hỏa hoạn lớn."
+    },
+    {
+      "id": "bunpo-400-133",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜おかげで…、〜おかげだ",
+      "meaningVi": "Nhờ... (nguyên nhân)",
+      "example": "先生が教えてくれたおかげで、私は去年N3に合格できた。",
+      "exampleVi": "Nhờ thầy giáo dạy dỗ mà tôi năm ngoái đã đỗ N3."
+    },
+    {
+      "id": "bunpo-400-134",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜せいで…、〜せいか…、〜せいだ",
+      "meaningVi": "Tại... (nguyên nhân)",
+      "example": "熱があるせいで、学校を休んでしまった。",
+      "exampleVi": "Tại vì bị sốt nên tôi đã nghỉ học."
+    },
+    {
+      "id": "bunpo-400-135",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜んだから。〜のだから。",
+      "meaningVi": "Vì, do... (nguyên nhân)",
+      "example": "彼はまだ子供なのだから、そのことが分からないだろう。",
+      "exampleVi": "Vì hắn ta vẫn còn trẻ con nên có lẽ không hiểu việc đó đâu."
+    },
+    {
+      "id": "bunpo-400-136",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（の）なら…",
+      "meaningVi": "Nếu là, nếu mà...",
+      "example": "帰るなら、早く戻れ。",
+      "exampleVi": "Nếu về thì phải lên sớm đấy."
+    },
+    {
+      "id": "bunpo-400-137",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ては…。〜（の）では…。",
+      "meaningVi": "Nếu mà...thì (xảy ra điều không hay)",
+      "example": "静かにして！そんなに大きな声を出しては子どもたちが目覚めるよ。",
+      "exampleVi": "Khẽ thôi nào. Em cứ hét toáng lên như thế các con nó thức dậy bây giờ."
+    },
+    {
+      "id": "bunpo-400-138",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜さえ〜ば…",
+      "meaningVi": "Chỉ cần...",
+      "example": "君さえいつも側にいれば、僕は幸せ。",
+      "exampleVi": "Chỉ cần em luôn ở bên anh là anh hạnh phúc lắm rồi."
+    },
+    {
+      "id": "bunpo-400-139",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "たとえ〜ても・でも…",
+      "meaningVi": "Cho dù có...đi nữa",
+      "example": "たとえどんなに両親に反対されても、君と結婚したい。",
+      "exampleVi": "Cho dù bị bố mẹ phản đối thế nào chăng nữa, anh vẫn muốn lấy em."
+    },
+    {
+      "id": "bunpo-400-140",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ば…。〜たら…。〜なら…。",
+      "meaningVi": "Nếu mà/giá mà...thì chắc...",
+      "example": "ちゃんと勉強すれば、今、こんなに後悔しないのだが。",
+      "exampleVi": "Giá mà tôi chăm chỉ học tập thì bây giờ sẽ không hối hận như thế này"
+    },
+    {
+      "id": "bunpo-400-141",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ということ…",
+      "meaningVi": "(trình bày nội dung)",
+      "example": "タツノオトシゴのあすは子が産めるということは今まで知らなかった。",
+      "exampleVi": "Trước đây tôi đã không biết rằng cá ngựa đực cũng có thể đẻ con."
+    },
+    {
+      "id": "bunpo-400-142",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ということだ。",
+      "meaningVi": "Nghe nói...",
+      "example": "今朝のニュースによると、日本チームが優勝したということだ。",
+      "exampleVi": "Theo tin tức sáng nay, nghe nói là đội Nhật Bản đã vô địch."
+    },
+    {
+      "id": "bunpo-400-143",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と言われている。",
+      "meaningVi": "Người ta nói rằng, mọi người nói...",
+      "example": "食用油は豚のあぶらより体にいいと言われている。",
+      "exampleVi": "Người ta nói rằng dầu ăn tốt hơn mỡ lợn."
+    },
+    {
+      "id": "bunpo-400-144",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とか。（nghe nói）",
+      "meaningVi": "Nghe nói là, nghe đồn rằng, nghe phong thanh rằng...",
+      "example": "ねえ、あの子は東京大学も受かったとか。知ってるの。",
+      "exampleVi": "Này, nghe đồn là con bé kia đỗ đại học Tokyo đấy. Mày có biết không?"
+    },
+    {
+      "id": "bunpo-400-145",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とか。（liệt kê）",
+      "meaningVi": "Như là ... như là",
+      "example": "ケーキとかお菓子とかの甘い物はあまり好きじゃない。",
+      "exampleVi": "Tôi không thích những thứ ngọt như là bánh kem hay là kẹo."
+    },
+    {
+      "id": "bunpo-400-146",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜って。（chủ đề）",
+      "meaningVi": "Tên là, gọi là...",
+      "example": "これはNguyễn Nhật Ánhっていう作家の書いた本です。",
+      "exampleVi": "Đây là quyển sách do tác giả tên là Nguyễn Nhật Ánh viết."
+    },
+    {
+      "id": "bunpo-400-147",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜って。（trích dẫn）",
+      "meaningVi": "Rằng... (trích dẫn)",
+      "example": "彼はすぐに来るって言った。",
+      "exampleVi": "Anh ta nói rằng sẽ đến ngay."
+    },
+    {
+      "id": "bunpo-400-148",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜って。（truyền đạt lại）",
+      "meaningVi": "Nghe nói... (truyền đạt lại)",
+      "example": "あの店のケーキ、美味しいんだって。",
+      "exampleVi": "Nghe nói bánh ở tiệm đó ngon."
+    },
+    {
+      "id": "bunpo-400-149",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜はずがない。",
+      "meaningVi": "Lẽ nào mà / làm gì có chuyện...",
+      "example": "勉強しないで遊んでばかりいて、N3に合格できるはずがない。",
+      "exampleVi": "Toàn chơi thôi chẳng học hành gì cả, làm sao mà đỗ N3 được."
+    },
+    {
+      "id": "bunpo-400-150",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とは限らない。",
+      "meaningVi": "Không hẳn / chưa chắc...",
+      "example": "新聞に書いてあることがいつも本当のことだとは限らない。",
+      "exampleVi": "Không hẳn là những gì viết trên báo luôn luôn là sự thật."
+    },
+    {
+      "id": "bunpo-400-151",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ないことはない。",
+      "meaningVi": "Không phải là không...",
+      "example": "このカレーも美味しくないことはないが、私はもっと辛いのが好きだ。",
+      "exampleVi": "Không phải cà ri này không ngon mà là tôi thích cay hơn chút nữa."
+    },
+    {
+      "id": "bunpo-400-152",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことは〜が、。",
+      "meaningVi": "Tuy có...nhưng...",
+      "example": "この小説は読んだことは読んだが、全然分からなかった。",
+      "exampleVi": "Tiểu thuyết này đọc thì đọc rồi nhưng hoàn toàn không hiểu gì hết."
+    },
+    {
+      "id": "bunpo-400-153",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vてもらいたい（ていただきたい／ほしい）",
+      "meaningVi": "Muốn ai đó làm V...",
+      "example": "いつもそばにいてほしいんだけど。",
+      "exampleVi": "Anh muốn em mãi bên cạnh anh."
+    },
+    {
+      "id": "bunpo-400-154",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vさせてもらいたい（いただきたい／ほしい）",
+      "meaningVi": "Muốn người khác cho mình làm V...",
+      "example": "急用があるので、早く帰らせていただきたいのですが…",
+      "exampleVi": "Vì có việc gấp nên tôi muốn (được cho) về sớm ạ."
+    },
+    {
+      "id": "bunpo-400-155",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜といい、〜たらいい、〜ばいい。（khuyên）",
+      "meaningVi": "...là được, ...là xong (khuyên)",
+      "example": "申込書の書き方が分からなければ、彼女に聞いてみればいいですよ。",
+      "exampleVi": "Nếu không hiểu cách viết bản đăng ký, thì cứ hỏi thử cô ấy là được đấy."
+    },
+    {
+      "id": "bunpo-400-156",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜といい、〜たらいい、〜ばいい。（ước）",
+      "meaningVi": "Ước gì, mong là, giá như...",
+      "example": "明日、恋人と遊びに行く。晴れればいいなあ。",
+      "exampleVi": "Ngày mai đi chơi với gấu. Mong là trời sẽ nắng đẹp."
+    },
+    {
+      "id": "bunpo-400-157",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vれ、Vろ、Vしろ",
+      "meaningVi": "Làm V đi... (mệnh lệnh)",
+      "example": "あきらめないで、頑張れ！",
+      "exampleVi": "Đừng bỏ cuộc, cố gắng lên."
+    },
+    {
+      "id": "bunpo-400-158",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vるな。",
+      "meaningVi": "Không được làm V... (cấm chỉ)",
+      "example": "動くな！動けば、血が出るよ。",
+      "exampleVi": "Không được cử động, nếu cử động máu sẽ chảy ra đấy."
+    },
+    {
+      "id": "bunpo-400-159",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Vること．Vないこと．",
+      "meaningVi": "Phải làm V, không được làm V",
+      "example": "休むときは必ず学校に連絡すること。",
+      "exampleVi": "Khi nào nghỉ nhất định phải báo trước với nhà trường."
+    },
+    {
+      "id": "bunpo-400-160",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜べきだ・〜べき・〜べきではない。",
+      "meaningVi": "Nên, cần, phải ...",
+      "example": "成績が良くないね。もっと勉強すべきだ。",
+      "exampleVi": "Kết quả kém quá, em cần học thêm nữa."
+    },
+    {
+      "id": "bunpo-400-161",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vたらどうか。",
+      "meaningVi": "Làm V xem sao, nên V đi",
+      "example": "悪いのはお前だよ。一言謝ったらどう？",
+      "exampleVi": "Mày mới là đứa sai. Thử xin lỗi một câu có chết ai."
+    },
+    {
+      "id": "bunpo-400-162",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことにする・〜ことにしている",
+      "meaningVi": "Quyết định...",
+      "example": "明日からよく勉強することにする。",
+      "exampleVi": "Tôi quyết định từ ngày mai sẽ học hành chăm chỉ."
+    },
+    {
+      "id": "bunpo-400-163",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことになる・〜ことになっている。",
+      "meaningVi": "Quyết định ...",
+      "example": "来月、日本へ出張することになった。",
+      "exampleVi": "Tháng sau tôi được quyết định sẽ đi công tác Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-164",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ようにする・〜ようにしている。",
+      "meaningVi": "Cố gắng ...",
+      "example": "メールにはすぐ返信するようにしている。",
+      "exampleVi": "Tôi luôn cố gắng trả lời mail ngay lập tức."
+    },
+    {
+      "id": "bunpo-400-165",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ようになる、〜なくなる。",
+      "meaningVi": "Trở nên ...",
+      "example": "日本語が話せるようになりました。",
+      "exampleVi": "Bây giờ tôi đã nói được tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-166",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜V意向形＋とする。",
+      "meaningVi": "Định làm V",
+      "example": "眠ろうとしてもなかなか眠れなかった。",
+      "exampleVi": "Đã định ngủ rồi mà mãi không thể ngủ được."
+    },
+    {
+      "id": "bunpo-400-167",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜つもりだ。",
+      "meaningVi": "Tưởng là, đã nghĩ là ...",
+      "example": "私は今年80歳ですが、まだまだ若いつもりです。",
+      "exampleVi": "Tôi năm nay 80 rồi nhưng hãy còn trẻ lắm."
+    },
+    {
+      "id": "bunpo-400-168",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜について…",
+      "meaningVi": "Về...",
+      "example": "すみません。入学手続きについて聞きたいのですが…",
+      "exampleVi": "Xin lỗi, tôi muốn hỏi về thủ tục nhập học."
+    },
+    {
+      "id": "bunpo-400-169",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に関して…",
+      "meaningVi": "Liên quan đến...",
+      "example": "その事件に関しての報告はまだ受けていない。",
+      "exampleVi": "Tôi chưa nhận được báo cáo liên quan đến vụ án đó."
+    },
+    {
+      "id": "bunpo-400-170",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜として…",
+      "meaningVi": "Với tư cách là..., như là...",
+      "example": "私は国費留学生として日本に来た。",
+      "exampleVi": "Tôi đến Nhật với tư cách du học sinh được nhà nước tài trợ."
+    },
+    {
+      "id": "bunpo-400-171",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "Nは〜ことだ。",
+      "meaningVi": "Giải thích danh từ",
+      "example": "私の将来の夢は日本語の先生になることです。",
+      "exampleVi": "Ước mơ của tôi là trở thành giáo viên tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-172",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことがある。",
+      "meaningVi": "Thỉnh thoảng, đôi lúc ...",
+      "example": "以前は仕事が多かったので、12時ごろ家に帰ることもあった。",
+      "exampleVi": "Trước đây công việc nhiều nên thỉnh thoảng tôi về nhà lúc khoảng 12 giờ."
+    },
+    {
+      "id": "bunpo-400-173",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことはない。",
+      "meaningVi": "Không cần làm V ...",
+      "example": "心配することはないよ。僕も手伝うから頑張ろう。",
+      "exampleVi": "Việc gì phải lo. Cố lên, tôi sẽ giúp một tay."
+    },
+    {
+      "id": "bunpo-400-174",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のは…だ。",
+      "meaningVi": "Thay thế danh từ chính",
+      "example": "私が生まれたのは静かな田舎だ。",
+      "exampleVi": "Nơi tôi sinh ra là một vùng quê yên tĩnh."
+    },
+    {
+      "id": "bunpo-400-175",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜というのは…だ。",
+      "meaningVi": "Có nghĩa là... (giải thích thuật ngữ)",
+      "example": "パソコンというのはパーソナルコンピューターのことだ。",
+      "exampleVi": "Pasokon có nghĩa là máy tính cá nhân."
+    },
+    {
+      "id": "bunpo-400-176",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のではないか。〜のではないだろうか。",
+      "meaningVi": "Chẳng phải là ...hay sao?",
+      "example": "こんなに塩辛い料理は体によくないのではないか。",
+      "exampleVi": "Thức ăn mặn thế này chẳng phải là không tốt cho cơ thể hay sao?"
+    },
+    {
+      "id": "bunpo-400-177",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "「物」と「こと」",
+      "meaningVi": "Phân biệt",
+      "example": "母が作る物はいつもとても美味しいですよ。料理を作ることはとても楽しい。",
+      "exampleVi": "Đồ mẹ tôi nấu lúc nào cũng ngon lắm đấy. Việc nấu ăn rất vui."
+    },
+    {
+      "id": "bunpo-400-178",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+      "meaningVi": "Như...",
+      "example": "彼女の心は氷のように冷たい。",
+      "exampleVi": "Trái tim cô ta lạnh như băng."
+    },
+    {
+      "id": "bunpo-400-179",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ように。",
+      "meaningVi": "Như là.., chẳng hạn như, giống như...",
+      "example": "彼女はとても親切です。彼女のような人と結婚したいです。",
+      "exampleVi": "Cô ấy rất tốt bụng. Tôi muốn kết hôn với người như cô ấy."
+    },
+    {
+      "id": "bunpo-400-180",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ように、〜ようにと、〜よう",
+      "meaningVi": "Bảo ..., mong cho, cầu mong",
+      "example": "雑誌を買ってくるように頼まれた。",
+      "exampleVi": "Tôi đã bị nhờ mua tạp chí."
+    },
+    {
+      "id": "bunpo-400-181",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜わけだ。〜というわけだ。",
+      "meaningVi": "Hèn chi, thảo nào mà",
+      "example": "夜中に雪が降ったんですね。昨日の夜あんなに寒かったわけですね。",
+      "exampleVi": "Nửa đêm hôm qua tuyết rơi nhỉ. Thảo nào mà đêm qua lạnh thế cơ chứ."
+    },
+    {
+      "id": "bunpo-400-182",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜わけがない。",
+      "meaningVi": "Làm gì có chuyện..., không đời nào mà...",
+      "example": "こんなに暑いんだから、働けるわけがない。",
+      "exampleVi": "Nóng như thế này thì làm sao mà làm việc được."
+    },
+    {
+      "id": "bunpo-400-183",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜わけではない。〜というわけではない",
+      "meaningVi": "Không phải là...",
+      "example": "このレストランはいつもいっぱいだが、特別に美味しいわけではない。",
+      "exampleVi": "Nhà hàng này lúc nào cũng đầy khách nhưng không phải thức ăn đặc biệt ngon."
+    },
+    {
+      "id": "bunpo-400-184",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vわけにはいかない。",
+      "meaningVi": "Không thể làm V ...",
+      "example": "とても疲れたが、大事な会議があるから、休むわけにはいかない。",
+      "exampleVi": "Mệt lắm nhưng vì có cuộc họp quan trọng nên không thể nghỉ được."
+    },
+    {
+      "id": "bunpo-400-185",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vないわけにはいかない。",
+      "meaningVi": "Không thể không làm V/ phải làm V ...",
+      "example": "親友に飲めと言われたら、飲まないわけにはいかない。",
+      "exampleVi": "Nếu bị bạn thân bắt uống rượu thì không thể không uống."
+    },
+    {
+      "id": "bunpo-400-186",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかり。",
+      "meaningVi": "Toàn là, chỉ là...",
+      "example": "この日本語センターの学生は女性ばかりだ。",
+      "exampleVi": "Học sinh trung tâm tiếng Nhật này toàn là nữ."
+    },
+    {
+      "id": "bunpo-400-187",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てばかりいる。",
+      "meaningVi": "Toàn ...",
+      "example": "弟は試験の日がもうすぐ来るのに、勉強しないで遊んでばかりいる。",
+      "exampleVi": "Em trai tôi sắp thi rồi mà chả học gì cả, toàn chơi thôi."
+    },
+    {
+      "id": "bunpo-400-188",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかりでなく・〜だけでなく。",
+      "meaningVi": "Không chỉ...",
+      "example": "彼は頭がいいばかりでなく、親切だ。",
+      "exampleVi": "Anh ấy không chỉ thông minh, mà còn tốt bụng nữa."
+    },
+    {
+      "id": "bunpo-400-189",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかりだ。（xấu đi）",
+      "meaningVi": "Cứ dần...",
+      "example": "一度けんかしてから、彼女との関係が悪くなるばかりだ。",
+      "exampleVi": "Sau một lần cãi nhau, mối quan hệ với bạn gái cứ dần xấu đi."
+    },
+    {
+      "id": "bunpo-400-190",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかりだ。（chỉ việc）",
+      "meaningVi": "Chỉ việc... (là xong)",
+      "example": "食事の準備はできた。食べるばかりだ。",
+      "exampleVi": "Cơm nước xong xuôi rồi, chỉ việc ăn thôi."
+    },
+    {
+      "id": "bunpo-400-191",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかりだ。（vừa mới）",
+      "meaningVi": "Vừa mới",
+      "example": "このシャツは先月買ったばかりなのに、破れてしまった。",
+      "exampleVi": "Cái áo này vừa mua tháng trước đã rách rồi."
+    },
+    {
+      "id": "bunpo-400-192",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と…〜た・〜たら…〜た。（nhận thức）",
+      "meaningVi": "Sau khi ~ thì... (nhận thức)",
+      "example": "箱を開けると（開けたら）、人形があった。",
+      "exampleVi": "Tôi mở cái hộp ra cái là có con búp bê trong đó rồi."
+    },
+    {
+      "id": "bunpo-400-193",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と…〜た・〜たら…〜た。（ngẫu nhiên）",
+      "meaningVi": "Đang ~ thì ... (ngẫu nhiên)",
+      "example": "部屋の掃除をしていると、大雨が降りだした。",
+      "exampleVi": "Đang dọn nhà thì bên ngoài đổ mưa lớn."
+    },
+    {
+      "id": "bunpo-400-194",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と…〜た・〜たら…〜た。（điều bất ngờ）",
+      "meaningVi": "Sau khi ~ thì ... (điều bất ngờ)",
+      "example": "箱を開けると（開けたら）、人形が飛び出した。",
+      "exampleVi": "Tôi mở cái hộp ra cái là con búp bê lao ra."
+    },
+    {
+      "id": "bunpo-400-195",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜と…〜た。",
+      "meaningVi": "Sau khi ~ thì ngay lập tức",
+      "example": "僕の顔を見ると、男の子は逃げていった。",
+      "exampleVi": "Thấy mặt tôi là thằng bé chạy đi mất."
+    },
+    {
+      "id": "bunpo-400-196",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vかける・〜Vかけだ・〜Vかけの N。",
+      "meaningVi": "V dở dang",
+      "example": "母は読みかけの本を机に置いて、買い物に出かけた。",
+      "exampleVi": "Mẹ tôi đặt cuốn sách đọc dở lên bàn, ra ngoài đi mua sắm."
+    },
+    {
+      "id": "bunpo-400-197",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vきる・Vきれない。",
+      "meaningVi": "Làm xong V, không thể nào V hết",
+      "example": "やっと10キロの距離を走りきった。",
+      "exampleVi": "Cuối cùng cũng đã chạy hết quãng đường 10km."
+    },
+    {
+      "id": "bunpo-400-198",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜V通す。",
+      "meaningVi": "Làm V đến cùng",
+      "example": "自分で決めたことは最後までやり通す。",
+      "exampleVi": "Việc chính tôi quyết định thì tôi sẽ làm đến cùng."
+    },
+    {
+      "id": "bunpo-400-199",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜V続ける。",
+      "meaningVi": "Tiếp tục làm V",
+      "example": "N1に合格しても、日本語を勉強し続ける。",
+      "exampleVi": "Dù đỗ N1 nhưng tôi sẽ tiếp tục học tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-200",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜V出す。",
+      "meaningVi": "Bắt đầu V (bất ngờ)",
+      "example": "映画が終わったところで、恋人は泣き出した。",
+      "exampleVi": "Đúng lúc bộ phim kết thúc, gấu tôi bật khóc nức nở."
+    },
+    {
+      "id": "bunpo-400-201",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜V始める。",
+      "meaningVi": "Bắt đầu làm V",
+      "example": "明日からN1を勉強し始める。",
+      "exampleVi": "Từ ngày mai tôi bắt đầu học N1."
+    },
+    {
+      "id": "bunpo-400-202",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vやすい。",
+      "meaningVi": "Dễ làm V (năng lực, tính chất)",
+      "example": "この薬は甘いので、飲みやすい。",
+      "exampleVi": "Thuốc này ngọt nên dễ uống."
+    },
+    {
+      "id": "bunpo-400-203",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vにくい。",
+      "meaningVi": "Khó làm V (năng lực, tính chất)",
+      "example": "割れにくいコップを買い換えにくい。",
+      "exampleVi": "Khó mà mua được cái khó vỡ này lần nữa."
+    },
+    {
+      "id": "bunpo-400-204",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vづらい。",
+      "meaningVi": "Khó làm V (tâm lí)",
+      "example": "目の前に貧しい子供がいるので、おいしいパンでも食べづらい。",
+      "exampleVi": "Đứa trẻ nghèo đứng trước mặt nên dù có cái bánh mì ngon cũng thấy khó ăn."
+    },
+    {
+      "id": "bunpo-400-205",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜すぎる・〜すぎだ。",
+      "meaningVi": "Quá...",
+      "example": "働きすぎるのは健康に良くない。",
+      "exampleVi": "Làm việc quá sức không tốt cho sức khỏe."
+    },
+    {
+      "id": "bunpo-400-206",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜がち。",
+      "meaningVi": "Hay...",
+      "example": "子供のとき、病気がちだった。",
+      "exampleVi": "Thời bé tôi hay bị ốm."
+    },
+    {
+      "id": "bunpo-400-207",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜気味。",
+      "meaningVi": "Hơi...",
+      "example": "息子はかぜ気味で、ひどいせきが出ているから、彼女は心配だ。",
+      "exampleVi": "Đứa con trai có vẻ cảm, ho dữ dội nên cô ấy có vẻ hơi lo lắng."
+    },
+    {
+      "id": "bunpo-400-208",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜げ。",
+      "meaningVi": "Nét, vẻ...",
+      "example": "彼女の笑顔にはどこか寂しさげなところがあった。",
+      "exampleVi": "Đâu đó trên khuôn mặt tươi cười của cô ấy, thoáng có một nét buồn bã."
+    },
+    {
+      "id": "bunpo-400-209",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜っぽい。",
+      "meaningVi": "Hay..., giống...",
+      "example": "妻は忘れっぽくて、困る。",
+      "exampleVi": "Vợ tôi hay quên nên tôi thật khổ sở."
+    },
+    {
+      "id": "bunpo-400-210",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜だらけだ。",
+      "meaningVi": "Toàn là... (những thứ không tốt)",
+      "example": "この部屋はゴミだらけだ。",
+      "exampleVi": "Căn phòng này toàn rác là rác"
+    },
+    {
+      "id": "bunpo-400-211",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜らしい。",
+      "meaningVi": "Đậm chất, đúng kiểu...",
+      "example": "今日は秋らしい天気だ。",
+      "exampleVi": "Hôm nay thời tiết đúng kiểu mùa thu. (sự thực là mùa thu)"
+    },
+    {
+      "id": "bunpo-400-212",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜みたいだ。",
+      "meaningVi": "Giống như... (giống ように nhưng ít trang trọng hơn)",
+      "example": "君はまるで子供みたいだね。",
+      "exampleVi": "Cậu nhìn cứ như con nít ấy nhỉ. (thực tế không phải con nít)"
+    },
+    {
+      "id": "bunpo-400-213",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "こそ。",
+      "meaningVi": "Chính...",
+      "example": "君こそ長い間探していた人だ。",
+      "exampleVi": "Chính em là người anh tìm kiếm bấy lâu nay."
+    },
+    {
+      "id": "bunpo-400-214",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "でも。（đến cả）",
+      "meaningVi": "Đến cả",
+      "example": "そんなことは子供でも知ってるよ。",
+      "exampleVi": "Chuyện như thế đến cả trẻ con nó cũng biết."
+    },
+    {
+      "id": "bunpo-400-215",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "でも。（như là）",
+      "meaningVi": "Như là...",
+      "example": "コーヒーでも飲まない？",
+      "exampleVi": "Uống gì đó như là cà phê không?"
+    },
+    {
+      "id": "bunpo-400-216",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "も。",
+      "meaningVi": "Đến cả, ngay cả...",
+      "example": "足が痛いから、立つこともできない。",
+      "exampleVi": "Đau chân, đến cả đứng cũng không thể."
+    },
+    {
+      "id": "bunpo-400-217",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "も…（phủ định）",
+      "meaningVi": "Cũng không",
+      "example": "財布は空っぽだ。千ドンも残ってない。",
+      "exampleVi": "Ví trống rỗng, một nghìn cũng không còn."
+    },
+    {
+      "id": "bunpo-400-218",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "まで。（đến cả）",
+      "meaningVi": "Đến cả...",
+      "example": "赤ん坊が泣いていると、僕まで泣きたい。",
+      "exampleVi": "Con khóc đến cả tôi cũng muốn khóc theo."
+    },
+    {
+      "id": "bunpo-400-219",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "まで。（cho đến）",
+      "meaningVi": "Cho đến...",
+      "example": "「飛行場で」君が戻ってくるまでずっと待っているよ。",
+      "exampleVi": "[Ở sân bay] Em sẽ mãi đợi anh đến khi anh trở về."
+    },
+    {
+      "id": "bunpo-400-220",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "くらい・ぐらい。",
+      "meaningVi": "Cỡ như...",
+      "example": "簡単なあいさつぐらいなら日本語で言える。",
+      "exampleVi": "Nếu cỡ chào hỏi đơn giản thì tôi nói được bằng tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-221",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "など・なんか・なんて。",
+      "meaningVi": "Các kiểu, cỡ như, cái loại...",
+      "example": "お礼など要りませんよ。",
+      "exampleVi": "Cảm ơn các kiểu thì không cần đâu."
+    },
+    {
+      "id": "bunpo-400-222",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜どうして・なぜ〜かというと、からだ。",
+      "meaningVi": "Tại sao ... là vì...",
+      "example": "どうして今日私が怒ったかというと、学生が宿題をやっていなかったからだ。",
+      "exampleVi": "Tại sao hôm nay tôi lại cáu gắt, là vì học sinh không làm bài tập."
+    },
+    {
+      "id": "bunpo-400-223",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜といった。",
+      "meaningVi": "Có thể kể đến như...",
+      "example": "私の得意な科目は数学や物理や化学といった理学系だ。",
+      "exampleVi": "Thế mạnh của tôi là các môn khoa học tự nhiên, có thể kể đến như toán, lí, hóa."
+    },
+    {
+      "id": "bunpo-400-224",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜といえば…〜といったら…〜というと。",
+      "meaningVi": "Nói về ~, thì...",
+      "example": "日本料理といえば、すし、てんぷらは代表的なものだ。",
+      "exampleVi": "Nói về món ăn Nhật Bản thì điển hình là sushi, tempura."
+    },
+    {
+      "id": "bunpo-400-225",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜といっても…",
+      "meaningVi": "Dù nói là ~ nhưng...",
+      "example": "料理ができるといっても、ゆで野菜、卵焼きぐらいだよ。",
+      "exampleVi": "Dù nói là biết nấu ăn nhưng mà chỉ cỡ trứng rán, rau luộc thôi."
+    },
+    {
+      "id": "bunpo-400-226",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜から…にかけて。",
+      "meaningVi": "Từ ~ đến... (khoảng không gian và thời gian)",
+      "example": "明日は関東地方から東北地方にかけて雨が降るでしょう。",
+      "exampleVi": "Ngày mai có lẽ sẽ mưa từ vùng Kanto đến vùng Tohoku."
+    },
+    {
+      "id": "bunpo-400-227",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜を…として・〜をに。",
+      "meaningVi": "Lấy ~ làm... (trung tâm, duyên cớ)",
+      "example": "日本の世界地図は日本を中心として書かれていた。",
+      "exampleVi": "Bản đồ thế giới của Nhật được vẽ lấy nước Nhật làm trung tâm."
+    },
+    {
+      "id": "bunpo-400-228",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜はもちろん…も、〜は…",
+      "meaningVi": "Đương nhiên, nhưng cả...cũng",
+      "example": "この漫画は子供はもちろん、大人も大好きだ。",
+      "exampleVi": "Quyển truyện tranh này trẻ con thì đương nhiên nhưng ngay cả người lớn cũng rất thích."
+    },
+    {
+      "id": "bunpo-400-229",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に比べて（〜に比べると）。",
+      "meaningVi": "So với... thì",
+      "example": "私は書くのに比べると、会話力が弱い。",
+      "exampleVi": "Tôi thì khả năng nói kém hơn so với viết."
+    },
+    {
+      "id": "bunpo-400-230",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に加えて。",
+      "meaningVi": "Ngoài ~ còn ..., ngoài ~ thêm vào đó",
+      "example": "田中さんの文章は文法の間違いが少ないことに加えて主張もはっきりしてて読みやすい。",
+      "exampleVi": "Bài viết của anh Tanaka ngoài việc mắc ít lỗi ngữ pháp, quan điểm còn rất rõ ràng"
+    },
+    {
+      "id": "bunpo-400-231",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜をはじめ。",
+      "meaningVi": "Chẳng hạn như...",
+      "example": "現在の携帯はカメラをはじめ、いろいろな機能がついている。",
+      "exampleVi": "Điện thoại di động hiện nay có rất nhiều tính năng, chẳng hạn như camera."
+    },
+    {
+      "id": "bunpo-400-232",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に違いない。",
+      "meaningVi": "Chắc chắn là, ~ thì không sai.",
+      "example": "夜になっても電気がつかない。彼らは出かけているに違いない。",
+      "exampleVi": "Đêm rồi mà đèn không bật. Chắc chắn họ ra ngoài rồi."
+    },
+    {
+      "id": "bunpo-400-233",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜につれて。",
+      "meaningVi": "Cùng với, càng...",
+      "example": "試験が近づくにつれて、だんだん心配になってきた。",
+      "exampleVi": "Kì thi càng đến gần, tôi càng lo lắng."
+    },
+    {
+      "id": "bunpo-400-234",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に従って。",
+      "meaningVi": "Cùng với, càng...",
+      "example": "携帯電話が普及するに従って、通話料も安くなった。",
+      "exampleVi": "Cùng với việc điện thoại di động trở nên phổ biến, giá cước cũng trở nên rẻ hơn."
+    },
+    {
+      "id": "bunpo-400-235",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜最中に。",
+      "meaningVi": "Trong lúc ... thì (sự bất ngờ)",
+      "example": "着替えをしている最中に、玄関のチャイムが鳴った。",
+      "exampleVi": "Trong lúc đang thay quần áo, thì chuông cửa reo."
+    },
+    {
+      "id": "bunpo-400-236",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜Vで以来。",
+      "meaningVi": "Kể từ khi...",
+      "example": "卒業して以来、忙しくて一度も大学を訪れていない。",
+      "exampleVi": "Kể từ khi tốt nghiệp, vì bận nên tôi chưa một lần quay lại trường đại học."
+    },
+    {
+      "id": "bunpo-400-237",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜を通じて（を通して）",
+      "meaningVi": "Thông qua, bằng cách, trong suốt...",
+      "example": "私はサークルの先輩を通じて彼女と知り合った。",
+      "exampleVi": "Tôi quen cô ấy qua các tiền bối trong câu lạc bộ."
+    },
+    {
+      "id": "bunpo-400-238",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に決まっている。",
+      "meaningVi": "Chắc chắn là...",
+      "example": "彼女と結婚したいといえば、両親が反対するに決まっている。",
+      "exampleVi": "Nếu tôi nói là tôi muốn lấy cô ấy, chắc chắn bố mẹ sẽ phản đối."
+    },
+    {
+      "id": "bunpo-400-239",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜をもとにして（に基づいて）",
+      "meaningVi": "Dựa trên...",
+      "example": "この映画は実際に起こった事件を元にして（に基づいて）作られた。",
+      "exampleVi": "Bộ phim này được làm dựa trên vụ án đã xảy ra trong thực tế."
+    },
+    {
+      "id": "bunpo-400-240",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜からといって。",
+      "meaningVi": "Tuy là ... nhưng chưa chắc đã",
+      "example": "日本人だからといって、だれもが日本語が教えられるとは限らない。",
+      "exampleVi": "Là người Nhật nhưng không phải ai cũng có thể dạy được tiếng Nhật."
+    },
+    {
+      "id": "bunpo-400-241",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜わりには。",
+      "meaningVi": "So với ~ thì, thế mà",
+      "example": "この仕事はこんなに大変なわりには、給料が安い。",
+      "exampleVi": "Công việc này vất vả thế mà lương rẻ mạt quá."
+    },
+    {
+      "id": "bunpo-400-242",
+      "level": "N3",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜くせに。",
+      "meaningVi": "Dù... (thể hiện sự chê trách, khinh miệt - vẫn nói)",
+      "example": "彼は今日テストがあることを知っているくせに、私に教えてくれなかった。",
+      "exampleVi": "Hắn biết hôm nay có bài kiểm tra nhưng đã không nói cho tôi biết."
+    },
+    {
+      "id": "bunpo-400-243",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜際に…",
+      "meaningVi": "Khi..., dịp...",
+      "example": "アメリカの大統領は来日した際に、わたしたちの大学でスピーチを行った。",
+      "exampleVi": "Tổng thống Hoa Kỳ đã có bài phát biểu tại trường đại học của chúng ta khi ngài đến viếng thăm Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-244",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に際して…",
+      "meaningVi": "Khi..., dịp...",
+      "example": "工事関係者は工事を始めるに際して、近所の住民にあいさつをして回った。",
+      "exampleVi": "Đơn vị thi công xây dựng đã đi một vòng chào hỏi những người dân sống gần trước khi họ bắt đầu khởi công"
+    },
+    {
+      "id": "bunpo-400-245",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にあたって…",
+      "meaningVi": "Khi...",
+      "example": "日本で国際会議を開催するにあたり、関係各方面からの協力を得た。",
+      "exampleVi": "Chúng ta đã nhận được rất nhiều sự hỗ trợ từ những người có liên quan khi tổ chức hội nghị quốc tế tại Nhật Bản"
+    },
+    {
+      "id": "bunpo-400-246",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜たとたん（に）",
+      "meaningVi": "Vừa...thì...",
+      "example": "山の頂上でワインを一口飲んだとたんに、めまいがした。",
+      "exampleVi": "Ở trên đỉnh núi, tôi vừa uống một ngụm rượu vang thì bị chóng mặt."
+    },
+    {
+      "id": "bunpo-400-247",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（か）と思うと、〜（か）と思ったら…",
+      "meaningVi": "Vừa thấy... thì đã...",
+      "example": "やっと部屋が片付いたかと思ったら、子供たちがすぐまた散らかした。",
+      "exampleVi": "Phòng vừa được dọn gọn gàng xong bọn trẻ con đã ngay lập tức làm bừa bộn rồi."
+    },
+    {
+      "id": "bunpo-400-248",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜か〜ないかのうちに",
+      "meaningVi": "Chưa kịp...đã..., vừa mới...đã",
+      "example": "一郎はベッドに横になるかならないかのうちに、ぐっすり眠ってしまった。",
+      "exampleVi": "Thằng bé Ichiro chưa kịp đặt lưng xuống giường nó đã ngủ say rồi."
+    },
+    {
+      "id": "bunpo-400-249",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（よう）としている",
+      "meaningVi": "Sắp...",
+      "example": "さあ、決勝戦が今、始まろうとしています。みんな緊張しています。",
+      "exampleVi": "Trận chung kết sắp bắt đầu nên mọi người đều căng thẳng."
+    },
+    {
+      "id": "bunpo-400-250",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜つつある",
+      "meaningVi": "Ngày càng..., dần dần",
+      "example": "この会社は現在発展しつつあり、将来が期待される。",
+      "exampleVi": "Công ty này ngày một phát triển, rất nhiều người kỳ vọng vào tương lai của nó."
+    },
+    {
+      "id": "bunpo-400-251",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜つつ。",
+      "meaningVi": "Vừa...vừa...",
+      "example": "将来の仕事のこと、お金のことなどを考えつつ、進路を選ばなければならない。",
+      "exampleVi": "Bạn vừa phải tính toán đến công việc và kế hoạch tài chính tương lai vừa phải lên định hướng các con đường đi"
+    },
+    {
+      "id": "bunpo-400-252",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜上（で）…",
+      "meaningVi": "Sau khi...",
+      "example": "文書が保存されていることを確かめた上で、パソコンをシャットダウンしてください。",
+      "exampleVi": "Sau khi xác nhận đã lưu văn bản, hãy tắt máy tính đi."
+    },
+    {
+      "id": "bunpo-400-253",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜次第…",
+      "meaningVi": "Sau khi...",
+      "example": "詳しいことが分かり次第、ご連絡いたします。",
+      "exampleVi": "Sau khi hiểu chi tiết cụ thể tôi sẽ liên lạc lại."
+    },
+    {
+      "id": "bunpo-400-254",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜からして…",
+      "meaningVi": "Ngay từ...",
+      "example": "さすがプロの選手。走り方からして私とは違う。",
+      "exampleVi": "Quả là vận động viên chuyên nghiệp có khác, ngay từ cách chạy cũng khác tôi."
+    },
+    {
+      "id": "bunpo-400-255",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜限り…",
+      "meaningVi": "Trong phạm vi...",
+      "example": "環境を守るために私もできる限りのことをしたい。",
+      "exampleVi": "Tôi muốn làm những việc trong phạm vi tôi có thể làm để bảo vệ môi trường."
+    },
+    {
+      "id": "bunpo-400-256",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜だけ…",
+      "meaningVi": "Giới hạn phạm vi",
+      "example": "今日は部長に言いたいだけの不満を全部言って、すっきりした。",
+      "exampleVi": "Hôm nay đã nói ra hết những bất mãn muốn nói với trưởng phòng, thật thoải mái."
+    },
+    {
+      "id": "bunpo-400-257",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に限り",
+      "meaningVi": "Chỉ riêng...",
+      "example": "このチラシをご持参のお客様に限り、すべての商品を1割引でお買い求めいただけます。",
+      "exampleVi": "Chỉ riêng những vị khách mang theo tờ quảng cáo này mới có thể mua khuyến mãi 10% với toàn bộ sản phẩm."
+    },
+    {
+      "id": "bunpo-400-258",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜限り（は）",
+      "meaningVi": "Chừng nào...thì...",
+      "example": "この町に住んでいる限り、いつでも新鮮な食べ物が手に入る。",
+      "exampleVi": "Chừng nào còn sống ở thành phố này, thì bất cứ lúc nào cũng có thể có được đồ ăn tươi ngon."
+    },
+    {
+      "id": "bunpo-400-259",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜限りでは",
+      "meaningVi": "Trong phạm vi...",
+      "example": "今回の調査の限りでは、書類にミスはなかった。",
+      "exampleVi": "Trong phạm vi điều tra lần này, không có lỗi trên giấy tờ."
+    },
+    {
+      "id": "bunpo-400-260",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に限って",
+      "meaningVi": "Riêng..., đúng vào..., ai chứ riêng...",
+      "example": "普段酒などあまり飲まない彼が、今日に限ってかなり飲んだ。何かあったんだろうか。",
+      "exampleVi": "Hắn ta bình thường chẳng mấy khi uống rượu nhưng riêng hôm nay lại uống khá nhiều, có lẽ là có chuyện gì rồi."
+    },
+    {
+      "id": "bunpo-400-261",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に限らず",
+      "meaningVi": "Không chỉ...mà...",
+      "example": "この記念館は休日に限らず一年中入館者が多い。",
+      "exampleVi": "Bảo tàng này không chỉ ngày nghỉ, mà quanh năm khách vào tham quan rất nhiều."
+    },
+    {
+      "id": "bunpo-400-262",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のみならず…",
+      "meaningVi": "Không chỉ...mà...",
+      "example": "電気代のみならず、ガス代や水道代も値上がりするようだ。",
+      "exampleVi": "Không chỉ tiền điện, mà hình như tiền gas và tiền nước cũng tăng giá."
+    },
+    {
+      "id": "bunpo-400-263",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかりか",
+      "meaningVi": "Không chỉ...mà còn...",
+      "example": "友達ばかりか親兄弟も彼の居場所を知らない。",
+      "exampleVi": "Không chỉ bạn bè, mà ngay cả bố mẹ anh em không biết chỗ ở của hắn ta."
+    },
+    {
+      "id": "bunpo-400-264",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜はもとより…",
+      "meaningVi": "Thì đương nhiên...cũng...",
+      "example": "たばこは本人はもとより、周りの人にも害を及ぼす。",
+      "exampleVi": "Thuốc lá với bản thân người hút thì đương nhiên rồi, tác hại còn lan đến cả những người xung quanh nữa."
+    },
+    {
+      "id": "bunpo-400-265",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜上（に）",
+      "meaningVi": "Không những...mà còn...",
+      "example": "田中さんには仕事を手伝ってもらった上に、仕事の後、ごちそうになった。",
+      "exampleVi": "Không những được anh Tanaka giúp đỡ công việc mà sau đấy còn được ăn khao nữa."
+    },
+    {
+      "id": "bunpo-400-266",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に関して",
+      "meaningVi": "Liên quan đến...",
+      "example": "高齢者の生活に関するアンケートにご協力ください。",
+      "exampleVi": "Hãy hợp tác trong cuộc khảo sát liên quan đến đời sống của người cao tuổi."
+    },
+    {
+      "id": "bunpo-400-267",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜をめぐって…",
+      "meaningVi": "Xoay quanh...",
+      "example": "親が残した土地をめぐって親族が争っている。",
+      "exampleVi": "Người thân trong gia đình tranh cãi xoay quanh vấn đề đất đai mà ông cha để lại."
+    },
+    {
+      "id": "bunpo-400-268",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にかけては",
+      "meaningVi": "Về...thì...",
+      "example": "私は安い材料でおいしい料理を作ることにかけては誰にも負けませんよ。",
+      "exampleVi": "Tôi về việc làm món ăn ngon từ nguyên liệu rẻ tiền ấy, thì chẳng chịu thua ai đâu nhé."
+    },
+    {
+      "id": "bunpo-400-269",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にこたえて…",
+      "meaningVi": "Đáp ứng với..., đáp lại...",
+      "example": "応援してくれる人の気持ちにこたえて、立派な試合をしよう。",
+      "exampleVi": "Hãy đáp ứng với tấm lòng của những người ủng hộ bạn, và hãy thi đấu thật tốt."
+    },
+    {
+      "id": "bunpo-400-270",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に沿って…",
+      "meaningVi": "Theo..., dọc theo..., theo sát...",
+      "example": "与えられたテーマに沿ってレポートを書き進めてください。",
+      "exampleVi": "Hãy tiếp tục viết báo cáo theo đề tài được giao."
+    },
+    {
+      "id": "bunpo-400-271",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のもとで・〜のもとに",
+      "meaningVi": "Dưới...",
+      "example": "チームは新しい監督のもとで練習に励んでいる。",
+      "exampleVi": "Đội bóng đang nỗ lực luyện tập dưới sự chỉ đạo của huấn luyện viên mới."
+    },
+    {
+      "id": "bunpo-400-272",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に伴って・〜と共に…",
+      "meaningVi": "Cùng với...",
+      "example": "入学する留学生数の変化に伴って、クラス数を変える必要がある。",
+      "exampleVi": "Cùng với sự thay đổi của số du học sinh vào học, cũng cần phải thay đổi số lớp."
+    },
+    {
+      "id": "bunpo-400-273",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜次第だ…",
+      "meaningVi": "Tùy thuộc vào...",
+      "example": "人生が楽しいかどうかは考え方次第だ。",
+      "exampleVi": "Đời người vui hay không là tùy vào cách suy nghĩ."
+    },
+    {
+      "id": "bunpo-400-274",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に応じて…",
+      "meaningVi": "Ứng với..., hợp với...",
+      "example": "ご予算に応じてパーティーのメニューを決めた。",
+      "exampleVi": "Quyết định thực đơn của bữa tiệc hợp với ngân sách."
+    },
+    {
+      "id": "bunpo-400-275",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜につけて。",
+      "meaningVi": "Mỗi lần...thì..., cứ...thì...",
+      "example": "この歌を聞くにつけて、心に希望がわいてくる。",
+      "exampleVi": "Mỗi lần nghe bài hát này, trong tim tôi lại sực sôi hi vọng."
+    },
+    {
+      "id": "bunpo-400-276",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜やら〜やら",
+      "meaningVi": "Nào là...nào là..., như là...như là...",
+      "example": "勝ったチームの選手たちは泣き出すやら飛び上がるやらさまざまに喜びを表した。",
+      "exampleVi": "Các cầu thủ đội chiến thắng bộc lộ niềm vui theo nhiều cách khác nhau, nào là khóc, nào là nhảy cẫng lên."
+    },
+    {
+      "id": "bunpo-400-277",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜というか〜というか…",
+      "meaningVi": "Hoặc là...hoặc là..., có thể nói là...cũng có thể nói là...",
+      "example": "この部屋は仕事場というか物置というか、とにかく仕事に必要な物が全部置いてあるんです。",
+      "exampleVi": "Phòng này có thể nói là chỗ làm việc cũng có thể nói là chỗ để đồ, vì đang để tạm nhiều thứ cần cho công việc ở đây."
+    },
+    {
+      "id": "bunpo-400-278",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にしても〜にしても・〜にしろ〜にしろ・〜にせよ〜にせよ",
+      "meaningVi": "Cho dù là...hay là...",
+      "example": "野菜にしても魚にしても、料理の材料は新鮮さが第一です。",
+      "exampleVi": "Cho dù là rau hay là cá, nguyên liệu nấu ăn tươi ngon là yếu tố quan trọng hàng đầu."
+    },
+    {
+      "id": "bunpo-400-279",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜を問わず。",
+      "meaningVi": "Không liên quan đến..., không là vấn đề..., bất kể...",
+      "example": "このスポーツ大会には性別、年齢を問わず、誰でも参加できます。",
+      "exampleVi": "Ai cũng có thể tham gia vào đại hội thể thao này bất kể tuổi tác, giới tính."
+    },
+    {
+      "id": "bunpo-400-280",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にかかわりなく・〜にかかわらず。",
+      "meaningVi": "Bất kể..., không liên quan...",
+      "example": "使う、使わないにかかわらず、会場には一応マイクが準備してあります。",
+      "exampleVi": "Bất kể dùng hay không dùng, tạm thời thì micro cũng đã được chuẩn bị trong hội trường."
+    },
+    {
+      "id": "bunpo-400-281",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜もかまわず。",
+      "meaningVi": "Chả quan tâm đến..., chả cần biết...",
+      "example": "彼は値段もかまわず、好きな料理をどんどん注文した。",
+      "exampleVi": "Anh ta chẳng quan tâm đến giá cả, cứ lần lượt gọi những món ưa thích ra."
+    },
+    {
+      "id": "bunpo-400-282",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜はともかく（として）",
+      "meaningVi": "Khoan bàn đến..., để sau",
+      "example": "日本語を習いたい。読むのはともかくとして、簡単な会話は出来るようになりたい。",
+      "exampleVi": "Tôi muốn học tiếng Nhật. Việc đọc để sau, tôi muốn có thể hội thoại đơn giản trước đã."
+    },
+    {
+      "id": "bunpo-400-283",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜はさておき…",
+      "meaningVi": "Tạm thời không nhắc đến...",
+      "example": "飲み会をするなら、細かいことはさておき、まずは場所と時間を決めなくては。",
+      "exampleVi": "Nếu tổ chức nhậu, tạm thời không đề cập đến các tiểu tiết, trước hết cần quyết định thời gian và địa điểm."
+    },
+    {
+      "id": "bunpo-400-284",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜どころではない・〜どころか…",
+      "meaningVi": "Hóa ra không phải...",
+      "example": "せきが出るので風邪かなと思っていたが、ただの風邪どころではなく、肺炎だった。",
+      "exampleVi": "Vì ho nên tôi nghĩ chắc mình bị cảm, nhưng hóa ra không phải cảm thường, mà là viêm phổi."
+    },
+    {
+      "id": "bunpo-400-285",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものか…",
+      "meaningVi": "...sao,...á, không bao giờ..., đời nào mà...",
+      "example": "田中さんが時間通りに来るものか。あいつはいつも遅刻なんだから。",
+      "exampleVi": "Tanaka mà đến đúng giờ á. Hắn lúc nào cũng đến muộn thôi."
+    },
+    {
+      "id": "bunpo-400-286",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とは…。",
+      "meaningVi": "Là...",
+      "example": "人生とは本人が主役のドラマみたいなものだ。",
+      "exampleVi": "Đời người giống như bộ phim mà mình là nhân vật chính."
+    },
+    {
+      "id": "bunpo-400-287",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（のこと）となると…",
+      "meaningVi": "Cứ nói tới..., cứ nhắc đến...",
+      "example": "弟は車のこととなると、急に専門家みたいになる。",
+      "exampleVi": "Em trai tôi cứ nhắc đến ô tô là đột nhiên trở nên cứ như chuyên gia vậy."
+    },
+    {
+      "id": "bunpo-400-288",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜といったら。",
+      "meaningVi": "Nhắc đến..., nói đến...",
+      "example": "締め切り前の仕事の忙しさといったら、君には想像もできないと思うよ。",
+      "exampleVi": "Nhắc đến công việc trước deadline bận rộn thế nào, tôi nghĩ anh không thể tưởng tượng được đâu."
+    },
+    {
+      "id": "bunpo-400-289",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にもかかわらず。",
+      "meaningVi": "Dù cho..., dẫu cho...",
+      "example": "水道工事の人たちは悪天候にもかかわらず、作業を続けている。",
+      "exampleVi": "Những người thi công hệ thống nước máy dù cho thời tiết xấu, vẫn tiếp tục công việc."
+    },
+    {
+      "id": "bunpo-400-290",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものの",
+      "meaningVi": "Mặc dù...nhưng mà",
+      "example": "新しいパソコンを買ったものの、使い方は全然分からない。",
+      "exampleVi": "Mặc dù đã mua máy tính nhưng mà cách sử dụng lại hoàn toàn không biết."
+    },
+    {
+      "id": "bunpo-400-291",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ながら（も）。",
+      "meaningVi": "Mặc dù...nhưng...",
+      "example": "あの子は子供ながら、社会の動きをよく知っています。",
+      "exampleVi": "Đứa trẻ kia mặc dù là con nít nhưng lại biết rõ sự vận động của xã hội."
+    },
+    {
+      "id": "bunpo-400-292",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜つつ（も）。",
+      "meaningVi": "Dù ...",
+      "example": "体に良くないと思いつつも、毎日インスタントラーメンばかり食べています。",
+      "exampleVi": "Dù nghĩ là chẳng tốt cho cơ thể nhưng ngày nào tôi cũng chỉ toàn ăn mì tôm."
+    },
+    {
+      "id": "bunpo-400-293",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜としたら・〜とすれば・〜というと・〜となったら・〜となれば・〜となると",
+      "meaningVi": "Nếu mà...",
+      "example": "税金が上がるとなれば、国民の生活はますます大変になるだろう。",
+      "exampleVi": "Nếu mà thuế tăng, có lẽ đời sống nhân dân sẽ trở nên khó khăn hơn."
+    },
+    {
+      "id": "bunpo-400-294",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものなら。",
+      "meaningVi": "Nếu...",
+      "example": "戻れるものなら、20年前の私に戻って人生をやり直したい。",
+      "exampleVi": "Nếu có thể quay ngược thời gian, tôi muốn quay lại là tôi của 20 năm trước và làm lại cuộc đời mình."
+    },
+    {
+      "id": "bunpo-400-295",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（よ）うものなら。",
+      "meaningVi": "Nếu...",
+      "example": "私はアレルギー体質なので、合わない食品を食べようものなら、体のあちこちがかゆくなる。",
+      "exampleVi": "Vì tôi dễ bị dị ứng nên nếu ăn những thực phẩm không hợp, sẽ bị ngứa."
+    },
+    {
+      "id": "bunpo-400-296",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ないことには。",
+      "meaningVi": "Nếu không...",
+      "example": "お金がないことには、この計画は進められない。",
+      "exampleVi": "Nếu không có tiền sẽ không thể xúc tiến kế hoạch được."
+    },
+    {
+      "id": "bunpo-400-297",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜を抜きにしては。",
+      "meaningVi": "Nếu không có...",
+      "example": "インターネットとメールを抜きにしては、現代社会は成り立たないと言ってもいい。",
+      "exampleVi": "Internet và email nếu không có thì có thể nói rằng hiện đại xã hội không thể thành lập."
+    },
+    {
+      "id": "bunpo-400-298",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にしても・〜にしても・〜にしろ・〜にせよ。",
+      "meaningVi": "Cho dù...",
+      "example": "準備時間が短かったにしても、もう少し立派な報告書を書いて欲しかった。",
+      "exampleVi": "Cho dù thời gian chuẩn bị có ngắn, tôi cũng muốn cậu viết bản báo cáo tuyệt hơn chút nữa."
+    },
+    {
+      "id": "bunpo-400-299",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものだから・〜もので・〜もの…",
+      "meaningVi": "Vì...",
+      "example": "すみません。昨日はちょっと熱があったものですから、お休みしました。",
+      "exampleVi": "Xin lỗi, vì hôm qua hơi sốt nên tôi đã nghỉ ạ."
+    },
+    {
+      "id": "bunpo-400-300",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜あまり・〜あまりの〜に…",
+      "meaningVi": "Vì quá...",
+      "example": "私の番が近づいてきたとき、私は緊張のあまり頭の中が真っ白になってしまった。",
+      "exampleVi": "Lúc sắp đến lượt tôi, vì quá căng thẳng mà đầu tôi trở nên trống rỗng."
+    },
+    {
+      "id": "bunpo-400-301",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜につき",
+      "meaningVi": "Vì ..., vì đang...",
+      "example": "トイレはただ今清掃中につき、ご利用になれません。",
+      "exampleVi": "Vì bây giờ nhà vệ sinh đang được dọn nên không thể sử dụng."
+    },
+    {
+      "id": "bunpo-400-302",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことだし。",
+      "meaningVi": "Vì...",
+      "example": "来週はお客さんが来ることだし、家の中の大掃除をしなくちゃ。",
+      "exampleVi": "Vì tuần sau có khách đến nên cùng tổng vệ sinh trong nhà nào."
+    },
+    {
+      "id": "bunpo-400-303",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のことだから",
+      "meaningVi": "Ai chứ...",
+      "example": "いつも学生を笑わせていたアイン先生のことだから、国へ帰ってもまた人気者になると思うよ。",
+      "exampleVi": "Ai chứ Ánh sensei luôn làm học sinh cười vui vẻ nên dù về nước tôi nghĩ anh ta vẫn trở thành người được yêu quý thôi."
+    },
+    {
+      "id": "bunpo-400-304",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜だけに。",
+      "meaningVi": "Vì..., chính vì...",
+      "example": "父はよく話す人だっただけに、いなくなった後、いっそう寂しさを感じる。",
+      "exampleVi": "Chính vì bố là người hay nói, nên sau khi ông mất đi, tôi cảm thấy buồn hơn."
+    },
+    {
+      "id": "bunpo-400-305",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ばかりに。",
+      "meaningVi": "Chỉ vì...",
+      "example": "家のかぎを忘れて出かけたばかりに、家族が帰ってくるまで家に入れなかった。",
+      "exampleVi": "Chỉ vì ra ngoài mà quên chìa khóa, tôi đã không thể vào nhà đến khi người nhà tôi về."
+    },
+    {
+      "id": "bunpo-400-306",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜からには・〜以上（は）・〜上は。",
+      "meaningVi": "Một khi...thì phải...",
+      "example": "留学するからには、ちゃんと目的があるのでしょうね。",
+      "exampleVi": "Một khi đi du học thì phải có mục đích rõ ràng."
+    },
+    {
+      "id": "bunpo-400-307",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜がたい。",
+      "meaningVi": "Khó...",
+      "example": "あの優しい彼がそんなひどいことをしたとは信じがたい。",
+      "exampleVi": "Khó tin là cái thằng hiền lành kia lại làm những chuyện kinh khủng như thế."
+    },
+    {
+      "id": "bunpo-400-308",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜かねる。",
+      "meaningVi": "Không thể..., khó mà có thể...",
+      "example": "あなたの気持ちも理解できますが、その案には賛成しかねます。",
+      "exampleVi": "Tôi hiểu cảm giác của cậu nhưng khó mà có thể đồng tình với kế hoạch đó."
+    },
+    {
+      "id": "bunpo-400-309",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ようがない。",
+      "meaningVi": "Không thể..., không có cách nào...",
+      "example": "彼の連絡先が分からないので、このニュースを知らせたくても知らせようがない。",
+      "exampleVi": "Vì không biết địa chỉ liên hệ với anh ta nên dù muốn báo tin này cũng không thể báo được."
+    },
+    {
+      "id": "bunpo-400-310",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜どころではない。",
+      "meaningVi": "Không phải lúc để..., không thể...",
+      "example": "仕事が忙しくて、旅行どころではない。",
+      "exampleVi": "Đang bận việc, không phải lúc để đi du lịch."
+    },
+    {
+      "id": "bunpo-400-311",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜得る・〜得ない。",
+      "meaningVi": "Có thể... / không thể...",
+      "example": "癌は誰でもかかり得る病気だ。",
+      "exampleVi": "Ung thư là căn bệnh mà ai cũng có thể mắc."
+    },
+    {
+      "id": "bunpo-400-312",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にしては。",
+      "meaningVi": "Tuy là...nhưng..., dù...nhưng...",
+      "example": "このかばんは1000円にしては丈夫で、デザインもいい。",
+      "exampleVi": "Cái cặp này tuy là 1 sen nhưng bền, thiết kế cũng đẹp nữa."
+    },
+    {
+      "id": "bunpo-400-313",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜だけ（のことは）ある。",
+      "meaningVi": "Quả đúng là...",
+      "example": "彼は10年も日本に住んでいるだけあって、日本のことをよく知っている。",
+      "exampleVi": "Anh ta quả đúng là đã sống ở Nhật 10 năm, biết rất rõ về Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-314",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜として…。",
+      "meaningVi": "Tư cách là..., như là...",
+      "example": "京都は日本の歴史的な古い町として知られている。",
+      "exampleVi": "Kyoto được biết đến như là một thành phố cổ mang tính lịch sử của đất nước Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-315",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にとって…。",
+      "meaningVi": "Đối với...",
+      "example": "今の私にとって、一番大事なのは家族だ。",
+      "exampleVi": "Đối với tôi bây giờ, điều quý giá nhất là gia đình."
+    },
+    {
+      "id": "bunpo-400-316",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にしたら〜・〜にすれば〜・〜にしてみれば・〜にしても…",
+      "meaningVi": "Đối với..., nếu là..., ở vị trí của",
+      "example": "学生の語学力を高めるには必要な訓練なのだが、学生にしたら退屈きわまりない授業だと思うにちがいない。",
+      "exampleVi": "Đây là việc luyện tập cần thiết để nâng cao năng lực ngoại ngữ của học sinh, nhưng đối với học sinh chắc chắn là tiết học vô cùng nhàm chán."
+    },
+    {
+      "id": "bunpo-400-317",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜たところ。",
+      "meaningVi": "Sau khi...",
+      "example": "2、3日休みたいと課長に相談したところ、2週間休んでもいいと言われた。",
+      "exampleVi": "Sau khi trao đổi với trưởng phòng là muốn nghỉ vài ngày, thì được ông nói nghỉ hẳn 2 tuần cũng được."
+    },
+    {
+      "id": "bunpo-400-318",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜きり。",
+      "meaningVi": "Sau khi..., kể từ khi ...",
+      "example": "この本は子供のころ読んだきり、その後一度も読んでいない。",
+      "exampleVi": "Cuốn sách này kể từ khi đọc hồi bé, sau đấy chưa từng đọc lại lần nào."
+    },
+    {
+      "id": "bunpo-400-319",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜あげく。",
+      "meaningVi": "Sau khi...",
+      "example": "いろいろ文句を言ったあげく、その客は何も買わずに帰った。",
+      "exampleVi": "Sau khi phàn nàn đủ thứ, vị khách về mà chả mua gì."
+    },
+    {
+      "id": "bunpo-400-320",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜末（に）。",
+      "meaningVi": "Sau khi...",
+      "example": "長い戦いの末、ついに勝利を勝ち取った。",
+      "exampleVi": "Sau trận chiến trường kỳ, cuối cùng cũng đã giành được thắng lợi."
+    },
+    {
+      "id": "bunpo-400-321",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ずじまいだ。",
+      "meaningVi": "Cuối cùng cũng không..., rốt cuộc cũng không...",
+      "example": "いろんな人に聞いてみたが、結局彼の連絡先は分からずじまいだ。",
+      "exampleVi": "Đã hỏi thử nhiều người cuối cùng cũng không biết thông tin liên lạc của anh ta."
+    },
+    {
+      "id": "bunpo-400-322",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜など・〜なんか・〜なんて",
+      "meaningVi": "Cỡ như..., loại như...",
+      "example": "彼は文章がとてもうまい。私なんて簡単な文もちゃんと書けないのに。",
+      "exampleVi": "Anh ta viết văn rất hay. Loại như tôi thì câu đơn giản cũng chẳng viết được tử tế."
+    },
+    {
+      "id": "bunpo-400-323",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜まで・〜までして・〜てまで。",
+      "meaningVi": "Đến cả, tới mức, thậm chí...",
+      "example": "徹夜までしてがんばったのに、テストでいい点が取れなかった。",
+      "exampleVi": "Tôi đã rất cố gắng, thậm chí là thức trắng đêm để học, nhưng kết quả kiểm tra lại không cao."
+    },
+    {
+      "id": "bunpo-400-324",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てでも",
+      "meaningVi": "Dù có phải...",
+      "example": "2倍の金額を払ってでもそのコンサートのチケットが欲しい。",
+      "exampleVi": "Dù có phải trả gấp 2 lần tiền tôi vẫn muốn có cái vé hòa nhạc đó."
+    },
+    {
+      "id": "bunpo-400-325",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とみえる",
+      "meaningVi": "Có vẻ...",
+      "example": "朝からパチンコに行くなんて、ずいぶん暇だとみえる。",
+      "exampleVi": "Cái loại đi chơi Pachiko từ sáng, có vẻ rảnh rỗi quá."
+    },
+    {
+      "id": "bunpo-400-326",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜かねない。",
+      "meaningVi": "Có lẽ..., có khi...",
+      "example": "大事なことはみんなに相談しないと、後で文句を言われかねないよ。",
+      "exampleVi": "Nếu không bàn bạc chuyện quan trọng với mọi người, có khi sẽ bị quở trách đấy."
+    },
+    {
+      "id": "bunpo-400-327",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜おそれがある",
+      "meaningVi": "E là..., có nguy cơ...",
+      "example": "[レッドデータブック]には絶滅のおそれがある動植物について書かれている。",
+      "exampleVi": "Sách đỏ viết về những động thực vật có nguy cơ tuyệt chủng."
+    },
+    {
+      "id": "bunpo-400-328",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜まい・〜ではあるまいか",
+      "meaningVi": "Có lẽ không...",
+      "example": "誰も信じてくれまいが、これは本当の話だ。",
+      "exampleVi": "Có lẽ không ai tin nhưng đây là câu chuyện có thật."
+    },
+    {
+      "id": "bunpo-400-329",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に相違ない。",
+      "meaningVi": "Chắc chắn là...",
+      "example": "彼があれだけ強く主張するのは何かはっきりした証拠があるからに相違ない。",
+      "exampleVi": "Anh ta khăng khăng thế kia chắc chắn là vì có chứng cứ rõ ràng nào đó rồi."
+    },
+    {
+      "id": "bunpo-400-330",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものだ。",
+      "meaningVi": "Đúng là...",
+      "example": "自分では気がつきにくいが、どんな人にも癖があるものだ。",
+      "exampleVi": "Bản thân thì khó nhận ra nhưng đúng là ai cũng có tật xấu nào đó."
+    },
+    {
+      "id": "bunpo-400-331",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜というものだ",
+      "meaningVi": "Thật đúng là...",
+      "example": "他人の物を断りもなく使うなんて、あつかましいというものだ。",
+      "exampleVi": "Cái loại chẳng được cho phép cũng tự ý dùng đồ người khác, thật đúng là trơ trên quá mà."
+    },
+    {
+      "id": "bunpo-400-332",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にすぎない。",
+      "meaningVi": "Chỉ ...",
+      "example": "一社員にすぎない私に、会社の仕事など決められません。",
+      "exampleVi": "Tôi chỉ là một nhân viên quèn thôi, không thể quyết định những việc của công ty được."
+    },
+    {
+      "id": "bunpo-400-333",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜にほかならない。",
+      "meaningVi": "Chính là..., không gì khác là...",
+      "example": "将来この国を支えるのは若い君たちにほかならない。",
+      "exampleVi": "Người gánh vác tương lai đất nước chính là thế hệ trẻ các bạn."
+    },
+    {
+      "id": "bunpo-400-334",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に越したことはない",
+      "meaningVi": "Nên...thì hơn",
+      "example": "旅行の荷物は軽いに越したことはない。",
+      "exampleVi": "Hành lí đi du lịch nên nhẹ thì hơn."
+    },
+    {
+      "id": "bunpo-400-335",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜しかない・〜よりほかない。",
+      "meaningVi": "Chỉ là, chỉ còn cách ...",
+      "example": "この道は一方通行だから、戻りたくても前に進むしかない。",
+      "exampleVi": "Vì đường này là đường một chiều nên dù muốn quay lại cũng chỉ còn cách đi thẳng."
+    },
+    {
+      "id": "bunpo-400-336",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（よ）うではないか。",
+      "meaningVi": "Hãy...",
+      "example": "環境を守るために何ができるか、考えてみようではないか。",
+      "exampleVi": "Hãy thử suy nghĩ xem có thể làm gì để bảo vệ môi trường."
+    },
+    {
+      "id": "bunpo-400-337",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことだ。",
+      "meaningVi": "Phải..., nên...",
+      "example": "太りたくなければ、夜遅く食べないことです。",
+      "exampleVi": "Nếu không muốn béo thì không nên ăn khuya."
+    },
+    {
+      "id": "bunpo-400-338",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものだ・〜ものではない",
+      "meaningVi": "Phải..., nên..., không được...",
+      "example": "気軽に人にお金を貸すものではない。",
+      "exampleVi": "Không được tùy tiện cho người khác vay tiền."
+    },
+    {
+      "id": "bunpo-400-339",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜まい・〜（よ）うか〜まいか",
+      "meaningVi": "Quyết không..., không có ý định...",
+      "example": "こんなばかな失敗は二度とするまい。",
+      "exampleVi": "Quyết không lặp lại sai lầm ngu ngốc như thế này nữa."
+    },
+    {
+      "id": "bunpo-400-340",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものか。",
+      "meaningVi": "Không được...",
+      "example": "あんな無責任な人とはもう一緒に仕事をするものか。",
+      "exampleVi": "Không được làm việc chung với cái người vô trách nhiệm như thế nữa."
+    },
+    {
+      "id": "bunpo-400-341",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てしかたがない・〜でしょうがない・〜てたまらない",
+      "meaningVi": "Không thể chịu được..., quá...",
+      "example": "蜂に刺されたところがかゆくてたまらない。",
+      "exampleVi": "Chỗ bị ong đốt ngứa không chịu được."
+    },
+    {
+      "id": "bunpo-400-342",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜てならない。",
+      "meaningVi": "Không thể kìm được...",
+      "example": "この歌を聞くと、学生時代のことが思い出されてならない。",
+      "exampleVi": "Cứ nghe bài hát này là tôi không thể không nhớ lại thời học sinh."
+    },
+    {
+      "id": "bunpo-400-343",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ないではいられない・〜ずにはいられない。",
+      "meaningVi": "Không thể không...",
+      "example": "この犬を見ていると、あいつの顔を思い出さないではいられない。",
+      "exampleVi": "Cứ nhìn thấy con chó này là tôi lại không thể không nhớ về khuôn mặt của hắn ta."
+    },
+    {
+      "id": "bunpo-400-344",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ざるをえない。",
+      "meaningVi": "Phải...",
+      "example": "このまま赤字が続けば、経営方針を変更せざるを得ないだろう。",
+      "exampleVi": "Nếu cứ tiếp tục lỗ như thế này, có lẽ phải thay đổi phương châm kinh doanh thôi."
+    },
+    {
+      "id": "bunpo-400-345",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜たいものだ・〜てほしいものだ。",
+      "meaningVi": "Rất muốn, muốn...quá",
+      "example": "将来はこんな家に住みたいものだなあ。",
+      "exampleVi": "Tương lai tôi rất muốn sống trong ngôi nhà như thế này."
+    },
+    {
+      "id": "bunpo-400-346",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものだ。（thật là）",
+      "meaningVi": "Thật là...",
+      "example": "卒業してからもう10年か。時間が過ぎるのは早いものだ。",
+      "exampleVi": "Kể từ khi tốt nghiệp cũng đã 10 năm rồi. Thời gian trôi qua thật là nhanh."
+    },
+    {
+      "id": "bunpo-400-347",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ないもの（だろう）か。",
+      "meaningVi": "Không thể...sao",
+      "example": "母の病気が治らないものか。",
+      "exampleVi": "Bệnh tình của mẹ không thể khỏi được sao."
+    },
+    {
+      "id": "bunpo-400-348",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ものがある。",
+      "meaningVi": "Có cảm giác...",
+      "example": "毎日2時間もかけて運動するのはかなり辛いものがある。",
+      "exampleVi": "Ngày nào cũng mất 2 tiếng để đi làm, cảm giác khá là khổ sở."
+    },
+    {
+      "id": "bunpo-400-349",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことだ。（thật sự）",
+      "meaningVi": "Thật sự là...",
+      "example": "困ったとき助けてくれる友達がいる。ありがたいことだ。",
+      "exampleVi": "Có bạn bè giúp đỡ lúc khó khăn. Thật sự là cảm kích."
+    },
+    {
+      "id": "bunpo-400-350",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことだろう・〜ことか。",
+      "meaningVi": "Không biết bao nhiêu...",
+      "example": "「無理遣いをするな」と子供にもう何回注意したことか。",
+      "exampleVi": "Không biết bao nhiêu lần tôi nhắc con là không được lãng phí."
+    },
+    {
+      "id": "bunpo-400-351",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に於いて。",
+      "meaningVi": "Tại, ở...",
+      "example": "本日、A館に於いて、記念式典が行われる。",
+      "exampleVi": "Hôm nay, buổi lễ kỉ niệm sẽ được tổ chức tại nhà A."
+    },
+    {
+      "id": "bunpo-400-352",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜に先立って。",
+      "meaningVi": "Trước khi",
+      "example": "入社試験に先立って、会社説明会が行われた。",
+      "exampleVi": "Trước khi thi vào công ty, người ta tổ chức buổi giới thiệu về công ty ấy."
+    },
+    {
+      "id": "bunpo-400-353",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜とはいいながら。",
+      "meaningVi": "Dù là...",
+      "example": "彼女は母親になったとはいいながら。子育ては苦手なようだ。",
+      "exampleVi": "Cô ta dù là mẹ rồi nhưng hình như chẳng biết cách nuôi dạy con."
+    },
+    {
+      "id": "bunpo-400-354",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜からすると・〜からいうと",
+      "meaningVi": "Nhìn vào, xét về...",
+      "example": "あの車は形からすると、10年ぐらい前の物だと思う。",
+      "exampleVi": "Nhìn vào hình dáng của cái ô tô kia, tôi nghĩ nó là vật từ 10 năm trước."
+    },
+    {
+      "id": "bunpo-400-355",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことなく",
+      "meaningVi": "Không hề..., mà không...",
+      "example": "母は何を言われても怒ることなく、いつもニコニコしている。",
+      "exampleVi": "Mẹ tôi dù bị nói gì cũng không hề nổi giận, cứ tủm tím sự suốt."
+    },
+    {
+      "id": "bunpo-400-356",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ことに",
+      "meaningVi": "Thật là...",
+      "example": "嬉しいことに、四月から給料が1割ほどあがる。",
+      "exampleVi": "Thật là vui sướng, lương từ tháng 4 sẽ tăng lên 10%."
+    },
+    {
+      "id": "bunpo-400-357",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜だの〜だの。",
+      "meaningVi": "Nào là...nào là",
+      "example": "隣のうちの人はごみの出し方が悪いだの、夜の洗濯はだめだの、文句ばっかり言っている。",
+      "exampleVi": "Nhà hàng xóm suốt ngày phàn nàn, nào là chưa biết cách đổ rác, nào là không được giặt giũ vào ban đêm."
+    },
+    {
+      "id": "bunpo-400-358",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜のみ",
+      "meaningVi": "Chỉ...",
+      "example": "土日のみのアルバイトを探している。",
+      "exampleVi": "Tôi đang tìm việc làm thêm chỉ vào thứ bảy chủ nhật."
+    },
+    {
+      "id": "bunpo-400-359",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜おそらく。",
+      "meaningVi": "E rằng...",
+      "example": "雲が真っ黒だから、おそらく雨になるだろう。",
+      "exampleVi": "Mây đen kịt, e rằng tối sẽ mưa"
+    },
+    {
+      "id": "bunpo-400-360",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜まさか",
+      "meaningVi": "Chắc chắn rằng...không",
+      "example": "あんなに何度も練習したのだから、まさか失敗することはあるまい。",
+      "exampleVi": "Vì luyện tập nhiều lần như thế nên chắc chắn không có chuyện thất bại."
+    },
+    {
+      "id": "bunpo-400-361",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜徐々に",
+      "meaningVi": "Dần dần, thong thả, chậm chậm...",
+      "example": "彼の健康は徐々に回復した。",
+      "exampleVi": "Sức khỏe của anh ấy đã hồi phục dần dần."
+    },
+    {
+      "id": "bunpo-400-362",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜果たして。",
+      "meaningVi": "Quả nhiên, quả thực...",
+      "example": "あなたの言うことは果たして事実ですか。",
+      "exampleVi": "Những chuyện anh nói quả thực là sự thật phải không?"
+    },
+    {
+      "id": "bunpo-400-363",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜しかも。",
+      "meaningVi": "Hơn nữa, thêm nữa...",
+      "example": "先生の宿題は長くて、しかも難しい。",
+      "exampleVi": "Bài tập của thầy rất dài, hơn nữa lại còn khó."
+    },
+    {
+      "id": "bunpo-400-364",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜更に。",
+      "meaningVi": "Thêm nữa, hơn nữa...",
+      "example": "田中さんの家で料理をごちそうになった。更に、お土産もいただいた。",
+      "exampleVi": "Được chiêu đãi ở nhà anh Tanaka. Hơn nữa còn nhận được quà."
+    },
+    {
+      "id": "bunpo-400-365",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜あるいは",
+      "meaningVi": "Hoặc là...",
+      "example": "風邪かもしれない。あるいは、インフルエンザかもしれない。",
+      "exampleVi": "Có lẽ cảm lạnh rồi. Hoặc là cúm virus cũng nên."
+    },
+    {
+      "id": "bunpo-400-366",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜それとも。",
+      "meaningVi": "Hay là...",
+      "example": "仕事を続けるべきか。それとも、留学するべきか。",
+      "exampleVi": "Nên tiếp tục công việc. Hay là nên đi du học nhỉ."
+    },
+    {
+      "id": "bunpo-400-367",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜こうして。",
+      "meaningVi": "Cứ thế...",
+      "example": "大学では友達もできたし、いいアルバイトも見つかった。こうして、私の新しい生活が始まった。",
+      "exampleVi": "Quen được nhiều bạn ở đại học, tìm được việc làm thêm tốt. Cuộc sống mới của tôi cứ thế bắt đầu."
+    },
+    {
+      "id": "bunpo-400-368",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜それでも。",
+      "meaningVi": "Tuy thế...",
+      "example": "宝くじが当たることはめったにない。それでも、買い続けている。",
+      "exampleVi": "Hiếm khi trúng số. Tuy thế, vẫn tiếp tục mua."
+    },
+    {
+      "id": "bunpo-400-369",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜要するに。",
+      "meaningVi": "Tóm lại, nói một cách ngắn gọn...",
+      "example": "野菜は健康にいいが、魚や肉などのたんぱく質も取る必要がある。要するに、いろいろな物をバランスよく食べることが重要だ。",
+      "exampleVi": "Rau thì tốt cho sức khỏe nhưng chất đạm trong thịt và cá cũng rất cần thiết. Tóm lại, việc ăn nhiều chất để đảm bảo sự cân bằng rất quan trọng."
+    },
+    {
+      "id": "bunpo-400-370",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜いわば。",
+      "meaningVi": "Có thể nói...",
+      "example": "このアニメを知らない日本人はいないだろう。いわば、これは国民的なアニメだ。",
+      "exampleVi": "Có lẽ không một người Nhật nào không biết bộ phim hoạt hình này. Có thể nói đây là bộ Anime quốc dân."
+    },
+    {
+      "id": "bunpo-400-371",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜及び。",
+      "meaningVi": "Và",
+      "example": "会議終了後、名札及びアンケート用紙を回収します。",
+      "exampleVi": "Kết thúc buổi họp sẽ thu lại bảng tên và phiếu thăm dò."
+    },
+    {
+      "id": "bunpo-400-372",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜なお（更に）",
+      "meaningVi": "Ngoài ra, hơn nữa...",
+      "example": "彼は手術してなお悪くなった。",
+      "exampleVi": "Anh ta còn tệ hơn nữa sau khi phẫu thuật."
+    },
+    {
+      "id": "bunpo-400-373",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜さて…。",
+      "meaningVi": "Nào..., à...",
+      "example": "お久しぶりです。お元気ですか。さて、今日はお聞きしたいことがありまして、メールしました。",
+      "exampleVi": "Lâu lắm không gặp nhỉ. Khỏe không? À, hôm nay có chuyện muốn hỏi nên mail đấy."
+    },
+    {
+      "id": "bunpo-400-374",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜あえて。",
+      "meaningVi": "Dám...",
+      "example": "彼女はまた風邪をひかないように、あえて部屋から出ようとしない。",
+      "exampleVi": "Cô ấy chẳng dám ra khỏi phòng để khỏi bị cảm lần nữa."
+    },
+    {
+      "id": "bunpo-400-375",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜以外の。",
+      "meaningVi": "Ngoài...ra thì",
+      "example": "彼は日本語以外の外国語は全く知らない。",
+      "exampleVi": "Ngoài tiếng Nhật ra thì anh ta hoàn toàn không biết tiếng nước ngoài."
+    },
+    {
+      "id": "bunpo-400-376",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜思うように。",
+      "meaningVi": "Như đã nghĩ",
+      "example": "試験は思うようにうまく出来なかった。",
+      "exampleVi": "Bài thi đã không hoàn thành tốt như đã nghĩ."
+    },
+    {
+      "id": "bunpo-400-377",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜あっての。",
+      "meaningVi": "Vì, chính vì, do có...",
+      "example": "君の援助あっての私の成功だ。",
+      "exampleVi": "Thành công của anh là do có sự trợ giúp của em."
+    },
+    {
+      "id": "bunpo-400-378",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜（で）すら。",
+      "meaningVi": "Thậm chí..., ngay cả...",
+      "example": "腰が痛くて、起き上がることすら難しかった。",
+      "exampleVi": "Đau lưng, thậm chí ngồi dậy cũng khó khăn."
+    },
+    {
+      "id": "bunpo-400-379",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜何といっても。",
+      "meaningVi": "Dù thế nào thì..., nói gì thì nói...",
+      "example": "何といっても、家族が一番大切だ。",
+      "exampleVi": "Dù thế nào thì gia đình cũng là thứ quan trọng nhất."
+    },
+    {
+      "id": "bunpo-400-380",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ゆえに・がゆえに。",
+      "meaningVi": "Vì...",
+      "example": "貧困ゆえに学校にも行けない子どもがいる。",
+      "exampleVi": "Có những đứa trẻ không được đến trường vì nghèo khó."
+    },
+    {
+      "id": "bunpo-400-381",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ような気がする。",
+      "meaningVi": "Có cảm giác là..., dường như là...",
+      "example": "彼女は最近、私に冷たくなったような気がする。",
+      "exampleVi": "Cô ấy gần đây có cảm giác lạnh nhạt với tôi."
+    },
+    {
+      "id": "bunpo-400-382",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜ろくに〜ない。",
+      "meaningVi": "Không...một chút gì",
+      "example": "彼は今日ろくに何も食べなかった。",
+      "exampleVi": "Anh ấy cả ngày hôm nay chẳng ăn cái gì cả."
+    },
+    {
+      "id": "bunpo-400-383",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜を〜に任せる。",
+      "meaningVi": "Phó thác...",
+      "example": "家事をすべて奥さんに任せないでください。",
+      "exampleVi": "Việc nhà xin đừng phó thác hết cho người vợ."
+    },
+    {
+      "id": "bunpo-400-384",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜別に〜ない。",
+      "meaningVi": "Không hề...",
+      "example": "お前なんかいなくても、別に困らないよ。",
+      "exampleVi": "Không có mày tao vẫn không hề khó khăn nhé."
+    },
+    {
+      "id": "bunpo-400-385",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜でいいです。",
+      "meaningVi": "Là được, ...là đủ",
+      "example": "東京から富士山まで車でいいですね。",
+      "exampleVi": "Từ Tokyo đến núi Phú Sĩ thì đi bằng xe hơi là được nhỉ."
+    },
+    {
+      "id": "bunpo-400-386",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜確か",
+      "meaningVi": "Chắc chắn là...",
+      "example": "確かにどこかで会った人だが、なかなか思い出せない。",
+      "exampleVi": "Chắc chắn là người tôi đã gặp ở đâu đó nhưng tôi lại không thể nhớ ra."
+    },
+    {
+      "id": "bunpo-400-387",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜せめて。",
+      "meaningVi": "Dù chỉ...cũng muốn, ít nhất thì muốn...",
+      "example": "せめて君の声だけ聞きたいなあ。",
+      "exampleVi": "Anh chỉ muốn nghe giọng nói của em thôi."
+    },
+    {
+      "id": "bunpo-400-388",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜いったん〜ば・と・たら。",
+      "meaningVi": "Một khi...",
+      "example": "彼女はおしゃべりな人で、いったん話し出すと止まらない。",
+      "exampleVi": "Cô ấy là người nói nhiều nên một khi nói ra sẽ không ngừng."
+    },
+    {
+      "id": "bunpo-400-389",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜かたわら。",
+      "meaningVi": "Bên cạnh..., ngoài...còn...",
+      "example": "彼は会社に勤めるかたわら、日本語を教えている。",
+      "exampleVi": "Anh ấy bên cạnh làm việc ở công ty còn dạy tiếng Nhật nữa."
+    },
+    {
+      "id": "bunpo-400-390",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜がてら。",
+      "meaningVi": "Nhân tiện, tiện thể...",
+      "example": "東京に住んでいる姉を訪ねがてら、日本を観光して回った。",
+      "exampleVi": "Nhân tiện thăm chị gái ở Tokyo tôi đã đi tham quan vòng quanh Nhật Bản."
+    },
+    {
+      "id": "bunpo-400-391",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜からなる。",
+      "meaningVi": "Tạo thành từ..., hình thành từ...",
+      "example": "日本の国会は衆議院と参議院からなり、国会は国の最高決定機関である。",
+      "exampleVi": "Quốc hội Nhật Bản được hình thành từ Hạ nghị viện và Thượng nghị viện, quốc hội là cơ quan quyết định cao nhất của cả nước."
+    },
+    {
+      "id": "bunpo-400-392",
+      "level": "N2",
+      "sources": [
+        "400-mau-thong-dung"
+      ],
+      "pattern": "〜さすが（に）。",
+      "meaningVi": "Quả là...",
+      "example": "彼女は満点で日本語能力試験のN1に合格したので、さすがに日本語が上手だ。",
+      "exampleVi": "Cô ấy đỗ N1 manten, tiếng Nhật quả là giỏi nhỉ."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import bunpoJlptDaRaRaw from "../data/bunpo-n3-jlpt-da-ra.json";
 import bunpoTheoChuongRaw from "../data/bunpo-n3-theo-chuong.json";
+import bunpo400MauRaw from "../data/bunpo-400-mau-thong-dung.json";
 import type { BunpoDataset, BunpoGrammarPoint, BunpoSource } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
@@ -7,9 +8,11 @@ import { storageGet, storageSet } from "../platform/storage";
 
 const jlptDaRaDataset = bunpoJlptDaRaRaw as unknown as BunpoDataset;
 const theoChuongDataset = bunpoTheoChuongRaw as unknown as BunpoDataset;
+const mau400Dataset = bunpo400MauRaw as unknown as BunpoDataset;
 export const ALL_BUNPO: BunpoGrammarPoint[] = [
   ...jlptDaRaDataset.grammarPoints,
   ...theoChuongDataset.grammarPoints,
+  ...mau400Dataset.grammarPoints,
 ];
 
 const BUNPO_BY_ID = new Map(ALL_BUNPO.map((g) => [g.id, g]));
@@ -20,10 +23,13 @@ export function findBunpoById(id: string): BunpoGrammarPoint | undefined {
 export const SOURCE_LABELS: Record<BunpoSource, string> = {
   "jlpt-da-ra": "Đã ra trong đề JLPT",
   "theo-chuong": "Học theo chương",
+  shinkanzen: "Shinkanzen",
+  "try-n3": "TRY! N3",
+  "400-mau-thong-dung": "400 mẫu thông dụng",
 };
 
-const SOURCE_ORDER: BunpoSource[] = ["theo-chuong", "jlpt-da-ra"];
-export const AVAILABLE_SOURCES: BunpoSource[] = SOURCE_ORDER.filter((s) => ALL_BUNPO.some((g) => g.source === s));
+const SOURCE_ORDER: BunpoSource[] = ["theo-chuong", "jlpt-da-ra", "shinkanzen", "try-n3", "400-mau-thong-dung"];
+export const AVAILABLE_SOURCES: BunpoSource[] = SOURCE_ORDER.filter((s) => ALL_BUNPO.some((g) => g.sources.includes(s)));
 
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((level) => ALL_BUNPO.some((g) => g.level === level));
@@ -96,8 +102,8 @@ export async function saveViewerState(state: BunpoViewerState): Promise<void> {
 export function getFilteredList(state: BunpoViewerState): BunpoGrammarPoint[] {
   return ALL_BUNPO.filter((g) => {
     if (!state.selectedLevels.includes(g.level)) return false;
-    if (!state.selectedSources.includes(g.source)) return false;
-    if (g.source === "theo-chuong" && g.chapter !== undefined && !state.selectedChapters.includes(g.chapter)) {
+    if (!g.sources.some((s) => state.selectedSources.includes(s))) return false;
+    if (g.sources.includes("theo-chuong") && g.chapter !== undefined && !state.selectedChapters.includes(g.chapter)) {
       return false;
     }
     return true;
