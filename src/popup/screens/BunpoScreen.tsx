@@ -34,6 +34,22 @@ import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPa
 import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../readingState.ts";
 import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../quizBookState.ts";
 
+// Every conjugation-form term that appears anywhere in "usage" across both
+// data sources (checked against the full dataset) -- shown once via the
+// "ⓘ" button next to "Cách dùng" instead of annotating every occurrence
+// inline, which would repeat the same explanation 90+ times and get
+// unreadable fast on combined notations like "V辞書形／Vない形".
+const USAGE_TERM_GLOSSARY: { term: string; explanation: string }[] = [
+  { term: "辞書形", explanation: "Thể từ điển (dạng nguyên mẫu của động từ), vd: 食べる" },
+  { term: "ます形", explanation: "Thể ます (dạng lịch sự), vd: 食べます" },
+  { term: "て形", explanation: "Thể て, vd: 食べて" },
+  { term: "た形", explanation: "Thể た (quá khứ thông thường), vd: 食べた" },
+  { term: "ば形", explanation: "Thể ば (giả định), vd: 食べれば" },
+  { term: "ない形", explanation: "Thể ない (phủ định), vd: 食べない" },
+  { term: "意向形", explanation: "Thể ý chí / dự định, vd: 食べよう" },
+  { term: "普通形", explanation: "Thể thông thường (từ điển／ない／た／なかった tuỳ loại từ và thì)" },
+];
+
 function matchesQuery(g: BunpoGrammarPoint, q: string): boolean {
   if (!q) return true;
   return g.pattern.toLowerCase().includes(q) || g.meaningVi.toLowerCase().includes(q);
@@ -321,6 +337,7 @@ function DetailView({
 }) {
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [visibleList, setVisibleList] = useState<BunpoGrammarPoint[]>([]);
+  const [showUsageGlossary, setShowUsageGlossary] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -423,7 +440,17 @@ function DetailView({
           <dd>{g.meaningVi}</dd>
           {g.usage ? (
             <>
-              <dt>Cách dùng</dt>
+              <dt>
+                Cách dùng
+                <button
+                  type="button"
+                  className="usage-glossary-btn"
+                  title="Giải thích ký hiệu thể"
+                  onClick={() => setShowUsageGlossary(true)}
+                >
+                  ⓘ
+                </button>
+              </dt>
               <dd>{g.usage}</dd>
             </>
           ) : null}
@@ -473,6 +500,34 @@ function DetailView({
                   {qq.question.length > 24 ? "…" : ""}
                 </button>
               ))}
+            </div>
+          </div>
+        ) : null}
+
+        {showUsageGlossary ? (
+          <div
+            className="usage-glossary-overlay"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setShowUsageGlossary(false);
+            }}
+          >
+            <div className="usage-glossary-modal">
+              <button
+                className="icon-btn usage-glossary-close"
+                title="Đóng"
+                onClick={() => setShowUsageGlossary(false)}
+              >
+                ✕
+              </button>
+              <div className="usage-glossary-title">Giải thích ký hiệu thể</div>
+              <dl className="usage-glossary-list">
+                {USAGE_TERM_GLOSSARY.map((entry) => (
+                  <Fragment key={entry.term}>
+                    <dt>{entry.term}</dt>
+                    <dd>{entry.explanation}</dd>
+                  </Fragment>
+                ))}
+              </dl>
             </div>
           </div>
         ) : null}

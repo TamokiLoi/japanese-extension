@@ -685,6 +685,78 @@ body.tab-mode #app {
   color: #4a7a4a;
 }
 
+/* "ⓘ" button next to the "Cách dùng" dt + the glossary overlay it opens,
+   explaining conjugation-form shorthand (V辞書形, Vて形, ...) once instead
+   of annotating every occurrence inline. */
+.usage-glossary-btn {
+  border: none;
+  background: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 0 0 4px;
+  vertical-align: middle;
+}
+
+.usage-glossary-btn:hover {
+  color: #b5340a;
+}
+
+.usage-glossary-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.usage-glossary-modal {
+  position: relative;
+  width: 260px;
+  max-height: 80%;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.usage-glossary-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.usage-glossary-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #b5340a;
+  margin-bottom: 10px;
+}
+
+.usage-glossary-list {
+  margin: 0;
+  font-size: 12px;
+}
+
+.usage-glossary-list dt {
+  color: #b5340a;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.usage-glossary-list dt:first-child {
+  margin-top: 0;
+}
+
+.usage-glossary-list dd {
+  margin: 2px 0 0;
+  color: #333;
+}
+
 /* Progress: mastery badge + flag button (shared by Kanji and Vocab cards) */
 .progress-filter-row {
   display: flex;
