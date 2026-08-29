@@ -67,6 +67,23 @@ body.tab-mode #app {
   flex-shrink: 0;
 }
 
+/* Below the 480px card width, the centered-card look has nowhere to breathe
+   -- fill the viewport edge-to-edge instead (this is also what every phone
+   hitting the GitHub Pages web build sees, since that build always applies
+   .tab-mode -- see main.tsx). */
+@media (max-width: 520px) {
+  body.tab-mode {
+    padding: 0;
+  }
+
+  body.tab-mode #app {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 .toolbar {
   display: flex;
   align-items: center;

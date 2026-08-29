@@ -112,7 +112,18 @@ function App() {
 // Quiz (and the "⤢ mở tab" button on Kanji/Vocab) opens in a full browser
 // tab instead of the popup -- see MenuScreen.tsx / TabMode.tsx. `?tab=1`
 // marks the page as opened that way (widens the layout, see .tab-mode in style.css).
+// On the GitHub Pages web build there's no popup to begin with -- every
+// page load is already "a full tab" -- so it always gets the wider layout
+// instead of the extension's narrow 320px popup style. Note: plain Chromium
+// (not just the extension) exposes a stub `window.chrome` object (
+// chrome.loadTimes/csi/app, left over for web-compat reasons) even with no
+// extension installed, so `typeof chrome === "undefined"` alone doesn't
+// detect "running as an extension" -- chrome.runtime.id only exists when
+// this page was actually loaded as an extension's own page.
 const params = new URLSearchParams(location.search);
-if (params.get("tab") === "1") document.body.classList.add("tab-mode");
+const isExtensionContext = typeof chrome !== "undefined" && !!chrome.runtime?.id;
+if (params.get("tab") === "1" || !isExtensionContext) {
+  document.body.classList.add("tab-mode");
+}
 
 createRoot(document.getElementById("app")!).render(<App />);
