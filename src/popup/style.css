@@ -210,6 +210,31 @@ body.tab-mode #app {
 
 .details dd {
   margin: 0;
+  white-space: pre-line;
+}
+
+.usage-source-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.usage-jp {
+  font-style: italic;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.6;
+  padding-left: 8px;
+  border-left: 2px solid #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.usage-vi {
+  color: #333;
+  line-height: 1.6;
 }
 
 .hanviet {

@@ -3,6 +3,8 @@ import bunpoTheoChuongRaw from "../data/bunpo-n3-theo-chuong.json";
 import bunpo400MauRaw from "../data/bunpo-400-mau-thong-dung.json";
 import bunpoShinkanzenRaw from "../data/bunpo-shinkanzen.json";
 import bunpoTryN3Raw from "../data/bunpo-try-n3.json";
+import bunpoN4InfographicRaw from "../data/bunpo-n4-infographic.json";
+import bunpoTheDongTuRaw from "../data/bunpo-the-dong-tu.json";
 import type { BunpoDataset, BunpoGrammarPoint, BunpoSource } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
@@ -13,12 +15,16 @@ const theoChuongDataset = bunpoTheoChuongRaw as unknown as BunpoDataset;
 const mau400Dataset = bunpo400MauRaw as unknown as BunpoDataset;
 const shinkanzenDataset = bunpoShinkanzenRaw as unknown as BunpoDataset;
 const tryN3Dataset = bunpoTryN3Raw as unknown as BunpoDataset;
+const n4InfographicDataset = bunpoN4InfographicRaw as unknown as BunpoDataset;
+const theDongTuDataset = bunpoTheDongTuRaw as unknown as BunpoDataset;
 export const ALL_BUNPO: BunpoGrammarPoint[] = [
   ...jlptDaRaDataset.grammarPoints,
   ...theoChuongDataset.grammarPoints,
   ...mau400Dataset.grammarPoints,
   ...shinkanzenDataset.grammarPoints,
   ...tryN3Dataset.grammarPoints,
+  ...n4InfographicDataset.grammarPoints,
+  ...theDongTuDataset.grammarPoints,
 ];
 
 const BUNPO_BY_ID = new Map(ALL_BUNPO.map((g) => [g.id, g]));
@@ -32,9 +38,19 @@ export const SOURCE_LABELS: Record<BunpoSource, string> = {
   shinkanzen: "Shinkanzen",
   "try-n3": "TRY! N3",
   "400-mau-thong-dung": "400 mẫu thông dụng",
+  "n4-infographic": "Tổng hợp ngữ pháp N4",
+  "the-dong-tu": "13 thể động từ",
 };
 
-const SOURCE_ORDER: BunpoSource[] = ["theo-chuong", "jlpt-da-ra", "shinkanzen", "try-n3", "400-mau-thong-dung"];
+const SOURCE_ORDER: BunpoSource[] = [
+  "theo-chuong",
+  "jlpt-da-ra",
+  "shinkanzen",
+  "try-n3",
+  "400-mau-thong-dung",
+  "n4-infographic",
+  "the-dong-tu",
+];
 export const AVAILABLE_SOURCES: BunpoSource[] = SOURCE_ORDER.filter((s) => ALL_BUNPO.some((g) => g.sources.includes(s)));
 
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];

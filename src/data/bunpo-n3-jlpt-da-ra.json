@@ -7,13 +7,14 @@
       "meaningVi": "Trong lúc... / nhân lúc...",
       "example": "日本にいるうちに、富士山に登りたい。",
       "exampleVi": "Trong lúc còn ở Nhật, tôi muốn leo núi Phú Sĩ.",
-      "usage": "N＋うちに\n\n[TRY! N3] 「～うちに」は、「説明を聞いているうちにだんだんわかってきた」のように、何かをしている間に自然に変わると言うときに使う。また、「説明を聞いているうちに寝てしまった」のように、その前になかったことが起きると言うときにも使う。\n~うちに sử dụng khi nói rằng trong lúc đang làm cái gì đó thì tự nhiên thay đổi như là “説明を聞いているうちにだんだんわかってきた”. Cũng có thể sử dụng khi nói rằng chuyện trước đó không có nhưng đã xảy ra như là “説明を聞いているうちに寝てしまった”.",
+      "usage": "[TRY! N3] 「～うちに」は、「説明を聞いているうちにだんだんわかってきた」のように、何かをしている間に自然に変わると言うときに使う。また、「説明を聞いているうちに寝てしまった」のように、その前になかったことが起きると言うときにも使う。\n~うちに sử dụng khi nói rằng trong lúc đang làm cái gì đó thì tự nhiên thay đổi như là “説明を聞いているうちにだんだんわかってきた”. Cũng có thể sử dụng khi nói rằng chuyện trước đó không có nhưng đã xảy ra như là “説明を聞いているうちに寝てしまった”.",
       "examTip": "Diễn tả thời điểm trước khi tình trạng thay đổi.",
       "sources": [
         "jlpt-da-ra",
         "400-mau-thong-dung",
         "try-n3"
-      ]
+      ],
+      "formula": "N＋うちに"
     },
     {
       "id": "bunpo-jlpt-2",
@@ -22,12 +23,13 @@
       "meaningVi": "Trở nên... / có thể...",
       "example": "日本語の新聞が読めるようになった。",
       "exampleVi": "Tôi đã có thể đọc báo tiếng Nhật.",
-      "usage": "V辞書形\n\n[Shinkanzen] ⇒変化が起きる\nXảy ra sự biến đổi",
+      "usage": "[Shinkanzen] ⇒変化が起きる\nXảy ra sự biến đổi",
       "examTip": "Nhấn sự thay đổi tự nhiên theo thời gian.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形"
     },
     {
       "id": "bunpo-jlpt-3",
@@ -50,12 +52,13 @@
       "meaningVi": "Vừa mới...",
       "example": "今、帰ってきたばかりです。",
       "exampleVi": "Tôi vừa mới về xong.",
-      "usage": "Vた形＋ばかり\n\n[TRY! N3] 「～たばかり」は、何かをしてからほとんど時間がたっていないときに使う。「半年前に家を建てたばかり」のように、話し手が時間がたっていないと感じる場合にも使える。\n~たばかり sử dụng khi hầu như thời gian không trôi qua kể từ khi làm cái gì đó. Cũng có thể sử dụng trong trường hợp người nói cảm thấy thời gian trôi qua không bao lâu như là “半年前に家を建てたばかり”。",
+      "usage": "[TRY! N3] 「～たばかり」は、何かをしてからほとんど時間がたっていないときに使う。「半年前に家を建てたばかり」のように、話し手が時間がたっていないと感じる場合にも使える。\n~たばかり sử dụng khi hầu như thời gian không trôi qua kể từ khi làm cái gì đó. Cũng có thể sử dụng trong trường hợp người nói cảm thấy thời gian trôi qua không bao lâu như là “半年前に家を建てたばかり”。",
       "examTip": "Hành động vừa mới hoàn tất.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "Vた形＋ばかり"
     },
     {
       "id": "bunpo-jlpt-5",
@@ -77,12 +80,13 @@
       "meaningVi": "Sắp / đang / vừa mới...",
       "example": "今からご飯を食べるところです。",
       "exampleVi": "Bây giờ tôi chuẩn bị ăn cơm.",
-      "usage": "V辞書形＋ところだ\n\n[Shinkanzen] “Ngay trước khi ~ (①)/Trong khi đang ~ (②)/Ngay sau khi ~ (③④).” Trong câu, tùy thuộc vào động từ đứng đằng sau mà trợ từ đi kèm thay đổi theo các dạng như “ところを/ところで/ところへ/v.v.”.",
+      "usage": "[Shinkanzen] “Ngay trước khi ~ (①)/Trong khi đang ~ (②)/Ngay sau khi ~ (③④).” Trong câu, tùy thuộc vào động từ đứng đằng sau mà trợ từ đi kèm thay đổi theo các dạng như “ところを/ところで/ところへ/v.v.”.",
       "examTip": "Hành động đang ở thời điểm nói.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形＋ところだ"
     },
     {
       "id": "bunpo-jlpt-7",
@@ -167,13 +171,14 @@
       "meaningVi": "Có vẻ đúng là...",
       "example": "彼は日本人らしい話し方をする。",
       "exampleVi": "Anh ấy nói chuyện rất ra dáng người Nhật.",
-      "usage": "Vらしい／Nらしい／な形容詞らしい\n\n[Shinkanzen] Giống với những hình dung về ~",
+      "usage": "[Shinkanzen] Giống với những hình dung về ~",
       "examTip": "Suy đoán dựa trên tin tức, dấu hiệu.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen",
         "try-n3"
-      ]
+      ],
+      "formula": "Vらしい／Nらしい／な形容詞らしい"
     },
     {
       "id": "bunpo-jlpt-14",
@@ -195,12 +200,13 @@
       "meaningVi": "Để / vì...",
       "example": "健康のために、毎日運動している。",
       "exampleVi": "Để giữ sức khỏe, tôi tập thể dục mỗi ngày.",
-      "usage": "V辞書形＋ために\n\n[Shinkanzen] ～ために：そうしようという行為の目的。話者の意志を含む動詞の辞書形につく。\nMục đích của hành động. Đi cùng với động từ dạng nguyên thể bao hàm ý chí của người nói.",
+      "usage": "[Shinkanzen] ～ために：そうしようという行為の目的。話者の意志を含む動詞の辞書形につく。\nMục đích của hành động. Đi cùng với động từ dạng nguyên thể bao hàm ý chí của người nói.",
       "examTip": "Diễn tả mục đích, lý do chủ động.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形＋ために"
     },
     {
       "id": "bunpo-jlpt-16",
@@ -209,12 +215,13 @@
       "meaningVi": "Nhờ có...",
       "example": "先生のおかげで、合格できた。",
       "exampleVi": "Nhờ cô giáo mà tôi đã đỗ.",
-      "usage": "N＋のおかげで／V辞書形＋おかげで\n\n[TRY! N3] 「～おかげで」は、「～」が原因でいい結果になって、感謝や「よかった」という気持ちを言うときに使う。\n~おかげで sử dụng khi nói lên tâm trạng vui mừng, sự biết ơn vì nhờ có “~” là nguyên nhân đưa đến kết quả tốt.",
+      "usage": "[TRY! N3] 「～おかげで」は、「～」が原因でいい結果になって、感謝や「よかった」という気持ちを言うときに使う。\n~おかげで sử dụng khi nói lên tâm trạng vui mừng, sự biết ơn vì nhờ có “~” là nguyên nhân đưa đến kết quả tốt.",
       "examTip": "Diễn tả kết quả tốt đẹp nhờ một nguyên nhân.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "N＋のおかげで／V辞書形＋おかげで"
     },
     {
       "id": "bunpo-jlpt-17",
@@ -236,12 +243,13 @@
       "meaningVi": "Cố gắng...",
       "example": "毎日漢字を覚えるようにしている。",
       "exampleVi": "Tôi cố gắng học kanji mỗi ngày.",
-      "usage": "V辞書形・Vない\n\n[Shinkanzen] Cách nói “〜ようにしている” như trong ví dụ ④ thể hiện sự nỗ lực vẫn đang được duy trì.\n“〜” là động từ thể hiện hành động có ý chí.",
+      "usage": "[Shinkanzen] Cách nói “〜ようにしている” như trong ví dụ ④ thể hiện sự nỗ lực vẫn đang được duy trì.\n“〜” là động từ thể hiện hành động có ý chí.",
       "examTip": "Thể hiện nỗ lực chủ động của bản thân.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形・Vない"
     },
     {
       "id": "bunpo-jlpt-19",
@@ -263,11 +271,12 @@
       "meaningVi": "Giá mà...",
       "example": "もっと勉強すればよかった。",
       "exampleVi": "Giá mà tôi học nhiều hơn.",
-      "usage": "Vば形＋よかった\n\n[TRY! N3] 「~ばよかった」は、自分がしなかったから悪い結果になったことを後悔したり、ほかの人がしなかったことを残念に思ったときに使う。\n～ばよかった sử dụng khi bạn hối hận vì mình đã không làm “～” nên bị kết quả xấu hoặc cảm thấy tiếc về việc người khác đã không làm.",
+      "usage": "[TRY! N3] 「~ばよかった」は、自分がしなかったから悪い結果になったことを後悔したり、ほかの人がしなかったことを残念に思ったときに使う。\n～ばよかった sử dụng khi bạn hối hận vì mình đã không làm “～” nên bị kết quả xấu hoặc cảm thấy tiếc về việc người khác đã không làm.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "Vば形＋よかった"
     },
     {
       "id": "bunpo-jlpt-21",
@@ -288,12 +297,13 @@
       "meaningVi": "Thay vì...",
       "example": "車のかわりに電車で行く。",
       "exampleVi": "Thay vì đi ô tô thì đi tàu điện.",
-      "usage": "Nの／V辞書形＋かわりに\n\n[TRY! N3] 「~かわりに」は、ほかの人がする、ほかのものを使う、ほかのことをすると言うときに使う。交換条件などを表すときにも使われる。\n～かわりに sử dụng khi nói làm việc khác, sử dụng cái khác, người khác làm. Mẫu này cũng được sử dụng khi đưa ra điều kiện trao đổi.",
+      "usage": "[TRY! N3] 「~かわりに」は、ほかの人がする、ほかのものを使う、ほかのことをすると言うときに使う。交換条件などを表すときにも使われる。\n～かわりに sử dụng khi nói làm việc khác, sử dụng cái khác, người khác làm. Mẫu này cũng được sử dụng khi đưa ra điều kiện trao đổi.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
       ],
-      "examTip": "「[N] + にかわって / にかわり」の形も使われる。\nVí dụ:\n① 今後はガソリンで走る車にかわって電気自動車が普及するのだろうか。\n② 本日は、入院中の父にかわり、私がごあいさつさせていただきます。"
+      "examTip": "「[N] + にかわって / にかわり」の形も使われる。\nVí dụ:\n① 今後はガソリンで走る車にかわって電気自動車が普及するのだろうか。\n② 本日は、入院中の父にかわり、私がごあいさつさせていただきます。",
+      "formula": "Nの／V辞書形＋かわりに"
     },
     {
       "id": "bunpo-jlpt-23",
@@ -314,11 +324,12 @@
       "meaningVi": "Chỉ còn / càng ngày càng...",
       "example": "日本語を忘れるばかりだ。",
       "exampleVi": "Tiếng Nhật chỉ càng ngày càng quên đi.",
-      "usage": "V辞書形＋ばかりだ\n\n[Shinkanzen] “Sự biến đổi diễn ra theo một chiều hướng ~.”\n“~” là động từ thể hiện sự thay đổi (弱くなる/減る/v.v.), đa phần theo chiều hướng không tốt.\n\n“Công đoạn chuẩn bị đã hoàn tất, việc còn lại bây giờ chỉ là ~.”",
+      "usage": "[Shinkanzen] “Sự biến đổi diễn ra theo một chiều hướng ~.”\n“~” là động từ thể hiện sự thay đổi (弱くなる/減る/v.v.), đa phần theo chiều hướng không tốt.\n\n“Công đoạn chuẩn bị đã hoàn tất, việc còn lại bây giờ chỉ là ~.”",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形＋ばかりだ"
     },
     {
       "id": "bunpo-jlpt-25",
@@ -339,12 +350,13 @@
       "meaningVi": "Nhắn / bảo ai...",
       "example": "先生は早く来るように言った。",
       "exampleVi": "Giáo viên bảo hãy đến sớm.",
-      "usage": "V辞書形／Vない形＋ように言う\n\n[TRY! N3] ~ように言う sử dụng khi bạn truyền đạt lại nội dung của một mệnh lệnh, nghiêm cấm, chỉ thị, hay tư vấn như là “しろ・するな”, “してください” hay “したほうがいい”.",
+      "usage": "[TRY! N3] ~ように言う sử dụng khi bạn truyền đạt lại nội dung của một mệnh lệnh, nghiêm cấm, chỉ thị, hay tư vấn như là “しろ・するな”, “してください” hay “したほうがいい”.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
       ],
-      "examTip": "*「言う」の代わりに「注意する」「頼む」「伝える」なども使われる。"
+      "examTip": "*「言う」の代わりに「注意する」「頼む」「伝える」なども使われる。",
+      "formula": "V辞書形／Vない形＋ように言う"
     },
     {
       "id": "bunpo-jlpt-27",
@@ -353,12 +365,13 @@
       "meaningVi": "Quyết định...",
       "example": "毎日運動することにした。",
       "exampleVi": "Tôi quyết định tập thể dục mỗi ngày.",
-      "usage": "V辞書形\n\n[Shinkanzen] Đa phần cấu trúc này được sử dụng ở dạng “〜ことにした”, nhưng cũng có trường hợp thể hiện quyết tâm ngay thời điểm nói như trong ví dụ ③.\nCách nói “〜ことにしている” như trong ví dụ ④ thể hiện bản thân bây giờ vẫn đang tiếp tục thực hiện quyết tâm đã đặt ra.\n“〜” là động từ thể hiện hành động có ý chí.",
+      "usage": "[Shinkanzen] Đa phần cấu trúc này được sử dụng ở dạng “〜ことにした”, nhưng cũng có trường hợp thể hiện quyết tâm ngay thời điểm nói như trong ví dụ ③.\nCách nói “〜ことにしている” như trong ví dụ ④ thể hiện bản thân bây giờ vẫn đang tiếp tục thực hiện quyết tâm đã đặt ra.\n“〜” là động từ thể hiện hành động có ý chí.",
       "examTip": "Quyết định chủ động từ bản thân.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形"
     },
     {
       "id": "bunpo-jlpt-28",
@@ -381,12 +394,13 @@
       "meaningVi": "Chắc chắn là...",
       "example": "あの人は日本人に違いない。",
       "exampleVi": "Người đó chắc chắn là người Nhật.",
-      "usage": "N／な形容詞＋に違いない\n\n[TRY! N3] ~に違いない sử dụng khi nói rằng bạn nghĩ chắc chắn, tuyệt đối là \"~\".",
+      "usage": "[TRY! N3] ~に違いない sử dụng khi nói rằng bạn nghĩ chắc chắn, tuyệt đối là \"~\".",
       "examTip": "Diễn tả sự khẳng định mạnh mẽ.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "N／な形容詞＋に違いない"
     },
     {
       "id": "bunpo-jlpt-30",
@@ -395,12 +409,13 @@
       "meaningVi": "Chắc là / lẽ ra...",
       "example": "田中さんはもう来ているはずだ。",
       "exampleVi": "Anh Tanaka chắc là đã đến rồi.",
-      "usage": "Vはずだ／Nのはずだ／な形容詞のはずだ\n\n[Shinkanzen] ～はずだ：話者の主観的な推量を言う。確信のある推量。\nDiễn tả suy đoán chủ quan của người nói. Là suy đoán có sự chắc chắn cao.",
+      "usage": "[Shinkanzen] ～はずだ：話者の主観的な推量を言う。確信のある推量。\nDiễn tả suy đoán chủ quan của người nói. Là suy đoán có sự chắc chắn cao.",
       "examTip": "Dự đoán hợp lý, đúng lẽ thường.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "Vはずだ／Nのはずだ／な形容詞のはずだ"
     },
     {
       "id": "bunpo-jlpt-31",
@@ -409,12 +424,13 @@
       "meaningVi": "Thảo nào / đương nhiên là...",
       "example": "道が混んでいるわけだ。事故があった。",
       "exampleVi": "Thảo nào đường đông, hóa ra có tai nạn.",
-      "usage": "V辞書形＋わけだ／Nのわけだ\n\n[Shinkanzen] 「事情から考えると、当然～という結論になる。(①②③)」「事情から考えると～という事実が納得できる。(④⑤)」\n“Nếu suy nghĩ từ tình hình thực tế thì sẽ ra kết luận đương nhiên ~.” (①②③)\n“Nếu suy nghĩ từ tình hình thực tế thì có thể chấp nhận được sự thật là ~.” (④⑤)",
+      "usage": "[Shinkanzen] 「事情から考えると、当然～という結論になる。(①②③)」「事情から考えると～という事実が納得できる。(④⑤)」\n“Nếu suy nghĩ từ tình hình thực tế thì sẽ ra kết luận đương nhiên ~.” (①②③)\n“Nếu suy nghĩ từ tình hình thực tế thì có thể chấp nhận được sự thật là ~.” (④⑤)",
       "examTip": "Nhận ra lý do, nguyên nhân của sự việc.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形＋わけだ／Nのわけだ"
     },
     {
       "id": "bunpo-jlpt-32",
@@ -423,11 +439,12 @@
       "meaningVi": "Không hẳn là...",
       "example": "嫌いなわけではない。",
       "exampleVi": "Không phải là ghét đâu.",
-      "usage": "普通形＋わけではない\n\n[Shinkanzen] “Nhìn tình hình thì có lẽ mọi người sẽ tưởng tượng rằng ~ nhưng thực ra thì không phải vậy.” Là cách nói phủ định chỉ một phần của “～”.",
+      "usage": "[Shinkanzen] “Nhìn tình hình thì có lẽ mọi người sẽ tưởng tượng rằng ~ nhưng thực ra thì không phải vậy.” Là cách nói phủ định chỉ một phần của “～”.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "普通形＋わけではない"
     },
     {
       "id": "bunpo-jlpt-33",
@@ -436,11 +453,12 @@
       "meaningVi": "Vì... (nguyên nhân)",
       "example": "台風のために、学校が休みになった。",
       "exampleVi": "Vì bão nên trường được nghỉ.",
-      "usage": "Nの／普通形＋ために\n\n[Shinkanzen] ～ために：そうしようという行為の目的。話者の意志を含む動詞の辞書形につく。\nMục đích của hành động. Đi cùng với động từ dạng nguyên thể bao hàm ý chí của người nói.",
+      "usage": "[Shinkanzen] ～ために：そうしようという行為の目的。話者の意志を含む動詞の辞書形につく。\nMục đích của hành động. Đi cùng với động từ dạng nguyên thể bao hàm ý chí của người nói.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "Nの／普通形＋ために"
     },
     {
       "id": "bunpo-jlpt-34",
@@ -511,12 +529,13 @@
       "meaningVi": "Chỉ còn cách...",
       "example": "頑張るしかない。",
       "exampleVi": "Chỉ còn cách cố gắng thôi.",
-      "usage": "V辞書形＋しかない\n\n[TRY! N3] 「～しかない」は、今の状況ではこれ以外に方法がない、これがいいいと言いたいときに使う。しかたがないという気持ちで使うことも多い。\n～しかない sử dụng khi rằng ở tình huống này thì không có cách nào khác ngoài cách này, đây là tốt nhất. Thường được sử dụng với tâm trạng đành chịu vậy thôi.",
+      "usage": "[TRY! N3] 「～しかない」は、今の状況ではこれ以外に方法がない、これがいいいと言いたいときに使う。しかたがないという気持ちで使うことも多い。\n～しかない sử dụng khi rằng ở tình huống này thì không có cách nào khác ngoài cách này, đây là tốt nhất. Thường được sử dụng với tâm trạng đành chịu vậy thôi.",
       "sources": [
         "jlpt-da-ra",
         "400-mau-thong-dung",
         "try-n3"
-      ]
+      ],
+      "formula": "V辞書形＋しかない"
     },
     {
       "id": "bunpo-jlpt-40",
@@ -573,13 +592,14 @@
       "meaningVi": "Đối với...",
       "example": "親に対して失礼だ。",
       "exampleVi": "Như vậy là thất lễ với bố mẹ.",
-      "usage": "N＋に対して\n\n[Shinkanzen] “...” là câu thể hiện hành động hay thái độ, v.v. đối với 〜. (Những từ thường được dùng trong câu như もとめる／もんくをいう／かんしゃする／きびしい／しんせつだ v.v.)",
+      "usage": "[Shinkanzen] “...” là câu thể hiện hành động hay thái độ, v.v. đối với 〜. (Những từ thường được dùng trong câu như もとめる／もんくをいう／かんしゃする／きびしい／しんせつだ v.v.)",
       "examTip": "So sánh, đối chiếu hai mặt của vấn đề.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen",
         "try-n3"
-      ]
+      ],
+      "formula": "N＋に対して"
     },
     {
       "id": "bunpo-jlpt-45",
@@ -588,13 +608,14 @@
       "meaningVi": "Về...",
       "example": "日本文化について勉強している。",
       "exampleVi": "Tôi đang học về văn hóa Nhật Bản.",
-      "usage": "N＋について\n\n[Shinkanzen] ～は思考に関係のある行為（思う・書く・話す・聞くなど）の内容を表す。\n“~” thể hiện nội dung của hoạt động có mối liên quan với suy nghĩ (おもう/かく/はなす/きく/v.v.).",
+      "usage": "[Shinkanzen] ～は思考に関係のある行為（思う・書く・話す・聞くなど）の内容を表す。\n“~” thể hiện nội dung của hoạt động có mối liên quan với suy nghĩ (おもう/かく/はなす/きく/v.v.).",
       "examTip": "Nói chủ đề, nội dung cần nói.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen",
         "try-n3"
-      ]
+      ],
+      "formula": "N＋について"
     },
     {
       "id": "bunpo-jlpt-46",
@@ -678,12 +699,13 @@
       "meaningVi": "Hình như...",
       "example": "外は静かなようだ。",
       "exampleVi": "Bên ngoài có vẻ yên tĩnh.",
-      "usage": "V辞書形＋ようだ／な形容詞＋なようだ\n\n[Shinkanzen] よく似ているものに例えて言う\nSử dụng để ví von với sự vật khác có điểm giống",
+      "usage": "[Shinkanzen] よく似ているものに例えて言う\nSử dụng để ví von với sự vật khác có điểm giống",
       "examTip": "Suy đoán dựa trên tình huống trước mắt.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形＋ようだ／な形容詞＋なようだ"
     },
     {
       "id": "bunpo-jlpt-53",
@@ -705,11 +727,12 @@
       "meaningVi": "Nghe nói / tức là...",
       "example": "明日は休みだということだ。",
       "exampleVi": "Nghe nói ngày mai được nghỉ.",
-      "usage": "普通形＋ということだ\n\n[Shinkanzen] “Nghe nói ~” Là cách nói truyền đạt thông tin mình nắm được, văn phong trang trọng hơn so với “～だそうだ”。 Sử dụng “～では／～によると／～によれば/v.v.” để trích dẫn nguồn thông tin. Thường sử dụng “～とのことだ” để truyền đạt riêng cho ai đó điều người khác đã nói. Cấu trúc này còn được dùng trong văn phong thư từ ở dạng như ví dụ ⑤。",
+      "usage": "[Shinkanzen] “Nghe nói ~” Là cách nói truyền đạt thông tin mình nắm được, văn phong trang trọng hơn so với “～だそうだ”。 Sử dụng “～では／～によると／～によれば/v.v.” để trích dẫn nguồn thông tin. Thường sử dụng “～とのことだ” để truyền đạt riêng cho ai đó điều người khác đã nói. Cấu trúc này còn được dùng trong văn phong thư từ ở dạng như ví dụ ⑤。",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "普通形＋ということだ"
     },
     {
       "id": "bunpo-jlpt-55",
@@ -754,12 +777,13 @@
       "meaningVi": "Dự định...",
       "example": "来年日本へ留学するつもりだ。",
       "exampleVi": "Tôi dự định sang Nhật du học năm sau.",
-      "usage": "V辞書形・Vない\n\n[Shinkanzen] Cấu trúc này cũng có thể trở thành cách nói phê phán đối phương như trong ví dụ ④.",
+      "usage": "[Shinkanzen] Cấu trúc này cũng có thể trở thành cách nói phê phán đối phương như trong ví dụ ④.",
       "examTip": "Kế hoạch của bản thân (chưa chắc chắn 100%).",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "V辞書形・Vない"
     },
     {
       "id": "bunpo-jlpt-59",
@@ -793,11 +817,12 @@
       "meaningVi": "Không phải là không...",
       "example": "食べられないことはない。",
       "exampleVi": "Không phải là không ăn được.",
-      "usage": "Vない形＋ことはない\n\n[Shinkanzen] “Không thể nói là tuyệt đối không ~” Là cách nói khẳng định yếu ớt bằng hình thức phủ định một sự phủ định khác.",
+      "usage": "[Shinkanzen] “Không thể nói là tuyệt đối không ~” Là cách nói khẳng định yếu ớt bằng hình thức phủ định một sự phủ định khác.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "Vない形＋ことはない"
     },
     {
       "id": "bunpo-jlpt-62",
@@ -806,11 +831,12 @@
       "meaningVi": "Không thể không...",
       "example": "約束したから、行かないわけにはいかない。",
       "exampleVi": "Vì đã hứa nên không thể không đi.",
-      "usage": "Vない形＋わけにはいかない\n\n[Shinkanzen] 「心理的事情があるので、～しなければならない。」規則などで決まっていて～しなければならないのではなくて、あまり～したくないが、社会的常識・心理的義務感があってそうする必要があるという意味で使う。主語はふつう一人称。\n“Vì lý do tâm lý nên phải làm ~.” Dùng trong trường hợp ý nói không phải là một quy định hay gì đó quy định nên phải làm “~” mà mặc dù không muốn làm lắm nhưng vì lẽ thường của xã hội, tâm lý nghĩa vụ, v.v... mà cần thiết phải làm như thế. Chủ ngữ thường là ngôi thứ nhất.",
+      "usage": "[Shinkanzen] 「心理的事情があるので、～しなければならない。」規則などで決まっていて～しなければならないのではなくて、あまり～したくないが、社会的常識・心理的義務感があってそうする必要があるという意味で使う。主語はふつう一人称。\n“Vì lý do tâm lý nên phải làm ~.” Dùng trong trường hợp ý nói không phải là một quy định hay gì đó quy định nên phải làm “~” mà mặc dù không muốn làm lắm nhưng vì lẽ thường của xã hội, tâm lý nghĩa vụ, v.v... mà cần thiết phải làm như thế. Chủ ngữ thường là ngôi thứ nhất.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "Vない形＋わけにはいかない"
     },
     {
       "id": "bunpo-jlpt-63",
@@ -831,11 +857,12 @@
       "meaningVi": "Chắc chắn...",
       "example": "あの店はおいしいに決まっている。",
       "exampleVi": "Quán đó chắc chắn ngon.",
-      "usage": "普通形＋に決まっている\n\n[TRY! N3] 「~に決まっている」は、「絶対~だと思う」と強く言うときに使う。\n～に決まっている sử dụng khi nói mạnh rằng tôi nghĩ nhất định/chắc chắn là “～”.",
+      "usage": "[TRY! N3] 「~に決まっている」は、「絶対~だと思う」と強く言うときに使う。\n～に決まっている sử dụng khi nói mạnh rằng tôi nghĩ nhất định/chắc chắn là “～”.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "普通形＋に決まっている"
     },
     {
       "id": "bunpo-jlpt-65",
@@ -904,12 +931,13 @@
       "meaningVi": "Từ việc...",
       "example": "名前が同じことから、親しいと思われた。",
       "exampleVi": "Vì cùng tên nên bị nghĩ là thân thiết.",
-      "usage": "N＋ことから／V辞書形＋ことから\n\n[Shinkanzen] “Sự thực ~ là nguyên nhân để phát triển thành kết quả .../để phán đoán rằng ...”",
+      "usage": "[Shinkanzen] “Sự thực ~ là nguyên nhân để phát triển thành kết quả .../để phán đoán rằng ...”",
       "examTip": "Suy luận dựa trên sự việc, dẫn chứng.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "N＋ことから／V辞書形＋ことから"
     },
     {
       "id": "bunpo-jlpt-71",
@@ -991,12 +1019,13 @@
       "meaningVi": "Đến mức...",
       "example": "歩けないほど疲れた。",
       "exampleVi": "Mệt đến mức không đi nổi.",
-      "usage": "N＋ほど〜N／V（辞書形）ほど\n\n[TRY! N3] 「～ほど…」は、「歩けないほど強い風」のように、「…」の状態・程度が普通ではないことを、「～」の例を使って表すときに使う。 ~ほど… sử dụng khi bạn dùng một ví dụ “~” để nói lên trạng thái hoặc mức độ của “…” không bình thường như là “歩けないほど強い風”.",
+      "usage": "[TRY! N3] 「～ほど…」は、「歩けないほど強い風」のように、「…」の状態・程度が普通ではないことを、「～」の例を使って表すときに使う。 ~ほど… sử dụng khi bạn dùng một ví dụ “~” để nói lên trạng thái hoặc mức độ của “…” không bình thường như là “歩けないほど強い風”.",
       "examTip": "So sánh mức độ, biểu thị giới hạn.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "N＋ほど〜N／V（辞書形）ほど"
     },
     {
       "id": "bunpo-jlpt-78",
@@ -1017,11 +1046,12 @@
       "meaningVi": "Không... bằng...",
       "example": "今年は去年ほど寒くない。",
       "exampleVi": "Năm nay không lạnh bằng năm ngoái.",
-      "usage": "N＋ほど＋Vない形\n\n[TRY! N3] 「AはBほど~ない」の形で、AはBのレベルまでは達していないことを言うときに使う。\n“AはBほど～ない” sử dụng khi muốn nói A không đạt đến mức độ của B.",
+      "usage": "[TRY! N3] 「AはBほど~ない」の形で、AはBのレベルまでは達していないことを言うときに使う。\n“AはBほど～ない” sử dụng khi muốn nói A không đạt đến mức độ của B.",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "N＋ほど＋Vない形"
     },
     {
       "id": "bunpo-jlpt-80",
@@ -1030,13 +1060,14 @@
       "meaningVi": "Chỉ cần...",
       "example": "名前さえ書けばいい。",
       "exampleVi": "Chỉ cần viết tên là được.",
-      "usage": "N＋さえ\n\n[Shinkanzen] Nhấn mạnh mức độ ngoài ý muốn bằng cách đưa ra một ví dụ cực đoan / Chỉ ra hạn mức tối thiểu nhất cần có",
+      "usage": "[Shinkanzen] Nhấn mạnh mức độ ngoài ý muốn bằng cách đưa ra một ví dụ cực đoan / Chỉ ra hạn mức tối thiểu nhất cần có",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen",
         "try-n3"
       ],
-      "examTip": "「V-て + さえ」の形も使われることがある。\n①加藤さんはあさってまでにレポートを書かなければならないのに、まだ資料を集めてさえいない。\n②彼は自分がだまされたことに気づいてさえいないらしいね。"
+      "examTip": "「V-て + さえ」の形も使われることがある。\n①加藤さんはあさってまでにレポートを書かなければならないのに、まだ資料を集めてさえいない。\n②彼は自分がだまされたことに気づいてさえいないらしいね。",
+      "formula": "N＋さえ"
     },
     {
       "id": "bunpo-jlpt-81",
@@ -1045,12 +1076,13 @@
       "meaningVi": "Ngay cả...",
       "example": "子どもでも分かる。",
       "exampleVi": "Ngay cả trẻ con cũng hiểu.",
-      "usage": "A＋でも、B\n\n[Shinkanzen] Ám chỉ yếu tố khác là đương nhiên bằng cách đưa ra ví dụ cực đoan / Đưa ra một ví dụ trong câu đề nghị, ý chí, nhờ vả, v.v.",
+      "usage": "[Shinkanzen] Ám chỉ yếu tố khác là đương nhiên bằng cách đưa ra ví dụ cực đoan / Đưa ra một ví dụ trong câu đề nghị, ý chí, nhờ vả, v.v.",
       "examTip": "Biểu thị sự đối lập, nhượng bộ; nối 2 ý trái ngược.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "A＋でも、B"
     },
     {
       "id": "bunpo-jlpt-82",
@@ -1059,11 +1091,12 @@
       "meaningVi": "Chính...",
       "example": "今こそ頑張る時だ。",
       "exampleVi": "Chính bây giờ là lúc cố gắng.",
-      "usage": "N＋こそ\n\n[Shinkanzen] Nhấn mạnh và phân biệt rõ ràng với yếu tố khác",
+      "usage": "[Shinkanzen] Nhấn mạnh và phân biệt rõ ràng với yếu tố khác",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "N＋こそ"
     },
     {
       "id": "bunpo-jlpt-83",
@@ -1085,13 +1118,14 @@
       "meaningVi": "Giữ nguyên trạng thái...",
       "example": "電気をつけたまま寝た。",
       "exampleVi": "Tôi ngủ quên khi vẫn bật điện.",
-      "usage": "Vた形／Nの＋まま\n\n[Shinkanzen] ［状態や様子を表す言葉（ばかり・とおり・まま・はずなど）］＋の＋名\n\n[TRY! N3] 「～たまま」は、状態が変わらないで続いていることを言うときに使う。次に何かをしなければならないのに、していないと言うときにも使う。\n~たまま sử dụng khi nói một trạng thái nào đó vẫn đang tiếp tục không thay đổi. Có khi dùng để nói rằng phải làm một việc gì đó tiếp theo nhưng lại không làm.",
+      "usage": "[Shinkanzen] ［状態や様子を表す言葉（ばかり・とおり・まま・はずなど）］＋の＋名\n\n[TRY! N3] 「～たまま」は、状態が変わらないで続いていることを言うときに使う。次に何かをしなければならないのに、していないと言うときにも使う。\n~たまま sử dụng khi nói một trạng thái nào đó vẫn đang tiếp tục không thay đổi. Có khi dùng để nói rằng phải làm một việc gì đó tiếp theo nhưng lại không làm.",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen",
         "try-n3"
       ],
-      "examTip": "形容詞が使われることもある。\n①この本は2冊買って、1冊は新しいままっておくつもりです。\n②この冷蔵庫は魚でも野菜でも新鮮なまま保存できます。"
+      "examTip": "形容詞が使われることもある。\n①この本は2冊買って、1冊は新しいままっておくつもりです。\n②この冷蔵庫は魚でも野菜でも新鮮なまま保存できます。",
+      "formula": "Vた形／Nの＋まま"
     },
     {
       "id": "bunpo-jlpt-85",
@@ -1100,11 +1134,12 @@
       "meaningVi": "Không... mà...",
       "example": "朝ご飯を食べずに出かけた。",
       "exampleVi": "Tôi ra ngoài mà không ăn sáng.",
-      "usage": "Vない形（ない→ず）＋に\n\n[TRY! N3] 「～ずに」は、「～ないで」の意味で使われる。",
+      "usage": "[TRY! N3] 「～ずに」は、「～ないで」の意味で使われる。",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "Vない形（ない→ず）＋に"
     },
     {
       "id": "bunpo-jlpt-86",
@@ -1113,11 +1148,12 @@
       "meaningVi": "Khó...",
       "example": "このペンは書きにくい。",
       "exampleVi": "Cái bút này khó viết.",
-      "usage": "Vます形＋にくい\n\n[Shinkanzen] Không thể làm ~ được một cách đơn giản\nKhông dễ dàng làm ~",
+      "usage": "[Shinkanzen] Không thể làm ~ được một cách đơn giản\nKhông dễ dàng làm ~",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "Vます形＋にくい"
     },
     {
       "id": "bunpo-jlpt-87",
@@ -1126,11 +1162,12 @@
       "meaningVi": "Dễ...",
       "example": "この辞書は使いやすい。",
       "exampleVi": "Quyển từ điển này dễ dùng.",
-      "usage": "Vます形＋やすい\n\n[Shinkanzen] Có thể thực hiện ~ một cách đơn giản\nDễ dàng làm ~",
+      "usage": "[Shinkanzen] Có thể thực hiện ~ một cách đơn giản\nDễ dàng làm ~",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
-      ]
+      ],
+      "formula": "Vます形＋やすい"
     },
     {
       "id": "bunpo-jlpt-88",
@@ -1139,12 +1176,13 @@
       "meaningVi": "Có vẻ / dễ...",
       "example": "彼は怒りっぽい。",
       "exampleVi": "Anh ấy dễ nổi nóng.",
-      "usage": "Vます形・N＋っぽい\n\n[Shinkanzen] Có đặc điểm, tính cách giống như ~\n\n[TRY! N3] 「～っぽい」は、見たときの印象が、そう見える、そう感じるときに使う。\n～っぽい sử dụng khi bạn có ấn tượng lúc nhìn thấy trông có vẻ như thế, cảm thấy như thế.\n\n* 「V-ます + っぽい」の形で、「よく～する、すぐに～する」という意味で使われる。「あきる、怒る、忘れる」などがよく使われる。\n* V-ます + っぽい được sử dụng với nghĩa “thường hay làm ～, làm ～ ngay lập tức”. Thường sử dụng với những từ “あきる、怒る、忘れる”。",
+      "usage": "[Shinkanzen] Có đặc điểm, tính cách giống như ~\n\n[TRY! N3] 「～っぽい」は、見たときの印象が、そう見える、そう感じるときに使う。\n～っぽい sử dụng khi bạn có ấn tượng lúc nhìn thấy trông có vẻ như thế, cảm thấy như thế.\n\n* 「V-ます + っぽい」の形で、「よく～する、すぐに～する」という意味で使われる。「あきる、怒る、忘れる」などがよく使われる。\n* V-ます + っぽい được sử dụng với nghĩa “thường hay làm ～, làm ～ ngay lập tức”. Thường sử dụng với những từ “あきる、怒る、忘れる”。",
       "sources": [
         "jlpt-da-ra",
         "shinkanzen",
         "try-n3"
-      ]
+      ],
+      "formula": "Vます形・N＋っぽい"
     },
     {
       "id": "bunpo-jlpt-89",
@@ -1165,11 +1203,12 @@
       "meaningVi": "Hơi / có xu hướng...",
       "example": "今日は風邪気味だ。",
       "exampleVi": "Hôm nay tôi hơi bị cảm.",
-      "usage": "Vます形・N＋気味\n\n[TRY! N3] ~気味 sử dụng khi muốn nói trạng thái bây giờ cảm thấy hơi \"~\".",
+      "usage": "[TRY! N3] ~気味 sử dụng khi muốn nói trạng thái bây giờ cảm thấy hơi \"~\".",
       "sources": [
         "jlpt-da-ra",
         "try-n3"
-      ]
+      ],
+      "formula": "Vます形・N＋気味"
     }
   ]
 }

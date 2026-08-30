@@ -4,7 +4,14 @@ import type { JlptLevel } from "./kanji.ts";
 // "theo-chuong": ngữ pháp học theo chương (sơ đồ tư duy), có usage/examTip.
 // "shinkanzen"/"try-n3"/"400-mau-thong-dung": trích từ phần giải thích ngữ pháp
 // (không phải câu hỏi) của 3 nguồn bổ sung -- xem bunpoState.ts.
-export type BunpoSource = "jlpt-da-ra" | "theo-chuong" | "shinkanzen" | "try-n3" | "400-mau-thong-dung";
+export type BunpoSource =
+  | "jlpt-da-ra"
+  | "theo-chuong"
+  | "shinkanzen"
+  | "try-n3"
+  | "400-mau-thong-dung"
+  | "n4-infographic"
+  | "the-dong-tu";
 
 export interface BunpoGrammarPoint {
   id: string;
@@ -19,6 +26,7 @@ export interface BunpoGrammarPoint {
   pattern: string; // vd "〜ようになる"
   meaningVi: string; // Nghĩa / Ý nghĩa
   usage?: string; // Cách dùng, vd "V辞書形" (chỉ "theo-chuong")
+  formula?: string; // Công thức, vd "お/ご + Vます + します" (chỉ "n4-infographic")
   examTip?: string; // Key JLPT (chỉ "theo-chuong")
   example: string; // Ví dụ (JP)
   exampleVi: string; // Nghĩa tiếng Việt của ví dụ

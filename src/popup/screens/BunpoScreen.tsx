@@ -30,7 +30,7 @@ import {
   type ProgressFilter,
   type ProgressMap,
 } from "../progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample } from "../bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample, parseUsage } from "../bunpoLinks.ts";
 import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../readingState.ts";
 import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../quizBookState.ts";
 
@@ -354,6 +354,7 @@ function DetailView({
 
   const readingMatches = findMatchingReadingPassages(g);
   const quizBookMatches = findMatchingQuizBookQuestions(g);
+  const parsedUsage = g.usage ? parseUsage(g.usage) : null;
 
   const currentIndex = visibleList.findIndex((item) => item.id === g.id);
   const prevItem = currentIndex > 0 ? visibleList[currentIndex - 1] : null;
@@ -436,6 +437,12 @@ function DetailView({
         <div className="vocab-word">{g.pattern}</div>
 
         <dl className="details">
+          {g.formula ? (
+            <>
+              <dt>Công thức</dt>
+              <dd>{g.formula}</dd>
+            </>
+          ) : null}
           <dt>Nghĩa</dt>
           <dd>{g.meaningVi}</dd>
           {g.usage ? (
@@ -451,7 +458,17 @@ function DetailView({
                   ⓘ
                 </button>
               </dt>
-              <dd>{g.usage}</dd>
+              <dd>
+                {parsedUsage ? (
+                  <div className="usage-parsed">
+                    <div className="usage-source-tag">Nguồn: {parsedUsage.source}</div>
+                    <div className="usage-jp">{parsedUsage.jp}</div>
+                    <div className="usage-vi">{parsedUsage.vi}</div>
+                  </div>
+                ) : (
+                  g.usage
+                )}
+              </dd>
             </>
           ) : null}
           {g.examTip ? (

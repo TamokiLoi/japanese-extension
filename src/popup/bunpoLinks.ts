@@ -56,6 +56,23 @@ export function findMatchingQuizBookQuestions(g: BunpoGrammarPoint, limit = MAX_
   return matches;
 }
 
+export interface ParsedUsage {
+  source: string;
+  jp: string;
+  vi: string;
+}
+
+// Merged Shinkanzen/TRY! N3 entries store "usage" as "[Nguồn] <giải thích
+// tiếng Nhật>\n<bản dịch tiếng Việt>" -- split it out so the two languages
+// render as visually distinct blocks instead of one dense paragraph.
+// Entries authored directly in Vietnamese (theo-chuong originals without a
+// merge) don't match this shape and fall back to plain rendering.
+export function parseUsage(usage: string): ParsedUsage | null {
+  const m = usage.match(/^\[([^\]]+)\]\s*([^\n]+)\n([\s\S]+)$/);
+  if (!m) return null;
+  return { source: m[1], jp: m[2], vi: m[3] };
+}
+
 export interface ExampleFragment {
   text: string;
   highlighted: boolean;

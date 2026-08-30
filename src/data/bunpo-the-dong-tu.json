@@ -1,0 +1,173 @@
+{
+  "grammarPoints": [
+    {
+      "id": "bunpo-thedongtu-1",
+      "level": "N5",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "ます形",
+      "meaningVi": "Thể lịch sự",
+      "formula": "Nhóm I: Cột 「い」 trước ます\nNhóm II: Cột 「え」 trước ます\nNhóm III: 来ます, します, N+します",
+      "usage": "Nhóm I: 洗います, 書きます, 飲みます, 話します\n\nNhóm II: 食べます, 見せます, 寝ます, 入れます\n\nNhóm III: 来ます (きます), します, N+します\n\nNgoại lệ: 起きます, 見ます, 降ります, 足ります, できます, 浴びます, 借ります, います, 着ます",
+      "example": "洗います",
+      "exampleVi": "Ví dụ chia động từ sang thể lịch sự"
+    },
+    {
+      "id": "bunpo-thedongtu-2",
+      "level": "N5",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "て形・Vて",
+      "meaningVi": "Thể て",
+      "formula": "Nhóm I: い・ち・り→って / み・に・び→んで / き→いて / ぎ→いで / し→して\nNhóm II: ます→て\nNhóm III: します→して, N+します→N+して, 来ます→来て",
+      "usage": "Nhóm I: 洗います → 洗って, 持ちます → 持って, 知ります → 知って, 飲みます → 飲んで, 死にます → 死んで, 遊びます → 遊んで, 聞きます → 聞いて, 行きます → 行って, 急ぎます → 急いで, 話します → 話して\n\nNhóm II: 食べます → 食べて, 寝ます → 寝て, 見ます → 見て, 浴びます → 浴びて\n\nNhóm III: します → して, N+します → N+して, 来ます → 来て (きて)",
+      "example": "洗います → 洗って",
+      "exampleVi": "Ví dụ chia động từ sang thể て"
+    },
+    {
+      "id": "bunpo-thedongtu-3",
+      "level": "N5",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "辞書形・Vる",
+      "meaningVi": "Thể từ điển",
+      "formula": "Nhóm I: Cột 「い」 trước ます → Đổi sang cột 「う」\nNhóm II: Cột 「え」 trước ます → Thêm る\nNhóm III: します→する, N+します→N+する, 来ます→来る(くる)",
+      "usage": "Nhóm I: 洗います → 洗う, 飲みます → 飲む, 行きます → 行く, 話します → 話す\n\nNhóm II: 食べます → 食べる, 寝ます → 寝る, 浴びます → 浴びる, 起きます → 起きる, 見ます → 見る, 浴びます → 浴びる, 借ります → 借りる\n\nNhóm III: します → する, N+します → N+する, 来ます → 来る (くる)",
+      "example": "洗います → 洗う",
+      "exampleVi": "Ví dụ chia động từ sang thể từ điển"
+    },
+    {
+      "id": "bunpo-thedongtu-4",
+      "level": "N5",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "た形・Vた",
+      "meaningVi": "Thể た",
+      "formula": "Nhóm I: い・ち・り→った / み・に・び→んだ / き→いた / ぎ→いだ / し→した\nNhóm II: ます→た\nNhóm III: します→した, N+します→N+した, 来ます→来た(きた)",
+      "usage": "Nhóm I: 洗います → 洗った, 持ちます → 持った, 知ります → 知った, 飲みます → 飲んだ, 死にます → 死んだ, 遊びます → 遊んだ, 聞きます → 聞いた, 行きます → 行った, 急ぎます → 急いだ, 話します → 話した\n\nNhóm II: 食べます → 食べた, 寝ます → 寝た, 見ます → 見た, 浴びます → 浴びた\n\nNhóm III: します → した, N+します → N+した, 来ます → 来た (きた)",
+      "example": "洗います → 洗った",
+      "exampleVi": "Ví dụ chia động từ sang thể た"
+    },
+    {
+      "id": "bunpo-thedongtu-5",
+      "level": "N5",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "ない - Vない",
+      "meaningVi": "Thể phủ định",
+      "formula": "Nhóm I: ～「い」ます → ～「あ」ます + ない (Riêng います → わない)\nNhóm II: ～「え」ます → ～「え」ます + ない\nNhóm III: します→しない, N+します→N+しない, 来ます→来ない",
+      "usage": "Nhóm I: 飲みます → 飲まない, 行きます → 行かない, 話します → 話さない, 洗います → 洗わない, あります → ない\n\nNhóm II: 食べます → 食べない, 寝ます → 寝ない, あびます → あびない\n\nNhóm III: します → しない, N+します → N+しない, 来ます → 来ない",
+      "example": "飲みます → 飲まない",
+      "exampleVi": "Ví dụ chia động từ sang thể phủ định"
+    },
+    {
+      "id": "bunpo-thedongtu-6",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "意向形・Vよう",
+      "meaningVi": "Thể ý chí",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「お」 + よう\nNhóm II: Bỏ ます + よう\nNhóm III: します→しよう, N+します→N+しよう, 来ます→来よう",
+      "usage": "Nhóm I: 書きます → 書こう, 飲みます → 飲もう, 話します → 話そう, 洗います → 洗おう\n\nNhóm II: 食べます → 食べよう, 寝ます → 寝よう, 見ます → 見よう, 浴びます → 浴びよう\n\nNhóm III: します → しよう, N+します → N+しよう, 来ます → 来よう (こよう)",
+      "example": "書きます → 書こう",
+      "exampleVi": "Ví dụ chia động từ sang thể ý chí"
+    },
+    {
+      "id": "bunpo-thedongtu-7",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "命令形・Vる/Vえ",
+      "meaningVi": "Thể mệnh lệnh",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「え」\nNhóm II: Bỏ ます + ろ\nNhóm III: します→しろ, N+します→N+しろ, 来ます→来い",
+      "usage": "Nhóm I: 書きます → 書け, 飲みます → 飲め, 話します → 話せ\n\nNhóm II: 食べます → 食べろ, 寝ます → 寝ろ, 見ます → 見ろ, 浴びます → 浴びろ\n\nNhóm III: します → しろ, N+します → N+しろ, 来ます → 来い (こい)",
+      "example": "書きます → 書け",
+      "exampleVi": "Ví dụ chia động từ sang thể mệnh lệnh"
+    },
+    {
+      "id": "bunpo-thedongtu-8",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "禁止形・Vるな/Vないで",
+      "meaningVi": "Thể cấm chỉ",
+      "formula": "Nhóm I: Vる + な\nNhóm II: Vる + な\nNhóm III: する + な, N+する + な, 来る + な",
+      "usage": "Nhóm I: 書く → 書くな, 飲む → 飲むな, 話す → 話すな\n\nNhóm II: 食べる → 食べるな, 寝る → 寝るな, 見る → 見るな, 浴びる → 浴びるな\n\nNhóm III: する → するな, N+する → N+するな, 来る → 来るな (くるな)",
+      "example": "書く → 書くな",
+      "exampleVi": "Ví dụ chia động từ sang thể cấm chỉ"
+    },
+    {
+      "id": "bunpo-thedongtu-9",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "可能形・Vられる/Vえる",
+      "meaningVi": "Thể khả năng",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「え」 + る\nNhóm II: Bỏ ます + られる\nNhóm III: します→できる, N+します→N+できる, 来ます→来られる",
+      "usage": "Nhóm I: 書きます → 書ける, 飲みます → 飲める, 話します → 話せる\n\nNhóm II: 食べます → 食べられる, 寝ます → 寝られる, 見ます → 見られる, 浴びます → 浴びられる\n\nNhóm III: します → できる, N+します → N+できる, 来ます → 来られる (こられる)",
+      "example": "書きます → 書ける",
+      "exampleVi": "Ví dụ chia động từ sang thể khả năng"
+    },
+    {
+      "id": "bunpo-thedongtu-10",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "使役形・Vせる/Vさせる",
+      "meaningVi": "Thể sai khiến",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「あ」 + せる\nNhóm II: Bỏ ます + させる\nNhóm III: します→させる, N+します→N+させる, 来ます→来させる",
+      "usage": "Nhóm I: 書きます → 書かせる, 飲みます → 飲ませる, 話します → 話させる\n\nNhóm II: 食べます → 食べさせる, 寝ます → 寝させる, 見ます → 見させる, 浴びます → 浴びさせる\n\nNhóm III: します → させる, N+します → N+させる, 来ます → 来させる (こさせる)",
+      "example": "書きます → 書かせる",
+      "exampleVi": "Ví dụ chia động từ sang thể sai khiến"
+    },
+    {
+      "id": "bunpo-thedongtu-11",
+      "level": "N3",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "使役受身形・Vさせられる",
+      "meaningVi": "Thể sai khiến bị động",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「あ」 + させられる\nNhóm II: Bỏ ます + させられる\nNhóm III: します→させられる, N+します→N+させられる, 来ます→来させられる",
+      "usage": "Nhóm I: 書きます → 書かせられる, 飲みます → 飲ませられる, 話します → 話させられる\n\nNhóm II: 食べます → 食べさせられる, 寝ます → 寝させられる, 見ます → 見させられる, 浴びます → 浴びさせられる\n\nNhóm III: します → させられる, N+します → N+させられる, 来ます → 来させられる (こさせられる)",
+      "example": "書きます → 書かせられる",
+      "exampleVi": "Ví dụ chia động từ sang thể sai khiến bị động"
+    },
+    {
+      "id": "bunpo-thedongtu-12",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "仮定形・Vば",
+      "meaningVi": "Thể điều kiện",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「え」 + ば\nNhóm II: Bỏ ます + れば\nNhóm III: します→すれば, N+します→N+すれば, 来ます→来れば",
+      "usage": "Nhóm I: 書きます → 書けば, 飲みます → 飲めば, 話します → 話せば\n\nNhóm II: 食べます → 食べれば, 寝ます → 寝れば, 見ます → 見れば, 浴びます → 浴びれば\n\nNhóm III: します → すれば, N+します → N+すれば, 来ます → 来れば (くれば)",
+      "example": "書きます → 書けば",
+      "exampleVi": "Ví dụ chia động từ sang thể điều kiện"
+    },
+    {
+      "id": "bunpo-thedongtu-13",
+      "level": "N4",
+      "sources": [
+        "the-dong-tu"
+      ],
+      "pattern": "受身形・Vられる/Vれる",
+      "meaningVi": "Thể bị động",
+      "formula": "Nhóm I: Đổi âm cuối sang cột 「あ」 + られる\nNhóm II: Bỏ ます + られる\nNhóm III: します→される, N+します→N+される, 来ます→来られる",
+      "usage": "Nhóm I: 書きます → 書かれる, 飲みます → 飲まれる, 話します → 話される\n\nNhóm II: 食べます → 食べられる, 寝ます → 寝られる, 見ます → 見られる, 浴びます → 浴びられる\n\nNhóm III: します → される, N+します → N+される, 来ます → 来られる (こられる)",
+      "example": "書きます → 書かれる",
+      "exampleVi": "Ví dụ chia động từ sang thể bị động"
+    }
+  ]
+}
