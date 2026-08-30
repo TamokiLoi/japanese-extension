@@ -1,6 +1,7 @@
 import readingN3ShinkanzenRaw from "../data/reading-n3-shinkanzen.json";
 import readingN3SpeedmasterRaw from "../data/reading-n3-speedmaster.json";
 import readingN3TaisakuRaw from "../data/reading-n3-taisaku.json";
+import mocktestN3ShinkanzenRaw from "../data/mocktest-n3-shinkanzen.json";
 import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -8,10 +9,12 @@ import { storageGet, storageSet } from "../platform/storage";
 const shinkanzenDataset = readingN3ShinkanzenRaw as unknown as ReadingDataset;
 const speedmasterDataset = readingN3SpeedmasterRaw as unknown as ReadingDataset;
 const taisakuDataset = readingN3TaisakuRaw as unknown as ReadingDataset;
+const mocktestShinkanzenDataset = mocktestN3ShinkanzenRaw as unknown as ReadingDataset;
 export const ALL_READING: ReadingPassage[] = [
   ...shinkanzenDataset.passages,
   ...speedmasterDataset.passages,
   ...taisakuDataset.passages,
+  ...mocktestShinkanzenDataset.passages,
 ];
 
 const READING_BY_ID = new Map(ALL_READING.map((p) => [p.id, p]));
