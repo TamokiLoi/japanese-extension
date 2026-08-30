@@ -1,0 +1,2453 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-08-30",
+    "counts": {
+      "words": 174
+    },
+    "sources": {
+      "tu-lay": "User-provided list of Japanese onomatopoeia/mimetic words (giongo/gitaigo), curated with Gemini-assisted mnemonics"
+    },
+    "notes": [
+      "Mnemonics generated with Gemini API assistance, phonetic/imagery association style for Vietnamese learners."
+    ]
+  },
+  "words": [
+    {
+      "id": "tulay-1",
+      "word": "はらはら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Áy náy",
+      "mnemonic": [
+        "Nhìn cánh hoa rơi 'ha-ra-ha-ra' mà lòng thấy lo âu, áy náy."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-2",
+      "word": "ぼろぼろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rách tơi tả, te tua",
+      "mnemonic": [
+        "Đồ cũ 'bo-ro-bo-ro' rách nát từng mảng, tơi tả cả rồi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-3",
+      "word": "のろのろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chậm chạp, lề mề",
+      "mnemonic": [
+        "Con rùa bò 'no-ro-no-ro', chậm chạp đến phát bực."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-4",
+      "word": "するする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Trôi chảy, nhanh chóng",
+      "mnemonic": [
+        "Mọi việc 'su-ru-su-ru' như trượt trên băng, trôi chảy nhanh chóng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-5",
+      "word": "そわそわ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Không yên, hoang mang",
+      "mnemonic": [
+        "Đứng ngồi không yên, 'so-wa-so-wa' như có kim châm dưới chân."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-6",
+      "word": "まずまず",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Kha khá, tàm tạm",
+      "mnemonic": [
+        "Mọi thứ 'ma-zu-ma-zu', cũng tạm ổn, không quá tệ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-7",
+      "word": "度々",
+      "reading": "たびたび",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thường xuyên, lặp lại nhiều lần",
+      "mnemonic": [
+        "Việc này 'ta-bi-ta-bi' lặp lại nhiều lần, xảy ra thường xuyên."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-8",
+      "word": "中々",
+      "reading": "なかなか",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Mãi mà không",
+      "mnemonic": [
+        "Cố gắng 'na-ka-na-ka' mà vẫn không xong, thật là lâu."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-9",
+      "word": "びしょびしょ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ướt sũng, sũng nước",
+      "mnemonic": [
+        "Đi mưa về 'bi-sho-bi-sho', nước chảy ròng ròng, ướt sũng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-10",
+      "word": "ぺこぺこ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đói meo đói mốc",
+      "mnemonic": [
+        "Bụng đói 'pe-ko-pe-ko' kêu réo rắt, cần ăn gấp."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-11",
+      "word": "ちかちか",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Le lói",
+      "mnemonic": [
+        "Đèn nhấp nháy 'chi-ka-chi-ka', ánh sáng le lói trong đêm."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-12",
+      "word": "どきどき",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hồi hộp",
+      "mnemonic": [
+        "Tim đập 'do-ki-do-ki', hồi hộp không yên."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-13",
+      "word": "ごろごろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lười nhác, ăn không ngồi rồi",
+      "mnemonic": [
+        "Nằm 'go-ro-go-ro' trên ghế, lười nhác cả ngày."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-14",
+      "word": "きらきら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lấp lánh",
+      "mnemonic": [
+        "Ngôi sao 'ki-ra-ki-ra', tỏa sáng lấp lánh trên cao."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-15",
+      "word": "めちゃめちゃ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Quá mức",
+      "mnemonic": [
+        "Đồ đạc hư hỏng 'me-cha-me-cha', quá mức tưởng tượng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-16",
+      "word": "ぴかぴか",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lấp lánh, nhấp nháy, sáng loáng",
+      "mnemonic": [
+        "Chà giày 'pi-ka-pi-ka', sáng loáng như mới."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-17",
+      "word": "ぽちゃぽちゃ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nước bắn tung tóe, bì bõm",
+      "mnemonic": [
+        "Trẻ con tắm 'po-cha-po-cha', nước bắn bì bõm."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-18",
+      "word": "くらくら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hoa mắt, choáng váng, chóng mặt",
+      "mnemonic": [
+        "Say nắng 'ku-ra-ku-ra', hoa mắt chóng mặt quay cuồng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-19",
+      "word": "ぞろぞろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lê thê, nườm nượp",
+      "mnemonic": [
+        "Người đi 'zo-ro-zo-ro', thành hàng nườm nượp."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-20",
+      "word": "たらたら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Tong tong, tý tách",
+      "mnemonic": [
+        "Mồ hôi chảy 'ta-ra-ta-ra', tong tong từng giọt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-21",
+      "word": "ひらひら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bay bổng",
+      "mnemonic": [
+        "Cánh bướm 'hi-ra-hi-ra', bay bổng trong gió."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-22",
+      "word": "偶々",
+      "reading": "たまたま",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thỉnh thoảng, đôi khi, hiếm khi",
+      "mnemonic": [
+        "Chuyện 'ta-ma-ta-ma' mới gặp, thật là hiếm khi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-23",
+      "word": "ずきずき",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhức nhối, đau nhức",
+      "mnemonic": [
+        "Vết thương 'zu-ki-zu-ki', nhức nhối khó chịu."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-24",
+      "word": "ずけずけ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thẳng thừng",
+      "mnemonic": [
+        "Nói năng 'zu-ke-zu-ke', không nể nang, rất thẳng thừng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-25",
+      "word": "おいおい",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Này này (dùng để gọi)",
+      "mnemonic": [
+        "Gọi 'oi-oi', này này, có nghe thấy không?"
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-26",
+      "word": "ずるずる",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Kéo dài mãi, không kết thúc được",
+      "mnemonic": [
+        "Công việc 'zu-ru-zu-ru', lê thê kéo dài mãi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-27",
+      "word": "はきはき",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Minh bạch, rõ ràng, sáng suốt",
+      "mnemonic": [
+        "Trả lời 'ha-ki-ha-ki', rõ ràng, minh bạch."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-28",
+      "word": "ぐいぐい",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Uống (rượu) ừng ực",
+      "mnemonic": [
+        "Uống rượu 'gui-gui', ừng ực cho đã khát."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-29",
+      "word": "ちびちび",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhấp nháp từng ly",
+      "mnemonic": [
+        "Nhấp nháp 'chi-bi-chi-bi', uống từng chút một."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-30",
+      "word": "ぐうぐう",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ngủ say, ngủ rất sâu",
+      "mnemonic": [
+        "Ngủ 'gu-gu', say sưa đến mức ngáy ò ò."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-31",
+      "word": "くすくす",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cười tủm tỉm",
+      "mnemonic": [
+        "Cười 'ku-su-ku-su', cười tủm tỉm vì ngượng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-32",
+      "word": "げらげら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cười ha ha",
+      "mnemonic": [
+        "Cười 'ge-ra-ge-ra', ha ha hả hê."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-33",
+      "word": "ぐちゃぐちゃ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bèo nhèo, nhão nhoẹt",
+      "mnemonic": [
+        "Bùn 'gu-cha-gu-cha', nhão nhoẹt bết dính."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-34",
+      "word": "ぎゅうぎゅう",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chật ních, chật cứng",
+      "mnemonic": [
+        "Nhồi nhét 'gyu-gyu', chật ních cả không gian."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-35",
+      "word": "ぐらぐら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lỏng lẻo, xiêu vẹo",
+      "mnemonic": [
+        "Cái răng 'gu-ra-gu-ra', lỏng lẻo sắp rụng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-36",
+      "word": "しくしく",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thút thít",
+      "mnemonic": [
+        "Khóc 'shi-ku-shi-ku', tiếng thút thít buồn bã."
+      ],
+      "example": "しくしく泣く",
+      "exampleVi": "Khóc thút thít"
+    },
+    {
+      "id": "tulay-37",
+      "word": "わんわん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Òa lên",
+      "mnemonic": [
+        "Khóc 'wan-wan', òa lên như tiếng chó sủa."
+      ],
+      "example": "わんわんなく",
+      "exampleVi": "Khóc òa lên."
+    },
+    {
+      "id": "tulay-38",
+      "word": "すたすた",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhanh nhẹn",
+      "mnemonic": [
+        "Đi bộ 'su-ta-su-ta', nhanh nhẹn như vận động viên."
+      ],
+      "example": "すたすた歩く",
+      "exampleVi": "Đi bộ nanh nhẹn."
+    },
+    {
+      "id": "tulay-39",
+      "word": "にこにこ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Tươi cười",
+      "mnemonic": [
+        "Cười 'ni-ko-ni-ko', gương mặt tươi rói."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-40",
+      "word": "ばらばら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lộn xộn, tan tành",
+      "mnemonic": [
+        "Đồ đạc 'ba-ra-ba-ra', tan tành khắp nơi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-41",
+      "word": "ぴょんぴょん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhảy lên nhảy xuống",
+      "mnemonic": [
+        "Thỏ 'pyon-pyon', nhảy lên nhảy xuống."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-42",
+      "word": "ぼさぼさ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đầu như tổ quạ",
+      "mnemonic": [
+        "Tóc 'bo-sa-bo-sa', bù xù như tổ quạ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-43",
+      "word": "ぎらぎら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chói chang",
+      "mnemonic": [
+        "Mặt trời 'gi-ra-gi-ra', tỏa ánh nắng chói chang."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-44",
+      "word": "うとうと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ngủ gật",
+      "mnemonic": [
+        "Ngồi học 'u-to-u-to', ngủ gật lúc nào không hay."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-45",
+      "word": "ぼうっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ngây ngất, lâng lâng, mơ hồ",
+      "mnemonic": [
+        "Ngẩn ngơ 'bo-u-to', đầu óc mơ hồ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-46",
+      "word": "ぷかぷか",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lềnh bềnh",
+      "mnemonic": [
+        "Đám mây 'pu-ka-pu-ka', lềnh bềnh trên trời."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-47",
+      "word": "ざあざあ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ào ào",
+      "mnemonic": [
+        "Mưa 'za-za', trút ào ào xuống phố."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-48",
+      "word": "ぶくぶく",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "(Thổi khí) phụt phụt, phọt phọt",
+      "mnemonic": [
+        "Bong bóng 'bu-ku-bu-ku', phọt phọt lên mặt nước."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-49",
+      "word": "ぬるぬる",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Trườn trượt, trơn nhớt",
+      "mnemonic": [
+        "Con lươn 'nu-ru-nu-ru', trơn nhớt khó cầm."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-50",
+      "word": "ふわふわ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Mềm mại",
+      "mnemonic": [
+        "Bông gòn 'fu-wa-fu-wa', mềm mại như mây."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-51",
+      "word": "ごしごし",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chà chà, cọ cọ",
+      "mnemonic": [
+        "Cọ sàn 'go-shi-go-shi', chà mạnh cho sạch."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-52",
+      "word": "ぽたぽた",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Tủm tủm, ton ton",
+      "mnemonic": [
+        "Nước nhỏ 'po-ta-po-ta', từng giọt ton ton."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-53",
+      "word": "べとべと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Dinh dính, nhớt nhớt, dích chịt",
+      "mnemonic": [
+        "Tay dính 'be-to-be-to', nhớt nhát khó chịu."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-54",
+      "word": "べたべた",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Dinh dính, nhớt nhớt, dích chịt",
+      "mnemonic": [
+        "Keo 'be-ta-be-ta', dính chặt khó gỡ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-55",
+      "word": "べっとり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Dính dích chịt",
+      "mnemonic": [
+        "Sơn dính 'bet-to-ri', bết dính trên tay."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-56",
+      "word": "べったり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Dính dích chịt",
+      "mnemonic": [
+        "Dính 'bet-ta-ri', bám chặt lấy nhau."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-57",
+      "word": "ぱたぱた",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Vù vù, vèo vèo, phà phà",
+      "mnemonic": [
+        "Cánh quạt 'pa-ta-pa-ta', quay vù vù tạo gió."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-58",
+      "word": "ひりひり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rát rát, tê tê",
+      "mnemonic": [
+        "Vết thương 'hi-ri-hi-ri', rát rát như bị kiến đốt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-59",
+      "word": "さっぱり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thoải mái, sảng khoái, phê phê",
+      "mnemonic": [
+        "Tắm xong 'sap-pa-ri', thấy thật sảng khoái."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-60",
+      "word": "びりびり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Xoẹt xoẹt, soạt soạt (tiếng xé giấy)",
+      "mnemonic": [
+        "Xé giấy 'bi-ri-bi-ri', tiếng soạt soạt đứt lìa."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-61",
+      "word": "すやすや",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ngủ thẳng cẳng, ngủ phê, ngủ ngon.",
+      "mnemonic": [
+        "Em bé ngủ 'su-ya-su-ya', ngon lành quá."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-62",
+      "word": "じーっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhìn chằm chằm, chăm chú",
+      "mnemonic": [
+        "Nhìn 'ji-to', tập trung ánh mắt chăm chú."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-63",
+      "word": "かりかり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sột soạt",
+      "mnemonic": [
+        "Bút viết 'ka-ri-ka-ri', tiếng sột soạt trên giấy."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-64",
+      "word": "くしゃくしゃ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Vò vò, nhàu nhàu",
+      "mnemonic": [
+        "Tờ giấy 'ku-sha-ku-sha', bị vò nát nhàu nhĩ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-65",
+      "word": "ひひひ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hihihi",
+      "mnemonic": [
+        "Cười 'hi-hi-hi', âm thanh hí hí lém lỉnh."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-66",
+      "word": "こっくり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ngủ gà ngủ gật, gục lên gục xuống, mơ mơ màng màng",
+      "mnemonic": [
+        "Đầu gật 'ko-ku-ri', ngủ gà ngủ gật."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-67",
+      "word": "つんつん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cộc cằn, gay gắt, gắt gỏng, khó chịu",
+      "mnemonic": [
+        "Thái độ 'tsun-tsun', khó chịu gai góc."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-68",
+      "word": "おろおろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bàng hoàng, hoảng hốt, luống cuống, lúng túng",
+      "mnemonic": [
+        "Lúng túng 'o-ro-o-ro', không biết làm sao."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-69",
+      "word": "わいわい",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ồn ào, huyên náo",
+      "mnemonic": [
+        "Đám đông 'wai-wai', ồn ào huyên náo."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-70",
+      "word": "ぱくぱく",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Liên tục, liên hồi, không dừng (hành động ăn, đóng mở, thử giày)",
+      "mnemonic": [
+        "Cá đớp 'pa-ku-pa-ku', ăn liên tục không dừng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-71",
+      "word": "ころころ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Viên bi 'ko-ro-ko-ro', lăn lông lốc trên sàn.",
+      "mnemonic": [
+        "Viên bi 'ko-ro-ko-ro' lăn tròn trên sàn."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-72",
+      "word": "ちらちら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Len lén, thấp thoáng (nhìn), loáng thoáng (nghe)",
+      "mnemonic": [
+        "Nhìn 'chi-ra-chi-ra', liếc len lén."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-73",
+      "word": "ゆらゆら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đung đưa, lung lay",
+      "mnemonic": [
+        "Cái cây 'yu-ra-yu-ra', đung đưa trong gió."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-74",
+      "word": "ふらふら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chao đảo, say sẩm, ngã nghiêng ngã ngửa",
+      "mnemonic": [
+        "Đi 'fu-ra-fu-ra', say sẩm chao đảo."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-75",
+      "word": "きょろきょろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bồn chồn, sốt ruột, đứng ngồi không yên",
+      "mnemonic": [
+        "Nhìn 'kyo-ro-kyo-ro', ngó quanh sốt ruột."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-76",
+      "word": "ごくごく",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ừng ực, ực ực (uống)",
+      "mnemonic": [
+        "Uống nước 'go-ku-go-ku', ừng ực sảng khoái."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-77",
+      "word": "えーんえーん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hu hu (khóc lớn tiếng)",
+      "mnemonic": [
+        "Khóc 'en-en', hu hu to tiếng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-78",
+      "word": "がらがら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ọc ọc, khạc khạc (xúc miệng)",
+      "mnemonic": [
+        "Xúc miệng 'ga-ra-ga-ra', ọc ọc sạch sẽ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-79",
+      "word": "こんこん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lặp đi lặp lại nhiều lần. Liên miên, liên tục",
+      "mnemonic": [
+        "Gõ cửa 'kon-kon', tiếng gõ liên tục."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-80",
+      "word": "ぺりっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc rắc, xoẹt xoẹt, tẹt, bon (âm thanh vật mỏng bị nứt, vỡ, bị bóc ra)",
+      "mnemonic": [
+        "Bóc tem 'pe-ri-to', xoẹt một cái là xong."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-81",
+      "word": "ぺりぺり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc rắc, xoẹt xoẹt, tẹt, bon",
+      "mnemonic": [
+        "Bóc băng dính 'pe-ri-pe-ri', xoẹt xoẹt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-82",
+      "word": "べりべり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc rắc, xoẹt xoẹt, tẹt, bon",
+      "mnemonic": [
+        "Xé vải 'be-ri-be-ri', tiếng xoẹt xoẹt mạnh."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-83",
+      "word": "べりっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc rắc, xoẹt xoẹt, tẹt, bon",
+      "mnemonic": [
+        "Bóc nhãn 'be-ri-to', rắc nhẹ là ra."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-84",
+      "word": "くるくる",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Quấn quấn, vòng vòng, cuốn cuốn",
+      "mnemonic": [
+        "Quấn chỉ 'ku-ru-ku-ru', vòng vòng quanh cuộn."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-85",
+      "word": "ぼきっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc, rắc rắc, rốp, rốp rốp (âm thanh vật giòn, cứng bị gãy, bẻ, vỡ)",
+      "mnemonic": [
+        "Bẻ cành 'bo-ki', rắc một tiếng gãy đôi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-86",
+      "word": "ぽきっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc, rắc rắc, rốp, rốp rốp",
+      "mnemonic": [
+        "Bẻ ngón tay 'po-ki', tiếng rắc vang lên."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-87",
+      "word": "ぽきぽき",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rắc, rắc rắc, rốp, rốp rốp",
+      "mnemonic": [
+        "Bẻ củi 'po-ki-po-ki', tiếng rốp rốp khô khốc."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-88",
+      "word": "ぶらぶら",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đung đưa, đong đưa, đưa đẩy",
+      "mnemonic": [
+        "Đu người 'bu-ra-bu-ra', đung đưa trên xà."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-89",
+      "word": "くんくん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hít hít, ngửi ngửi",
+      "mnemonic": [
+        "Chó 'kun-kun', hít hít tìm mùi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-90",
+      "word": "かちゃかちゃ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cạch cạch, tách tách",
+      "mnemonic": [
+        "Gõ phím 'ka-cha-ka-cha', cạch cạch vui tai."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-91",
+      "word": "つるっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rột rột, sột sột (âm thanh ăn, húp, uống)",
+      "mnemonic": [
+        "Húp mì 'tsu-ru-to', tọt một cái hết sạch."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-92",
+      "word": "つるつる",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rột rột, sột sột (âm thanh ăn, húp, uống)",
+      "mnemonic": [
+        "Húp mì 'tsu-ru-tsu-ru', rột rột rất ngon."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-93",
+      "word": "がちゃん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rầm rầm, ầm ầm, cạch cạch, tách tách",
+      "mnemonic": [
+        "Cửa đóng 'ga-chan', cạch một tiếng mạnh."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-94",
+      "word": "ちゃりん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Keng keng, kong kong",
+      "mnemonic": [
+        "Tiền rơi 'cha-rin', keng một tiếng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-95",
+      "word": "もぐもぐ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhai trong miệng (không phát ra tiếng, không há miệng to, ko nhai chóp chép)",
+      "mnemonic": [
+        "Nhai 'mo-gu-mo-gu', mím môi nhai kỹ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-96",
+      "word": "ちゅー",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hút chụt chụt, hút sột sột",
+      "mnemonic": [
+        "Hút sữa 'chu', chụt một cái hết veo."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-97",
+      "word": "かたん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cạch, bon (âm thanh va chạm vật nhẹ, nhỏ – làm ngã rồi dựng lên)",
+      "mnemonic": [
+        "Đồ vật đổ 'ka-tan', cạch một tiếng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-98",
+      "word": "しゅうしゅう",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sôi ùng ục",
+      "mnemonic": [
+        "Nồi cơm 'shu-shu', sôi ùng ục."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-99",
+      "word": "ことこと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nấu chín nhừ, nát nhừ",
+      "mnemonic": [
+        "Ninh xương 'ko-to-ko-to', chín nhừ thơm lừng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-100",
+      "word": "ぎゅっぎゅっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Siết siết, nhào nhào, nặn nặn",
+      "mnemonic": [
+        "Nhào bột 'gyu-gyu', nặn nặn cho đều."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-101",
+      "word": "とんとん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cộc cộc, cộp cộp (cắt, gọt)",
+      "mnemonic": [
+        "Thái rau 'ton-ton', cộc cộc trên thớt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-102",
+      "word": "ざくざく",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sạt sạt (cắt, bào)",
+      "mnemonic": [
+        "Thái thịt 'za-ku-za-ku', cắt sạt sạt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-103",
+      "word": "ぽいっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Vèo, vút (vứt đi)",
+      "mnemonic": [
+        "Vứt rác 'poi', vèo một cái vào thùng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-104",
+      "word": "じゅーっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Xèo xèo (chiên, nướng)",
+      "mnemonic": [
+        "Chiên cá 'ju', nghe tiếng xèo xèo."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-105",
+      "word": "ぎゅっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thắt chặt, siết chặt, gút gút (âm thanh siết/thắt)",
+      "mnemonic": [
+        "Nắm tay 'gyu', siết chặt tình cảm."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-106",
+      "word": "どさっ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bịch, bịch bịch, uỵch (âm thanh vật nặng rớt)",
+      "mnemonic": [
+        "Ngã 'do-sa', uỵch một cái xuống đất."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-107",
+      "word": "ぱんぱん",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bộp bộp, bốp bốp (tiếng vỗ tay)",
+      "mnemonic": [
+        "Vỗ tay 'pan-pan', bộp bộp khen ngợi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-108",
+      "word": "ねばねば",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Dính như keo",
+      "mnemonic": [
+        "Đậu nành lên men 'ne-ba-ne-ba', dính như keo."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-109",
+      "word": "色々",
+      "reading": "いろいろ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đa dạng",
+      "mnemonic": [
+        "Màu sắc 'i-ro-i-ro', đa dạng thật đẹp."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-110",
+      "word": "各々",
+      "reading": "おのおの",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Từng cái từng cái một",
+      "mnemonic": [
+        "Mỗi người 'o-no-o-no', từng cái một."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-111",
+      "word": "方々",
+      "reading": "かたがた",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Từng người từng người một",
+      "mnemonic": [
+        "Chào hỏi 'ka-ta-ga-ta', từng người một."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-112",
+      "word": "木々",
+      "reading": "きぎ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Các loại cây",
+      "mnemonic": [
+        "Rừng cây 'ki-gi', các loài cây xanh."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-113",
+      "word": "国々",
+      "reading": "くにぐに",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Các nước",
+      "mnemonic": [
+        "Du lịch 'ku-ni-gu-ni', thăm các nước khác nhau."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-114",
+      "word": "煌々と",
+      "reading": "こうこうと",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bóng đèn nhấp nháy",
+      "mnemonic": [
+        "Đèn 'ko-ko-to', sáng ngời nhấp nháy."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-115",
+      "word": "個々",
+      "reading": "ここ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Từng cái một",
+      "mnemonic": [
+        "Lấy 'ko-ko', từng cái một thôi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-116",
+      "word": "様々",
+      "reading": "さまざま",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhiều dạng khác nhau",
+      "mnemonic": [
+        "Ý kiến 'sa-ma-sa-ma', nhiều dạng khác nhau."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-117",
+      "word": "順々",
+      "reading": "じゅんじゅん",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lần lượt theo thứ tự",
+      "mnemonic": [
+        "Xếp hàng 'jun-jun', lần lượt theo thứ tự."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-118",
+      "word": "少々",
+      "reading": "しょうしょう",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Một chút, một lúc",
+      "mnemonic": [
+        "Đợi 'sho-sho', chỉ một chút thôi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-119",
+      "word": "徐々に",
+      "reading": "じょじょに",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Từ từ, dần dần",
+      "mnemonic": [
+        "Tiến bộ 'jo-jo-ni', dần dần cải thiện."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-120",
+      "word": "図々しい",
+      "reading": "ずうずうしい",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Làm ngơ, thản nhiên, coi như không có chuyện gì",
+      "mnemonic": [
+        "Mặt dày 'zu-zu-shi', thản nhiên không biết ngượng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-121",
+      "word": "早々",
+      "reading": "そうそう",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sớm, vội",
+      "mnemonic": [
+        "Ra đi 'so-so', sớm vội vã."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-122",
+      "word": "騒々しい",
+      "reading": "そうぞうしい",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ầm ĩ, huyên náo",
+      "mnemonic": [
+        "Trường học 'so-zo-shi', rất ầm ĩ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-123",
+      "word": "続々",
+      "reading": "ぞくぞく",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Liên tiếp, liên tục",
+      "mnemonic": [
+        "Khách đến 'zo-ku-zo-ku', liên tiếp không ngừng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-124",
+      "word": "代々",
+      "reading": "だいだい",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Từ thế hệ này sang thế hệ khác, nhiều thế hệ",
+      "mnemonic": [
+        "Gia đình 'dai-dai', truyền đời qua nhiều thế hệ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-125",
+      "word": "段々",
+      "reading": "だんだん",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Dần dần, từ từ",
+      "mnemonic": [
+        "Trời sáng 'dan-dan', dần dần rõ mặt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-126",
+      "word": "近々",
+      "reading": "ちかぢか",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Gần sát, cận kề",
+      "mnemonic": [
+        "Ngày thi 'chi-ka-ji-ka', đã cận kề."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-127",
+      "word": "着々",
+      "reading": "ちゃくちゃく",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Vững, vững chắc",
+      "mnemonic": [
+        "Làm 'cha-ku-cha-ku', bước đi vững chắc."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-128",
+      "word": "次々",
+      "reading": "つぎつぎ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Liên tiếp, hết cái này đến cái khác",
+      "mnemonic": [
+        "Việc 'tsu-gi-tsu-gi', hết cái này tới cái khác."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-129",
+      "word": "時々",
+      "reading": "ときどき",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thỉnh thoảng",
+      "mnemonic": [
+        "Gặp 'to-ki-do-ki', thỉnh thoảng mới thấy."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-130",
+      "word": "所々",
+      "reading": "ところどころ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chỗ này chỗ kia",
+      "mnemonic": [
+        "Vết bẩn 'to-ko-ro-to-ko-ro', chỗ này chỗ kia."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-131",
+      "word": "年々",
+      "reading": "ねんねん",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hàng năm",
+      "mnemonic": [
+        "Tăng 'nen-nen', hàng năm đều lên."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-132",
+      "word": "遥々",
+      "reading": "はるばる",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đến cùng, xa xôi",
+      "mnemonic": [
+        "Đi 'ha-ru-ba-ru', đến nơi xa xôi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-133",
+      "word": "人々",
+      "reading": "ひとびと",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Mọi người",
+      "mnemonic": [
+        "Nhìn 'hi-to-hi-to', mọi người xung quanh."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-134",
+      "word": "日々",
+      "reading": "ひび",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hàng ngày",
+      "mnemonic": [
+        "Luyện tập 'hi-bi', chăm chỉ hàng ngày."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-135",
+      "word": "広々",
+      "reading": "ひろびろ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rộng rãi",
+      "mnemonic": [
+        "Phòng 'hi-ro-bi-ro', rộng rãi thoáng đãng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-136",
+      "word": "別々",
+      "reading": "べつべつ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Tách biệt, tách rời",
+      "mnemonic": [
+        "Tính tiền 'be-tsu-be-tsu', tách biệt riêng rẽ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-137",
+      "word": "丸々",
+      "reading": "まるまる",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Tròn xoe, tròn trịa, hình dạng rất tròn",
+      "mnemonic": [
+        "Em bé 'ma-ru-ma-ru', tròn trịa đáng yêu."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-138",
+      "word": "元々",
+      "reading": "もともと",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nguyên là, vốn dĩ là",
+      "mnemonic": [
+        "Cái này 'mo-to-mo-to', vốn dĩ là của tôi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-139",
+      "word": "弱々しい",
+      "reading": "よわよわしい",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Trông yếu ớt",
+      "mnemonic": [
+        "Cơ thể 'yo-wa-yo-wa-shi', trông yếu ớt lắm."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-140",
+      "word": "若々しい",
+      "reading": "わかわかしい",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Trẻ trung",
+      "mnemonic": [
+        "Trông 'wa-ka-wa-ka-shi', rất trẻ trung."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-141",
+      "word": "我々",
+      "reading": "われわれ",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chúng tôi",
+      "mnemonic": [
+        "Đội ngũ 'wa-re-wa-re', chúng tôi quyết tâm."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-142",
+      "word": "めきめき",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lớn nhanh vùn vụt",
+      "mnemonic": [
+        "Tiến bộ 'me-ki-me-ki', lớn nhanh vùn vụt."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-143",
+      "word": "ひそひそ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Khe khẽ, thì thầm, rón rén",
+      "mnemonic": [
+        "Nói 'hi-so-hi-so', thì thầm bí mật."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-144",
+      "word": "ちゃんと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Cẩn thận, kỹ càng, nghiêm chỉnh",
+      "mnemonic": [
+        "Làm 'chan-to', nghiêm chỉnh cẩn thận."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-145",
+      "word": "生き生きする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sống động",
+      "mnemonic": [
+        "Mọi vật 'iki-iki', thật sống động."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-146",
+      "word": "わくわくする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hồi hộp",
+      "mnemonic": [
+        "Mong đợi 'waku-waku', hồi hộp vui sướng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-147",
+      "word": "いらいらする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "(Tâm trạng lo lắng) nóng ruột",
+      "mnemonic": [
+        "Đợi 'ira-ira', nóng ruột phát cáu."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-148",
+      "word": "むっとする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nổi giận bừng bừng, nhảy dựng lên",
+      "mnemonic": [
+        "Tức 'mut', nổi giận bừng bừng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-149",
+      "word": "うんざりする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chán ngắt, ngán ngẩm, chán ngấy",
+      "mnemonic": [
+        "Chán 'un-za-ri', chán ngấy tận cổ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-150",
+      "word": "むかむかする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nôn nao, buồn nôn",
+      "mnemonic": [
+        "Say xe 'muka-muka', nôn nao buồn nôn."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-151",
+      "word": "どきどきする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "(Tim đập) thình thịch",
+      "mnemonic": [
+        "Yêu 'doki-doki', tim đập thình thịch."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-152",
+      "word": "ほっきりする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhẹ cả người (tâm trạng hết căng thẳng)",
+      "mnemonic": [
+        "Xong việc 'hok-ki-ri', nhẹ nhõm cả người."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-153",
+      "word": "すっきりする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Khoan khoái, dễ chịu, sảng khoái",
+      "mnemonic": [
+        "Dọn dẹp 'suk-ki-ri', khoan khoái sạch sẽ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-154",
+      "word": "のんびりする",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thong thả, thong dong",
+      "mnemonic": [
+        "Cuối tuần 'non-bi-ri', thong dong nghỉ ngơi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-155",
+      "word": "さっさと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhanh nhanh chóng chóng, khẩn trương",
+      "mnemonic": [
+        "Làm 'sas-sa-to', nhanh chóng khẩn trương."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-156",
+      "word": "ざっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Qua loa, đại khái, ước chừng, (đọc lướt)",
+      "mnemonic": [
+        "Đọc 'zatto', đại khái qua loa."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-157",
+      "word": "そっくり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Giống như đúc",
+      "mnemonic": [
+        "Hai người 'sok-ku-ri', giống nhau như đúc."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-158",
+      "word": "どっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bất thình lình, bất chợt",
+      "mnemonic": [
+        "Người vào 'dotto', bất thình lình ùa vào."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-159",
+      "word": "すっと",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhanh như chớp, vụt qua",
+      "mnemonic": [
+        "Đi 'sutto', vụt qua nhanh như chớp."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-160",
+      "word": "きっかり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chính xác, hoàn hảo",
+      "mnemonic": [
+        "Giờ 'kik-ka-ri', chính xác hoàn hảo."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-161",
+      "word": "げっそり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "(Gầy) héo hon, sút cân, ngã lòng",
+      "mnemonic": [
+        "ốm 'ges-so-ri', héo hon sút cân."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-162",
+      "word": "くっきり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rõ ràng, minh bạch, trong sạch",
+      "mnemonic": [
+        "Chữ 'kuk-ki-ri', rõ ràng minh bạch."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-163",
+      "word": "めっきり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Một cách rõ nét, trông thấy rõ",
+      "mnemonic": [
+        "Lạnh 'mek-ki-ri', rõ rệt thấy ngay."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-164",
+      "word": "しみじみ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thực lòng, hoàn toàn, vô cùng, sâu xa",
+      "mnemonic": [
+        "Cảm động 'shimi-jimi', thực lòng sâu xa."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-165",
+      "word": "てっきり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chắc chắn, nhất định",
+      "mnemonic": [
+        "Tưởng 'tek-ki-ri', chắc chắn là đúng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-166",
+      "word": "つくづく",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sâu sắc, tỉ mỉ",
+      "mnemonic": [
+        "Suy ngẫm 'tsuku-zuku', sâu sắc tỉ mỉ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-167",
+      "word": "かたかた",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đây đó, khắp nơi",
+      "mnemonic": [
+        "Đi 'kata-kata', đây đó khắp nơi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-168",
+      "word": "くれぐれも",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Rất mong, kính mong (dùng trong câu nhờ vả)",
+      "mnemonic": [
+        "Nhờ 'kure-gure-mo', kính mong giúp đỡ."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-169",
+      "word": "きっぱり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thẳng thừng, rứt khoát",
+      "mnemonic": [
+        "Từ chối 'kip-pa-ri', rứt khoát thẳng thừng."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-170",
+      "word": "ばったり",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Bất ngờ, đột ngột",
+      "mnemonic": [
+        "Gặp 'bat-ta-ri', bất ngờ không hẹn."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-171",
+      "word": "そろそろ",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Sắp sửa, chuẩn bị",
+      "mnemonic": [
+        "Giờ 'so-ro-so-ro', sắp sửa phải đi."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-172",
+      "word": "しばしば",
+      "reading": null,
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Thường xuyên, không ngừng",
+      "mnemonic": [
+        "Đến 'shiba-shiba', thường xuyên lui tới."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-173",
+      "word": "転々",
+      "reading": "てんてん",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Lăn, lảng vảng",
+      "mnemonic": [
+        "Viên bi 'ten-ten' lăn khắp nơi, hết chỗ này đến chỗ khác."
+      ],
+      "example": null,
+      "exampleVi": null
+    },
+    {
+      "id": "tulay-174",
+      "word": "点々",
+      "reading": "てんてん",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nằm rải rác đây đó, lấm chấm",
+      "mnemonic": [
+        "Mực rơi 'ten-ten', lấm chấm rải rác trên tờ giấy."
+      ],
+      "example": null,
+      "exampleVi": null
+    }
+  ]
+}
