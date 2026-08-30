@@ -109,7 +109,15 @@ function App() {
     );
   }
   if (screen === "vocab") {
-    return <VocabScreen onBack={goBack} onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)} jumpToId={targetId} />;
+    return (
+      <VocabScreen
+        onBack={goBack}
+        onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)}
+        onOpenReading={() => navigate("reading")}
+        onOpenQuizBook={() => navigate("quizBook")}
+        jumpToId={targetId}
+      />
+    );
   }
   if (screen === "kanji") {
     return <KanjiScreen onBack={goBack} onOpenVocab={(vocabId) => navigate("vocab", vocabId)} jumpToId={targetId} />;

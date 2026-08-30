@@ -5,12 +5,23 @@ import dongnghiaRaw from "../data/vocab-tanoshii-dongnghia-n3.json";
 import tangoN3Raw from "../data/vocab-tango-n3.json";
 import tangoN4Raw from "../data/vocab-tango-n4.json";
 import tuLayRaw from "../data/vocab-tu-lay.json";
+import trangtu91Raw from "../data/vocab-trangtu-91.json";
+import dongtu200Raw from "../data/vocab-dongtu-200.json";
 import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
-export type VocabSource = "tinhtu-n3" | "dongtu-n4" | "mimikara-n3" | "dongnghia-n3" | "tango-n3" | "tango-n4" | "tu-lay";
+export type VocabSource =
+  | "tinhtu-n3"
+  | "dongtu-n4"
+  | "mimikara-n3"
+  | "dongnghia-n3"
+  | "tango-n3"
+  | "tango-n4"
+  | "tu-lay"
+  | "trangtu-91"
+  | "dongtu-200";
 
 export interface VocabCard {
   id: string;
@@ -34,6 +45,8 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tango-n3": "Tango N3",
   "tango-n4": "Tango N4",
   "tu-lay": "Từ láy",
+  "trangtu-91": "91 trạng từ thường dùng",
+  "dongtu-200": "200 động từ N3-N4",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -45,6 +58,8 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "tango-n3",
   "tango-n4",
   "tu-lay",
+  "trangtu-91",
+  "dongtu-200",
 ];
 
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
@@ -59,6 +74,8 @@ const dongnghiaDataset = dongnghiaRaw as unknown as TanoshiiSynonymDataset;
 const tangoN3Dataset = tangoN3Raw as unknown as TanoshiiVocabDataset;
 const tangoN4Dataset = tangoN4Raw as unknown as TanoshiiVocabDataset;
 const tuLayDataset = tuLayRaw as unknown as TanoshiiVocabDataset;
+const trangtu91Dataset = trangtu91Raw as unknown as TanoshiiVocabDataset;
+const dongtu200Dataset = dongtu200Raw as unknown as TanoshiiVocabDataset;
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -116,6 +133,8 @@ export const ALL_VOCAB: VocabCard[] = [
   ...fromTanoshiiVocab("tango-n3", tangoN3Dataset),
   ...fromTanoshiiVocab("tango-n4", tangoN4Dataset),
   ...fromTanoshiiVocab("tu-lay", tuLayDataset),
+  ...fromTanoshiiVocab("trangtu-91", trangtu91Dataset),
+  ...fromTanoshiiVocab("dongtu-200", dongtu200Dataset),
 ];
 
 export function countForSource(source: VocabSource): number {

@@ -29,6 +29,9 @@ import {
 import { ExpandTabButton } from "../TabMode.tsx";
 import { CollapsibleSection } from "../CollapsibleSection.tsx";
 import { kanjiIdForChar } from "../kanjiVocabLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions } from "../vocabLinks.ts";
+import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../readingState.ts";
+import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../quizBookState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 
 const PROGRESS_FILTER_LABELS: Record<VocabViewerState["progressFilter"], string> = {
@@ -65,10 +68,14 @@ async function getFilteredList(state: VocabViewerState): Promise<VocabCard[]> {
 export function VocabScreen({
   onBack,
   onOpenKanji,
+  onOpenReading,
+  onOpenQuizBook,
   jumpToId,
 }: {
   onBack: () => void;
   onOpenKanji: (kanjiId: string) => void;
+  onOpenReading: () => void;
+  onOpenQuizBook: () => void;
   jumpToId?: string;
 }) {
   const [state, setState] = useState<VocabViewerState | null>(null);
@@ -150,6 +157,18 @@ export function VocabScreen({
     setProgress(p);
   }
 
+  async function handleOpenReading(passageId: string) {
+    const readingState = await loadReadingViewerState();
+    await saveReadingViewerState({ ...readingState, currentPassageId: passageId });
+    onOpenReading();
+  }
+
+  async function handleOpenQuizBook(questionId: string) {
+    const qbState = await loadQuizBookViewerState();
+    await saveQuizBookViewerState({ ...qbState, currentQuestionId: questionId });
+    onOpenQuizBook();
+  }
+
   if (!state) {
     return (
       <header className="toolbar">
@@ -167,6 +186,8 @@ export function VocabScreen({
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
   const allChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
+  const readingMatches = v ? findMatchingReadingPassages(v) : [];
+  const quizBookMatches = v ? findMatchingQuizBookQuestions(v) : [];
 
   return (
     <>
@@ -339,6 +360,33 @@ export function VocabScreen({
               <span className="example-jp">{v.example}</span>
               {v.exampleVi ? <span className="example-vi">{v.exampleVi}</span> : null}
             </p>
+          ) : null}
+
+          {readingMatches.length > 0 ? (
+            <div className="related-vocab">
+              <div className="related-vocab-label">📖 Xuất hiện trong bài đọc</div>
+              <div className="related-vocab-list">
+                {readingMatches.map((p) => (
+                  <button key={p.id} className="related-vocab-item" onClick={() => handleOpenReading(p.id)}>
+                    {p.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          {quizBookMatches.length > 0 ? (
+            <div className="related-vocab">
+              <div className="related-vocab-label">📝 Xuất hiện trong luyện đề</div>
+              <div className="related-vocab-list">
+                {quizBookMatches.map((qq) => (
+                  <button key={qq.id} className="related-vocab-item" onClick={() => handleOpenQuizBook(qq.id)}>
+                    {qq.question.slice(0, 24)}
+                    {qq.question.length > 24 ? "…" : ""}
+                  </button>
+                ))}
+              </div>
+            </div>
           ) : null}
         </main>
       )}
