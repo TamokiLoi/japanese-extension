@@ -1,0 +1,940 @@
+{
+  "grammarPoints": [
+    {
+      "id": "bunpo-tryn3-1",
+      "level": "N3",
+      "pattern": "～だろうと思う",
+      "meaningVi": "Nghĩ là có lẽ...",
+      "usage": "~だろう là thể thông thường của ~でしょう. Sử dụng khi bạn nói với người khác về điều mà bạn nghĩ có lẽ là như thế nhưng không chắc lắm.",
+      "examTip": "",
+      "example": "たぶんこの雨は1時間ぐらいでやむだろうと思います。",
+      "exampleVi": "Tôi nghĩ có lẽ cơn mưa này sẽ tạnh trong khoảng 1 tiếng nữa thôi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-2",
+      "level": "N3",
+      "pattern": "～なさそうだ",
+      "meaningVi": "Trông có vẻ không...",
+      "usage": "~なさそうだ sử dụng khi bạn nhìn một cái gì đó rồi cảm nhận, dự đoán, nghĩ rằng không “～”.",
+      "examTip": "「増えそうだ」などの動詞の場合は「V-ます ＋ そうもない／そうにない／そうにもない」と言う。\n①こんな難しそうな本、1週間では読めそうもない。\n②忙しいので、しばらく残業は減りそうもない。\n③安くなったら買おうと思ったが、これ以上安くなりそうにないから、あきらめた。",
+      "example": "このカレーはあまり辛くなさそうですね。",
+      "exampleVi": "Món cà ri này trông có vẻ không cay lắm nhỉ.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-3",
+      "level": "N3",
+      "pattern": "V-て + いく",
+      "meaningVi": "Càng ngày càng... / ... đi (hướng ra xa)",
+      "usage": "「～ていく」は、「歩いていく」のように、ある動作をしながら遠くへ移動するときや、「買っていく」のように、ある動作をしてから次の場所へ行くことを表すときに使う。将来に向かって続いていくことを言うときにも使う。 ~ていく sử dụng khi nói về một sự di chuyển nào đó ngày càng dời ra xa như là “歩いていく”, hoặc để nói là sau khi làm một động tác nào đó bạn sẽ di chuyển đến chỗ khác như là “買っていく”. Cũng có thể sử dụng khi nói một sự việc gì đó sẽ tiếp diễn hướng tới tương lai.",
+      "examTip": "反対に、近づくときは「～てくる」を使う。動作や変化が過去から今まで続いていることを言うときにも使う。 Ngược lại, sử dụng ~てくる khi một cái gì đó tiến gần tới mình. Cũng sử dụng khi nói một hành động hoặc sự thay đổi nào đó đang tiếp diễn từ quá khứ đến hiện tại.\n①申し込みのときに、身分証明書を持ってきてください。\n②棚から本が落ちてきて、おどろいた。\n③日本人は昔から魚を食べてきました。\n④私はこの町で４年間、環境調査を続けてきました。",
+      "example": "冬になると渡り鳥は南のほうへ飛んでいく。",
+      "exampleVi": "Khi mùa đông đến, các loài chim di cư sẽ bay về phía nam.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-4",
+      "level": "N3",
+      "pattern": "V-ます + 続ける",
+      "meaningVi": "Tiếp tục...",
+      "usage": "「～続ける」は、動作をずっと続けることや、習慣としてくり返すことを強調して言うときに使う。 ~続ける sử dụng khi nhấn mạnh sự lặp đi lặp lại như một thói quen hoặc tiếp tục duy trì suốt một hành động nào đó.",
+      "examTip": "",
+      "example": "犬のハチ公は、主人の帰りを待ち続けた。",
+      "exampleVi": "Chú chó Hachiko đã tiếp tục đợi chủ nhân quay trở về.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-5",
+      "level": "N3",
+      "pattern": "V-させる + て + [もらう / くれる]",
+      "meaningVi": "Được cho phép làm gì / Được làm giúp",
+      "usage": "「～させてもらう」は、自分がすることのためにほかの人の許可を取るときに使う。許可してくれたことに感謝するときにも使う。「～させてくれる」の形もよく使われる。 ~させてもらう sử dụng khi xin phép người khác cho mình làm gì đó. Cũng được sử dụng khi cám ơn người ta đã cho phép mình. Thể “~させてくれる” cũng thường được sử dụng.",
+      "examTip": "",
+      "example": "この会社は自分の意見を自由に言わせてくれる。",
+      "exampleVi": "Công ty này cho phép tôi được tự do nói lên ý kiến của mình.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-6",
+      "level": "N3",
+      "pattern": "V-させられる",
+      "meaningVi": "Bị bắt phải làm",
+      "usage": "「～させられる」は、自分がしたくないと思っていることを、他人からするように言われて、しなければならないときに使う。 ~させられる sử dụng khi bị người khác bảo mình làm cái việc mà mình không muốn làm nhưng phải làm.",
+      "examTip": "",
+      "example": "子どものときテストの成績が悪いと、父にトイレそうじをさせられた。",
+      "exampleVi": "Khi còn nhỏ, mỗi khi kết quả bài kiểm tra kém là tôi lại bị bố bắt dọn nhà vệ sinh.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-7",
+      "level": "N3",
+      "pattern": "～がる",
+      "meaningVi": "Có vẻ muốn... / Thể hiện mong muốn (của ngôi thứ 3)",
+      "usage": "「～がる」は、その人の気持ちなどが様子や言葉に表れているときに使う。自分の気持ちを言うときは使わないのが普通。 ~がる sử dụng khi cảm xúc của người đó được thể hiện qua bộ dạng hoặc lời nói. Thông thường không sử dụng khi nói về cảm xúc của chính mình.",
+      "examTip": "「～がり」（「暑がり」「寒がり」「こわがり」など）は、よくそのように感じる人という意味の名詞になる。 ~がり trở thành một danh từ với ý nghĩa là nói về một người thường xuyên cảm thấy như thế đó, ví dụ như “暑がり”, “寒がり” hay “こわがり”.\n私は寒がりだから、冬が苦手だ。",
+      "example": "彼は試合に負けてくやしがっている。",
+      "exampleVi": "Anh ấy đang tỏ ra rất tiếc nuối vì thua trận đấu.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-8",
+      "level": "N3",
+      "pattern": "V-た + とたん",
+      "meaningVi": "Ngay sau khi...",
+      "usage": "「～たとたん…」は、「～」のあとすぐ「…」が起こったという状況を説明するときに使う。 ~たとたん… sử dụng khi giải thích tình huống rằng “…” xảy ra ngay sau “~”.",
+      "examTip": "「…」の部分が話者の意志ですることの場合は使わない。 Không sử dụng trong trường hợp phần “…” là dự định của người nói sẽ làm trong tương lai. (Ví dụ sai: 学校を出たとたん、私は走るつもりだ。)",
+      "example": "立ち上がったとたん、目の前が暗くなった。",
+      "exampleVi": "Ngay khi vừa đứng dậy, trước mắt tôi bỗng tối sầm lại.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-9",
+      "level": "N3",
+      "pattern": "V-ます + 出す",
+      "meaningVi": "Đột nhiên bắt đầu",
+      "usage": "「～出す」は、何か急に起きたときや、急に始まったと言うときに使われる。 ~出す sử dụng khi một cái gì đó đột nhiên xảy ra hoặc bắt đầu một cách bất thình lình.",
+      "examTip": "",
+      "example": "さっきまで笑っていた赤ちゃんが急に泣き出した。",
+      "exampleVi": "Đứa bé vừa nãy còn đang cười bỗng nhiên bật khóc.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-10",
+      "level": "N3",
+      "pattern": "V-よう + とする",
+      "meaningVi": "Đang định... / Cố gắng để...",
+      "usage": "「～ようとする」は、今から～しようと思う、～しようとがんばっていると言いたいときに使う。「～ようとしない」は相手が～しないことを批判する気持ちを表す。 ~ようとする sử dụng khi muốn nói rằng bạn đang cố gắng hết sức để làm gì đó hoặc là bây giờ tính làm. ~ようとしない bộc lộ cảm xúc chỉ trích ai đó không chịu làm gì đó.",
+      "examTip": "動作をするすぐ前の状態のときに、予想しなかったことが起きたときにも使う。 Cũng sử dụng khi điều gì đó không ngờ tới đã xảy ra ngay trước khi bạn làm một động tác gì đó.\n出かけようとしたら雨が降ってきた。",
+      "example": "小さい子どもが道を渡ろうとしているよ。一人でどこへ行くのかな。",
+      "exampleVi": "Đứa trẻ nhỏ kia đang định sang đường kìa. Không biết nó định đi đâu một mình vậy?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-11",
+      "level": "N3",
+      "pattern": "V-る/V-ない + ことがある",
+      "meaningVi": "Thỉnh thoảng làm gì / Có lúc...",
+      "usage": "「～ことがある」は、ときどき、またはたまに～すると言うときに使う。 ~ことがある sử dụng khi nói rằng thỉnh thoảng, đôi khi làm chuyện gì đó.",
+      "examTip": "",
+      "example": "この地方では４月でも雪が降ることがある。",
+      "exampleVi": "Ở vùng này, thỉnh thoảng ngay cả tháng 4 cũng có tuyết rơi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-12",
+      "level": "N3",
+      "pattern": "V-させる + て + おく",
+      "meaningVi": "Cứ để cho làm gì",
+      "usage": "「～させておく」は、相手に「～」の動作をずっと続けるよう指示することを表す。また、相手の行動を変えさせたりやめさせたりしないで、そのままにしておくことを表すこともある。自分より下の人や動物に使うことが多い。 ~させておく chỉ thị ai đó cứ tiếp tục hành động “~”. Cũng có khi sử dụng để nói là cứ để nguyên như thế mà không làm thay đổi hoặc buộc phải dừng lại hành động của ai đó. Thường sử dụng cho động vật hoặc những người dưới mình.",
+      "examTip": "",
+      "example": "夏に車の中で子どもを待たせておくのは危険ですよ。",
+      "exampleVi": "Vào mùa hè, việc để trẻ con chờ đợi trong xe ô tô là rất nguy hiểm đấy.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-13",
+      "level": "N3",
+      "pattern": "V-られる + て + しまう",
+      "meaningVi": "Bị (ai đó làm gì gây phiền toái)",
+      "usage": "「～られてしまう」は、ほかの人がしたことを迷惑だ、残念だと思うときに使う。 ~られてしまう sử dụng khi bạn cảm thấy việc người khác làm thật khó chịu, thật đáng tiếc.",
+      "examTip": "",
+      "example": "片思いの彼を映画に誘ったが、断られてしまった。",
+      "exampleVi": "Tôi đã rủ người mình thầm yêu đi xem phim nhưng đáng tiếc là đã bị từ chối mất rồi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-14",
+      "level": "N3",
+      "pattern": "～による／～によって",
+      "meaningVi": "thể hiện phương pháp, cách thức, phương tiện khi làm cái gì đó.",
+      "usage": "「～による／～によって」は、何かを行うときの手段、方法を表す。",
+      "examTip": "",
+      "example": "オリンピックの開催地はIOCの委員の投票によって決めることになっている。",
+      "exampleVi": "Địa điểm tổ chức Olympic được quy định là sẽ quyết định dựa theo phiếu bầu của các ủy viên IOC.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-15",
+      "level": "N3",
+      "pattern": "～とおり（に）／～どおり（に）",
+      "meaningVi": "sử dụng khi nói cái gì đó xảy ra giống như đã nói hoặc đã dự đoán.",
+      "usage": "「～とおり」は、言ったことや予想したことなどと同じだと言うときに使う。",
+      "examTip": "",
+      "example": "料理の本に書いてあるとおりに作ったら、おいしくできた。",
+      "exampleVi": "Tôi làm theo đúng như những gì viết trong sách nấu ăn và kết quả là món ăn rất ngon.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-16",
+      "level": "N3",
+      "pattern": "～を通して／～を通じて",
+      "meaningVi": "sử dụng khi làm một cái gì đó không trực tiếp mà thông qua người khác, cách thức khác, sự việc khác.",
+      "usage": "「～を通して／～を通じて」は、直接ではなく、人、手段、物事が間に入って何かをすることを表す。",
+      "examTip": "",
+      "example": "私たちは読書を通していろいろな人の考え方を知ることができます。",
+      "exampleVi": "Thông qua việc đọc sách, chúng ta có thể biết được cách suy nghĩ của nhiều người khác nhau.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-17",
+      "level": "N3",
+      "pattern": "～のような／～のように",
+      "meaningVi": "sử dụng khi đưa ra một ví dụ điển hình.",
+      "usage": "「～のような／～のように」は、代表的な例をあげるときに使う。",
+      "examTip": "Plus: ～みたい\n友だちとの会話では「～みたい」も使う。\nN + みたい\n①ピアノみたいに大きくて重いものがあると、引っ越しが大変だね。\n②キュウリやトマトみたいな夏野菜は育てやすいそうだ。\n③冬は沖縄みたいな暖かいところに旅行に行きたいな。",
+      "example": "退院したばかりなので、テニスのように激しいスポーツはまだできません。",
+      "exampleVi": "Vì mới xuất viện nên tôi vẫn chưa thể chơi các môn thể thao vận động mạnh như tennis.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-18",
+      "level": "N3",
+      "pattern": "～によれば／～によると",
+      "meaningVi": "sử dụng khi muốn nói bạn đã biết cái thông tin gì đó từ đâu, do đâu. Cuối câu thường là mẫu ～そうだ／～ということだ.",
+      "usage": "「～によれば／～によると」は、情報を何で知ったかを言いたいときに使う。文の終わりは「～そうだ／～ということだ」などの形になる。",
+      "examTip": "",
+      "example": "今朝の天気予報によると、今週はずっと晴れるそうだ。",
+      "exampleVi": "Theo dự báo thời tiết sáng nay thì nghe nói tuần này trời sẽ nắng suốt.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-19",
+      "level": "N3",
+      "pattern": "～ということだ／～とのことだ",
+      "meaningVi": "sử dụng khi nói với người khác nội dung thông tin mình đã nghe.",
+      "usage": "「～ということだ／～とのことだ」は、聞いた情報の内容をほかの人に伝えるときに使う。",
+      "examTip": "",
+      "example": "お孫さんがお生まれになったとのこと、おめでとうございます。",
+      "exampleVi": "Nghe tin cháu của ông/bà mới chào đời, xin chúc mừng ông/bà.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-20",
+      "level": "N3",
+      "pattern": "～ている -> ～てる／～ておく -> ～とく",
+      "meaningVi": "～ている và ～ておく thường được rút ngắn âm để nói ngắn gọn lại thành \"～てる\" và \"～to\".",
+      "usage": "「～ている」「～ておく」などは、「～てる」「～とく」のように短く話すために音を省略したり、形を変えて使うことがよくある。",
+      "examTip": "Quy tắc chuyển đổi:\nている→てる\nでいる→でる\nておく→とく\nでおく→どく\nてしまう→ちゃう\nでしまう→じゃう\nては→ちゃ\nでは→じゃ\nなければ→なきゃ\nなくては→なくちゃ",
+      "example": "昼ご飯、食べた？うん、11時に食べちゃった。",
+      "exampleVi": "Cậu ăn trưa chưa? Ừ, tớ ăn xong lúc 11 giờ rồi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-21",
+      "level": "N3",
+      "pattern": "～なきゃ",
+      "meaningVi": "phải...",
+      "usage": "文を最後まで言わなくても意味がわかるときは、「~なきゃ。」などのように文を全部言わないことがある。\nCó đôi khi không cần nói hết câu, dùng “～なきゃ。” người ta vẫn hiểu nghĩa.",
+      "examTip": "",
+      "example": "あ！ 大変！ 宿題しなきゃ（いけない）。",
+      "exampleVi": "Á! Chết rồi! Phải làm bài tập về nhà thôi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-22",
+      "level": "N3",
+      "pattern": "～っけ",
+      "meaningVi": "nhớ không lầm thì...",
+      "usage": "「~っけ」は、はっきりわからないことや、聞いたのに忘れてしまったことを確認するときに使う。\n～っけ sử dụng khi xác nhận điều gì đó mà bạn không rõ hoặc đã nghe rồi nhưng quên mất.",
+      "examTip": "過去に知ったことは、現在、未来のことでも過去形を使うことがある。\nChuyện mà bạn đã biết trong quá khứ thì cho dù đó là chuyện ở hiện tại, tương lai cũng sử dụng thì/thể quá khứ.\nVí dụ:\n① 今度のテスト、来週の月曜日だったっけ。\n② 電池、どこに入れてありましたっけ。",
+      "example": "クリーニング屋、何時までだっけ。",
+      "exampleVi": "Tiệm giặt ủi mở đến mấy giờ nhỉ?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-23",
+      "level": "N3",
+      "pattern": "～たりして",
+      "meaningVi": "bỗng nhiên ~ / hay là ~ (nhẹ nhàng)",
+      "usage": "~たりして được sử dụng khi nói nhẹ nhàng bộ dạng của đối phương không giống với thường ngày, hoặc khi truyền đạt chỉ thị một cách nhẹ nhàng.",
+      "examTip": "",
+      "example": "彼女、急に泣いたりして、どうしたんだろう？",
+      "exampleVi": "Cô ấy bỗng dưng khóc lóc các kiểu, không biết là đã xảy ra chuyện gì nhỉ?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-24",
+      "level": "N3",
+      "pattern": "～たって",
+      "meaningVi": "cho dù...",
+      "usage": "「~たって」は、「急いだって間に合わない」「先生だってわからないことはある」のように、「~ても」と同じ意味で使う。\n～たって sử dụng với nghĩa giống ～ても như trong câu “急いだって間に合わない” và “先生だってわからないことはある”.",
+      "examTip": "",
+      "example": "病院に行ったって、すぐには治らないよ。",
+      "exampleVi": "Dẫu cho có đi bệnh viện thì cũng không khỏi ngay được đâu.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-25",
+      "level": "N3",
+      "pattern": "～じゃない",
+      "meaningVi": "chẳng phải là... sao?",
+      "usage": "「~じゃない」は、聞き手も知っていると思うことと同じ意見だと思うことを確認するときに使う。非難や発見の意味を表すこともある。否定の意味はない。言うときに語尾を上げない。\n～じゃない sử dụng khi xác nhận điều mà bạn nghĩ người nghe cũng biết điều đó hoặc bạn nghĩ người nghe có cùng ý kiến với bạn. Có khi nó có nghĩa chê trách hoặc phát hiện ra một điều gì đó. Nó không mang nghĩa phủ định. Khi nói, không lên giọng ở cuối câu.",
+      "examTip": "「~じゃん」の形も同じように使われる。\nVí dụ:\nA：だめじゃん。友だちの宿題写しちゃ。自分でやらなきゃ意味ないじゃん！\nB：そんなに怒らなくてもいいじゃん。",
+      "example": "レストランABK、広くて、交通の便もいいじゃない。あそこがいいよ。",
+      "exampleVi": "Nhà hàng ABK vừa rộng rãi lại còn thuận tiện giao thông nữa, không phải sao? Chọn chỗ đó đi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-26",
+      "level": "N3",
+      "pattern": "～みたい（だ）",
+      "meaningVi": "hình như..., có vẻ...",
+      "usage": "「~みたい」は、話し手の推量を表す「~よう」の意味で使う。\n～みたい được sử dụng với nghĩa “～よう” biểu thị suy đoán của người nói.",
+      "examTip": "",
+      "example": "私、どこかで財布落としちゃったみたい。いくら探してもないのよ。",
+      "exampleVi": "Hình như tớ đánh rơi ví ở đâu đó rồi. Tìm mãi mà không thấy đâu cả.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-27",
+      "level": "N3",
+      "pattern": "～ようだ / ～ように / ～ような",
+      "meaningVi": "giống như...",
+      "usage": "「~よう」は、「氷のように冷たい手」のように、似ているものを言って、様子や状況を説明するときに使う。\n～よう sử dụng khi giải thích trạng thái, tình huống bằng cách ví nó giống như là cái gì đó, ví dụ như “氷のように冷たい手”.",
+      "examTip": "友だちとの会話では「~みたい」の形も使う。\nVí dụ:\n① A: 山田先生って厳しいけど私たちのことほんとに心配してくれるよね。 B: そうそう、ちょっとお父さんみたい。\n② A: 生まれたばかりの赤ちゃんって、猿みたいだよね。 B: そんなことないよ。うちの子はかわいかったよ。\n③ わあ、すごい汗だね。シャワーを浴びたみたい。",
+      "example": "わが社の新しいロボットはまるで人間のように手足が自由に動きます。",
+      "exampleVi": "Robot mới của công ty chúng tôi có thể cử động chân tay linh hoạt như người thật vậy.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-28",
+      "level": "N3",
+      "pattern": "～はもちろん",
+      "meaningVi": "không chỉ... mà cả...",
+      "usage": "「AはもちろんBも」の形で、「Aだけでなく、さらにBも」と言いたいときに使う。\nAはもちろんBも sử dụng khi muốn nói rằng “không chỉ A mà B cũng”.",
+      "examTip": "",
+      "example": "山形はスキーはもちろん、温泉もいいのでたいへん人気があります。",
+      "exampleVi": "Yamagata không chỉ nổi tiếng với môn trượt tuyết mà suối nước nóng ở đó cũng rất tuyệt, nên nơi đây cực kỳ thu hút du khách.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-29",
+      "level": "N3",
+      "pattern": "ます形（～てのかわりに）",
+      "meaningVi": "Và / Để (thay thế cho thể ~て trong văn viết)",
+      "usage": "「調査し、レポートを書く」のように、「～て」のかわりに、ます形を使うことがある。\nDùng thể ます thay cho “~て”, như trong câu “調査し、レポートを書く”.",
+      "examTip": "",
+      "example": "交通ルールを守り、安全運転をしましょう。",
+      "exampleVi": "Hãy tuân thủ luật giao thông và lái xe an toàn.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-30",
+      "level": "N3",
+      "pattern": "～ところへ / ～ところに / ～ところを / ～ところで",
+      "meaningVi": "Đúng lúc, đúng vào lúc...",
+      "usage": "「～ところへ、…」は、ちょうど「～」の場面、「～」のときに、「…」をする、「…」が起きたと言うときに使う。\nDùng “~ところへ、...” khi bạn nói rằng ai đó đã làm “...” hay cái “...” đã xảy ra đúng ngay lúc “~” hay trong hoàn cảnh “~”.",
+      "examTip": "「ところ」の後ろにつく助詞は、「～ところを見られた」「～ところへ／に来た」「～ところで終わった」など、後ろの動詞によって変わる。\nTrợ từ đi sau “ところ” thay đổi theo động từ đằng sau nó, ví dụ như “~ところを見られた”, “~ところへ／に来た” và “~ところで終わった”。\n\n「V-ていた / V-ようとした + ところ」「いA + ところ」の形も使われる。",
+      "example": "大統領が記者会見をしているところに、緊急ニュースが飛び込んできた。",
+      "exampleVi": "Đúng lúc tổng thống đang họp báo thì tin tức khẩn cấp bất ngờ được truyền đến.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-31",
+      "level": "N3",
+      "pattern": "～きる / ～きれない",
+      "meaningVi": "Làm hết, hoàn thành / Không thể làm hết",
+      "usage": "「～きる」は、全部～する、最後まで～すると言うときに使う。「～きれない」は多すぎて全部～できない、完全には～できないという意味で使う。「疲れきる」「困りきる」など、決まった言葉と一緒に「とても～だ」という意味で使われることもある。\n~きる được dùng để nói rằng làm gì đó hết toàn bộ hay làm đến cùng. ~きれない nghĩa là quá nhiều nên không thể làm toàn bộ hoặc không thể hoàn thành cái gì đó. Có khi nó đi cùng với một số từ nhất định như “疲れきる”, “困りきる” với nghĩa “rất ~”.",
+      "examTip": "",
+      "example": "こんなたくさんの荷物、寮の部屋に入りきらないよ。",
+      "exampleVi": "Đống hành lý nhiều thế này thì không thể nào chứa hết trong phòng ký túc xá được đâu.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-32",
+      "level": "N3",
+      "pattern": "～を通じて / ～を通して",
+      "meaningVi": "Suốt, trong suốt (khoảng thời gian)",
+      "usage": "「～を通じて／～を通して」は、その間ずっとと言いたいとき、「一年・四季・一生」などの言葉と一緒に使う。\n~を通じて／~を通して dùng kết hợp với các từ như là “一年・四季・一生” khi muốn nói rằng suốt trong khoảng thời gian đó.",
+      "examTip": "",
+      "example": "京都は1年を通じてたくさんの観光客が訪れる。",
+      "exampleVi": "Kyoto đón rất nhiều khách du lịch ghé thăm quanh năm.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-33",
+      "level": "N3",
+      "pattern": "～ませんか / ～ないですか / ～ありませんか",
+      "meaningVi": "Chẳng phải là... hay sao? (Đồng ý, xác nhận)",
+      "usage": "「～ませんか／～ないですか／～ありませんか」は、「私は～と思いますが、あなたも同じように思うでしょう？」と聞き手に同意を求めるときに使う。おしゃべりでは「～ない？」の形をよく使う。男性の場合は「～ないか」になることもある。\n~ませんか／~ないですか／~ありませんか sử dụng khi đòi hỏi sự đồng ý ở người nghe kiểu như “Tôi nghĩ ~, bạn cũng nghĩ giống như vậy đúng không?”. Văn nói thường dùng thể “~ない?”. Nam giới thì có thể dùng “~ないか”。",
+      "examTip": "",
+      "example": "A：ちょっと寒くないですか. B：そうですね。窓、閉めましょうか。",
+      "exampleVi": "A: Có thấy hơi lạnh không? B: Có nhỉ, hay là mình đóng cửa sổ lại nhé?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-34",
+      "level": "N3",
+      "pattern": "～というと / ～といえば / ～といったら",
+      "meaningVi": "Nói đến... thì...",
+      "usage": "「～というと／～といえば／～といったら」は、その言葉から多くの人がイメージする物事を言うときに使う。有名なものや代表的なものを言うことが多い。\n~というと／~といえば／~といったら khi nói tới “~” thì nhiều người sẽ hình dung ra điều gì đó, hoặc liên tưởng tới cái đặc trưng nhất của sự vật đó. Thường nêu ra những cái nổi tiếng hoặc tiêu biểu.",
+      "examTip": "",
+      "example": "日本の花というと、桜がすぐ頭に浮かぶ。",
+      "exampleVi": "Nhắc đến hoa của Nhật Bản, người ta thường nghĩ ngay đến hoa anh đào.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-35",
+      "level": "N3",
+      "pattern": "～べきだ / ～べきではない",
+      "meaningVi": "Nên / Không nên",
+      "usage": "「～べき」は、一般的に、～するのが当然だ、～するのが正しいと言うときに使う。～しないのが当然だと言うときは「～するべきではない」と言う。「～するべきではない」を相手の行為について使うと「そんなことをしてはいけない」という強い意味になるので注意。\n~べき sử dụng khi nói rằng thông thường thì làm “~” là chuyện đương nhiên, làm “~” là đúng đắn. Khi nói không làm “~” là chuyện đương nhiên thì nói “~するべきではない”. Chú ý là nếu sử dụng “~するべきではない” về hành vi của người khác thì nó có nghĩa nhấn mạnh: “Bạn không được làm vậy!”.",
+      "examTip": "「するべき」は「すべき」も使われる。\n\n「～べきだった」は「～したほうがいいのにしなかったことを後悔している」と言いたいときに使う。\nDùng ~べきだった khi bạn muốn nói “Tôi hối hận, lấy làm tiếc về việc đã không làm ~ mặc dù đó là chuyện mình nên làm”.",
+      "example": "人にお金を借りたらすぐに返すべきだ。",
+      "exampleVi": "Nếu vay tiền của người khác thì nên trả lại ngay.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-36",
+      "level": "N3",
+      "pattern": "～による / ～によって",
+      "meaningVi": "Do, bởi vì (nguyên nhân, lý do)",
+      "usage": "「～による／～によって」は、それが原因・理由で何かが起こると言うときに使う。\n~による／~によって sử dụng khi nói rằng “~” là nguyên nhân, lý do làm cho cái gì đó xảy ra.",
+      "examTip": "",
+      "example": "海外生活を経験したことによって、視野が広がった。",
+      "exampleVi": "Nhờ trải nghiệm cuộc sống ở nước ngoài, tầm nhìn của tôi đã được mở rộng hơn.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-37",
+      "level": "N3",
+      "pattern": "～ばかりでなく～も",
+      "meaningVi": "Không chỉ... mà còn...",
+      "usage": "「AばかりでなくB（も）」は、「AだけでなくB（も）」という意味で使う。\nAばかりでなくB（も） sử dụng với ý nghĩa “không chỉ A mà B cũng”.",
+      "examTip": "「～ばかりか」の言い方もある。\n①今日は電車で足を踏まれたばかりか、かばんに入れておいたサンドイッチもつぶされてしまった。\n②おじは学費ばかりか生活費まで全部出して、日本へ留学させてくれた。",
+      "example": "落語は最近、お年寄りばかりでなく若い女性にも人気が出てきた。",
+      "exampleVi": "Gần đây, Rakugo không chỉ phổ biến với người cao tuổi mà còn thu hút cả những phụ nữ trẻ.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-38",
+      "level": "N3",
+      "pattern": "～たび（に）",
+      "meaningVi": "Mỗi lần, mỗi khi... (thì luôn)",
+      "usage": "「～たび（に）」は、くり返し行われることについて、それをするときはいつも、と言うときに使う。\n~たび（に） sử dụng để nói về một việc được thực hiện lặp đi lặp lại khi làm một hành động nào đó.",
+      "examTip": "",
+      "example": "父は出張のたびにお土産を買ってきてくれる。",
+      "exampleVi": "Mỗi lần đi công tác, bố lại mua quà về cho tôi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-39",
+      "level": "N3",
+      "pattern": "～はず",
+      "meaningVi": "chắc chắn là ~",
+      "usage": "「～はず」は、確かな理由があるから、間違いなく～だと言いたいときに使う。\n~はず sử dụng khi muốn nói rằng vì có lý do xác thực nào đó, chắc chắn là “～”.",
+      "examTip": "",
+      "example": "となりのうちから変な音がするよ。今だれもいないはずなのに...。",
+      "exampleVi": "Có tiếng động lạ phát ra từ nhà bên cạnh. Đáng lẽ ra bây giờ không có ai ở nhà chứ nhỉ...",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-40",
+      "level": "N3",
+      "pattern": "～ますと／～ですと",
+      "meaningVi": "",
+      "usage": "「～ますと／～ですと」は、店などで条件をていねいに述べるときに使われる。\n~ますと／～ですと được sử dụng khi trình bày một cách lịch sự những điều kiện trong cửa tiệm chẳng hạn.",
+      "examTip": "[現在形だけ chỉ có thì/thể hiện tại]",
+      "example": "今月中にご入会されますと、1か月分の会費が無料になります。",
+      "exampleVi": "Nếu quý khách đăng ký hội viên ngay trong tháng này, quý khách sẽ được miễn phí một tháng hội phí.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-41",
+      "level": "N3",
+      "pattern": "～ようなら／～ようだったら",
+      "meaningVi": "",
+      "usage": "「～ようなら／～ようだったら」は、今の状況や様子を観察して言うときに使われる。「歩けなかったら」と言わないで「歩けないようだったら」と言うと、ていねいな印象になる。ていねい形の「～ようでしたら」が使われることもある。\n~ようなら／～ようだったら được sử dụng khi quan sát tình hình hoặc trạng thái hiện tại để nói. Không nói “歩けなかったら” mà hãy nói “歩けないようだったら” thì sẽ tạo được ấn tượng rất lịch sự. Thể lịch sự “～ようでしたら” cũng thường được sử dụng.",
+      "examTip": "",
+      "example": "熱が下がらないようだったら病院に行ったほうがいいですよ。",
+      "exampleVi": "Nếu tình trạng sốt không giảm thì bạn nên đi bệnh viện khám.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-42",
+      "level": "N3",
+      "pattern": "～もので／～ものですから",
+      "meaningVi": "vì...",
+      "usage": "「～もので／～ものですから」は、自分側の理由があって、今の状況なのだとていねいに説明するときに使われる。友だちとの会話では「～もんで／～もんだから」が使われる。\n~もので／~ものですから được sử dụng khi giải thích một cách lịch sự vì có lý do ở phía mình mới ra nông nỗi như bây giờ. Nếu nói chuyện với bạn bè thì “~もんで／~もんだから” được sử dụng.",
+      "examTip": "",
+      "example": "慣れないものですから、ご迷惑をおかけするかもしれませんが、どうぞよろしくお願いします。",
+      "exampleVi": "Vì tôi chưa quen việc, có thể sẽ gây ra phiền hà, mong mọi người giúp đỡ.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-43",
+      "level": "N3",
+      "pattern": "～なんか",
+      "meaningVi": "như là ~",
+      "usage": "「～なんか」は、「～など」のかわりに使う。ほかの my my でもいいような言い方で相手に判断を任せる形にして、柔らかく言うときに使う。「～なんて」の形も使う。\n~なんか dùng thay cho ~など. Sử dụng khi bạn muốn đưa ra gợi ý nhẹ nhàng với kiểu để cho đối phương tự phán đoán, quyết định cái khác cũng được. Bạn cũng có thể sử dụng thể ~なんて.",
+      "examTip": "",
+      "example": "こちらのセーターなんかいかがでしょう。この色は今年の流行色ですよ。",
+      "exampleVi": "Chiếc áo len này thì sao nhỉ? Màu này là màu đang thịnh hành năm nay đấy.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-44",
+      "level": "N3",
+      "pattern": "～かと思う",
+      "meaningVi": "tôi nghĩ là ~",
+      "usage": "「～かと思う」は、自分の考えを遠慮して言うときに使う。接客やビジネスの場面でよく使われる。\n~かと思う sử dụng khi nói lên suy nghĩ của mình với sự e ngại. Thường được sử dụng trong ngữ cảnh tiếp khách hoặc giao dịch kinh doanh.",
+      "examTip": "",
+      "example": "今週はちょっと難しいですが、来週なら時間が取れるかと思います。",
+      "exampleVi": "Tuần này thì hơi khó một chút, nhưng tôi nghĩ sang tuần sau thì có thể sắp xếp được thời gian.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-45",
+      "level": "N3",
+      "pattern": "～ばいいのに",
+      "meaningVi": "giá mà ~ thì tốt",
+      "usage": "「～ばいいのに」は、話し手がそうなってほしいと思っていることと違う今の状況を残念に思う気持ちを表す。相手の行動に対してやや批判的に、強く促すときに使うこともある。\n~ばいいのに nói lên cảm giác thấy thất vọng về tình trạng hiện tại, nó khác with những gì người nói nghĩ mình muốn trở nên như thế. Cũng sử dụng khi phê phán nhẹ nhàng hành động của đối phương, và thúc giục họ làm gì đó.",
+      "examTip": "",
+      "example": "このバイト、時給がもう少し高ければいいのになあ。",
+      "exampleVi": "Giá mà lương làm thêm này cao hơn một chút thì tốt biết mấy.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-46",
+      "level": "N3",
+      "pattern": "～てもらってもいいですか",
+      "meaningVi": "làm giúp tôi... được không?",
+      "usage": "「～てもらってもいいですか」は、相手に申し訳ないという気持ちを持って「～てください」と言いたいときに使われる。親しくない人には、「～ていただきたいんですが...。」と言ったほうがよい。\n~てもらってもいいですか được sử dụng khi muốn nói “~てください” nhưng với một tâm trạng thấy có lỗi vì đã nhờ đối phương. Với người không thân thiết thì nên nói “~ていただきたいんですが...”。",
+      "examTip": "",
+      "example": "すみませんが、もう一度説明していただいてもいいですか。",
+      "exampleVi": "Xin lỗi, bạn có thể vui lòng giải thích lại một lần nữa được không?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-47",
+      "level": "N3",
+      "pattern": "お／ご～いただく、お／ご～くださる",
+      "meaningVi": "là cách nói lịch sự của \"～てもらう\" và \"～てくれる\"",
+      "usage": "「お／ご～いただく」「お／ご～くださる」は、「～てもらう」「～てくれる」をていねいに言うときに使う。",
+      "examTip": "",
+      "example": "本日はお忙しい中、お集まりいただき、たいへん感謝しております。",
+      "exampleVi": "Hôm nay, rất cảm ơn quý vị đã dành thời gian bận rộn để đến đây.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-48",
+      "level": "N3",
+      "pattern": "～てます・～ときます・～ちゃいます",
+      "meaningVi": "Khi nói một cách lịch sự như \"お待ちしてます\" thì \"～てます・～ときます・～ちゃいます\" cũng được sử dụng.",
+      "usage": "「お待ちしてます」のように、ていねいに話すときでも「～てます・～ときます・～ちゃいます」のような形が使われる。",
+      "examTip": "",
+      "example": "これ、もう使いませんよね。捨てちゃいますよ。",
+      "exampleVi": "Cái này không dùng nữa đúng không? Tôi vứt đi nhé.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-49",
+      "level": "N3",
+      "pattern": "存じ上げる / お目にかかる / お目にかける / ちょうだいする",
+      "meaningVi": "Khi nói lên hành động của mình đồng thời bày tỏ sự tôn trọng đối phương, có thể sử dụng từ ngữ đặc biệt như \"存じ上げる\".",
+      "usage": "相手に敬意を表しながら自分の行為を言うときに、「存じ上げる」などの特別な言葉を使うことがある。",
+      "examTip": "",
+      "example": "久しぶりにお目にかかるのを楽しみにしています。",
+      "exampleVi": "Tôi rất mong được gặp lại ông/bà sau một thời gian dài.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-50",
+      "level": "N3",
+      "pattern": "お／ご～です",
+      "meaningVi": "được sử dụng khi nói “～ている” đối với người mình tôn trọng. Nó được dùng với động từ như là “待つ・持つ”, ngoài ra nó còn dùng với những danh từ như là “滞在・専攻・研究・担当・活躍”.",
+      "usage": "「お／ご～です」は、尊敬する相手が「～ている」と言うときに使われる。「待つ・持つ」などの動詞のほか、「滞在・専攻・研究・担当・活躍」などの名詞と一緒に使われる。",
+      "examTip": "*「見ます・寝ます」など、ます形が1音のものには使わない。（Không sử dụng với từ chỉ có 1 âm ở thể ます như là \"見ます・寝ます\".）",
+      "example": "山川さん、保険証をお持ちですか。",
+      "exampleVi": "Anh Yamakawa này, anh có mang theo thẻ bảo hiểm không?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-51",
+      "level": "N3",
+      "pattern": "～でしょうか",
+      "meaningVi": "sử dụng khi hỏi hoặc nhờ vả một cách lịch sự.",
+      "usage": "「～でしょうか」は、ていねいに質問したり、依頼したりするときに使う。",
+      "examTip": "「～です」は「～てます＋でしょうか」になる。\nよくなかったですでしょうか。　→　よくなかったでしょうか。",
+      "example": "申し込みには何が必要でしょうか。",
+      "exampleVi": "Xin hỏi, việc đăng ký thì cần những gì ạ?",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-52",
+      "level": "N3",
+      "pattern": "～ていらっしゃる / ～でいらっしゃる",
+      "meaningVi": "sử dụng khi nói “～ている” đối với người mình tôn trọng. Cũng có khi được sử dụng thay cho “です”.",
+      "usage": "「～ていらっしゃる」は、尊敬する相手が「～ている」と言うときによく使う。「～です」のかわりにも使われることもある。",
+      "examTip": "",
+      "example": "先生がどう思っていらっしゃるか、よくわかりません。",
+      "exampleVi": "Tôi không rõ thầy đang suy nghĩ như thế nào.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-53",
+      "level": "N3",
+      "pattern": "～せていただく / ～せてくださる",
+      "meaningVi": "sử dụng khi nói \"～させてもらう\" và \"～させてくれる\" một cách lịch sự.",
+      "usage": "「～せていただく」「～せてくださる」は、「～させてもらう」「～させてくれる」をていねいに言うときに使う。",
+      "examTip": "",
+      "example": "明日、もう一度お電話させていただきます。",
+      "exampleVi": "Ngày mai, tôi xin phép được gọi điện lại cho ông/bà lần nữa.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-54",
+      "level": "N3",
+      "pattern": "～てからでなければ / ～てからでないと",
+      "meaningVi": "sử dụng khi nói rằng \"...\" là không thể nếu \"～\" không được thực hiện. Trong \"...\" sử dụng mẫu câu mang tính phủ định như là \"khó ・ không thể\".",
+      "usage": "「～てからでなければ…／～てからでないと…」は、「…」は「～」が実現しないとできないと言うときに使う。「…」には「難しい・できない」などの否定的な表現を使う。",
+      "examTip": "",
+      "example": "大切なことは、両親に相談してからでなければ決められない。",
+      "exampleVi": "Những chuyện quan trọng thì nếu không bàn bạc với bố mẹ trước, tôi không thể tự quyết định được.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-55",
+      "level": "N3",
+      "pattern": "～かのようだ / ～かのように / ～かのような",
+      "meaningVi": "sử dụng khi nói rằng thực tế không phải như thế nhưng bạn cảm thấy dường như là như thế.",
+      "usage": "「～かのよう」は、実際はそうではないのにそのように感じると言うときに使う。",
+      "examTip": "",
+      "example": "山本さんは子犬をまるで自分の子どもであるかのようにかわいがっている。",
+      "exampleVi": "Anh Yamamoto cưng chiều chú cún con như thể đó là con ruột của mình vậy.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-56",
+      "level": "N3",
+      "pattern": "～向け",
+      "meaningVi": "sử dụng khi muốn nói cái gì đó là dành cho nhóm hoặc dành riêng cho một ai đó.",
+      "usage": "「～向け」は、ある特定の人やグループのためのものだということを表すときに使う。",
+      "examTip": "もともと持っている性質について言うときは「～向き」を使う。（~向き sử dụng khi nói về tính chất vốn có của cái gì đó.）\n①彼女はアニメの声優向きの声をしている。\n②この山は、道が狭くてけわしいので経験者向きです。\n③この服はかっこいいけれど仕事向きじゃないから買わないことにした。",
+      "example": "これは子ども向けの映画だが、大人にも人気がある。",
+      "exampleVi": "Đây là bộ phim dành cho trẻ em, nhưng cũng rất được người lớn yêu thích.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-57",
+      "level": "N3",
+      "pattern": "～によって / ～による",
+      "meaningVi": "sử dụng khi nói rằng mỗi thứ khác nhau tùy theo người, địa điểm, thời gian, v.v",
+      "usage": "「～によって」は、人や場所、時間などに対応してそれぞれ違うと言うときに使う。",
+      "examTip": "「場所によっては電話がつながらないところもある」のように、ある場合には特別な状況になると言いたいときにも使う。（Cũng sử dụng khi muốn nói rằng trong trường hợp nào đó thì có tình huống đặc biệt như là \"場所によっては電話がつながらないところもある\".）\n①この薬は人によっては副作用が出ることがあります。\n②参加者の人数によっては、会場を変更するかもしれません。\n③台風の進路によっては交通機関に影響が出る場合もあります。",
+      "example": "いろいろな人がいるのだから、人によって好みや考え方が違うのは当然だ。",
+      "exampleVi": "Vì mỗi người mỗi khác, nên việc sở thích và cách suy nghĩ khác nhau giữa người này với người kia là điều đương nhiên.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-58",
+      "level": "N3",
+      "pattern": "～最中に / ～最中だ",
+      "meaningVi": "được sử dụng khi đúng vào lúc đang làm gì đó, điều không nghĩ tới đã xảy ra. Thường được sử dụng ở những tình huống mà khi đó bạn không muốn bị làm phiền.",
+      "usage": "「～最中」は、何かをしている、ちょうどそのときに、思っていなかったことが起きたときに使われる。邪魔されたくない状況のときによく使われる。",
+      "examTip": "",
+      "example": "面接の最中におなかが鳴ってしまった。",
+      "exampleVi": "Trong lúc đang phỏng vấn, bụng tôi lại kêu lên.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-59",
+      "level": "N3",
+      "pattern": "～かけだ / ～かけの / ～かける",
+      "meaningVi": "sử dụng khi nói trạng thái bắt đầu làm gì đó và vẫn đang dở dang, chưa xong.",
+      "usage": "「～かけ」は、何かをし始めて、まだ終わっていない状態だと言うときに使う。",
+      "examTip": "",
+      "example": "弟の部屋には作りかけのプラモデルがいくつもある。",
+      "exampleVi": "Trong phòng em trai tôi có rất nhiều mô hình nhựa đang làm dở.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-60",
+      "level": "N3",
+      "pattern": "～なんかいられない",
+      "meaningVi": "không có / không thể...",
+      "usage": "~なんかいない sử dụng khi muốn nhấn mạnh \"~\" là không có. Thường sử dụng thể khả năng \"~なんかいられない\". \"なんて\" cũng dùng tương tự.",
+      "examTip": "「いA-く + なんかない」「なA / N + なんかじゃない」の形も使われる。\n①A：ご両親に会えなくてさびしいでしょう？ B：大丈夫です。友だちも先生もいるからさびしくなんかないです。\n②A：きれいな人だね。恋人？ B：恋人なんかじゃないよ。ただのクラスメイトだよ。",
+      "example": "休んでなんかいられないよ。部下が2人もやめちゃったんだから。",
+      "exampleVi": "Tôi không thể nghỉ ngơi được đâu. Vì có tận 2 nhân viên cấp dưới vừa mới nghỉ việc rồi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-61",
+      "level": "N3",
+      "pattern": "～っぱなし",
+      "meaningVi": "để nguyên ~ / cứ ~ hoài",
+      "usage": "~っぱなし sử dụng khi nghĩ rằng \"~\", không làm cái việc phải làm, cứ để y như thế là không tốt. Cũng sử dụng khi nói lên rằng vì tiếp tục làm \"~\" nên khó khăn.",
+      "examTip": "",
+      "example": "自転車を駅前に置きっぱなしにしたら、持っていかれてしまった。",
+      "exampleVi": "Tôi để xe đạp ở trước nhà ga suốt không trông coi, kết quả là bị người ta lấy mất.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-62",
+      "level": "N3",
+      "pattern": "～だらけ",
+      "meaningVi": "đầy ~ (toàn là chất bẩn, lỗi sai)",
+      "usage": "~だらけ sử dụng khi dính rất nhiều thứ dơ bẩn như là bùn, vết nhăn hoặc khi có rất nhiều điều bị đánh giá thấp như là bị lỗi, sai.",
+      "examTip": "",
+      "example": "雨の日にサッカーの試合をしたので、ユニフォームもくつも泥だらけになった。",
+      "exampleVi": "Vì đá bóng vào ngày mưa nên cả đồng phục lẫn giày của tôi đều lấm lem bùn đất.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-63",
+      "level": "N3",
+      "pattern": "～かと思った",
+      "meaningVi": "cứ ngỡ là ~",
+      "usage": "~かと思った sử dụng khi kết quả khác với những gì bạn đã nghĩ ban đầu hoặc bạn đã hiểu nhầm như là \"日本人かと思ったら、留学生だった\".",
+      "examTip": "",
+      "example": "10キロも走らされて、死ぬかと思ったよ。",
+      "exampleVi": "Bị bắt chạy tận 10 cây số, suýt nữa thì tôi chết rồi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-64",
+      "level": "N3",
+      "pattern": "～ついでに",
+      "meaningVi": "nhân tiện ~ / tiện thể ~",
+      "usage": "~ついでに sử dụng khi nói rằng tận dụng cơ hội làm việc gì đó để làm việc khác.",
+      "examTip": "",
+      "example": "薬局へ薬を買いに行ったついでに、トイレットペーパーも買ってきた。",
+      "exampleVi": "Tiện đường đi mua thuốc ở hiệu thuốc, tôi đã mua luôn cả giấy vệ sinh.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-65",
+      "level": "N3",
+      "pattern": "～ほど…はない",
+      "meaningVi": "không có ~ bằng ~ / ~ là nhất",
+      "usage": "~ほど…はない sử dụng khi muốn nhấn mạnh rằng \"~\" là \"...\" nhất.",
+      "examTip": "",
+      "example": "病人にとって家族や友人の励ましほど、力になるものはないんですよ。",
+      "exampleVi": "Đối với người bệnh, không có gì tạo thêm sức mạnh bằng sự động viên của gia đình và bạn bè cả.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-66",
+      "level": "N3",
+      "pattern": "～ぬきで",
+      "meaningVi": "không có ~ / bỏ qua ~",
+      "usage": "~ぬきで sử dụng khi nói trạng thái cái gì đó bình thường có trong đó đã không có, hoặc khi một người thường có ở chỗ đó đã không có.",
+      "examTip": "",
+      "example": "子ども用にわさびぬきでお寿司を作ってもらった。",
+      "exampleVi": "Tôi nhờ làm sushi không có wasabi cho trẻ con.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-67",
+      "level": "N3",
+      "pattern": "～てしょうがない",
+      "meaningVi": "vô cùng ~ / không chịu nổi ~",
+      "usage": "~てしょうがない sử dụng khi nói rằng trạng thái của cơ thể, tâm trạng rất là \"~\", \"~\" đến mức không chịu được.",
+      "examTip": "「～てしかたがない／～てたまらない」という言い方もある。\n①となりの人のヘッドホンから聞こえてくる音が、気になってしかたがないことがある。\n②あちこち蚊に刺されて、かゆくてたまらない。\n③山田さんは一人暮らしを始めた娘さんの様子が心配でたまらないようだ。",
+      "example": "寝不足だし、昼ご飯を食べたばかりだし…。眠くてしょうがない。",
+      "exampleVi": "Vừa thiếu ngủ, lại vừa mới ăn trưa xong... buồn ngủ không chịu nổi.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-68",
+      "level": "N3",
+      "pattern": "～っこない",
+      "meaningVi": "tuyệt đối không thể",
+      "usage": "「～っこない」は「～わけがない」と同じように、そんなことは絶対考えられないと、強く否定したいときに使う。\n～っこない sử dụng khi phủ định mạnh mẽ rằng chuyện như thế tuyệt đối không thể nghĩ đến, giống với “～わけがない”。",
+      "examTip": "",
+      "example": "30年後、自分がどこで何をしているかはだれにもわかりっこない。",
+      "exampleVi": "30 năm sau, mình đang ở đâu và làm gì thì không ai có thể biết được.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-69",
+      "level": "N3",
+      "pattern": "～からといって",
+      "meaningVi": "chỉ vì lý do...",
+      "usage": "「～からといって…」は、「～」だけの理由で、「…」をするのはよくない、できない、すると困ったことになるなどと言うときに使う。批判・助言・注意などを言うときに使うことが多い。\n～からといって… sử dụng khi nói chỉ vì lý do “～”, làm “…” là không tốt, không thể, làm sẽ bị rắc rối. Thường sử dụng khi nói những điều như nhắc nhở, khuyên bảo, chỉ trích.",
+      "examTip": "",
+      "example": "便利だからといって、インターネットに頼ってばかりいると、困ることがあるよ。",
+      "exampleVi": "Đừng nghĩ vì nó tiện lợi mà cứ dựa dẫm hoàn toàn vào Internet, sẽ có lúc gặp rắc rối đấy.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-70",
+      "level": "N3",
+      "pattern": "～ことといったら",
+      "meaningVi": "cực kỳ, đến mức",
+      "usage": "「～ことといったら」は、おどろき、感動、怒りなどの感情を強く表現したいときに使う。\n～ことといったら sử dụng khi muốn nhấn mạnh cảm xúc như là ngạc nhiên, cảm động, tức giận.",
+      "examTip": "",
+      "example": "花見の客の多いことといったら、ゆっくり桜も見られないほどでしたよ。",
+      "exampleVi": "Đông khách ngắm hoa đến mức không thể thong thả ngắm hoa anh đào được nữa.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-71",
+      "level": "N3",
+      "pattern": "～くせに",
+      "meaningVi": "mặc dù... thế mà...",
+      "usage": "「～くせに」は、相手に対してよくない印象を持っているときに使う。軽い気持ちで使うこともある。\n～くせに sử dụng khi có ấn tượng không tốt với đối phương. Cũng được sử dụng với ý xem nhẹ.",
+      "examTip": "",
+      "example": "「今すぐ行きます」って言ったくせに、1時間たっても来ない。",
+      "exampleVi": "Rõ ràng đã nói là \"Tôi đi ngay đây\" mà 1 tiếng trôi qua rồi vẫn chưa thấy tới.",
+      "sources": [
+        "try-n3"
+      ]
+    },
+    {
+      "id": "bunpo-tryn3-72",
+      "level": "N3",
+      "pattern": "～せいで / ～せいか",
+      "meaningVi": "tại vì, do... (kết quả xấu)",
+      "usage": "「～せい」は、悪い結果になった理由を強く言うときに使う。理由がはっきりわかっているときは「～せいで」、はっきりわからないときは「～せいか」を使う。\n～せい được sử dụng khi nhấn mạnh lý do bị kết quả xấu. Khi biết rõ lý do thì dùng “～せいで”, khi không biết rõ ràng thì dùng “～せいか”。",
+      "examTip": "",
+      "example": "連日の暑さのせいで、庭の花が全部枯れてしまった。",
+      "exampleVi": "Vì nắng nóng liên tiếp nhiều ngày mà hoa trong vườn đã héo sạch.",
+      "sources": [
+        "try-n3"
+      ]
+    }
+  ]
+}

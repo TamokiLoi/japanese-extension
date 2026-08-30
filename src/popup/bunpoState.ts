@@ -2,6 +2,7 @@ import bunpoJlptDaRaRaw from "../data/bunpo-n3-jlpt-da-ra.json";
 import bunpoTheoChuongRaw from "../data/bunpo-n3-theo-chuong.json";
 import bunpo400MauRaw from "../data/bunpo-400-mau-thong-dung.json";
 import bunpoShinkanzenRaw from "../data/bunpo-shinkanzen.json";
+import bunpoTryN3Raw from "../data/bunpo-try-n3.json";
 import type { BunpoDataset, BunpoGrammarPoint, BunpoSource } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
@@ -11,11 +12,13 @@ const jlptDaRaDataset = bunpoJlptDaRaRaw as unknown as BunpoDataset;
 const theoChuongDataset = bunpoTheoChuongRaw as unknown as BunpoDataset;
 const mau400Dataset = bunpo400MauRaw as unknown as BunpoDataset;
 const shinkanzenDataset = bunpoShinkanzenRaw as unknown as BunpoDataset;
+const tryN3Dataset = bunpoTryN3Raw as unknown as BunpoDataset;
 export const ALL_BUNPO: BunpoGrammarPoint[] = [
   ...jlptDaRaDataset.grammarPoints,
   ...theoChuongDataset.grammarPoints,
   ...mau400Dataset.grammarPoints,
   ...shinkanzenDataset.grammarPoints,
+  ...tryN3Dataset.grammarPoints,
 ];
 
 const BUNPO_BY_ID = new Map(ALL_BUNPO.map((g) => [g.id, g]));
