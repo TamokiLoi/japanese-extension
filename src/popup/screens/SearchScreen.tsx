@@ -79,14 +79,29 @@ export function SearchScreen({
   onOpenBunpo: (bunpoId: string) => void;
 }) {
   const [query, setQuery] = useState("");
+  const [activeKinds, setActiveKinds] = useState<SearchResult["kind"][]>(["kanji", "vocab", "bunpo"]);
   const debouncedQuery = useDebouncedValue(query, 150);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const q = debouncedQuery.trim().toLowerCase();
-  const results = useMemo(
-    () => (q ? [...searchKanji(q), ...searchVocab(q), ...searchBunpo(q)].slice(0, MAX_RESULTS) : []),
-    [q],
-  );
+  const results = useMemo(() => {
+    if (!q) return [];
+    const all: SearchResult[] = [];
+    if (activeKinds.includes("kanji")) all.push(...searchKanji(q));
+    if (activeKinds.includes("vocab")) all.push(...searchVocab(q));
+    if (activeKinds.includes("bunpo")) all.push(...searchBunpo(q));
+    return all.slice(0, MAX_RESULTS);
+  }, [q, activeKinds]);
+
+  function toggleKind(kind: SearchResult["kind"]) {
+    setActiveKinds((prev) => {
+      if (prev.includes(kind)) {
+        const next = prev.filter((k) => k !== kind);
+        return next.length > 0 ? next : prev; // keep at least 1 kind active
+      }
+      return [...prev, kind];
+    });
+  }
 
   return (
     <>
@@ -109,10 +124,23 @@ export function SearchScreen({
         />
       </section>
 
+      <section className="search-kind-filter-row">
+        {(Object.keys(KIND_LABELS) as SearchResult["kind"][]).map((kind) => (
+          <button
+            key={kind}
+            type="button"
+            className={`search-kind-chip ${KIND_CLASSES[kind]} ${activeKinds.includes(kind) ? "search-kind-chip-active" : ""}`}
+            onClick={() => toggleKind(kind)}
+          >
+            {KIND_LABELS[kind]}
+          </button>
+        ))}
+      </section>
+
       <main className="jlpt-list">
         {!q ? (
           <p className="empty">
-            Nhập để tìm trong {ALL_KANJI.length} Kanji và {ALL_VOCAB.length} từ vựng.
+            Nhập để tìm trong {ALL_KANJI.length} Kanji, {ALL_VOCAB.length} từ vựng và {ALL_BUNPO.length} mẫu ngữ pháp.
           </p>
         ) : results.length === 0 ? (
           <p className="empty">Không tìm thấy gì.</p>
