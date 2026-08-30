@@ -1738,6 +1738,8 @@ body.tab-mode .jlpt-list {
 .reading-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 6px;
   gap: 8px;
   margin-bottom: 8px;
 }
@@ -1762,6 +1764,7 @@ body.tab-mode .jlpt-list {
   border-radius: 10px;
   background: #eee;
   color: #666;
+  white-space: nowrap;
 }
 
 .reading-change-filter {
@@ -1771,6 +1774,7 @@ body.tab-mode .jlpt-list {
   color: #888;
   cursor: pointer;
   padding: 0;
+  white-space: nowrap;
 }
 
 .reading-change-filter:hover {

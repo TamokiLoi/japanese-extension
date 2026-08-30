@@ -4,6 +4,7 @@ import quizbookN2500monRaw from "../data/quizbook-n2-500mon.json";
 import quizbookN3Tuvung20deRaw from "../data/quizbook-n3-tuvung-20de.json";
 import quizbookN3ShinkanzenBunpouRaw from "../data/quizbook-n3-shinkanzen-bunpou.json";
 import quizbookN3TryBunpouRaw from "../data/quizbook-n3-try-bunpou.json";
+import quizbookN3Dongnghia60Raw from "../data/quizbook-n3-dongnghia-60.json";
 import type { QuizBookDataset, QuizBookQuestion, QuizBookCategory } from "../types/quizBook.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -14,6 +15,7 @@ const n2500monDataset = quizbookN2500monRaw as unknown as QuizBookDataset;
 const n3Tuvung20deDataset = quizbookN3Tuvung20deRaw as unknown as QuizBookDataset;
 const n3ShinkanzenBunpouDataset = quizbookN3ShinkanzenBunpouRaw as unknown as QuizBookDataset;
 const n3TryBunpouDataset = quizbookN3TryBunpouRaw as unknown as QuizBookDataset;
+const n3Dongnghia60Dataset = quizbookN3Dongnghia60Raw as unknown as QuizBookDataset;
 
 export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3500monDataset.questions,
@@ -22,6 +24,7 @@ export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3Tuvung20deDataset.questions,
   ...n3ShinkanzenBunpouDataset.questions,
   ...n3TryBunpouDataset.questions,
+  ...n3Dongnghia60Dataset.questions,
 ];
 
 const QUIZBOOK_BY_ID = new Map(ALL_QUIZBOOK.map((q) => [q.id, q]));
@@ -46,6 +49,7 @@ export const BOOK_LABELS: Record<string, string> = {
   "shinkanzen-n3-bunpou": n3ShinkanzenBunpouDataset.meta.bookLabel,
   "try-n3-bunpou": n3TryBunpouDataset.meta.bookLabel,
   "n3-tuvung-20de": n3Tuvung20deDataset.meta.bookLabel,
+  "dongnghia-60-n3": n3Dongnghia60Dataset.meta.bookLabel,
 };
 
 // Each book currently belongs to exactly one level, so the book picker
@@ -58,6 +62,7 @@ export const BOOK_LEVELS: Record<string, JlptLevel> = {
   "shinkanzen-n3-bunpou": n3ShinkanzenBunpouDataset.meta.level,
   "try-n3-bunpou": n3TryBunpouDataset.meta.level,
   "n3-tuvung-20de": n3Tuvung20deDataset.meta.level,
+  "dongnghia-60-n3": n3Dongnghia60Dataset.meta.level,
 };
 
 // Top-level grouping shown as a tab/radio switch above the book picker, so
@@ -79,6 +84,7 @@ export const BOOK_GROUP: Record<string, QuizBookGroup> = {
   "shinkanzen-n3-bunpou": "sach",
   "try-n3-bunpou": "sach",
   "n3-tuvung-20de": "de",
+  "dongnghia-60-n3": "de",
 };
 
 const CATEGORY_ORDER: QuizBookCategory[] = ["moji", "goi", "bunpou"];

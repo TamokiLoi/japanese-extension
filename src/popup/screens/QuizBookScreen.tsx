@@ -392,7 +392,7 @@ function QuestionView({
             {q.level}
           </span>
           <span className="reading-book-badge">{BOOK_LABELS[q.book]}</span>
-          <span className="reading-timeline">{CATEGORY_LABELS[q.category]}</span>
+          <span className="reading-book-badge">{CATEGORY_LABELS[q.category]}</span>
           {session ? (
             <span className="reading-book-badge">
               Câu {sessionPos + 1}/{session.length}
