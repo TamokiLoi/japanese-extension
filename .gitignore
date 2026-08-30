@@ -7,3 +7,6 @@ dist-pages/
 # Personal-use-only source material (copyright status unverified) --
 # never commit the original PDFs. icon-source.jpg is fine to keep.
 assets/data/
+.env
+_scratch/
+.venv*/

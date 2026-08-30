@@ -422,12 +422,14 @@
       "id": "bunpo-400-39",
       "level": "N5",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜ように",
       "meaningVi": "Để, sao cho... (mục đích)",
       "example": "日本語がうまく話せるように、週2回日本人の友達に会って、話します。",
-      "exampleVi": "Để có thể nói giỏi tiếng Nhật, tuần 2 lần tôi gặp và nói chuyện với bạn người Nhật."
+      "exampleVi": "Để có thể nói giỏi tiếng Nhật, tuần 2 lần tôi gặp và nói chuyện với bạn người Nhật.",
+      "usage": "～ように：そうなってほしい状態。話者の意志を含まない動詞（無意志動詞・可能の意味の動詞・三人称が主語になる動詞など）につく。動詞の辞書形・ない形につく。\nLà trạng thái mà người nói mong muốn. Đi với động từ không hàm ý chí của người nói (động từ vô ý chí/động từ chỉ khả năng/động từ có chủ ngữ là người thứ ba/v.v.). Động từ để ở dạng nguyên thể hoặc dạng －ない。"
     },
     {
       "id": "bunpo-400-40",
@@ -466,12 +468,14 @@
       "id": "bunpo-400-43",
       "level": "N5",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜とか",
       "meaningVi": "Như là...như là... (dùng để liệt kê)",
       "example": "赤の果物が大好きだ。いちごとかりんごとか。",
-      "exampleVi": "Tôi rất thích các loại quả màu đỏ. Như là dâu này, táo này."
+      "exampleVi": "Tôi rất thích các loại quả màu đỏ. Như là dâu này, táo này.",
+      "usage": "“Tôi nghe nói rằng ~” Dùng để nói ra những điều không rõ ràng, được nghe qua tin đồn, v.v.."
     },
     {
       "id": "bunpo-400-44",
@@ -675,12 +679,14 @@
       "id": "bunpo-400-62",
       "level": "N5",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "ために",
       "meaningVi": "Vì..., Để...",
       "example": "留学するために、日本語を勉強するつもりです。",
-      "exampleVi": "Tôi dự định học tiếng Nhật để đi du học."
+      "exampleVi": "Tôi dự định học tiếng Nhật để đi du học.",
+      "usage": "～ために：そうしようという行為の目的。話者の意志を含む動詞の辞書形につく。\nMục đích của hành động. Đi cùng với động từ dạng nguyên thể bao hàm ý chí của người nói."
     },
     {
       "id": "bunpo-400-63",
@@ -1104,12 +1110,14 @@
       "id": "bunpo-400-101",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜間…",
       "meaningVi": "Trong lúc, trong khi...",
       "example": "先生が教えている間、彼は携帯でゲームをしている。",
-      "exampleVi": "Trong lúc thầy đang giảng bài thì hắn lại dùng điện thoại chơi game."
+      "exampleVi": "Trong lúc thầy đang giảng bài thì hắn lại dùng điện thoại chơi game.",
+      "usage": "“Trong khi trạng thái ~ đang tiếp diễn thì một trạng thái … được thực hiện/ được diễn ra suốt khoảng thời gian đó.” “~” là từ ngữ thể hiện sự việc được duy trì trong khoảng thời gian dài nhất định. “…” cũng là câu văn thể hiện sự việc được duy trì trong khoảng thời gian dài nhất định.\n[〜間に…]: “Trong khi trạng thái ~ đang tiếp diễn thì thực hiện…/… xảy ra.” “~” là từ ngữ thể hiện sự việc được duy trì trong khoảng thời gian dài nhất định. “…” là câu văn thể hiện sự việc diễn ra trong khoảng thời gian ngắn."
     },
     {
       "id": "bunpo-400-102",
@@ -1280,12 +1288,14 @@
       "id": "bunpo-400-117",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜ついでに…",
       "meaningVi": "Nhân tiện, tiện thể...",
       "example": "買い物のついでに本屋に寄った。",
-      "exampleVi": "Tiện thể đi mua sắm, tôi đã ghé vào hiệu sách."
+      "exampleVi": "Tiện thể đi mua sắm, tôi đã ghé vào hiệu sách.",
+      "usage": "“Khi làm ~ thì tận dụng cơ hội đó cũng làm…luôn.” Được sử dụng khi muốn nói làm luôn hai việc riêng rẽ cùng một lúc cho xong. “~” là hành động ban đầu, “…” là hành động thực hiện thêm và là hành động mang tính ý chí có mục đích."
     },
     {
       "id": "bunpo-400-118",
@@ -1346,56 +1356,66 @@
       "id": "bunpo-400-123",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜に限る",
       "meaningVi": "Là nhất / là tốt nhất.",
       "example": "今日ぐらい寒いときは鍋に限る。",
-      "exampleVi": "Lạnh như hôm nay thì lẩu là nhất."
+      "exampleVi": "Lạnh như hôm nay thì lẩu là nhất.",
+      "usage": "“~ là tốt nhất/là cách tốt nhất.” Cấu trúc này được sử dụng khi người nói muốn đưa ra cảm nhận chủ quan của họ chứ không phải là sự thật khách quan."
     },
     {
       "id": "bunpo-400-124",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜に対して…",
       "meaningVi": "Trái với..., ngược lại với..., khác với...",
       "example": "兄は毎日スポーツをしているのに対して、私はあまりしない。",
-      "exampleVi": "Trái với anh tôi ngày nào cũng chơi thể thao, tôi thì chẳng mấy khi."
+      "exampleVi": "Trái với anh tôi ngày nào cũng chơi thể thao, tôi thì chẳng mấy khi.",
+      "usage": "“đối lập với …” Được sử dụng khi thể hiện sự khác biệt rõ ràng giữa hai sự việc, hiện tượng (“~” với “…”)."
     },
     {
       "id": "bunpo-400-125",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜反面…",
       "meaningVi": "Ngược lại, mặt khác, một mặt thì... mặt khác thì",
       "example": "Son Tung MTPには好きな人が多い反面、嫌いな人もたくさんいる。",
-      "exampleVi": "Sơn Tùng MTP người thích cũng lắm nhưng người ghét cũng nhiều."
+      "exampleVi": "Sơn Tùng MTP người thích cũng lắm nhưng người ghét cũng nhiều.",
+      "usage": "“~ nhưng ngược lại cũng có mặt …” Được sử dụng để thể hiện hai mặt đối lập nhau của một vấn đề nào đó."
     },
     {
       "id": "bunpo-400-126",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜というより…",
       "meaningVi": "Là ... thì đúng hơn",
       "example": "彼女は恋人というよりお前のお母さんよ。",
-      "exampleVi": "Cô ta là mẹ thì đúng hơn là người yêu mày đấy."
+      "exampleVi": "Cô ta là mẹ thì đúng hơn là người yêu mày đấy.",
+      "usage": "“Cách nói … thích hợp hơn cách nói ~.” Được sử dụng khi muốn chỉ ra rằng cách nói “…” sẽ thích hợp hơn cách nói “~”."
     },
     {
       "id": "bunpo-400-127",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜かわりに…",
       "meaningVi": "Thay cho, ngược lại, bù lại, thay vì...",
       "example": "私のかわりに（私にかわって）、田中さんが会議に出席する予定だ。",
-      "exampleVi": "Anh Tanaka dự định sẽ tham dự cuộc họp thay tôi."
+      "exampleVi": "Anh Tanaka dự định sẽ tham dự cuộc họp thay tôi.",
+      "usage": "“Có một sự việc là ~ , nhưng trái lại cũng có một sự việc nữa là … với cùng mức độ như thế. (①②③)”\n“Không làm ~ như bình thường vẫn làm/chắc chắn bình thường sẽ làm mà làm… với cùng mức độ như thế (④).”"
     },
     {
       "id": "bunpo-400-128",
@@ -1489,12 +1509,15 @@
       "id": "bunpo-400-136",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜（の）なら…",
       "meaningVi": "Nếu là, nếu mà...",
       "example": "帰るなら、早く戻れ。",
-      "exampleVi": "Nếu về thì phải lên sớm đấy."
+      "exampleVi": "Nếu về thì phải lên sớm đấy.",
+      "usage": "“Tiếp nhận thông tin ~, i ...”",
+      "examTip": "“...” là câu văn thể hiện phán đoán, ý định của người nói hoặc kêu gọi đối phương làm điều gì đó."
     },
     {
       "id": "bunpo-400-137",
@@ -1511,12 +1534,14 @@
       "id": "bunpo-400-138",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜さえ〜ば…",
       "meaningVi": "Chỉ cần...",
       "example": "君さえいつも側にいれば、僕は幸せ。",
-      "exampleVi": "Chỉ cần em luôn ở bên anh là anh hạnh phúc lắm rồi."
+      "exampleVi": "Chỉ cần em luôn ở bên anh là anh hạnh phúc lắm rồi.",
+      "usage": "〜さえ〜ば…・〜さえ〜なら…"
     },
     {
       "id": "bunpo-400-139",
@@ -1863,12 +1888,14 @@
       "id": "bunpo-400-170",
       "level": "N3",
       "sources": [
-        "400-mau-thong-dung"
+        "400-mau-thong-dung",
+        "shinkanzen"
       ],
       "pattern": "〜として…",
       "meaningVi": "Với tư cách là..., như là...",
       "example": "私は国費留学生として日本に来た。",
-      "exampleVi": "Tôi đến Nhật với tư cách du học sinh được nhà nước tài trợ."
+      "exampleVi": "Tôi đến Nhật với tư cách du học sinh được nhà nước tài trợ.",
+      "usage": "「～という立場、資格、役割、名目で…。」\n“Với lập trường, tư cách, vai trò, danh nghĩa ~, ...”"
     },
     {
       "id": "bunpo-400-171",
