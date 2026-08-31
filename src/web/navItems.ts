@@ -25,3 +25,19 @@ export const NAV_ITEMS: NavItem[] = [
 // The 4 most-used destinations, shown in the mobile bottom bar -- the rest
 // (plus these same 4 again) live in the hamburger drawer.
 export const BOTTOM_NAV_SCREENS: Screen[] = ["menu", "vocab", "bunpo", "quiz"];
+
+// Groups the sidebar/drawer nav into labeled sections (per
+// UI_REVIEW_V2.md §11) so 9 destinations don't read as one flat, equally
+// weighted list. "Trang chủ" stays ungrouped/first since it's not a content
+// category. Screen membership only -- label/icon still comes from NAV_ITEMS.
+export interface NavGroup {
+  label?: string;
+  screens: Screen[];
+}
+
+export const NAV_GROUPS: NavGroup[] = [
+  { screens: ["menu", "search"] },
+  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading"] },
+  { label: "Luyện thi", screens: ["quizBook", "quiz"] },
+  { label: "Công cụ", screens: ["stats"] },
+];

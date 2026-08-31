@@ -35,6 +35,10 @@ import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { LevelDot, levelBadgeStyle } from "../lib/levelColors.tsx";
+import { PageHeader } from "../components/PageHeader.tsx";
+import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
+import { ActiveFilters } from "../components/ActiveFilters.tsx";
+import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 
 const USAGE_TERM_GLOSSARY: { term: string; explanation: string }[] = [
   { term: "辞書形", explanation: "Thể từ điển (dạng nguyên mẫu của động từ), vd: 食べる" },
@@ -112,6 +116,7 @@ function ListView({
   const [query, setQuery] = useState(state.listSearchQuery);
   const debouncedQuery = useDebouncedValue(query, 150);
   const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   useEffect(() => {
     loadProgressMap().then(setProgressMap);
@@ -125,6 +130,7 @@ function ListView({
   }, [debouncedQuery]);
 
   const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
+  const allSourcesChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
   const showChapterFilter = state.selectedSources.includes("theo-chuong") && AVAILABLE_CHAPTERS.length > 0;
   const allChaptersSelected = state.selectedChapters.length === AVAILABLE_CHAPTERS.length;
   const singleSelectedChapter = state.selectedChapters.length === 1 ? state.selectedChapters[0] : null;
@@ -139,8 +145,7 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
-      <h1 className="text-2xl font-bold text-neutral-800">Ngữ pháp</h1>
-      <p className="text-sm text-neutral-500">{filtered.length} mẫu ngữ pháp</p>
+      <PageHeader title="Ngữ pháp" subtitle={`${filtered.length} mẫu ngữ pháp`} />
 
       <input
         type="text"
@@ -150,52 +155,11 @@ function ListView({
         className="mt-4 w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm"
       />
 
-      <div className="mt-3 flex flex-wrap items-center gap-2">
-        <button
-          onClick={() => applyLevelSelection(allLevelsChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
-          className={`rounded-full border px-3 py-1 text-xs font-medium ${allLevelsChecked ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500"}`}
-        >
-          Tất cả cấp độ ({ALL_BUNPO.length})
-        </button>
-        {AVAILABLE_LEVELS.map((level) => {
-          const checked = state.selectedLevels.includes(level);
-          return (
-            <button
-              key={level}
-              onClick={() => {
-                const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
-                applyLevelSelection(next);
-              }}
-              className={`flex items-center rounded-full border px-3 py-1 text-xs font-medium ${checked ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500"}`}
-            >
-              <LevelDot level={level} />
-              {level} ({countForLevel(level)})
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        {AVAILABLE_SOURCES.map((source) => {
-          const checked = state.selectedSources.includes(source);
-          const count = ALL_BUNPO.filter((g) => g.sources.includes(source)).length;
-          return (
-            <button
-              key={source}
-              onClick={() => {
-                const next = checked
-                  ? state.selectedSources.filter((s) => s !== source)
-                  : [...new Set([...state.selectedSources, source])];
-                if (next.length === 0) return;
-                mutate({ selectedSources: next as BunpoSource[] });
-              }}
-              className={`rounded-full border px-3 py-1 text-xs font-medium ${checked ? "border-violet-300 bg-violet-50 text-violet-600" : "border-neutral-200 text-neutral-500"}`}
-            >
-              {SOURCE_LABELS[source]} ({count})
-            </button>
-          );
-        })}
-
+      <FilterBar>
+        <FilterTrigger
+          count={(allLevelsChecked ? 0 : state.selectedLevels.length) + (allSourcesChecked ? 0 : state.selectedSources.length)}
+          onClick={() => setFilterOpen(true)}
+        />
         {showChapterFilter ? (
           <select
             value={chapterSelectValue}
@@ -204,7 +168,7 @@ function ListView({
               const next = value === "all" ? [...AVAILABLE_CHAPTERS] : [Number(value)];
               mutate({ selectedChapters: next });
             }}
-            className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-600 sm:max-w-none"
+            className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600 sm:max-w-none"
           >
             <option value="all">Tất cả các chương</option>
             {AVAILABLE_CHAPTERS.map((c) => {
@@ -218,17 +182,100 @@ function ListView({
             })}
           </select>
         ) : null}
-
         <select
           value={state.progressFilter}
           onChange={(e) => mutate({ progressFilter: e.target.value as ProgressFilter })}
-          className="ml-auto max-w-full truncate rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-600"
+          className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600 sm:max-w-none"
         >
           <option value="all">Tất cả mẫu</option>
           <option value="unmastered">Chưa thuộc</option>
           <option value="flagged">Đã đánh dấu khó</option>
         </select>
-      </div>
+      </FilterBar>
+
+      <ActiveFilters
+        chips={[
+          ...(allLevelsChecked
+            ? []
+            : state.selectedLevels.map((level) => ({
+                key: `level-${level}`,
+                label: level,
+                onRemove: () => applyLevelSelection(state.selectedLevels.filter((l) => l !== level)),
+              }))),
+          ...(allSourcesChecked
+            ? []
+            : state.selectedSources.map((source) => ({
+                key: `source-${source}`,
+                label: SOURCE_LABELS[source],
+                onRemove: () => {
+                  const next = state.selectedSources.filter((s) => s !== source);
+                  if (next.length === 0) return;
+                  mutate({ selectedSources: next as BunpoSource[] });
+                },
+              }))),
+          ...(state.progressFilter !== "all"
+            ? [
+                {
+                  key: "progress",
+                  label: state.progressFilter === "unmastered" ? "Chưa thuộc" : "Đã đánh dấu khó",
+                  onRemove: () => mutate({ progressFilter: "all" as ProgressFilter }),
+                },
+              ]
+            : []),
+        ]}
+      />
+
+      <FilterSheet
+        open={filterOpen}
+        onClose={() => setFilterOpen(false)}
+        title="Bộ lọc ngữ pháp"
+        onReset={() => {
+          applyLevelSelection([...AVAILABLE_LEVELS]);
+          mutate({ selectedSources: [...AVAILABLE_SOURCES] });
+        }}
+      >
+        <FilterGroup title="Cấp độ">
+          <FilterChipOption
+            label={`Tất cả cấp độ (${ALL_BUNPO.length})`}
+            active={allLevelsChecked}
+            onClick={() => applyLevelSelection(allLevelsChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
+          />
+          {AVAILABLE_LEVELS.map((level) => {
+            const checked = state.selectedLevels.includes(level);
+            return (
+              <FilterChipOption
+                key={level}
+                label={`${level} (${countForLevel(level)})`}
+                active={checked}
+                onClick={() => {
+                  const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
+                  applyLevelSelection(next);
+                }}
+              />
+            );
+          })}
+        </FilterGroup>
+        <FilterGroup title="Nguồn">
+          {AVAILABLE_SOURCES.map((source) => {
+            const checked = state.selectedSources.includes(source);
+            const count = ALL_BUNPO.filter((g) => g.sources.includes(source)).length;
+            return (
+              <FilterChipOption
+                key={source}
+                label={`${SOURCE_LABELS[source]} (${count})`}
+                active={checked}
+                onClick={() => {
+                  const next = checked
+                    ? state.selectedSources.filter((s) => s !== source)
+                    : [...new Set([...state.selectedSources, source])];
+                  if (next.length === 0) return;
+                  mutate({ selectedSources: next as BunpoSource[] });
+                }}
+              />
+            );
+          })}
+        </FilterGroup>
+      </FilterSheet>
 
       <div className="mt-4 flex flex-col gap-2">
         {filtered.length === 0 ? (

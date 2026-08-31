@@ -1,7 +1,39 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
-import { NAV_ITEMS, BOTTOM_NAV_SCREENS } from "./navItems.ts";
+import { NAV_ITEMS, NAV_GROUPS, BOTTOM_NAV_SCREENS } from "./navItems.ts";
+import pkg from "../../package.json";
+
+const SITE_URL = "https://tamokiloi.github.io/japanese-extension/";
+
+function SidebarFooter() {
+  return (
+    <div className="mt-auto flex items-center justify-between px-2 pt-4 text-xs text-neutral-400">
+      <span>Tamoki Nguyen · v{pkg.version}</span>
+      <a
+        href={SITE_URL}
+        target="_blank"
+        rel="noreferrer"
+        title="Xem trang web"
+        className="flex items-center gap-1 text-neutral-400 hover:text-rose-600"
+      >
+        Web <ExternalLink size={12} />
+      </a>
+    </div>
+  );
+}
+
+function BrandLink({ onClick, className }: { onClick: () => void; className?: string }) {
+  return (
+    <button onClick={onClick} className={`flex items-center gap-2.5 text-left ${className ?? ""}`}>
+      <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-8 w-8 shrink-0 rounded-lg" />
+      <div>
+        <div className="text-lg leading-tight font-bold text-rose-600">Nihongo Nin</div>
+        <div className="text-xs text-neutral-400">日本語を学ぼう</div>
+      </div>
+    </button>
+  );
+}
 
 function NavLink({
   item,
@@ -26,6 +58,24 @@ function NavLink({
   );
 }
 
+function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (screen: Screen) => void }) {
+  return (
+    <nav className="flex flex-col gap-4">
+      {NAV_GROUPS.map((group, i) => (
+        <div key={group.label ?? `group-${i}`} className="flex flex-col gap-1">
+          {group.label ? (
+            <div className="px-3 text-[11px] font-semibold tracking-wide text-neutral-400 uppercase">{group.label}</div>
+          ) : null}
+          {group.screens.map((screen) => {
+            const item = NAV_ITEMS.find((i) => i.screen === screen)!;
+            return <NavLink key={item.screen} item={item} active={active === item.screen} onClick={() => onNavigate(item.screen)} />;
+          })}
+        </div>
+      ))}
+    </nav>
+  );
+}
+
 export function WebAppShell({
   active,
   onNavigate,
@@ -46,36 +96,24 @@ export function WebAppShell({
     <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
       {/* Desktop sidebar */}
       <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 md:flex md:flex-col">
-        <div className="mb-6 px-2">
-          <div className="text-lg font-bold text-rose-600">Nihongo Nin</div>
-          <div className="text-xs text-neutral-400">日本語を学ぼう</div>
-        </div>
-        <nav className="flex flex-col gap-1">
-          {NAV_ITEMS.map((item) => (
-            <NavLink key={item.screen} item={item} active={active === item.screen} onClick={() => go(item.screen)} />
-          ))}
-        </nav>
+        <BrandLink onClick={() => go("menu")} className="mb-6 px-2" />
+        <GroupedNav active={active} onNavigate={go} />
+        <SidebarFooter />
       </aside>
 
       {/* Mobile drawer overlay */}
       {drawerOpen ? (
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 bg-black/30" onClick={() => setDrawerOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-64 bg-white p-4 shadow-xl">
+          <div className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white p-4 shadow-xl">
             <div className="mb-6 flex items-center justify-between px-2">
-              <div>
-                <div className="text-lg font-bold text-rose-600">Nihongo Nin</div>
-                <div className="text-xs text-neutral-400">日本語を学ぼう</div>
-              </div>
+              <BrandLink onClick={() => go("menu")} />
               <button className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100" onClick={() => setDrawerOpen(false)}>
                 <X size={20} />
               </button>
             </div>
-            <nav className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
-                <NavLink key={item.screen} item={item} active={active === item.screen} onClick={() => go(item.screen)} />
-              ))}
-            </nav>
+            <GroupedNav active={active} onNavigate={go} />
+            <SidebarFooter />
           </div>
         </div>
       ) : null}
@@ -91,7 +129,10 @@ export function WebAppShell({
           <button className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100" onClick={() => setDrawerOpen(true)}>
             <Menu size={22} />
           </button>
-          <span className="font-bold text-rose-600">Nihongo Nin</span>
+          <button onClick={() => go("menu")} className="flex items-center gap-2">
+            <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-6 w-6 rounded-md" />
+            <span className="font-bold text-rose-600">Nihongo Nin</span>
+          </button>
         </header>
 
         <main className="flex-1 pb-16 md:pb-0">{children}</main>

@@ -294,10 +294,13 @@ function SetupView({
           </select>
         </div>
 
-        <p className="text-sm text-neutral-500">
-          Dùng bộ lọc đang chọn ở màn {filterScreenLabel[settings.contentType]}:{" "}
-          <b className="text-neutral-700">{filterTextByType[settings.contentType]}</b>
-        </p>
+        <div>
+          <div className="mb-2 text-sm font-semibold text-neutral-500">Phạm vi</div>
+          <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-neutral-600">
+            Theo bộ lọc hiện tại ở màn {filterScreenLabel[settings.contentType]} —{" "}
+            <span className="font-semibold text-neutral-800">{filterTextByType[settings.contentType]}</span>
+          </div>
+        </div>
 
         {error ? <p className="rounded-lg bg-rose-50 p-3 text-sm text-rose-600">{error}</p> : null}
 

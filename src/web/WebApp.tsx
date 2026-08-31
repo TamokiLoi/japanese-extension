@@ -3,8 +3,10 @@ import { App, VALID_SCREENS, type Screen } from "../popup/App.tsx";
 import { WebAppShell } from "./WebAppShell.tsx";
 import { HomeScreen } from "./screens/HomeScreen.tsx";
 import { VocabScreen } from "./screens/VocabScreen.tsx";
+import { KanjiScreen } from "./screens/KanjiScreen.tsx";
 import { BunpoScreen } from "./screens/BunpoScreen.tsx";
 import { QuizScreen } from "./screens/QuizScreen.tsx";
+import { QuizBookScreen } from "./screens/QuizBookScreen.tsx";
 import { ReadingScreen } from "./screens/ReadingScreen.tsx";
 import { StatsScreen } from "./screens/StatsScreen.tsx";
 import "./tailwind.css";
@@ -57,6 +59,8 @@ export function WebApp() {
         jumpToId={targetId}
       />
     );
+  } else if (screen === "kanji") {
+    content = <KanjiScreen onOpenVocab={(vocabId) => go("vocab", vocabId)} jumpToId={targetId} />;
   } else if (screen === "bunpo") {
     content = (
       <BunpoScreen onOpenReading={() => go("reading")} onOpenQuizBook={() => go("quizBook")} targetId={targetId} />
@@ -69,6 +73,8 @@ export function WebApp() {
         onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
       />
     );
+  } else if (screen === "quizBook") {
+    content = <QuizBookScreen />;
   } else if (screen === "reading") {
     content = <ReadingScreen />;
   } else if (screen === "stats") {
