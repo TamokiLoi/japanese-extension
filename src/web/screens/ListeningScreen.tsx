@@ -69,6 +69,14 @@ function QuestionView({
   const index = ALL_LISTENING.findIndex((q) => q.id === question.id);
   const nextId = ALL_LISTENING[index + 1]?.id;
 
+  // Real 発話表現・即時応答 (sokuji) items print NOTHING on paper -- the test
+  // taker hears a line and picks 1/2/3 from memory alone, no printed
+  // question/options to read along with. Showing the Japanese text upfront
+  // (as we do for kadai/point/gaiyou, which DO print at least the question
+  // or picture options) defeats the point of practicing this format, so
+  // keep it hidden -- blind numbered buttons only -- until answered.
+  const isBlind = question.taskType === "sokuji" && !question.optionsImage;
+
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
@@ -85,17 +93,33 @@ function QuestionView({
 
       <Card className="mt-4 gap-3 p-5">
         <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700">
-          <Headphones size={16} /> {question.scenario || question.question}
+          <Headphones size={16} /> {isBlind && !answered ? "Nghe rồi chọn đáp án đúng" : question.scenario || question.question}
         </div>
         {answered && question.scenarioVi ? <div className="text-sm text-neutral-500">{question.scenarioVi}</div> : null}
         <audio controls className="w-full" src={assetUrl(question.audioUrl)} />
       </Card>
 
       <Card className="mt-4 gap-0 p-5">
-        <div className="font-semibold text-neutral-800">{question.question}</div>
-        {answered ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
+        {!isBlind || answered ? (
+          <>
+            <div className="font-semibold text-neutral-800">{question.question}</div>
+            {answered ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
+          </>
+        ) : null}
 
-        {question.optionsImage ? (
+        {isBlind && !answered ? (
+          <div className="grid grid-cols-3 gap-2">
+            {question.options.map((_, oi) => (
+              <button
+                key={oi}
+                onClick={() => setSelected(oi)}
+                className="rounded-lg border border-neutral-200 py-3 text-center text-lg font-semibold hover:bg-neutral-50"
+              >
+                {oi + 1}
+              </button>
+            ))}
+          </div>
+        ) : question.optionsImage ? (
           <>
             <img
               src={assetUrl(question.optionsImage)}
