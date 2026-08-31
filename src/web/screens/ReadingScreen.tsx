@@ -11,12 +11,14 @@ import {
   BOOK_DIFFICULTY_NOTE,
   pickRandomPassage,
   findReadingById,
+  readingQuestionId,
   loadViewerState,
   saveViewerState,
   getPassageProgress,
   resetPassageAnswers,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
+import { recordAnswer } from "../../popup/progressState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
@@ -61,13 +63,34 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
 
 const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm" } as const;
 
-export function ReadingScreen() {
+export function ReadingScreen({ targetId }: { targetId?: string } = {}) {
   const [state, setState] = useState<ReadingViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    loadViewerState().then(setState);
-  }, []);
+    let cancelled = false;
+    (async () => {
+      let s = await loadViewerState();
+      const passage = targetId ? findReadingById(targetId) : undefined;
+      if (passage) {
+        s = {
+          ...s,
+          currentPassageId: passage.id,
+          answers: { ...s.answers, [passage.id]: s.answers[passage.id] ?? passage.questions.map(() => null) },
+          showFurigana: false,
+          showTranslation: false,
+          showStudyNote: false,
+          resultsRevealed: false,
+        };
+        await saveViewerState(s);
+      }
+      if (cancelled) return;
+      setState(s);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [targetId]);
 
   async function mutate(partial: Partial<ReadingViewerState>) {
     if (!state) return;
@@ -122,6 +145,14 @@ function ListView({
     await mutate({
       currentPassageId: passage.id,
       answers: { ...state.answers, [passage.id]: state.answers[passage.id] ?? passage.questions.map(() => null) },
+      // Furigana/translation/study-note visibility is a per-reading-session
+      // toggle, not a lasting preference -- reset to the default (hidden)
+      // each time a (possibly unrelated) new passage is opened, so a choice
+      // made on one passage doesn't silently carry over to the next.
+      showFurigana: false,
+      showTranslation: false,
+      showStudyNote: false,
+      resultsRevealed: false,
     });
   }
 
@@ -356,6 +387,10 @@ function PassageView({
     await mutate({
       currentPassageId: next.id,
       answers: { ...state.answers, [next.id]: state.answers[next.id] ?? next.questions.map(() => null) },
+      showFurigana: false,
+      showTranslation: false,
+      showStudyNote: false,
+      resultsRevealed: false,
     });
   }
 
@@ -391,7 +426,7 @@ function PassageView({
         ) : null}
       </div>
 
-      {allAnswered && total > 0 ? (
+      {state.resultsRevealed && allAnswered && total > 0 ? (
         <div className={`mt-4 flex items-center gap-2 rounded-xl p-3 text-sm font-semibold ${correctCount === total ? "bg-emerald-50 text-emerald-700" : "bg-sky-50 text-sky-700"}`}>
           {correctCount === total ? <Sparkles size={16} /> : <BarChart3 size={16} />}
           Đúng {correctCount}/{total} câu ({Math.round((correctCount / total) * 100)}%)
@@ -410,6 +445,14 @@ function PassageView({
           className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${state.showTranslation ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
         >
           {state.showTranslation ? "Ẩn bản dịch" : "Xem bản dịch"}
+        </button>
+        <button
+          onClick={() => mutate({ resultsRevealed: !state.resultsRevealed })}
+          disabled={answeredCount === 0}
+          title={answeredCount === 0 ? "Chọn ít nhất 1 câu trả lời trước" : undefined}
+          className={`rounded-full border px-3 py-1.5 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${state.resultsRevealed ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
+        >
+          {state.resultsRevealed ? "Ẩn kết quả" : "Kiểm tra kết quả"}
         </button>
         {passage.studyNote ? (
           <button
@@ -460,16 +503,21 @@ function PassageView({
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {q.options.map((opt, oi) => {
                   let cls = "border-neutral-200 hover:bg-neutral-50";
-                  if (answered !== null) {
+                  if (state.resultsRevealed && answered !== null) {
                     if (oi === q.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
                     else if (oi === answered) cls = "border-rose-300 bg-rose-50 text-rose-700";
                     else cls = "border-neutral-200 opacity-50";
+                  } else if (answered !== null && oi === answered) {
+                    // Answered but not checked yet -- a neutral "this is your
+                    // pick" highlight that doesn't leak correct/wrong.
+                    cls = "border-neutral-400 bg-neutral-100 text-neutral-700";
                   }
                   return (
                     <button
                       key={oi}
                       disabled={answered !== null}
                       onClick={() => {
+                        void recordAnswer(readingQuestionId(passage.id, qi), oi === q.correctIndex, "answer", ["answer"]);
                         const newAnswers = [...answers];
                         newAnswers[qi] = oi;
                         mutate({ answers: { ...state.answers, [passage.id]: newAnswers } });
@@ -481,10 +529,37 @@ function PassageView({
                   );
                 })}
               </div>
-              {answered !== null ? (
-                <div className="mt-3 space-y-1 border-t border-neutral-100 pt-3 text-sm">
-                  <div className="text-neutral-400">{q.questionVi}</div>
-                  <div className="text-neutral-600">{q.explanation}</div>
+              {state.resultsRevealed && answered !== null ? (
+                <div className="mt-3 space-y-3 border-t border-neutral-100 pt-3 text-sm">
+                  <div>
+                    <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Dịch câu hỏi</div>
+                    <div className="mt-1 text-neutral-600">{q.questionVi}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Dịch đáp án</div>
+                    <div className="mt-1 grid gap-2 sm:grid-cols-2">
+                      {q.optionsVi.map((optVi, oi) => (
+                        <div
+                          key={oi}
+                          className={`rounded-lg border px-3 py-2 text-sm ${
+                            oi === q.correctIndex
+                              ? "border-emerald-300 bg-emerald-50 text-emerald-700"
+                              : oi === answered
+                                ? "border-rose-300 bg-rose-50 text-rose-700"
+                                : "border-neutral-200 text-neutral-500"
+                          }`}
+                        >
+                          {optVi}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {q.explanation ? (
+                    <div>
+                      <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Giải thích</div>
+                      <div className="mt-1 text-neutral-600">{q.explanation}</div>
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
             </Card>

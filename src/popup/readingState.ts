@@ -22,6 +22,34 @@ export function findReadingById(id: string): ReadingPassage | undefined {
   return READING_BY_ID.get(id);
 }
 
+// Progress (correct/wrong counts, mastery bucket) is tracked per-question,
+// not per-passage -- a passage's questions can be about equally hard or
+// wildly uneven, and "which specific question keeps getting missed" is what
+// the Stats screen needs to surface for review. Id is derived (not stored on
+// the question itself) since passage/question data is static and re-derived
+// on every load anyway.
+export function readingQuestionId(passageId: string, questionIndex: number): string {
+  return `${passageId}::q${questionIndex}`;
+}
+
+export interface ReadingQuestionItem {
+  id: string;
+  level: JlptLevel;
+  book: ReadingBook;
+  passageId: string;
+  questionIndex: number;
+}
+
+export const ALL_READING_QUESTIONS: ReadingQuestionItem[] = ALL_READING.flatMap((p) =>
+  p.questions.map((_, questionIndex) => ({
+    id: readingQuestionId(p.id, questionIndex),
+    level: p.level,
+    book: p.book,
+    passageId: p.id,
+    questionIndex,
+  })),
+);
+
 export const LENGTH_LABELS: Record<ReadingLength, string> = {
   short: "Đoản văn",
   medium: "Trung văn",
@@ -111,6 +139,12 @@ export interface ReadingViewerState {
   showFurigana: boolean;
   showTranslation: boolean;
   showStudyNote: boolean;
+  // Whether correctness + explanations are revealed for the current
+  // passage's questions -- selecting an answer just records the choice;
+  // nothing about right/wrong shows until this flips true (see the
+  // "Kiểm tra kết quả" toggle), so a whole passage can be answered
+  // exam-style before checking anything.
+  resultsRevealed: boolean;
   answers: Record<string, (number | null)[]>;
   listStatusFilter: "all" | "not-started" | "done";
 }
@@ -123,9 +157,10 @@ export function defaultViewerState(): ReadingViewerState {
     selectedLengths: [...AVAILABLE_LENGTHS],
     selectedBooks: [...AVAILABLE_BOOKS],
     currentPassageId: null,
-    showFurigana: true,
+    showFurigana: false,
     showTranslation: false,
     showStudyNote: false,
+    resultsRevealed: false,
     answers: {},
     listStatusFilter: "all",
   };
@@ -148,6 +183,7 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     showFurigana: saved?.showFurigana ?? fallback.showFurigana,
     showTranslation: saved?.showTranslation ?? fallback.showTranslation,
     showStudyNote: saved?.showStudyNote ?? fallback.showStudyNote,
+    resultsRevealed: saved?.resultsRevealed ?? fallback.resultsRevealed,
     answers: saved?.answers ?? fallback.answers,
     listStatusFilter: saved?.listStatusFilter ?? fallback.listStatusFilter,
   };

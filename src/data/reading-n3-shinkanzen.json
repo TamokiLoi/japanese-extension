@@ -277,7 +277,13 @@
             "長時間使うとライトが暗くなるので、短い時間だけ使うようにする。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản viết rõ: \"暗くなりましたら、発電用ハンドルを回してください\" (khi đèn mờ, hãy quay tay quay để phát điện) — đúng với đáp án 2. Đèn không dùng pin (đáp án 1 sai); nhấp nháy phải nhấn cả công tắc đèn lẫn nút trắng, không chỉ công tắc (đáp án 3 sai); văn bản không nói phải dùng thời gian ngắn (đáp án 4 sai)."
+          "explanation": "Văn bản viết rõ: \"暗くなりましたら、発電用ハンドルを回してください\" (khi đèn mờ, hãy quay tay quay để phát điện) — đúng với đáp án 2. Đèn không dùng pin (đáp án 1 sai); nhấp nháy phải nhấn cả công tắc đèn lẫn nút trắng, không chỉ công tắc (đáp án 3 sai); văn bản không nói phải dùng thời gian ngắn (đáp án 4 sai).",
+          "optionsVi": [
+            "Đèn không sáng nữa thì thay pin là được.",
+            "Đèn tối đi thì quay tay cầm để phát điện là được.",
+            "Nhấn công tắc đèn thì có thể làm đèn nhấp nháy.",
+            "Dùng lâu đèn sẽ tối nên hãy chỉ dùng trong thời gian ngắn."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -583,7 +589,13 @@
             "都合が悪くなったことをあやまるメール"
           ],
           "correctIndex": 1,
-          "explanation": "Thầy Yamada đã đưa ra vài mốc thời gian rảnh và nhờ Sara \"サラさんの都合を教えてください\" (cho biết Sara rảnh lúc nào) — nên Sara cần trả lời bằng email cho biết thời gian rảnh của mình, đúng đáp án 2."
+          "explanation": "Thầy Yamada đã đưa ra vài mốc thời gian rảnh và nhờ Sara \"サラさんの都合を教えてください\" (cho biết Sara rảnh lúc nào) — nên Sara cần trả lời bằng email cho biết thời gian rảnh của mình, đúng đáp án 2.",
+          "optionsVi": [
+            "Email hỏi lại thời gian thuận tiện của thầy một lần nữa",
+            "Email báo cho thầy biết thời gian thuận tiện của mình",
+            "Email xin lỗi vì đã hoãn cuộc hẹn",
+            "Email xin lỗi vì mình không sắp xếp được thời gian"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -1165,7 +1177,13 @@
             "楽しいことがあると思ったから。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: \"彼が宝くじを買ったのは、亡くなった妻が宝くじを楽しんでいたためで、お金が欲しいからではなかった\" — mua vì vợ đã mất thích chơi số, không phải vì muốn tiền."
+          "explanation": "Văn bản: \"彼が宝くじを買ったのは、亡くなった妻が宝くじを楽しんでいたためで、お金が欲しいからではなかった\" — mua vì vợ đã mất thích chơi số, không phải vì muốn tiền.",
+          "optionsVi": [
+            "Vì muốn mơ thấy mình dùng 300 triệu yên vào việc gì đó.",
+            "Vì người vợ đã khuất rất thích mua vé số.",
+            "Vì muốn có tiền.",
+            "Vì nghĩ rằng sẽ có chuyện vui xảy ra."
+          ]
         },
         {
           "question": "3億円が当たった後で彼はどうしようと思ったか。",
@@ -1177,7 +1195,13 @@
             "受け取らないことにしようと思った。"
           ],
           "correctIndex": 3,
-          "explanation": "Toàn đoạn văn nói về việc ông quyết định không nhận tiền (受け取らない) vì không có ai để chia, không cần mua sắm gì lớn, và sợ rắc rối phát sinh."
+          "explanation": "Toàn đoạn văn nói về việc ông quyết định không nhận tiền (受け取らない) vì không có ai để chia, không cần mua sắm gì lớn, và sợ rắc rối phát sinh.",
+          "optionsVi": [
+            "Định chia cho con cái và người thân.",
+            "Định mua xe hơi sang trọng.",
+            "Định mua một ngôi nhà lớn.",
+            "Định sẽ không nhận số tiền đó."
+          ]
         },
         {
           "question": "彼はかしこい判断をしたのかもしれない。とあるが、それはなぜか。",
@@ -1189,7 +1213,13 @@
             "車や家を買って周りの人にあげようと思ったから。"
           ],
           "correctIndex": 1,
-          "explanation": "Đoạn văn nói nếu nhận tiền thì \"その金を目的に人が寄ってきていろいろな問題が起きるかもしれない\" (sẽ có người vì tiền mà tìm đến gây rắc rối) — không nhận tiền thì tránh được nguy cơ đó, nên được cho là quyết định khôn ngoan."
+          "explanation": "Đoạn văn nói nếu nhận tiền thì \"その金を目的に人が寄ってきていろいろな問題が起きるかもしれない\" (sẽ có người vì tiền mà tìm đến gây rắc rối) — không nhận tiền thì tránh được nguy cơ đó, nên được cho là quyết định khôn ngoan.",
+          "optionsVi": [
+            "Vì đã tham khảo ý kiến của nhiều người.",
+            "Vì khả năng xảy ra những vấn đề rắc rối đã không còn.",
+            "Vì đã định dùng số tiền đó vào việc có ích.",
+            "Vì định mua xe, mua nhà rồi tặng lại cho mọi người xung quanh."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -1531,7 +1561,13 @@
             "ストレスが全くない生活をするべきだ。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: \"このがまんできるぐらいのストレスが一番問題なのだという\" — chuyên gia nói loại stress nhỏ có thể chịu đựng được mới là vấn đề lớn nhất (khó nhất)."
+          "explanation": "Văn bản: \"このがまんできるぐらいのストレスが一番問題なのだという\" — chuyên gia nói loại stress nhỏ có thể chịu đựng được mới là vấn đề lớn nhất (khó nhất).",
+          "optionsVi": [
+            "Mối quan hệ con người, học tập hay công việc là nguyên nhân gây stress.",
+            "Stress cũng có thể là nguyên nhân gây ra bệnh tật cho cơ thể.",
+            "Những áp lực nhỏ nhặt mới là điều phiền toái nhất.",
+            "Nên sống một cuộc sống hoàn toàn không có stress."
+          ]
         },
         {
           "question": "そうしているうちにとあるが、これは何を指しているのか。",
@@ -1543,7 +1579,13 @@
             "ストレスが全然ない生活をしているうちに"
           ],
           "correctIndex": 2,
-          "explanation": "Câu trước đó: \"受けたストレスをがまんできると思うと、人はそれを解決せずそのままにしてしまう\" — \"そうしている\" chỉ việc để nguyên (không giải quyết) stress nhỏ."
+          "explanation": "Câu trước đó: \"受けたストレスをがまんできると思うと、人はそれを解決せずそのままにしてしまう\" — \"そうしている\" chỉ việc để nguyên (không giải quyết) stress nhỏ.",
+          "optionsVi": [
+            "Trong khi đang cố chịu đựng áp lực lớn",
+            "Trong khi đang cố gắng giải quyết áp lực lớn",
+            "Trong khi cứ để mặc những áp lực nhỏ nhặt",
+            "Trong khi đang sống cuộc đời hoàn toàn không có stress"
+          ]
         },
         {
           "question": "本文の内容と合っているものはどれか。",
@@ -1555,7 +1597,13 @@
             "大きなストレスは成長するきっかけになるから辛くない。"
           ],
           "correctIndex": 2,
-          "explanation": "Đoạn cuối: việc stress gây hại hay không không phụ thuộc độ lớn nhỏ mà phụ thuộc vào có cố gắng giải quyết (vượt qua) hay không — nên stress nhỏ không giải quyết vẫn có thể gây hại."
+          "explanation": "Đoạn cuối: việc stress gây hại hay không không phụ thuộc độ lớn nhỏ mà phụ thuộc vào có cố gắng giải quyết (vượt qua) hay không — nên stress nhỏ không giải quyết vẫn có thể gây hại.",
+          "optionsVi": [
+            "Nếu là áp lực nhỏ có thể chịu đựng được thì không cần lo lắng gì cả.",
+            "Nếu stress quá lớn thì chắc chắn sẽ làm hỏng tâm trí và cơ thể.",
+            "Dù là stress nhỏ nhưng nếu không giải quyết thì cũng là nguyên nhân gây hại cho tâm trí và cơ thể.",
+            "Stress lớn không đáng buồn vì nó là cơ hội để trưởng thành."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -2165,7 +2213,13 @@
             "絶滅してしまったため、トキに似た中国の鳥を輸入し、育てている。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: ngày xưa Toki sống khắp ruộng/rừng Nhật Bản, tuyệt chủng năm 1981, hiện nhập cùng loài Toki từ Trung Quốc về nuôi ở Sado — khớp đáp án 2. Đáp án 4 sai vì là \"cùng loài\" (同じ種類) chứ không phải \"loài giống Toki\" khác."
+          "explanation": "Văn bản: ngày xưa Toki sống khắp ruộng/rừng Nhật Bản, tuyệt chủng năm 1981, hiện nhập cùng loài Toki từ Trung Quốc về nuôi ở Sado — khớp đáp án 2. Đáp án 4 sai vì là \"cùng loài\" (同じ種類) chứ không phải \"loài giống Toki\" khác.",
+          "optionsVi": [
+            "Ngày xưa có ở khắp Nhật Bản nhưng số lượng đã giảm, hiện tại chỉ còn vài con ở Sado.",
+            "Từng sống ở ruộng lúa và rừng khắp Nhật Bản nhưng đã tuyệt chủng, hiện tại đang nuôi chim Toki nhập khẩu.",
+            "Số lượng giảm dần theo sự phát triển công nghiệp nhưng hiện tại đang tăng trở lại.",
+            "Vì đã tuyệt chủng nên đang nhập khẩu và nuôi dưỡng loài chim giống Toki của Trung Quốc."
+          ]
         },
         {
           "question": "日本のトキはなぜ、数が減ったのか。",
@@ -2177,7 +2231,13 @@
             "きれいなトキを飼いたいと思った人が多く、捕まえられたから。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản nêu 2 nguyên nhân: bị bắt để lấy lông (羽を取るために捕まえられ) và môi trường sống (ruộng, rừng) bị thu hẹp/ô nhiễm — khớp đáp án 2."
+          "explanation": "Văn bản nêu 2 nguyên nhân: bị bắt để lấy lông (羽を取るために捕まえられ) và môi trường sống (ruộng, rừng) bị thu hẹp/ô nhiễm — khớp đáp án 2.",
+          "optionsVi": [
+            "Vì Toki ăn quá nhiều sinh vật ở ruộng lúa và rừng nên đã bị bắt.",
+            "Vì bị bắt và môi trường sống của Toki cũng trở nên tồi tệ hơn.",
+            "Vì nơi Toki có thể sống bị giảm bớt nên chúng đã bay sang các nước như Trung Quốc.",
+            "Vì có nhiều người muốn nuôi chim Toki đẹp nên chúng đã bị bắt đi."
+          ]
         },
         {
           "question": "この文章を書いた人が言いたいことは何か。",
@@ -2189,7 +2249,13 @@
             "自然が失われかけても、さまざまな方法により復活させることができる。"
           ],
           "correctIndex": 2,
-          "explanation": "Câu kết luận: \"自然は簡単に失われるが、一度失われたら元に戻すのは簡単ではない\" — thiên nhiên dễ mất, khó phục hồi, nên phải trân trọng — khớp đáp án 3."
+          "explanation": "Câu kết luận: \"自然は簡単に失われるが、一度失われたら元に戻すのは簡単ではない\" — thiên nhiên dễ mất, khó phục hồi, nên phải trân trọng — khớp đáp án 3.",
+          "optionsVi": [
+            "Việc loài Toki xinh đẹp của Nhật Bản tuyệt chủng thật đáng tiếc.",
+            "Dù kinh tế khó khăn thì vẫn nên tăng số lượng sinh vật xinh đẹp và trả chúng về tự nhiên.",
+            "Tự nhiên rất khó để phục hồi nên phải trân trọng bảo vệ.",
+            "Dù tự nhiên đang dần mất đi, chúng ta vẫn có thể phục hồi bằng nhiều cách khác nhau."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -2807,7 +2873,13 @@
             "町やビルなどさまざまな場所にたくさん置いてあるから。"
           ],
           "correctIndex": 1,
-          "explanation": "Câu đầu: \"夜、だれも使っていないのに、明かりがついているのを見ると、電気代をむだ使いしているように感じられる\" — khớp đáp án 2."
+          "explanation": "Câu đầu: \"夜、だれも使っていないのに、明かりがついているのを見ると、電気代をむだ使いしているように感じられる\" — khớp đáp án 2.",
+          "optionsVi": [
+            "Vì công nghệ tiết kiệm năng lượng cho máy bán hàng tự động chưa thực sự phát triển.",
+            "Vì ngay cả khi không có ai sử dụng, đèn vẫn luôn bật sáng.",
+            "Vì không chỉ ban ngày mà ban đêm vẫn có người sử dụng.",
+            "Vì chúng được đặt rất nhiều ở các địa điểm đa dạng như phố xá và tòa nhà."
+          ]
         },
         {
           "question": "自動販売機の飲み物の冷やし方として、正しいものはどれか。",
@@ -2819,7 +2891,13 @@
             "コンピューターでいつどのぐらい売れるかがわかるので、その分だけ冷やす。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"コンピューターが、曜日や時間による売れ方の変化を見て、最小限の数だけを冷やす\" — máy tính biết lượng bán theo ngày/giờ nên chỉ làm lạnh đúng số lượng cần — khớp đáp án 4."
+          "explanation": "Văn bản: \"コンピューターが、曜日や時間による売れ方の変化を見て、最小限の数だけを冷やす\" — máy tính biết lượng bán theo ngày/giờ nên chỉ làm lạnh đúng số lượng cần — khớp đáp án 4.",
+          "optionsVi": [
+            "Không làm lạnh đột ngột mà quản lý bằng máy tính để làm lạnh từ từ.",
+            "Dùng máy tính để làm lạnh trong thời gian ngắn ngay trước khi bán.",
+            "Máy tính kiểm tra sự thay đổi nhiệt độ bên ngoài để điều chỉnh làm lạnh.",
+            "Vì máy tính biết khi nào bán được bao nhiêu nên chỉ làm lạnh chừng đó."
+          ]
         },
         {
           "question": "自動販売機のエネルギーの節約方法として、正しいものはどれか。",
@@ -2831,7 +2909,13 @@
             "温かい飲み物は自動販売機の明かりの熱で温める。"
           ],
           "correctIndex": 0,
-          "explanation": "Văn bản: \"冷たい飲み物を冷やしたときに出る熱を使って、温かい飲み物を温める\" — dùng nhiệt tỏa ra khi làm lạnh đồ uống lạnh để làm ấm đồ uống nóng — khớp đáp án 1 (index 0)."
+          "explanation": "Văn bản: \"冷たい飲み物を冷やしたときに出る熱を使って、温かい飲み物を温める\" — dùng nhiệt tỏa ra khi làm lạnh đồ uống lạnh để làm ấm đồ uống nóng — khớp đáp án 1 (index 0).",
+          "optionsVi": [
+            "Khi làm lạnh đồ uống thì sẽ sinh nhiệt, nên dùng nhiệt đó để làm nóng đồ uống ấm.",
+            "Sử dụng nhiệt tỏa ra từ đồ uống nóng để làm lạnh đồ uống lạnh.",
+            "Đồ uống nóng không được bán chung trong cùng một máy bán hàng tự động với đồ uống lạnh.",
+            "Đồ uống nóng được làm ấm bằng nhiệt từ đèn của máy bán hàng tự động."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -3233,7 +3317,13 @@
             "相手の意見に同意できるときもできないときも首を縦に振る。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: gật đầu là tín hiệu \"tôi đang lắng nghe\" dù đồng ý hay không đồng ý ý kiến đối phương — nên \"そうすると\" chỉ việc gật đầu trong cả hai trường hợp, khớp đáp án 4."
+          "explanation": "Văn bản: gật đầu là tín hiệu \"tôi đang lắng nghe\" dù đồng ý hay không đồng ý ý kiến đối phương — nên \"そうすると\" chỉ việc gật đầu trong cả hai trường hợp, khớp đáp án 4.",
+          "optionsVi": [
+            "Nói với đối phương rằng \"Tôi đang nghe bạn nói đây\".",
+            "Chỉ gật đầu khi đồng ý với ý kiến của đối phương.",
+            "Khi đối phương đang nói thì im lặng không làm gì cả.",
+            "Gật đầu dù có đồng ý với ý kiến của đối phương hay không."
+          ]
         },
         {
           "question": "うなずくことは、どのような役割があるか。",
@@ -3245,7 +3335,13 @@
             "自分がこれから話し始めたいことを表す役割"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: gật đầu là tín hiệu \"あなたの話を聞いています\" (tôi đang nghe bạn nói) — khớp đáp án 2."
+          "explanation": "Văn bản: gật đầu là tín hiệu \"あなたの話を聞いています\" (tôi đang nghe bạn nói) — khớp đáp án 2.",
+          "optionsVi": [
+            "Vai trò thúc đẩy câu chuyện của đối phương tiến triển nhanh hơn",
+            "Vai trò cho thấy mình đang lắng nghe câu chuyện của đối phương",
+            "Vai trò truyền đạt rằng mình đang đồng cảm với ý kiến của đối phương",
+            "Vai trò thể hiện rằng mình muốn bắt đầu nói tiếp"
+          ]
         },
         {
           "question": "この文章では、どうすれば上手に話を始められると言っているか。",
@@ -3257,7 +3353,13 @@
             "相手の話に共感できなくても、「本当にそうですね」と相づちを打つこと"
           ],
           "correctIndex": 1,
-          "explanation": "Toàn bài khuyên: khi người khác nói, hãy gật đầu và chêm lời (相づち) như \"はい\"、\"そうですね\" để tham gia hội thoại — khớp đáp án 2."
+          "explanation": "Toàn bài khuyên: khi người khác nói, hãy gật đầu và chêm lời (相づち) như \"はい\"、\"そうですね\" để tham gia hội thoại — khớp đáp án 2.",
+          "optionsVi": [
+            "Gật đầu khi nói chuyện 1-1, dùng từ đệm khi nói chuyện nhóm",
+            "Gật đầu hoặc dùng từ đệm khi có ai đó đang nói",
+            "Lắng nghe im lặng khi đối phương nói, đợi khi kết thúc mới nói \"Vâng đúng vậy\"",
+            "Dù không đồng cảm với câu chuyện của đối phương cũng nói \"Vâng đúng vậy thật\""
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -3727,7 +3829,13 @@
             "昔と違い、今の人々は快適で便利な生活を求めなくなったから。"
           ],
           "correctIndex": 0,
-          "explanation": "Câu mở đầu: khoa học kỹ thuật tiến bộ khiến cuộc sống tiện lợi hơn (nhiều máy móc/công cụ hơn), và đó chính là lý do năng lực con người bị mất đi — khớp đáp án 1."
+          "explanation": "Câu mở đầu: khoa học kỹ thuật tiến bộ khiến cuộc sống tiện lợi hơn (nhiều máy móc/công cụ hơn), và đó chính là lý do năng lực con người bị mất đi — khớp đáp án 1.",
+          "optionsVi": [
+            "Vì hiện nay các loại máy móc và dụng cụ giúp ích cho cuộc sống nhiều hơn ngày xưa.",
+            "Vì con người hiện nay không còn muốn nhớ về chuyện xưa nữa.",
+            "Vì người xưa luôn cố gắng nâng cao năng lực nhưng bây giờ thì không.",
+            "Vì khác với ngày xưa, con người hiện nay không còn mong muốn một cuộc sống tiện nghi, thoải mái nữa."
+          ]
         },
         {
           "question": "それとは何を指すか。",
@@ -3739,7 +3847,13 @@
             "人々の協力"
           ],
           "correctIndex": 2,
-          "explanation": "Câu trước đó nói người xưa biết \"どのように体を使えば重いものを運べるか\" (cách dùng cơ thể để mang vật nặng) — \"それ\" chỉ điều này, tức cách sử dụng cơ thể, khớp đáp án 3."
+          "explanation": "Câu trước đó nói người xưa biết \"どのように体を使えば重いものを運べるか\" (cách dùng cơ thể để mang vật nặng) — \"それ\" chỉ điều này, tức cách sử dụng cơ thể, khớp đáp án 3.",
+          "optionsVi": [
+            "Máy móc",
+            "Cơ thể có sức mạnh",
+            "Cách sử dụng cơ thể",
+            "Sự hợp tác của con người"
+          ]
         },
         {
           "question": "この文章では科学技術の進歩について、どう言っているか。",
@@ -3751,7 +3865,13 @@
             "進歩するにしたがって、昔のことは伝えられず、どんどん忘れられてしまう。"
           ],
           "correctIndex": 2,
-          "explanation": "Chủ đề xuyên suốt bài: tiện lợi hơn (nhờ máy móc/công cụ) đồng nghĩa với việc con người tự đánh mất những năng lực/kỹ năng tự thân — khớp đáp án 3."
+          "explanation": "Chủ đề xuyên suốt bài: tiện lợi hơn (nhờ máy móc/công cụ) đồng nghĩa với việc con người tự đánh mất những năng lực/kỹ năng tự thân — khớp đáp án 3.",
+          "optionsVi": [
+            "Nhờ tiến bộ mà có cuộc sống tốt hơn nhưng công việc con người từng làm lại biến mất.",
+            "Tiến bộ rất tuyệt vời nhưng vì nó mà kết nối giữa người với người bị mất đi.",
+            "Khi tiến bộ, con người dựa dẫm vào máy móc, dụng cụ nên không tự làm được nhiều việc.",
+            "Khi tiến bộ, những chuyện ngày xưa không được truyền lại và dần bị quên lãng."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -4329,7 +4449,13 @@
             "街の面積が広くなって、施設や家も広くなった。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: người dân ra ngoại ô sống nhiều hơn, siêu thị/bệnh viện cũng được xây ở ngoại ô — khớp đáp án 3."
+          "explanation": "Văn bản: người dân ra ngoại ô sống nhiều hơn, siêu thị/bệnh viện cũng được xây ở ngoại ô — khớp đáp án 3.",
+          "optionsVi": [
+            "Ở phía ngoài thành phố đã hình thành nên những thị trấn mới.",
+            "Đường sá được xây dựng giúp việc đi lại đến các thị trấn khác dễ dàng hơn.",
+            "Ở vùng ngoại ô của thành phố cũng đã xây dựng nhà ở và cơ sở hạ tầng.",
+            "Diện tích thành phố mở rộng khiến các cơ sở và nhà ở cũng rộng rãi hơn."
+          ]
         },
         {
           "question": "コンパクトシティとは、本文によるとどのような意味か。",
@@ -4341,7 +4467,13 @@
             "施設などを中心部に戻し、人々もそこに住めるようにした都市"
           ],
           "correctIndex": 3,
-          "explanation": "Định nghĩa được nêu thẳng trong văn bản: đưa các cơ sở về trung tâm, để người dân tập trung sinh sống ở đó — khớp đáp án 4."
+          "explanation": "Định nghĩa được nêu thẳng trong văn bản: đưa các cơ sở về trung tâm, để người dân tập trung sinh sống ở đó — khớp đáp án 4.",
+          "optionsVi": [
+            "Đô thị mà nhiều cửa hàng ở trung tâm phải đóng cửa",
+            "Đô thị mà người già gặp khó khăn khi đi mua sắm",
+            "Đô thị mà người già có thể tự lái xe đi mua sắm",
+            "Đô thị đưa các cơ sở hạ tầng về trung tâm và giúp mọi người sinh sống tại đó"
+          ]
         },
         {
           "question": "こうした都市が注目されているとあるが、なぜ注目されているか。",
@@ -4353,7 +4485,13 @@
             "高齢化が進み、人口が減る中で、この街は人口が増えると思われるから。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: \"お年寄りも気軽にいろいろな場所へ行くことができる\" — trong bối cảnh già hóa dân số, việc người cao tuổi dễ dàng tiếp cận cửa hàng/cơ sở ở trung tâm là lý do được chú ý — khớp đáp án 2."
+          "explanation": "Văn bản: \"お年寄りも気軽にいろいろな場所へ行くことができる\" — trong bối cảnh già hóa dân số, việc người cao tuổi dễ dàng tiếp cận cửa hàng/cơ sở ở trung tâm là lý do được chú ý — khớp đáp án 2.",
+          "optionsVi": [
+            "Vì khi gọi xe, xe sẽ đưa người già đến các cửa hàng và cơ sở hạ tầng khác nhau.",
+            "Vì người già đã có thể dễ dàng đi đến các cửa hàng và cơ sở hạ tầng ở trung tâm thành phố.",
+            "Vì mọi người tập trung ở trung tâm thành phố nên nơi đó trở nên nhộn nhịp.",
+            "Vì trong tình trạng già hóa dân số và giảm dân số, thành phố này được cho là sẽ tăng dân số."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -4803,7 +4941,13 @@
             "この文を書いた人"
           ],
           "correctIndex": 1,
-          "explanation": "Câu: \"おじさんが言うと、たいてい冷たい目で見られる\" — chủ thể bị nhìn lạnh nhạt là các bác trung niên khi nói dajare, khớp đáp án 2."
+          "explanation": "Câu: \"おじさんが言うと、たいてい冷たい目で見られる\" — chủ thể bị nhìn lạnh nhạt là các bác trung niên khi nói dajare, khớp đáp án 2.",
+          "optionsVi": [
+            "Người nghe lời nói đùa",
+            "Ông chú kể chuyện nói đùa",
+            "Học sinh tiểu học kể chuyện nói đùa",
+            "Người viết đoạn văn này"
+          ]
         },
         {
           "question": "この文章によると、ダジャレのよい点は何か。",
@@ -4815,7 +4959,13 @@
             "ダジャレを聞くと、似たような音の言葉をたくさん覚える。"
           ],
           "correctIndex": 0,
-          "explanation": "Văn bản: cố gắng nghĩ dajare thú vị giúp \"脳を鍛える\" (rèn luyện não bộ) — khớp đáp án 1."
+          "explanation": "Văn bản: cố gắng nghĩ dajare thú vị giúp \"脳を鍛える\" (rèn luyện não bộ) — khớp đáp án 1.",
+          "optionsVi": [
+            "Cố gắng tạo ra lời nói đùa sẽ là bài tập cho não bộ.",
+            "Để tạo ra lời nói đùa nên sẽ tìm hiểu nhiều thứ.",
+            "Nghe lời nói đùa và cười sẽ làm não bộ hoạt động tốt hơn.",
+            "Khi nghe lời nói đùa sẽ ghi nhớ được nhiều từ có âm thanh tương tự nhau."
+          ]
         },
         {
           "question": "この文章を書いた人が一番言いたいことはどれか。",
@@ -4827,7 +4977,13 @@
             "ダジャレは簡単に作れ、緊張をなくしたり、気持ちを明るくすることもできる。"
           ],
           "correctIndex": 3,
-          "explanation": "Đoạn kết tóm tắt: trò chơi chữ đơn giản có thể giải tỏa căng thẳng, làm tinh thần vui vẻ, và rèn luyện não bộ — khớp đáp án 4."
+          "explanation": "Đoạn kết tóm tắt: trò chơi chữ đơn giản có thể giải tỏa căng thẳng, làm tinh thần vui vẻ, và rèn luyện não bộ — khớp đáp án 4.",
+          "optionsVi": [
+            "Đàn ông trung niên hay nói đùa thú vị nhưng người xung quanh không hiểu nổi.",
+            "Nhiều đàn ông trung niên hay nói đùa và thường làm mọi người vui vẻ.",
+            "Lời nói đùa ai cũng tạo được nhưng nói với người xung quanh không phải là việc tốt.",
+            "Lời nói đùa dễ tạo ra, có thể xóa bỏ sự căng thẳng và làm tâm trạng tươi sáng hơn."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -5197,7 +5353,13 @@
             "南ゆかりさんと特別ゲスト"
           ],
           "correctIndex": 2,
-          "explanation": "Thư viết: đây là buổi hòa nhạc của thầy dạy guitar (先生), có Minami Yukari tham gia làm khách mời đặc biệt. Người viết thư (Oyama) chỉ là học trò gửi lời mời, không biểu diễn — khớp đáp án 3."
+          "explanation": "Thư viết: đây là buổi hòa nhạc của thầy dạy guitar (先生), có Minami Yukari tham gia làm khách mời đặc biệt. Người viết thư (Oyama) chỉ là học trò gửi lời mời, không biểu diễn — khớp đáp án 3.",
+          "optionsVi": [
+            "Ông Oyama và cô Minami Yukari",
+            "Ông Oyama, thầy giáo và cô Minami Yukari",
+            "Thầy giáo và cô Minami Yukari",
+            "Cô Minami Yukari và khách mời đặc biệt"
+          ]
         },
         {
           "question": "ヘンドラさんは、妻とこのコンサートに行きたい。どうしたらよいか。",
@@ -5209,7 +5371,13 @@
             "会場にメールで2人分の券をお願いし、当日、受付でお金を払う。"
           ],
           "correctIndex": 0,
-          "explanation": "Thư viết: \"私あてに前日までにメールいただけますか。入場券は用意しておきます。代金は結構です。\" — gửi email cho chính người viết thư (Oyama), vé miễn phí — khớp đáp án 1."
+          "explanation": "Thư viết: \"私あてに前日までにメールいただけますか。入場券は用意しておきます。代金は結構です。\" — gửi email cho chính người viết thư (Oyama), vé miễn phí — khớp đáp án 1.",
+          "optionsVi": [
+            "Gửi email cho ông Oyama nhờ đặt vé cho 2 người.",
+            "Gửi email cho ông Oyama nhờ đặt vé cho 2 người và gửi tiền đến quầy lễ tân.",
+            "Gửi email cho hội trường nhờ đặt vé cho 2 người.",
+            "Gửi email cho hội trường nhờ đặt vé cho 2 người và trả tiền tại quầy lễ tân vào ngày hôm đó."
+          ]
         },
         {
           "question": "行く連絡は、いつまでにしなければならないか。",
@@ -5221,7 +5389,13 @@
             "6月10日"
           ],
           "correctIndex": 2,
-          "explanation": "Concert ngày 10/6, thư yêu cầu liên hệ trước 1 ngày (前日) — tức chậm nhất ngày 9/6, khớp đáp án 3."
+          "explanation": "Concert ngày 10/6, thư yêu cầu liên hệ trước 1 ngày (前日) — tức chậm nhất ngày 9/6, khớp đáp án 3.",
+          "optionsVi": [
+            "Ngày 2 tháng 4",
+            "Ngày 3 tháng 4",
+            "Ngày 9 tháng 6",
+            "Ngày 10 tháng 6"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -5963,7 +6137,13 @@
             "話し手はどちらでもいいが聞き手がそうしたいと思っている。"
           ],
           "correctIndex": 0,
-          "explanation": "「する」cho thấy người nói chủ động muốn làm việc đó — khớp đáp án 1."
+          "explanation": "「する」cho thấy người nói chủ động muốn làm việc đó — khớp đáp án 1.",
+          "optionsVi": [
+            "Người nói muốn làm như vậy nên mới làm.",
+            "Người nói tự nhiên mà làm như vậy.",
+            "Người nói không muốn làm nhưng vẫn làm.",
+            "Người nói làm thế nào cũng được nhưng người nghe lại muốn làm như vậy."
+          ]
         },
         {
           "question": "上に書いたとおりとあるが、どこを指しているか。",
@@ -5975,7 +6155,13 @@
             "「ここは禁煙にしております。」と言うのが自然に思える。"
           ],
           "correctIndex": 1,
-          "explanation": "\"上に書いたとおり\" nhắc lại nội dung câu mở đầu bài: dùng \"する\" truyền tải ý chí chủ động của người nói — khớp đáp án 2."
+          "explanation": "\"上に書いたとおり\" nhắc lại nội dung câu mở đầu bài: dùng \"する\" truyền tải ý chí chủ động của người nói — khớp đáp án 2.",
+          "optionsVi": [
+            "Trong tiếng Nhật cách nói \"naru\" được ưa chuộng hơn \"suru\".",
+            "Trong tiếng Nhật khi dùng \"suru\" sẽ truyền tải được ý chí của người nói.",
+            "Chính ý chí của chủ cửa hàng đã làm cho nhà hàng đó thành nơi cấm hút thuốc.",
+            "Cách nói \"Tại đây chúng tôi thực hiện cấm hút thuốc\" nghe có vẻ tự nhiên."
+          ]
         },
         {
           "question": "この場合の店の人の一番の目的は何か。",
@@ -5987,7 +6173,13 @@
             "タバコを吸っている客を傷つけたくない。"
           ],
           "correctIndex": 1,
-          "explanation": "Mục đích cốt lõi của nhân viên là khiến khách ngừng hút thuốc — cách nói chỉ là phương tiện để đạt mục đích đó mà không gây xung đột, khớp đáp án 2."
+          "explanation": "Mục đích cốt lõi của nhân viên là khiến khách ngừng hút thuốc — cách nói chỉ là phương tiện để đạt mục đích đó mà không gây xung đột, khớp đáp án 2.",
+          "optionsVi": [
+            "Muốn truyền đạt quy định của nhà hàng cho khách đang hút thuốc.",
+            "Muốn khách đang hút thuốc trong nhà hàng từ bỏ việc hút thuốc.",
+            "Muốn mắng khách đang hút thuốc.",
+            "Không muốn làm tổn thương khách đang hút thuốc."
+          ]
         },
         {
           "question": "この文章の内容として正しいものはどれか。",
@@ -5999,7 +6191,13 @@
             "「なる」を使うと相手と対立してしまう。"
           ],
           "correctIndex": 1,
-          "explanation": "Toàn bài kết luận: dùng \"なる\" giúp tránh đối lập/xung đột với người nghe — khớp đáp án 2. (Đáp án 1 sai vì \"する\" truyền tải ý chí của NGƯỜI NÓI chứ không phải của đối phương.)"
+          "explanation": "Toàn bài kết luận: dùng \"なる\" giúp tránh đối lập/xung đột với người nghe — khớp đáp án 2. (Đáp án 1 sai vì \"する\" truyền tải ý chí của NGƯỜI NÓI chứ không phải của đối phương.)",
+          "optionsVi": [
+            "\"Suru\" truyền đạt ý chí của đối phương mạnh mẽ, đôi khi gây đối lập.",
+            "Dùng \"naru\" có thể tránh được sự đối lập.",
+            "\"Suru\" chỉ đơn thuần là cách nói thông báo quy định.",
+            "Dùng \"naru\" sẽ gây ra đối lập với đối phương."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -6977,7 +7175,13 @@
             "7日間ぐらいは咲いている。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"花は春の1週間ほどはきれいだが\" — hoa đẹp trong khoảng 1 tuần (~7 ngày) rồi mới bắt đầu rụng — khớp đáp án 4."
+          "explanation": "Văn bản: \"花は春の1週間ほどはきれいだが\" — hoa đẹp trong khoảng 1 tuần (~7 ngày) rồi mới bắt đầu rụng — khớp đáp án 4.",
+          "optionsVi": [
+            "Ngày hôm sau sẽ bắt đầu rụng.",
+            "Màu hoa sẽ dần thay đổi.",
+            "Sẽ nở trong nhiều tuần liền.",
+            "Sẽ nở trong khoảng 7 ngày."
+          ]
         },
         {
           "question": "掃除ぐらいで文句を言ってはいけないだろう。とあるが、どういうことか。",
@@ -6989,7 +7193,13 @@
             "掃除はとても大変なので、やりたくないのはあたりまえだ。"
           ],
           "correctIndex": 0,
-          "explanation": "Văn bản: cây cho ta ngắm hoa đẹp, lá đỏ đẹp, nên việc phải quét dọn chỉ là chuyện nhỏ so với niềm vui đó — khớp đáp án 1."
+          "explanation": "Văn bản: cây cho ta ngắm hoa đẹp, lá đỏ đẹp, nên việc phải quét dọn chỉ là chuyện nhỏ so với niềm vui đó — khớp đáp án 1.",
+          "optionsVi": [
+            "So với việc được ngắm hoa và lá, sự vất vả khi quét dọn là việc nhỏ bé.",
+            "Vì quét dọn là việc tốt nên phải vui vẻ làm mà không được than vãn.",
+            "Vì việc quét lá không vất vả bằng quét cánh hoa nên không được than vãn.",
+            "Vì quét dọn rất vất vả nên việc không muốn làm là điều đương nhiên."
+          ]
         },
         {
           "question": "最も手がかかるのは、長生きさせることである。とあるが、どうすればよいか。",
@@ -7001,7 +7211,13 @@
             "いらない枝を切る。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"不必要な枝を切ったり\" (cắt cành không cần thiết) — khớp đáp án 4. (Cành nặng trĩu là \"支える\" - chống đỡ, không phải \"切る\" - cắt, nên đáp án 2 không khớp.)"
+          "explanation": "Văn bản: \"不必要な枝を切ったり\" (cắt cành không cần thiết) — khớp đáp án 4. (Cành nặng trĩu là \"支える\" - chống đỡ, không phải \"切る\" - cắt, nên đáp án 2 không khớp.)",
+          "optionsVi": [
+            "Không làm gì cả thì tốt hơn.",
+            "Cắt bỏ những cành đã trở nên nặng nề.",
+            "Quét dọn cánh hoa và lá cây.",
+            "Cắt bỏ những cành không cần thiết."
+          ]
         },
         {
           "question": "この文章を書いた人が一番言いたいことは何か。",
@@ -7013,7 +7229,13 @@
             "桜を長生きさせるためには花びらや葉を掃除しなければいけない。"
           ],
           "correctIndex": 2,
-          "explanation": "Toàn bài nói về việc dù cây anh đào rất tốn công chăm sóc, người Nhật vẫn trân trọng và chăm sóc nó vì ý nghĩa đặc biệt của nó — khớp đáp án 3."
+          "explanation": "Toàn bài nói về việc dù cây anh đào rất tốn công chăm sóc, người Nhật vẫn trân trọng và chăm sóc nó vì ý nghĩa đặc biệt của nó — khớp đáp án 3.",
+          "optionsVi": [
+            "Dù có chăm sóc thì anh đào cũng sẽ khô héo trong khoảng 70 năm.",
+            "Nếu cây anh đào hiện tại khô héo thì Nhật Bản sẽ không còn hoa anh đào nữa.",
+            "Dù mất công chăm sóc, người Nhật vẫn đặc biệt trân trọng cây hoa anh đào.",
+            "Để anh đào sống lâu, bắt buộc phải quét dọn cánh hoa và lá cây."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -7771,7 +7993,13 @@
             "一人の部屋の広さがふつうのアパートより広い。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: \"自分用のかぎ付きの部屋はある\" — mỗi người có phòng riêng có khóa — khớp đáp án 2."
+          "explanation": "Văn bản: \"自分用のかぎ付きの部屋はある\" — mỗi người có phòng riêng có khóa — khớp đáp án 2.",
+          "optionsVi": [
+            "Tiền thuê nhà rẻ hơn so với các căn hộ xung quanh.",
+            "Mỗi người đều có căn phòng riêng biệt.",
+            "Mỗi người đều có nhà vệ sinh và vòi hoa sen riêng.",
+            "Diện tích phòng của mỗi người rộng hơn căn hộ bình thường."
+          ]
         },
         {
           "question": "シェアハウスのよい点はどんなところだと言っているか。",
@@ -7783,7 +8011,13 @@
             "同じような年齢や仕事の人と気を遣わずに住むことができる。"
           ],
           "correctIndex": 0,
-          "explanation": "Văn bản: \"共同部分ではほかの住人と交流ができるため、さびしさや不安も少なくなる\" — khớp đáp án 1."
+          "explanation": "Văn bản: \"共同部分ではほかの住人と交流ができるため、さびしさや不安も少なくなる\" — khớp đáp án 1.",
+          "optionsVi": [
+            "Vì có thể trò chuyện với người khác ở khu vực chung nên không cảm thấy cô đơn.",
+            "Không cần phải tự mình quét dọn hay nấu cơm.",
+            "Tất cả nhà chung đều có sẵn nội thất và thiết bị điện.",
+            "Có thể sống thoải mái với những người cùng độ tuổi hoặc công việc mà không phải bận tâm."
+          ]
         },
         {
           "question": "シェアハウスに入るときの注意点で本文と合っているのはどれか。",
@@ -7795,7 +8029,13 @@
             "ベッドや電気製品を持っていたら、必ず手放さなければならない。"
           ],
           "correctIndex": 0,
-          "explanation": "Văn bản: \"必ず見学をして、そこに住んでいる人と自分の生活のしかたが合うかどうかを確認することだ\" — khớp đáp án 1."
+          "explanation": "Văn bản: \"必ず見学をして、そこに住んでいる人と自分の生活のしかたが合うかどうかを確認することだ\" — khớp đáp án 1.",
+          "optionsVi": [
+            "Hãy đến xem trực tiếp để kiểm tra xem lối sống của mình có phù hợp với người đang sống ở đó không.",
+            "Nếu có người khác độ tuổi hoặc nghề nghiệp đang sống ở đó thì không nên ở.",
+            "Phải tự mình đặt ra các quy định về cách sử dụng khu vực chung.",
+            "Nếu có giường hay thiết bị điện thì bắt buộc phải từ bỏ."
+          ]
         },
         {
           "question": "この文章を書いた人が伝えたいことは何か。",
@@ -7807,7 +8047,13 @@
             "シェアハウスでは一人の自由な時間がないが、他の住人と安心して住める。"
           ],
           "correctIndex": 2,
-          "explanation": "Bài viết trình bày cân bằng: nêu điểm tốt của share house rồi nêu các điểm cần lưu ý trước khi vào ở — khớp đáp án 3."
+          "explanation": "Bài viết trình bày cân bằng: nêu điểm tốt của share house rồi nêu các điểm cần lưu ý trước khi vào ở — khớp đáp án 3.",
+          "optionsVi": [
+            "Nhà chung có nhiều điểm cần lưu ý và nhiều người sống thử đã thất bại.",
+            "Nhà chung tiết kiệm chi phí, có sự giao lưu giữa các cư dân nên cần nhân rộng.",
+            "Nhà chung có nhiều điểm tốt, nhưng nên kiểm tra kỹ các lưu ý trước khi quyết định.",
+            "Ở nhà chung không có thời gian riêng tư, nhưng có thể yên tâm sống cùng người khác."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -8809,7 +9055,13 @@
             "車両の座席をきれいにしてから、背もたれの布を取り替える。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: toàn bộ công việc (đổ rác, dọn toilet, dọn toa) hoàn thành trong 10-12 phút, mỗi toa do 2 người phụ trách (không phải 1 người), thứ tự công việc là tháo vải trước rồi mới lau ghế, kiểm tra đồ bỏ quên gần cuối chứ không phải đầu tiên — khớp đáp án 2."
+          "explanation": "Văn bản: toàn bộ công việc (đổ rác, dọn toilet, dọn toa) hoàn thành trong 10-12 phút, mỗi toa do 2 người phụ trách (không phải 1 người), thứ tự công việc là tháo vải trước rồi mới lau ghế, kiểm tra đồ bỏ quên gần cuối chứ không phải đầu tiên — khớp đáp án 2.",
+          "optionsVi": [
+            "Trong vòng 10-12 phút, một người dọn dẹp một toa tàu.",
+            "Trong khoảng 10-12 phút, phải hoàn thành việc đổ rác, dọn nhà vệ sinh và toa tàu.",
+            "Trên toa tàu, trước hết cần kiểm tra xem có ai để quên đồ không, sau đó quét dọn sàn.",
+            "Dọn sạch ghế trên toa tàu rồi mới thay vải bọc tựa lưng."
+          ]
         },
         {
           "question": "安喰さんは、どうして仕事がうまくできるようになったか。",
@@ -8821,7 +9073,13 @@
             "早く終わらせるために、時計を見ないで仕事をしたから。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: nhận ra công việc khác với dọn nhà, nên đã tự luyện tập bấm giờ ở nhà vào ngày nghỉ — khớp đáp án 2."
+          "explanation": "Văn bản: nhận ra công việc khác với dọn nhà, nên đã tự luyện tập bấm giờ ở nhà vào ngày nghỉ — khớp đáp án 2.",
+          "optionsVi": [
+            "Nhờ kinh nghiệm làm nội trợ đã giúp ích cho công việc dọn dẹp tàu Shinkansen.",
+            "Vì nhận ra công việc khác với dọn nhà nên cô đã tự tập luyện tại nhà vào ngày nghỉ.",
+            "Vì cô đã vừa làm vừa quan sát cách làm của những đồng nghiệp xung quanh.",
+            "Vì cô đã làm việc mà không nhìn đồng hồ để hoàn thành công việc nhanh chóng."
+          ]
         },
         {
           "question": "うれしさとあるが、何がうれしかったのか。",
@@ -8833,7 +9091,13 @@
             "台風でも新幹線がいつもどおり動いていて、掃除ができたこと"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: dù chỉ còn 4 phút, chị đã chỉ đạo để tàu khởi hành đúng giờ đã định — niềm vui đến từ việc hoàn thành đúng giờ dù thời gian rút ngắn — khớp đáp án 2."
+          "explanation": "Văn bản: dù chỉ còn 4 phút, chị đã chỉ đạo để tàu khởi hành đúng giờ đã định — niềm vui đến từ việc hoàn thành đúng giờ dù thời gian rút ngắn — khớp đáp án 2.",
+          "optionsVi": [
+            "Vì không phải dọn dẹp lâu như mọi khi.",
+            "Vì đã hoàn thành công việc trong thời gian ngắn và tàu xuất phát đúng giờ.",
+            "Vì dù thời gian ngắn nhưng vẫn hoàn thành toàn bộ công việc như mọi khi.",
+            "Vì dù có bão tàu vẫn chạy bình thường và có thể tiến hành dọn dẹp."
+          ]
         },
         {
           "question": "鉄道が正確な時間に走れるとあるが、その理由は何か。",
@@ -8845,7 +9109,13 @@
             "頭のいい管理職が担当者をうまく指導し、管理しているから。"
           ],
           "correctIndex": 0,
-          "explanation": "Câu kết: \"さまざまな人々のおかげで鉄道は正確な時間に走れる\" — nhờ nỗ lực nghiêm túc của từng người phụ trách (như câu chuyện của chị Ajiki) — khớp đáp án 1."
+          "explanation": "Câu kết: \"さまざまな人々のおかげで鉄道は正確な時間に走れる\" — nhờ nỗ lực nghiêm túc của từng người phụ trách (như câu chuyện của chị Ajiki) — khớp đáp án 1.",
+          "optionsVi": [
+            "Vì mỗi nhân viên phụ trách đều cố gắng thực hiện tốt công việc để tàu không bị trễ.",
+            "Vì mỗi công việc đều được thực hiện bởi rất nhiều người.",
+            "Vì cách làm việc đã được quy định chi tiết nên ai cũng có thể làm mà không gặp vấn đề gì.",
+            "Vì cấp quản lý giỏi đã chỉ đạo và quản lý tốt các nhân viên phụ trách."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -9635,7 +9905,13 @@
             "自分だけが元のクラスの生徒と遊べないから"
           ],
           "correctIndex": 0,
-          "explanation": "Văn bản: \"自分一人が進級できないと、大変なショックを受ける\" — không được lên lớp cùng bạn bè cùng lớp gốc — khớp đáp án 1."
+          "explanation": "Văn bản: \"自分一人が進級できないと、大変なショックを受ける\" — không được lên lớp cùng bạn bè cùng lớp gốc — khớp đáp án 1.",
+          "optionsVi": [
+            "Vì không thể lên lớp trên cùng với học sinh của lớp cũ.",
+            "Vì phải ở lại một mình sau khi giờ học kết thúc.",
+            "Vì bản thân là người học ít nhất trong lớp.",
+            "Vì chỉ có mình là không thể chơi cùng các học sinh ở lớp cũ."
+          ]
         },
         {
           "question": "結果は変わらないだろうとあるが、どういう意味か。",
@@ -9647,7 +9923,13 @@
             "勉強ができない生徒が勉強がわかるようにならないだろう。"
           ],
           "correctIndex": 3,
-          "explanation": "Nếu không giải quyết nguyên nhân gốc rễ (không có thói quen học, không biết cách học...) thì học lại cũng không giúp học sinh hiểu bài hơn — khớp đáp án 4."
+          "explanation": "Nếu không giải quyết nguyên nhân gốc rễ (không có thói quen học, không biết cách học...) thì học lại cũng không giúp học sinh hiểu bài hơn — khớp đáp án 4.",
+          "optionsVi": [
+            "Học sinh kém sẽ lên lớp trên.",
+            "Học sinh kém sẽ không lên lớp trên.",
+            "Học sinh kém sẽ hiểu bài.",
+            "Học sinh kém sẽ không hiểu bài."
+          ]
         },
         {
           "question": "この問題とは何か。",
@@ -9659,7 +9941,13 @@
             "勉強ができない生徒にボランティアなどが特別な指導をしないこと"
           ],
           "correctIndex": 1,
-          "explanation": "Câu trước đó: nếu lên lớp mà chưa hiểu nội dung hiện tại thì \"今より難しい内容についていくことはできない\" — không theo kịp nội dung khó hơn ở lớp trên — khớp đáp án 2."
+          "explanation": "Câu trước đó: nếu lên lớp mà chưa hiểu nội dung hiện tại thì \"今より難しい内容についていくことはできない\" — không theo kịp nội dung khó hơn ở lớp trên — khớp đáp án 2.",
+          "optionsVi": [
+            "Nội dung học ở lớp trên của cấp tiểu học và trung học khó hơn hiện tại.",
+            "Học sinh kém không thể hiểu bài khi lên lớp trên.",
+            "Học sinh kém không theo kịp bài nên không thể lên lớp trên.",
+            "Tình nguyện viên không hướng dẫn đặc biệt cho những học sinh học kém."
+          ]
         },
         {
           "question": "上の学年の勉強内容についていくために、この文章を書いた人はどうすべきだと言っているか。",
@@ -9671,7 +9959,13 @@
             "授業中にボランティアがわからないところについて教える。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: tình nguyện viên (sinh viên sư phạm hoặc giáo viên đã nghỉ hưu) đến sau giờ học, tìm hiểu vấn đề và \"その子どもに合った指導をする\" — hướng dẫn phù hợp riêng cho từng học sinh — khớp đáp án 3."
+          "explanation": "Văn bản: tình nguyện viên (sinh viên sư phạm hoặc giáo viên đã nghỉ hưu) đến sau giờ học, tìm hiểu vấn đề và \"その子どもに合った指導をする\" — hướng dẫn phù hợp riêng cho từng học sinh — khớp đáp án 3.",
+          "optionsVi": [
+            "Giáo viên cùng tình nguyện viên hướng dẫn đặc biệt sau giờ học.",
+            "Tình nguyện viên và các học sinh khác trong lớp dạy lại những phần chưa hiểu.",
+            "Tình nguyện viên hướng dẫn nội dung phù hợp với học sinh học yếu.",
+            "Tình nguyện viên dạy lại những phần chưa hiểu ngay trong giờ học."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -10365,7 +10659,13 @@
             "買わなければならないものなら値段のことは考えずに買ってしまう。"
           ],
           "correctIndex": 3,
-          "explanation": "b) là nam: \"いつも100円のものが200円になっていても、必要ならば買う\" — dù giá tăng gấp đôi, nếu cần thì vẫn mua, không quan tâm giá cả — khớp đáp án 4."
+          "explanation": "b) là nam: \"いつも100円のものが200円になっていても、必要ならば買う\" — dù giá tăng gấp đôi, nếu cần thì vẫn mua, không quan tâm giá cả — khớp đáp án 4.",
+          "optionsVi": [
+            "Luôn tìm và mua những món đồ giá rẻ.",
+            "Nghĩ rằng giá cao là hàng tốt nên cứ thế mua.",
+            "Mua ngay cả những thứ không cần thiết nếu thấy giá rẻ.",
+            "Nếu là món đồ cần thiết thì mua ngay mà không suy nghĩ về giá."
+          ]
         },
         {
           "question": "将来について女性はどうだと言っているか。",
@@ -10377,7 +10677,13 @@
             "夫ができてから、将来について心配になる。"
           ],
           "correctIndex": 1,
-          "explanation": "a) là nữ: \"結婚するまでは将来について心配をしている\" — lo lắng về tương lai TRƯỚC KHI kết hôn, ngụ ý sau khi có chồng thì hết lo — khớp đáp án 2."
+          "explanation": "a) là nữ: \"結婚するまでは将来について心配をしている\" — lo lắng về tương lai TRƯỚC KHI kết hôn, ngụ ý sau khi có chồng thì hết lo — khớp đáp án 2.",
+          "optionsVi": [
+            "Khi có chồng thì bắt đầu lo lắng về tương lai.",
+            "Khi có chồng thì không còn lo lắng về tương lai nữa.",
+            "Trước khi có chồng thì không lo lắng về tương lai.",
+            "Sau khi có chồng mới thấy lo lắng về tương lai."
+          ]
         },
         {
           "question": "結婚について男性はどうだと言っているか。",
@@ -10389,7 +10695,13 @@
             "自分は今のままでいようと思っているが、妻はそうは思っていない。"
           ],
           "correctIndex": 0,
-          "explanation": "b) là nam: \"相手に変わらないでほしいと期待しているが、相手は変わる\" — mong vợ giữ nguyên như hiện tại nhưng vợ lại thay đổi — khớp đáp án 1."
+          "explanation": "b) là nam: \"相手に変わらないでほしいと期待しているが、相手は変わる\" — mong vợ giữ nguyên như hiện tại nhưng vợ lại thay đổi — khớp đáp án 1.",
+          "optionsVi": [
+            "Mong vợ giữ nguyên như hiện tại nhưng vợ lại thay đổi.",
+            "Tự nghĩ rằng mình không thay đổi nhưng không ngờ bản thân đã thay đổi lúc nào không hay.",
+            "Mong vợ trở nên tốt hơn nữa nhưng vợ không thay đổi mấy.",
+            "Muốn bản thân giữ nguyên như hiện tại nhưng vợ không nghĩ như vậy."
+          ]
         },
         {
           "question": "この文章で一番言いたいことは何か。",
@@ -10401,7 +10713,13 @@
             "男性と女性は違うのだから、分かり合おうと努力することが必要だ。"
           ],
           "correctIndex": 3,
-          "explanation": "Câu kết: \"違いを埋めていくための努力がなければ、よい関係を作ることはできない\" — vì khác nhau nên cần nỗ lực để hiểu nhau — khớp đáp án 4."
+          "explanation": "Câu kết: \"違いを埋めていくための努力がなければ、よい関係を作ることはできない\" — vì khác nhau nên cần nỗ lực để hiểu nhau — khớp đáp án 4.",
+          "optionsVi": [
+            "Vì đàn ông và phụ nữ có suy nghĩ và hành động khác nhau nên tuyệt đối không thể hiểu nhau.",
+            "Suy nghĩ và hành động của đàn ông và phụ nữ tuy khác nhau nhưng điều đó chưa được khoa học chứng minh.",
+            "Việc so sánh suy nghĩ và hành động của đàn ông và phụ nữ trong câu chuyện này là chính xác.",
+            "Đàn ông và phụ nữ vốn khác biệt nên cần nỗ lực để hiểu nhau."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -11327,7 +11645,13 @@
             "夕方になったので暗くてよく見えなかった。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: \"そこはちょうど雲の中だったのだそうだ\" — lúc đó họ đang ở giữa đám mây nên không nhìn thấy gì — khớp đáp án 3."
+          "explanation": "Văn bản: \"そこはちょうど雲の中だったのだそうだ\" — lúc đó họ đang ở giữa đám mây nên không nhìn thấy gì — khớp đáp án 3.",
+          "optionsVi": [
+            "Vì có đông người nên không nhìn thấy phía trước.",
+            "Vì mưa rơi dữ dội nên không nhìn rõ phía trước.",
+            "Vì đi vào trong mây nên không nhìn rõ.",
+            "Vì trời đã tối nên không nhìn rõ."
+          ]
         },
         {
           "question": "そことあるが、どこか。",
@@ -11339,7 +11663,13 @@
             "富士山の一番上"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"山頂まで登ったが、そこでは大勢の人が太陽を待っていた\" — \"そこ\" chỉ đỉnh núi (山頂), tức \"富士山の一番上\" — khớp đáp án 4."
+          "explanation": "Văn bản: \"山頂まで登ったが、そこでは大勢の人が太陽を待っていた\" — \"そこ\" chỉ đỉnh núi (山頂), tức \"富士山の一番上\" — khớp đáp án 4.",
+          "optionsVi": [
+            "Toàn bộ đường leo núi Phú Sĩ.",
+            "Nơi vừa bước ra khỏi nhà nghỉ trên núi Phú Sĩ.",
+            "Nơi đã leo núi Phú Sĩ được khoảng 3 tiếng.",
+            "Đỉnh cao nhất của núi Phú Sĩ."
+          ]
         },
         {
           "question": "富士山から見た、太陽が昇る様子について正しいものはどれか。",
@@ -11351,7 +11681,13 @@
             "空がまぶしくなってからオレンジ色の太陽が昇り始める。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: bầu trời chuyển sang xanh sáng trước, rồi phần dưới chuyển cam, sau đó mặt trời mới bắt đầu mọc — khớp đáp án 3."
+          "explanation": "Văn bản: bầu trời chuyển sang xanh sáng trước, rồi phần dưới chuyển cam, sau đó mặt trời mới bắt đầu mọc — khớp đáp án 3.",
+          "optionsVi": [
+            "Toàn bộ bầu trời chuyển từ màu xanh sang màu cam rồi mặt trời mọc.",
+            "Khi mặt trời mọc từ bầu trời màu cam, bầu trời sẽ chuyển sang màu xanh.",
+            "Sau khi bầu trời chuyển sang màu xanh sáng, phần dưới trở nên màu cam và mặt trời mọc.",
+            "Sau khi bầu trời trở nên chói mắt, mặt trời màu cam bắt đầu mọc lên."
+          ]
         },
         {
           "question": "この文章を書いた人は富士山登山についてどう思っているか。",
@@ -11363,7 +11699,13 @@
             "富士山に登るなら、ツアーに参加するのがいい。"
           ],
           "correctIndex": 0,
-          "explanation": "Đoạn kết: có được những trải nghiệm tuyệt vời chỉ có được khi leo núi, và hiểu được cảm giác của những người leo núi mỗi năm — khớp đáp án 1 (muốn leo lại)."
+          "explanation": "Đoạn kết: có được những trải nghiệm tuyệt vời chỉ có được khi leo núi, và hiểu được cảm giác của những người leo núi mỗi năm — khớp đáp án 1 (muốn leo lại).",
+          "optionsVi": [
+            "Có thể có trải nghiệm tuyệt vời đến mức muốn leo thêm lần nữa.",
+            "Vì vất vả và bất an nên leo một lần là đủ.",
+            "Vì đường leo núi được bảo trì tốt nên rất nhàn, muốn đi lần nữa.",
+            "Nếu leo núi Phú Sĩ thì nên tham gia tour là tốt nhất."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -12097,7 +12439,13 @@
             "評論家はある分野の知識が必要だが、医者や先生はそうではない。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: \"評論家になるための資格試験があるわけではない\" (khác với bác sĩ/giáo viên cần chứng chỉ) — khớp đáp án 3."
+          "explanation": "Văn bản: \"評論家になるための資格試験があるわけではない\" (khác với bác sĩ/giáo viên cần chứng chỉ) — khớp đáp án 3.",
+          "optionsVi": [
+            "Nhà phê bình giải thích và đánh giá về một lĩnh vực nào đó, còn bác sĩ hay giáo viên thì không.",
+            "Nhà phê bình cần bằng cấp về một lĩnh vực, còn bác sĩ hay giáo viên thì không.",
+            "Nhà phê bình không cần bằng cấp về một lĩnh vực, còn bác sĩ hay giáo viên thì cần.",
+            "Nhà phê bình cần kiến thức về một lĩnh vực, còn bác sĩ hay giáo viên thì không."
+          ]
         },
         {
           "question": "評論家の多くはどんなことが仕事につながったとあるか。",
@@ -12109,7 +12457,13 @@
             "ずっとある分野に特別な知識を持ち、興味を持って勉強を続けたこと"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: từ trẻ đã có kiến thức/hứng thú vượt trội, say mê học hỏi rồi biến thành nghề — khớp đáp án 4."
+          "explanation": "Văn bản: từ trẻ đã có kiến thức/hứng thú vượt trội, say mê học hỏi rồi biến thành nghề — khớp đáp án 4.",
+          "optionsVi": [
+            "Việc cố gắng có sự quan tâm đặc biệt đến một lĩnh vực để trở thành nhà phê bình.",
+            "Việc nỗ lực học tập để thực hiện các bài bình luận hoặc thuyết minh về một lĩnh vực.",
+            "Việc thi lấy nhiều bằng cấp về một lĩnh vực từ khi còn trẻ hơn người khác.",
+            "Việc duy trì kiến thức đặc biệt và sự quan tâm để học tập liên tục về một lĩnh vực trong thời gian dài."
+          ]
         },
         {
           "question": "ただ人並み外れた深い知識があれば評論家になれるというものでもないとあるが、どういうことか。",
@@ -12121,7 +12475,13 @@
             "深い知識を持つことは必要ではなく、ほかに必要なことがある。"
           ],
           "correctIndex": 2,
-          "explanation": "Kiến thức sâu rộng là cần nhưng chưa đủ — còn cần được truyền thông chú ý (sức thuyết phục, may mắn) — khớp đáp án 3."
+          "explanation": "Kiến thức sâu rộng là cần nhưng chưa đủ — còn cần được truyền thông chú ý (sức thuyết phục, may mắn) — khớp đáp án 3.",
+          "optionsVi": [
+            "Sở hữu kiến thức sâu rộng là yếu tố duy nhất cần thiết để trở thành nhà phê bình.",
+            "Có nhiều trường hợp không cần thiết phải sở hữu kiến thức sâu rộng.",
+            "Sở hữu kiến thức sâu rộng là cần thiết, nhưng ngoài ra còn có những yếu tố khác.",
+            "Sở hữu kiến thức sâu rộng là không cần thiết, còn có những yếu tố khác quan trọng hơn."
+          ]
         },
         {
           "question": "本文によるとマスメディアに取り上げられるためには何が必要か。",
@@ -12133,7 +12493,13 @@
             "人並み外れた深い知識と、人々を納得させる説得力や魅力"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: \"説得力や魅力があること、さらに...チャンスを得る運の強さも必要\" — khớp đáp án 2."
+          "explanation": "Văn bản: \"説得力や魅力があること、さらに...チャンスを得る運の強さも必要\" — khớp đáp án 2.",
+          "optionsVi": [
+            "Kinh nghiệm từng làm việc tại các công ty báo chí hoặc truyền hình và xuất hiện trên truyền thông.",
+            "Sức mạnh thuyết phục, thu hút mọi người và vận may có cơ hội xuất hiện trên phương tiện truyền thông.",
+            "Kinh nghiệm từng xuất hiện trên phương tiện truyền thông và thu hút mọi người.",
+            "Kiến thức sâu rộng vượt trội cùng với sức thuyết phục và sự lôi cuốn để thuyết phục mọi người."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -12911,7 +13277,13 @@
             "今は作家のいたころの町と大きく変わってしまい、少し不満だった。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: \"それ以上の感激はなく、正直に言うと、少し物足りない気持ちだった\" — đã lâu không đọc lại tác phẩm nên không cảm động như mong đợi — khớp đáp án 3."
+          "explanation": "Văn bản: \"それ以上の感激はなく、正直に言うと、少し物足りない気持ちだった\" — đã lâu không đọc lại tác phẩm nên không cảm động như mong đợi — khớp đáp án 3.",
+          "optionsVi": [
+            "Vì thị trấn có nhiều cây xanh xinh đẹp nên cảm thấy vui vẻ và hài lòng.",
+            "Cảm thấy hài lòng vì liên tiếp nhớ lại những cuốn tiểu thuyết mà tác giả đã viết.",
+            "Cảm thấy không cảm động như mong đợi vì đã trôi qua thời gian dài từ khi đọc tiểu thuyết của tác giả.",
+            "Cảm thấy hơi bất mãn vì thị trấn hiện tại đã thay đổi rất nhiều so với thời tác giả còn sống."
+          ]
         },
         {
           "question": "この文章によると、この人は記念館で何を見たか。",
@@ -12923,7 +13295,13 @@
             "作家の妹が書いた詩"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: \"彼の書いた原稿や手紙の展示をしていた\" — trưng bày bản thảo, thư tay do chính nhà văn viết — khớp đáp án 2."
+          "explanation": "Văn bản: \"彼の書いた原稿や手紙の展示をしていた\" — trưng bày bản thảo, thư tay do chính nhà văn viết — khớp đáp án 2.",
+          "optionsVi": [
+            "Những cuốn sách thơ và tiểu thuyết do tác giả viết.",
+            "Bản thảo tiểu thuyết và thư từ do chính tác giả viết tay.",
+            "Bản thảo và thư từ do nhiều người khác viết về tác giả này.",
+            "Những bài thơ do em gái tác giả viết."
+          ]
         },
         {
           "question": "それ以来とあるが、どのようなことか。",
@@ -12935,7 +13313,13 @@
             "パソコンで字を書いていたときから"
           ],
           "correctIndex": 1,
-          "explanation": "\"それ以来\" tiếp nối ngay sau nhận thức có được từ việc xem bản thảo viết tay của nhà văn — khớp đáp án 2."
+          "explanation": "\"それ以来\" tiếp nối ngay sau nhận thức có được từ việc xem bản thảo viết tay của nhà văn — khớp đáp án 2.",
+          "optionsVi": [
+            "Từ lúc bước vào nhà lưu niệm.",
+            "Từ lúc nhìn thấy bản thảo viết tay của tác giả.",
+            "Từ lúc đến thị trấn nơi tác giả sinh ra.",
+            "Từ lúc bắt đầu viết chữ bằng máy tính."
+          ]
         },
         {
           "question": "この文章を書いた人が一番伝えたいことは何か。",
@@ -12947,7 +13331,13 @@
             "好きな作家のいた町へ旅行する意味"
           ],
           "correctIndex": 0,
-          "explanation": "Đoạn kết: dù chữ xấu, viết bằng cả tấm lòng vẫn truyền tải được điều gì đó — chủ đề chính là điều chữ viết tay truyền tải, không phải chuyện viết đẹp — khớp đáp án 1."
+          "explanation": "Đoạn kết: dù chữ xấu, viết bằng cả tấm lòng vẫn truyền tải được điều gì đó — chủ đề chính là điều chữ viết tay truyền tải, không phải chuyện viết đẹp — khớp đáp án 1.",
+          "optionsVi": [
+            "Điều truyền tải qua những nét chữ viết tay.",
+            "Tầm quan trọng của việc viết chữ đẹp.",
+            "Sự tuyệt vời trong văn chương của tác giả yêu thích.",
+            "Ý nghĩa của việc du lịch đến thị trấn của tác giả yêu thích."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -13901,7 +14291,13 @@
             "賞を受けたことのある人気の作家"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: đoạt giải Tiểu thuyết xuất sắc nhất năm 2012, là nữ nhà văn đang được chú ý/yêu thích — khớp đáp án 4 (kết hợp cả 2 yếu tố: đoạt giải + được yêu thích)."
+          "explanation": "Văn bản: đoạt giải Tiểu thuyết xuất sắc nhất năm 2012, là nữ nhà văn đang được chú ý/yêu thích — khớp đáp án 4 (kết hợp cả 2 yếu tố: đoạt giải + được yêu thích).",
+          "optionsVi": [
+            "Một nữ nhà văn trẻ.",
+            "Người đã viết về chính mình trong tiểu thuyết.",
+            "Một nhà văn đang được giới trẻ yêu thích.",
+            "Một nhà văn nổi tiếng từng nhận được giải thưởng."
+          ]
         },
         {
           "question": "事情を客にたずねます。とあるが、なぜか。",
@@ -13913,7 +14309,13 @@
             "客がどの花がいいか選んでほしいと言うから。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"客はみなユウに花を選んでほしいと言います\" — khách đều muốn Yuu chọn hoa giúp, nên Yuu phải hỏi hoàn cảnh để chọn đúng — khớp đáp án 4."
+          "explanation": "Văn bản: \"客はみなユウに花を選んでほしいと言います\" — khách đều muốn Yuu chọn hoa giúp, nên Yuu phải hỏi hoàn cảnh để chọn đúng — khớp đáp án 4.",
+          "optionsVi": [
+            "Vì không có hứng thú với bất cứ thứ gì.",
+            "Vì chọn 1 bông hoa duy nhất là việc khó khăn.",
+            "Vì không biết hoa có giá bằng máy chơi game.",
+            "Vì khách hàng nhờ người bán chọn giúp bông hoa phù hợp."
+          ]
         },
         {
           "question": "元気づけられるとあるが、なぜか。",
@@ -13925,7 +14327,13 @@
             "仕事をしなかったユウがアルバイトを始めたから。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: \"何の喜びもない日々を送っていたユウが...明るく強くなっていく様子に、読者は元気づけられる\" — khớp đáp án 3."
+          "explanation": "Văn bản: \"何の喜びもない日々を送っていたユウが...明るく強くなっていく様子に、読者は元気づけられる\" — khớp đáp án 3.",
+          "optionsVi": [
+            "Vì Yu - người vốn không đến trường và không làm việc - đã làm một việc thay đổi.",
+            "Vì Yu - người đã không đến trường - đã bắt đầu đi học.",
+            "Vì Yu - người vốn dửng dưng với mọi thứ - đã trở nên tươi sáng và mạnh mẽ hơn.",
+            "Vì Yu - người không chịu làm việc - đã bắt đầu đi làm thêm."
+          ]
         },
         {
           "question": "『花屋ダイヤリー』で作者が読者に一番伝えたいことは何か。",
@@ -13937,7 +14345,13 @@
             "だれかに花を贈るときに役に立つということ"
           ],
           "correctIndex": 0,
-          "explanation": "Chủ đề chính của cuốn sách là hành trình thay đổi của Yuu qua công việc và mối quan hệ với người khác — flower language chỉ là lợi ích phụ — khớp đáp án 1."
+          "explanation": "Chủ đề chính của cuốn sách là hành trình thay đổi của Yuu qua công việc và mối quan hệ với người khác — flower language chỉ là lợi ích phụ — khớp đáp án 1.",
+          "optionsVi": [
+            "Con người có thể thay đổi nhờ làm việc giữa những người khác.",
+            "Rất nhiều loài hoa đều có ý nghĩa riêng.",
+            "Yu đang trải qua những ngày tháng không niềm vui.",
+            "Cách giúp ích khi muốn tặng hoa cho ai đó."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -14539,7 +14953,13 @@
             "140円"
           ],
           "correctIndex": 1,
-          "explanation": "18/6 nằm trong giai đoạn giảm giá kem (15-28), 22h nằm trong khung giờ 18-24h dùng được. Nhưng chỉ có 1 tờ quảng cáo/phiếu = chỉ giảm giá cho 1 sản phẩm (割引券1枚につき商品1個). Mua 2 kem 100 yên = 200 yên, giảm 20 yên cho 1 cái = 180 yên."
+          "explanation": "18/6 nằm trong giai đoạn giảm giá kem (15-28), 22h nằm trong khung giờ 18-24h dùng được. Nhưng chỉ có 1 tờ quảng cáo/phiếu = chỉ giảm giá cho 1 sản phẩm (割引券1枚につき商品1個). Mua 2 kem 100 yên = 200 yên, giảm 20 yên cho 1 cái = 180 yên.",
+          "optionsVi": [
+            "200 yên",
+            "180 yên",
+            "160 yên",
+            "140 yên"
+          ]
         },
         {
           "question": "ドーナツを安く買いたい。この広告を持って、いつ買いに行けばよいか。",
@@ -14551,7 +14971,13 @@
             "6月20日 午後8時ごろ"
           ],
           "correctIndex": 1,
-          "explanation": "Donut giảm giá chỉ trong 2-14/6 và chỉ dùng được phiếu từ 18h-24h. Ngày 10/6 đúng đợt nhưng sai giờ (10h sáng); 16/6 và 20/6 đã qua đợt giảm giá donut (2-14/6); chỉ có 12/6 lúc 22h vừa đúng ngày vừa đúng giờ."
+          "explanation": "Donut giảm giá chỉ trong 2-14/6 và chỉ dùng được phiếu từ 18h-24h. Ngày 10/6 đúng đợt nhưng sai giờ (10h sáng); 16/6 và 20/6 đã qua đợt giảm giá donut (2-14/6); chỉ có 12/6 lúc 22h vừa đúng ngày vừa đúng giờ.",
+          "optionsVi": [
+            "Ngày 10 tháng 6, khoảng 10 giờ sáng",
+            "Ngày 12 tháng 6, khoảng 10 giờ tối",
+            "Ngày 16 tháng 6, khoảng 8 giờ sáng",
+            "Ngày 20 tháng 6, khoảng 8 giờ tối"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -14961,7 +15387,13 @@
             "15,000円"
           ],
           "correctIndex": 3,
-          "explanation": "5 giờ chiều đến 10 giờ tối thuộc khung ②15:00-24:00 (thời giờ 1.000 yên). Mỗi ngày làm 5 tiếng, 3 ngày (火木金) = 15 tiếng. 15 × 1.000 = 15.000円."
+          "explanation": "5 giờ chiều đến 10 giờ tối thuộc khung ②15:00-24:00 (thời giờ 1.000 yên). Mỗi ngày làm 5 tiếng, 3 ngày (火木金) = 15 tiếng. 15 × 1.000 = 15.000円.",
+          "optionsVi": [
+            "9.000 yên",
+            "9.500 yên",
+            "13.500 yên",
+            "15.000 yên"
+          ]
         },
         {
           "question": "このすし屋で働ける人はだれか。",
@@ -14973,7 +15405,13 @@
             "経験がない大学生。水曜日と土曜日に午後5時から夜10時まで働ける。"
           ],
           "correctIndex": 3,
-          "explanation": "Yêu cầu: 2 ngày/tuần, ≥5 tiếng/ngày, không cần kinh nghiệm, sinh viên/nội trợ OK nhưng KHÔNG nhận học sinh cấp 3. Đáp án 1 chỉ 3 tiếng/ngày (không đủ 5 tiếng); đáp án 2 chỉ 1 ngày/tuần; đáp án 3 là học sinh cấp 3 (không được nhận); đáp án 4 đủ 2 ngày, 5 tiếng/ngày, là sinh viên đại học — hợp lệ."
+          "explanation": "Yêu cầu: 2 ngày/tuần, ≥5 tiếng/ngày, không cần kinh nghiệm, sinh viên/nội trợ OK nhưng KHÔNG nhận học sinh cấp 3. Đáp án 1 chỉ 3 tiếng/ngày (không đủ 5 tiếng); đáp án 2 chỉ 1 ngày/tuần; đáp án 3 là học sinh cấp 3 (không được nhận); đáp án 4 đủ 2 ngày, 5 tiếng/ngày, là sinh viên đại học — hợp lệ.",
+          "optionsVi": [
+            "Nội trợ có kinh nghiệm. Có thể làm việc từ 9h đến 12h vào thứ Hai và thứ Ba.",
+            "Sinh viên chưa có kinh nghiệm. Có thể làm việc từ 6h chiều đến 11h đêm vào thứ Tư.",
+            "Học sinh cấp 3 có kinh nghiệm. Có thể làm việc từ 3h chiều đến 9h tối vào thứ Ba và thứ Năm.",
+            "Sinh viên chưa có kinh nghiệm. Có thể làm việc từ 5h chiều đến 10h đêm vào thứ Tư và thứ Bảy."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -15403,7 +15841,13 @@
             "9万5千円"
           ],
           "correctIndex": 2,
-          "explanation": "Miễn phí môi giới, chỉ cần trả tiền thuê 1 tháng (30.000) + tiền đặt cọc 1 tháng (30.000) + tiền lễ 1 tháng (30.000) = 90.000 yên (9万円)."
+          "explanation": "Miễn phí môi giới, chỉ cần trả tiền thuê 1 tháng (30.000) + tiền đặt cọc 1 tháng (30.000) + tiền lễ 1 tháng (30.000) = 90.000 yên (9万円).",
+          "optionsVi": [
+            "30.000 yên",
+            "35.000 yên",
+            "90.000 yên",
+            "95.000 yên"
+          ]
         },
         {
           "question": "このアパートの説明として本文の内容と合っているものはどれか。",
@@ -15415,7 +15859,13 @@
             "部屋にお風呂がない。"
           ],
           "correctIndex": 1,
-          "explanation": "Phòng hướng Nam (南向き) và ban công ở phía đó — khớp đáp án 2. Phòng ở tầng 2 của tòa 5 tầng (không phải tầng 5); nuôi thú cưng được nếu trao đổi trước (相談可, không phải cấm); có phòng tắm (浴室) trong sơ đồ."
+          "explanation": "Phòng hướng Nam (南向き) và ban công ở phía đó — khớp đáp án 2. Phòng ở tầng 2 của tòa 5 tầng (không phải tầng 5); nuôi thú cưng được nếu trao đổi trước (相談可, không phải cấm); có phòng tắm (浴室) trong sơ đồ.",
+          "optionsVi": [
+            "Phòng ở tầng 5.",
+            "Ban công nằm ở phía Nam.",
+            "Không thể nuôi chó.",
+            "Trong phòng không có nhà tắm."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -16089,7 +16539,13 @@
             "2,000円"
           ],
           "correctIndex": 1,
-          "explanation": "⑤京都クラス thuộc nhóm ★日本文化クラス★ (giá 1.500円/buổi), thành viên được giảm 500円 → 1.500 - 500 = 1.000円."
+          "explanation": "⑤京都クラス thuộc nhóm ★日本文化クラス★ (giá 1.500円/buổi), thành viên được giảm 500円 → 1.500 - 500 = 1.000円.",
+          "optionsVi": [
+            "500 yên",
+            "1.000 yên",
+            "1.500 yên",
+            "2.000 yên"
+          ]
         },
         {
           "question": "リーさんは4月9日（水）のアラビア語クラスに参加したい。何をすればよいか。",
@@ -16101,7 +16557,13 @@
             "4月9日に、教室に行って申し込む。"
           ],
           "correctIndex": 1,
-          "explanation": "Quy định: đặt chỗ qua mạng (ネットで予約) trước ít nhất 3 ngày. Lớp ngày 9/4 (thứ Tư) → hạn đặt là 6/4 — khớp đáp án 2."
+          "explanation": "Quy định: đặt chỗ qua mạng (ネットで予約) trước ít nhất 3 ngày. Lớp ngày 9/4 (thứ Tư) → hạn đặt là 6/4 — khớp đáp án 2.",
+          "optionsVi": [
+            "Đặt chỗ qua điện thoại trước ngày 6 tháng 4.",
+            "Đặt chỗ qua mạng trước ngày 6 tháng 4.",
+            "Đến Trung tâm văn hóa Minato đặt chỗ trước ngày 8 tháng 4.",
+            "Đến lớp học đăng ký vào ngày 9 tháng 4."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -16539,7 +17001,13 @@
             "④"
           ],
           "correctIndex": 0,
-          "explanation": "Cần: ăn tối, ngân sách ≤3.000円, thứ Ba 19h. ②và④ nghỉ thứ Ba nên loại; ③giá tối 3.800~8.800円 vượt ngân sách; chỉ ①(giá tối 2.000~5.000円, mở cửa 18:00-24:00, không nghỉ thứ Ba) phù hợp."
+          "explanation": "Cần: ăn tối, ngân sách ≤3.000円, thứ Ba 19h. ②và④ nghỉ thứ Ba nên loại; ③giá tối 3.800~8.800円 vượt ngân sách; chỉ ①(giá tối 2.000~5.000円, mở cửa 18:00-24:00, không nghỉ thứ Ba) phù hợp.",
+          "optionsVi": [
+            "①",
+            "②",
+            "③",
+            "④"
+          ]
         },
         {
           "question": "サムさんは、木曜日の昼のできるだけ早い時間に友達と和食が食べたい。何時から食べることができるか。",
@@ -16551,7 +17019,13 @@
             "12時30分"
           ],
           "correctIndex": 1,
-          "explanation": "Món Nhật (和食): ②Sankai và ③Yoneyama. ①không nghỉ thứ Ba nhưng không phải món Nhật; ④nghỉ thứ Ba nhưng không phải món Nhật (không liên quan). Cả ②③ đều mở thứ Năm: ②bắt đầu ăn trưa 11:30, ③bắt đầu 12:00 — sớm nhất là 11:30 (②)."
+          "explanation": "Món Nhật (和食): ②Sankai và ③Yoneyama. ①không nghỉ thứ Ba nhưng không phải món Nhật; ④nghỉ thứ Ba nhưng không phải món Nhật (không liên quan). Cả ②③ đều mở thứ Năm: ②bắt đầu ăn trưa 11:30, ③bắt đầu 12:00 — sớm nhất là 11:30 (②).",
+          "optionsVi": [
+            "11 giờ",
+            "11 giờ 30 phút",
+            "12 giờ",
+            "12 giờ 30 phút"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -17089,7 +17563,13 @@
             "550円+150円+200円=900円"
           ],
           "correctIndex": 2,
-          "explanation": "Gọi cùng đồ ăn nên nước uống giảm còn 100円: 550+100=650円. Vì tổng dưới 1.000円 nên cộng thêm phí giao hàng 200円: 650+200=850円."
+          "explanation": "Gọi cùng đồ ăn nên nước uống giảm còn 100円: 550+100=650円. Vì tổng dưới 1.000円 nên cộng thêm phí giao hàng 200円: 650+200=850円.",
+          "optionsVi": [
+            "550 yên + 100 yên = 650 yên",
+            "550 yên + 150 yên = 700 yên",
+            "550 yên + 100 yên + 200 yên = 850 yên",
+            "550 yên + 150 yên + 200 yên = 900 yên"
+          ]
         },
         {
           "question": "ホルさんは4月13日（日）の昼12時半にお弁当が20個必要である。いつ注文すればよいか。",
@@ -17101,7 +17581,13 @@
             "4月13日(日)の午前9時ごろ"
           ],
           "correctIndex": 1,
-          "explanation": "Đặt từ 10 phần trở lên phải đặt trước ngày hôm trước (tức trước hoặc trong ngày 12/4), và trong giờ nhận đơn — thứ Bảy giờ nhận đơn kết thúc 19:30. 11/4 21h thì đã ngoài giờ nhận đơn (20:30) của ngày thường; 12/4 20h đã quá giờ nhận đơn cuối tuần (19:30); 13/4 là chính ngày giao nên quá trễ. Chỉ có 12/4 18h giờ vừa đúng ngày trước, vừa trong giờ nhận đơn."
+          "explanation": "Đặt từ 10 phần trở lên phải đặt trước ngày hôm trước (tức trước hoặc trong ngày 12/4), và trong giờ nhận đơn — thứ Bảy giờ nhận đơn kết thúc 19:30. 11/4 21h thì đã ngoài giờ nhận đơn (20:30) của ngày thường; 12/4 20h đã quá giờ nhận đơn cuối tuần (19:30); 13/4 là chính ngày giao nên quá trễ. Chỉ có 12/4 18h giờ vừa đúng ngày trước, vừa trong giờ nhận đơn.",
+          "optionsVi": [
+            "Khoảng 9 giờ tối ngày 11/4 (thứ Sáu)",
+            "Khoảng 6 giờ tối ngày 12/4 (thứ Bảy)",
+            "Khoảng 8 giờ tối ngày 12/4 (thứ Bảy)",
+            "Khoảng 9 giờ sáng ngày 13/4 (Chủ nhật)"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -17627,7 +18113,13 @@
             "銀行かコンビニに行って、現金で払う。"
           ],
           "correctIndex": 3,
-          "explanation": "Cô chưa có thẻ tín dụng nên không trả qua website được; không cần mở tài khoản bưu điện vì có thể trả tiền mặt tại cửa hàng tiện lợi hoặc tại ngân hàng (đã có tài khoản ngân hàng) bằng phiếu chuyển khoản — khớp đáp án 4."
+          "explanation": "Cô chưa có thẻ tín dụng nên không trả qua website được; không cần mở tài khoản bưu điện vì có thể trả tiền mặt tại cửa hàng tiện lợi hoặc tại ngân hàng (đã có tài khoản ngân hàng) bằng phiếu chuyển khoản — khớp đáp án 4.",
+          "optionsVi": [
+            "Gọi điện cho NAT.",
+            "Đi đến bưu điện để mở tài khoản.",
+            "Đi đến cửa hàng tiện lợi và thanh toán bằng thẻ tín dụng.",
+            "Đi đến ngân hàng hoặc cửa hàng tiện lợi để thanh toán bằng tiền mặt."
+          ]
         },
         {
           "question": "支払いはいつまでにしなければならないか。",
@@ -17639,7 +18131,13 @@
             "6月30日"
           ],
           "correctIndex": 3,
-          "explanation": "Hóa đơn ghi rõ \"お支払い期限：2014年6月30日（月）\" — khớp đáp án 4."
+          "explanation": "Hóa đơn ghi rõ \"お支払い期限：2014年6月30日（月）\" — khớp đáp án 4.",
+          "optionsVi": [
+            "31 tháng 5",
+            "3 tháng 6",
+            "26 tháng 6",
+            "30 tháng 6"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -18385,7 +18883,13 @@
             "2015年5月31日"
           ],
           "correctIndex": 2,
-          "explanation": "Vợt tennis bảo hành 9 tháng kể từ ngày mua (1/5/2014): tính đủ 9 tháng theo lịch (5,6,7,8,9,10,11,12,1) thì hạn cuối là 31/1/2015 — khớp đáp án 3."
+          "explanation": "Vợt tennis bảo hành 9 tháng kể từ ngày mua (1/5/2014): tính đủ 9 tháng theo lịch (5,6,7,8,9,10,11,12,1) thì hạn cuối là 31/1/2015 — khớp đáp án 3.",
+          "optionsVi": [
+            "31 tháng 7 năm 2014",
+            "30 tháng 10 năm 2014",
+            "31 tháng 1 năm 2015",
+            "31 tháng 5 năm 2015"
+          ]
         },
         {
           "question": "保証期間中に以下のことをしたら、ラケットがこわれた。保証してもらえるのはどれか。",
@@ -18397,7 +18901,13 @@
             "暑い中8時間ボールを打ち続けた。"
           ],
           "correctIndex": 3,
-          "explanation": "Đánh bóng (打つ) chính là cách sử dụng bình thường được bảo hành theo mục 1, dù kéo dài 8 tiếng trong trời nóng — không nằm trong các trường hợp loại trừ. Để trong phòng tắm 2 ngày (nơi ẩm ướt lâu) và bạn ngồi lên vợt (đặt vật nặng lên) đều rơi vào các trường hợp loại trừ rõ ràng ở mục 2."
+          "explanation": "Đánh bóng (打つ) chính là cách sử dụng bình thường được bảo hành theo mục 1, dù kéo dài 8 tiếng trong trời nóng — không nằm trong các trường hợp loại trừ. Để trong phòng tắm 2 ngày (nơi ẩm ướt lâu) và bạn ngồi lên vợt (đặt vật nặng lên) đều rơi vào các trường hợp loại trừ rõ ràng ở mục 2.",
+          "optionsVi": [
+            "Để trong phòng tắm suốt 2 ngày.",
+            "Để quên ở sân tennis rồi bị mưa làm ướt.",
+            "Bạn ngồi lên làm hỏng vợt.",
+            "Đánh bóng liên tục trong 8 giờ dưới trời nắng nóng."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -18871,7 +19381,13 @@
             "15:15"
           ],
           "correctIndex": 3,
-          "explanation": "Phim có động vật là \"Mèo và Ichiro\", chiếu lúc 11:45 (buổi sáng, đang bận làm thêm) và 15:15 (buổi chiều, rảnh) — chỉ có suất 15:15 phù hợp."
+          "explanation": "Phim có động vật là \"Mèo và Ichiro\", chiếu lúc 11:45 (buổi sáng, đang bận làm thêm) và 15:15 (buổi chiều, rảnh) — chỉ có suất 15:15 phù hợp.",
+          "optionsVi": [
+            "12:25",
+            "14:00",
+            "14:30",
+            "15:15"
+          ]
         },
         {
           "question": "タンさんは、午後時間ができたので映画を見ることにした。映画館にいられる時間は午後3時から午後6時までの3時間だけである。今日タンさんが、初めから終わりまで見ることができる映画は次のうちどれか。",
@@ -18883,7 +19399,13 @@
             "オハナ♡"
           ],
           "correctIndex": 1,
-          "explanation": "Chỉ có mặt được 15:00-18:00. \"Bàn ăn lớn\" suất 14:00 đã bắt đầu trước 15:00, suất 17:15 kết thúc sau 18:00; \"Ninja Gió\" suất 14:30 bắt đầu trước 15:00; \"Ohana♡\" bắt đầu 19:15 sau 18:00. Chỉ \"Mèo và Ichiro\" suất 15:15-17:00 nằm trọn trong khung giờ rảnh."
+          "explanation": "Chỉ có mặt được 15:00-18:00. \"Bàn ăn lớn\" suất 14:00 đã bắt đầu trước 15:00, suất 17:15 kết thúc sau 18:00; \"Ninja Gió\" suất 14:30 bắt đầu trước 15:00; \"Ohana♡\" bắt đầu 19:15 sau 18:00. Chỉ \"Mèo và Ichiro\" suất 15:15-17:00 nằm trọn trong khung giờ rảnh.",
+          "optionsVi": [
+            "Bàn ăn lớn",
+            "Mèo và Ichiro",
+            "Ninja gió",
+            "Ohana♡"
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -19693,7 +20215,13 @@
             "14時半"
           ],
           "correctIndex": 0,
-          "explanation": "Cần đến địa điểm trong khung 12:50 (bắt đầu tiếp đón) ~ 13:00 (giờ bắt đầu, đến trễ hơn không được tham gia). Từ ga đi bộ 10 phút. Đến ga lúc 12:35 → tới nơi khoảng 12:45, có thời gian dự phòng an toàn; đến ga 12:50 → tới nơi đúng 13:00, quá sát giờ, rủi ro bị từ chối."
+          "explanation": "Cần đến địa điểm trong khung 12:50 (bắt đầu tiếp đón) ~ 13:00 (giờ bắt đầu, đến trễ hơn không được tham gia). Từ ga đi bộ 10 phút. Đến ga lúc 12:35 → tới nơi khoảng 12:45, có thời gian dự phòng an toàn; đến ga 12:50 → tới nơi đúng 13:00, quá sát giờ, rủi ro bị từ chối.",
+          "optionsVi": [
+            "12 giờ 35 phút",
+            "12 giờ 50 phút",
+            "Đúng 13 giờ",
+            "14 giờ 30 phút"
+          ]
         },
         {
           "question": "ウェンさんは説明会の日に具合が悪くなり開始の時間に行けなくなった。どうすればよいか。",
@@ -19705,7 +20233,13 @@
             "会社の採用担当者に電話をする。"
           ],
           "correctIndex": 3,
-          "explanation": "Quy định: đổi ngày trước hôm trước thì hủy qua website; nhưng đến trễ/vắng mặt NGAY TRONG NGÀY diễn ra phải liên hệ trực tiếp qua điện thoại — khớp đáp án 4."
+          "explanation": "Quy định: đổi ngày trước hôm trước thì hủy qua website; nhưng đến trễ/vắng mặt NGAY TRONG NGÀY diễn ra phải liên hệ trực tiếp qua điện thoại — khớp đáp án 4.",
+          "optionsVi": [
+            "Không liên lạc và cũng không tham gia.",
+            "Hủy qua trang tuyển dụng trên website công ty.",
+            "Không liên lạc và đến tham gia muộn.",
+            "Gọi điện cho phụ trách tuyển dụng của công ty."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -20291,7 +20825,13 @@
             "④のメールアドレスにメールを送る。"
           ],
           "correctIndex": 1,
-          "explanation": "Văn bản: \"参加申し込みはこちら①http://...shinnen.htm\" — đăng ký tham gia qua URL① — khớp đáp án 2."
+          "explanation": "Văn bản: \"参加申し込みはこちら①http://...shinnen.htm\" — đăng ký tham gia qua URL① — khớp đáp án 2.",
+          "optionsVi": [
+            "Không cần liên lạc, đến thẳng phòng họp hội nghị công dân vào ngày 15/1.",
+            "Nhấp vào đường link ① để làm thủ tục.",
+            "Nhấp vào đường link ② để làm thủ tục.",
+            "Gửi email đến địa chỉ email ④."
+          ]
         },
         {
           "question": "このメールマガジンをもう受け取りたくない。どうすればよいと書いてあるか。",
@@ -20303,7 +20843,13 @@
             "④のメールアドレスにメールを送る。"
           ],
           "correctIndex": 2,
-          "explanation": "Văn bản: \"配信停止はこちら③http://...mmag.resign.htm\" — hủy đăng ký qua URL③ — khớp đáp án 3."
+          "explanation": "Văn bản: \"配信停止はこちら③http://...mmag.resign.htm\" — hủy đăng ký qua URL③ — khớp đáp án 3.",
+          "optionsVi": [
+            "Trả lời email này để thông báo.",
+            "Nhấp vào đường link ② để làm thủ tục.",
+            "Nhấp vào đường link ③ để làm thủ tục.",
+            "Gửi email đến địa chỉ email ④."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -20849,7 +21395,13 @@
             "着払いで、○×ショップに送る。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"商品着払いにて、ご返送くださいますよう\" — gửi trả lại theo hình thức người nhận (cửa hàng) trả cước — khớp đáp án 4."
+          "explanation": "Văn bản: \"商品着払いにて、ご返送くださいますよう\" — gửi trả lại theo hình thức người nhận (cửa hàng) trả cước — khớp đáp án 4.",
+          "optionsVi": [
+            "Tự sửa lại để dùng.",
+            "Vứt đi không dùng nữa.",
+            "Gửi về cửa hàng ○× và báo lại phí vận chuyển qua email.",
+            "Gửi về cửa hàng ○× theo phương thức người nhận trả cước phí."
+          ]
         },
         {
           "question": "お金はどのように戻ってくるか。",
@@ -20861,7 +21413,13 @@
             "商品が○×ショップに届いたら、伝えておいた口座にお金が振り込まれる。"
           ],
           "correctIndex": 3,
-          "explanation": "Văn bản: \"商品が到着しましたら、ご返金の対応をさせていただきます\" — sau khi hàng đến nơi mới hoàn tiền, chuyển vào tài khoản khách đã cung cấp — khớp đáp án 4."
+          "explanation": "Văn bản: \"商品が到着しましたら、ご返金の対応をさせていただきます\" — sau khi hàng đến nơi mới hoàn tiền, chuyển vào tài khoản khách đã cung cấp — khớp đáp án 4.",
+          "optionsVi": [
+            "Không cần gửi lại hàng, cung cấp thông tin tài khoản ngân hàng để nhận tiền.",
+            "Gửi email thông báo đã gửi hàng thì tiền sẽ được chuyển khoản.",
+            "Khi cửa hàng ○× nhận được hàng, tiền sẽ được gửi qua bưu điện.",
+            "Khi cửa hàng ○× nhận được hàng, tiền sẽ được chuyển vào tài khoản đã cung cấp."
+          ]
         }
       ],
       "book": "shinkanzen"
@@ -21251,7 +21809,13 @@
             "うさぎ"
           ],
           "correctIndex": 1,
-          "explanation": "Chênh lệch: chó ~5%, panda ~30%, ngựa ~10%, thỏ ~22%. Panda có chênh lệch lớn nhất trong 4 lựa chọn."
+          "explanation": "Chênh lệch: chó ~5%, panda ~30%, ngựa ~10%, thỏ ~22%. Panda có chênh lệch lớn nhất trong 4 lựa chọn.",
+          "optionsVi": [
+            "Chó",
+            "Gấu trúc",
+            "Ngựa",
+            "Thỏ"
+          ]
         },
         {
           "question": "グラフについて正しく述べているのはどれか。",
@@ -21263,7 +21827,13 @@
             "コアラは2007年の調査では1983年より減少している。"
           ],
           "correctIndex": 3,
-          "explanation": "Koala giảm từ ~43% (1983) xuống ~19% (2007) — khớp đáp án 4. Mèo chênh lệch nhỏ (không lớn); năm 2007 thỏ xếp thứ 5 (không phải 3); năm 1983 hạng 1 là chó chứ không phải panda (panda hạng 2)."
+          "explanation": "Koala giảm từ ~43% (1983) xuống ~19% (2007) — khớp đáp án 4. Mèo chênh lệch nhỏ (không lớn); năm 2007 thỏ xếp thứ 5 (không phải 3); năm 1983 hạng 1 là chó chứ không phải panda (panda hạng 2).",
+          "optionsVi": [
+            "Mèo có sự khác biệt lớn giữa năm 1983 và 2007.",
+            "Thỏ đứng thứ 3 trong cuộc khảo sát năm 2007.",
+            "Gấu trúc đứng thứ 1 trong cuộc khảo sát năm 1983.",
+            "Koala giảm so với năm 1983 trong cuộc khảo sát năm 2007."
+          ]
         }
       ],
       "book": "shinkanzen"

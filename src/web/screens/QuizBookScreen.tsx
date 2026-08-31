@@ -22,6 +22,7 @@ import {
   buildSession,
   type QuizBookViewerState,
 } from "../../popup/quizBookState.ts";
+import { recordAnswer as recordGlobalAnswer } from "../../popup/progressState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
@@ -36,13 +37,25 @@ function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolea
 
 const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm", known: "Đã biết" } as const;
 
-export function QuizBookScreen() {
+export function QuizBookScreen({ targetId }: { targetId?: string } = {}) {
   const [state, setState] = useState<QuizBookViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    loadViewerState().then(setState);
-  }, []);
+    let cancelled = false;
+    (async () => {
+      let s = await loadViewerState();
+      if (targetId && findQuizBookById(targetId)) {
+        s = { ...s, currentQuestionId: targetId, sessionIds: null, sessionIndex: 0 };
+        await saveViewerState(s);
+      }
+      if (cancelled) return;
+      setState(s);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [targetId]);
 
   async function mutate(partial: Partial<QuizBookViewerState>) {
     if (!state) return;
@@ -396,7 +409,10 @@ function QuestionView({
               <button
                 key={oi}
                 disabled={answered !== null}
-                onClick={() => mutate(recordAnswer(state, q.id, oi))}
+                onClick={() => {
+                  void recordGlobalAnswer(q.id, oi === q.correctIndex, "answer", ["answer"]);
+                  mutate(recordAnswer(state, q.id, oi));
+                }}
                 className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
               >
                 {opt}
@@ -406,9 +422,20 @@ function QuestionView({
         </div>
 
         {answered !== null ? (
-          <div className="mt-4 space-y-1 border-t border-neutral-100 pt-3 text-sm">
+          <div className="mt-4 space-y-3 border-t border-neutral-100 pt-3 text-sm">
             {q.explanation ? <div className="text-neutral-600">{q.explanation}</div> : null}
-            {q.notes.length ? <div className="text-neutral-400">{q.notes.join(" · ")}</div> : null}
+            {q.notes.length ? (
+              <div>
+                <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Ghi chú</div>
+                <div className="mt-1 flex flex-col gap-1">
+                  {q.notes.map((note, i) => (
+                    <div key={i} className="text-neutral-400">
+                      {note}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
             <button onClick={handleReset} className="flex items-center gap-1 pt-1 text-xs font-semibold text-neutral-400 hover:text-neutral-600">
               <Undo2 size={12} /> Làm lại câu này
             </button>

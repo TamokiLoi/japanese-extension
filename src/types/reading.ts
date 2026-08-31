@@ -21,6 +21,7 @@ export interface ReadingQuestion {
   question: string;
   questionVi: string;
   options: string[];
+  optionsVi: string[];
   correctIndex: number;
   explanation: string;
 }

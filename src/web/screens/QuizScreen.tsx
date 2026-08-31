@@ -311,7 +311,9 @@ function SetupView({
   );
 }
 
-function QuestionDetail({ q, ...open }: { q: QuizQuestion } & OpenCallbacks) {
+// Generalized over just {id, kind} (not the full QuizQuestion) so it's
+// reusable by ReviewScreen.tsx's typed-recall/reveal questions too.
+export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizContentType } } & OpenCallbacks) {
   if (q.kind === "kanji") {
     const k = findKanjiById(q.id);
     if (!k) return null;

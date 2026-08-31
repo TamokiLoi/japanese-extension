@@ -10,6 +10,8 @@ import { QuizScreen } from "./screens/QuizScreen.tsx";
 import { QuizBookScreen } from "./screens/QuizBookScreen.tsx";
 import { ReadingScreen } from "./screens/ReadingScreen.tsx";
 import { StatsScreen } from "./screens/StatsScreen.tsx";
+import { ReviewScreen } from "./screens/ReviewScreen.tsx";
+import { GuideScreen } from "./screens/GuideScreen.tsx";
 import "./tailwind.css";
 
 function readFromHash(): { screen: Screen; targetId?: string } {
@@ -84,11 +86,22 @@ export function WebApp() {
       />
     );
   } else if (screen === "quizBook") {
-    content = <QuizBookScreen />;
+    content = <QuizBookScreen targetId={targetId} />;
   } else if (screen === "reading") {
-    content = <ReadingScreen />;
+    content = <ReadingScreen targetId={targetId} />;
   } else if (screen === "stats") {
     content = <StatsScreen onNavigate={go} />;
+  } else if (screen === "review") {
+    content = (
+      <ReviewScreen
+        onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
+        onOpenVocab={(vocabId) => go("vocab", vocabId)}
+        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onDone={() => go("menu")}
+      />
+    );
+  } else if (screen === "guide") {
+    content = <GuideScreen />;
   } else {
     content = <App key={navKey} />;
   }

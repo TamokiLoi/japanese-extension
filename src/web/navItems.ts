@@ -1,5 +1,5 @@
 import type { Screen } from "../popup/App.tsx";
-import { Home, BookMarked, Library, BookOpenText, PenSquare, GraduationCap, HelpCircle, BarChart3, Search } from "lucide-react";
+import { Home, BookMarked, Library, BookOpenText, PenSquare, GraduationCap, HelpCircle, BarChart3, Search, Info, RotateCcw } from "lucide-react";
 
 export interface NavItem {
   screen: Screen;
@@ -19,7 +19,9 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
+  { screen: "review", label: "Ôn tập", icon: RotateCcw },
   { screen: "stats", label: "Thống kê", icon: BarChart3 },
+  { screen: "guide", label: "Hướng dẫn", icon: Info },
 ];
 
 // The 4 most-used destinations, shown in the mobile bottom bar -- the rest
@@ -38,6 +40,6 @@ export interface NavGroup {
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading"] },
-  { label: "Luyện thi", screens: ["quizBook", "quiz"] },
-  { label: "Công cụ", screens: ["stats"] },
+  { label: "Luyện thi", screens: ["quizBook", "quiz", "review"] },
+  { label: "Công cụ", screens: ["stats", "guide"] },
 ];

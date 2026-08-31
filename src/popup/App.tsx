@@ -20,7 +20,9 @@ export type Screen =
   | "stats"
   | "reading"
   | "quizBook"
-  | "bunpo";
+  | "bunpo"
+  | "review"
+  | "guide";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -33,6 +35,8 @@ export const VALID_SCREENS: Screen[] = [
   "reading",
   "quizBook",
   "bunpo",
+  "review",
+  "guide",
 ];
 
 interface Route {
@@ -152,6 +156,15 @@ export function App() {
         targetId={targetId}
       />
     );
+  }
+  if (screen === "review") {
+    // Web-only Tailwind screen -- not ported to the extension popup UI in
+    // this pass, so this stays a plain static message rather than pulling
+    // Tailwind/shadcn into the extension bundle.
+    return <p className="empty">Tính năng Ôn tập hiện chỉ có trên bản Web Dashboard.</p>;
+  }
+  if (screen === "guide") {
+    return <p className="empty">Hướng dẫn sử dụng hiện chỉ có trên bản Web Dashboard.</p>;
   }
   return (
     <QuizScreen
