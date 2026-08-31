@@ -58,7 +58,7 @@ export function ListeningScreen() {
 
       <Card className="mt-4 gap-0 p-5">
         <div className="font-semibold text-neutral-800">{question.question}</div>
-        <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div>
+        {answered ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
         <div className="mt-4 grid gap-2 sm:grid-cols-2">
           {question.options.map((opt, oi) => {
             let cls = "border-neutral-200 hover:bg-neutral-50";
@@ -75,7 +75,7 @@ export function ListeningScreen() {
                 className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
               >
                 {opt}
-                <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span>
+                {answered ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
               </button>
             );
           })}
