@@ -9,12 +9,14 @@
 // deliberately left out of ALL_LISTENING now that real book content exists
 // -- mixing a synthetic voice in with real CD audio would be confusing.
 import listeningSoumatomeRaw from "../data/listening-soumatome-n3.json";
+import listeningSpeedmasterRaw from "../data/listening-speedmaster-n3.json";
 import type { ListeningDataset, ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
 const soumatomeDataset = listeningSoumatomeRaw as unknown as ListeningDataset;
+const speedmasterDataset = listeningSpeedmasterRaw as unknown as ListeningDataset;
 
-export const ALL_LISTENING: ListeningQuestion[] = [...soumatomeDataset.questions];
+export const ALL_LISTENING: ListeningQuestion[] = [...soumatomeDataset.questions, ...speedmasterDataset.questions];
 
 const LISTENING_BY_ID = new Map(ALL_LISTENING.map((q) => [q.id, q]));
 export function findListeningById(id: string): ListeningQuestion | undefined {
@@ -35,9 +37,10 @@ export const AVAILABLE_TASK_TYPES: ListeningTaskType[] = TASK_TYPE_ORDER.filter(
 
 export const BOOK_LABELS: Record<string, string> = {
   soumatome: "Nihongo Sou Matome N3 Choukai",
+  speedmaster: "Speed Master N3 Choukai",
 };
 
-const BOOK_ORDER: string[] = ["soumatome"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {

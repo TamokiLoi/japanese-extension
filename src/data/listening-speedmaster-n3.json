@@ -1,0 +1,4759 @@
+{
+  "questions": [
+    {
+      "id": "listening-speedmaster-n3-001",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track03.mp3",
+      "scenario": "男の学生が後輩の学生と話しています。男の学生は、これからどこに行きますか。",
+      "scenarioVi": "Nam sinh viên đang nói chuyện với một hậu bối. Nam sinh viên sẽ đi đâu từ bây giờ?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "何か探しているんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん……辞書がなくて。"
+        },
+        {
+          "speaker": "女",
+          "text": "家に置いてきたんじゃないですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "いや、午前の授業で使ったから。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃあ、教室に忘れたんじゃないですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん……。でも、昼に売店で買い物をし……"
+        },
+        {
+          "speaker": "女",
+          "text": "探してみましょう。私、事務室に聞いてきましょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、そうしてくれる？ ぼくは教室を見てくる。"
+        }
+      ],
+      "question": "男の学生は、これからどこに行きますか。",
+      "questionVi": "Nam sinh viên sẽ đi đâu từ bây giờ?",
+      "options": [
+        "家にもどる",
+        "売店に行く",
+        "教室に行く",
+        "事務所に行く"
+      ],
+      "optionsVi": [
+        "Quay về nhà",
+        "Đi cửa hàng",
+        "Đi đến phòng học",
+        "Đi đến văn phòng"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-002",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track04.mp3",
+      "scenario": "遊園地で男の人と女の人が話しています。男の人はこのあと何をしますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện ở khu vui chơi. Nam nhân viên sẽ làm gì sau đây?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえねえ、つぎ、何に乗る？"
+        },
+        {
+          "speaker": "男",
+          "text": "そうだなあ、ぼくはもう、ジェットコースターとかはいいや。"
+        },
+        {
+          "speaker": "女",
+          "text": "あれ？ もしかして、苦手なの？"
+        },
+        {
+          "speaker": "男",
+          "text": "苦手ってわけじゃないけど……。ボートとかのほうがいいな。"
+        },
+        {
+          "speaker": "女",
+          "text": "ボート？ わかった、わかった。アイスでも食べながら考えましょう。"
+        },
+        {
+          "speaker": "男",
+          "text": "いいねえ。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃあ、何か買ってきてくれない？"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ、ぼくが？"
+        },
+        {
+          "speaker": "女",
+          "text": "そう。まかせるよ。私はちょっとそこでお土産見てるから。"
+        },
+        {
+          "speaker": "男",
+          "text": "はいはい。"
+        }
+      ],
+      "question": "男の人はこのあと何をしますか。",
+      "questionVi": "Nam nhân viên sẽ làm gì sau đây?",
+      "options": [
+        "おみやげを買う",
+        "アイスクリームを買う",
+        "ボートに乗る",
+        "ジェットコースターに乗る"
+      ],
+      "optionsVi": [
+        "Mua quà lưu niệm",
+        "Mua kem",
+        "Đi chèo thuyền",
+        "Đi tàu lượn siêu tốc"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-003",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track05.mp3",
+      "scenario": "男の人二人話しています。二人はいつ店に行きますか。",
+      "scenarioVi": "Hai người nam đang nói chuyện. Hai người sẽ đi đến cửa hàng vào khi nào?",
+      "turns": [
+        {
+          "speaker": "男1",
+          "text": "何、それ？"
+        },
+        {
+          "speaker": "男2",
+          "text": "ああ、これ？ 居酒屋の割引券。駅前に新しいビルができたじゃない？ そこに入ったお店。"
+        },
+        {
+          "speaker": "男1",
+          "text": "へー、いいね。いつまでなの？"
+        },
+        {
+          "speaker": "男2",
+          "text": "期限は……来週の水曜日まで。あ、でも、水曜は「レディース・デー」だから女性のみだなあ。"
+        },
+        {
+          "speaker": "男1",
+          "text": "じゃあ、別の曜日のほうがいいね。明日行ってみる？ 金曜だから混んでると思うけど。"
+        },
+        {
+          "speaker": "男2",
+          "text": "明日はだめなんだよ。ちょっと用事があって。"
+        },
+        {
+          "speaker": "男1",
+          "text": "そうか。じゃあ、来週だね。でも、週明けすぐっていうのもね……。"
+        },
+        {
+          "speaker": "男2",
+          "text": "そうだね。"
+        },
+        {
+          "speaker": "男1",
+          "text": "じゃあ、決まりだ。"
+        }
+      ],
+      "question": "二人はいつ店に行きますか。",
+      "questionVi": "Hai người sẽ đi đến cửa hàng vào khi nào?",
+      "options": [
+        "今週の金曜日",
+        "来週の月曜日",
+        "来週の火曜日",
+        "来週の水曜日"
+      ],
+      "optionsVi": [
+        "Thứ Sáu tuần này",
+        "Thứ Hai tuần sau",
+        "Thứ Ba tuần sau",
+        "Thứ Tư tuần sau"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-004",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track06.mp3",
+      "scenario": "ホテルのフロントで、男の人と女の人が話しています。男の人はこれから何をしますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện tại quầy lễ tân khách sạn. Nam nhân viên sẽ làm gì từ bây giờ?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "すみません、チェックインしたいんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "申し訳ございません。チェックインは3時からとなっておりまして……。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、そうだった！ ……まだ、だいぶありますね。困ったなあ。"
+        },
+        {
+          "speaker": "女",
+          "text": "よろしければ、ホテルのプールをご利用いただけますが……。"
+        },
+        {
+          "speaker": "男",
+          "text": "ああ、それ、いいなあ。じゃ、ラウンジで一休みしてから行ってみます。"
+        },
+        {
+          "speaker": "女",
+          "text": "かしこまりました。では、お荷物は こちらでお預かりします。"
+        },
+        {
+          "speaker": "男",
+          "text": "お願いします。"
+        }
+      ],
+      "question": "男の人はこれから何をしますか。",
+      "questionVi": "Nam nhân viên sẽ làm gì từ bây giờ?",
+      "options": [
+        "ふろに入る",
+        "泳ぐ",
+        "荷物を送る",
+        "チェックインする"
+      ],
+      "optionsVi": [
+        "Đi tắm",
+        "Đi bơi",
+        "Gửi hành lý",
+        "Làm thủ tục nhận phòng"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-005",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track07.mp3",
+      "scenario": "夫婦が今日何をするか相談しています。二人は今から何をしますか。",
+      "scenarioVi": "Vợ chồng đang bàn về việc hôm nay sẽ làm gì. Hai người sẽ làm gì từ bây giờ?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえ、この雨じゃ、テニス行けないね。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。楽しみにしてたんだけど。かわりに映画でも見に行こうか。「最後の戦い」、前から見たかったんだよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "映画は賛成だけど、見るなら「最後の戦い」より「マイ・ラブ」のほうがいい。"
+        },
+        {
+          "speaker": "男",
+          "text": "じゃあ、「最後の戦い」を見てから「マイ・ラブ」も。2本見たら疲れちゃう。それに、お昼はどうするの？"
+        },
+        {
+          "speaker": "男",
+          "text": "そうだなあ。じゃ、お昼を一緒に食べてから、別々に見ようか。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうね。今回はしょうがないね。"
+        }
+      ],
+      "question": "二人は今から何をしますか。",
+      "questionVi": "Hai người sẽ làm gì từ bây giờ?",
+      "options": [
+        "テニスをしてから映画を見る",
+        "食事をしてから映画を見る",
+        "映画を2本見てから食事をする",
+        "食事だけして帰る"
+      ],
+      "optionsVi": [
+        "Chơi tennis rồi xem phim",
+        "Ăn uống rồi xem phim",
+        "Xem 2 bộ phim rồi mới ăn",
+        "Chỉ ăn uống rồi về"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-006",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track08.mp3",
+      "scenario": "病院の受付で男の人と女の人が話しています。男の人人は、いつ来ますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện ở quầy tiếp tân bệnh viện. Nam nhân viên sẽ đến khi nào?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "では、こちら、診察券をお返しします。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。あのう、つぎは来週がいいんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "来週ですね。……そうですねえ、8日と9日なら同じ時間で空いてますが。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、すみません、つぎは午前でお願いしたかったんです。午前、空いてますか。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。午前ですと、二日とも予約が入ってますね。7日なら空いてます……あと、10日もだいじょうぶです。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。じゃ、早いほうでお願いします。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。時間は10時になりますが、よろしいですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、結構です。"
+        }
+      ],
+      "question": "男の人は、いつ来ますか。",
+      "questionVi": "Nam nhân viên sẽ đến khi nào?",
+      "options": [
+        "1つ",
+        "2つ",
+        "3つ",
+        "4つ"
+      ],
+      "optionsVi": [
+        "1 cái",
+        "2 cái",
+        "3 cái",
+        "4 cái"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-007",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track09.mp3",
+      "scenario": "ビヤホールを出たところで、会社の同僚二人が話しています。二人はこのあと、どこへ行きますか。",
+      "scenarioVi": "Hai đồng nghiệp đang nói chuyện khi vừa bước ra khỏi quán bia. Hai người sẽ đi đâu sau đây?",
+      "turns": [
+        {
+          "speaker": "男1",
+          "text": "このビヤホール、なかなか良かったよな。"
+        },
+        {
+          "speaker": "男2",
+          "text": "うん、あの値段にしちゃ、料理もうまかったし。"
+        },
+        {
+          "speaker": "男1",
+          "text": "……まだ時間、早いなあ。あのさ、この近くに「ひさご」っていうお店があるんだけど、日本酒がすごくうまいうんだよ。ちょっと、どう？"
+        },
+        {
+          "speaker": "男2",
+          "text": "お前は酒、強いからなあ。こっちはもう、酒は十分だよ。それよりラーメンでも食べて帰りたい。"
+        },
+        {
+          "speaker": "男1",
+          "text": "うん、それもいいな。だけど、ラーメンの前に、ちょっとだけ寄ってこうよ。お店、すぐ近くだからさ。"
+        },
+        {
+          "speaker": "男2",
+          "text": "しょうがないなあ、もう。ちょっとだけだぞ。"
+        }
+      ],
+      "question": "二人はこのあと、どこへ行きますか。",
+      "questionVi": "Hai người sẽ đi đâu sau đây?",
+      "options": [
+        "7日",
+        "8日",
+        "9日",
+        "10日"
+      ],
+      "optionsVi": [
+        "Ngày 7",
+        "Ngày 8",
+        "Ngày 9",
+        "Ngày 10"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-008",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track10.mp3",
+      "scenario": "母親と子供二人が家で話しています。三人は、このあと誰に電話しますか。",
+      "scenarioVi": "Người mẹ và hai đứa con đang nói chuyện ở nhà. Cả ba sẽ gọi điện cho ai sau đây?",
+      "turns": [
+        {
+          "speaker": "子1",
+          "text": "もうすぐおじいちゃんの誕生日でしょ？ みんなでお祝いしようよ。"
+        },
+        {
+          "speaker": "子2",
+          "text": "賛成！ おじいちゃん、きっと喜ぶと思う。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうね。そうしようか。じゃ、今度の土曜日か日曜日がいいわね。"
+        },
+        {
+          "speaker": "子1",
+          "text": "お母さん、予約、予約。おじいちゃんの家の近くのレストラン。"
+        },
+        {
+          "speaker": "女",
+          "text": "ちょっと待ってよ。おじいちゃんに都合を聞くのが先でしょ？"
+        },
+        {
+          "speaker": "子1",
+          "text": "おじいちゃんはいつも暇なんだから大丈夫だよ。あそことこ、人気あるから早く予約しないと。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、でも、おばあちゃんはしょっちゅう出かけるから、先に聞いておいたほうがいいね。"
+        },
+        {
+          "speaker": "子2",
+          "text": "お父さんは？ 一番忙しいよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "お父さんはいいよ。お父さんの都合に合わせると決まらないから。"
+        },
+        {
+          "speaker": "子2",
+          "text": "ふーん。まあ、しょうがないね。"
+        }
+      ],
+      "question": "三人は、このあと誰に電話しますか。",
+      "questionVi": "Cả ba sẽ gọi điện cho ai sau đây?",
+      "options": [
+        "お酒を買いに行く",
+        "別の店にお酒を飲みに行く",
+        "ラーメンを食べに行く",
+        "家に帰る"
+      ],
+      "optionsVi": [
+        "Đi mua rượu",
+        "Đi uống rượu ở quán khác",
+        "Đi ăn mì ramen",
+        "Về nhà"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-009",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track11.mp3",
+      "scenario": "男の人と女の人が会社で話しています。男の人はこれからどうしますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện ở công ty. Nam nhân viên sẽ làm thế nào từ bây giờ?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "じゃ、お先に失礼します。"
+        },
+        {
+          "speaker": "女",
+          "text": "お疲れさまでした。"
+        },
+        {
+          "speaker": "男",
+          "text": "あれ、高橋さん、どうしたんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。ちょっと忘れ物……あ、あった、あった。"
+        },
+        {
+          "speaker": "女",
+          "text": "それ……何の本ですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "ああ、これは折り紙です。"
+        },
+        {
+          "speaker": "女",
+          "text": "折り紙？"
+        },
+        {
+          "speaker": "男",
+          "text": "子供の夏休みの宿題で使うんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "本屋さんで売ってるんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "ええ。駅前の本屋さんが珍しい折り紙をけっこう置いてるんですよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "へー、知りませんでした。"
+        },
+        {
+          "speaker": "男",
+          "text": "じゃ、失礼しますね。"
+        },
+        {
+          "speaker": "女",
+          "text": "お疲れさまでした。"
+        }
+      ],
+      "question": "男の人はこれからどうしますか。",
+      "questionVi": "Nam nhân viên sẽ làm thế nào từ bây giờ?",
+      "options": [
+        "おばあさんに電話します",
+        "おじいさんに電話します",
+        "お父さんに電話します",
+        "レストランに電話します"
+      ],
+      "optionsVi": [
+        "Gọi điện cho bà",
+        "Gọi điện cho ông",
+        "Gọi điện cho bố",
+        "Gọi điện cho nhà hàng"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-010",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track12.mp3",
+      "scenario": "病院で、おばあちゃんが薬の説明を受けています。おばあさんは、昼食のあと、何色の薬をいくつ飲まなければなりませんか。",
+      "scenarioVi": "Bà cụ đang nghe hướng dẫn về thuốc tại bệnh viện. Sau bữa trưa, bà cụ phải uống mấy viên thuốc màu gì?",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "お薬が4種類出ていますから、間違いないでくださいね。まず、お食事の30分前に白いのを2つ飲んでください。これは胃のお薬です。お食事か済んだら、赤いのを2つと黄色いのを1つ飲んでください。赤いのは痛みをやわらげるお薬、黄色いのは血圧を少し下げるお薬です。それからこの青いのは、夜眠れないときに1つ飲んでください。そうじゃなければ、飲まなくていいです。わかりましたか。"
+        },
+        {
+          "speaker": "女2",
+          "text": "はいはい、ありがとう。じゃ、これから帰ってすぐお昼だから、白いのはここで飲んじゃいます。"
+        },
+        {
+          "speaker": "女1",
+          "text": "そうなさいますか。じゃ、今、水をお持ちしますね。"
+        }
+      ],
+      "question": "おばあさんは、昼食のあと、何色の薬をいくつ飲まなければなりませんか。",
+      "questionVi": "Sau bữa trưa, bà cụ phải uống mấy viên thuốc màu gì?",
+      "options": [
+        "家に帰る",
+        "会社に戻る",
+        "本を買いに行く",
+        "おりがみを買いに行く"
+      ],
+      "optionsVi": [
+        "Về nhà",
+        "Quay lại công ty",
+        "Đi mua sách",
+        "Đi mua giấy origami"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-011",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track13.mp3",
+      "scenario": "英会話学校で、女の人人がコースについて相談しています。女の人は何曜日のクラスを取りますか。",
+      "scenarioVi": "Học viên nữ đang tư vấn về các khóa học tại trường Anh ngữ. Nữ học viên sẽ chọn lớp vào thứ mấy?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ビジネス英語の夜のクラスを取りたいんですが。"
+        },
+        {
+          "speaker": "男",
+          "text": "かしこまりました。そうですね……お客様のレベルですと、木曜8時半からのクラスがいいと思いますが。"
+        },
+        {
+          "speaker": "女",
+          "text": "木曜はだいじょうぶだけど、もう少し早い時間帯はないですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "でしたら、火曜の5時半はいかがでしょう？ これも同じ先生で同じレベルのクラスです。"
+        },
+        {
+          "speaker": "女",
+          "text": "5時半はちょっと無理だなあ。この、金曜の6時半のクラスっていうのは、どうですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "これは「ビジネス英語」と書いてはいますが、レベル的にはちょっと易しいクラスなんです。あとは、週末なら、いろいろな時間が選べますが。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうねえ……。でも、週末はいろいろやりたいこともあるし。うーん、やっぱりがんばって8時半のクラスに来ます。"
+        }
+      ],
+      "question": "女の人は何曜日のクラスを取りますか。",
+      "questionVi": "Nữ học viên sẽ chọn lớp vào thứ mấy?",
+      "options": [
+        "青いくすりを1つ",
+        "白いくすりを2つ",
+        "白いくすりを1つと赤いくすりを1つ",
+        "赤いくすりを2つと黄色いくすりを1つ"
+      ],
+      "optionsVi": [
+        "1 viên thuốc màu xanh",
+        "2 viên thuốc màu trắng",
+        "1 viên thuốc màu trắng và 1 viên thuốc màu đỏ",
+        "2 viên thuốc màu đỏ và 1 viên thuốc màu vàng"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-012",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track14.mp3",
+      "scenario": "外国人の男の人が歯医者の受付で話しています。男の人は、来週、何を持ってこなければなりませんか。",
+      "scenarioVi": "Nam du khách nước ngoài đang nói chuyện ở quầy lễ tân nha khoa. Nam nhân viên phải mang theo cái gì vào tuần tới?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "すみません、お願いします。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、診察券をお出しください。……ミスさんがこの前いらししたのは、半年前ですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、それぐらいです。"
+        },
+        {
+          "speaker": "女",
+          "text": "保険証はお持ちですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。あ、でも、仕事が変わったので、明日これを返して、新しいものをもらう予定です。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。では、今日は自費になりますが、よろしいですか。「自費」って、保険じゃなく、自分で お金を払うということです。"
+        },
+        {
+          "speaker": "男",
+          "text": "自費……。じゃ、高いですね。"
+        },
+        {
+          "speaker": "女",
+          "text": "自費だと約3倍です。でも、来新しい保険証を出してくださったら、お返ししますよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。わかりました。"
+        }
+      ],
+      "question": "男の人は、来週、何を持ってこなければなりませんか。",
+      "questionVi": "Nam nhân viên phải mang theo cái gì vào tuần tới?",
+      "options": [
+        "火曜日のクラス",
+        "木曜日のクラス",
+        "金曜日のクラス",
+        "土曜日のクラス"
+      ],
+      "optionsVi": [
+        "Lớp học thứ Ba",
+        "Lớp học thứ Năm",
+        "Lớp học thứ Sáu",
+        "Lớp học thứ Bảy"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-013",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track15.mp3",
+      "scenario": "男の高校生が先生に大学進学の相談をしています。高校生は何学部を受かりますか。",
+      "scenarioVi": "Nam sinh trung học đang tư vấn với giáo viên về việc học lên đại học. Nam sinh sẽ đậu khoa nào?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "志望は経済学部で変わらない？"
+        },
+        {
+          "speaker": "男",
+          "text": "いいえ。実はそれ、親の希望なんです。ぼくは本当は文学部に行きたいんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "よくあるパターンだ。経済は就職がいいからね。"
+        },
+        {
+          "speaker": "男",
+          "text": "ぼくはいい会社に就職したいとか、思わないんです。将来は作家になりたくて。でも親が、文学部に行くなら自分で学費を払って……。そんなの無理だし。"
+        },
+        {
+          "speaker": "女",
+          "text": "でもね、作家になるのに、学部なんて関係ないよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。夏目漱石も川端康成も村上春樹も、みんな文学部ですよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "その人たちはそうだけど、法学部とか工学部とか医学部とか、ほかの学部を出た作家も大勢いるよ。大学を出ていない作家もたくさんいるし。いろんなことを学ぶことは必ずプラスになると思う。"
+        },
+        {
+          "speaker": "男",
+          "text": "……わかりました。ぼくも親を心配させたくないですから。"
+        }
+      ],
+      "question": "高校生は何学部を受かりますか。",
+      "questionVi": "Nam sinh sẽ đậu khoa nào?",
+      "options": [
+        "ちりょう代",
+        "病院のカード",
+        "新しいほけんしょう",
+        "古いほけんしょう"
+      ],
+      "optionsVi": [
+        "Phí điều trị",
+        "Thẻ bệnh viện",
+        "Thẻ bảo hiểm mới",
+        "Thẻ bảo hiểm cũ"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-014",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track16.mp3",
+      "scenario": "男の人と女の人が話しています。男の人は、このあと何時までに荷物を出しますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện với nhau. Nam nhân viên sẽ gửi hành lý trước mấy giờ sau đây?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あのう、すみません。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、いらっしゃいませ。"
+        },
+        {
+          "speaker": "男",
+          "text": "宅配のことでちょっと聞きたいんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、どのようなことでしょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "これから荷物を出して、今日中に届きますか。送るのは市内なんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "いえ、今日は無理です。今日受付のお荷物は翌日以降の配達になりますので、申し訳ないですが。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか……困ったなあ。一番早くて、明日の朝、何時ごろに届くんですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "2時までに受付していただければ、明日の朝10時にお届けできます。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。じゃあ、そうします。"
+        },
+        {
+          "speaker": "女",
+          "text": "あの、サービスセンターの方にお持ちいただければ、午後4時まででもだいじょうぶです。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。でも、こちらのほうが近いので……。"
+        }
+      ],
+      "question": "男の人は、このあと何時までに荷物を出しますか。",
+      "questionVi": "Nam nhân viên sẽ gửi hành lý trước mấy giờ sau đây?",
+      "options": [
+        "経済学部",
+        "文学部",
+        "医学部",
+        "法学部"
+      ],
+      "optionsVi": [
+        "Khoa Kinh tế",
+        "Khoa Văn học",
+        "Khoa Y",
+        "Khoa Luật"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-015",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track18.mp3",
+      "scenario": "女の人が友だちを映画に誘いました。二人はどこで映画を見ますか。",
+      "scenarioVi": "Người phụ nữ rủ bạn đi xem phim. Hai người sẽ xem phim ở đâu?",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "ねえ、今週の土曜日、映画見に行かない。"
+        },
+        {
+          "speaker": "女2",
+          "text": "いいけど。何見るの？"
+        },
+        {
+          "speaker": "女1",
+          "text": "『東京の恋人』。前から見たかったんだ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "それ、私も見たいと思ってた。"
+        },
+        {
+          "speaker": "女1",
+          "text": "じゃ、行こう。どこで見る？ 渋谷？ 新宿？"
+        },
+        {
+          "speaker": "女2",
+          "text": "新宿がいいかなあ。"
+        },
+        {
+          "speaker": "女1",
+          "text": "あっ、ごめん！ その日の午前中、池袋で用事があったんだ。池袋じゃだめかなあ？"
+        },
+        {
+          "speaker": "女2",
+          "text": "いいよ、いいよ。"
+        }
+      ],
+      "question": "二人はどこで映画を見ますか。",
+      "questionVi": "Hai người sẽ xem phim ở đâu?",
+      "options": [
+        "いけぶくろ",
+        "しぶや",
+        "しんじゅく",
+        "とうきょう"
+      ],
+      "optionsVi": [
+        "Ikebukuro",
+        "Shibuya",
+        "Shinjuku",
+        "Tokyo"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-016",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track19.mp3",
+      "scenario": "男の人が、昨日買ったズボンについて店員と話しています。男の人は、どうしてズボンを取り替えてほしいんですか。",
+      "scenarioVi": "Nam nhân viên đang nói chuyện với nhân viên cửa hàng về chiếc quần mua hôm qua. Tại sao anh ấy muốn đổi quần?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "いらっしゃいませ。"
+        },
+        {
+          "speaker": "男",
+          "text": "あのう、これ、昨日買ったんですけど、ポケットのところが汚れているんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうでしたか。申し訳ございません。すみません、ちょっと見せていただけますか。あ、ここのところですね。どういたしましょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "同じサイズのがあれば、取り替えてほしいんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。少々お待ちください……お待たせしました。こちらになります。色は同じでよかったですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "ええ。じゃ、これでお願いします。"
+        }
+      ],
+      "question": "男の人は、どうしてズボンを取り替えてほしいんですか。",
+      "questionVi": "Tại sao anh ấy muốn đổi quần?",
+      "options": [
+        "別の色にしたいから",
+        "汚れているから",
+        "サイズが大きすぎるから",
+        "サイズが小さすぎるから"
+      ],
+      "optionsVi": [
+        "Vì muốn đổi màu khác",
+        "Vì bị bẩn",
+        "Vì kích cỡ quá lớn",
+        "Vì kích cỡ quá nhỏ"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-017",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track20.mp3",
+      "scenario": "女の学生が男の学生と話しています。女の学生はどうしてアルバイトをやめるんですか。",
+      "scenarioVi": "Nữ sinh đang nói chuyện với nam sinh. Tại sao nữ sinh nghỉ làm thêm?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "森さん、アルバイト、やめるんだって、"
+        },
+        {
+          "speaker": "女",
+          "text": "うん。"
+        },
+        {
+          "speaker": "男",
+          "text": "どうして？"
+        },
+        {
+          "speaker": "女",
+          "text": "あの仕事、忙しすぎて。もっと楽なバイトじゃないと。"
+        },
+        {
+          "speaker": "男",
+          "text": "でも、時給はよかったんでしょ？"
+        },
+        {
+          "speaker": "女",
+          "text": "そうなんだけど、忙しくて、レポートを書く時間が取れないんだ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうか。今年は授業も増えたって、言ってたね。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう。それで今、大変なの。"
+        }
+      ],
+      "question": "女の学生はどうしてアルバイトをやめるんですか。",
+      "questionVi": "Tại sao nữ sinh nghỉ làm thêm?",
+      "options": [
+        "病気になったから",
+        "お金がよくないから",
+        "いそがしすぎるから",
+        "しごとがつまらないから"
+      ],
+      "optionsVi": [
+        "Vì bị ốm",
+        "Vì tiền lương không tốt",
+        "Vì quá bận",
+        "Vì công việc nhàm chán"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-018",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track21.mp3",
+      "scenario": "男の人が女の人に、お店の場所を尋ねています。お店はどこにありますか。",
+      "scenarioVi": "Nam giới đang hỏi nữ giới về vị trí của cửa hàng. Cửa hàng nằm ở đâu?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "すみません、この近くに「レモン」という喫茶店はありませんか。"
+        },
+        {
+          "speaker": "女",
+          "text": "ありますよ。えーっと、あそこにコンビニが見えるでしょ。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。"
+        },
+        {
+          "speaker": "女",
+          "text": "あそこの手前の道を右に行くと、さくら屋っていうスーパーがあるんですよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "スーパーですね、はい。"
+        },
+        {
+          "speaker": "女",
+          "text": "さくら屋の並びに美容院がありますから、その間の道に入ってください。すぐ左にありますから。1階が花屋さんで、その上です。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。ありがとうございます。"
+        }
+      ],
+      "question": "お店はどこにありますか。",
+      "questionVi": "Cửa hàng nằm ở đâu?",
+      "options": [
+        "コンビニの前",
+        "びよういんの前",
+        "スーパーの近く",
+        "花屋のとなり"
+      ],
+      "optionsVi": [
+        "Trước cửa hàng tiện lợi",
+        "Trước thẩm mỹ viện",
+        "Gần siêu thị",
+        "Bên cạnh cửa hàng hoa"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-019",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track22.mp3",
+      "scenario": "男の人が女の人と電話で話しています。男の人手はどうしてほしいと言っていますか。",
+      "scenarioVi": "Nam giới đang gọi điện cho nữ giới. Nam giới muốn đối phương làm gì?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あ、おはようございます。木村ですけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "おはようございます。林です。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、林さん？ 実は忘れ物しちゃって……。今、家に取りに帰ってるところなんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "資料を置いてきちゃったんですよ。申し訳ないんだけど、10時からのミーティン"
+        }
+      ],
+      "question": "男の人手はどうしてほしいと言っていますか。",
+      "questionVi": "Nam giới muốn đối phương làm gì?",
+      "options": [
+        "家に帰らせてほしい",
+        "しりょうを用意してほしい",
+        "かいぎを少し遅らせてほしい",
+        "ほかの人に紹介してほしい"
+      ],
+      "optionsVi": [
+        "Muốn cho về nhà",
+        "Muốn chuẩn bị tài liệu",
+        "Muốn hoãn cuộc họp lại một chút",
+        "Muốn giới thiệu cho người khác"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-020",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track23.mp3",
+      "scenario": "男の人が店の人と電話で話しています。男の人は何を注文しましたか。",
+      "scenarioVi": "Nam giới đang gọi điện cho nhân viên cửa hàng. Anh ấy đã đặt món gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "はい、ピザハウスです。"
+        },
+        {
+          "speaker": "男",
+          "text": "ピザ、届けてほしいんですけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、ご注文をどうぞ。"
+        },
+        {
+          "speaker": "男",
+          "text": "ええと、Lサイズの照り焼きピザと野菜サラダを3つお願いしたいんですけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、Lサイズの照り焼きピザが1つと、それから野菜サラダが3つでございますね。サラダのドレッシングは何味にいたしましょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "ええと、じゃ、中華味で。"
+        },
+        {
+          "speaker": "女",
+          "text": "かしこまりました。"
+        },
+        {
+          "speaker": "男",
+          "text": "あっ、すみません。サラダは1つ減らしてください。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、一つ減らすんですね。かしこまりました。"
+        }
+      ],
+      "question": "男の人は何を注文しましたか。",
+      "questionVi": "Anh ấy đã đặt món gì?",
+      "options": [
+        "Mサイズのてり焼きピザとやさいサラダ3つ",
+        "Mサイズのてり焼きピザと中華サラダ3つ",
+        "Lサイズのてり焼きピザとやさいサラダ2つ",
+        "Lサイズのてり焼きピザと中華サラダ2つ"
+      ],
+      "optionsVi": [
+        "1 pizza Teriyaki cỡ M và 3 salad rau",
+        "1 pizza Teriyaki cỡ M và 3 salad Trung Hoa",
+        "1 pizza Teriyaki cỡ L và 2 salad rau",
+        "1 pizza Teriyaki cỡ L và 2 salad Trung Hoa"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-021",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track24.mp3",
+      "scenario": "留学生の男の人と日本人の女の学生が話をしています。男の人は、日本へ何のために来ましたか。",
+      "scenarioVi": "Một nam lưu học sinh và một nữ sinh Nhật Bản đang trò chuyện. Nam sinh đến Nhật Bản để làm gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "リーさんは、経済学部を卒業したそうですけど、経済の勉強に日本へいらっしゃったんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "いえ、私は日本の文化にとても興味があったんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "歌舞伎とか能とかですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですね……能はよくわかりませんが、歌舞伎はおもしろいと思いました。でも、それより日本のアニメが好きなんです。それで、映画の研究ができる大学院を探したんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。じゃ、今の専門は経済じゃないんですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "ええ。経済も関心がありますけど。日本の経済とか国際経済とか。でも、日本に来る以上、日本の文化をもっと研究したいと思ったんです。"
+        }
+      ],
+      "question": "男の人は、何のために日本に来ましたか。",
+      "questionVi": "Nam sinh đến Nhật Bản để làm gì?",
+      "options": [
+        "かぶきをけんきゅうするため",
+        "のうをけんきゅうするため",
+        "けいざいをけんきゅうするため",
+        "アニメをけんきゅうするため"
+      ],
+      "optionsVi": [
+        "Để nghiên cứu kịch Kabuki",
+        "Để nghiên cứu kịch Nô",
+        "Để nghiên cứu kinh tế",
+        "Để nghiên cứu hoạt hình"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-022",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track25.mp3",
+      "scenario": "男の人が歯医者と話しています。このあとすぐに男の人がしてもいいことは何ですか。",
+      "scenarioVi": "Nam giới đang nói chuyện với nha sĩ. Ngay sau đây, nam giới được phép làm gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "では、今日は歯に詰め物をしましたので、このあと2時間くらいはお食事はひかえてください。飲み物はかまいませんよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。じゃ、晩ご飯は普通に食べていいじょうぶですね。"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ、6時以降なら大丈夫です。ただ、あまり硬いものは、詰め物がとれるかもしれないので、今日はひかえたほうがいいですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "歯みがきは？"
+        },
+        {
+          "speaker": "女",
+          "text": "同じにしてください。6時から普通にしてけっこうです。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。ありがとうございました。"
+        },
+        {
+          "speaker": "女",
+          "text": "お大事に。"
+        }
+      ],
+      "question": "このあと、すぐに男の人がしてもいいことは何ですか。",
+      "questionVi": "Ngay sau đây, nam giới được phép làm gì?",
+      "options": [
+        "はをみがく",
+        "コーヒーを飲む",
+        "ケーキを食べる",
+        "うどんを食べる"
+      ],
+      "optionsVi": [
+        "Đánh răng",
+        "Uống cà phê",
+        "Ăn bánh ngọt",
+        "Ăn mì Udon"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-023",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track26.mp3",
+      "scenario": "男の人が駅員と話しています。かばんはどこにありましたか。",
+      "scenarioVi": "Nam giới đang nói chuyện với nhân viên nhà ga. Chiếc túi ở đâu?",
+      "turns": [
+        {
+          "speaker": "男1",
+          "text": "すみません、さっきの電車に忘れ物しちゃったんですが。"
+        },
+        {
+          "speaker": "男2",
+          "text": "あ、今出た東京行きの電車ですか。"
+        },
+        {
+          "speaker": "男1",
+          "text": "そうです。小さい黒いかばんで、中にデジカメとか手帳とかが入ってるんで"
+        },
+        {
+          "speaker": "男2",
+          "text": "何両目の車両か、覚えてますか。あと、どのあたりに置きましたか。"
+        },
+        {
+          "speaker": "男1",
+          "text": "はい。たしか、前から3両目のドアの近くです。たぶん網棚の上に置いたままにしたと思います。"
+        },
+        {
+          "speaker": "男2",
+          "text": "今確認しますので、こちらでお待ちください。"
+        },
+        {
+          "speaker": "男2",
+          "text": "……あ、かばん、あったそうですよ。"
+        },
+        {
+          "speaker": "男1",
+          "text": "ありましたか！"
+        },
+        {
+          "speaker": "男2",
+          "text": "2両目のドア付近の座席の上にあったそうです。ご面倒ですが、元町駅まで取りに行っていただけますか。"
+        },
+        {
+          "speaker": "男1",
+          "text": "わかりました。すぐ行きます。ありがとうございます。"
+        }
+      ],
+      "question": "かばんはどこにありましたか。",
+      "questionVi": "Chiếc túi ở đâu?",
+      "options": [
+        "2両目のドアのそばの座席",
+        "2両目のドアのそばのあみだな",
+        "3両目のドア付近の座席",
+        "3両目のドア付近のあみだな"
+      ],
+      "optionsVi": [
+        "Trên ghế cạnh cửa toa thứ 2",
+        "Trên giá để hành lý cạnh cửa toa thứ 2",
+        "Trên ghế gần cửa toa thứ 3",
+        "Trên giá để hành lý gần cửa toa thứ 3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-024",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track27.mp3",
+      "scenario": "女の人が友人と話しています。女の人は、どうして高いネックレスを買ったのですか。",
+      "scenarioVi": "Nữ giới đang nói chuyện với bạn. Tại sao cô ấy mua chiếc vòng cổ đắt tiền?",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "あっ、かわいいネックレス！ どうしたの？"
+        },
+        {
+          "speaker": "女2",
+          "text": "先週買ったの。"
+        },
+        {
+          "speaker": "女1",
+          "text": "ヘー、いいなあ。……でも、高かったんじゃない？"
+        },
+        {
+          "speaker": "女2",
+          "text": "そうなの。結構高くて……いつもの買っちゃったの。でも、給料日前から、お金がなくなっちゃって。今、ピンチよ。"
+        },
+        {
+          "speaker": "女1",
+          "text": "ふーん、よほど気に入ったんだ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "まあ、それはそうなんだけど……。"
+        },
+        {
+          "speaker": "女1",
+          "text": "何？ 店員がイケメンだったとか？"
+        },
+        {
+          "speaker": "女2",
+          "text": "ううん。ずーっと迷って、なかなか決められないから、一度戻そうとしたの。そうしたら、そばにいた人が取ろうとしたから、つい「これ、ください！」って言っちゃったの。"
+        },
+        {
+          "speaker": "女1",
+          "text": "わかる、それ。"
+        }
+      ],
+      "question": "女の人は、どうして高いネックレスを買ったのですか。",
+      "questionVi": "Tại sao cô ấy mua chiếc vòng cổ đắt tiền?",
+      "options": [
+        "ほかの人が買おうとしたから",
+        "きゅうりょうが入ったから",
+        "店員がかっこよかったから",
+        "ねだんが安かったから"
+      ],
+      "optionsVi": [
+        "Vì người khác định mua nó",
+        "Vì vừa nhận được lương",
+        "Vì nhân viên bán hàng rất đẹp trai",
+        "Vì giá rẻ"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-025",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track28.mp3",
+      "scenario": "女の人がパン屋の店長と話しています。女の人は何が問題だと言っていますか。",
+      "scenarioVi": "Nữ giới đang nói chuyện với cửa hàng trưởng tiệm bánh. Cô ấy nói điều gì là vấn đề?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "昨日、ここでクリームパンを買ったんだけど、不良品だったんですよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ！？ 何が問題だったのでしょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "ほら、こことかこことか、何か黒い変なものがあるでしょ。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、お客様、このクリームパンはサツマイモを混ぜているのが特徴でございまして……。この黒いのはイモの皮が取れて一緒に入ってしまったものなんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "えっ、そうなんですか!? でも、そんなのわからないから、気持ち悪いんじゃないですか。危ない物と思って食べられませんでしたよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ございません。今後はどこに注意書きをするようにいたしますので。"
+        },
+        {
+          "speaker": "女",
+          "text": "それがいいと思いますよ。"
+        }
+      ],
+      "question": "女の人は何が問題だと言っていますか。",
+      "questionVi": "Cô ấy nói điều gì là vấn đề?",
+      "options": [
+        "パンに危ない物が入っていたから",
+        "パンに何かわからない物が入っているから",
+        "店長の説明がわかりにくいから",
+        "クリームにサツマイモをまぜているから"
+      ],
+      "optionsVi": [
+        "Vì trong bánh có vật nguy hiểm",
+        "Vì trong bánh có vật gì đó không rõ",
+        "Vì giải thích của cửa hàng trưởng khó hiểu",
+        "Vì trộn khoai lang vào kem"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-026",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track29.mp3",
+      "scenario": "男の人が美術館に電話をかけています。男の人は、美術館までどうやって行きますか。",
+      "scenarioVi": "Nam giới đang gọi điện đến bảo tàng mỹ thuật. Anh ấy đi đến bảo tàng bằng cách nào?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "はい、ABC美術館でございます。"
+        },
+        {
+          "speaker": "男",
+          "text": "すみませんが、東京駅からの行き方を教えていただけませんか。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい。東京駅からすと、中央線で「みたか」駅までいらしてください。"
+        },
+        {
+          "speaker": "男",
+          "text": "「みたか」駅までですね。乗り換えはありませんか。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、快速で1本です。JR「みたか」駅の南口に「玉川上水」という小さな川がありますので、その川に沿って歩いてください。駅から約15分です。"
+        },
+        {
+          "speaker": "男",
+          "text": "結構歩くんですね。わかるかなあ。"
+        },
+        {
+          "speaker": "女",
+          "text": "道に案内板がありますから、迷うことはないと思います。でも、バスもありますよ。バスだと5分くらいで着きます。"
+        },
+        {
+          "speaker": "男",
+          "text": "バスの本数は多いですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですね。10分おきくらいで出ております。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。じゃ、それがよさそうですね。あと、お休みは何曜日ですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "火曜日が休館日になっております。あ、それから、入館のお時間は毎日4時が最終ですので、ご注意ください。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。ありがとうございます。"
+        }
+      ],
+      "question": "男の人は、美術館までどうやって行きますか。",
+      "questionVi": "Anh ấy đi đến bảo tàng bằng cách nào?",
+      "options": [
+        "電車に乗ってから、バスに乗って行きます",
+        "電車に乗ってから、歩いて行きます",
+        "バスに乗ってから、電車に乗って行きます",
+        "バスに乗ってから、歩いて行きます"
+      ],
+      "optionsVi": [
+        "Đi tàu điện rồi đi xe buýt",
+        "Đi tàu điện rồi đi bộ",
+        "Đi xe buýt rồi đi tàu điện",
+        "Đi xe buýt rồi đi bộ"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-027",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track30.mp3",
+      "scenario": "男の人が市役所のゴミの係りに電話をかけています。粗大ゴミを捨てるのに、お金は全部でいくらかかりますか。",
+      "scenarioVi": "Nam giới đang gọi điện cho bộ phận rác thải của tòa thị chính. Tổng chi phí vứt rác cồng kềnh là bao nhiêu?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "はい、やまと市粗大ごみ回収の受付です。"
+        },
+        {
+          "speaker": "男",
+          "text": "すみません、3点お願いしたいのですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "えー、つぎの回収が11月8日になりますが、よろしいですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、結構です。"
+        },
+        {
+          "speaker": "女",
+          "text": "ゴミはどのようなものですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "1つは、プラスチックのケースで、50センチ×60センチぐらいで、高さが40センチぐらいです。"
+        },
+        {
+          "speaker": "女",
+          "text": "その大きさですと200円ですね。コンビニで200円のゴミ処理券を1枚買って、貼ってください。ほかのはこつですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "もう一つプラスチックの箱があって、こっちは小さくて、だいたい30センチ四方です。"
+        },
+        {
+          "speaker": "女",
+          "text": "30センチ以内でしたら、「燃やせるゴミ」に出してしまってかまいませんよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。あとは木の本なんですけど。幅が60センチで、高さが私のおんなかぐらいの高さだから、120センチぐらいです。"
+        },
+        {
+          "speaker": "女",
+          "text": "そちらのほうは300円ですので、300円の券を1枚貼ってください。一度貼ると貼り直しはできませんので、ご注意ください。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。"
+        },
+        {
+          "speaker": "女",
+          "text": "それぞれの券にご住所とお名前と回収日を書いて、当日の朝8時半までに指定の場所に出しておいてください。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。ありがとうございます。"
+        }
+      ],
+      "question": "粗大ゴミを捨てるのに、お金は全部でいくらかかりますか。",
+      "questionVi": "Tổng chi phí vứt rác cồng kềnh là bao nhiêu?",
+      "options": [
+        "200円",
+        "300円",
+        "500円",
+        "700円"
+      ],
+      "optionsVi": [
+        "200 yên",
+        "300 yên",
+        "500 yên",
+        "700 yên"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-028",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track31.mp3",
+      "scenario": "テレビではちみつの宣伝をしています。はちみつを食べてはいけないのは、どんな人ですか。",
+      "scenarioVi": "Tivi đang quảng cáo mật ong. Loại người nào không được ăn mật ong?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "皆さん、毎日の生活に、もっとはちみつを使いましょう。バターのかわりに、トーストにほら、シナモンをふると、おいしシナモントーストができあがりです。また、コーヒーや紅茶には、お砂糖がわりに入れてください。肉料理にも使うことができます。健康と美容の元であるはちみつは、男性、女性、若い方からお年寄りまで、どなたにもお勧めです。ただし、1歳以下の赤ちゃんには問題が起こることがありますので、与えないでください。"
+        }
+      ],
+      "question": "はちみつを食べてはいけないのは、どんな人ですか。",
+      "questionVi": "Loại người nào không được ăn mật ong?",
+      "options": [
+        "赤ちゃん",
+        "お年寄り",
+        "女性",
+        "男性"
+      ],
+      "optionsVi": [
+        "Trẻ sơ sinh",
+        "Người cao tuổi",
+        "Phụ nữ",
+        "Nam giới"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-029",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track32.mp3",
+      "scenario": "テレビで男の人が、道路の建設について話しています。この人の意見はどれですか。",
+      "scenarioVi": "Trên tivi, một nam giới đang nói về việc xây dựng đường xá. Ý kiến của người này là gì?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "道路の建設工事は、途中でストップしているんです。現在、「お金の無駄だから道路を作るのはもうやめたほうがいい」という意見と、「道路を作ることで経済にいい効果が生まれるから道路は必要」という意見と、ちょうど半々になっています。意見を言い合うのはいいのですが、結局、この問題で村の人たちが激しく対立するようになりました。それが一番悲しいことです。正直なところ、ぼくは道路なんかどうでもいいんです。昔のように、みんなが仲良く暮らせたら、それでいいんです。"
+        }
+      ],
+      "question": "この人の意見はどれですか。",
+      "questionVi": "Ý kiến của người này là gì?",
+      "options": [
+        "道路のことはどうでもいい",
+        "道路を作るのはやめたほうがいい",
+        "道路を作ったほうがいい",
+        "道路を作るべきかどうか、わからない"
+      ],
+      "optionsVi": [
+        "Chuyện đường xá thế nào cũng được",
+        "Nên dừng việc làm đường",
+        "Nên xây dựng đường xá",
+        "Không biết có nên làm đường hay không"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-030",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track33.mp3",
+      "scenario": "テレビで男の人が、就職の面接について話しています。男の人は何が一番大切だと言っていますか。",
+      "scenarioVi": "Trên tivi, một nam giới đang nói về phỏng vấn xin việc. Anh ấy cho rằng điều gì là quan trọng nhất?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "まずは、やはり身だしなみを見ますね。服装や化粧、持ち物が面接という場所にふさわしいかどうか、チェックします。社会人としての基本的な部分ですね。でも、どんなにビシッとスーツを着ていても、聞かれたことにちゃんと答えられなかったり、いかにもマニュアルどおりというような答え方しかできないのでは、印象はよくありません。特に、その会社について何も知らないまま面接に来るなどは、論外です。本当にそこで働きたいと思っているなら、きっといろいろ調べるでしょうし、そこからいろいろ疑問も生まれてくるはずです。その人の中か自然に出てきた言葉かどうか、面接官はすぐにわかるのです。"
+        }
+      ],
+      "question": "男の人は何が一番大切だと言っていますか。",
+      "questionVi": "Anh ấy cho rằng điều gì là quan trọng nhất?",
+      "options": [
+        "社会人らしい服装をすること",
+        "聞かれたことにすぐに答えること",
+        "マニュアルどおりに答えられること",
+        "その会社について、くわしくしらべておくこと"
+      ],
+      "optionsVi": [
+        "Mặc trang phục giống người đi làm",
+        "Trả lời ngay lập tức những gì được hỏi",
+        "Trả lời theo đúng sách hướng dẫn",
+        "Tìm hiểu kỹ về công ty đó"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-031",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track34.mp3",
+      "scenario": "会社で女の人がアルバイトの人たちに説明しています。カードをなくしたとき、まず何をしなければなりませんか。",
+      "scenarioVi": "Tại công ty, một phụ nữ đang giải thích cho các nhân viên bán thời gian. Khi làm mất thẻ, trước tiên phải làm gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "では、アルバイトの皆さんにも、このIDカードをお渡しします。カードの表には先日撮った皆さんの顔写真が入っています。自分の顔じゃないという人はいませんか。だいじょうぶですね。このカードは、建物の中にいるときは必ず携帯してください。明日から、出勤したらまずこれを入口で提示してください。社員食堂も、このカードで利用できます。大切な個人情報が入っていますので、なくさないようにしてください。もし紛失したら、すぐにチームリーダーに報告してください。報告が翌日になったり遅くなったりしないよう、気をつけてください。安全のために必要なですので、必ずお願いします。また、探し出した場合も、必ず報告してください。"
+        }
+      ],
+      "question": "カードをなくしたとき、まず何をしなければなりませんか。",
+      "questionVi": "Khi làm mất thẻ, trước tiên phải làm gì?",
+      "options": [
+        "自分の写真を用意する",
+        "ケータイでれんらくする",
+        "リーダーにほうこくする",
+        "見つかるまでよくさがす"
+      ],
+      "optionsVi": [
+        "Chuẩn bị ảnh của mình",
+        "Liên lạc bằng điện thoại di động",
+        "Báo cáo cho nhóm trưởng",
+        "Tìm kỹ cho đến khi thấy"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-032",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track03.mp3",
+      "scenario": "先生が学生に話しています。学生はいつまでに書類を出さなければなりませんか。",
+      "scenarioVi": "Giáo viên đang nói chuyện với học sinh. Học sinh phải nộp tài liệu chậm nhất là khi nào?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "キムさん、この書類に記入して、事務所に出してください。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、はい。事務所に出すんですね。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう、事務所に。"
+        },
+        {
+          "speaker": "男",
+          "text": "あっ、先生、来週の水曜日までですよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "水曜？ いや、来週の火曜日までよ。ほらそこに書いてあるでしょ？"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、ほん だ。火曜日までですね。わかりました。"
+        },
+        {
+          "speaker": "男",
+          "text": "ええ、だいじょうぶです。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃ、そうしましょう。時間は11時 からでもいいですか。1時間もかからないと思いますので。"
+        },
+        {
+          "speaker": "男",
+          "text": "いいですよ。じゃ、そうしましょう。"
+        }
+      ],
+      "question": "学生はいつまでに書類を出さなければなりませんか。",
+      "questionVi": "Học sinh phải nộp tài liệu chậm nhất là khi nào?",
+      "options": [
+        "今週の金曜日",
+        "来週の月曜日",
+        "来週の火曜日",
+        "来週の水曜日"
+      ],
+      "optionsVi": [
+        "Thứ Sáu tuần này",
+        "Thứ Hai tuần sau",
+        "Thứ Ba tuần sau",
+        "Thứ Tư tuần sau"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-033",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track04.mp3",
+      "scenario": "会社で、男の人と女の人 が、ミーティングについて相談しています。二人はいつ会いますか。",
+      "scenarioVi": "Tại công ty, một nam nhân viên và một nữ nhân viên đang bàn về cuộc họp. Hai người sẽ gặp nhau khi nào?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ミーティングはいつにします？"
+        },
+        {
+          "speaker": "女",
+          "text": "明日はどうですか。私は2時半からなら空いてます。"
+        },
+        {
+          "speaker": "男",
+          "text": "明日はちょっと……。明後日はどうですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "午後出かけるので午前ならいいですが、かまいませんか。"
+        }
+      ],
+      "question": "二人はいつ会いますか。",
+      "questionVi": "Hai người sẽ gặp nhau khi nào?",
+      "options": [
+        "明日の午前",
+        "明日の午後",
+        "あさっての午前",
+        "あさっての午後"
+      ],
+      "optionsVi": [
+        "Sáng mai",
+        "Chiều mai",
+        "Sáng ngày kia",
+        "Chiều ngày kia"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-034",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track05.mp3",
+      "scenario": "留学生の女の人 が、レポートのテーマについて、男の学生と話しています。留学生の女の人は、何をテーマにしますか。",
+      "scenarioVi": "Một nữ lưu học sinh đang nói chuyện với một nam sinh viên về đề tài báo cáo. Nữ lưu học sinh sẽ chọn đề tài gì?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "マリアさん、レポートのテーマ、決めました？"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、田中先生の授業のですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "そう。僕はもうか俳句について書こうと思ってます。"
+        },
+        {
+          "speaker": "女",
+          "text": "えっ、そうなんですか。実は、私も俳句について書こうと思ってた。……でも、着物もいいかなあと思ってますけど。"
+        },
+        {
+          "speaker": "男",
+          "text": "同じテーマでもかまわないんじゃないですか。僕もどっちにするか、まだ決めていないし。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですね……。あ、でも、やっぱり着物について書こうかなあ。"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ、変えなくてもいいですよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "違うんです。先週、友だちと着物のお店に行ったら、いろいろな種類の着物があって……。もっと知りたいなあと思ったんです。"
+        },
+        {
+          "speaker": "男",
+          "text": "そう言えば、マリアさん、日本のファッションに興味があるって言ってたね。"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ。……やっぱりそうします。"
+        }
+      ],
+      "question": "留学生の女の人は、何をテーマにしますか。",
+      "questionVi": "Nữ lưu học sinh sẽ chọn đề tài gì?",
+      "options": [
+        "すもう",
+        "俳句",
+        "きもの",
+        "ファッション"
+      ],
+      "optionsVi": [
+        "Đấu vật Sumo",
+        "Thơ Haiku",
+        "Áo Kimono",
+        "Thời trang"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-035",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track06.mp3",
+      "scenario": "病院で、女の人が男の人に検査の受け方について説明しています。男の人は、まず、何をしなければなりませんか。",
+      "scenarioVi": "Tại bệnh viện, một phụ nữ đang giải thích cho nam giới về cách kiểm tra sức khỏe. Nam giới trước tiên phải làm gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "これからレントゲン室に行っていただきますが、その前にこのカルテを4番の窓口に持って行って、受付票をもらってください。受付票は、カルテと一緒にレントゲン室の受付に出してください。しばらくすると、名前が呼ばれますので。"
+        },
+        {
+          "speaker": "男",
+          "text": "終わったら、どうすればいいんですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "また、こちらに戻ってきてください。お呼びしますので。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。……あ、すみません、レントゲン室は何階でしたっけ？"
+        },
+        {
+          "speaker": "女",
+          "text": "地下1階です。あちらのエレベーターをお使いください。"
+        }
+      ],
+      "question": "男の人は、まず、何をしなければなりませんか。",
+      "questionVi": "Nam giới trước tiên phải làm gì?",
+      "options": [
+        "受付にもどる",
+        "名前が呼ばれるまで待つ",
+        "4番の窓口に行く",
+        "地下1階に行く"
+      ],
+      "optionsVi": [
+        "Quay lại quầy lễ tân",
+        "Đợi đến khi được gọi tên",
+        "Đến quầy số 4",
+        "Xuống tầng hầm B1"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-036",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track07.mp3",
+      "scenario": "大学の食堂で、女の学生が友だちの男の学生と話しています。男の学生はこのあと何をしますか。",
+      "scenarioVi": "Tại căng tin trường đại học, một nữ sinh viên đang nói chuyện với bạn nam sinh viên. Nam sinh viên sẽ làm gì sau đó?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "鈴木君、これ、北海道のおみやげ。生菓子だから早めに食べてね。"
+        },
+        {
+          "speaker": "男",
+          "text": "ありがとう。"
+        },
+        {
+          "speaker": "女",
+          "text": "いいえ。……あ、それでお伺いなんだけど。午後の授業、マキと一緒だったでしょ？ これ、渡してくれる？ 同じもの。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかった。"
+        },
+        {
+          "speaker": "女",
+          "text": "本当は直接渡したいんだけど、明日授業で発表なの。準備が大変で……。今日もこれからずっと図書館。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、ぼくもレポート書かなきゃ。これから忙しくなりそうだな。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃ、私、そろそろ行くね。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。じゃ、渡しとくよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "お願いね。彼女によろしく言っといて。"
+        }
+      ],
+      "question": "男の学生はこのあと何をしますか。",
+      "questionVi": "Nam sinh viên sẽ làm gì sau đó?",
+      "options": [
+        "おみやげを渡す",
+        "発表をする",
+        "図書館に行く",
+        "レポートを書く"
+      ],
+      "optionsVi": [
+        "Tặng quà lưu niệm",
+        "Thuyết trình",
+        "Đi thư viện",
+        "Viết báo cáo"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-037",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track08.mp3",
+      "scenario": "女の人が美容院の人と電話で話しています。女の人はいつ美容院に行きますか。",
+      "scenarioVi": "Một phụ nữ đang gọi điện thoại cho tiệm làm tóc. Người phụ nữ sẽ đến tiệm làm tóc khi nào?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あの、カットの予約をしたいんですが。"
+        },
+        {
+          "speaker": "男",
+          "text": "ありがとうございます。いつがよろしいですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "あさっての午後でお願いしたいんですが。"
+        },
+        {
+          "speaker": "男",
+          "text": "あさっての……木曜の午後ですね。担当者のご希望はございますか。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、はい。田中さんでお願いします。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ございません、田中はあさっての午後は予約がいっぱいでして……。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか……。じゃ、午前の早い時間ならどうですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ございません。午前もちょっと……。明日の午後遅めの時間なら、予約をお取りできますが。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。じゃ、6時でお願いします。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、はい、ありがとうございます。では、6時にお待ちしております。"
+        }
+      ],
+      "question": "女の人はいつ美容院に行きますか。",
+      "questionVi": "Người phụ nữ sẽ đến tiệm làm tóc khi nào?",
+      "options": [
+        "水曜日の朝",
+        "水曜日の夕方",
+        "木曜日の朝",
+        "木曜日の夕方"
+      ],
+      "optionsVi": [
+        "Sáng thứ Tư",
+        "Chiều tối thứ Tư",
+        "Sáng thứ Năm",
+        "Chiều tối thứ Năm"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-038",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track09.mp3",
+      "scenario": "二人の学生が、学校の掲示板を見て話しています。二人はこれ から、どこに行きますか。",
+      "scenarioVi": "Hai học sinh đang xem bảng thông báo của trường và trò chuyện. Hai người sắp sửa đi đâu?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あ、見て、これ。"
+        },
+        {
+          "speaker": "女",
+          "text": "留学説明会？"
+        },
+        {
+          "speaker": "男",
+          "text": "そう。イギリスとアメリカ。"
+        },
+        {
+          "speaker": "女",
+          "text": "留学するつもりなの？"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、どこか行きたいと思ってる。"
+        },
+        {
+          "speaker": "女",
+          "text": "私も。21日……あ、今日だね。場所は？"
+        },
+        {
+          "speaker": "男",
+          "text": "212教室。たぶんパソコンルームのとなりだ。一緒に聞きに行かない？"
+        },
+        {
+          "speaker": "女",
+          "text": "いいよ。図書館はそのあとにする。"
+        }
+      ],
+      "question": "二人はこれ から、どこに行きますか。",
+      "questionVi": "Hai người sắp sửa đi đâu?",
+      "options": [
+        "図書館",
+        "212教室",
+        "パソコンルーム",
+        "イギリスかアメリカ"
+      ],
+      "optionsVi": [
+        "Thư viện",
+        "Phòng học 212",
+        "Phòng máy tính",
+        "Anh hoặc Mỹ"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-039",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track10.mp3",
+      "scenario": "学生が先生と話しています。レポートはいつまでに 出さなければなりませんか。",
+      "scenarioVi": "Học sinh đang nói chuyện với giáo viên. Báo cáo phải được nộp chậm nhất là khi nào?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "先生、すみません、来週ちょっとお休みしたいんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "いいですけど、最近、ちょっと欠席が多いですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "すみません、ちょっと事情がありまして……。レポートはきちんと出しますので。"
+        },
+        {
+          "speaker": "女",
+          "text": "来週の授業の時に提出してもらうことになってるけど、どうしますか。"
+        },
+        {
+          "speaker": "男",
+          "text": "さ来週の授業まで待っていただけないでしょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "それはちょっと遅いですね。……じゃあ、来週の授業の翌日を締め切りにします。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。"
+        }
+      ],
+      "question": "レポートはいつまでに 出さなければなりませんか。",
+      "questionVi": "Báo cáo phải được nộp chậm nhất là khi nào?",
+      "options": [
+        "来週の授業の時",
+        "来週の授業のつぎの日",
+        "さ来週の授業の時",
+        "さ来週の授業のつぎの日"
+      ],
+      "optionsVi": [
+        "Buổi học tuần sau",
+        "Ngày hôm sau buổi học tuần sau",
+        "Buổi học tuần sau nữa",
+        "Ngày hôm sau buổi học tuần sau nữa"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-040",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track11.mp3",
+      "scenario": "女の人が近所の人に声をかけられて、話をしています。森さんは何を習っていますか。",
+      "scenarioVi": "Một người phụ nữ được người hàng xóm bắt chuyện và đang trò chuyện. Chị Mori đang học môn gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あっ、森さん、どちらへ？"
+        },
+        {
+          "speaker": "女",
+          "text": "あっ、田中さん。ふじスポーツクラブに行くところなんです。今日はこれからヨガ教室があって。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。ヨガ、体にいいですよね。私はあそこでエアロビクスをやってますけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "私も初めはエアロビクスをやるつもりだったんです。でも、曜日が合わなくて。今はヨガと、あと、ときどき泳ぎます。"
+        },
+        {
+          "speaker": "女",
+          "text": "私は踊るのばっかりです。ジャズダンスとか。……私も今度やってみようかなあ。"
+        },
+        {
+          "speaker": "女",
+          "text": "いい先生ですよ、とっても。……あ、すみません。もう行かなきゃ。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、ごめんなさい、お引き止めしちゃって。"
+        },
+        {
+          "speaker": "女",
+          "text": "いえいえ。じゃあ、失礼します。"
+        }
+      ],
+      "question": "森さんは何を習っていますか。",
+      "questionVi": "Chị Mori đang học môn gì?",
+      "options": [
+        "エアロビクス",
+        "ヨガ",
+        "ジャズダンス",
+        "水泳"
+      ],
+      "optionsVi": [
+        "Aerobic",
+        "Yoga",
+        "Jazz dance",
+        "Bơi lội"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-041",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track12.mp3",
+      "scenario": "デパートで女の人が店員と話しています。女の人は何を買いますか。",
+      "scenarioVi": "Tại cửa hàng bách hóa, một người phụ nữ đang nói chuyện với nhân viên. Người phụ nữ sẽ mua gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あのう、すみません、このスカート、安くなってないんですけど。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ありません、こちらの商品はセール対象外となっておりますので。"
+        },
+        {
+          "speaker": "女",
+          "text": "えっ、対象外があるんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。セール品には値札にこのようなシールが付いておりまして、付いていないものは対象外になります。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうなんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。青いシールは20%オフ、黄色は30%オフ、赤いシールは50%オフとなっております。"
+        },
+        {
+          "speaker": "女",
+          "text": "なるほど。じゃ、このシャツは赤いシールだから50%オフってことですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、そうです。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃ、せっかくだから、色違いでもう一つ買おうかな。"
+        }
+      ],
+      "question": "女の人は何を買いますか。",
+      "questionVi": "Người phụ nữ sẽ mua gì?",
+      "options": [
+        "スカートを2枚",
+        "シャツを2枚",
+        "スカートとシャツを1枚ずつ",
+        "スカートとシャツを2枚ずつ"
+      ],
+      "optionsVi": [
+        "2 chiếc váy",
+        "2 chiếc áo sơ mi",
+        "1 chiếc váy và 1 chiếc áo sơ mi",
+        "2 chiếc váy và 2 chiếc áo sơ mi"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-042",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track13.mp3",
+      "scenario": "店で男の人と女の人が話しています。女の人は、パソコンを選ぶとき、何を一番気にしますか。",
+      "scenarioVi": "Tại cửa hàng, nam và nữ nhân viên đang nói chuyện. Khi chọn máy tính, người phụ nữ quan tâm nhất điều gì?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ねえ、これは？ すごく軽いよ。デザインもまあまあだし。"
+        },
+        {
+          "speaker": "女",
+          "text": "わ、ほんと、軽い。……でも、なんだかすぐこわれそう。"
+        },
+        {
+          "speaker": "男",
+          "text": "そんなことないよ。ま、床に落としたりすると、わからないけど。……あ、これはどう？ 最新だけど、かなり安くなってるよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "ほんとだ！ ……でも、いかにも仕事用って感じ。いくら安くても、デザインがよくないのはちょっとなあ……。"
+        },
+        {
+          "speaker": "男",
+          "text": "ぜいたく言ってると、何も買えないよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "うん。ま、予算が決まってるから、その範囲で買うけどね。"
+        }
+      ],
+      "question": "女の人は、パソコンを選ぶとき、何を一番気にしますか。",
+      "questionVi": "Khi chọn máy tính, người phụ nữ quan tâm nhất điều gì?",
+      "options": [
+        "値段",
+        "重さ",
+        "丈夫かどうか",
+        "デザイン"
+      ],
+      "optionsVi": [
+        "Giá cả",
+        "Trọng lượng",
+        "Độ bền",
+        "Thiết kế"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-043",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track14.mp3",
+      "scenario": "店長が、新人のアルバイト社員に説明しています。してはいけないことは何ですか。",
+      "scenarioVi": "Cửa hàng trưởng đang giải thích cho nhân viên bán thời gian mới. Điều gì KHÔNG ĐƯỢC phép làm?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "では、今日からよろしくお願いします。まず、仕事中に気をつけていただきたいのは、お客さんへの応対です。気持ちよく買い物をしていただくために、応対の際の表情や言葉使いには十分注意してください。特に、挨拶は笑顔で大きな声で。それから、お客さんに何か聞かれて答えられない場合は、「わかりません」で終わるのではなく、すぐに私や先輩社員に聞いてください。また、お客さんの言葉がよく聞き取れなかったり、聞き逃してしまった場合は、必ず確認してください。お客さんがこの店にまた来たいと思うかどうかは、皆さん一人一人の接客態度にかかっています。そのことを忘れないでください。"
+        }
+      ],
+      "question": "してはいけないことは何ですか。",
+      "questionVi": "Điều gì KHÔNG ĐƯỢC phép làm?",
+      "options": [
+        "店の中で大きな声を出すこと",
+        "自分の表情を気にすること",
+        "客に同じことを二度言わせること",
+        "客に何か聞かれたときに、すぐ「わからない」と答えること"
+      ],
+      "optionsVi": [
+        "Nói lớn tiếng trong cửa hàng",
+        "Quan tâm đến biểu cảm của bản thân",
+        "Bắt khách hàng lặp lại điều đã nói hai lần",
+        "Trả lời ngay \"tôi không biết\" khi khách hỏi điều gì đó"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-044",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track31.mp3",
+      "scenario": "女の友だち二人が渋谷で待ち合わせをしました。二人はこれからどうしますか。",
+      "scenarioVi": "Hai người bạn nữ hẹn gặp nhau ở Shibuya. Hai người sẽ làm gì tiếp theo?",
+      "turns": [
+        {
+          "speaker": "女2",
+          "text": "はい。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、ぼくだけど、電車が止まっちゃって、当分動きそうにないんだ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "えっ、そうなの？ 映画始まっちゃうよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "ごめん。そのあとって何時だっけ？"
+        },
+        {
+          "speaker": "女2",
+          "text": "次は……６時４０分から。"
+        },
+        {
+          "speaker": "男",
+          "text": "それじゃ、だめ？"
+        },
+        {
+          "speaker": "女2",
+          "text": "いいけど、それまで何するの？ 散歩なんて言わないでよ、２時間もあるんだから。"
+        },
+        {
+          "speaker": "男",
+          "text": "ご飯食べちゃおうよ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "そうね、わかった。じゃあ、電車が動き出したら、ケイタイにメールしてくれる？"
+        },
+        {
+          "speaker": "男",
+          "text": "わかった。"
+        }
+      ],
+      "question": "二人はこれからどうしますか。",
+      "questionVi": "Hai người sẽ làm gì tiếp theo?",
+      "options": [
+        "食事をする",
+        "お茶を飲む",
+        "映画を見る",
+        "コンサート会場に行く"
+      ],
+      "optionsVi": [
+        "Đi ăn",
+        "Uống trà",
+        "Xem phim",
+        "Đến địa điểm hòa nhạc"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-045",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track32.mp3",
+      "scenario": "男の人と女の人が電話で話しています。男の人は女の人と会って、まず何をしますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện qua điện thoại. Nam nhân viên gặp nữ nhân viên rồi thì trước tiên sẽ làm gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ごめん、ごめん。待った？"
+        },
+        {
+          "speaker": "男",
+          "text": "だいじょうぶ。私もさっき着いたばかりだから。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう、よかった。コンサートが始まるまで、まだだいぶあるね。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、７時５分からだからね。ねえ、私、おなか空いちゃったんだけど、何か食べない？"
+        },
+        {
+          "speaker": "女",
+          "text": "いいよ、そうしようか。どこにする？"
+        },
+        {
+          "speaker": "男",
+          "text": "そうね……。じゃあ、あそこは？ 映画館のとなりにあるイタリアンのお店。"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、あそコのパスタ、おいしかったよね。うん、あそこにしよう。"
+        }
+      ],
+      "question": "男の人は女の人と会って、まず何をしますか。",
+      "questionVi": "Nam nhân viên gặp nữ nhân viên rồi thì trước tiên sẽ làm gì?",
+      "options": [
+        "電車に乗る",
+        "散歩する",
+        "メールを送る",
+        "ご飯を食べる"
+      ],
+      "optionsVi": [
+        "Đi tàu điện",
+        "Đi dạo",
+        "Gửi email",
+        "Đi ăn cơm"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-046",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track33.mp3",
+      "scenario": "会社で、女の人が男の人と話しています。女の人はこれはどうしますか。",
+      "scenarioVi": "Tại công ty, một nữ nhân viên đang nói chuyện với nam nhân viên. Nữ nhân viên sẽ làm gì với việc này?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あっ、川口さん。今日は早いですね。"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ。ここのところ、毎日残業だったから。今日はがんばって、時間どおりに仕事を終わらせたんです。"
+        },
+        {
+          "speaker": "男",
+          "text": "それがいいですよ。……あっ、雨、降ってきちゃいましたね。"
+        },
+        {
+          "speaker": "女",
+          "text": "ほんとだ。どうしよう、かさ、持ってこなかった。"
+        },
+        {
+          "speaker": "男",
+          "text": "じゃあ、駅まで一緒にどうですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。じゃあ、すみません、そこのコンビニまでいいですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "いいですよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "……あっ、そうだ！ ロッカーに置きがさがあったんだ。……すみません、たぶんだいじょうぶだと思います。あの、どうぞお先に。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。じゃあ、すみません、お先に失礼します。"
+        },
+        {
+          "speaker": "女",
+          "text": "お疲れさまです。"
+        }
+      ],
+      "question": "女の人はこれはどうしますか。",
+      "questionVi": "Nữ nhân viên sẽ làm gì với việc này?",
+      "options": [
+        "残業する",
+        "同りょうといっしょに帰る",
+        "かさを買う",
+        "かさを取りにもどる"
+      ],
+      "optionsVi": [
+        "Làm thêm giờ",
+        "Về cùng đồng nghiệp",
+        "Mua ô",
+        "Quay lại lấy ô"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-047",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track34.mp3",
+      "scenario": "店長とアルバイト店員が話しています。アルバイト店員は、このあと何をしますか。",
+      "scenarioVi": "Cửa hàng trưởng và nhân viên bán hàng làm thêm đang nói chuyện. Nhân viên bán hàng sẽ làm gì sau đây?",
+      "turns": [
+        {
+          "speaker": "男1",
+          "text": "あ、山本君、ちょっといい？ その雑誌の片づけは森さんに代わってもらって。"
+        },
+        {
+          "speaker": "男2",
+          "text": "あ、はい。じゃあ、森さん、あとよろしくお願いします。"
+        },
+        {
+          "speaker": "男1",
+          "text": "店の前なんだけど、風であちこちにゴミが落ちてるんだよ。ほら、特にその辺、ね。"
+        },
+        {
+          "speaker": "男2",
+          "text": "そうですね。"
+        },
+        {
+          "speaker": "男1",
+          "text": "この辺、きれいにしといてくれる？"
+        },
+        {
+          "speaker": "男2",
+          "text": "わかりました。"
+        },
+        {
+          "speaker": "男1",
+          "text": "あ、それから、レジ横のパンフレットも整理しておいてね。"
+        },
+        {
+          "speaker": "男2",
+          "text": "はい。……あ、パンフレットは、さっき届いた新しいのに差し替えたほうがいいですよね。"
+        },
+        {
+          "speaker": "男1",
+          "text": "そうだね。でも、まあ、それはそうじのあとでいいよ。"
+        },
+        {
+          "speaker": "男2",
+          "text": "わかりました。"
+        }
+      ],
+      "question": "アルバイト店員は、このあと何をしますか。",
+      "questionVi": "Nhân viên bán hàng sẽ làm gì sau đây?",
+      "options": [
+        "店の前をそうじする",
+        "ゴミを捨てに行く",
+        "ざっしをかたづける",
+        "新しいパンフレットを置く"
+      ],
+      "optionsVi": [
+        "Quét dọn trước cửa hàng",
+        "Đi đổ rác",
+        "Dọn dẹp tạp chí",
+        "Đặt tờ rơi mới"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-048",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track35.mp3",
+      "scenario": "外国人の男の人と、日本人の女の人が話しています。男の人何を習うことにしましたか。",
+      "scenarioVi": "Một nam người nước ngoài và một nữ người Nhật đang nói chuyện. Nam nhân viên đã quyết định học môn gì?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "今、せっかく日本にいるんだから、何か日本のスポーツを習ってみたいと思っているんです。何がいいでしょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですねえ……。リンさんはお国では、何かやっていましたか。"
+        },
+        {
+          "speaker": "男",
+          "text": "サッカーをやりました。あ、「けまり」はどうですか。日本の伝統的なスポーツですよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "まあ、それはそうですけど……。でも「けまり」は昔のもので、今はやる人がほとんどいないですからねえ。伝統的なスポーツといったら、やっぱり、空手とか柔道とかでしょうね。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。会社の近くにできるところはありますか。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう言えば、木村さんが柔道の道場に通っているそうですよ。聞いてみたらどうですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。じゃあ、聞いてみます。ありがとうございました。"
+        }
+      ],
+      "question": "男の人何を習うことにしましたか。",
+      "questionVi": "Nam nhân viên đã quyết định học môn gì?",
+      "options": [
+        "日本の音楽",
+        "日本の料理",
+        "けまり",
+        "空手か柔道"
+      ],
+      "optionsVi": [
+        "Âm nhạc Nhật Bản",
+        "Ẩm thực Nhật Bản",
+        "Cầu lông",
+        "Karate hoặc Judo"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-049",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track36.mp3",
+      "scenario": "本屋で男の人と女の人が話しています。男の人はこのあと何階に行きますか。",
+      "scenarioVi": "Tại hiệu sách, một nam nhân viên và một nữ nhân viên đang nói chuyện. Nam nhân viên sẽ đi lên tầng mấy sau đây?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "すみません。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、いらっしゃいませ。"
+        },
+        {
+          "speaker": "男",
+          "text": "あのう、３歳くらいの子供向けの絵本を探しているんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "小さいお子様向けの絵本は２階にございます。あと、１階の新刊コーナーでも、最近話題になった絵本をいくつかく置いてあります。あちらになります。"
+        },
+        {
+          "speaker": "男",
+          "text": "あの、このタイトルの本なんですが……。"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、こちらでしたら、２階の中央になります。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。ありがとうございます。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、それから４階では、海外の人気絵本作家を紹介する特別展示会も行っておりますので、ぜひご覧ください。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。じゃ、あとでちょっと見てみます。"
+        }
+      ],
+      "question": "男の人はこのあと何階に行きますか。",
+      "questionVi": "Nam nhân viên sẽ đi lên tầng mấy sau đây?",
+      "options": [
+        "1階",
+        "2階",
+        "3階",
+        "4階"
+      ],
+      "optionsVi": [
+        "Tầng 1",
+        "Tầng 2",
+        "Tầng 3",
+        "Tầng 4"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-050",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track37.mp3",
+      "scenario": "男の人はスポーツセンターに電話しています。男の人は何曜日のコースに申し込みましたか。",
+      "scenarioVi": "Nam nhân viên đang gọi điện đến trung tâm thể thao. Nam nhân viên đã đăng ký khóa học vào thứ mấy?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "はい、西浜スポーツセンターです。"
+        },
+        {
+          "speaker": "男",
+          "text": "あのう、水泳教室に申し込みたいんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "どちらのコースをご希望でしょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "コース？ えーっと、全然泳げないんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。でしたら、初級コースですね。火曜日と土曜日の午前上にありますが。"
+        },
+        {
+          "speaker": "男",
+          "text": "火曜と土曜ですか。……じゃあ、土曜日でお願いします。"
+        },
+        {
+          "speaker": "女",
+          "text": "かしこまりました。では、お名前とご住所からお願いします。……"
+        }
+      ],
+      "question": "男の人は何曜日のコースに申し込みましたか。",
+      "questionVi": "Nam nhân viên đã đăng ký khóa học vào thứ mấy?",
+      "options": [
+        "火曜日の初級コース",
+        "火曜日の上級コース",
+        "土曜日の初級コース",
+        "土曜日の上級コース"
+      ],
+      "optionsVi": [
+        "Khóa cơ bản ngày thứ Ba",
+        "Khóa nâng cao ngày thứ Ba",
+        "Khóa cơ bản ngày thứ Bảy",
+        "Khóa nâng cao ngày thứ Bảy"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-051",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track38.mp3",
+      "scenario": "男の人が図書館の係の人と話しています。男の人は、このあとどうしますか。",
+      "scenarioVi": "Nam nhân viên đang nói chuyện với nhân viên thư viện. Nam nhân viên sẽ làm gì sau đây?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "この３冊、お願いします。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい……。あっ、これは貸し出しができないんです。"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ、どうしてですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "ここに「禁帯出」っていうシールが貼ってある本は、貸し出しができないんです。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうなんですか。困ったなあ。"
+        },
+        {
+          "speaker": "女",
+          "text": "ここでご覧になるのは、もちろんけっこうですが。"
+        },
+        {
+          "speaker": "男",
+          "text": "コピーはしてもいいんですよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい。コピー機は３階にございます。"
+        },
+        {
+          "speaker": "男",
+          "text": "３階ですね。わかりました。じゃ、とりあえず、この２冊、お願いします。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい。７月１５日までです。"
+        }
+      ],
+      "question": "男の人は、このあとどうしますか。",
+      "questionVi": "Nam nhân viên sẽ làm gì sau đây?",
+      "options": [
+        "元の場所に戻す",
+        "コピーをする",
+        "3階に行って借りる",
+        "シールをとる"
+      ],
+      "optionsVi": [
+        "Đặt về chỗ cũ",
+        "Photo tài liệu",
+        "Đi lên tầng 3 để mượn",
+        "Bóc nhãn dán"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-052",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track39.mp3",
+      "scenario": "男の人と女の人が、ある料理について話しています。女の人はどうしてその料理を食べないのですか。",
+      "scenarioVi": "Nam nhân viên và nữ nhân viên đang nói chuyện về một món ăn nào đó. Tại sao nữ nhân viên lại không ăn món đó?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あれ？ それ食べないの？"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、ちょっと苦手。"
+        },
+        {
+          "speaker": "男",
+          "text": "どうして？ おいしいじゃない？"
+        },
+        {
+          "speaker": "女",
+          "text": "うん……。味はそれほどきらいじゃないんだけど、どうも、このにおいが……。"
+        },
+        {
+          "speaker": "男",
+          "text": "そう？ ぼくは全然気にならない。"
+        },
+        {
+          "speaker": "女",
+          "text": "まあ、好きな人はそうなんでしょうね。"
+        },
+        {
+          "speaker": "男",
+          "text": "このもちもちした食感はけっこう好きだし。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃあ、これ、全部あげるね。"
+        }
+      ],
+      "question": "女の人はどうしてその料理を食べないのですか。",
+      "questionVi": "Tại sao nữ nhân viên lại không ăn món đó?",
+      "options": [
+        "味が好きじゃないから",
+        "においが好きじゃないから",
+        "見た目が気持ちわるいから",
+        "食感が好きじゃないから"
+      ],
+      "optionsVi": [
+        "Vì không thích hương vị",
+        "Vì không thích mùi hương",
+        "Vì hình thức trông ghê",
+        "Vì không thích kết cấu"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-053",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track40.mp3",
+      "scenario": "夫婦がデパートにいます。女の人は、何を買いますか。",
+      "scenarioVi": "Hai vợ chồng đang ở trung tâm thương mại. Nữ nhân viên sẽ mua gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あっ、このワンピース、かわいい！ 値段も安い！"
+        },
+        {
+          "speaker": "男",
+          "text": "今日はスカートを買いに来たんじゃないの？ 仕事にはいて行けるやつがほしいんでしょ。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうよ。でも、ほかのもちょっとぐらい見たっていいじゃない。"
+        },
+        {
+          "speaker": "男",
+          "text": "ちょっとって、ここに来てからもう３０分もたってるよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "ちょっと待ってよ、もうすぐ終わるから。ヒロもセーターとか買ったら？ そういえば、マフラーがほしいって言ってたじゃない。見てきたら？"
+        },
+        {
+          "speaker": "男",
+          "text": "今日はいいよ。それよりあのスカートは？ かわいいと思うけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "うーん、かわいすぎるというか、ちょっと好みじゃないなあ。……やっぱり、さっきのワンピースがいいな。"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ、スカートは？"
+        },
+        {
+          "speaker": "女",
+          "text": "いいよ、スカートは、また今度で。"
+        }
+      ],
+      "question": "女の人は、何を買いますか。",
+      "questionVi": "Nữ nhân viên sẽ mua gì?",
+      "options": [
+        "ワンピース",
+        "スカート",
+        "セーター",
+        "マフラー"
+      ],
+      "optionsVi": [
+        "Đầm liền",
+        "Chân váy",
+        "Áo len",
+        "Khăn choàng"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-054",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track41.mp3",
+      "scenario": "友だち二人で、夏の予定について話しています。二人はどこへ行くことにしましたか。",
+      "scenarioVi": "Hai người bạn đang nói chuyện về kế hoạch mùa hè. Hai người đã quyết định đi đâu?",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "さくらは夏休み、どこか行く？"
+        },
+        {
+          "speaker": "女2",
+          "text": "別に予定ないけど。デパートのアルバイトが忙しくなりそうだし。"
+        },
+        {
+          "speaker": "女1",
+          "text": "そう。"
+        },
+        {
+          "speaker": "女2",
+          "text": "何で？"
+        },
+        {
+          "speaker": "女1",
+          "text": "うん。京都に行きたいと思って。"
+        },
+        {
+          "speaker": "女2",
+          "text": "京都？ 夏は暑いでしょ？"
+        },
+        {
+          "speaker": "女1",
+          "text": "そうみたいね。でも行きたくて。"
+        },
+        {
+          "speaker": "女2",
+          "text": "京都より北海道に行こうよ。涼しいし、自然はきれいだし。"
+        },
+        {
+          "speaker": "女1",
+          "text": "北海道か……。悪くないかもね。でも、さくらはアルバイトで忙しいんじゃないの？"
+        },
+        {
+          "speaker": "女2",
+          "text": "そうなんだけど、８月の最後の週はアルバイト入れてないから。そのころでよければ。"
+        },
+        {
+          "speaker": "女1",
+          "text": "……じゃあ、北海道にしようかなあ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "そうしようよ。京都はまた秋とか冬に行けばいいじゃない。そのほうがきれいだし。"
+        },
+        {
+          "speaker": "女1",
+          "text": "わかった。８月の最後の週ね。"
+        }
+      ],
+      "question": "二人はどこへ行くことにしましたか。",
+      "questionVi": "Hai người đã quyết định đi đâu?",
+      "options": [
+        "学校",
+        "デパート",
+        "京都",
+        "北海道"
+      ],
+      "optionsVi": [
+        "Trường học",
+        "Trung tâm thương mại",
+        "Kyoto",
+        "Hokkaido"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-055",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track42.mp3",
+      "scenario": "大学で、女の学生が発表をしています。女の学生が心配しているのはどんなことですか。",
+      "scenarioVi": "Tại trường đại học, nữ sinh viên đang thuyết trình. Nữ sinh viên đang lo lắng về điều gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "日本では、少子化、つまり子供の数が減っていることが大問題になっています。同時に、高齢化、つまりお年寄りが増えていくことも問題になっています。人口の構成はピラミッド型が理想ですが、日本ではこれが崩れているわけです。しかしその一方で、世界に目を向けると、少子化どころか、人口はどんどん増え続けいます。もし、世界中の人々が物質的に豊かな生活をめざすと、６０年後には地球の資源はなくなり、人間は誰も生きられなくなってしまうと、この本には書いてあります。私が心配しているのは、このことなんです。"
+        }
+      ],
+      "question": "女の学生が心配しているのはどんなことですか。",
+      "questionVi": "Nữ sinh viên đang lo lắng về điều gì?",
+      "options": [
+        "だれも生きられなくなること",
+        "子どもの数がへっていること",
+        "お年寄りがふえていくこと",
+        "世界の人口がふえつづけていること"
+      ],
+      "optionsVi": [
+        "Không ai có thể sống được nữa",
+        "Số lượng trẻ em đang giảm",
+        "Số lượng người cao tuổi đang tăng",
+        "Dân số thế giới tiếp tục tăng"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-speedmaster-n3-065",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track44.mp3",
+      "scenario": "図書館で男の人が女の人と話しています。",
+      "scenarioVi": "Một nam một nữ đang nói chuyện ở thư viện.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あのう、すみません、こちらで5冊本を借りて、今日返しに来たんですが、1冊が見つからなかったんです。とりあえず今日、4冊持ってきたんですが、どうしたらいいでしょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "すみません、カードをお借りできますか。……えーっと、何という本ですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "日本漫画研究です。"
+        },
+        {
+          "speaker": "女",
+          "text": "この前借りられたのが10月15日なんですが、その本は入ってませんよ。その日は4冊しか借りていらっしゃらないです。"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ、そうなんですか。でも、借りて読んでたんですが。"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ。前回借りていらっしゃいます。10月3日です。でも、そのあと、ちゃんと返していらっしゃいますよ。その前にも一度お借りになってますけど。"
+        },
+        {
+          "speaker": "男",
+          "text": "じゃ、今、借りてないんですね。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですね。システム上も、ずっと在庫1のままですし。おそらく棚にあるはずですよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。わかりました。"
+        }
+      ],
+      "question": "女の人は、男の人にどういうことを伝えましたか。",
+      "questionVi": "Người phụ nữ đã truyền đạt điều gì cho người nam?",
+      "options": [
+        "借りた本はちゃんと返してほしい",
+        "その本を返すのは次に来るときでもいい",
+        "今ならその本を借りることが出来る",
+        "その本は今借りていない"
+      ],
+      "optionsVi": [
+        "Muốn trả lại sách đã mượn cho đúng hạn",
+        "Trả sách vào lần tới đến cũng được",
+        "Bây giờ có thể mượn cuốn sách đó",
+        "Hiện tại không mượn cuốn sách đó"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-070",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track49.mp3",
+      "scenario": "町にアナウンスが流れています。",
+      "scenarioVi": "Có thông báo phát trên loa ở thị trấn.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "さくら商店街では、明日から2週間、夏の感謝セールを行います。期間中は、すべてのお店で全品2割引、最高でなんと8割引でのご提供となります。しかも、食品をお買い上げの場合は、サービスシールが2倍になります。さくら商店街のサービスシールは有効期限はありませんので、いつでもお使いいただけます。また、5,000円以上お買い上げの方を対象に、北海道旅行などが当たる、お楽しみプレゼント企画もご用意しております。どうぞ皆様、さくら商店街にお立ち寄りください。"
+        }
+      ],
+      "question": "何についてのお知らせですか。",
+      "questionVi": "Đây là thông báo về điều gì?",
+      "options": [
+        "セールが始まること",
+        "食べ物が安いこと",
+        "サービスシールが使える期間",
+        "参加した人がプレゼントをもらえること"
+      ],
+      "optionsVi": [
+        "Sắp bắt đầu đợt giảm giá",
+        "Đồ ăn giá rẻ",
+        "Thời hạn sử dụng tem dịch vụ",
+        "Người tham gia sẽ nhận được quà"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-071",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track50.mp3",
+      "scenario": "ホテルで、係の男の人が客に説明しています。",
+      "scenarioVi": "Nhân viên nam đang giải thích cho khách tại khách sạn.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "……では、お風呂についてご説明させていただきます。お風呂は、客室と大浴場とございまして、どちらも温泉を楽しんでいただけます。大浴場は男性用が2階、女性用が3階にございます。大浴場のご利用時間ですが、朝が6時から10時、午後は4時から11時までとなっております。夜が少々早めに閉まりますので、お間違えのないようにお願いします。それからお食事についてですが、ご夕食は7時にお部屋のほうにお持ちします。朝食はバイキングになっておりますので、こちらの食券をお持ちになって、1階「サンシャイン」までお越しください。……"
+        }
+      ],
+      "question": "男の人は、特に何について注意しましたか。",
+      "questionVi": "Nhân viên nam đặc biệt chú ý điều gì?",
+      "options": [
+        "お風呂の利用時間",
+        "お風呂のある場所",
+        "お風呂が温泉でないこと",
+        "食事場が別料金になること"
+      ],
+      "optionsVi": [
+        "Thời gian sử dụng nhà tắm",
+        "Vị trí của nhà tắm",
+        "Nhà tắm không phải là suối nước nóng",
+        "Khu vực ăn uống tính phí riêng"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-072",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track51.mp3",
+      "scenario": "このスカートが気に入りましたが、買う前にはきたいです。店員に何と言いますか。",
+      "scenarioVi": "Bạn thích chiếc váy này nhưng muốn thử trước khi mua. Bạn sẽ nói gì với nhân viên?",
+      "turns": [],
+      "question": "このスカートが気に入りましたが、買う前にはきたいです。店員に何と言いますか。",
+      "questionVi": "Bạn thích chiếc váy này nhưng muốn thử trước khi mua. Bạn sẽ nói gì với nhân viên?",
+      "options": [
+        "あのう、これ穿いたらいいですか？",
+        "あのう、これ穿いてみてもいいですか？",
+        "あのう、これ穿いてみればいいでしょうか？"
+      ],
+      "optionsVi": [
+        "Xin lỗi, mặc cái này được không?",
+        "Xin lỗi, tôi có thể thử mặc cái này không?",
+        "Xin lỗi, tôi thử mặc cái này được chứ nhỉ?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-073",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track52.mp3",
+      "scenario": "宿題のレポートを忘れました。先生に何と言いますか。",
+      "scenarioVi": "Bạn quên nộp báo cáo bài tập. Bạn sẽ nói gì với giáo viên?",
+      "turns": [],
+      "question": "宿題のレポートを忘れました。先生に何と言いますか。",
+      "questionVi": "Bạn quên nộp báo cáo bài tập. Bạn sẽ nói gì với giáo viên?",
+      "options": [
+        "すみません、レポートを明日出しましょうか？",
+        "すみません、レポートを明日出すことにしました。",
+        "すみません、レポートを明日出してもいいですか？"
+      ],
+      "optionsVi": [
+        "Em xin lỗi, mai em nộp báo cáo nhé?",
+        "Em xin lỗi, em quyết định mai sẽ nộp báo cáo.",
+        "Em xin lỗi, ngày mai em nộp báo cáo có được không ạ?"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-074",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track53.mp3",
+      "scenario": "学校で、友だちに明日のことについて聞いています。何と聞きますか。",
+      "scenarioVi": "Ở trường, bạn đang hỏi bạn bè về ngày mai. Bạn sẽ hỏi thế nào?",
+      "turns": [],
+      "question": "学校で、友だちに明日のことについて聞いています。何と聞きますか。",
+      "questionVi": "Ở trường, bạn đang hỏi bạn bè về ngày mai. Bạn sẽ hỏi thế nào?",
+      "options": [
+        "明日も学校へ行く？",
+        "明日も学校に来る？",
+        "明日も学校に通う？"
+      ],
+      "optionsVi": [
+        "Ngày mai cũng đến trường à?",
+        "Ngày mai cậu cũng đến trường chứ?",
+        "Ngày mai cũng đi học à?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-075",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track54.mp3",
+      "scenario": "「ふじ美術館」に行きたいです。バスの運転手に何と言いますか。",
+      "scenarioVi": "Bạn muốn đến \"Bảo tàng mỹ thuật Fuji\". Bạn sẽ nói gì với tài xế xe buýt?",
+      "turns": [],
+      "question": "「ふじ美術館」に行きたいです。バスの運転手に何と言いますか。",
+      "questionVi": "Bạn muốn đến \"Bảo tàng mỹ thuật Fuji\". Bạn sẽ nói gì với tài xế xe buýt?",
+      "options": [
+        "すみません、このバスはフジ美術館で止めますか？",
+        "すみません、このバスはフジ美術館に止まりますか？",
+        "すみません、このバスはフジ美術館を止まりますか？"
+      ],
+      "optionsVi": [
+        "Xin lỗi, xe buýt này dừng ở Bảo tàng Fuji phải không?",
+        "Xin lỗi, xe buýt này có dừng ở Bảo tàng Fuji không?",
+        "Xin lỗi, xe buýt này đỗ ở Bảo tàng Fuji phải không?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-076",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track55.mp3",
+      "scenario": "今、体の具合が悪いです。午後から帰りたいと思っています。上司に何と言いますか。",
+      "scenarioVi": "Bây giờ cơ thể cảm thấy không khỏe. Bạn muốn xin phép về nhà từ buổi chiều. Bạn sẽ nói gì với cấp trên?",
+      "turns": [],
+      "question": "今、体の具合が悪いです。午後から帰りたいと思っています。上司に何と言いますか。",
+      "questionVi": "Bây giờ cơ thể cảm thấy không khỏe. Bạn muốn xin phép về nhà từ buổi chiều. Bạn sẽ nói gì với cấp trên?",
+      "options": [
+        "すみません、体調が悪いので午後を帰らせたいんですが。",
+        "すみません、体調が悪いので午後を帰らせてもよろしいですか？",
+        "すみません、体調が悪いので午後を帰らせていただきたいんですが。"
+      ],
+      "optionsVi": [
+        "Xin lỗi, tôi thấy mệt nên muốn về từ buổi chiều.",
+        "Xin lỗi, tôi thấy mệt, tôi về buổi chiều có được không ạ?",
+        "Xin lỗi, tôi thấy mệt nên xin phép về từ buổi chiều ạ."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-077",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track56.mp3",
+      "scenario": "友だちに30分くらい辞書を貸してほしいと思っています。何と言いますか。",
+      "scenarioVi": "Bạn muốn mượn từ điển của bạn khoảng 30 phút. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "友だちに30分くらい辞書を貸してほしいと思っています。何と言いますか。",
+      "questionVi": "Bạn muốn mượn từ điển của bạn khoảng 30 phút. Bạn sẽ nói gì?",
+      "options": [
+        "ねえ、ちょっとの間、それ貸されない？",
+        "ねえ、ちょっとの間、それ借りられない？",
+        "ねえ、ちょっとの間、それ使わせられない？"
+      ],
+      "optionsVi": [
+        "Này, cho tôi mượn cái đó một lát được không?",
+        "Này, tôi mượn cái đó một lát nhé?",
+        "Này, cho tôi dùng cái đó một lát được không?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-078",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track57.mp3",
+      "scenario": "課長に書類のチェックをお願いしたいです。何と言いますか。",
+      "scenarioVi": "Bạn muốn nhờ Trưởng phòng kiểm tra tài liệu giúp. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "課長に書類のチェックをお願いしたいです。何と言いますか。",
+      "questionVi": "Bạn muốn nhờ Trưởng phòng kiểm tra tài liệu giúp. Bạn sẽ nói gì?",
+      "options": [
+        "課長、すみませんが、これを御チェックしてください。",
+        "課長、すみませんが、これチェックしていただけますか？",
+        "すみません、これを課長にチェックさせたいんですが、よろしいですか？"
+      ],
+      "optionsVi": [
+        "Trưởng phòng, xin lỗi nhưng hãy kiểm tra cái này giúp tôi.",
+        "Trưởng phòng, xin lỗi nhưng anh/chị kiểm tra cái này giúp em được không ạ?",
+        "Xin lỗi, em muốn trưởng phòng kiểm tra cái này, có được không ạ?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-079",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track58.mp3",
+      "scenario": "図書館で辞書を借りたいです。何と言いますか。",
+      "scenarioVi": "Bạn muốn mượn từ điển ở thư viện. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "図書館で辞書を借りたいです。何と言いますか。",
+      "questionVi": "Bạn muốn mượn từ điển ở thư viện. Bạn sẽ nói gì?",
+      "options": [
+        "すみません、この辞書は貸し出しできますか",
+        "すみません、この辞書を貸し出してもいいですか",
+        "すみません、この辞書を貸し出させていただけませんか"
+      ],
+      "optionsVi": [
+        "Xin lỗi, cuốn từ điển này có cho mượn không?",
+        "Xin lỗi, tôi mượn cuốn từ điển này được chứ?",
+        "Xin lỗi, có thể cho tôi mượn cuốn từ điển này được không ạ?"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-080",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track59.mp3",
+      "scenario": "電車に乗る場所を確かめます。駅員に何と言いますか。",
+      "scenarioVi": "Bạn xác nhận vị trí lên tàu điện. Bạn sẽ nói gì với nhân viên nhà ga?",
+      "turns": [],
+      "question": "電車に乗る場所を確かめます。駅員に何と言いますか。",
+      "questionVi": "Bạn xác nhận vị trí lên tàu điện. Bạn sẽ nói gì với nhân viên nhà ga?",
+      "options": [
+        "すみません、大阪行きは5番ホームでいいでしょうか",
+        "すみません、5番のホームは大阪行きでいいでしょうか",
+        "すみません、大阪行きはホームの5番でいいでしょうか"
+      ],
+      "optionsVi": [
+        "Xin lỗi, tàu đi Osaka ở sân ga số 5 phải không?",
+        "Xin lỗi, sân ga số 5 là tàu đi Osaka phải không?",
+        "Xin lỗi, tàu đi Osaka ở sân ga số 5 phải không?"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-081",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track60.mp3",
+      "scenario": "上司に、レポートの締め切りを1日延ばしてほしいと頼みます。何と言いますか。",
+      "scenarioVi": "Bạn nhờ cấp trên gia hạn thời hạn nộp báo cáo thêm 1 ngày. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "上司に、レポートの締め切りを1日延ばしてほしいと頼みます。何と言いますか。",
+      "questionVi": "Bạn nhờ cấp trên gia hạn thời hạn nộp báo cáo thêm 1 ngày. Bạn sẽ nói gì?",
+      "options": [
+        "締め切りを1日伸ばしてもよろしいでしょうか",
+        "締め切りを1日伸ばしていただけないでしょうか",
+        "締め切りを1日伸ばしたいと思うのですが、いかがでしょうか"
+      ],
+      "optionsVi": [
+        "Tôi có thể gia hạn thời hạn thêm 1 ngày được không?",
+        "Anh/chị có thể gia hạn thời hạn thêm 1 ngày giúp tôi được không?",
+        "Tôi muốn xin gia hạn thời hạn thêm 1 ngày, ý anh/chị thế nào ạ?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-082",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track61.mp3",
+      "scenario": "同僚が、会議が終わる時間を心配しています。何と言いますか。",
+      "scenarioVi": "Đồng nghiệp của bạn đang lo lắng về thời gian kết thúc cuộc họp. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "同僚が、会議が終わる時間を心配しています。何と言いますか。",
+      "questionVi": "Đồng nghiệp của bạn đang lo lắng về thời gian kết thúc cuộc họp. Bạn sẽ nói gì?",
+      "options": [
+        "大丈夫、2時には終わるよ",
+        "大丈夫、2時まで終わるよ",
+        "大丈夫、2時には終わるよ"
+      ],
+      "optionsVi": [
+        "Không sao đâu, 2 giờ là xong thôi.",
+        "Không sao đâu, kết thúc đến 2 giờ.",
+        "Không sao đâu, 2 giờ là xong thôi."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-083",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track62.mp3",
+      "scenario": "病院に来ました。初めてのところです。何と言いますか。",
+      "scenarioVi": "Bạn đến bệnh viện. Đây là lần đầu tiên bạn đến đây. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "病院に来ました。初めてのところです。何と言いますか。",
+      "questionVi": "Bạn đến bệnh viện. Đây là lần đầu tiên bạn đến đây. Bạn sẽ nói gì?",
+      "options": [
+        "すみません、初めてなんですがどこに伺いますか",
+        "すみません、初めてなんですがどこに行けばいいですか",
+        "すみません、初めてなんですがどこに行くのがよろしいでしょうか"
+      ],
+      "optionsVi": [
+        "Xin lỗi, đây là lần đầu tôi đến thì hỏi ở đâu?",
+        "Xin lỗi, đây là lần đầu tôi đến thì nên đi đâu?",
+        "Xin lỗi, đây là lần đầu tôi đến thì nên đến đâu ạ?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-084",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track63.mp3",
+      "scenario": "読めない漢字があったとき、先生に何と言いますか。",
+      "scenarioVi": "Khi gặp chữ Hán không đọc được, bạn sẽ nói gì với giáo viên?",
+      "turns": [],
+      "question": "読めない漢字があったとき、先生に何と言いますか。",
+      "questionVi": "Khi gặp chữ Hán không đọc được, bạn sẽ nói gì với giáo viên?",
+      "options": [
+        "すみません、この字は何と読むんでしょうか",
+        "よろしかったらこの字の読み方を私にお教えになりませんか",
+        "すみません、この字が読めないんですが、先生はお読みになれますか"
+      ],
+      "optionsVi": [
+        "Xin lỗi thầy/cô, chữ này đọc thế nào ạ?",
+        "Nếu thầy/cô không phiền, thầy/cô dạy tôi cách đọc chữ này được không?",
+        "Xin lỗi thầy/cô, em không đọc được chữ này, thầy/cô đọc giúp em được không ạ?"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-085",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track64.mp3",
+      "scenario": "別のサイズがないか、店員に尋ねます。何と言いますか。",
+      "scenarioVi": "Bạn hỏi nhân viên cửa hàng xem có kích cỡ khác không. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "別のサイズがないか、店員に尋ねます。何と言いますか。",
+      "questionVi": "Bạn hỏi nhân viên cửa hàng xem có kích cỡ khác không. Bạn sẽ nói gì?",
+      "options": [
+        "すみません、これのMサイズはありませんか",
+        "すみません、これのMサイズが欲しいです",
+        "すみません、これのMサイズは持ってませんか"
+      ],
+      "optionsVi": [
+        "Xin lỗi, cái này có size M không?",
+        "Xin lỗi, tôi muốn mua cái này size M.",
+        "Xin lỗi, cái này bạn có size M không?"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-086",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track65.mp3",
+      "scenario": "先生に、荷物を持つことを申し出ます。何と言いますか。",
+      "scenarioVi": "Bạn đề nghị xách hành lý giúp giáo viên. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "先生に、荷物を持つことを申し出ます。何と言いますか。",
+      "questionVi": "Bạn đề nghị xách hành lý giúp giáo viên. Bạn sẽ nói gì?",
+      "options": [
+        "先生、それお持ちしましょう",
+        "先生、それ持ってあげましょうか",
+        "先生、それどうぞお持ちください"
+      ],
+      "optionsVi": [
+        "Thưa thầy/cô, để em xách giúp cho ạ.",
+        "Thưa thầy/cô, tôi xách giúp thầy/cô nhé?",
+        "Thưa thầy/cô, xin mời thầy/cô cứ cầm ạ."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-087",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track66.mp3",
+      "scenario": "友だちが気分が悪そうです。何と言いますか。",
+      "scenarioVi": "Bạn thấy bạn bè có vẻ không khỏe. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "友だ치가気分が悪そうです。何と言いますか。",
+      "questionVi": "Bạn thấy bạn bè có vẻ không khỏe. Bạn sẽ nói gì?",
+      "options": [
+        "なんだか辛そうだね。大丈夫？",
+        "顔色が白いね。病気じゃないの？",
+        "体が悪いみたいだね。元気出して。"
+      ],
+      "optionsVi": [
+        "Trông cậu có vẻ mệt mỏi nhỉ. Không sao chứ?",
+        "Sắc mặt cậu tái quá. Không phải bị ốm đấy chứ?",
+        "Trông cậu có vẻ không khỏe. Cố lên nhé."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-088",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track67.mp3",
+      "scenario": "コンサート会場で、あなたの前に大きな帽子をかぶっている人が座っています。何と言いますか。",
+      "scenarioVi": "Ở buổi hòa nhạc, có một người đội chiếc mũ lớn đang ngồi trước mặt bạn. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "コンサート会場で、あなたの前に大きな帽子をかぶっている人が座っています。何と言いますか。",
+      "questionVi": "Ở buổi hòa nhạc, có một người đội chiếc mũ lớn đang ngồi trước mặt bạn. Bạn sẽ nói gì?",
+      "options": [
+        "すみません、帽子で前がよく見えないんですが",
+        "あの、よろしかったら帽子をお脱ぎになりませんか？",
+        "すみません、どうかここで帽子をかぶるのはやめてください。"
+      ],
+      "optionsVi": [
+        "Xin lỗi, vì chiếc mũ nên tôi không nhìn rõ phía trước...",
+        "À, nếu không phiền, anh/chị có thể bỏ mũ ra được không ạ?",
+        "Xin lỗi, làm ơn đừng đội mũ ở đây nữa."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-089",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track68.mp3",
+      "scenario": "課長にお願いしたいことがあります。どう言いますか。",
+      "scenarioVi": "Bạn có điều muốn nhờ Trưởng phòng. Bạn sẽ nói thế nào?",
+      "turns": [],
+      "question": "課長にお願いしたいことがあります。どう言いますか。",
+      "questionVi": "Bạn có điều muốn nhờ Trưởng phòng. Bạn sẽ nói thế nào?",
+      "options": [
+        "すみません、今日はもう帰らなければなりません。実は、急に祖父が入院することになったんです。",
+        "申し訳ありませんが、急に祖父が入院することになりましたから、今日は帰らせていただきます。",
+        "あの、実は今日、急に祖父が入院することになりまして、これから帰りたいと思うのですが。"
+      ],
+      "optionsVi": [
+        "Xin lỗi, hôm nay tôi phải về ngay. Thật ra, ông tôi đột ngột nhập viện.",
+        "Xin lỗi nhưng vì ông tôi đột ngột nhập viện nên hôm nay tôi xin phép về trước.",
+        "À, thật ra hôm nay ông tôi đột ngột nhập viện, tôi muốn xin phép về từ bây giờ ạ."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-090",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track69.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "お支払いはカードなさいますか、それとも現金なさいますか。"
+        }
+      ],
+      "question": "お支払いはカードなさいますか、それとも現金なさいますか。",
+      "questionVi": "お支払いはカードなさいますか、それとも現金なさいますか。",
+      "options": [
+        "お支払いはカードになさいますか？それとも現金になさいますか？",
+        "現金にします。",
+        "現金をお願いします。",
+        "現金になさいます。"
+      ],
+      "optionsVi": [
+        "Anh/chị thanh toán bằng thẻ hay bằng tiền mặt ạ?",
+        "Tôi trả bằng tiền mặt.",
+        "Cho tôi trả bằng tiền mặt.",
+        "Anh/chị thanh toán bằng tiền mặt."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-091",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track70.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "じゃ、すみません、お先に失礼します。"
+        }
+      ],
+      "question": "じゃ、すみません、お先に失礼します。",
+      "questionVi": "Vậy, xin lỗi nhé, tôi về trước đây.",
+      "options": [
+        "お疲れさまでした。",
+        "どうそ失礼してください。",
+        "お世話になりました。"
+      ],
+      "optionsVi": [
+        "Vất vả cho bạn rồi.",
+        "Mời bạn cứ tự nhiên.",
+        "Cảm ơn sự giúp đỡ của bạn."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-092",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track71.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "レポートの締め切りっていつだっけ？"
+        }
+      ],
+      "question": "レポートの締め切りっていつだっけ？",
+      "questionVi": "Hạn nộp báo cáo là khi nào ấy nhỉ?",
+      "options": [
+        "来週の木曜はどうだっけ？",
+        "来週の木曜がよかったっけ？",
+        "来週の木曜じゃなかったっけ？"
+      ],
+      "optionsVi": [
+        "Thứ Năm tuần sau thế nào?",
+        "Thứ Năm tuần sau tốt nhỉ?",
+        "Chẳng phải là thứ Năm tuần sau sao?"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-093",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track72.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "昨日から熱があって……。体もだるいし。"
+        }
+      ],
+      "question": "昨日から熱があって……。体もだるいし。",
+      "questionVi": "Từ hôm qua tôi đã bị sốt... Người lại thấy mệt mỏi nữa.",
+      "options": [
+        "それは無理だよ。",
+        "無理しちゃダメだよ。",
+        "無理なこと言わないで。"
+      ],
+      "optionsVi": [
+        "Thế thì chịu rồi.",
+        "Đừng có ép bản thân quá nhé.",
+        "Đừng nói những điều vô lý chứ."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-094",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track73.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あのう、今ちょっとよろしいでしょうか。"
+        }
+      ],
+      "question": "あのう、今ちょっとよろしいでしょうか。",
+      "questionVi": "Ừm, bây giờ bạn có chút thời gian không?",
+      "options": [
+        "はい、何でしょうか？",
+        "それはよろしいですね。",
+        "こちらこそよろしくお願いします。"
+      ],
+      "optionsVi": [
+        "Vâng, có chuyện gì thế ạ?",
+        "Thế thì tuyệt quá nhỉ.",
+        "Chính tôi mới phải nhờ anh/chị giúp đỡ."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-095",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track74.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あっ、すみません！　足、大丈夫ですか。"
+        }
+      ],
+      "question": "あっ、すみません！　足、大丈夫ですか。",
+      "questionVi": "Á, xin lỗi bạn! Chân bạn không sao chứ?",
+      "options": [
+        "いいえ、どういたしまして。",
+        "ええ、大したことありません。",
+        "はい、こちらこそ申し訳ありません。"
+      ],
+      "optionsVi": [
+        "Không có gì đâu.",
+        "Vâng, không có gì đáng ngại đâu.",
+        "Vâng, tôi mới là người phải xin lỗi."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-096",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track75.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "悪いけど、このファイルも持ってって。"
+        }
+      ],
+      "question": "悪いけど、このファイルも持ってって。",
+      "questionVi": "Xin lỗi nhé, cầm giúp tôi cả tập tài liệu này nữa.",
+      "options": [
+        "分かった。どこへ？",
+        "いいよ。持ってあげる。",
+        "いいよ。じゃあ一緒に持とうか。"
+      ],
+      "optionsVi": [
+        "Biết rồi. Mang đi đâu?",
+        "Được chứ. Tôi cầm hộ cho.",
+        "Được thôi. Vậy cùng cầm nhé?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-097",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track76.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "今日はどうもありがとうございました。"
+        }
+      ],
+      "question": "今日はどうもありがとうございました。",
+      "questionVi": "Hôm nay cảm ơn anh/chị rất nhiều.",
+      "options": [
+        "いや、結構です。",
+        "いいえ、いいえ。こちらこそ。",
+        "どうぞお気になさらないでください。"
+      ],
+      "optionsVi": [
+        "Không, thế là đủ rồi.",
+        "Không có gì. Chính tôi mới phải cảm ơn.",
+        "Xin đừng bận tâm về điều đó."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-098",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track77.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "会社、ふじ自動車に決まったの？よかったね。"
+        }
+      ],
+      "question": "会社、ふじ自動車に決まったの？よかったね。",
+      "questionVi": "Công ty đã quyết định vào hãng Fuji Jidōsha rồi à? Tốt quá nhỉ.",
+      "options": [
+        "うん、ありがとう。",
+        "うん、よかったね。",
+        "ええ、どういたしまして。"
+      ],
+      "optionsVi": [
+        "Ừ, cảm ơn bạn.",
+        "Ừ, tốt thật đấy nhỉ.",
+        "Vâng, không có gì."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-099",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track78.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "どうぞお入りください。"
+        }
+      ],
+      "question": "どうぞお入りください。",
+      "questionVi": "Mời anh/chị vào trong.",
+      "options": [
+        "すみません。お邪魔します。",
+        "すみません。いただきます。",
+        "ごめんなさい。失礼します。"
+      ],
+      "optionsVi": [
+        "Xin lỗi. Tôi xin phép vào nhé.",
+        "Xin lỗi. Tôi xin phép dùng bữa.",
+        "Xin lỗi nhé. Thất lễ rồi."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-100",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track79.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あれっ、こんなところでどうしたの？"
+        }
+      ],
+      "question": "あれっ、こんなところでどうしたの？",
+      "questionVi": "Ồ, sao bạn lại ở đây thế này?",
+      "options": [
+        "ううん、大丈夫。",
+        "道に迷っちゃって。",
+        "こうした方がいいんです。"
+      ],
+      "optionsVi": [
+        "Không có gì, tôi ổn.",
+        "Tôi bị lạc đường mất rồi.",
+        "Làm thế này thì tốt hơn."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-101",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track80.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "図書館は何時までだったっけ？"
+        }
+      ],
+      "question": "図書館は何時までだったっけ？",
+      "questionVi": "Thư viện mở cửa đến mấy giờ ấy nhỉ?",
+      "options": [
+        "7時までだったって。",
+        "確か7時までだったと思うけど。",
+        "本当に7時までだったの？"
+      ],
+      "optionsVi": [
+        "Nghe nói là đến 7 giờ.",
+        "Tôi nghĩ hình như là đến 7 giờ thì phải.",
+        "Thực sự là đến 7 giờ á?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-102",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track81.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "では、そろそろ失礼します。今日はごちそうさまでした。"
+        }
+      ],
+      "question": "では、そろそろ失礼します。今日はごちそうさまでした。",
+      "questionVi": "Thôi, tôi xin phép về đây. Cảm ơn vì bữa ăn hôm nay nhé.",
+      "options": [
+        "いいえ、お疲れ様でした。",
+        "いいえ、また遊びに来てください。",
+        "いいえ、つまらないものでしたが。"
+      ],
+      "optionsVi": [
+        "Không có gì, anh/chị vất vả rồi.",
+        "Không có gì, hôm nào lại đến chơi nhé.",
+        "Không có gì, chút lòng thành thôi mà."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-103",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track82.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "これ、今日までにやっといたほうがいい？"
+        }
+      ],
+      "question": "これ、今日までにやっといたほうがいい？",
+      "questionVi": "Cái này, có nên làm xong trước hôm nay không nhỉ?",
+      "options": [
+        "そうね、あしたにしましょうか",
+        "そうね、はやいほうがいいけど",
+        "そうね、そのほうがいいね"
+      ],
+      "optionsVi": [
+        "Ừm, để ngày mai đi nhỉ?",
+        "Ừm, làm sớm thì vẫn tốt hơn",
+        "Ừm, thế thì tốt hơn đấy"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-104",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track15.mp3",
+      "scenario": "留学生の男の人が、日本人の友だちと話しています。",
+      "scenarioVi": "Một nam lưu học sinh đang nói chuyện với một người bạn Nhật Bản.",
+      "turns": [
+        {
+          "speaker": "男1",
+          "text": "あっ、カルロス、今、帰り？"
+        },
+        {
+          "speaker": "男2",
+          "text": "ううん、これからバイト。"
+        },
+        {
+          "speaker": "男1",
+          "text": "そうなんだ。……あ、そうだ。来月の第二土曜日って、ひま？"
+        },
+        {
+          "speaker": "男2",
+          "text": "第二土曜日って何日だっけ？"
+        },
+        {
+          "speaker": "男1",
+          "text": "18日。"
+        },
+        {
+          "speaker": "男2",
+          "text": "18日は……特に何も入ってないけど。"
+        },
+        {
+          "speaker": "男1",
+          "text": "その日にぼくの家の近くでお祭りがあるんだけど、来ない？"
+        },
+        {
+          "speaker": "男2",
+          "text": "お祭り？"
+        },
+        {
+          "speaker": "男1",
+          "text": "うん。たくさんの人がチームで踊ったり、いろんなお店がいっぱい出たりして……。結構楽しいよ。"
+        },
+        {
+          "speaker": "男2",
+          "text": "へー、おもしろそう。行ってみたい。"
+        },
+        {
+          "speaker": "男1",
+          "text": "うん、おいでおよ。じゃあ、近くなったら、また連絡するよ。"
+        },
+        {
+          "speaker": "男2",
+          "text": "うん。"
+        }
+      ],
+      "question": "留学生の男の人は、来月の18日に何をしますか。",
+      "questionVi": "Nam lưu học sinh sẽ làm gì vào ngày 18 tháng sau?",
+      "options": [
+        "お祭りにいく",
+        "友達とおどる",
+        "アルバイトをする",
+        "友達に連絡をする"
+      ],
+      "optionsVi": [
+        "Đi lễ hội",
+        "Nhảy múa cùng bạn bè",
+        "Đi làm thêm",
+        "Liên lạc với bạn bè"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-105",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track16.mp3",
+      "scenario": "女の人が、友だちと喫茶店に行って話しています。",
+      "scenarioVi": "Một người phụ nữ đang đi đến quán cà phê với bạn và nói chuyện.",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "へー、なかなかいい感じのお店ね。"
+        },
+        {
+          "speaker": "女2",
+          "text": "でしょ。この前初めて来てすごく気に入ったから、これはぜひ教えなきゃと思って。"
+        },
+        {
+          "speaker": "女1",
+          "text": "ありがとう。でも、別におごってくれなくてもいいよ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "いやいや、そういうわけには……。"
+        },
+        {
+          "speaker": "女1",
+          "text": "何か頼みごとね。何？"
+        },
+        {
+          "speaker": "女2",
+          "text": "さくら、中国語が得意じゃない？"
+        },
+        {
+          "speaker": "女1",
+          "text": "得意っていうほどでもないけど。"
+        },
+        {
+          "speaker": "女2",
+          "text": "ちょっと翻訳してもらいたいものがあって……。"
+        },
+        {
+          "speaker": "女1",
+          "text": "えっ、何を？"
+        },
+        {
+          "speaker": "女2",
+          "text": "実は来月、上海で研修があるんだけど、中国語で自己紹介したいなあと思って。"
+        },
+        {
+          "speaker": "女1",
+          "text": "へー、いいなあ、上海。で、中国語で自己紹介ね。うん、いいと思う。"
+        },
+        {
+          "speaker": "女2",
+          "text": "でしょ？ で、これなんだけど。"
+        },
+        {
+          "speaker": "女1",
+          "text": "おー、結構長いね。"
+        },
+        {
+          "speaker": "女2",
+          "text": "ちょっとね。今週中でいいんで、お願いします！"
+        },
+        {
+          "speaker": "女1",
+          "text": "……ケーキ2つかなあ。"
+        }
+      ],
+      "question": "女の人は、どうしてこの喫茶店に友達を連れて来ましたか。",
+      "questionVi": "Tại sao người phụ nữ lại dẫn bạn đến quán cà phê này?",
+      "options": [
+        "お寿司をしょうかいしたかったから",
+        "中国語をならいたかったから",
+        "ケーキが食べたかったから",
+        "おねがいしたいことがあったから"
+      ],
+      "optionsVi": [
+        "Vì muốn giới thiệu món sushi",
+        "Vì muốn học tiếng Trung",
+        "Vì muốn ăn bánh ngọt",
+        "Vì có việc muốn nhờ vả"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-106",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track17.mp3",
+      "scenario": "男の人が、女の人を誘っています。",
+      "scenarioVi": "Nam nhân viên đang rủ nữ nhân viên đi chơi.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ねえ、週末空いてる？"
+        },
+        {
+          "speaker": "女",
+          "text": "週末？ 土曜の午後なら時間あるけど。何？"
+        },
+        {
+          "speaker": "男",
+          "text": "これ、友だちからもらったんだけど……野球のチケット。一緒にどう？"
+        },
+        {
+          "speaker": "女",
+          "text": "野球？"
+        },
+        {
+          "speaker": "男",
+          "text": "そう。野球とかは全然見ないんだっけ？"
+        },
+        {
+          "speaker": "女",
+          "text": "そうね、プロ野球はあんまり……。高校野球とかは好きだけど。"
+        },
+        {
+          "speaker": "男",
+          "text": "へー、じゃ、嫌いってわけじゃないんだ。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうね。"
+        },
+        {
+          "speaker": "男",
+          "text": "なんでプロ野球はだめなの？"
+        },
+        {
+          "speaker": "女",
+          "text": "だめってことはないんだけど……シーズン中はほとんど毎日やってるでしょ。なんだか飽きちゃうというか……。優勝するチームだいたい決まってるし。今ひとつドキドキ、ワクワクないって感じ。"
+        },
+        {
+          "speaker": "男",
+          "text": "ふーん、ぼくはスタジアムに入った瞬間、ワクワクするけどね。"
+        },
+        {
+          "speaker": "女",
+          "text": "それは私も同じなんだけどね。……田中君に聞いてみたら？ 彼、野球好きだったと思う。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかった。じゃ、ちょっと声かけてみるよ。"
+        }
+      ],
+      "question": "女の人は、どうして一緒に野球を見に行かないのですか。",
+      "questionVi": "Tại sao người phụ nữ không đi xem bóng chày cùng?",
+      "options": [
+        "野球が嫌いだからです",
+        "野球を見るのに飽きたからです",
+        "プロ野球にあまり興味がないからです",
+        "ルールがよくわからないからです"
+      ],
+      "optionsVi": [
+        "Vì cô ấy ghét bóng chày",
+        "Vì cô ấy đã chán xem bóng chày",
+        "Vì cô ấy không có hứng thú lắm với bóng chày chuyên nghiệp",
+        "Vì cô ấy không hiểu rõ luật chơi"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-107",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track18.mp3",
+      "scenario": "友達の荷物が重そうです。友達に何と言いますか。",
+      "scenarioVi": "Hành lý của bạn trông có vẻ nặng. Bạn sẽ nói gì với bạn của mình?",
+      "turns": [],
+      "question": "友達の荷物が重そうです。友達に何と言いますか。",
+      "questionVi": "Hành lý của bạn trông có vẻ nặng. Bạn sẽ nói gì với bạn của mình?",
+      "options": [
+        "それ、持ってあげる",
+        "それ、持って貰う",
+        "それ、持ってくれる"
+      ],
+      "optionsVi": [
+        "Để tôi xách giúp cho nhé",
+        "Để tôi được xách cho nhé",
+        "Cậu xách cái này giúp tớ nhé"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-108",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track19.mp3",
+      "scenario": "友達との待ち合わせに遅れました。友達に何と言いますか。",
+      "scenarioVi": "Bạn đã đến muộn trong cuộc hẹn với bạn bè. Bạn sẽ nói gì với bạn?",
+      "turns": [],
+      "question": "友達との待ち合わせに遅れました。友達に何と言いますか。",
+      "questionVi": "Bạn đã đến muộn trong cuộc hẹn với bạn bè. Bạn sẽ nói gì với bạn?",
+      "options": [
+        "待って、悪いね",
+        "待たせて、ごめんね",
+        "待ってくれて、ごめんなさい"
+      ],
+      "optionsVi": [
+        "Đợi tớ nhé, xin lỗi cậu",
+        "Xin lỗi vì để cậu phải đợi nhé",
+        "Cảm ơn vì đã đợi tớ, xin lỗi nhé"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-109",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track20.mp3",
+      "scenario": "階段の下に、赤ちゃんを抱いて、ベビーカーを持ったお母さんがいます。あなたは手伝いたいです。何と言いますか。",
+      "scenarioVi": "Dưới chân cầu thang có một người mẹ đang bế em bé và cầm xe đẩy. Bạn muốn giúp đỡ. Bạn sẽ nói gì?",
+      "turns": [],
+      "question": "階段の下に、赤ちゃんを抱いて、ベビーカーを持ったお母さんがいます。あなたは手伝いたいです。何と言いますか。",
+      "questionVi": "Dưới chân cầu thang có một người mẹ đang bế em bé và cầm xe đẩy. Bạn muốn giúp đỡ. Bạn sẽ nói gì?",
+      "options": [
+        "お手伝いしませんか",
+        "お手伝いしましょうか",
+        "お手伝いさせましょうか"
+      ],
+      "optionsVi": [
+        "Bạn có muốn tôi giúp không?",
+        "Tôi giúp bạn một tay nhé?",
+        "Tôi phải để bạn giúp à?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-110",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track21.mp3",
+      "scenario": "あなたは先生に本を借りています。あと1週 間借りたいです。先生に何と言いますか。",
+      "scenarioVi": "Bạn đang mượn sách của thầy cô giáo. Bạn muốn mượn thêm một tuần nữa. Bạn sẽ nói gì với thầy cô?",
+      "turns": [],
+      "question": "あなたは先生に本を借りています。あと1週 間借りたいです。先生に何と言いますか。",
+      "questionVi": "Bạn đang mượn sách của thầy cô giáo. Bạn muốn mượn thêm một tuần nữa. Bạn sẽ nói gì với thầy cô?",
+      "options": [
+        "あと一週間貸してもよろしいですか",
+        "あと一週間お貸ししてもよろしいですか",
+        "あと一週間お借りしてもよろしいですか"
+      ],
+      "optionsVi": [
+        "Thầy/cô cho em mượn thêm một tuần nữa được không ạ?",
+        "Thầy/cô cho em mượn thêm một tuần nữa được chứ ạ?",
+        "Em mượn thêm một tuần nữa có được không ạ?"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-111",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえ、見て、このブーツ。安いんじゃない？"
+        }
+      ],
+      "question": "ねえ、見て、このブーツ。安いんじゃない？",
+      "questionVi": "Này, nhìn đôi bốt này xem. Rẻ quá đúng không?",
+      "options": [
+        "ほんと、安いね",
+        "ほんと、高いね",
+        "ほんと、高いんじゃない"
+      ],
+      "optionsVi": [
+        "Ừ nhỉ, rẻ thật đấy",
+        "Ừ nhỉ, đắt thật đấy",
+        "Ừ nhỉ, đắt quá phải không"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-112",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track23.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あのう、すいません、今日はちょっと早く帰りたいんですが。熱があるみたいで。"
+        }
+      ],
+      "question": "あのう、すいません、今日はちょっと早く帰りたいんですが。熱があるみたいで。",
+      "questionVi": "À xin lỗi, hôm nay tôi muốn về sớm một chút. Hình như tôi bị sốt rồi.",
+      "options": [
+        "それはいけないね。元気でね",
+        "それはいけないね。大丈夫",
+        "それはいけないね。頑張った"
+      ],
+      "optionsVi": [
+        "Thế thì căng nhỉ. Giữ sức khỏe nhé",
+        "Thế thì không tốt rồi. Cố lên nhé",
+        "Thế thì không ổn rồi. Bạn ổn chứ"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-113",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track24.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ねえ、京都で泊まるところ、桜ホテルでいい？"
+        }
+      ],
+      "question": "ねえ、京都で泊まるところ、桜ホテルでいい？",
+      "questionVi": "Này, chỗ trọ ở Kyoto, mình ở khách sạn Sakura được chứ?",
+      "options": [
+        "ええ、桜ホテルでいい",
+        "うーん、桜ホテルがいい",
+        "うーん、桜ホテルはちょっとね"
+      ],
+      "optionsVi": [
+        "Ừ, khách sạn Sakura cũng được",
+        "Ừm, khách sạn Sakura thì tốt hơn",
+        "Ừm, khách sạn Sakura thì hơi..."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-114",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "お昼どうする？ 今日は食堂閉まってるけど。"
+        }
+      ],
+      "question": "お昼どうする？ 今日は食堂閉まってるけど。",
+      "questionVi": "Trưa nay ăn gì đây? Hôm nay nhà ăn đóng cửa mất rồi.",
+      "options": [
+        "それでもいいよ",
+        "じゃあ、お弁当かな",
+        "しょうがないよ。そうしよう"
+      ],
+      "optionsVi": [
+        "Thế nào cũng được",
+        "Vậy chắc ăn cơm hộp thôi",
+        "Đành chịu vậy. Làm thế đi"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-115",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track26.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "教室の窓、閉めてきましたか。"
+        }
+      ],
+      "question": "教室の窓、閉めてきましたか。",
+      "questionVi": "Cậu đã đóng cửa sổ phòng học chưa đấy?",
+      "options": [
+        "そうですね。開けておきます",
+        "いいえ、まだ閉まってますよ",
+        "あ、すみません。開けたままです"
+      ],
+      "optionsVi": [
+        "À đúng rồi. Để tớ mở sẵn nhé",
+        "Không, vẫn đang đóng mà",
+        "À xin lỗi. Tớ vẫn để mở nguyên thế"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-116",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track27.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ここ、前にも来たことがあるんじゃない？"
+        }
+      ],
+      "question": "ここ、前にも来たことがあるんじゃない？",
+      "questionVi": "Chẳng phải chúng ta đã từng đến đây rồi à?",
+      "options": [
+        "そうだね。初めてだよ",
+        "そう？初めてじゃないよ",
+        "そうかな。初めてじゃない"
+      ],
+      "optionsVi": [
+        "Đúng vậy. Đây là lần đầu tiên đấy",
+        "Thế à? Không phải lần đầu tiên đâu",
+        "Vậy sao. Không phải lần đầu tiên nhỉ"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-117",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track28.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "急がなきゃ。あと5分で始まるよ。"
+        }
+      ],
+      "question": "急がなきゃ。あと5分で始まるよ。",
+      "questionVi": "Phải nhanh lên thôi. 5 phút nữa là bắt đầu rồi đấy.",
+      "options": [
+        "走れば間に合うよ",
+        "走らなきゃ間に合うよ",
+        "走ったら間に合わないよ"
+      ],
+      "optionsVi": [
+        "Chạy thì kịp đấy",
+        "Phải chạy thì mới kịp chứ",
+        "Chạy thì không kịp đâu"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-118",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track29.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あのう、すみませんが、郵便局はどちらでしょうか。"
+        }
+      ],
+      "question": "あのう、すみませんが、郵便局はどちらでしょうか。",
+      "questionVi": "À xin lỗi, bưu điện ở đâu vậy bạn?",
+      "options": [
+        "いいえ、よくわからないんです",
+        "はい、郵便局ならこの近くにありますよ",
+        "すみません、この辺は詳しくないんです"
+      ],
+      "optionsVi": [
+        "Không, tôi không rõ lắm",
+        "Vâng, nếu là bưu điện thì ở gần đây có đấy",
+        "Xin lỗi, tôi không rành khu vực này lắm"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    },
+    {
+      "id": "listening-speedmaster-n3-119",
+      "level": "N3",
+      "book": "speedmaster",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track30.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "妹さんはどんな人ですか。"
+        }
+      ],
+      "question": "妹さんはどんな人ですか。",
+      "questionVi": "Em gái bạn là người như thế nào?",
+      "options": [
+        "明るくてスポーツが大好きです",
+        "今年大学生になりました",
+        "ほら、あの人です"
+      ],
+      "optionsVi": [
+        "Con bé tính vui vẻ và rất thích thể thao",
+        "Năm nay nó đã là sinh viên đại học rồi",
+        "Kia kìa, chính là người đó đấy"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ."
+    }
+  ]
+}
