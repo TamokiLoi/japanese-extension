@@ -19,8 +19,17 @@ export interface ListeningQuestion {
   turns: ListeningTurn[];
   question: string;
   questionVi: string;
+  // Some 課題理解-style items use illustrated (picture) answer choices --
+  // the book never prints those as text anywhere, so there's nothing to OCR.
+  // Rather than crop individual pictures out (extra Gemini calls to guess
+  // bounding boxes, more room for error), the whole source page image is
+  // kept as-is and shown alongside plain numbered buttons -- optionsImage
+  // set means "ignore options/optionsVi, render optionCount numbered
+  // buttons under this image instead."
   options: string[];
   optionsVi: string[];
+  optionsImage?: string;
+  optionCount?: number;
   correctIndex: number;
   explanation: string;
 }

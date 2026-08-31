@@ -1285,6 +1285,365 @@
       ],
       "correctIndex": 0,
       "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-041",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track28.mp3",
+      "scenario": "男の人と女の人が、車のパンフレットを見ながら話しています。2人は、どのタイプの車を買いますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "これ、かっこいいよなー。"
+        },
+        {
+          "speaker": "女",
+          "text": "だめだめ、そんな2人しか乗れないのは。あなたのお父さんやお母さんも乗せることがあるし、私たちだって、赤ちゃんができるかもしれないし。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかってるよ。ただ、こんな車に乗るのが夢だったんだよ。えーっと、長いものを入れることもあるし、大きいけど、こういうのにしようか。"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、いいかもー。でもー、うちのガレージ低いのに入れるの？"
+        },
+        {
+          "speaker": "男",
+          "text": "あー、無理だ。じゃ、やっぱり、このタイプしかないよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、これで決まりね。値段は安くないけどね。色は、何がいい？"
+        }
+      ],
+      "question": "2人は、どのタイプの車を買いますか。",
+      "questionVi": "Hai người sẽ mua loại xe nào?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd1-track28.jpg",
+      "optionCount": 4,
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-042",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track50.mp3",
+      "scenario": "スーパーマーケットのアナウンスです。アナウンスの内容と合わないものはどれですか。合わないものです。",
+      "turns": [
+        {
+          "speaker": "アナウンス",
+          "text": "毎度ご来店くださいまして、ありがとうございます。本日日曜日はお魚の日！新鮮なお魚がお買い得となっております。また、冷凍食品が、全品半額です。この機会にお求めください。１パック９８円の卵はお一人様１パックでお願いいたします。ただ今、当店では、お得な情報をメールでお知らせする携帯メール会員を募集しております。ぜひご入会ください！"
+        }
+      ],
+      "question": "アナウンスの内容と合わないものはどれですか。",
+      "questionVi": "Ý nào không đúng với nội dung thông báo?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd1-track50.jpg",
+      "optionCount": 4,
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-043",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track53.mp3",
+      "scenario": "テレビの天気予報です。東京の天気を表しているのは、どれですか。",
+      "turns": [
+        {
+          "speaker": "アナウンサー",
+          "text": "明日から３連休という方も多いと思います。では、気になるお天気です。北海道は、日本海側を中心にあいにくの雨ですが、２０日曜日には、晴れるでしょう。東北の太平洋側から関東地方は、週末は晴れますが、３日目は曇りのち雨。九州から沖縄にかけては、３日間とも晴れて暑くなるでしょう。"
+        }
+      ],
+      "question": "東京の天気を表しているのは、どれですか。",
+      "questionVi": "Ý nào thể hiện thời tiết ở Tokyo?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd1-track53.jpg",
+      "optionCount": 4,
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-044",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track56.mp3",
+      "scenario": "図書館のカウンターで話しています。学生の探している本は、どこにありますか。",
+      "turns": [
+        {
+          "speaker": "学生",
+          "text": "すみません、この本はどこにありますか。インターネットで調べて、あることはわかったんですが…。この番号のところ探しても見つからなくて…。８１０の…。"
+        },
+        {
+          "speaker": "図書館の人",
+          "text": "えーっと…ああ、これは指定図書ですね。"
+        },
+        {
+          "speaker": "学生",
+          "text": "え？"
+        },
+        {
+          "speaker": "図書館の人",
+          "text": "授業で使う本ですね。"
+        },
+        {
+          "speaker": "学生",
+          "text": "はいはい、そうです。"
+        },
+        {
+          "speaker": "図書館の人",
+          "text": "そういう本は別のところにあるんです。今、ここにいますね。…で、ここです。"
+        },
+        {
+          "speaker": "学生",
+          "text": "あ、わかりました。ありがとうございました。"
+        }
+      ],
+      "question": "学生の探している本は、どこにありますか。",
+      "questionVi": "Cuốn sách sinh viên đang tìm ở đâu?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd1-track56.jpg",
+      "optionCount": 4,
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-045",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track59.mp3",
+      "scenario": "女の人が会社に電話しています。女の人に届いたファックスはどれですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もしもし。あ、課長、木村です。今、ヤマダ工務店のほう終わったところです。"
+        },
+        {
+          "speaker": "男",
+          "text": "お疲れさま。"
+        },
+        {
+          "speaker": "女",
+          "text": "それで、遅くなってしまいましたので、社には戻らず、このまま帰らせていただいてよろしいでしょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、いいよ。あ、ちょっと待って。ファックス来てるとこ、いいの？"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、ヒガシ印刷さんからの見積書ですか？"
+        },
+        {
+          "speaker": "男",
+          "text": "いや、東京デザインの伊藤さんだって。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、地図ですね、来週の打ち合わせの。すみません、机の上に置いておいてください。"
+        }
+      ],
+      "question": "女の人に届いたファックスはどれですか。",
+      "questionVi": "Bản fax nào đã được gửi cho người phụ nữ?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd1-track59.jpg",
+      "optionCount": 4,
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-046",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track65.mp3",
+      "scenario": "電車の中のアナウンスです。アナウンスになかったものはどれですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "毎度ご利用くださいまして、ありがとうございます。お客様に、車内のご案内を申し上げます。この電車は、6両編成で、前から1号車、2号車、3号車の順になっております。お手洗いは、1号車、3号車、5号車に、お飲み物の自動販売機は4号車にございます。なお、全席禁煙となっております。たばこは、6号車の喫煙室をご利用ください。"
+        }
+      ],
+      "question": "アナウンスになかったものはどれですか。",
+      "questionVi": "Ý nào không có trong thông báo?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd1-track65.jpg",
+      "optionCount": 4,
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-047",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track02.mp3",
+      "scenario": "男の人と女の人が写真を見ながら話しています。女の人のお母さんはどの人ですか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "この人、君のお母さんだよね。なんだかイメージが違うね。やせた？"
+        },
+        {
+          "speaker": "女",
+          "text": "ダイエットもしたみたいだけど、最近メガネを変えたの。メガネが小さいと、老けて見えるんじゃないかって言って…。白髪も染めて、花柄の派手な服ばかり選んで、お母さん、年を取ってきたことを、かなり気にしているのよねえ。"
+        },
+        {
+          "speaker": "男",
+          "text": "若く見えるし、いいんじゃない？"
+        }
+      ],
+      "question": "女の人のお母さんはどの人ですか。",
+      "questionVi": "Mẹ của người phụ nữ là người nào?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd2-track02.jpg",
+      "optionCount": 4,
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-048",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track05.mp3",
+      "scenario": "女の人が電話で男の人と話しています。男の人の家は、どこですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もしもし、今駅に着きました。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、そう。じゃ、駅前の道をまっすぐ行ってね、突き当たりを右に曲がって。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、突き当たりを右ですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "そう。それから2つ目の信号の少し手前に道があるんだけど、そこを左に入って。それからね、曲がって少し行ったところに、左にコンビニがあるんだけど、その向かいが、ぼくの家なんだ。2つ目の信号の手前の道を左からね。間違えないようにね。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。あのう、何分くらいかかりますか。"
+        },
+        {
+          "speaker": "男",
+          "text": "だいたい、5分ぐらいかな。"
+        }
+      ],
+      "question": "男の人の家は、どこですか。",
+      "questionVi": "Nhà của người đàn ông ở đâu?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd2-track05.jpg",
+      "optionCount": 4,
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-049",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track08.mp3",
+      "scenario": "男の人と女の人が話しています。男の人は、いつまた女の人を訪ねますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ではもう一度お伺いしますが、いつがよろしいですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "えーっとね、月末は忙しいから、来月に入ってからなら。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。では、来月の8日はどうでしょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "8日ね…。あ、だめだわ。その日は予定が入ってるの。1週間、先にしてくれる？"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。じゃあ…"
+        }
+      ],
+      "question": "男の人は、いつまた女の人を訪ねますか。",
+      "questionVi": "Khi nào người đàn ông sẽ đến thăm người phụ nữ lần nữa?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd2-track08.jpg",
+      "optionCount": 4,
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-050",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track14.mp3",
+      "scenario": "学校で、先生が今度のハイキングについて話しています。先生の指示どおりにしてきたのは、どの生徒ですか。",
+      "turns": [
+        {
+          "speaker": "先生",
+          "text": "当日は、スニーカーじゃなくてもかまいませんが、普段から慣れている歩きやすい靴をはいてきてください。バッグは、両手が空くような、肩や背中にかれられるものにしましょう。帽子は必要です。じゃ、今からバッジを配ります。これは左胸に見えるようにつけてください。じゃ、時間は絶対に遅れないように。"
+        }
+      ],
+      "question": "先生の指示どおりにしてきたのは、どの生徒ですか。",
+      "questionVi": "Học sinh nào đã làm theo đúng chỉ dẫn của giáo viên?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd2-track14.jpg",
+      "optionCount": 4,
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-051",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track22.mp3",
+      "scenario": "電車のホームで、男の人と女の人が話しています。洋子さんの弟は、どの子ですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あの子たち、ふざけていて危ないよね。あ、あの子、洋子の弟よ。"
+        },
+        {
+          "speaker": "男",
+          "text": "え？どの子？"
+        },
+        {
+          "speaker": "女",
+          "text": "ほら、あの、黄色いシャツの半そでの子。"
+        },
+        {
+          "speaker": "男",
+          "text": "ああ、傘さしてる子？あー、危ない。"
+        },
+        {
+          "speaker": "女",
+          "text": "違う違う、かばんの取り合いをしている子よ。"
+        }
+      ],
+      "question": "洋子さんの弟は、どの子ですか。",
+      "questionVi": "Em trai của Yoko là đứa trẻ nào?",
+      "options": [],
+      "optionsVi": [],
+      "optionsImage": "public/images/listening/soumatome-cd2-track22.jpg",
+      "optionCount": 4,
+      "correctIndex": 3,
+      "explanation": ""
     }
   ]
 }

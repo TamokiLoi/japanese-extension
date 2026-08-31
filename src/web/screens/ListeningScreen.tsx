@@ -93,27 +93,58 @@ function QuestionView({
       <Card className="mt-4 gap-0 p-5">
         <div className="font-semibold text-neutral-800">{question.question}</div>
         {answered ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
-          {question.options.map((opt, oi) => {
-            let cls = "border-neutral-200 hover:bg-neutral-50";
-            if (answered) {
-              if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
-              else if (oi === selected) cls = "border-rose-300 bg-rose-50 text-rose-700";
-              else cls = "border-neutral-200 opacity-50";
-            }
-            return (
-              <button
-                key={oi}
-                disabled={answered}
-                onClick={() => setSelected(oi)}
-                className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
-              >
-                {opt}
-                {answered ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
-              </button>
-            );
-          })}
-        </div>
+
+        {question.optionsImage ? (
+          <>
+            <img
+              src={assetUrl(question.optionsImage)}
+              alt="Đáp án minh hoạ"
+              className="mt-4 w-full rounded-lg border border-neutral-200"
+            />
+            <div className="mt-3 grid grid-cols-4 gap-2">
+              {Array.from({ length: question.optionCount ?? 4 }, (_, oi) => {
+                let cls = "border-neutral-200 hover:bg-neutral-50";
+                if (answered) {
+                  if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+                  else if (oi === selected) cls = "border-rose-300 bg-rose-50 text-rose-700";
+                  else cls = "border-neutral-200 opacity-50";
+                }
+                return (
+                  <button
+                    key={oi}
+                    disabled={answered}
+                    onClick={() => setSelected(oi)}
+                    className={`rounded-lg border py-2 text-center text-sm font-semibold ${cls}`}
+                  >
+                    {oi + 1}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <div className="mt-4 grid gap-2 sm:grid-cols-2">
+            {question.options.map((opt, oi) => {
+              let cls = "border-neutral-200 hover:bg-neutral-50";
+              if (answered) {
+                if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+                else if (oi === selected) cls = "border-rose-300 bg-rose-50 text-rose-700";
+                else cls = "border-neutral-200 opacity-50";
+              }
+              return (
+                <button
+                  key={oi}
+                  disabled={answered}
+                  onClick={() => setSelected(oi)}
+                  className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
+                >
+                  {opt}
+                  {answered ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {answered ? (
           <div className="mt-4 space-y-3 border-t border-neutral-100 pt-3 text-sm">
