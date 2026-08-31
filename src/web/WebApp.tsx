@@ -4,6 +4,7 @@ import { WebAppShell } from "./WebAppShell.tsx";
 import { HomeScreen } from "./screens/HomeScreen.tsx";
 import { VocabScreen } from "./screens/VocabScreen.tsx";
 import { KanjiScreen } from "./screens/KanjiScreen.tsx";
+import { SearchScreen } from "./screens/SearchScreen.tsx";
 import { BunpoScreen } from "./screens/BunpoScreen.tsx";
 import { QuizScreen } from "./screens/QuizScreen.tsx";
 import { QuizBookScreen } from "./screens/QuizBookScreen.tsx";
@@ -43,6 +44,7 @@ export function WebApp() {
   function go(next: Screen, id?: string) {
     location.hash = id ? `${next}:${id}` : next;
     setRoute({ screen: next, targetId: id });
+    window.scrollTo(0, 0);
   }
 
   const navKey = targetId ? `${screen}:${targetId}` : screen;
@@ -57,6 +59,14 @@ export function WebApp() {
         onOpenReading={() => go("reading")}
         onOpenQuizBook={() => go("quizBook")}
         jumpToId={targetId}
+      />
+    );
+  } else if (screen === "search") {
+    content = (
+      <SearchScreen
+        onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
+        onOpenVocab={(vocabId) => go("vocab", vocabId)}
+        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
       />
     );
   } else if (screen === "kanji") {
