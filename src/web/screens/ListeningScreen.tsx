@@ -87,6 +87,7 @@ function QuestionView({
         <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700">
           <Headphones size={16} /> {question.scenario || question.question}
         </div>
+        {answered && question.scenarioVi ? <div className="text-sm text-neutral-500">{question.scenarioVi}</div> : null}
         <audio controls className="w-full" src={assetUrl(question.audioUrl)} />
       </Card>
 

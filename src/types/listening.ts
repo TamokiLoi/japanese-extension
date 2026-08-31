@@ -16,6 +16,7 @@ export interface ListeningQuestion {
   // Path resolved via assetUrl() -- see platform/assetUrl.ts.
   audioUrl: string;
   scenario: string;
+  scenarioVi: string;
   turns: ListeningTurn[];
   question: string;
   questionVi: string;
