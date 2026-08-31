@@ -1,0 +1,1290 @@
+{
+  "questions": [
+    {
+      "id": "listening-soumatome-n3-001",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track20.mp3",
+      "scenario": "本を読んでいますが、テレビの音がうるさいです。何と言いますか。",
+      "turns": [],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
+      "options": [
+        "ちょっと、テレビの音、小さいんだけど…。",
+        "ちょっと、テレビを消してくれない？",
+        "ちょっと、テレビ見えないんだけど…。"
+      ],
+      "optionsVi": [
+        "Ê, âm thanh tivi hơi nhỏ đấy...",
+        "Ê, bạn tắt tivi đi được không?",
+        "Ê, tôi không nhìn thấy tivi..."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-002",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track21.mp3",
+      "scenario": "会社にお客さんが来ました。ここで待ってもらいたい です。何と言いますか。",
+      "turns": [],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
+      "options": [
+        "どうぞ、おかけになってお待ちください。",
+        "どうぞ、お待ちしています。",
+        "どうぞ、ここで お待ちしてよろしいですか。"
+      ],
+      "optionsVi": [
+        "Mời anh/chị ngồi chờ ạ.",
+        "Mời anh/chị đang chờ.",
+        "Tôi đợi ở đây có được không ạ?"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-003",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track23.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "顔色が悪いですよ。どうしたんですか。"
+        }
+      ],
+      "question": "顔色が悪いですよ。どうしたんですか。",
+      "questionVi": "Sắc mặt bạn kém quá. Đã có chuyện gì vậy?",
+      "options": [
+        "小さい頃は、よくそう言われましたが…。",
+        "顔の色は、なんともないですが…。",
+        "さっきから、ちょっとおなかの調子が…。"
+      ],
+      "optionsVi": [
+        "Hồi nhỏ tôi hay bị nói thế nhưng...",
+        "Màu da của tôi không sao cả nhưng...",
+        "Từ nãy đến giờ bụng tôi hơi khó chịu..."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-004",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track24.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "どうぞ、召し上がってください。"
+        }
+      ],
+      "question": "どうぞ、召し上がってください。",
+      "questionVi": "Xin mời bạn dùng bữa.",
+      "options": [
+        "どうぞおかまいなく。",
+        "遠慮していただきます。",
+        "では、お邪魔します。"
+      ],
+      "optionsVi": [
+        "Xin đừng bận tâm.",
+        "Tôi xin phép ngại ngùng thưởng thức.",
+        "Vậy tôi xin phép làm phiền."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-005",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track25.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "山田さん、お昼に、新しくできたおそば屋さんに行かない？"
+        }
+      ],
+      "question": "山田さん、お昼に、新しくできたおそば屋さんに行かない？",
+      "questionVi": "Yamada này, trưa nay chúng ta đến quán mì mới mở đi?",
+      "options": [
+        "私は、うどんよりおそばがいいわ。",
+        "そうそう、新しいコンビニができたんだって？",
+        "あ、今日は、お弁当持ってきたの。"
+      ],
+      "optionsVi": [
+        "Tôi thích mì soba hơn mì udon.",
+        "Đúng rồi, nghe nói có cửa hàng tiện lợi mới mở hả?",
+        "À, hôm nay tôi mang theo cơm hộp rồi."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-006",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track26.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ねえ、知ってる？ 田中さん、彼と別れたんだって。"
+        }
+      ],
+      "question": "ねえ、知ってる？ 田中さん、彼と別れたんだって。",
+      "questionVi": "Này, bạn có biết không? Nghe nói chị Tanaka đã chia tay bạn trai rồi đấy.",
+      "options": [
+        "へえー、そうなのー。",
+        "へえー、そうなるのー。",
+        "へえー、そうしたのー。"
+      ],
+      "optionsVi": [
+        "Thế à, vậy sao.",
+        "Thế à, sẽ thành ra như vậy à.",
+        "Thế à, đã làm thế à."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-007",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track35.mp3",
+      "scenario": "会社の昼休みに、男の人と女の人が話しています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "この頃、うちの会社も出張が多くなったよね。疲れるでしょう。"
+        },
+        {
+          "speaker": "男",
+          "text": "先月行ったばかりなのに、また出張だよ。まったく、海外出張っていうのは、特にストレスがたまるんだよ。やっぱり英語には苦労するし、行っている間、ずっと緊張のしっぱなしだから。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかるわかる。私もこの頃、会議続きで疲れちゃって、休日に出かける気力もないの。"
+        },
+        {
+          "speaker": "男",
+          "text": "お互い、ちょっと長い休みが必要だよね。"
+        }
+      ],
+      "question": "男の人と女の人は、何について話していますか。",
+      "questionVi": "Nam và nữ đang nói về điều gì?",
+      "options": [
+        "出張の場所",
+        "会議のやり方",
+        "仕事のストレス",
+        "今度の休み"
+      ],
+      "optionsVi": [
+        "Địa điểm đi công tác",
+        "Cách thức tiến hành cuộc họp",
+        "Căng thẳng trong công việc",
+        "Kỳ nghỉ sắp tới"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-008",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track36.mp3",
+      "scenario": "女の人が、レストランに電話をしています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "今度の日曜日の６時に予約を入れている、青木と申しますが、ちょっとお聞きしたいことがありまして。"
+        },
+        {
+          "speaker": "レストランの人",
+          "text": "はい、どのようなことで。"
+        },
+        {
+          "speaker": "女",
+          "text": "今、６人で予約をしているんですが、２人増えますが、大丈夫でしょうか。"
+        },
+        {
+          "speaker": "レストランの人",
+          "text": "あ、大丈夫ですよ。皆様、同じ４０００円のコースでよろしいですよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "え？ ３０００円のコースを予約しているはずですけれど。"
+        },
+        {
+          "speaker": "レストランの人",
+          "text": "あ、３０００円のコースでしたね。失礼いたしました。"
+        },
+        {
+          "speaker": "女",
+          "text": "１人、２０分ほど遅れるかもしれないということなんですが…。"
+        },
+        {
+          "speaker": "レストランの人",
+          "text": "では、先にお飲物をお出しして、お食事を始めるのは、皆様がおそろいになってからということにしましょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "それでお願いできますか。"
+        }
+      ],
+      "question": "女の人は、何のためにレストランに電話をしましたか。",
+      "questionVi": "Người phụ nữ gọi điện đến nhà hàng để làm gì?",
+      "options": [
+        "予約の時間を変更するため",
+        "予約の人数を変更するため",
+        "料理の内容を聞くため",
+        "料理の内容を確認するため"
+      ],
+      "optionsVi": [
+        "Để thay đổi thời gian đặt bàn",
+        "Để thay đổi số lượng người đặt bàn",
+        "Để hỏi về nội dung món ăn",
+        "Để xác nhận lại nội dung món ăn"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-009",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track37.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "久しぶりに、知り合いに会いました。何と言いますか。"
+        }
+      ],
+      "question": "久しぶりに、知り合いに会いました。何と言いますか。",
+      "questionVi": "Lâu lắm mới gặp lại người quen. Bạn sẽ nói gì?",
+      "options": [
+        "ご無沙汰になっております。",
+        "ご無沙汰しておりました。",
+        "ご無沙汰いたします。"
+      ],
+      "optionsVi": [
+        "Tôi rất ít khi liên lạc (trang trọng/đang diễn ra).",
+        "Đã lâu không gặp.",
+        "Tôi sẽ ít liên lạc."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-010",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track38.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "教科書を忘れてしまいました。何と言いますか。"
+        }
+      ],
+      "question": "教科書を忘れてしまいました。何と言いますか。",
+      "questionVi": "Tôi quên mang sách giáo khoa mất rồi. Bạn sẽ nói gì?",
+      "options": [
+        "教科書、忘れちゃったの。見てもらえない？",
+        "教科書、忘れちゃったの。見せてくれていい？",
+        "教科書、忘れちゃったの。見せてもらえない？"
+      ],
+      "optionsVi": [
+        "Tớ quên sách mất tiêu. Cậu xem hộ tớ được không?",
+        "Tớ quên sách mất tiêu. Cậu cho tớ xem được chứ?",
+        "Tớ quên sách mất tiêu. Cho tớ xem nhờ được không?"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-011",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track39.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "先日は、ありがとうございました。"
+        }
+      ],
+      "question": "先日は、ありがとうございました。",
+      "questionVi": "Cảm ơn bạn vì ngày hôm trước.",
+      "options": [
+        "いえいえ、こちらこそ。",
+        "どうも、おかげさまで。",
+        "はい、とんでもありません。"
+      ],
+      "optionsVi": [
+        "Không có gì, tôi mới phải cảm ơn.",
+        "Vâng, nhờ ơn bạn.",
+        "Vâng, không có gì đâu ạ."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-012",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track40.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "どこで日本語を習われたんですか。"
+        }
+      ],
+      "question": "どこで日本語を習われたんですか。",
+      "questionVi": "Bạn học tiếng Nhật ở đâu vậy?",
+      "options": [
+        "自分で習いました。",
+        "だれも習わなかったんです。",
+        "特に習ったわけではないんです。"
+      ],
+      "optionsVi": [
+        "Tôi tự học.",
+        "Không có ai dạy tôi cả.",
+        "Thực ra tôi không học ở đâu đặc biệt cả."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-013",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track41.mp3",
+      "scenario": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "鈴木君、ちょっと残って手伝ってくれないかな。"
+        }
+      ],
+      "question": "鈴木君、ちょっと残って手伝ってくれないかな。",
+      "questionVi": "Suzuki này, ở lại một chút giúp anh được không?",
+      "options": [
+        "すみません。残らないんですが…。",
+        "すみません。手伝わないんですが…。",
+        "すみません。約束があって…。"
+      ],
+      "optionsVi": [
+        "Xin lỗi anh, em không ở lại...",
+        "Xin lỗi anh, em không giúp...",
+        "Xin lỗi anh, em có hẹn mất rồi..."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-014",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track47.mp3",
+      "scenario": "男の人と女の人が、子どもが今1人いる母親に聞いた調査の結果について、話しています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "このアンケートの結果、おもしろいよ。子どもが今１人いる母親１００人に、あと何人子どもがほしいかって聞いたら、ほとんどがいらないって答えたんだって。"
+        },
+        {
+          "speaker": "男",
+          "text": "へえー。意外だねえ。でも、そのアンケートって、ちょっとおかしいよ。だって、今いる子どもの年齢によっても違うんじゃないの。まだ小さければ、もう１人ほしいなと思うだろうし、６歳以上になっていたら、もういらないって答える人が多いんじゃない？ その結果、そのまま信じないほうがいいと思うよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう言われればそうね。私なんか、あと３人はほしいと思っているものね。"
+        },
+        {
+          "speaker": "男",
+          "text": "えー！"
+        }
+      ],
+      "question": "男の人は、このアンケートについてどう思っていますか。",
+      "questionVi": "Người đàn ông nghĩ gì về bản khảo sát này?",
+      "options": [
+        "結果が自分の意見と違うので不満だ",
+        "アンケートの仕方に問題がある",
+        "結果に間違っているところがある",
+        "自分たちにアンケートしてほしかった"
+      ],
+      "optionsVi": [
+        "Bất mãn vì kết quả khác với ý kiến của mình",
+        "Cách thức tiến hành khảo sát có vấn đề",
+        "Kết quả có điểm không chính xác",
+        "Muốn họ tiến hành khảo sát đối với nhóm mình"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-015",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track48.mp3",
+      "scenario": "男の人が友達に電話をしましたが、いなかったので、留守番電話に用件を入れました。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "もしもし、おれ、加藤だけど。頼たいことがあって。先輩がロックのライブをや るっていうんだけど、チケットを買ってくれないかって言われて…。おれは、バイトが休めないから行けないんだけど、先輩に世話になっているから、売ってあげますって言っちゃったもんで。今度の日曜、６時から。場所は新宿。チケットは１０００円。都合どう？ 電話、待ってるよ。よろしく。"
+        }
+      ],
+      "question": "加藤さんは、何のために友達に電話しましたか。",
+      "questionVi": "Kato gọi điện cho bạn để làm gì?",
+      "options": [
+        "ライブのチケットを売るため",
+        "ライブに一緒に行ってもらうため",
+        "ライブの時間と場所を知らせるため",
+        "ライブにだれが出るか教えるため"
+      ],
+      "optionsVi": [
+        "Để bán vé buổi biểu diễn",
+        "Để rủ đi xem buổi biểu diễn cùng",
+        "Để thông báo thời gian và địa điểm biểu diễn",
+        "Để cho biết ai sẽ biểu diễn"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-016",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track52.mp3",
+      "scenario": "店内放送をしています。呼ばれた人は、何をしなければなりませんか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "毎度ご来店いただき、ありがとうございます。お客様にお知らせいたします。さきほど、靴売り場でお買い物をされたお客様、お言付けがございますので、売り場まで、お戻りください。"
+        }
+      ],
+      "question": "呼ばれた人は、何をしなければなりませんか。",
+      "questionVi": "Người được gọi phải làm gì?",
+      "options": [
+        "靴売り場へ戻る",
+        "車の移動をする",
+        "忘れ物を取りに行く",
+        "連れの人に連絡する"
+      ],
+      "optionsVi": [
+        "Quay lại quầy giày",
+        "Di chuyển xe ô tô",
+        "Đi lấy đồ để quên",
+        "Liên lạc với người đi cùng"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-017",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track55.mp3",
+      "scenario": "テレビの地震情報です。東京について、正しいものはどれですか。",
+      "turns": [
+        {
+          "speaker": "アナウンサー",
+          "text": "ただ今、関東地方で地震がありました。震源は茨城で、震度４、マグニチュード４.５、千葉、埼玉、東京は震度３です。この地震による津波の心配はありません。"
+        }
+      ],
+      "question": "東京について、正しいものはどれですか。",
+      "questionVi": "Phát biểu nào sau đây là đúng về Tokyo?",
+      "options": [
+        "震度は３である",
+        "震度は４である",
+        "震度は４.５である",
+        "津波の心配がある"
+      ],
+      "optionsVi": [
+        "Độ rung chấn là 3",
+        "Độ rung chấn là 4",
+        "Độ rung chấn là 4,5",
+        "Có nguy cơ xảy ra sóng thần"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-018",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track58.mp3",
+      "scenario": "先生が、教室で説明しています。",
+      "turns": [
+        {
+          "speaker": "先生",
+          "text": "月・水・金は、この教科書を使います。必ず予習をしてきてください。文法の説明を読んでくること。それと、新しいことばを覚えてくること。新しい課を勉強する前に、その課の単語の小さいテストをします。授業の最初にします。あとで受けることはできませんから、授業には、遅れないようにしてください。"
+        }
+      ],
+      "question": "先生は、何について説明しましたか。",
+      "questionVi": "Giáo viên đã giải thích về điều gì?",
+      "options": [
+        "教科書の注文の仕方について",
+        "予習の仕方や単語テストについて",
+        "月・水・金以外の授業について",
+        "出席、宿題、試験と成績について"
+      ],
+      "optionsVi": [
+        "Cách đặt mua sách giáo khoa",
+        "Cách chuẩn bị bài và bài kiểm tra từ vựng",
+        "Các buổi học ngoài thứ Hai, thứ Tư, thứ Sáu",
+        "Điểm danh, bài tập, kỳ thi và điểm số"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-019",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track61.mp3",
+      "scenario": "留守番電話のメッセージを聞いてください。メッセージを聞いた人は、どうすればいいですか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あ、もしもし、鈴木様の携帯でしょうか。私、ABCリース(※1)の森田と申します。昨日メールでご依頼ありました、ファックスの交換の件で、お電話いたしましたか、またのちほど、お電話させていただきます。失礼いたします。"
+        }
+      ],
+      "question": "メッセージを聞いた人は、どうすればいいですか。",
+      "questionVi": "Người nghe tin nhắn phải làm gì?",
+      "options": [
+        "相手からのファックスを待つ",
+        "相手に電話をかけなければならない",
+        "相手にメールをしなければならない",
+        "相手から電話がかかるのを待つ"
+      ],
+      "optionsVi": [
+        "Đợi bản fax từ đối phương",
+        "Phải gọi điện cho đối phương",
+        "Phải gửi email cho đối phương",
+        "Đợi đối phương gọi điện tới"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-020",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track64.mp3",
+      "scenario": "男の人がDVDを借りようとしています。男の人は、いつDVDを返す予定ですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "新作が1枚、こちらのご利用は(※1)…"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、それ、新作かぁ、いくらですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "当日ですと、旧作と同じ350円ですが、明日のご返却は400円、あさってが500円と、100円増しになっていきますが…(※2)。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうなんだぁ、じゃ、明日…あ、だめだ、明日は来られないな。あさって…あさってだと高いなぁ…やっぱり、今日は持ってきます。こっちは、1泊でも1週間でも、同じだったよね？"
+        },
+        {
+          "speaker": "女",
+          "text": "はい。では、こちらの3枚は1週間、新作のほうは当日でよろしいですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。"
+        },
+        {
+          "speaker": "女",
+          "text": "では、DVD4枚に消費税で、1470円でございます。ありがとうございました。"
+        }
+      ],
+      "question": "男の人は、いつDVDを返す予定ですか。",
+      "questionVi": "Nam nhân định trả đĩa DVD khi nào?",
+      "options": [
+        "1枚は今日、3枚は1週間以内に返す",
+        "1枚は明日、3枚はあさって返す",
+        "3枚は今日、1枚は1週間以内に返す",
+        "4枚とも1週間以内に返す"
+      ],
+      "optionsVi": [
+        "Trả 1 đĩa hôm nay, 3 đĩa trong vòng 1 tuần",
+        "Trả 1 đĩa ngày mai, 3 đĩa ngày kia",
+        "Trả 3 đĩa hôm nay, 1 đĩa trong vòng 1 tuần",
+        "Cả 4 đĩa trong vòng 1 tuần"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-021",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track71.mp3",
+      "scenario": "先生と学生が話しています。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あ、先生、すみません、遅くなって。電車が止まっちゃったんです。"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ、中央線でしょ？ 聞きました。"
+        },
+        {
+          "speaker": "男",
+          "text": "男：地震があったとか言ってましたけど…。"
+        },
+        {
+          "speaker": "女",
+          "text": "え？ 地震じゃないでしょ？"
+        },
+        {
+          "speaker": "男",
+          "text": "でも、じんしんこ…地震で、事故？"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、地震じゃなくて、人身事故(※1)でしょ。だれかがホームから落ちたそうですよ。"
+        }
+      ],
+      "question": "学生は、なぜ遅刻しましたか。",
+      "questionVi": "Tại sao học sinh lại đến muộn?",
+      "options": [
+        "電車の人身事故のため",
+        "電車が地震で止まったため",
+        "電車でけがをしてしまったため",
+        "人身事故を地震と間違えたため"
+      ],
+      "optionsVi": [
+        "Do tai nạn có người thương vong trên tàu",
+        "Do tàu dừng hoạt động vì động đất",
+        "Do bị thương trên tàu",
+        "Do nhầm tai nạn người với động đất"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-022",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track04.mp3",
+      "scenario": "男の人がセーターを選んでいます。男の人が気に入ったものはどうでしたか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ねえ、これで もう少し大きいのはないの？"
+        },
+        {
+          "speaker": "店員",
+          "text": "それはフリーサイズになっておりますので、ワンサイズしかないのですが…。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、そう…。"
+        },
+        {
+          "speaker": "店員",
+          "text": "あの、こちらでしたら、LLまでサイズがありますが…。"
+        },
+        {
+          "speaker": "男",
+          "text": "それかー、デザインがあんまり…それにこの色が気に入ったんだけど。"
+        },
+        {
+          "speaker": "店員",
+          "text": "そうですねえ、その色があるのは、そのタイプだけになっておりますので…。"
+        },
+        {
+          "speaker": "男",
+          "text": "うーん、じゃ、いいや。また、今度にします。"
+        }
+      ],
+      "question": "男の人が気に入ったものはどうでしたか。",
+      "questionVi": "Món đồ mà nam nhân ưng ý có vấn đề gì?",
+      "options": [
+        "小さすぎた",
+        "大きすぎた",
+        "好きな色がなかった",
+        "フリーサイズではなかった"
+      ],
+      "optionsVi": [
+        "Quá nhỏ",
+        "Quá lớn",
+        "Không có màu yêu thích",
+        "Không phải kích cỡ tự do"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-023",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track07.mp3",
+      "scenario": "会社で、仕事が終わりました。みんなで行く居酒屋は、どこにありますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "さあ、仕事も終わったし、久しぶりに飲みに行こうか。花屋のとなりにできた居酒屋(※2)にしようか。"
+        },
+        {
+          "speaker": "女",
+          "text": "花屋のとなり？ え？ どこですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "えーっと、100円ショップの向かいの。ほら、花屋と本屋の間に新しくできた居酒屋だよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、わかりましたー。前はイタリアンレストランだったところですね。あのー、私、ちょっと、電話するところがありますから、皆 先に行ってください。"
+        },
+        {
+          "speaker": "男",
+          "text": "了解。じゃ、みんな、行くぞー。"
+        }
+      ],
+      "question": "みんなで行く居酒屋は、どこにありますか。",
+      "questionVi": "Quán izakaya mà mọi người sẽ cùng đến nằm ở đâu?",
+      "options": [
+        "イタリアンレストランの向かい",
+        "100円ショップの向かい",
+        "花屋の向かい",
+        "本屋のとなり"
+      ],
+      "optionsVi": [
+        "Đối diện nhà hàng Ý",
+        "Đối diện cửa hàng 100 yên",
+        "Đối diện cửa hàng hoa",
+        "Bên cạnh hiệu sách"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-024",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track10.mp3",
+      "scenario": "男の人と女の人が話しています。全部で何人来ますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あの一、今日、全部で何人来るでしょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "えーと、15人の予定だったけど、今朝1人来られないって言ってたから、1人引いて…。"
+        },
+        {
+          "speaker": "女",
+          "text": "あの一、昨日確か、1人増えるっておっしゃってましたよね。"
+        },
+        {
+          "speaker": "男",
+          "text": "そう、林さんね、数に入ってるよ。"
+        }
+      ],
+      "question": "全部で何人来ますか。",
+      "questionVi": "Tổng cộng có bao nhiêu người đến?",
+      "options": [
+        "13人",
+        "14人",
+        "15人",
+        "16人"
+      ],
+      "optionsVi": [
+        "13 người",
+        "14 người",
+        "15 người",
+        "16 người"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-025",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track13.mp3",
+      "scenario": "会社で、男の人が女の社員に会議のことで話しています。女の社員は、このあとまず何をしますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "これ、午後の会議で使うから、10部ずつコピーしといて。その前に、文字とかの間違いがないか、見直しといて(※2)くれるかな。それから、始まりの時間が、30分遅くなったこと、全員に連絡入れてくれたよね？"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、入れておきました。"
+        }
+      ],
+      "question": "女の社員は、このあとまず何をしますか。",
+      "questionVi": "Nữ nhân viên sẽ làm gì trước tiên sau đây?",
+      "options": [
+        "会議に出席する",
+        "書類をコピーする",
+        "書類のチェックをする",
+        "時間が変わったことを連絡する"
+      ],
+      "optionsVi": [
+        "Tham gia cuộc họp",
+        "Photocopy tài liệu",
+        "Kiểm tra tài liệu",
+        "Thông báo việc thay đổi thời gian"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-026",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track20.mp3",
+      "scenario": "留学生が、日本の気候について話しています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "私は、一年中暑い国から来ましたが、日本の夏のほうが、気温が低いのに、暑く感じられます。日本人の友達が、去年のほうがもっと暑かったって言っていますが、信じられません。私は、半年前に日本に来ましたが、そのときは、雪が降っていて、すごく寒かったです。日本は、寒いときと暑いときの差が激しいですね。でも、私は、そういう季節がはっきりしているところが、気に入っています。春の桜は、本当にきれいだったし、秋が来るのも楽しみです。"
+        }
+      ],
+      "question": "この留学生は、日本の気候のことをどう思っていますか。",
+      "questionVi": "Du học sinh này nghĩ gì về khí hậu của Nhật Bản?",
+      "options": [
+        "季節がはっきりしているところが好きだ",
+        "自分の国より気温が高いのは信じられない",
+        "夏や冬は嫌だが、春と秋はいい",
+        "冬の寒さより、夏の暑さのほうが厳しい"
+      ],
+      "optionsVi": [
+        "Thích nơi có các mùa rõ rệt",
+        "Không thể tin nhiệt độ lại cao hơn nước mình",
+        "Ghét mùa hè và mùa đông, nhưng thích mùa xuân và mùa thu",
+        "Cái nóng mùa hè khắc nghiệt hơn cái lạnh mùa đông"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-027",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track21.mp3",
+      "scenario": "引っ越しをして、男の人と女の人が話しています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえ、この本棚は、やっぱりここよね。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。そうだね。えーと、テレビは、ここに置いて…よしいよしょ。"
+        },
+        {
+          "speaker": "女",
+          "text": "え？角じゃないほうがいいんじゃない？テレビ台もコーナー用じゃないし。"
+        },
+        {
+          "speaker": "男",
+          "text": "でも、電源があるし、やっぱり角だよ。電話はどこに置く？"
+        },
+        {
+          "speaker": "女",
+          "text": "あなたの机の上でいいんじゃない？電話はファックスにしか使っていないでしょ？私はファックスはほとんど使わないし。ね、それより、やっぱりテレビ、こっちの壁側のしたほうがいいわよ。なんだか、見にくいし。"
+        },
+        {
+          "speaker": "男",
+          "text": "えー？ここでいいよー。プリンターは、この棚の上でいいよね。このプリンター大きくて、机の上に置けないから。"
+        }
+      ],
+      "question": "男の人と女の人は、何について意見が合いませんか。",
+      "questionVi": "Nam nhân và nữ nhân không đồng quan điểm về điều gì?",
+      "options": [
+        "プリンターの大きさ",
+        "テレビの置き場所",
+        "電話の使い方",
+        "テレビ台の形"
+      ],
+      "optionsVi": [
+        "Kích thước máy in",
+        "Vị trí đặt TV",
+        "Cách sử dụng điện thoại",
+        "Hình dáng kệ TV"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-028",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track33.mp3",
+      "scenario": "店員と客が話しています。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "お決まりでしたら、お伺いいたしますが。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、すみません、あとから1人来ることになってるんで、待ってもらえませんか。"
+        },
+        {
+          "speaker": "男",
+          "text": "かしこまりました。"
+        },
+        {
+          "speaker": "男",
+          "text": "お水のおかわりはいかがですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "すみません。"
+        },
+        {
+          "speaker": "男",
+          "text": "お連れ様、お見えになりませんね。何かお飲み物をお持ちしましょうか。"
+        }
+      ],
+      "question": "男の人は、何がしたいのですか。",
+      "questionVi": "Nam nhân muốn làm gì?",
+      "options": [
+        "女の人に何か注文してもらいたい",
+        "女の人に帰ってもらいたい",
+        "女の人にもう少し待ってもらいたい",
+        "女の人にお水を飲んでもらいたい"
+      ],
+      "optionsVi": [
+        "Muốn nữ nhân gọi món giúp gì đó",
+        "Muốn nữ nhân ra về",
+        "Muốn nữ nhân đợi thêm một chút",
+        "Muốn nữ nhân uống một chút nước"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-029",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track34.mp3",
+      "scenario": "夫婦が話しています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "今度の土曜日、ゴルフ行くの？"
+        },
+        {
+          "speaker": "男",
+          "text": "そのつもりだけど…。"
+        },
+        {
+          "speaker": "女",
+          "text": "天気、悪いんじゃない？"
+        },
+        {
+          "speaker": "男",
+          "text": "ちょっとぐらいなら平気だよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "雨に濡れるのって、体に悪くない？風邪ひいちゃうんじゃない？"
+        },
+        {
+          "speaker": "男",
+          "text": "え？なんなの？行っちゃいけないの？"
+        },
+        {
+          "speaker": "女",
+          "text": "そういうわけじゃないけど…。セールだって、今度の土曜日。ゴルフウエアとか…。"
+        },
+        {
+          "speaker": "男",
+          "text": "なんだ…そういうことか。君の洋服とか靴とかね。はいはい、それは行かなくちゃな。"
+        },
+        {
+          "speaker": "女",
+          "text": "やったー！"
+        }
+      ],
+      "question": "女の人は、男の人に何をさせたいのですか。",
+      "questionVi": "Nữ nhân muốn nam nhân làm gì?",
+      "options": [
+        "一緒にセールに行ってほしい",
+        "ゴルフウエアを買わせたい",
+        "体を大切にしてほしい",
+        "少しぐらいの雨ならゴルフをさせたい"
+      ],
+      "optionsVi": [
+        "Muốn đi mua sắm giảm giá cùng",
+        "Muốn mua quần áo đánh golf",
+        "Muốn anh ấy giữ gìn sức khỏe",
+        "Muốn anh ấy chơi golf dù trời mưa nhỏ"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-030",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track35.mp3",
+      "scenario": "男の人が話しています。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "最近、ネットなんかでゲームをしている人の中には、ゲームの世界で生きているような人がいますよね。そこで知り合った人と本当に結婚したりして…。ゲームの世界と現実の世界の区別がつかなくなっているようで、なんか怖いですね。ぼくも、ひまなときテレビゲームをしますか、ただ楽しむんです。仕事の関係で、そのゲームがどんな風に作られているのって考えたりすることがないこともないんですけど…。まあ、普通はただ何も考えずに、ひまつぶしというか、おもしろいからする、楽しむんです。そういうもんじゃないですか、ゲームって…遊びですよね。"
+        }
+      ],
+      "question": "男の人にとって、ゲームはどういうものですか。",
+      "questionVi": "Đối với nam nhân, trò chơi điện tử là thứ như thế nào?",
+      "options": [
+        "人と知り合うためのもの",
+        "仕事に役立てるもの",
+        "現実と区別できないもの",
+        "遊びとして楽しむもの"
+      ],
+      "optionsVi": [
+        "Công cụ để làm quen với mọi người",
+        "Thứ có ích cho công việc",
+        "Thứ không thể phân biệt với thực tế",
+        "Thứ để giải trí"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-031",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track36.mp3",
+      "scenario": "お客さんが帰ります。何と言いますか。",
+      "turns": [],
+      "question": "お客さんが帰ります。何と言いますか。",
+      "questionVi": "Khách đang về. Bạn sẽ nói gì?",
+      "options": [
+        "いらっしゃいませ。",
+        "どうぞご遠慮なく。",
+        "またお越しください。"
+      ],
+      "optionsVi": [
+        "Kính chào quý khách.",
+        "Xin cứ tự nhiên.",
+        "Hẹn gặp lại quý khách."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-032",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track37.mp3",
+      "scenario": "タクシーで目的地の近くに着きました。何と言いますか。",
+      "turns": [],
+      "question": "タクシーで目的地の近くに着きました。何と言いますか。",
+      "questionVi": "Đã đến gần điểm đến trên taxi. Bạn sẽ nói gì?",
+      "options": [
+        "その先の角で止めさせてください。",
+        "その先の角で降ろしてください。",
+        "その先の角で降りてくださいませんか。"
+      ],
+      "optionsVi": [
+        "Làm ơn cho dừng xe ở góc phố phía trước.",
+        "Làm ơn cho tôi xuống ở góc phố phía trước.",
+        "Bạn có thể cho tôi xuống ở góc phố phía trước được không?"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-033",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track38.mp3",
+      "scenario": "全部は食べられません。何と言いますか。",
+      "turns": [],
+      "question": "全部は食べられません。何と言いますか。",
+      "questionVi": "Bạn không thể ăn hết toàn bộ. Bạn sẽ nói gì?",
+      "options": [
+        "残ればよろしいですか。",
+        "残してもかまわないですか。",
+        "残ってよくないですか。"
+      ],
+      "optionsVi": [
+        "Tôi để lại thừa có được không?",
+        "Tôi để lại thừa có sao không?",
+        "Tôi để lại không tốt à?"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-034",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track39.mp3",
+      "scenario": "早くしないと、遅れちゃうよ。",
+      "turns": [],
+      "question": "早くしないと、遅れちゃうよ。",
+      "questionVi": "Không nhanh lên là muộn đấy.",
+      "options": [
+        "ほんとだ、急がないと。",
+        "遅いと困るんだー。",
+        "急いでも早くならないよ。"
+      ],
+      "optionsVi": [
+        "Đúng vậy, phải nhanh lên thôi.",
+        "Muộn thì phiền lắm đấy.",
+        "Có vội cũng chẳng nhanh hơn đâu."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-035",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track40.mp3",
+      "scenario": "ご連絡先、お伺いしてもよろしいですか。",
+      "turns": [],
+      "question": "ご連絡先、お伺いしてもよろしいですか。",
+      "questionVi": "Tôi xin phép hỏi thông tin liên lạc của bạn được chứ?",
+      "options": [
+        "はい、電話でお願いいたします。",
+        "あ、名刺をお渡ししておきます。",
+        "住所も電話番号も知らされてないんです。"
+      ],
+      "optionsVi": [
+        "Vâng, xin hãy liên hệ qua điện thoại.",
+        "À, tôi sẽ gửi danh thiếp cho bạn.",
+        "Tôi không được cho biết cả địa chỉ lẫn số điện thoại."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-036",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track41.mp3",
+      "scenario": "お母さん、お元気？",
+      "turns": [],
+      "question": "お母さん、お元気？",
+      "questionVi": "Mẹ có khỏe không?",
+      "options": [
+        "うん、けっこうだよ。",
+        "うん、こちらこそ。",
+        "うん、おかげさまでき。"
+      ],
+      "optionsVi": [
+        "Ừ, mẹ vẫn khá khỏe.",
+        "Ừ, chính tôi mới phải nói thế.",
+        "Ừ, ơn trời mẹ vẫn khỏe."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-037",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track42.mp3",
+      "scenario": "雨、降ってきたから、タクシーで行こうよ。",
+      "turns": [],
+      "question": "雨、降ってきたから、タクシーで行こうよ。",
+      "questionVi": "Trời mưa rồi, đi taxi thôi.",
+      "options": [
+        "そうだね、傘さそうか。",
+        "そこだから、歩いて行こうよ。",
+        "でも、バスは混んでるよ。"
+      ],
+      "optionsVi": [
+        "Ừ nhỉ, mở ô ra thôi.",
+        "Gần mà, đi bộ thôi.",
+        "Nhưng xe buýt đông lắm đấy."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-038",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track43.mp3",
+      "scenario": "ごはん、できましたよー。",
+      "turns": [],
+      "question": "ごはん、できましたよー。",
+      "questionVi": "Cơm chín rồi nhé.",
+      "options": [
+        "今、行きまーす。",
+        "まだ、いただきます。",
+        "ごちそうさまー。"
+      ],
+      "optionsVi": [
+        "Em ra ngay đây.",
+        "Vẫn chưa, mời ăn cơm.",
+        "Cảm ơn vì bữa ăn."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-039",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track44.mp3",
+      "scenario": "この書類、明日までに仕上げないといけませんか。",
+      "turns": [],
+      "question": "この書類、明日までに仕上げないといけませんか。",
+      "questionVi": "Tài liệu này phải hoàn thành trước ngày mai sao?",
+      "options": [
+        "今日の、午後にしようか。",
+        "ああ、間に合わなかったね。",
+        "明日の会議に使うからね。"
+      ],
+      "optionsVi": [
+        "Hay là để chiều nay làm nhé.",
+        "À, đã không kịp mất rồi.",
+        "Vì phải dùng cho cuộc họp ngày mai mà."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-040",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track45.mp3",
+      "scenario": "遅くなってすみません。途中、事故にあって…。",
+      "turns": [],
+      "question": "遅くなってすみません。途中、事故にあって…。",
+      "questionVi": "Xin lỗi vì đến muộn. Giữa đường tôi gặp tai nạn...",
+      "options": [
+        "よかったよー。間に合って。",
+        "大変なことをしましたね。",
+        "大したものじゃありませんよ。"
+      ],
+      "optionsVi": [
+        "May quá, kịp giờ rồi.",
+        "Bạn đã làm một việc tồi tệ nhỉ.",
+        "Không có gì to tát đâu."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    }
+  ]
+}
