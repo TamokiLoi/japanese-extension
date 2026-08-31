@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { Menu, X, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Menu, X, ExternalLink, ArrowUp } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS, BOTTOM_NAV_SCREENS } from "./navItems.ts";
 import pkg from "../../package.json";
 
-const SITE_URL = "https://tamokiloi.github.io/japanese-extension/";
+const PROFILE_URL = "https://github.com/TamokiLoi";
 
 function SidebarFooter() {
   return (
     <div className="mt-auto flex items-center justify-between px-2 pt-4 text-xs text-neutral-400">
       <span>Tamoki Nguyen · v{pkg.version}</span>
       <a
-        href={SITE_URL}
+        href={PROFILE_URL}
         target="_blank"
         rel="noreferrer"
-        title="Xem trang web"
+        title="Thông tin tác giả"
         className="flex items-center gap-1 text-neutral-400 hover:text-rose-600"
       >
-        Web <ExternalLink size={12} />
+        Info <ExternalLink size={12} />
       </a>
     </div>
   );
@@ -48,7 +48,7 @@ function NavLink({
   return (
     <button
       onClick={onClick}
-      className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+      className={`flex w-full items-center gap-3 rounded-xl px-3 py-1.5 text-sm font-medium transition-colors ${
         active ? "bg-rose-50 text-rose-600" : "text-neutral-600 hover:bg-neutral-100"
       }`}
     >
@@ -60,11 +60,11 @@ function NavLink({
 
 function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (screen: Screen) => void }) {
   return (
-    <nav className="flex flex-col gap-4">
+    <nav className="flex flex-col gap-2.5">
       {NAV_GROUPS.map((group, i) => (
-        <div key={group.label ?? `group-${i}`} className="flex flex-col gap-1">
+        <div key={group.label ?? `group-${i}`} className="flex flex-col gap-0.5">
           {group.label ? (
-            <div className="px-3 text-[11px] font-semibold tracking-wide text-neutral-400 uppercase">{group.label}</div>
+            <div className="px-3 pb-0.5 text-[11px] font-semibold tracking-wide text-neutral-400 uppercase">{group.label}</div>
           ) : null}
           {group.screens.map((screen) => {
             const item = NAV_ITEMS.find((i) => i.screen === screen)!;
@@ -73,6 +73,31 @@ function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (scree
         </div>
       ))}
     </nav>
+  );
+}
+
+function ScrollToTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setVisible(window.scrollY > 400);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!visible) return null;
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Lên đầu trang"
+      title="Lên đầu trang"
+      className="fixed right-4 bottom-20 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6"
+    >
+      <ArrowUp size={18} />
+    </button>
   );
 }
 
@@ -95,8 +120,8 @@ export function WebAppShell({
   return (
     <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
       {/* Desktop sidebar */}
-      <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 md:flex md:flex-col">
-        <BrandLink onClick={() => go("menu")} className="mb-6 px-2" />
+      <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 pt-6 md:flex md:flex-col">
+        <BrandLink onClick={() => go("menu")} className="mb-5 px-2" />
         <GroupedNav active={active} onNavigate={go} />
         <SidebarFooter />
       </aside>
@@ -106,7 +131,7 @@ export function WebAppShell({
         <div className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 bg-black/30" onClick={() => setDrawerOpen(false)} />
           <div className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white p-4 shadow-xl">
-            <div className="mb-6 flex items-center justify-between px-2">
+            <div className="mb-5 flex items-center justify-between px-2">
               <BrandLink onClick={() => go("menu")} />
               <button className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100" onClick={() => setDrawerOpen(false)}>
                 <X size={20} />
@@ -125,7 +150,7 @@ export function WebAppShell({
           actually wrapping its own content down to fit. */}
       <div className="flex min-h-screen min-w-0 flex-1 flex-col">
         {/* Mobile header */}
-        <header className="flex items-center gap-3 border-b border-neutral-200 bg-white px-4 py-3 md:hidden">
+        <header className="flex items-center gap-3 border-b border-neutral-200 bg-white px-3 py-2 md:hidden">
           <button className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100" onClick={() => setDrawerOpen(true)}>
             <Menu size={22} />
           </button>
@@ -164,6 +189,8 @@ export function WebAppShell({
             Thêm
           </button>
         </nav>
+
+        <ScrollToTopButton />
       </div>
     </div>
   );
