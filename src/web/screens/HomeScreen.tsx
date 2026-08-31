@@ -100,7 +100,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen) => voi
     : [];
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">{greeting()}</h1>
       <p className="mt-1 text-neutral-500">Tiếp tục hành trình học tiếng Nhật của bạn nào.</p>
 

@@ -140,7 +140,7 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Luyện đọc" subtitle={`${filtered.length} bài · Đã hoàn thành ${doneCount}/${filtered.length}`} />
 
       <FilterBar>
@@ -360,7 +360,7 @@ function PassageView({
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => mutate({ currentPassageId: null })}

@@ -1,7 +1,7 @@
 import { Filter } from "lucide-react";
 
 export function FilterBar({ children }: { children: React.ReactNode }) {
-  return <div className="mt-4 flex flex-wrap items-center gap-2">{children}</div>;
+  return <div className="mt-3 flex flex-wrap items-center gap-2">{children}</div>;
 }
 
 export function FilterTrigger({ count, onClick }: { count: number; onClick: () => void }) {

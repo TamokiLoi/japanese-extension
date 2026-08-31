@@ -9,7 +9,7 @@ export interface ActiveFilterChip {
 export function ActiveFilters({ chips }: { chips: ActiveFilterChip[] }) {
   if (chips.length === 0) return null;
   return (
-    <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+    <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
       {chips.map((c) => (
         <button
           key={c.key}

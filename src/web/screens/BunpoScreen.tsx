@@ -144,7 +144,7 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Ngữ pháp" subtitle={`${filtered.length} mẫu ngữ pháp`} />
 
       <input
@@ -369,7 +369,7 @@ function DetailView({
   if (!progress) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
         <button
           onClick={() => mutate({ currentGrammarId: null })}
@@ -381,6 +381,15 @@ function DetailView({
         <span className="text-sm text-neutral-400">
           {currentIndex >= 0 ? `${currentIndex + 1} / ${visibleList.length}` : ""}
         </span>
+      </div>
+
+      <div className="mt-3 flex items-center gap-2">
+        <Button variant="outline" disabled={!prevItem} onClick={() => prevItem && mutate({ currentGrammarId: prevItem.id })}>
+          <ChevronLeft size={16} /> Mẫu trước
+        </Button>
+        <Button variant="outline" className="ml-auto" disabled={!nextItem} onClick={() => nextItem && mutate({ currentGrammarId: nextItem.id })}>
+          Mẫu sau <ChevronRight size={16} />
+        </Button>
       </div>
 
       <Card className="mt-4 gap-0 p-6">
@@ -512,15 +521,6 @@ function DetailView({
           </div>
         ) : null}
       </Card>
-
-      <div className="mt-6 flex items-center gap-2">
-        <Button variant="outline" disabled={!prevItem} onClick={() => prevItem && mutate({ currentGrammarId: prevItem.id })}>
-          <ChevronLeft size={16} /> Mẫu trước
-        </Button>
-        <Button variant="outline" className="ml-auto" disabled={!nextItem} onClick={() => nextItem && mutate({ currentGrammarId: nextItem.id })}>
-          Mẫu sau <ChevronRight size={16} />
-        </Button>
-      </div>
 
       {showUsageGlossary ? (
         <div

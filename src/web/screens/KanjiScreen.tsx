@@ -164,7 +164,7 @@ export function KanjiScreen({
   const related = k ? vocabForKanjiChar(k.character) : null;
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
         title="Kanji"
         subtitle={isGrid ? `${list.length} thẻ` : `${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}`}
@@ -242,6 +242,33 @@ export function KanjiScreen({
         </FilterGroup>
       </FilterSheet>
 
+      {isGrid ? null : (
+        <div className="mt-3 flex items-center gap-2">
+          <Button variant="outline" disabled={state.index === 0} onClick={() => mutate({ index: state.index - 1 }, false)}>
+            <ChevronLeft size={16} /> Trước
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            title="Nhảy tới 1 thẻ bất kỳ"
+            onClick={() => {
+              if (list.length === 0) return;
+              mutate({ index: Math.floor(Math.random() * list.length) }, false);
+            }}
+          >
+            <Shuffle size={16} />
+          </Button>
+          <Button
+            variant="outline"
+            className="ml-auto"
+            disabled={state.index >= list.length - 1}
+            onClick={() => mutate({ index: state.index + 1 }, false)}
+          >
+            Tiếp <ChevronRight size={16} />
+          </Button>
+        </div>
+      )}
+
       {isGrid ? (
         bucketCounts && gridMap ? (
           <div className="mt-6">
@@ -276,7 +303,7 @@ export function KanjiScreen({
       ) : !k ? (
         <p className="mt-6 text-neutral-400">Không có Kanji nào ở bộ lọc này.</p>
       ) : (
-        <Card className="mt-6 gap-0 p-6">
+        <Card className="mt-3 gap-0 p-6">
           <div className="flex items-start justify-between">
             <div className="flex flex-wrap items-center gap-2">
               <Badge style={levelBadgeStyle(k.level)}>{k.level}</Badge>
@@ -373,33 +400,6 @@ export function KanjiScreen({
             </div>
           ) : null}
         </Card>
-      )}
-
-      {isGrid ? null : (
-        <div className="mt-6 flex items-center gap-2">
-          <Button variant="outline" disabled={state.index === 0} onClick={() => mutate({ index: state.index - 1 }, false)}>
-            <ChevronLeft size={16} /> Trước
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            title="Nhảy tới 1 thẻ bất kỳ"
-            onClick={() => {
-              if (list.length === 0) return;
-              mutate({ index: Math.floor(Math.random() * list.length) }, false);
-            }}
-          >
-            <Shuffle size={16} />
-          </Button>
-          <Button
-            variant="outline"
-            className="ml-auto"
-            disabled={state.index >= list.length - 1}
-            onClick={() => mutate({ index: state.index + 1 }, false)}
-          >
-            Tiếp <ChevronRight size={16} />
-          </Button>
-        </div>
       )}
     </div>
   );
