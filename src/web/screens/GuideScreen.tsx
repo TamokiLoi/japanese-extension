@@ -1,4 +1,4 @@
-import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter } from "lucide-react";
+import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter, Headphones } from "lucide-react";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { Card } from "../components/ui/card.tsx";
 
@@ -32,6 +32,18 @@ const GUIDE_SECTIONS: GuideItem[] = [
     points: [
       "Danh sách bài đọc hiện đủ tiêu đề/nguồn/độ dài/trạng thái để chọn nhanh, không cần mở từng bài mới biết nội dung.",
       "Trong bài đọc có thể bật/tắt furigana và xem bản dịch tiếng Việt.",
+    ],
+  },
+  {
+    icon: Headphones,
+    title: "Luyện nghe",
+    points: [
+      "Đề thi N3 phần Nghe có 4 dạng câu, mỗi dạng cần nghe khác nhau -- lọc theo 'Dạng câu hỏi' để luyện riêng từng dạng:",
+      "課題理解 (việc cần làm): nghe hội thoại rồi chọn việc cần làm/đã làm tiếp theo -- câu hỏi và đáp án được in sẵn (hoặc là tranh), có thể đọc trước khi nghe.",
+      "ポイント理解 (trọng điểm): câu hỏi được đọc trước khi hội thoại bắt đầu, giúp biết cần chú ý nghe gì -- đáp án cũng được in sẵn.",
+      "概要理解 (khái quát): không có gì in sẵn -- chỉ nghe toàn bộ hội thoại rồi mới nghe câu hỏi và đáp án đọc ra, phải nhớ trong đầu.",
+      "発話表現・即時応答 (phản xạ nhanh): câu ngắn, không in gì cả -- nghe xong chọn ngay 1 trong 3 đáp án cũng được đọc bằng lời. App ẩn hết chữ cho đúng dạng này, chỉ hiện lại sau khi bạn chọn.",
+      "Trả lời xong sẽ hiện bản dịch tiếng Việt (bối cảnh + câu hỏi + đáp án) và transcript đầy đủ để đối chiếu.",
     ],
   },
   {

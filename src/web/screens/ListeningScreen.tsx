@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Headphones, List as ListIcon, Shuffle } from "lucide-react";
-import { ALL_LISTENING, findListeningById, TASK_TYPE_LABELS } from "../../popup/listeningState.ts";
-import type { ListeningQuestion, ListeningTaskType } from "../../types/listening.ts";
+import {
+  ALL_LISTENING,
+  AVAILABLE_BOOKS,
+  AVAILABLE_TASK_TYPES,
+  BOOK_LABELS,
+  TASK_TYPE_LABELS,
+  findListeningById,
+  getFilteredList,
+  loadViewerState,
+  saveViewerState,
+  type ListeningViewerState,
+} from "../../popup/listeningState.ts";
+import type { ListeningQuestion } from "../../types/listening.ts";
 import { assetUrl } from "../../platform/assetUrl";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
+import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
+import { ActiveFilters } from "../components/ActiveFilters.tsx";
+import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 
-const TASK_TYPE_ORDER: ListeningTaskType[] = ["kadai", "point", "gaiyou", "sokuji"];
-
-// First real slice of the Listening feature: a flat list + play/answer/reveal
-// flow, same shape as QuizBook's simplest mode. No progress tracking or
-// filters yet -- those follow once this content shape has settled (still
-// missing 課題理解 coverage since this book prints picture-based options for
-// that type, which text extraction can't capture).
+// First real slice of the Listening feature: a flat list (now filterable by
+// book/dạng câu, same layout as Reading/QuizBook) + play/answer/reveal flow.
+// No progress tracking yet -- that follows once this content shape settles.
 export function ListeningScreen() {
   const [currentId, setCurrentId] = useState<string | null>(null);
   const current = currentId ? findListeningById(currentId) : undefined;
@@ -26,30 +36,132 @@ export function ListeningScreen() {
 }
 
 function ListView({ onOpen }: { onOpen: (id: string) => void }) {
+  const [state, setState] = useState<ListeningViewerState | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  useEffect(() => {
+    loadViewerState().then(setState);
+  }, []);
+
+  async function mutate(partial: Partial<ListeningViewerState>) {
+    if (!state) return;
+    const next = { ...state, ...partial };
+    await saveViewerState(next);
+    setState(next);
+  }
+
+  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+
+  const filtered = getFilteredList(state);
+  const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
+  const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;
+  const filterCount = (allBooksChecked ? 0 : state.selectedBooks.length) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
+
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
         title="Luyện nghe"
-        subtitle={`${ALL_LISTENING.length} câu -- transcript/đáp án trích từ sách Nihongo Sou Matome N3 Choukai, audio là bản ghi thật từ CD gốc.`}
+        subtitle={`${filtered.length}/${ALL_LISTENING.length} câu -- transcript/đáp án trích từ sách Nihongo Sou Matome N3 Choukai, audio là bản ghi thật từ CD gốc.`}
       />
-      <div className="mt-4 flex flex-col gap-2">
-        {ALL_LISTENING.map((q, i) => (
-          <button
-            key={q.id}
-            onClick={() => onOpen(q.id)}
-            className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
-          >
-            <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
-            <div className="min-w-0 flex-1">
-              <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
-              <div className="truncate text-xs text-neutral-500">{TASK_TYPE_LABELS[q.taskType]}</div>
-            </div>
-            <span className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={levelBadgeStyle(q.level)}>
-              {q.level}
-            </span>
-          </button>
-        ))}
-      </div>
+
+      <FilterBar>
+        <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
+      </FilterBar>
+
+      <ActiveFilters
+        chips={[
+          ...(allBooksChecked
+            ? []
+            : state.selectedBooks.map((book) => ({
+                key: `book-${book}`,
+                label: BOOK_LABELS[book],
+                onRemove: () => {
+                  const next = state.selectedBooks.filter((b) => b !== book);
+                  if (next.length === 0) return;
+                  mutate({ selectedBooks: next });
+                },
+              }))),
+          ...(allTaskTypesChecked
+            ? []
+            : state.selectedTaskTypes.map((t) => ({
+                key: `type-${t}`,
+                label: TASK_TYPE_LABELS[t],
+                onRemove: () => {
+                  const next = state.selectedTaskTypes.filter((x) => x !== t);
+                  if (next.length === 0) return;
+                  mutate({ selectedTaskTypes: next });
+                },
+              }))),
+        ]}
+      />
+
+      <FilterSheet
+        open={filterOpen}
+        onClose={() => setFilterOpen(false)}
+        title="Bộ lọc luyện nghe"
+        onReset={() => mutate({ selectedBooks: [...AVAILABLE_BOOKS], selectedTaskTypes: [...AVAILABLE_TASK_TYPES] })}
+      >
+        <FilterGroup title="Sách">
+          {AVAILABLE_BOOKS.map((book) => {
+            const checked = state.selectedBooks.includes(book);
+            const count = ALL_LISTENING.filter((q) => q.book === book && state.selectedTaskTypes.includes(q.taskType)).length;
+            return (
+              <FilterChipOption
+                key={book}
+                label={`${BOOK_LABELS[book]} (${count})`}
+                active={checked}
+                onClick={() => {
+                  const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
+                  if (next.length === 0) return;
+                  mutate({ selectedBooks: next });
+                }}
+              />
+            );
+          })}
+        </FilterGroup>
+
+        <FilterGroup title="Dạng câu hỏi">
+          {AVAILABLE_TASK_TYPES.map((t) => {
+            const checked = state.selectedTaskTypes.includes(t);
+            const count = ALL_LISTENING.filter((q) => q.taskType === t && state.selectedBooks.includes(q.book)).length;
+            return (
+              <FilterChipOption
+                key={t}
+                label={`${TASK_TYPE_LABELS[t]} (${count})`}
+                active={checked}
+                onClick={() => {
+                  const next = checked ? state.selectedTaskTypes.filter((x) => x !== t) : [...new Set([...state.selectedTaskTypes, t])];
+                  if (next.length === 0) return;
+                  mutate({ selectedTaskTypes: next });
+                }}
+              />
+            );
+          })}
+        </FilterGroup>
+      </FilterSheet>
+
+      {filtered.length === 0 ? (
+        <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">Không có câu nào khớp bộ lọc này.</p>
+      ) : (
+        <div className="mt-4 flex flex-col gap-2">
+          {filtered.map((q, i) => (
+            <button
+              key={q.id}
+              onClick={() => onOpen(q.id)}
+              className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
+            >
+              <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
+              <div className="min-w-0 flex-1">
+                <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
+                <div className="truncate text-xs text-neutral-500">{TASK_TYPE_LABELS[q.taskType]}</div>
+              </div>
+              <span className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={levelBadgeStyle(q.level)}>
+                {q.level}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

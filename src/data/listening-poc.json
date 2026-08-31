@@ -6,6 +6,7 @@
       "taskType": "kadai",
       "audioUrl": "public/audio/listening-poc-demo.wav",
       "scenario": "会社で男の人と女の人が会議の資料について話しています。男の人はこのあと最初に何をしますか。",
+      "scenarioVi": "Nam nhân viên và nữ nhân viên đang nói chuyện về tài liệu cuộc họp trong công ty. Nam nhân viên sẽ làm gì đầu tiên sau đây?",
       "turns": [
         {
           "speaker": "女",
@@ -59,7 +60,8 @@
         "Kiểm tra lại dữ liệu lần cuối"
       ],
       "correctIndex": 1,
-      "explanation": "Trong đoạn hội thoại, người nữ yêu cầu bổ sung biểu đồ doanh thu tháng trước vào tài liệu. Người nam xác nhận 'じゃあ、まずそのグラフを作って資料に挿入しますね' (Vậy thì trước tiên tôi sẽ làm biểu đồ đó rồi chèn vào tài liệu nhé). Dù sau đó có nhắc đến việc in ấn 20 bản, nhưng anh ấy phải làm biểu đồ trước khi in. Do đó, việc cần làm ngay trước tiên là làm biểu đồ doanh thu và thêm vào tài liệu."
+      "explanation": "Trong đoạn hội thoại, người nữ yêu cầu bổ sung biểu đồ doanh thu tháng trước vào tài liệu. Người nam xác nhận 'じゃあ、まずそのグラフを作って資料に挿入しますね' (Vậy thì trước tiên tôi sẽ làm biểu đồ đó rồi chèn vào tài liệu nhé). Dù sau đó có nhắc đến việc in ấn 20 bản, nhưng anh ấy phải làm biểu đồ trước khi in. Do đó, việc cần làm ngay trước tiên là làm biểu đồ doanh thu và thêm vào tài liệu.",
+      "book": "poc-demo"
     }
   ]
 }

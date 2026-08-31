@@ -12,6 +12,9 @@ export interface ListeningTurn {
 export interface ListeningQuestion {
   id: string;
   level: JlptLevel;
+  // Which source book this came from -- drives the "Sách" filter, same as
+  // QuizBook's `book` field.
+  book: string;
   taskType: ListeningTaskType;
   // Path resolved via assetUrl() -- see platform/assetUrl.ts.
   audioUrl: string;
