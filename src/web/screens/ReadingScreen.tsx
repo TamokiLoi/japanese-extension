@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, List as ListIcon, Sparkles, BarChart3 } from "lucide-react";
+import { Shuffle, Undo2, List as ListIcon, Sparkles, BarChart3, Library, PenSquare, ClipboardList } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import {
   ALL_READING,
@@ -18,6 +18,7 @@ import {
   resetPassageAnswers,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
+import { findVocabInPassage, findBunpoInPassage } from "../../popup/readingLinks.ts";
 import { recordAnswer } from "../../popup/progressState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
@@ -63,7 +64,17 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
 
 const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm" } as const;
 
-export function ReadingScreen({ targetId }: { targetId?: string } = {}) {
+export function ReadingScreen({
+  targetId,
+  onOpenVocab,
+  onOpenBunpo,
+  onOpenStats,
+}: {
+  targetId?: string;
+  onOpenVocab: (vocabId: string) => void;
+  onOpenBunpo: (bunpoId: string) => void;
+  onOpenStats: () => void;
+}) {
   const [state, setState] = useState<ReadingViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
 
@@ -105,10 +116,19 @@ export function ReadingScreen({ targetId }: { targetId?: string } = {}) {
   const passage = state.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
 
   if (passage) {
-    return <PassageView passage={passage} state={state} mutate={mutate} setError={setError} />;
+    return (
+      <PassageView
+        passage={passage}
+        state={state}
+        mutate={mutate}
+        setError={setError}
+        onOpenVocab={onOpenVocab}
+        onOpenBunpo={onOpenBunpo}
+      />
+    );
   }
 
-  return <ListView state={state} mutate={mutate} error={error} setError={setError} />;
+  return <ListView state={state} mutate={mutate} error={error} setError={setError} onOpenStats={onOpenStats} />;
 }
 
 function ListView({
@@ -116,11 +136,13 @@ function ListView({
   mutate,
   error,
   setError,
+  onOpenStats,
 }: {
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
   error?: string;
   setError: (e?: string) => void;
+  onOpenStats: () => void;
 }) {
   const [filterOpen, setFilterOpen] = useState(false);
   const filtered = ALL_READING.filter((p) => matchesFilters(p, state));
@@ -178,6 +200,9 @@ function ListView({
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
         <Button size="sm" onClick={handleStart}>
           <Shuffle size={14} /> Random bài đọc
+        </Button>
+        <Button size="sm" variant="outline" onClick={onOpenStats}>
+          <ClipboardList size={14} /> Câu sai cần ôn lại
         </Button>
         <div className="ml-auto flex gap-1.5">
           {(["all", "not-started", "done"] as const).map((s) => (
@@ -360,17 +385,23 @@ function PassageView({
   state,
   mutate,
   setError,
+  onOpenVocab,
+  onOpenBunpo,
 }: {
   passage: ReadingPassage;
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
   setError: (e?: string) => void;
+  onOpenVocab: (vocabId: string) => void;
+  onOpenBunpo: (bunpoId: string) => void;
 }) {
   const answers = state.answers[passage.id] ?? passage.questions.map(() => null);
   const answeredCount = answers.filter((a) => a !== null).length;
   const total = passage.questions.length;
   const allAnswered = answeredCount >= total;
   const correctCount = passage.questions.filter((q, qi) => answers[qi] === q.correctIndex).length;
+  const vocabMatches = findVocabInPassage(passage);
+  const bunpoMatches = findBunpoInPassage(passage);
 
   async function handleReset() {
     if (!confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`)) return;
@@ -490,6 +521,47 @@ function PassageView({
             </span>
           ))}
         </div>
+      ) : null}
+
+      {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
+        <Card className="mt-3 gap-3 p-4">
+          {vocabMatches.length > 0 ? (
+            <div>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
+                <Library size={14} /> Từ vựng trong bài (bấm để xem lại)
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {vocabMatches.map((v) => (
+                  <button
+                    key={v.id}
+                    onClick={() => onOpenVocab(v.id)}
+                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
+                  >
+                    {v.word}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {bunpoMatches.length > 0 ? (
+            <div>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
+                <PenSquare size={14} /> Ngữ pháp trong bài (bấm để xem lại)
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {bunpoMatches.map((g) => (
+                  <button
+                    key={g.id}
+                    onClick={() => onOpenBunpo(g.id)}
+                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
+                  >
+                    {g.pattern}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </Card>
       ) : null}
 
       <div className="mt-6 flex flex-col gap-4">

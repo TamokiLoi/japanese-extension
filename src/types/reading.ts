@@ -17,6 +17,15 @@ export interface ReadingQuestionOption {
   text: string;
 }
 
+// Which JLPT-style skill this question drills, independent of the passage's
+// own length/book classification -- lets Stats show "which question type do
+// I keep missing" (e.g. always wrong on suy luận/inference) instead of just
+// a flat per-passage right/wrong count. "info-search" is set deterministically
+// from the passage's own `length: "info-search"`; the other four are
+// classified per-question since a single passage mixes them freely. See
+// scripts/classify-reading-question-types.ts for how this gets populated.
+export type ReadingQuestionType = "detail" | "main-idea" | "inference" | "reference-vocab" | "info-search";
+
 export interface ReadingQuestion {
   question: string;
   questionVi: string;
@@ -24,6 +33,7 @@ export interface ReadingQuestion {
   optionsVi: string[];
   correctIndex: number;
   explanation: string;
+  questionType?: ReadingQuestionType;
 }
 
 // Which source book a passage came from -- lets the Reading screen filter/

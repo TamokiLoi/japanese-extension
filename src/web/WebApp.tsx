@@ -88,9 +88,16 @@ export function WebApp() {
   } else if (screen === "quizBook") {
     content = <QuizBookScreen targetId={targetId} />;
   } else if (screen === "reading") {
-    content = <ReadingScreen targetId={targetId} />;
+    content = (
+      <ReadingScreen
+        targetId={targetId}
+        onOpenVocab={(vocabId) => go("vocab", vocabId)}
+        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenStats={() => go("stats", "reading")}
+      />
+    );
   } else if (screen === "stats") {
-    content = <StatsScreen onNavigate={go} />;
+    content = <StatsScreen onNavigate={go} targetId={targetId} />;
   } else if (screen === "review") {
     content = (
       <ReviewScreen

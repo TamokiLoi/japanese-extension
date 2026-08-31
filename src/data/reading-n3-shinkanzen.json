@@ -283,7 +283,8 @@
             "Đèn tối đi thì quay tay cầm để phát điện là được.",
             "Nhấn công tắc đèn thì có thể làm đèn nhấp nháy.",
             "Dùng lâu đèn sẽ tối nên hãy chỉ dùng trong thời gian ngắn."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -595,7 +596,8 @@
             "Email báo cho thầy biết thời gian thuận tiện của mình",
             "Email xin lỗi vì đã hoãn cuộc hẹn",
             "Email xin lỗi vì mình không sắp xếp được thời gian"
-          ]
+          ],
+          "questionType": "inference"
         }
       ],
       "book": "shinkanzen"
@@ -1183,7 +1185,8 @@
             "Vì người vợ đã khuất rất thích mua vé số.",
             "Vì muốn có tiền.",
             "Vì nghĩ rằng sẽ có chuyện vui xảy ra."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "3億円が当たった後で彼はどうしようと思ったか。",
@@ -1201,7 +1204,8 @@
             "Định mua xe hơi sang trọng.",
             "Định mua một ngôi nhà lớn.",
             "Định sẽ không nhận số tiền đó."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "彼はかしこい判断をしたのかもしれない。とあるが、それはなぜか。",
@@ -1219,7 +1223,8 @@
             "Vì khả năng xảy ra những vấn đề rắc rối đã không còn.",
             "Vì đã định dùng số tiền đó vào việc có ích.",
             "Vì định mua xe, mua nhà rồi tặng lại cho mọi người xung quanh."
-          ]
+          ],
+          "questionType": "inference"
         }
       ],
       "book": "shinkanzen"
@@ -1567,7 +1572,8 @@
             "Stress cũng có thể là nguyên nhân gây ra bệnh tật cho cơ thể.",
             "Những áp lực nhỏ nhặt mới là điều phiền toái nhất.",
             "Nên sống một cuộc sống hoàn toàn không có stress."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "そうしているうちにとあるが、これは何を指しているのか。",
@@ -1585,7 +1591,8 @@
             "Trong khi đang cố gắng giải quyết áp lực lớn",
             "Trong khi cứ để mặc những áp lực nhỏ nhặt",
             "Trong khi đang sống cuộc đời hoàn toàn không có stress"
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "本文の内容と合っているものはどれか。",
@@ -1603,7 +1610,8 @@
             "Nếu stress quá lớn thì chắc chắn sẽ làm hỏng tâm trí và cơ thể.",
             "Dù là stress nhỏ nhưng nếu không giải quyết thì cũng là nguyên nhân gây hại cho tâm trí và cơ thể.",
             "Stress lớn không đáng buồn vì nó là cơ hội để trưởng thành."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -2219,7 +2227,8 @@
             "Từng sống ở ruộng lúa và rừng khắp Nhật Bản nhưng đã tuyệt chủng, hiện tại đang nuôi chim Toki nhập khẩu.",
             "Số lượng giảm dần theo sự phát triển công nghiệp nhưng hiện tại đang tăng trở lại.",
             "Vì đã tuyệt chủng nên đang nhập khẩu và nuôi dưỡng loài chim giống Toki của Trung Quốc."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "日本のトキはなぜ、数が減ったのか。",
@@ -2237,7 +2246,8 @@
             "Vì bị bắt và môi trường sống của Toki cũng trở nên tồi tệ hơn.",
             "Vì nơi Toki có thể sống bị giảm bớt nên chúng đã bay sang các nước như Trung Quốc.",
             "Vì có nhiều người muốn nuôi chim Toki đẹp nên chúng đã bị bắt đi."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章を書いた人が言いたいことは何か。",
@@ -2255,7 +2265,8 @@
             "Dù kinh tế khó khăn thì vẫn nên tăng số lượng sinh vật xinh đẹp và trả chúng về tự nhiên.",
             "Tự nhiên rất khó để phục hồi nên phải trân trọng bảo vệ.",
             "Dù tự nhiên đang dần mất đi, chúng ta vẫn có thể phục hồi bằng nhiều cách khác nhau."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -2879,7 +2890,8 @@
             "Vì ngay cả khi không có ai sử dụng, đèn vẫn luôn bật sáng.",
             "Vì không chỉ ban ngày mà ban đêm vẫn có người sử dụng.",
             "Vì chúng được đặt rất nhiều ở các địa điểm đa dạng như phố xá và tòa nhà."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "自動販売機の飲み物の冷やし方として、正しいものはどれか。",
@@ -2897,7 +2909,8 @@
             "Dùng máy tính để làm lạnh trong thời gian ngắn ngay trước khi bán.",
             "Máy tính kiểm tra sự thay đổi nhiệt độ bên ngoài để điều chỉnh làm lạnh.",
             "Vì máy tính biết khi nào bán được bao nhiêu nên chỉ làm lạnh chừng đó."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "自動販売機のエネルギーの節約方法として、正しいものはどれか。",
@@ -2915,7 +2928,8 @@
             "Sử dụng nhiệt tỏa ra từ đồ uống nóng để làm lạnh đồ uống lạnh.",
             "Đồ uống nóng không được bán chung trong cùng một máy bán hàng tự động với đồ uống lạnh.",
             "Đồ uống nóng được làm ấm bằng nhiệt từ đèn của máy bán hàng tự động."
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -3323,7 +3337,8 @@
             "Chỉ gật đầu khi đồng ý với ý kiến của đối phương.",
             "Khi đối phương đang nói thì im lặng không làm gì cả.",
             "Gật đầu dù có đồng ý với ý kiến của đối phương hay không."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "うなずくことは、どのような役割があるか。",
@@ -3341,7 +3356,8 @@
             "Vai trò cho thấy mình đang lắng nghe câu chuyện của đối phương",
             "Vai trò truyền đạt rằng mình đang đồng cảm với ý kiến của đối phương",
             "Vai trò thể hiện rằng mình muốn bắt đầu nói tiếp"
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章では、どうすれば上手に話を始められると言っているか。",
@@ -3359,7 +3375,8 @@
             "Gật đầu hoặc dùng từ đệm khi có ai đó đang nói",
             "Lắng nghe im lặng khi đối phương nói, đợi khi kết thúc mới nói \"Vâng đúng vậy\"",
             "Dù không đồng cảm với câu chuyện của đối phương cũng nói \"Vâng đúng vậy thật\""
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -3835,7 +3852,8 @@
             "Vì con người hiện nay không còn muốn nhớ về chuyện xưa nữa.",
             "Vì người xưa luôn cố gắng nâng cao năng lực nhưng bây giờ thì không.",
             "Vì khác với ngày xưa, con người hiện nay không còn mong muốn một cuộc sống tiện nghi, thoải mái nữa."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "それとは何を指すか。",
@@ -3853,7 +3871,8 @@
             "Cơ thể có sức mạnh",
             "Cách sử dụng cơ thể",
             "Sự hợp tác của con người"
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "この文章では科学技術の進歩について、どう言っているか。",
@@ -3871,7 +3890,8 @@
             "Tiến bộ rất tuyệt vời nhưng vì nó mà kết nối giữa người với người bị mất đi.",
             "Khi tiến bộ, con người dựa dẫm vào máy móc, dụng cụ nên không tự làm được nhiều việc.",
             "Khi tiến bộ, những chuyện ngày xưa không được truyền lại và dần bị quên lãng."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -4455,7 +4475,8 @@
             "Đường sá được xây dựng giúp việc đi lại đến các thị trấn khác dễ dàng hơn.",
             "Ở vùng ngoại ô của thành phố cũng đã xây dựng nhà ở và cơ sở hạ tầng.",
             "Diện tích thành phố mở rộng khiến các cơ sở và nhà ở cũng rộng rãi hơn."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "コンパクトシティとは、本文によるとどのような意味か。",
@@ -4473,7 +4494,8 @@
             "Đô thị mà người già gặp khó khăn khi đi mua sắm",
             "Đô thị mà người già có thể tự lái xe đi mua sắm",
             "Đô thị đưa các cơ sở hạ tầng về trung tâm và giúp mọi người sinh sống tại đó"
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "こうした都市が注目されているとあるが、なぜ注目されているか。",
@@ -4491,7 +4513,8 @@
             "Vì người già đã có thể dễ dàng đi đến các cửa hàng và cơ sở hạ tầng ở trung tâm thành phố.",
             "Vì mọi người tập trung ở trung tâm thành phố nên nơi đó trở nên nhộn nhịp.",
             "Vì trong tình trạng già hóa dân số và giảm dân số, thành phố này được cho là sẽ tăng dân số."
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -4947,7 +4970,8 @@
             "Ông chú kể chuyện nói đùa",
             "Học sinh tiểu học kể chuyện nói đùa",
             "Người viết đoạn văn này"
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章によると、ダジャレのよい点は何か。",
@@ -4965,7 +4989,8 @@
             "Để tạo ra lời nói đùa nên sẽ tìm hiểu nhiều thứ.",
             "Nghe lời nói đùa và cười sẽ làm não bộ hoạt động tốt hơn.",
             "Khi nghe lời nói đùa sẽ ghi nhớ được nhiều từ có âm thanh tương tự nhau."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章を書いた人が一番言いたいことはどれか。",
@@ -4983,7 +5008,8 @@
             "Nhiều đàn ông trung niên hay nói đùa và thường làm mọi người vui vẻ.",
             "Lời nói đùa ai cũng tạo được nhưng nói với người xung quanh không phải là việc tốt.",
             "Lời nói đùa dễ tạo ra, có thể xóa bỏ sự căng thẳng và làm tâm trạng tươi sáng hơn."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -5359,7 +5385,8 @@
             "Ông Oyama, thầy giáo và cô Minami Yukari",
             "Thầy giáo và cô Minami Yukari",
             "Cô Minami Yukari và khách mời đặc biệt"
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "ヘンドラさんは、妻とこのコンサートに行きたい。どうしたらよいか。",
@@ -5377,7 +5404,8 @@
             "Gửi email cho ông Oyama nhờ đặt vé cho 2 người và gửi tiền đến quầy lễ tân.",
             "Gửi email cho hội trường nhờ đặt vé cho 2 người.",
             "Gửi email cho hội trường nhờ đặt vé cho 2 người và trả tiền tại quầy lễ tân vào ngày hôm đó."
-          ]
+          ],
+          "questionType": "inference"
         },
         {
           "question": "行く連絡は、いつまでにしなければならないか。",
@@ -5395,7 +5423,8 @@
             "Ngày 3 tháng 4",
             "Ngày 9 tháng 6",
             "Ngày 10 tháng 6"
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -6143,7 +6172,8 @@
             "Người nói tự nhiên mà làm như vậy.",
             "Người nói không muốn làm nhưng vẫn làm.",
             "Người nói làm thế nào cũng được nhưng người nghe lại muốn làm như vậy."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "上に書いたとおりとあるが、どこを指しているか。",
@@ -6161,7 +6191,8 @@
             "Trong tiếng Nhật khi dùng \"suru\" sẽ truyền tải được ý chí của người nói.",
             "Chính ý chí của chủ cửa hàng đã làm cho nhà hàng đó thành nơi cấm hút thuốc.",
             "Cách nói \"Tại đây chúng tôi thực hiện cấm hút thuốc\" nghe có vẻ tự nhiên."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "この場合の店の人の一番の目的は何か。",
@@ -6179,7 +6210,8 @@
             "Muốn khách đang hút thuốc trong nhà hàng từ bỏ việc hút thuốc.",
             "Muốn mắng khách đang hút thuốc.",
             "Không muốn làm tổn thương khách đang hút thuốc."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章の内容として正しいものはどれか。",
@@ -6197,7 +6229,8 @@
             "Dùng \"naru\" có thể tránh được sự đối lập.",
             "\"Suru\" chỉ đơn thuần là cách nói thông báo quy định.",
             "Dùng \"naru\" sẽ gây ra đối lập với đối phương."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -7181,7 +7214,8 @@
             "Màu hoa sẽ dần thay đổi.",
             "Sẽ nở trong nhiều tuần liền.",
             "Sẽ nở trong khoảng 7 ngày."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "掃除ぐらいで文句を言ってはいけないだろう。とあるが、どういうことか。",
@@ -7199,7 +7233,8 @@
             "Vì quét dọn là việc tốt nên phải vui vẻ làm mà không được than vãn.",
             "Vì việc quét lá không vất vả bằng quét cánh hoa nên không được than vãn.",
             "Vì quét dọn rất vất vả nên việc không muốn làm là điều đương nhiên."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "最も手がかかるのは、長生きさせることである。とあるが、どうすればよいか。",
@@ -7217,7 +7252,8 @@
             "Cắt bỏ những cành đã trở nên nặng nề.",
             "Quét dọn cánh hoa và lá cây.",
             "Cắt bỏ những cành không cần thiết."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章を書いた人が一番言いたいことは何か。",
@@ -7235,7 +7271,8 @@
             "Nếu cây anh đào hiện tại khô héo thì Nhật Bản sẽ không còn hoa anh đào nữa.",
             "Dù mất công chăm sóc, người Nhật vẫn đặc biệt trân trọng cây hoa anh đào.",
             "Để anh đào sống lâu, bắt buộc phải quét dọn cánh hoa và lá cây."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -7999,7 +8036,8 @@
             "Mỗi người đều có căn phòng riêng biệt.",
             "Mỗi người đều có nhà vệ sinh và vòi hoa sen riêng.",
             "Diện tích phòng của mỗi người rộng hơn căn hộ bình thường."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "シェアハウスのよい点はどんなところだと言っているか。",
@@ -8017,7 +8055,8 @@
             "Không cần phải tự mình quét dọn hay nấu cơm.",
             "Tất cả nhà chung đều có sẵn nội thất và thiết bị điện.",
             "Có thể sống thoải mái với những người cùng độ tuổi hoặc công việc mà không phải bận tâm."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "シェアハウスに入るときの注意点で本文と合っているのはどれか。",
@@ -8035,7 +8074,8 @@
             "Nếu có người khác độ tuổi hoặc nghề nghiệp đang sống ở đó thì không nên ở.",
             "Phải tự mình đặt ra các quy định về cách sử dụng khu vực chung.",
             "Nếu có giường hay thiết bị điện thì bắt buộc phải từ bỏ."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章を書いた人が伝えたいことは何か。",
@@ -8053,7 +8093,8 @@
             "Nhà chung tiết kiệm chi phí, có sự giao lưu giữa các cư dân nên cần nhân rộng.",
             "Nhà chung có nhiều điểm tốt, nhưng nên kiểm tra kỹ các lưu ý trước khi quyết định.",
             "Ở nhà chung không có thời gian riêng tư, nhưng có thể yên tâm sống cùng người khác."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -9061,7 +9102,8 @@
             "Trong khoảng 10-12 phút, phải hoàn thành việc đổ rác, dọn nhà vệ sinh và toa tàu.",
             "Trên toa tàu, trước hết cần kiểm tra xem có ai để quên đồ không, sau đó quét dọn sàn.",
             "Dọn sạch ghế trên toa tàu rồi mới thay vải bọc tựa lưng."
-          ]
+          ],
+          "questionType": "main-idea"
         },
         {
           "question": "安喰さんは、どうして仕事がうまくできるようになったか。",
@@ -9079,7 +9121,8 @@
             "Vì nhận ra công việc khác với dọn nhà nên cô đã tự tập luyện tại nhà vào ngày nghỉ.",
             "Vì cô đã vừa làm vừa quan sát cách làm của những đồng nghiệp xung quanh.",
             "Vì cô đã làm việc mà không nhìn đồng hồ để hoàn thành công việc nhanh chóng."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "うれしさとあるが、何がうれしかったのか。",
@@ -9097,7 +9140,8 @@
             "Vì đã hoàn thành công việc trong thời gian ngắn và tàu xuất phát đúng giờ.",
             "Vì dù thời gian ngắn nhưng vẫn hoàn thành toàn bộ công việc như mọi khi.",
             "Vì dù có bão tàu vẫn chạy bình thường và có thể tiến hành dọn dẹp."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "鉄道が正確な時間に走れるとあるが、その理由は何か。",
@@ -9115,7 +9159,8 @@
             "Vì mỗi công việc đều được thực hiện bởi rất nhiều người.",
             "Vì cách làm việc đã được quy định chi tiết nên ai cũng có thể làm mà không gặp vấn đề gì.",
             "Vì cấp quản lý giỏi đã chỉ đạo và quản lý tốt các nhân viên phụ trách."
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -9911,7 +9956,8 @@
             "Vì phải ở lại một mình sau khi giờ học kết thúc.",
             "Vì bản thân là người học ít nhất trong lớp.",
             "Vì chỉ có mình là không thể chơi cùng các học sinh ở lớp cũ."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "結果は変わらないだろうとあるが、どういう意味か。",
@@ -9929,7 +9975,8 @@
             "Học sinh kém sẽ không lên lớp trên.",
             "Học sinh kém sẽ hiểu bài.",
             "Học sinh kém sẽ không hiểu bài."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "この問題とは何か。",
@@ -9947,7 +9994,8 @@
             "Học sinh kém không thể hiểu bài khi lên lớp trên.",
             "Học sinh kém không theo kịp bài nên không thể lên lớp trên.",
             "Tình nguyện viên không hướng dẫn đặc biệt cho những học sinh học kém."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "上の学年の勉強内容についていくために、この文章を書いた人はどうすべきだと言っているか。",
@@ -9965,7 +10013,8 @@
             "Tình nguyện viên và các học sinh khác trong lớp dạy lại những phần chưa hiểu.",
             "Tình nguyện viên hướng dẫn nội dung phù hợp với học sinh học yếu.",
             "Tình nguyện viên dạy lại những phần chưa hiểu ngay trong giờ học."
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -10665,7 +10714,8 @@
             "Nghĩ rằng giá cao là hàng tốt nên cứ thế mua.",
             "Mua ngay cả những thứ không cần thiết nếu thấy giá rẻ.",
             "Nếu là món đồ cần thiết thì mua ngay mà không suy nghĩ về giá."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "将来について女性はどうだと言っているか。",
@@ -10683,7 +10733,8 @@
             "Khi có chồng thì không còn lo lắng về tương lai nữa.",
             "Trước khi có chồng thì không lo lắng về tương lai.",
             "Sau khi có chồng mới thấy lo lắng về tương lai."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "結婚について男性はどうだと言っているか。",
@@ -10701,7 +10752,8 @@
             "Tự nghĩ rằng mình không thay đổi nhưng không ngờ bản thân đã thay đổi lúc nào không hay.",
             "Mong vợ trở nên tốt hơn nữa nhưng vợ không thay đổi mấy.",
             "Muốn bản thân giữ nguyên như hiện tại nhưng vợ không nghĩ như vậy."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章で一番言いたいことは何か。",
@@ -10719,7 +10771,8 @@
             "Suy nghĩ và hành động của đàn ông và phụ nữ tuy khác nhau nhưng điều đó chưa được khoa học chứng minh.",
             "Việc so sánh suy nghĩ và hành động của đàn ông và phụ nữ trong câu chuyện này là chính xác.",
             "Đàn ông và phụ nữ vốn khác biệt nên cần nỗ lực để hiểu nhau."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -11651,7 +11704,8 @@
             "Vì mưa rơi dữ dội nên không nhìn rõ phía trước.",
             "Vì đi vào trong mây nên không nhìn rõ.",
             "Vì trời đã tối nên không nhìn rõ."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "そことあるが、どこか。",
@@ -11669,7 +11723,8 @@
             "Nơi vừa bước ra khỏi nhà nghỉ trên núi Phú Sĩ.",
             "Nơi đã leo núi Phú Sĩ được khoảng 3 tiếng.",
             "Đỉnh cao nhất của núi Phú Sĩ."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "富士山から見た、太陽が昇る様子について正しいものはどれか。",
@@ -11687,7 +11742,8 @@
             "Khi mặt trời mọc từ bầu trời màu cam, bầu trời sẽ chuyển sang màu xanh.",
             "Sau khi bầu trời chuyển sang màu xanh sáng, phần dưới trở nên màu cam và mặt trời mọc.",
             "Sau khi bầu trời trở nên chói mắt, mặt trời màu cam bắt đầu mọc lên."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章を書いた人は富士山登山についてどう思っているか。",
@@ -11705,7 +11761,8 @@
             "Vì vất vả và bất an nên leo một lần là đủ.",
             "Vì đường leo núi được bảo trì tốt nên rất nhàn, muốn đi lần nữa.",
             "Nếu leo núi Phú Sĩ thì nên tham gia tour là tốt nhất."
-          ]
+          ],
+          "questionType": "inference"
         }
       ],
       "book": "shinkanzen"
@@ -12445,7 +12502,8 @@
             "Nhà phê bình cần bằng cấp về một lĩnh vực, còn bác sĩ hay giáo viên thì không.",
             "Nhà phê bình không cần bằng cấp về một lĩnh vực, còn bác sĩ hay giáo viên thì cần.",
             "Nhà phê bình cần kiến thức về một lĩnh vực, còn bác sĩ hay giáo viên thì không."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "評論家の多くはどんなことが仕事につながったとあるか。",
@@ -12463,7 +12521,8 @@
             "Việc nỗ lực học tập để thực hiện các bài bình luận hoặc thuyết minh về một lĩnh vực.",
             "Việc thi lấy nhiều bằng cấp về một lĩnh vực từ khi còn trẻ hơn người khác.",
             "Việc duy trì kiến thức đặc biệt và sự quan tâm để học tập liên tục về một lĩnh vực trong thời gian dài."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "ただ人並み外れた深い知識があれば評論家になれるというものでもないとあるが、どういうことか。",
@@ -12481,7 +12540,8 @@
             "Có nhiều trường hợp không cần thiết phải sở hữu kiến thức sâu rộng.",
             "Sở hữu kiến thức sâu rộng là cần thiết, nhưng ngoài ra còn có những yếu tố khác.",
             "Sở hữu kiến thức sâu rộng là không cần thiết, còn có những yếu tố khác quan trọng hơn."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "本文によるとマスメディアに取り上げられるためには何が必要か。",
@@ -12499,7 +12559,8 @@
             "Sức mạnh thuyết phục, thu hút mọi người và vận may có cơ hội xuất hiện trên phương tiện truyền thông.",
             "Kinh nghiệm từng xuất hiện trên phương tiện truyền thông và thu hút mọi người.",
             "Kiến thức sâu rộng vượt trội cùng với sức thuyết phục và sự lôi cuốn để thuyết phục mọi người."
-          ]
+          ],
+          "questionType": "detail"
         }
       ],
       "book": "shinkanzen"
@@ -13283,7 +13344,8 @@
             "Cảm thấy hài lòng vì liên tiếp nhớ lại những cuốn tiểu thuyết mà tác giả đã viết.",
             "Cảm thấy không cảm động như mong đợi vì đã trôi qua thời gian dài từ khi đọc tiểu thuyết của tác giả.",
             "Cảm thấy hơi bất mãn vì thị trấn hiện tại đã thay đổi rất nhiều so với thời tác giả còn sống."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章によると、この人は記念館で何を見たか。",
@@ -13301,7 +13363,8 @@
             "Bản thảo tiểu thuyết và thư từ do chính tác giả viết tay.",
             "Bản thảo và thư từ do nhiều người khác viết về tác giả này.",
             "Những bài thơ do em gái tác giả viết."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "それ以来とあるが、どのようなことか。",
@@ -13319,7 +13382,8 @@
             "Từ lúc nhìn thấy bản thảo viết tay của tác giả.",
             "Từ lúc đến thị trấn nơi tác giả sinh ra.",
             "Từ lúc bắt đầu viết chữ bằng máy tính."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "この文章を書いた人が一番伝えたいことは何か。",
@@ -13337,7 +13401,8 @@
             "Tầm quan trọng của việc viết chữ đẹp.",
             "Sự tuyệt vời trong văn chương của tác giả yêu thích.",
             "Ý nghĩa của việc du lịch đến thị trấn của tác giả yêu thích."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -14297,7 +14362,8 @@
             "Người đã viết về chính mình trong tiểu thuyết.",
             "Một nhà văn đang được giới trẻ yêu thích.",
             "Một nhà văn nổi tiếng từng nhận được giải thưởng."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "事情を客にたずねます。とあるが、なぜか。",
@@ -14315,7 +14381,8 @@
             "Vì chọn 1 bông hoa duy nhất là việc khó khăn.",
             "Vì không biết hoa có giá bằng máy chơi game.",
             "Vì khách hàng nhờ người bán chọn giúp bông hoa phù hợp."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "元気づけられるとあるが、なぜか。",
@@ -14333,7 +14400,8 @@
             "Vì Yu - người đã không đến trường - đã bắt đầu đi học.",
             "Vì Yu - người vốn dửng dưng với mọi thứ - đã trở nên tươi sáng và mạnh mẽ hơn.",
             "Vì Yu - người không chịu làm việc - đã bắt đầu đi làm thêm."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "『花屋ダイヤリー』で作者が読者に一番伝えたいことは何か。",
@@ -14351,7 +14419,8 @@
             "Rất nhiều loài hoa đều có ý nghĩa riêng.",
             "Yu đang trải qua những ngày tháng không niềm vui.",
             "Cách giúp ích khi muốn tặng hoa cho ai đó."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ],
       "book": "shinkanzen"
@@ -14959,7 +15028,8 @@
             "180 yên",
             "160 yên",
             "140 yên"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "ドーナツを安く買いたい。この広告を持って、いつ買いに行けばよいか。",
@@ -14977,7 +15047,8 @@
             "Ngày 12 tháng 6, khoảng 10 giờ tối",
             "Ngày 16 tháng 6, khoảng 8 giờ sáng",
             "Ngày 20 tháng 6, khoảng 8 giờ tối"
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -15393,7 +15464,8 @@
             "9.500 yên",
             "13.500 yên",
             "15.000 yên"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "このすし屋で働ける人はだれか。",
@@ -15411,7 +15483,8 @@
             "Sinh viên chưa có kinh nghiệm. Có thể làm việc từ 6h chiều đến 11h đêm vào thứ Tư.",
             "Học sinh cấp 3 có kinh nghiệm. Có thể làm việc từ 3h chiều đến 9h tối vào thứ Ba và thứ Năm.",
             "Sinh viên chưa có kinh nghiệm. Có thể làm việc từ 5h chiều đến 10h đêm vào thứ Tư và thứ Bảy."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -15847,7 +15920,8 @@
             "35.000 yên",
             "90.000 yên",
             "95.000 yên"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "このアパートの説明として本文の内容と合っているものはどれか。",
@@ -15865,7 +15939,8 @@
             "Ban công nằm ở phía Nam.",
             "Không thể nuôi chó.",
             "Trong phòng không có nhà tắm."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -16545,7 +16620,8 @@
             "1.000 yên",
             "1.500 yên",
             "2.000 yên"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "リーさんは4月9日（水）のアラビア語クラスに参加したい。何をすればよいか。",
@@ -16563,7 +16639,8 @@
             "Đặt chỗ qua mạng trước ngày 6 tháng 4.",
             "Đến Trung tâm văn hóa Minato đặt chỗ trước ngày 8 tháng 4.",
             "Đến lớp học đăng ký vào ngày 9 tháng 4."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -17007,7 +17084,8 @@
             "②",
             "③",
             "④"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "サムさんは、木曜日の昼のできるだけ早い時間に友達と和食が食べたい。何時から食べることができるか。",
@@ -17025,7 +17103,8 @@
             "11 giờ 30 phút",
             "12 giờ",
             "12 giờ 30 phút"
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -17569,7 +17648,8 @@
             "550 yên + 150 yên = 700 yên",
             "550 yên + 100 yên + 200 yên = 850 yên",
             "550 yên + 150 yên + 200 yên = 900 yên"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "ホルさんは4月13日（日）の昼12時半にお弁当が20個必要である。いつ注文すればよいか。",
@@ -17587,7 +17667,8 @@
             "Khoảng 6 giờ tối ngày 12/4 (thứ Bảy)",
             "Khoảng 8 giờ tối ngày 12/4 (thứ Bảy)",
             "Khoảng 9 giờ sáng ngày 13/4 (Chủ nhật)"
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -18119,7 +18200,8 @@
             "Đi đến bưu điện để mở tài khoản.",
             "Đi đến cửa hàng tiện lợi và thanh toán bằng thẻ tín dụng.",
             "Đi đến ngân hàng hoặc cửa hàng tiện lợi để thanh toán bằng tiền mặt."
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "支払いはいつまでにしなければならないか。",
@@ -18137,7 +18219,8 @@
             "3 tháng 6",
             "26 tháng 6",
             "30 tháng 6"
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -18889,7 +18972,8 @@
             "30 tháng 10 năm 2014",
             "31 tháng 1 năm 2015",
             "31 tháng 5 năm 2015"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "保証期間中に以下のことをしたら、ラケットがこわれた。保証してもらえるのはどれか。",
@@ -18907,7 +18991,8 @@
             "Để quên ở sân tennis rồi bị mưa làm ướt.",
             "Bạn ngồi lên làm hỏng vợt.",
             "Đánh bóng liên tục trong 8 giờ dưới trời nắng nóng."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -19387,7 +19472,8 @@
             "14:00",
             "14:30",
             "15:15"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "タンさんは、午後時間ができたので映画を見ることにした。映画館にいられる時間は午後3時から午後6時までの3時間だけである。今日タンさんが、初めから終わりまで見ることができる映画は次のうちどれか。",
@@ -19405,7 +19491,8 @@
             "Mèo và Ichiro",
             "Ninja gió",
             "Ohana♡"
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -20221,7 +20308,8 @@
             "12 giờ 50 phút",
             "Đúng 13 giờ",
             "14 giờ 30 phút"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "ウェンさんは説明会の日に具合が悪くなり開始の時間に行けなくなった。どうすればよいか。",
@@ -20239,7 +20327,8 @@
             "Hủy qua trang tuyển dụng trên website công ty.",
             "Không liên lạc và đến tham gia muộn.",
             "Gọi điện cho phụ trách tuyển dụng của công ty."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -20831,7 +20920,8 @@
             "Nhấp vào đường link ① để làm thủ tục.",
             "Nhấp vào đường link ② để làm thủ tục.",
             "Gửi email đến địa chỉ email ④."
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "このメールマガジンをもう受け取りたくない。どうすればよいと書いてあるか。",
@@ -20849,7 +20939,8 @@
             "Nhấp vào đường link ② để làm thủ tục.",
             "Nhấp vào đường link ③ để làm thủ tục.",
             "Gửi email đến địa chỉ email ④."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -21401,7 +21492,8 @@
             "Vứt đi không dùng nữa.",
             "Gửi về cửa hàng ○× và báo lại phí vận chuyển qua email.",
             "Gửi về cửa hàng ○× theo phương thức người nhận trả cước phí."
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "お金はどのように戻ってくるか。",
@@ -21419,7 +21511,8 @@
             "Gửi email thông báo đã gửi hàng thì tiền sẽ được chuyển khoản.",
             "Khi cửa hàng ○× nhận được hàng, tiền sẽ được gửi qua bưu điện.",
             "Khi cửa hàng ○× nhận được hàng, tiền sẽ được chuyển vào tài khoản đã cung cấp."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"
@@ -21815,7 +21908,8 @@
             "Gấu trúc",
             "Ngựa",
             "Thỏ"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "グラフについて正しく述べているのはどれか。",
@@ -21833,7 +21927,8 @@
             "Thỏ đứng thứ 3 trong cuộc khảo sát năm 2007.",
             "Gấu trúc đứng thứ 1 trong cuộc khảo sát năm 1983.",
             "Koala giảm so với năm 1983 trong cuộc khảo sát năm 2007."
-          ]
+          ],
+          "questionType": "info-search"
         }
       ],
       "book": "shinkanzen"

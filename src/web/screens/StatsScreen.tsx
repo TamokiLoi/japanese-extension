@@ -1,15 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import type { JlptLevel } from "../../types/kanji.ts";
+import type { ReadingQuestionType } from "../../types/reading.ts";
 import type { Screen } from "../../popup/App.tsx";
 import { ALL_KANJI, AVAILABLE_LEVELS } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB, AVAILABLE_SOURCES, SOURCE_LABELS } from "../../popup/vocabState.ts";
 import { ALL_BUNPO, AVAILABLE_LEVELS as BUNPO_LEVELS } from "../../popup/bunpoState.ts";
-import {
-  ALL_READING_QUESTIONS,
-  AVAILABLE_BOOKS as READING_BOOKS,
-  BOOK_LABELS as READING_BOOK_LABELS,
-  findReadingById,
-} from "../../popup/readingState.ts";
+import { ALL_READING_QUESTIONS, findReadingById } from "../../popup/readingState.ts";
 import {
   ALL_QUIZBOOK,
   AVAILABLE_BOOKS as QUIZBOOK_BOOKS,
@@ -33,6 +29,15 @@ const CONTENT_TYPE_LABELS: Record<StatsContentType, string> = {
   quizbook: "Luyện đề",
 };
 const CONTENT_TYPE_ORDER: StatsContentType[] = ["kanji", "vocab", "bunpo", "reading", "quizbook"];
+
+const QUESTION_TYPE_LABELS: Record<ReadingQuestionType, string> = {
+  detail: "Chi tiết",
+  "main-idea": "Ý chính",
+  inference: "Suy luận",
+  "reference-vocab": "Từ/chỉ định trong bài",
+  "info-search": "Tìm kiếm thông tin",
+};
+const QUESTION_TYPE_ORDER: ReadingQuestionType[] = ["detail", "main-idea", "inference", "reference-vocab", "info-search"];
 
 // One normalized shape every content kind renders/filters/groups through --
 // avoids a Kanji|VocabCard|BunpoGrammarPoint|... union leaking into every
@@ -88,7 +93,7 @@ function buildEntries(contentType: StatsContentType): StatEntry[] {
       return {
         id: q.id,
         level: q.level,
-        char: `Câu ${q.questionIndex + 1}`,
+        char: q.questionType ? QUESTION_TYPE_LABELS[q.questionType] : `Câu ${q.questionIndex + 1}`,
         title: passage ? `${passage.title}${question ? ` — ${question.question}` : ""}` : q.id,
         navScreen: "reading",
         navId: q.passageId,
@@ -138,11 +143,14 @@ function buildGroupBars(contentType: StatsContentType): GroupBar[] {
     }));
   }
   if (contentType === "reading") {
-    return READING_BOOKS.map((book) => ({
-      key: book,
-      label: READING_BOOK_LABELS[book],
+    // Grouped by question type (chi tiết/ý chính/suy luận/...) rather than
+    // by book -- "which dạng câu do I keep missing" is the signal worth
+    // surfacing for exam prep; book-of-origin isn't actionable the same way.
+    return QUESTION_TYPE_ORDER.filter((type) => ALL_READING_QUESTIONS.some((q) => q.questionType === type)).map((type) => ({
+      key: type,
+      label: QUESTION_TYPE_LABELS[type],
       isLevel: false,
-      ids: ALL_READING_QUESTIONS.filter((q) => q.book === book).map((q) => q.id),
+      ids: ALL_READING_QUESTIONS.filter((q) => q.questionType === type).map((q) => q.id),
     }));
   }
   return QUIZBOOK_BOOKS.map((book) => ({
@@ -175,7 +183,17 @@ const BUCKET_ITEM_BORDER: Record<ProgressBucket, string> = {
 
 const MAX_LIST_ITEMS = 150;
 
-export function StatsScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: string) => void }) {
+export function StatsScreen({
+  onNavigate,
+  targetId,
+}: {
+  onNavigate: (screen: Screen, id?: string) => void;
+  // Reused as an entry-point preset rather than an item id: e.g. Reading's
+  // "Câu sai cần ôn lại" button links here with targetId="reading" to land
+  // straight on the reading tab, pre-filtered to "cần ôn lại" instead of the
+  // default "kanji"/"all" view.
+  targetId?: string;
+}) {
   const [contentType, setContentType] = useState<StatsContentType>("kanji");
   const [bucket, setBucket] = useState<BucketFilter>("all");
   const [map, setMap] = useState<ProgressMap | null>(null);
@@ -189,6 +207,13 @@ export function StatsScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: 
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (!targetId) return;
+    if (!CONTENT_TYPE_ORDER.includes(targetId as StatsContentType)) return;
+    setContentType(targetId as StatsContentType);
+    setBucket("flagged");
+  }, [targetId]);
 
   const entries = useMemo(() => buildEntries(contentType), [contentType]);
   const buckets = useMemo(() => (map ? countBuckets(entries, map) : null), [entries, map]);

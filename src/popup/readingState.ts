@@ -2,7 +2,7 @@ import readingN3ShinkanzenRaw from "../data/reading-n3-shinkanzen.json";
 import readingN3SpeedmasterRaw from "../data/reading-n3-speedmaster.json";
 import readingN3TaisakuRaw from "../data/reading-n3-taisaku.json";
 import mocktestN3ShinkanzenRaw from "../data/mocktest-n3-shinkanzen.json";
-import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook } from "../types/reading.ts";
+import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook, ReadingQuestionType } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
@@ -38,15 +38,17 @@ export interface ReadingQuestionItem {
   book: ReadingBook;
   passageId: string;
   questionIndex: number;
+  questionType?: ReadingQuestionType;
 }
 
 export const ALL_READING_QUESTIONS: ReadingQuestionItem[] = ALL_READING.flatMap((p) =>
-  p.questions.map((_, questionIndex) => ({
+  p.questions.map((q, questionIndex) => ({
     id: readingQuestionId(p.id, questionIndex),
     level: p.level,
     book: p.book,
     passageId: p.id,
     questionIndex,
+    questionType: q.questionType,
   })),
 );
 

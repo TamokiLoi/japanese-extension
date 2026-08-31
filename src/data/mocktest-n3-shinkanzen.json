@@ -248,7 +248,8 @@
             "Vì mỗi phụ nữ đang chọn một lối sống khác nhau.",
             "Vì phụ nữ đi làm đã trở thành chuyện đương nhiên.",
             "Vì phụ nữ ngày càng khó cân bằng giữa công việc và cuộc sống."
-          ]
+          ],
+          "questionType": "detail"
         }
       ]
     },
@@ -512,7 +513,8 @@
             "Giảm cân cần chú trọng ăn uống hơn là vận động.",
             "Có nhiều cách vận động mà không cần dành thời gian riêng.",
             "Cần phải dành ra thời gian riêng biệt để vận động trong đời sống."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ]
     },
@@ -816,7 +818,8 @@
             "Hiện nay, số người nghĩ 'không kết hôn cũng được' đông hơn người nghĩ 'kết hôn là đương nhiên'.",
             "Khoảng cách giữa tỷ lệ 'không kết hôn' và 'kết hôn là đương nhiên' đang ngày càng rộng ra.",
             "Tỷ lệ 'không kết hôn cũng được' hoàn toàn không thay đổi từ năm 1993."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ]
     },
@@ -1252,7 +1255,8 @@
             "Đổ rác một cách nhẹ nhàng.",
             "Mở cửa sổ để nghe nhạc trong phòng.",
             "Vừa nói chuyện điện thoại vừa đi lên cầu thang."
-          ]
+          ],
+          "questionType": "detail"
         }
       ]
     },
@@ -2096,7 +2100,8 @@
             "Mỗi thị trấn đang tạo ra món đặc sản B-Grade Gourmet riêng.",
             "Thị trấn đang tổ chức giải đấu B-Grade Gourmet toàn quốc.",
             "Thị trấn đã đạt thành tích tốt tại giải đấu B-Grade Gourmet toàn quốc."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "町に活気が出てきたのはなぜか。",
@@ -2114,7 +2119,8 @@
             "Nhờ B-Grade Gourmet mà nhiều người đến sinh sống và làm việc.",
             "Nhờ B-Grade Gourmet mà các doanh nghiệp đến xây dựng nhà máy.",
             "Nhờ B-Grade Gourmet mà họ xây dựng nhiều công trình cho khách du lịch."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "この文章で伝えたいことは何か。",
@@ -2132,7 +2138,8 @@
             "B-Grade Gourmet không chỉ rẻ, ngon mà còn thúc đẩy địa phương khởi sắc.",
             "Nhiều thị trấn đang thuê thêm nhân lực để đạt thành tích tại đại hội.",
             "Đầu tư tiền vào B-Grade Gourmet như xây nhà máy sẽ giúp thị trấn khởi sắc."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ]
     },
@@ -2748,7 +2755,8 @@
             "Người đóng phim gọi là 'Movie Star'.",
             "Bác sĩ bệnh viện gọi là 'Doctor'.",
             "Người thiết kế trang web gọi là 'Web Designer'."
-          ]
+          ],
+          "questionType": "inference"
         },
         {
           "question": "そのようなこととあるが、どういうことか。",
@@ -2766,7 +2774,8 @@
             "Dùng từ Katakana tạo cảm giác đặc biệt và chuyên nghiệp.",
             "Việc tự giới thiệu hoặc giới thiệu người khác là rất tốt.",
             "Các công việc mới thường được đặt tên bằng từ Katakana."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "この文章のテーマは何か。",
@@ -2784,7 +2793,8 @@
             "Cách đặt tên công việc bằng từ Katakana.",
             "Công việc mới và từ Katakana.",
             "Công việc cũ và từ Katakana."
-          ]
+          ],
+          "questionType": "main-idea"
         }
       ]
     },
@@ -3652,7 +3662,8 @@
             "Việc chỉ tặng quà cho những người thân thiết.",
             "Việc cùng ăn bánh kẹo tại công ty.",
             "Việc tặng quà cho mọi người sau chuyến đi."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "②言われてとあるが、だれに言われたのか。",
@@ -3670,7 +3681,8 @@
             "Người nhận quà.",
             "Người hỗ trợ công việc.",
             "Tác giả bài viết."
-          ]
+          ],
+          "questionType": "reference-vocab"
         },
         {
           "question": "この文章を書いている人の国のおみやげの習慣はどんなものか。",
@@ -3688,7 +3700,8 @@
             "Tặng cho tất cả mọi người tại nơi làm việc.",
             "Chỉ tặng cho những người thân thiết.",
             "Không bao giờ tặng quà tại nơi làm việc."
-          ]
+          ],
+          "questionType": "detail"
         },
         {
           "question": "③気になっていたあの人とはだれを指すか。",
@@ -3706,7 +3719,8 @@
             "Người tác giả để ý nhưng chưa từng nói chuyện.",
             "Người tác giả không thích nhưng vẫn phải nói chuyện.",
             "Người ở công ty khác mà tác giả không thích."
-          ]
+          ],
+          "questionType": "reference-vocab"
         }
       ]
     },
@@ -4366,7 +4380,8 @@
             "Thứ 4 và Thứ 7",
             "Thứ 5 và Chủ Nhật",
             "Thứ 4 và Chủ Nhật"
-          ]
+          ],
+          "questionType": "info-search"
         },
         {
           "question": "リーさん（20歳）はアルバイトを探している。リーさんは日本語学校で、月曜から金曜の午前中勉強している。夜は勉強したいし、日曜日は休みたいたいのでアルバイトをしたくないと思っている。リーさんがこのハンバーガーショップで働けるのは次のうちどれか。",
@@ -4384,7 +4399,8 @@
             "Thứ 5 (13:00-17:00) và Chủ Nhật (13:00-17:00)",
             "Thứ 5 (13:00-17:00) và Thứ 7 (8:00-13:00)",
             "Thứ 3 (13:00-17:00) và Thứ 7 (13:00-17:00)"
-          ]
+          ],
+          "questionType": "info-search"
         }
       ]
     }
