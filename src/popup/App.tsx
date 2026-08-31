@@ -22,7 +22,8 @@ export type Screen =
   | "quizBook"
   | "bunpo"
   | "review"
-  | "guide";
+  | "guide"
+  | "listening";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -37,6 +38,7 @@ export const VALID_SCREENS: Screen[] = [
   "bunpo",
   "review",
   "guide",
+  "listening",
 ];
 
 interface Route {

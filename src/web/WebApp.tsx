@@ -12,6 +12,7 @@ import { ReadingScreen } from "./screens/ReadingScreen.tsx";
 import { StatsScreen } from "./screens/StatsScreen.tsx";
 import { ReviewScreen } from "./screens/ReviewScreen.tsx";
 import { GuideScreen } from "./screens/GuideScreen.tsx";
+import { ListeningScreen } from "./screens/ListeningScreen.tsx";
 import "./tailwind.css";
 
 function readFromHash(): { screen: Screen; targetId?: string } {
@@ -109,6 +110,8 @@ export function WebApp() {
     );
   } else if (screen === "guide") {
     content = <GuideScreen />;
+  } else if (screen === "listening") {
+    content = <ListeningScreen />;
   } else {
     content = <App key={navKey} />;
   }
