@@ -1,0 +1,2822 @@
+{
+  "questions": [
+    {
+      "id": "listening-shinkanzen-n3-001",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track01.mp3",
+      "scenario": "日本語のクラスで女の先生が発表の準備について話しています。男の学生はまず何をしなければなりませんか。",
+      "scenarioVi": "Trong một lớp học tiếng Nhật, nữ giáo viên đang nói chuyện về việc chuẩn bị cho bài thuyết trình. Nam sinh viên phải làm gì đầu tiên?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "先週お話ししたように、あさっての授業では発表をしてもらいますから、準備しておいてください。"
+        },
+        {
+          "speaker": "男",
+          "text": "発表の時パソコンを使ってもいいですか。写真を見せたいんですけれど。"
+        },
+        {
+          "speaker": "女",
+          "text": "いいですけど、リーさんはまだ原稿ができてないでしょう？写真だけでは発表になりませんよ。すぐにやって、見せてください。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。書き直すのはまとめのところだけでいいですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ、そこがちょっとわかりにくいので、もう少し直さないと。ほかの準備は原稿が完成してからでいいです。それから、あしたはグループで発表の練習をするので、漢字の読み方も確認してきてくださいね。"
+        }
+      ],
+      "question": "男の学生はまず何をしなければなりませんか。",
+      "questionVi": "Nam sinh viên phải làm gì đầu tiên?",
+      "options": [
+        "写真を準備する",
+        "原稿を直す",
+        "発表の練習をする",
+        "漢字の読み方を確認する"
+      ],
+      "optionsVi": [
+        "Chuẩn bị ảnh",
+        "Sửa lại bản thảo",
+        "Luyện tập thuyết trình",
+        "Xác nhận cách đọc kanji"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vì câu hỏi dùng từ 'đầu tiên' (mazu), chúng ta cần suy nghĩ về việc phải làm trước tiên. Giáo viên sau khi nói 'Bản thảo chưa hoàn thành' đã bảo 'Hãy làm ngay và cho tôi xem'. Nam sinh viên trả lời 'Vâng' để đồng ý với chỉ thị và xác nhận lại 'Chỉ cần viết lại phần tổng kết thôi phải không?', nên đáp án là 2. Bằng cách này, hãy chú ý đến những từ chỉ việc cần làm như chỉ thị, nhờ vả và xem đối phương có đồng ý hay không."
+    },
+    {
+      "id": "listening-shinkanzen-n3-002",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track02.mp3",
+      "scenario": "女の人と男の人が話しています。男の人はどうして飲み会に行けませんか。",
+      "scenarioVi": "Một người phụ nữ và một người đàn ông đang nói chuyện. Người đàn ông vì sao không thể đi dự buổi tiệc nhậu?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "渡辺君、あしたの飲み会、行く？"
+        },
+        {
+          "speaker": "男",
+          "text": "あー、行こうと思っていたんだけど……。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、アルバイトの日か。"
+        },
+        {
+          "speaker": "男",
+          "text": "それは前から休みをもらってたからいいんだけど。あしたはさ、姉の子供を預かってほしいって頼まれちゃってね。友達の結婚式に行くからって。"
+        },
+        {
+          "speaker": "女",
+          "text": "お兄さんはいないの？"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、いつもなら週末は休みなんだけど……。子供が１人じゃかわいそうだしね。"
+        },
+        {
+          "speaker": "女",
+          "text": "ふうん。大変そうだけど、頑張ってね。"
+        }
+      ],
+      "question": "男の人はどうして飲み会に行けませんか。",
+      "questionVi": "Người đàn ông vì sao không thể đi dự buổi tiệc nhậu?",
+      "options": [
+        "アルバイトがあるから",
+        "子供の世話をするから",
+        "友達の結婚式に行くから",
+        "週末は休みではないから"
+      ],
+      "optionsVi": [
+        "Vì có việc làm thêm",
+        "Vì phải chăm sóc con",
+        "Vì đi dự đám cưới bạn",
+        "Vì cuối tuần không được nghỉ"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hãy suy nghĩ lý do người đàn ông không thể đi tiệc nhậu bằng cách dựa vào các phương án. Về 'việc làm thêm', anh ấy nói 'Được (= không vấn đề gì)' nên không phải. Vì anh ấy nói '(Được nhờ) trông con hộ', nên đáp án là 2. Người 'đi dự đám cưới bạn' là chị gái, còn người 'bình thường cuối tuần được nghỉ nhưng (tuần này thì không)' là anh trai. Bằng cách này, hãy chú ý đến những từ giống hoặc đồng nghĩa với các phương án xuất hiện trong bài hội thoại, và suy nghĩ về điều mà người nói muốn truyền đạt (khẳng định hay phủ định)."
+    },
+    {
+      "id": "listening-shinkanzen-n3-003",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track03.mp3",
+      "scenario": "テレビで女の人が話しています。",
+      "scenarioVi": "Một người phụ nữ đang nói chuyện trên tivi.",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "試験の時などに、緊張してしまうって困ったことはありませんか。そんな時に役立つ、いくつかのやり方をご紹介しましょう。ある人は、緊張している時に「お父さん、ありがとう。お母さん、ありがとう」とほかの人への感謝を心の中で言うと、落ち着けるそうです。また、体に一度ぐっと力を入れて、その後力を抜くと、落ち着けるという人もいます。一度試してみてはいかがですか。"
+        }
+      ],
+      "question": "女の人は何について話していますか。",
+      "questionVi": "Người phụ nữ đang nói về điều gì?",
+      "options": [
+        "人が緊張する理由",
+        "落ち着くための方法",
+        "両親への感謝の伝え方",
+        "力の入れ方と緊張の関係"
+      ],
+      "optionsVi": [
+        "Lý do con người cảm thấy căng thẳng",
+        "Phương pháp để trở nên bình tĩnh",
+        "Cách truyền đạt lòng biết ơn đối với cha mẹ",
+        "Mối quan hệ giữa việc dồn lực và sự căng thẳng"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chủ đề mà người phụ nữ nêu ra khi nói 'Tôi xin giới thiệu' chính là 'những phương pháp hữu ích' khi cảm thấy 'căng thẳng', do đó đáp án là 2. Việc 'nói lời cảm ơn trong lòng' và 'dùng lực siết chặt cơ thể rồi thả lỏng' là các ví dụ cho phương pháp đó. Bằng cách này, hãy chú ý xem tổng thể đang nói về vấn đề gì và ý định của người nói là gì."
+    },
+    {
+      "id": "listening-shinkanzen-n3-004",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track04.mp3",
+      "scenario": "大学で事務の人に書類の書き方を聞きます。何と言いますか。",
+      "scenarioVi": "Bạn muốn hỏi nhân viên hành chính ở trường đại học về cách viết tài liệu. Bạn sẽ nói thế nào?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "1 あの、この書類の書き方、教えてもよろしいでしょうか。\n2 あの、この書類の書き方、教えていただきたいんですがけど。\n3 あの、この書類の書き方、教えていただきましょうか。"
+        }
+      ],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
+      "options": [
+        "あの、この書類の書き方、教えてもよろしいでしょうか。",
+        "あの、この書類の書き方、教えていただきたいんですがけど。",
+        "あの、この書類の書き方、教えていただきましょうか。"
+      ],
+      "optionsVi": [
+        "Xin lỗi, anh/chị có thể chỉ cho tôi cách viết tài liệu này được không ạ?",
+        "Xin lỗi, tôi rất muốn anh/chị chỉ giùm tôi cách viết tài liệu này ạ.",
+        "Xin lỗi, tôi nhờ anh/chị chỉ giùm cách viết tài liệu này nhé?",
+        "Xin lỗi, tôi có thể nhờ anh/chị..."
+      ],
+      "correctIndex": 1,
+      "explanation": "Câu giải thích tình huống nói là 'hỏi nhân viên hành chính', nên nhân viên hành chính sẽ là người chỉ dẫn cho người nói (mũi tên chỉ đến). Số 2 là cách nói nhờ vả người khác dạy giúp, phù hợp với tình huống. Số 1 là cách xin phép được làm gì đó, số 3 là cách đưa ra đề xuất. Bằng cách này, hãy hiểu rõ tình huống và hoàn cảnh để chọn biểu hiện phù hợp, chú ý xem biểu hiện đó diễn tả hành động của ai và có phải là biểu hiện cố định dùng trong tình huống đó không."
+    },
+    {
+      "id": "listening-shinkanzen-n3-005",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track11.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "相手の人",
+      "questionVi": "Người đối diện",
+      "options": [
+        "料理がおいしかったこと",
+        "相手の人が素敵だったこと",
+        "有名な歌手の歌が聞けたこと",
+        "友達が幸せそうだったこと"
+      ],
+      "optionsVi": [
+        "Việc món ăn rất ngon",
+        "Việc người đối diện rất tuyệt vời",
+        "Việc được nghe bài hát của ca sĩ nổi tiếng",
+        "Việc bạn bè trông có vẻ hạnh phúc"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-006",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track27.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "これ、あっちに運んでおこうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、それはいいよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "この本、あした返さないと。"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、わかった。"
+        }
+      ],
+      "question": "会話を聞いてください。女の人はこれからどうしますか。",
+      "questionVi": "Hãy nghe đoạn hội thoại. Người phụ nữ từ bây giờ sẽ làm gì?",
+      "options": [
+        "運ぶ",
+        "運ばない",
+        "返す",
+        "返さない"
+      ],
+      "optionsVi": [
+        "Mang đi",
+        "Không mang đi",
+        "Trả lại",
+        "Không trả lại"
+      ],
+      "correctIndex": 1,
+      "explanation": "(1) Người phụ nữ đã đề nghị 'sẽ mang đi giúp', nhưng người đàn ông nói 'Không cần đâu', nghĩa là không cần làm cũng được. (2) 'Phải trả lại thôi' là biểu hiện chỉ việc phải làm từ bây giờ, và người phụ nữ đã đồng ý với điều đó."
+    },
+    {
+      "id": "listening-shinkanzen-n3-007",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track30.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "予約しておきましょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "しなくてもいいんじゃないかな。"
+        },
+        {
+          "speaker": "男",
+          "text": "田中さんにも電話しとく？"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、そうしたほうがいいんじゃない？"
+        }
+      ],
+      "question": "男の人はこれからどうしますか。",
+      "questionVi": "Người đàn ông từ bây giờ sẽ làm gì?",
+      "options": [
+        "予約する・予約しない",
+        "電話する・電話しない"
+      ],
+      "optionsVi": [
+        "Đặt chỗ / Không đặt chỗ",
+        "Gọi điện / Không gọi điện"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-008",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track32.mp3",
+      "scenario": "男の人と女の人が会社でスポーツ大会の賞品について話しています。女の人は賞品を何にしますか。",
+      "scenarioVi": "Nam và nữ đang nói chuyện ở công ty về phần thưởng của đại hội thể thao. Người phụ nữ sẽ chọn món gì làm phần thưởng?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "スポーツ大会の賞品の係、君だったよね。優勝チームの賞品、もう決めた？"
+        },
+        {
+          "speaker": "女",
+          "text": "うーん、何がいいかよくわからなくて。ね、お金はどうかな。"
+        },
+        {
+          "speaker": "男",
+          "text": "それはつまらないんじゃないの？ それなら、図書カードか何かの方がいいと思うけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "うーん、今、みんなあまり本、読まないでしょう？"
+        },
+        {
+          "speaker": "男",
+          "text": "そうだなあ。去年はタオルとお茶だったよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃ、去年と同じにしようかな。"
+        },
+        {
+          "speaker": "男",
+          "text": "それなら、飲み物はお茶よりビールの方がいいな。コーヒーでもいいし。"
+        },
+        {
+          "speaker": "女",
+          "text": "ビールは飲まない人もいるんじゃない？ でも、お茶よりはコーヒーがいいかもね。じゃ、そうしよう。"
+        }
+      ],
+      "question": "女の人は賞品を何にしますか。",
+      "questionVi": "Người phụ nữ sẽ chọn món gì làm phần thưởng?",
+      "options": [
+        "お金",
+        "図書カード",
+        "タオルとお茶",
+        "タオルとコーヒー"
+      ],
+      "optionsVi": [
+        "Tiền",
+        "Thẻ mua sách",
+        "Khăn tắm và trà",
+        "Khăn tắm và cà phê"
+      ],
+      "correctIndex": 3,
+      "explanation": "Người đàn ông không đồng ý với đề xuất 'tiền'. Người phụ nữ không đồng ý với 'thẻ mua sách'. Vì 'năm ngoái là khăn tắm và trà', họ nói sẽ làm 'giống' năm nay, nhưng lại nói 'cà phê thì thích hơn trà'."
+    },
+    {
+      "id": "listening-shinkanzen-n3-009",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track38.mp3",
+      "scenario": "女の人と男の人が新商品の発表会の準備をしながら話しています。女の人はこの後すぐ何をしなければなりませんか。",
+      "scenarioVi": "Người phụ nữ và nam đồng nghiệp đang nói chuyện trong lúc chuẩn bị cho buổi lễ ra mắt sản phẩm mới. Người phụ nữ phải làm gì ngay sau đây?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あの、マイクは発表者用と、司会者用の２本でよろしいでしょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "あー、質問用にもう１本、後ろに用意しておいたほうがいいね。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。じゃ、後で借りてきます。"
+        },
+        {
+          "speaker": "男",
+          "text": "えーと、もう商品は見ていただけるように置いてあるし……あ、名札はどうなってる？ 先に並べておかないと……。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、ここにあるので、今やります。それから、資料はもうまとめて受付のところに置いておきました。"
+        },
+        {
+          "speaker": "男",
+          "text": "そう。ありがとう。じゃ、僕はちょっと新聞社の人に電話してくるよ。"
+        }
+      ],
+      "question": "女の人はこの後すぐ何をしなければなりませんか。",
+      "questionVi": "Người phụ nữ phải làm gì ngay sau đây?",
+      "options": [
+        "マイクを準備する",
+        "商品を並べる",
+        "名札を並べる",
+        "資料を運んでおく"
+      ],
+      "optionsVi": [
+        "Chuẩn bị micro",
+        "Xếp hàng hóa",
+        "Xếp bảng tên",
+        "Mang tài liệu đi cất"
+      ],
+      "correctIndex": 2,
+      "explanation": "Về 'micro', cô ấy nói 'Lát nữa tôi sẽ đi mượn', còn về 'bảng tên', cô ấy nói 'Tôi làm ngay đây', nên cô ấy sẽ xếp bảng tên ngay sau đây. Các mục 'hàng hóa' và 'tài liệu' đã chuẩn bị xong."
+    },
+    {
+      "id": "listening-shinkanzen-n3-010",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track48.mp3",
+      "scenario": "留守番電話を聞いています。この女の人はいつ本を返すと言っていますか。",
+      "scenarioVi": "Bạn đang nghe lời nhắn trong hộp thư thoại. Người phụ nữ này nói khi nào sẽ trả sách?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もしもし、杉内です。借りていた本のことなんですけど、今週の金曜日に返す約束でしたが、ちょっと行けなくなってしまったんです。それで、前の日の木曜日の夕方、アルバイトの帰りにお宅にうかがってもいいでしょうか。留守だったら、ポストに入れておきます。月曜日のゼミの時にとも思ったんですが、来週は祝日でお休みなんですよね。来週だと遅すぎるので……どうもすみません。"
+        }
+      ],
+      "question": "いつ本を返すか",
+      "questionVi": "Khi nào trả sách?",
+      "options": [
+        "今週の金曜日",
+        "今週の木曜日",
+        "来週の月曜日",
+        "再来週の月曜日"
+      ],
+      "optionsVi": [
+        "Thứ Sáu tuần này",
+        "Thứ Năm tuần này",
+        "Thứ Hai tuần sau",
+        "Thứ Hai tuần sau nữa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Câu hỏi là 'khi nào trả sách'. Khi nghe chú ý đến các từ trong phương án, 'Thứ Sáu tuần này' nói là 'đã không thể đi được nữa' nên không đúng. Sau đó, 'Thứ Năm tuần này' vào 'buổi chiều tối' cô ấy có nói 'tôi ghé qua có được không', nên đây là đáp án. 'Thứ Hai tuần sau' là 'ngày lễ nghỉ', còn 'Thứ Hai tuần sau nữa' thì 'quá muộn', nên cả hai đều không đúng."
+    },
+    {
+      "id": "listening-shinkanzen-n3-011",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track05.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "海で遊ぶため",
+        "観光するため",
+        "結婚式に出るため",
+        "買い物をするため"
+      ],
+      "optionsVi": [
+        "Để vui chơi ở biển",
+        "Để tham quan",
+        "Để đi dự đám cưới",
+        "Để mua sắm"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-012",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track06.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "田中君に借りる",
+        "加藤さんから受け取る",
+        "鈴木さんに借りる",
+        "田中君の弟を使う"
+      ],
+      "optionsVi": [
+        "Mượn Tanaka",
+        "Nhận từ Kato",
+        "Mượn Suzuki",
+        "Nhờ em trai của Tanaka"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-013",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track07.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "切符が安いから",
+        "すいているから",
+        "ゲームをしたいから",
+        "女の人と一緒にいたいから"
+      ],
+      "optionsVi": [
+        "Vì vé rẻ",
+        "Vì vắng khách",
+        "Vì muốn chơi game",
+        "Vì muốn ở cùng người phụ nữ"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-014",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track08.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "医者に言われたから",
+        "妻に言われたから",
+        "体が重いと動きにくいから",
+        "新しい服を買いたくないから"
+      ],
+      "optionsVi": [
+        "Vì bác sĩ bảo vậy",
+        "Vì vợ bảo vậy",
+        "Vì cơ thể nặng nề khó di chuyển",
+        "Vì không muốn mua quần áo mới"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-015",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track09.mp3",
+      "scenario": "会社で男の人と女の人が話しています。女の人が中国語を勉強している目的は何ですか。",
+      "scenarioVi": "Nam và nữ nhân viên đang nói chuyện ở công ty. Mục đích học tiếng Trung của người phụ nữ là gì?",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あれ？松本さん、中国語、勉強してるの？"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、ちょっとだけ……。"
+        },
+        {
+          "speaker": "男",
+          "text": "最近、うちの会社も中国の人と仕事をする機会が増えたし、これからは役に立つだろうね。中国語ができれば、旅行にも行けるし。"
+        },
+        {
+          "speaker": "女",
+          "text": "あー、わたし、飛行機苦手なんで……。まあたしかに仕事で使えるぐらいになれればいいでしょうけど、わたしの場合は、単に趣味で……。"
+        },
+        {
+          "speaker": "男",
+          "text": "へえ。中国人の友達でもできたの？"
+        },
+        {
+          "speaker": "女",
+          "text": "そういうチャンスでもあればいいんですけど。実は最近、中国のお土産でCDをもらったんですが、それがすごくいいんです。音楽だけじゃなくて、意味を知りたいなって思って……。"
+        }
+      ],
+      "question": "中国語を勉強している目的は何ですか",
+      "questionVi": "Mục đích học tiếng Trung của cô ấy là gì?",
+      "options": [
+        "仕事で使うため",
+        "中国に行くため",
+        "友達と話するため",
+        "歌の意味を知るため"
+      ],
+      "optionsVi": [
+        "Để dùng trong công việc",
+        "Để đi Trung Quốc",
+        "Để trò chuyện với bạn bè",
+        "Để hiểu ý nghĩa bài hát"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dù được bảo là sẽ \"hữu ích\" trong \"công việc\" và cô ấy cũng công nhận \"đúng vậy\", \"giá mà sử dụng được thì tốt\", nhưng vì đây \"chỉ là sở thích\" nên đáp án 1 không chính xác. Đáp án 2 sai vì cô ấy nói \"sợ đi máy bay\". Đáp án 3 về \"bạn bè\" không đúng vì cô ấy nói \"giá mà có cơ hội (= hiện không có cơ hội)\"."
+    },
+    {
+      "id": "listening-shinkanzen-n3-016",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track10.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "さくら",
+      "questionVi": "Sakura",
+      "options": [
+        "さくら",
+        "ローズ",
+        "ゆり",
+        "リリー"
+      ],
+      "optionsVi": [
+        "Sakura",
+        "Rose",
+        "Yuri",
+        "Lily"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-017",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track19.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "推薦状を書いてもいいですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "推薦状を書いていただけませんか。"
+        },
+        {
+          "speaker": "女",
+          "text": "推薦状をお書きしましょうか。"
+        }
+      ],
+      "question": "先生に推薦状を書いてもらいたいです。何と言いますか。",
+      "questionVi": "Bạn muốn thầy/cô viết thư giới thiệu giúp. Bạn sẽ nói thế nào?",
+      "options": [
+        "推薦状を書いてもいいですか。",
+        "推薦状を書いていただけませんか。",
+        "推薦状をお書きしましょうか。"
+      ],
+      "optionsVi": [
+        "Tôi viết thư giới thiệu được chứ ạ?",
+        "Thầy/cô có thể viết thư giới thiệu giúp em được không ạ?",
+        "Em viết thư giới thiệu cho thầy/cô nhé?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-018",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track19.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "かさ、借りてくれない？"
+        },
+        {
+          "speaker": "女",
+          "text": "かさ、貸したらどう？"
+        },
+        {
+          "speaker": "女",
+          "text": "かさ、貸そうか。"
+        }
+      ],
+      "question": "友達がかさがなくて困っているようです。何と言いますか。",
+      "questionVi": "Bạn thấy người bạn có vẻ đang gặp rắc rối vì không có ô. Bạn sẽ nói gì?",
+      "options": [
+        "かさ、借りてくれない？",
+        "かさ、貸したらどう？",
+        "かさ、貸そうか。"
+      ],
+      "optionsVi": [
+        "Bạn không mượn ô à?",
+        "Bạn cho mượn ô thì sao?",
+        "Tôi cho bạn mượn ô nhé."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-019",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "この本、よかったですよ。読みますか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ええ、読みましょう。",
+        "はい、読みます。"
+      ],
+      "optionsVi": [
+        "Vâng, chúng ta cùng đọc nhé.",
+        "Vâng, tôi đọc."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-020",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "もう3時ですね。そろそろ行きませんか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "いいえ、行きますよ。",
+        "ええ、行きましょう。"
+      ],
+      "optionsVi": [
+        "Không, tôi đi đấy.",
+        "Vâng, chúng ta cùng đi nhé."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-021",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "暑くないですか。エアコン、つけましょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ええ、つけてください。",
+        "ええ、つけませんか。"
+      ],
+      "optionsVi": [
+        "Vâng, xin hãy bật lên.",
+        "Vâng, bạn không bật à?"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-022",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あ、薬を飲まれるなら、水をお持ちしましょう。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "すみません。お願いします。",
+        "ええ、持ちますよ。"
+      ],
+      "optionsVi": [
+        "Xin lỗi bạn. Nhờ bạn nhé.",
+        "Vâng, tôi mang cho."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-023",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "今年の夏の旅行はどこがいいでしょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "今年も富士山にしましょうか。",
+        "今年も富士山にします。"
+      ],
+      "optionsVi": [
+        "Năm nay chúng ta lại đi núi Phú Sĩ nhé?",
+        "Năm nay tôi lại chọn núi Phú Sĩ."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-024",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "このDVD、面白かったから、よかったら見てみなたい？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ありがとう、見てみるね。",
+        "ありがとう、見てみようね。"
+      ],
+      "optionsVi": [
+        "Cảm ơn nhé, để tớ xem thử.",
+        "Cảm ơn nhé, chúng mình cùng xem thử nào."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-025",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ごみ、捨てに行くけど、ついでにこれも捨ててこようか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "うん、お願い。",
+        "うん、捨てるよ。"
+      ],
+      "optionsVi": [
+        "Ừ, nhờ cậu nhé.",
+        "Ừ, tớ vứt đây."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-026",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "田中君。テニス部に入ったのね。面白い？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "うん、佐藤さんも入らない？",
+        "うん、佐藤さんも入ろうか。"
+      ],
+      "optionsVi": [
+        "Ừ, anh Sato không vào à?",
+        "Ừ, hay là anh Sato cũng vào nhỉ."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-027",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track23.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あの、今ちょっとよろしいでしょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ええ、どういたしまして。",
+        "ええ、何でしょうか。"
+      ],
+      "optionsVi": [
+        "Vâng, không có gì ạ.",
+        "Vâng, có chuyện gì thế ạ?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-028",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track23.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "お先に失礼します。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "お元気で。",
+        "お疲れ様でした。"
+      ],
+      "optionsVi": [
+        "Bảo trọng nhé.",
+        "Anh chị vất vả rồi."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-029",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track23.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "冷たいお飲み物でもいかがですか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "いただきます。",
+        "おじゃまする。"
+      ],
+      "optionsVi": [
+        "Tôi xin phép ăn ạ.",
+        "Làm phiền bạn nhé."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-030",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track23.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "いろいろお世話になりました。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "どうもお待たせしました。",
+        "またいらっしゃってください。"
+      ],
+      "optionsVi": [
+        "Cảm ơn bạn đã đợi lâu.",
+        "Mời bạn lại đến nhé."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-031",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "映画でも見ない？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "えー、どうして見てないの？",
+        "いいよ。ちょうど見たいものがあるんだ。"
+      ],
+      "optionsVi": [
+        "Ơ, sao lại không xem?",
+        "Được chứ. Mình đang có chương trình muốn xem đây."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-032",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もう佐々木さんに連絡した？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "へえ、もうしたんだ。",
+        "あー、今日は一日忙しかったんだ。"
+      ],
+      "optionsVi": [
+        "Ồ, làm rồi à.",
+        "À, hôm nay bận cả ngày."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-033",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "レポート、もう書けた？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "あと4分の1ぐらいかな。",
+        "え、早いねえ。"
+      ],
+      "optionsVi": [
+        "Chắc còn khoảng một phần tư nữa.",
+        "Ơ, nhanh thế nhỉ."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-034",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あしたのパーティー、僕も出席しなくちゃいけない？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "できればそうしてほしいな。",
+        "行けなくなったんだってね。"
+      ],
+      "optionsVi": [
+        "Nếu được thì tôi muốn bạn làm thế.",
+        "Nghe nói không đi được nữa à."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-035",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "お茶、いれようか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "はい、おかげさまで。",
+        "あー、さっき飲んだところ。"
+      ],
+      "optionsVi": [
+        "Vâng, ơn giời mọi thứ đều ổn.",
+        "À, tớ vừa uống lúc nãy."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-036",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あの、これ、使わせてもらいたいんだけど。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ごめん。これ、友達のなんだ。",
+        "あ、じゃ、使ってみるね。"
+      ],
+      "optionsVi": [
+        "Xin lỗi. Cái này của bạn tớ.",
+        "À, vậy để tớ dùng thử nhé."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-037",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "今度のスポーツ大会、出るの？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "へえ、体に気をつけて頑張ってね。",
+        "参加したいんだけど、用事があるんだ。"
+      ],
+      "optionsVi": [
+        "へえ、体に気をつけて頑張ってね。",
+        "参加したいんだけど、用事があるんだ。"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-038",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "駅前のレストラン、行ってみない？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "行ってみなかったんだよ。",
+        "いいね。ピザがおいしいんだってね。"
+      ],
+      "optionsVi": [
+        "行ってみなかったんだよ。",
+        "いいね。ピザがおいしいんだってね。"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-039",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track66.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "問題4では、えを見ながら質問を聞いてください。やじるし(→)の人は何と言いますか。1から3の中から、最もよいものを一つえらんでください。",
+      "questionVi": "Ở Mondai 4, hãy vừa nhìn tranh vừa nghe câu hỏi. Người có dấu mũi tên (→) sẽ nói gì? Hãy chọn một đáp án tốt nhất từ 1 đến 3.",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-040",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track67.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "1番",
+      "questionVi": "Câu số 1",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-041",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track68.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "2番",
+      "questionVi": "Câu số 2",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-042",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track69.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "3番",
+      "questionVi": "Câu số 3",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-043",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track70.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "4番",
+      "questionVi": "Câu số 4",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-044",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track71.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "問題5では、問題用紙に何もいんさつされていません。まず文を聞いてください。それから、そのへんじを聞いて、1から3の中から、最もよいものを一つえらんでください。",
+      "questionVi": "Ở Mondai 5, không có gì được in trên tờ đề thi. Trước tiên hãy nghe câu nói, sau đó nghe câu trả lời và chọn một đáp án tốt nhất từ 1 đến 3.",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-045",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track72.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "1番",
+      "questionVi": "Câu số 1",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-046",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track73.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "2番",
+      "questionVi": "Câu số 2",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-047",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track74.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "3番",
+      "questionVi": "Câu số 3",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-048",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track75.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "4番",
+      "questionVi": "Câu số 4",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-049",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track76.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "5番",
+      "questionVi": "Câu số 5",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-050",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track77.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "6番",
+      "questionVi": "Câu số 6",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-051",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track78.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "7番",
+      "questionVi": "Câu số 7",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-052",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track79.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "8番",
+      "questionVi": "Câu số 8",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-053",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track80.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [],
+      "question": "9番",
+      "questionVi": "Câu số 9",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "optionsVi": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-054",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "土曜日、よかったらうちにいらっしゃいませんか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "はい、喜んで行かせます。",
+        "はい、喜んでうかがいます。",
+        "はい、喜んでいただきます。"
+      ],
+      "optionsVi": [
+        "Vâng, tôi rất sẵn lòng đi.",
+        "Vâng, tôi rất sẵn lòng đến.",
+        "Vâng, tôi rất sẵn lòng nhận."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-055",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "申込書の書き方はこれでいいでしょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "じゃ、ちょっと拝見しますね。",
+        "じゃ、ちょっとご覧になってください。",
+        "じゃ、ちょっとお目にかかりましょう。"
+      ],
+      "optionsVi": [
+        "Vậy, tôi xin phép xem qua một chút nhé.",
+        "Vậy, xin mời bạn hãy xem qua một chút.",
+        "Vậy, chúng ta hãy gặp nhau một chút nhé."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-056",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "これ、1枚もらってもいいですか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ご自由にお取りください。",
+        "いつでもいただけますよ。",
+        "どなたでもくださいますよ。"
+      ],
+      "optionsVi": [
+        "Xin mời cứ tự nhiên lấy ạ.",
+        "Bạn có thể nhận bất cứ lúc nào đấy.",
+        "Bất cứ ai cũng sẽ cho bạn đấy."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-057",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "すみません。よく聞き取れなかったのですが……。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "では、もう一度ご説明いたします。",
+        "では、もう一度ご説明なさいます。",
+        "では、もう一度ご説明になります。"
+      ],
+      "optionsVi": [
+        "Vậy, tôi xin phép giải thích lại một lần nữa.",
+        "Vậy, ngài sẽ giải thích lại một lần nữa chứ?",
+        "Vậy, ngài đang giải thích lại một lần nữa."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-058",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あの、何かご用でしょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "田中さんを拝見したいのですが。",
+        "田中さんにお会いになるのですが。",
+        "田中さんにお目にかかりたいのですが。"
+      ],
+      "optionsVi": [
+        "Tôi muốn nhìn anh/chị Tanaka.",
+        "Ngài Tanaka định gặp...",
+        "Tôi rất muốn được gặp anh/chị Tanaka."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-059",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "パソコン、使わせていただきたいんですが。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "あちらのを使わせていただけませんか。",
+        "あちらのをお使いください。",
+        "あちらのを使われますよ。"
+      ],
+      "optionsVi": [
+        "Liệu tôi có thể xin phép sử dụng cái ở đằng kia được không?",
+        "Xin mời sử dụng cái ở đằng kia.",
+        "Anh/chị sẽ sử dụng cái ở đằng kia đấy."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-060",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あの、お客様、ご予約はされましたか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "いえ、されていませんが。",
+        "ええ、昨日、電話いたしました。",
+        "ええ、お電話でなさいましたが。"
+      ],
+      "optionsVi": [
+        "Không, vẫn chưa làm.",
+        "Vâng, hôm qua tôi đã điện thoại rồi.",
+        "Vâng, ngài đã gọi điện thoại phải không?"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-061",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "今朝の新聞、お読みになりましたか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "いいえ、読んでいませんが。",
+        "いえ、お読みしませんでした。",
+        "いえ、拝見したいんですが。"
+      ],
+      "optionsVi": [
+        "Không, tôi chưa đọc.",
+        "Không, tôi đã không đọc (lỗi kính ngữ).",
+        "Không, tôi rất muốn xem."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-062",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "どなたがいらっしゃったんですか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "京都におりました。",
+        "昨日おいでになりました。",
+        "うちの父がまいりました。"
+      ],
+      "optionsVi": [
+        "Tôi đã ở Kyoto.",
+        "Hôm qua ngài đã đến.",
+        "Bố tôi đã đến."
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-063",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "何名様ですか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "4人です。",
+        "田中と申します。",
+        "いえ、鈴木です。"
+      ],
+      "optionsVi": [
+        "Có 4 người.",
+        "Tôi tên là Tanaka.",
+        "Không, tôi là Suzuki."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-064",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あした、来ないの？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "へえ、ないんだ。",
+        "ううん、行くよ。"
+      ],
+      "optionsVi": [
+        "Ồ, không có à.",
+        "Không, tớ đi mà."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-065",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "これ、冷蔵庫に入れておかないと。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "うん、入れてないよ。",
+        "うん、入れとくよ。"
+      ],
+      "optionsVi": [
+        "Ừ, tớ chưa bỏ vào.",
+        "Ừ, tớ sẽ bỏ vào."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-066",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "大切だから、書いといて。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "わかった。メモするよ。",
+        "ふーん、そうか。"
+      ],
+      "optionsVi": [
+        "Hiểu rồi. Tớ sẽ ghi chép lại.",
+        "Hừm, vậy à."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-067",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もう少し前の方に座ったらどう？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "じゃ、座ってみたらいいよ。",
+        "いや、ここで大丈夫だよ。"
+      ],
+      "optionsVi": [
+        "Vậy, cậu thử ngồi xem sao.",
+        "Không, ở đây được rồi."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-068",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "忘れずに名前を書くようにね。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "はい、わかりました。",
+        "ええ、そのようですね。"
+      ],
+      "optionsVi": [
+        "Vâng, tôi hiểu rồi.",
+        "Vâng, có vẻ là như vậy."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-069",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "「かるた」って何か知ってる？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "うん、テレビで見たことある。",
+        "ああ、そうなんだ。"
+      ],
+      "optionsVi": [
+        "Ừ, tớ từng thấy trên TV rồi.",
+        "À, vậy à."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-070",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "お子さん、おいくつですか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "来月8歳になります。",
+        "男の子が3人です。"
+      ],
+      "optionsVi": [
+        "Tháng sau cháu tròn 8 tuổi.",
+        "Có 3 bé trai."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-071",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "先生、何て言ってた？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "休んじゃだめだって。",
+        "忙しいんだね。"
+      ],
+      "optionsVi": [
+        "Cậu ấy bảo là không được nghỉ.",
+        "Cậu bận lắm nhỉ."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-072",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track26.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ちょっと手伝ってほしいんだけど。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "ありがとう。早く終わったよ。",
+        "ちょっと後でもいい？",
+        "そうだったんだ。残念だね。"
+      ],
+      "optionsVi": [
+        "Cảm ơn nhé. Tớ xong sớm mà.",
+        "Để lát nữa có được không?",
+        "Vậy à. Tiếc nhỉ."
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-073",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track26.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "子供が熱出しちゃって……。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "それはご心配ですね。",
+        "それは心配いたしましたよ。",
+        "それは心配をおかけしましたね。"
+      ],
+      "optionsVi": [
+        "Thật là đáng lo lắng nhỉ.",
+        "Tôi đã rất lo lắng đấy.",
+        "Anh/chị đã làm tôi lo lắng đấy nhé."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-074",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track26.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "来週の試験に出るところ、教えていただけませんか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "8課から勉強したところまでですよ。",
+        "いつもの教室に行けばいいでしょうか。",
+        "11時半には出たいんですけど……。"
+      ],
+      "optionsVi": [
+        "Tính đến phần đã học từ bài 8 đấy.",
+        "Đi đến phòng học thường ngày có được không nhỉ?",
+        "Tôi muốn xuất phát lúc 11 giờ rưỡi..."
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+    },
+    {
+      "id": "listening-shinkanzen-n3-075",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track24.mp3",
+      "scenario": "うちで男の人と女の人が話しています。",
+      "scenarioVi": "Nam và nữ đang nói chuyện ở nhà.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "最近、毎日りんご食べてるね。皮もむかないで、そのまま。"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、りんごだけ食べ続けると、やせられるらしいんだ。皮もむかないほうが効果があるんだって。"
+        },
+        {
+          "speaker": "男",
+          "text": "ふーん。でも、それで実際にやせた人は、運動したり、食事に気をつけたり、ほかのこともしてたんでないの？"
+        },
+        {
+          "speaker": "女",
+          "text": "そうかなあ。簡単にやせられると思ったんだけど。"
+        },
+        {
+          "speaker": "男",
+          "text": "りんごばかりじゃ、かえって体に悪いよ。僕みたいに規則正しい生活してれば、すぐにやせるよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "うーん、でもわたし、残すのがもったいなくてつい食べ過ぎちゃうし、運動も苦手だからなー。"
+        },
+        {
+          "speaker": "男",
+          "text": "よし。今日から一緒に運動しようよ。一緒にやれば楽しいし、りんごだけ食べるよりはいいよ。"
+        }
+      ],
+      "question": "男の人が伝えたいことは何ですか。",
+      "questionVi": "Điều người nam muốn truyền đạt là gì?",
+      "options": [
+        "りんごは皮をむいて食べたほうがいい",
+        "りんごだけ食べるのはよくない",
+        "みんなで運動するのは楽しい"
+      ],
+      "optionsVi": [
+        "Nên gọt vỏ táo rồi ăn",
+        "Ăn mỗi táo thì không tốt",
+        "Vận động cùng mọi người rất vui"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-076",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track44.mp3",
+      "scenario": "ラジオで男の人が話しています。",
+      "scenarioVi": "Một người nam đang nói chuyện trên radio.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "わたしたちはよく「みんな持っているから」とか「みんなもそう言っている」なんていう言い方をします。しかし、実際には「みんな」というのは自分の周りの2、3人だったということがよくあります。わたしたちは「みんな」という言葉を簡単に使い過ぎていると思います。言葉はもう少し正しく使うようにしたほうがいいのではないでしょうか。"
+        }
+      ],
+      "question": "男の人が言いたいことは何ですか。",
+      "questionVi": "Điều người nam muốn nói là gì?",
+      "options": [
+        "「みんな」という言葉は便利だ",
+        "「みんな」という言葉は使ってはいけない",
+        "言葉は意味に注意して使ったほうがいい"
+      ],
+      "optionsVi": [
+        "Từ \"tất cả\" rất tiện lợi",
+        "Không được dùng từ \"tất cả\"",
+        "Nên chú ý đến ý nghĩa khi sử dụng từ ngữ"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-077",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track61.mp3",
+      "scenario": "女の人と男の人が話しています。男の人がこのアルバイトを続ける理由はなんですか。",
+      "scenarioVi": "Người nữ và người nam đang nói chuyện. Lý do người nam tiếp tục công việc làm thêm này là gì?",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "本田君、アルバイト、始めたんだって？"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。先週から。留学生の寮の仕事なんだけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "へえ。どう？"
+        },
+        {
+          "speaker": "男",
+          "text": "実は、始める前はもっと暇かと思ってたんだけどね。でも、面白いよ、いろんな国の人と話せて。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう。本田君は英語学科だから、英語を使うチャンスができていいね。"
+        },
+        {
+          "speaker": "男",
+          "text": "それが、そうでもないんだ。寮ではみんなだいたい日本語を使うから。"
+        },
+        {
+          "speaker": "女",
+          "text": "ふーん、そうか。でも、続けるんでしょう？"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、世界のいろいろなことを教えてもらおうと思ってるんだ。"
+        }
+      ],
+      "question": "男の人がこのアルバイトを続ける理由はなんですか。",
+      "questionVi": "Lý do người nam tiếp tục công việc làm thêm này là gì?",
+      "options": [
+        "親切に教えられる人",
+        "知識がたくさんある人",
+        "教え方が上手な人",
+        "子供の心がわかる人"
+      ],
+      "optionsVi": [
+        "Người biết dạy bảo tận tình",
+        "Người có nhiều kiến thức",
+        "Người có cách dạy giỏi",
+        "Người thấu hiểu tâm tư trẻ em"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-078",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track63.mp3",
+      "scenario": "講演会で女の人が話しています。",
+      "scenarioVi": "Một người nữ đang nói chuyện trong buổi diễn thuyết.",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "今日はいい先生について考えてみましょう。よく、親切だからいい先生だとか、いろんなことを知っているからいい先生だと言う人がいます。もちろん親切ではない人や何も知らない人は先生としてはよくないと思いますが、親切だけなら、お母さんでも近所の人でもいいのです。また、いろんなことをよく知っていても、それを子供たちや学生たちがわかるように教えられなければ意味がありません。やはり先生というのは、それができるプロのことを言うのではないでしょうか。"
+        }
+      ],
+      "question": "女の人はいい先生というのはどんな人だと言っていますか。",
+      "questionVi": "Người nữ nói rằng một giáo viên giỏi là người như thế nào?",
+      "options": [
+        "親切に教えられる人",
+        "知識がたくさんある人",
+        "教え方が上手な人",
+        "子供の心がわかる人"
+      ],
+      "optionsVi": [
+        "Người biết dạy bảo tận tình",
+        "Người có nhiều kiến thức",
+        "Người có cách dạy giỏi",
+        "Người thấu hiểu tâm tư trẻ em"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-079",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track64.mp3",
+      "scenario": "会社で男の人が話しています。",
+      "scenarioVi": "Một người nam đang nói chuyện tại công ty.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "新入社員の皆さん、一緒に仕事をしてみて、わたしは皆さんがちょっとおとなし過ぎると感じました。うるさいよりいいじゃないかと思います。もちろん、上の人の言うことを聞いて、言われたことをちゃんとやることも大切です。しかし、会社ではそれだけでは仕事をしていることになりません。いつも言われるのを待っているばかりでは、本当に仕事をしているとは言えないのです。もっと積極的に意見を言ったり考えたりして、皆さんから動いてください。"
+        }
+      ],
+      "question": "男の人が新入社員に伝えたいことは何ですか。",
+      "questionVi": "Điều người nam muốn truyền đạt cho nhân viên mới là gì?",
+      "options": [
+        "静かに仕事をしたほうがいい",
+        "先輩の話をしっかり聞いたほうがいい",
+        "言われたことをすぐしたほうがいい",
+        "自分から行動したほうがいい"
+      ],
+      "optionsVi": [
+        "Nên làm việc trong yên lặng",
+        "Nên lắng nghe kỹ câu chuyện của tiền bối",
+        "Nên làm ngay những gì được bảo",
+        "Nên chủ động hành động"
+      ],
+      "correctIndex": 3,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-080",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track65.mp3",
+      "scenario": "会社で男の人が女の人のところに来て話しています。",
+      "scenarioVi": "Tại công ty, một người nam đến chỗ người nữ và đang nói chuyện.",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "山口さん、ちょっと頼みたいことがあるんだけど、君、犬が好きだって言ってたよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、大好きです。子供の時、うちには３匹もいたんです。"
+        },
+        {
+          "speaker": "男",
+          "text": "じゃ、犬の世話なんか慣れているよね。僕も犬飼ってるんだけど、実は１か月……。"
+        },
+        {
+          "speaker": "女",
+          "text": "え？ １か月の子犬ですか。じゃ、かわいいでしょう。"
+        },
+        {
+          "speaker": "男",
+          "text": "いや、1歳なんだけど、来週からちょっと家を留守にしなくちゃならなくなってね。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、１か月海外出張に行かれるんでしたね。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうなんだよ。１か月もペットホテルじゃかわいそうだし、君のうち、家族みんな犬が好きだって言ってたから……。えさや犬のベッドなんかは、僕がちゃんと持っていくから、ご家族にちょっと預かってもらえないかな。"
+        }
+      ],
+      "question": "男の人は女の人に何を頼んでいますか。",
+      "questionVi": "Người nam đang nhờ vả người nữ điều gì?",
+      "options": [
+        "犬をもらってほしい",
+        "犬を預かってほしい",
+        "犬の世話に来てほしい",
+        "犬をペットホテルに連れていってほしい"
+      ],
+      "optionsVi": [
+        "Muốn nhận con chó",
+        "Muốn nhờ trông nom hộ con chó",
+        "Muốn đến chăm sóc con chó",
+        "Muốn đưa con chó đến khách sạn thú cưng"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-081",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track67.mp3",
+      "scenario": "友達のノートを写したいです。何と言いますか。",
+      "scenarioVi": "Bạn muốn chép vở của bạn bè. Bạn sẽ nói thế nào?",
+      "turns": [],
+      "question": "友達のノートを写したいです。何と言いますか。",
+      "questionVi": "Bạn muốn chép vở của bạn bè. Bạn sẽ nói thế nào?",
+      "options": [
+        "ノート、写してくれない？",
+        "ノート、写させてもいい？",
+        "ノート、写させてもらえる？"
+      ],
+      "optionsVi": [
+        "Cậu không chép vở hộ tớ à?",
+        "Tớ có thể chép vở được chứ?",
+        "Cậu cho tớ chép vở nhé?"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-082",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track68.mp3",
+      "scenario": "学校で友達が机の上に辞書を置いたまま帰ろうとしています。何と言いますか。",
+      "scenarioVi": "Ở trường, bạn thấy bạn mình định về mà để quên từ điển trên bàn. Bạn sẽ nói thế nào?",
+      "turns": [],
+      "question": "学校で友達が机の上に辞書を置いたまま帰ろうとしています。何と言いますか。",
+      "questionVi": "Ở trường, bạn thấy bạn mình định về mà để quên từ điển trên bàn. Bạn sẽ nói thế nào?",
+      "options": [
+        "辞書、持とうか。",
+        "辞書、忘れてるよ。",
+        "辞書、持ってない？"
+      ],
+      "optionsVi": [
+        "Tớ cầm từ điển hộ nhé.",
+        "Cậu quên từ điển kìa.",
+        "Cậu không mang từ điển à?"
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-083",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track69.mp3",
+      "scenario": "店で服を試したいので店員に聞きます。何と言いますか。",
+      "scenarioVi": "Bạn muốn thử quần áo ở cửa hàng nên hỏi nhân viên. Bạn sẽ nói thế nào?",
+      "turns": [],
+      "question": "店で服を試したいので店員に聞きます。何と言いますか。",
+      "questionVi": "Bạn muốn thử quần áo ở cửa hàng nên hỏi nhân viên. Bạn sẽ nói thế nào?",
+      "options": [
+        "ちょっと着させてみましょうか。",
+        "ちょっと着させてもらえませんか。",
+        "ちょっと着てみてもいいですか。"
+      ],
+      "optionsVi": [
+        "Tôi thử mặc một chút nhé.",
+        "Anh/chị có thể cho tôi mặc thử một chút được không?",
+        "Tôi mặc thử một chút có được không?"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-084",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track70.mp3",
+      "scenario": "電車の中で立っている人に席を譲ります。何と言いますか。",
+      "scenarioVi": "Bạn nhường ghế cho người đang đứng trên tàu điện. Bạn sẽ nói thế nào?",
+      "turns": [],
+      "question": "電車の中で立っている人に席を譲ります。何と言いますか。",
+      "questionVi": "Bạn nhường ghế cho người đang đứng trên tàu điện. Bạn sẽ nói thế nào?",
+      "options": [
+        "ここ、おかけになりませんか。",
+        "ここ、おかけしましょうか。",
+        "ここ、おかけしたらどうですか。"
+      ],
+      "optionsVi": [
+        "Mời anh/chị ngồi vào đây ạ.",
+        "Tôi nhường chỗ này cho anh/chị nhé?",
+        "Anh/chị ngồi chỗ này thì sao ạ?"
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-085",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track72.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "いつもお世話になってるから、今日はごちそうさせてよ。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "え、いいの？ ありがとう。",
+        "今日はあんまりお金がないんだけど。",
+        "いいよ。遠慮しないで食べて。"
+      ],
+      "optionsVi": [
+        "Eh, thật á? Cảm ơn nhé.",
+        "Hôm nay tớ không có nhiều tiền lắm.",
+        "Được chứ. Cứ ăn đi đừng ngại."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-086",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track73.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ここの字、もう少し大きくしたらどう？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "じゃ、大きくしないの？",
+        "そう？ 読みにくいかな。",
+        "うん、小さくしてないよ。"
+      ],
+      "optionsVi": [
+        "Vậy, không phóng to lên à?",
+        "Thế à? Chắc khó đọc lắm nhỉ.",
+        "Ừ, tớ có thu nhỏ lại đâu."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-087",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track74.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "これ、佐藤さんに返しといてもらえる？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "うん、あした借りてくるよ。",
+        "うん、佐藤さんにもらうんだね。",
+        "うん、来週会ったときでいい？"
+      ],
+      "optionsVi": [
+        "Ừ, ngày mai tớ mượn mang về cho.",
+        "Ừ, cậu sẽ nhận từ anh Sato đúng không.",
+        "Ừ, tuần tới lúc gặp nhau có được không?"
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-088",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track75.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あの、こちら拝見してもよろしいでしょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "どうぞ召し上がってください。",
+        "ご自由にご覧ください。",
+        "ええ、おいでください。"
+      ],
+      "optionsVi": [
+        "Xin mời anh chị dùng bữa.",
+        "Xin mời tự do tham quan.",
+        "Vâng, xin mời đến."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-089",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track76.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "さっき頼んだ書類、できてる？"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "もう少し待ってもらえますか。",
+        "え？ もうできたんですか。",
+        "もうできないんじゃないかな。"
+      ],
+      "optionsVi": [
+        "Bạn có thể đợi thêm một chút nữa được không?",
+        "Hả? Đã xong rồi á?",
+        "Chắc là không làm được nữa đâu nhỉ."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-090",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track77.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "何か切る物、持ってきましょうか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "はい、持ってきました。",
+        "はさみでいいですか。",
+        "ええ、お願いします。"
+      ],
+      "optionsVi": [
+        "Vâng, tôi đã mang đến rồi.",
+        "Dùng kéo được chứ?",
+        "Vâng, nhờ anh/chị nhé."
+      ],
+      "correctIndex": 2,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-091",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track78.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "田中先生をご存じですか。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "はい、拝見します。",
+        "先日、お目にかかりました。",
+        "いえ、おりませんが。"
+      ],
+      "optionsVi": [
+        "Vâng, tôi xin xem ạ.",
+        "Hôm trước, tôi đã gặp ạ.",
+        "Không, tôi không có ạ."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-092",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track79.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "もうちょっと言い方に気をつけないと。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "はい、申し訳ありません。",
+        "本当にお世話になりました。",
+        "どうぞ、お気をつけて。"
+      ],
+      "optionsVi": [
+        "Vâng, tôi thành thật xin lỗi.",
+        "Thực sự cảm ơn anh chị đã giúp đỡ.",
+        "Xin hãy cẩn thận trên đường đi."
+      ],
+      "correctIndex": 0,
+      "explanation": ""
+    },
+    {
+      "id": "listening-shinkanzen-n3-093",
+      "level": "N3",
+      "book": "shinkanzen",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track80.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "昨日の会、楽しかったよ。リーさんも来ればよかったのに……。"
+        }
+      ],
+      "question": "",
+      "questionVi": "",
+      "options": [
+        "行かなくてもいいよね。",
+        "行きたかったんだけど……。",
+        "私も行けてよかったな。"
+      ],
+      "optionsVi": [
+        "Không đi cũng được nhỉ.",
+        "Tớ rất muốn đi nhưng mà...",
+        "May mà mình cũng đi được."
+      ],
+      "correctIndex": 1,
+      "explanation": ""
+    }
+  ]
+}
