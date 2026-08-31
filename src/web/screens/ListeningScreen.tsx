@@ -152,6 +152,7 @@ function QuestionView({
               {selected === question.correctIndex ? "✓ Đúng" : "✗ Sai"}
             </div>
             {question.explanation ? <div className="text-neutral-600">{question.explanation}</div> : null}
+            {question.notes ? <div className="rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.notes}</div> : null}
             {question.turns.length > 0 ? (
               <button onClick={() => setShowTranscript((v) => !v)} className="text-xs font-semibold text-neutral-400 hover:text-neutral-600">
                 {showTranscript ? "Ẩn transcript" : "Xem transcript"}

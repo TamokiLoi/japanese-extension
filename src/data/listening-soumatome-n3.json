@@ -1644,6 +1644,1814 @@
       "optionCount": 4,
       "correctIndex": 3,
       "explanation": ""
+    },
+    {
+      "id": "listening-soumatome-n3-052",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track29.mp3",
+      "scenario": "大学で、男の学生が先生の手伝いをしています。男の学生は、このあとまず何をしますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "先生、このプリント、教室に持っていきましょうか？"
+        },
+        {
+          "speaker": "女",
+          "text": "ありがとう。あ、でも、それ全部は必要ないから、ちょっと待って。必要なものと、必要じゃないものと分けるから。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。じゃ、先に教室に行って、窓を開けておきます。今日は、暑いから。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうね。お願いね。あー、教室に行く前に、とりの田中先生の部屋に、これを持っていってくれる？置いてくるだけでいいから。窓を開けたら、またここへ戻ってきてね。持っていくものがたくさんあって、１人で持ってないから。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、わかりました。"
+        }
+      ],
+      "question": "男の学生は、このあとまず何をしますか。",
+      "questionVi": "Nam sinh viên sẽ làm gì đầu tiên sau đây?",
+      "options": [
+        "教室に行って、窓を開ける",
+        "田中先生の部屋に行って、プリントを置く",
+        "田中先生の部屋に行って、プリントを置いて、窓を開ける",
+        "プリントを持って、田中先生の部屋に行く"
+      ],
+      "optionsVi": [
+        "Đến phòng học và mở cửa sổ",
+        "Đến phòng thầy Tanaka và đặt tài liệu",
+        "Đến phòng thầy Tanaka, đặt tài liệu và mở cửa sổ",
+        "Mang tài liệu đến phòng thầy Tanaka"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-053",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track32.mp3",
+      "scenario": "男の人と女の人が、これから本屋に行きます。女の人は、何を買うつもりですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえ、これから本屋に行くんだけど、一緒に行かない？英語の辞書がほしいって言ってたでしょ？"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、辞書は、電子辞書を買ったからいいんですが、ほしい雑誌があるから、行きます。田中さんは、何を買うんですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "ガイドブック。今度の休みに京都へ行く予定なの。詳しい地図の載ったものがほしいの。ついでに、私も週刊誌買うわ。あの本屋、大きくないけれど、雑誌コーナーは、充実していていいよね。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、本当に。ぼくのほしい雑誌は普通の本屋にはないけれど、あそこにはあるんですよ。"
+        }
+      ],
+      "question": "女の人は、何を買うつもりですか。",
+      "questionVi": "Người phụ nữ định mua gì?",
+      "options": [
+        "英語の辞書",
+        "電子辞書",
+        "ガイドブック",
+        "雑誌"
+      ],
+      "optionsVi": [
+        "Từ điển tiếng Anh",
+        "Từ điển điện tử",
+        "Sách hướng dẫn du lịch",
+        "Tạp chí"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-054",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track33.mp3",
+      "scenario": "会社で、男の人と女の人が話しています。女の人が、会社に歩いてくるのはどうしてですか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "便利なところに引っ越したんだって？"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、駅前のマンションだから、買い物なんかにも本当に便利よ。"
+        },
+        {
+          "speaker": "男",
+          "text": "駅前か、いいねー。ぼくなんか駅まで２０分もかかるよー。"
+        },
+        {
+          "speaker": "女",
+          "text": "でもね、電車にもあんまり乗らなくなった。最近は、会社までも歩いてるの。"
+        },
+        {
+          "speaker": "男",
+          "text": "へー、健康のため？"
+        },
+        {
+          "speaker": "女",
+          "text": "ううん、そうじゃないの。駅が地下深いところにあるから、電車に乗るまで時間がかかっちゃうし、ほら、ここも上に出るまでエスカレーターに何本も乗らないといけないじゃない？会社まで２駅だし、歩くのもそんなに時間が変わらないのよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうかー。確かに東京の地下鉄の駅って、すごく深いところにあるからなー。"
+        }
+      ],
+      "question": "女の人が、会社に歩いてくるのはどうしてですか。",
+      "questionVi": "Tại sao người phụ nữ lại đi bộ đến công ty?",
+      "options": [
+        "電車",
+        "バス",
+        "自転車",
+        "歩き"
+      ],
+      "optionsVi": [
+        "Đi tàu điện",
+        "Đi xe buýt",
+        "Đi xe đạp",
+        "Đi bộ"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-055",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track42.mp3",
+      "scenario": "男の人が歯医者に電話をしています。男の人は、いつ歯医者に行くことになりましたか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "すみません。明日の６時半に予約している田中ですが、明日から１０日間出張することになりまして…。帰ってからは…。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうですね、では、今から来られますか。"
+        },
+        {
+          "speaker": "男",
+          "text": "いえ、すぐには出られないので、えっとー、６時なら…。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。予約の方がいらっしゃいますから、ちょっとお待ちいただくと思いますけれど…。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、大丈夫です。すみません。"
+        }
+      ],
+      "question": "男の人は、いつ歯医者に行くことになりましたか。",
+      "questionVi": "Nam giới đã quyết định đi nha sĩ vào khi nào?",
+      "options": [
+        "明日",
+        "明後日",
+        "10日後",
+        "来週"
+      ],
+      "optionsVi": [
+        "Ngày mai",
+        "Ngày kia",
+        "10 ngày sau",
+        "Tuần sau"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-056",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track43.mp3",
+      "scenario": "２人の女の人が話しています。２人は、今日これから何をしますか。",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "映画のチケットもらったんだけど、今度行かない？これなんだけど…。"
+        },
+        {
+          "speaker": "女2",
+          "text": "あ、それ、私、行きたかったの。うれしいー。パートⅠもすごくおもしろかった。"
+        },
+        {
+          "speaker": "女1",
+          "text": "私、パートⅠ、まだ見てないんだ。"
+        },
+        {
+          "speaker": "女2",
+          "text": "あ、そう…パートⅡを見る前にⅠは見ておいたほうがいいよー。私、DVD持ってるよ。"
+        },
+        {
+          "speaker": "女1",
+          "text": "ほんと？借りようかな。"
+        },
+        {
+          "speaker": "女2",
+          "text": "ねえ、今からうちに寄って見ていかない？私ももう一度見ておきたいから。"
+        },
+        {
+          "speaker": "女1",
+          "text": "いいの？じゃ、これは、来週にでも行こう。"
+        }
+      ],
+      "question": "２人は、今日これから何をしますか。",
+      "questionVi": "Hai người sẽ làm gì từ bây giờ trong ngày hôm nay?",
+      "options": [
+        "パート1のDVDを見る",
+        "パート2のDVDを見る",
+        "パート1とパート2の両方のDVDを見る",
+        "DVDは見ないでする"
+      ],
+      "optionsVi": [
+        "Xem DVD phần 1",
+        "Xem DVD phần 2",
+        "Xem DVD cả phần 1 và phần 2",
+        "Không xem DVD"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-057",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track44.mp3",
+      "scenario": "会社で、男の人と女の人が、明日の電車のストライキについて話しています。女の人は、どうやって会社に来ますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "明日、私鉄のストライキですよね。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうだね。ぼくは車で来るつもりだけれど、君は？"
+        },
+        {
+          "speaker": "女",
+          "text": "JRと地下鉄を乗り継いでと思っているんですが…。"
+        },
+        {
+          "speaker": "男",
+          "text": "家からJRの駅は近いのか？"
+        },
+        {
+          "speaker": "女",
+          "text": "それが遠いんですよ。歩くと３０分はかかるんです。主人に車で送ってもらえればいいんですが、あいにく主人は出張中で…。"
+        },
+        {
+          "speaker": "男",
+          "text": "大変だね。でも、車も混んでいて大変だろううえね…。"
+        }
+      ],
+      "question": "女の人は、明日どうやって会社に来ますか。",
+      "questionVi": "Ngày mai người phụ nữ sẽ đến công ty bằng cách nào?",
+      "options": [
+        "車で行く",
+        "地下鉄で行く",
+        "JRで行く",
+        "歩いて行く"
+      ],
+      "optionsVi": [
+        "Đi bằng ô tô",
+        "Đi bằng tàu điện ngầm",
+        "Đi bằng tàu JR",
+        "Đi bộ"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-058",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track45.mp3",
+      "scenario": "学校で、男の学生と女の学生が話しています。男の学生は、どうして元気がないのですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "元気ないね。どうしたの。"
+        },
+        {
+          "speaker": "男",
+          "text": "さっき、佐藤先生に呼び出されてさ。「君、出席日数もぎりぎりだし、レポートも出してないし、今度の試験でがんばらないと、卒業、危ないぞ」って言われたんだ。"
+        },
+        {
+          "speaker": "女",
+          "text": "ほんと？でも、大丈夫でしょう。いつもテストはいい点取っているじゃない。"
+        },
+        {
+          "speaker": "男",
+          "text": "いや…どうしよう…。今回は、自信ないんだ。サボってばかりいたから…。テスト、あさってだけど、今日も明日もバイトだし…。バイト休んで勉強したほうがいいのかなあ…。"
+        },
+        {
+          "speaker": "女",
+          "text": "そうしたほうがいいかもよ。とにかく、がんばらないと。"
+        }
+      ],
+      "question": "男の学生は、どうして元気がないのですか。",
+      "questionVi": "Tại sao nam sinh viên lại không có tinh thần?",
+      "options": [
+        "元気がない",
+        "学校でテストが悪かった",
+        "レポートを出していない",
+        "卒業できないかもしれない"
+      ],
+      "optionsVi": [
+        "Không khỏe",
+        "Làm bài kiểm tra kém ở trường",
+        "Chưa nộp báo cáo",
+        "Có lẽ không thể tốt nghiệp"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-059",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track46.mp3",
+      "scenario": "２人の女の人が田中さんについて話しています。２人は、何について驚いていますか。",
+      "turns": [
+        {
+          "speaker": "女1",
+          "text": "ねえ、田中さんってまだ３０代だったって知ってた？"
+        },
+        {
+          "speaker": "女2",
+          "text": "うそー！私、５０近いと思ってた。"
+        },
+        {
+          "speaker": "女1",
+          "text": "私も。４５は絶対に過ぎてると思ってたんだけども、まだ３８なんだって。"
+        },
+        {
+          "speaker": "女2",
+          "text": "へえー、びっくり。まあ、そういえば、子どもがまだ小さいんだよね。"
+        },
+        {
+          "speaker": "女1",
+          "text": "そう。上は４年生で、下の子は、まだ１年生だって。"
+        },
+        {
+          "speaker": "女2",
+          "text": "私、年取ってできた子どもと思ってた。"
+        },
+        {
+          "speaker": "女1",
+          "text": "私も。"
+        }
+      ],
+      "question": "２人は、何について驚いていますか。",
+      "questionVi": "Hai người đang ngạc nhiên về điều gì?",
+      "options": [
+        "田中さんの年齢",
+        "田中さんの子供の年齢",
+        "田中さんの子供の学年",
+        "田中さんの結婚した年"
+      ],
+      "optionsVi": [
+        "Tuổi của anh/chị Tanaka",
+        "Tuổi con của anh/chị Tanaka",
+        "Khối lớp của con anh/chị Tanaka",
+        "Năm kết hôn của anh/chị Tanaka"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-060",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track51.mp3",
+      "scenario": "電車のアナウンスです。アナウンスの内容と合うものはどれですか。",
+      "turns": [
+        {
+          "speaker": "車掌",
+          "text": "本日も、ご乗車ありがとうございます。この電車は、快速特急羽田空港行きです。次は、日本橋に止まります。日本橋を出ずと、新橋に止まります。宝町、東銀座には止まりません。通過駅でお降りのお客様は、次の日本橋であとから参ります快速にお乗り換えください。お客様にお願い申し上げます。携帯電話はマナーモードにし、通話は、ご遠慮ください。"
+        }
+      ],
+      "question": "アナウンスの内容と合うものはどれですか。",
+      "questionVi": "Phương án nào khớp với nội dung thông báo?",
+      "options": [
+        "宝町",
+        "東銀座",
+        "日本橋",
+        "新日本橋"
+      ],
+      "optionsVi": [
+        "Takaracho",
+        "Higashi-Ginza",
+        "Nihonbashi",
+        "Shin-Nihonbashi"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-061",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track54.mp3",
+      "scenario": "ラジオの交通情報です。１２時２０分に着くはずの飛行機は、どうなりますか。",
+      "turns": [
+        {
+          "speaker": "アナウンサー",
+          "text": "それでは、到着便の変更をご案内いたします。マレーシア航空８８便のクアラルンプール発は、１時間２０分遅れて、８時１５分に到着。１２時２０分が定刻のノースウエスト２８便マニラ発は、４０分早く、１１時４０分に到着。ユナイテッド航空８２7便ホノルル発は、１時間１５分遅れて１５時ちょうどに到着の予定です。"
+        }
+      ],
+      "question": "１２時２０分に着くはずの飛行機は、どうなりますか。",
+      "questionVi": "Chuyến bay đáng lẽ đến lúc 12 giờ 20 phút sẽ như thế nào?",
+      "options": [
+        "12時20分",
+        "11時40分",
+        "12時15分",
+        "15時ちょうど"
+      ],
+      "optionsVi": [
+        "12 giờ 20 phút",
+        "11 giờ 40 phút",
+        "12 giờ 15 phút",
+        "Đúng 15 giờ"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-062",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track57.mp3",
+      "scenario": "留学生が、日本語学校の受付で話しています。この学生は、どのように金を払う予定ですか。",
+      "turns": [
+        {
+          "speaker": "受付",
+          "text": "入学手続きですね。入学金と授業料で…"
+        },
+        {
+          "speaker": "ヤン",
+          "text": "あ、すみませんが、毎月払ってもいいですか。それか、半分とか。"
+        },
+        {
+          "speaker": "受付",
+          "text": "いえ、それはできないことになっているんです。"
+        },
+        {
+          "speaker": "ヤン",
+          "text": "できない…ですか。"
+        },
+        {
+          "speaker": "受付",
+          "text": "はい。６か月コースの授業料を全部と、入学金と。教材費は最初の授業の日でもかまいません。"
+        },
+        {
+          "speaker": "ヤン",
+          "text": "きょうざいひ…あ、本の…。わかりました。でも、今日はそんなに持っていないんです。"
+        },
+        {
+          "speaker": "受付",
+          "text": "クラスが始まる１週間前までなら、いいですよ。えーっと、２４日までですね。"
+        },
+        {
+          "speaker": "ヤン",
+          "text": "わかりました。明日持ってきます。入学金は、今日払います。本のお金は、最初の授業のときにに…。"
+        }
+      ],
+      "question": "この学生は、どのように金を払う予定ですか。",
+      "questionVi": "Học sinh này dự định thanh toán tiền học phí thế nào?",
+      "options": [
+        "毎月払う",
+        "半分払う",
+        "入学金と授業料を払う",
+        "授業料だけ払う"
+      ],
+      "optionsVi": [
+        "Trả hàng tháng",
+        "Trả một nửa",
+        "Trả tiền nhập học và học phí",
+        "Chỉ trả học phí"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-063",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track60.mp3",
+      "scenario": "電話で話しています。女の人は、大山さんに何と伝えますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "日本通信の小川と申しますが、大山様はいらっしゃいますでしょうか。"
+        },
+        {
+          "speaker": "女",
+          "text": "お世話になっております。あいにく大山は、ただ今接客中で…。終わり次第、こちらからお電話させましょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、いえ。お見積書を郵送させていただいたとだけお伝えください。"
+        }
+      ],
+      "question": "女の人は、大山さんに何と伝えますか。",
+      "questionVi": "Người phụ nữ sẽ nhắn lại gì với ông Oyama?",
+      "options": [
+        "お見つも書を郵送させたこと",
+        "お見つも書を郵送したこと",
+        "お見つも書をファックスで送ったこと",
+        "お見つも書をメールでしたこと"
+      ],
+      "optionsVi": [
+        "Đã gửi bồi thường/báo giá qua đường bưu điện",
+        "Đã gửi báo giá qua đường bưu điện",
+        "Đã gửi báo giá qua fax",
+        "Đã gửi báo giá qua email"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-064",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track62.mp3",
+      "scenario": "男の人が店の人と話しています。男の人は、何を注文しましたか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "いらっしゃいませ、こんにちは。こちらでお召し上がりですか、お持ち帰りですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、ここで。"
+        },
+        {
+          "speaker": "女",
+          "text": "こちら、メニューでございます。ただ今、新商品のチキンバーガーセットがお得になっております。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、チーズバーガーとコーヒー。"
+        },
+        {
+          "speaker": "女",
+          "text": "チーズバーガーが1つ、コーヒーが1つ。コーヒーはアイスとホットがございますが。"
+        },
+        {
+          "speaker": "男",
+          "text": "ホット。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、かしこまりました。ご一緒に、フライドポテトはいかがでしょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "いえ、いいです。"
+        },
+        {
+          "speaker": "女",
+          "text": "では、お先にお会計失礼します。消費税込みで、390円でございます。…ありがとうございました。ごゆっくりお召し上がりください。"
+        }
+      ],
+      "question": "男の人は、何を注文しましたか。",
+      "questionVi": "Người nam đã gọi món gì?",
+      "options": [
+        "チーズバーガー1つ",
+        "コーヒー1つ",
+        "ポテト1つ",
+        "アイスとホット"
+      ],
+      "optionsVi": [
+        "1 bánh mì kẹp phô mai",
+        "1 ly cà phê",
+        "1 phần khoai tây chiên",
+        "Kem và đồ nóng"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-065",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track63.mp3",
+      "scenario": "男の人が看護師と話しています。看護師の説明と合うものはどれですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "じゃあ、明日は胃の検査ですからね、朝10時に来てください。今夜9時からは、食べたり飲んだりしないように。"
+        },
+        {
+          "speaker": "男",
+          "text": "え、今夜からもう、食べられないんですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "つらいわねえ。今日はもう早く寝ちゃったら？"
+        },
+        {
+          "speaker": "男",
+          "text": "お茶ならいいですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "お茶も水も飲んじゃいけませんよ。"
+        }
+      ],
+      "question": "看護師の説明と合うものはどれですか。",
+      "questionVi": "Phương án nào khớp với giải thích của y tá?",
+      "options": [
+        "今日寝ちゃったら、お茶ならいいです",
+        "今夜からもう食べられない",
+        "お茶も水も飲んじゃいけませんよ",
+        "お茶なら飲んでもいいです"
+      ],
+      "optionsVi": [
+        "Nếu ngủ hôm nay thì uống trà cũng được",
+        "Từ tối nay sẽ không thể ăn được nữa",
+        "Tuyệt đối không được uống trà hay nước",
+        "Nếu là trà thì uống được"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-066",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track66.mp3",
+      "scenario": "デパートのアナウンスです。お客さんは、どうすればいいですか。",
+      "turns": [
+        {
+          "speaker": "アナウンス",
+          "text": "お客様にお知らせいたします。ただ今、地震が発生いたしましたがい、この建物は、安全です。安心して、お買い物をお楽しみください。"
+        }
+      ],
+      "question": "お客さんは、どうすればいいですか。",
+      "questionVi": "Khách hàng nên làm gì?",
+      "options": [
+        "デパートでお買い物をしてください",
+        "お買い物をお楽しみください",
+        "地震が起きたので安全です",
+        "お気をつけてお買い物をお楽しみください"
+      ],
+      "optionsVi": [
+        "Hãy mua sắm ở trung tâm thương mại",
+        "Hãy tận hưởng việc mua sắm",
+        "Vì đã xảy ra động đất nên rất an toàn",
+        "Xin hãy cẩn thận và tận hưởng việc mua sắm"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-067",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track67.mp3",
+      "scenario": "天気予報が聞こえてきました。関東地方山沿いでは、何に注意が必要ですか。",
+      "turns": [
+        {
+          "speaker": "アナウンサー",
+          "text": "今日は西日本は曇りですが、九州、沖縄、北海道は晴れ、関東から北は、午前中曇り、朝のうち、弱い雨のところもありますが、午後から晴れるでしょう。関東地方、午後は、山沿いを中心に雷をともなった激しい雨が降ることがあります。また、海にお出かけの方は、波がやや高くなりますので、ご注意ください。昨日、大雨の降った新潟、三重も、今日は曇り、明日からは晴れるでしょう。沖縄地方、台風9号が近づいています。海沿いでは、夜には波が強くなるでしょう。"
+        }
+      ],
+      "question": "関東地方山沿いでは、何に注意が必要ですか。",
+      "questionVi": "Khu vực có núi ở vùng Kanto cần chú ý điều gì?",
+      "options": [
+        "午前中は曇り",
+        "午後から雷を伴った激しい雨",
+        "波が高くなる",
+        "大雨が降る"
+      ],
+      "optionsVi": [
+        "Trời âm u vào buổi sáng",
+        "Mưa lớn kèm theo giông sét từ chiều",
+        "Sóng biển dâng cao",
+        "Trời mưa to"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-068",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track68.mp3",
+      "scenario": "男の人が病院で検査を受けています。男の人は、これから何をしますか。",
+      "turns": [
+        {
+          "speaker": "看護師",
+          "text": "血液検査は…"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、わかります、前に行ったから。…でも、レントゲンは初めてだから…。"
+        },
+        {
+          "speaker": "看護師",
+          "text": "じゃあ、これ、案内図です。ここをこう行って…ここね。"
+        },
+        {
+          "speaker": "男",
+          "text": "ああ、はいはい。わかりました。"
+        },
+        {
+          "speaker": "看護師",
+          "text": "レントゲン撮ったら写真もらって、もう一度ここに戻ってきてください。先生から説明がありますから。"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。"
+        }
+      ],
+      "question": "男の人は、これから何をしますか。",
+      "questionVi": "Nam nhân viên/người đàn ông sẽ làm gì tiếp theo?",
+      "options": [
+        "レントゲンをとる",
+        "案内図を見ながら説明を聞く",
+        "先生から説明を聞く",
+        "もう一度ここに戻ってくる"
+      ],
+      "optionsVi": [
+        "Chụp X-quang",
+        "Nghe giải thích trong khi nhìn sơ đồ hướng dẫn",
+        "Nghe giải thích từ bác sĩ/giáo viên",
+        "Quay lại đây một lần nữa"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-069",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track69.mp3",
+      "scenario": "留守番電話のメッセージを聞いています。これを聞いた人は、どうすればいいですか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "みどり図書館です。予約されていた本のご用意できました。お取り置きは、1週間となっておりますので、来週の火曜日までにご来館ください。"
+        }
+      ],
+      "question": "これを聞いた人は、どうすればいいですか。",
+      "questionVi": "Người nghe đoạn này nên làm gì?",
+      "options": [
+        "来週の火曜日までに行く",
+        "来週の火曜日までに予約する",
+        "来週の火曜日までに本を借りる",
+        "来週の火曜日までに本を返す"
+      ],
+      "optionsVi": [
+        "Đến trước thứ Ba tuần sau",
+        "Đặt chỗ trước thứ Ba tuần sau",
+        "Mượn sách trước thứ Ba tuần sau",
+        "Trả sách trước thứ Ba tuần sau"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-070",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track70.mp3",
+      "scenario": "男の人と女の人が何かを見ながら話しています。男の人は、どうして困っているのですか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "あ、ちょっと、すみません。これ、何ですか。"
+        },
+        {
+          "speaker": "女",
+          "text": "どれ？あ、この日までにこれ持って、ここ行かないと。え、今日じゃないの？"
+        },
+        {
+          "speaker": "男",
+          "text": "レンタルショップ？"
+        },
+        {
+          "speaker": "女",
+          "text": "そうそう、今日で切れちゃうからね。手続きしないと借りられなくなるの。"
+        },
+        {
+          "speaker": "男",
+          "text": "無料って書いてありますよね。"
+        },
+        {
+          "speaker": "女",
+          "text": "ああ、それは手続きしたら、DVD1枚か、CD1枚が無料になるんだって。手続きには300円必要みたいよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "今日はちょっと…。"
+        },
+        {
+          "speaker": "女",
+          "text": "私が行ってきてあげようか…あ、だめだ、本人って書いてある。"
+        },
+        {
+          "speaker": "男",
+          "text": "困ったなあ…。"
+        }
+      ],
+      "question": "男の人は、どうして困っているのですか。",
+      "questionVi": "Người đàn ông đang gặp rắc rối/lo lắng vì điều gì?",
+      "options": [
+        "今日中に本を持っていかなければならないから",
+        "レンタルショップの会員証を忘れたから",
+        "今日が返却期限の最終日だから",
+        "手続きをしないと借りられなくなるから"
+      ],
+      "optionsVi": [
+        "Phải mang sách đi trong ngày hôm nay",
+        "Quên thẻ thành viên cửa hàng cho thuê",
+        "Hôm nay là ngày hạn chót trả sách",
+        "Không làm thủ tục thì không thể mượn sách"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-071",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track72.mp3",
+      "scenario": "男の人と女の人が電話で話しています。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "はい、今田電気でございます。"
+        },
+        {
+          "speaker": "男",
+          "text": "高木だけど。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、課長、おはようございます。どうかなさったんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "子どもが熱出しちゃって、ちょっと病院連れていかなきゃいけないんだ。"
+        },
+        {
+          "speaker": "女",
+          "text": "あら、奥様は？"
+        },
+        {
+          "speaker": "男",
+          "text": "今日の午後帰ってくるんだけど、家内のお父さんが病気で京都へ帰ってて…。"
+        },
+        {
+          "speaker": "女",
+          "text": "大変ですね。"
+        },
+        {
+          "speaker": "男",
+          "text": "で、午後から出るからって、部長に…よろしく。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。お伝えします。"
+        }
+      ],
+      "question": "女の人は、部長に何と言いますか。",
+      "questionVi": "Người phụ nữ sẽ nói gì với trưởng phòng?",
+      "options": [
+        "高木さんは午後から病院へ行く",
+        "高木さんは午前中休む",
+        "高木さんは今日来られない",
+        "高木さんは京都へ帰っている"
+      ],
+      "optionsVi": [
+        "Anh Takagi đi bệnh viện từ chiều",
+        "Anh Takagi nghỉ buổi sáng",
+        "Hôm nay anh Takagi không đến được",
+        "Anh Takagi đã về Kyoto"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-072",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track03.mp3",
+      "scenario": "女の人が男の人の家に行きました。男の人の家にあるソファーはどれですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ソファー、新いの買ったの？かっこいい。高かったでしょう。"
+        },
+        {
+          "speaker": "男",
+          "text": "いや、中古だからそれほどでもなかったよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "えー、新品じゃないのー？りっぱだし、落ち着いたいい色じゃない。黒に見えるけど、濃いブルーの柄よね。"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、ブルーだよ。でも、ぼくは本当は無地で白っぽいのがほしかったんだけどね。"
+        }
+      ],
+      "question": "男の人の家にあるソファーはどれですか。",
+      "questionVi": "Chiếc ghế sofa ở nhà người đàn ông là cái nào?",
+      "options": [
+        "黒がいい",
+        "ブルーがいい",
+        "無地がいい",
+        "白がいい"
+      ],
+      "optionsVi": [
+        "Thích màu đen",
+        "Thích màu xanh dương",
+        "Thích loại trơn không họa tiết",
+        "Thích màu trắng"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-073",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track06.mp3",
+      "scenario": "男の人と女の人が話しています。男の人の買った本は、どこにありますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "ちょっと、この間買った本、どこにある？"
+        },
+        {
+          "speaker": "女",
+          "text": "本棚にしまったけど、確か、上から2段目、右のほう。"
+        },
+        {
+          "speaker": "男",
+          "text": "上から2段目ね…。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、左のほうかもー。"
+        },
+        {
+          "speaker": "男",
+          "text": "左のほう…ないよ…あ、あった！もう1段下じゃないかー。"
+        }
+      ],
+      "question": "男の人の買った本は、どこにありますか。",
+      "questionVi": "Cuốn sách người đàn ông mua đang ở đâu?",
+      "options": [
+        "上に買った本がある",
+        "本棚の下から2段目にある",
+        "本棚の下から1段目にある",
+        "本棚の一番下にある"
+      ],
+      "optionsVi": [
+        "Cuốn sách vừa mua ở phía trên",
+        "Ở ngăn thứ 2 tính từ dưới lên của giá sách",
+        "Ở ngăn thứ 1 tính từ dưới lên của giá sách",
+        "Ở tầng dưới cùng của giá sách"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-074",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track09.mp3",
+      "scenario": "女の人が話しています。この人の今の体重は、何キロですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ダイエットしてたのに、この休み中に3キロも太っちゃった。50キロまであと1キロだったのにー。あーあ、難しいよね、ダイエットって。"
+        }
+      ],
+      "question": "この人の今の体重は、何キロですか。",
+      "questionVi": "Cân nặng hiện tại của người này là bao nhiêu kg?",
+      "options": [
+        "ダイエットしたのに3キロ増えた",
+        "ダイエットしてあと1キロだった",
+        "ダイエットして3キロ減った",
+        "ダイエットして1キロ増えた"
+      ],
+      "optionsVi": [
+        "Đã giảm cân nhưng lại tăng 3 kg",
+        "Đã giảm cân và chỉ còn thiếu 1 kg nữa là đạt mục tiêu",
+        "Đã giảm được 3 kg nhờ giảm cân",
+        "Đã tăng 1 kg sau khi giảm cân"
+      ],
+      "correctIndex": 3,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-075",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track11.mp3",
+      "scenario": "学生がテストの結果について話しています。テストの結果はどれですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "この間、学校でテストがあったでしょ。結果、どうだった？"
+        },
+        {
+          "speaker": "男",
+          "text": "ひどかった。全然勉強しなかったから。"
+        },
+        {
+          "speaker": "女",
+          "text": "でも、漢字は得意だから、漢字のテストはよかったんじゃない？"
+        },
+        {
+          "speaker": "男",
+          "text": "まあ、これもひどかったよ。とにかく、文法の一番悪かった。聞くテストのほうは、思ったほど悪くなかったんだ。でも、もちろん、漢字よりは点数は低いけどね。"
+        },
+        {
+          "speaker": "女",
+          "text": "そう、じゃあ、次のテストのために、文法をしっかり勉強しないと。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうなんだ。今度こそ、がんばらないと。"
+        }
+      ],
+      "question": "テストの結果はどれですか。",
+      "questionVi": "Kết quả bài kiểm tra nào là kém nhất?",
+      "options": [
+        "漢字テストが一番悪かった",
+        "文法テストが一番悪かった",
+        "聴解テストが一番悪かった",
+        "漢字より文法と聴解が悪かった"
+      ],
+      "optionsVi": [
+        "Kiểm tra chữ Hán kém nhất",
+        "Kiểm tra ngữ pháp kém nhất",
+        "Kiểm tra nghe hiểu kém nhất",
+        "Ngữ pháp và nghe hiểu kém hơn chữ Hán"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-076",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track12.mp3",
+      "scenario": "男の人と女の人が話しています。2人は、映画に行く前にどこに行きますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "悪いけど、映画に行く前に、郵便局に寄ってくれない？このはがき、出したいの。あ、お金も下ろさなくちゃ。郵便局のあと、銀行にも寄って。"
+        },
+        {
+          "speaker": "男",
+          "text": "えー？そんなに寄ってる時間ないよ。駅前のコンビニでいいんじゃないの？ポストあるし、ATMもあるだろ？"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、そうね。"
+        }
+      ],
+      "question": "2人は、映画に行く前にどこに行きますか。",
+      "questionVi": "Hai người sẽ đi đâu trước khi đi xem phim?",
+      "options": [
+        "駅前のコンビニに行く",
+        "郵便局に行く",
+        "銀行に行く",
+        "郵便局と銀行に行く"
+      ],
+      "optionsVi": [
+        "Đến cửa hàng tiện lợi trước nhà ga",
+        "Đến bưu điện",
+        "Đến ngân hàng",
+        "Đến cả bưu điện và ngân hàng"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-077",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track15.mp3",
+      "scenario": "女の人が肉屋で物を買っています。このあと、女の人はいくら払いますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "すみませんー。100g 400円のすき焼き用の肉を、200gください。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、200gですね。お客さん、今日、1000円以上お買い上げの場合、10%引きですよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、そう。じゃあ、300にしようかしら。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。300だと、1080円になります。"
+        },
+        {
+          "speaker": "女",
+          "text": "えっと、ちょっと待って。300はいらないから…、250gにするわ。それだとちょうど1000円よね。"
+        }
+      ],
+      "question": "このあと、女の人はいくら払いますか。",
+      "questionVi": "Sau đây, người phụ nữ phải trả bao nhiêu tiền?",
+      "options": [
+        "1000円",
+        "1080円",
+        "972円"
+      ],
+      "optionsVi": [
+        "1000 yên",
+        "1080 yên",
+        "972 yên"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-078",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track16.mp3",
+      "scenario": "男の人と女の人が、映画館の前で話しています。男の人は、これから何をしますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "映画、始まるまでずいぶん時間があるね。コーヒーでも飲んでからにする？"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、私、ちょっと買いたいものがあるから、となりのデパート寄っていい？すぐ終わるから。"
+        },
+        {
+          "speaker": "男",
+          "text": "じゃあ、付き合うよ。…あーっ！大変だー！これ、会社に置いてこないといけなかったんだ。すぐ戻ってくるから、買い物が終わったら、そこのコーヒーショップで待ってて。"
+        },
+        {
+          "speaker": "女",
+          "text": "えー！んーもう、間に合うの？"
+        },
+        {
+          "speaker": "男",
+          "text": "タクシーで行ってくる。地下鉄だと乗り換えが面倒だし。"
+        },
+        {
+          "speaker": "女",
+          "text": "だめだめ、道混んでて、かえって時間がかかるよ。"
+        },
+        {
+          "speaker": "男",
+          "text": "そうだね。乗り換えがあっても、そのほうが早いか。"
+        }
+      ],
+      "question": "男の人は、これから何をしますか。",
+      "questionVi": "Người đàn ông sẽ làm gì từ bây giờ?",
+      "options": [
+        "タクシーで行く",
+        "すぐ買い物をして戻る",
+        "買い物が終わるまで待つ",
+        "地下鉄で行く"
+      ],
+      "optionsVi": [
+        "Đi bằng taxi",
+        "Đi mua sắm nhanh rồi quay lại",
+        "Đợi cho đến khi mua sắm xong",
+        "Đi bằng tàu điện ngầm"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-079",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track17.mp3",
+      "scenario": "男の人が駅から女の人に電話をしています。女の人の家は、どこにありますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "もしもし、あのー、今、駅に着きました。A4出口の改札口を出たところです。すみません、道、忘れちゃって…。向かいがレストランだったということと、マンションの3階ということしか覚えていなくて…。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、そのレストラン、つぶれちゃったのよ。今、コンビニになっているの。とにかく、改札口を出たところの前の道を左に行ってね。1つ目の角を左に曲がって、100mほど行ったところ。右側5階建てのマンションよ。玄関で、301号室、呼び出してね。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、わかりました。"
+        }
+      ],
+      "question": "女の人の家は、どこにありますか。",
+      "questionVi": "Nhà của người phụ nữ nằm ở đâu?",
+      "options": [
+        "A4出口を出て、まっすぐ行く",
+        "改札を出て左へ行く",
+        "改札を出て右へ行く",
+        "コンビにの角を左に曲がる"
+      ],
+      "optionsVi": [
+        "Ra khỏi lối ra A4 và đi thẳng",
+        "Ra khỏi cổng soát vé rồi rẽ trái",
+        "Ra khỏi cổng soát vé rồi rẽ phải",
+        "Rẽ trái ở góc cửa hàng tiện lợi"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-080",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track18.mp3",
+      "scenario": "女の人が、父親からもらった財布について、母親と話しています。女の人は、どうして父親からもらった財布を使わないのですか。",
+      "turns": [
+        {
+          "speaker": "母",
+          "text": "あら、まだ古い財布を使っているの？この間、お父さんにいいのを買ってもらったじゃない。"
+        },
+        {
+          "speaker": "娘",
+          "text": "うん、なんだか、もったいなくて。白いから、汚れちゃうんじゃないかと思うとね。それに、せっかくスマートな形なのに、いつも入れているものを入れちゃうと、厚くなっちゃってかっこ悪くなっちゃうと思うと…。それに、学生なのに、あんなに高い財布を持っていると、なんだか似合わない気がして。でも、使わないと、お父さん、気を悪くしちゃうかもね。"
+        }
+      ],
+      "question": "女の人は、どうして父親からもらった財布を使わないのですか。",
+      "questionVi": "Tại sao người phụ nữ không dùng chiếc ví bố tặng?",
+      "options": [
+        "可愛いデザインだから",
+        "汚れてしまうと思ったから",
+        "スマートな形ではないから",
+        "いつもの財布より大きいから"
+      ],
+      "optionsVi": [
+        "Vì thiết kế dễ thương",
+        "Vì sợ nó bị bẩn",
+        "Vì hình dáng không thanh lịch/gọn gàng",
+        "Vì nó to hơn chiếc ví thường dùng"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-081",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track19.mp3",
+      "scenario": "会社で、男の人と女の人が書類について話しています。女の人は、これから書類をどうしますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "山下さん、例の書類、みなみ商事の田中さんに送っといてくれた？"
+        },
+        {
+          "speaker": "女",
+          "text": "いいえ、間違いがあって、直すとかおっしゃっていたので、まだですが。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、そうだったね。それを先にしないといけなかったんだ。明日までに送ると言ったんだけど、これから訂正してすぐに送ったら、間に合うかな。"
+        },
+        {
+          "speaker": "女",
+          "text": "あのー、ついでがありますから、午後、みなみ商事にお届けしましょうか。"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、そう。悪いね。じゃ、今すぐ、やってしまうから、お願いするよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。では、田中さんに電話を入れておきます。"
+        }
+      ],
+      "question": "女の人は、これから書類をどうしますか。",
+      "questionVi": "Người phụ nữ sẽ làm gì với tài liệu từ bây giờ?",
+      "options": [
+        "このあとすぐに送る",
+        "明日までに送る",
+        "午後、南新宿に届ける",
+        "後で電話して確認する"
+      ],
+      "optionsVi": [
+        "Gửi đi ngay sau đây",
+        "Gửi đi trước ngày mai",
+        "Mang đến Minami-Shinjuku vào buổi chiều",
+        "Gọi điện thoại xác nhận sau"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-082",
+      "level": "N3",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track23.mp3",
+      "scenario": "男の人と女の人が話しています。男の人は、明日何時ごろ家を出ますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "明日の飛行機、何時？"
+        },
+        {
+          "speaker": "男",
+          "text": "えーと、16時半出発。"
+        },
+        {
+          "speaker": "女",
+          "text": "国際線だから、2時間前には着いておかないとね。えーと、空港までここから2時間かかるとして…"
+        },
+        {
+          "speaker": "男",
+          "text": "そんなにかからないよ。今、電車、速いのがあるし。1時間半があれば十分だよ。"
+        }
+      ],
+      "question": "男の人は、明日何時ごろ家を出ますか。",
+      "questionVi": "Nam nhân viên/Người nam ngày mai sẽ rời nhà khoảng mấy giờ?",
+      "options": [
+        "14時半",
+        "16時半",
+        "18時半"
+      ],
+      "optionsVi": [
+        "14 giờ rưỡi",
+        "16 giờ rưỡi",
+        "18 giờ rưỡi"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-083",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track24.mp3",
+      "scenario": "女の人と男の人が話しています。男の人は、このあと何をしますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もしもし、メール送ったんだけど、読んだ？返事ないから…。"
+        },
+        {
+          "speaker": "男",
+          "text": "え？知らない。シャワー浴びてたから…。あ、来てる…電車遅れたのか…。で、今どこ？"
+        },
+        {
+          "speaker": "女",
+          "text": "駅に着いたとこ。バス、目の前で行っちゃって…。次のにするから…。"
+        },
+        {
+          "speaker": "男",
+          "text": "迎えに行こうか？"
+        },
+        {
+          "speaker": "女",
+          "text": "いいい、いい。それより、悪いけど、ご飯炊いて、お湯沸しといてくれない？"
+        },
+        {
+          "speaker": "男",
+          "text": "お湯はさっき沸かした。ご飯って、お米洗うの？"
+        },
+        {
+          "speaker": "女",
+          "text": "ううん、炊飯器のスイッチ入れるだけ。ごめんねー、8時半には着くと思う。"
+        }
+      ],
+      "question": "男の人は、このあと何をしますか。",
+      "questionVi": "Người nam sẽ làm gì tiếp theo sau đây?",
+      "options": [
+        "家に戻る",
+        "彼女を迎える",
+        "先にご飯を食べる",
+        "彼女を待つ"
+      ],
+      "optionsVi": [
+        "Quay về nhà",
+        "Đón bạn gái",
+        "Ăn cơm trước",
+        "Đợi bạn gái"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-084",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track25.mp3",
+      "scenario": "動物園の窓口で、男の人が係の人と話しています。男の人は、いくら払いますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "大人2人と子ども2人ですが、いくらになりますか。"
+        },
+        {
+          "speaker": "係の人",
+          "text": "大人の方は、1人1000円になりますが、お子様はおいくつですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "10歳と1歳です。"
+        },
+        {
+          "speaker": "係の人",
+          "text": "お子様は、12歳までは500円で、3歳以下は無料になっておりますので。"
+        }
+      ],
+      "question": "男の人は、いくら払いますか。",
+      "questionVi": "Người nam phải trả bao nhiêu tiền?",
+      "options": [
+        "1400円",
+        "1500円",
+        "2400円",
+        "2500円"
+      ],
+      "optionsVi": [
+        "1400 yên",
+        "1500 yên",
+        "2400 yên",
+        "2500 yên"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-085",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track26.mp3",
+      "scenario": "母親から留守番電話にメッセージが入っていました。母親は、このあと何をしますか。",
+      "turns": [
+        {
+          "speaker": "母親",
+          "text": "もしもし、由美？お母さんだけど。今日、バイトの帰りにおばあちゃんのところに寄ってくれない？今ね、おばあちゃんから電話がかかってきて、りんごをたくさんもらったから取りに来いって。お母さん、さっきから調子が悪いから、これから、病院へ行ってこうと思って。おばあちゃん、明日は友達の家に行くから、今日中にだって。お願いね。あ、行く前に、今から行くって電話してね。"
+        }
+      ],
+      "question": "母親は、このあと何をしますか。",
+      "questionVi": "Người mẹ sẽ làm gì tiếp theo sau đây?",
+      "options": [
+        "おばあちゃん家に電話をする",
+        "おばあちゃん家へりんごを取りに行く",
+        "病院へ行く",
+        "友達の家へ遊びに行く"
+      ],
+      "optionsVi": [
+        "Điện thoại cho nhà bà",
+        "Đến nhà bà lấy táo",
+        "Đi bệnh viện",
+        "Đi chơi nhà bạn"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-086",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track27.mp3",
+      "scenario": "夫婦が話しています。2人は、これから何をしなければなりませんか。",
+      "turns": [
+        {
+          "speaker": "妻",
+          "text": "ねえ、これ、修理に出さないと。"
+        },
+        {
+          "speaker": "夫",
+          "text": "そうだねえ。自分ではできないからなあ。でも、修理に出すっていっても、買ったのは旅行先だったし…。買ったところか、メーカーに問い合わせないといけないなあ。"
+        },
+        {
+          "speaker": "妻",
+          "text": "そうねえ…。レシート、もらわなかったよね。店の名前も覚えていないし…。"
+        }
+      ],
+      "question": "2人は、これから何をしなければなりませんか。",
+      "questionVi": "Hai người phải làm gì từ bây giờ?",
+      "options": [
+        "旅行会社に電話をする",
+        "修理してもらった店に行く",
+        "新しいレシートを探す",
+        "もう一度番組を録画する"
+      ],
+      "optionsVi": [
+        "Gọi điện cho công ty du lịch",
+        "Đến cửa hàng đã sửa chữa",
+        "Tìm biên lai mới",
+        "Ghi hình lại chương trình một lần nữa"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-087",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track28.mp3",
+      "scenario": "男の人と女の人が話しています。どうして見たい番組が録画できなかったのですか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえ、何これ。"
+        },
+        {
+          "speaker": "男",
+          "text": "え？"
+        },
+        {
+          "speaker": "女",
+          "text": "これ、違う番組よ。"
+        },
+        {
+          "speaker": "男",
+          "text": "ちゃんと録画予約したんだけどなあ。"
+        },
+        {
+          "speaker": "女",
+          "text": "設定間違えたんじゃない？"
+        },
+        {
+          "speaker": "男",
+          "text": "今日の午前1時から1時半、7チャンネルだろ？"
+        },
+        {
+          "speaker": "女",
+          "text": "ええ？昨日でしょ！昨日の夜でしょ？"
+        },
+        {
+          "speaker": "男",
+          "text": "何言ってんだよ。夜中の1時ってことは、今日だよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、そうか。いいのね。じゃあ、どうして？"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、これ、前の番組だよ。あー！野球の試合のせいだ。延びたんだよ。だからだ。"
+        },
+        {
+          "speaker": "女",
+          "text": "あーあ。"
+        }
+      ],
+      "question": "どうして見たい番組が録画できなかったのですか。",
+      "questionVi": "Tại sao không ghi hình được chương trình muốn xem?",
+      "options": [
+        "1番",
+        "2番",
+        "3番",
+        "4番"
+      ],
+      "optionsVi": [
+        "Số 1",
+        "Số 2",
+        "Số 3",
+        "Số 4"
+      ],
+      "correctIndex": 2,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-088",
+      "level": "N3",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track29.mp3",
+      "scenario": "男の人と女の人が話しています。女の人はどうして怒っていますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "最近、釣りにはまってるんだって？"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、昨日もよく釣れて楽しかったよ。"
+        },
+        {
+          "speaker": "女",
+          "text": "じゃあ、昨日の晩ご飯は、お刺身？"
+        },
+        {
+          "speaker": "男",
+          "text": "いや、ぼくは釣るだけなんだ。食べたりしないよ。かわいそうだろ。"
+        },
+        {
+          "speaker": "女",
+          "text": "えー！何言ってるの！どっちがかわいそうなの。ありがとうって言って食べてあげたらいいじゃない。逃がしてやってもし、遊ばれたあとじゃ、弱って、すぐに死んじゃうわよ。逃がせばいいなんて考え方おかしいわよ。あなたにとって遊んでも、魚にとったら、生きるか死ぬかの戦いなのに、ひどい！"
+        }
+      ],
+      "question": "女の人はどうして怒っていますか。",
+      "questionVi": "Tại sao người nữ lại tức giận?",
+      "options": [
+        "昨日も釣りに連れて行ったから",
+        "魚を食べるのはかわいそうだから",
+        "釣る楽しみをわからないから",
+        "生きるか死ぬかの戦いだから"
+      ],
+      "optionsVi": [
+        "Vì hôm qua cũng dẫn đi câu cá",
+        "Vì ăn cá rất tội nghiệp",
+        "Vì không hiểu niềm vui câu cá",
+        "Vì đó là cuộc chiến sinh tử"
+      ],
+      "correctIndex": 0,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-089",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track30.mp3",
+      "scenario": "男の人と女の人が話しています。男の人は、どのような方法でお金を返しますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "ねえ、この間のお金、いつ返してくれるの？"
+        },
+        {
+          "speaker": "男",
+          "text": "ごめん。来月から、少しずつ返そうと思ってたんだけど…。"
+        },
+        {
+          "speaker": "女",
+          "text": "えええ？ボーナス出たんでしょ？"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、いやー、ボーナス払いでいろいろ買っちゃったから…半分ならなんとか。"
+        },
+        {
+          "speaker": "女",
+          "text": "えーっ！そんなの困るー。まとめて返してよー。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ない。残りは来月の給料日には必ず。"
+        },
+        {
+          "speaker": "女",
+          "text": "もう！しょうがないなあ。じゃ、来月絶対よ。だれかに借りてでも返してよね。"
+        }
+      ],
+      "question": "男の人は、どのような方法でお金を返しますか。",
+      "questionVi": "Người nam sẽ trả tiền bằng phương pháp nào?",
+      "options": [
+        "貯金から少しずつ返す",
+        "ボーナスで全額返す",
+        "来月の給料日まで待ってもらう",
+        "誰かから借りて返す"
+      ],
+      "optionsVi": [
+        "Trả dần từ tiền tiết kiệm",
+        "Trả toàn bộ bằng tiền thưởng",
+        "Nhờ đợi đến ngày lãnh lương tháng sau",
+        "Mượn ai đó để trả"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-090",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track31.mp3",
+      "scenario": "男の人が話しています。男の人は、電車で自分の座っている席の前にお年寄りが立ったとき、いつもどのようにしますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "前は、よく眠ったふりをしていました。次の駅で降りるふりをして、他の車両に行ったこともありました。すぐに席をゆずりたいんです。でも、緊張してしまって、なんて声をかけようことか、そのあとどうしようことか、断られたら恥ずかしいとか、いろいろ考えているうちに、そのまま何もできなくて…。"
+        }
+      ],
+      "question": "男の人は、電車で自分の座っている席の前にお年寄りが立ったとき、いつもどのようにしますか。",
+      "questionVi": "Khi có người lớn tuổi đứng trước ghế mình đang ngồi trên tàu điện, người nam thường làm thế nào?",
+      "options": [
+        "そのまま立っている",
+        "すぐに席を譲る",
+        "声をかけるか迷う",
+        "次の駅で降りる"
+      ],
+      "optionsVi": [
+        "Cứ ngồi như vậy",
+        "Nhường ghế ngay lập tức",
+        "Do dự không biết có nên lên tiếng hay không",
+        "Xuống ở ga tiếp theo"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
+    },
+    {
+      "id": "listening-soumatome-n3-091",
+      "level": "N3",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track32.mp3",
+      "scenario": "ホテルの受付で女の人が係の人と話しています。女の人は、どの部屋に泊まりますか。",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "お部屋は、8階の819号室で、こちらが鍵になっております。"
+        },
+        {
+          "speaker": "女",
+          "text": "あのー、これ、海側の部屋ですよね。"
+        },
+        {
+          "speaker": "男",
+          "text": "いいえ、あ、海側をご希望でしたか。"
+        },
+        {
+          "speaker": "女",
+          "text": "はい、予約するときに言ったんですけど…。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ございません。少々お待ちくださいませ。お調べします。…えーと、同じ階に1つ海側の部屋が空いていますが、洋室でして…。"
+        },
+        {
+          "speaker": "女",
+          "text": "和室のほうがいいんですけど、他は空いていないんですか。"
+        },
+        {
+          "speaker": "男",
+          "text": "申し訳ございません。和室は、6階に空いているところがあるのですが、あいにく山側でして…。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、そう…じゃ、しかたないわね。この部屋でいいです。"
+        }
+      ],
+      "question": "女の人は、どの部屋に泊まりますか。",
+      "questionVi": "Người nữ sẽ ở phòng nào?",
+      "options": [
+        "海側の和室",
+        "海側の洋室",
+        "山側の和室",
+        "山側の洋室"
+      ],
+      "optionsVi": [
+        "Phòng kiểu Nhật hướng biển",
+        "Phòng kiểu Tây hướng biển",
+        "Phòng kiểu Nhật hướng núi",
+        "Phòng kiểu Tây hướng núi"
+      ],
+      "correctIndex": 1,
+      "explanation": "",
+      "notes": "⚠️ Đáp án đúng lấy từ sách gốc (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại -- có thể không khớp 100% từng chữ với lời đọc thật."
     }
   ]
 }

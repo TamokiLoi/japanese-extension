@@ -32,6 +32,12 @@ export interface ListeningQuestion {
   optionCount?: number;
   correctIndex: number;
   explanation: string;
+  // Set when options[] was transcribed by Gemini listening to the audio
+  // (the book never printed this item's options as text at all) rather than
+  // read off a printed page -- wording may not match the spoken audio
+  // word-for-word, unlike printed-source items. correctIndex is still the
+  // real printed answer either way, only the option wording is at risk here.
+  notes?: string;
 }
 
 export interface ListeningDataset {
