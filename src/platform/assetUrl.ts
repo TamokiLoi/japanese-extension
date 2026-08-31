@@ -9,6 +9,13 @@
 // copying those files into the build output -- so that same literal path
 // has to be stripped here too, or it 404s against the deployed site.
 export function assetUrl(path: string): string {
+  // Already an absolute URL (e.g. a GitHub Release asset for hosted audio
+  // that isn't bundled into the repo/extension at all) -- pass through
+  // unchanged. Without this, the web branch below prepends BASE_URL to it,
+  // producing a mangled "/japanese-extension/https://..." URL.
+  if (/^https?:\/\//.test(path)) {
+    return path;
+  }
   if (typeof chrome !== "undefined" && chrome.runtime?.getURL) {
     return chrome.runtime.getURL(path);
   }

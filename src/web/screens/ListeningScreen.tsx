@@ -41,7 +41,7 @@ function ListView({ onOpen }: { onOpen: (id: string) => void }) {
           >
             <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
             <div className="min-w-0 flex-1">
-              <div className="truncate font-semibold text-neutral-800">{q.scenario}</div>
+              <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
               <div className="truncate text-xs text-neutral-500">{TASK_TYPE_LABELS[q.taskType]}</div>
             </div>
             <span className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={levelBadgeStyle(q.level)}>
@@ -85,7 +85,7 @@ function QuestionView({
 
       <Card className="mt-4 gap-3 p-5">
         <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700">
-          <Headphones size={16} /> {question.scenario}
+          <Headphones size={16} /> {question.scenario || question.question}
         </div>
         <audio controls className="w-full" src={assetUrl(question.audioUrl)} />
       </Card>
