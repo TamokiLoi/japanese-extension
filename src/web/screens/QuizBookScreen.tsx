@@ -28,6 +28,7 @@ import { PageHeader } from "../components/PageHeader.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 
 function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolean {
   return state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book);
@@ -117,7 +118,7 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
         title="Luyện đề"
         subtitle={`${filtered.length} câu · đã làm ${doneCount}/${filtered.length} · đúng ${correctCount}/${doneCount || 0} · đã biết ${knownCount}`}
@@ -259,7 +260,9 @@ function ListView({
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">
-                  <div className="truncate font-semibold text-neutral-800">{q.question}</div>
+                  <div className={`truncate font-semibold ${q.question ? "text-neutral-800" : "text-neutral-400 italic"}`}>
+                    {q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc)"}
+                  </div>
                   <div className="truncate text-xs text-neutral-500">
                     {BOOK_LABELS[q.book]} · {CATEGORY_LABELS[q.category]} · {q.level}
                   </div>
@@ -334,8 +337,15 @@ function QuestionView({
     await mutate(resetQuestionAnswer(state, q.id));
   }
 
+  async function jumpTo(i: number) {
+    if (!session) return;
+    const target = findQuizBookById(session[i]);
+    if (!target) return;
+    await mutate({ currentQuestionId: target.id, sessionIndex: i });
+  }
+
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => mutate({ currentQuestionId: null })}
@@ -353,8 +363,27 @@ function QuestionView({
         ) : null}
       </div>
 
+      {session ? (
+        <QuestionPalette
+          onJump={jumpTo}
+          summary={(() => {
+            const done = session.filter((id) => getQuestionProgress(id, state.answers, state.correctStreaks).status !== "not-started").length;
+            const correct = session.filter((id) => getQuestionProgress(id, state.answers, state.correctStreaks).correct).length;
+            return `Câu ${sessionPos + 1}/${session.length} · đã làm ${done} · đúng ${correct}`;
+          })()}
+          items={session.map((id, i) => {
+            const progress = getQuestionProgress(id, state.answers, state.correctStreaks);
+            const status: PaletteStatus =
+              i === sessionPos ? "current" : progress.status === "not-started" ? "unanswered" : progress.correct ? "correct" : "wrong";
+            return { id, status, title: progress.status === "known" ? "Đã biết" : undefined };
+          })}
+        />
+      ) : null}
+
       <Card className="mt-4 gap-0 p-6">
-        <div className="font-semibold text-neutral-800">{q.question}</div>
+        <div className={`font-semibold ${q.question ? "text-neutral-800" : "text-neutral-400 italic"}`}>
+          {q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc — vẫn có thể chọn đáp án bên dưới)"}
+        </div>
         <div className="mt-4 grid gap-2 sm:grid-cols-2">
           {q.options.map((opt, oi) => {
             let cls = "border-neutral-200 hover:bg-neutral-50";

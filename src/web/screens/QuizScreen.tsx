@@ -29,6 +29,7 @@ import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
+import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 
 type QuizStep = "resume" | "setup" | "play" | "result";
 type OpenCallbacks = {
@@ -67,7 +68,7 @@ export function QuizScreen(open: OpenCallbacks) {
     if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
     const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
-      <div className="mx-auto max-w-lg px-4 py-10 text-center">
+      <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
         <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
         <p className="mt-3 text-neutral-500">
           Bạn có 1 bài quiz đang làm dở ({answeredCount}/{session.questions.length} câu đã trả lời).
@@ -212,7 +213,7 @@ function SetupView({
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
 
       <Card className="mt-4 gap-5 p-6">
@@ -409,17 +410,6 @@ function QuestionDetail({ q, ...open }: { q: QuizQuestion } & OpenCallbacks) {
   );
 }
 
-function gridCellColor(session: QuizSession, index: number, isCurrent: boolean, isMastered: boolean): string {
-  const answerIndex = session.answers[index];
-  if (isCurrent) return "border-rose-400 bg-rose-500 text-white";
-  if (answerIndex === null) {
-    return isMastered ? "border-emerald-200 bg-emerald-50 text-emerald-600" : "border-neutral-200 text-neutral-500 hover:bg-neutral-50";
-  }
-  return session.questions[index].choices[answerIndex].correct
-    ? "border-emerald-300 bg-emerald-100 text-emerald-700"
-    : "border-rose-300 bg-rose-100 text-rose-700";
-}
-
 function PlayView({
   session,
   onSessionChange,
@@ -454,7 +444,7 @@ function PlayView({
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6 md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-bold text-neutral-800">
           Câu {idx + 1} / {session.questions.length}
@@ -471,20 +461,39 @@ function PlayView({
         </button>
       </div>
 
-      <div className="mt-4 grid grid-cols-8 gap-1.5 sm:grid-cols-10">
-        {session.questions.map((question, i) => {
+      <QuestionPalette
+        summary={`Câu ${idx + 1}/${session.questions.length} · đã trả lời ${session.answers.filter((a) => a !== null).length}`}
+        onJump={goTo}
+        items={session.questions.map((question, i) => {
           const isMastered = progressMap ? bucketFor(progressMap[question.id]) === "mastered" : false;
-          return (
-            <button
-              key={question.id}
-              title={isMastered ? "Đã thuộc từ trước" : ""}
-              onClick={() => goTo(i)}
-              className={`rounded-lg border py-1.5 text-xs font-semibold ${gridCellColor(session, i, i === idx, isMastered)}`}
-            >
-              {i + 1}
-            </button>
-          );
+          const answerIndex = session.answers[i];
+          const status: PaletteStatus =
+            i === idx ? "current" : answerIndex === null ? "unanswered" : question.choices[answerIndex].correct ? "correct" : "wrong";
+          return {
+            id: question.id,
+            status,
+            highlighted: isMastered && answerIndex === null,
+            title: isMastered ? "Đã thuộc từ trước" : undefined,
+          };
         })}
+      />
+
+      <div className="mt-4 flex items-center gap-2">
+        <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
+          <ChevronLeft size={16} /> Câu trước
+        </Button>
+        <Button
+          className="ml-auto"
+          onClick={() => {
+            if (isLast) {
+              finish();
+              return;
+            }
+            goTo(idx + 1);
+          }}
+        >
+          {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
+        </Button>
       </div>
 
       <Card className="mt-4 gap-0 p-6">
@@ -494,7 +503,14 @@ function PlayView({
         <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-neutral-400">{q.promptLabel}</div>
         <div className={`mt-1 font-bold text-neutral-800 ${q.prompt.length > 6 ? "text-2xl" : "text-4xl"}`}>{q.prompt}</div>
 
-        <div className={`mt-5 grid gap-2 ${q.kind === "kanji" ? "grid-cols-4" : "grid-cols-1 sm:grid-cols-2"}`}>
+        {/* 4-column grid only suits short choices (a bare kanji character, "character" mode) --
+            "meaning" mode choices are full phrases and need the wider 1/2-col layout to avoid
+            cramped mid-word wrapping. */}
+        <div
+          className={`mt-5 grid gap-2 ${
+            q.kind === "kanji" && q.choices.every((c) => c.text.length <= 2) ? "grid-cols-4" : "grid-cols-1 sm:grid-cols-2"
+          }`}
+        >
           {q.choices.map((c, i) => {
             let cls = "border-neutral-200 hover:bg-neutral-50";
             if (answered !== null) {
@@ -524,24 +540,6 @@ function PlayView({
 
         {answered !== null ? <QuestionDetail q={q} {...open} /> : null}
       </Card>
-
-      <div className="mt-4 flex items-center gap-2">
-        <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
-          <ChevronLeft size={16} /> Câu trước
-        </Button>
-        <Button
-          className="ml-auto"
-          onClick={() => {
-            if (isLast) {
-              finish();
-              return;
-            }
-            goTo(idx + 1);
-          }}
-        >
-          {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
-        </Button>
-      </div>
     </div>
   );
 }
@@ -561,7 +559,7 @@ function ResultView({
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6 text-center md:px-8 md:py-10">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">Kết quả</h1>
       <div className="mt-4 text-5xl font-bold text-rose-600">
         {score} / {total}
