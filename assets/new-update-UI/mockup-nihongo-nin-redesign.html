@@ -1,0 +1,769 @@
+<title>Nihongo Nin Redesign</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --ink:#0f172a;
+  --ink-muted:#64748b;
+  --border:#e2e8f0;
+  --primary:#e11d48;
+  --primary-soft:#fff1f2;
+  --primary-border:#fecdd3;
+  --success:#10b981;
+  --success-soft:#ecfdf5;
+  --warning:#f59e0b;
+  --warning-soft:#fffbeb;
+  --danger:#ef4444;
+  --neutral:#6b7280;
+  --bezel:#0b0e14;
+  --logo:url(data:image/png;base64,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);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1220; --surface:#151d2e; --ink:#eef2f8; --ink-muted:#93a0b8;
+    --border:#26314a; --primary:#fb7185; --primary-soft:#2a1520; --primary-border:#4a2130;
+    --success:#34d399; --success-soft:#0e2a22; --warning:#fbbf24; --warning-soft:#2c2109;
+    --danger:#f87171; --neutral:#94a3b8; --bezel:#000000;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1220; --surface:#151d2e; --ink:#eef2f8; --ink-muted:#93a0b8;
+  --border:#26314a; --primary:#fb7185; --primary-soft:#2a1520; --primary-border:#4a2130;
+  --success:#34d399; --success-soft:#0e2a22; --warning:#fbbf24; --warning-soft:#2c2109;
+  --danger:#f87171; --neutral:#94a3b8; --bezel:#000000;
+}
+*{box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;padding:0 0 60px;font-size:13px;}
+.jp{font-family:"Noto Sans JP","Inter",sans-serif;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px;}
+h1,h2,h3,h4{font-family:"Inter",sans-serif;text-wrap:balance;margin:0;}
+.logo-ic{width:18px;height:18px;border-radius:5px;background-image:var(--logo);background-size:cover;flex:0 0 auto;}
+
+/* ---------------- header ---------------- */
+.hero{padding:30px 0 22px;border-bottom:1px solid var(--border);margin-bottom:28px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:9px;}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:-.01em;max-width:680px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hero h1 .logo-ic{width:26px;height:26px;border-radius:7px;}
+.hero p{color:var(--ink-muted);font-size:13px;line-height:1.55;max-width:600px;margin-bottom:16px;}
+.principles{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;}
+.principle{
+  font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:9px;
+  background:var(--surface);border:1px solid var(--border);color:var(--ink);
+}
+.principle b{color:var(--primary);}
+.swatches{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+.swatch{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-muted);font-weight:500;}
+.swatch i{width:13px;height:13px;border-radius:4px;display:block;}
+
+/* ---------------- section scaffolding ---------------- */
+.section{margin-bottom:38px;}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.section-head h2{font-size:17px;font-weight:800;}
+.section-head .tag{
+  font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;
+  background:var(--primary-soft);color:var(--primary);border:1px solid var(--primary-border);
+}
+.section-sub{color:var(--ink-muted);font-size:12.5px;margin:-8px 0 14px;max-width:620px;line-height:1.5;}
+
+.row-scroll{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x proximity;}
+.row-scroll::-webkit-scrollbar{height:7px;}
+.row-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:8px;}
+.frame-col{flex:0 0 auto;scroll-snap-align:start;}
+.frame-label{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:7px;text-align:center;}
+
+/* ---------------- mobile device ---------------- */
+.device{width:200px;background:var(--bezel);border-radius:22px;padding:7px;box-shadow:0 14px 28px -16px rgba(0,0,0,.45);}
+.mscreen{position:relative;width:100%;height:432px;background:#f4f4f6;border-radius:16px;overflow:hidden;font-size:11px;color:#18181b;}
+.mscreen .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:62px;height:11px;background:var(--bezel);border-radius:0 0 8px 8px;z-index:6;}
+.mscroll{height:100%;overflow-y:auto;padding-bottom:38px;-ms-overflow-style:none;scrollbar-width:none;}
+.mscroll::-webkit-scrollbar{display:none;}
+
+.m-header{display:flex;align-items:center;gap:6px;padding:11px 10px 7px;background:#fff;border-bottom:1px solid #eceef1;}
+.m-header .burger span{display:block;width:13px;height:1.4px;background:#3f3f46;border-radius:1px;margin:2px 0;}
+.m-header .brand{font-weight:800;color:#e11d48;font-size:10.5px;}
+.m-header .streak{margin-left:auto;font-size:10px;font-weight:700;color:#f59e0b;}
+
+.m-title{padding:9px 10px 2px;background:#f4f4f6;}
+.m-title h3{font-size:15px;font-weight:800;color:#0f172a;}
+.m-title .sub{font-size:9.5px;color:#71717a;margin-top:1px;}
+
+.m-toolbar{display:flex;gap:5px;padding:8px 10px;background:#f4f4f6;}
+.tbtn{
+  display:flex;align-items:center;gap:3px;font-size:9.5px;font-weight:700;padding:5px 7px;
+  border-radius:7px;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;white-space:nowrap;cursor:pointer;
+}
+.tbtn.primary{background:#fff1f2;border-color:#fecdd3;color:#e11d48;}
+.tbtn .badge{background:#e11d48;color:#fff;font-size:8px;border-radius:99px;min-width:12px;height:12px;display:inline-flex;align-items:center;justify-content:center;padding:0 3px;}
+
+.m-activefilters{display:flex;gap:5px;padding:0 10px 8px;background:#f4f4f6;overflow-x:auto;}
+.afchip{font-size:9px;font-weight:600;color:#e11d48;background:#fff1f2;border:1px solid #fecdd3;border-radius:999px;padding:3px 8px;white-space:nowrap;}
+
+.m-card{margin:0 10px 8px;background:#fff;border:1px solid #ececef;border-radius:13px;padding:11px;}
+.m-card .tags{display:flex;gap:4px;margin-bottom:8px;}
+.m-tag{font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:999px;}
+.m-tag.n3{background:#fef3c7;color:#92400e;}
+.m-tag.n4{background:#dbeafe;color:#1d4ed8;}
+.m-tag.src{background:#f4f4f5;color:#52525b;}
+.m-jp{font-size:22px;font-weight:700;text-align:center;margin:8px 0 2px;color:#0f172a;}
+.m-kana{font-size:10.5px;text-align:center;color:#a1a1aa;margin-bottom:10px;}
+.m-row{display:flex;gap:7px;font-size:10.5px;padding:2px 0;color:#3f3f46;}
+.m-row b{color:#e11d48;min-width:46px;font-size:9.5px;font-weight:700;}
+.m-cta{width:100%;margin-top:8px;background:#fff;border:1.3px solid #10b981;color:#10b981;border-radius:9px;padding:7px;font-size:10.5px;font-weight:700;text-align:center;}
+
+.m-listitem{margin:0 10px 6px;background:#fff;border:1px solid #ececef;border-radius:11px;padding:9px 11px;display:flex;gap:8px;align-items:flex-start;}
+.m-listitem .num{font-size:9px;font-weight:800;color:#a1a1aa;margin-top:2px;}
+.m-listitem .body{flex:1;min-width:0;}
+.m-listitem .ttl{font-size:11px;font-weight:700;color:#0f172a;}
+.m-listitem .meta{font-size:9px;color:#71717a;margin-top:2px;}
+.m-status{font-size:8.5px;font-weight:700;padding:2px 7px;border-radius:999px;white-space:nowrap;}
+.m-status.todo{background:#f4f4f5;color:#52525b;}
+.m-status.done{background:#ecfdf5;color:#059669;}
+
+.m-bottomnav{position:absolute;bottom:0;left:0;right:0;display:flex;background:#fff;border-top:1px solid #ececef;padding:6px 0 7px;}
+.m-bottomnav .it{flex:1;text-align:center;font-size:7.8px;color:#71717a;font-weight:700;}
+.m-bottomnav .it.on{color:#e11d48;}
+.m-bottomnav .ic{display:block;width:13px;height:13px;margin:0 auto 2px;border-radius:4px;background:#e4e4e7;}
+.m-bottomnav .it.on .ic{background:#e11d48;}
+
+/* home specific */
+.streakcard{margin:8px 10px;padding:11px;border-radius:12px;background:linear-gradient(135deg,#fff1f2,#fff);border:1px solid #fecdd3;}
+.streakcard .n{font-size:18px;font-weight:800;color:#e11d48;}
+.streakcard .l{font-size:9px;color:#71717a;margin-top:2px;}
+.stat2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 10px 8px;}
+.statbox{padding:8px 9px;border-radius:10px;border:1px solid #ececef;background:#fff;}
+.statbox .v{font-size:14.5px;font-weight:800;}
+.statbox .k{font-size:8.5px;color:#71717a;margin-top:1px;}
+.sectiontitle{font-size:9.5px;font-weight:800;color:#0f172a;padding:3px 10px;text-transform:uppercase;letter-spacing:.03em;}
+
+/* sheet */
+.sheet-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:10;}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:16px 16px 0 0;transform:translateY(100%);transition:transform .32s cubic-bezier(.32,.72,0,1);z-index:11;max-height:84%;display:flex;flex-direction:column;box-shadow:0 -6px 24px rgba(0,0,0,.15);}
+.mscreen.open .sheet-backdrop{opacity:1;pointer-events:auto;}
+.mscreen.open .sheet{transform:translateY(0);}
+.sheet-handle{width:28px;height:3.5px;background:#d4d4d8;border-radius:99px;margin:7px auto 2px;}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;padding:6px 12px 8px;border-bottom:1px solid #f2f2f3;}
+.sheet-head h4{font-size:11.5px;font-weight:800;color:#18181b;}
+.sheet-head button{background:none;border:none;font-size:10px;font-weight:700;color:#71717a;}
+.sheet-body{overflow-y:auto;padding:9px 12px 4px;}
+.filtergroup{margin-bottom:11px;}
+.filtergroup .fg-title{font-size:9px;font-weight:800;color:#71717a;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+.fg-opts{display:flex;flex-wrap:wrap;gap:5px;}
+.fopt{font-size:9px;font-weight:600;padding:5px 8px;border-radius:7px;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;}
+.fopt.on{background:#fff1f2;border-color:#fecdd3;color:#e11d48;}
+.sheet-foot{display:flex;gap:6px;padding:9px 12px 11px;border-top:1px solid #f2f2f3;}
+.sheet-foot button{flex:1;border-radius:9px;padding:8px;font-size:10.5px;font-weight:700;border:none;}
+.sheet-foot .clear{background:#f4f4f5;color:#3f3f46;}
+.sheet-foot .apply{background:#e11d48;color:#fff;}
+
+/* play-mode / focus screens (no toolbar, minimal chrome) */
+.m-playhead{display:flex;align-items:center;gap:8px;padding:10px 10px 8px;background:#fff;border-bottom:1px solid #eceef1;}
+.m-playhead .back{font-size:14px;color:#3f3f46;}
+.m-playhead .ttl{flex:1;min-width:0;font-size:10.5px;font-weight:700;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.m-playhead .ic{font-size:12px;color:#71717a;}
+.progressbar-track{height:5px;background:#ececef;margin:0 10px;border-radius:99px;overflow:hidden;}
+.progressbar-fill{height:100%;background:#e11d48;border-radius:99px;}
+.progress-label{display:flex;justify-content:space-between;padding:7px 10px 0;font-size:9px;color:#71717a;font-weight:600;}
+.passage-body{margin:0 10px;padding:12px;background:#fff;border:1px solid #ececef;border-radius:13px;font-size:11px;line-height:2;color:#27272a;}
+.passage-body ruby rt{font-size:7px;color:#a1a1aa;}
+.readtoggle{display:flex;gap:5px;margin-left:auto;}
+.readtoggle .tg{font-size:9px;font-weight:700;padding:4px 8px;border-radius:7px;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;}
+.readtoggle .tg.on{background:#fff1f2;border-color:#fecdd3;color:#e11d48;}
+.qword{text-align:center;padding:18px 10px 6px;}
+.qword .big{font-size:32px;font-weight:800;color:#0f172a;}
+.qword .hint{font-size:9.5px;color:#a1a1aa;margin-top:4px;}
+.choices{display:flex;flex-direction:column;gap:7px;padding:12px 10px 0;}
+.choice{padding:10px 12px;border-radius:11px;border:1.4px solid #e4e4e7;background:#fff;font-size:11px;font-weight:600;color:#3f3f46;text-align:left;}
+.choice.correct{border-color:#10b981;background:#ecfdf5;color:#047857;}
+.choice.wrong{border-color:#ef4444;background:#fef2f2;color:#b91c1c;}
+.nextbtn{margin:14px 10px 0;background:#e11d48;color:#fff;border:none;border-radius:10px;padding:9px;font-size:10.5px;font-weight:700;text-align:center;}
+.examgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;padding:10px;}
+.examgrid .qn{aspect-ratio:1;border-radius:6px;background:#f4f4f5;color:#71717a;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.examgrid .qn.answered{background:#fff1f2;color:#e11d48;}
+.examgrid .qn.cur{background:#e11d48;color:#fff;}
+.examfoot{position:absolute;bottom:38px;left:0;right:0;padding:8px 10px;background:#fff;border-top:1px solid #eceef1;display:flex;gap:8px;}
+.examfoot button{flex:1;border-radius:9px;padding:8px;font-size:10px;font-weight:700;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;}
+.examfoot .submit{background:#e11d48;border-color:#e11d48;color:#fff;}
+
+/* stats + quizbook */
+.tabs2{display:flex;gap:4px;padding:0 10px 8px;}
+.tab2{flex:1;text-align:center;font-size:9.5px;font-weight:700;padding:6px;border-radius:8px;background:#f4f4f5;color:#71717a;}
+.tab2.on{background:#fff1f2;color:#e11d48;}
+.levelbar-row{display:flex;align-items:center;gap:6px;padding:5px 10px;}
+.levelbar-row .lbl{font-size:9px;font-weight:700;width:20px;color:#3f3f46;}
+.levelbar-track{flex:1;height:5px;background:#ececef;border-radius:99px;overflow:hidden;}
+.levelbar-fill{height:100%;border-radius:99px;background:#e11d48;}
+.levelbar-row .pct{font-size:8.5px;color:#71717a;width:26px;text-align:right;}
+.m-listitem .score{font-size:8.5px;color:#71717a;margin-top:2px;}
+.m-status.high{background:#fff1f2;color:#be123c;}
+
+/* ---------------- desktop device ---------------- */
+.ddevice{width:440px;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 18px 36px -24px rgba(0,0,0,.35);background:#fff;}
+.dbar{display:flex;align-items:center;gap:5px;padding:7px 10px;background:#f4f4f6;border-bottom:1px solid #e4e4e7;}
+.dbar i{width:8px;height:8px;border-radius:50%;background:#e4e4e7;}
+.dbody{display:flex;height:330px;font-size:11px;color:#18181b;}
+.dside{width:126px;flex:0 0 auto;background:#fff;border-right:1px solid #eceef1;padding:11px 10px;overflow-y:auto;}
+.dside .brand{display:flex;align-items:center;gap:6px;font-weight:800;color:#e11d48;font-size:11px;margin-bottom:11px;}
+.dnav{display:flex;flex-direction:column;gap:1px;margin-bottom:12px;}
+.dnav a{font-size:10px;font-weight:600;color:#52525b;padding:6px 8px;border-radius:7px;}
+.dnav a.on{background:#fff1f2;color:#e11d48;font-weight:700;}
+.dfg{margin-bottom:9px;}
+.dfg .t{font-size:8.5px;font-weight:800;color:#a1a1aa;text-transform:uppercase;margin-bottom:5px;}
+.dcheck{display:flex;align-items:center;gap:5px;font-size:9.5px;color:#3f3f46;padding:2px 0;}
+.dcheck i{width:11px;height:11px;border-radius:3px;border:1.3px solid #d4d4d8;flex:0 0 auto;}
+.dcheck.on i{background:#e11d48;border-color:#e11d48;}
+.dmain{flex:1;min-width:0;padding:13px 15px;overflow-y:auto;background:#fafafa;}
+.dmain h4{font-size:14px;font-weight:800;}
+.dmain .sub{font-size:10px;color:#71717a;margin-top:2px;}
+.dtoolbar{display:flex;justify-content:flex-end;gap:6px;margin:8px 0 10px;}
+.dbtn{font-size:10px;font-weight:700;padding:6px 10px;border-radius:7px;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;}
+.dcard{background:#fff;border:1px solid #ececef;border-radius:12px;padding:13px;text-align:center;}
+.dcard .jp{font-size:22px;font-weight:700;margin:6px 0 2px;}
+.dcard .kana{font-size:10px;color:#a1a1aa;margin-bottom:7px;}
+.dcard .meaning{font-size:10.5px;color:#3f3f46;}
+
+table.dtable{width:100%;border-collapse:collapse;font-size:9.6px;}
+table.dtable th{text-align:left;color:#a1a1aa;font-weight:700;font-size:8.5px;text-transform:uppercase;padding:5px 7px;border-bottom:1px solid #eceef1;}
+table.dtable td{padding:7px;border-bottom:1px solid #f2f2f3;color:#3f3f46;}
+table.dtable td.jp-cell{font-weight:700;color:#0f172a;}
+
+.quiz-opt-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.qchip{font-size:9.5px;font-weight:700;padding:6px 9px;border-radius:7px;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;}
+.qchip.on{background:#fff1f2;border-color:#fecdd3;color:#e11d48;}
+.dselect{font-size:10px;padding:7px 9px;border-radius:7px;border:1px solid #e4e4e7;background:#fff;color:#3f3f46;width:100%;}
+.startbtn{width:100%;background:#e11d48;color:#fff;border:none;border-radius:9px;padding:9px;font-size:11px;font-weight:700;margin-top:10px;}
+.forecast{background:#fff1f2;border:1px solid #fecdd3;border-radius:10px;padding:10px;margin-top:11px;font-size:9.5px;color:#9f1239;}
+
+/* ---------------- checklist / donts ---------------- */
+.twocol{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;}
+@media(max-width:860px){.twocol{grid-template-columns:1fr;}}
+.checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;}
+.checklist li{display:flex;gap:8px;font-size:12px;color:var(--ink);align-items:flex-start;}
+.checklist li .ck{flex:0 0 auto;width:16px;height:16px;border-radius:5px;background:var(--success-soft);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;margin-top:1px;}
+.dontbox{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--danger);border-radius:11px;padding:16px 18px;}
+.dontbox h3{font-size:12.5px;font-weight:800;margin-bottom:9px;}
+.dontbox ul{margin:0;padding-left:16px;color:var(--ink-muted);font-size:11.5px;line-height:1.75;}
+
+footer{max-width:680px;margin:8px auto 0;padding:0 20px;color:var(--ink-muted);font-size:12px;line-height:1.6;}
+footer b{color:var(--ink);}
+</style>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Tham chiếu · assets/new-update-UI</div>
+    <h1><span class="logo-ic"></span>Content First, Filter Ẩn Mặc Định</h1>
+    <p>Dựng lại các màn theo <b>nihongo-nin-ui-redesign.md</b>: nội dung học lên đầu, filter/sort gộp vào toolbar 3 nút và Filter Sheet, dữ liệu/label lấy đúng từ app thật — không đổi logic, không đổi route.</p>
+    <div class="principles">
+      <div class="principle"><b>1.</b> Content First</div>
+      <div class="principle"><b>2.</b> Progressive Disclosure</div>
+      <div class="principle"><b>3.</b> Default = simple, Advanced = powerful</div>
+      <div class="principle"><b>4.</b> Đồng bộ Mobile ↔ Desktop</div>
+    </div>
+    <div class="swatches">
+      <div class="swatch"><i style="background:#e11d48"></i>Primary #E11D48</div>
+      <div class="swatch"><i style="background:#10b981"></i>Success #10B981</div>
+      <div class="swatch"><i style="background:#f59e0b"></i>Warning #F59E0B</div>
+      <div class="swatch"><i style="background:#ef4444"></i>Danger #EF4444</div>
+      <div class="swatch"><i style="background:#6b7280"></i>Neutral #6B7280</div>
+      <div class="swatch" style="font-family:'Noto Sans JP'">Aa 男性 · Noto Sans JP + Inter</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===================== MOBILE ===================== -->
+  <div class="section">
+    <div class="section-head"><h2>Mobile · 390px</h2><span class="tag">10 màn</span></div>
+    <div class="section-sub">Bấm nút <b style="color:var(--primary)">Bộ lọc</b> ở màn Từ vựng để mở Filter Sheet thật. Bottom nav rút gọn sang tiếng Anh (Home/Voca/Bunpo/Quiz/More) để đỡ tốn diện tích. Gồm cả màn danh sách (Trang chủ, Từ vựng, Ngữ pháp, Luyện đọc, Quiz, Luyện đề, Thống kê) và màn <b>đang làm bài</b> (Luyện đọc, Quiz, Luyện đề) — các màn "đang làm" bỏ hẳn toolbar/filter vì đây là chế độ tập trung, không cần lọc.</div>
+
+    <div class="row-scroll">
+
+      <!-- HOME -->
+      <div class="frame-col"><div class="frame-label">Trang chủ</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div><div class="streak">🔥 7</div></div>
+            <div class="m-title" style="padding-top:12px;"><h3 style="font-size:15.5px;">Chào buổi sáng!</h3><div class="sub">Tiếp tục hành trình học tiếng Nhật</div></div>
+            <div class="streakcard">
+              <div class="n">7 ngày</div><div class="l">Hôm nay: 8 / 20 thẻ · 40%</div>
+            </div>
+            <div class="stat2">
+              <div class="statbox"><div class="v" style="color:#10b981">320</div><div class="k">Đã thuộc</div></div>
+              <div class="statbox"><div class="v" style="color:#f59e0b">87</div><div class="k">Đang học</div></div>
+              <div class="statbox"><div class="v" style="color:#e11d48">23</div><div class="k">Cần ôn lại</div></div>
+              <div class="statbox"><div class="v" style="color:#6b7280">5,938</div><div class="k">Chưa học</div></div>
+            </div>
+            <div class="sectiontitle">Cần ôn ngay</div>
+            <div class="m-listitem"><div class="body"><div class="ttl jp">男性 (だんせい)</div><div class="meta">Ôn 3 ngày trước</div></div></div>
+            <div class="m-listitem"><div class="body"><div class="ttl jp">経済 (けいざい)</div><div class="meta">Ôn 5 ngày trước</div></div></div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it on"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- VOCAB -->
+      <div class="frame-col"><div class="frame-label">Từ vựng</div>
+        <div class="device"><div class="mscreen" id="sh-vocab">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div></div>
+            <div class="m-title"><h3>Từ vựng</h3><div class="sub">3,046 từ</div></div>
+            <div class="m-toolbar">
+              <button class="tbtn primary" onclick="document.getElementById('sh-vocab').classList.add('open')">⚙ Bộ lọc <span class="badge">3</span></button>
+              <div class="tbtn">↕ Sắp xếp</div>
+              <div class="tbtn">⤮ Random</div>
+            </div>
+            <div class="m-activefilters">
+              <span class="afchip">N3 ×</span><span class="afchip">Mimikara N3 ×</span><span class="afchip">Động từ ×</span>
+            </div>
+            <div class="m-card">
+              <div class="tags"><span class="m-tag n3">N3</span><span class="m-tag src">Mimikara N3</span></div>
+              <div class="m-jp">男性</div><div class="m-kana">だんせい</div>
+              <div class="m-row"><b>Hán Việt</b> NAM TÍNH</div>
+              <div class="m-row"><b>Nghĩa</b> đàn ông</div>
+              <div class="m-cta">✓ Đã thuộc</div>
+            </div>
+          </div>
+          <div class="sheet-backdrop" onclick="document.getElementById('sh-vocab').classList.remove('open')"></div>
+          <div class="sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-head"><h4>Bộ lọc từ vựng</h4><button onclick="document.getElementById('sh-vocab').classList.remove('open')">Xóa</button></div>
+            <div class="sheet-body">
+              <div class="filtergroup"><div class="fg-title">Cấp độ</div><div class="fg-opts">
+                <span class="fopt">N5</span><span class="fopt">N4</span><span class="fopt on">N3</span><span class="fopt">N2</span><span class="fopt">N1</span>
+              </div></div>
+              <div class="filtergroup"><div class="fg-title">Nguồn</div><div class="fg-opts">
+                <span class="fopt on">Mimikara N3</span><span class="fopt">Tango N3</span><span class="fopt">Tango N4</span>
+              </div></div>
+              <div class="filtergroup"><div class="fg-title">Loại từ</div><div class="fg-opts">
+                <span class="fopt on">Động từ</span><span class="fopt">Tính từ</span><span class="fopt">Danh từ</span><span class="fopt">Từ láy</span>
+              </div></div>
+              <div class="filtergroup"><div class="fg-title">Bộ sưu tập</div><div class="fg-opts">
+                <span class="fopt">Từ đồng nghĩa N3</span><span class="fopt">91 trạng từ thường dùng</span><span class="fopt">200 động từ N3-N4</span>
+              </div></div>
+            </div>
+            <div class="sheet-foot"><button class="clear">Xóa lọc</button><button class="apply" onclick="document.getElementById('sh-vocab').classList.remove('open')">Áp dụng</button></div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it on"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- BUNPO -->
+      <div class="frame-col"><div class="frame-label">Ngữ pháp</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div></div>
+            <div class="m-title"><h3>Ngữ pháp</h3><div class="sub">1,253 mục</div></div>
+            <div class="m-toolbar">
+              <div class="tbtn primary">⚙ Bộ lọc <span class="badge">1</span></div>
+              <div class="tbtn">↕ Sắp xếp</div>
+              <div class="tbtn">🔍</div>
+            </div>
+            <div class="m-activefilters"><span class="afchip">N3 ×</span></div>
+            <div class="m-card">
+              <div class="tags"><span class="m-tag n3">N3</span></div>
+              <div style="font-size:17px;font-weight:800;text-align:center;margin:5px 0 8px;" class="jp">～わけではない</div>
+              <div class="m-row" style="flex-direction:column;gap:2px;"><b>Ý nghĩa</b><span>Không hẳn là...</span></div>
+              <div class="m-row" style="flex-direction:column;gap:2px;margin-top:5px;"><b>Cách dùng</b><span class="jp">普通形 + わけではない</span></div>
+            </div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it on"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- READING -->
+      <div class="frame-col"><div class="frame-label">Luyện đọc</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div></div>
+            <div class="m-title"><h3>Luyện đọc</h3><div class="sub">135 bài · Đã hoàn thành 0/135</div></div>
+            <div class="m-toolbar">
+              <div class="tbtn primary">⚙ Bộ lọc</div>
+              <div class="tbtn">↕ Sắp xếp</div>
+              <div class="tbtn">⤮ Random</div>
+            </div>
+            <div class="m-listitem">
+              <div class="num">01</div>
+              <div class="body"><div class="ttl jp">電車の中で</div><div class="meta">Speed Master N3 · Trung văn · ~5 phút</div></div>
+              <div class="m-status todo">Chưa làm</div>
+            </div>
+            <div class="m-listitem">
+              <div class="num">02</div>
+              <div class="body"><div class="ttl jp">日本人の生活</div><div class="meta">Speed Master N3 · Trung văn · ~7 phút</div></div>
+              <div class="m-status todo">Chưa làm</div>
+            </div>
+            <div class="m-listitem">
+              <div class="num">03</div>
+              <div class="body"><div class="ttl jp">スマートフォンの影響</div><div class="meta">Shin Kanzen Master N3 · Trung văn</div></div>
+              <div class="m-status done">Đã làm</div>
+            </div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it on"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- READING PLAY -->
+      <div class="frame-col"><div class="frame-label">Luyện đọc · đang làm</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll" style="padding-bottom:12px;">
+            <div class="m-playhead">
+              <span class="back">←</span>
+              <span class="ttl jp">電車の中で</span>
+              <div class="readtoggle"><span class="tg on">振</span><span class="tg">訳</span></div>
+            </div>
+            <div class="progress-label"><span>Bài 01 / 135</span><span>~5 phút</span></div>
+            <div class="passage-body jp">
+              電車の中で、スマートフォンを見ている人が多い。<ruby>特<rt>とく</rt></ruby>に若い人は、ゲームをしたりニュースを読んだりしている。
+              しかし、<ruby>年配<rt>ねんぱい</rt></ruby>の人はまだ新聞や本を読むことが多い。
+            </div>
+            <div class="sectiontitle" style="margin-top:2px;">Câu hỏi</div>
+            <div class="m-card" style="margin:0 10px;">
+              <div style="font-size:10.5px;font-weight:700;margin-bottom:8px;">Q1. 若い人は電車の中で何をしていますか。</div>
+              <div class="choices" style="padding:0;">
+                <div class="choice">新聞を読んでいる</div>
+                <div class="choice correct">スマートフォンを見ている</div>
+              </div>
+            </div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it on"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="frame-col"><div class="frame-label">Quiz</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div></div>
+            <div class="m-title" style="padding-top:12px;"><h3>Quiz</h3></div>
+            <div style="padding:8px 10px 0;">
+              <div class="sectiontitle" style="padding:0 0 5px;">Nội dung</div>
+              <div class="quiz-opt-row"><span class="qchip on">Kanji</span><span class="qchip">Từ vựng</span><span class="qchip">Ngữ pháp</span></div>
+              <div class="sectiontitle" style="padding:0 0 5px;">Dạng câu hỏi</div>
+              <div class="quiz-opt-row"><span class="qchip on">Xem chữ, đoán nghĩa</span></div>
+              <div class="quiz-opt-row"><span class="qchip">Xem nghĩa, đoán chữ</span></div>
+              <div class="sectiontitle" style="padding:0 0 5px;">Số câu hỏi</div>
+              <div class="dselect" style="margin-bottom:10px;">10 câu ▾</div>
+              <div class="sectiontitle" style="padding:0 0 5px;">Phạm vi</div>
+              <div class="dselect">Theo bộ lọc hiện tại (N5, N4, N3) ▾</div>
+              <button class="startbtn">▶ Bắt đầu</button>
+            </div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it on"><span class="ic"></span>Quiz</div>
+            <div class="it"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- QUIZ PLAY -->
+      <div class="frame-col"><div class="frame-label">Quiz · đang làm</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll" style="padding-bottom:12px;">
+            <div class="m-playhead"><span class="back">✕</span><span class="ttl">Quiz Kanji</span></div>
+            <div class="progress-label"><span>Câu 3 / 10</span><span>Đúng 2</span></div>
+            <div class="progressbar-track" style="margin-top:5px;"><div class="progressbar-fill" style="width:30%;"></div></div>
+            <div class="qword">
+              <div class="big jp">男性</div>
+              <div class="hint">Nghĩa của từ này là gì?</div>
+            </div>
+            <div class="choices">
+              <div class="choice">Phụ nữ</div>
+              <div class="choice correct">Nam giới, đàn ông</div>
+              <div class="choice wrong">Trẻ em</div>
+              <div class="choice">Người già</div>
+            </div>
+            <div class="nextbtn">Tiếp theo →</div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it on"><span class="ic"></span>Quiz</div>
+            <div class="it"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- QUIZBOOK -->
+      <div class="frame-col"><div class="frame-label">Luyện đề</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div></div>
+            <div class="m-title"><h3>Luyện đề</h3><div class="sub">45 bộ đề</div></div>
+            <div class="m-toolbar">
+              <div class="tbtn primary">⚙ Bộ lọc</div>
+              <div class="tbtn">↕ Sắp xếp</div>
+              <div class="tbtn">⤮ Random</div>
+            </div>
+            <div class="m-listitem">
+              <div class="num">01</div>
+              <div class="body">
+                <div class="ttl">Shinkanzen N3 · Đề 1</div>
+                <div class="meta">60 câu · Đọc hiểu + Ngữ pháp</div>
+                <div class="score">Điểm cao nhất: 42/60</div>
+              </div>
+              <div class="m-status high">Đã làm</div>
+            </div>
+            <div class="m-listitem">
+              <div class="num">02</div>
+              <div class="body">
+                <div class="ttl">TRY! N3 · Đề tổng hợp</div>
+                <div class="meta">50 câu · Tổng hợp</div>
+              </div>
+              <div class="m-status todo">Chưa làm</div>
+            </div>
+            <div class="m-listitem">
+              <div class="num">03</div>
+              <div class="body">
+                <div class="ttl">60 câu đồng nghĩa N3</div>
+                <div class="meta">60 câu · Từ vựng</div>
+              </div>
+              <div class="m-status todo">Chưa làm</div>
+            </div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it on"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- QUIZBOOK PLAY -->
+      <div class="frame-col"><div class="frame-label">Luyện đề · đang làm</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll" style="padding-bottom:88px;">
+            <div class="m-playhead"><span class="back">✕</span><span class="ttl">Shinkanzen N3 · Đề 1</span><span class="ic">⏱ 32:10</span></div>
+            <div class="progress-label"><span>Câu 12 / 60</span><span>Đã trả lời 11</span></div>
+            <div class="m-card" style="margin:10px 10px 0;">
+              <div style="font-size:9.5px;font-weight:800;color:#a1a1aa;text-transform:uppercase;margin-bottom:6px;">Câu 12 — Ngữ pháp</div>
+              <div style="font-size:11px;font-weight:600;margin-bottom:10px;" class="jp">来週の会議に___、資料を準備してください。</div>
+              <div class="choices" style="padding:0;">
+                <div class="choice">向けて</div>
+                <div class="choice correct">先立って</div>
+                <div class="choice">かけて</div>
+                <div class="choice">おいて</div>
+              </div>
+            </div>
+            <div class="sectiontitle" style="margin-top:10px;">Danh sách câu hỏi</div>
+            <div class="examgrid">
+              <div class="qn answered">1</div><div class="qn answered">2</div><div class="qn answered">3</div><div class="qn answered">4</div>
+              <div class="qn answered">5</div><div class="qn answered">6</div><div class="qn answered">7</div><div class="qn answered">8</div>
+              <div class="qn answered">9</div><div class="qn answered">10</div><div class="qn answered">11</div><div class="qn cur">12</div>
+              <div class="qn">13</div><div class="qn">14</div><div class="qn">15</div><div class="qn">16</div>
+            </div>
+          </div>
+          <div class="examfoot"><button>← Câu trước</button><button class="submit">Nộp bài</button></div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it on"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- STATS -->
+      <div class="frame-col"><div class="frame-label">Thống kê</div>
+        <div class="device"><div class="mscreen">
+          <div class="notch"></div>
+          <div class="mscroll">
+            <div class="m-header"><div class="burger"><span></span><span></span><span></span></div><span class="logo-ic"></span><div class="brand">Nihongo Nin</div></div>
+            <div class="m-title" style="padding-top:12px;"><h3>Thống kê</h3></div>
+            <div class="tabs2" style="margin-top:8px;"><div class="tab2 on">Kanji</div><div class="tab2">Từ vựng</div></div>
+            <div class="stat2">
+              <div class="statbox"><div class="v" style="color:#10b981">320</div><div class="k">Đã thuộc</div></div>
+              <div class="statbox"><div class="v" style="color:#f59e0b">87</div><div class="k">Đang học</div></div>
+              <div class="statbox"><div class="v" style="color:#e11d48">23</div><div class="k">Cần ôn</div></div>
+              <div class="statbox"><div class="v" style="color:#6b7280">5,938</div><div class="k">Chưa học</div></div>
+            </div>
+            <div class="sectiontitle">Theo cấp độ</div>
+            <div class="levelbar-row"><div class="lbl">N5</div><div class="levelbar-track"><div class="levelbar-fill" style="width:82%;background:#10b981;"></div></div><div class="pct">82%</div></div>
+            <div class="levelbar-row"><div class="lbl">N4</div><div class="levelbar-track"><div class="levelbar-fill" style="width:64%;background:#3b82f6;"></div></div><div class="pct">64%</div></div>
+            <div class="levelbar-row"><div class="lbl">N3</div><div class="levelbar-track"><div class="levelbar-fill" style="width:31%;background:#f59e0b;"></div></div><div class="pct">31%</div></div>
+            <div class="levelbar-row"><div class="lbl">N2</div><div class="levelbar-track"><div class="levelbar-fill" style="width:8%;background:#ef4444;"></div></div><div class="pct">8%</div></div>
+            <div class="sectiontitle" style="margin-top:6px;">Theo nguồn</div>
+            <div class="levelbar-row"><div class="lbl" style="width:56px;font-size:8.5px;">Mimikara</div><div class="levelbar-track"><div class="levelbar-fill" style="width:70%;"></div></div><div class="pct">70%</div></div>
+            <div class="levelbar-row"><div class="lbl" style="width:56px;font-size:8.5px;">Tango N3</div><div class="levelbar-track"><div class="levelbar-fill" style="width:45%;"></div></div><div class="pct">45%</div></div>
+          </div>
+          <div class="m-bottomnav">
+            <div class="it"><span class="ic"></span>Trang chủ</div>
+            <div class="it"><span class="ic"></span>Từ vựng</div>
+            <div class="it"><span class="ic"></span>Ngữ pháp</div>
+            <div class="it"><span class="ic"></span>Quiz</div>
+            <div class="it on"><span class="ic"></span>Thêm</div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== DESKTOP ===================== -->
+  <div class="section">
+    <div class="section-head"><h2>Desktop · Sidebar + persistent filter</h2><span class="tag">3 màn</span></div>
+    <div class="section-sub">Desktop giữ filter panel cố định bên trái nội dung — không cần sheet vì đủ chỗ ngang.</div>
+
+    <div class="row-scroll">
+
+      <!-- DESKTOP VOCAB -->
+      <div class="frame-col"><div class="frame-label">Từ vựng — Desktop</div>
+        <div class="ddevice">
+          <div class="dbar"><i></i><i></i><i></i></div>
+          <div class="dbody">
+            <div class="dside">
+              <div class="brand"><span class="logo-ic"></span>Nihongo Nin</div>
+              <div class="dnav">
+                <a>Trang chủ</a><a class="on">Từ vựng</a><a>Ngữ pháp</a><a>Luyện đọc</a><a>Quiz</a>
+              </div>
+              <div class="dfg"><div class="t">Cấp độ</div>
+                <div class="dcheck"><i></i>N5</div><div class="dcheck"><i></i>N4</div>
+                <div class="dcheck on"><i></i>N3</div><div class="dcheck"><i></i>N2</div>
+              </div>
+              <div class="dfg"><div class="t">Nguồn</div>
+                <div class="dcheck on"><i></i>Mimikara N3</div><div class="dcheck"><i></i>Tango N3</div>
+              </div>
+            </div>
+            <div class="dmain">
+              <h4>Từ vựng</h4><div class="sub">3,046 từ</div>
+              <div class="dtoolbar"><div class="dbtn">↕ Sắp xếp</div><div class="dbtn">⤮ Random</div></div>
+              <div class="dcard">
+                <span class="m-tag n3">N3</span>
+                <div class="jp">男性</div><div class="kana">だんせい</div>
+                <div class="meaning">NAM TÍNH · đàn ông</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESKTOP READING -->
+      <div class="frame-col"><div class="frame-label">Luyện đọc — Desktop</div>
+        <div class="ddevice">
+          <div class="dbar"><i></i><i></i><i></i></div>
+          <div class="dbody">
+            <div class="dside">
+              <div class="brand"><span class="logo-ic"></span>Nihongo Nin</div>
+              <div class="dnav"><a>Trang chủ</a><a>Từ vựng</a><a>Ngữ pháp</a><a class="on">Luyện đọc</a><a>Quiz</a></div>
+            </div>
+            <div class="dmain">
+              <h4>Luyện đọc</h4><div class="sub">135 bài · Đã hoàn thành 0/135</div>
+              <div class="dtoolbar"><div class="dbtn">↕ Sắp xếp</div><div class="dbtn">⤮ Random</div></div>
+              <table class="dtable">
+                <tr><th>#</th><th>Tiêu đề</th><th>Nguồn</th><th>Độ dài</th><th>Trạng thái</th></tr>
+                <tr><td>01</td><td class="jp-cell">電車の中で</td><td>Speed Master N3</td><td>Trung văn</td><td>Chưa làm</td></tr>
+                <tr><td>02</td><td class="jp-cell">日本人の生活</td><td>Speed Master N3</td><td>Trung văn</td><td>Chưa làm</td></tr>
+                <tr><td>03</td><td class="jp-cell">スマートフォンの影響</td><td>Shin Kanzen Master N3</td><td>Trung văn</td><td>Đã làm</td></tr>
+                <tr><td>04</td><td class="jp-cell">日本の文化について</td><td>N3 Taisaku Mondai</td><td>Trường văn</td><td>Chưa làm</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESKTOP QUIZ -->
+      <div class="frame-col"><div class="frame-label">Quiz — Desktop</div>
+        <div class="ddevice">
+          <div class="dbar"><i></i><i></i><i></i></div>
+          <div class="dbody">
+            <div class="dside">
+              <div class="brand"><span class="logo-ic"></span>Nihongo Nin</div>
+              <div class="dnav"><a>Trang chủ</a><a>Từ vựng</a><a>Ngữ pháp</a><a>Luyện đọc</a><a class="on">Quiz</a></div>
+            </div>
+            <div class="dmain">
+              <h4>Tạo bài Quiz</h4>
+              <div style="margin-top:8px;">
+                <div class="t" style="font-size:8.5px;font-weight:800;color:#a1a1aa;text-transform:uppercase;margin-bottom:5px;">Nội dung</div>
+                <div class="quiz-opt-row"><span class="qchip on">Kanji</span><span class="qchip">Từ vựng</span><span class="qchip">Ngữ pháp</span></div>
+                <div class="t" style="font-size:8.5px;font-weight:800;color:#a1a1aa;text-transform:uppercase;margin-bottom:5px;">Số câu hỏi</div>
+                <div class="dselect" style="margin-bottom:9px;">10 câu ▾</div>
+                <div class="t" style="font-size:8.5px;font-weight:800;color:#a1a1aa;text-transform:uppercase;margin-bottom:5px;">Phạm vi</div>
+                <div class="dselect">Theo bộ lọc hiện tại (N5–N1) ▾</div>
+                <button class="startbtn">▶ Bắt đầu</button>
+                <div class="forecast">10 câu · Kanji · dựa trên bộ lọc đang chọn ở màn Kanji.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== DoD / Don'ts ===================== -->
+  <div class="section">
+    <div class="twocol">
+      <div>
+        <div class="section-head"><h2>Definition of Done</h2></div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span>Mobile content-first — card đầu tiên nằm trong viewport ban đầu</li>
+          <li><span class="ck">✓</span>Filter mặc định ẩn, mở qua Filter Sheet</li>
+          <li><span class="ck">✓</span>Active filters hiển thị dạng chip nhỏ, không chiếm nhiều hàng</li>
+          <li><span class="ck">✓</span>Sort/Random gọn trong toolbar 3 nút</li>
+          <li><span class="ck">✓</span>Luyện đọc mobile chuyển sang list có đủ title/nguồn/độ dài/trạng thái</li>
+          <li><span class="ck">✓</span>Desktop dùng sidebar + filter cố định, không cần sheet</li>
+          <li><span class="ck">✓</span>Không đổi route, không đổi filter/data hiện có</li>
+        </ul>
+      </div>
+      <div class="dontbox">
+        <h3>Không được làm chỉ vì redesign</h3>
+        <ul>
+          <li>Xóa filter hoặc data hiện tại</li>
+          <li>Đổi schema, API contract, route</li>
+          <li>Đổi logic SRS/review, cách tính progress, quiz scoring</li>
+          <li>Rewrite toàn bộ kiến trúc khi chỉ cần refactor UI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><b>Cách đọc mockup này:</b> mọi filter/chip/dropdown hiện có trong app thật đều được giữ nguyên nhãn và số liệu, chỉ đổi vị trí hiển thị (toolbar gọn + Filter Sheet / sidebar). Bottom nav dùng nhãn tiếng Anh ngắn (Home/Voca/Bunpo/Quiz/More) để tiết kiệm chiều ngang; tiêu đề màn và nội dung học vẫn giữ tiếng Việt như hiện tại. Vocab là màn duy nhất demo tương tác mở/đóng sheet.</p>
+</footer>

@@ -10,7 +10,14 @@
     "skipLibCheck": true,
     "noEmit": true,
     "allowImportingTsExtensions": true,
-    "types": ["chrome", "vite/client", "node"]
+    "types": ["chrome", "vite/client", "node"],
+    // "@/*" only ever resolves inside src/web/ -- the shadcn/ui components
+    // living there use this alias internally. Everything under src/popup/
+    // keeps its existing relative imports; this doesn't change that.
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/web/*"]
+    }
   },
   "include": ["src", "manifest.config.ts", "vite.config.ts"]
 }

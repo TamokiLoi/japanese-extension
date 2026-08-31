@@ -192,6 +192,20 @@ export const BUCKET_LABEL: Record<ProgressBucket, string> = {
   new: "chưa học",
 };
 
+// How many of the given items were touched (quizzed, flagged, or marked
+// mastered -- anything that bumps lastSeenAt) since local midnight. Purely
+// derived from existing lastSeenAt timestamps, no new tracking added.
+export function countStudiedToday<T extends { id: string }>(items: T[], map: ProgressMap): number {
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+  const cutoff = startOfDay.getTime();
+  return items.filter((item) => (map[item.id]?.lastSeenAt ?? 0) >= cutoff).length;
+}
+
+export function countDue<T extends { id: string }>(items: T[], map: ProgressMap): number {
+  return items.filter((item) => isDueForReview(map[item.id])).length;
+}
+
 export function countBuckets<T extends { id: string }>(
   items: T[],
   map: ProgressMap,

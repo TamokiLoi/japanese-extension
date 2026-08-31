@@ -58,7 +58,9 @@ export interface QuizQuestion {
 export const KANJI_MASTERY_DIRECTIONS: KanjiQuizMode[] = ["meaning", "character"];
 export const VOCAB_MASTERY_DIRECTIONS: VocabQuizMode[] = ["meaning", "reading", "wordFromMeaning", "wordFromReading"];
 
-export function requiredDirectionsFor(question: QuizQuestion): string[] {
+// Generalized over just {kind, mode} (not the full QuizQuestion) so it's
+// reusable by reviewState.ts's typed-recall/reveal questions too.
+export function requiredDirectionsFor(question: { kind: QuizContentType; mode: string }): string[] {
   if (question.kind === "kanji") return KANJI_MASTERY_DIRECTIONS;
   if (question.kind === "vocab") return VOCAB_MASTERY_DIRECTIONS;
   return [question.mode];

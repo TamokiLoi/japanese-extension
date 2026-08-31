@@ -84,6 +84,31 @@ body.tab-mode #app {
   }
 }
 
+/* The GitHub Pages web build's dashboard shell (src/web/WebAppShell.tsx)
+   adds this class -- it needs #app to fill whatever width its own layout
+   grid gives it (sidebar + main content), not the fixed 480px popup-style
+   card that body.tab-mode applies to every other web page load. Higher
+   specificity (2 classes) + declared after .tab-mode's rules so it wins
+   over the popup-card sizing above without touching that rule itself. */
+body.web-shell.tab-mode {
+  display: block;
+  padding: 0;
+}
+
+body.web-shell.tab-mode #app {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+  /* .tab-mode #app sets overflow:hidden to clip the popup-card's rounded
+     corners -- the dashboard has no card to clip, and leaving it hidden
+     silently clips anything that sub-pixel-overflows a flex-wrap row
+     (rounding in wrap-width math bleeding a few px past #app) instead of
+     letting it wrap or scroll like everywhere else on the page. */
+  overflow: visible;
+}
+
 .toolbar {
   display: flex;
   align-items: center;
