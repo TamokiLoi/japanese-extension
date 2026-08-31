@@ -1,5 +1,5 @@
 import type { Screen } from "../popup/App.tsx";
-import { Home, BookMarked, Library, BookOpenText, PenSquare, GraduationCap, HelpCircle, BarChart3, Search, Info, RotateCcw } from "lucide-react";
+import { Home, BookMarked, Library, BookOpenText, PenSquare, GraduationCap, HelpCircle, BarChart3, Search, Info, RotateCcw, Headphones } from "lucide-react";
 
 export interface NavItem {
   screen: Screen;
@@ -17,6 +17,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "vocab", label: "Từ vựng", icon: Library },
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
+  { screen: "listening", label: "Luyện nghe (thử nghiệm)", icon: Headphones },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
@@ -39,7 +40,7 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
-  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading"] },
+  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "quiz", "review"] },
   { label: "Công cụ", screens: ["stats", "guide"] },
 ];

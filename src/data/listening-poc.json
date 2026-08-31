@@ -1,0 +1,65 @@
+{
+  "questions": [
+    {
+      "id": "listening-poc-001",
+      "level": "N3",
+      "taskType": "kadai",
+      "audioUrl": "public/audio/listening-poc-demo.wav",
+      "scenario": "会社で男の人と女の人が会議の資料について話しています。男の人はこのあと最初に何をしますか。",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "佐藤さん、来週の企画会議の資料、もう印刷した？"
+        },
+        {
+          "speaker": "男",
+          "text": "いえ、まだです。データの最終確認がさっき終わったところなので、これから印刷しようと思っていました。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、待って。実は部長からさっき連絡があって、今回の資料に先月の売上グラフも追加してほしいんだって。"
+        },
+        {
+          "speaker": "男",
+          "text": "えっ、本当ですか。先月の売上データ……分かりました。じゃあ、まずそのグラフを作って資料に挿入しますね。"
+        },
+        {
+          "speaker": "女",
+          "text": "お願い。あ、それから、印刷は全部で20部必要だから、それが終わったらコピー機で部数分の印刷もよろしくね。"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、グラフを追加してから印刷ですね。承知しました。"
+        },
+        {
+          "speaker": "女",
+          "text": "あ、そうだ。会議室の予約はもう取ってあるんだっけ？"
+        },
+        {
+          "speaker": "男",
+          "text": "あ、会議室の予約は昨日のうちに済ませておきました。"
+        },
+        {
+          "speaker": "女",
+          "text": "よかった。じゃあ、急ぎだけど、グラフの追加と印刷、よろしくね。"
+        }
+      ],
+      "question": "男の人はこのあと最初に何をしますか。",
+      "questionVi": "Nam nhân viên ngay sau đây sẽ làm gì trước tiên?",
+      "options": [
+        "会議室を予約する",
+        "売上のグラフを作って資料に追加する",
+        "資料を20部印刷する",
+        "データの最終確認をする"
+      ],
+      "optionsVi": [
+        "Đặt trước phòng họp",
+        "Làm biểu đồ doanh thu và thêm vào tài liệu",
+        "In 20 bản tài liệu",
+        "Kiểm tra lại dữ liệu lần cuối"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trong đoạn hội thoại, người nữ yêu cầu bổ sung biểu đồ doanh thu tháng trước vào tài liệu. Người nam xác nhận 'じゃあ、まずそのグラフを作って資料に挿入しますね' (Vậy thì trước tiên tôi sẽ làm biểu đồ đó rồi chèn vào tài liệu nhé). Dù sau đó có nhắc đến việc in ấn 20 bản, nhưng anh ấy phải làm biểu đồ trước khi in. Do đó, việc cần làm ngay trước tiên là làm biểu đồ doanh thu và thêm vào tài liệu."
+    }
+  ]
+}
