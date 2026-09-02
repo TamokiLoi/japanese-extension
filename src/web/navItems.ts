@@ -17,7 +17,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "vocab", label: "Từ vựng", icon: Library },
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
-  { screen: "listening", label: "Luyện nghe (thử nghiệm)", icon: Headphones },
+  { screen: "listening", label: "Luyện nghe (Beta)", icon: Headphones },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
