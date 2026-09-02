@@ -446,7 +446,14 @@ function PlayView({
     onSessionChange(newSession);
   }
 
+  // Requires an answer on the current question before moving on -- both the
+  // buttons and the swipe gesture funnel through here, so disallowing it in
+  // one place covers all three. "Nộp bài" up top is the deliberate escape
+  // hatch for skipping ahead (it already confirms first if anything is
+  // unanswered), so this doesn't trap anyone, it just keeps the normal
+  // forward flow from silently skipping past a question unanswered.
   function goNext() {
+    if (answered === null) return;
     if (isLast) {
       finish();
       return;
@@ -507,7 +514,7 @@ function PlayView({
         <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
           <ChevronLeft size={16} /> Câu trước
         </Button>
-        <Button className="ml-auto" onClick={goNext}>
+        <Button className="ml-auto" disabled={answered === null} onClick={goNext}>
           {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
         </Button>
       </div>
@@ -523,8 +530,11 @@ function PlayView({
       ) : null}
       <button
         onClick={goNext}
+        disabled={answered === null}
         aria-label={isLast ? "Xem kết quả" : "Câu sau"}
-        className="fixed right-4 bottom-36 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        className={`fixed right-4 bottom-36 z-20 flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg md:hidden ${
+          answered === null ? "bg-neutral-300" : "bg-rose-600 active:bg-rose-700"
+        }`}
       >
         {isLast ? <Check size={20} /> : <ChevronRight size={22} />}
       </button>
