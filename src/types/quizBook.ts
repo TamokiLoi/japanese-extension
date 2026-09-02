@@ -18,6 +18,11 @@ export interface QuizBookQuestion {
   // OCR'd rather than hand-authored, so shown as supplementary raw lines
   // rather than parsed into structured fields.
   notes: string[];
+  // Shared reading passage for a 文章の文法 (Doriru-style 問題3) cluster --
+  // several consecutive questions fill blanks in the same paragraph, so the
+  // passage is duplicated onto each question rather than modeled as a
+  // separate parent entity.
+  passage?: string;
 }
 
 export interface QuizBookDataset {

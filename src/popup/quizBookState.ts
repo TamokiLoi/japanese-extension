@@ -1,9 +1,11 @@
 import quizbookN3500monRaw from "../data/quizbook-n3-500mon.json";
 import quizbookN4500monRaw from "../data/quizbook-n4-500mon.json";
 import quizbookN2500monRaw from "../data/quizbook-n2-500mon.json";
+import quizbookN1500monRaw from "../data/quizbook-n1-500mon.json";
 import quizbookN3Tuvung20deRaw from "../data/quizbook-n3-tuvung-20de.json";
 import quizbookN3ShinkanzenBunpouRaw from "../data/quizbook-n3-shinkanzen-bunpou.json";
 import quizbookN3TryBunpouRaw from "../data/quizbook-n3-try-bunpou.json";
+import quizbookN3DoriruBunpouRaw from "../data/quizbook-n3-doriru-bunpou.json";
 import quizbookN3Dongnghia60Raw from "../data/quizbook-n3-dongnghia-60.json";
 import quizbookDethiN3202312Raw from "../data/quizbook-dethi-n3-2023-12.json";
 import quizbookDethiN3202512Raw from "../data/quizbook-dethi-n3-2025-12.json";
@@ -14,9 +16,11 @@ import { storageGet, storageSet } from "../platform/storage";
 const n3500monDataset = quizbookN3500monRaw as unknown as QuizBookDataset;
 const n4500monDataset = quizbookN4500monRaw as unknown as QuizBookDataset;
 const n2500monDataset = quizbookN2500monRaw as unknown as QuizBookDataset;
+const n1500monDataset = quizbookN1500monRaw as unknown as QuizBookDataset;
 const n3Tuvung20deDataset = quizbookN3Tuvung20deRaw as unknown as QuizBookDataset;
 const n3ShinkanzenBunpouDataset = quizbookN3ShinkanzenBunpouRaw as unknown as QuizBookDataset;
 const n3TryBunpouDataset = quizbookN3TryBunpouRaw as unknown as QuizBookDataset;
+const n3DoriruBunpouDataset = quizbookN3DoriruBunpouRaw as unknown as QuizBookDataset;
 const n3Dongnghia60Dataset = quizbookN3Dongnghia60Raw as unknown as QuizBookDataset;
 const dethiN3202312Dataset = quizbookDethiN3202312Raw as unknown as QuizBookDataset;
 const dethiN3202512Dataset = quizbookDethiN3202512Raw as unknown as QuizBookDataset;
@@ -25,9 +29,11 @@ export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3500monDataset.questions,
   ...n4500monDataset.questions,
   ...n2500monDataset.questions,
+  ...n1500monDataset.questions,
   ...n3Tuvung20deDataset.questions,
   ...n3ShinkanzenBunpouDataset.questions,
   ...n3TryBunpouDataset.questions,
+  ...n3DoriruBunpouDataset.questions,
   ...n3Dongnghia60Dataset.questions,
   ...dethiN3202312Dataset.questions,
   ...dethiN3202512Dataset.questions,
@@ -52,8 +58,10 @@ export const BOOK_LABELS: Record<string, string> = {
   "500mon-n4": n4500monDataset.meta.bookLabel,
   "500mon": n3500monDataset.meta.bookLabel,
   "500mon-n2": n2500monDataset.meta.bookLabel,
+  "500mon-n1": n1500monDataset.meta.bookLabel,
   "shinkanzen-n3-bunpou": n3ShinkanzenBunpouDataset.meta.bookLabel,
   "try-n3-bunpou": n3TryBunpouDataset.meta.bookLabel,
+  "doriru-n3-bunpou": n3DoriruBunpouDataset.meta.bookLabel,
   "n3-tuvung-20de": n3Tuvung20deDataset.meta.bookLabel,
   "dongnghia-60-n3": n3Dongnghia60Dataset.meta.bookLabel,
   "dethi-n3-2023-12": dethiN3202312Dataset.meta.bookLabel,
@@ -67,8 +75,10 @@ export const BOOK_LEVELS: Record<string, JlptLevel> = {
   "500mon-n4": n4500monDataset.meta.level,
   "500mon": n3500monDataset.meta.level,
   "500mon-n2": n2500monDataset.meta.level,
+  "500mon-n1": n1500monDataset.meta.level,
   "shinkanzen-n3-bunpou": n3ShinkanzenBunpouDataset.meta.level,
   "try-n3-bunpou": n3TryBunpouDataset.meta.level,
+  "doriru-n3-bunpou": n3DoriruBunpouDataset.meta.level,
   "n3-tuvung-20de": n3Tuvung20deDataset.meta.level,
   "dongnghia-60-n3": n3Dongnghia60Dataset.meta.level,
   "dethi-n3-2023-12": dethiN3202312Dataset.meta.level,
@@ -91,8 +101,10 @@ export const BOOK_GROUP: Record<string, QuizBookGroup> = {
   "500mon-n4": "sach",
   "500mon": "sach",
   "500mon-n2": "sach",
+  "500mon-n1": "sach",
   "shinkanzen-n3-bunpou": "sach",
   "try-n3-bunpou": "sach",
+  "doriru-n3-bunpou": "sach",
   "n3-tuvung-20de": "de",
   "dongnghia-60-n3": "de",
   "dethi-n3-2023-12": "de",
