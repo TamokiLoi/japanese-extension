@@ -21,7 +21,7 @@ const MAX_DURATION_MS = 700;
 // WebApp.tsx's hashchange listener). Without this, swiping near the edge
 // to change question could get intercepted as the system gesture instead
 // and back out of Quiz entirely.
-const EDGE_EXCLUSION_PX = 24;
+const EDGE_EXCLUSION_PX = 32;
 
 export function useSwipeNavigation({ onSwipeLeft, onSwipeRight }: { onSwipeLeft: () => void; onSwipeRight: () => void }) {
   const start = useRef<{ x: number; y: number; t: number } | null>(null);

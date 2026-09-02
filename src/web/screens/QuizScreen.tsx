@@ -496,7 +496,14 @@ function PlayView({
         })}
       />
 
-      <div className="mt-4 flex items-center gap-2">
+      {/* Desktop only -- on mobile these same actions live in the floating
+          buttons below instead. A full-width row puts "Câu sau" right at
+          the screen edge, which on a touchscreen sits inside the same zone
+          phones/browsers reserve for their own edge-swipe-back gesture:
+          tapping it could get misread as "go back" and exit the quiz
+          entirely instead of advancing. The floating buttons are inset
+          well clear of that zone on both sides. */}
+      <div className="mt-4 hidden items-center gap-2 md:flex">
         <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
           <ChevronLeft size={16} /> Câu trước
         </Button>
@@ -504,6 +511,23 @@ function PlayView({
           {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
         </Button>
       </div>
+
+      {idx > 0 ? (
+        <button
+          onClick={() => goTo(idx - 1)}
+          aria-label="Câu trước"
+          className="fixed bottom-36 left-4 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={22} />
+        </button>
+      ) : null}
+      <button
+        onClick={goNext}
+        aria-label={isLast ? "Xem kết quả" : "Câu sau"}
+        className="fixed right-4 bottom-36 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+      >
+        {isLast ? <Check size={20} /> : <ChevronRight size={22} />}
+      </button>
 
       <Card className="mt-4 gap-0 p-6">
         <span className="w-fit rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(q.level)}>
