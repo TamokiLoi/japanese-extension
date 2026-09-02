@@ -1,0 +1,3324 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-09-02T02:25:57.423Z",
+    "counts": {
+      "total": 218
+    },
+    "sources": {
+      "book": "280 Động từ N3 cách nhớ - Hinxu Tanoshii",
+      "pipeline": "gemini-3.1-flash-lite vision extraction"
+    },
+    "notes": "STT (id suffix) giữ nguyên số gốc trong sách (không liên tục 1-280, vì trích từ bộ động từ lớn hơn, các số chạy tới 795).,Sách trình bày theo cặp tự động từ/tha động từ; nhiều entry trong cặp thứ hai không có câu mnemonic riêng trong sách gốc (chỉ ghi Hán Việt + nghĩa), nên mnemonic là mảng rỗng cho các mục đó -- không phải lỗi trích xuất.,Level do Gemini tự phân loại N3/N4 vì sách không ghi rõ theo từng dòng. Đã loại bỏ các mục trùng lặp (kanji+reading) với bộ 200 động từ N3-N4 và bộ 83 động từ N4 Tanoshii, để tránh hiển thị trùng khi gộp chung nhóm Động từ (2026-09-02). Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context cho phần đã tra xong (183/609, phần còn lại chờ quota Gemini reset), không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02)."
+  },
+  "words": [
+    {
+      "id": "hinxu280-121",
+      "word": "渇く",
+      "reading": "かわく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHÁT"
+      ],
+      "meaningVi": "khát",
+      "mnemonic": [
+        "Khát nước thì ra SÔNG (かわ) mà uống"
+      ],
+      "example": "のどがかわいた",
+      "exampleVi": "Tôi khát nước"
+    },
+    {
+      "id": "hinxu280-122",
+      "word": "嗅ぐ",
+      "reading": "かぐ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHỨU"
+      ],
+      "meaningVi": "ngửi",
+      "mnemonic": [
+        "ngửi con CÁ NGỪ (かぐ)"
+      ],
+      "example": "においをかぐ",
+      "exampleVi": "Ngửi thấy mùi."
+    },
+    {
+      "id": "hinxu280-123",
+      "word": "叩く",
+      "reading": "たたく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHẤU"
+      ],
+      "meaningVi": "đánh, vỗ",
+      "mnemonic": [
+        "làm việc TÀ TÀ (たた) là bị đánh"
+      ],
+      "example": "子どものおしりをたたく",
+      "exampleVi": "Đánh vào mông đứa trẻ."
+    },
+    {
+      "id": "hinxu280-124",
+      "word": "殴る",
+      "reading": "なぐる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ẨU"
+      ],
+      "meaningVi": "đấm",
+      "mnemonic": [
+        "NAM NGU RỒI (なぐる) thì nam bị đánh"
+      ],
+      "example": "教師が生徒を殴る、問題になっている",
+      "exampleVi": "Việc giáo viên đánh học sinh đang trở thành vấn đề"
+    },
+    {
+      "id": "hinxu280-125",
+      "word": "蹴る",
+      "reading": "ける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "đá",
+      "mnemonic": [
+        "KÊ (け) vô rồi đá"
+      ],
+      "example": "ボールをける",
+      "exampleVi": "Đá bóng."
+    },
+    {
+      "id": "hinxu280-126",
+      "word": "抱く",
+      "reading": "だく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BÃO"
+      ],
+      "meaningVi": "ôm",
+      "mnemonic": [
+        "Ôm đá cuội (だく)"
+      ],
+      "example": "子供を両手でしっかりと抱く",
+      "exampleVi": "Ôm chặt con bằng 2 tay"
+    },
+    {
+      "id": "hinxu280-128",
+      "word": "倒す",
+      "reading": "たおす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẢO"
+      ],
+      "meaningVi": "làm đổ",
+      "mnemonic": [],
+      "example": "花びんを倒して割ってしまった",
+      "exampleVi": "Tôi làm đổ bình hoa và làm nó vỡ mất rồi."
+    },
+    {
+      "id": "hinxu280-129",
+      "word": "起きる",
+      "reading": "おきる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHỞI"
+      ],
+      "meaningVi": "Thức dậy, Xảy ra",
+      "mnemonic": [
+        "ÔNG KIA (おき) thức dậy rồi"
+      ],
+      "example": "きょうは8時に起きた / きのう、教室でちょっとした事件が起こった",
+      "exampleVi": "Hôm nay đã thức dậy lúc 8h / Tối qua xảy ra một vụ việc nhỏ ở phòng học"
+    },
+    {
+      "id": "hinxu280-130",
+      "word": "起こす",
+      "reading": "おこす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHỞI"
+      ],
+      "meaningVi": "đánh thức",
+      "mnemonic": [
+        "ÔNG CỐ (おこ) xảy ra chuyện rồi"
+      ],
+      "example": "うちの子は朝起こしてもなかなか起きない",
+      "exampleVi": "Con tôi buổi sáng dù có đánh thức cũng mãi không chịu dậy"
+    },
+    {
+      "id": "hinxu280-131",
+      "word": "尋ねる",
+      "reading": "たずねる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẦM"
+      ],
+      "meaningVi": "hỏi",
+      "mnemonic": [
+        "TAO GIỮ NÈ (たずね) đến mà hỏi"
+      ],
+      "example": "交番で警官に市役所までの道を尋ねる",
+      "exampleVi": "Hỏi cảnh sát ở đồn đường đến cơ quan hành chính thành phố"
+    },
+    {
+      "id": "hinxu280-132",
+      "word": "呼ぶ",
+      "reading": "よぶ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HÔ"
+      ],
+      "meaningVi": "gọi",
+      "mnemonic": [
+        "gọi nhau DÔ BƯNG DÔ BƯNG (よぶ)"
+      ],
+      "example": "名前を呼ばれたら返事をしてく ださい",
+      "exampleVi": "Sau khi được gọi tên thì hãy trả lời"
+    },
+    {
+      "id": "hinxu280-133",
+      "word": "叫ぶ",
+      "reading": "さけぶ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHIẾU"
+      ],
+      "meaningVi": "gào to",
+      "mnemonic": [
+        "uống RƯỢU (さけ) rồi la hét"
+      ],
+      "example": "大声で叫んだが、相手は気づかずにいってしまった",
+      "exampleVi": "Đã hét to nhưng đối phương không nhận ra mà đi mất"
+    },
+    {
+      "id": "hinxu280-134",
+      "word": "黙る",
+      "reading": "だまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MẶC"
+      ],
+      "meaningVi": "im lặng",
+      "mnemonic": [
+        "ĐÁM MA RỒI (だまる) thì im lặng"
+      ],
+      "example": "先生が質問したが誰も答えないで黙っている",
+      "exampleVi": "Giáo viên đã hỏi nhưng mọi người im lặng không ai trả lời"
+    },
+    {
+      "id": "hinxu280-136",
+      "word": "数える",
+      "reading": "かぞえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SỐ"
+      ],
+      "meaningVi": "đếm",
+      "mnemonic": [
+        "đếm CÁ ZÔ Ế (かぞえ)"
+      ],
+      "example": "数を数える",
+      "exampleVi": "Đếm số"
+    },
+    {
+      "id": "hinxu280-139",
+      "word": "畳む",
+      "reading": "たたむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐIỆP"
+      ],
+      "meaningVi": "gấp",
+      "mnemonic": [
+        "gấp CÁI CHIẾU tatami (たたむ)"
+      ],
+      "example": "洗濯物をたたむ",
+      "exampleVi": "Gấp đồ giặt"
+    },
+    {
+      "id": "hinxu280-141",
+      "word": "おごる",
+      "reading": "おごる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "chiêu đãi",
+      "mnemonic": [
+        "ÔNG GỌI (おご) vào ông đãi"
+      ],
+      "example": "昨日は後輩に焼肉をおごった",
+      "exampleVi": "Hôm qua đã chiêu đãi đàn em thịt nướng"
+    },
+    {
+      "id": "hinxu280-146",
+      "word": "写る",
+      "reading": "うつる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẢ"
+      ],
+      "meaningVi": "chụp được",
+      "mnemonic": [],
+      "example": "このカメラは暗いところでもよく写る",
+      "exampleVi": "Chiếc máy ảnh này thì dù là chỗ tối cũng chụp tốt"
+    },
+    {
+      "id": "hinxu280-147",
+      "word": "写す",
+      "reading": "うつす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẢ"
+      ],
+      "meaningVi": "chụp",
+      "mnemonic": [
+        "ƯNG CHƯA (うつ) để sao lại"
+      ],
+      "example": "写真を写す",
+      "exampleVi": "Chụp ảnh"
+    },
+    {
+      "id": "hinxu280-148",
+      "word": "思い出す",
+      "reading": "おもいだす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TƯ XUẤT"
+      ],
+      "meaningVi": "nhớ lại",
+      "mnemonic": [
+        "NGHĨ (思い) RA (出す) nghĩ ra là đang nhớ gì đó"
+      ],
+      "example": "毎年春になると、高校の入学式を思い出します",
+      "exampleVi": "Mỗi năm, hễ đến mùa xuân thì lại nhớ đến lễ nhập học của trường cấp 3"
+    },
+    {
+      "id": "hinxu280-149",
+      "word": "教わる",
+      "reading": "おそわる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIÁO"
+      ],
+      "meaningVi": "được dạy",
+      "mnemonic": [
+        "ĐI TRỄ (おそい) là XẤU (わる) là điều được dạy"
+      ],
+      "example": "この料理の作り方は母から教わりました",
+      "exampleVi": "Cách làm món ăn này đã được dạy từ mẹ"
+    },
+    {
+      "id": "hinxu280-154",
+      "word": "捕まる",
+      "reading": "つかまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BỘ"
+      ],
+      "meaningVi": "bị bắt",
+      "mnemonic": [
+        "CHÚ CÁ MA (つかま) bị bắt"
+      ],
+      "example": "犯人が警察に捕まった",
+      "exampleVi": "Phạm nhân đã bị cảnh sát bắt"
+    },
+    {
+      "id": "hinxu280-155",
+      "word": "捕まえる",
+      "reading": "つかまえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BỘ"
+      ],
+      "meaningVi": "bắt",
+      "mnemonic": [
+        "bắt CHÚ CÁ MA Ế (つかまえ)"
+      ],
+      "example": "警察が泥棒を捕まえた",
+      "exampleVi": "Cảnh sát đã bắt kẻ trộm"
+    },
+    {
+      "id": "hinxu280-156",
+      "word": "乗る",
+      "reading": "のる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THỪA"
+      ],
+      "meaningVi": "leo lên",
+      "mnemonic": [],
+      "example": "毎朝、電車に乗って学校に通っている",
+      "exampleVi": "Mỗi sáng, tôi đã lên tàu điện và đến trường"
+    },
+    {
+      "id": "hinxu280-158",
+      "word": "降りる／下りる",
+      "reading": "おりる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIÁNG"
+      ],
+      "meaningVi": "xuống",
+      "mnemonic": [],
+      "example": "電車を降りる",
+      "exampleVi": "Xuống tàu điện"
+    },
+    {
+      "id": "hinxu280-159",
+      "word": "降ろす／下ろす",
+      "reading": "おろす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIÁNG"
+      ],
+      "meaningVi": "cho xuống",
+      "mnemonic": [
+        "đưa cái Ô RỘNG (おろ) xuống xe"
+      ],
+      "example": "あの銀行の前で降ろしてください",
+      "exampleVi": "Lấy đồ trên giá xuống"
+    },
+    {
+      "id": "hinxu280-160",
+      "word": "直る",
+      "reading": "なおる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỰC"
+      ],
+      "meaningVi": "được sửa",
+      "mnemonic": [],
+      "example": "壊れたパソコンが直った",
+      "exampleVi": "Chiếc máy tính bị hỏng đã được sửa"
+    },
+    {
+      "id": "hinxu280-161",
+      "word": "直す",
+      "reading": "なおす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỰC"
+      ],
+      "meaningVi": "sửa",
+      "mnemonic": [
+        "cùng sửa NÀO (なお)"
+      ],
+      "example": "壊れた時計を直す",
+      "exampleVi": "Sửa chiếc máy tính đã hỏng"
+    },
+    {
+      "id": "hinxu280-162",
+      "word": "治る",
+      "reading": "なおる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỊ"
+      ],
+      "meaningVi": "hồi phục",
+      "mnemonic": [],
+      "example": "なかなか頭痛が治らない",
+      "exampleVi": "Mãi mà đau đầu không khỏi"
+    },
+    {
+      "id": "hinxu280-163",
+      "word": "治す",
+      "reading": "なおす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỊ"
+      ],
+      "meaningVi": "cứu chữa",
+      "mnemonic": [
+        "cùng chữa bệnh NÀO (なお)"
+      ],
+      "example": "よく休んで早くかぜを治してください",
+      "exampleVi": "Hãy nghỉ ngơi tốt để chữa bệnh cúm nhanh"
+    },
+    {
+      "id": "hinxu280-164",
+      "word": "亡くなる",
+      "reading": "なくなる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VONG"
+      ],
+      "meaningVi": "chết",
+      "mnemonic": [
+        "NA CỨ (なく) KÊU LÊN (なる) như sắp bị chết"
+      ],
+      "example": "社長が９０歳でなくなった",
+      "exampleVi": "Giám đốc đã chết khi 90 tuổi"
+    },
+    {
+      "id": "hinxu280-165",
+      "word": "亡くす",
+      "reading": "なくす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VONG"
+      ],
+      "meaningVi": "mất",
+      "mnemonic": [],
+      "example": "彼は子供のとき、父親をなくした",
+      "exampleVi": "Anh ấy thì còn nhỏ, bố đã mất"
+    },
+    {
+      "id": "hinxu280-166",
+      "word": "生まれる",
+      "reading": "うまれる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SINH"
+      ],
+      "meaningVi": "được sinh ra",
+      "mnemonic": [
+        "CON NGỰA (うま) được sinh ra"
+      ],
+      "example": "先月子供が生まれた",
+      "exampleVi": "Những năm 90, nhiều tác phẩm truyện tranh nổi tiếng đã được sinh ra"
+    },
+    {
+      "id": "hinxu280-167",
+      "word": "生む",
+      "reading": "うむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SINH"
+      ],
+      "meaningVi": "sinh",
+      "mnemonic": [],
+      "example": "妻が先日元気な女の子を産んだ。",
+      "exampleVi": "Gà đẻ trứng"
+    },
+    {
+      "id": "hinxu280-168",
+      "word": "出会う",
+      "reading": "であう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "XUẤT HỘI"
+      ],
+      "meaningVi": "gặp (ngẫu nhiên)",
+      "mnemonic": [
+        "tình cờ GẶP(会う) ở ĐÊ (で)"
+      ],
+      "example": "駅で偶然大学時代の友に出会った",
+      "exampleVi": "Chỗ này thì có vẻ là nơi bố mẹ tôi đã gặp nhau lần đầu"
+    },
+    {
+      "id": "hinxu280-169",
+      "word": "訪ねる",
+      "reading": "たずねる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHỎNG"
+      ],
+      "meaningVi": "thăm",
+      "mnemonic": [
+        "học chung với chữ hỏi thăm"
+      ],
+      "example": "友人の家を訪ねた",
+      "exampleVi": "Đã đến thăm nhà bạn"
+    },
+    {
+      "id": "hinxu280-170",
+      "word": "付き合う",
+      "reading": "つきあう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÓ HỢP"
+      ],
+      "meaningVi": "hẹn hò, giao tiếp",
+      "mnemonic": [
+        "DÍNH VÀO (つき) rồi PHÙ HỢP (あう) là hẹn hò"
+      ],
+      "example": "隣家の人と親しく付き合っている",
+      "exampleVi": "Làm thân với hàng xóm"
+    },
+    {
+      "id": "hinxu280-171",
+      "word": "効く",
+      "reading": "きく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HIỆU"
+      ],
+      "meaningVi": "có hiệu quả",
+      "mnemonic": [
+        "trồng CÂY(き) thì có hiệu quả"
+      ],
+      "example": "この薬は頭痛によく効く",
+      "exampleVi": "Thuốc này thì có hiệu quả với đau đầu"
+    },
+    {
+      "id": "hinxu280-172",
+      "word": "はやる",
+      "reading": "はやる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "phổ biến",
+      "mnemonic": [
+        "hàng bán NHANH ((はやい) là hàng thịnh hành đồ đang HẠ YÁ RỒI ((はやる) nên thịnh hành"
+      ],
+      "example": "この冬は赤い色が流行っている",
+      "exampleVi": "Mùa đông này màu đỏ rất được ưa chuộng"
+    },
+    {
+      "id": "hinxu280-173",
+      "word": "経つ",
+      "reading": "たつ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KINH"
+      ],
+      "meaningVi": "qua",
+      "mnemonic": [
+        "ĐỨNG(たつ) im là thời gian trôi qua"
+      ],
+      "example": "日本へ来て10年が経った",
+      "exampleVi": "Đã đến Nhật được 10 năm rồi"
+    },
+    {
+      "id": "hinxu280-175",
+      "word": "間に合わせる",
+      "reading": "まにあわせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIAN HỢP"
+      ],
+      "meaningVi": "kịp giờ",
+      "mnemonic": [],
+      "example": "レポートを、頑張って締め切りに間に合わせた",
+      "exampleVi": "Cố gắng làm báo cáo kịp thời hạn"
+    },
+    {
+      "id": "hinxu280-176",
+      "word": "通う",
+      "reading": "かよう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÔNG"
+      ],
+      "meaningVi": "đi làm, học",
+      "mnemonic": [
+        "CÁ YOI đi đi về về"
+      ],
+      "example": "学校に通う",
+      "exampleVi": "Đến trường"
+    },
+    {
+      "id": "hinxu280-177",
+      "word": "込む",
+      "reading": "こむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NHẬP"
+      ],
+      "meaningVi": "đông",
+      "mnemonic": [
+        "CÔ MÙ(こむ) đứng đông đúc"
+      ],
+      "example": "電車がこむ",
+      "exampleVi": "Tàu điện đông"
+    },
+    {
+      "id": "hinxu280-178",
+      "word": "すれ違う",
+      "reading": "すれちがう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VI"
+      ],
+      "meaningVi": "vượt, lướt",
+      "mnemonic": [
+        "SAI(ちがう) đối tượng thì lướt qua đời nhau"
+      ],
+      "example": "この道が狭いので、自動車がすれ違うのは大変だ",
+      "exampleVi": "Con đường này thì hẹp, việc vượt xe ô tô thì vất vả"
+    },
+    {
+      "id": "hinxu280-179",
+      "word": "掛かる",
+      "reading": "かかる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUẢI"
+      ],
+      "meaningVi": "được bao phủ",
+      "mnemonic": [],
+      "example": "このサラダには何もかかっていないようだ",
+      "exampleVi": "Xà lách này thì có vẻ không bao phủ bằng thứ gì"
+    },
+    {
+      "id": "hinxu280-181",
+      "word": "動く",
+      "reading": "うごく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐỘNG"
+      ],
+      "meaningVi": "hoạt động",
+      "mnemonic": [],
+      "example": "[写真を撮るから動かないでください]",
+      "exampleVi": "Vì chụp ảnh nên hãy đừng chuyển động"
+    },
+    {
+      "id": "hinxu280-182",
+      "word": "動かす",
+      "reading": "うごかす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐỘNG"
+      ],
+      "meaningVi": "di chuyển",
+      "mnemonic": [
+        "Ừ GOM CẢ (うごか) vào là chuyển động vào"
+      ],
+      "example": "ひどいけがをして、体を動かすこともできない",
+      "exampleVi": "Bị vết thương nặng nên không thể chuyển động được cơ thể"
+    },
+    {
+      "id": "hinxu280-183",
+      "word": "離れる",
+      "reading": "はなれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LY"
+      ],
+      "meaningVi": "tránh xa",
+      "mnemonic": [
+        "chia xa thì tặng HOA (はな)"
+      ],
+      "example": "あぶないから、ストーブから離れて遊びなさい",
+      "exampleVi": "Vì nguy hiểm nên hãy chơi ở xa lò sưởi"
+    },
+    {
+      "id": "hinxu280-184",
+      "word": "離す",
+      "reading": "はなす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LY"
+      ],
+      "meaningVi": "tách ra",
+      "mnemonic": [],
+      "example": "テストの時は、机を離して並べる",
+      "exampleVi": "Khi kiểm tra thì bàn được xếp cách ra"
+    },
+    {
+      "id": "hinxu280-185",
+      "word": "ぶつかる",
+      "reading": "ぶつかる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "bị đâm",
+      "mnemonic": [
+        "gắn BÙA CHÚ (ぶつ) để tránh va chạm"
+      ],
+      "example": "道で自転車にぶつかってけがをした",
+      "exampleVi": "Trên đường bị xe đâm nên đã bị thương"
+    },
+    {
+      "id": "hinxu280-186",
+      "word": "ぶつける",
+      "reading": "ぶつける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "đâm",
+      "mnemonic": [],
+      "example": "運転していて、車を電柱にぶつけてしまった",
+      "exampleVi": "Lúc đang lái xe thì đã đâm xe vô cột điện mất rồi"
+    },
+    {
+      "id": "hinxu280-187",
+      "word": "こぼれる",
+      "reading": "こぼれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "bị tràn",
+      "mnemonic": [],
+      "example": "手が震えて、お茶がこぼれてしまった",
+      "exampleVi": "Tay bị run nên trà đã tràn ra mất rồi"
+    },
+    {
+      "id": "hinxu280-188",
+      "word": "こぼす",
+      "reading": "こぼす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "tràn",
+      "mnemonic": [
+        "CỐ BỔ (こぼ) thì nước nó tràn ra"
+      ],
+      "example": "コップを倒して水をこぼしてしまって",
+      "exampleVi": "Cốc bị vỡ nên nước tràn ra mất rồi"
+    },
+    {
+      "id": "hinxu280-189",
+      "word": "ふく",
+      "reading": "ふく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "lau",
+      "mnemonic": [
+        "lau bằng QUẦN ÁO (ふく)"
+      ],
+      "example": "汗をふく",
+      "exampleVi": "Lau mồ hôi"
+    },
+    {
+      "id": "hinxu280-192",
+      "word": "包む",
+      "reading": "つつむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BAO"
+      ],
+      "meaningVi": "bọc",
+      "mnemonic": [
+        "bọc TỪ TỪ (つつ) TRÙM TRÙM (つつ) lên là bao bọc lại"
+      ],
+      "example": "プレゼントをきれいな紙で包む",
+      "exampleVi": "Bọc quà bằng giấy đẹp"
+    },
+    {
+      "id": "hinxu280-193",
+      "word": "張る",
+      "reading": "はる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRƯƠNG"
+      ],
+      "meaningVi": "dán",
+      "mnemonic": [
+        "dán hình HARI WON lên tường"
+      ],
+      "example": "壁にポスターを張る",
+      "exampleVi": "Dán poster lên tường"
+    },
+    {
+      "id": "hinxu280-194",
+      "word": "無くなる",
+      "reading": "なくなる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VÔ"
+      ],
+      "meaningVi": "bị mất",
+      "mnemonic": [
+        "NA CỨ(なく) KÊU LÊN (なる) rằng bị mất đồ"
+      ],
+      "example": "部屋のカギがなくなってしまった",
+      "exampleVi": "Chìa khóa phòng đã bị mất rồi"
+    },
+    {
+      "id": "hinxu280-195",
+      "word": "無くす",
+      "reading": "なくす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VÔ"
+      ],
+      "meaningVi": "mất",
+      "mnemonic": [],
+      "example": "パスポートを無くして困っている",
+      "exampleVi": "Passport bị mất nên đang khốn khổ"
+    },
+    {
+      "id": "hinxu280-196",
+      "word": "足りる",
+      "reading": "たりる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÚC"
+      ],
+      "meaningVi": "đủ",
+      "mnemonic": [],
+      "example": "この収入では生活するのに全然足りない",
+      "exampleVi": "Với thu nhập này thì hoàn toàn không đủ cho cuộc sống"
+    },
+    {
+      "id": "hinxu280-199",
+      "word": "腐る",
+      "reading": "くさる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HỦ"
+      ],
+      "meaningVi": "thối",
+      "mnemonic": [
+        "đồ ăn HÔI (臭い) là đồ ăn HƯ"
+      ],
+      "example": "腐ったものを食べて、おなかを壊してしまった",
+      "exampleVi": "Ăn đồ hư nên bụng bị hỏng mất rồi (đau bụng)"
+    },
+    {
+      "id": "hinxu280-200",
+      "word": "剥ける",
+      "reading": "むける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "bị lột",
+      "mnemonic": [],
+      "example": "海で日焼けをして、背中の皮がむけた",
+      "exampleVi": "Phơi nắng một ngày ở biển nên da ở lưng đã bị tróc ra"
+    },
+    {
+      "id": "hinxu280-201",
+      "word": "剥く",
+      "reading": "むく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "lột",
+      "mnemonic": [
+        "MUA CỦ (むく) về gọt"
+      ],
+      "example": "果物の皮をむく",
+      "exampleVi": "Gọt vỏ hoa quả"
+    },
+    {
+      "id": "hinxu280-202",
+      "word": "滑る",
+      "reading": "すべる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HOẠT"
+      ],
+      "meaningVi": "trượt",
+      "mnemonic": [
+        "SÚT trượt BỂ RỒI hoặc bị trượt chân nên SỨ BỂ RỒI (すべる)"
+      ],
+      "example": "新しいスケート場はきれいで、楽しく滑ることができた",
+      "exampleVi": "Sân trượt băng mới thì đẹp, đã có thể vui vẻ đi trượt rồi"
+    },
+    {
+      "id": "hinxu280-203",
+      "word": "積もる",
+      "reading": "つもる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÍCH"
+      ],
+      "meaningVi": "được tích tụ",
+      "mnemonic": [],
+      "example": "きのう降った雪が積もっている",
+      "exampleVi": "Tuyết rơi hôm qua đang chất đống lên"
+    },
+    {
+      "id": "hinxu280-204",
+      "word": "積む",
+      "reading": "つむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÍCH"
+      ],
+      "meaningVi": "tích tụ, chất lại",
+      "mnemonic": [
+        "CHÚ MÙ (つむ) tích trữ đồ đạc"
+      ],
+      "example": "机の上に本がたくさん積んである",
+      "exampleVi": "Trên bàn, có nhiều sách được chất đống"
+    },
+    {
+      "id": "hinxu280-205",
+      "word": "空く",
+      "reading": "あく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHÔNG"
+      ],
+      "meaningVi": "bị thủng",
+      "mnemonic": [],
+      "example": "くつしたに穴が空いてしまった",
+      "exampleVi": "Chiếc tất đã bị thủng một lỗ rồi"
+    },
+    {
+      "id": "hinxu280-206",
+      "word": "空ける",
+      "reading": "あける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHÔNG"
+      ],
+      "meaningVi": "thủng",
+      "mnemonic": [
+        "ANH KÊU (あけ) làm trống chỗ này cho anh"
+      ],
+      "example": "かべに穴を空ける",
+      "exampleVi": "Đục một lỗ thủng trên tường"
+    },
+    {
+      "id": "hinxu280-207",
+      "word": "下がる",
+      "reading": "さがる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HẠ"
+      ],
+      "meaningVi": "bị giảm",
+      "mnemonic": [
+        "XẢ GA (さが) là nó giảm xuống"
+      ],
+      "example": "熱が下がる",
+      "exampleVi": "Sốt giảm xuống rồi"
+    },
+    {
+      "id": "hinxu280-208",
+      "word": "下げる",
+      "reading": "さげる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HẠ"
+      ],
+      "meaningVi": "giảm",
+      "mnemonic": [],
+      "example": "熱を下げる",
+      "exampleVi": "Giảm sốt xuống"
+    },
+    {
+      "id": "hinxu280-214",
+      "word": "燃やす",
+      "reading": "もやす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NHIÊN"
+      ],
+      "meaningVi": "đốt",
+      "mnemonic": [
+        "MOZA (もや) đốt cháy bản nhạc"
+      ],
+      "example": "火を燃やす",
+      "exampleVi": "Đốt lửa lên"
+    },
+    {
+      "id": "hinxu280-217",
+      "word": "鳴る",
+      "reading": "なる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MINH"
+      ],
+      "meaningVi": "kêu",
+      "mnemonic": [
+        "NA RÚ (なる) lên (kêu lên)"
+      ],
+      "example": "雷が鳴っている",
+      "exampleVi": "Sấm đang kêu"
+    },
+    {
+      "id": "hinxu280-218",
+      "word": "鳴らす",
+      "reading": "ならす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MINH"
+      ],
+      "meaningVi": "làm kêu",
+      "mnemonic": [],
+      "example": "ブザーを鳴らす",
+      "exampleVi": "Thổi còi"
+    },
+    {
+      "id": "hinxu280-219",
+      "word": "役立つ/役に立つ",
+      "reading": "やくだつ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DỊCH LẬP"
+      ],
+      "meaningVi": "hữu ích",
+      "mnemonic": [
+        "GIÀ CỨ (やく) ĐỨNG (たつ) thôi cũng có ích rồi"
+      ],
+      "example": "インターネットの情報は、勉強や仕事に役立つ",
+      "exampleVi": "Thông tin trên internet thì có ích cho học tập và công việc"
+    },
+    {
+      "id": "hinxu280-220",
+      "word": "役立てる/役に立てる",
+      "reading": "やくだてる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DỊCH LẬP"
+      ],
+      "meaningVi": "được sử dụng",
+      "mnemonic": [],
+      "example": "インターネットの情報は、勉強や仕事の役に立てる",
+      "exampleVi": "Thông tin trên internet thì được sử dụng cho học tập và công việc"
+    },
+    {
+      "id": "hinxu280-413",
+      "word": "掻く",
+      "reading": "かく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "gãi",
+      "mnemonic": [
+        "KẠ CỬA (かく) để gãi"
+      ],
+      "example": "頭をかく",
+      "exampleVi": "Gãi đầu"
+    },
+    {
+      "id": "hinxu280-414",
+      "word": "掴む",
+      "reading": "つかむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "tóm, chộp",
+      "mnemonic": [
+        "Tóm lấy CHÚ CÁ MỪ (つかむ)"
+      ],
+      "example": "電車で突然腕をつかまれてびっくりした",
+      "exampleVi": "Trên tàu điện, đột nhiên bị chộp cánh tay, đã giật cả mình"
+    },
+    {
+      "id": "hinxu280-415",
+      "word": "握る",
+      "reading": "にぎる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ÁC"
+      ],
+      "meaningVi": "nắm chặt",
+      "mnemonic": [
+        "cơm nắm là おにぎり, vậy nắm là にぎる"
+      ],
+      "example": "子供は怖がって母親の手を強くにぎった",
+      "exampleVi": "Trẻ con sợ nên đã nắm mạnh lấy tay mẹ"
+    },
+    {
+      "id": "hinxu280-416",
+      "word": "抑える",
+      "reading": "おさえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ỨC"
+      ],
+      "meaningVi": "giữ",
+      "mnemonic": [
+        "ÔNG SANG (おさ) giữ cửa (ấn giữ) giúp tôi"
+      ],
+      "example": "あの人はお腹を抑えて座っている、腹痛だろうか",
+      "exampleVi": "Người kia cứ giữ bụng mà ngồi, chắc là đau bụng"
+    },
+    {
+      "id": "hinxu280-417",
+      "word": "近づく",
+      "reading": "ちかづく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẬN"
+      ],
+      "meaningVi": "lại gần",
+      "mnemonic": [
+        "近 (GẦN) つく(DÍNH) dính vào gần nhau là đến gần"
+      ],
+      "example": "目的地に近づいてきた",
+      "exampleVi": "Tiến gần đến mục đích"
+    },
+    {
+      "id": "hinxu280-418",
+      "word": "近づける",
+      "reading": "ちかづける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẬN"
+      ],
+      "meaningVi": "mang đến gần",
+      "mnemonic": [],
+      "example": "車を道のわきに近づける",
+      "exampleVi": "Mang (lái) ô tô tiến sát vỉa hè đường"
+    },
+    {
+      "id": "hinxu280-419",
+      "word": "合う",
+      "reading": "あう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HỢP"
+      ],
+      "meaningVi": "gặp",
+      "mnemonic": [
+        "hợp nhau thì gặp gỡ (合う)"
+      ],
+      "example": "ふと顔を上げると、先生の目が合ってしまった",
+      "exampleVi": "Đột nhiên ngẩng mặt lên thì gặp mắt thầy"
+    },
+    {
+      "id": "hinxu280-420",
+      "word": "合わせる",
+      "reading": "あわせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HỢP"
+      ],
+      "meaningVi": "tập hợp, hiệp lực",
+      "mnemonic": [
+        "ANH QUA (あわ) điều chỉnh giúp tôi chiếc XE (せ)"
+      ],
+      "example": "みんなで力を合わせて頑張りましょう",
+      "exampleVi": "Mọi người cùng hợp sức cố gắng"
+    },
+    {
+      "id": "hinxu280-421",
+      "word": "当たる",
+      "reading": "あたる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐƯƠNG"
+      ],
+      "meaningVi": "bị đánh",
+      "mnemonic": [
+        "ANH TA (あた) trúng RỒI (る)"
+      ],
+      "example": "ボールが当たって窓ガラスが割れた",
+      "exampleVi": "Quả bóng bị đánh vào cửa sổ, kính cửa đã vỡ"
+    },
+    {
+      "id": "hinxu280-422",
+      "word": "当てる",
+      "reading": "あてる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐƯƠNG"
+      ],
+      "meaningVi": "đánh",
+      "mnemonic": [],
+      "example": "相手選手のボールが速いのでラケットに当てるのも大変だ",
+      "exampleVi": "Quả bóng của tuyển thủ đội bạn nhanh nên khó đánh vào vợt"
+    },
+    {
+      "id": "hinxu280-424",
+      "word": "似合う",
+      "reading": "にあう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TỰ HỢP"
+      ],
+      "meaningVi": "hợp",
+      "mnemonic": [
+        "HỢP (合う) rồi GIỐNG (にる) nữa là hợp thời trang"
+      ],
+      "example": "彼女は着物がよく似合う",
+      "exampleVi": "Cô ấy rất hợp với Kimono"
+    },
+    {
+      "id": "hinxu280-425",
+      "word": "似る",
+      "reading": "にる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TỰ"
+      ],
+      "meaningVi": "giống",
+      "mnemonic": [
+        "NHI RU (にる) giống mẹ"
+      ],
+      "example": "彼女は母親によく似ている",
+      "exampleVi": "Cô ấy rất giống mẹ"
+    },
+    {
+      "id": "hinxu280-426",
+      "word": "似せる",
+      "reading": "にせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TỰ"
+      ],
+      "meaningVi": "bắt chước",
+      "mnemonic": [
+        "NHÌN XEM (にせ) rồi bắt chước"
+      ],
+      "example": "アイドルに髪型を似せる",
+      "exampleVi": "Bắt chước kiểu tóc thần tượng"
+    },
+    {
+      "id": "hinxu280-427",
+      "word": "分かれる",
+      "reading": "わかれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÂN"
+      ],
+      "meaningVi": "được chia ra",
+      "mnemonic": [
+        "những người TRẺ (わか) được phân về 1 đội"
+      ],
+      "example": "トイレは男性用と女性用に分かれている",
+      "exampleVi": "Nhà vệ sinh được chia ra nam sử dụng và nữ sử dụng"
+    },
+    {
+      "id": "hinxu280-428",
+      "word": "分ける",
+      "reading": "わける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÂN"
+      ],
+      "meaningVi": "chia",
+      "mnemonic": [],
+      "example": "財産を３人の子供に分ける",
+      "exampleVi": "Chia tài sản cho ba người con"
+    },
+    {
+      "id": "hinxu280-429",
+      "word": "足す",
+      "reading": "たす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÚC"
+      ],
+      "meaningVi": "cộng, thêm vào",
+      "mnemonic": [
+        "TAO XÚC (たす) thêm vào"
+      ],
+      "example": "味が薄かったので塩を足した",
+      "exampleVi": "Vị nhạt nên đã cho thêm muối"
+    },
+    {
+      "id": "hinxu280-431",
+      "word": "増える",
+      "reading": "ふえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TĂNG"
+      ],
+      "meaningVi": "tăng lên",
+      "mnemonic": [],
+      "example": "貯金が増える",
+      "exampleVi": "Tiền tiết kiệm tăng lên (tự tăng do lãi)"
+    },
+    {
+      "id": "hinxu280-433",
+      "word": "減る",
+      "reading": "へる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIẢM"
+      ],
+      "meaningVi": "giảm xuống",
+      "mnemonic": [],
+      "example": "貯金が減る",
+      "exampleVi": "Tiền tiết kiệm giảm xuống"
+    },
+    {
+      "id": "hinxu280-435",
+      "word": "変わる",
+      "reading": "かわる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BIẾN"
+      ],
+      "meaningVi": "thay đổi",
+      "mnemonic": [
+        "con sông (かわ) bị thay đổi"
+      ],
+      "example": "季節が変わる",
+      "exampleVi": "Mùa thay đổi (tự thay)"
+    },
+    {
+      "id": "hinxu280-436",
+      "word": "変える",
+      "reading": "かえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BIẾN"
+      ],
+      "meaningVi": "làm thay đổi",
+      "mnemonic": [
+        "CÀ É RỒI (かえる), phải thay đổi kế hoạch thôi"
+      ],
+      "example": "髪型を変える",
+      "exampleVi": "Thay đổi kiểu tóc"
+    },
+    {
+      "id": "hinxu280-437",
+      "word": "代わる・替わる・換わる",
+      "reading": "かわる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẠI"
+      ],
+      "meaningVi": "thay",
+      "mnemonic": [],
+      "example": "４月に店長が代わった",
+      "exampleVi": "Chủ quán đã thay đổi vào tháng 4"
+    },
+    {
+      "id": "hinxu280-438",
+      "word": "代える・替える・換える",
+      "reading": "かえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẠI"
+      ],
+      "meaningVi": "đổi",
+      "mnemonic": [],
+      "example": "千円札を百円玉に代えてもらった",
+      "exampleVi": "Đã được đổi từ 1 sen sang tiền xu 100 yên"
+    },
+    {
+      "id": "hinxu280-441",
+      "word": "譲る",
+      "reading": "ゆずる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NHƯỢNG"
+      ],
+      "meaningVi": "nhường",
+      "mnemonic": [
+        "DÌU GIỮ RỒI (ゆず) nhường ghế cho người già"
+      ],
+      "example": "電車の中でお年寄りに席を譲った",
+      "exampleVi": "Trong xe điện đã nhường ghế cho người già"
+    },
+    {
+      "id": "hinxu280-442",
+      "word": "助かる",
+      "reading": "たすかる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỢ"
+      ],
+      "meaningVi": "được giúp",
+      "mnemonic": [
+        "TAO XỬ CẢ RỒI (たすかる) là được cứu"
+      ],
+      "example": "飛行機が落ちたが山人が助かった",
+      "exampleVi": "Máy bay rơi nhưng đã được người trên núi giúp"
+    },
+    {
+      "id": "hinxu280-443",
+      "word": "助ける",
+      "reading": "たすける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỢ"
+      ],
+      "meaningVi": "giúp",
+      "mnemonic": [],
+      "example": "川に落ちた子供を助けた",
+      "exampleVi": "Đã giúp đứa bé rơi xuống sông"
+    },
+    {
+      "id": "hinxu280-444",
+      "word": "いじめる",
+      "reading": "いじめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NGƯỢC"
+      ],
+      "meaningVi": "bắt nạt",
+      "mnemonic": [
+        "người DỄ (easy いじ) bị bắt nạt"
+      ],
+      "example": "弟をいじめる",
+      "exampleVi": "Bắt nạt em trai"
+    },
+    {
+      "id": "hinxu280-445",
+      "word": "騙す",
+      "reading": "だます",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHIẾN"
+      ],
+      "meaningVi": "lừa",
+      "mnemonic": [
+        "lừa tao là tao ĐÀO MÃ SỬ/ mấy chỗ ĐÁM MA (だま) thì hay có lừa gạt"
+      ],
+      "example": "彼は独身だと騙して５人の女性と付き合っていた",
+      "exampleVi": "Anh ta lừa là độc thân và đã hẹn hò với 5 người nữ"
+    },
+    {
+      "id": "hinxu280-446",
+      "word": "盗む",
+      "reading": "ぬすむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẠO"
+      ],
+      "meaningVi": "lấy cắp",
+      "mnemonic": [
+        "NỮ SƯ MÙ (ぬすむ) chuyên ăn trộm"
+      ],
+      "example": "留守中に泥棒に入られて、お金を盗まれた",
+      "exampleVi": "Trong lúc vắng nhà đã bị kẻ trộm lẻn vào và lấy cắp mất tiền"
+    },
+    {
+      "id": "hinxu280-447",
+      "word": "刺さる",
+      "reading": "ささる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÍCH"
+      ],
+      "meaningVi": "bị đâm",
+      "mnemonic": [
+        "bị đâm thì né XA XA (ささ)"
+      ],
+      "example": "指にとげが刺さって痛い",
+      "exampleVi": "Ngón tay bị gai đâm vào đau"
+    },
+    {
+      "id": "hinxu280-448",
+      "word": "刺す",
+      "reading": "さす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÍCH"
+      ],
+      "meaningVi": "đâm",
+      "mnemonic": [
+        "XÀ XUỐNG (さす) rồi đâm"
+      ],
+      "example": "指にとげを刺してしまった",
+      "exampleVi": "Gai đâm vào ngón tay mất rồi"
+    },
+    {
+      "id": "hinxu280-449",
+      "word": "殺す",
+      "reading": "ころす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SÁT"
+      ],
+      "meaningVi": "giết",
+      "mnemonic": [
+        "giết người thì nằm sợ CO RO (ころ)"
+      ],
+      "example": "ゴキブリをスリッパでたたいて殺した",
+      "exampleVi": "Dùng dép đập chết con gián"
+    },
+    {
+      "id": "hinxu280-450",
+      "word": "隠れる",
+      "reading": "かくれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ẨN"
+      ],
+      "meaningVi": "ẩn náu, trốn",
+      "mnemonic": [
+        "giấu đồ vào CĂN CỨ/ CÁ CƯỢC (かく) thua rồi đi trốn"
+      ],
+      "example": "逃げた犯人は空き家に隠れていた",
+      "exampleVi": "Thủ phạm bỏ trốn đã ẩn nấp trong căn nhà hoang"
+    },
+    {
+      "id": "hinxu280-451",
+      "word": "隠す",
+      "reading": "かくす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ẨN"
+      ],
+      "meaningVi": "che giấu",
+      "mnemonic": [
+        "cất đồ sau CÁNH CỬA(かく)"
+      ],
+      "example": "お金を引き出しの奥に隠した",
+      "exampleVi": "Đã giấu tiền vào góc trong ngăn kéo"
+    },
+    {
+      "id": "hinxu280-452",
+      "word": "埋まる",
+      "reading": "うまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MAI"
+      ],
+      "meaningVi": "bị chôn",
+      "mnemonic": [
+        "chôn CON NGỰA"
+      ],
+      "example": "山が崩れて家が埋まってしまった",
+      "exampleVi": "Núi sạt xuống nên ngôi nhà đã bị vùi lấp rồi"
+    },
+    {
+      "id": "hinxu280-453",
+      "word": "埋める",
+      "reading": "うめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MAI"
+      ],
+      "meaningVi": "chôn",
+      "mnemonic": [
+        "mấy đứa U MÊ (うめ) thì phải chôn"
+      ],
+      "example": "穴を掘ってごみを埋めた",
+      "exampleVi": "Đã đào lỗ rồi lấp rác vào"
+    },
+    {
+      "id": "hinxu280-454",
+      "word": "囲む",
+      "reading": "かこむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VI"
+      ],
+      "meaningVi": "vây quanh",
+      "mnemonic": [
+        "CÁC CÔ (かこ) vây quanh"
+      ],
+      "example": "テーブルを囲んで座る",
+      "exampleVi": "Ngồi vây quanh bàn"
+    },
+    {
+      "id": "hinxu280-455",
+      "word": "詰まる",
+      "reading": "つまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẬT"
+      ],
+      "meaningVi": "đầy, chặt",
+      "mnemonic": [
+        "bị BÀ VỢ (つま) nhồi nhét"
+      ],
+      "example": "かばんにたくさん荷物が詰まっていて重い",
+      "exampleVi": "Trong cặp đầy hành lý nên nặng"
+    },
+    {
+      "id": "hinxu280-456",
+      "word": "詰める",
+      "reading": "つめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẬT"
+      ],
+      "meaningVi": "đóng gói",
+      "mnemonic": [],
+      "example": "かばんに荷物を詰める",
+      "exampleVi": "Đóng đầy hành lý vào cặp"
+    },
+    {
+      "id": "hinxu280-459",
+      "word": "飛ぶ",
+      "reading": "とぶ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHI"
+      ],
+      "meaningVi": "bay",
+      "mnemonic": [
+        "cái TÔ BỰ (とぶ) bay trên không trung"
+      ],
+      "example": "鳥が空を飛んでいる",
+      "exampleVi": "Chim bay trên bầu trời"
+    },
+    {
+      "id": "hinxu280-460",
+      "word": "飛ばす",
+      "reading": "とばす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHI"
+      ],
+      "meaningVi": "cho bay",
+      "mnemonic": [
+        "TÔI BẮT SU (とばす) phóng đồ lên cao"
+      ],
+      "example": "紙飛行機を飛ばす",
+      "exampleVi": "Cho máy bay giấy bay"
+    },
+    {
+      "id": "hinxu280-461",
+      "word": "振る",
+      "reading": "ふる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHẤN"
+      ],
+      "meaningVi": "rung, vẫy",
+      "mnemonic": [
+        "PHUN RA (ふる) như rắc muối"
+      ],
+      "example": "手を振る",
+      "exampleVi": "Vẫy tay"
+    },
+    {
+      "id": "hinxu280-462",
+      "word": "捲る",
+      "reading": "めくる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "lật lên",
+      "mnemonic": [
+        "MẸ CỨ (めく) lật hoài cuốn sổ"
+      ],
+      "example": "カードをめくる",
+      "exampleVi": "Lật thẻ"
+    },
+    {
+      "id": "hinxu280-463",
+      "word": "見かける",
+      "reading": "みかける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KIẾN"
+      ],
+      "meaningVi": "tình cờ thấy",
+      "mnemonic": [
+        "đi CÀ KÊ (かけ) bị NHÌN (みる) thấy là bị bắt gặp"
+      ],
+      "example": "町で偶然、昔の友達を見かけた",
+      "exampleVi": "Tình cờ trong khu phố, đã gặp lại bạn ngày xưa"
+    },
+    {
+      "id": "hinxu280-465",
+      "word": "試す",
+      "reading": "ためす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÍ"
+      ],
+      "meaningVi": "thử",
+      "mnemonic": [
+        "TAO MÊ (ため) thì tao thử"
+      ],
+      "example": "洋服が似合うかどうか、着てためしてみた",
+      "exampleVi": "Đã thử mặc xem đồ tây có phù hợp hay không."
+    },
+    {
+      "id": "hinxu280-466",
+      "word": "繰り返す",
+      "reading": "くりかえす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SÀO PHẢN"
+      ],
+      "meaningVi": "lặp lại",
+      "mnemonic": [
+        "KÉO RA 繰り返し rồi TRẢ LẠI 返す là lập đi lập lại"
+      ],
+      "example": "同じ失敗を繰り返してはいけません",
+      "exampleVi": "Lặp lại cùng một thất bại thì không được"
+    },
+    {
+      "id": "hinxu280-467",
+      "word": "訳す",
+      "reading": "やくす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DỊCH"
+      ],
+      "meaningVi": "dịch",
+      "mnemonic": [
+        "thông dịch là ほんやく, vậy DỊCH đứng 1 mình đọc là やくす"
+      ],
+      "example": "英語を日本語に訳す",
+      "exampleVi": "Dịch Anh Ngữ sang Nhật Ngữ"
+    },
+    {
+      "id": "hinxu280-468",
+      "word": "行う",
+      "reading": "おこなう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HÀNH"
+      ],
+      "meaningVi": "tổ chức",
+      "mnemonic": [
+        "tổ chức sinh nhật cho ÔNG CỐ NÀO (おこなう)"
+      ],
+      "example": "試験を行う",
+      "exampleVi": "Tổ chức kỳ thi"
+    },
+    {
+      "id": "hinxu280-469",
+      "word": "間違う",
+      "reading": "まちがう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIAN VI"
+      ],
+      "meaningVi": "bị sai",
+      "mnemonic": [
+        "KHÁC (違う) THỜI GIAN (間) thì dễ làm sai"
+      ],
+      "example": "この計算は間違っている",
+      "exampleVi": "Phép tính này bị sai rồi"
+    },
+    {
+      "id": "hinxu280-471",
+      "word": "許す",
+      "reading": "ゆるす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HỨA"
+      ],
+      "meaningVi": "tha thứ, cho phép",
+      "mnemonic": [],
+      "example": "ひどいことを言われてけんかになったが、相手があやまったので許してあげた",
+      "exampleVi": "Đã tranh cãi vì bị nói ra những thứ tồi tệ nhưng mà đối phương đã tạ lỗi nên đã tha thứ cho họ"
+    },
+    {
+      "id": "hinxu280-472",
+      "word": "慣れる",
+      "reading": "なれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUÁN"
+      ],
+      "meaningVi": "quen",
+      "mnemonic": [
+        "đã quen với việc NA RÊN RỒI (なれる)"
+      ],
+      "example": "日本へ来て半年たって、生活にも慣れた",
+      "exampleVi": "Đã sang Nhật được nửa năm năm cũng đã quen với cuộc sống"
+    },
+    {
+      "id": "hinxu280-473",
+      "word": "慣らす",
+      "reading": "ならす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUÁN"
+      ],
+      "meaningVi": "khởi động",
+      "mnemonic": [
+        "NÀO RA SÂN (ならす) để làm quen"
+      ],
+      "example": "準備運動をして体を慣らしてからプールに入ったほうがいい",
+      "exampleVi": "Nên vận động chuẩn bị để cơ thể thích nghi rồi mới vào bể bơi"
+    },
+    {
+      "id": "hinxu280-474",
+      "word": "立つ",
+      "reading": "たつ",
+      "level": "N5",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LẬP"
+      ],
+      "meaningVi": "đứng",
+      "mnemonic": [
+        "từ này nghe mỗi ngày nhỉ, 皆さん、立ってください ^^"
+      ],
+      "example": "名前を呼ばれたら立ってください",
+      "exampleVi": "Nếu được gọi tên thì hãy đứng dậy"
+    },
+    {
+      "id": "hinxu280-475",
+      "word": "立てる",
+      "reading": "たてる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LẬP"
+      ],
+      "meaningVi": "dựng lên",
+      "mnemonic": [],
+      "example": "屋根の上にアンテナを立てる",
+      "exampleVi": "Anten được dựng lên trên mái nhà"
+    },
+    {
+      "id": "hinxu280-476",
+      "word": "建つ",
+      "reading": "たつ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KIẾN"
+      ],
+      "meaningVi": "được xây",
+      "mnemonic": [
+        "ĐỨNG LÊN (たつ) để xây dựng đất nước"
+      ],
+      "example": "家の前に大きなマンションが建った",
+      "exampleVi": "Trước nhà một khu chung cư lớn đã được hoàn thành"
+    },
+    {
+      "id": "hinxu280-478",
+      "word": "育つ",
+      "reading": "そだつ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DỤC"
+      ],
+      "meaningVi": "được nuôi dạy",
+      "mnemonic": [
+        "nuôi dưỡng thì cho uống SODA (そだ)"
+      ],
+      "example": "雨が多い年は米がよく育つ",
+      "exampleVi": "Năm có mưa lớn thì cây lúa (gạo) được chăm sóc tốt"
+    },
+    {
+      "id": "hinxu280-479",
+      "word": "育てる",
+      "reading": "そだてる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DỤC"
+      ],
+      "meaningVi": "nuôi, dạy",
+      "mnemonic": [],
+      "example": "母は5人の子供を育てた",
+      "exampleVi": "Mẹ nuôi dạy 5 đứa con"
+    },
+    {
+      "id": "hinxu280-480",
+      "word": "生える",
+      "reading": "はえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SINH"
+      ],
+      "meaningVi": "mọc",
+      "mnemonic": [
+        "HÀ É RỒI (はえる) nên lông tóc sinh sôi đầy người"
+      ],
+      "example": "髪が生える",
+      "exampleVi": "Tóc mọc ra"
+    },
+    {
+      "id": "hinxu280-481",
+      "word": "生やす",
+      "reading": "はやす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SINH"
+      ],
+      "meaningVi": "nuôi(râu)",
+      "mnemonic": [
+        "HÀ GIÀ (はや) nên thích nuôi râu"
+      ],
+      "example": "ひげを生やす",
+      "exampleVi": "Để râu mọc ra"
+    },
+    {
+      "id": "hinxu280-486",
+      "word": "割れる",
+      "reading": "われる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CÁT"
+      ],
+      "meaningVi": "bị vỡ",
+      "mnemonic": [],
+      "example": "ガラスが割れる",
+      "exampleVi": "Kính bị vỡ"
+    },
+    {
+      "id": "hinxu280-487",
+      "word": "割る",
+      "reading": "わる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CÁT"
+      ],
+      "meaningVi": "làm vỡ",
+      "mnemonic": [
+        "QUÁ RUN (わる) nên làm vỡ bát"
+      ],
+      "example": "ガラスを割る",
+      "exampleVi": "Làm vỡ kính"
+    },
+    {
+      "id": "hinxu280-488",
+      "word": "折れる",
+      "reading": "おれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRIẾT"
+      ],
+      "meaningVi": "bị gãy",
+      "mnemonic": [
+        "Ô RẺ (おれ) tiền nên nhanh gãy"
+      ],
+      "example": "強い風で枝が折れた",
+      "exampleVi": "Vì gió mạnh nên cây bị gãy"
+    },
+    {
+      "id": "hinxu280-489",
+      "word": "折る",
+      "reading": "おる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRIẾT"
+      ],
+      "meaningVi": "làm gãy",
+      "mnemonic": [],
+      "example": "スキーをして足の骨を折った",
+      "exampleVi": "Trượt tuyết nên làm gãy xương bàn chân"
+    },
+    {
+      "id": "hinxu280-490",
+      "word": "破れる",
+      "reading": "やぶれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÁ"
+      ],
+      "meaningVi": "bị rách",
+      "mnemonic": [],
+      "example": "紙が破れる",
+      "exampleVi": "Giấy bị rách"
+    },
+    {
+      "id": "hinxu280-491",
+      "word": "破る",
+      "reading": "やぶる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÁ"
+      ],
+      "meaningVi": "xé rách",
+      "mnemonic": [
+        "GIÀ BỰC (やぶ) thì già xé rách"
+      ],
+      "example": "紙を破る",
+      "exampleVi": "Làm rách giấy"
+    },
+    {
+      "id": "hinxu280-492",
+      "word": "曲がる",
+      "reading": "まがる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHÚC"
+      ],
+      "meaningVi": "gập, cong",
+      "mnemonic": [
+        "quẹo vào tiệm MANGA (まが)"
+      ],
+      "example": "曲がった道",
+      "exampleVi": "Con đường cong"
+    },
+    {
+      "id": "hinxu280-493",
+      "word": "曲げる",
+      "reading": "まげる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHÚC"
+      ],
+      "meaningVi": "bẻ, uốn",
+      "mnemonic": [],
+      "example": "針金を曲げる",
+      "exampleVi": "Bẻ cong dây kim loại"
+    },
+    {
+      "id": "hinxu280-494",
+      "word": "外れる",
+      "reading": "はずれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NGOẠI"
+      ],
+      "meaningVi": "bị rời ra",
+      "mnemonic": [
+        "HÀ ZƯ (はず) kí nên tuột cả nút áo"
+      ],
+      "example": "ボタンが外れる",
+      "exampleVi": "Cái nút bị dời ra"
+    },
+    {
+      "id": "hinxu280-495",
+      "word": "外す",
+      "reading": "はずす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NGOẠI"
+      ],
+      "meaningVi": "tách ra",
+      "mnemonic": [],
+      "example": "めがねを外す",
+      "exampleVi": "Gỡ gương ra"
+    },
+    {
+      "id": "hinxu280-496",
+      "word": "揺れる",
+      "reading": "ゆれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DAO"
+      ],
+      "meaningVi": "bị rung",
+      "mnemonic": [],
+      "example": "風で木の葉が揺れている",
+      "exampleVi": "Trong gió lá cây đung đưa"
+    },
+    {
+      "id": "hinxu280-497",
+      "word": "揺らす",
+      "reading": "ゆらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DAO"
+      ],
+      "meaningVi": "đung đưa",
+      "mnemonic": [
+        "nhà dao động thì DÌU RA (ゆら) mà chạy"
+      ],
+      "example": "子供の乗ったブランコを揺らして遊ばせた",
+      "exampleVi": "Đung đưa xích đu mà bọn trẻ leo lên cho chúng chơi"
+    },
+    {
+      "id": "hinxu280-498",
+      "word": "流れる",
+      "reading": "ながれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LƯU"
+      ],
+      "meaningVi": "chảy",
+      "mnemonic": [
+        "sông thì chảy DÀI (なが)"
+      ],
+      "example": "町の中心を大きな川が流れている",
+      "exampleVi": "Dòng sông lớn chảy qua trung tâm khu phố"
+    },
+    {
+      "id": "hinxu280-499",
+      "word": "流す",
+      "reading": "ながす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LƯU"
+      ],
+      "meaningVi": "cho chảy",
+      "mnemonic": [],
+      "example": "汚れた水を川に流してはいけない",
+      "exampleVi": "Nước bẩn không được cho chảy vào sông"
+    },
+    {
+      "id": "hinxu280-501",
+      "word": "濡らす",
+      "reading": "ぬらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NHU"
+      ],
+      "meaningVi": "làm ướt",
+      "mnemonic": [
+        "NƯỚC RA (ぬら) là làm ướt"
+      ],
+      "example": "水をこぼして、服を濡らしてしまった",
+      "exampleVi": "Làm tràn nước nên làm ướt quần áo mất rồi"
+    },
+    {
+      "id": "hinxu280-502",
+      "word": "迷う",
+      "reading": "まよう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MÊ"
+      ],
+      "meaningVi": "lạc đường",
+      "mnemonic": [
+        "MÀY DÓT (まよう) thì mày lạc"
+      ],
+      "example": "道に迷う",
+      "exampleVi": "Lạc đường"
+    },
+    {
+      "id": "hinxu280-503",
+      "word": "悩む",
+      "reading": "なやむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NÃO"
+      ],
+      "meaningVi": "băn khoăn",
+      "mnemonic": [
+        "NÃO GIÀ (なや) thì phiền não"
+      ],
+      "example": "就職するか、進学するか、悩んでいる",
+      "exampleVi": "Băn khoăn đi làm hay học cao lên"
+    },
+    {
+      "id": "hinxu280-504",
+      "word": "慌てる",
+      "reading": "あわてる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HOẢNG"
+      ],
+      "meaningVi": "vội vàng",
+      "mnemonic": [
+        "ANH QUA TỚI RỒI (あわてる) thì vội vàng"
+      ],
+      "example": "学校に遅れそうになって、慌てて家を出た",
+      "exampleVi": "Có vẻ như bị muộn đến trường, vội vàng ra khỏi nhà"
+    },
+    {
+      "id": "hinxu280-506",
+      "word": "覚ます",
+      "reading": "さます",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIÁC"
+      ],
+      "meaningVi": "mở mắt, tỉnh",
+      "mnemonic": [],
+      "example": "目を覚ますと、もう１０時だった",
+      "exampleVi": "Mở mắt ra đã 10 giờ rồi"
+    },
+    {
+      "id": "hinxu280-507",
+      "word": "眠る",
+      "reading": "ねむる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MIÊN"
+      ],
+      "meaningVi": "ngủ",
+      "mnemonic": [
+        "ねむい là buồn ngủ rồi, vậy động từ là ngủ"
+      ],
+      "example": "入試の前日 緊張して夜眠れなかった",
+      "exampleVi": "Vào ngày trước khi vào thi, căng thẳng nên không thể ngủ được"
+    },
+    {
+      "id": "hinxu280-508",
+      "word": "祈る",
+      "reading": "いのる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KÌ"
+      ],
+      "meaningVi": "cầu, khấn",
+      "mnemonic": [
+        "đọc giống INOCHI (いのち) sinh mệnh, cầu nguyện cho sinh mệnh"
+      ],
+      "example": "家族の健康を神に祈った",
+      "exampleVi": "Cầu nguyện thần linh cho sức khỏe của gia đình"
+    },
+    {
+      "id": "hinxu280-509",
+      "word": "祝う",
+      "reading": "いわう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHÚC"
+      ],
+      "meaningVi": "ăn mừng",
+      "mnemonic": [
+        "từ お祝い chắc ai cũng biết nhỉ, chỉ cần bỏ chữ お là động từ"
+      ],
+      "example": "新年を祝って乾杯した",
+      "exampleVi": "Đã cạn ly ăn mừng năm mới"
+    },
+    {
+      "id": "hinxu280-510",
+      "word": "感じる",
+      "reading": "かんじる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẢM"
+      ],
+      "meaningVi": "cảm thấy",
+      "mnemonic": [
+        "cảm giác thích Kanji rồi (かんじる)"
+      ],
+      "example": "寒さを感じる",
+      "exampleVi": "Cảm thấy cái lạnh"
+    },
+    {
+      "id": "hinxu280-716",
+      "word": "上る",
+      "reading": "のぼる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THƯỢNG"
+      ],
+      "meaningVi": "leo lên",
+      "mnemonic": [
+        "đọc giống leo trèo 登る NÓ BÒ (のぼ) lên trên"
+      ],
+      "example": "階段を上る",
+      "exampleVi": "lên cầu thang"
+    },
+    {
+      "id": "hinxu280-717",
+      "word": "下る",
+      "reading": "くだる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HẠ"
+      ],
+      "meaningVi": "đi xuống",
+      "mnemonic": [
+        "CỤC ĐÁ RƠI (くだる) rồi là cục đá đang đi xuống"
+      ],
+      "example": "坂を下る",
+      "exampleVi": "Xuống núi"
+    },
+    {
+      "id": "hinxu280-720",
+      "word": "通る",
+      "reading": "とおる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÔNG"
+      ],
+      "meaningVi": "thông qua, được chấp nhận, đi qua",
+      "mnemonic": [],
+      "example": "この道は車がたくさん通る",
+      "exampleVi": "Con đường này có nhiều ô tô đi qua"
+    },
+    {
+      "id": "hinxu280-721",
+      "word": "通す",
+      "reading": "とおす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÔNG"
+      ],
+      "meaningVi": "xuyên qua, thông qua",
+      "mnemonic": [],
+      "example": "カテンを通して光が部屋の中に入ってくる",
+      "exampleVi": "làm cho ánh sáng xuyên qua rèm và đi vào trong phòng"
+    },
+    {
+      "id": "hinxu280-722",
+      "word": "越える／超える",
+      "reading": "こえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SIÊU, VIỆT"
+      ],
+      "meaningVi": "vượt qua",
+      "mnemonic": [
+        "CÔ É RỒI (こえる) thì cô cố mà vượt qua"
+      ],
+      "example": "この山を越えると隣の県だ",
+      "exampleVi": "Nếu vượt qua ngọn núi này thì sang tỉnh bên cạnh rồi"
+    },
+    {
+      "id": "hinxu280-723",
+      "word": "過ぎる",
+      "reading": "すぎる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUÁ"
+      ],
+      "meaningVi": "quá, đi qua",
+      "mnemonic": [],
+      "example": "列車は広島駅を過ぎた",
+      "exampleVi": "Đoàn tàu đã đi quá Hiroshima rồi"
+    },
+    {
+      "id": "hinxu280-724",
+      "word": "過ごす",
+      "reading": "すごす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUÁ"
+      ],
+      "meaningVi": "sử dụng(thời gian)",
+      "mnemonic": [
+        "tôi đã trải qua 1 ngày SUGOI (すご)"
+      ],
+      "example": "大学時代を東京で過ごした",
+      "exampleVi": "Đã trải qua thời đại học tại Tokyo"
+    },
+    {
+      "id": "hinxu280-725",
+      "word": "移る",
+      "reading": "うつる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DI"
+      ],
+      "meaningVi": "được chuyển",
+      "mnemonic": [],
+      "example": "黒板の字が見えにくかったので、前の席に移った",
+      "exampleVi": "Vì chữ trên bảng đen khó có thể nhìn được nên tôi đã chuyển lên ghế phía trên"
+    },
+    {
+      "id": "hinxu280-726",
+      "word": "移す",
+      "reading": "うつす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DI"
+      ],
+      "meaningVi": "chuyển",
+      "mnemonic": [
+        "ƯNG CHƯA (うつ) rồi di chuyển + 映 : phản ánh, phản chiếu + 移 ; di chuyển + 写 : sao lại"
+      ],
+      "example": "本塔を大阪から東京に移した",
+      "exampleVi": "Trụ sở chính đã chuyển từ Osaka đến Tokyo"
+    },
+    {
+      "id": "hinxu280-727",
+      "word": "連れる",
+      "reading": "つれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LIÊN"
+      ],
+      "meaningVi": "dẫn đi",
+      "mnemonic": [
+        "CHÚ RÊN RỈ (つれる) thì phải dẫn chú đi"
+      ],
+      "example": "子供を動物園へ連れて行った",
+      "exampleVi": "Đã đưa bọn trẻ đến vườn thú"
+    },
+    {
+      "id": "hinxu280-728",
+      "word": "寄る",
+      "reading": "よる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KỲ"
+      ],
+      "meaningVi": "ghé sát, lại gần",
+      "mnemonic": [
+        "BAN ĐÊM (よる) thì phải ghé vô khách sạn"
+      ],
+      "example": "窓のそばに寄って外を見た",
+      "exampleVi": "Ghé lại bên cạnh cửa sổ và đã thấy bên ngoài"
+    },
+    {
+      "id": "hinxu280-729",
+      "word": "寄せる",
+      "reading": "よせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KỲ"
+      ],
+      "meaningVi": "ghé vào",
+      "mnemonic": [],
+      "example": "地震のときは車を道の左側に寄せて止めなければならない",
+      "exampleVi": "Lúc động đất phải ghé xe ô tô vào bên đường và dừng lại"
+    },
+    {
+      "id": "hinxu280-731",
+      "word": "得る",
+      "reading": "える",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẮC"
+      ],
+      "meaningVi": "đạt được, có được",
+      "mnemonic": [
+        "É RỒI (える) làm sao có được hạnh phúc"
+      ],
+      "example": "収入を得る",
+      "exampleVi": "Có được thu nhập"
+    },
+    {
+      "id": "hinxu280-732",
+      "word": "向く",
+      "reading": "むく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HƯỚNG"
+      ],
+      "meaningVi": "hướng, đối diện",
+      "mnemonic": [],
+      "example": "私の部屋は東南を向いている",
+      "exampleVi": "Phòng tôi hướng về phía đông nam"
+    },
+    {
+      "id": "hinxu280-733",
+      "word": "向ける",
+      "reading": "むける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HƯỚNG"
+      ],
+      "meaningVi": "hướng đến, quay",
+      "mnemonic": [],
+      "example": "顔を右に向ける",
+      "exampleVi": "Quay mặt về bên phải"
+    },
+    {
+      "id": "hinxu280-735",
+      "word": "薦める",
+      "reading": "すすめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TIẾN"
+      ],
+      "meaningVi": "giới thiệu, gợi ý",
+      "mnemonic": [],
+      "example": "先生にすすめられた本を買った",
+      "exampleVi": "Đã mua quyển sách thầy giáo đề nghị"
+    },
+    {
+      "id": "hinxu280-737",
+      "word": "守る",
+      "reading": "まもる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THỦ"
+      ],
+      "meaningVi": "giữ, tuân thủ, bảo vệ",
+      "mnemonic": [
+        "bảo vệ cái MẶT MO (まも)"
+      ],
+      "example": "法律の守る",
+      "exampleVi": "Tuân thủ luật pháp"
+    },
+    {
+      "id": "hinxu280-738",
+      "word": "争う",
+      "reading": "あらそう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRANH"
+      ],
+      "meaningVi": "gây gổ, tranh giành",
+      "mnemonic": [
+        "nghe như mấy bà Hàn Quốc đang tranh cãi ARATSOOO (あらそう)"
+      ],
+      "example": "あの兄弟はいつも小さなことで争っている",
+      "exampleVi": "Anh em nhà ý thì lúc nào cũng tranh giành việc nhỏ"
+    },
+    {
+      "id": "hinxu280-739",
+      "word": "望む",
+      "reading": "のぞむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VỌNG"
+      ],
+      "meaningVi": "ước",
+      "mnemonic": [
+        "hi vọng con mình NÓ GIỎI NÓ GIỎI (のぞ)"
+      ],
+      "example": "卒業後は、教師になることを望んでいる",
+      "exampleVi": "Mong rằng sau khi tốt nghiệp thì trở thành giáo viên"
+    },
+    {
+      "id": "hinxu280-740",
+      "word": "信じる",
+      "reading": "しんじる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÍN"
+      ],
+      "meaningVi": "tin tưởng",
+      "mnemonic": [
+        "Muốn XIN GÌ (しんじ) thì cũng phải có được sự tin tưởng"
+      ],
+      "example": "昨日　ゆうれいを見たよ　うそよ、信じられない",
+      "exampleVi": "Hôm qua tôi đã thấy hồn ma đấy. Nói dối, không thể tin được"
+    },
+    {
+      "id": "hinxu280-741",
+      "word": "通じる",
+      "reading": "つうじる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÔNG"
+      ],
+      "meaningVi": "hiểu, thông qua",
+      "mnemonic": [
+        "CHƯA CỨNG (つうじ) mà đã hiểu rồi"
+      ],
+      "example": "日本に来た時、私の日本語が通じるかどうか心配だった",
+      "exampleVi": "Sau khi đến Nhật, đã lo lắng là Tiếng Nhật của tôi có thông thạo hay không"
+    },
+    {
+      "id": "hinxu280-742",
+      "word": "飽きる",
+      "reading": "あきる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BÃO"
+      ],
+      "meaningVi": "chán, ngấy",
+      "mnemonic": [
+        "MÙA THU (あき) thì thật chán"
+      ],
+      "example": "好きなものでも、毎日食べると飽きてしまう",
+      "exampleVi": "Dù là đồ mình thích, ăn mỗi ngày thì cũng chán mất"
+    },
+    {
+      "id": "hinxu280-743",
+      "word": "思いつく",
+      "reading": "おもいつく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TƯ"
+      ],
+      "meaningVi": "nghĩ ra",
+      "mnemonic": [
+        "Ý NGHĨA (おもい) ĐƯỢC GẮN VÀO (つく) là nảy ra nghĩ ra"
+      ],
+      "example": "アイディアを思いつく",
+      "exampleVi": "Nghĩ ra ý tưởng"
+    },
+    {
+      "id": "hinxu280-744",
+      "word": "思いやる",
+      "reading": "おもいやる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TƯ"
+      ],
+      "meaningVi": "quan tâm, thông cảm",
+      "mnemonic": [
+        "VỪA NGHĨ (おもい) VỪA LÀM (やる) là có sự quan tâm"
+      ],
+      "example": "父親の言葉はきびしかったが、その言葉は子供を思いやる気持ちが表れていた",
+      "exampleVi": "Những lời của Cha thì đã nghiêm khắc nhưng mà, những lời đấy đã thể hiện tâm tình quan tâm đến bọn trẻ"
+    },
+    {
+      "id": "hinxu280-745",
+      "word": "熱中する",
+      "reading": "ねっちゅうする",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NHIỆT TRUNG"
+      ],
+      "meaningVi": "nghiện",
+      "mnemonic": [
+        "NHIỆT trong NHIỆT TÂM là ねつ, TRUNG trong TRUNG QUỐC là ちゅう, bị xúc âm thành ねっちゅう"
+      ],
+      "example": "母は今カラオケに熱中している",
+      "exampleVi": "Mẹ thì đang rất say mê karaoke"
+    },
+    {
+      "id": "hinxu280-746",
+      "word": "暮らす",
+      "reading": "くらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MỘ"
+      ],
+      "meaningVi": "sống",
+      "mnemonic": [
+        "sống trong LỚP HỌC (くらす)"
+      ],
+      "example": "都会で暮らすのは便利だが、お金がかかる",
+      "exampleVi": "Sinh sống ở đô thị thì tiện lợi nhưng mà tốn tiền"
+    },
+    {
+      "id": "hinxu280-747",
+      "word": "巻く",
+      "reading": "まく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUYỂN"
+      ],
+      "meaningVi": "quấn, quàng",
+      "mnemonic": [
+        "MÁ CỨ (まく) quấn cái khăn choàng"
+      ],
+      "example": "マフラーを首に巻く",
+      "exampleVi": "Quấn khăn quanh cổ"
+    },
+    {
+      "id": "hinxu280-748",
+      "word": "結ぶ",
+      "reading": "むすぶ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KẾT"
+      ],
+      "meaningVi": "buộc, cột, nối",
+      "mnemonic": [
+        "MUA SỢI (むす) để BUỘC (ぶ)"
+      ],
+      "example": "くつのひもを結ぶ",
+      "exampleVi": "Buộc dây giày"
+    },
+    {
+      "id": "hinxu280-749",
+      "word": "済む",
+      "reading": "すむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẾ"
+      ],
+      "meaningVi": "kết thúc",
+      "mnemonic": [
+        "kết thúc SỨ MỆNH (すむ) đời mình"
+      ],
+      "example": "仕事が済んだらすぐ帰る",
+      "exampleVi": "Về ngay sau khi kết thúc công việc"
+    },
+    {
+      "id": "hinxu280-750",
+      "word": "済ませる／済ます",
+      "reading": "すませる・すます",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẾ"
+      ],
+      "meaningVi": "hoàn tất",
+      "mnemonic": [],
+      "example": "お金の支払いを済ませる",
+      "exampleVi": "Hoàn tất thanh toán tiền"
+    },
+    {
+      "id": "hinxu280-751",
+      "word": "出来る",
+      "reading": "できる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "XUẤT LAI"
+      ],
+      "meaningVi": "có thể, hoàn thành",
+      "mnemonic": [],
+      "example": "駅前に新しいスーパーが出来た",
+      "exampleVi": "Trước nhà ga siêu thị mới đã hoàn thành"
+    },
+    {
+      "id": "hinxu280-752",
+      "word": "切れる",
+      "reading": "きれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THIẾT"
+      ],
+      "meaningVi": "cắt, hết hạn",
+      "mnemonic": [
+        "cái gì mà ĐẸP (きれ) thì rất nhanh hết hạn"
+      ],
+      "example": "このはさみはよく切れる",
+      "exampleVi": "Cái kéo này thì cắt tốt"
+    },
+    {
+      "id": "hinxu280-753",
+      "word": "切らす",
+      "reading": "きらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THIẾT"
+      ],
+      "meaningVi": "hết",
+      "mnemonic": [
+        "KÌ RA (きら) thì xài hết"
+      ],
+      "example": "うっかりしていて、砂糖を切らしてしまった",
+      "exampleVi": "Không để ý chút là đường đã hết sạch mất rồi"
+    },
+    {
+      "id": "hinxu280-758",
+      "word": "つながる",
+      "reading": "つながる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "được kết nối, được mở rộng, thông qua",
+      "mnemonic": [
+        "CHÚ NÀY GAN RỨA (つながる), dám kết nối với tui"
+      ],
+      "example": "本州と四国は橋でつながっている",
+      "exampleVi": "Honshuu và Shikoku được kết nối bằng cầu"
+    },
+    {
+      "id": "hinxu280-759",
+      "word": "つなぐ",
+      "reading": "つなぐ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "kết nối, tham gia",
+      "mnemonic": [],
+      "example": "この橋は本州と四国をつないでいる",
+      "exampleVi": "Cây cầu này thì đang kết nối Honshuu và Shikoku"
+    },
+    {
+      "id": "hinxu280-760",
+      "word": "つなげる",
+      "reading": "つなげる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "kết nối, làm chặt thêm",
+      "mnemonic": [
+        "CHÚ NÀY GHÊ RỨA (つなげる), nắm bắt được cơ hội lớn"
+      ],
+      "example": "このチャンスをぜひ成功につなげたい",
+      "exampleVi": "Muốn làm chặt cơ hội này chắc chắn đến thành công"
+    },
+    {
+      "id": "hinxu280-763",
+      "word": "延びる",
+      "reading": "のびる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DUYÊN"
+      ],
+      "meaningVi": "bị trì hoãn, bị kéo dài",
+      "mnemonic": [
+        "cũng có nghĩa là được kéo ra, được dài ra (tuy nhiên dùng trong trường hợp thời gian, deadline, kỳ hạn)"
+      ],
+      "example": "レポートの締め切りが延びてよかった",
+      "exampleVi": "Hạn nộp báo cáo đã được kéo dài, thật tốt quá"
+    },
+    {
+      "id": "hinxu280-764",
+      "word": "延ばす",
+      "reading": "のばす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DUYÊN"
+      ],
+      "meaningVi": "trì hoãn, kéo dài",
+      "mnemonic": [],
+      "example": "チケットが取れなかったので、帰国の日を延ばした",
+      "exampleVi": "Vì không lấy được vé nên đã kéo dài (hoãn lại) ngày về nước"
+    },
+    {
+      "id": "hinxu280-765",
+      "word": "重なる",
+      "reading": "かさなる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỌNG"
+      ],
+      "meaningVi": "xung đột, xếp chồng",
+      "mnemonic": [
+        "áo CÀ SA (かさ) được xếp chồng"
+      ],
+      "example": "印刷したら、紙が２枚重なって出て来た",
+      "exampleVi": "Sau khi in xong thì hai tờ giấy chồng lên nhau và đi ra"
+    },
+    {
+      "id": "hinxu280-766",
+      "word": "重ねる",
+      "reading": "かさねる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRỌNG"
+      ],
+      "meaningVi": "chồng lên, tích trữ",
+      "mnemonic": [],
+      "example": "皿を重ねて置いておく",
+      "exampleVi": "Chồng đĩa lên và để sẵn đó"
+    },
+    {
+      "id": "hinxu280-769",
+      "word": "載る",
+      "reading": "のる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẢI"
+      ],
+      "meaningVi": "vừa, được công bố",
+      "mnemonic": [],
+      "example": "この荷物は大きすぎて、私の車にはのらないだろう",
+      "exampleVi": "Hành lý này thì lớn quá, chắc là không vừa xe của tôi được"
+    },
+    {
+      "id": "hinxu280-770",
+      "word": "載せる",
+      "reading": "のせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẢI"
+      ],
+      "meaningVi": "cho vào, cho tải lên",
+      "mnemonic": [
+        "NÀO XÊ RA (のせる) để tao tải lên"
+      ],
+      "example": "棚に荷物を載せる",
+      "exampleVi": "Cho hành lý lên giá"
+    },
+    {
+      "id": "hinxu280-771",
+      "word": "そろう",
+      "reading": "そろう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "thu thập, được thu thập",
+      "mnemonic": [
+        "そそ nghe giống SẮP SỬA, SẮP SỬA (そろ) đồng đều rồi"
+      ],
+      "example": "全員がそろったら、出発しましょう",
+      "exampleVi": "Mọi người tụ tập đủ thì xuất phát nào"
+    },
+    {
+      "id": "hinxu280-772",
+      "word": "そろえる",
+      "reading": "そろえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "gom lại, chuẩn bị sẵn sàng",
+      "mnemonic": [],
+      "example": "マージャンをするため、メンバーをそろえた",
+      "exampleVi": "Để chơi mạt chược thì đã tập hợp đủ thành viên"
+    },
+    {
+      "id": "hinxu280-773",
+      "word": "まとまる",
+      "reading": "まとまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "được thống nhất, được tổ chức, được sắp xếp",
+      "mnemonic": [],
+      "example": "3時間話し合って、やっとクラスの意見がまとまった",
+      "exampleVi": "Sau 3 tiếng bàn bạc cuối cùng ý kiến của lớp đã thống nhất"
+    },
+    {
+      "id": "hinxu280-774",
+      "word": "まとめる",
+      "reading": "まとめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "tập hợp, sàng lọc, hợp nhất, tổ chức",
+      "mnemonic": [
+        "MÁ TÔI MÊ (まとめ) tóm tắt"
+      ],
+      "example": "引越しの前に、要らなくなったものをまとめて捨てた",
+      "exampleVi": "Trước khi chuyển nhà đã tập hợp những thứ không cần thiết nữa và vứt đi rồi"
+    },
+    {
+      "id": "hinxu280-775",
+      "word": "付く",
+      "reading": "つく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÓ"
+      ],
+      "meaningVi": "dính, gắn, đạt được, đi cùng với",
+      "mnemonic": [
+        "CHƯA CỨNG (つく) thì phải dính thêm vào"
+      ],
+      "example": "けがをしてシャツに血がついた",
+      "exampleVi": "Bị thương nên máu đã dính vào áo sơ mi"
+    },
+    {
+      "id": "hinxu280-776",
+      "word": "付ける",
+      "reading": "つける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHÓ"
+      ],
+      "meaningVi": "gắn, thêm vào",
+      "mnemonic": [],
+      "example": "パンにジャムを付ける",
+      "exampleVi": "Thêm mứt vào bánh mì"
+    },
+    {
+      "id": "hinxu280-777",
+      "word": "たまる",
+      "reading": "たまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "được tiết kiệm",
+      "mnemonic": [],
+      "example": "お金がたまる",
+      "exampleVi": "Tiền được tiết kiệm"
+    },
+    {
+      "id": "hinxu280-778",
+      "word": "ためる",
+      "reading": "ためる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "tiết kiệm",
+      "mnemonic": [
+        "TAO MÊ (ため) thì tao để dành"
+      ],
+      "example": "お金をためる",
+      "exampleVi": "Tiết kiệm tiền"
+    },
+    {
+      "id": "hinxu280-779",
+      "word": "交じる／混じる",
+      "reading": "まじる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIAO HỖN"
+      ],
+      "meaningVi": "giao vào, lẫn vào",
+      "mnemonic": [
+        "từ điển MAZZI (まじ) bị lẫn lộn"
+      ],
+      "example": "女の子が男の子に交じってサッカーをしている",
+      "exampleVi": "Các bé gái được lẫn vào các bé trai rồi chơi bóng đá"
+    },
+    {
+      "id": "hinxu280-780",
+      "word": "交ざる／混ざる",
+      "reading": "まざる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIAO HỖN"
+      ],
+      "meaningVi": "được trộn lẫn",
+      "mnemonic": [],
+      "example": "男女が交ざってサッカーをした",
+      "exampleVi": "Nam và nữ đã lẫn vào nhau cùng chơi bóng đá"
+    },
+    {
+      "id": "hinxu280-781",
+      "word": "交ぜる／混ぜる",
+      "reading": "まぜる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIAO HỖN"
+      ],
+      "meaningVi": "trộn vào",
+      "mnemonic": [],
+      "example": "お米に豆を交ぜていた",
+      "exampleVi": "Đã trộn lẫn gạo và đậu nành với nhau"
+    },
+    {
+      "id": "hinxu280-782",
+      "word": "溶ける／解ける",
+      "reading": "とける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIẢI DUNG"
+      ],
+      "meaningVi": "được giải quyết, nóng chảy",
+      "mnemonic": [],
+      "example": "3時間かかって、やっと問題が解けた",
+      "exampleVi": "Tốn hơn 3 tiếng, cuối cùng vấn đề cũng đã được giải quyết"
+    },
+    {
+      "id": "hinxu280-783",
+      "word": "解く／溶く／溶かす",
+      "reading": "とく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "GIẢI DUNG"
+      ],
+      "meaningVi": "giải quyết, nóng chảy",
+      "mnemonic": [
+        "TÔI CỨ(とく) giải quyết thì làm sao nào"
+      ],
+      "example": "数学の問題を解く",
+      "exampleVi": "Giải bài toán"
+    },
+    {
+      "id": "hinxu280-785",
+      "word": "含める",
+      "reading": "ふくめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HÀM"
+      ],
+      "meaningVi": "bao gồm",
+      "mnemonic": [],
+      "example": "うちの家族は私を含めて5人です",
+      "exampleVi": "Gia đình tôi thì gồm cả tôi là 5 người"
+    },
+    {
+      "id": "hinxu280-786",
+      "word": "抜ける",
+      "reading": "ぬける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BẠT"
+      ],
+      "meaningVi": "tháo, tuột",
+      "mnemonic": [],
+      "example": "髪の毛が抜ける",
+      "exampleVi": "Tóc rụng"
+    },
+    {
+      "id": "hinxu280-787",
+      "word": "抜く",
+      "reading": "ぬく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BẠT"
+      ],
+      "meaningVi": "lấy ra",
+      "mnemonic": [],
+      "example": "虫歯を抜く",
+      "exampleVi": "Nhổ răng sâu"
+    },
+    {
+      "id": "hinxu280-788",
+      "word": "現れる",
+      "reading": "あらわれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HIỆN"
+      ],
+      "meaningVi": "xuất hiện, được thể hiện",
+      "mnemonic": [
+        "ANH RA WÀI(あらわ) là anh xuất hiện (biểu hiện) quài"
+      ],
+      "example": "犯人は金を取りに現れたところを逮捕された",
+      "exampleVi": "Phạm nhân thì đã bị bắt tại chỗ đã trộm tiền"
+    },
+    {
+      "id": "hinxu280-789",
+      "word": "現す",
+      "reading": "あらわす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HIỆN"
+      ],
+      "meaningVi": "xuất hiện, hiện ra",
+      "mnemonic": [],
+      "example": "雲がなくなって、富士山が姿を現した",
+      "exampleVi": "Mây biến mất rồi núi Phú Sỹ đã xuất hiện hình dạng (kiểu hiện nguyên hình :v)"
+    },
+    {
+      "id": "hinxu280-792",
+      "word": "散る",
+      "reading": "ちる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÁN"
+      ],
+      "meaningVi": "bị tàn, rụng",
+      "mnemonic": [
+        "CHIA RA CHIA RA (ちら) là bừa bộn lung tung, rơi rụng lả tả"
+      ],
+      "example": "風で桜が散ってしまった",
+      "exampleVi": "Hoa Anh Đào đã tàn vì gió"
+    },
+    {
+      "id": "hinxu280-793",
+      "word": "散らす",
+      "reading": "ちらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÁN"
+      ],
+      "meaningVi": "tàn",
+      "mnemonic": [],
+      "example": "風が桜を散らしてしまった",
+      "exampleVi": "Gió đã làm Hoa Anh Đào tàn mất rồi"
+    },
+    {
+      "id": "hinxu280-794",
+      "word": "明ける",
+      "reading": "あける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MINH"
+      ],
+      "meaningVi": "(đêm) đến, (năm mới) bắt đầu, (mùa mưa) kết thúc",
+      "mnemonic": [
+        "ANH KÊU (あけ) bắt đầu/kết thúc"
+      ],
+      "example": "夜が明ける",
+      "exampleVi": "Đêm tàn"
+    },
+    {
+      "id": "hinxu280-795",
+      "word": "差す",
+      "reading": "さす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SAI"
+      ],
+      "meaningVi": "(mặt trời) chiếu sáng, mở (ô), nhỏ (thuốc mắt)",
+      "mnemonic": [
+        "SAY SƯA (さす) bung dù, nhỏ mắt"
+      ],
+      "example": "雨がやんで、日が差してきた",
+      "exampleVi": "Mưa tạnh rồi nắng lên"
+    }
+  ]
+}

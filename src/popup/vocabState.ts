@@ -4,24 +4,27 @@ import mimikaraRaw from "../data/vocab-tanoshii-mimikara-n3.json";
 import dongnghiaRaw from "../data/vocab-tanoshii-dongnghia-n3.json";
 import tangoN3Raw from "../data/vocab-tango-n3.json";
 import tangoN4Raw from "../data/vocab-tango-n4.json";
+import tangoN5Raw from "../data/vocab-tango-n5.json";
 import tuLayRaw from "../data/vocab-tu-lay.json";
 import trangtu91Raw from "../data/vocab-trangtu-91.json";
 import dongtu200Raw from "../data/vocab-dongtu-200.json";
-import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset } from "../types/vocab.ts";
+import dongtuHinxu280Raw from "../data/vocab-dongtu-280-hinxu.json";
+import dongtuExtraRaw from "../data/vocab-dongtu-extra-n3n4.json";
+import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset, VerbConjugations } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
 export type VocabSource =
   | "tinhtu-n3"
-  | "dongtu-n4"
+  | "dongtu"
   | "mimikara-n3"
   | "dongnghia-n3"
   | "tango-n3"
   | "tango-n4"
+  | "tango-n5"
   | "tu-lay"
-  | "trangtu-91"
-  | "dongtu-200";
+  | "trangtu-91";
 
 export interface VocabCard {
   id: string;
@@ -35,31 +38,35 @@ export interface VocabCard {
   example: string | null;
   exampleVi: string | null;
   synonym: { word: string; reading: string | null } | null;
+  // Chỉ áp dụng cho source "dongtu" (tra cứu từ mazii.net).
+  verbGroup?: string;
+  transitivity?: string;
+  conjugations?: VerbConjugations;
 }
 
 export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tinhtu-n3": "Tính từ N3",
-  "dongtu-n4": "Động từ N4",
+  dongtu: "Động từ N3-N4",
   "mimikara-n3": "Mimikara N3",
   "dongnghia-n3": "Từ đồng nghĩa N3",
   "tango-n3": "Tango N3",
   "tango-n4": "Tango N4",
+  "tango-n5": "Tango N5",
   "tu-lay": "Từ láy",
   "trangtu-91": "91 trạng từ thường dùng",
-  "dongtu-200": "200 động từ N3-N4",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
 export const AVAILABLE_SOURCES: VocabSource[] = [
   "mimikara-n3",
-  "dongtu-n4",
+  "dongtu",
   "tinhtu-n3",
   "dongnghia-n3",
   "tango-n3",
   "tango-n4",
+  "tango-n5",
   "tu-lay",
   "trangtu-91",
-  "dongtu-200",
 ];
 
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
@@ -73,9 +80,16 @@ const dongnghiaDataset = dongnghiaRaw as unknown as TanoshiiSynonymDataset;
 // blended into the tanoshii sources.
 const tangoN3Dataset = tangoN3Raw as unknown as TanoshiiVocabDataset;
 const tangoN4Dataset = tangoN4Raw as unknown as TanoshiiVocabDataset;
+const tangoN5Dataset = tangoN5Raw as unknown as TanoshiiVocabDataset;
 const tuLayDataset = tuLayRaw as unknown as TanoshiiVocabDataset;
 const trangtu91Dataset = trangtu91Raw as unknown as TanoshiiVocabDataset;
+// "dongtu" gộp 3 nguồn động từ N3-N4 (tanoshii N4, 200 động từ Thu Hương,
+// 280 động từ Hinxu Tanoshii) thành 1 nhóm chung -- đã dedup theo
+// kanji+reading giữa 3 file lúc convert (xem meta.notes trong từng file),
+// nên coi các entry này là rời rạc, không trùng lặp nhau khi gộp ở đây.
 const dongtu200Dataset = dongtu200Raw as unknown as TanoshiiVocabDataset;
+const dongtuHinxu280Dataset = dongtuHinxu280Raw as unknown as TanoshiiVocabDataset;
+const dongtuExtraDataset = dongtuExtraRaw as unknown as TanoshiiVocabDataset;
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -90,6 +104,9 @@ function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): 
     example: w.example,
     exampleVi: w.exampleVi,
     synonym: null,
+    verbGroup: w.verbGroup,
+    transitivity: w.transitivity,
+    conjugations: w.conjugations,
   }));
 }
 
@@ -127,14 +144,17 @@ function fromDongnghia(dataset: TanoshiiSynonymDataset): VocabCard[] {
 
 export const ALL_VOCAB: VocabCard[] = [
   ...fromMimikara(mimikaraDataset),
-  ...fromTanoshiiVocab("dongtu-n4", dongtuDataset),
+  ...fromTanoshiiVocab("dongtu", dongtuDataset),
+  ...fromTanoshiiVocab("dongtu", dongtu200Dataset),
+  ...fromTanoshiiVocab("dongtu", dongtuHinxu280Dataset),
+  ...fromTanoshiiVocab("dongtu", dongtuExtraDataset),
   ...fromTanoshiiVocab("tinhtu-n3", tinhtuDataset),
   ...fromDongnghia(dongnghiaDataset),
   ...fromTanoshiiVocab("tango-n3", tangoN3Dataset),
   ...fromTanoshiiVocab("tango-n4", tangoN4Dataset),
+  ...fromTanoshiiVocab("tango-n5", tangoN5Dataset),
   ...fromTanoshiiVocab("tu-lay", tuLayDataset),
   ...fromTanoshiiVocab("trangtu-91", trangtu91Dataset),
-  ...fromTanoshiiVocab("dongtu-200", dongtu200Dataset),
 ];
 
 export function countForSource(source: VocabSource): number {
@@ -162,7 +182,7 @@ const STORAGE_KEY = "vocabViewer";
 
 export function defaultViewerState(): VocabViewerState {
   return {
-    selectedSources: ["mimikara-n3", "dongtu-n4", "tinhtu-n3", "tango-n3", "tango-n4"],
+    selectedSources: ["mimikara-n3", "dongtu", "tinhtu-n3", "tango-n3", "tango-n4", "tango-n5"],
     randomOrder: false,
     shuffleSeed: Date.now(),
     index: 0,

@@ -12,6 +12,23 @@ interface DatasetMeta {
   notes: string[];
 }
 
+// Chỉ có giá trị với partOfSpeech "Động từ" -- lấy từ mazii.net (nhóm
+// động từ, tự/tha động từ, bảng chia thể). Optional vì phần lớn dataset
+// (danh từ/tính từ/...) không áp dụng.
+export interface VerbConjugations {
+  masu?: string;
+  te?: string;
+  ta?: string;
+  nai?: string;
+  potential?: string;
+  passive?: string;
+  causative?: string;
+  conditionalBa?: string;
+  conditionalTara?: string;
+  volitional?: string;
+  imperative?: string;
+}
+
 export interface TanoshiiVocabWord {
   id: string;
   word: string;
@@ -23,6 +40,9 @@ export interface TanoshiiVocabWord {
   mnemonic: string[];
   example: string | null;
   exampleVi: string | null;
+  verbGroup?: string;
+  transitivity?: string;
+  conjugations?: VerbConjugations;
 }
 
 export interface TanoshiiVocabDataset {

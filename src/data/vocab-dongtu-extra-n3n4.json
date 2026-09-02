@@ -1,0 +1,2457 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-09-02T03:16:18.000Z",
+    "counts": {
+      "total": 157,
+      "n4": 29,
+      "n3": 128
+    },
+    "sources": {
+      "reference": "Danh sách động từ N3/N4 phổ biến do Gemini tổng hợp (gemini_dongtu_reference.json)",
+      "lookup": "jisho.org + mazii.net qua Gemini url_context tool",
+      "pipeline": "gemini-3.1-flash-lite url_context lookup"
+    },
+    "notes": "Bổ sung các động từ N3/N4 phổ biến còn thiếu so với danh sách tham khảo do Gemini tạo, sau khi đối chiếu với bộ dữ liệu Động từ hiện có (vocab-tanoshii-dongtu-n4.json, vocab-dongtu-200.json, vocab-dongtu-280-hinxu.json). Mỗi từ được tra cứu riêng lẻ qua jisho.org (xác nhận đọc/loại từ/ví dụ) và mazii.net (nghĩa tiếng Việt), mnemonic tự sinh theo phong cách các bộ dữ liệu động từ khác (lồng âm Hán Việt/liên tưởng âm đọc). Level giữ theo đúng nhóm N3/N4 trong danh sách tham khảo. Ngày 2026-09-02. Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context cho phần đã tra xong (183/609, phần còn lại chờ quota Gemini reset), không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02)."
+  },
+  "words": [
+    {
+      "word": "謝る",
+      "reading": "あやまる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẠ"
+      ],
+      "meaningVi": "Xin lỗi, tạ lỗi",
+      "mnemonic": [
+        "TẠ lỗi là phải A YA (あや) MÀ RỪ (まる) dứt khoát nhé"
+      ],
+      "example": "悪いと思ったら、すぐに謝るべきだ。",
+      "exampleVi": "Nếu nghĩ là mình sai thì nên xin lỗi ngay lập tức.",
+      "id": "dongtu-extra-1"
+    },
+    {
+      "word": "失う",
+      "reading": "うしなう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THẤT"
+      ],
+      "meaningVi": "Mất, đánh mất",
+      "mnemonic": [
+        "THẤT (失) vọng vì U SẦU NAU (うしなう) nên đánh mất tất cả"
+      ],
+      "example": "自信を失う。",
+      "exampleVi": "Đánh mất sự tự tin.",
+      "id": "dongtu-extra-2"
+    },
+    {
+      "word": "疑う",
+      "reading": "うたがう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NGHI"
+      ],
+      "meaningVi": "nghi ngờ, nghi hoặc",
+      "mnemonic": [
+        "NGHI ngờ thì hay U TA GA U (うたがう) - ừ ta gào lên hỏi"
+      ],
+      "example": "彼は彼女の言葉を疑った。",
+      "exampleVi": "Anh ấy đã nghi ngờ lời nói của cô ấy.",
+      "id": "dongtu-extra-3"
+    },
+    {
+      "word": "打つ",
+      "reading": "うつ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẢ"
+      ],
+      "meaningVi": "Đánh, đập, gõ, gieo (xúc xắc), gửi (điện tín)",
+      "mnemonic": [
+        "ĐÁNH người thì dễ bị ỨC TỨC (うつ)"
+      ],
+      "example": "太鼓を打つ。",
+      "exampleVi": "Đánh trống.",
+      "id": "dongtu-extra-4"
+    },
+    {
+      "word": "驚く",
+      "reading": "おどろく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KINH"
+      ],
+      "meaningVi": "Ngạc nhiên, kinh ngạc",
+      "mnemonic": [
+        "Ô ĐỒ RỒI (おどろ) nên tôi ngạc nhiên"
+      ],
+      "example": "彼はそのニュースに驚いた。",
+      "exampleVi": "Anh ấy đã ngạc nhiên với tin tức đó.",
+      "id": "dongtu-extra-5"
+    },
+    {
+      "word": "感謝する",
+      "reading": "かんしゃする",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẢM",
+        "TẠ"
+      ],
+      "meaningVi": "Cảm ơn, biết ơn",
+      "mnemonic": [
+        "CẢM ơn và TẠ ơn vì món quà CĂN XA (かんしゃ) quá"
+      ],
+      "example": "ご親切に感謝します。",
+      "exampleVi": "Tôi rất cảm ơn lòng tốt của bạn.",
+      "id": "dongtu-extra-6"
+    },
+    {
+      "word": "刻む",
+      "reading": "きざむ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHẮC"
+      ],
+      "meaningVi": "thái, băm, khắc, chạm trổ, ghi dấu",
+      "mnemonic": [
+        "KHẮC (刻) tên lên cây thì phải dùng dao CẮT DÀM (きざむ) lên đó"
+      ],
+      "example": "キャベツを刻む。",
+      "exampleVi": "Thái bắp cải.",
+      "id": "dongtu-extra-7"
+    },
+    {
+      "word": "急ぐ",
+      "reading": "いそぐ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẤP"
+      ],
+      "meaningVi": "vội vã, gấp rút",
+      "mnemonic": [
+        "CẤP quá rồi, Y SÔ Gắng (いそぐ) lên thôi"
+      ],
+      "example": "急いでください。",
+      "exampleVi": "Hãy khẩn trương lên / Hãy vội vàng lên.",
+      "id": "dongtu-extra-8"
+    },
+    {
+      "word": "騒ぐ",
+      "reading": "さわぐ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TAO"
+      ],
+      "meaningVi": "làm ồn, làm náo động, gây ồn ào",
+      "mnemonic": [
+        "SA WA (さわ) GÙ lưng xuống vì làm ồn nên bị mắng"
+      ],
+      "example": "騒ぐな。",
+      "exampleVi": "Đừng có làm ồn.",
+      "id": "dongtu-extra-9"
+    },
+    {
+      "word": "触る",
+      "reading": "さわる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "XÚC"
+      ],
+      "meaningVi": "Sờ, chạm vào",
+      "mnemonic": [
+        "SAO VỜ (さわる) mà cứ sờ chạm vào người ta"
+      ],
+      "example": "そんなに触るな。",
+      "exampleVi": "Đừng có sờ vào đó.",
+      "id": "dongtu-extra-10"
+    },
+    {
+      "word": "叱る",
+      "reading": "しかる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SẤT"
+      ],
+      "meaningVi": "mắng, quở trách",
+      "mnemonic": [
+        "SỈ (し) cho một trận vì làm sai thì bị mắng (かる)"
+      ],
+      "example": "子供を叱る。",
+      "exampleVi": "Mắng đứa trẻ.",
+      "id": "dongtu-extra-11"
+    },
+    {
+      "word": "閉める",
+      "reading": "しめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BẾ"
+      ],
+      "meaningVi": "Đóng (cửa, cửa sổ)",
+      "mnemonic": [
+        "BẾ (しめる) cửa lại cho kín"
+      ],
+      "example": "ドアを閉める。",
+      "exampleVi": "Đóng cửa.",
+      "id": "dongtu-extra-12"
+    },
+    {
+      "word": "戦う",
+      "reading": "たたかう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHIẾN"
+      ],
+      "meaningVi": "Chiến đấu, đánh nhau, tranh đấu",
+      "mnemonic": [
+        "TÀ TÀ CAU (たたかう) có nghĩa là cùng nhau ra trận chiến đấu"
+      ],
+      "example": "彼らは敵と戦った。",
+      "exampleVi": "Họ đã chiến đấu với kẻ thù.",
+      "id": "dongtu-extra-13"
+    },
+    {
+      "word": "止める",
+      "reading": "とめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHỈ"
+      ],
+      "meaningVi": "Dừng, đỗ, làm cho dừng lại",
+      "mnemonic": [
+        "TÔ MÀ (とめ) dừng lại thì xe mới đỗ được"
+      ],
+      "example": "車を止める。",
+      "exampleVi": "Dừng xe lại.",
+      "id": "dongtu-extra-14"
+    },
+    {
+      "word": "手伝う",
+      "reading": "てつだう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THỦ",
+        "TRUYỀN"
+      ],
+      "meaningVi": "Giúp đỡ, phụ giúp",
+      "mnemonic": [
+        "TÊ TÊ ĐAU (てつだう) tay quá nên nhờ người giúp đỡ"
+      ],
+      "example": "宿題を手伝ってください。",
+      "exampleVi": "Hãy giúp tôi làm bài tập về nhà.",
+      "id": "dongtu-extra-15"
+    },
+    {
+      "word": "泣く",
+      "reading": "なく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHẤP"
+      ],
+      "meaningVi": "Khóc",
+      "mnemonic": [
+        "KHẤP (泣) là KHÓC, NA CỨ (なく) khóc mãi không thôi"
+      ],
+      "example": "嬉しくて泣く。",
+      "exampleVi": "Khóc vì hạnh phúc.",
+      "id": "dongtu-extra-16"
+    },
+    {
+      "word": "逃げる",
+      "reading": "にげる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐÀO"
+      ],
+      "meaningVi": "Chạy trốn, trốn thoát",
+      "mnemonic": [
+        "NI GỜ (にげ) đến nơi rồi, chạy trốn thôi"
+      ],
+      "example": "犯人は逃げた。",
+      "exampleVi": "Thủ phạm đã chạy trốn.",
+      "id": "dongtu-extra-17"
+    },
+    {
+      "word": "塗る",
+      "reading": "ぬる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐỒ"
+      ],
+      "meaningVi": "Sơn, thoa, bôi, phết",
+      "mnemonic": [
+        "ĐỒ (ぬる) lên người toàn NƯỚC RỬA (ぬる)"
+      ],
+      "example": "パンにバターを塗る。",
+      "exampleVi": "Phết bơ lên bánh mì.",
+      "id": "dongtu-extra-18"
+    },
+    {
+      "word": "払う",
+      "reading": "はらう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHẤT"
+      ],
+      "meaningVi": "Trả tiền, thanh toán, quét, phủi",
+      "mnemonic": [
+        "Trả tiền cho HÀ RA (はら) túi tiền"
+      ],
+      "example": "代金を払う。",
+      "exampleVi": "Thanh toán tiền hàng.",
+      "id": "dongtu-extra-19"
+    },
+    {
+      "word": "太る",
+      "reading": "ふとる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THÁI"
+      ],
+      "meaningVi": "Béo lên, tăng cân",
+      "mnemonic": [
+        "Ăn PHÙ TỜ RỜ (ふとる) nhiều quá nên béo lên"
+      ],
+      "example": "最近少し太った。",
+      "exampleVi": "Dạo này tôi hơi béo lên một chút.",
+      "id": "dongtu-extra-20"
+    },
+    {
+      "word": "踏む",
+      "reading": "ふむ",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Đạp",
+        "Dẫm"
+      ],
+      "meaningVi": "Dẫm, đạp lên",
+      "mnemonic": [
+        "DẪM chân lên ĐẠP (踏) đất thấy cảm giác FU MU (ふむ) - rung chuyển dưới chân."
+      ],
+      "example": "地面の落ち葉を踏む。",
+      "exampleVi": "Dẫm lên lá rụng trên mặt đất.",
+      "id": "dongtu-extra-21"
+    },
+    {
+      "word": "褒める",
+      "reading": "ほめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khen"
+      ],
+      "meaningVi": "Khen ngợi, tán dương, ca tụng",
+      "mnemonic": [
+        "HOA (褒) mĩ khen ngợi là HÔ (ほ) vang khi thấy người tài"
+      ],
+      "example": "子供を褒めて伸ばす。",
+      "exampleVi": "Khen ngợi để giúp trẻ phát triển.",
+      "id": "dongtu-extra-22"
+    },
+    {
+      "word": "回る",
+      "reading": "まわる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hồi"
+      ],
+      "meaningVi": "Xoay, quay quanh, đi vòng quanh",
+      "mnemonic": [
+        "Quay HỒI (回) lại nhìn quanh xem MÀ VÀ (まわ) ai đang đi theo mình không."
+      ],
+      "example": "地球は太陽の周りを回る。",
+      "exampleVi": "Trái đất quay quanh mặt trời.",
+      "id": "dongtu-extra-23"
+    },
+    {
+      "word": "回す",
+      "reading": "まわす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hồi"
+      ],
+      "meaningVi": "Xoay, vặn, quay, chuyển tới, gửi tới",
+      "mnemonic": [
+        "HỒI (回) xoay chuyển, MÀ VẮT (まわす) kiệt sức vẫn chưa xong"
+      ],
+      "example": "ハンドルを回す。",
+      "exampleVi": "Vặn vô lăng.",
+      "id": "dongtu-extra-24"
+    },
+    {
+      "word": "向かう",
+      "reading": "むかう",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hướng"
+      ],
+      "meaningVi": "Hướng tới, tiến về phía",
+      "mnemonic": [
+        "HƯỚNG về phía trước thì MU (む) CÂU (かう) cá mới dễ dính"
+      ],
+      "example": "駅に向かう。",
+      "exampleVi": "Đi về phía nhà ga.",
+      "id": "dongtu-extra-25"
+    },
+    {
+      "word": "焼く",
+      "reading": "やく",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thiêu"
+      ],
+      "meaningVi": "Nướng, thiêu đốt, nung",
+      "mnemonic": [
+        "THIÊU (焼く) là NƯỚNG thịt trên lửa để không bị YAKU (やく) đắng"
+      ],
+      "example": "パンを焼く。",
+      "exampleVi": "Nướng bánh mì.",
+      "id": "dongtu-extra-26"
+    },
+    {
+      "word": "焼ける",
+      "reading": "やける",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thiêu"
+      ],
+      "meaningVi": "Bị nướng, bị cháy, nướng chín",
+      "mnemonic": [
+        "Cháy THIÊU (焼) cả nhà, YA KÊ (やけ) hết rồi!"
+      ],
+      "example": "パンが焼ける。",
+      "exampleVi": "Bánh mì đã nướng chín.",
+      "id": "dongtu-extra-27"
+    },
+    {
+      "word": "やめる",
+      "reading": "やめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "ngừng, bỏ, thôi, từ chức",
+      "mnemonic": [
+        "Dừng YA (Ya-meru) lại đi, đừng làm nữa vì không tốt đâu!"
+      ],
+      "example": "会社を辞める。",
+      "exampleVi": "Nghỉ việc ở công ty.",
+      "id": "dongtu-extra-28"
+    },
+    {
+      "word": "辞める",
+      "reading": "やめる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Từ"
+      ],
+      "meaningVi": "Nghỉ việc, từ chức, bỏ việc",
+      "mnemonic": [
+        "TỪ (辞) bỏ công việc vì muốn tìm hướng đi mới, YA MÀ (やめる) lại phải nghỉ thôi"
+      ],
+      "example": "会社を辞める。",
+      "exampleVi": "Nghỉ việc công ty.",
+      "id": "dongtu-extra-29"
+    },
+    {
+      "word": "仰ぐ",
+      "reading": "あおぐ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "NGƯỠNG"
+      ],
+      "meaningVi": "Ngước nhìn; tôn trọng; nhờ cậy; hỏi ý kiến",
+      "mnemonic": [
+        "NGƯỠNG (仰) cổ lên trời A-O (あお) ước mong được giúp đỡ."
+      ],
+      "example": "夜空を仰ぐ。",
+      "exampleVi": "Ngước nhìn lên bầu trời đêm.",
+      "id": "dongtu-extra-30"
+    },
+    {
+      "word": "あきれる",
+      "reading": "あきれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Ngạc nhiên, sốc (theo nghĩa tiêu cực), cạn lời, bó tay",
+      "mnemonic": [
+        "Người ĐỜI ngạc nhiên, NGỐC nghếch đến mức 'A, KI-RỜ' (呆 - A-ki-re-ru) cả lời vì hành động khó hiểu."
+      ],
+      "example": "あまりのひどさに呆れて言葉も出ない。",
+      "exampleVi": "Vì quá tệ hại nên tôi cạn lời, không nói nên lời.",
+      "id": "dongtu-extra-31"
+    },
+    {
+      "word": "憧れる",
+      "reading": "あこがれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SUNG"
+      ],
+      "meaningVi": "Ngưỡng mộ, mơ ước, khao khát",
+      "mnemonic": [
+        "Ai cũng GÀ RỒI (あこがれ) mà vẫn mơ ước bay cao"
+      ],
+      "example": "都会の生活に憧れる。",
+      "exampleVi": "Tôi ngưỡng mộ cuộc sống ở thành phố.",
+      "id": "dongtu-extra-32"
+    },
+    {
+      "word": "味わう",
+      "reading": "あじわう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "VỊ"
+      ],
+      "meaningVi": "nếm, thưởng thức, trải nghiệm",
+      "mnemonic": [
+        "ĂN GÌ VÀ (あじわ) thưởng thức hương vị món ăn"
+      ],
+      "example": "ゆっくりと料理を味わう。",
+      "exampleVi": "Thưởng thức món ăn một cách từ tốn.",
+      "id": "dongtu-extra-33"
+    },
+    {
+      "word": "当てはめる",
+      "reading": "あてはめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Đương"
+      ],
+      "meaningVi": "Áp dụng, lắp vào, ứng dụng vào",
+      "mnemonic": [
+        "ĐƯƠNG (当て) đầu áp dụng luật lệ, HAME (はめ) vào khuôn khổ để không sai sót"
+      ],
+      "example": "新しい規則をすべてのケースに当てはめる。",
+      "exampleVi": "Áp dụng quy tắc mới vào tất cả các trường hợp.",
+      "id": "dongtu-extra-34"
+    },
+    {
+      "word": "暴れる",
+      "reading": "あばれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BẠO"
+      ],
+      "meaningVi": "Quậy phá, làm loạn, hung hăng",
+      "mnemonic": "Kẻ BẠO lực thường hay A BẠ (あば) quậy phá làm loạn khắp nơi.",
+      "example": "お酒を飲んで暴れる。",
+      "exampleVi": "Uống rượu vào rồi quậy phá.",
+      "id": "dongtu-extra-35"
+    },
+    {
+      "word": "浴びる",
+      "reading": "あびる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Dục"
+      ],
+      "meaningVi": "Tắm, dội, tưới (nước/ánh sáng/sự chú ý)",
+      "mnemonic": [
+        "DỤC (浴) vọng tắm mình trong ánh nắng để cơ thể A BỊ (あびる) bỏng rát."
+      ],
+      "example": "シャワーを浴びる。",
+      "exampleVi": "Tắm vòi hoa sen.",
+      "id": "dongtu-extra-36"
+    },
+    {
+      "word": "編む",
+      "reading": "あむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Biên"
+      ],
+      "meaningVi": "Đan, bện, kết lại",
+      "mnemonic": [
+        "BIÊN (編) tập xong cuốn sách, tôi ngồi ĐAN (あむ) len cho người yêu"
+      ],
+      "example": "セーターを編む。",
+      "exampleVi": "Đan áo len.",
+      "id": "dongtu-extra-37"
+    },
+    {
+      "word": "甘える",
+      "reading": "あまえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Cam"
+      ],
+      "meaningVi": "Làm nũng, nhõng nhẽo, dựa dẫm vào người khác",
+      "mnemonic": [
+        "Người CAM (甘) chịu làm NŨNG để được chiều chuộng nên cứ A MA E Rờ (甘える) vào vai người khác"
+      ],
+      "example": "子供が母親に甘える。",
+      "exampleVi": "Đứa trẻ làm nũng với mẹ.",
+      "id": "dongtu-extra-38"
+    },
+    {
+      "word": "余る",
+      "reading": "あまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DƯ"
+      ],
+      "meaningVi": "Dư thừa, còn lại",
+      "mnemonic": [
+        "DƯ (余) thừa một chút DƯ (あまる) âm, cứ để đó không sao"
+      ],
+      "example": "時間が余る。",
+      "exampleVi": "Dư thời gian.",
+      "id": "dongtu-extra-39"
+    },
+    {
+      "word": "溢れる",
+      "reading": "あふれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DẬT"
+      ],
+      "meaningVi": "Tràn, đầy, ngập tràn",
+      "mnemonic": [
+        "DẬT (溢) là nước TRÀN qua bờ, chảy ẢNH HƯỞNG (あふれる) ra ngoài làm ướt hết cả sàn nhà."
+      ],
+      "example": "涙が目から溢れる。",
+      "exampleVi": "Nước mắt trào ra từ đôi mắt.",
+      "id": "dongtu-extra-40"
+    },
+    {
+      "word": "甘やかす",
+      "reading": "あまやかす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CAM"
+      ],
+      "meaningVi": "Nuông chiều, chiều chuộng",
+      "mnemonic": [
+        "Người CAM (甘) chịu khó nuông chiều, chiều chuộng con cái quá mức nên bị lờn mặt."
+      ],
+      "example": "子供を甘やかしてはいけない。",
+      "exampleVi": "Không được nuông chiều trẻ con.",
+      "id": "dongtu-extra-41"
+    },
+    {
+      "word": "操る",
+      "reading": "あやつる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THAO"
+      ],
+      "meaningVi": "điều khiển, thao túng, vận hành",
+      "mnemonic": [
+        "THAO túng con rối bằng cách A YA TƯỞNG (あやつる) tượng ra dây kéo"
+      ],
+      "example": "人形を操る。",
+      "exampleVi": "Điều khiển con rối.",
+      "id": "dongtu-extra-42"
+    },
+    {
+      "word": "あやまる",
+      "reading": "あやまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Xin lỗi, tạ lỗi",
+      "mnemonic": [
+        "A (あ) YA (や) MA (ま) RỒI (る), xin lỗi vì đã làm sai"
+      ],
+      "example": "悪いと思ったら、すぐに謝るべきだ。",
+      "exampleVi": "Nếu nghĩ là mình sai thì nên xin lỗi ngay lập tức.",
+      "id": "dongtu-extra-43"
+    },
+    {
+      "word": "荒れる",
+      "reading": "あれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "HOANG"
+      ],
+      "meaningVi": "hoang vắng, bão bùng, trở nên hỗn loạn, thô ráp (da)",
+      "mnemonic": [
+        "Thời tiết HOANG (あれる) vắng, bão bùng A RỒI"
+      ],
+      "example": "嵐で海が荒れている。",
+      "exampleVi": "Biển đang động vì bão.",
+      "id": "dongtu-extra-44"
+    },
+    {
+      "word": "抱える",
+      "reading": "かかえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BÃO"
+      ],
+      "meaningVi": "Ôm, cầm, mang vác; (nghĩa bóng) gánh chịu, đối mặt với khó khăn/vấn đề",
+      "mnemonic": [
+        "BÃO (抱) đến làm nhà cửa tan hoang, khiến ta phải ÔM, GÁNH CHỊU bao khó khăn."
+      ],
+      "example": "彼は多くの問題を抱えている。",
+      "exampleVi": "Anh ấy đang gánh chịu rất nhiều vấn đề.",
+      "id": "dongtu-extra-45"
+    },
+    {
+      "word": "傾く",
+      "reading": "かたむく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khuynh"
+      ],
+      "meaningVi": "Nghiêng, đổ nghiêng, có khuynh hướng",
+      "mnemonic": [
+        "KHUYNH (傾) hướng đi KHUÊ (かたむ) nhà nên người nghiêng ngả"
+      ],
+      "example": "地震で家が傾いた。",
+      "exampleVi": "Ngôi nhà bị nghiêng do động đất.",
+      "id": "dongtu-extra-46"
+    },
+    {
+      "word": "語る",
+      "reading": "かたる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Ngữ"
+      ],
+      "meaningVi": "Kể chuyện, thuật lại, nói chuyện",
+      "mnemonic": [
+        "NGỮ (語) điệu khi KỂ CHUYỆN (かたる) phải truyền cảm thì người nghe mới hiểu."
+      ],
+      "example": "彼は自分の過去を語った。",
+      "exampleVi": "Anh ấy đã kể về quá khứ của mình.",
+      "id": "dongtu-extra-47"
+    },
+    {
+      "word": "かつぐ",
+      "reading": "担ぐ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐAM"
+      ],
+      "meaningVi": "Khiêng, vác trên vai; lừa bịp, chơi khăm",
+      "mnemonic": [
+        "ĐAM (担) mê vác đồ nặng trên vai nên vai bị KÁT (かつ) cọ xát đến đau"
+      ],
+      "example": "荷物を肩に担ぐ。",
+      "exampleVi": "Vác hành lý trên vai.",
+      "id": "dongtu-extra-48"
+    },
+    {
+      "word": "悲しむ",
+      "reading": "かなしむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BI"
+      ],
+      "meaningVi": "Buồn bã, đau buồn, thương tâm",
+      "mnemonic": [
+        "KANA (cá ngừ) SHIMU (chìm) xuống đáy biển khiến lòng người BI ai, buồn bã."
+      ],
+      "example": "死を悲しむ。",
+      "exampleVi": "Đau buồn trước cái chết.",
+      "id": "dongtu-extra-49"
+    },
+    {
+      "word": "かなう",
+      "reading": "かなう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Đáp ứng, thỏa mãn, thành hiện thực",
+      "mnemonic": [
+        "Ước nguyện ĐIỆP (叶) khúc tình ca đã CANH (かな) chừng trở thành hiện thực"
+      ],
+      "example": "夢がかなう。",
+      "exampleVi": "Giấc mơ trở thành hiện thực.",
+      "id": "dongtu-extra-50"
+    },
+    {
+      "word": "からかう",
+      "reading": "からかう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Trêu chọc, giễu cợt",
+      "mnemonic": [
+        "Người ta CÀ RÀ (から) CÀU (かう) nhàu vì hay bị bạn bè trêu chọc."
+      ],
+      "example": "彼女をからかうのはやめなさい。",
+      "exampleVi": "Hãy thôi trêu chọc cô ấy đi.",
+      "id": "dongtu-extra-51"
+    },
+    {
+      "word": "枯れる",
+      "reading": "かれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "KHÔ"
+      ],
+      "meaningVi": "héo, khô héo, tàn úa",
+      "mnemonic": [
+        "Cây KHÔ (枯) héo KẺ (かれ) nào tưới cũng không cứu được"
+      ],
+      "example": "庭の草木が枯れる。",
+      "exampleVi": "Cây cỏ trong vườn bị khô héo.",
+      "id": "dongtu-extra-52"
+    },
+    {
+      "word": "かわく",
+      "reading": "渇く",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khát"
+      ],
+      "meaningVi": "Khát, khao khát",
+      "mnemonic": [
+        "KHÁT (渇) nước quá, cổ họng KA-WA-KU khô khốc kêu cứu"
+      ],
+      "example": "のどが渇きました。",
+      "exampleVi": "Tôi bị khát nước.",
+      "id": "dongtu-extra-53"
+    },
+    {
+      "word": "かわかす",
+      "reading": "乾かす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Can"
+      ],
+      "meaningVi": "Làm khô, sấy khô",
+      "mnemonic": [
+        "CAN (乾) đảm sấy khô quần áo cho CÀN KHOÁC (かわかす) hết ẩm ướt."
+      ],
+      "example": "髪をドライヤーで乾かす。",
+      "exampleVi": "Sấy khô tóc bằng máy sấy.",
+      "id": "dongtu-extra-54"
+    },
+    {
+      "word": "きしむ",
+      "reading": "きしむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "kêu cót két, rít lên, cọt kẹt",
+      "mnemonic": [
+        "Cửa KÍ SHÍ (きし) lên tiếng kêu cót két"
+      ],
+      "example": "床がきしむ。",
+      "exampleVi": "Sàn nhà kêu cót két.",
+      "id": "dongtu-extra-55"
+    },
+    {
+      "word": "築く",
+      "reading": "きずく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRÚC"
+      ],
+      "meaningVi": "Xây dựng, gây dựng",
+      "mnemonic": [
+        "Xây nhà TRÚC (きずく) là phải KIÊN CỐ VỮNG CHẮC (きずく)"
+      ],
+      "example": "信頼関係を築く。",
+      "exampleVi": "Xây dựng mối quan hệ tin cậy.",
+      "id": "dongtu-extra-56"
+    },
+    {
+      "word": "競う",
+      "reading": "きそう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CẠNH"
+      ],
+      "meaningVi": "Cạnh tranh, ganh đua",
+      "mnemonic": [
+        "KHI SÔ (きそう) vào cuộc đua thì phải cạnh tranh"
+      ],
+      "example": "彼らは優勝を競った。",
+      "exampleVi": "Họ đã cạnh tranh để giành chiến thắng.",
+      "id": "dongtu-extra-57"
+    },
+    {
+      "word": "鍛える",
+      "reading": "きたえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "RÈN"
+      ],
+      "meaningVi": "Rèn luyện, tôi luyện",
+      "mnemonic": [
+        "KỊ TA (きた) rèn luyện để trở nên mạnh mẽ"
+      ],
+      "example": "体を鍛える。",
+      "exampleVi": "Rèn luyện cơ thể.",
+      "id": "dongtu-extra-58"
+    },
+    {
+      "word": "着飾る",
+      "reading": "きかざる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TRƯỚC SỨC"
+      ],
+      "meaningVi": "Ăn diện, chưng diện, mặc đẹp",
+      "mnemonic": [
+        "TRƯỚC (着) khi đi dự tiệc, SỨC (飾) nước hoa và mặc đồ đẹp để ăn diện."
+      ],
+      "example": "彼女はパーティーのために着飾った。",
+      "exampleVi": "Cô ấy đã ăn diện để chuẩn bị cho bữa tiệc.",
+      "id": "dongtu-extra-59"
+    },
+    {
+      "word": "拒む",
+      "reading": "こばむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CỰ"
+      ],
+      "meaningVi": "Từ chối, cự tuyệt, khước từ",
+      "mnemonic": [
+        "CỰ (拒) tuyệt lời mời, lòng CÔ BĂM (こばむ) nát vì đau buồn"
+      ],
+      "example": "彼は誘いを拒んだ。",
+      "exampleVi": "Anh ấy đã từ chối lời mời.",
+      "id": "dongtu-extra-60"
+    },
+    {
+      "word": "好む",
+      "reading": "このむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hảo"
+      ],
+      "meaningVi": "Thích, ưa thích, ưa chuộng",
+      "mnemonic": "Người HẢO tâm thì thường CỐ NÔM (nỗ lực, cố gắng) vì họ rất ƯA THÍCH làm việc thiện.",
+      "example": "私は読書を好む。",
+      "exampleVi": "Tôi thích đọc sách.",
+      "id": "dongtu-extra-61"
+    },
+    {
+      "word": "凝る",
+      "reading": "こる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Ngưng"
+      ],
+      "meaningVi": "Đông cứng, mỏi (cơ), say mê, cầu kỳ",
+      "mnemonic": [
+        "Cố (こ) sức làm việc đến mức vai NGƯNG (凝) trệ, nhức mỏi và CỔ (こる) cồn say mê đến quên mình."
+      ],
+      "example": "肩が凝る。",
+      "exampleVi": "Vai bị mỏi.",
+      "id": "dongtu-extra-62"
+    },
+    {
+      "word": "転がる",
+      "reading": "ころがる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHUYỂN"
+      ],
+      "meaningVi": "lăn, lăn lóc, ngã xuống",
+      "mnemonic": [
+        "CÔ RỒ (ころ) lăn lông lốc dưới đất"
+      ],
+      "example": "ボールが転がる。",
+      "exampleVi": "Quả bóng lăn.",
+      "id": "dongtu-extra-63"
+    },
+    {
+      "word": "転がす",
+      "reading": "ころがす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHUYỂN"
+      ],
+      "meaningVi": "lăn, làm cho lăn",
+      "mnemonic": [
+        "CÔ RỒ GÁ (ころが) lên tiếng, lăn trái bóng đi"
+      ],
+      "example": "ボールを転がす。",
+      "exampleVi": "Lăn quả bóng.",
+      "id": "dongtu-extra-64"
+    },
+    {
+      "word": "腰掛ける",
+      "reading": "こしかける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "YÊU QUẢI"
+      ],
+      "meaningVi": "Ngồi, ngồi xuống (ghế, v.v.)",
+      "mnemonic": [
+        "Cái YÊU (腰) THÌ PHẢI QUẢI (掛) vào cái ghế mà ngồi (こしかける)"
+      ],
+      "example": "椅子に腰掛ける。",
+      "exampleVi": "Ngồi lên ghế.",
+      "id": "dongtu-extra-65"
+    },
+    {
+      "word": "焦げる",
+      "reading": "こげる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tiêu"
+      ],
+      "meaningVi": "Bị cháy, khê, sém",
+      "mnemonic": [
+        "TIÊU (焦) hao năng lượng vì món ăn bị KÔ-GÊ (こげる) cháy khét lẹt trên bếp."
+      ],
+      "example": "パンが焦げた。",
+      "exampleVi": "Bánh mì đã bị cháy.",
+      "id": "dongtu-extra-66"
+    },
+    {
+      "word": "凍える",
+      "reading": "こごえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Đống"
+      ],
+      "meaningVi": "Cảm thấy lạnh cóng, rét run",
+      "mnemonic": [
+        "CÔ (こ) GÔ (ご) Ê (え) R (る) vì đứng giữa trời đông giá rét nên tay chân tôi lạnh cóng."
+      ],
+      "example": "寒さで手が凍える。",
+      "exampleVi": "Tay tôi lạnh cóng vì trời lạnh.",
+      "id": "dongtu-extra-67"
+    },
+    {
+      "word": "こらえる",
+      "reading": "こらえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Chịu đựng, nhẫn nại, kiềm chế",
+      "mnemonic": [
+        "CÔ RẤT LÀ (こらえる) kiên nhẫn chịu đựng"
+      ],
+      "example": "痛みをこらえる。",
+      "exampleVi": "Chịu đựng nỗi đau.",
+      "id": "dongtu-extra-68"
+    },
+    {
+      "word": "絶える",
+      "reading": "たえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TUYỆT"
+      ],
+      "meaningVi": "Bị dừng, bị ngắt quãng, không còn nữa, tuyệt chủng",
+      "mnemonic": [
+        "TÀ E (たえ) không còn nữa thì bị tuyệt chủng"
+      ],
+      "example": "絶えず変化する",
+      "exampleVi": "Thay đổi không ngừng",
+      "id": "dongtu-extra-69"
+    },
+    {
+      "word": "蓄える",
+      "reading": "たくわえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "SÚC"
+      ],
+      "meaningVi": "Tích trữ, dự trữ, để dành",
+      "mnemonic": [
+        "TÍCH tiền TÀ KHOA (たくわ) để dự trữ"
+      ],
+      "example": "知識を蓄える。",
+      "exampleVi": "Tích lũy kiến thức.",
+      "id": "dongtu-extra-70"
+    },
+    {
+      "word": "漂う",
+      "reading": "ただよう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "PHIÊU"
+      ],
+      "meaningVi": "Trôi nổi, phảng phất, toát ra (mùi hương, không khí)",
+      "mnemonic": [
+        "PHIÊU bạt giữa dòng đời, TA ĐÂU (ただ) biết mình sẽ trôi về đâu."
+      ],
+      "example": "いい香りが漂ってくる。",
+      "exampleVi": "Một mùi hương thơm phảng phất bay đến.",
+      "id": "dongtu-extra-71"
+    },
+    {
+      "word": "ただれる",
+      "reading": "ただれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Lở loét, viêm nhiễm (da)",
+      "mnemonic": [
+        "Da LỞ LOÉT vì bị LÀN (爛) nước nóng làm TÁ ĐÁ (ただ) đổ lên người."
+      ],
+      "example": "火傷で皮膚がただれる。",
+      "exampleVi": "Da bị lở loét do bỏng.",
+      "id": "dongtu-extra-72"
+    },
+    {
+      "word": "立ち寄る",
+      "reading": "たちよる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Lập ký"
+      ],
+      "meaningVi": "Ghé qua, tạt vào (trên đường đi đâu đó)",
+      "mnemonic": [
+        "Đứng (LẬP) lại rồi KÝ gửi đồ đạc khi TẠT VÀO cửa hàng."
+      ],
+      "example": "帰りにコンビニに立ち寄る。",
+      "exampleVi": "Trên đường về, tôi ghé vào cửa hàng tiện lợi.",
+      "id": "dongtu-extra-73"
+    },
+    {
+      "word": "達成する",
+      "reading": "たっせいする",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẠT THÀNH"
+      ],
+      "meaningVi": "đạt được, hoàn thành",
+      "mnemonic": [
+        "ĐẠT THÀNH mục tiêu thì TẮT (たっ) SEI (せい) máy nghỉ ngơi"
+      ],
+      "example": "目的を達成する。",
+      "exampleVi": "Đạt được mục đích.",
+      "id": "dongtu-extra-74"
+    },
+    {
+      "word": "散らかす",
+      "reading": "ちらかす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TÁN"
+      ],
+      "meaningVi": "Làm bừa bãi, bày bừa",
+      "mnemonic": [
+        "Đồ đạc CHI LÀ CÁT (ちらかす) vương vãi bừa bãi"
+      ],
+      "example": "部屋を散らかさないでください。",
+      "exampleVi": "Xin đừng làm bừa bãi căn phòng.",
+      "id": "dongtu-extra-75"
+    },
+    {
+      "word": "散らかる",
+      "reading": "ちらかる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẢN"
+      ],
+      "meaningVi": "Bừa bộn, lộn xộn",
+      "mnemonic": [
+        "Đồ đạc CHI LÀ CÁI (ちらか) đống bừa bộn"
+      ],
+      "example": "部屋が散らかる。",
+      "exampleVi": "Phòng ốc bừa bộn.",
+      "id": "dongtu-extra-76"
+    },
+    {
+      "word": "つかむ",
+      "reading": "つかむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Nắm, bắt, tóm lấy, chộp lấy",
+      "mnemonic": [
+        "TSU KÀ MU (掴) vào tay để TÚM lấy cơ hội."
+      ],
+      "example": "チャンスをつかむ。",
+      "exampleVi": "Nắm bắt cơ hội.",
+      "id": "dongtu-extra-77"
+    },
+    {
+      "word": "突き当たり",
+      "reading": "つきあたり",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "Đột đương"
+      ],
+      "meaningVi": "Cuối đường, cuối hành lang",
+      "mnemonic": [
+        "ĐỘT (突き) ngột ĐƯƠNG (当たり) đầu khi đi đến cuối con đường."
+      ],
+      "example": "突き当たりを右に曲がってください。",
+      "exampleVi": "Hãy rẽ phải ở cuối con đường.",
+      "id": "dongtu-extra-78"
+    },
+    {
+      "word": "突き出す",
+      "reading": "つきだす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Đột xuất"
+      ],
+      "meaningVi": "Chìa ra, đưa ra, ưỡn ra, đẩy ra",
+      "mnemonic": [
+        "ĐỘT (突) nhiên XUẤT (出) hiện cái cằm, anh ta CHÌA RA bản hợp đồng."
+      ],
+      "example": "あごを突き出す。",
+      "exampleVi": "Ưỡn cằm ra.",
+      "id": "dongtu-extra-79"
+    },
+    {
+      "word": "努める",
+      "reading": "つとめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Nỗ"
+      ],
+      "meaningVi": "Nỗ lực, cố gắng",
+      "mnemonic": [
+        "Cố gắng NỖ (努) lực để TỰ (つ) mình làm TRÒN (とめる) trách nhiệm."
+      ],
+      "example": "問題を解決するように努める。",
+      "exampleVi": "Nỗ lực để giải quyết vấn đề.",
+      "id": "dongtu-extra-80"
+    },
+    {
+      "word": "務める",
+      "reading": "つとめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Vụ"
+      ],
+      "meaningVi": "Đảm nhiệm, đóng vai trò, phục vụ",
+      "mnemonic": [
+        "VỤ (務) việc gì cũng cần phải TỰ TAY (つとめる) đảm nhiệm mới yên tâm"
+      ],
+      "example": "司会を務める。",
+      "exampleVi": "Đảm nhiệm vai trò người dẫn chương trình.",
+      "id": "dongtu-extra-81"
+    },
+    {
+      "word": "連なる",
+      "reading": "つらなる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LIÊN"
+      ],
+      "meaningVi": "Trải dài, xếp thành hàng, nối tiếp nhau",
+      "mnemonic": [
+        "TỪ RA NÀ (つらな) dãy núi trải dài nối tiếp nhau"
+      ],
+      "example": "山々が地平線に連なっている。",
+      "exampleVi": "Những dãy núi trải dài nối tiếp nhau tới tận đường chân trời.",
+      "id": "dongtu-extra-82"
+    },
+    {
+      "word": "連ねる",
+      "reading": "つらねる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LIÊN"
+      ],
+      "meaningVi": "nối liền, sắp hàng, đưa vào danh sách",
+      "mnemonic": [
+        "Tên (つら) tôi được nối liền (ねる) vào danh sách"
+      ],
+      "example": "山々が連なる。",
+      "exampleVi": "Các dãy núi nối tiếp nhau.",
+      "id": "dongtu-extra-83"
+    },
+    {
+      "word": "つるす",
+      "reading": "つるす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "treo, móc lên",
+      "mnemonic": [
+        "TSU RU (つる) lên rồi treo SÚ (す) bao tải lên"
+      ],
+      "example": "風鈴を軒先に吊るす。",
+      "exampleVi": "Treo chuông gió ở dưới mái hiên.",
+      "id": "dongtu-extra-84"
+    },
+    {
+      "word": "つり合う",
+      "reading": "つりあう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "điếu hợp"
+      ],
+      "meaningVi": "Cân đối, phù hợp, tương xứng",
+      "mnemonic": [
+        "Treo (つり) cho hợp (あう) với nhau"
+      ],
+      "example": "収入と支出がつり合う。",
+      "exampleVi": "Thu nhập cân đối với chi tiêu.",
+      "id": "dongtu-extra-85"
+    },
+    {
+      "word": "照らす",
+      "reading": "てらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CHIẾU"
+      ],
+      "meaningVi": "Chiếu sáng, soi sáng",
+      "mnemonic": [
+        "Dùng đèn CHIẾU TÊ TÊ (てらす) vào chỗ tối"
+      ],
+      "example": "懐中電灯で足元を照らす。",
+      "exampleVi": "Soi đèn pin xuống dưới chân.",
+      "id": "dongtu-extra-86"
+    },
+    {
+      "word": "溶かす",
+      "reading": "とかす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "DUNG"
+      ],
+      "meaningVi": "Làm nóng chảy, làm tan, hòa tan",
+      "mnemonic": [
+        "DUNG (溶) nham thạch nóng làm TO-KÁ-S (とかす) tan chảy mọi thứ"
+      ],
+      "example": "砂糖を水に溶かす。",
+      "exampleVi": "Hòa tan đường vào nước.",
+      "id": "dongtu-extra-87"
+    },
+    {
+      "word": "とける",
+      "reading": "とける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Tan ra, giải quyết, cởi bỏ",
+      "mnemonic": [
+        "Tuyết TAN (溶ける) chảy ra thành dòng, bài toán khó cũng GIẢI (解ける) xong xuôi"
+      ],
+      "example": "氷がとける。",
+      "exampleVi": "Đá tan ra.",
+      "id": "dongtu-extra-88"
+    },
+    {
+      "word": "戸惑う",
+      "reading": "とまどう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hộ hoặc"
+      ],
+      "meaningVi": "Lúng túng, bối rối, không biết cách xử lý",
+      "mnemonic": [
+        "Đứng trước HỘ (戸) cửa mà HỌC (惑) cách mở thì thật là bối rối, lúng túng"
+      ],
+      "example": "新しい環境に戸惑う。",
+      "exampleVi": "Tôi cảm thấy lúng túng trước môi trường mới.",
+      "id": "dongtu-extra-89"
+    },
+    {
+      "word": "伴う",
+      "reading": "ともなう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BẠN"
+      ],
+      "meaningVi": "Cùng với, đi kèm, kéo theo",
+      "mnemonic": [
+        "BẠN (伴う) đồng hành cùng mình đi kèm trên mọi nẻo đường đời."
+      ],
+      "example": "危険を伴う仕事。",
+      "exampleVi": "Công việc đi kèm với sự nguy hiểm.",
+      "id": "dongtu-extra-90"
+    },
+    {
+      "word": "取り扱う",
+      "reading": "とりあつかう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thủ cấp"
+      ],
+      "meaningVi": "Đối xử, thao tác, buôn bán, giải quyết",
+      "mnemonic": [
+        "THỦ (取) lấy rồi ĐỐI XỬ, THAO TÁC, BÁN hàng bằng đôi tay CẤP (扱) tập"
+      ],
+      "example": "当店では、クレジットカードを取り扱っております。",
+      "exampleVi": "Cửa hàng chúng tôi có chấp nhận thanh toán bằng thẻ tín dụng.",
+      "id": "dongtu-extra-91"
+    },
+    {
+      "word": "取り寄せる",
+      "reading": "とりよせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thủ ký"
+      ],
+      "meaningVi": "Gửi đến, đặt hàng, yêu cầu gửi tới",
+      "mnemonic": [
+        "THỦ (取) lấy rồi KÝ (寄) gửi yêu cầu ĐẶT HÀNG gửi tới nhà"
+      ],
+      "example": "遠くの地方から特産品を取り寄せる。",
+      "exampleVi": "Đặt hàng đặc sản từ một địa phương ở xa gửi đến.",
+      "id": "dongtu-extra-92"
+    },
+    {
+      "word": "捕らえる",
+      "reading": "とらえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "BỔ"
+      ],
+      "meaningVi": "Bắt giữ, nắm bắt, tóm lấy",
+      "mnemonic": [
+        "BỔ (捕) sung sức mạnh để BỔ nhào tới tóm lấy, bắt giữ (とらえる) kẻ địch."
+      ],
+      "example": "警察が泥棒を捕らえた。",
+      "exampleVi": "Cảnh sát đã bắt giữ tên trộm.",
+      "id": "dongtu-extra-93"
+    },
+    {
+      "word": "投げ出す",
+      "reading": "なげだす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẦU XUẤT"
+      ],
+      "meaningVi": "Ném ra ngoài, vứt bỏ, từ bỏ giữa chừng",
+      "mnemonic": [
+        "NA GÉ ĐÁ (なげだ) ra ngoài rồi từ bỏ luôn"
+      ],
+      "example": "仕事を途中で投げ出す。",
+      "exampleVi": "Bỏ dở công việc giữa chừng.",
+      "id": "dongtu-extra-94"
+    },
+    {
+      "word": "慰める",
+      "reading": "なぐさめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ỦY"
+      ],
+      "meaningVi": "An ủi, động viên",
+      "mnemonic": [
+        "NA GỬI (なぐさ) lời an ủi đến người thân"
+      ],
+      "example": "悲しんでいる友人を慰める。",
+      "exampleVi": "An ủi người bạn đang buồn bã.",
+      "id": "dongtu-extra-95"
+    },
+    {
+      "word": "なでる",
+      "reading": "なでる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "xoa, vuốt ve",
+      "mnemonic": [
+        "NA DÊ (なで) thì vuốt ve nó"
+      ],
+      "example": "子供の頭をなでる。",
+      "exampleVi": "Xoa đầu đứa trẻ.",
+      "id": "dongtu-extra-96"
+    },
+    {
+      "word": "習う",
+      "reading": "ならう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TẬP"
+      ],
+      "meaningVi": "Học tập, học hỏi (từ người khác)",
+      "mnemonic": [
+        "TẬP trung NAU (nấu) ăn để HỌC HỎI kinh nghiệm từ đầu bếp."
+      ],
+      "example": "ピアノを習う。",
+      "exampleVi": "Học chơi đàn piano.",
+      "id": "dongtu-extra-97"
+    },
+    {
+      "word": "馴染む",
+      "reading": "なじむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Tuần"
+      ],
+      "meaningVi": "Trở nên quen thuộc, hòa nhập, thích nghi",
+      "mnemonic": [
+        "Người TUẦN (馴染) tra đi làm quen với môi trường mới nên dần trở nên THÂN THIỆN, HÒA NHẬP."
+      ],
+      "example": "新しい環境にようやく馴染んできた。",
+      "exampleVi": "Cuối cùng thì tôi cũng đã dần quen với môi trường mới.",
+      "id": "dongtu-extra-98"
+    },
+    {
+      "word": "納得する",
+      "reading": "なっとくする",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Nạp đắc"
+      ],
+      "meaningVi": "Lý giải, thấu hiểu, chấp nhận, bị thuyết phục",
+      "mnemonic": [
+        "NẠP ĐẮC (納得) nghĩa là 'thu nạp và đắc được' sự hiểu biết, nhờ vậy mà ta hoàn toàn thấu hiểu và chấp nhận vấn đề."
+      ],
+      "example": "父は私の説明にやっと納得してくれた。",
+      "exampleVi": "Cha cuối cùng cũng đã hiểu và chấp nhận lời giải thích của tôi.",
+      "id": "dongtu-extra-99"
+    },
+    {
+      "word": "逃す",
+      "reading": "にがす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐÀO"
+      ],
+      "meaningVi": "Để thoát, bỏ lỡ, đánh mất cơ hội",
+      "mnemonic": [
+        "ĐÀO (逃) tẩu mà NÌ GÀ S (にがす) chạy mất, bỏ lỡ cơ hội vàng."
+      ],
+      "example": "チャンスを逃す。",
+      "exampleVi": "Bỏ lỡ cơ hội.",
+      "id": "dongtu-extra-100"
+    },
+    {
+      "word": "濁る",
+      "reading": "にごる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Trọc"
+      ],
+      "meaningVi": "Trở nên đục, vẩn đục, không trong trẻo",
+      "mnemonic": [
+        "Nước TRỌC (濁) NI (に) GỒ (ご) lên các cặn bẩn làm dòng nước đục ngầu"
+      ],
+      "example": "大雨で川の水が濁った。",
+      "exampleVi": "Nước sông đã trở nên đục do mưa lớn.",
+      "id": "dongtu-extra-101"
+    },
+    {
+      "word": "にらむ",
+      "reading": "睨む",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Nghễ"
+      ],
+      "meaningVi": "Lườm, nhìn chằm chằm, dự đoán, đánh giá",
+      "mnemonic": [
+        "NGHỄ (睨) là nhìn trừng trừng, 'NI-RAM' (にらむ) người ta bằng ánh mắt hình viên đạn."
+      ],
+      "example": "彼は私を睨んだ。",
+      "exampleVi": "Anh ta đã lườm tôi.",
+      "id": "dongtu-extra-102"
+    },
+    {
+      "word": "ねじる",
+      "reading": "ねじる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Vặn, xoắn, bóp méo",
+      "mnemonic": [
+        "NE (Né) tránh kẻ thù bằng cách VẶN (ねじる - ne-ji-ru) người né đòn"
+      ],
+      "example": "タオルをねじって水を絞る。",
+      "exampleVi": "Vặn khăn để vắt nước.",
+      "id": "dongtu-extra-103"
+    },
+    {
+      "word": "狙う",
+      "reading": "ねらう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THƯ"
+      ],
+      "meaningVi": "Nhắm vào, nhắm tới, có ý đồ",
+      "mnemonic": [
+        "NE RAU (ねらう) là nhắm vào mớ rau rồi"
+      ],
+      "example": "彼は獲物を狙っている。",
+      "exampleVi": "Anh ta đang nhắm vào con mồi.",
+      "id": "dongtu-extra-104"
+    },
+    {
+      "word": "ねむる",
+      "reading": "ねむる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MIÊN"
+      ],
+      "meaningVi": "Ngủ",
+      "mnemonic": [
+        "NÊM NẾM (ねむ) đồ ăn rồi đi ngủ"
+      ],
+      "example": "夜もよく眠れなかった。",
+      "exampleVi": "Đêm tôi đã không thể ngủ ngon.",
+      "id": "dongtu-extra-105"
+    },
+    {
+      "word": "ねらう",
+      "reading": "ねらう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Nhắm vào, nhắm đến",
+      "mnemonic": [
+        "NÊ RA (ねら) mục tiêu rồi bắn"
+      ],
+      "example": "的をねらう。",
+      "exampleVi": "Nhắm vào đích.",
+      "id": "dongtu-extra-106"
+    },
+    {
+      "word": "のぞく",
+      "reading": "覗く",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thứ",
+        "Đột"
+      ],
+      "meaningVi": "Nhìn trộm, liếc nhìn, hé nhìn",
+      "mnemonic": [
+        "THỨ (覗) này có gì mà phải 'NÓ XÓC' (のぞく) vào để nhìn trộm thế?"
+      ],
+      "example": "鍵穴から部屋の中を覗く。",
+      "exampleVi": "Nhìn trộm vào trong phòng qua lỗ khóa.",
+      "id": "dongtu-extra-107"
+    },
+    {
+      "word": "ののしる",
+      "reading": "ののしる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Chửi bới, lăng mạ, mắng nhiếc",
+      "mnemonic": [
+        "NO NÔ, SỈ (ののしる) người ta là bị chửi ngay"
+      ],
+      "example": "彼は人前で彼女を罵った。",
+      "exampleVi": "Anh ta đã chửi bới cô ấy trước mặt mọi người.",
+      "id": "dongtu-extra-108"
+    },
+    {
+      "word": "広まる",
+      "reading": "ひろまる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUẢNG"
+      ],
+      "meaningVi": "lan rộng, lan truyền, phổ biến",
+      "mnemonic": [
+        "Tin tức HI RỒI (ひろ) mới lan rộng khắp nơi (まる)"
+      ],
+      "example": "世界中に噂が広まる。",
+      "exampleVi": "Tin đồn lan rộng khắp thế giới.",
+      "id": "dongtu-extra-109"
+    },
+    {
+      "word": "広める",
+      "reading": "ひろめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUẢNG"
+      ],
+      "meaningVi": "Lan truyền, truyền bá, mở rộng",
+      "mnemonic": [
+        "Lan truyền tin tức HÍ RỒ LÊN (ひろめる) cho mọi người biết"
+      ],
+      "example": "新しい技術を広める。",
+      "exampleVi": "Truyền bá kỹ thuật mới.",
+      "id": "dongtu-extra-110"
+    },
+    {
+      "word": "控える",
+      "reading": "ひかえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Khống"
+      ],
+      "meaningVi": "Kiềm chế, hạn chế, chờ đợi, chuẩn bị sẵn, ghi chép lại",
+      "mnemonic": [
+        "KHỐNG (控) chế cơn thèm ăn, ta HÌ CA (ひか) phải nhịn để giữ dáng"
+      ],
+      "example": "健康のために塩分を控える。",
+      "exampleVi": "Vì sức khỏe nên tôi hạn chế ăn đồ mặn.",
+      "id": "dongtu-extra-111"
+    },
+    {
+      "word": "響く",
+      "reading": "ひびく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hưởng"
+      ],
+      "meaningVi": "Vang vọng, chấn động, ảnh hưởng",
+      "mnemonic": [
+        "Âm thanh HƯỞNG (響く) vang vọng khắp nơi làm HÍ BỊ (ひび) rung chuyển cả căn phòng."
+      ],
+      "example": "足音が廊下に響く。",
+      "exampleVi": "Tiếng bước chân vang vọng khắp hành lang.",
+      "id": "dongtu-extra-112"
+    },
+    {
+      "word": "光る",
+      "reading": "ひかる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "QUANG"
+      ],
+      "meaningVi": "Sáng, tỏa sáng, phát sáng",
+      "mnemonic": [
+        "Đèn QUANG (ひかる) thì HÌ KÊU (ひか) lên sáng rực"
+      ],
+      "example": "月が光っている。",
+      "exampleVi": "Trăng đang tỏa sáng.",
+      "id": "dongtu-extra-113"
+    },
+    {
+      "word": "ひっくり返す",
+      "reading": "ひっくりかえす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Lật ngược, đảo ngược, làm đổ",
+      "mnemonic": [
+        "Lấy cái HÍ (ひ) cái CỬA (っ) lật ngược lại (っくりかえす)"
+      ],
+      "example": "フライ返しで卵焼きをひっくり返す。",
+      "exampleVi": "Lật ngược trứng chiên bằng xẻng nấu ăn.",
+      "id": "dongtu-extra-114"
+    },
+    {
+      "word": "ふくらむ",
+      "reading": "ふくらむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Phồng lên, sưng lên, nở ra",
+      "mnemonic": [
+        "Phồng lên như là BÀNH CÙ RÙM (ふくらむ)"
+      ],
+      "example": "風船がふくらむ。",
+      "exampleVi": "Bóng bay phồng lên.",
+      "id": "dongtu-extra-115"
+    },
+    {
+      "word": "ふくらます",
+      "reading": "ふくらます",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Làm phồng, làm nở ra, thổi phồng",
+      "mnemonic": [
+        "Phồng má lên thật BÀNH TRƯỚNG (ふくらます), trông như cái bánh bao to tướng"
+      ],
+      "example": "風船をふくらます。",
+      "exampleVi": "Thổi phồng quả bóng bay.",
+      "id": "dongtu-extra-116"
+    },
+    {
+      "word": "震える",
+      "reading": "ふるえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Chấn"
+      ],
+      "meaningVi": "Run rẩy, rung chuyển",
+      "mnemonic": [
+        "CHẤN (震) động tâm can khiến cơ thể PHU RUNG (ふるえる) lên vì sợ hãi."
+      ],
+      "example": "寒さで体が震える。",
+      "exampleVi": "Cơ thể run lên vì lạnh.",
+      "id": "dongtu-extra-117"
+    },
+    {
+      "word": "へこむ",
+      "reading": "へこむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Lõm, móp méo; nản chí, chán nản",
+      "mnemonic": [
+        "Đồ vật bị LÕM (凹 - HEO/AU) nhìn thật 'HEO-CỐM' (へこむ) nên thấy nản lòng"
+      ],
+      "example": "ボールがへこんだ。",
+      "exampleVi": "Quả bóng bị móp.",
+      "id": "dongtu-extra-118"
+    },
+    {
+      "word": "隔たる",
+      "reading": "へだたる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CÁCH"
+      ],
+      "meaningVi": "Cách biệt, xa cách, khác biệt",
+      "mnemonic": [
+        "CÁCH (隔) trở địa lý làm ta thấy HÊ (へ) ĐA (だ) TÀ (た) LỜ (る) - xa xôi cách biệt thật là buồn."
+      ],
+      "example": "二つの島は海を隔たっている。",
+      "exampleVi": "Hai hòn đảo cách biệt nhau bởi biển.",
+      "id": "dongtu-extra-119"
+    },
+    {
+      "word": "隔てる",
+      "reading": "へだてる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "CÁCH"
+      ],
+      "meaningVi": "phân chia, ngăn cách, cách biệt",
+      "mnemonic": [
+        "HE ĐÀ (へだ) thì phải ngăn cách con sông ra"
+      ],
+      "example": "冷戦の時代には、ヨーロッパには東西を隔てる鉄のカーテンがあると言われた。",
+      "exampleVi": "Vào thời kỳ chiến tranh lạnh, người ta nói rằng ở châu Âu có bức màn sắt ngăn cách Đông và Tây.",
+      "id": "dongtu-extra-120"
+    },
+    {
+      "word": "へらす",
+      "reading": "へらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Làm giảm bớt, cắt giảm",
+      "mnemonic": [
+        "HÈ RA (へら) bớt chút đồ ăn để GIẢM cân (減)"
+      ],
+      "example": "食事の量を減らす。",
+      "exampleVi": "Giảm khẩu phần ăn.",
+      "id": "dongtu-extra-121"
+    },
+    {
+      "word": "ほえる",
+      "reading": "ほえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Sủa, gầm, hú",
+      "mnemonic": [
+        "Con chó HÔ Ồ Ề (ほえる) lên rồi sủa"
+      ],
+      "example": "犬がほえている。",
+      "exampleVi": "Con chó đang sủa.",
+      "id": "dongtu-extra-122"
+    },
+    {
+      "word": "ほほえむ",
+      "reading": "ほほえむ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Mỉm cười",
+      "mnemonic": [
+        "HỒ HỒ (ほほ) em cười (えむ) mỉm chi"
+      ],
+      "example": "彼女は私にほほえんだ。",
+      "exampleVi": "Cô ấy đã mỉm cười với tôi.",
+      "id": "dongtu-extra-123"
+    },
+    {
+      "word": "ぼやける",
+      "reading": "ぼやける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "mờ đi, nhòe đi, không rõ ràng",
+      "mnemonic": [
+        "BỘ dạng mờ nhạt như đang YẾU (ぼや) nên nhìn cái gì cũng thấy mờ nhòe, không rõ nét (ぼやける)."
+      ],
+      "example": "老眼で字がぼやける。",
+      "exampleVi": "Vì bị lão thị nên chữ bị nhòe đi.",
+      "id": "dongtu-extra-124"
+    },
+    {
+      "word": "まく",
+      "reading": "巻く",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Quyển"
+      ],
+      "meaningVi": "Quấn, cuộn, quàng",
+      "mnemonic": [
+        "QUYỂN (巻) sách được MẮC (まく) vào khăn để cuộn tròn lại"
+      ],
+      "example": "マフラーを首に巻く。",
+      "exampleVi": "Quàng khăn quàng cổ.",
+      "id": "dongtu-extra-125"
+    },
+    {
+      "word": "まざる",
+      "reading": "混ざる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hỗn"
+      ],
+      "meaningVi": "Được trộn lẫn, bị hòa lẫn vào",
+      "mnemonic": [
+        "HỖN (混) loạn vì đồ đạc MA ZA RỪ (まざる) vào nhau nên bị trộn lẫn hết rồi"
+      ],
+      "example": "砂が砂糖に混ざっている。",
+      "exampleVi": "Cát bị lẫn vào trong đường.",
+      "id": "dongtu-extra-126"
+    },
+    {
+      "word": "まぜる",
+      "reading": "まぜる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Trộn, khuấy, pha trộn",
+      "mnemonic": [
+        "Hỗn hợp 'MA ZER' (MA ZERu) bột lại với nhau rồi khuấy đều cho đều tay."
+      ],
+      "example": "材料をよく混ぜる。",
+      "exampleVi": "Trộn đều các nguyên liệu lại với nhau.",
+      "id": "dongtu-extra-127"
+    },
+    {
+      "word": "増す",
+      "reading": "ます",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "TĂNG"
+      ],
+      "meaningVi": "Tăng lên, làm tăng lên",
+      "mnemonic": [
+        "TĂNG (増) thêm tiền thì MÁ (ます) vui mừng khôn xiết"
+      ],
+      "example": "自信が日ごとに増す。",
+      "exampleVi": "Sự tự tin tăng lên theo từng ngày.",
+      "id": "dongtu-extra-128"
+    },
+    {
+      "word": "またぐ",
+      "reading": "またぐ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Bước qua, băng qua, bắc qua",
+      "mnemonic": [
+        "MA TA (また) bước qua cành cây gù (ぐ)"
+      ],
+      "example": "柵をまたぐ",
+      "exampleVi": "Bước qua hàng rào",
+      "id": "dongtu-extra-129"
+    },
+    {
+      "word": "まねる",
+      "reading": "まねる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Bắt chước, mô phỏng",
+      "mnemonic": [
+        "MA NÉ (まね) qua một bên để bắt chước điệu bộ"
+      ],
+      "example": "子供は親の言動をまねるものだ。",
+      "exampleVi": "Trẻ con là thứ hay bắt chước lời nói và hành động của cha mẹ.",
+      "id": "dongtu-extra-130"
+    },
+    {
+      "word": "まぶしい",
+      "reading": "まぶしい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ đuôi い",
+      "hanViet": [],
+      "meaningVi": "Chói mắt, rực rỡ, tỏa sáng",
+      "mnemonic": [
+        "MA BỰ (まぶ) chiếu vào mắt làm tôi thấy CHÓI quá"
+      ],
+      "example": "太陽がまぶしい。",
+      "exampleVi": "Mặt trời chói quá.",
+      "id": "dongtu-extra-131"
+    },
+    {
+      "word": "磨く",
+      "reading": "みがく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MA"
+      ],
+      "meaningVi": "Đánh bóng, chải (răng), mài giũa (kỹ năng)",
+      "mnemonic": [
+        "MA (磨) đang mải mê ĐÁNH BÓNG chiếc gương cũ để nó sáng như mới."
+      ],
+      "example": "毎日、歯を磨きます。",
+      "exampleVi": "Hàng ngày tôi đều đánh răng.",
+      "id": "dongtu-extra-132"
+    },
+    {
+      "word": "乱れる",
+      "reading": "みだれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Loạn"
+      ],
+      "meaningVi": "Bị lộn xộn, bị rối loạn, mất bình tĩnh",
+      "mnemonic": [
+        "Tóc tai RỐI LOẠN (乱れる - MÌ ĐANG LỠ) vì MÌ ĐANG LỠ làm đổ bát lên đầu."
+      ],
+      "example": "髪が乱れている。",
+      "exampleVi": "Tóc đang bị rối.",
+      "id": "dongtu-extra-133"
+    },
+    {
+      "word": "乱す",
+      "reading": "みだす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Loạn"
+      ],
+      "meaningVi": "Làm rối loạn, làm đảo lộn, làm mất trật tự",
+      "mnemonic": [
+        "LOẠN (乱) nhịp tim vì MI-DA (みだ) lung tung làm rối loạn mọi thứ."
+      ],
+      "example": "列を乱すな。",
+      "exampleVi": "Đừng làm rối loạn hàng ngũ.",
+      "id": "dongtu-extra-134"
+    },
+    {
+      "word": "満たす",
+      "reading": "みたす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "MÃN"
+      ],
+      "meaningVi": "Lấp đầy, đáp ứng, thỏa mãn",
+      "mnemonic": [
+        "MÃN nguyện khi mọi yêu cầu đều được MÍT TÁT (みたす) - làm đầy đủ"
+      ],
+      "example": "条件を満たす。",
+      "exampleVi": "Đáp ứng điều kiện.",
+      "id": "dongtu-extra-135"
+    },
+    {
+      "word": "導く",
+      "reading": "みちびく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "ĐẠO"
+      ],
+      "meaningVi": "Dẫn dắt, hướng dẫn, chỉ đạo",
+      "mnemonic": [
+        "MỊCH (みち) BỊ (び) kẹt thì cần người dẫn dắt"
+      ],
+      "example": "教師が学生を導く。",
+      "exampleVi": "Giáo viên dẫn dắt học sinh.",
+      "id": "dongtu-extra-136"
+    },
+    {
+      "word": "実る",
+      "reading": "みのる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "THỰC"
+      ],
+      "meaningVi": "Chín (quả), ra quả, gặt hái thành quả",
+      "mnemonic": [
+        "Cây MÌ NO RỒI (みのる) nên bắt đầu ra quả"
+      ],
+      "example": "努力が実る。",
+      "exampleVi": "Nỗ lực đã đơm hoa kết trái (đạt được thành quả).",
+      "id": "dongtu-extra-137"
+    },
+    {
+      "word": "むく",
+      "reading": "むく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Bóc, gọt, lột (vỏ, da)",
+      "mnemonic": [
+        "MÚC (むく) nước vào bát, tiện tay BÓC GỌT trái cây."
+      ],
+      "example": "りんごの皮をむく。",
+      "exampleVi": "Gọt vỏ táo.",
+      "id": "dongtu-extra-138"
+    },
+    {
+      "word": "結びつく",
+      "reading": "むすびつく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Kết"
+      ],
+      "meaningVi": "Gắn kết, liên kết, dẫn đến, kết nối với nhau",
+      "mnemonic": [
+        "KẾT (結) quả gắn kết, MŨ SĨ (むすび) TỤC (つく) cùng nhau nên liên kết chặt chẽ"
+      ],
+      "example": "努力が結果に結びつく。",
+      "exampleVi": "Nỗ lực gắn liền với kết quả.",
+      "id": "dongtu-extra-139"
+    },
+    {
+      "word": "もめる",
+      "reading": "もめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Xích mích, tranh chấp, rắc rối",
+      "mnemonic": [
+        "MÔ-MEN (もめる) xoắn xuýt vào nhau khiến nội bộ XÍCH MÍCH, TRANH CHẤP dữ dội."
+      ],
+      "example": "家族と金銭のことで揉める。",
+      "exampleVi": "Tôi xích mích với gia đình vì chuyện tiền nong.",
+      "id": "dongtu-extra-140"
+    },
+    {
+      "word": "盛る",
+      "reading": "もる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Thịnh"
+      ],
+      "meaningVi": "Xới, múc, bày (đồ ăn) ra bát/đĩa; chất đầy; tăng lên; phóng đại.",
+      "mnemonic": [
+        "THỊNH (盛) soạn bày biện món ăn đầy ắp vào bát để MỜ (もる) người thân cùng thưởng thức."
+      ],
+      "example": "茶碗にご飯を盛る。",
+      "exampleVi": "Xới cơm vào bát.",
+      "id": "dongtu-extra-141"
+    },
+    {
+      "word": "漏れる",
+      "reading": "もれる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LẬU"
+      ],
+      "meaningVi": "Rò rỉ, thoát ra, bị lộ, bỏ sót",
+      "mnemonic": [
+        "Nước LẬU (漏) qua khe cửa nên MÔ (も) hôi hám rò rỉ ra ngoài"
+      ],
+      "example": "秘密が漏れる。",
+      "exampleVi": "Bí mật bị lộ.",
+      "id": "dongtu-extra-142"
+    },
+    {
+      "word": "漏らす",
+      "reading": "もらす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LẬU"
+      ],
+      "meaningVi": "Làm lộ, để rò rỉ, bỏ sót, làm tràn ra",
+      "mnemonic": [
+        "Thông tin bị LẬU (漏) ra ngoài vì ai đó MÔ (も) tả RÁC (らす) rưởi một cách bất cẩn."
+      ],
+      "example": "秘密を漏らす。",
+      "exampleVi": "Làm lộ bí mật.",
+      "id": "dongtu-extra-143"
+    },
+    {
+      "word": "やどす",
+      "reading": "やどす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Chứa đựng, mang thai, nuôi dưỡng (tình cảm, mầm mống)",
+      "mnemonic": [
+        "YADOSU (Dạ đối) - Đêm đối diện, mang trong mình mầm sống hoặc nuôi dưỡng tâm tư."
+      ],
+      "example": "彼女は子供を宿している。",
+      "exampleVi": "Cô ấy đang mang thai đứa bé.",
+      "id": "dongtu-extra-144"
+    },
+    {
+      "word": "やぶれる",
+      "reading": "破れる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "phá"
+      ],
+      "meaningVi": "bị rách, bị phá vỡ, thua cuộc",
+      "mnemonic": [
+        "PHÁ (破) tan mọi hy vọng, tờ giấy RÁCH (やぶれる) nát vì quá đau buồn."
+      ],
+      "example": "紙が破れる。",
+      "exampleVi": "Giấy bị rách.",
+      "id": "dongtu-extra-145"
+    },
+    {
+      "word": "やわらぐ",
+      "reading": "やわらぐ",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Làm dịu đi, nguôi đi, giảm bớt",
+      "mnemonic": [
+        "YA-WA-RA-GU nghe như 'YA-VÀ-RA-GỤ' (làm dịu), cơn giận Nhu (柔) lại thì mọi thứ sẽ dịu đi."
+      ],
+      "example": "寒さがやわらぐ。",
+      "exampleVi": "Cái lạnh dịu bớt.",
+      "id": "dongtu-extra-146"
+    },
+    {
+      "word": "ゆずる",
+      "reading": "ゆずる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Nhường, nhượng lại, chuyển nhượng",
+      "mnemonic": [
+        "NHƯỜNG (ゆずる) ghế cho người già nên mình phải đi DƯ DẬT (ゆずる) chỗ đứng"
+      ],
+      "example": "電車で老人に席をゆずる。",
+      "exampleVi": "Nhường ghế cho người già trên tàu điện.",
+      "id": "dongtu-extra-147"
+    },
+    {
+      "word": "酔う",
+      "reading": "よう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Túy"
+      ],
+      "meaningVi": "Say (rượu), say tàu xe",
+      "mnemonic": [
+        "TÚY (酔う) lúy túy vì quá chén nên YÊU (よう) cầu ai đó đưa về nhà."
+      ],
+      "example": "酒に酔う。",
+      "exampleVi": "Say rượu.",
+      "id": "dongtu-extra-148"
+    },
+    {
+      "word": "よこす",
+      "reading": "よこす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Gửi đến, chuyển đến, đưa đến",
+      "mnemonic": [
+        "KÝ (寄) gửi thư, VƯỢT (越) đường xa YÔ KÔ SƯ (よこす) - gửi đến tận tay."
+      ],
+      "example": "手紙をよこす。",
+      "exampleVi": "Gửi thư đến cho tôi.",
+      "id": "dongtu-extra-149"
+    },
+    {
+      "word": "呼びかける",
+      "reading": "よびかける",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "Hô"
+      ],
+      "meaningVi": "kêu gọi, cất tiếng gọi, vẫy gọi",
+      "mnemonic": [
+        "HÔ (呼び) to tiếng để KÊU GỌI, KHUYẾN KHÍCH mọi người cùng hành động."
+      ],
+      "example": "平和を呼びかける。",
+      "exampleVi": "Kêu gọi hòa bình.",
+      "id": "dongtu-extra-150"
+    },
+    {
+      "word": "よみがえる",
+      "reading": "よみがえる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "sống lại, hồi sinh, phục hồi",
+      "mnemonic": [
+        "YÔ MI (よみ - đọc) lại GÀI (がえる) vào là ký ức sống lại"
+      ],
+      "example": "記憶がよみがえる。",
+      "exampleVi": "Ký ức ùa về (sống lại).",
+      "id": "dongtu-extra-151"
+    },
+    {
+      "word": "略す",
+      "reading": "りゃくす",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LƯỢC"
+      ],
+      "meaningVi": "Lược bỏ, viết tắt, tóm tắt",
+      "mnemonic": [
+        "LƯỢC (りゃく) bỏ bớt sự rắc rối (す)"
+      ],
+      "example": "長い名前を略して呼ぶ。",
+      "exampleVi": "Viết tắt tên dài để gọi.",
+      "id": "dongtu-extra-152"
+    },
+    {
+      "word": "論じる",
+      "reading": "ろんじる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "LUẬN"
+      ],
+      "meaningVi": "Tranh luận, bàn luận, xem xét",
+      "mnemonic": [
+        "LUẬN (ろん) bàn sôi nổi thì JIRU (じる) - GIỮ lời"
+      ],
+      "example": "彼はその問題について論じた。",
+      "exampleVi": "Anh ấy đã bàn luận về vấn đề đó.",
+      "id": "dongtu-extra-153"
+    },
+    {
+      "word": "わく",
+      "reading": "わく",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Sôi lên, trào ra, phun ra, nảy sinh",
+      "mnemonic": [
+        "Dòng nước VỌNG (湧) về từ suối, làm nước sôi TRÀO, NẢY SINH sự sống"
+      ],
+      "example": "温泉が湧いている。",
+      "exampleVi": "Suối nước nóng đang phun trào.",
+      "id": "dongtu-extra-154"
+    },
+    {
+      "word": "わくわくする",
+      "reading": "わくわくする",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Hồi hộp, phấn khích (vì vui sướng, mong đợi)",
+      "mnemonic": [
+        "WA-KU-WA-KU: Cảm giác tim đập 'Oa, khu' (vui sướng) khiến ta hồi hộp, phấn khích không thôi."
+      ],
+      "example": "遠足の前日はいつもわくわくする。",
+      "exampleVi": "Trước ngày đi dã ngoại, lúc nào tôi cũng thấy hồi hộp, phấn khích.",
+      "id": "dongtu-extra-155"
+    },
+    {
+      "word": "わき出る",
+      "reading": "わきでる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Phun ra, trào ra, vọt ra (nước, suối, cảm xúc)",
+      "mnemonic": [
+        "DÒNG NƯỚC DÂNG TRÀO (涌) ra ngoài, VÁCH (わき) đá nứt ĐỂ (でる) nước phun lên"
+      ],
+      "example": "地面から水がわき出る。",
+      "exampleVi": "Nước phun ra từ mặt đất.",
+      "id": "dongtu-extra-156"
+    },
+    {
+      "word": "わずらう",
+      "reading": "わずらう",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [
+        "hoạn"
+      ],
+      "meaningVi": "bị bệnh, lo lắng, phiền muộn",
+      "mnemonic": [
+        "Bệnh HOẠN (わずらう) làm ta lo âu, phiền muộn, chẳng thể làm gì."
+      ],
+      "example": "彼は長年病をわずらっている。",
+      "exampleVi": "Anh ấy bị bệnh nhiều năm rồi.",
+      "id": "dongtu-extra-157"
+    }
+  ]
+}
