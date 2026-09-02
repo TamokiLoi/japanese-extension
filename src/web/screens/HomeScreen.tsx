@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Flame, ArrowRight, GraduationCap } from "lucide-react";
+import { Flame, ArrowRight, GraduationCap, ClipboardCheck } from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB } from "../../popup/vocabState.ts";
@@ -61,7 +61,7 @@ async function loadStats(): Promise<Stats> {
   };
 }
 
-export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen) => void }) {
+export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: string) => void }) {
   const [stats, setStats] = useState<Stats | null>(null);
 
   useEffect(() => {
@@ -107,10 +107,14 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen) => voi
             <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tổng quan tiến độ</h2>
             <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
               {BUCKET_ORDER.map((b) => (
-                <div key={b} className={`rounded-2xl p-4 ${BUCKET_COLOR[b]}`}>
+                <button
+                  key={b}
+                  onClick={() => onNavigate("stats", `bucket:${b}`)}
+                  className={`rounded-2xl p-4 text-left transition-transform hover:scale-[1.02] ${BUCKET_COLOR[b]}`}
+                >
                   <div className="text-xs font-semibold">{BUCKET_LABEL[b]}</div>
                   <div className="mt-1 text-xl font-bold">{stats.buckets[b]}</div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -138,6 +142,23 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen) => voi
                 Không có thẻ nào đến hạn ôn lại ngay bây giờ — cứ tiếp tục khám phá nội dung mới ở thanh bên nhé.
               </p>
             )}
+          </div>
+
+          <div className="mt-8">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Luyện thi</h2>
+            <button
+              onClick={() => onNavigate("dethi")}
+              className="mt-3 flex w-full items-center justify-between rounded-2xl border border-neutral-200 bg-white p-4 text-left transition-colors hover:bg-neutral-50"
+            >
+              <div className="flex items-center gap-3">
+                <ClipboardCheck className="text-neutral-600" size={22} />
+                <div>
+                  <div className="font-semibold text-neutral-800">Làm đề thi JLPT N3</div>
+                  <div className="text-sm text-neutral-500">25 đề thật, có tính giờ và chấm điểm theo barem</div>
+                </div>
+              </div>
+              <ArrowRight className="text-neutral-400" size={18} />
+            </button>
           </div>
         </>
       ) : (

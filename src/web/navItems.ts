@@ -1,5 +1,20 @@
 import type { Screen } from "../popup/App.tsx";
-import { Home, BookMarked, Library, BookOpenText, PenSquare, GraduationCap, HelpCircle, BarChart3, Search, Info, RotateCcw, Headphones } from "lucide-react";
+import {
+  Home,
+  BookMarked,
+  Library,
+  BookOpenText,
+  PenSquare,
+  GraduationCap,
+  HelpCircle,
+  BarChart3,
+  Search,
+  Info,
+  RotateCcw,
+  Headphones,
+  ClipboardCheck,
+  Keyboard,
+} from "lucide-react";
 
 export interface NavItem {
   screen: Screen;
@@ -18,7 +33,9 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
   { screen: "listening", label: "Luyện nghe (Beta)", icon: Headphones },
+  { screen: "dictation", label: "Nghe chép chính tả", icon: Keyboard },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
+  { screen: "dethi", label: "Đề thi JLPT", icon: ClipboardCheck },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
   { screen: "stats", label: "Thống kê", icon: BarChart3 },
@@ -43,7 +60,7 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
-  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
-  { label: "Luyện thi", screens: ["quizBook", "quiz", "review"] },
+  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening", "dictation"] },
+  { label: "Luyện thi", screens: ["quizBook", "dethi", "quiz", "review"] },
   { label: "Công cụ", screens: ["stats", "guide"] },
 ];

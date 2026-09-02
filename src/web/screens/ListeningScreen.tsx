@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Headphones, List as ListIcon, Shuffle } from "lucide-react";
+import { Headphones, List as ListIcon, Shuffle, Globe } from "lucide-react";
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
@@ -14,6 +14,7 @@ import {
 } from "../../popup/listeningState.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
 import { assetUrl } from "../../platform/assetUrl";
+import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
@@ -176,7 +177,7 @@ function QuestionView({
   onOpen: (id: string) => void;
 }) {
   const [selected, setSelected] = useState<number | null>(null);
-  const [showTranscript, setShowTranscript] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(true);
   const answered = selected !== null;
   const index = ALL_LISTENING.findIndex((q) => q.id === question.id);
   const nextId = ALL_LISTENING[index + 1]?.id;
@@ -203,13 +204,39 @@ function QuestionView({
         </span>
       </div>
 
-      <Card className="mt-4 gap-3 p-5">
-        <div className="flex items-center gap-2 text-sm font-semibold text-neutral-700">
-          <Headphones size={16} /> {isBlind && !answered ? "Nghe rồi chọn đáp án đúng" : question.scenario || question.question}
+      <Card className="mt-4 gap-3.5 p-5">
+        <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
+          <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
+          <span>{isBlind && !answered ? "Nghe rồi chọn đáp án đúng" : question.scenario || question.question}</span>
         </div>
-        {answered && question.scenarioVi ? <div className="text-sm text-neutral-500">{question.scenarioVi}</div> : null}
-        <audio controls className="w-full" src={assetUrl(question.audioUrl)} />
+        {answered && question.scenarioVi ? <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div> : null}
+        <AudioPlayer key={question.id} src={assetUrl(question.audioUrl)} />
       </Card>
+
+      {answered && question.turns.length > 0 ? (
+        <Card className="mt-4 gap-0 p-5">
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
+            <button
+              onClick={() => setShowTranslation((v) => !v)}
+              className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+            >
+              <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+            </button>
+          </div>
+          <div className="mt-3 flex flex-col gap-3.5">
+            {question.turns.map((t, i) => (
+              <div key={i}>
+                <div className="text-[14.5px] leading-relaxed text-neutral-800">
+                  <b className="font-bold text-neutral-400">{t.speaker}：</b>
+                  {t.text}
+                </div>
+                {showTranslation && t.textVi ? <div className="mt-0.5 text-[13px] leading-snug text-neutral-400">{t.textVi}</div> : null}
+              </div>
+            ))}
+          </div>
+        </Card>
+      ) : null}
 
       <Card className="mt-4 gap-0 p-5">
         {!isBlind || answered ? (
@@ -290,21 +317,6 @@ function QuestionView({
             </div>
             {question.explanation ? <div className="text-neutral-600">{question.explanation}</div> : null}
             {question.notes ? <div className="rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.notes}</div> : null}
-            {question.turns.length > 0 ? (
-              <button onClick={() => setShowTranscript((v) => !v)} className="text-xs font-semibold text-neutral-400 hover:text-neutral-600">
-                {showTranscript ? "Ẩn transcript" : "Xem transcript"}
-              </button>
-            ) : null}
-            {showTranscript ? (
-              <div className="rounded-lg bg-neutral-50 p-3">
-                {question.turns.map((t, i) => (
-                  <div key={i} className="mb-1">
-                    <span className="font-semibold text-neutral-500">{t.speaker}: </span>
-                    <span className="text-neutral-700">{t.text}</span>
-                  </div>
-                ))}
-              </div>
-            ) : null}
           </div>
         ) : null}
       </Card>
@@ -313,10 +325,7 @@ function QuestionView({
         <div className="mt-6 flex gap-2">
           <Button
             variant="outline"
-            onClick={() => {
-              setSelected(null);
-              setShowTranscript(false);
-            }}
+            onClick={() => setSelected(null)}
           >
             Làm lại
           </Button>

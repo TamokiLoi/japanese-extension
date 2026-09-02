@@ -7,6 +7,10 @@ export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "sokuji";
 export interface ListeningTurn {
   speaker: string;
   text: string;
+  // Vietnamese translation of `text`, shown under the Japanese line in the
+  // transcript panel. Optional since older data may not have it yet --
+  // see scripts/translate-listening-turns.ts.
+  textVi?: string;
 }
 
 export interface ListeningQuestion {

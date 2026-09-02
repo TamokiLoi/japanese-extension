@@ -46,7 +46,11 @@ export function defaultViewerState(): KanjiViewerState {
     shuffleSeed: Date.now(),
     index: 0,
     progressFilter: "all",
-    viewMode: "card",
+    // Land on the overview grid first -- "which kanji do I already know"
+    // should be answerable at a glance before committing to the one-at-a-
+    // time study flow. Jumping to a specific kanji (resolveJumpState) still
+    // switches to "card" so a search/link click opens straight on the card.
+    viewMode: "grid",
   };
 }
 

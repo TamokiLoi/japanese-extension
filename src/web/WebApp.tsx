@@ -13,11 +13,18 @@ import { StatsScreen } from "./screens/StatsScreen.tsx";
 import { ReviewScreen } from "./screens/ReviewScreen.tsx";
 import { GuideScreen } from "./screens/GuideScreen.tsx";
 import { ListeningScreen } from "./screens/ListeningScreen.tsx";
+import { DictationScreen } from "./screens/DictationScreen.tsx";
+import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import "./tailwind.css";
 
 function readFromHash(): { screen: Screen; targetId?: string } {
-  // See App.tsx's initializer for why this needs decodeURIComponent.
-  const [rawScreen, rawTargetId] = location.hash.slice(1).split(":");
+  // See App.tsx's initializer for why this needs decodeURIComponent. Split
+  // on the first ":" only -- a bucket deep-link's targetId ("bucket:mastered")
+  // contains one itself, and a naive split(":") would truncate it.
+  const hash = location.hash.slice(1);
+  const sep = hash.indexOf(":");
+  const rawScreen = sep === -1 ? hash : hash.slice(0, sep);
+  const rawTargetId = sep === -1 ? undefined : hash.slice(sep + 1);
   const screen = rawScreen as Screen;
   return {
     screen: VALID_SCREENS.includes(screen) ? screen : "menu",
@@ -92,7 +99,7 @@ export function WebApp() {
       />
     );
   } else if (screen === "kanji") {
-    content = <KanjiScreen onOpenVocab={(vocabId) => go("vocab", vocabId)} jumpToId={targetId} />;
+    content = <KanjiScreen onOpenVocab={(vocabId) => go("vocab", vocabId)} onOpenQuiz={() => go("quiz")} jumpToId={targetId} />;
   } else if (screen === "bunpo") {
     content = (
       <BunpoScreen onOpenReading={() => go("reading")} onOpenQuizBook={() => go("quizBook")} targetId={targetId} />
@@ -131,6 +138,10 @@ export function WebApp() {
     content = <GuideScreen />;
   } else if (screen === "listening") {
     content = <ListeningScreen />;
+  } else if (screen === "dictation") {
+    content = <DictationScreen />;
+  } else if (screen === "dethi") {
+    content = <DeThiScreen targetId={targetId} />;
   } else {
     content = <App key={navKey} />;
   }

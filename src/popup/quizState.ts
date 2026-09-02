@@ -4,7 +4,7 @@ import type { BunpoGrammarPoint } from "../types/bunpo.ts";
 import { getOrderedList as getKanjiOrderedList, loadViewerState as loadKanjiViewerState } from "./kanjiState.ts";
 import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabViewerState } from "./vocabState.ts";
 import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
-import { loadProgressMap, pickWeighted, type ProgressMap } from "./progressState.ts";
+import { loadProgressMap, pickWeighted, bucketFor, type ProgressMap, type ProgressBucket } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
 
@@ -58,6 +58,20 @@ export interface QuizQuestion {
 export const KANJI_MASTERY_DIRECTIONS: KanjiQuizMode[] = ["meaning", "character"];
 export const VOCAB_MASTERY_DIRECTIONS: VocabQuizMode[] = ["meaning", "reading", "wordFromMeaning", "wordFromReading"];
 
+// Shared with the Quiz setup screen's "Dạng câu hỏi" picker so a card's
+// detail view (Kanji/Vocab) can show "which direction still needs proving"
+// with the exact same wording the user would pick in Quiz to drill it.
+export const KANJI_MODE_LABELS: Record<KanjiQuizMode, string> = {
+  meaning: "Xem chữ, đoán nghĩa",
+  character: "Xem nghĩa, đoán chữ",
+};
+export const VOCAB_MODE_LABELS: Record<VocabQuizMode, string> = {
+  meaning: "Xem từ, đoán nghĩa",
+  reading: "Xem từ, đoán cách đọc",
+  wordFromMeaning: "Xem nghĩa, đoán từ",
+  wordFromReading: "Xem cách đọc, đoán từ",
+};
+
 // Generalized over just {kind, mode} (not the full QuizQuestion) so it's
 // reusable by reviewState.ts's typed-recall/reveal questions too.
 export function requiredDirectionsFor(question: { kind: QuizContentType; mode: string }): string[] {
@@ -103,6 +117,18 @@ function sampleDistractorTexts<T>(pool: T[], target: T, answerOf: (item: T) => s
   return result;
 }
 
+// "all" or one specific progress bucket to restrict the quiz's question
+// *targets* to (e.g. only "flagged" cards to drill exactly what's marked
+// cần ôn lại) -- distractor choices still draw from the full level/source
+// pool regardless, so a narrow bucket like "flagged" doesn't also starve
+// the multiple-choice options down to just 1-2 candidates.
+export type QuizBucketFilter = ProgressBucket | "all";
+
+function filterByBucket<T extends { id: string }>(pool: T[], progressMap: ProgressMap, bucket: QuizBucketFilter): T[] {
+  if (bucket === "all") return pool;
+  return pool.filter((item) => bucketFor(progressMap[item.id]) === bucket);
+}
+
 // Picks `count` distinct question targets from `pool`, weighted so cards
 // that aren't mastered yet (or are manually flagged as difficult) come up
 // more often -- see progressState.ts's weightFor.
@@ -139,12 +165,18 @@ function buildQuestion<T extends { id: string; level: JlptLevel }>(
   return { id: target.id, kind, mode, level: target.level, promptLabel, prompt: promptOf(target), choices };
 }
 
-export async function buildKanjiQuiz(mode: KanjiQuizMode, questionCount: number): Promise<QuizQuestion[]> {
+export async function buildKanjiQuiz(
+  mode: KanjiQuizMode,
+  questionCount: number,
+  bucket: QuizBucketFilter = "all",
+): Promise<QuizQuestion[]> {
   const state = await loadKanjiViewerState();
   const pool = getKanjiOrderedList({ ...state, randomOrder: false });
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const targets = pickQuestionTargets(pool, progressMap, questionCount);
+  const scoped = filterByBucket(pool, progressMap, bucket);
+  if (scoped.length === 0) return [];
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
   return targets
     .map((k) =>
       mode === "character"
@@ -154,13 +186,19 @@ export async function buildKanjiQuiz(mode: KanjiQuizMode, questionCount: number)
     .filter((q): q is QuizQuestion => q !== null);
 }
 
-export async function buildVocabQuiz(mode: VocabQuizMode, questionCount: number): Promise<QuizQuestion[]> {
+export async function buildVocabQuiz(
+  mode: VocabQuizMode,
+  questionCount: number,
+  bucket: QuizBucketFilter = "all",
+): Promise<QuizQuestion[]> {
   const state = await loadVocabViewerState();
   let pool = getVocabOrderedList({ ...state, randomOrder: false });
   if (mode === "reading" || mode === "wordFromReading") pool = pool.filter((v) => v.reading && v.reading !== v.word);
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const targets = pickQuestionTargets(pool, progressMap, questionCount);
+  const scoped = filterByBucket(pool, progressMap, bucket);
+  if (scoped.length === 0) return [];
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
 
   const meaningOf = (v: VocabCard) => v.meaningVi || "?";
   const readingOf = (v: VocabCard) => v.reading as string;
@@ -179,12 +217,18 @@ export async function buildVocabQuiz(mode: VocabQuizMode, questionCount: number)
     .filter((q): q is QuizQuestion => q !== null);
 }
 
-export async function buildBunpoQuiz(mode: BunpoQuizMode, questionCount: number): Promise<QuizQuestion[]> {
+export async function buildBunpoQuiz(
+  mode: BunpoQuizMode,
+  questionCount: number,
+  bucket: QuizBucketFilter = "all",
+): Promise<QuizQuestion[]> {
   const state = await loadBunpoViewerState();
   const pool = getBunpoFilteredList(state);
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const targets = pickQuestionTargets(pool, progressMap, questionCount);
+  const scoped = filterByBucket(pool, progressMap, bucket);
+  if (scoped.length === 0) return [];
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
 
   const patternOf = (g: BunpoGrammarPoint) => g.pattern;
   const meaningOf = (g: BunpoGrammarPoint) => g.meaningVi;
@@ -204,9 +248,20 @@ export interface QuizSettings {
   vocabMode: VocabQuizMode;
   bunpoMode: BunpoQuizMode;
   questionCount: number;
+  progressBucket: QuizBucketFilter;
+  // Opt-in: auto-advance to the next question a fixed delay after answering,
+  // instead of requiring a tap every time -- mainly for long (e.g. 100-câu)
+  // sessions where clicking through each one gets tedious. Off by default
+  // since it also shortens how long a wrong answer's correct-answer callout
+  // stays on screen.
+  autoAdvance: boolean;
 }
 
 const QUIZ_SETTINGS_KEY = "quizSettings";
+
+// How long to show the answered state (correct/wrong highlight + detail)
+// before auto-advancing, when autoAdvance is on.
+export const AUTO_ADVANCE_DELAY_MS = 1000;
 
 export async function loadQuizSettings(): Promise<QuizSettings> {
   const saved = await storageGet<Partial<QuizSettings>>(QUIZ_SETTINGS_KEY);
@@ -216,6 +271,8 @@ export async function loadQuizSettings(): Promise<QuizSettings> {
     vocabMode: saved?.vocabMode ?? "meaning",
     bunpoMode: saved?.bunpoMode ?? "meaning",
     questionCount: saved?.questionCount ?? DEFAULT_QUESTION_COUNT,
+    progressBucket: saved?.progressBucket ?? "all",
+    autoAdvance: saved?.autoAdvance ?? false,
   };
 }
 

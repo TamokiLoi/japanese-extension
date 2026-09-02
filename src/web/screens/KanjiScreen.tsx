@@ -20,12 +20,19 @@ import {
   bucketFor,
   countBuckets,
   isDueForReview,
+  MASTERY_STREAK_THRESHOLD,
   type ItemProgress,
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
 import { vocabForKanjiChar } from "../../popup/kanjiVocabLinks.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
+import {
+  KANJI_MASTERY_DIRECTIONS,
+  KANJI_MODE_LABELS,
+  saveQuizSettings,
+  loadQuizSettings,
+} from "../../popup/quizState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
 import { Button } from "../components/ui/button.tsx";
@@ -69,9 +76,11 @@ async function getFilteredList(state: KanjiViewerState): Promise<Kanji[]> {
 
 export function KanjiScreen({
   onOpenVocab,
+  onOpenQuiz,
   jumpToId,
 }: {
   onOpenVocab: (vocabId: string) => void;
+  onOpenQuiz: () => void;
   jumpToId?: string;
 }) {
   const [state, setState] = useState<KanjiViewerState | null>(null);
@@ -338,6 +347,44 @@ export function KanjiScreen({
           >
             <CheckCircle2 size={14} /> {progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
           </button>
+
+          {progress ? (
+            <div className="mx-auto mt-3 flex max-w-xs flex-wrap items-center justify-center gap-1.5">
+              {KANJI_MASTERY_DIRECTIONS.map((dir) => {
+                const streak = progress.directionStreaks[dir] ?? 0;
+                const done = streak >= MASTERY_STREAK_THRESHOLD;
+                return (
+                  <span
+                    key={dir}
+                    className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                      done ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-amber-200 bg-amber-50 text-amber-600"
+                    }`}
+                  >
+                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {KANJI_MODE_LABELS[dir]}
+                  </span>
+                );
+              })}
+            </div>
+          ) : null}
+
+          {progress
+            ? (() => {
+                const missing = KANJI_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
+                if (!missing) return null;
+                return (
+                  <button
+                    onClick={async () => {
+                      const qs = await loadQuizSettings();
+                      await saveQuizSettings({ ...qs, contentType: "kanji", kanjiMode: missing });
+                      onOpenQuiz();
+                    }}
+                    className="mx-auto mt-2 block text-xs font-semibold text-rose-600 hover:underline"
+                  >
+                    Luyện ngay dạng còn thiếu: {KANJI_MODE_LABELS[missing]}
+                  </button>
+                );
+              })()
+            : null}
 
           <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
             <dt className="text-neutral-400">Hán Việt</dt>

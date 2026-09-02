@@ -11,6 +11,11 @@ export interface ItemProgress {
   correctStreak: number;
   correctCount: number;
   wrongCount: number;
+  // Consecutive wrong answers since the last correct one (any direction) --
+  // separate from the lifetime wrongCount so a card that's mostly right with
+  // the odd slip doesn't get auto-flagged just for having failed 3 times
+  // total months apart. Drives the auto-flag in recordAnswer below.
+  wrongStreak: number;
   mastered: boolean;
   flagged: boolean;
   lastSeenAt: number;
@@ -34,6 +39,14 @@ const STORAGE_KEY = "itemProgress";
 // Consecutive correct answers (per direction) needed to mark a card "mastered".
 export const MASTERY_STREAK_THRESHOLD = 3;
 
+// Consecutive wrong answers before a card is auto-flagged "cần ôn lại" --
+// same idea as MASTERY_STREAK_THRESHOLD but in the other direction, so a
+// card the user keeps missing surfaces there without needing a manual flag.
+// The cycle closes itself: recordAnswer clears the flag again once every
+// required direction re-crosses MASTERY_STREAK_THRESHOLD, so a manual
+// unflag is only needed to dismiss one early, not as the normal exit.
+export const AUTO_FLAG_WRONG_STREAK = 3;
+
 // Fixed interval before a mastered card is surfaced for review again.
 export const REVIEW_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -42,6 +55,7 @@ export function defaultProgress(): ItemProgress {
     correctStreak: 0,
     correctCount: 0,
     wrongCount: 0,
+    wrongStreak: 0,
     mastered: false,
     flagged: false,
     lastSeenAt: 0,
@@ -94,11 +108,20 @@ export async function recordAnswer(
   if (correct) {
     cur.correctStreak += 1;
     cur.correctCount += 1;
+    cur.wrongStreak = 0;
     cur.directionStreaks[direction] = (cur.directionStreaks[direction] ?? 0) + 1;
     const allDirectionsMastered = requiredDirections.every(
       (d) => (cur.directionStreaks[d] ?? 0) >= MASTERY_STREAK_THRESHOLD,
     );
-    if (allDirectionsMastered) cur.mastered = true;
+    if (allDirectionsMastered) {
+      cur.mastered = true;
+      // Re-proving mastery (every required direction, e.g. both Kanji quiz
+      // modes) clears "cần ôn lại" too, whether the flag was auto-set by the
+      // wrong-streak below or set by hand -- otherwise a card the user just
+      // demonstrated they know would stay stuck in that bucket forever,
+      // undoable only by manually unflagging it.
+      cur.flagged = false;
+    }
     // Schedule (or reschedule, if this was a due review answered correctly
     // again) the next review -- but not on every correct answer of an
     // already-mastered-and-not-yet-due card, which would push it out
@@ -110,8 +133,10 @@ export async function recordAnswer(
     cur.correctStreak = 0;
     cur.directionStreaks[direction] = 0;
     cur.wrongCount += 1;
+    cur.wrongStreak = (cur.wrongStreak ?? 0) + 1;
     cur.mastered = false;
     cur.dueAt = undefined;
+    if (cur.wrongStreak >= AUTO_FLAG_WRONG_STREAK) cur.flagged = true;
   }
   cur.lastSeenAt = Date.now();
   map[id] = cur;
@@ -158,8 +183,10 @@ export function isDueForReview(progress: ItemProgress | undefined): boolean {
 
 // One-word classification of a card's study state, used by the Stats
 // screen to group "đã thuộc / đang học / cần ôn lại / chưa học". Flagged
-// wins over mastered since it's an explicit manual "cần học lại" from the
-// user, even for a card that happened to hit the mastery streak before.
+// wins over mastered while the flag still stands -- but recordAnswer clears
+// the flag the moment every required direction re-crosses the mastery
+// streak, so this only matters for a card that's flagged but hasn't been
+// re-proven yet, not a permanent override.
 export type ProgressBucket = "mastered" | "flagged" | "learning" | "new";
 
 export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {

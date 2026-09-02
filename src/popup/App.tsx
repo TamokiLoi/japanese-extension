@@ -23,7 +23,9 @@ export type Screen =
   | "bunpo"
   | "review"
   | "guide"
-  | "listening";
+  | "listening"
+  | "dictation"
+  | "dethi";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -39,6 +41,8 @@ export const VALID_SCREENS: Screen[] = [
   "review",
   "guide",
   "listening",
+  "dictation",
+  "dethi",
 ];
 
 interface Route {
@@ -58,7 +62,13 @@ export function App() {
     // becomes "kanji-%E7%94%B7") -- decode it back before using it to look
     // up a card, or the lookup silently fails and falls through to the
     // first item instead of the one actually clicked.
-    const [rawScreen, rawTargetId] = location.hash.slice(1).split(":");
+    // Split on the first ":" only -- a targetId can itself contain one (e.g.
+    // Stats' "bucket:mastered" deep link), and a naive split(":") would
+    // truncate it.
+    const rawHash = location.hash.slice(1);
+    const sep = rawHash.indexOf(":");
+    const rawScreen = sep === -1 ? rawHash : rawHash.slice(0, sep);
+    const rawTargetId = sep === -1 ? undefined : rawHash.slice(sep + 1);
     const initialScreen = rawScreen as Screen;
     const decodedTargetId = rawTargetId ? decodeURIComponent(rawTargetId) : undefined;
     if (initialScreen && initialScreen !== "menu") {
@@ -167,6 +177,12 @@ export function App() {
   }
   if (screen === "guide") {
     return <p className="empty">Hướng dẫn sử dụng hiện chỉ có trên bản Web Dashboard.</p>;
+  }
+  if (screen === "dethi") {
+    return <p className="empty">Luyện thi JLPT hiện chỉ có trên bản Web Dashboard.</p>;
+  }
+  if (screen === "dictation") {
+    return <p className="empty">Nghe chép chính tả hiện chỉ có trên bản Web Dashboard.</p>;
   }
   return (
     <QuizScreen

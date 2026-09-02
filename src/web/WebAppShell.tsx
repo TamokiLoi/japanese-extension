@@ -160,7 +160,9 @@ export function WebAppShell({
           </button>
         </header>
 
-        <main className="flex-1 pb-16 md:pb-0">{children}</main>
+        <main className="flex-1 pb-16 md:p-6 md:pb-6">
+          <div className="md:rounded-2xl md:border md:border-neutral-200 md:bg-white md:shadow-sm">{children}</div>
+        </main>
 
         {/* Mobile bottom nav */}
         <nav className="fixed inset-x-0 bottom-0 z-30 flex border-t border-neutral-200 bg-white md:hidden">

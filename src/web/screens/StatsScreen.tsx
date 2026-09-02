@@ -197,6 +197,7 @@ export function StatsScreen({
   const [contentType, setContentType] = useState<StatsContentType>("kanji");
   const [bucket, setBucket] = useState<BucketFilter>("all");
   const [map, setMap] = useState<ProgressMap | null>(null);
+  const bucketTargetId = targetId?.startsWith("bucket:") ? (targetId.slice(7) as ProgressBucket) : undefined;
 
   useEffect(() => {
     let cancelled = false;
@@ -210,10 +211,18 @@ export function StatsScreen({
 
   useEffect(() => {
     if (!targetId) return;
+    // Home's progress tiles ("Đã thuộc"/"Đang học"/...) span every content
+    // type at once, so they link here as "bucket:<b>" to preset just the
+    // bucket filter -- content type stays whatever it already was (default
+    // "kanji") since there's no single combined list to land on.
+    if (bucketTargetId) {
+      setBucket(bucketTargetId);
+      return;
+    }
     if (!CONTENT_TYPE_ORDER.includes(targetId as StatsContentType)) return;
     setContentType(targetId as StatsContentType);
     setBucket("flagged");
-  }, [targetId]);
+  }, [targetId, bucketTargetId]);
 
   const entries = useMemo(() => buildEntries(contentType), [contentType]);
   const buckets = useMemo(() => (map ? countBuckets(entries, map) : null), [entries, map]);
@@ -232,7 +241,7 @@ export function StatsScreen({
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">Thống kê</h1>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-nowrap gap-2 overflow-x-auto pb-1">
         {CONTENT_TYPE_ORDER.map((ct) => (
           <button
             key={ct}
@@ -240,7 +249,7 @@ export function StatsScreen({
               setContentType(ct);
               setBucket("all");
             }}
-            className={`rounded-full border px-4 py-1.5 text-sm font-medium ${
+            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium whitespace-nowrap ${
               contentType === ct ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
             }`}
           >

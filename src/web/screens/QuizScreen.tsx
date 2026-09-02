@@ -19,12 +19,23 @@ import {
   type KanjiQuizMode,
   type VocabQuizMode,
   type BunpoQuizMode,
+  type QuizBucketFilter,
   requiredDirectionsFor,
+  KANJI_MASTERY_DIRECTIONS,
+  VOCAB_MASTERY_DIRECTIONS,
+  KANJI_MODE_LABELS,
+  VOCAB_MODE_LABELS,
+  AUTO_ADVANCE_DELAY_MS,
 } from "../../popup/quizState.ts";
 import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../../popup/progressState.ts";
-import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../../popup/kanjiState.ts";
-import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../../popup/vocabState.ts";
-import { loadViewerState as loadBunpoViewerState, findBunpoById, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../../popup/bunpoState.ts";
+import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
+import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
+import {
+  loadViewerState as loadBunpoViewerState,
+  findBunpoById,
+  SOURCE_LABELS as BUNPO_SOURCE_LABELS,
+  getFilteredList as getBunpoFilteredList,
+} from "../../popup/bunpoState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
@@ -52,13 +63,16 @@ export function QuizScreen(open: OpenCallbacks) {
 
   useEffect(() => {
     (async () => {
-      const existing = await loadQuizSession();
+      // Loaded unconditionally (not just on the "setup" path) so PlayView
+      // can read settings.autoAdvance even when arriving via "Tiếp tục" on
+      // an in-progress session instead of a fresh setup submission.
+      const [existing, loadedSettings] = await Promise.all([loadQuizSession(), loadQuizSettings()]);
+      setSettings(loadedSettings);
       if (existing && isSessionUnfinished(existing)) {
         setSession(existing);
         setStep("resume");
         return;
       }
-      setSettings(await loadQuizSettings());
       setStep("setup");
     })();
   }, []);
@@ -111,7 +125,15 @@ export function QuizScreen(open: OpenCallbacks) {
 
   if (step === "play") {
     if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
-    return <PlayView session={session} onSessionChange={setSession} onFinish={() => setStep("result")} {...open} />;
+    return (
+      <PlayView
+        session={session}
+        autoAdvance={settings?.autoAdvance ?? false}
+        onSessionChange={setSession}
+        onFinish={() => setStep("result")}
+        {...open}
+      />
+    );
   }
 
   if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
@@ -134,18 +156,23 @@ function SegmentedRadio<T extends string>({
   options,
   value,
   onChange,
+  scrollX = false,
 }: {
   options: [T, string][];
   value: T;
   onChange: (v: T) => void;
+  // "Trạng thái" grew a count suffix per option ("Đang học (10)"), which no
+  // longer reliably fits 5-wide on a phone -- scroll it horizontally instead
+  // of wrapping, same treatment as Stats' content-type tabs.
+  scrollX?: boolean;
 }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className={scrollX ? "flex flex-nowrap gap-2 overflow-x-auto pb-1" : "flex flex-wrap gap-2"}>
       {options.map(([v, label]) => (
         <button
           key={v}
           onClick={() => onChange(v)}
-          className={`rounded-full border px-3 py-1.5 text-sm font-medium ${
+          className={`rounded-full border px-3 py-1.5 text-sm font-medium ${scrollX ? "shrink-0 whitespace-nowrap" : ""} ${
             value === v ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600 hover:bg-neutral-50"
           }`}
         >
@@ -173,6 +200,7 @@ function SetupView({
   const [vocabFilterText, setVocabFilterText] = useState("—");
   const [bunpoFilterText, setBunpoFilterText] = useState("—");
   const [questionCount, setQuestionCount] = useState(settings.questionCount);
+  const [bucketCounts, setBucketCounts] = useState<Record<QuizBucketFilter, number> | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -187,6 +215,31 @@ function SetupView({
     })();
   }, []);
 
+  // Same pool each buildXQuiz call would draw from (level/source filter, plus
+  // Vocab's reading-mode narrowing) -- counted per bucket so "Trạng thái" can
+  // show how many cards each option actually has before starting, instead of
+  // finding out only after "Bắt đầu" fails with "not enough data".
+  useEffect(() => {
+    (async () => {
+      const progressMap = await loadProgressMap();
+      let pool: { id: string }[];
+      if (settings.contentType === "kanji") {
+        pool = getKanjiOrderedList({ ...(await loadKanjiViewerState()), randomOrder: false });
+      } else if (settings.contentType === "vocab") {
+        let p = getVocabOrderedList({ ...(await loadVocabViewerState()), randomOrder: false });
+        if (settings.vocabMode === "reading" || settings.vocabMode === "wordFromReading") {
+          p = p.filter((v) => v.reading && v.reading !== v.word);
+        }
+        pool = p;
+      } else {
+        pool = getBunpoFilteredList(await loadBunpoViewerState());
+      }
+      const counts: Record<QuizBucketFilter, number> = { all: pool.length, mastered: 0, flagged: 0, learning: 0, new: 0 };
+      for (const item of pool) counts[bucketFor(progressMap[item.id])]++;
+      setBucketCounts(counts);
+    })();
+  }, [settings.contentType, settings.vocabMode]);
+
   const filterTextByType: Record<QuizContentType, string> = { kanji: kanjiFilterText, vocab: vocabFilterText, bunpo: bunpoFilterText };
   const filterScreenLabel: Record<QuizContentType, string> = { kanji: "Kanji", vocab: "Từ vựng", bunpo: "Bunpo" };
 
@@ -199,12 +252,16 @@ function SetupView({
   async function handleStart() {
     const questions =
       settings.contentType === "kanji"
-        ? await buildKanjiQuiz(settings.kanjiMode, questionCount)
+        ? await buildKanjiQuiz(settings.kanjiMode, questionCount, settings.progressBucket)
         : settings.contentType === "vocab"
-          ? await buildVocabQuiz(settings.vocabMode, questionCount)
-          : await buildBunpoQuiz(settings.bunpoMode, questionCount);
+          ? await buildVocabQuiz(settings.vocabMode, questionCount, settings.progressBucket)
+          : await buildBunpoQuiz(settings.bunpoMode, questionCount, settings.progressBucket);
     if (questions.length === 0) {
-      onError("Không đủ dữ liệu để tạo câu hỏi với bộ lọc hiện tại — hãy chọn thêm level/nguồn ở màn tương ứng.");
+      onError(
+        settings.progressBucket === "all"
+          ? "Không đủ dữ liệu để tạo câu hỏi với bộ lọc hiện tại — hãy chọn thêm level/nguồn ở màn tương ứng."
+          : "Không có thẻ nào khớp trạng thái đã chọn trong bộ lọc hiện tại — hãy đổi trạng thái hoặc nới bộ lọc level/nguồn ở màn tương ứng.",
+      );
       return;
     }
     const session: QuizSession = { questions, answers: questions.map(() => null), currentIndex: 0 };
@@ -235,10 +292,7 @@ function SetupView({
           <div>
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
-              options={[
-                ["meaning", "Xem chữ, đoán nghĩa"],
-                ["character", "Xem nghĩa, đoán chữ"],
-              ]}
+              options={KANJI_MASTERY_DIRECTIONS.map((m): [KanjiQuizMode, string] => [m, KANJI_MODE_LABELS[m]])}
               value={settings.kanjiMode}
               onChange={(v) => updateSettings({ kanjiMode: v as KanjiQuizMode })}
             />
@@ -249,14 +303,7 @@ function SetupView({
           <div>
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
-              options={
-                [
-                  ["meaning", "Xem từ, đoán nghĩa"],
-                  ["reading", "Xem từ, đoán cách đọc"],
-                  ["wordFromMeaning", "Xem nghĩa, đoán từ"],
-                  ["wordFromReading", "Xem cách đọc, đoán từ"],
-                ] as [VocabQuizMode, string][]
-              }
+              options={VOCAB_MASTERY_DIRECTIONS.map((m): [VocabQuizMode, string] => [m, VOCAB_MODE_LABELS[m]])}
               value={settings.vocabMode}
               onChange={(v) => updateSettings({ vocabMode: v as VocabQuizMode })}
             />
@@ -296,12 +343,40 @@ function SetupView({
           </select>
         </div>
 
+        <label className="flex cursor-pointer items-center gap-2.5 text-sm text-neutral-700">
+          <input
+            type="checkbox"
+            checked={settings.autoAdvance}
+            onChange={(e) => updateSettings({ autoAdvance: e.target.checked })}
+            className="h-4 w-4 rounded border-neutral-300 accent-rose-600"
+          />
+          Tự động chuyển câu sau khi trả lời ({(AUTO_ADVANCE_DELAY_MS / 1000).toFixed(1)}s)
+        </label>
+
         <div>
           <div className="mb-2 text-sm font-semibold text-neutral-500">Phạm vi</div>
           <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-neutral-600">
             Theo bộ lọc hiện tại ở màn {filterScreenLabel[settings.contentType]} —{" "}
             <span className="font-semibold text-neutral-800">{filterTextByType[settings.contentType]}</span>
           </div>
+        </div>
+
+        <div>
+          <div className="mb-2 text-sm font-semibold text-neutral-500">Trạng thái</div>
+          <SegmentedRadio
+            scrollX
+            options={(
+              [
+                ["all", "Tất cả"],
+                ["learning", "Đang học"],
+                ["flagged", "Cần ôn lại"],
+                ["new", "Chưa học"],
+                ["mastered", "Đã thuộc"],
+              ] as [QuizBucketFilter, string][]
+            ).map(([v, label]): [QuizBucketFilter, string] => [v, bucketCounts ? `${label} (${bucketCounts[v]})` : label])}
+            value={settings.progressBucket}
+            onChange={(v) => updateSettings({ progressBucket: v as QuizBucketFilter })}
+          />
         </div>
 
         {error ? <p className="rounded-lg bg-rose-50 p-3 text-sm text-rose-600">{error}</p> : null}
@@ -415,11 +490,13 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
 
 function PlayView({
   session,
+  autoAdvance,
   onSessionChange,
   onFinish,
   ...open
 }: {
   session: QuizSession;
+  autoAdvance: boolean;
   onSessionChange: (session: QuizSession) => void;
   onFinish: () => void;
 } & OpenCallbacks) {
@@ -460,6 +537,16 @@ function PlayView({
     }
     goTo(idx + 1);
   }
+
+  // Re-armed on every [idx, answered] change -- fires once per question, and
+  // moving on (by this timer, a manual tap, or a swipe) changes one of those
+  // deps and cleans the old timer up before a new one could stack on top.
+  useEffect(() => {
+    if (!autoAdvance || answered === null) return;
+    const t = setTimeout(goNext, AUTO_ADVANCE_DELAY_MS);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoAdvance, answered, idx]);
 
   const swipe = useSwipeNavigation({
     onSwipeLeft: goNext,
@@ -611,27 +698,20 @@ function ResultView({
         {pct}% đúng{unanswered > 0 ? ` · ${unanswered} câu chưa trả lời` : ""}
       </div>
       <Button className="mt-6" onClick={onRetry}>
-        Làm lại
+        Chọn bài quiz khác
       </Button>
 
       <div className="mt-8 text-left">
-        <div className="text-xs font-semibold uppercase tracking-wide text-neutral-400">Bấm vào 1 câu để xem lại chi tiết</div>
-        <div className="mt-3 flex flex-col gap-2">
-          {session.questions.map((q, i) => {
+        <QuestionPalette
+          defaultOpen
+          summary={`${score} đúng · ${total - score - unanswered} sai${unanswered > 0 ? ` · ${unanswered} chưa làm` : ""} — bấm 1 câu để xem lại`}
+          onJump={onReviewQuestion}
+          items={session.questions.map((q, i) => {
             const a = session.answers[i];
-            const correct = a !== null && q.choices[a].correct;
-            const cls = a === null ? "border-neutral-200" : correct ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50";
-            const status = a === null ? "Chưa trả lời" : correct ? "Đúng" : "Sai";
-            const statusColor = a === null ? "text-neutral-400" : correct ? "text-emerald-600" : "text-rose-600";
-            return (
-              <button key={q.id} onClick={() => onReviewQuestion(i)} className={`flex items-center gap-3 rounded-xl border px-4 py-2.5 text-left ${cls}`}>
-                <span className="text-xs font-semibold text-neutral-400">{i + 1}</span>
-                <span className="min-w-0 flex-1 truncate text-sm text-neutral-700">{q.prompt}</span>
-                <span className={`shrink-0 text-xs font-semibold ${statusColor}`}>{status}</span>
-              </button>
-            );
+            const status: PaletteStatus = a === null ? "unanswered" : q.choices[a].correct ? "correct" : "wrong";
+            return { id: q.id, status, title: q.prompt };
           })}
-        </div>
+        />
       </div>
     </div>
   );

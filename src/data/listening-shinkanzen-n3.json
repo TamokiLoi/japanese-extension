@@ -11,23 +11,28 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "先週お話ししたように、あさっての授業では発表をしてもらいますから、準備しておいてください。"
+          "text": "先週お話ししたように、あさっての授業では発表をしてもらいますから、準備しておいてください。",
+          "textVi": "Như tôi đã nói tuần trước, trong buổi học ngày kia các bạn sẽ phải thuyết trình, nên hãy chuẩn bị trước nhé."
         },
         {
           "speaker": "男",
-          "text": "発表の時パソコンを使ってもいいですか。写真を見せたいんですけれど。"
+          "text": "発表の時パソコンを使ってもいいですか。写真を見せたいんですけれど。",
+          "textVi": "Lúc thuyết trình tôi dùng máy tính được không ạ? Vì tôi muốn cho mọi người xem ảnh."
         },
         {
           "speaker": "女",
-          "text": "いいですけど、リーさんはまだ原稿ができてないでしょう？写真だけでは発表になりませんよ。すぐにやって、見せてください。"
+          "text": "いいですけど、リーさんはまだ原稿ができてないでしょう？写真だけでは発表になりませんよ。すぐにやって、見せてください。",
+          "textVi": "Được chứ, nhưng mà Lee vẫn chưa viết xong bản thảo phải không? Chỉ dùng ảnh thì không thành bài thuyết trình được đâu. Làm ngay đi rồi đưa tôi xem nhé."
         },
         {
           "speaker": "男",
-          "text": "はい。書き直すのはまとめのところだけでいいですか。"
+          "text": "はい。書き直すのはまとめのところだけでいいですか。",
+          "textVi": "Vâng. Tôi chỉ cần viết lại phần tổng kết thôi phải không ạ?"
         },
         {
           "speaker": "女",
-          "text": "ええ、そこがちょっとわかりにくいので、もう少し直さないと。ほかの準備は原稿が完成してからでいいです。それから、あしたはグループで発表の練習をするので、漢字の読み方も確認してきてくださいね。"
+          "text": "ええ、そこがちょっとわかりにくいので、もう少し直さないと。ほかの準備は原稿が完成してからでいいです。それから、あしたはグループで発表の練習をするので、漢字の読み方も確認してきてくださいね。",
+          "textVi": "Ừ, chỗ đó hơi khó hiểu nên phải sửa lại thêm chút nữa. Các chuẩn bị khác đợi viết xong bản thảo hãy làm. À, ngày mai nhóm mình sẽ luyện tập thuyết trình nên hãy kiểm tra lại cả cách đọc kanji nhé."
         }
       ],
       "question": "男の学生はまず何をしなければなりませんか。",
@@ -58,31 +63,38 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "渡辺君、あしたの飲み会、行く？"
+          "text": "渡辺君、あしたの飲み会、行く？",
+          "textVi": "Watanabe-kun, buổi nhậu ngày mai có đi không?"
         },
         {
           "speaker": "男",
-          "text": "あー、行こうと思っていたんだけど……。"
+          "text": "あー、行こうと思っていたんだけど……。",
+          "textVi": "À, tớ cũng định đi nhưng mà..."
         },
         {
           "speaker": "女",
-          "text": "あ、アルバイトの日か。"
+          "text": "あ、アルバイトの日か。",
+          "textVi": "À, trúng ngày làm thêm à?"
         },
         {
           "speaker": "男",
-          "text": "それは前から休みをもらってたからいいんだけど。あしたはさ、姉の子供を預かってほしいって頼まれちゃってね。友達の結婚式に行くからって。"
+          "text": "それは前から休みをもらってたからいいんだけど。あしたはさ、姉の子供を預かってほしいって頼まれちゃってね。友達の結婚式に行くからって。",
+          "textVi": "Hôm đó thì tớ xin nghỉ từ trước rồi nên không sao. Chỉ là ngày mai tớ bị nhờ trông con hộ của bà chị. Chị ấy bảo phải đi dự đám cưới bạn."
         },
         {
           "speaker": "女",
-          "text": "お兄さんはいないの？"
+          "text": "お兄さんはいないの？",
+          "textVi": "Anh trai cậu đâu không nhờ?"
         },
         {
           "speaker": "男",
-          "text": "うん、いつもなら週末は休みなんだけど……。子供が１人じゃかわいそうだしね。"
+          "text": "うん、いつもなら週末は休みなんだけど……。子供が１人じゃかわいそうだしね。",
+          "textVi": "Ừ, bình thường cuối tuần thì tôi nghỉ cơ mà... mà để con ở nhà một mình thì tội nghiệp lắm."
         },
         {
           "speaker": "女",
-          "text": "ふうん。大変そうだけど、頑張ってね。"
+          "text": "ふうん。大変そうだけど、頑張ってね。",
+          "textVi": "Hừm. Nghe có vẻ vất vả nhỉ, cố lên nhé."
         }
       ],
       "question": "男の人はどうして飲み会に行けませんか。",
@@ -113,7 +125,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "試験の時などに、緊張してしまうって困ったことはありませんか。そんな時に役立つ、いくつかのやり方をご紹介しましょう。ある人は、緊張している時に「お父さん、ありがとう。お母さん、ありがとう」とほかの人への感謝を心の中で言うと、落ち着けるそうです。また、体に一度ぐっと力を入れて、その後力を抜くと、落ち着けるという人もいます。一度試してみてはいかがですか。"
+          "text": "試験の時などに、緊張してしまうって困ったことはありませんか。そんな時に役立つ、いくつかのやり方をご紹介しましょう。ある人は、緊張している時に「お父さん、ありがとう。お母さん、ありがとう」とほかの人への感謝を心の中で言うと、落ち着けるそうです。また、体に一度ぐっと力を入れて、その後力を抜くと、落ち着けるという人もいます。一度試してみてはいかがですか。",
+          "textVi": "Bạn đã bao giờ gặp rắc rối vì cảm thấy căng thẳng trong các kỳ thi chưa? Hãy cùng điểm qua một số cách hữu ích trong những lúc như vậy nhé. Có người cho rằng khi đang căng thẳng, nếu thầm nói lời cảm ơn với người khác trong lòng như \"Cảm ơn bố, cảm ơn mẹ\" thì sẽ có thể bình tĩnh lại. Ngoài ra, cũng có người nói rằng nếu gồng mình lên một lần rồi thả lỏng cơ thể thì sẽ trấn tĩnh được. Tại sao bạn không thử một lần xem sao?"
         }
       ],
       "question": "女の人は何について話していますか。",
@@ -144,7 +157,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "1 あの、この書類の書き方、教えてもよろしいでしょうか。\n2 あの、この書類の書き方、教えていただきたいんですがけど。\n3 あの、この書類の書き方、教えていただきましょうか。"
+          "text": "1 あの、この書類の書き方、教えてもよろしいでしょうか。\n2 あの、この書類の書き方、教えていただきたいんですがけど。\n3 あの、この書類の書き方、教えていただきましょうか。",
+          "textVi": "Xin lỗi, anh/chị có thể chỉ cho tôi cách điền vào tờ giấy này được không ạ?"
         }
       ],
       "question": "何と言いますか。",
@@ -174,19 +188,23 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "これ、あっちに運んでおこうか。"
+          "text": "これ、あっちに運んでおこうか。",
+          "textVi": "Cái này, để tôi khiêng ra đằng kia nhé."
         },
         {
           "speaker": "男",
-          "text": "あ、それはいいよ。"
+          "text": "あ、それはいいよ。",
+          "textVi": "À, cái đó khỏi cần đâu."
         },
         {
           "speaker": "男",
-          "text": "この本、あした返さないと。"
+          "text": "この本、あした返さないと。",
+          "textVi": "Quyển sách này, ngày mai phải trả rồi."
         },
         {
           "speaker": "女",
-          "text": "うん、わかった。"
+          "text": "うん、わかった。",
+          "textVi": "Ừ, tôi biết rồi."
         }
       ],
       "question": "会話を聞いてください。女の人はこれからどうしますか。",
@@ -217,19 +235,23 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "予約しておきましょうか。"
+          "text": "予約しておきましょうか。",
+          "textVi": "Tôi đặt chỗ trước luôn nhé?"
         },
         {
           "speaker": "女",
-          "text": "しなくてもいいんじゃないかな。"
+          "text": "しなくてもいいんじゃないかな。",
+          "textVi": "Không cần làm thế cũng được mà nhỉ?"
         },
         {
           "speaker": "男",
-          "text": "田中さんにも電話しとく？"
+          "text": "田中さんにも電話しとく？",
+          "textVi": "Gọi điện cho anh Tanaka luôn chứ?"
         },
         {
           "speaker": "女",
-          "text": "ああ、そうしたほうがいいんじゃない？"
+          "text": "ああ、そうしたほうがいいんじゃない？",
+          "textVi": "Ừ, làm thế có khi lại hay đấy?"
         }
       ],
       "question": "男の人はこれからどうしますか。",
@@ -256,35 +278,43 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "スポーツ大会の賞品の係、君だったよね。優勝チームの賞品、もう決めた？"
+          "text": "スポーツ大会の賞品の係、君だったよね。優勝チームの賞品、もう決めた？",
+          "textVi": "Cậu phụ trách phần quà của đại hội thể thao phải không? Đã quyết định quà cho đội vô địch chưa?"
         },
         {
           "speaker": "女",
-          "text": "うーん、何がいいかよくわからなくて。ね、お金はどうかな。"
+          "text": "うーん、何がいいかよくわからなくて。ね、お金はどうかな。",
+          "textVi": "Hừm, tớ không biết nên chọn gì nữa. Này, tiền thì sao nhỉ?"
         },
         {
           "speaker": "男",
-          "text": "それはつまらないんじゃないの？ それなら、図書カードか何かの方がいいと思うけど。"
+          "text": "それはつまらないんじゃないの？ それなら、図書カードか何かの方がいいと思うけど。",
+          "textVi": "Thế thì chán lắm phải không? Nếu vậy, tớ nghĩ dùng thẻ mua sách hay gì đó thì tốt hơn."
         },
         {
           "speaker": "女",
-          "text": "うーん、今、みんなあまり本、読まないでしょう？"
+          "text": "うーん、今、みんなあまり本、読まないでしょう？",
+          "textVi": "Hừm, dạo này mọi người ít đọc sách lắm phải không?"
         },
         {
           "speaker": "男",
-          "text": "そうだなあ。去年はタオルとお茶だったよね。"
+          "text": "そうだなあ。去年はタオルとお茶だったよね。",
+          "textVi": "Cũng đúng nhỉ. Năm ngoái là khăn tắm với trà phải không?"
         },
         {
           "speaker": "女",
-          "text": "じゃ、去年と同じにしようかな。"
+          "text": "じゃ、去年と同じにしようかな。",
+          "textVi": "Hay là cứ làm giống năm ngoái nhỉ?"
         },
         {
           "speaker": "男",
-          "text": "それなら、飲み物はお茶よりビールの方がいいな。コーヒーでもいいし。"
+          "text": "それなら、飲み物はお茶よりビールの方がいいな。コーヒーでもいいし。",
+          "textVi": "Nếu thế, đồ uống thì bia ngon hơn trà đấy. Cà phê cũng được."
         },
         {
           "speaker": "女",
-          "text": "ビールは飲まない人もいるんじゃない？ でも、お茶よりはコーヒーがいいかもね。じゃ、そうしよう。"
+          "text": "ビールは飲まない人もいるんじゃない？ でも、お茶よりはコーヒーがいいかもね。じゃ、そうしよう。",
+          "textVi": "Không phải có người không uống bia sao? Nhưng mà, cà phê có khi lại ngon hơn trà đấy. Thờ thế đi."
         }
       ],
       "question": "女の人は賞品を何にしますか。",
@@ -315,27 +345,33 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "あの、マイクは発表者用と、司会者用の２本でよろしいでしょうか。"
+          "text": "あの、マイクは発表者用と、司会者用の２本でよろしいでしょうか。",
+          "textVi": "Dạ, micro thì loại dành cho người phát biểu và loại cho người dẫn chương trình, hai cái là đủ phải không ạ?"
         },
         {
           "speaker": "男",
-          "text": "あー、質問用にもう１本、後ろに用意しておいたほうがいいね。"
+          "text": "あー、質問用にもう１本、後ろに用意しておいたほうがいいね。",
+          "textVi": "À, nên chuẩn bị thêm một cái ở phía sau để cho người đặt câu hỏi nữa nhé."
         },
         {
           "speaker": "女",
-          "text": "わかりました。じゃ、後で借りてきます。"
+          "text": "わかりました。じゃ、後で借りてきます。",
+          "textVi": "Tôi hiểu rồi. Vậy lát nữa tôi đi mượn."
         },
         {
           "speaker": "男",
-          "text": "えーと、もう商品は見ていただけるように置いてあるし……あ、名札はどうなってる？ 先に並べておかないと……。"
+          "text": "えーと、もう商品は見ていただけるように置いてあるし……あ、名札はどうなってる？ 先に並べておかないと……。",
+          "textVi": "À, hàng hóa thì đã bày ra để mọi người xem rồi và... ơ, bảng tên thế nào rồi? Phải xếp sẵn ra chứ..."
         },
         {
           "speaker": "女",
-          "text": "あ、ここにあるので、今やります。それから、資料はもうまとめて受付のところに置いておきました。"
+          "text": "あ、ここにあるので、今やります。それから、資料はもうまとめて受付のところに置いておきました。",
+          "textVi": "À, nó ở đây, em làm ngay đây. Tiện thể, tài liệu thì em đã gom lại và để ở quầy tiếp tân rồi ạ."
         },
         {
           "speaker": "男",
-          "text": "そう。ありがとう。じゃ、僕はちょっと新聞社の人に電話してくるよ。"
+          "text": "そう。ありがとう。じゃ、僕はちょっと新聞社の人に電話してくるよ。",
+          "textVi": "Thế à. Cảm ơn nhé. Thế, anh đi gọi điện cho người bên tòa soạn báo chút đây."
         }
       ],
       "question": "女の人はこの後すぐ何をしなければなりませんか。",
@@ -366,7 +402,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "もしもし、杉内です。借りていた本のことなんですけど、今週の金曜日に返す約束でしたが、ちょっと行けなくなってしまったんです。それで、前の日の木曜日の夕方、アルバイトの帰りにお宅にうかがってもいいでしょうか。留守だったら、ポストに入れておきます。月曜日のゼミの時にとも思ったんですが、来週は祝日でお休みなんですよね。来週だと遅すぎるので……どうもすみません。"
+          "text": "もしもし、杉内です。借りていた本のことなんですけど、今週の金曜日に返す約束でしたが、ちょっと行けなくなってしまったんです。それで、前の日の木曜日の夕方、アルバイトの帰りにお宅にうかがってもいいでしょうか。留守だったら、ポストに入れておきます。月曜日のゼミの時にとも思ったんですが、来週は祝日でお休みなんですよね。来週だと遅すぎるので……どうもすみません。",
+          "textVi": "Alo, tôi là Sugiuchi đây. Về cuốn sách tôi mượn, hẹn là trả vào thứ Sáu tuần này, nhưng tôi lại không đến được. Vì thế, chiều thứ Năm hôm trước, trên đường đi làm thêm về, tôi ghé qua nhà bạn được chứ? Nếu bạn vắng nhà, tôi sẽ bỏ vào hòm thư. Tôi cũng nghĩ hay là trả lúc họp seminar ngày Thứ Hai, nhưng tuần sau lại nghỉ lễ mất rồi. Nếu để sang tuần thì muộn quá... Làm phiền bạn quá."
         }
       ],
       "question": "いつ本を返すか",
@@ -397,27 +434,33 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あれ？松本さん、中国語、勉強してるの？"
+          "text": "あれ？松本さん、中国語、勉強してるの？",
+          "textVi": "Ể? Matsumoto, cậu đang học tiếng Trung à?"
         },
         {
           "speaker": "女",
-          "text": "あ、ちょっとだけ……。"
+          "text": "あ、ちょっとだけ……。",
+          "textVi": "À, một chút thôi..."
         },
         {
           "speaker": "男",
-          "text": "最近、うちの会社も中国の人と仕事をする機会が増えたし、これからは役に立つだろうね。中国語ができれば、旅行にも行けるし。"
+          "text": "最近、うちの会社も中国の人と仕事をする機会が増えたし、これからは役に立つだろうね。中国語ができれば、旅行にも行けるし。",
+          "textVi": "Dạo này công ty mình cơ hội làm việc với người Trung Quốc cũng tăng lên, từ giờ chắc sẽ có ích nhỉ. Biết tiếng Trung thì đi du lịch cũng được."
         },
         {
           "speaker": "女",
-          "text": "あー、わたし、飛行機苦手なんで……。まあたしかに仕事で使えるぐらいになれればいいでしょうけど、わたしの場合は、単に趣味で……。"
+          "text": "あー、わたし、飛行機苦手なんで……。まあたしかに仕事で使えるぐらいになれればいいでしょうけど、わたしの場合は、単に趣味で……。",
+          "textVi": "À, tôi sợ đi máy bay lắm... À thì đúng là giỏi lên để dùng cho công việc thì tốt thật đấy, nhưng trường hợp của tôi thì chỉ là sở thích thôi..."
         },
         {
           "speaker": "男",
-          "text": "へえ。中国人の友達でもできたの？"
+          "text": "へえ。中国人の友達でもできたの？",
+          "textVi": "Ồ. Cậu kết bạn được với người Trung Quốc à?"
         },
         {
           "speaker": "女",
-          "text": "そういうチャンスでもあればいいんですけど。実は最近、中国のお土産でCDをもらったんですが、それがすごくいいんです。音楽だけじゃなくて、意味を知りたいなって思って……。"
+          "text": "そういうチャンスでもあればいいんですけど。実は最近、中国のお土産でCDをもらったんですが、それがすごくいいんです。音楽だけじゃなくて、意味を知りたいなって思って……。",
+          "textVi": "Được như thế thì tốt quá. Thật ra gần đây tôi được tặng một chiếc CD quà lưu niệm từ Trung Quốc, nghe hay lắm. Không chỉ nhạc hay mà tôi còn muốn hiểu cả ý nghĩa của nó nữa..."
         }
       ],
       "question": "中国語を勉強している目的は何ですか",
@@ -448,15 +491,18 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "推薦状を書いてもいいですか。"
+          "text": "推薦状を書いてもいいですか。",
+          "textVi": "Tôi viết thư giới thiệu nhé?"
         },
         {
           "speaker": "女",
-          "text": "推薦状を書いていただけませんか。"
+          "text": "推薦状を書いていただけませんか。",
+          "textVi": "Bạn có thể viết thư giới thiệu cho tôi được không?"
         },
         {
           "speaker": "女",
-          "text": "推薦状をお書きしましょうか。"
+          "text": "推薦状をお書きしましょうか。",
+          "textVi": "Tôi viết thư giới thiệu cho bạn nhé?"
         }
       ],
       "question": "先生に推薦状を書いてもらいたいです。何と言いますか。",
@@ -486,15 +532,18 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "かさ、借りてくれない？"
+          "text": "かさ、借りてくれない？",
+          "textVi": "Cậu không mượn dù à?"
         },
         {
           "speaker": "女",
-          "text": "かさ、貸したらどう？"
+          "text": "かさ、貸したらどう？",
+          "textVi": "Cậu cho mượn dù thì sao?"
         },
         {
           "speaker": "女",
-          "text": "かさ、貸そうか。"
+          "text": "かさ、貸そうか。",
+          "textVi": "Tôi cho mượn dù nhé?"
         }
       ],
       "question": "友達がかさがなくて困っているようです。何と言いますか。",
@@ -524,7 +573,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "この本、よかったですよ。読みますか。"
+          "text": "この本、よかったですよ。読みますか。",
+          "textVi": "Cuốn sách này hay lắm đấy. Cậu đọc không?"
         }
       ],
       "question": "",
@@ -552,7 +602,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "もう3時ですね。そろそろ行きませんか。"
+          "text": "もう3時ですね。そろそろ行きませんか。",
+          "textVi": "Đã 3 giờ rồi nhỉ. Sắp sửa đi chưa?"
         }
       ],
       "question": "",
@@ -580,7 +631,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "暑くないですか。エアコン、つけましょうか。"
+          "text": "暑くないですか。エアコン、つけましょうか。",
+          "textVi": "Có nóng không? Tôi bật điều hòa nhé?"
         }
       ],
       "question": "",
@@ -608,7 +660,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あ、薬を飲まれるなら、水をお持ちしましょう。"
+          "text": "あ、薬を飲まれるなら、水をお持ちしましょう。",
+          "textVi": "À, nếu anh uống thuốc thì để tôi lấy nước cho."
         }
       ],
       "question": "",
@@ -636,7 +689,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "今年の夏の旅行はどこがいいでしょうか。"
+          "text": "今年の夏の旅行はどこがいいでしょうか。",
+          "textVi": "Chuyến du lịch hè năm nay đi đâu thì được nhỉ?"
         }
       ],
       "question": "",
@@ -664,7 +718,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "ごみ、捨てに行くけど、ついでにこれも捨ててこようか。"
+          "text": "ごみ、捨てに行くけど、ついでにこれも捨ててこようか。",
+          "textVi": "Anh đi đổ rác đúng không, tiện thể vứt luôn cái này hộ em nhé?"
         }
       ],
       "question": "",
@@ -692,7 +747,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "田中君。テニス部に入ったのね。面白い？"
+          "text": "田中君。テニス部に入ったのね。面白い？",
+          "textVi": "Tanaka. Cậu vào câu lạc bộ quần vợt à. Có vui không?"
         }
       ],
       "question": "",
@@ -720,7 +776,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あの、今ちょっとよろしいでしょうか。"
+          "text": "あの、今ちょっとよろしいでしょうか。",
+          "textVi": "À, bây giờ anh/chị có chút thời gian không?"
         }
       ],
       "question": "",
@@ -748,7 +805,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "お先に失礼します。"
+          "text": "お先に失礼します。",
+          "textVi": "Tôi xin phép về trước."
         }
       ],
       "question": "",
@@ -776,7 +834,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "冷たいお飲み物でもいかがですか。"
+          "text": "冷たいお飲み物でもいかがですか。",
+          "textVi": "Anh/chị dùng chút đồ uống lạnh gì không?"
         }
       ],
       "question": "",
@@ -804,7 +863,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "いろいろお世話になりました。"
+          "text": "いろいろお世話になりました。",
+          "textVi": "Cảm ơn anh/chị vì đã giúp đỡ tôi rất nhiều."
         }
       ],
       "question": "",
@@ -832,7 +892,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "映画でも見ない？"
+          "text": "映画でも見ない？",
+          "textVi": "Đi xem phim không?"
         }
       ],
       "question": "",
@@ -860,7 +921,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "もう佐々木さんに連絡した？"
+          "text": "もう佐々木さんに連絡した？",
+          "textVi": "Cậu đã liên lạc với anh Sasaki chưa?"
         }
       ],
       "question": "",
@@ -888,7 +950,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あしたのパーティー、僕も出席しなくちゃいけない？"
+          "text": "あしたのパーティー、僕も出席しなくちゃいけない？",
+          "textVi": "Bữa tiệc ngày mai, tớ cũng phải tham dự à?"
         }
       ],
       "question": "",
@@ -916,7 +979,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "土曜日、よかったらうちにいらっしゃいませんか。"
+          "text": "土曜日、よかったらうちにいらっしゃいませんか。",
+          "textVi": "Thứ Bảy, nếu không bận thì anh/chị đến nhà tôi chơi nhé?"
         }
       ],
       "question": "",
@@ -946,7 +1010,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "申込書の書き方はこれでいいでしょうか。"
+          "text": "申込書の書き方はこれでいいでしょうか。",
+          "textVi": "Cách điền phiếu đăng ký thế này đã được chưa ạ?"
         }
       ],
       "question": "",
@@ -976,7 +1041,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "これ、1枚もらってもいいですか。"
+          "text": "これ、1枚もらってもいいですか。",
+          "textVi": "Cái này, tôi lấy một tờ được chứ?"
         }
       ],
       "question": "",
@@ -1006,7 +1072,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あの、何かご用でしょうか。"
+          "text": "あの、何かご用でしょうか。",
+          "textVi": "Dạ, anh/chị cần gì ạ?"
         }
       ],
       "question": "",
@@ -1036,7 +1103,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "パソコン、使わせていただきたいんですが。"
+          "text": "パソコン、使わせていただきたいんですが。",
+          "textVi": "Tôi muốn xin phép dùng máy tính."
         }
       ],
       "question": "",
@@ -1066,7 +1134,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あの、お客様、ご予約はされましたか。"
+          "text": "あの、お客様、ご予約はされましたか。",
+          "textVi": "Dạ thưa quý khách, quý khách đã đặt chỗ trước chưa ạ?"
         }
       ],
       "question": "",
@@ -1096,7 +1165,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "今朝の新聞、お読みになりましたか。"
+          "text": "今朝の新聞、お読みになりましたか。",
+          "textVi": "Anh/chị đã đọc báo sáng nay chưa?"
         }
       ],
       "question": "",
@@ -1126,7 +1196,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "どなたがいらっしゃったんですか。"
+          "text": "どなたがいらっしゃったんですか。",
+          "textVi": "Ai đã đến thế ạ?"
         }
       ],
       "question": "",
@@ -1156,7 +1227,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "何名様ですか。"
+          "text": "何名様ですか。",
+          "textVi": "Dạ, quý khách đi mấy người ạ?"
         }
       ],
       "question": "",
@@ -1186,7 +1258,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "あした、来ないの？"
+          "text": "あした、来ないの？",
+          "textVi": "Mai không đến à?"
         }
       ],
       "question": "",
@@ -1214,7 +1287,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "大切だから、書いといて。"
+          "text": "大切だから、書いといて。",
+          "textVi": "Quan trọng lắm đấy, nhớ ghi lại nhé."
         }
       ],
       "question": "",
@@ -1242,7 +1316,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "もう少し前の方に座ったらどう？"
+          "text": "もう少し前の方に座ったらどう？",
+          "textVi": "Hay là ngồi lên phía trên một chút đi?"
         }
       ],
       "question": "",
@@ -1270,7 +1345,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "忘れずに名前を書くようにね。"
+          "text": "忘れずに名前を書くようにね。",
+          "textVi": "Nhớ viết tên vào đấy nhé."
         }
       ],
       "question": "",
@@ -1298,7 +1374,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "「かるた」って何か知ってる？"
+          "text": "「かるた」って何か知ってる？",
+          "textVi": "Cậu có biết \"karuta\" là gì không?"
         }
       ],
       "question": "",
@@ -1326,7 +1403,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "お子さん、おいくつですか。"
+          "text": "お子さん、おいくつですか。",
+          "textVi": "Con nhà anh/chị mấy tuổi rồi ạ?"
         }
       ],
       "question": "",
@@ -1354,7 +1432,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "先生、何て言ってた？"
+          "text": "先生、何て言ってた？",
+          "textVi": "Thầy cô nói thế nào vậy?"
         }
       ],
       "question": "",
@@ -1382,7 +1461,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "来週の試験に出るところ、教えていただけませんか。"
+          "text": "来週の試験に出るところ、教えていただけませんか。",
+          "textVi": "Thầy/cô có thể chỉ cho em phần nào sẽ ra trong bài thi tuần tới được không ạ?"
         }
       ],
       "question": "",
@@ -1412,7 +1492,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "わたしたちはよく「みんな持っているから」とか「みんなもそう言っている」なんていう言い方をします。しかし、実際には「みんな」というのは自分の周りの2、3人だったということがよくあります。わたしたちは「みんな」という言葉を簡単に使い過ぎていると思います。言葉はもう少し正しく使うようにしたほうがいいのではないでしょうか。"
+          "text": "わたしたちはよく「みんな持っているから」とか「みんなもそう言っている」なんていう言い方をします。しかし、実際には「みんな」というのは自分の周りの2、3人だったということがよくあります。わたしたちは「みんな」という言葉を簡単に使い過ぎていると思います。言葉はもう少し正しく使うようにしたほうがいいのではないでしょうか。",
+          "textVi": "Chúng ta hay dùng những cách nói như \"vì ai cũng có\" hoặc \"ai cũng nói thế\". Nhưng thực tế, \"mọi người\" ấy thường chỉ là hai, ba người xung quanh chúng ta thôi. Tôi nghĩ chúng ta đang dùng từ \"mọi người\" quá dễ dãi. Có lẽ chúng ta nên dùng từ ngữ chính xác hơn một chút thì tốt hơn."
         }
       ],
       "question": "男の人が言いたいことは何ですか。",
@@ -1441,35 +1522,43 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "本田君、アルバイト、始めたんだって？"
+          "text": "本田君、アルバイト、始めたんだって？",
+          "textVi": "Honda này, nghe nói cậu bắt đầu đi làm thêm à?"
         },
         {
           "speaker": "男",
-          "text": "うん。先週から。留学生の寮の仕事なんだけど。"
+          "text": "うん。先週から。留学生の寮の仕事なんだけど。",
+          "textVi": "Ừ, từ tuần trước. Công việc ở ký túc xá lưu học sinh ấy mà."
         },
         {
           "speaker": "女",
-          "text": "へえ。どう？"
+          "text": "へえ。どう？",
+          "textVi": "Thế à. Thế nào?"
         },
         {
           "speaker": "男",
-          "text": "実は、始める前はもっと暇かと思ってたんだけどね。でも、面白いよ、いろんな国の人と話せて。"
+          "text": "実は、始める前はもっと暇かと思ってたんだけどね。でも、面白いよ、いろんな国の人と話せて。",
+          "textVi": "Thực ra, trước khi làm thì tớ cứ nghĩ là rảnh rỗi hơn cơ. Nhưng mà hay lắm, được nói chuyện với người từ nhiều nước mà."
         },
         {
           "speaker": "女",
-          "text": "そう。本田君は英語学科だから、英語を使うチャンスができていいね。"
+          "text": "そう。本田君は英語学科だから、英語を使うチャンスができていいね。",
+          "textVi": "Vậy sao. Cậu học khoa tiếng Anh nên có cơ hội dùng tiếng Anh thì tốt quá nhỉ."
         },
         {
           "speaker": "男",
-          "text": "それが、そうでもないんだ。寮ではみんなだいたい日本語を使うから。"
+          "text": "それが、そうでもないんだ。寮ではみんなだいたい日本語を使うから。",
+          "textVi": "Khổ nỗi lại không phải thế. Ở ký túc xá mọi người hầu như toàn dùng tiếng thế mà."
         },
         {
           "speaker": "女",
-          "text": "ふーん、そうか。でも、続けるんでしょう？"
+          "text": "ふーん、そうか。でも、続けるんでしょう？",
+          "textVi": "Hừm, vậy sao. Nhưng mà chắc vẫn làm tiếp chứ?"
         },
         {
           "speaker": "男",
-          "text": "うん、世界のいろいろなことを教えてもらおうと思ってるんだ。"
+          "text": "うん、世界のいろいろなことを教えてもらおうと思ってるんだ。",
+          "textVi": "Ừ, tớ định sẽ nhờ họ kể cho nghe nhiều điều về thế giới."
         }
       ],
       "question": "男の人がこのアルバイトを続ける理由はなんですか。",
@@ -1500,7 +1589,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "今日はいい先生について考えてみましょう。よく、親切だからいい先生だとか、いろんなことを知っているからいい先生だと言う人がいます。もちろん親切ではない人や何も知らない人は先生としてはよくないと思いますが、親切だけなら、お母さんでも近所の人でもいいのです。また、いろんなことをよく知っていても、それを子供たちや学生たちがわかるように教えられなければ意味がありません。やはり先生というのは、それができるプロのことを言うのではないでしょうか。"
+          "text": "今日はいい先生について考えてみましょう。よく、親切だからいい先生だとか、いろんなことを知っているからいい先生だと言う人がいます。もちろん親切ではない人や何も知らない人は先生としてはよくないと思いますが、親切だけなら、お母さんでも近所の人でもいいのです。また、いろんなことをよく知っていても、それを子供たちや学生たちがわかるように教えられなければ意味がありません。やはり先生というのは、それができるプロのことを言うのではないでしょうか。",
+          "textVi": "Hôm nay chúng ta hãy suy nghĩ về một giáo viên giỏi nhé. Thường thì có người nói rằng giáo viên tốt là người nhiệt tình, hoặc biết nhiều thứ. Đương nhiên người không nhiệt tình hay không biết gì thì không tốt làm mẹ hay người hàng xóm cũng được. Hơn nữa, dù biết nhiều thứ đi nữa mà không dạy cho trẻ em hay học sinh hiểu được thì cũng vô nghĩa. Suy cho cùng, giáo viên phải là những chuyên gia làm được điều đó chứ nhỉ."
         }
       ],
       "question": "女の人はいい先生というのはどんな人だと言っていますか。",
@@ -1531,7 +1621,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "新入社員の皆さん、一緒に仕事をしてみて、わたしは皆さんがちょっとおとなし過ぎると感じました。うるさいよりいいじゃないかと思います。もちろん、上の人の言うことを聞いて、言われたことをちゃんとやることも大切です。しかし、会社ではそれだけでは仕事をしていることになりません。いつも言われるのを待っているばかりでは、本当に仕事をしているとは言えないのです。もっと積極的に意見を言ったり考えたりして、皆さんから動いてください。"
+          "text": "新入社員の皆さん、一緒に仕事をしてみて、わたしは皆さんがちょっとおとなし過ぎると感じました。うるさいよりいいじゃないかと思います。もちろん、上の人の言うことを聞いて、言われたことをちゃんとやることも大切です。しかし、会社ではそれだけでは仕事をしていることになりません。いつも言われるのを待っているばかりでは、本当に仕事をしているとは言えないのです。もっと積極的に意見を言ったり考えたりして、皆さんから動いてください。",
+          "textVi": "Các nhân viên mới, qua thời gian cùng làm việc, tôi cảm thấy các bạn hơi quá hiền lành. Có lẽ các bạn nghĩ thà ồn ào còn hơn phải không? Đương nhiên việc nghe lời cấp trên và làm đàng hoàng những gì được giao là rất quan trọng. Tuy nhiên, ở công ty chỉ thế thôi thì chưa phải là làm việc. Nếu lúc nào cũng chỉ đợi người ta bảo mới làm thì không thể gọi là thực sự làm việc được. Các bạn hãy tích cực nêu ý kiến, suy nghĩ và chủ động hành động hơn nữa đi."
         }
       ],
       "question": "男の人が新入社員に伝えたいことは何ですか。",
@@ -1562,31 +1653,38 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "山口さん、ちょっと頼みたいことがあるんだけど、君、犬が好きだって言ってたよね。"
+          "text": "山口さん、ちょっと頼みたいことがあるんだけど、君、犬が好きだって言ってたよね。",
+          "textVi": "Yamaguchi này, tôi có việc muốn nhờ chút, cậu từng bảo thích chó phải không?"
         },
         {
           "speaker": "女",
-          "text": "はい、大好きです。子供の時、うちには３匹もいたんです。"
+          "text": "はい、大好きです。子供の時、うちには３匹もいたんです。",
+          "textVi": "Vâng, thích lắm ạ. Hồi nhỏ nhà em nuôi tận ba con cơ."
         },
         {
           "speaker": "男",
-          "text": "じゃ、犬の世話なんか慣れているよね。僕も犬飼ってるんだけど、実は１か月……。"
+          "text": "じゃ、犬の世話なんか慣れているよね。僕も犬飼ってるんだけど、実は１か月……。",
+          "textVi": "Thế thì chắc quen việc chăm sóc chó nhỉ. Tôi cũng nuôi một con, thực ra là một tháng..."
         },
         {
           "speaker": "女",
-          "text": "え？ １か月の子犬ですか。じゃ、かわいいでしょう。"
+          "text": "え？ １か月の子犬ですか。じゃ、かわいいでしょう。",
+          "textVi": "Hả? Cún con một tháng tuổi ạ? Thế thì đáng yêu lắm nhỉ."
         },
         {
           "speaker": "男",
-          "text": "いや、1歳なんだけど、来週からちょっと家を留守にしなくちゃならなくなってね。"
+          "text": "いや、1歳なんだけど、来週からちょっと家を留守にしなくちゃならなくなってね。",
+          "textVi": "Không, nó được một tuổi rồi, mà tuần tới tôi có việc phải vắng nhà một thời gian."
         },
         {
           "speaker": "女",
-          "text": "あ、１か月海外出張に行かれるんでしたね。"
+          "text": "あ、１か月海外出張に行かれるんでしたね。",
+          "textVi": "À, anh phải đi công tác nước ngoài một tháng đúng không ạ."
         },
         {
           "speaker": "男",
-          "text": "そうなんだよ。１か月もペットホテルじゃかわいそうだし、君のうち、家族みんな犬が好きだって言ってたから……。えさや犬のベッドなんかは、僕がちゃんと持っていくから、ご家族にちょっと預かってもらえないかな。"
+          "text": "そうなんだよ。１か月もペットホテルじゃかわいそうだし、君のうち、家族みんな犬が好きだって言ってたから……。えさや犬のベッドなんかは、僕がちゃんと持っていくから、ご家族にちょっと預かってもらえないかな。",
+          "textVi": "Đúng vậy đấy. Gửi khách sạn thú cưng một tháng thì tội nó lắm, mà nhà cậu thì mọi người ai cũng thích chó... Thức ăn với chuồng chó thì tôi sẽ mang đến đầy đủ, nhờ gia đình cậu trông hộ một chút được không?"
         }
       ],
       "question": "男の人は女の人に何を頼んでいますか。",
@@ -1713,7 +1811,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "いつもお世話になってるから、今日はごちそうさせてよ。"
+          "text": "いつもお世話になってるから、今日はごちそうさせてよ。",
+          "textVi": "Anh hay giúp đỡ tôi nên hôm nay để tôi đãi nhé."
         }
       ],
       "question": "",
@@ -1742,7 +1841,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "ここの字、もう少し大きくしたらどう？"
+          "text": "ここの字、もう少し大きくしたらどう？",
+          "textVi": "Chữ ở đây, phóng to lên một chút thì sao?"
         }
       ],
       "question": "",
@@ -1771,7 +1871,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "これ、佐藤さんに返しといてもらえる？"
+          "text": "これ、佐藤さんに返しといてもらえる？",
+          "textVi": "Cái này, bạn trả hộ mình cho anh Sato được không?"
         }
       ],
       "question": "",
@@ -1800,7 +1901,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "あの、こちら拝見してもよろしいでしょうか。"
+          "text": "あの、こちら拝見してもよろしいでしょうか。",
+          "textVi": "Xin lỗi, tôi có thể xem qua cái này được không ạ?"
         }
       ],
       "question": "",
@@ -1829,7 +1931,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "さっき頼んだ書類、できてる？"
+          "text": "さっき頼んだ書類、できてる？",
+          "textVi": "Tài liệu tôi nhờ lúc nãy xong chưa?"
         }
       ],
       "question": "",
@@ -1858,7 +1961,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "何か切る物、持ってきましょうか。"
+          "text": "何か切る物、持ってきましょうか。",
+          "textVi": "Tôi mang cho bạn cái gì để cắt nhé?"
         }
       ],
       "question": "",
@@ -1887,7 +1991,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "田中先生をご存じですか。"
+          "text": "田中先生をご存じですか。",
+          "textVi": "Bạn có biết thầy Tanaka không?"
         }
       ],
       "question": "",
@@ -1916,7 +2021,8 @@
       "turns": [
         {
           "speaker": "男",
-          "text": "もうちょっと言い方に気をつけないと。"
+          "text": "もうちょっと言い方に気をつけないと。",
+          "textVi": "Cậu phải chú ý cách nói năng hơn chút nữa chứ."
         }
       ],
       "question": "",
@@ -1945,7 +2051,8 @@
       "turns": [
         {
           "speaker": "女",
-          "text": "昨日の会、楽しかったよ。リーさんも来ればよかったのに……。"
+          "text": "昨日の会、楽しかったよ。リーさんも来ればよかったのに……。",
+          "textVi": "Buổi gặp mặt hôm qua vui lắm. Lệ mà đến thì tốt biết mấy..."
         }
       ],
       "question": "",
