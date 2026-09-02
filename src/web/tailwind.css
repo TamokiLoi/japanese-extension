@@ -55,7 +55,13 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    /* rose-600, matching the accent used everywhere else in the app (nav
+       active state, badges, "Nộp bài"/CTA buttons hand-styled with
+       bg-rose-600) -- the shadcn scaffold's default grayscale --primary
+       never got updated when the app settled on rose as its brand color,
+       so every plain <Button>/<Badge> default variant rendered near-black
+       instead. */
+    --primary: var(--color-rose-600);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -90,8 +96,8 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
+    --primary: var(--color-rose-500);
+    --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);

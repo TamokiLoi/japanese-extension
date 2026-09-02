@@ -401,6 +401,7 @@ function QuestionView({
         </div>
 
         <div className="reading-question">
+          {q.passage ? <div className="reading-passage">{q.passage}</div> : null}
           <div className="reading-question-prompt">{q.question}</div>
           <div className="quiz-choices">
             {q.options.map((opt, oi) => {

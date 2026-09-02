@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-export type PaletteStatus = "current" | "correct" | "wrong" | "unanswered";
+// "answered" is for an in-progress attempt where correctness isn't known
+// yet (a timed exam shouldn't leak right/wrong before it's submitted) --
+// distinct from "correct"/"wrong", which stay for post-submission review.
+export type PaletteStatus = "current" | "correct" | "wrong" | "unanswered" | "answered";
 
 export interface PaletteItem {
   id: string;
@@ -18,6 +21,7 @@ function cellColor(item: PaletteItem): string {
       ? "border-emerald-200 bg-emerald-50 text-emerald-600"
       : "border-neutral-200 text-neutral-500 hover:bg-neutral-50";
   }
+  if (item.status === "answered") return "border-neutral-300 bg-neutral-200 text-neutral-700";
   return item.status === "correct"
     ? "border-emerald-300 bg-emerald-100 text-emerald-700"
     : "border-rose-300 bg-rose-100 text-rose-700";
@@ -25,16 +29,20 @@ function cellColor(item: PaletteItem): string {
 
 // Collapsed by default (content-first: the current question, not the palette,
 // should own the viewport) -- expand on demand to jump around or see results.
+// The Result screen passes defaultOpen since reviewing answers *is* that
+// screen's content, not a distraction from it.
 export function QuestionPalette({
   items,
   summary,
   onJump,
+  defaultOpen = false,
 }: {
   items: PaletteItem[];
   summary: string;
   onJump: (index: number) => void;
+  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <div className="mt-4">
