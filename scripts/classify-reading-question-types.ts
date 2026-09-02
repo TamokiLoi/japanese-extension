@@ -20,6 +20,8 @@ const DATA_FILES = [
   "src/data/reading-n3-speedmaster.json",
   "src/data/reading-n3-taisaku.json",
   "src/data/mocktest-n3-shinkanzen.json",
+  "src/data/reading-n3-dokkai55.json",
+  "src/data/reading-n3-dokkai115.json",
 ];
 
 const QUESTION_TYPES = ["detail", "main-idea", "inference", "reference-vocab", "info-search"] as const;

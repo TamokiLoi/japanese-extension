@@ -39,7 +39,7 @@ export interface ReadingQuestion {
 // Which source book a passage came from -- lets the Reading screen filter/
 // label by book (e.g. Speed Master is noticeably easier than Shin Kanzen
 // Master even at the same JLPT level) instead of only by level/length.
-export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku";
+export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115";
 
 export interface ReadingPassage {
   id: string;

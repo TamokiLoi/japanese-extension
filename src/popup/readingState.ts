@@ -2,6 +2,8 @@ import readingN3ShinkanzenRaw from "../data/reading-n3-shinkanzen.json";
 import readingN3SpeedmasterRaw from "../data/reading-n3-speedmaster.json";
 import readingN3TaisakuRaw from "../data/reading-n3-taisaku.json";
 import mocktestN3ShinkanzenRaw from "../data/mocktest-n3-shinkanzen.json";
+import readingN3Dokkai55Raw from "../data/reading-n3-dokkai55.json";
+import readingN3Dokkai115Raw from "../data/reading-n3-dokkai115.json";
 import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook, ReadingQuestionType } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -10,11 +12,15 @@ const shinkanzenDataset = readingN3ShinkanzenRaw as unknown as ReadingDataset;
 const speedmasterDataset = readingN3SpeedmasterRaw as unknown as ReadingDataset;
 const taisakuDataset = readingN3TaisakuRaw as unknown as ReadingDataset;
 const mocktestShinkanzenDataset = mocktestN3ShinkanzenRaw as unknown as ReadingDataset;
+const dokkai55Dataset = readingN3Dokkai55Raw as unknown as ReadingDataset;
+const dokkai115Dataset = readingN3Dokkai115Raw as unknown as ReadingDataset;
 export const ALL_READING: ReadingPassage[] = [
   ...shinkanzenDataset.passages,
   ...speedmasterDataset.passages,
   ...taisakuDataset.passages,
   ...mocktestShinkanzenDataset.passages,
+  ...dokkai55Dataset.passages,
+  ...dokkai115Dataset.passages,
 ];
 
 const READING_BY_ID = new Map(ALL_READING.map((p) => [p.id, p]));
@@ -66,12 +72,16 @@ export const BOOK_LABELS: Record<ReadingBook, string> = {
   shinkanzen: "Shin Kanzen Master",
   speedmaster: "Speed Master",
   taisaku: "N3 Taisaku Mondai",
+  dokkai55: "N3 Dokkai 55+",
+  dokkai115: "N3 Đọc Hiểu 115 Bài",
 };
 
 export const BOOK_DIFFICULTY_NOTE: Record<ReadingBook, string> = {
   shinkanzen: "khó hơn",
   speedmaster: "dễ hơn",
   taisaku: "có giải thích cách suy luận",
+  dokkai55: "nhiều bài tìm kiếm thông tin thực tế",
+  dokkai115: "sách Trung Quốc, đủ 4 dạng bài chuẩn đề thi",
 };
 
 // Ordering shown in the length filter -- short to long, mirrors LEVEL_ORDER
@@ -85,7 +95,7 @@ export const AVAILABLE_LENGTHS: ReadingLength[] = (
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((level) => ALL_READING.some((p) => p.level === level));
 
-const BOOK_ORDER: ReadingBook[] = ["speedmaster", "shinkanzen", "taisaku"];
+const BOOK_ORDER: ReadingBook[] = ["speedmaster", "shinkanzen", "taisaku", "dokkai55", "dokkai115"];
 export const AVAILABLE_BOOKS: ReadingBook[] = BOOK_ORDER.filter((book) => ALL_READING.some((p) => p.book === book));
 
 export function pickRandomPassage(
