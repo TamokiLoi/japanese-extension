@@ -30,6 +30,7 @@ import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 
 type QuizStep = "resume" | "setup" | "play" | "result";
 type OpenCallbacks = {
@@ -445,8 +446,23 @@ function PlayView({
     onSessionChange(newSession);
   }
 
+  function goNext() {
+    if (isLast) {
+      finish();
+      return;
+    }
+    goTo(idx + 1);
+  }
+
+  const swipe = useSwipeNavigation({
+    onSwipeLeft: goNext,
+    onSwipeRight: () => {
+      if (idx > 0) goTo(idx - 1);
+    },
+  });
+
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6" {...swipe}>
       <div className="flex items-center justify-between">
         <h1 className="text-lg font-bold text-neutral-800">
           Câu {idx + 1} / {session.questions.length}
@@ -484,16 +500,7 @@ function PlayView({
         <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
           <ChevronLeft size={16} /> Câu trước
         </Button>
-        <Button
-          className="ml-auto"
-          onClick={() => {
-            if (isLast) {
-              finish();
-              return;
-            }
-            goTo(idx + 1);
-          }}
-        >
+        <Button className="ml-auto" onClick={goNext}>
           {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
         </Button>
       </div>

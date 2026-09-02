@@ -44,6 +44,25 @@ export function WebApp() {
     return () => document.body.classList.remove("web-shell");
   }, []);
 
+  // go() below already pushes a new history entry every time it changes
+  // location.hash (that's just how assigning location.hash works), so the
+  // browser's own back/forward buttons -- and, on mobile, the OS edge-swipe
+  // back gesture -- already move through this app's navigation history.
+  // What was missing is this: nothing was listening for that "hashchange"
+  // event, so going back only moved the address bar's hash while the still-
+  // mounted React tree kept showing whatever screen it last rendered. Sync
+  // the two by re-reading the hash on every hashchange, which covers both
+  // real back/forward navigation and go()'s own hash assignment (the latter
+  // is redundant with go()'s direct setRoute call below, but harmless).
+  useEffect(() => {
+    function onHashChange() {
+      setRoute(readFromHash());
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
   function go(next: Screen, id?: string) {
     location.hash = id ? `${next}:${id}` : next;
     setRoute({ screen: next, targetId: id });

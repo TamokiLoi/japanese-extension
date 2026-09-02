@@ -181,13 +181,6 @@ export function WebAppShell({
               </button>
             );
           })}
-          <button
-            onClick={() => setDrawerOpen(true)}
-            className="flex flex-1 flex-col items-center gap-0.5 py-2 text-[11px] font-medium text-neutral-500"
-          >
-            <Menu size={20} />
-            Thêm
-          </button>
         </nav>
 
         <ScrollToTopButton />

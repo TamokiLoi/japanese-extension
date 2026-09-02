@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from "react";
+import { isRomaji, toHiragana } from "wanakana";
 import { ALL_KANJI } from "../kanjiState.ts";
 import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_BUNPO } from "../bunpoState.ts";
@@ -10,6 +11,19 @@ import type { JlptLevel } from "../../types/kanji.ts";
 
 const MAX_RESULTS = 40;
 
+// See src/web/screens/SearchScreen.tsx's copy of this pair for the full
+// rationale -- kept duplicated rather than shared since this popup screen
+// is its own independent implementation of the same feature.
+function romajiVariant(q: string): string | null {
+  if (!q || !isRomaji(q)) return null;
+  const kana = toHiragana(q, { passRomaji: false });
+  return kana !== q ? kana : null;
+}
+
+function matchesAny(text: string, q: string, qKana: string | null): boolean {
+  return text.includes(q) || (qKana !== null && text.includes(qKana));
+}
+
 interface SearchResult {
   kind: "kanji" | "vocab" | "bunpo";
   id: string;
@@ -19,7 +33,7 @@ interface SearchResult {
   meaning: string;
 }
 
-function searchKanji(q: string): SearchResult[] {
+function searchKanji(q: string, qKana: string | null): SearchResult[] {
   return ALL_KANJI.filter(
     (k) =>
       q.includes(k.character) ||
@@ -27,8 +41,8 @@ function searchKanji(q: string): SearchResult[] {
       k.meanings.vi.some((m) => m.toLowerCase().includes(q)) ||
       (k.meanings.viDraft ?? []).some((m) => m.toLowerCase().includes(q)) ||
       k.meanings.en.some((m) => m.toLowerCase().includes(q)) ||
-      k.readings.on.some((r) => r.includes(q)) ||
-      k.readings.kun.some((r) => r.includes(q)),
+      k.readings.on.some((r) => matchesAny(r, q, qKana)) ||
+      k.readings.kun.some((r) => matchesAny(r, q, qKana)),
   ).map((k) => ({
     kind: "kanji" as const,
     id: k.id,
@@ -39,11 +53,11 @@ function searchKanji(q: string): SearchResult[] {
   }));
 }
 
-function searchVocab(q: string): SearchResult[] {
+function searchVocab(q: string, qKana: string | null): SearchResult[] {
   return ALL_VOCAB.filter(
     (v) =>
       v.word.toLowerCase().includes(q) ||
-      (v.reading ?? "").toLowerCase().includes(q) ||
+      matchesAny((v.reading ?? "").toLowerCase(), q, qKana) ||
       v.meaningVi.toLowerCase().includes(q) ||
       v.hanViet.some((h) => h.toLowerCase().includes(q)),
   ).map((v) => ({
@@ -56,8 +70,8 @@ function searchVocab(q: string): SearchResult[] {
   }));
 }
 
-function searchBunpo(q: string): SearchResult[] {
-  return ALL_BUNPO.filter((g) => g.pattern.toLowerCase().includes(q) || g.meaningVi.toLowerCase().includes(q)).map((g) => ({
+function searchBunpo(q: string, qKana: string | null): SearchResult[] {
+  return ALL_BUNPO.filter((g) => matchesAny(g.pattern.toLowerCase(), q, qKana) || g.meaningVi.toLowerCase().includes(q)).map((g) => ({
     kind: "bunpo" as const,
     id: g.id,
     level: g.level,
@@ -84,14 +98,15 @@ export function SearchScreen({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const q = debouncedQuery.trim().toLowerCase();
+  const qKana = useMemo(() => romajiVariant(q), [q]);
   const results = useMemo(() => {
     if (!q) return [];
     const all: SearchResult[] = [];
-    if (activeKinds.includes("kanji")) all.push(...searchKanji(q));
-    if (activeKinds.includes("vocab")) all.push(...searchVocab(q));
-    if (activeKinds.includes("bunpo")) all.push(...searchBunpo(q));
+    if (activeKinds.includes("kanji")) all.push(...searchKanji(q, qKana));
+    if (activeKinds.includes("vocab")) all.push(...searchVocab(q, qKana));
+    if (activeKinds.includes("bunpo")) all.push(...searchBunpo(q, qKana));
     return all.slice(0, MAX_RESULTS);
-  }, [q, activeKinds]);
+  }, [q, qKana, activeKinds]);
 
   function toggleKind(kind: SearchResult["kind"]) {
     setActiveKinds((prev) => {
