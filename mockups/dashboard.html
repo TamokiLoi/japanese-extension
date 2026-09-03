@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nihongo Nin — Dashboard mockup</title>
+  <style>
+    :root { --ink:#18213a; --muted:#68708a; --line:#ebeaf1; --red:#ed2855; --pink:#fff1f4; --panel:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-width:1120px; color:var(--ink); font:15px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; background:#fbfafc; }
+    button { font:inherit; cursor:pointer; }
+    .app { display:grid; grid-template-columns:250px minmax(650px, 1fr) 310px; gap:28px; max-width:1600px; margin:auto; padding:24px 22px; }
+    .sidebar { min-height:calc(100vh - 48px); padding:7px 0; }
+    .brand { display:flex; gap:12px; align-items:center; margin:0 10px 28px; font-weight:800; font-size:21px; }
+    .brand-mark { display:grid; place-items:center; width:42px; height:42px; border-radius:13px; background:#10111b; color:#fff; border:2px solid var(--red); font-size:20px; }
+    .brand small { display:block; color:var(--muted); font-size:10px; font-weight:600; }
+    .label { margin:24px 14px 8px; color:#727a94; font-size:11px; font-weight:800; letter-spacing:.05em; }
+    .nav { display:grid; gap:4px; }
+    .nav button { display:flex; gap:13px; width:100%; align-items:center; border:0; border-radius:13px; padding:11px 14px; text-align:left; color:#303a55; background:transparent; }
+    .nav button:hover, .nav .active { color:#d91c4b; background:#ffe7ed; font-weight:750; }
+    .nav i { width:20px; font-style:normal; text-align:center; }
+    .daily { margin:60px 0 0; padding:15px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(140deg,#fff,#fff5f5); }
+    .daily b { display:block; } .daily span { color:var(--muted); font-size:12px; }
+    .main h1 { margin:0; font-size:32px; letter-spacing:-.04em; }
+    .main > header p { margin:2px 0 18px; color:#545e78; font-size:16px; }
+    .hero { overflow:hidden; position:relative; min-height:280px; border-radius:21px; padding:31px; color:#20253a; background:linear-gradient(112deg,#ffe4e9 0%,#ffd4dc 40%,#f3bfc9 100%); box-shadow:0 14px 24px #4a2a3a16; }
+    .hero:after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 75% 90%,#855e8c88 0 15%,transparent 16%), radial-gradient(ellipse at 78% 20%,#9c365a 0 3%,transparent 3.5%), radial-gradient(ellipse at 69% 14%,#c72d58 0 2%,transparent 2.6%), linear-gradient(145deg,transparent 48%,#5c355c99 49% 52%,transparent 53%); opacity:.85; pointer-events:none; }
+    .hero > * { position:relative; z-index:1; }
+    .eyebrow { display:inline-block; padding:7px 12px; border-radius:999px; background:#ffffffbd; color:#de1c4c; font-size:12px; font-weight:800; }
+    .hero h2 { margin:17px 0 6px; font-size:29px; letter-spacing:-.04em; }
+    .hero p { margin:0; font-size:16px; }.meter { width:315px; height:9px; margin:17px 0 7px; overflow:hidden; border-radius:99px; background:#f4aab9; }.meter span { display:block; width:64%; height:100%; border-radius:inherit; background:var(--red); }
+    .hero .audio { display:flex; align-items:center; gap:9px; margin:20px 0; color:#d82450; }.wave { width:285px; height:34px; background:repeating-linear-gradient(90deg,transparent 0 5px,#ec5a78 6px 8px,transparent 9px 12px); clip-path:polygon(0 47%,6% 40%,10% 65%,16% 15%,22% 76%,28% 31%,35% 61%,43% 7%,50% 78%,57% 32%,65% 65%,73% 20%,80% 73%,88% 39%,94% 60%,100% 48%,100% 56%,94% 44%,88% 65%,80% 27%,73% 80%,65% 35%,57% 68%,50% 22%,43% 93%,35% 39%,28% 69%,22% 24%,16% 85%,10% 35%,6% 60%,0 53%); }
+    .primary { border:0; border-radius:999px; padding:13px 24px; color:white; font-weight:800; background:linear-gradient(110deg,#f3265a,#d91446); box-shadow:0 8px 14px #d6154733; }
+    .section-title { display:flex; align-items:center; justify-content:space-between; margin:19px 0 10px; font-size:19px; font-weight:800; }.section-title a { color:#354266; font-size:13px; text-decoration:none; }
+    .progress-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }.progress { min-height:146px; padding:18px; border:1px solid var(--line); border-radius:17px; background:var(--panel); }.progress:nth-child(1){background:#fff1f4}.progress:nth-child(2){background:#fff7eb}.progress:nth-child(3){background:#effbf4}.progress b { display:block; margin-top:8px; font-size:26px; }.progress small { color:#53607a; }.bar { height:8px; margin-top:12px; overflow:hidden; border-radius:99px; background:#ffffffa6; }.bar span{display:block;height:100%;border-radius:inherit;background:var(--red)} .progress:nth-child(2) .bar span{background:#f07c1d}.progress:nth-child(3) .bar span{background:#12a660}
+    .lower { display:grid; grid-template-columns:1.08fr .92fr; gap:16px; margin-top:20px; }.box { padding:20px; border:1px solid var(--line); border-radius:18px; background:#fff; }.box h3 { margin:0 0 14px; font-size:18px; }.task { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #efeff4; }.check { width:20px; height:20px; border:2px solid #cbd1df; border-radius:50%; }.task span:last-child { margin-left:auto; color:#46516b; font-size:13px; }.quick { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }.quick button { min-height:80px; border:0; border-radius:14px; color:#24304c; background:#f7f7fc; font-weight:700; }.quick button strong { display:block; font-size:22px; }
+    .right { padding-top:26px; }.side-card { margin-bottom:15px; padding:21px; border:1px solid var(--line); border-radius:18px; background:#fff; }.side-card h3 { margin:0 0 8px; font-size:16px; }.streak { background:linear-gradient(145deg,#fff2f4,#fff9fa); }.streak b { display:block; margin:10px 0 4px; font-size:30px; }.week { display:flex; justify-content:space-between; margin:18px 0; color:#606980; font-size:11px; }.week span:after { content:""; display:block; width:17px; height:17px; margin-top:6px; border-radius:50%; background:#ffd9e1; }.week span.on:after { background:var(--red); box-shadow:inset 0 0 0 4px #fff3f5; }.exam{background:linear-gradient(145deg,#eff4ff,#fbfaff)} .exam b{display:block;font-size:28px;margin:9px 0}.review{background:linear-gradient(145deg,#effcf5,#f9fffb)}.quote{background:linear-gradient(145deg,#fff7eb,#fff0dd);font-size:17px;font-weight:750}.stats li{display:flex;justify-content:space-between;padding:8px 0;color:#4c5770;font-size:13px}.stats em{font-style:normal;color:#e92251;font-weight:800}
+    @media (max-width:1180px){body{min-width:0}.app{grid-template-columns:215px 1fr}.right{display:none}} @media (max-width:800px){.app{display:block;padding:16px}.sidebar{min-height:auto}.nav,.label,.daily{display:none}.brand{margin-bottom:18px}.progress-grid,.lower{grid-template-columns:1fr}.hero{min-height:260px}.main h1{font-size:27px}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">忍</span><div>Nihongo Nin<small>忍耐で、着実に。</small></div></div>
+      <nav class="nav" aria-label="Điều hướng chính">
+        <button class="active"><i>⌂</i>Trang chủ</button><button><i>⌕</i>Tra cứu</button>
+        <p class="label">HỌC</p><button><i>漢</i>Kanji</button><button><i>▤</i>Từ vựng</button><button><i>✎</i>Ngữ pháp</button><button><i>▥</i>Luyện đọc</button><button><i>♬</i>Luyện nghe</button>
+        <p class="label">LUYỆN THI</p><button><i>♕</i>Đề thi JLPT</button><button><i>?</i>Quiz</button><button><i>↶</i>Ôn tập</button>
+        <p class="label">CÔNG CỤ</p><button><i>▥</i>Thống kê</button><button><i>ⓘ</i>Hướng dẫn</button>
+      </nav>
+      <div class="daily">🌸 <b>Học mỗi ngày</b><span>Tiến bộ từng chút</span></div>
+    </aside>
+    <section class="main">
+      <header><h1>Chào buổi chiều! 🌸</h1><p>Hôm nay học tiếp một chút nhé. Kiên trì mỗi ngày, kết quả sẽ đến!</p></header>
+      <article class="hero"><span class="eyebrow">♬ &nbsp; TIẾP TỤC HỌC</span><h2>Luyện nghe N3</h2><p>Bài 15 &nbsp;·&nbsp; Hội thoại tại ga</p><div class="meter"><span></span></div><b>64%</b><div class="audio"><span class="wave"></span><span>03:26</span></div><button class="primary">Mở bài học&nbsp; →</button></article>
+      <div class="section-title"><span>▥ &nbsp; Tiến độ học tập</span><a href="#">Xem chi tiết →</a></div>
+      <section class="progress-grid"><article class="progress">漢<br><b>Kanji</b><strong>52%</strong><small>1.248 / 2.381 từ</small><div class="bar"><span style="width:52%"></span></div></article><article class="progress">▤<br><b>Từ vựng</b><strong>38%</strong><small>4.168 / 10.996 từ</small><div class="bar"><span style="width:38%"></span></div></article><article class="progress">✎<br><b>Ngữ pháp</b><strong>61%</strong><small>573 / 941 mẫu</small><div class="bar"><span style="width:61%"></span></div></article></section>
+      <section class="lower"><article class="box"><h3>▣ &nbsp; Kế hoạch hôm nay</h3><div class="task"><i class="check"></i>Kanji <span>20 từ mới</span></div><div class="task"><i class="check"></i>Từ vựng <span>30 từ mới</span></div><div class="task"><i class="check"></i>Ngữ pháp <span>10 mẫu</span></div><p><button class="primary">Bắt đầu học hôm nay →</button></p></article><article class="box"><h3>ϟ &nbsp; Học nhanh</h3><div class="quick"><button><strong>漢</strong>Kanji</button><button><strong>▤</strong>Từ vựng</button><button><strong>♬</strong>Luyện nghe</button></div></article></section>
+    </section>
+    <aside class="right"><section class="side-card streak"><h3>🔥 &nbsp; Chuỗi học liên tiếp</h3><b>7 ngày</b><span>Tuyệt vời! Hãy duy trì nhé!</span><div class="week"><span class="on">T2</span><span class="on">T3</span><span class="on">T4</span><span class="on">T5</span><span class="on">T6</span><span class="on">T7</span><span>CN</span></div><button class="primary">Tiếp tục học ngay →</button></section><section class="side-card exam"><h3>♕ &nbsp; Đề thi JLPT</h3><b>25 <small>đề thi còn lại</small></b><button class="primary">Làm đề ngay →</button></section><section class="side-card review"><h3>▣ &nbsp; Ôn tập sắp tới</h3><b>12 từ vựng</b><p>cần ôn tập</p><button class="primary">Xem ngay →</button></section><section class="side-card quote">“ 継続は力なり。 ”<br><small>Keizoku wa chikara nari.<br>Kiên trì là sức mạnh.</small></section><section class="side-card stats"><h3>▥ &nbsp; Thống kê nhanh</h3><ul><li>Tổng thời gian học <em>4 giờ 28 phút</em></li><li>Bài đã học <em>18</em></li><li>Câu đã luyện <em>266</em></li><li>Đã học hôm nay <em>6 bài</em></li></ul></section></aside>
+  </main>
+</body>
+</html>

@@ -1,10 +1,32 @@
 import { useEffect, useState } from "react";
-import { Flame, ArrowRight, GraduationCap, ClipboardCheck, BookMarked, Library, PenSquare, BookOpenText, Headphones, Check, Pencil } from "lucide-react";
+import {
+  Flame,
+  ArrowRight,
+  GraduationCap,
+  ClipboardCheck,
+  BookMarked,
+  Library,
+  PenSquare,
+  BookOpenText,
+  Headphones,
+  HelpCircle,
+  Check,
+  Pencil,
+  CalendarDays,
+  ChevronLeft,
+  ChevronRight,
+  Quote,
+} from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
 import { ALL_KANJI, getOrderedList as getFilteredKanji, loadViewerState as loadKanjiViewerState } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB, getOrderedList as getFilteredVocab, loadViewerState as loadVocabViewerState } from "../../popup/vocabState.ts";
 import { ALL_BUNPO, getFilteredList as getFilteredBunpo, loadViewerState as loadBunpoViewerState } from "../../popup/bunpoState.ts";
-import { getFilteredQuestions as getFilteredReading, loadViewerState as loadReadingViewerState } from "../../popup/readingState.ts";
+import {
+  getFilteredQuestions as getFilteredReading,
+  loadViewerState as loadReadingViewerState,
+  findReadingById,
+  getPassageProgress,
+} from "../../popup/readingState.ts";
 import {
   ALL_QUIZBOOK,
   matchesFilters as matchesQuizBookFilters,
@@ -23,6 +45,8 @@ import {
   countDue,
   getStudyStreak,
   getWeekStudyDays,
+  getMonthStudyDays,
+  bucketFor,
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
@@ -79,6 +103,11 @@ interface ContentCounts {
   listening: number;
 }
 
+interface TypeProgress {
+  mastered: number;
+  total: number;
+}
+
 interface Stats {
   streak: number;
   weekDays: boolean[];
@@ -87,6 +116,19 @@ interface Stats {
   counts: ContentCounts;
   buckets: Record<ProgressBucket, number>;
   due: { kanji: number; vocab: number; bunpo: number };
+  // Mastered/total per type, for "Tiến độ học tập"'s % cards -- same
+  // filtered lists as `counts` above, just with a mastered count alongside
+  // instead of only the raw total.
+  progress: { kanji: TypeProgress; vocab: TypeProgress; bunpo: TypeProgress };
+  quickStats: {
+    // Reading passages fully answered (status "done") -- a genuine
+    // discrete "lesson" unit, unlike Kanji/Vocab/Bunpo's per-card
+    // mastery which "Tiến độ học tập" already covers above.
+    lessonsDone: number;
+    // Listening + Nghe chép chính tả + Luyện đề questions with any
+    // recorded attempt (not just "mastered") -- "practiced", not "learned".
+    questionsPracticed: number;
+  };
 }
 
 // Kept around after loadStats() resolves so building/rebuilding the daily
@@ -155,6 +197,18 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
     ...filteredListening,
     ...filteredDictationItems,
   ];
+  const masteredCount = (items: { id: string }[]) => items.filter((item) => bucketFor(map[item.id]) === "mastered").length;
+  // Reading's filtered list is per-question (ReadingQuestionItem), but
+  // "lessons done" counts whole passages -- dedupe down to the passages
+  // those questions belong to, then check each one's own answers record.
+  const passageIds = new Set(filteredReading.map((q) => q.passageId));
+  const lessonsDone = [...passageIds].filter((id) => {
+    const passage = findReadingById(id);
+    return passage && getPassageProgress(passage, readingState.answers).status === "done";
+  }).length;
+  const questionsPracticed = [...filteredListening, ...filteredDictationItems, ...filteredQuizBook].filter(
+    (item) => map[item.id] !== undefined,
+  ).length;
   const [streak, weekDays] = await Promise.all([getStudyStreak(), getWeekStudyDays()]);
   return {
     stats: {
@@ -180,6 +234,12 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
         vocab: countDue(ALL_VOCAB, map),
         bunpo: countDue(ALL_BUNPO, map),
       },
+      progress: {
+        kanji: { mastered: masteredCount(filteredKanji), total: filteredKanji.length },
+        vocab: { mastered: masteredCount(filteredVocab), total: filteredVocab.length },
+        bunpo: { mastered: masteredCount(filteredBunpo), total: filteredBunpo.length },
+      },
+      quickStats: { lessonsDone, questionsPracticed },
     },
     content: {
       map,
@@ -220,17 +280,109 @@ function WeekCalendar({ weekDays }: { weekDays: boolean[] }) {
   );
 }
 
+function MonthCalendar({ monthDate, monthDays }: { monthDate: Date; monthDays: boolean[] | null }) {
+  const year = monthDate.getFullYear();
+  const month = monthDate.getMonth();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7; // Mon=0..Sun=6
+  const today = new Date();
+  const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+
+  const cells: ({ day: number } | null)[] = [...Array(firstWeekday).fill(null), ...Array.from({ length: daysInMonth }, (_, i) => ({ day: i + 1 }))];
+
+  return (
+    <div className="grid grid-cols-7 gap-y-1.5 text-center">
+      {WEEKDAY_LABELS.map((label) => (
+        <span key={label} className="text-[10px] font-semibold text-rose-700">
+          {label}
+        </span>
+      ))}
+      {cells.map((cell, i) => {
+        if (!cell) return <span key={i} />;
+        const studied = monthDays?.[cell.day - 1] ?? false;
+        const isToday = isCurrentMonth && cell.day === today.getDate();
+        return (
+          <div key={i} className="flex items-center justify-center">
+            <span
+              className={`flex h-6 w-6 items-center justify-center rounded-full text-[11px] ${
+                studied
+                  ? "bg-rose-600 font-semibold text-white"
+                  : isToday
+                    ? "border-2 border-rose-600 font-semibold text-rose-600"
+                    : "text-neutral-600"
+              }`}
+            >
+              {cell.day}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function StreakCard({ streak, weekDays }: { streak: number; weekDays: boolean[] }) {
+  const [view, setView] = useState<"week" | "month">("week");
+  const [monthDate, setMonthDate] = useState(() => new Date());
+  const [monthDays, setMonthDays] = useState<boolean[] | null>(null);
+
+  useEffect(() => {
+    if (view !== "month") return;
+    let cancelled = false;
+    getMonthStudyDays(monthDate.getFullYear(), monthDate.getMonth()).then((days) => {
+      if (!cancelled) setMonthDays(days);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [view, monthDate]);
+
   return (
     <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
-      <div className="flex items-center gap-2 text-orange-500">
-        <Flame size={18} />
-        <span className="text-xs font-semibold uppercase tracking-wide text-neutral-800">Chuỗi ngày học</span>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 text-orange-500">
+          <Flame size={18} />
+          <span className="text-xs font-semibold uppercase tracking-wide text-neutral-800">Chuỗi ngày học</span>
+        </div>
+        <button
+          onClick={() => setView(view === "week" ? "month" : "week")}
+          title={view === "week" ? "Xem theo tháng" : "Xem theo tuần"}
+          className={`flex h-6 w-6 items-center justify-center rounded-full ${
+            view === "month" ? "bg-rose-600 text-white" : "bg-white text-rose-700"
+          }`}
+        >
+          <CalendarDays size={13} />
+        </button>
       </div>
       <div className="mt-2 text-2xl font-bold text-neutral-800">{streak} ngày liên tiếp</div>
       <p className="mt-1 text-xs text-rose-700">Học mỗi ngày để giữ chuỗi streak và ghi nhớ lâu hơn.</p>
       <div className="mt-4">
-        <WeekCalendar weekDays={weekDays} />
+        {view === "week" ? (
+          <WeekCalendar weekDays={weekDays} />
+        ) : (
+          <>
+            <div className="flex items-center justify-between">
+              <button
+                onClick={() => setMonthDate(new Date(monthDate.getFullYear(), monthDate.getMonth() - 1, 1))}
+                className="flex h-6 w-6 items-center justify-center rounded-full text-rose-700 hover:bg-white"
+              >
+                <ChevronLeft size={14} />
+              </button>
+              <span className="text-xs font-semibold text-neutral-700">
+                Tháng {monthDate.getMonth() + 1}, {monthDate.getFullYear()}
+              </span>
+              <button
+                onClick={() => setMonthDate(new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 1))}
+                className="flex h-6 w-6 items-center justify-center rounded-full text-rose-700 hover:bg-white"
+              >
+                <ChevronRight size={14} />
+              </button>
+            </div>
+            <div className="mt-2">
+              <MonthCalendar monthDate={monthDate} monthDays={monthDays} />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -375,6 +527,46 @@ function DailyPlanCard({
   );
 }
 
+const PROGRESS_ACCENT = {
+  rose: { icon: "bg-rose-50 text-rose-600", pct: "text-rose-600", bar: "bg-rose-600" },
+  orange: { icon: "bg-orange-50 text-orange-600", pct: "text-orange-600", bar: "bg-orange-600" },
+  emerald: { icon: "bg-emerald-50 text-emerald-600", pct: "text-emerald-600", bar: "bg-emerald-600" },
+} as const;
+
+function ProgressCard({
+  icon: Icon,
+  label,
+  progress,
+  accent,
+  onClick,
+}: {
+  icon: typeof BookMarked;
+  label: string;
+  progress: { mastered: number; total: number };
+  accent: keyof typeof PROGRESS_ACCENT;
+  onClick: () => void;
+}) {
+  const colors = PROGRESS_ACCENT[accent];
+  const pct = progress.total > 0 ? Math.round((progress.mastered / progress.total) * 100) : 0;
+  return (
+    <button onClick={onClick} className="rounded-2xl border border-neutral-200 bg-white p-4 text-left transition-colors hover:border-rose-200">
+      <div className="flex items-center gap-2.5">
+        <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${colors.icon}`}>
+          <Icon size={16} />
+        </span>
+        <span className="text-sm font-semibold text-neutral-800">{label}</span>
+      </div>
+      <div className={`mt-2.5 text-2xl font-bold ${colors.pct}`}>{pct}%</div>
+      <div className="mt-0.5 text-xs text-neutral-400">
+        {progress.mastered.toLocaleString("vi-VN")} / {progress.total.toLocaleString("vi-VN")}
+      </div>
+      <div className="mt-2 h-1.5 rounded-full bg-neutral-100">
+        <div className={`h-full rounded-full ${colors.bar}`} style={{ width: `${pct}%` }} />
+      </div>
+    </button>
+  );
+}
+
 function ContinueCard({
   icon: Icon,
   title,
@@ -450,44 +642,11 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
           {/* Main column */}
           <div className="flex flex-1 flex-col gap-8">
             <div>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Kho học liệu (theo bộ lọc hiện tại)</h2>
-              <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
-                <div className="flex items-center gap-2.5 rounded-2xl border border-neutral-200 bg-white p-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                    <BookMarked size={16} />
-                  </span>
-                  <div className="min-w-0">
-                    <div className="truncate text-base font-bold text-neutral-800">{stats.counts.kanji}</div>
-                    <div className="truncate text-[11px] text-neutral-400">Kanji</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2.5 rounded-2xl border border-neutral-200 bg-white p-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                    <Library size={16} />
-                  </span>
-                  <div className="min-w-0">
-                    <div className="truncate text-base font-bold text-neutral-800">{stats.counts.vocab}</div>
-                    <div className="truncate text-[11px] text-neutral-400">Từ vựng</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2.5 rounded-2xl border border-neutral-200 bg-white p-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                    <PenSquare size={16} />
-                  </span>
-                  <div className="min-w-0">
-                    <div className="truncate text-base font-bold text-neutral-800">{stats.counts.bunpo}</div>
-                    <div className="truncate text-[11px] text-neutral-400">Ngữ pháp</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2.5 rounded-2xl border border-neutral-200 bg-white p-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                    <Flame size={16} />
-                  </span>
-                  <div className="min-w-0">
-                    <div className="truncate text-base font-bold text-neutral-800">{stats.studiedToday} thẻ</div>
-                    <div className="truncate text-[11px] text-neutral-400">Đã học hôm nay</div>
-                  </div>
-                </div>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tiến độ học tập (theo bộ lọc hiện tại)</h2>
+              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <ProgressCard icon={BookMarked} label="Kanji" progress={stats.progress.kanji} accent="rose" onClick={() => onNavigate("kanji")} />
+                <ProgressCard icon={Library} label="Từ vựng" progress={stats.progress.vocab} accent="orange" onClick={() => onNavigate("vocab")} />
+                <ProgressCard icon={PenSquare} label="Ngữ pháp" progress={stats.progress.bunpo} accent="emerald" onClick={() => onNavigate("bunpo")} />
               </div>
             </div>
 
@@ -512,7 +671,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
 
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tiếp tục học</h2>
-              <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
                 <ContinueCard icon={BookMarked} title="Kanji" subtitle={`${stats.counts.kanji} chữ Hán`} onClick={() => onNavigate("kanji")} />
                 <ContinueCard icon={Library} title="Từ vựng" subtitle={`${stats.counts.vocab} từ`} onClick={() => onNavigate("vocab")} />
                 <ContinueCard icon={PenSquare} title="Ngữ pháp" subtitle={`${stats.counts.bunpo} mẫu câu`} onClick={() => onNavigate("bunpo")} />
@@ -528,6 +687,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   subtitle={`${stats.counts.listening} câu`}
                   onClick={() => onNavigate("listening")}
                 />
+                <ContinueCard icon={HelpCircle} title="Quiz" subtitle="Tự chọn phạm vi" onClick={() => onNavigate("quiz")} />
               </div>
             </div>
           </div>
@@ -582,6 +742,36 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   <div className="text-sm text-neutral-500">25 đề thật, có tính giờ và chấm điểm theo barem</div>
                 </div>
               </button>
+            </div>
+
+            {/* Static -- one fixed câu danh ngôn, no rotation/content bank
+                needed for this. */}
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+              <div className="flex items-center gap-2 text-amber-700">
+                <Quote size={16} />
+                <span className="text-xs font-semibold uppercase tracking-wide">Câu nói hôm nay</span>
+              </div>
+              <div className="mt-3 text-base font-bold text-neutral-800">継続は力なり。</div>
+              <div className="mt-1 text-xs text-amber-700">Keizoku wa chikara nari.</div>
+              <div className="mt-1 text-xs text-amber-700 italic">"Kiên trì là sức mạnh."</div>
+            </div>
+
+            <div className="rounded-2xl border border-neutral-200 bg-white p-5">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Thống kê nhanh</h2>
+              <div className="mt-3 flex flex-col gap-2 text-sm">
+                <div className="flex items-center justify-between">
+                  <span className="text-neutral-500">Bài đọc đã học</span>
+                  <span className="font-semibold text-neutral-800">{stats.quickStats.lessonsDone}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-neutral-500">Câu đã luyện</span>
+                  <span className="font-semibold text-neutral-800">{stats.quickStats.questionsPracticed}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-neutral-500">Đã học hôm nay</span>
+                  <span className="font-semibold text-neutral-800">{stats.studiedToday} thẻ</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

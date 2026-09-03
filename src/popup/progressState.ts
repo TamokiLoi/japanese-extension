@@ -361,3 +361,19 @@ export async function getWeekStudyDays(): Promise<boolean[]> {
   }
   return days;
 }
+
+// One calendar month (1st..last day) as studied/not-studied flags, for the
+// streak card's "xem theo tháng" expanded view. `month` is 0-indexed
+// (January = 0), matching Date's own convention, so callers can pass
+// `someDate.getMonth()` straight through.
+export async function getMonthStudyDays(year: number, month: number): Promise<boolean[]> {
+  const log: string[] = (await storageGet<string[]>(STUDY_LOG_KEY)) ?? [];
+  const studied = new Set(log);
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const days: boolean[] = [];
+  for (let d = 1; d <= daysInMonth; d++) {
+    days.push(studied.has(dayKey(new Date(year, month, d))));
+  }
+  return days;
+}
