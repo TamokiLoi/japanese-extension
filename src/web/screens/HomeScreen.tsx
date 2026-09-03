@@ -639,6 +639,45 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
 
           {/* Main column */}
           <div className="flex flex-1 flex-col gap-8">
+            {/* Generic welcome banner -- no "resume this exact lesson"
+                claim, since nothing tracks a single "last active lesson"
+                across content types yet. Drawn as inline SVG rather than a
+                photo background so this doesn't depend on the not-yet-
+                decided dashboard bg images. */}
+            <div className="flex items-center justify-between overflow-hidden rounded-2xl bg-linear-to-br from-rose-50 to-rose-100 p-8">
+              <div>
+                <h1 className="text-xl font-bold text-neutral-800 sm:text-2xl">
+                  {greeting()} <span className="text-rose-600">Tiến bộ mỗi ngày một chút.</span>
+                </h1>
+                <p className="mt-2 max-w-sm text-sm text-neutral-600">
+                  Ôn đều mỗi ngày -- dù chỉ vài phút -- giúp Kanji, từ vựng và ngữ pháp ở lại lâu hơn trong đầu.
+                </p>
+                <button
+                  onClick={() => onNavigate(totalDue > 0 ? "review" : "kanji")}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-rose-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-rose-700"
+                >
+                  {totalDue > 0 ? "Bắt đầu ôn tập" : "Bắt đầu học ngay"}
+                  <ArrowRight size={14} />
+                </button>
+              </div>
+              <svg width="150" height="120" viewBox="0 0 150 120" className="hidden shrink-0 sm:block">
+                <circle cx="112" cy="55" r="46" fill="#fecdd3" opacity="0.6" />
+                <path d="M0 118 L45 55 L70 82 L100 40 L150 100 L150 120 L0 120 Z" fill="#fecdd3" opacity="0.55" />
+                <path d="M0 120 L40 92 L85 108 L130 88 L150 98 L150 120 Z" fill="#fda4af" opacity="0.55" />
+                <g stroke="#e11d48" strokeWidth="5" strokeLinecap="round">
+                  <path d="M55 44 Q92 34 130 44" fill="none" strokeWidth="7" />
+                  <line x1="60" y1="53" x2="126" y2="53" />
+                  <line x1="66" y1="46" x2="61" y2="118" />
+                  <line x1="122" y1="46" x2="127" y2="118" />
+                </g>
+                <g fill="#fb7185">
+                  <circle cx="20" cy="18" r="3" />
+                  <circle cx="28" cy="12" r="2.4" />
+                  <circle cx="14" cy="10" r="2.2" />
+                </g>
+              </svg>
+            </div>
+
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tiến độ học tập (theo bộ lọc hiện tại)</h2>
               <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
