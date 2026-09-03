@@ -87,6 +87,16 @@ export async function loadDeThiHistory(): Promise<DeThiHistoryEntry[]> {
   return (await storageGet<DeThiHistoryEntry[]>(DETHI_HISTORY_KEY)) ?? [];
 }
 
+// Lets a paper's card go back to "Chưa làm" -- e.g. after a throwaway test
+// attempt, or to clear a bad run without it permanently skewing "% cao
+// nhất". Only clears the finished-attempt history, never touches an
+// in-progress session.
+export async function clearHistoryForPaper(examId: string, paperId: string): Promise<void> {
+  const history = await loadDeThiHistory();
+  const next = history.filter((h) => !(h.examId === examId && h.paperId === paperId));
+  await storageSet(DETHI_HISTORY_KEY, next);
+}
+
 async function appendHistory(entry: DeThiHistoryEntry): Promise<void> {
   const history = await loadDeThiHistory();
   const next = [...history, entry].slice(-DETHI_HISTORY_MAX);

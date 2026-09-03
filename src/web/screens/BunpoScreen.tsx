@@ -131,10 +131,8 @@ function ListView({
 
   const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
   const allSourcesChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
-  const showChapterFilter = state.selectedSources.includes("theo-chuong") && AVAILABLE_CHAPTERS.length > 0;
+  const theoChuongChecked = state.selectedSources.includes("theo-chuong");
   const allChaptersSelected = state.selectedChapters.length === AVAILABLE_CHAPTERS.length;
-  const singleSelectedChapter = state.selectedChapters.length === 1 ? state.selectedChapters[0] : null;
-  const chapterSelectValue = allChaptersSelected ? "all" : String(singleSelectedChapter ?? "all");
 
   const filtered = progressMap ? getVisibleList(state, debouncedQuery, progressMap) : [];
 
@@ -157,31 +155,13 @@ function ListView({
 
       <FilterBar>
         <FilterTrigger
-          count={(allLevelsChecked ? 0 : state.selectedLevels.length) + (allSourcesChecked ? 0 : state.selectedSources.length)}
+          count={
+            (allLevelsChecked ? 0 : state.selectedLevels.length) +
+            (allSourcesChecked ? 0 : state.selectedSources.length) +
+            (theoChuongChecked && !allChaptersSelected ? state.selectedChapters.length : 0)
+          }
           onClick={() => setFilterOpen(true)}
         />
-        {showChapterFilter ? (
-          <select
-            value={chapterSelectValue}
-            onChange={(e) => {
-              const value = e.target.value;
-              const next = value === "all" ? [...AVAILABLE_CHAPTERS] : [Number(value)];
-              mutate({ selectedChapters: next });
-            }}
-            className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600 sm:max-w-none"
-          >
-            <option value="all">Tất cả các chương</option>
-            {AVAILABLE_CHAPTERS.map((c) => {
-              const title = findChapterTitle(c);
-              return (
-                <option key={c} value={c}>
-                  Chương {c}
-                  {title ? `: ${title}` : ""}
-                </option>
-              );
-            })}
-          </select>
-        ) : null}
         <select
           value={state.progressFilter}
           onChange={(e) => mutate({ progressFilter: e.target.value as ProgressFilter })}
@@ -256,7 +236,11 @@ function ListView({
           })}
         </FilterGroup>
         <FilterGroup title="Nguồn">
-          {AVAILABLE_SOURCES.map((source) => {
+          {/* "Học theo chương" isn't a real book/tài liệu like the others here --
+              it's an organizing structure (with its own chapter picker), so it
+              gets its own group below instead of sitting in this list as if it
+              were just another source. */}
+          {AVAILABLE_SOURCES.filter((source) => source !== "theo-chuong").map((source) => {
             const checked = state.selectedSources.includes(source);
             const count = ALL_BUNPO.filter((g) => g.sources.includes(source)).length;
             return (
@@ -275,6 +259,48 @@ function ListView({
             );
           })}
         </FilterGroup>
+        {AVAILABLE_SOURCES.includes("theo-chuong") ? (
+          <FilterGroup title="Học theo chương">
+            <FilterChipOption
+              label={`Bật lọc theo chương (${ALL_BUNPO.filter((g) => g.sources.includes("theo-chuong")).length})`}
+              active={theoChuongChecked}
+              onClick={() => {
+                const next = theoChuongChecked
+                  ? state.selectedSources.filter((s) => s !== "theo-chuong")
+                  : [...new Set([...state.selectedSources, "theo-chuong"])];
+                if (next.length === 0) return;
+                mutate({ selectedSources: next as BunpoSource[] });
+              }}
+            />
+            {theoChuongChecked ? (
+              <>
+                <FilterChipOption
+                  label="Tất cả các chương"
+                  active={allChaptersSelected}
+                  onClick={() => mutate({ selectedChapters: [...AVAILABLE_CHAPTERS] })}
+                />
+                {AVAILABLE_CHAPTERS.map((c) => {
+                  const checked = state.selectedChapters.includes(c);
+                  const title = findChapterTitle(c);
+                  return (
+                    <FilterChipOption
+                      key={c}
+                      label={`Chương ${c}${title ? `: ${title}` : ""}`}
+                      active={checked}
+                      onClick={() => {
+                        const next = checked
+                          ? state.selectedChapters.filter((x) => x !== c)
+                          : [...new Set([...state.selectedChapters, c])];
+                        if (next.length === 0) return;
+                        mutate({ selectedChapters: next });
+                      }}
+                    />
+                  );
+                })}
+              </>
+            ) : null}
+          </FilterGroup>
+        ) : null}
       </FilterSheet>
 
       <div className="mt-4 flex flex-col gap-2">

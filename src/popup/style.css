@@ -20,6 +20,16 @@
   box-sizing: border-box;
 }
 
+/* Native <button> defaults to cursor: default, not pointer -- set once
+   globally rather than per element (this popup has many raw <button
+   onClick=...> elements, not a single shared Button component). */
+button:not(:disabled) {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
 body {
   margin: 0 auto;
   width: 320px;

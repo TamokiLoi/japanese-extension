@@ -9,6 +9,9 @@ import quizbookN3DoriruBunpouRaw from "../data/quizbook-n3-doriru-bunpou.json";
 import quizbookN3Dongnghia60Raw from "../data/quizbook-n3-dongnghia-60.json";
 import quizbookDethiN3202312Raw from "../data/quizbook-dethi-n3-2023-12.json";
 import quizbookDethiN3202512Raw from "../data/quizbook-dethi-n3-2025-12.json";
+import quizbookN3KanjiDrillRaw from "../data/quizbook-n3-kanji-drill.json";
+import quizbookN2KanjiDrillRaw from "../data/quizbook-n2-kanji-drill.json";
+import quizbookN1KanjiDrillRaw from "../data/quizbook-n1-kanji-drill.json";
 import type { QuizBookDataset, QuizBookQuestion, QuizBookCategory } from "../types/quizBook.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -24,6 +27,9 @@ const n3DoriruBunpouDataset = quizbookN3DoriruBunpouRaw as unknown as QuizBookDa
 const n3Dongnghia60Dataset = quizbookN3Dongnghia60Raw as unknown as QuizBookDataset;
 const dethiN3202312Dataset = quizbookDethiN3202312Raw as unknown as QuizBookDataset;
 const dethiN3202512Dataset = quizbookDethiN3202512Raw as unknown as QuizBookDataset;
+const n3KanjiDrillDataset = quizbookN3KanjiDrillRaw as unknown as QuizBookDataset;
+const n2KanjiDrillDataset = quizbookN2KanjiDrillRaw as unknown as QuizBookDataset;
+const n1KanjiDrillDataset = quizbookN1KanjiDrillRaw as unknown as QuizBookDataset;
 
 export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3500monDataset.questions,
@@ -37,6 +43,9 @@ export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3Dongnghia60Dataset.questions,
   ...dethiN3202312Dataset.questions,
   ...dethiN3202512Dataset.questions,
+  ...n3KanjiDrillDataset.questions,
+  ...n2KanjiDrillDataset.questions,
+  ...n1KanjiDrillDataset.questions,
 ];
 
 const QUIZBOOK_BY_ID = new Map(ALL_QUIZBOOK.map((q) => [q.id, q]));
@@ -66,6 +75,9 @@ export const BOOK_LABELS: Record<string, string> = {
   "dongnghia-60-n3": n3Dongnghia60Dataset.meta.bookLabel,
   "dethi-n3-2023-12": dethiN3202312Dataset.meta.bookLabel,
   "dethi-n3-2025-12": dethiN3202512Dataset.meta.bookLabel,
+  "kanji-drill-n3": n3KanjiDrillDataset.meta.bookLabel,
+  "kanji-drill-n2": n2KanjiDrillDataset.meta.bookLabel,
+  "kanji-drill-n1": n1KanjiDrillDataset.meta.bookLabel,
 };
 
 // Each book currently belongs to exactly one level, so the book picker
@@ -83,6 +95,9 @@ export const BOOK_LEVELS: Record<string, JlptLevel> = {
   "dongnghia-60-n3": n3Dongnghia60Dataset.meta.level,
   "dethi-n3-2023-12": dethiN3202312Dataset.meta.level,
   "dethi-n3-2025-12": dethiN3202512Dataset.meta.level,
+  "kanji-drill-n3": n3KanjiDrillDataset.meta.level,
+  "kanji-drill-n2": n2KanjiDrillDataset.meta.level,
+  "kanji-drill-n1": n1KanjiDrillDataset.meta.level,
 };
 
 // Top-level grouping shown as a tab/radio switch above the book picker, so
@@ -109,6 +124,9 @@ export const BOOK_GROUP: Record<string, QuizBookGroup> = {
   "dongnghia-60-n3": "de",
   "dethi-n3-2023-12": "de",
   "dethi-n3-2025-12": "de",
+  "kanji-drill-n3": "sach",
+  "kanji-drill-n2": "sach",
+  "kanji-drill-n1": "sach",
 };
 
 const CATEGORY_ORDER: QuizBookCategory[] = ["moji", "goi", "bunpou"];

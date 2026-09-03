@@ -226,15 +226,16 @@ export function VocabScreen({
           ))}
         </select>
         <button
+          title="Ngẫu nhiên"
           onClick={() => {
             const randomOrder = !state.randomOrder;
             mutate({ randomOrder, shuffleSeed: randomOrder ? Date.now() : state.shuffleSeed, index: 0 });
           }}
-          className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold ${
+          className={`flex shrink-0 items-center justify-center rounded-full border p-1.5 ${
             state.randomOrder ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500 hover:bg-neutral-50"
           }`}
         >
-          <Shuffle size={13} /> Ngẫu nhiên
+          <Shuffle size={14} />
         </button>
       </FilterBar>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, List as ListIcon } from "lucide-react";
+import { Shuffle, Undo2, List as ListIcon, RotateCcw } from "lucide-react";
 import type { QuizBookQuestion } from "../../types/quizBook.ts";
 import {
   ALL_QUIZBOOK,
@@ -22,7 +22,7 @@ import {
   buildSession,
   type QuizBookViewerState,
 } from "../../popup/quizBookState.ts";
-import { recordAnswer as recordGlobalAnswer } from "../../popup/progressState.ts";
+import { recordAnswer as recordGlobalAnswer, clearProgress as clearGlobalProgress } from "../../popup/progressState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
@@ -128,6 +128,20 @@ function ListView({
   async function handleResetRow(id: string) {
     if (!confirm("Làm lại câu này từ đầu? Kết quả đã trả lời sẽ bị xoá.")) return;
     await mutate(resetQuestionAnswer(state, id));
+    // resetQuestionAnswer only clears this screen's own answers/streaks --
+    // also clear the shared progressState.ts entry recordAnswer() writes on
+    // every answer, or Home/Stats would keep showing this question's old
+    // mastery streak as if it were never reset.
+    await clearGlobalProgress([id]);
+  }
+
+  async function handleResetAllFiltered() {
+    if (doneCount === 0) return;
+    if (!confirm(`Đặt lại toàn bộ ${doneCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`)) return;
+    const ids = filtered.map((q) => q.id);
+    const next = ids.reduce((s, id) => resetQuestionAnswer(s, id), state);
+    await mutate(next);
+    await clearGlobalProgress(ids);
   }
 
   return (
@@ -150,7 +164,7 @@ function ListView({
             </option>
           ))}
         </select>
-        <div className="ml-auto flex gap-1.5">
+        <div className="flex flex-wrap gap-1.5">
           {(["all", "not-started", "done", "known"] as const).map((s) => (
             <button
               key={s}
@@ -189,6 +203,17 @@ function ListView({
               }))),
         ]}
       />
+
+      {doneCount > 0 ? (
+        <div className="mt-2 flex justify-end">
+          <button
+            onClick={handleResetAllFiltered}
+            className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-rose-600"
+          >
+            <RotateCcw size={12} /> Đặt lại tất cả ({doneCount})
+          </button>
+        </div>
+      ) : null}
 
       {error ? <p className="mt-3 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">{error}</p> : null}
 
@@ -265,11 +290,17 @@ function ListView({
         <div className="mt-4 flex flex-col gap-2">
           {visibleQuestions.map((q, i) => {
             const progress = progressOf(q);
+            const borderCls =
+              progress.status === "not-started"
+                ? "border-l-neutral-200"
+                : progress.correct
+                  ? "border-l-emerald-400"
+                  : "border-l-rose-400";
             return (
               <button
                 key={q.id}
                 onClick={() => mutate({ currentQuestionId: q.id, sessionIds: null, sessionIndex: 0 })}
-                className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
+                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">

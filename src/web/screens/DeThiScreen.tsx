@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag } from "lucide-react";
+import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
 import {
   ALL_EXAMS,
@@ -11,6 +11,7 @@ import {
   startPaperAttempt,
   submitPaper,
   getExamSummary,
+  clearHistoryForPaper,
   type DeThiSession,
   type DeThiHistoryEntry,
   type DeThiPaperSummary,
@@ -23,7 +24,15 @@ import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalet
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
 
-type Step = { name: "examList" } | { name: "examDetail"; examId: string } | { name: "taking"; session: DeThiSession } | { name: "result"; entry: DeThiHistoryEntry };
+type Step =
+  | { name: "examList" }
+  | { name: "examDetail"; examId: string }
+  | { name: "taking"; session: DeThiSession }
+  // Keeps the just-finished session (not just the aggregate entry) so the
+  // result view can show per-question correct/wrong without needing to
+  // re-derive or re-fetch anything -- the session is already gone from
+  // storage by this point (submitPaper clears it), this is the only copy.
+  | { name: "result"; entry: DeThiHistoryEntry; session: DeThiSession };
 
 function paperIcon(paperId: string) {
   if (paperId.includes("moji") || paperId.includes("goi")) return BookOpenText;
@@ -54,7 +63,7 @@ export function DeThiScreen({ targetId }: { targetId?: string } = {}) {
         // auto-submit instead of silently discarding the attempt.
         if (found) {
           const entry = await submitPaper(session);
-          if (!cancelled) setStep({ name: "result", entry });
+          if (!cancelled) setStep({ name: "result", entry, session });
           return;
         }
         await clearDeThiSession();
@@ -91,13 +100,14 @@ export function DeThiScreen({ targetId }: { targetId?: string } = {}) {
       <TakingView
         session={step.session}
         onSessionChange={(session) => setStep({ name: "taking", session })}
-        onFinish={(entry) => setStep({ name: "result", entry })}
+        onFinish={(entry, finishedSession) => setStep({ name: "result", entry, session: finishedSession })}
       />
     );
   }
   return (
     <ResultView
       entry={step.entry}
+      session={step.session}
       onBackToExam={() => setStep({ name: "examDetail", examId: step.entry.examId })}
       onRetry={() => {
         const found = findPaper(step.entry.examId, step.entry.paperId);
@@ -253,9 +263,24 @@ function ExamDetailView({ exam, onBack, onStart }: { exam: DeThiExam; onBack: ()
                 </span>
                 {s && s.bestPercent !== null ? <span className="font-semibold text-emerald-600">{s.bestPercent}%</span> : null}
               </div>
-              <Button className="mt-1 w-full" onClick={() => onStart(paper)}>
-                Bắt đầu <ChevronRight size={15} />
-              </Button>
+              <div className="mt-1 flex gap-2">
+                <Button className="flex-1" onClick={() => onStart(paper)}>
+                  Bắt đầu <ChevronRight size={15} />
+                </Button>
+                {s && s.attempts > 0 ? (
+                  <button
+                    title="Xoá lịch sử làm bài, đặt lại trạng thái Chưa làm"
+                    onClick={async () => {
+                      if (!confirm(`Xoá lịch sử ${s.attempts} lần làm "${paper.label}"? Không ảnh hưởng đến các phần khác.`)) return;
+                      await clearHistoryForPaper(exam.id, paper.id);
+                      setSummaries(await getExamSummary(exam.id));
+                    }}
+                    className="flex w-10 shrink-0 items-center justify-center rounded-lg border border-neutral-200 text-neutral-500 hover:bg-neutral-50 hover:text-rose-600"
+                  >
+                    <RotateCcw size={15} />
+                  </button>
+                ) : null}
+              </div>
             </Card>
           );
         })}
@@ -311,13 +336,13 @@ function TakingView({
 }: {
   session: DeThiSession;
   onSessionChange: (session: DeThiSession) => void;
-  onFinish: (entry: DeThiHistoryEntry) => void;
+  onFinish: (entry: DeThiHistoryEntry, session: DeThiSession) => void;
 }) {
   const found = findPaper(session.examId, session.paperId);
 
   async function finish() {
     const entry = await submitPaper(session);
-    onFinish(entry);
+    onFinish(entry, session);
   }
 
   const { label: timeLabel, isLow } = useCountdown(session.deadlineAt, () => {
@@ -471,8 +496,19 @@ function TakingView({
   );
 }
 
-function ResultView({ entry, onBackToExam, onRetry }: { entry: DeThiHistoryEntry; onBackToExam: () => void; onRetry: () => void }) {
+function ResultView({
+  entry,
+  session,
+  onBackToExam,
+  onRetry,
+}: {
+  entry: DeThiHistoryEntry;
+  session: DeThiSession;
+  onBackToExam: () => void;
+  onRetry: () => void;
+}) {
   const found = findPaper(entry.examId, entry.paperId);
+  const [reviewIndex, setReviewIndex] = useState<number | null>(null);
 
   return (
     <div className="mx-auto max-w-2xl px-2.5 py-2 text-center md:px-8 md:py-6">
@@ -497,6 +533,54 @@ function ResultView({ entry, onBackToExam, onRetry }: { entry: DeThiHistoryEntry
           Làm lại
         </Button>
       </div>
+
+      {found ? (
+        <div className="mt-8 text-left">
+          <QuestionPalette
+            defaultOpen
+            summary={`${entry.correctCount} đúng · ${entry.totalQuestions - entry.correctCount - session.answers.filter((a) => a === null).length} sai${
+              session.answers.some((a) => a === null) ? ` · ${session.answers.filter((a) => a === null).length} chưa làm` : ""
+            } — bấm 1 câu để xem lại`}
+            onJump={(i) => setReviewIndex(i)}
+            items={found.paper.questions.map((q, i) => {
+              const a = session.answers[i];
+              const status: PaletteStatus = a === null ? "unanswered" : a === q.correctIndex ? "correct" : "wrong";
+              return { id: String(q.number), status };
+            })}
+          />
+          {reviewIndex !== null ? (
+            <ReviewQuestion question={found.paper.questions[reviewIndex]} chosenIndex={session.answers[reviewIndex]} />
+          ) : null}
+        </div>
+      ) : null}
     </div>
+  );
+}
+
+function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["questions"][number]; chosenIndex: number | null }) {
+  return (
+    <Card className="mt-3 gap-0 p-5">
+      <div className="text-xs font-semibold text-neutral-400 uppercase">{question.problemGroup}</div>
+      {question.passage ? (
+        <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{question.passage}</div>
+      ) : null}
+      <div className="mt-3 text-base font-semibold text-neutral-800">{question.question}</div>
+      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        {question.options.map((opt, oi) => {
+          let cls = "border-neutral-200 opacity-60";
+          if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+          else if (oi === chosenIndex) cls = "border-rose-300 bg-rose-50 text-rose-700";
+          return (
+            <div key={oi} className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${cls}`}>
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
+                {oi + 1}
+              </span>
+              {opt}
+            </div>
+          );
+        })}
+      </div>
+      {chosenIndex === null ? <p className="mt-3 text-xs font-medium text-neutral-400">Bạn chưa trả lời câu này.</p> : null}
+    </Card>
   );
 }

@@ -133,4 +133,14 @@
   html {
     @apply font-sans;
     }
+  /* Native <button> defaults to cursor: default (only <a> gets pointer for
+     free) -- the app has many raw <button onClick=...> elements outside the
+     shared <Button> component (cards, palette cells, nav items...), so this
+     is set once globally rather than per element. */
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
 }

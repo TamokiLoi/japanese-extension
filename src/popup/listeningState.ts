@@ -84,3 +84,44 @@ export async function saveViewerState(state: ListeningViewerState): Promise<void
 export function getFilteredList(state: ListeningViewerState): ListeningQuestion[] {
   return ALL_LISTENING.filter((q) => state.selectedBooks.includes(q.book) && state.selectedTaskTypes.includes(q.taskType));
 }
+
+// Whether the last attempt at a question was right or wrong -- kept
+// separate from progressState.ts's ItemProgress/streak/mastery system,
+// which is overkill here: Listening just needs "did I get this one, so I
+// know what to review", reset back to untouched by "Làm lại". Keeps
+// `selectedIndex` too (not just right/wrong) so reopening an already-
+// answered question can restore the exact same answered view -- which
+// option was picked, right/wrong highlighting, "Làm lại" -- instead of
+// silently resetting to a fresh unanswered card.
+export type ListeningStatus = "correct" | "wrong";
+export interface ListeningAttempt {
+  status: ListeningStatus;
+  selectedIndex: number;
+}
+export type ListeningProgressMap = Record<string, ListeningAttempt>;
+
+const PROGRESS_STORAGE_KEY = "listeningProgress";
+
+export async function loadListeningProgress(): Promise<ListeningProgressMap> {
+  return (await storageGet<ListeningProgressMap>(PROGRESS_STORAGE_KEY)) ?? {};
+}
+
+export async function recordListeningAnswer(id: string, selectedIndex: number, correct: boolean): Promise<void> {
+  const map = await loadListeningProgress();
+  map[id] = { status: correct ? "correct" : "wrong", selectedIndex };
+  await storageSet(PROGRESS_STORAGE_KEY, map);
+}
+
+export async function clearListeningAnswer(id: string): Promise<void> {
+  const map = await loadListeningProgress();
+  delete map[id];
+  await storageSet(PROGRESS_STORAGE_KEY, map);
+}
+
+// Bulk "Đặt lại tất cả" for the currently filtered list -- one storage
+// write instead of one per question.
+export async function clearListeningAnswers(ids: string[]): Promise<void> {
+  const map = await loadListeningProgress();
+  for (const id of ids) delete map[id];
+  await storageSet(PROGRESS_STORAGE_KEY, map);
+}

@@ -6,6 +6,8 @@ import { ALL_VOCAB } from "../../popup/vocabState.ts";
 import { ALL_BUNPO } from "../../popup/bunpoState.ts";
 import { ALL_READING_QUESTIONS } from "../../popup/readingState.ts";
 import { ALL_QUIZBOOK } from "../../popup/quizBookState.ts";
+import { ALL_LISTENING } from "../../popup/listeningState.ts";
+import { dictationProgressId } from "../../popup/dictationState.ts";
 import {
   loadProgressMap,
   countBuckets,
@@ -41,18 +43,39 @@ function greeting(): string {
 interface Stats {
   streak: number;
   studiedToday: number;
+  totalItems: number;
   buckets: Record<ProgressBucket, number>;
   due: { kanji: number; vocab: number; bunpo: number };
 }
 
 async function loadStats(): Promise<Stats> {
   const map: ProgressMap = await loadProgressMap();
-  const allItems = [...ALL_KANJI, ...ALL_VOCAB, ...ALL_BUNPO, ...ALL_READING_QUESTIONS, ...ALL_QUIZBOOK];
+  // Listening's own "answer"-direction entries use the question's plain id;
+  // Dictation's use a "dict:"-prefixed id (see dictationProgressId) so the
+  // two tracks don't collide in the same ItemProgress record for one
+  // question -- both need to be in this pool for the bucket/total counts
+  // below to reflect them, as two separate trackable items each.
+  const dictationItems = ALL_LISTENING.map((q) => ({ id: dictationProgressId(q.id) }));
+  const allItems = [
+    ...ALL_KANJI,
+    ...ALL_VOCAB,
+    ...ALL_BUNPO,
+    ...ALL_READING_QUESTIONS,
+    ...ALL_QUIZBOOK,
+    ...ALL_LISTENING,
+    ...dictationItems,
+  ];
   const streak = await getStudyStreak();
   return {
     streak,
     studiedToday: countStudiedToday(allItems, map),
+    totalItems: allItems.length,
     buckets: countBuckets(allItems, map),
+    // Kanji/Vocab/Bunpo only -- Ôn tập (reviewState.ts) can only build a
+    // review session from these 3 content types so far, so "Cần ôn ngay"
+    // below stays scoped to what it can actually launch. Listening/
+    // Dictation still show up in "Tổng quan tiến độ" above (bucket counts
+    // include them), just not in this specific due-review CTA yet.
     due: {
       kanji: countDue(ALL_KANJI, map),
       vocab: countDue(ALL_VOCAB, map),
@@ -97,9 +120,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
             </div>
             <div className="rounded-2xl border border-neutral-200 bg-white p-4 col-span-2 md:col-span-1">
               <div className="text-xs font-semibold uppercase tracking-wide text-neutral-400">Tổng số thẻ</div>
-              <div className="mt-1 text-2xl font-bold text-neutral-800">
-                {ALL_KANJI.length + ALL_VOCAB.length + ALL_BUNPO.length + ALL_READING_QUESTIONS.length + ALL_QUIZBOOK.length}
-              </div>
+              <div className="mt-1 text-2xl font-bold text-neutral-800">{stats.totalItems}</div>
             </div>
           </div>
 

@@ -13,7 +13,6 @@ import {
   RotateCcw,
   Headphones,
   ClipboardCheck,
-  Keyboard,
 } from "lucide-react";
 
 export interface NavItem {
@@ -32,8 +31,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "vocab", label: "Từ vựng", icon: Library },
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
-  { screen: "listening", label: "Luyện nghe (Beta)", icon: Headphones },
-  { screen: "dictation", label: "Nghe chép chính tả", icon: Keyboard },
+  { screen: "listening", label: "Luyện nghe", icon: Headphones },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "dethi", label: "Đề thi JLPT", icon: ClipboardCheck },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
@@ -60,7 +58,7 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
-  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening", "dictation"] },
+  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "dethi", "quiz", "review"] },
   { label: "Công cụ", screens: ["stats", "guide"] },
 ];

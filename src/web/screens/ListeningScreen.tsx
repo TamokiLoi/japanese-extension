@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Headphones, List as ListIcon, Shuffle, Globe } from "lucide-react";
+import { Headphones, List as ListIcon, Shuffle, Globe, RotateCcw } from "lucide-react";
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
@@ -10,9 +10,15 @@ import {
   getFilteredList,
   loadViewerState,
   saveViewerState,
+  loadListeningProgress,
+  recordListeningAnswer,
+  clearListeningAnswer,
+  clearListeningAnswers,
   type ListeningViewerState,
+  type ListeningProgressMap,
 } from "../../popup/listeningState.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
+import { recordAnswer as recordSharedAnswer, clearProgress as clearSharedProgress } from "../../popup/progressState.ts";
 import { assetUrl } from "../../platform/assetUrl";
 import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { Card } from "../components/ui/card.tsx";
@@ -23,25 +29,42 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 
-// First real slice of the Listening feature: a flat list (now filterable by
-// book/dạng câu, same layout as Reading/QuizBook) + play/answer/reveal flow.
-// No progress tracking yet -- that follows once this content shape settles.
-export function ListeningScreen() {
-  const [currentId, setCurrentId] = useState<string | null>(null);
+// A flat list (filterable by book/dạng câu, same layout as Reading/
+// QuizBook) + play/answer/reveal flow. Progress is dual-written: its own
+// lightweight correct/wrong map (see recordListeningAnswer) drives this
+// screen's own coloring, and the shared progressState.ts map (see
+// selectAnswer below) plugs it into Home/Stats like every other content type.
+export function ListeningScreen({
+  topBar,
+  jumpToId,
+}: {
+  topBar?: React.ReactNode;
+  // Opens straight into a specific question (e.g. from Stats' "Cần ôn lại"
+  // list) instead of the filtered list -- initial value only, doesn't
+  // fight the user's own in-screen navigation afterward.
+  jumpToId?: string;
+} = {}) {
+  const [currentId, setCurrentId] = useState<string | null>(jumpToId ?? null);
   const current = currentId ? findListeningById(currentId) : undefined;
 
   if (current) {
     return <QuestionView key={current.id} question={current} onBack={() => setCurrentId(null)} onOpen={setCurrentId} />;
   }
-  return <ListView onOpen={setCurrentId} />;
+  return <ListView topBar={topBar} onOpen={setCurrentId} />;
 }
 
-function ListView({ onOpen }: { onOpen: (id: string) => void }) {
+function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: string) => void }) {
   const [state, setState] = useState<ListeningViewerState | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [progress, setProgress] = useState<ListeningProgressMap>({});
 
   useEffect(() => {
     loadViewerState().then(setState);
+    // Reloaded every time this list mounts (including navigating back from a
+    // question) since QuestionView is a different component at the same
+    // JSX position -- React fully unmounts/remounts across that switch, so
+    // this effect reliably reruns and picks up whatever just changed.
+    loadListeningProgress().then(setProgress);
   }, []);
 
   async function mutate(partial: Partial<ListeningViewerState>) {
@@ -57,9 +80,21 @@ function ListView({ onOpen }: { onOpen: (id: string) => void }) {
   const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
   const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;
   const filterCount = (allBooksChecked ? 0 : state.selectedBooks.length) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
+  const correctCount = filtered.filter((q) => progress[q.id]?.status === "correct").length;
+  const wrongCount = filtered.filter((q) => progress[q.id]?.status === "wrong").length;
+  const attemptedCount = correctCount + wrongCount;
+
+  async function resetAllFiltered() {
+    if (!confirm(`Đặt lại toàn bộ ${attemptedCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`)) return;
+    const ids = filtered.map((q) => q.id);
+    await clearListeningAnswers(ids);
+    await clearSharedProgress(ids);
+    setProgress(await loadListeningProgress());
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+      {topBar}
       <PageHeader
         title="Luyện nghe"
         subtitle={`${filtered.length}/${ALL_LISTENING.length} câu -- transcript/đáp án trích từ sách Nihongo Sou Matome N3 Choukai, audio là bản ghi thật từ CD gốc.`}
@@ -141,26 +176,63 @@ function ListView({ onOpen }: { onOpen: (id: string) => void }) {
         </FilterGroup>
       </FilterSheet>
 
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
+          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Tổng số câu</div>
+          <div className="mt-1 text-xl font-bold text-neutral-800">{filtered.length}</div>
+        </div>
+        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
+          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Đã làm đúng</div>
+          <div className="mt-1 text-xl font-bold text-emerald-600">{correctCount}</div>
+        </div>
+        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
+          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Cần ôn lại</div>
+          <div className="mt-1 text-xl font-bold text-rose-600">{wrongCount}</div>
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-emerald-300 bg-emerald-100" /> Đã làm đúng
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-rose-300 bg-rose-100" /> Cần ôn lại
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-neutral-200 bg-white" /> Chưa làm
+        </span>
+        {attemptedCount > 0 ? (
+          <button onClick={resetAllFiltered} className="flex items-center gap-1.5 font-semibold text-neutral-400 hover:text-rose-600">
+            <RotateCcw size={12} /> Đặt lại tất cả ({attemptedCount})
+          </button>
+        ) : null}
+      </div>
+
       {filtered.length === 0 ? (
         <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">Không có câu nào khớp bộ lọc này.</p>
       ) : (
-        <div className="mt-4 flex flex-col gap-2">
-          {filtered.map((q, i) => (
-            <button
-              key={q.id}
-              onClick={() => onOpen(q.id)}
-              className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
-            >
-              <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
-              <div className="min-w-0 flex-1">
-                <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
-                <div className="truncate text-xs text-neutral-500">{TASK_TYPE_LABELS[q.taskType]}</div>
-              </div>
-              <span className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={levelBadgeStyle(q.level)}>
-                {q.level}
-              </span>
-            </button>
-          ))}
+        <div className="mt-3 flex flex-col gap-2">
+          {filtered.map((q, i) => {
+            const status = progress[q.id]?.status;
+            const borderCls =
+              status === "correct" ? "border-l-emerald-400" : status === "wrong" ? "border-l-rose-400" : "border-l-neutral-200";
+            return (
+              <button
+                key={q.id}
+                onClick={() => onOpen(q.id)}
+                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
+              >
+                <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
+                <div className="min-w-0 flex-1">
+                  <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
+                  <div className="truncate text-xs text-neutral-500">{TASK_TYPE_LABELS[q.taskType]}</div>
+                </div>
+                <span className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={levelBadgeStyle(q.level)}>
+                  {q.level}
+                </span>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
@@ -182,6 +254,20 @@ function QuestionView({
   const index = ALL_LISTENING.findIndex((q) => q.id === question.id);
   const nextId = ALL_LISTENING[index + 1]?.id;
 
+  // Reopening a question you already answered (from the color-coded list)
+  // should show that same answered state right away -- your pick, right/
+  // wrong highlighting, "Làm lại" -- not a blank unanswered card that only
+  // updates once you answer it again.
+  useEffect(() => {
+    let cancelled = false;
+    loadListeningProgress().then((map) => {
+      if (!cancelled) setSelected(map[question.id]?.selectedIndex ?? null);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [question.id]);
+
   // Real 発話表現・即時応答 (sokuji) items print NOTHING on paper -- the test
   // taker hears a line and picks 1/2/3 from memory alone, no printed
   // question/options to read along with. Showing the Japanese text upfront
@@ -189,6 +275,21 @@ function QuestionView({
   // or picture options) defeats the point of practicing this format, so
   // keep it hidden -- blind numbered buttons only -- until answered.
   const isBlind = question.taskType === "sokuji" && !question.optionsImage;
+
+  function selectAnswer(oi: number) {
+    const correct = oi === question.correctIndex;
+    setSelected(oi);
+    // Own lightweight map (unprefixed id, correct/wrong + which option was
+    // picked, reset-able by "Làm lại") drives this screen's own list
+    // coloring/restore-on-reopen. Dual-written into the shared
+    // progressState.ts map too (single "answer" direction, same id -- no
+    // prefix needed since Dictation below uses its own "dict:" id space to
+    // avoid colliding on the same underlying question) so Listening gets
+    // mastery streaks, "due for review", and shows up in Home/Stats like
+    // every other content type.
+    recordListeningAnswer(question.id, oi, correct);
+    recordSharedAnswer(question.id, correct, "answer", ["answer"]);
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
@@ -231,7 +332,9 @@ function QuestionView({
                   <b className="font-bold text-neutral-400">{t.speaker}：</b>
                   {t.text}
                 </div>
-                {showTranslation && t.textVi ? <div className="mt-0.5 text-[13px] leading-snug text-neutral-400">{t.textVi}</div> : null}
+                {showTranslation && t.textVi ? (
+                  <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-[13px] leading-snug text-neutral-500 italic">{t.textVi}</div>
+                ) : null}
               </div>
             ))}
           </div>
@@ -251,7 +354,7 @@ function QuestionView({
             {question.options.map((_, oi) => (
               <button
                 key={oi}
-                onClick={() => setSelected(oi)}
+                onClick={() => selectAnswer(oi)}
                 className="rounded-lg border border-neutral-200 py-3 text-center text-lg font-semibold hover:bg-neutral-50"
               >
                 {oi + 1}
@@ -277,7 +380,7 @@ function QuestionView({
                   <button
                     key={oi}
                     disabled={answered}
-                    onClick={() => setSelected(oi)}
+                    onClick={() => selectAnswer(oi)}
                     className={`rounded-lg border py-2 text-center text-sm font-semibold ${cls}`}
                   >
                     {oi + 1}
@@ -299,7 +402,7 @@ function QuestionView({
                 <button
                   key={oi}
                   disabled={answered}
-                  onClick={() => setSelected(oi)}
+                  onClick={() => selectAnswer(oi)}
                   className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
                 >
                   {opt}
@@ -325,7 +428,10 @@ function QuestionView({
         <div className="mt-6 flex gap-2">
           <Button
             variant="outline"
-            onClick={() => setSelected(null)}
+            onClick={() => {
+              setSelected(null);
+              clearListeningAnswer(question.id);
+            }}
           >
             Làm lại
           </Button>

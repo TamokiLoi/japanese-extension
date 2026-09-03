@@ -12,8 +12,7 @@ import { ReadingScreen } from "./screens/ReadingScreen.tsx";
 import { StatsScreen } from "./screens/StatsScreen.tsx";
 import { ReviewScreen } from "./screens/ReviewScreen.tsx";
 import { GuideScreen } from "./screens/GuideScreen.tsx";
-import { ListeningScreen } from "./screens/ListeningScreen.tsx";
-import { DictationScreen } from "./screens/DictationScreen.tsx";
+import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import "./tailwind.css";
 
@@ -137,9 +136,9 @@ export function WebApp() {
   } else if (screen === "guide") {
     content = <GuideScreen />;
   } else if (screen === "listening") {
-    content = <ListeningScreen />;
+    content = <ListeningHubScreen initialTab="listening" jumpToId={targetId} />;
   } else if (screen === "dictation") {
-    content = <DictationScreen />;
+    content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} />;
   } else if (screen === "dethi") {
     content = <DeThiScreen targetId={targetId} />;
   } else {

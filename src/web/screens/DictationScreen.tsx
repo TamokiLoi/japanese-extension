@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { List as ListIcon, Check, Eye, EyeOff } from "lucide-react";
+import { List as ListIcon, Check, Eye, EyeOff, Info } from "lucide-react";
 import {
   loadViewerState,
   saveViewerState,
   getFilteredList,
   loadDictationProgress,
   recordDictationAttempt,
+  dictationProgressId,
   referenceTextFor,
   diffChars,
   accuracyPercent,
@@ -14,6 +15,7 @@ import {
   type CharDiff,
 } from "../../popup/dictationState.ts";
 import { AVAILABLE_BOOKS, AVAILABLE_TASK_TYPES, BOOK_LABELS, TASK_TYPE_LABELS, ALL_LISTENING } from "../../popup/listeningState.ts";
+import { recordAnswer as recordSharedAnswer } from "../../popup/progressState.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
 import { assetUrl } from "../../platform/assetUrl";
 import { AudioPlayer } from "../components/AudioPlayer.tsx";
@@ -40,15 +42,37 @@ function gridCellStyle(status: GridStatus, current: boolean): string {
   return "border-neutral-200 bg-white text-neutral-400 hover:bg-neutral-50";
 }
 
-export function DictationScreen() {
-  const [currentId, setCurrentId] = useState<string | null>(null);
+export function DictationScreen({
+  topBar,
+  jumpToId,
+}: {
+  topBar?: React.ReactNode;
+  // Opens straight into a specific question (e.g. from Stats' "Cần ôn lại"
+  // list). Widens the book/task-type filter to include it if it's excluded
+  // (e.g. a kadai item while the filter is still sokuji-only) -- otherwise
+  // the jump target wouldn't be in the filtered list at all.
+  jumpToId?: string;
+} = {}) {
+  const [currentId, setCurrentId] = useState<string | null>(jumpToId ?? null);
   const [state, setState] = useState<DictationViewerState | null>(null);
   const [progress, setProgress] = useState<DictationProgressMap>({});
 
   useEffect(() => {
-    loadViewerState().then(setState);
+    (async () => {
+      let s = await loadViewerState();
+      const target = jumpToId ? ALL_LISTENING.find((q) => q.id === jumpToId) : undefined;
+      if (target) {
+        const selectedBooks = s.selectedBooks.includes(target.book) ? s.selectedBooks : [...s.selectedBooks, target.book];
+        const selectedTaskTypes = s.selectedTaskTypes.includes(target.taskType)
+          ? s.selectedTaskTypes
+          : [...s.selectedTaskTypes, target.taskType];
+        s = { ...s, selectedBooks, selectedTaskTypes };
+        await saveViewerState(s);
+      }
+      setState(s);
+    })();
     loadDictationProgress().then(setProgress);
-  }, []);
+  }, [jumpToId]);
 
   async function refreshProgress() {
     setProgress(await loadDictationProgress());
@@ -79,16 +103,18 @@ export function DictationScreen() {
     );
   }
 
-  return <ListView state={state} onStateChange={setState} progress={progress} list={list} onOpen={setCurrentId} />;
+  return <ListView topBar={topBar} state={state} onStateChange={setState} progress={progress} list={list} onOpen={setCurrentId} />;
 }
 
 function ListView({
+  topBar,
   state,
   onStateChange,
   progress,
   list,
   onOpen,
 }: {
+  topBar?: React.ReactNode;
   state: DictationViewerState;
   onStateChange: (s: DictationViewerState) => void;
   progress: DictationProgressMap;
@@ -113,6 +139,7 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+      {topBar}
       <PageHeader
         title="Nghe chép chính tả"
         subtitle="Nghe từng câu rồi gõ lại đúng như bạn nghe được -- hệ thống chấm từng ký tự. Mặc định chỉ hiện dạng câu ngắn (発話表現・即時応答), mở rộng bộ lọc để luyện cả hội thoại dài."
@@ -268,6 +295,24 @@ function PracticeView({
 
   const index = list.findIndex((q) => q.id === question.id);
   const reference = referenceTextFor(question);
+  // One label per line of `reference` (scenario line, if any, then one per
+  // turn) -- shown as a hint so it's clear this is "type back everything you
+  // just heard, line by line" and not "answer the question below".
+  const isSpokenOptions = question.taskType === "sokuji" && !question.optionsImage;
+  const dictationLines = [
+    ...(question.scenario ? ["Dẫn truyện"] : []),
+    ...question.turns.map((t) => t.speaker),
+    ...(isSpokenOptions ? question.options.map((_, i) => `Lựa chọn ${i + 1}`) : []),
+  ];
+  // Same lines as `reference`/dictationLines above, paired with their
+  // translation -- one JP line then its VN line right under it (matching
+  // ListeningScreen's transcript layout), not JP block then VN block, which
+  // forces the reader to match them up by eye across a wall of text.
+  const revealPairs = [
+    ...(question.scenario ? [{ jp: question.scenario, vi: question.scenarioVi }] : []),
+    ...question.turns.map((t) => ({ jp: t.text, vi: t.textVi })),
+    ...(isSpokenOptions ? question.options.map((opt, i) => ({ jp: opt, vi: question.optionsVi[i] })) : []),
+  ];
 
   useEffect(() => {
     setTyped("");
@@ -277,8 +322,15 @@ function PracticeView({
 
   async function check() {
     const result = diffChars(typed, reference);
+    const pct = accuracyPercent(result);
     setDiff(result);
-    await recordDictationAttempt(question.id, accuracyPercent(result));
+    await recordDictationAttempt(question.id, pct);
+    // Dual-written into the shared progressState.ts map too, under a
+    // "dict:"-prefixed id (see dictationProgressId) so it doesn't collide
+    // with Listening's own "answer"-direction entry for this same question
+    // -- 100% accuracy counts as a correct rep toward the usual 3-in-a-row
+    // mastery streak, same as any other content type.
+    await recordSharedAnswer(dictationProgressId(question.id), pct >= 100, "dictation", ["dictation"]);
     onAttempted();
   }
 
@@ -320,6 +372,15 @@ function PracticeView({
       </Card>
 
       <Card className="mt-4 gap-0 p-5">
+        <div className="mb-3 flex items-start gap-2 rounded-lg bg-neutral-50 px-3 py-2.5 text-xs text-neutral-600">
+          <Info size={14} className="mt-0.5 shrink-0 text-neutral-400" />
+          <span>
+            Chép lại <b>đúng mọi câu</b> đoạn ghi âm này phát ra, theo đúng thứ tự -- {dictationLines.length} câu:{" "}
+            <b className="text-neutral-700">{dictationLines.join(" → ")}</b>
+            {isSpokenOptions ? " (dạng này không in gì trên giấy, cả 3 lựa chọn đều được đọc to trong audio)" : ""}. Xuống dòng
+            (Enter) giữa mỗi câu, mỗi câu 1 dòng.
+          </span>
+        </div>
         <textarea
           value={typed}
           onChange={(e) => {
@@ -327,13 +388,13 @@ function PracticeView({
             setDiff(null);
           }}
           onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.ctrlKey) {
+            if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
               e.preventDefault();
               check();
             }
           }}
-          placeholder="Gõ lại câu bạn nghe được... (Enter để kiểm tra)"
-          rows={3}
+          placeholder="Gõ lại từng câu bạn nghe được, mỗi câu 1 dòng... (Ctrl+Enter để kiểm tra)"
+          rows={Math.max(3, dictationLines.length)}
           className="w-full resize-y rounded-lg border border-neutral-200 px-3.5 py-3 text-[15px] leading-relaxed text-neutral-800 outline-none focus:border-rose-300"
         />
 
@@ -368,13 +429,15 @@ function PracticeView({
         ) : null}
 
         {revealed ? (
-          <div className="mt-3.5 rounded-lg bg-neutral-50 p-3.5">
-            <p className="text-[15px] leading-relaxed whitespace-pre-wrap text-neutral-800">{reference}</p>
-            {question.scenarioVi || question.turns.some((t) => t.textVi) ? (
-              <p className="mt-2 text-[13px] leading-relaxed text-neutral-400">
-                {[question.scenarioVi, ...question.turns.map((t) => t.textVi)].filter(Boolean).join(" ")}
-              </p>
-            ) : null}
+          <div className="mt-3.5 flex flex-col gap-3 rounded-lg bg-neutral-50 p-3.5">
+            {revealPairs.map((p, i) => (
+              <div key={i}>
+                <div className="text-[15px] leading-relaxed text-neutral-800">{p.jp}</div>
+                {p.vi ? (
+                  <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-[13px] leading-snug text-neutral-500 italic">{p.vi}</div>
+                ) : null}
+              </div>
+            ))}
           </div>
         ) : null}
       </Card>

@@ -76,6 +76,14 @@ export async function getProgress(id: string): Promise<ItemProgress> {
   return map[id] ?? defaultProgress();
 }
 
+// Bulk "Đặt lại tất cả" for a filtered set (e.g. Listening's current
+// book/dạng câu filter) -- one storage write instead of one per id.
+export async function clearProgress(ids: string[]): Promise<void> {
+  const map = await loadProgressMap();
+  for (const id of ids) delete map[id];
+  await saveProgressMap(map);
+}
+
 // Count of a given id list that are currently mastered -- used for the
 // menu screen's "X/Y đã thuộc" summary under Kanji/Từ vựng.
 export async function countMastered(ids: string[]): Promise<number> {

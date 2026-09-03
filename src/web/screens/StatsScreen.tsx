@@ -12,13 +12,15 @@ import {
   BOOK_LABELS as QUIZBOOK_BOOK_LABELS,
   CATEGORY_LABELS,
 } from "../../popup/quizBookState.ts";
+import { ALL_LISTENING, TASK_TYPE_LABELS, AVAILABLE_TASK_TYPES } from "../../popup/listeningState.ts";
+import { dictationProgressId } from "../../popup/dictationState.ts";
 import { loadProgressMap, bucketFor, countBuckets, type ProgressBucket, type ProgressMap } from "../../popup/progressState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Progress } from "../components/ui/progress.tsx";
 import { LevelDot, levelBadgeStyle } from "../lib/levelColors.tsx";
 
-type StatsContentType = "kanji" | "vocab" | "bunpo" | "reading" | "quizbook";
+type StatsContentType = "kanji" | "vocab" | "bunpo" | "reading" | "quizbook" | "listening" | "dictation";
 type BucketFilter = ProgressBucket | "all";
 
 const CONTENT_TYPE_LABELS: Record<StatsContentType, string> = {
@@ -27,8 +29,10 @@ const CONTENT_TYPE_LABELS: Record<StatsContentType, string> = {
   bunpo: "Ngữ pháp",
   reading: "Đọc hiểu",
   quizbook: "Luyện đề",
+  listening: "Luyện nghe",
+  dictation: "Nghe chép chính tả",
 };
-const CONTENT_TYPE_ORDER: StatsContentType[] = ["kanji", "vocab", "bunpo", "reading", "quizbook"];
+const CONTENT_TYPE_ORDER: StatsContentType[] = ["kanji", "vocab", "bunpo", "reading", "quizbook", "listening", "dictation"];
 
 const QUESTION_TYPE_LABELS: Record<ReadingQuestionType, string> = {
   detail: "Chi tiết",
@@ -100,12 +104,36 @@ function buildEntries(contentType: StatsContentType): StatEntry[] {
       };
     });
   }
-  return ALL_QUIZBOOK.map((q) => ({
-    id: q.id,
+  if (contentType === "quizbook") {
+    return ALL_QUIZBOOK.map((q) => ({
+      id: q.id,
+      level: q.level,
+      char: CATEGORY_LABELS[q.category],
+      title: q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc)",
+      navScreen: "quizBook",
+      navId: q.id,
+    }));
+  }
+  if (contentType === "listening") {
+    return ALL_LISTENING.map((q) => ({
+      id: q.id,
+      level: q.level,
+      char: TASK_TYPE_LABELS[q.taskType].split(" -- ")[0],
+      title: q.scenario || q.question,
+      navScreen: "listening",
+      navId: q.id,
+    }));
+  }
+  // "dictation": same underlying pool as "listening", but a separately
+  // tracked practice mode (see dictationProgressId) -- id is the prefixed
+  // progress key, navId is the real question id ListeningHubScreen needs to
+  // jump to.
+  return ALL_LISTENING.map((q) => ({
+    id: dictationProgressId(q.id),
     level: q.level,
-    char: CATEGORY_LABELS[q.category],
-    title: q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc)",
-    navScreen: "quizBook",
+    char: TASK_TYPE_LABELS[q.taskType].split(" -- ")[0],
+    title: q.scenario || q.question,
+    navScreen: "dictation",
     navId: q.id,
   }));
 }
@@ -153,11 +181,23 @@ function buildGroupBars(contentType: StatsContentType): GroupBar[] {
       ids: ALL_READING_QUESTIONS.filter((q) => q.questionType === type).map((q) => q.id),
     }));
   }
-  return QUIZBOOK_BOOKS.map((book) => ({
-    key: book,
-    label: QUIZBOOK_BOOK_LABELS[book],
+  if (contentType === "quizbook") {
+    return QUIZBOOK_BOOKS.map((book) => ({
+      key: book,
+      label: QUIZBOOK_BOOK_LABELS[book],
+      isLevel: false,
+      ids: ALL_QUIZBOOK.filter((q) => q.book === book).map((q) => q.id),
+    }));
+  }
+  // "listening" and "dictation": grouped by dạng câu (kadai/point/gaiyou/
+  // sokuji) -- which format someone struggles with is the actionable signal
+  // here, same reasoning as Reading's group-by-question-type above.
+  const idOf = contentType === "dictation" ? (id: string) => dictationProgressId(id) : (id: string) => id;
+  return AVAILABLE_TASK_TYPES.map((t) => ({
+    key: t,
+    label: TASK_TYPE_LABELS[t].split(" -- ")[0],
     isLevel: false,
-    ids: ALL_QUIZBOOK.filter((q) => q.book === book).map((q) => q.id),
+    ids: ALL_LISTENING.filter((q) => q.taskType === t).map((q) => idOf(q.id)),
   }));
 }
 

@@ -204,7 +204,7 @@ function ListView({
         <Button size="sm" variant="outline" onClick={onOpenStats}>
           <ClipboardList size={14} /> Câu sai cần ôn lại
         </Button>
-        <div className="ml-auto flex gap-1.5">
+        <div className="flex flex-wrap gap-1.5">
           {(["all", "not-started", "done"] as const).map((s) => (
             <button
               key={s}
