@@ -406,7 +406,7 @@ function DailyPlanSettingsSheet({
   }, [open, goals]);
 
   return (
-    <FilterSheet open={open} onClose={onClose} title="Cài đặt kế hoạch học">
+    <FilterSheet open={open} onClose={onClose} title="Cài đặt mục tiêu mỗi ngày">
       <p className="text-sm text-neutral-500">
         Đặt tốc độ mỗi ngày cho từng mục. Số ngày còn lại được tính trên số mục "chưa học" theo đúng bộ lọc bạn đang chọn ở màn đó --
         đổi bộ lọc sẽ tự tính lại lần tới bạn mở trang chủ.
@@ -450,7 +450,7 @@ function DailyPlanSettingsSheet({
         }}
         className="mt-5 w-full rounded-full bg-rose-600 py-2.5 text-sm font-semibold text-white hover:bg-rose-700"
       >
-        Lưu kế hoạch
+        Lưu mục tiêu
       </button>
     </FilterSheet>
   );
@@ -473,11 +473,11 @@ function DailyPlanCard({
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-5">
       <div className="flex items-center justify-between">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Kế hoạch hôm nay</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Mục tiêu mỗi ngày</h2>
         <button
           onClick={() => setSettingsOpen(true)}
           className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-100 hover:text-rose-600"
-          title="Cài đặt kế hoạch"
+          title="Cài đặt mục tiêu"
         >
           <Pencil size={13} />
         </button>
@@ -508,9 +508,7 @@ function DailyPlanCard({
                 <span className="min-w-0 flex-1 text-sm text-neutral-700">
                   {meta.label} <span className="text-neutral-400">-- {item.goal} {meta.unit}/ngày</span>
                   {item.daysLeft !== null ? (
-                    <span className="block text-xs text-neutral-400">
-                      {item.remainingNew > 0 ? `còn ~${item.daysLeft} ngày là hết` : "đã hết mục chưa học"}
-                    </span>
+                    <span className="block text-xs text-neutral-400">{item.remainingNew > 0 ? `còn ${item.daysLeft} ngày` : "đã hết"}</span>
                   ) : null}
                 </span>
                 <span className={`shrink-0 text-xs font-semibold ${done ? "text-emerald-600" : "text-neutral-400"}`}>
