@@ -119,8 +119,11 @@ export function VocabScreen({
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
         }
       } else {
+        // Entering the screen fresh (not via a jump link) always lands on
+        // the overview grid, regardless of whatever mode was last saved --
+        // mirrors KanjiScreen.tsx's viewMode reset.
         l = await getFilteredList(s);
-        s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+        s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
       }
       await saveViewerState(s);
       if (cancelled) return;

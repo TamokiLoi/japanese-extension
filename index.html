@@ -6,6 +6,28 @@
     <link rel="icon" type="image/png" href="/icons/icon48.png" />
     <title>Nihongo Nin</title>
     <link rel="stylesheet" href="/src/popup/style.css" />
+    <script>
+      // Undoes public/404.html's redirect trick: GitHub Pages has no
+      // server-side SPA rewrite, so a direct link/reload on a non-root path
+      // (e.g. /japanese-extension/bunpo) 404s there first, and 404.html
+      // bounces it here as e.g. /japanese-extension/?/bunpo/kanji-%E7%94%B7.
+      // Turn that back into a real path via replaceState before WebApp.tsx's
+      // router reads location.pathname on mount. No-op for the extension
+      // build (chrome-extension:// loads never carry this "?/" marker) and
+      // for a plain root load (no search string to restore).
+      (function () {
+        var l = window.location;
+        if (l.search[1] !== "/") return;
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(null, "", l.pathname.slice(0, -1) + decoded + l.hash);
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

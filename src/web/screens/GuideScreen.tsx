@@ -1,4 +1,4 @@
-import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter, Headphones } from "lucide-react";
+import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter, Headphones, ClipboardCheck } from "lucide-react";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { Card } from "../components/ui/card.tsx";
 
@@ -38,12 +38,14 @@ const GUIDE_SECTIONS: GuideItem[] = [
     icon: Headphones,
     title: "Luyện nghe",
     points: [
-      "Đề thi N3 phần Nghe có 4 dạng câu, mỗi dạng cần nghe khác nhau -- lọc theo 'Dạng câu hỏi' để luyện riêng từng dạng:",
+      "2 tab ở đầu màn dùng chung 1 kho câu hỏi: 'Nghe & chọn đáp án' (trắc nghiệm) và 'Nghe chép chính tả' (gõ lại nguyên văn đã nghe).",
+      "Nghe & chọn đáp án -- đề N3 phần Nghe có 4 dạng câu, mỗi dạng cần nghe khác nhau -- lọc theo 'Dạng câu hỏi' để luyện riêng từng dạng:",
       "課題理解 (việc cần làm): nghe hội thoại rồi chọn việc cần làm/đã làm tiếp theo -- câu hỏi và đáp án được in sẵn (hoặc là tranh), có thể đọc trước khi nghe.",
       "ポイント理解 (trọng điểm): câu hỏi được đọc trước khi hội thoại bắt đầu, giúp biết cần chú ý nghe gì -- đáp án cũng được in sẵn.",
       "概要理解 (khái quát): không có gì in sẵn -- chỉ nghe toàn bộ hội thoại rồi mới nghe câu hỏi và đáp án đọc ra, phải nhớ trong đầu.",
       "発話表現・即時応答 (phản xạ nhanh): câu ngắn, không in gì cả -- nghe xong chọn ngay 1 trong 3 đáp án cũng được đọc bằng lời. App ẩn hết chữ cho đúng dạng này, chỉ hiện lại sau khi bạn chọn.",
       "Trả lời xong sẽ hiện bản dịch tiếng Việt (bối cảnh + câu hỏi + đáp án) và transcript đầy đủ để đối chiếu.",
+      "Nghe chép chính tả -- nghe 1 đoạn audio thật rồi gõ lại nguyên văn, app so khớp từng chữ với transcript và tính % chính xác; lưới câu hỏi cho biết câu nào đã gõ đúng hoàn toàn hay mới đúng một phần.",
     ],
   },
   {
@@ -52,6 +54,15 @@ const GUIDE_SECTIONS: GuideItem[] = [
     points: [
       "Câu hỏi trích từ đề thi/sách luyện thi thật, chia theo dạng (Chữ Hán, Từ vựng, Ngữ pháp).",
       "Chọn số câu rồi bấm Bắt đầu để làm theo phiên ngẫu nhiên, hoặc bấm thẳng vào 1 câu trong danh sách để làm riêng câu đó.",
+    ],
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Đề thi JLPT",
+    points: [
+      "Làm nguyên đề N3 thật (không có phần Nghe), chấm điểm theo đúng barem của đề gốc chứ không chỉ đếm số câu đúng.",
+      "Mỗi phần (Chữ Hán-Từ vựng, Ngữ pháp-Đọc hiểu) có đồng hồ đếm ngược riêng -- hạn nộp được lưu lại nên thoát/tải lại trang không mất giờ, hết giờ tự nộp bài.",
+      "Mỗi đề lưu lại lịch sử các lần đã làm (số lần, điểm cao nhất, lần gần nhất) để theo dõi tiến bộ qua từng lượt.",
     ],
   },
   {

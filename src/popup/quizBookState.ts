@@ -258,6 +258,10 @@ export async function saveViewerState(state: QuizBookViewerState): Promise<void>
   await storageSet(STORAGE_KEY, state);
 }
 
+export function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolean {
+  return state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book);
+}
+
 export function resetQuestionAnswer(state: QuizBookViewerState, id: string): QuizBookViewerState {
   const { [id]: _removed, ...rest } = state.answers;
   const { [id]: _removedStreak, ...restStreaks } = state.correctStreaks;

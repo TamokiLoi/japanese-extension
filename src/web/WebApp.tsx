@@ -16,14 +16,18 @@ import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import "./tailwind.css";
 
-function readFromHash(): { screen: Screen; targetId?: string } {
-  // See App.tsx's initializer for why this needs decodeURIComponent. Split
-  // on the first ":" only -- a bucket deep-link's targetId ("bucket:mastered")
-  // contains one itself, and a naive split(":") would truncate it.
-  const hash = location.hash.slice(1);
-  const sep = hash.indexOf(":");
-  const rawScreen = sep === -1 ? hash : hash.slice(0, sep);
-  const rawTargetId = sep === -1 ? undefined : hash.slice(sep + 1);
+// "/" in dev/the extension build, "/japanese-extension/" on GitHub Pages
+// (see vite.config.ts's `base`) -- routes are built/read relative to this so
+// the same code works under either.
+const BASE = import.meta.env.BASE_URL;
+
+function readFromPath(): { screen: Screen; targetId?: string } {
+  const path = location.pathname.startsWith(BASE) ? location.pathname.slice(BASE.length) : location.pathname.replace(/^\/+/, "");
+  // First path segment is the screen, the rest (rejoined) is the target id --
+  // see App.tsx's initializer for why this needs decodeURIComponent (a kanji
+  // id like "kanji-男" round-trips through the URL percent-encoded).
+  const [rawScreen, ...rest] = path.split("/").filter(Boolean);
+  const rawTargetId = rest.length > 0 ? rest.join("/") : undefined;
   const screen = rawScreen as Screen;
   return {
     screen: VALID_SCREENS.includes(screen) ? screen : "menu",
@@ -36,41 +40,44 @@ function readFromHash(): { screen: Screen; targetId?: string } {
 // shadcn redesigns here (Vocab first) while everything not yet redesigned
 // still falls through to <App key={navKey}/> -- same component the
 // extension uses, so screens not yet touched keep working exactly as
-// before. Sidebar/bottom-nav/card clicks change location.hash (optionally
-// "screen:targetId" for a deep link, e.g. a Vocab card's kanji-char jump)
-// and remount by key, reusing App's existing hash-on-mount read (see
-// App.tsx) instead of adding a router. Each screen's own internal
-// back/forward stack (App's `navigate`/`goBack`) still works exactly as
-// before once inside a section rendered via <App/>.
+// before. Sidebar/bottom-nav/card clicks push a real path via the History
+// API (optionally "/screen/targetId" for a deep link, e.g. a Vocab card's
+// kanji-char jump) and remount by key. GitHub Pages has no server-side SPA
+// rewrite, so a direct link or a reload on a non-root path relies on
+// public/404.html's redirect + index.html's matching restore script to land
+// back here with the right path before this router ever reads it. Each
+// screen's own internal back/forward stack (App's `navigate`/`goBack`) still
+// works exactly as before once inside a section rendered via <App/>.
 export function WebApp() {
-  const [{ screen, targetId }, setRoute] = useState(readFromHash);
+  const [{ screen, targetId }, setRoute] = useState(readFromPath);
 
   useEffect(() => {
     document.body.classList.add("web-shell");
     return () => document.body.classList.remove("web-shell");
   }, []);
 
-  // go() below already pushes a new history entry every time it changes
-  // location.hash (that's just how assigning location.hash works), so the
-  // browser's own back/forward buttons -- and, on mobile, the OS edge-swipe
-  // back gesture -- already move through this app's navigation history.
-  // What was missing is this: nothing was listening for that "hashchange"
-  // event, so going back only moved the address bar's hash while the still-
-  // mounted React tree kept showing whatever screen it last rendered. Sync
-  // the two by re-reading the hash on every hashchange, which covers both
-  // real back/forward navigation and go()'s own hash assignment (the latter
-  // is redundant with go()'s direct setRoute call below, but harmless).
+  // go() below already pushes a new history entry every time it calls
+  // history.pushState, so the browser's own back/forward buttons -- and, on
+  // mobile, the OS edge-swipe back gesture -- already move through this
+  // app's navigation history. What was missing is this: nothing was
+  // listening for the "popstate" event fired by those, so going back only
+  // moved the address bar while the still-mounted React tree kept showing
+  // whatever screen it last rendered. Sync the two by re-reading the path on
+  // every popstate.
   useEffect(() => {
-    function onHashChange() {
-      setRoute(readFromHash());
+    function onPopState() {
+      setRoute(readFromPath());
       window.scrollTo(0, 0);
     }
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   function go(next: Screen, id?: string) {
-    location.hash = id ? `${next}:${id}` : next;
+    // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
+    // -- it's the landing page, not a content category.
+    const path = next === "menu" && !id ? BASE : `${BASE}${next}${id ? `/${encodeURIComponent(id)}` : ""}`;
+    history.pushState(null, "", path);
     setRoute({ screen: next, targetId: id });
     window.scrollTo(0, 0);
   }

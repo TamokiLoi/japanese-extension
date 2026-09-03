@@ -104,8 +104,12 @@ export function KanjiScreen({
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
         }
       } else {
+        // Entering the screen fresh (not via a jump link) always lands on
+        // the overview grid, regardless of whatever mode was last saved --
+        // "which kanji do I already know" should be the first thing you see
+        // each visit, not wherever you happened to leave off studying.
         l = await getFilteredList(s);
-        s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+        s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
       }
       await saveViewerState(s);
       if (cancelled) return;

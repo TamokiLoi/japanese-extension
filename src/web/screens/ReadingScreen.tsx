@@ -16,10 +16,12 @@ import {
   saveViewerState,
   getPassageProgress,
   resetPassageAnswers,
+  matchesFilters,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
 import { findVocabInPassage, findBunpoInPassage } from "../../popup/readingLinks.ts";
 import { recordAnswer } from "../../popup/progressState.ts";
+import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
@@ -27,10 +29,6 @@ import { PageHeader } from "../components/PageHeader.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
-
-function matchesFilters(p: ReadingPassage, state: ReadingViewerState): boolean {
-  return state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && state.selectedBooks.includes(p.book);
-}
 
 function timelineLabel(passage: ReadingPassage): string {
   const min = passage.estimatedMinutes;
@@ -278,7 +276,13 @@ function ListView({
                   onClick={() => {
                     const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
                     if (next.length === 0) return;
-                    mutate({ selectedLevels: next });
+                    const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (b) =>
+                      ALL_READING.some((p) => p.book === b && next.includes(p.level) && state.selectedLengths.includes(p.length)),
+                    );
+                    const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (l) =>
+                      ALL_READING.some((p) => p.length === l && next.includes(p.level) && nextBooks.includes(p.book)),
+                    );
+                    mutate({ selectedLevels: next, selectedBooks: nextBooks, selectedLengths: nextLengths });
                   }}
                 />
               );
@@ -300,7 +304,13 @@ function ListView({
                 onClick={() => {
                   const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
                   if (next.length === 0) return;
-                  mutate({ selectedBooks: next });
+                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (lv) =>
+                    ALL_READING.some((p) => p.level === lv && next.includes(p.book) && state.selectedLengths.includes(p.length)),
+                  );
+                  const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (l) =>
+                    ALL_READING.some((p) => p.length === l && next.includes(p.book) && nextLevels.includes(p.level)),
+                  );
+                  mutate({ selectedBooks: next, selectedLevels: nextLevels, selectedLengths: nextLengths });
                 }}
               />
             );
@@ -321,7 +331,13 @@ function ListView({
                 onClick={() => {
                   const next = checked ? state.selectedLengths.filter((l) => l !== length) : [...new Set([...state.selectedLengths, length])];
                   if (next.length === 0) return;
-                  mutate({ selectedLengths: next });
+                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (lv) =>
+                    ALL_READING.some((p) => p.level === lv && next.includes(p.length) && state.selectedBooks.includes(p.book)),
+                  );
+                  const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (b) =>
+                    ALL_READING.some((p) => p.book === b && next.includes(p.length) && nextLevels.includes(p.level)),
+                  );
+                  mutate({ selectedLengths: next, selectedLevels: nextLevels, selectedBooks: nextBooks });
                 }}
               />
             );
@@ -335,11 +351,19 @@ function ListView({
         <div className="mt-4 flex flex-col gap-2">
           {visiblePassages.map((p, i) => {
             const progress = getPassageProgress(p, state.answers);
+            const borderCls =
+              progress.status === "not-started"
+                ? "border-l-neutral-200"
+                : progress.status === "in-progress"
+                  ? "border-l-amber-400"
+                  : progress.correct === progress.total
+                    ? "border-l-emerald-400"
+                    : "border-l-rose-400";
             return (
               <button
                 key={p.id}
                 onClick={() => openPassage(p)}
-                className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
+                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">

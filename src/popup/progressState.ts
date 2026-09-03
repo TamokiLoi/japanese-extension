@@ -227,6 +227,18 @@ export const BUCKET_LABEL: Record<ProgressBucket, string> = {
   new: "chưa học",
 };
 
+// Shared left-border accent for any "list row" screen (Bunpo, Stats' due
+// list) -- same color language as BUCKET_TILE_CLASS and as the Luyện
+// nghe/Luyện đề row style (border-l-4, emerald/rose/amber/neutral), just as
+// a border color instead of a full tile fill since these rows already carry
+// their own white background and other content.
+export const BUCKET_ITEM_BORDER: Record<ProgressBucket, string> = {
+  mastered: "border-l-emerald-400",
+  learning: "border-l-amber-400",
+  flagged: "border-l-rose-400",
+  new: "border-l-neutral-200",
+};
+
 // How many of the given items were touched (quizzed, flagged, or marked
 // mastered -- anything that bumps lastSeenAt) since local midnight. Purely
 // derived from existing lastSeenAt timestamps, no new tracking added.

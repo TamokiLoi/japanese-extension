@@ -17,6 +17,7 @@ import {
   type ListeningViewerState,
   type ListeningProgressMap,
 } from "../../popup/listeningState.ts";
+import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
 import { recordAnswer as recordSharedAnswer, clearProgress as clearSharedProgress } from "../../popup/progressState.ts";
 import { assetUrl } from "../../platform/assetUrl";
@@ -149,7 +150,10 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
                 onClick={() => {
                   const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
                   if (next.length === 0) return;
-                  mutate({ selectedBooks: next });
+                  const nextTaskTypes = pruneToggle(state.selectedTaskTypes, AVAILABLE_TASK_TYPES, (t) =>
+                    ALL_LISTENING.some((q) => q.taskType === t && next.includes(q.book)),
+                  );
+                  mutate({ selectedBooks: next, selectedTaskTypes: nextTaskTypes });
                 }}
               />
             );
@@ -168,7 +172,10 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
                 onClick={() => {
                   const next = checked ? state.selectedTaskTypes.filter((x) => x !== t) : [...new Set([...state.selectedTaskTypes, t])];
                   if (next.length === 0) return;
-                  mutate({ selectedTaskTypes: next });
+                  const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (b) =>
+                    ALL_LISTENING.some((q) => q.book === b && next.includes(q.taskType)),
+                  );
+                  mutate({ selectedTaskTypes: next, selectedBooks: nextBooks });
                 }}
               />
             );

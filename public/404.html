@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nihongo Nin</title>
+    <script>
+      // Single Page Apps for GitHub Pages (https://github.com/rafgraph/spa-github-pages).
+      // GitHub Pages serves this file for any path it doesn't recognize as a
+      // real file -- which, for a client-side-routed SPA, is every in-app
+      // route (a direct link or a reload on /japanese-extension/bunpo). It
+      // has no server-side rewrite option, so this repackages the path into
+      // a query string and redirects to the site root, where index.html's
+      // matching restore script turns it back into a real path before
+      // WebApp.tsx's router ever reads it.
+      //   /japanese-extension/bunpo/kanji-%E7%94%B7?x=y
+      //     -> /japanese-extension/?/bunpo/kanji-%E7%94%B7&x=y
+      var pathSegmentsToKeep = 1; // "/japanese-extension"
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join("/") +
+          "/?/" +
+          l.pathname
+            .slice(1)
+            .split("/")
+            .slice(pathSegmentsToKeep)
+            .join("/")
+            .replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

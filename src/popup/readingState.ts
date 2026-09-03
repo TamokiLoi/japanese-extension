@@ -211,3 +211,16 @@ export function resetPassageAnswers(state: ReadingViewerState, passageId: string
   const { [passageId]: _removed, ...rest } = state.answers;
   return { ...state, answers: rest };
 }
+
+export function matchesFilters(p: ReadingPassage, state: ReadingViewerState): boolean {
+  return state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && state.selectedBooks.includes(p.book);
+}
+
+// Same passage-level filter as matchesFilters, applied to the flattened
+// per-question item list (HomeScreen's "Tổng số thẻ"/bucket counts track
+// individual questions, not whole passages) -- ReadingQuestionItem doesn't
+// carry `length`, so this filters passages first and keys off passageId.
+export function getFilteredQuestions(state: ReadingViewerState): ReadingQuestionItem[] {
+  const passageIds = new Set(ALL_READING.filter((p) => matchesFilters(p, state)).map((p) => p.id));
+  return ALL_READING_QUESTIONS.filter((q) => passageIds.has(q.passageId));
+}

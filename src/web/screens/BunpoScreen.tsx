@@ -24,11 +24,13 @@ import {
   toggleMastered,
   filterByProgress,
   bucketFor,
+  BUCKET_ITEM_BORDER,
   type ItemProgress,
   type ProgressFilter,
   type ProgressMap,
 } from "../../popup/progressState.ts";
 import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
+import { pruneToggle } from "../../popup/filterUtils.ts";
 import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../../popup/readingState.ts";
 import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../../popup/quizBookState.ts";
 import { Card } from "../components/ui/card.tsx";
@@ -138,7 +140,12 @@ function ListView({
 
   function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
-    mutate({ selectedLevels: newLevels });
+    const nextSources = pruneToggle(
+      state.selectedSources,
+      AVAILABLE_SOURCES,
+      (source) => ALL_BUNPO.some((g) => g.sources.includes(source) && newLevels.includes(g.level)),
+    );
+    mutate({ selectedLevels: newLevels, selectedSources: nextSources as BunpoSource[] });
   }
 
   return (
@@ -316,7 +323,7 @@ function ListView({
               <button
                 key={g.id}
                 onClick={() => mutate({ currentGrammarId: g.id })}
-                className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
+                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
               >
                 <span className="flex items-center text-xs font-semibold text-neutral-400">
                   <LevelDot level={g.level} />

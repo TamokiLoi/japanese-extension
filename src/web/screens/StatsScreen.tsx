@@ -14,7 +14,14 @@ import {
 } from "../../popup/quizBookState.ts";
 import { ALL_LISTENING, TASK_TYPE_LABELS, AVAILABLE_TASK_TYPES } from "../../popup/listeningState.ts";
 import { dictationProgressId } from "../../popup/dictationState.ts";
-import { loadProgressMap, bucketFor, countBuckets, type ProgressBucket, type ProgressMap } from "../../popup/progressState.ts";
+import {
+  loadProgressMap,
+  bucketFor,
+  countBuckets,
+  BUCKET_ITEM_BORDER,
+  type ProgressBucket,
+  type ProgressMap,
+} from "../../popup/progressState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Progress } from "../components/ui/progress.tsx";
@@ -214,13 +221,6 @@ const BUCKET_CARD_COLOR: Record<ProgressBucket, string> = {
   flagged: "border-rose-200 bg-rose-50 text-rose-700",
   new: "border-neutral-200 bg-neutral-50 text-neutral-500",
 };
-const BUCKET_ITEM_BORDER: Record<ProgressBucket, string> = {
-  mastered: "border-l-emerald-400",
-  learning: "border-l-amber-400",
-  flagged: "border-l-rose-400",
-  new: "border-l-neutral-300",
-};
-
 const MAX_LIST_ITEMS = 150;
 
 export function StatsScreen({
@@ -374,7 +374,7 @@ function StatListItem({ entry, map, onOpen }: { entry: StatEntry; map: ProgressM
   return (
     <button
       onClick={onOpen}
-      className={`flex items-center gap-3 rounded-lg border-l-4 bg-white px-3 py-2 text-left hover:bg-neutral-50 ${BUCKET_ITEM_BORDER[bucket]}`}
+      className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
     >
       <span className="w-14 shrink-0 truncate text-lg font-semibold text-neutral-800">{entry.char}</span>
       <span className="min-w-0 flex-1">

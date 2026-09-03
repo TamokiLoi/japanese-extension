@@ -20,9 +20,11 @@ import {
   resetQuestionAnswer,
   recordAnswer,
   buildSession,
+  matchesFilters,
   type QuizBookViewerState,
 } from "../../popup/quizBookState.ts";
 import { recordAnswer as recordGlobalAnswer, clearProgress as clearGlobalProgress } from "../../popup/progressState.ts";
+import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
@@ -30,10 +32,6 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
-
-function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolean {
-  return state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book);
-}
 
 const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm", known: "Đã biết" } as const;
 
@@ -236,7 +234,11 @@ function ListView({
                 active={state.selectedGroup === group}
                 onClick={() => {
                   if (group === state.selectedGroup) return;
-                  mutate({ selectedGroup: group, selectedBooks: booksInGroup(group) });
+                  const nextBooks = booksInGroup(group);
+                  const nextCategories = pruneToggle(state.selectedCategories, AVAILABLE_CATEGORIES, (c) =>
+                    ALL_QUIZBOOK.some((q) => q.category === c && nextBooks.includes(q.book)),
+                  );
+                  mutate({ selectedGroup: group, selectedBooks: nextBooks, selectedCategories: nextCategories });
                 }}
               />
             ))}
@@ -255,7 +257,10 @@ function ListView({
                 onClick={() => {
                   const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
                   if (next.length === 0) return;
-                  mutate({ selectedBooks: next });
+                  const nextCategories = pruneToggle(state.selectedCategories, AVAILABLE_CATEGORIES, (c) =>
+                    ALL_QUIZBOOK.some((q) => q.category === c && next.includes(q.book)),
+                  );
+                  mutate({ selectedBooks: next, selectedCategories: nextCategories });
                 }}
               />
             );
@@ -276,7 +281,10 @@ function ListView({
                     ? state.selectedCategories.filter((c) => c !== category)
                     : [...new Set([...state.selectedCategories, category])];
                   if (next.length === 0) return;
-                  mutate({ selectedCategories: next });
+                  const nextBooks = pruneToggle(state.selectedBooks, booksInCurrentGroup, (b) =>
+                    ALL_QUIZBOOK.some((q) => q.book === b && next.includes(q.category)),
+                  );
+                  mutate({ selectedCategories: next, selectedBooks: nextBooks });
                 }}
               />
             );

@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import { Flame, ArrowRight, GraduationCap, ClipboardCheck } from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
-import { ALL_KANJI } from "../../popup/kanjiState.ts";
-import { ALL_VOCAB } from "../../popup/vocabState.ts";
-import { ALL_BUNPO } from "../../popup/bunpoState.ts";
-import { ALL_READING_QUESTIONS } from "../../popup/readingState.ts";
-import { ALL_QUIZBOOK } from "../../popup/quizBookState.ts";
-import { ALL_LISTENING } from "../../popup/listeningState.ts";
-import { dictationProgressId } from "../../popup/dictationState.ts";
+import { ALL_KANJI, getOrderedList as getFilteredKanji, loadViewerState as loadKanjiViewerState } from "../../popup/kanjiState.ts";
+import { ALL_VOCAB, getOrderedList as getFilteredVocab, loadViewerState as loadVocabViewerState } from "../../popup/vocabState.ts";
+import { ALL_BUNPO, getFilteredList as getFilteredBunpo, loadViewerState as loadBunpoViewerState } from "../../popup/bunpoState.ts";
+import { getFilteredQuestions as getFilteredReading, loadViewerState as loadReadingViewerState } from "../../popup/readingState.ts";
+import {
+  ALL_QUIZBOOK,
+  matchesFilters as matchesQuizBookFilters,
+  loadViewerState as loadQuizBookViewerState,
+} from "../../popup/quizBookState.ts";
+import { getFilteredList as getFilteredListening, loadViewerState as loadListeningViewerState } from "../../popup/listeningState.ts";
+import {
+  dictationProgressId,
+  getFilteredList as getFilteredDictation,
+  loadViewerState as loadDictationViewerState,
+} from "../../popup/dictationState.ts";
 import {
   loadProgressMap,
   countBuckets,
@@ -49,28 +57,43 @@ interface Stats {
 }
 
 async function loadStats(): Promise<Stats> {
-  const map: ProgressMap = await loadProgressMap();
+  const [map, kanjiState, vocabState, bunpoState, readingState, quizBookState, listeningState, dictationState] = await Promise.all([
+    loadProgressMap(),
+    loadKanjiViewerState(),
+    loadVocabViewerState(),
+    loadBunpoViewerState(),
+    loadReadingViewerState(),
+    loadQuizBookViewerState(),
+    loadListeningViewerState(),
+    loadDictationViewerState(),
+  ]);
+  const filteredListening = getFilteredListening(listeningState);
   // Listening's own "answer"-direction entries use the question's plain id;
   // Dictation's use a "dict:"-prefixed id (see dictationProgressId) so the
   // two tracks don't collide in the same ItemProgress record for one
   // question -- both need to be in this pool for the bucket/total counts
-  // below to reflect them, as two separate trackable items each.
-  const dictationItems = ALL_LISTENING.map((q) => ({ id: dictationProgressId(q.id) }));
-  const allItems = [
-    ...ALL_KANJI,
-    ...ALL_VOCAB,
-    ...ALL_BUNPO,
-    ...ALL_READING_QUESTIONS,
-    ...ALL_QUIZBOOK,
-    ...ALL_LISTENING,
-    ...dictationItems,
+  // below to reflect them, as two separate trackable items each. Each
+  // content type is narrowed to whatever that section's own filter sheet
+  // currently has selected (its persisted viewer state), rather than always
+  // counting the full dataset -- "Tổng số thẻ"/"Tổng quan tiến độ" then
+  // answer "how much of what I'm actually studying right now", matching
+  // each screen's own filtered list instead of a fixed grand total.
+  const filteredDictationItems = getFilteredDictation(dictationState).map((q) => ({ id: dictationProgressId(q.id) }));
+  const filteredItems = [
+    ...getFilteredKanji(kanjiState),
+    ...getFilteredVocab(vocabState),
+    ...getFilteredBunpo(bunpoState),
+    ...getFilteredReading(readingState),
+    ...ALL_QUIZBOOK.filter((q) => matchesQuizBookFilters(q, quizBookState)),
+    ...filteredListening,
+    ...filteredDictationItems,
   ];
   const streak = await getStudyStreak();
   return {
     streak,
-    studiedToday: countStudiedToday(allItems, map),
-    totalItems: allItems.length,
-    buckets: countBuckets(allItems, map),
+    studiedToday: countStudiedToday(filteredItems, map),
+    totalItems: filteredItems.length,
+    buckets: countBuckets(filteredItems, map),
     // Kanji/Vocab/Bunpo only -- Ôn tập (reviewState.ts) can only build a
     // review session from these 3 content types so far, so "Cần ôn ngay"
     // below stays scoped to what it can actually launch. Listening/
@@ -126,6 +149,9 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
 
           <div className="mt-8">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tổng quan tiến độ</h2>
+            <p className="mt-1 text-xs text-neutral-400">
+              Theo đúng bộ lọc cấp độ/nguồn bạn đang chọn ở từng mục (Kanji, Từ vựng, Ngữ pháp...) -- đổi bộ lọc ở đó sẽ đổi số ở đây.
+            </p>
             <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
               {BUCKET_ORDER.map((b) => (
                 <button
