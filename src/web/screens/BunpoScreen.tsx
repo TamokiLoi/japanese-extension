@@ -242,7 +242,9 @@ function ListView({
               were just another source. */}
           {AVAILABLE_SOURCES.filter((source) => source !== "theo-chuong").map((source) => {
             const checked = state.selectedSources.includes(source);
-            const count = ALL_BUNPO.filter((g) => g.sources.includes(source)).length;
+            const count = ALL_BUNPO.filter(
+              (g) => g.sources.includes(source) && state.selectedLevels.includes(g.level),
+            ).length;
             return (
               <FilterChipOption
                 key={source}
@@ -262,7 +264,7 @@ function ListView({
         {AVAILABLE_SOURCES.includes("theo-chuong") ? (
           <FilterGroup title="Học theo chương">
             <FilterChipOption
-              label={`Bật lọc theo chương (${ALL_BUNPO.filter((g) => g.sources.includes("theo-chuong")).length})`}
+              label={`Bật lọc theo chương (${ALL_BUNPO.filter((g) => g.sources.includes("theo-chuong") && state.selectedLevels.includes(g.level)).length})`}
               active={theoChuongChecked}
               onClick={() => {
                 const next = theoChuongChecked
