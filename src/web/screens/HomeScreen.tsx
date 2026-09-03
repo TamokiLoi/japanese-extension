@@ -209,9 +209,24 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
       <p className="mt-1 text-neutral-500">Tiếp tục hành trình học tiếng Nhật của bạn nào.</p>
 
       {stats ? (
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-[1fr_320px]">
-          {/* Main column */}
-          <div className="flex flex-col gap-8">
+        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-[1fr_320px] md:items-start">
+          {/* Streak -- first on mobile (today's habit prompt belongs above
+              the fold), top of the right rail on desktop. */}
+          <div className="order-1 rounded-2xl border border-rose-200 bg-rose-50 p-5 md:order-none md:col-start-2 md:row-start-1">
+            <div className="flex items-center gap-2 text-orange-500">
+              <Flame size={18} />
+              <span className="text-xs font-semibold uppercase tracking-wide text-neutral-800">Chuỗi ngày học</span>
+            </div>
+            <div className="mt-2 text-2xl font-bold text-neutral-800">{stats.streak} ngày liên tiếp</div>
+            <p className="mt-1 text-xs text-rose-700">Học mỗi ngày để giữ chuỗi streak và ghi nhớ lâu hơn.</p>
+            <div className="mt-4">
+              <WeekCalendar weekDays={stats.weekDays} />
+            </div>
+          </div>
+
+          {/* Main column -- second on mobile, left column (spanning both
+              right-rail rows) on desktop. */}
+          <div className="order-2 flex flex-col gap-8 md:order-none md:col-start-1 md:row-start-1 md:row-span-2">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Kho học liệu (theo bộ lọc hiện tại)</h2>
               <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -275,7 +290,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
 
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tiếp tục học</h2>
-              <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 <ContinueCard icon={BookMarked} title="Kanji" subtitle={`${stats.counts.kanji} chữ Hán`} onClick={() => onNavigate("kanji")} />
                 <ContinueCard icon={Library} title="Từ vựng" subtitle={`${stats.counts.vocab} từ`} onClick={() => onNavigate("vocab")} />
                 <ContinueCard icon={PenSquare} title="Ngữ pháp" subtitle={`${stats.counts.bunpo} mẫu câu`} onClick={() => onNavigate("bunpo")} />
@@ -295,20 +310,9 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
             </div>
           </div>
 
-          {/* Right rail */}
-          <div className="flex flex-col gap-4">
-            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
-              <div className="flex items-center gap-2 text-orange-500">
-                <Flame size={18} />
-                <span className="text-xs font-semibold uppercase tracking-wide text-neutral-800">Chuỗi ngày học</span>
-              </div>
-              <div className="mt-2 text-2xl font-bold text-neutral-800">{stats.streak} ngày liên tiếp</div>
-              <p className="mt-1 text-xs text-rose-700">Học mỗi ngày để giữ chuỗi streak và ghi nhớ lâu hơn.</p>
-              <div className="mt-4">
-                <WeekCalendar weekDays={stats.weekDays} />
-              </div>
-            </div>
-
+          {/* Rail rest (Cần ôn ngay + Luyện thi) -- third on mobile, bottom
+              of the right rail on desktop. */}
+          <div className="order-3 flex flex-col gap-4 md:order-none md:col-start-2 md:row-start-2">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Cần ôn ngay</h2>
               {totalDue > 0 ? (
