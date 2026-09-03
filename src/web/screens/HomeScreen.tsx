@@ -161,6 +161,22 @@ function WeekCalendar({ weekDays }: { weekDays: boolean[] }) {
   );
 }
 
+function StreakCard({ streak, weekDays }: { streak: number; weekDays: boolean[] }) {
+  return (
+    <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+      <div className="flex items-center gap-2 text-orange-500">
+        <Flame size={18} />
+        <span className="text-xs font-semibold uppercase tracking-wide text-neutral-800">Chuỗi ngày học</span>
+      </div>
+      <div className="mt-2 text-2xl font-bold text-neutral-800">{streak} ngày liên tiếp</div>
+      <p className="mt-1 text-xs text-rose-700">Học mỗi ngày để giữ chuỗi streak và ghi nhớ lâu hơn.</p>
+      <div className="mt-4">
+        <WeekCalendar weekDays={weekDays} />
+      </div>
+    </div>
+  );
+}
+
 function ContinueCard({
   icon: Icon,
   title,
@@ -209,24 +225,19 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
       <p className="mt-1 text-neutral-500">Tiếp tục hành trình học tiếng Nhật của bạn nào.</p>
 
       {stats ? (
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-[1fr_320px] md:items-start">
-          {/* Streak -- first on mobile (today's habit prompt belongs above
-              the fold), top of the right rail on desktop. */}
-          <div className="order-1 rounded-2xl border border-rose-200 bg-rose-50 p-5 md:order-none md:col-start-2 md:row-start-1">
-            <div className="flex items-center gap-2 text-orange-500">
-              <Flame size={18} />
-              <span className="text-xs font-semibold uppercase tracking-wide text-neutral-800">Chuỗi ngày học</span>
-            </div>
-            <div className="mt-2 text-2xl font-bold text-neutral-800">{stats.streak} ngày liên tiếp</div>
-            <p className="mt-1 text-xs text-rose-700">Học mỗi ngày để giữ chuỗi streak và ghi nhớ lâu hơn.</p>
-            <div className="mt-4">
-              <WeekCalendar weekDays={stats.weekDays} />
-            </div>
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start">
+          {/* Streak, mobile-only instance -- today's habit prompt belongs
+              above the fold, before the two columns below split apart. The
+              desktop instance lives inside the rail further down instead of
+              trying to keep this one row-synced with the main column via
+              CSS grid -- that forced the two independently-tall columns to
+              share row tracks, staggering every section under it. */}
+          <div className="md:hidden">
+            <StreakCard streak={stats.streak} weekDays={stats.weekDays} />
           </div>
 
-          {/* Main column -- second on mobile, left column (spanning both
-              right-rail rows) on desktop. */}
-          <div className="order-2 flex flex-col gap-8 md:order-none md:col-start-1 md:row-start-1 md:row-span-2">
+          {/* Main column */}
+          <div className="flex flex-1 flex-col gap-8">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Kho học liệu (theo bộ lọc hiện tại)</h2>
               <div className="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -310,9 +321,14 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
             </div>
           </div>
 
-          {/* Rail rest (Cần ôn ngay + Luyện thi) -- third on mobile, bottom
-              of the right rail on desktop. */}
-          <div className="order-3 flex flex-col gap-4 md:order-none md:col-start-2 md:row-start-2">
+          {/* Right rail -- on mobile this is just "Cần ôn ngay" + "Luyện
+              thi" (Streak already showed above, full-width); on desktop it's
+              the whole rail, flowing independently of the main column so
+              its shorter content doesn't force gaps into the main column. */}
+          <div className="flex flex-col gap-4 md:w-80 md:shrink-0">
+            <div className="hidden md:block">
+              <StreakCard streak={stats.streak} weekDays={stats.weekDays} />
+            </div>
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Cần ôn ngay</h2>
               {totalDue > 0 ? (
