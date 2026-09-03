@@ -26,7 +26,16 @@ import {
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
-import { loadDailyGoals, saveDailyGoals, buildDailyPlanItem, type DailyGoals, type DailyPlanItem } from "../../popup/dailyPlanState.ts";
+import {
+  loadDailyGoals,
+  saveDailyGoals,
+  buildDailyPlanItem,
+  PLAN_TYPES,
+  type PlanType,
+  type DailyGoals,
+  type DailyPlanItem,
+} from "../../popup/dailyPlanState.ts";
+import { FilterSheet } from "../components/FilterSheet.tsx";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -44,23 +53,15 @@ const BUCKET_COLOR: Record<ProgressBucket, string> = {
 
 const WEEKDAY_LABELS = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
 
-type PlanType = "kanji" | "vocab" | "bunpo";
-type DailyPlan = Record<PlanType, DailyPlanItem<{ id: string }>>;
+type DailyPlan = Record<PlanType, DailyPlanItem>;
 
 const PLAN_META: Record<PlanType, { label: string; unit: string; icon: typeof BookMarked; screen: Screen }> = {
   kanji: { label: "Kanji", unit: "chữ mới", icon: BookMarked, screen: "kanji" },
   vocab: { label: "Từ vựng", unit: "từ mới", icon: Library, screen: "vocab" },
   bunpo: { label: "Ngữ pháp", unit: "mẫu mới", icon: PenSquare, screen: "bunpo" },
+  reading: { label: "Luyện đọc", unit: "câu mới", icon: BookOpenText, screen: "reading" },
+  listening: { label: "Luyện nghe", unit: "câu mới", icon: Headphones, screen: "listening" },
 };
-
-async function loadPlan(goals: DailyGoals): Promise<DailyPlan> {
-  const map = await loadProgressMap();
-  return {
-    kanji: buildDailyPlanItem(ALL_KANJI, goals.kanji, map),
-    vocab: buildDailyPlanItem(ALL_VOCAB, goals.vocab, map),
-    bunpo: buildDailyPlanItem(ALL_BUNPO, goals.bunpo, map),
-  };
-}
 
 function greeting(): string {
   const h = new Date().getHours();
@@ -88,7 +89,36 @@ interface Stats {
   due: { kanji: number; vocab: number; bunpo: number };
 }
 
-async function loadStats(): Promise<Stats> {
+// Kept around after loadStats() resolves so building/rebuilding the daily
+// plan (goals change, no filters changed) never has to reload every
+// section's viewer state and the progress map again -- only a fresh Home
+// mount re-fetches this, which is exactly when a filter changed elsewhere
+// should be picked up.
+interface FilteredContent {
+  map: ProgressMap;
+  kanji: { id: string }[];
+  vocab: { id: string }[];
+  bunpo: { id: string }[];
+  reading: { id: string }[];
+  listening: { id: string }[];
+}
+
+function computePlan(content: FilteredContent, goals: DailyGoals): DailyPlan {
+  const lists: Record<PlanType, { id: string }[]> = {
+    kanji: content.kanji,
+    vocab: content.vocab,
+    bunpo: content.bunpo,
+    reading: content.reading,
+    listening: content.listening,
+  };
+  const plan = {} as DailyPlan;
+  for (const type of PLAN_TYPES) {
+    plan[type] = buildDailyPlanItem(lists[type], goals[type].goal, content.map);
+  }
+  return plan;
+}
+
+async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> {
   const [map, kanjiState, vocabState, bunpoState, readingState, quizBookState, listeningState, dictationState] = await Promise.all([
     loadProgressMap(),
     loadKanjiViewerState(),
@@ -127,27 +157,37 @@ async function loadStats(): Promise<Stats> {
   ];
   const [streak, weekDays] = await Promise.all([getStudyStreak(), getWeekStudyDays()]);
   return {
-    streak,
-    weekDays,
-    studiedToday: countStudiedToday(filteredItems, map),
-    totalItems: filteredItems.length,
-    counts: {
-      kanji: filteredKanji.length,
-      vocab: filteredVocab.length,
-      bunpo: filteredBunpo.length,
-      reading: filteredReading.length,
-      listening: filteredListening.length,
+    stats: {
+      streak,
+      weekDays,
+      studiedToday: countStudiedToday(filteredItems, map),
+      totalItems: filteredItems.length,
+      counts: {
+        kanji: filteredKanji.length,
+        vocab: filteredVocab.length,
+        bunpo: filteredBunpo.length,
+        reading: filteredReading.length,
+        listening: filteredListening.length,
+      },
+      buckets: countBuckets(filteredItems, map),
+      // Kanji/Vocab/Bunpo only -- Ôn tập (reviewState.ts) can only build a
+      // review session from these 3 content types so far, so "Cần ôn ngay"
+      // below stays scoped to what it can actually launch. Listening/
+      // Dictation still show up in "Tổng quan tiến độ" above (bucket counts
+      // include them), just not in this specific due-review CTA yet.
+      due: {
+        kanji: countDue(ALL_KANJI, map),
+        vocab: countDue(ALL_VOCAB, map),
+        bunpo: countDue(ALL_BUNPO, map),
+      },
     },
-    buckets: countBuckets(filteredItems, map),
-    // Kanji/Vocab/Bunpo only -- Ôn tập (reviewState.ts) can only build a
-    // review session from these 3 content types so far, so "Cần ôn ngay"
-    // below stays scoped to what it can actually launch. Listening/
-    // Dictation still show up in "Tổng quan tiến độ" above (bucket counts
-    // include them), just not in this specific due-review CTA yet.
-    due: {
-      kanji: countDue(ALL_KANJI, map),
-      vocab: countDue(ALL_VOCAB, map),
-      bunpo: countDue(ALL_BUNPO, map),
+    content: {
+      map,
+      kanji: filteredKanji,
+      vocab: filteredVocab,
+      bunpo: filteredBunpo,
+      reading: filteredReading,
+      listening: filteredListening,
     },
   };
 }
@@ -196,6 +236,74 @@ function StreakCard({ streak, weekDays }: { streak: number; weekDays: boolean[] 
   );
 }
 
+function DailyPlanSettingsSheet({
+  open,
+  onClose,
+  goals,
+  onSave,
+}: {
+  open: boolean;
+  onClose: () => void;
+  goals: DailyGoals;
+  onSave: (goals: DailyGoals) => void;
+}) {
+  const [draft, setDraft] = useState(goals);
+
+  useEffect(() => {
+    if (open) setDraft(goals);
+  }, [open, goals]);
+
+  return (
+    <FilterSheet open={open} onClose={onClose} title="Cài đặt kế hoạch học">
+      <p className="text-sm text-neutral-500">
+        Đặt tốc độ mỗi ngày cho từng mục. Số ngày còn lại được tính trên số mục "chưa học" theo đúng bộ lọc bạn đang chọn ở màn đó --
+        đổi bộ lọc sẽ tự tính lại lần tới bạn mở trang chủ.
+      </p>
+      <div className="mt-4 flex flex-col gap-3">
+        {PLAN_TYPES.map((type) => {
+          const meta = PLAN_META[type];
+          const setting = draft[type];
+          const Icon = meta.icon;
+          return (
+            <div key={type} className="flex items-center gap-3 rounded-xl border border-neutral-200 p-3">
+              <button
+                onClick={() => setDraft({ ...draft, [type]: { ...setting, enabled: !setting.enabled } })}
+                className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 ${
+                  setting.enabled ? "border-rose-600 bg-rose-600 text-white" : "border-neutral-300"
+                }`}
+              >
+                {setting.enabled ? <Check size={12} strokeWidth={3} /> : null}
+              </button>
+              <span className="flex flex-1 items-center gap-2 text-sm text-neutral-700">
+                <Icon size={15} className="text-rose-600" /> {meta.label}
+              </span>
+              <input
+                type="number"
+                min={1}
+                value={setting.goal}
+                onChange={(e) =>
+                  setDraft({ ...draft, [type]: { ...setting, goal: Math.max(1, Number(e.target.value) || 1) } })
+                }
+                className="w-16 rounded-lg border border-neutral-200 px-2 py-1 text-right text-sm"
+              />
+              <span className="w-14 shrink-0 text-xs text-neutral-400">/ ngày</span>
+            </div>
+          );
+        })}
+      </div>
+      <button
+        onClick={() => {
+          onSave(draft);
+          onClose();
+        }}
+        className="mt-5 w-full rounded-full bg-rose-600 py-2.5 text-sm font-semibold text-white hover:bg-rose-700"
+      >
+        Lưu kế hoạch
+      </button>
+    </FilterSheet>
+  );
+}
+
 function DailyPlanCard({
   goals,
   plan,
@@ -207,74 +315,62 @@ function DailyPlanCard({
   onNavigate: (screen: Screen) => void;
   onSaveGoals: (goals: DailyGoals) => void;
 }) {
-  const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState(goals);
-
-  useEffect(() => {
-    if (!editing) setDraft(goals);
-  }, [goals, editing]);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const enabledTypes = PLAN_TYPES.filter((type) => goals[type].enabled);
 
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-5">
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Kế hoạch hôm nay</h2>
         <button
-          onClick={() => {
-            if (editing) onSaveGoals(draft);
-            setEditing(!editing);
-          }}
+          onClick={() => setSettingsOpen(true)}
           className="flex h-7 w-7 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-100 hover:text-rose-600"
-          title={editing ? "Lưu mục tiêu" : "Sửa mục tiêu mỗi ngày"}
+          title="Cài đặt kế hoạch"
         >
-          {editing ? <Check size={14} /> : <Pencil size={13} />}
+          <Pencil size={13} />
         </button>
       </div>
 
-      <div className="mt-3 flex flex-col gap-3">
-        {(Object.keys(PLAN_META) as PlanType[]).map((type) => {
-          const meta = PLAN_META[type];
-          const item = plan[type];
-          const Icon = meta.icon;
-          const done = item.doneToday >= item.goal;
-          if (editing) {
+      {enabledTypes.length === 0 ? (
+        <p className="mt-3 text-sm text-neutral-400">Chưa bật mục nào -- bấm nút bút chì để chọn mục và đặt tốc độ mỗi ngày.</p>
+      ) : (
+        <div className="mt-3 flex flex-col gap-3">
+          {enabledTypes.map((type) => {
+            const meta = PLAN_META[type];
+            const item = plan[type];
+            const Icon = meta.icon;
+            const done = item.doneToday >= item.goal;
             return (
-              <div key={type} className="flex items-center justify-between gap-3">
-                <span className="flex items-center gap-2 text-sm text-neutral-700">
-                  <Icon size={15} className="text-rose-600" /> {meta.label}
-                </span>
-                <input
-                  type="number"
-                  min={1}
-                  value={draft[type]}
-                  onChange={(e) => setDraft({ ...draft, [type]: Math.max(1, Number(e.target.value) || 1) })}
-                  className="w-16 rounded-lg border border-neutral-200 px-2 py-1 text-right text-sm"
-                />
-              </div>
-            );
-          }
-          return (
-            <button
-              key={type}
-              onClick={() => onNavigate(meta.screen)}
-              className="flex items-center gap-3 rounded-xl px-1 py-1 text-left hover:bg-rose-50/40"
-            >
-              <span
-                className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
-                  done ? "border-emerald-500 bg-emerald-500 text-white" : "border-neutral-300"
-                }`}
+              <button
+                key={type}
+                onClick={() => onNavigate(meta.screen)}
+                className="flex items-center gap-3 rounded-xl px-1 py-1 text-left hover:bg-rose-50/40"
               >
-                {done ? <Check size={12} strokeWidth={3} /> : null}
-              </span>
-              <span className="min-w-0 flex-1 text-sm text-neutral-700">
-                {meta.label} <span className="text-neutral-400">-- {item.goal} {meta.unit}</span>
-              </span>
-              <span className={`text-xs font-semibold ${done ? "text-emerald-600" : "text-neutral-400"}`}>
-                {item.doneToday}/{item.goal}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+                <span
+                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 ${
+                    done ? "border-emerald-500 bg-emerald-500 text-white" : "border-neutral-300"
+                  }`}
+                >
+                  {done ? <Check size={12} strokeWidth={3} /> : null}
+                </span>
+                <span className="min-w-0 flex-1 text-sm text-neutral-700">
+                  {meta.label} <span className="text-neutral-400">-- {item.goal} {meta.unit}/ngày</span>
+                  {item.daysLeft !== null ? (
+                    <span className="block text-xs text-neutral-400">
+                      {item.remainingNew > 0 ? `còn ~${item.daysLeft} ngày là hết` : "đã hết mục chưa học"}
+                    </span>
+                  ) : null}
+                </span>
+                <span className={`shrink-0 text-xs font-semibold ${done ? "text-emerald-600" : "text-neutral-400"}`}>
+                  {item.doneToday}/{item.goal}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      <DailyPlanSettingsSheet open={settingsOpen} onClose={() => setSettingsOpen(false)} goals={goals} onSave={onSaveGoals} />
     </div>
   );
 }
@@ -308,19 +404,18 @@ function ContinueCard({
 
 export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: string) => void }) {
   const [stats, setStats] = useState<Stats | null>(null);
+  const [content, setContent] = useState<FilteredContent | null>(null);
   const [goals, setGoals] = useState<DailyGoals | null>(null);
   const [plan, setPlan] = useState<DailyPlan | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    loadStats().then((s) => {
-      if (!cancelled) setStats(s);
-    });
-    loadDailyGoals().then(async (g) => {
+    Promise.all([loadStats(), loadDailyGoals()]).then(([{ stats: s, content: c }, g]) => {
       if (cancelled) return;
+      setStats(s);
+      setContent(c);
       setGoals(g);
-      const p = await loadPlan(g);
-      if (!cancelled) setPlan(p);
+      setPlan(computePlan(c, g));
     });
     return () => {
       cancelled = true;
@@ -330,8 +425,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
   async function handleSaveGoals(next: DailyGoals) {
     setGoals(next);
     await saveDailyGoals(next);
-    const p = await loadPlan(next);
-    setPlan(p);
+    if (content) setPlan(computePlan(content, next));
   }
 
   const totalDue = stats ? stats.due.kanji + stats.due.vocab + stats.due.bunpo : 0;
