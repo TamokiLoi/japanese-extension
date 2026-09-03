@@ -1,24 +1,17 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ExternalLink, ArrowUp } from "lucide-react";
+import { Menu, X, ArrowUp } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS, BOTTOM_NAV_SCREENS } from "./navItems.ts";
-import pkg from "../../package.json";
-
-const PROFILE_URL = "https://github.com/TamokiLoi";
 
 function SidebarFooter() {
   return (
-    <div className="mt-auto flex items-center justify-between px-2 pt-4 text-xs text-neutral-400">
-      <span>Tamoki Nguyen · v{pkg.version}</span>
-      <a
-        href={PROFILE_URL}
-        target="_blank"
-        rel="noreferrer"
-        title="Thông tin tác giả"
-        className="flex items-center gap-1 text-neutral-400 hover:text-rose-600"
-      >
-        Info <ExternalLink size={12} />
-      </a>
+    <div className="mt-auto pt-4 text-xs text-neutral-400">
+      <span>
+        ©2026 Tamoki Nguyen -{" "}
+        <a href="tel:0938947221" className="hover:text-rose-600">
+          0938.947.221
+        </a>
+      </span>
     </div>
   );
 }
@@ -26,10 +19,10 @@ function SidebarFooter() {
 function BrandLink({ onClick, className }: { onClick: () => void; className?: string }) {
   return (
     <button onClick={onClick} className={`flex items-center gap-2.5 text-left ${className ?? ""}`}>
-      <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-8 w-8 shrink-0 rounded-lg" />
+      <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-11 w-11 shrink-0 rounded-lg" />
       <div>
         <div className="text-lg leading-tight font-bold text-rose-600">Nihongo Nin</div>
-        <div className="text-xs text-neutral-400">日本語を学ぼう</div>
+        <div className="text-xs text-neutral-400">忍耐で、着実に。</div>
       </div>
     </button>
   );
