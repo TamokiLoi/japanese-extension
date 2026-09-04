@@ -16,6 +16,7 @@ import {
   loadProgressMap,
   toggleFlag,
   toggleMastered,
+  markViewed,
   filterByProgress,
   bucketFor,
   countBuckets,
@@ -134,6 +135,9 @@ export function KanjiScreen({
       getProgress(k.id).then((p) => {
         if (!cancelled) setProgress(p);
       });
+      // Fire-and-forget -- looking at a card's detail is itself "studying"
+      // it today, independent of whether the user also flags/masters it.
+      void markViewed(k.id);
       setGridMap(null);
     } else {
       setProgress(null);

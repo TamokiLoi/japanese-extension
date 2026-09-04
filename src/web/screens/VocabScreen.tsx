@@ -15,6 +15,7 @@ import {
 } from "../../popup/vocabState.ts";
 import {
   getProgress,
+  markViewed,
   loadProgressMap,
   toggleFlag,
   toggleMastered,
@@ -148,6 +149,9 @@ export function VocabScreen({
       getProgress(v.id).then((p) => {
         if (!cancelled) setProgress(p);
       });
+      // Fire-and-forget -- looking at a card's detail is itself "studying"
+      // it today, independent of whether the user also flags/masters it.
+      void markViewed(v.id);
       setGridMap(null);
     } else {
       setProgress(null);

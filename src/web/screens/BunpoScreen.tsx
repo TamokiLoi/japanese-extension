@@ -19,6 +19,7 @@ import {
 import { useDebouncedValue } from "../../popup/useDebouncedValue.ts";
 import {
   getProgress,
+  markViewed,
   loadProgressMap,
   toggleFlag,
   toggleMastered,
@@ -371,6 +372,10 @@ function DetailView({
       if (cancelled) return;
       setProgress(p);
       setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
+      // Fire-and-forget -- looking at a grammar point's detail is itself
+      // "studying" it today, independent of whether the user also
+      // flags/masters it.
+      void markViewed(g.id);
     })();
     return () => {
       cancelled = true;

@@ -895,37 +895,33 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
               <h2 className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-neutral-400">
                 <BarChart3 size={14} className="text-blue-600" /> Thống kê nhanh
               </h2>
-              <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200/50 bg-white p-3.5 md:grid-cols-4">
-                <div className="flex items-center gap-3 rounded-xl bg-blue-50 p-4">
+              <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200/50 bg-white p-4 md:grid-cols-4">
+                <div className="flex items-center gap-2 rounded-xl bg-blue-50 px-4 py-5">
                   <img src={`${ICON_IMG}icon-time.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
-                  <div>
-                    <div className="text-[13px] whitespace-nowrap text-neutral-600">Thời gian học</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-[11px] text-neutral-600">Giờ học hôm nay</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">0 giờ</div>
-                    <div className="text-[11px] text-neutral-400">Hôm nay</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-xl bg-emerald-50 p-4">
+                <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-4 py-5">
                   <img src={`${ICON_IMG}icon-done.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
-                  <div>
-                    <div className="text-[13px] whitespace-nowrap text-neutral-600">Bài đã học</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-[11px] text-neutral-600">Tổng bài đã học</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.quickStats.lessonsDone}</div>
-                    <div className="text-[11px] text-neutral-400">Tổng cộng</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-xl bg-purple-50 p-4">
+                <div className="flex items-center gap-2 rounded-xl bg-purple-50 px-4 py-5">
                   <img src={`${ICON_IMG}icon-practice.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
-                  <div>
-                    <div className="text-[13px] whitespace-nowrap text-neutral-600">Câu đã luyện</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-[11px] text-neutral-600">Tổng câu đã luyện</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.quickStats.questionsPracticed}</div>
-                    <div className="text-[11px] text-neutral-400">Tổng cộng</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-xl bg-rose-50 p-4">
+                <div className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-5">
                   <img src={`${ICON_IMG}icon-today.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
-                  <div>
-                    <div className="text-[13px] whitespace-nowrap text-neutral-600">Học hôm nay</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-[11px] text-neutral-600">Học hôm nay</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.studiedToday} thẻ</div>
-                    <div className="text-[11px] text-neutral-400">Hôm nay</div>
                   </div>
                 </div>
               </div>
