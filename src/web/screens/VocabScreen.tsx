@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap } from "lucide-react";
+import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS } from "../../popup/quizState.ts";
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
@@ -23,30 +24,23 @@ import {
   bucketFor,
   countBuckets,
   isDueForReview,
+  MASTERY_STREAK_THRESHOLD,
   type ItemProgress,
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
 import { kanjiIdForChar } from "../../popup/kanjiVocabLinks.ts";
 import { findMatchingReadingPassages, findMatchingQuizBookQuestions } from "../../popup/vocabLinks.ts";
-import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../../popup/readingState.ts";
-import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../../popup/quizBookState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card, CardContent } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
-
-const PROGRESS_FILTER_LABELS: Record<VocabViewerState["progressFilter"], string> = {
-  all: "Tất cả thẻ",
-  unmastered: "Chưa thuộc",
-  flagged: "Đã đánh dấu khó",
-  due: "Đến hạn ôn lại",
-};
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -60,6 +54,12 @@ const BUCKET_TILE_COLOR: Record<ProgressBucket, string> = {
   learning: "bg-amber-100 text-amber-700 hover:bg-amber-200",
   flagged: "bg-rose-100 text-rose-700 hover:bg-rose-200",
   new: "bg-neutral-100 text-neutral-500 hover:bg-neutral-200",
+};
+const BUCKET_STAT_COLOR: Record<ProgressBucket, string> = {
+  mastered: "border-t-emerald-300 text-emerald-600",
+  learning: "border-t-amber-300 text-amber-600",
+  flagged: "border-t-rose-300 text-rose-600",
+  new: "border-t-neutral-300 text-neutral-600",
 };
 
 function WordWithKanjiLinks({ word, onOpenKanji }: { word: string; onOpenKanji: (kanjiId: string) => void }) {
@@ -93,17 +93,22 @@ export function VocabScreen({
   onOpenReading,
   onOpenQuizBook,
   jumpToId,
+  onCurrentItemChange,
 }: {
   onOpenKanji: (kanjiId: string) => void;
-  onOpenReading: () => void;
-  onOpenQuizBook: () => void;
+  onOpenReading: (passageId: string) => void;
+  onOpenQuizBook: (questionId: string) => void;
   jumpToId?: string;
+  onCurrentItemChange?: (id: string | undefined) => void;
 }) {
   const [state, setState] = useState<VocabViewerState | null>(null);
   const [list, setList] = useState<VocabCard[]>([]);
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  // See KanjiScreen.tsx's identical field for why this is local/display-only
+  // instead of living in state.progressFilter.
+  const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -183,17 +188,14 @@ export function VocabScreen({
     setProgress(p);
   }
 
-  async function handleOpenReading(passageId: string) {
-    const readingState = await loadReadingViewerState();
-    await saveReadingViewerState({ ...readingState, currentPassageId: passageId });
-    onOpenReading();
-  }
 
-  async function handleOpenQuizBook(questionId: string) {
-    const qbState = await loadQuizBookViewerState();
-    await saveQuizBookViewerState({ ...qbState, currentQuestionId: questionId });
-    onOpenQuizBook();
-  }
+
+  useFloatingNav(!!state && state.viewMode !== "grid");
+
+  const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
+  useEffect(() => {
+    onCurrentItemChange?.(currentId);
+  }, [currentId, onCurrentItemChange]);
 
   if (!state) {
     return <div className="p-6 text-neutral-400">Đang tải...</div>;
@@ -212,6 +214,7 @@ export function VocabScreen({
       <PageHeader
         title="Từ vựng"
         subtitle={isGrid ? `${list.length} thẻ` : `${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}`}
+        icon={{ img: "icon-vocab.png", bg: "#ffedd5" }}
         action={
           <Button variant="outline" size="icon" onClick={() => mutate({ viewMode: isGrid ? "card" : "grid" }, false)}>
             {isGrid ? <Layers size={16} /> : <Grid2x2 size={16} />}
@@ -221,17 +224,15 @@ export function VocabScreen({
 
       <FilterBar>
         <FilterTrigger count={allChecked ? 0 : state.selectedSources.length} onClick={() => setFilterOpen(true)} />
-        <select
-          value={state.progressFilter}
-          onChange={(e) => mutate({ progressFilter: e.target.value as VocabViewerState["progressFilter"], index: 0 })}
-          className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600 sm:max-w-none"
+        <button
+          title="Đến hạn ôn lại"
+          onClick={() => mutate({ progressFilter: state.progressFilter === "due" ? "all" : "due", index: 0 })}
+          className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium ${
+            state.progressFilter === "due" ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500 hover:bg-neutral-50"
+          }`}
         >
-          {(Object.keys(PROGRESS_FILTER_LABELS) as VocabViewerState["progressFilter"][]).map((f) => (
-            <option key={f} value={f}>
-              {PROGRESS_FILTER_LABELS[f]}
-            </option>
-          ))}
-        </select>
+          <Clock size={13} /> Đến hạn ôn lại
+        </button>
         <button
           title="Ngẫu nhiên"
           onClick={() => {
@@ -255,11 +256,11 @@ export function VocabScreen({
                 label: SOURCE_LABELS[s],
                 onRemove: () => applySourceSelection(state.selectedSources.filter((x) => x !== s)),
               }))),
-          ...(state.progressFilter !== "all"
+          ...(state.progressFilter === "due"
             ? [
                 {
                   key: "progress",
-                  label: PROGRESS_FILTER_LABELS[state.progressFilter],
+                  label: "Đến hạn ôn lại",
                   onRemove: () => mutate({ progressFilter: "all", index: 0 }),
                 },
               ]
@@ -299,7 +300,7 @@ export function VocabScreen({
       </FilterSheet>
 
       {isGrid ? null : (
-        <div className="mt-3 flex items-center gap-2">
+        <div className="mt-3 hidden items-center gap-2 md:flex">
           <Button variant="outline" disabled={state.index === 0} onClick={() => mutate({ index: state.index - 1 }, false)}>
             <ChevronLeft size={16} /> Trước
           </Button>
@@ -325,22 +326,51 @@ export function VocabScreen({
         </div>
       )}
 
+      {isGrid || state.index === 0 ? null : (
+        <button
+          onClick={() => mutate({ index: state.index - 1 }, false)}
+          aria-label="Trước"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      )}
+      {isGrid || state.index >= list.length - 1 ? null : (
+        <button
+          onClick={() => mutate({ index: state.index + 1 }, false)}
+          aria-label="Tiếp"
+          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        >
+          <ChevronRight size={18} />
+        </button>
+      )}
+
       {isGrid ? (
         bucketCounts && gridMap ? (
           <div className="mt-6">
-            <div className="flex flex-wrap gap-4 text-sm text-neutral-500">
+            <div className="grid grid-cols-2 gap-3">
               {BUCKET_ORDER.map((b) => (
-                <span key={b}>
-                  {BUCKET_LABEL[b]} <strong className="text-neutral-800">{bucketCounts[b]}</strong>
-                </span>
+                <button
+                  key={b}
+                  onClick={() => setBucketFilter(bucketFilter === b ? null : b)}
+                  className={`rounded-2xl border border-t-4 bg-white p-4 text-left transition-colors ${BUCKET_STAT_COLOR[b]} ${
+                    bucketFilter === b ? "border-neutral-800 ring-2 ring-neutral-800" : "border-neutral-200"
+                  }`}
+                >
+                  <div className="text-xl font-bold">{bucketCounts[b]}</div>
+                  <div className="text-xs font-semibold">{BUCKET_LABEL[b]}</div>
+                </button>
               ))}
             </div>
             {list.length === 0 ? (
               <p className="mt-6 text-neutral-400">Không có từ vựng nào ở bộ lọc này.</p>
+            ) : list.every((item) => bucketFilter !== null && bucketFor(gridMap[item.id]) !== bucketFilter) ? (
+              <p className="mt-6 text-neutral-400">Không có thẻ nào ở trạng thái "{BUCKET_LABEL[bucketFilter!]}".</p>
             ) : (
               <div className="mt-4 grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8">
                 {list.map((item, i) => {
                   const bucket = bucketFor(gridMap[item.id]);
+                  if (bucketFilter !== null && bucket !== bucketFilter) return null;
                   return (
                     <button
                       key={item.id}
@@ -359,9 +389,9 @@ export function VocabScreen({
       ) : !v ? (
         <p className="mt-6 text-neutral-400">Không có từ vựng nào ở bộ lọc này.</p>
       ) : (
-        <Card className="mt-3 gap-0 p-6">
-          <div className="flex items-start justify-between">
-            <div className="flex flex-wrap items-center gap-2">
+        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex min-w-0 flex-wrap items-center gap-2">
               <Badge style={levelBadgeStyle(v.level)}>{v.level}</Badge>
               <Badge variant="secondary">{SOURCE_LABELS[v.source]}</Badge>
               {isDueForReview(progress ?? undefined) ? (
@@ -370,16 +400,32 @@ export function VocabScreen({
                 </span>
               ) : null}
             </div>
-            <button
-              title={progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
-              onClick={async () => {
-                await toggleFlag(v.id);
-                await refreshProgress();
-              }}
-              className={progress?.flagged ? "text-rose-500" : "text-neutral-300 hover:text-neutral-400"}
-            >
-              <Flag size={20} fill={progress?.flagged ? "currentColor" : "none"} />
-            </button>
+            <div className="flex shrink-0 items-center gap-1.5">
+              <button
+                title={progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
+                onClick={async () => {
+                  await toggleFlag(v.id);
+                  await refreshProgress();
+                }}
+                className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                  progress?.flagged ? "text-rose-500" : "text-neutral-300 hover:text-neutral-400"
+                }`}
+              >
+                <Flag size={17} fill={progress?.flagged ? "currentColor" : "none"} />
+              </button>
+              <button
+                title={progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
+                onClick={async () => {
+                  await toggleMastered(v.id);
+                  await refreshProgress();
+                }}
+                className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                  progress?.mastered ? "bg-emerald-50 text-emerald-600" : "text-neutral-300 hover:text-neutral-400"
+                }`}
+              >
+                <CheckCircle2 size={17} />
+              </button>
+            </div>
           </div>
 
           <div className="mt-6 text-center text-4xl font-bold text-neutral-800">
@@ -387,17 +433,24 @@ export function VocabScreen({
           </div>
           {v.reading ? <div className="mt-1 text-center text-neutral-500">{v.reading}</div> : null}
 
-          <button
-            onClick={async () => {
-              await toggleMastered(v.id);
-              await refreshProgress();
-            }}
-            className={`mx-auto mt-4 flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${
-              progress?.mastered ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-neutral-200 text-neutral-500"
-            }`}
-          >
-            <CheckCircle2 size={14} /> {progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
-          </button>
+          {progress ? (
+            <div className="mx-auto mt-3.5 flex max-w-xs flex-wrap items-center justify-center gap-1.5">
+              {VOCAB_MASTERY_DIRECTIONS.map((dir) => {
+                const streak = progress.directionStreaks[dir] ?? 0;
+                const done = streak >= MASTERY_STREAK_THRESHOLD;
+                return (
+                  <span
+                    key={dir}
+                    className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                      done ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-amber-200 bg-amber-50 text-amber-600"
+                    }`}
+                  >
+                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {VOCAB_MODE_LABELS[dir]}
+                  </span>
+                );
+              })}
+            </div>
+          ) : null}
 
           <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
             {v.hanViet.length > 0 ? (
@@ -441,7 +494,7 @@ export function VocabScreen({
                 {readingMatches.map((p) => (
                   <button
                     key={p.id}
-                    onClick={() => handleOpenReading(p.id)}
+                    onClick={() => onOpenReading(p.id)}
                     className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
                   >
                     {p.title}
@@ -460,7 +513,7 @@ export function VocabScreen({
                 {quizBookMatches.map((qq) => (
                   <button
                     key={qq.id}
-                    onClick={() => handleOpenQuizBook(qq.id)}
+                    onClick={() => onOpenQuizBook(qq.id)}
                     className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
                   >
                     {qq.question.slice(0, 24)}

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, List } from "lucide-react";
+import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X } from "lucide-react";
 import type { BunpoGrammarPoint, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -25,23 +25,38 @@ import {
   toggleMastered,
   filterByProgress,
   bucketFor,
+  countBuckets,
   BUCKET_ITEM_BORDER,
   type ItemProgress,
   type ProgressFilter,
   type ProgressMap,
+  type ProgressBucket,
 } from "../../popup/progressState.ts";
 import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
-import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../../popup/readingState.ts";
-import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../../popup/quizBookState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
 import { Button } from "../components/ui/button.tsx";
-import { LevelDot, levelBadgeStyle } from "../lib/levelColors.tsx";
+import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+
+const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
+const BUCKET_LABEL: Record<ProgressBucket, string> = {
+  mastered: "Đã thuộc",
+  learning: "Đang học",
+  flagged: "Cần ôn lại",
+  new: "Chưa học",
+};
+const BUCKET_STAT_COLOR: Record<ProgressBucket, string> = {
+  mastered: "border-t-emerald-300 text-emerald-600",
+  learning: "border-t-amber-300 text-amber-600",
+  flagged: "border-t-rose-300 text-rose-600",
+  new: "border-t-neutral-300 text-neutral-600",
+};
 
 const USAGE_TERM_GLOSSARY: { term: string; explanation: string }[] = [
   { term: "辞書形", explanation: "Thể từ điển (dạng nguyên mẫu của động từ), vd: 食べる" },
@@ -68,10 +83,12 @@ export function BunpoScreen({
   onOpenReading,
   onOpenQuizBook,
   targetId,
+  onCurrentItemChange,
 }: {
-  onOpenReading: () => void;
-  onOpenQuizBook: () => void;
+  onOpenReading: (passageId: string) => void;
+  onOpenQuizBook: (questionId: string) => void;
   targetId?: string;
+  onCurrentItemChange?: (id: string | undefined) => void;
 }) {
   const [state, setState] = useState<BunpoViewerState | null>(null);
 
@@ -98,6 +115,10 @@ export function BunpoScreen({
     setState(next);
   }
 
+  useEffect(() => {
+    onCurrentItemChange?.(state?.currentGrammarId ?? undefined);
+  }, [state?.currentGrammarId, onCurrentItemChange]);
+
   if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
   const current = state.currentGrammarId ? findBunpoById(state.currentGrammarId) : undefined;
@@ -120,6 +141,9 @@ function ListView({
   const debouncedQuery = useDebouncedValue(query, 150);
   const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  // See KanjiScreen.tsx's identical field -- local/display-only, narrows the
+  // rendered rows without touching state.progressFilter or refetching.
+  const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
 
   useEffect(() => {
     loadProgressMap().then(setProgressMap);
@@ -138,6 +162,9 @@ function ListView({
   const allChaptersSelected = state.selectedChapters.length === AVAILABLE_CHAPTERS.length;
 
   const filtered = progressMap ? getVisibleList(state, debouncedQuery, progressMap) : [];
+  const bucketCounts = progressMap ? countBuckets(filtered, progressMap) : null;
+  const visibleRows =
+    bucketFilter !== null && progressMap ? filtered.filter((g) => bucketFor(progressMap[g.id]) === bucketFilter) : filtered;
 
   function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
@@ -151,7 +178,24 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Ngữ pháp" subtitle={`${filtered.length} mẫu ngữ pháp`} />
+      <PageHeader title="Ngữ pháp" subtitle={`${filtered.length} mẫu ngữ pháp`} icon={{ img: "icon-grammar.png", bg: "#d1fae5" }} />
+
+      {bucketCounts ? (
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          {BUCKET_ORDER.map((b) => (
+            <button
+              key={b}
+              onClick={() => setBucketFilter(bucketFilter === b ? null : b)}
+              className={`rounded-2xl border border-t-4 bg-white p-4 text-left transition-colors ${BUCKET_STAT_COLOR[b]} ${
+                bucketFilter === b ? "border-neutral-800 ring-2 ring-neutral-800" : "border-neutral-200"
+              }`}
+            >
+              <div className="text-xl font-bold">{bucketCounts[b]}</div>
+              <div className="text-xs font-semibold">{BUCKET_LABEL[b]}</div>
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       <input
         type="text"
@@ -170,15 +214,6 @@ function ListView({
           }
           onClick={() => setFilterOpen(true)}
         />
-        <select
-          value={state.progressFilter}
-          onChange={(e) => mutate({ progressFilter: e.target.value as ProgressFilter })}
-          className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600 sm:max-w-none"
-        >
-          <option value="all">Tất cả mẫu</option>
-          <option value="unmastered">Chưa thuộc</option>
-          <option value="flagged">Đã đánh dấu khó</option>
-        </select>
       </FilterBar>
 
       <ActiveFilters
@@ -316,29 +351,28 @@ function ListView({
       <div className="mt-4 flex flex-col gap-2">
         {filtered.length === 0 ? (
           <p className="mt-6 text-neutral-400">Không có mẫu ngữ pháp nào khớp bộ lọc này.</p>
+        ) : visibleRows.length === 0 ? (
+          <p className="mt-6 text-neutral-400">Không có mẫu nào ở trạng thái "{BUCKET_LABEL[bucketFilter!]}".</p>
         ) : (
           progressMap &&
-          filtered.map((g) => {
+          visibleRows.map((g, i) => {
             const bucket = bucketFor(progressMap[g.id]);
             return (
               <button
                 key={g.id}
                 onClick={() => mutate({ currentGrammarId: g.id })}
-                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
+                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
               >
-                <span className="flex items-center text-xs font-semibold text-neutral-400">
-                  <LevelDot level={g.level} />
-                  {g.level}
-                </span>
+                <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5 font-semibold text-neutral-800">
-                    {bucket === "mastered" ? <CheckCircle2 size={14} className="shrink-0 text-emerald-500" /> : null}
                     {bucket === "flagged" ? <Flag size={14} className="shrink-0 text-rose-500" /> : null}
                     <span className="truncate">{g.pattern}</span>
                     {g.chapter !== undefined ? <span className="shrink-0 text-xs font-normal text-neutral-400">· Chương {g.chapter}</span> : null}
                   </div>
                   <div className="truncate text-sm text-neutral-500">{g.meaningVi}</div>
                 </div>
+                {bucket === "mastered" ? <CheckCircle2 size={16} className="shrink-0 text-emerald-500" /> : null}
               </button>
             );
           })
@@ -357,8 +391,8 @@ function DetailView({
 }: {
   g: BunpoGrammarPoint;
   state: BunpoViewerState;
-  onOpenReading: () => void;
-  onOpenQuizBook: () => void;
+  onOpenReading: (passageId: string) => void;
+  onOpenQuizBook: (questionId: string) => void;
   mutate: (partial: Partial<BunpoViewerState>) => Promise<void>;
 }) {
   const [progress, setProgress] = useState<ItemProgress | null>(null);
@@ -394,17 +428,7 @@ function DetailView({
     setProgress(await getProgress(g.id));
   }
 
-  async function handleOpenReading(passageId: string) {
-    const readingState = await loadReadingViewerState();
-    await saveReadingViewerState({ ...readingState, currentPassageId: passageId });
-    onOpenReading();
-  }
-
-  async function handleOpenQuizBook(questionId: string) {
-    const qbState = await loadQuizBookViewerState();
-    await saveQuizBookViewerState({ ...qbState, currentQuestionId: questionId });
-    onOpenQuizBook();
-  }
+  useFloatingNav(true);
 
   if (!progress) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
@@ -415,7 +439,7 @@ function DetailView({
           onClick={() => mutate({ currentGrammarId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
-          <List size={15} /> Danh sách
+          <ChevronLeft size={15} /> Ngữ pháp
         </button>
         <span className="text-xs text-neutral-300">·</span>
         <span className="text-sm text-neutral-400">
@@ -423,7 +447,12 @@ function DetailView({
         </span>
       </div>
 
-      <div className="mt-3 flex items-center gap-2">
+      <div className="mt-1 truncate text-sm text-neutral-400">
+        {g.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}
+        {g.chapter !== undefined ? ` · Chương ${g.chapter}` : ""}
+      </div>
+
+      <div className="mt-3 hidden items-center gap-2 md:flex">
         <Button variant="outline" disabled={!prevItem} onClick={() => prevItem && mutate({ currentGrammarId: prevItem.id })}>
           <ChevronLeft size={16} /> Mẫu trước
         </Button>
@@ -432,40 +461,58 @@ function DetailView({
         </Button>
       </div>
 
-      <Card className="mt-4 gap-0 p-6">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge style={levelBadgeStyle(g.level)}>{g.level}</Badge>
-          <Badge variant="secondary">
-            {g.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}
-            {g.chapter !== undefined ? ` · Chương ${g.chapter}` : ""}
-          </Badge>
+      {prevItem ? (
+        <button
+          onClick={() => mutate({ currentGrammarId: prevItem.id })}
+          aria-label="Mẫu trước"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      ) : null}
+      {nextItem ? (
+        <button
+          onClick={() => mutate({ currentGrammarId: nextItem.id })}
+          aria-label="Mẫu sau"
+          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        >
+          <ChevronRight size={18} />
+        </button>
+      ) : null}
+
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <Badge style={levelBadgeStyle(g.level)}>{g.level}</Badge>
+          </div>
+          <div className="flex shrink-0 items-center gap-1.5">
+            <button
+              title={progress.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
+              onClick={async () => {
+                await toggleFlag(g.id);
+                await refreshProgress();
+              }}
+              className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                progress.flagged ? "text-rose-500" : "text-neutral-300 hover:text-neutral-400"
+              }`}
+            >
+              <Flag size={17} fill={progress.flagged ? "currentColor" : "none"} />
+            </button>
+            <button
+              title={progress.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
+              onClick={async () => {
+                await toggleMastered(g.id);
+                await refreshProgress();
+              }}
+              className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                progress.mastered ? "bg-emerald-50 text-emerald-600" : "text-neutral-300 hover:text-neutral-400"
+              }`}
+            >
+              <CheckCircle2 size={17} />
+            </button>
+          </div>
         </div>
         {g.chapterTitle ? <div className="mt-1 text-sm text-neutral-400">{g.chapterTitle}</div> : null}
-
-        <div className="mt-4 flex items-center gap-2">
-          <button
-            onClick={async () => {
-              await toggleFlag(g.id);
-              await refreshProgress();
-            }}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${
-              progress.flagged ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500"
-            }`}
-          >
-            <Flag size={13} fill={progress.flagged ? "currentColor" : "none"} /> {progress.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó"}
-          </button>
-          <button
-            onClick={async () => {
-              await toggleMastered(g.id);
-              await refreshProgress();
-            }}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${
-              progress.mastered ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-neutral-200 text-neutral-500"
-            }`}
-          >
-            <CheckCircle2 size={13} /> {progress.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
-          </button>
-        </div>
 
         <div className="mt-6 text-center text-3xl font-bold text-neutral-800">{g.pattern}</div>
 
@@ -531,7 +578,7 @@ function DetailView({
               {readingMatches.map((p) => (
                 <button
                   key={p.id}
-                  onClick={() => handleOpenReading(p.id)}
+                  onClick={() => onOpenReading(p.id)}
                   className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
                 >
                   {p.title}
@@ -550,7 +597,7 @@ function DetailView({
               {quizBookMatches.map((qq) => (
                 <button
                   key={qq.id}
-                  onClick={() => handleOpenQuizBook(qq.id)}
+                  onClick={() => onOpenQuizBook(qq.id)}
                   className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
                 >
                   {qq.question.slice(0, 24)}

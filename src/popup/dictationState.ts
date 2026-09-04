@@ -159,3 +159,9 @@ export async function recordDictationAttempt(id: string, accuracy: number): Prom
   await storageSet(PROGRESS_STORAGE_KEY, map);
   return next;
 }
+
+export async function clearDictationAttempt(id: string): Promise<void> {
+  const map = await loadDictationProgress();
+  delete map[id];
+  await storageSet(PROGRESS_STORAGE_KEY, map);
+}

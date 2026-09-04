@@ -41,6 +41,8 @@ import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { useConfirm } from "../components/ConfirmDialog.tsx";
+import { useFloatingNav } from "../WebAppShell.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 
 type QuizStep = "resume" | "setup" | "play" | "result";
@@ -131,6 +133,7 @@ export function QuizScreen(open: OpenCallbacks) {
         autoAdvance={settings?.autoAdvance ?? false}
         onSessionChange={setSession}
         onFinish={() => setStep("result")}
+        onBack={() => setStep("setup")}
         {...open}
       />
     );
@@ -157,6 +160,7 @@ function SegmentedRadio<T extends string>({
   value,
   onChange,
   scrollX = false,
+  variant = "pills",
 }: {
   options: [T, string][];
   value: T;
@@ -165,7 +169,31 @@ function SegmentedRadio<T extends string>({
   // longer reliably fits 5-wide on a phone -- scroll it horizontally instead
   // of wrapping, same treatment as Stats' content-type tabs.
   scrollX?: boolean;
+  // "segmented" -- a single gray-100 pill track with a white+shadow active
+  // tab (the approved mockup's look for "Nội dung"/"Dạng câu hỏi", where
+  // options are mutually exclusive and few/short enough to fit evenly).
+  // "pills" (default) keeps the individual rose-outlined buttons, still
+  // correct for "Trạng thái" whose mockup uses that same look.
+  variant?: "pills" | "segmented";
 }) {
+  if (variant === "segmented") {
+    return (
+      <div className="flex gap-1 rounded-xl bg-neutral-100 p-1">
+        {options.map(([v, label]) => (
+          <button
+            key={v}
+            onClick={() => onChange(v)}
+            className={`flex-1 rounded-lg px-2 py-2 text-center text-xs font-semibold ${
+              value === v ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className={scrollX ? "flex flex-nowrap gap-2 overflow-x-auto pb-1" : "flex flex-wrap gap-2"}>
       {options.map(([v, label]) => (
@@ -272,12 +300,21 @@ function SetupView({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
+      <div className="flex items-center gap-3">
+        <img
+          src={`${import.meta.env.BASE_URL}images/dashboard/icons/icon-quiz.png`}
+          alt=""
+          className="h-11 w-11 shrink-0 rounded-[14px] p-2.5"
+          style={{ background: "#dbeafe" }}
+        />
+        <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
+      </div>
 
-      <Card className="mt-4 gap-5 p-6">
+      <Card className="mt-4 gap-5 rounded-2xl border-neutral-200 p-6 ring-0">
         <div>
           <div className="mb-2 text-sm font-semibold text-neutral-500">Nội dung</div>
           <SegmentedRadio
+            variant="segmented"
             options={[
               ["kanji", "Kanji"],
               ["vocab", "Từ vựng"],
@@ -292,6 +329,7 @@ function SetupView({
           <div>
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
+              variant="segmented"
               options={KANJI_MASTERY_DIRECTIONS.map((m): [KanjiQuizMode, string] => [m, KANJI_MODE_LABELS[m]])}
               value={settings.kanjiMode}
               onChange={(v) => updateSettings({ kanjiMode: v as KanjiQuizMode })}
@@ -303,6 +341,7 @@ function SetupView({
           <div>
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
+              variant="segmented"
               options={VOCAB_MASTERY_DIRECTIONS.map((m): [VocabQuizMode, string] => [m, VOCAB_MODE_LABELS[m]])}
               value={settings.vocabMode}
               onChange={(v) => updateSettings({ vocabMode: v as VocabQuizMode })}
@@ -314,6 +353,7 @@ function SetupView({
           <div>
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
+              variant="segmented"
               options={[
                 ["meaning", "Xem mẫu ngữ pháp, đoán nghĩa"],
                 ["pattern", "Xem nghĩa, đoán mẫu ngữ pháp"],
@@ -493,13 +533,16 @@ function PlayView({
   autoAdvance,
   onSessionChange,
   onFinish,
+  onBack,
   ...open
 }: {
   session: QuizSession;
   autoAdvance: boolean;
   onSessionChange: (session: QuizSession) => void;
   onFinish: () => void;
+  onBack: () => void;
 } & OpenCallbacks) {
+  const confirm = useConfirm();
   const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
 
   useEffect(() => {
@@ -511,6 +554,8 @@ function PlayView({
   const answered = session.answers[idx];
   const allAnswered = session.answers.every((a) => a !== null);
   const isLast = idx === session.questions.length - 1;
+
+  useFloatingNav(true);
 
   async function finish() {
     await clearQuizSession();
@@ -557,14 +602,18 @@ function PlayView({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6" {...swipe}>
-      <div className="flex items-center justify-between">
+      <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
+        <ChevronLeft size={15} /> Quiz
+      </button>
+
+      <div className="mt-1 flex items-center justify-between">
         <h1 className="text-lg font-bold text-neutral-800">
           Câu {idx + 1} / {session.questions.length}
         </h1>
         <button
           title="Nộp bài, xem kết quả"
-          onClick={() => {
-            if (!allAnswered && !confirm(`Còn ${session.answers.filter((a) => a === null).length} câu chưa trả lời. Vẫn nộp bài?`)) return;
+          onClick={async () => {
+            if (!allAnswered && !(await confirm(`Còn ${session.answers.filter((a) => a === null).length} câu chưa trả lời. Vẫn nộp bài?`))) return;
             finish();
           }}
           className="flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-600"
@@ -610,23 +659,23 @@ function PlayView({
         <button
           onClick={() => goTo(idx - 1)}
           aria-label="Câu trước"
-          className="fixed bottom-36 left-4 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
         >
-          <ChevronLeft size={22} />
+          <ChevronLeft size={18} />
         </button>
       ) : null}
       <button
         onClick={goNext}
         disabled={answered === null}
         aria-label={isLast ? "Xem kết quả" : "Câu sau"}
-        className={`fixed right-4 bottom-36 z-20 flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg md:hidden ${
+        className={`fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg md:hidden ${
           answered === null ? "bg-neutral-300" : "bg-rose-600 active:bg-rose-700"
         }`}
       >
-        {isLast ? <Check size={20} /> : <ChevronRight size={22} />}
+        {isLast ? <Check size={16} /> : <ChevronRight size={18} />}
       </button>
 
-      <Card className="mt-4 gap-0 p-6">
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
         <span className="w-fit rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(q.level)}>
           {q.level}
         </span>

@@ -107,7 +107,7 @@ const RESUME_META: Record<ResumableScreen, { label: string; icon: typeof BookMar
   bunpo: { label: "Ngữ pháp", icon: PenSquare, progressKey: "bunpo" },
   reading: { label: "Luyện đọc", icon: BookOpenText, progressKey: "reading" },
   listening: { label: "Luyện nghe", icon: Headphones, progressKey: "listening" },
-  dethi: { label: "Đề thi JLPT", icon: GraduationCap, progressKey: "dethi" },
+  exams: { label: "Đề thi JLPT", icon: GraduationCap, progressKey: "dethi" },
   quiz: { label: "Quiz", icon: HelpCircle },
   quizBook: { label: "Luyện đề", icon: ClipboardCheck },
   dictation: { label: "Nghe chép chính tả", icon: Headphones },
@@ -886,7 +886,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Đề thi JLPT"
                   progress={stats.progress.dethi}
                   suffix="đề"
-                  onClick={() => onNavigate("dethi")}
+                  onClick={() => onNavigate("exams")}
                 />
               </div>
             </div>
@@ -897,28 +897,28 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
               </h2>
               <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200/50 bg-white p-4 md:grid-cols-4">
                 <div className="flex items-center gap-2 rounded-xl bg-blue-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-time.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
+                  <img src={`${ICON_IMG}icon-time.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Giờ học hôm nay</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">0 giờ</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-done.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
+                  <img src={`${ICON_IMG}icon-done.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Tổng bài đã học</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.quickStats.lessonsDone}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-purple-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-practice.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
+                  <img src={`${ICON_IMG}icon-practice.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Tổng câu đã luyện</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.quickStats.questionsPracticed}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
+                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Học hôm nay</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.studiedToday} thẻ</div>
@@ -1029,7 +1029,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Luyện thi</h2>
               <button
-                onClick={() => onNavigate("dethi")}
+                onClick={() => onNavigate("exams")}
                 className="mt-3 flex w-full items-center gap-3 rounded-2xl border border-neutral-200 bg-white p-4 text-left transition-colors hover:bg-neutral-50"
               >
                 <ClipboardCheck className="shrink-0 text-neutral-600" size={22} />

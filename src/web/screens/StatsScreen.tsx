@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { BarChart3 } from "lucide-react";
 import type { JlptLevel } from "../../types/kanji.ts";
 import type { ReadingQuestionType } from "../../types/reading.ts";
 import type { Screen } from "../../popup/App.tsx";
@@ -279,7 +280,12 @@ export function StatsScreen({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <h1 className="text-2xl font-bold text-neutral-800">Thống kê</h1>
+      <div className="flex items-center gap-3">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px]" style={{ background: "#dbeafe" }}>
+          <BarChart3 size={22} className="text-blue-600" />
+        </div>
+        <h1 className="text-2xl font-bold text-neutral-800">Thống kê</h1>
+      </div>
 
       <div className="mt-4 flex flex-nowrap gap-2 overflow-x-auto pb-1">
         {CONTENT_TYPE_ORDER.map((ct) => (
@@ -311,7 +317,7 @@ export function StatsScreen({
         ))}
       </div>
 
-      <Card className="mt-6 gap-3 p-5">
+      <Card className="mt-6 gap-3 rounded-2xl border-neutral-200 p-5 ring-0">
         {groupBars.map((g) => {
           const total = g.ids.length;
           const mastered = g.ids.filter((id) => bucketFor(map[id]) === "mastered").length;
@@ -374,7 +380,7 @@ function StatListItem({ entry, map, onOpen }: { entry: StatEntry; map: ProgressM
   return (
     <button
       onClick={onOpen}
-      className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
+      className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
     >
       <span className="w-14 shrink-0 truncate text-lg font-semibold text-neutral-800">{entry.char}</span>
       <span className="min-w-0 flex-1">

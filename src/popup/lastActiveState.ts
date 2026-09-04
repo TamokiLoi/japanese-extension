@@ -5,7 +5,7 @@ import type { Screen } from "./App.tsx";
 // banner only ever offers to resume one of these, never menu/search/stats/
 // guide/review (that last one is its own generated session, not a place to
 // "continue" back into).
-export type ResumableScreen = "kanji" | "vocab" | "bunpo" | "reading" | "listening" | "quiz" | "quizBook" | "dethi" | "dictation";
+export type ResumableScreen = "kanji" | "vocab" | "bunpo" | "reading" | "listening" | "quiz" | "quizBook" | "exams" | "dictation";
 
 export const RESUMABLE_SCREENS: ResumableScreen[] = [
   "kanji",
@@ -15,7 +15,7 @@ export const RESUMABLE_SCREENS: ResumableScreen[] = [
   "listening",
   "quiz",
   "quizBook",
-  "dethi",
+  "exams",
   "dictation",
 ];
 

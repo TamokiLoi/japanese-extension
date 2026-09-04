@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { App, VALID_SCREENS, type Screen } from "../popup/App.tsx";
 import { saveLastActive } from "../popup/lastActiveState.ts";
 import { WebAppShell } from "./WebAppShell.tsx";
+import { ConfirmProvider } from "./components/ConfirmDialog.tsx";
 import { HomeScreen } from "./screens/HomeScreen.tsx";
 import { VocabScreen } from "./screens/VocabScreen.tsx";
 import { KanjiScreen } from "./screens/KanjiScreen.tsx";
@@ -22,7 +23,9 @@ import "./tailwind.css";
 // the same code works under either.
 const BASE = import.meta.env.BASE_URL;
 
-function readFromPath(): { screen: Screen; targetId?: string } {
+type ReturnTo = { screen: Screen; targetId?: string };
+
+function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo | null } {
   const path = location.pathname.startsWith(BASE) ? location.pathname.slice(BASE.length) : location.pathname.replace(/^\/+/, "");
   // First path segment is the screen, the rest (rejoined) is the target id --
   // see App.tsx's initializer for why this needs decodeURIComponent (a kanji
@@ -30,9 +33,18 @@ function readFromPath(): { screen: Screen; targetId?: string } {
   const [rawScreen, ...rest] = path.split("/").filter(Boolean);
   const rawTargetId = rest.length > 0 ? rest.join("/") : undefined;
   const screen = rawScreen as Screen;
+  // "Quay lại" state travels as ?from=<screen>&fromId=<id> instead of plain
+  // React/ref state -- a page reload or a manual browser back/forward (both
+  // of which only replay the URL) then still resolves the right "return to"
+  // target, and a copied/shared link keeps working the same way.
+  const params = new URLSearchParams(location.search);
+  const fromScreen = params.get("from");
+  const returnTo: ReturnTo | null =
+    fromScreen && VALID_SCREENS.includes(fromScreen as Screen) ? { screen: fromScreen as Screen, targetId: params.get("fromId") ?? undefined } : null;
   return {
     screen: VALID_SCREENS.includes(screen) ? screen : "menu",
     targetId: rawTargetId ? decodeURIComponent(rawTargetId) : undefined,
+    returnTo,
   };
 }
 
@@ -50,12 +62,39 @@ function readFromPath(): { screen: Screen; targetId?: string } {
 // screen's own internal back/forward stack (App's `navigate`/`goBack`) still
 // works exactly as before once inside a section rendered via <App/>.
 export function WebApp() {
-  const [{ screen, targetId }, setRoute] = useState(readFromPath);
+  const [{ screen, targetId, returnTo }, setRoute] = useState(readFromPath);
+  // Several screens (Kanji/Vocab/Bunpo/QuizBook/Reading/Listening/Dictation)
+  // page between items -- Trước/Tiếp, tapping a grid tile, jumping via the
+  // question palette -- entirely through their own local/persisted state,
+  // never through go(). Left untracked, a cross-link fired mid-browsing
+  // would capture whatever targetId the URL happened to have on *entry*
+  // (often none), so "quay lại" would land back on the screen's default
+  // view instead of the exact item the user was on. Each such screen calls
+  // syncCurrentItem() below whenever its own current item changes; this ref
+  // (not React state -- see syncCurrentItem) always holds the freshest one.
+  const currentItemRef = useRef<string | undefined>(targetId);
 
   useEffect(() => {
     document.body.classList.add("web-shell");
     return () => document.body.classList.remove("web-shell");
   }, []);
+
+  // Keeps the address bar honest (a manual refresh or copied link still
+  // resolves to the right item) without going through setRoute/go() -- a
+  // *real* route change would re-run the screen's own jumpToId/targetId
+  // effect on every single Trước/Tiếp tap, which for e.g. KanjiScreen also
+  // resets the level/progress filters (see resolveJumpState's comment).
+  // replaceState never touches those, so it's paging-safe. The `?from=`
+  // query string (see readFromPath) rides along untouched, since only the
+  // pathname portion is rebuilt here.
+  const syncCurrentItem = useCallback(
+    (id: string | undefined) => {
+      currentItemRef.current = id;
+      const path = id ? `${BASE}${screen}/${encodeURIComponent(id)}` : `${BASE}${screen}`;
+      history.replaceState(null, "", path + location.search);
+    },
+    [screen],
+  );
 
   // go() below already pushes a new history entry every time it calls
   // history.pushState, so the browser's own back/forward buttons -- and, on
@@ -63,27 +102,50 @@ export function WebApp() {
   // app's navigation history. What was missing is this: nothing was
   // listening for the "popstate" event fired by those, so going back only
   // moved the address bar while the still-mounted React tree kept showing
-  // whatever screen it last rendered. Sync the two by re-reading the path on
-  // every popstate.
+  // whatever screen it last rendered. Sync the two by re-reading the path
+  // (now including ?from=/?fromId=) on every popstate.
   useEffect(() => {
     function onPopState() {
-      setRoute(readFromPath());
+      const next = readFromPath();
+      setRoute(next);
+      currentItemRef.current = next.targetId;
       window.scrollTo(0, 0);
     }
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  function go(next: Screen, id?: string) {
+  function go(next: Screen, id?: string, opts: { linking?: boolean } = {}) {
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
-    const path = next === "menu" && !id ? BASE : `${BASE}${next}${id ? `/${encodeURIComponent(id)}` : ""}`;
+    let path = next === "menu" && !id ? BASE : `${BASE}${next}${id ? `/${encodeURIComponent(id)}` : ""}`;
+    // Where to send the user back to after they followed a cross-content
+    // link (e.g. a Kanji reference from inside a Reading passage) -- carried
+    // as ?from=<screen>&fromId=<id> (see readFromPath) rather than plain
+    // React state, so a reload/shared link/browser back-forward all still
+    // resolve the right "return to" target instead of just this one live
+    // session. Set whenever go() is called with a target id (every current
+    // cross-link call site passes one; a plain section switch via the
+    // bottom nav/sidebar never does) unless explicitly suppressed (goBack()
+    // itself does, to stay one level deep instead of chaining back↔back).
+    const nextReturnTo: ReturnTo | null = opts.linking !== false && id ? { screen, targetId: currentItemRef.current } : null;
+    if (nextReturnTo) {
+      const params = new URLSearchParams({ from: nextReturnTo.screen });
+      if (nextReturnTo.targetId) params.set("fromId", nextReturnTo.targetId);
+      path += `?${params}`;
+    }
     history.pushState(null, "", path);
-    setRoute({ screen: next, targetId: id });
+    currentItemRef.current = id;
+    setRoute({ screen: next, targetId: id, returnTo: nextReturnTo });
     window.scrollTo(0, 0);
     // Fire-and-forget -- Home's "Tiếp tục học" banner reads this back on its
     // own next mount, nothing here needs to await it.
     void saveLastActive(next, id);
+  }
+
+  function goBack() {
+    if (!returnTo) return;
+    go(returnTo.screen, returnTo.targetId, { linking: false });
   }
 
   const navKey = targetId ? `${screen}:${targetId}` : screen;
@@ -95,9 +157,10 @@ export function WebApp() {
     content = (
       <VocabScreen
         onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
-        onOpenReading={() => go("reading")}
-        onOpenQuizBook={() => go("quizBook")}
+        onOpenReading={(passageId) => go("reading", passageId)}
+        onOpenQuizBook={(questionId) => go("quizBook", questionId)}
         jumpToId={targetId}
+        onCurrentItemChange={syncCurrentItem}
       />
     );
   } else if (screen === "search") {
@@ -109,10 +172,22 @@ export function WebApp() {
       />
     );
   } else if (screen === "kanji") {
-    content = <KanjiScreen onOpenVocab={(vocabId) => go("vocab", vocabId)} onOpenQuiz={() => go("quiz")} jumpToId={targetId} />;
+    content = (
+      <KanjiScreen
+        onOpenVocab={(vocabId) => go("vocab", vocabId)}
+        onOpenQuiz={() => go("quiz")}
+        jumpToId={targetId}
+        onCurrentItemChange={syncCurrentItem}
+      />
+    );
   } else if (screen === "bunpo") {
     content = (
-      <BunpoScreen onOpenReading={() => go("reading")} onOpenQuizBook={() => go("quizBook")} targetId={targetId} />
+      <BunpoScreen
+        onOpenReading={(passageId) => go("reading", passageId)}
+        onOpenQuizBook={(questionId) => go("quizBook", questionId)}
+        targetId={targetId}
+        onCurrentItemChange={syncCurrentItem}
+      />
     );
   } else if (screen === "quiz") {
     content = (
@@ -123,7 +198,7 @@ export function WebApp() {
       />
     );
   } else if (screen === "quizBook") {
-    content = <QuizBookScreen targetId={targetId} />;
+    content = <QuizBookScreen targetId={targetId} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "reading") {
     content = (
       <ReadingScreen
@@ -131,6 +206,7 @@ export function WebApp() {
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
         onOpenStats={() => go("stats", "reading")}
+        onCurrentItemChange={syncCurrentItem}
       />
     );
   } else if (screen === "stats") {
@@ -147,18 +223,20 @@ export function WebApp() {
   } else if (screen === "guide") {
     content = <GuideScreen />;
   } else if (screen === "listening") {
-    content = <ListeningHubScreen initialTab="listening" jumpToId={targetId} />;
+    content = <ListeningHubScreen initialTab="listening" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "dictation") {
-    content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} />;
-  } else if (screen === "dethi") {
+    content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
+  } else if (screen === "exams") {
     content = <DeThiScreen targetId={targetId} />;
   } else {
     content = <App key={navKey} />;
   }
 
   return (
-    <WebAppShell active={screen} onNavigate={go}>
-      {content}
-    </WebAppShell>
+    <ConfirmProvider>
+      <WebAppShell active={screen} onNavigate={go} returnTo={returnTo} onGoBack={goBack}>
+        {content}
+      </WebAppShell>
+    </ConfirmProvider>
   );
 }
