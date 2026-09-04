@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { App, VALID_SCREENS, type Screen } from "../popup/App.tsx";
+import { saveLastActive } from "../popup/lastActiveState.ts";
 import { WebAppShell } from "./WebAppShell.tsx";
 import { HomeScreen } from "./screens/HomeScreen.tsx";
 import { VocabScreen } from "./screens/VocabScreen.tsx";
@@ -80,6 +81,9 @@ export function WebApp() {
     history.pushState(null, "", path);
     setRoute({ screen: next, targetId: id });
     window.scrollTo(0, 0);
+    // Fire-and-forget -- Home's "Tiếp tục học" banner reads this back on its
+    // own next mount, nothing here needs to await it.
+    void saveLastActive(next, id);
   }
 
   const navKey = targetId ? `${screen}:${targetId}` : screen;

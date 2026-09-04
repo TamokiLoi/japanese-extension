@@ -338,3 +338,42 @@ export async function getStudyStreak(): Promise<number> {
   }
   return streak;
 }
+
+// This calendar week (Monday..Sunday, matching the T2..CN labels) as 7
+// studied/not-studied flags, for a weekly streak-calendar widget --
+// separate from getStudyStreak's running count since a UI needs to know
+// *which* days, not just how many in a row.
+export async function getWeekStudyDays(): Promise<boolean[]> {
+  const log: string[] = (await storageGet<string[]>(STUDY_LOG_KEY)) ?? [];
+  const studied = new Set(log);
+
+  const now = new Date();
+  const mondayOffset = now.getDay() === 0 ? -6 : 1 - now.getDay();
+  const monday = new Date(now);
+  monday.setHours(0, 0, 0, 0);
+  monday.setDate(monday.getDate() + mondayOffset);
+
+  const days: boolean[] = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    days.push(studied.has(dayKey(d)));
+  }
+  return days;
+}
+
+// One calendar month (1st..last day) as studied/not-studied flags, for the
+// streak card's "xem theo tháng" expanded view. `month` is 0-indexed
+// (January = 0), matching Date's own convention, so callers can pass
+// `someDate.getMonth()` straight through.
+export async function getMonthStudyDays(year: number, month: number): Promise<boolean[]> {
+  const log: string[] = (await storageGet<string[]>(STUDY_LOG_KEY)) ?? [];
+  const studied = new Set(log);
+
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const days: boolean[] = [];
+  for (let d = 1; d <= daysInMonth; d++) {
+    days.push(studied.has(dayKey(new Date(year, month, d))));
+  }
+  return days;
+}
