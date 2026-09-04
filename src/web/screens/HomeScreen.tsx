@@ -17,6 +17,7 @@ import {
   ChevronRight,
   Target,
   BarChart3,
+  TrendingUp,
 } from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
 import { ALL_KANJI, getOrderedList as getFilteredKanji, loadViewerState as loadKanjiViewerState } from "../../popup/kanjiState.ts";
@@ -602,7 +603,7 @@ function ProgressCard({
   return (
     <button
       onClick={onClick}
-      className="relative w-[calc(100vw-3rem)] shrink-0 snap-start overflow-hidden rounded-2xl border border-neutral-200 bg-white p-4 text-left md:min-h-36 md:w-auto md:shrink md:p-4.5"
+      className="relative w-[calc(100vw-3rem)] shrink-0 snap-start overflow-hidden rounded-2xl border border-neutral-200/50 bg-white p-4 text-left md:min-h-39 md:w-auto md:shrink md:p-4.5"
     >
       <img src={`${DASH_IMG}${bgImage}`} alt="" className="absolute inset-0 h-full w-full object-cover object-[68%_center]" />
       <div
@@ -730,7 +731,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                 claim -- screens without a tracked % (Quiz/Luyện đề/Nghe
                 chép chính tả) just get a generic CTA. First-ever visit (no
                 lastActive yet) falls back to the plain welcome banner. */}
-            <div className="relative overflow-hidden rounded-2xl p-4 md:flex md:h-52.5 md:items-center md:p-0 md:px-7">
+            <div className="relative overflow-hidden rounded-2xl p-4 md:flex md:h-57 md:items-center md:p-0 md:px-7">
               <img
                 src={`${DASH_IMG}hero-japan.png`}
                 alt=""
@@ -819,7 +820,9 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
 
             <div>
               <div className="flex items-center justify-between">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Tiến độ học tập</h2>
+                <h2 className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+                  <TrendingUp size={14} className="text-rose-600" /> Tiến độ học tập
+                </h2>
                 <button onClick={() => onNavigate("stats")} className="text-xs font-semibold text-rose-600 hover:underline">
                   Xem chi tiết →
                 </button>
@@ -892,7 +895,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
               <h2 className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-neutral-400">
                 <BarChart3 size={14} className="text-blue-600" /> Thống kê nhanh
               </h2>
-              <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200 bg-white p-3.5 md:grid-cols-4">
+              <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200/50 bg-white p-3.5 md:grid-cols-4">
                 <div className="flex items-center gap-3 rounded-xl bg-blue-50 p-4">
                   <img src={`${ICON_IMG}icon-time.png`} alt="" className="h-8.5 w-8.5 shrink-0" />
                   <div>
@@ -984,7 +987,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
 
           {/* Right rail -- desktop only now (Streak/DailyPlanCard/QuoteCard
               have their own mobile-only instances above in the main column). */}
-          <div className="flex flex-col gap-4 md:w-80 md:shrink-0">
+          <div className="flex flex-col gap-6 md:w-80 md:shrink-0">
             <div className="hidden md:block">
               <StreakCard streak={stats.streak} weekDays={stats.weekDays} onNavigate={onNavigate} />
             </div>

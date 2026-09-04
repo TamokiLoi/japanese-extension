@@ -154,7 +154,7 @@ export function WebAppShell({
         </header>
 
         <main className="flex-1 pb-16 md:px-6 md:py-4">
-          <div className="md:rounded-2xl md:border md:border-neutral-200 md:bg-white md:shadow-sm">{children}</div>
+          <div className="md:rounded-2xl md:border md:border-neutral-200/50 md:bg-white md:shadow-sm">{children}</div>
         </main>
 
         {/* Mobile bottom nav */}
