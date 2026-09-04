@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
 import { isRomaji, toHiragana } from "wanakana";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB } from "../../popup/vocabState.ts";
@@ -6,7 +7,6 @@ import { ALL_BUNPO } from "../../popup/bunpoState.ts";
 import { useDebouncedValue } from "../../popup/useDebouncedValue.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
-import { PageHeader } from "../components/PageHeader.tsx";
 import { LevelDot } from "../lib/levelColors.tsx";
 
 const MAX_RESULTS = 40;
@@ -139,7 +139,17 @@ export function SearchScreen({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Tra cứu" subtitle={q ? `${results.length} kết quả` : undefined} />
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px]" style={{ background: "#ffe4e6" }}>
+            <Search size={20} className="text-rose-600" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-neutral-800">Tra cứu</h1>
+            {q ? <p className="text-sm text-neutral-500">{results.length} kết quả</p> : null}
+          </div>
+        </div>
+      </div>
 
       <input
         type="text"
@@ -147,7 +157,7 @@ export function SearchScreen({
         placeholder="Nhập chữ Hán, từ, Hán Việt, nghĩa..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="mt-4 w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm"
+        className="mt-4 w-full rounded-2xl border border-neutral-200 px-3.5 py-2.5 text-sm"
       />
 
       <div className="mt-3 flex flex-wrap gap-2">
@@ -177,7 +187,7 @@ export function SearchScreen({
             <button
               key={`${r.kind}-${r.id}`}
               onClick={() => handleOpen(r)}
-              className="flex items-center gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40"
+              className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40"
             >
               <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-bold ${KIND_COLOR[r.kind]}`}>
                 {KIND_LABELS[r.kind]}

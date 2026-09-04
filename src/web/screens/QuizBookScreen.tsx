@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, List as ListIcon, RotateCcw } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, RotateCcw } from "lucide-react";
 import type { QuizBookQuestion } from "../../types/quizBook.ts";
 import {
   ALL_QUIZBOOK,
@@ -28,14 +28,22 @@ import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { StatCard } from "../components/StatCard.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { useConfirm } from "../components/ConfirmDialog.tsx";
 
 const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm", known: "Đã biết" } as const;
 
-export function QuizBookScreen({ targetId }: { targetId?: string } = {}) {
+export function QuizBookScreen({
+  targetId,
+  onCurrentItemChange,
+}: {
+  targetId?: string;
+  onCurrentItemChange?: (id: string | undefined) => void;
+} = {}) {
   const [state, setState] = useState<QuizBookViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
 
@@ -63,6 +71,10 @@ export function QuizBookScreen({ targetId }: { targetId?: string } = {}) {
     setError(undefined);
   }
 
+  useEffect(() => {
+    onCurrentItemChange?.(state?.currentQuestionId ?? undefined);
+  }, [state?.currentQuestionId, onCurrentItemChange]);
+
   if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
   const question = state.currentQuestionId ? findQuizBookById(state.currentQuestionId) : undefined;
@@ -85,6 +97,7 @@ function ListView({
   error?: string;
   setError: (e?: string) => void;
 }) {
+  const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
   const filtered = ALL_QUIZBOOK.filter((q) => matchesFilters(q, state));
   const progressOf = (q: QuizBookQuestion) => getQuestionProgress(q.id, state.answers, state.correctStreaks);
@@ -124,7 +137,7 @@ function ListView({
   }
 
   async function handleResetRow(id: string) {
-    if (!confirm("Làm lại câu này từ đầu? Kết quả đã trả lời sẽ bị xoá.")) return;
+    if (!(await confirm("Làm lại câu này từ đầu? Kết quả đã trả lời sẽ bị xoá."))) return;
     await mutate(resetQuestionAnswer(state, id));
     // resetQuestionAnswer only clears this screen's own answers/streaks --
     // also clear the shared progressState.ts entry recordAnswer() writes on
@@ -135,7 +148,7 @@ function ListView({
 
   async function handleResetAllFiltered() {
     if (doneCount === 0) return;
-    if (!confirm(`Đặt lại toàn bộ ${doneCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`)) return;
+    if (!(await confirm(`Đặt lại toàn bộ ${doneCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`))) return;
     const ids = filtered.map((q) => q.id);
     const next = ids.reduce((s, id) => resetQuestionAnswer(s, id), state);
     await mutate(next);
@@ -144,10 +157,30 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader
-        title="Luyện đề"
-        subtitle={`${filtered.length} câu · đã làm ${doneCount}/${filtered.length} · đúng ${correctCount}/${doneCount || 0} · đã biết ${knownCount}`}
-      />
+      <PageHeader title="Luyện đề" icon={{ img: "icon-review.png", bg: "#ffe4e6" }} />
+
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <StatCard
+          label="Đã làm"
+          value={
+            <>
+              {doneCount}
+              <span className="text-xs font-semibold text-neutral-400">/{filtered.length}</span>
+            </>
+          }
+        />
+        <StatCard
+          label="Đúng"
+          tone="emerald"
+          value={
+            <>
+              {correctCount}
+              <span className="text-xs font-semibold text-neutral-400">/{doneCount}</span>
+            </>
+          }
+        />
+        <StatCard label="Đã biết" tone="amber" value={knownCount} />
+      </div>
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
@@ -308,7 +341,7 @@ function ListView({
               <button
                 key={q.id}
                 onClick={() => mutate({ currentQuestionId: q.id, sessionIds: null, sessionIndex: 0 })}
-                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
+                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">
@@ -320,7 +353,7 @@ function ListView({
                   </div>
                 </div>
                 {progress.status === "known" ? (
-                  <span className="shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-600">★ đã biết</span>
+                  <span className="shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700">★ đã biết</span>
                 ) : progress.status === "done" ? (
                   <span
                     className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${progress.correct ? "bg-emerald-50 text-emerald-600" : "bg-rose-50 text-rose-600"}`}
@@ -361,6 +394,7 @@ function QuestionView({
   state: QuizBookViewerState;
   mutate: (partial: Partial<QuizBookViewerState>) => Promise<void>;
 }) {
+  const confirm = useConfirm();
   const answered = state.answers[q.id] ?? null;
   const session = state.sessionIds;
   const sessionPos = session ? session.indexOf(q.id) : -1;
@@ -385,7 +419,7 @@ function QuestionView({
   }
 
   async function handleReset() {
-    if (!confirm("Làm lại câu này từ đầu? Kết quả đã trả lời sẽ bị xoá.")) return;
+    if (!(await confirm("Làm lại câu này từ đầu? Kết quả đã trả lời sẽ bị xoá."))) return;
     await mutate(resetQuestionAnswer(state, q.id));
   }
 
@@ -403,7 +437,7 @@ function QuestionView({
           onClick={() => mutate({ currentQuestionId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
-          <ListIcon size={15} /> Danh sách
+          <ChevronLeft size={15} /> Luyện đề
         </button>
         <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600">{q.level}</span>
         <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600">{BOOK_LABELS[q.book]}</span>
@@ -432,14 +466,16 @@ function QuestionView({
         />
       ) : null}
 
-      <Card className="mt-4 gap-0 p-6">
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
         {q.passage ? (
           <div className="mb-4 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{q.passage}</div>
         ) : null}
         <div className={`font-semibold ${q.question ? "text-neutral-800" : "text-neutral-400 italic"}`}>
           {q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc — vẫn có thể chọn đáp án bên dưới)"}
         </div>
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        <div
+          className={`mt-4 grid gap-2 ${q.options.every((o) => o.length <= 10) ? "grid-cols-2" : "grid-cols-1 sm:grid-cols-2"}`}
+        >
           {q.options.map((opt, oi) => {
             let cls = "border-neutral-200 hover:bg-neutral-50";
             if (answered !== null) {

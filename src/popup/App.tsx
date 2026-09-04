@@ -25,7 +25,7 @@ export type Screen =
   | "guide"
   | "listening"
   | "dictation"
-  | "dethi";
+  | "exams";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -42,7 +42,7 @@ export const VALID_SCREENS: Screen[] = [
   "guide",
   "listening",
   "dictation",
-  "dethi",
+  "exams",
 ];
 
 interface Route {
@@ -178,7 +178,7 @@ export function App() {
   if (screen === "guide") {
     return <p className="empty">Hướng dẫn sử dụng hiện chỉ có trên bản Web Dashboard.</p>;
   }
-  if (screen === "dethi") {
+  if (screen === "exams") {
     return <p className="empty">Luyện thi JLPT hiện chỉ có trên bản Web Dashboard.</p>;
   }
   if (screen === "dictation") {

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { List as ListIcon, Check, Eye, EyeOff, Info } from "lucide-react";
+import { ChevronLeft, ChevronRight, Check, Eye, EyeOff, Info, Undo2 } from "lucide-react";
 import {
   loadViewerState,
   saveViewerState,
   getFilteredList,
   loadDictationProgress,
   recordDictationAttempt,
+  clearDictationAttempt,
   dictationProgressId,
   referenceTextFor,
   diffChars,
@@ -23,6 +24,9 @@ import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { StatCard } from "../components/StatCard.tsx";
+import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { useFloatingNav } from "../WebAppShell.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
@@ -46,6 +50,7 @@ function gridCellStyle(status: GridStatus, current: boolean): string {
 export function DictationScreen({
   topBar,
   jumpToId,
+  onCurrentItemChange,
 }: {
   topBar?: React.ReactNode;
   // Opens straight into a specific question (e.g. from Stats' "Cần ôn lại"
@@ -53,10 +58,15 @@ export function DictationScreen({
   // (e.g. a kadai item while the filter is still sokuji-only) -- otherwise
   // the jump target wouldn't be in the filtered list at all.
   jumpToId?: string;
+  onCurrentItemChange?: (id: string | undefined) => void;
 } = {}) {
   const [currentId, setCurrentId] = useState<string | null>(jumpToId ?? null);
   const [state, setState] = useState<DictationViewerState | null>(null);
   const [progress, setProgress] = useState<DictationProgressMap>({});
+
+  useEffect(() => {
+    onCurrentItemChange?.(currentId ?? undefined);
+  }, [currentId, onCurrentItemChange]);
 
   useEffect(() => {
     (async () => {
@@ -141,10 +151,7 @@ function ListView({
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       {topBar}
-      <PageHeader
-        title="Nghe chép chính tả"
-        subtitle="Nghe từng câu rồi gõ lại đúng như bạn nghe được -- hệ thống chấm từng ký tự. Mặc định chỉ hiện dạng câu ngắn (発話表現・即時応答), mở rộng bộ lọc để luyện cả hội thoại dài."
-      />
+      <PageHeader title="Nghe chép chính tả" icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
@@ -229,18 +236,9 @@ function ListView({
       </FilterSheet>
 
       <div className="mt-4 grid grid-cols-3 gap-3">
-        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Tổng số câu</div>
-          <div className="mt-1 text-xl font-bold text-neutral-800">{list.length}</div>
-        </div>
-        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Đúng hoàn toàn</div>
-          <div className="mt-1 text-xl font-bold text-emerald-600">{correctCount}</div>
-        </div>
-        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Độ chính xác TB</div>
-          <div className="mt-1 text-xl font-bold text-rose-600">{avgAccuracy}%</div>
-        </div>
+        <StatCard label="Tổng số câu" value={list.length} />
+        <StatCard label="Đúng hoàn toàn" value={correctCount} tone="emerald" />
+        <StatCard label="Chính xác TB" value={`${avgAccuracy}%`} tone="rose" />
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
@@ -258,7 +256,7 @@ function ListView({
       {list.length === 0 ? (
         <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">Không có câu nào khớp bộ lọc này.</p>
       ) : (
-        <Card className="mt-3 gap-0 p-4">
+        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-4 ring-0">
           <div className="grid grid-cols-8 gap-2 sm:grid-cols-10">
             {list.map((q, i) => (
               <button
@@ -301,6 +299,11 @@ function PracticeView({
   const [revealed, setRevealed] = useState(false);
 
   const index = list.findIndex((q) => q.id === question.id);
+  const prevQuestion = index > 0 ? list[index - 1] : null;
+  const nextQuestion = index >= 0 && index < list.length - 1 ? list[index + 1] : null;
+
+  useFloatingNav(true);
+
   const reference = referenceTextFor(question);
   // One label per line of `reference` (scenario line, if any, then one per
   // turn) -- shown as a hint so it's clear this is "type back everything you
@@ -348,7 +351,7 @@ function PracticeView({
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
-          <ListIcon size={15} /> Lưới câu
+          <ChevronLeft size={15} /> Nghe chép chính tả
         </button>
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(question.level)}>
           {question.level}
@@ -361,11 +364,22 @@ function PracticeView({
         </span>
       </div>
 
+      <QuestionPalette
+        summary={`Câu ${index + 1}/${list.length} · đã làm ${list.filter((q) => progress[q.id]).length}`}
+        onJump={(i) => onOpen(list[i].id)}
+        items={list.map((q, i) => {
+          const status = statusFor(q.id, progress);
+          const paletteStatus: PaletteStatus =
+            i === index ? "current" : status === "empty" ? "unanswered" : status === "correct" ? "correct" : "answered";
+          return { id: q.id, status: paletteStatus };
+        })}
+      />
+
       <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-neutral-100">
         <div className="h-full rounded-full bg-rose-600" style={{ width: `${((index + 1) / list.length) * 100}%` }} />
       </div>
 
-      <Card className="mt-4 gap-0 p-5">
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <AudioPlayer key={question.id} src={assetUrl(question.audioUrl)} autoPlay={autoAdvance} />
         <label className="mt-3.5 flex items-center gap-2 text-xs font-medium text-neutral-600">
           <input
@@ -378,7 +392,7 @@ function PracticeView({
         </label>
       </Card>
 
-      <Card className="mt-4 gap-0 p-5">
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="mb-3 flex items-start gap-2 rounded-lg bg-neutral-50 px-3 py-2.5 text-xs text-neutral-600">
           <Info size={14} className="mt-0.5 shrink-0 text-neutral-400" />
           <span>
@@ -447,20 +461,40 @@ function PracticeView({
             ))}
           </div>
         ) : null}
+
+        {diff ? (
+          <button
+            onClick={async () => {
+              setTyped("");
+              setDiff(null);
+              await clearDictationAttempt(question.id);
+              onAttempted();
+            }}
+            className="mt-3.5 flex items-center gap-1 text-xs font-semibold text-neutral-400 hover:text-neutral-600"
+          >
+            <Undo2 size={12} /> Làm lại câu này
+          </button>
+        ) : null}
       </Card>
 
-      <div className="mt-4 grid grid-cols-10 gap-1.5 sm:grid-cols-12">
-        {list.map((q, i) => (
-          <button
-            key={q.id}
-            onClick={() => onOpen(q.id)}
-            title={q.scenario || q.question}
-            className={`flex h-7 items-center justify-center rounded-md border text-[11px] font-bold ${gridCellStyle(statusFor(q.id, progress), q.id === question.id)}`}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
+      {prevQuestion ? (
+        <button
+          onClick={() => onOpen(prevQuestion.id)}
+          aria-label="Câu trước"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      ) : null}
+      {nextQuestion ? (
+        <button
+          onClick={() => onOpen(nextQuestion.id)}
+          aria-label="Câu sau"
+          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        >
+          <ChevronRight size={18} />
+        </button>
+      ) : null}
     </div>
   );
 }

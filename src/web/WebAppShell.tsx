@@ -1,7 +1,20 @@
-import { useEffect, useState } from "react";
-import { Menu, X, ArrowUp } from "lucide-react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { Menu, X, ArrowUp, ArrowLeft } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS, BOTTOM_NAV_SCREENS } from "./navItems.ts";
+
+// Screens with their own fixed bottom-36 prev/next buttons (Reading,
+// Listening, Dictation, Quiz, DeThi) register here so ScrollToTopButton can
+// move up to bottom-[150px] and avoid overlapping them.
+const FloatingNavContext = createContext<(present: boolean) => void>(() => {});
+
+export function useFloatingNav(present: boolean) {
+  const setFloatingNavPresent = useContext(FloatingNavContext);
+  useEffect(() => {
+    setFloatingNavPresent(present);
+    return () => setFloatingNavPresent(false);
+  }, [present, setFloatingNavPresent]);
+}
 
 function SidebarFooter() {
   return (
@@ -69,7 +82,7 @@ function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (scree
   );
 }
 
-function ScrollToTopButton() {
+function ScrollToTopButton({ floatingNavPresent }: { floatingNavPresent: boolean }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -87,9 +100,29 @@ function ScrollToTopButton() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Lên đầu trang"
       title="Lên đầu trang"
-      className="fixed right-4 bottom-20 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6"
+      className={`fixed right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 ${
+        floatingNavPresent ? "bottom-50" : "bottom-20"
+      }`}
     >
       <ArrowUp size={18} />
+    </button>
+  );
+}
+
+// Sits directly above the screen's own floating "Trước" button (fixed
+// left-4 bottom-36 -- 144px, 40px tall) with a small gap: 144+40+8=192px,
+// exactly bottom-48. Only rendered alongside that prev/next pair (see
+// floatingNavPresent below) -- on screens without one, the bottom nav and
+// each screen's own in-page breadcrumb are already enough to not get lost.
+function FloatingBackButton({ label, onClick }: { label: string; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={`Quay lại ${label}`}
+      title={`Quay lại ${label}`}
+      className="fixed bottom-48 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+    >
+      <ArrowLeft size={18} />
     </button>
   );
 }
@@ -97,13 +130,18 @@ function ScrollToTopButton() {
 export function WebAppShell({
   active,
   onNavigate,
+  returnTo,
+  onGoBack,
   children,
 }: {
   active: Screen;
   onNavigate: (screen: Screen) => void;
+  returnTo: { screen: Screen; targetId?: string } | null;
+  onGoBack: () => void;
   children: React.ReactNode;
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [floatingNavPresent, setFloatingNavPresent] = useState(false);
 
   function go(screen: Screen) {
     onNavigate(screen);
@@ -111,75 +149,83 @@ export function WebAppShell({
   }
 
   return (
-    <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
-      {/* Desktop sidebar */}
-      <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 pt-6 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:overflow-y-auto">
-        <BrandLink onClick={() => go("menu")} className="mb-5 px-2" />
-        <GroupedNav active={active} onNavigate={go} />
-        <SidebarFooter />
-      </aside>
+    <FloatingNavContext.Provider value={setFloatingNavPresent}>
+      <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
+        {/* Desktop sidebar */}
+        <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 pt-6 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:overflow-y-auto">
+          <BrandLink onClick={() => go("menu")} className="mb-5 px-2" />
+          <GroupedNav active={active} onNavigate={go} />
+          <SidebarFooter />
+        </aside>
 
-      {/* Mobile drawer overlay */}
-      {drawerOpen ? (
-        <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/30" onClick={() => setDrawerOpen(false)} />
-          <div className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white p-4 shadow-xl">
-            <div className="mb-5 flex items-center justify-between px-2">
-              <BrandLink onClick={() => go("menu")} />
-              <button className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100" onClick={() => setDrawerOpen(false)}>
-                <X size={20} />
-              </button>
+        {/* Mobile drawer overlay */}
+        {drawerOpen ? (
+          <div className="fixed inset-0 z-40 md:hidden">
+            <div className="absolute inset-0 bg-black/30" onClick={() => setDrawerOpen(false)} />
+            <div className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white p-4 shadow-xl">
+              <div className="mb-5 flex items-center justify-between px-2">
+                <BrandLink onClick={() => go("menu")} />
+                <button className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100" onClick={() => setDrawerOpen(false)}>
+                  <X size={20} />
+                </button>
+              </div>
+              <GroupedNav active={active} onNavigate={go} />
+              <SidebarFooter />
             </div>
-            <GroupedNav active={active} onNavigate={go} />
-            <SidebarFooter />
           </div>
+        ) : null}
+
+        {/* min-w-0 overrides the flex default of min-width:auto -- without it,
+            this column refuses to shrink below its widest descendant's
+            content size (e.g. a filter-chip row), so on a narrow viewport the
+            whole column silently grows past the sidebar's row instead of
+            actually wrapping its own content down to fit. */}
+        <div className="flex min-h-screen min-w-0 flex-1 flex-col">
+          {/* Mobile header */}
+          <header className="flex items-center gap-3 border-b border-neutral-200 bg-white px-3 py-2 md:hidden">
+            <button className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100" onClick={() => setDrawerOpen(true)}>
+              <Menu size={22} />
+            </button>
+            <button onClick={() => go("menu")} className="flex items-center gap-2">
+              <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-6 w-6 rounded-md" />
+              <span className="font-bold text-rose-600">Nihongo Nin</span>
+            </button>
+          </header>
+
+          <main className="flex-1 pb-16 md:px-6 md:py-4">
+            <div className="md:rounded-2xl md:border md:border-neutral-200/50 md:bg-white md:shadow-sm">{children}</div>
+          </main>
+
+          {/* Mobile bottom nav */}
+          <nav className="fixed inset-x-0 bottom-0 z-30 flex border-t border-neutral-200 bg-white md:hidden">
+            {BOTTOM_NAV_SCREENS.map((screen) => {
+              const item = NAV_ITEMS.find((i) => i.screen === screen)!;
+              const Icon = item.icon;
+              const isActive = active === screen;
+              return (
+                <button
+                  key={screen}
+                  onClick={() => go(screen)}
+                  className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[11px] font-medium ${
+                    isActive ? "text-rose-600" : "text-neutral-500"
+                  }`}
+                >
+                  <Icon size={20} strokeWidth={isActive ? 2.4 : 2} />
+                  {item.label}
+                </button>
+              );
+            })}
+          </nav>
+
+          {returnTo && floatingNavPresent ? (
+            <FloatingBackButton
+              label={NAV_ITEMS.find((i) => i.screen === returnTo.screen)?.label ?? returnTo.screen}
+              onClick={onGoBack}
+            />
+          ) : null}
+          <ScrollToTopButton floatingNavPresent={floatingNavPresent} />
         </div>
-      ) : null}
-
-      {/* min-w-0 overrides the flex default of min-width:auto -- without it,
-          this column refuses to shrink below its widest descendant's
-          content size (e.g. a filter-chip row), so on a narrow viewport the
-          whole column silently grows past the sidebar's row instead of
-          actually wrapping its own content down to fit. */}
-      <div className="flex min-h-screen min-w-0 flex-1 flex-col">
-        {/* Mobile header */}
-        <header className="flex items-center gap-3 border-b border-neutral-200 bg-white px-3 py-2 md:hidden">
-          <button className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100" onClick={() => setDrawerOpen(true)}>
-            <Menu size={22} />
-          </button>
-          <button onClick={() => go("menu")} className="flex items-center gap-2">
-            <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-6 w-6 rounded-md" />
-            <span className="font-bold text-rose-600">Nihongo Nin</span>
-          </button>
-        </header>
-
-        <main className="flex-1 pb-16 md:px-6 md:py-4">
-          <div className="md:rounded-2xl md:border md:border-neutral-200/50 md:bg-white md:shadow-sm">{children}</div>
-        </main>
-
-        {/* Mobile bottom nav */}
-        <nav className="fixed inset-x-0 bottom-0 z-30 flex border-t border-neutral-200 bg-white md:hidden">
-          {BOTTOM_NAV_SCREENS.map((screen) => {
-            const item = NAV_ITEMS.find((i) => i.screen === screen)!;
-            const Icon = item.icon;
-            const isActive = active === screen;
-            return (
-              <button
-                key={screen}
-                onClick={() => go(screen)}
-                className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[11px] font-medium ${
-                  isActive ? "text-rose-600" : "text-neutral-500"
-                }`}
-              >
-                <Icon size={20} strokeWidth={isActive ? 2.4 : 2} />
-                {item.label}
-              </button>
-            );
-          })}
-        </nav>
-
-        <ScrollToTopButton />
       </div>
-    </div>
+    </FloatingNavContext.Provider>
   );
 }

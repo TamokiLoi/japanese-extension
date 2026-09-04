@@ -1,5 +1,4 @@
-import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter, Headphones, ClipboardCheck } from "lucide-react";
-import { PageHeader } from "../components/PageHeader.tsx";
+import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter, Headphones, ClipboardCheck, Info } from "lucide-react";
 import { Card } from "../components/ui/card.tsx";
 
 interface GuideItem {
@@ -95,9 +94,17 @@ const GUIDE_SECTIONS: GuideItem[] = [
 export function GuideScreen() {
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Hướng dẫn" subtitle="Cách dùng nhanh từng phần của Nihongo Nin" />
+      <div className="flex items-center gap-3">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px]" style={{ background: "#ffe4e6" }}>
+          <Info size={20} className="text-rose-600" />
+        </div>
+        <div>
+          <h1 className="text-2xl font-bold text-neutral-800">Hướng dẫn</h1>
+          <p className="text-sm text-neutral-500">Cách dùng nhanh từng phần của Nihongo Nin</p>
+        </div>
+      </div>
 
-      <div className="mt-4 flex items-start gap-2 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
+      <div className="mt-4 flex items-start gap-2 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
         <Filter size={16} className="mt-0.5 shrink-0" />
         <div>
           Hầu hết các màn duyệt nội dung đều theo cùng 1 kiểu: <b>tiêu đề → thanh công cụ (Bộ lọc/Sắp xếp) → nội dung</b>.
@@ -107,7 +114,7 @@ export function GuideScreen() {
 
       <div className="mt-6 flex flex-col gap-4">
         {GUIDE_SECTIONS.map(({ icon: Icon, title, points }) => (
-          <Card key={title} className="gap-2 p-5">
+          <Card key={title} className="gap-2 rounded-2xl border-neutral-200 p-5 ring-0">
             <div className="flex items-center gap-2.5">
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
                 <Icon size={17} />

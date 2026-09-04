@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Headphones, List as ListIcon, Shuffle, Globe, RotateCcw } from "lucide-react";
+import { Headphones, ChevronLeft, ChevronRight, Globe, RotateCcw, Undo2 } from "lucide-react";
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
@@ -17,6 +17,7 @@ import {
   type ListeningViewerState,
   type ListeningProgressMap,
 } from "../../popup/listeningState.ts";
+import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
 import { recordAnswer as recordSharedAnswer, clearProgress as clearSharedProgress } from "../../popup/progressState.ts";
@@ -25,6 +26,9 @@ import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { StatCard } from "../components/StatCard.tsx";
+import { useConfirm } from "../components/ConfirmDialog.tsx";
+import { useFloatingNav } from "../WebAppShell.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
@@ -38,29 +42,63 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 export function ListeningScreen({
   topBar,
   jumpToId,
+  onCurrentItemChange,
 }: {
   topBar?: React.ReactNode;
   // Opens straight into a specific question (e.g. from Stats' "Cần ôn lại"
   // list) instead of the filtered list -- initial value only, doesn't
   // fight the user's own in-screen navigation afterward.
   jumpToId?: string;
+  onCurrentItemChange?: (id: string | undefined) => void;
 } = {}) {
   const [currentId, setCurrentId] = useState<string | null>(jumpToId ?? null);
+  const [state, setState] = useState<ListeningViewerState | null>(null);
+
+  useEffect(() => {
+    loadViewerState().then(setState);
+  }, []);
+
+  useEffect(() => {
+    onCurrentItemChange?.(currentId ?? undefined);
+  }, [currentId, onCurrentItemChange]);
+
   const current = currentId ? findListeningById(currentId) : undefined;
+  // Sequencing Trước/Tiếp through the same filtered set the user was
+  // browsing in the list, same reasoning as ReadingScreen.tsx/BunpoScreen.tsx.
+  const filtered = state ? getFilteredList(state) : [];
 
   if (current) {
-    return <QuestionView key={current.id} question={current} onBack={() => setCurrentId(null)} onOpen={setCurrentId} />;
+    return (
+      <QuestionView
+        key={current.id}
+        question={current}
+        filtered={filtered}
+        onBack={() => setCurrentId(null)}
+        onOpen={setCurrentId}
+      />
+    );
   }
-  return <ListView topBar={topBar} onOpen={setCurrentId} />;
+  return <ListView topBar={topBar} state={state} setState={setState} filtered={filtered} onOpen={setCurrentId} />;
 }
 
-function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: string) => void }) {
-  const [state, setState] = useState<ListeningViewerState | null>(null);
+function ListView({
+  topBar,
+  state,
+  setState,
+  filtered,
+  onOpen,
+}: {
+  topBar?: React.ReactNode;
+  state: ListeningViewerState | null;
+  setState: (s: ListeningViewerState) => void;
+  filtered: ListeningQuestion[];
+  onOpen: (id: string) => void;
+}) {
+  const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
   const [progress, setProgress] = useState<ListeningProgressMap>({});
 
   useEffect(() => {
-    loadViewerState().then(setState);
     // Reloaded every time this list mounts (including navigating back from a
     // question) since QuestionView is a different component at the same
     // JSX position -- React fully unmounts/remounts across that switch, so
@@ -77,7 +115,6 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
 
   if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
-  const filtered = getFilteredList(state);
   const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
   const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;
   const filterCount = (allBooksChecked ? 0 : state.selectedBooks.length) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
@@ -86,7 +123,7 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
   const attemptedCount = correctCount + wrongCount;
 
   async function resetAllFiltered() {
-    if (!confirm(`Đặt lại toàn bộ ${attemptedCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`)) return;
+    if (!(await confirm(`Đặt lại toàn bộ ${attemptedCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`))) return;
     const ids = filtered.map((q) => q.id);
     await clearListeningAnswers(ids);
     await clearSharedProgress(ids);
@@ -96,10 +133,7 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       {topBar}
-      <PageHeader
-        title="Luyện nghe"
-        subtitle={`${filtered.length}/${ALL_LISTENING.length} câu -- transcript/đáp án trích từ sách Nihongo Sou Matome N3 Choukai, audio là bản ghi thật từ CD gốc.`}
-      />
+      <PageHeader title="Luyện nghe" icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
@@ -184,18 +218,9 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
       </FilterSheet>
 
       <div className="mt-4 grid grid-cols-3 gap-3">
-        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Tổng số câu</div>
-          <div className="mt-1 text-xl font-bold text-neutral-800">{filtered.length}</div>
-        </div>
-        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Đã làm đúng</div>
-          <div className="mt-1 text-xl font-bold text-emerald-600">{correctCount}</div>
-        </div>
-        <div className="rounded-2xl border border-neutral-200 bg-white p-4">
-          <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Cần ôn lại</div>
-          <div className="mt-1 text-xl font-bold text-rose-600">{wrongCount}</div>
-        </div>
+        <StatCard label="Tổng số câu" value={filtered.length} />
+        <StatCard label="Đã làm đúng" value={correctCount} tone="emerald" />
+        <StatCard label="Cần ôn lại" value={wrongCount} tone="rose" />
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
@@ -227,16 +252,22 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
               <button
                 key={q.id}
                 onClick={() => onOpen(q.id)}
-                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
+                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">
                   <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
-                  <div className="truncate text-xs text-neutral-500">{TASK_TYPE_LABELS[q.taskType]}</div>
+                  <div className="truncate text-xs text-neutral-500">
+                    {TASK_TYPE_LABELS[q.taskType]} · {q.level}
+                  </div>
                 </div>
-                <span className="shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold" style={levelBadgeStyle(q.level)}>
-                  {q.level}
-                </span>
+                {status === "correct" ? (
+                  <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">✓ đúng</span>
+                ) : status === "wrong" ? (
+                  <span className="shrink-0 rounded-full bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-600">✗ sai</span>
+                ) : (
+                  <span className="shrink-0 rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-400">chưa làm</span>
+                )}
               </button>
             );
           })}
@@ -248,18 +279,24 @@ function ListView({ topBar, onOpen }: { topBar?: React.ReactNode; onOpen: (id: s
 
 function QuestionView({
   question,
+  filtered,
   onBack,
   onOpen,
 }: {
   question: ListeningQuestion;
+  filtered: ListeningQuestion[];
   onBack: () => void;
   onOpen: (id: string) => void;
 }) {
   const [selected, setSelected] = useState<number | null>(null);
+  const [progressMap, setProgressMap] = useState<ListeningProgressMap>({});
   const [showTranslation, setShowTranslation] = useState(true);
   const answered = selected !== null;
-  const index = ALL_LISTENING.findIndex((q) => q.id === question.id);
-  const nextId = ALL_LISTENING[index + 1]?.id;
+  const currentIndex = filtered.findIndex((q) => q.id === question.id);
+  const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
+  const nextQuestion = currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
+
+  useFloatingNav(true);
 
   // Reopening a question you already answered (from the color-coded list)
   // should show that same answered state right away -- your pick, right/
@@ -268,7 +305,9 @@ function QuestionView({
   useEffect(() => {
     let cancelled = false;
     loadListeningProgress().then((map) => {
-      if (!cancelled) setSelected(map[question.id]?.selectedIndex ?? null);
+      if (cancelled) return;
+      setSelected(map[question.id]?.selectedIndex ?? null);
+      setProgressMap(map);
     });
     return () => {
       cancelled = true;
@@ -286,6 +325,7 @@ function QuestionView({
   function selectAnswer(oi: number) {
     const correct = oi === question.correctIndex;
     setSelected(oi);
+    setProgressMap((m) => ({ ...m, [question.id]: { status: correct ? "correct" : "wrong", selectedIndex: oi } }));
     // Own lightweight map (unprefixed id, correct/wrong + which option was
     // picked, reset-able by "Làm lại") drives this screen's own list
     // coloring/restore-on-reopen. Dual-written into the shared
@@ -302,7 +342,7 @@ function QuestionView({
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
-          <ListIcon size={15} /> Danh sách
+          <ChevronLeft size={15} /> Luyện nghe
         </button>
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(question.level)}>
           {question.level}
@@ -312,7 +352,17 @@ function QuestionView({
         </span>
       </div>
 
-      <Card className="mt-4 gap-3.5 p-5">
+      <QuestionPalette
+        summary={`Câu ${currentIndex + 1}/${filtered.length} · đã làm ${filtered.filter((q) => progressMap[q.id]).length}`}
+        onJump={(i) => onOpen(filtered[i].id)}
+        items={filtered.map((q, i) => {
+          const attempt = progressMap[q.id];
+          const status: PaletteStatus = i === currentIndex ? "current" : !attempt ? "unanswered" : attempt.status === "correct" ? "correct" : "wrong";
+          return { id: q.id, status };
+        })}
+      />
+
+      <Card className="mt-4 gap-3.5 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
           <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
           <span>{isBlind && !answered ? "Nghe rồi chọn đáp án đúng" : question.scenario || question.question}</span>
@@ -322,7 +372,7 @@ function QuestionView({
       </Card>
 
       {answered && question.turns.length > 0 ? (
-        <Card className="mt-4 gap-0 p-5">
+        <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
           <div className="flex items-center justify-between">
             <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
             <button
@@ -348,7 +398,7 @@ function QuestionView({
         </Card>
       ) : null}
 
-      <Card className="mt-4 gap-0 p-5">
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         {!isBlind || answered ? (
           <>
             <div className="font-semibold text-neutral-800">{question.question}</div>
@@ -437,17 +487,36 @@ function QuestionView({
             variant="outline"
             onClick={() => {
               setSelected(null);
+              setProgressMap((m) => {
+                const next = { ...m };
+                delete next[question.id];
+                return next;
+              });
               clearListeningAnswer(question.id);
             }}
           >
-            Làm lại
+            <Undo2 size={16} /> Làm lại câu này
           </Button>
-          {nextId ? (
-            <Button className="flex-1" onClick={() => onOpen(nextId)}>
-              <Shuffle size={16} /> Câu tiếp theo
-            </Button>
-          ) : null}
         </div>
+      ) : null}
+
+      {prevQuestion ? (
+        <button
+          onClick={() => onOpen(prevQuestion.id)}
+          aria-label="Câu trước"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      ) : null}
+      {nextQuestion ? (
+        <button
+          onClick={() => onOpen(nextQuestion.id)}
+          aria-label="Câu sau"
+          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        >
+          <ChevronRight size={18} />
+        </button>
       ) : null}
     </div>
   );

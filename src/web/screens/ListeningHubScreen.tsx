@@ -15,7 +15,15 @@ type Tab = "listening" | "dictation";
 // screen's own top-level wrapper (rather than this component adding a
 // second mx-auto max-w-3xl wrapper around them) -- nesting two of those
 // would double up the horizontal/vertical padding.
-export function ListeningHubScreen({ initialTab = "listening", jumpToId }: { initialTab?: Tab; jumpToId?: string }) {
+export function ListeningHubScreen({
+  initialTab = "listening",
+  jumpToId,
+  onCurrentItemChange,
+}: {
+  initialTab?: Tab;
+  jumpToId?: string;
+  onCurrentItemChange?: (id: string | undefined) => void;
+}) {
   const [tab, setTab] = useState<Tab>(initialTab);
 
   const topBar = (
@@ -40,8 +48,8 @@ export function ListeningHubScreen({ initialTab = "listening", jumpToId }: { ini
   );
 
   return tab === "listening" ? (
-    <ListeningScreen topBar={topBar} jumpToId={tab === initialTab ? jumpToId : undefined} />
+    <ListeningScreen topBar={topBar} jumpToId={tab === initialTab ? jumpToId : undefined} onCurrentItemChange={onCurrentItemChange} />
   ) : (
-    <DictationScreen topBar={topBar} jumpToId={tab === initialTab ? jumpToId : undefined} />
+    <DictationScreen topBar={topBar} jumpToId={tab === initialTab ? jumpToId : undefined} onCurrentItemChange={onCurrentItemChange} />
   );
 }

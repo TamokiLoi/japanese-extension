@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, List as ListIcon, Sparkles, BarChart3, Library, PenSquare, ClipboardList } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, ClipboardList, CheckCircle2 } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import {
   ALL_READING,
@@ -26,6 +26,9 @@ import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { StatCard } from "../components/StatCard.tsx";
+import { useConfirm } from "../components/ConfirmDialog.tsx";
+import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
@@ -60,18 +63,20 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
   );
 }
 
-const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm" } as const;
+const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã xong" } as const;
 
 export function ReadingScreen({
   targetId,
   onOpenVocab,
   onOpenBunpo,
   onOpenStats,
+  onCurrentItemChange,
 }: {
   targetId?: string;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string) => void;
   onOpenStats: () => void;
+  onCurrentItemChange?: (id: string | undefined) => void;
 }) {
   const [state, setState] = useState<ReadingViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -109,43 +114,19 @@ export function ReadingScreen({
     setError(undefined);
   }
 
+  useEffect(() => {
+    onCurrentItemChange?.(state?.currentPassageId ?? undefined);
+  }, [state?.currentPassageId, onCurrentItemChange]);
+
   if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
   const passage = state.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
 
-  if (passage) {
-    return (
-      <PassageView
-        passage={passage}
-        state={state}
-        mutate={mutate}
-        setError={setError}
-        onOpenVocab={onOpenVocab}
-        onOpenBunpo={onOpenBunpo}
-      />
-    );
-  }
-
-  return <ListView state={state} mutate={mutate} error={error} setError={setError} onOpenStats={onOpenStats} />;
-}
-
-function ListView({
-  state,
-  mutate,
-  error,
-  setError,
-  onOpenStats,
-}: {
-  state: ReadingViewerState;
-  mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
-  error?: string;
-  setError: (e?: string) => void;
-  onOpenStats: () => void;
-}) {
-  const [filterOpen, setFilterOpen] = useState(false);
+  // Lifted up from ListView (rather than each screen recomputing its own
+  // copy) so PassageView can sequence Trước/Tiếp through the exact same
+  // filtered+status-filtered order the user was browsing in the list --
+  // same reasoning as BunpoScreen.tsx's DetailView visibleList.
   const filtered = ALL_READING.filter((p) => matchesFilters(p, state));
-  const doneCount = filtered.filter((p) => getPassageProgress(p, state.answers).status === "done").length;
-
   const visiblePassages = filtered.filter((p) => {
     if (state.listStatusFilter === "all") return true;
     const progress = getPassageProgress(p, state.answers);
@@ -153,18 +134,10 @@ function ListView({
     return progress.status !== "done";
   });
 
-  const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
-  const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
-  const allLengthsChecked = state.selectedLengths.length === AVAILABLE_LENGTHS.length;
-  const filterCount =
-    (allLevelsChecked ? 0 : state.selectedLevels.length) +
-    (allBooksChecked ? 0 : state.selectedBooks.length) +
-    (allLengthsChecked ? 0 : state.selectedLengths.length);
-
   async function openPassage(passage: ReadingPassage) {
     await mutate({
       currentPassageId: passage.id,
-      answers: { ...state.answers, [passage.id]: state.answers[passage.id] ?? passage.questions.map(() => null) },
+      answers: { ...state!.answers, [passage.id]: state!.answers[passage.id] ?? passage.questions.map(() => null) },
       // Furigana/translation/study-note visibility is a per-reading-session
       // toggle, not a lasting preference -- reset to the default (hidden)
       // each time a (possibly unrelated) new passage is opened, so a choice
@@ -176,6 +149,72 @@ function ListView({
     });
   }
 
+  if (passage) {
+    return (
+      <PassageView
+        passage={passage}
+        state={state}
+        mutate={mutate}
+        setError={setError}
+        onOpenVocab={onOpenVocab}
+        onOpenBunpo={onOpenBunpo}
+        visiblePassages={visiblePassages}
+        openPassage={openPassage}
+      />
+    );
+  }
+
+  return (
+    <ListView
+      state={state}
+      mutate={mutate}
+      error={error}
+      setError={setError}
+      onOpenStats={onOpenStats}
+      filtered={filtered}
+      visiblePassages={visiblePassages}
+      openPassage={openPassage}
+    />
+  );
+}
+
+function ListView({
+  state,
+  mutate,
+  error,
+  setError,
+  onOpenStats,
+  filtered,
+  visiblePassages,
+  openPassage,
+}: {
+  state: ReadingViewerState;
+  mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
+  error?: string;
+  setError: (e?: string) => void;
+  onOpenStats: () => void;
+  filtered: ReadingPassage[];
+  visiblePassages: ReadingPassage[];
+  openPassage: (passage: ReadingPassage) => Promise<void>;
+}) {
+  const confirm = useConfirm();
+  const [filterOpen, setFilterOpen] = useState(false);
+  const statusCounts = filtered.reduce(
+    (acc, p) => {
+      acc[getPassageProgress(p, state.answers).status]++;
+      return acc;
+    },
+    { done: 0, "in-progress": 0, "not-started": 0 } as Record<"done" | "in-progress" | "not-started", number>,
+  );
+
+  const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
+  const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
+  const allLengthsChecked = state.selectedLengths.length === AVAILABLE_LENGTHS.length;
+  const filterCount =
+    (allLevelsChecked ? 0 : state.selectedLevels.length) +
+    (allBooksChecked ? 0 : state.selectedBooks.length) +
+    (allLengthsChecked ? 0 : state.selectedLengths.length);
+
   async function handleStart() {
     const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks);
     if (!passage) {
@@ -186,17 +225,23 @@ function ListView({
   }
 
   async function handleResetRow(passage: ReadingPassage) {
-    if (!confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`)) return;
+    if (!(await confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`))) return;
     await mutate(resetPassageAnswers(state, passage.id));
   }
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Luyện đọc" subtitle={`${filtered.length} bài · Đã hoàn thành ${doneCount}/${filtered.length}`} />
+      <PageHeader title="Luyện đọc" icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
+
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <StatCard label="Tổng số bài" value={filtered.length} />
+        <StatCard label="Đã hoàn thành" value={statusCounts.done} tone="emerald" />
+        <StatCard label="Đang làm dở" value={statusCounts["in-progress"]} tone="amber" />
+      </div>
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
-        <Button size="sm" onClick={handleStart}>
+        <Button size="sm" variant="outline" onClick={handleStart}>
           <Shuffle size={14} /> Random bài đọc
         </Button>
         <Button size="sm" variant="outline" onClick={onOpenStats}>
@@ -363,7 +408,7 @@ function ListView({
               <button
                 key={p.id}
                 onClick={() => openPassage(p)}
-                className={`flex items-center gap-3 rounded-xl border border-l-4 border-neutral-200 bg-white px-4 py-3 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
+                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
                 <div className="min-w-0 flex-1">
@@ -411,6 +456,8 @@ function PassageView({
   setError,
   onOpenVocab,
   onOpenBunpo,
+  visiblePassages,
+  openPassage,
 }: {
   passage: ReadingPassage;
   state: ReadingViewerState;
@@ -418,7 +465,10 @@ function PassageView({
   setError: (e?: string) => void;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string) => void;
+  visiblePassages: ReadingPassage[];
+  openPassage: (passage: ReadingPassage) => Promise<void>;
 }) {
+  const confirm = useConfirm();
   const answers = state.answers[passage.id] ?? passage.questions.map(() => null);
   const answeredCount = answers.filter((a) => a !== null).length;
   const total = passage.questions.length;
@@ -427,8 +477,14 @@ function PassageView({
   const vocabMatches = findVocabInPassage(passage);
   const bunpoMatches = findBunpoInPassage(passage);
 
+  const currentIndex = visiblePassages.findIndex((p) => p.id === passage.id);
+  const prevPassage = currentIndex > 0 ? visiblePassages[currentIndex - 1] : null;
+  const nextPassage = currentIndex >= 0 && currentIndex < visiblePassages.length - 1 ? visiblePassages[currentIndex + 1] : null;
+
+  useFloatingNav(true);
+
   async function handleReset() {
-    if (!confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`)) return;
+    if (!(await confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`))) return;
     await mutate(resetPassageAnswers(state, passage.id));
   }
 
@@ -456,7 +512,7 @@ function PassageView({
           onClick={() => mutate({ currentPassageId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
-          <ListIcon size={15} /> Danh sách
+          <ChevronLeft size={15} /> Luyện đọc
         </button>
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(passage.level)}>
           {passage.level}
@@ -474,11 +530,6 @@ function PassageView({
         <span className="shrink-0 text-xs font-medium text-neutral-500">
           {answeredCount}/{total} câu
         </span>
-        {answeredCount > 0 ? (
-          <button onClick={handleReset} title="Làm lại từ đầu" className="flex shrink-0 items-center gap-1 text-xs font-semibold text-neutral-400 hover:text-neutral-600">
-            <Undo2 size={12} /> Làm lại
-          </button>
-        ) : null}
       </div>
 
       {state.resultsRevealed && allAnswered && total > 0 ? (
@@ -501,14 +552,6 @@ function PassageView({
         >
           {state.showTranslation ? "Ẩn bản dịch" : "Xem bản dịch"}
         </button>
-        <button
-          onClick={() => mutate({ resultsRevealed: !state.resultsRevealed })}
-          disabled={answeredCount === 0}
-          title={answeredCount === 0 ? "Chọn ít nhất 1 câu trả lời trước" : undefined}
-          className={`rounded-full border px-3 py-1.5 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${state.resultsRevealed ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
-        >
-          {state.resultsRevealed ? "Ẩn kết quả" : "Kiểm tra kết quả"}
-        </button>
         {passage.studyNote ? (
           <button
             onClick={() => mutate({ showStudyNote: !state.showStudyNote })}
@@ -519,7 +562,7 @@ function PassageView({
         ) : null}
       </div>
 
-      <Card className="mt-4 gap-0 p-5">
+      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="text-lg leading-loose text-neutral-800">
           <ReadingBody passage={passage} showFurigana={state.showFurigana} />
         </div>
@@ -548,7 +591,7 @@ function PassageView({
       ) : null}
 
       {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
-        <Card className="mt-3 gap-3 p-4">
+        <Card className="mt-3 gap-3 rounded-2xl border-neutral-200 p-4 ring-0">
           {vocabMatches.length > 0 ? (
             <div>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
@@ -592,7 +635,7 @@ function PassageView({
         {passage.questions.map((q, qi) => {
           const answered = answers[qi];
           return (
-            <Card key={qi} className="gap-0 p-5">
+            <Card key={qi} className="gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
               <div className="font-semibold text-neutral-800">
                 Câu {qi + 1}: {q.question}
               </div>
@@ -663,9 +706,45 @@ function PassageView({
         })}
       </div>
 
-      <Button className="mt-6 w-full" onClick={handleAnother}>
-        <Shuffle size={16} /> Bài khác
-      </Button>
+      <div className="mt-6 flex flex-col gap-2">
+        <Button
+          className="w-full"
+          onClick={() => mutate({ resultsRevealed: !state.resultsRevealed })}
+          disabled={answeredCount === 0}
+          title={answeredCount === 0 ? "Chọn ít nhất 1 câu trả lời trước" : undefined}
+        >
+          <CheckCircle2 size={16} /> {state.resultsRevealed ? "Ẩn kết quả" : "Kiểm tra kết quả"}
+        </Button>
+        <div className="flex gap-2">
+          {answeredCount > 0 ? (
+            <Button variant="outline" className="flex-1" onClick={handleReset}>
+              <Undo2 size={16} /> Làm lại cả bài
+            </Button>
+          ) : null}
+          <Button variant="outline" className="flex-1" onClick={handleAnother}>
+            <Shuffle size={16} /> Bài khác
+          </Button>
+        </div>
+      </div>
+
+      {prevPassage ? (
+        <button
+          onClick={() => openPassage(prevPassage)}
+          aria-label="Bài trước"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      ) : null}
+      {nextPassage ? (
+        <button
+          onClick={() => openPassage(nextPassage)}
+          aria-label="Bài sau"
+          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        >
+          <ChevronRight size={18} />
+        </button>
+      ) : null}
     </div>
   );
 }
