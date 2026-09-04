@@ -153,6 +153,19 @@ export async function recordAnswer(
   return cur;
 }
 
+// Called when a card's own detail view is shown (Kanji/Vocab's "card" mode,
+// Bunpo's detail panel) -- genuinely looking at an item counts toward the
+// daily-goal "doneToday" tally (see dailyPlanState.ts) the same as quizzing
+// it, without requiring the user to also flip the manual "đã thuộc"
+// checkbox just to register today's progress.
+export async function markViewed(id: string): Promise<void> {
+  const map = await loadProgressMap();
+  const cur = { ...(map[id] ?? defaultProgress()) };
+  cur.lastSeenAt = Date.now();
+  map[id] = cur;
+  await saveProgressMap(map);
+}
+
 export async function toggleFlag(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
