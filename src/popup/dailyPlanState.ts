@@ -22,8 +22,8 @@ const DEFAULT_GOALS: DailyGoals = {
   kanji: { enabled: true, goal: 20 },
   vocab: { enabled: true, goal: 30 },
   bunpo: { enabled: true, goal: 10 },
-  reading: { enabled: false, goal: 5 },
-  listening: { enabled: false, goal: 5 },
+  reading: { enabled: true, goal: 5 },
+  listening: { enabled: true, goal: 5 },
 };
 
 const STORAGE_KEY = "dailyGoals";

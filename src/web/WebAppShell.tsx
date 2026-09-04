@@ -113,7 +113,7 @@ export function WebAppShell({
   return (
     <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
       {/* Desktop sidebar */}
-      <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 pt-6 md:flex md:flex-col">
+      <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 pt-6 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:overflow-y-auto">
         <BrandLink onClick={() => go("menu")} className="mb-5 px-2" />
         <GroupedNav active={active} onNavigate={go} />
         <SidebarFooter />
@@ -153,7 +153,7 @@ export function WebAppShell({
           </button>
         </header>
 
-        <main className="flex-1 pb-16 md:p-6 md:pb-6">
+        <main className="flex-1 pb-16 md:px-6 md:py-4">
           <div className="md:rounded-2xl md:border md:border-neutral-200 md:bg-white md:shadow-sm">{children}</div>
         </main>
 
