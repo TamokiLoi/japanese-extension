@@ -97,6 +97,11 @@ function ListView({
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
   const [progress, setProgress] = useState<ListeningProgressMap>({});
+  // Which stat card is narrowing the rendered rows, if any -- local/
+  // display-only (not persisted, not threaded into `filtered`) so it never
+  // affects Trước/Tiếp paging order inside a question, only which rows show
+  // in this list. Same reasoning as Kanji/Vocab/Bunpo's bucketFilter.
+  const [statusFilter, setStatusFilter] = useState<"correct" | "wrong" | "not-started" | null>(null);
 
   useEffect(() => {
     // Reloaded every time this list mounts (including navigating back from a
@@ -120,6 +125,7 @@ function ListView({
   const filterCount = (allBooksChecked ? 0 : state.selectedBooks.length) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
   const correctCount = filtered.filter((q) => progress[q.id]?.status === "correct").length;
   const wrongCount = filtered.filter((q) => progress[q.id]?.status === "wrong").length;
+  const notStartedCount = filtered.length - correctCount - wrongCount;
   const attemptedCount = correctCount + wrongCount;
 
   async function resetAllFiltered() {
@@ -133,10 +139,38 @@ function ListView({
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       {topBar}
-      <PageHeader title="Luyện nghe" icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
+      <PageHeader title="Luyện nghe" subtitle={`${filtered.length} câu`} icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
+
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        <StatCard
+          label="Đã làm đúng"
+          value={correctCount}
+          tone="emerald"
+          active={statusFilter === "correct"}
+          onClick={() => setStatusFilter(statusFilter === "correct" ? null : "correct")}
+        />
+        <StatCard
+          label="Cần ôn lại"
+          value={wrongCount}
+          tone="rose"
+          active={statusFilter === "wrong"}
+          onClick={() => setStatusFilter(statusFilter === "wrong" ? null : "wrong")}
+        />
+        <StatCard
+          label="Chưa làm"
+          value={notStartedCount}
+          active={statusFilter === "not-started"}
+          onClick={() => setStatusFilter(statusFilter === "not-started" ? null : "not-started")}
+        />
+      </div>
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
+        {attemptedCount > 0 ? (
+          <button onClick={resetAllFiltered} className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-rose-600">
+            <RotateCcw size={12} /> Đặt lại tất cả ({attemptedCount})
+          </button>
+        ) : null}
       </FilterBar>
 
       <ActiveFilters
@@ -217,35 +251,18 @@ function ListView({
         </FilterGroup>
       </FilterSheet>
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        <StatCard label="Tổng số câu" value={filtered.length} />
-        <StatCard label="Đã làm đúng" value={correctCount} tone="emerald" />
-        <StatCard label="Cần ôn lại" value={wrongCount} tone="rose" />
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-emerald-300 bg-emerald-100" /> Đã làm đúng
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-rose-300 bg-rose-100" /> Cần ôn lại
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-neutral-200 bg-white" /> Chưa làm
-        </span>
-        {attemptedCount > 0 ? (
-          <button onClick={resetAllFiltered} className="flex items-center gap-1.5 font-semibold text-neutral-400 hover:text-rose-600">
-            <RotateCcw size={12} /> Đặt lại tất cả ({attemptedCount})
-          </button>
-        ) : null}
-      </div>
-
       {filtered.length === 0 ? (
         <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">Không có câu nào khớp bộ lọc này.</p>
+      ) : statusFilter !== null && filtered.every((q) => (progress[q.id]?.status ?? "not-started") !== statusFilter) ? (
+        <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">
+          Không có câu nào ở trạng thái "
+          {statusFilter === "correct" ? "Đã làm đúng" : statusFilter === "wrong" ? "Cần ôn lại" : "Chưa làm"}".
+        </p>
       ) : (
         <div className="mt-3 flex flex-col gap-2">
           {filtered.map((q, i) => {
             const status = progress[q.id]?.status;
+            if (statusFilter !== null && (status ?? "not-started") !== statusFilter) return null;
             const borderCls =
               status === "correct" ? "border-l-emerald-400" : status === "wrong" ? "border-l-rose-400" : "border-l-neutral-200";
             return (

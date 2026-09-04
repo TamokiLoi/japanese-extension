@@ -53,6 +53,12 @@ export interface ReadingPassage {
   source: string;
   body: ReadingBodySegment[];
   translationVi: string;
+  // Per-sentence Vietnamese translation, aligned 1:1 with
+  // splitBodyIntoSentences(body) (see readingState.ts) -- lets the reading
+  // screen interleave JP/VI sentence-by-sentence like Listening's turns
+  // instead of one dense translated block. Optional: older/not-yet-processed
+  // passages fall back to translationVi as a single block.
+  sentencesVi?: string[];
   questions: ReadingQuestion[];
   // Optional worked-analysis note (Vietnamese) adapted from the source
   // book's own "how to think through this" walkthrough -- e.g. Taisaku

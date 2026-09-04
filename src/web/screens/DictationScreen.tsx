@@ -133,6 +133,9 @@ function ListView({
   onOpen: (id: string) => void;
 }) {
   const [filterOpen, setFilterOpen] = useState(false);
+  // Which stat card is highlighting the grid, if any -- local/display-only,
+  // dims (not hides) non-matching cells so the 1..N numbering stays intact.
+  const [statusFilter, setStatusFilter] = useState<GridStatus | null>(null);
 
   async function mutate(partial: Partial<DictationViewerState>) {
     const next = { ...state, ...partial };
@@ -145,13 +148,39 @@ function ListView({
   const filterCount = (allBooksChecked ? 0 : state.selectedBooks.length) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
 
   const correctCount = list.filter((q) => statusFor(q.id, progress) === "correct").length;
+  const partialCount = list.filter((q) => statusFor(q.id, progress) === "partial").length;
+  const emptyCount = list.length - correctCount - partialCount;
   const accuracies = list.map((q) => progress[q.id]?.bestAccuracy).filter((a): a is number => a !== undefined);
   const avgAccuracy = accuracies.length > 0 ? Math.round(accuracies.reduce((a, b) => a + b, 0) / accuracies.length) : 0;
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       {topBar}
-      <PageHeader title="Nghe chép chính tả" icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
+      <PageHeader title="Nghe chép chính tả" subtitle={`${list.length} câu`} icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
+
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        <StatCard
+          label="Đúng hoàn toàn"
+          value={correctCount}
+          tone="emerald"
+          active={statusFilter === "correct"}
+          onClick={() => setStatusFilter(statusFilter === "correct" ? null : "correct")}
+        />
+        <StatCard
+          label="Cần ôn lại"
+          value={partialCount}
+          tone="amber"
+          active={statusFilter === "partial"}
+          onClick={() => setStatusFilter(statusFilter === "partial" ? null : "partial")}
+        />
+        <StatCard
+          label="Chưa làm"
+          value={emptyCount}
+          active={statusFilter === "empty"}
+          onClick={() => setStatusFilter(statusFilter === "empty" ? null : "empty")}
+        />
+        <StatCard label="Chính xác TB" value={`${avgAccuracy}%`} tone="rose" />
+      </div>
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
@@ -235,39 +264,25 @@ function ListView({
         </FilterGroup>
       </FilterSheet>
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        <StatCard label="Tổng số câu" value={list.length} />
-        <StatCard label="Đúng hoàn toàn" value={correctCount} tone="emerald" />
-        <StatCard label="Chính xác TB" value={`${avgAccuracy}%`} tone="rose" />
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-neutral-500">
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-emerald-300 bg-emerald-100" /> Đúng hoàn toàn
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-amber-300 bg-amber-100" /> Đã làm, chưa đúng hết
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-[3px] border border-neutral-200 bg-white" /> Chưa làm
-        </span>
-      </div>
-
       {list.length === 0 ? (
         <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">Không có câu nào khớp bộ lọc này.</p>
       ) : (
         <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-4 ring-0">
           <div className="grid grid-cols-8 gap-2 sm:grid-cols-10">
-            {list.map((q, i) => (
-              <button
-                key={q.id}
-                onClick={() => onOpen(q.id)}
-                title={q.scenario || q.question}
-                className={`flex h-9 items-center justify-center rounded-lg border text-sm font-bold ${gridCellStyle(statusFor(q.id, progress), false)}`}
-              >
-                {i + 1}
-              </button>
-            ))}
+            {list.map((q, i) => {
+              const status = statusFor(q.id, progress);
+              const dimmed = statusFilter !== null && status !== statusFilter;
+              return (
+                <button
+                  key={q.id}
+                  onClick={() => onOpen(q.id)}
+                  title={q.scenario || q.question}
+                  className={`flex h-9 items-center justify-center rounded-lg border text-sm font-bold ${gridCellStyle(status, false)} ${dimmed ? "opacity-25" : ""}`}
+                >
+                  {i + 1}
+                </button>
+              );
+            })}
           </div>
         </Card>
       )}

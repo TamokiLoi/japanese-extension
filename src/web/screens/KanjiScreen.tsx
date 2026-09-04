@@ -63,6 +63,15 @@ const BUCKET_STAT_COLOR: Record<ProgressBucket, string> = {
   flagged: "border-t-rose-300 text-rose-600",
   new: "border-t-neutral-300 text-neutral-600",
 };
+// Active-filter ring for the same 4 stat cards -- each bucket's own tone
+// instead of one flat black ring, so the highlight reads as "this card" not
+// as an error/warning state.
+const BUCKET_ACTIVE_RING: Record<ProgressBucket, string> = {
+  mastered: "border-emerald-400 ring-2 ring-emerald-400",
+  learning: "border-amber-400 ring-2 ring-amber-400",
+  flagged: "border-rose-400 ring-2 ring-rose-400",
+  new: "border-neutral-400 ring-2 ring-neutral-400",
+};
 
 function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   if (k.meanings.vi.length > 0) return { text: k.meanings.vi.join(", "), isDraft: false };
@@ -324,7 +333,7 @@ export function KanjiScreen({
                   key={b}
                   onClick={() => setBucketFilter(bucketFilter === b ? null : b)}
                   className={`rounded-2xl border border-t-4 bg-white p-4 text-left transition-colors ${BUCKET_STAT_COLOR[b]} ${
-                    bucketFilter === b ? "border-neutral-800 ring-2 ring-neutral-800" : "border-neutral-200"
+                    bucketFilter === b ? BUCKET_ACTIVE_RING[b] : "border-neutral-200"
                   }`}
                 >
                   <div className="text-xl font-bold">{bucketCounts[b]}</div>

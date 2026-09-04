@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, ClipboardList, CheckCircle2 } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2 } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import {
   ALL_READING,
@@ -17,6 +17,7 @@ import {
   getPassageProgress,
   resetPassageAnswers,
   matchesFilters,
+  splitBodyIntoSentences,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
 import { findVocabInPassage, findBunpoInPassage } from "../../popup/readingLinks.ts";
@@ -63,19 +64,48 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
   );
 }
 
-const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã xong" } as const;
+// Used instead of plain ReadingBody when "Xem bản dịch" is on and the
+// passage has per-sentence data -- interleaves each JP sentence with its VI
+// translation right below it (same idea as Listening's turn+textVi), rather
+// than one dense translated block after the whole passage.
+function ReadingBodyInterleaved({ passage, showFurigana }: { passage: ReadingPassage; showFurigana: boolean }) {
+  const groups = splitBodyIntoSentences(passage.body);
+  return (
+    <div className="flex flex-col gap-3">
+      {groups.map((segs, gi) => (
+        <div key={gi}>
+          <div>
+            {segs.map((seg, si) =>
+              showFurigana && seg.furigana ? (
+                <ruby key={si}>
+                  {seg.text}
+                  <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
+                </ruby>
+              ) : (
+                <span key={si}>{seg.text}</span>
+              ),
+            )}
+          </div>
+          {passage.sentencesVi?.[gi] ? (
+            <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic">
+              {passage.sentencesVi[gi]}
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function ReadingScreen({
   targetId,
   onOpenVocab,
   onOpenBunpo,
-  onOpenStats,
   onCurrentItemChange,
 }: {
   targetId?: string;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string) => void;
-  onOpenStats: () => void;
   onCurrentItemChange?: (id: string | undefined) => void;
 }) {
   const [state, setState] = useState<ReadingViewerState | null>(null);
@@ -130,8 +160,8 @@ export function ReadingScreen({
   const visiblePassages = filtered.filter((p) => {
     if (state.listStatusFilter === "all") return true;
     const progress = getPassageProgress(p, state.answers);
-    if (state.listStatusFilter === "done") return progress.status === "done";
-    return progress.status !== "done";
+    if (state.listStatusFilter === "needs-review") return progress.status === "done" && progress.correct < progress.total;
+    return progress.status === state.listStatusFilter;
   });
 
   async function openPassage(passage: ReadingPassage) {
@@ -170,7 +200,6 @@ export function ReadingScreen({
       mutate={mutate}
       error={error}
       setError={setError}
-      onOpenStats={onOpenStats}
       filtered={filtered}
       visiblePassages={visiblePassages}
       openPassage={openPassage}
@@ -183,7 +212,6 @@ function ListView({
   mutate,
   error,
   setError,
-  onOpenStats,
   filtered,
   visiblePassages,
   openPassage,
@@ -192,7 +220,6 @@ function ListView({
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
   error?: string;
   setError: (e?: string) => void;
-  onOpenStats: () => void;
   filtered: ReadingPassage[];
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
@@ -201,10 +228,14 @@ function ListView({
   const [filterOpen, setFilterOpen] = useState(false);
   const statusCounts = filtered.reduce(
     (acc, p) => {
-      acc[getPassageProgress(p, state.answers).status]++;
+      const progress = getPassageProgress(p, state.answers);
+      acc[progress.status]++;
+      if (progress.status === "done" && progress.correct < progress.total) acc.needsReview++;
       return acc;
     },
-    { done: 0, "in-progress": 0, "not-started": 0 } as Record<"done" | "in-progress" | "not-started", number>,
+    { done: 0, "in-progress": 0, "not-started": 0, needsReview: 0 } as Record<"done" | "in-progress" | "not-started", number> & {
+      needsReview: number;
+    },
   );
 
   const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
@@ -231,12 +262,36 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Luyện đọc" icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
+      <PageHeader title="Luyện đọc" subtitle={`${filtered.length} bài`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        <StatCard label="Tổng số bài" value={filtered.length} />
-        <StatCard label="Đã hoàn thành" value={statusCounts.done} tone="emerald" />
-        <StatCard label="Đang làm dở" value={statusCounts["in-progress"]} tone="amber" />
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        <StatCard
+          label="Đã hoàn thành"
+          value={statusCounts.done}
+          tone="emerald"
+          active={state.listStatusFilter === "done"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "done" ? "all" : "done" })}
+        />
+        <StatCard
+          label="Đang làm dở"
+          value={statusCounts["in-progress"]}
+          tone="amber"
+          active={state.listStatusFilter === "in-progress"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "in-progress" ? "all" : "in-progress" })}
+        />
+        <StatCard
+          label="Chưa làm"
+          value={statusCounts["not-started"]}
+          active={state.listStatusFilter === "not-started"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "not-started" ? "all" : "not-started" })}
+        />
+        <StatCard
+          label="Cần ôn lại"
+          value={statusCounts.needsReview}
+          tone="rose"
+          active={state.listStatusFilter === "needs-review"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "needs-review" ? "all" : "needs-review" })}
+        />
       </div>
 
       <FilterBar>
@@ -244,20 +299,6 @@ function ListView({
         <Button size="sm" variant="outline" onClick={handleStart}>
           <Shuffle size={14} /> Random bài đọc
         </Button>
-        <Button size="sm" variant="outline" onClick={onOpenStats}>
-          <ClipboardList size={14} /> Câu sai cần ôn lại
-        </Button>
-        <div className="flex flex-wrap gap-1.5">
-          {(["all", "not-started", "done"] as const).map((s) => (
-            <button
-              key={s}
-              onClick={() => mutate({ listStatusFilter: s })}
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium ${state.listStatusFilter === s ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500"}`}
-            >
-              {STATUS_LABELS[s]}
-            </button>
-          ))}
-        </div>
       </FilterBar>
 
       <ActiveFilters
@@ -564,11 +605,15 @@ function PassageView({
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="text-lg leading-loose text-neutral-800">
-          <ReadingBody passage={passage} showFurigana={state.showFurigana} />
+          {state.showTranslation && passage.sentencesVi ? (
+            <ReadingBodyInterleaved passage={passage} showFurigana={state.showFurigana} />
+          ) : (
+            <ReadingBody passage={passage} showFurigana={state.showFurigana} />
+          )}
         </div>
       </Card>
 
-      {state.showTranslation ? (
+      {state.showTranslation && !passage.sentencesVi ? (
         <div className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-relaxed text-amber-800">
           {passage.translationVi.split("\n").map((line, i, arr) => (
             <span key={i}>
@@ -639,6 +684,7 @@ function PassageView({
               <div className="font-semibold text-neutral-800">
                 Câu {qi + 1}: {q.question}
               </div>
+              {state.resultsRevealed && answered !== null ? <div className="mt-1 text-sm text-neutral-500">{q.questionVi}</div> : null}
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {q.options.map((opt, oi) => {
                   let cls = "border-neutral-200 hover:bg-neutral-50";
@@ -664,41 +710,19 @@ function PassageView({
                       className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
                     >
                       {opt}
+                      {state.resultsRevealed && answered !== null ? (
+                        <span className="mt-0.5 block text-xs text-neutral-400">{q.optionsVi[oi]}</span>
+                      ) : null}
                     </button>
                   );
                 })}
               </div>
-              {state.resultsRevealed && answered !== null ? (
+              {state.resultsRevealed && answered !== null && q.explanation ? (
                 <div className="mt-3 space-y-3 border-t border-neutral-100 pt-3 text-sm">
                   <div>
-                    <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Dịch câu hỏi</div>
-                    <div className="mt-1 text-neutral-600">{q.questionVi}</div>
+                    <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Giải thích</div>
+                    <div className="mt-1 text-neutral-600">{q.explanation}</div>
                   </div>
-                  <div>
-                    <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Dịch đáp án</div>
-                    <div className="mt-1 grid gap-2 sm:grid-cols-2">
-                      {q.optionsVi.map((optVi, oi) => (
-                        <div
-                          key={oi}
-                          className={`rounded-lg border px-3 py-2 text-sm ${
-                            oi === q.correctIndex
-                              ? "border-emerald-300 bg-emerald-50 text-emerald-700"
-                              : oi === answered
-                                ? "border-rose-300 bg-rose-50 text-rose-700"
-                                : "border-neutral-200 text-neutral-500"
-                          }`}
-                        >
-                          {optVi}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  {q.explanation ? (
-                    <div>
-                      <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Giải thích</div>
-                      <div className="mt-1 text-neutral-600">{q.explanation}</div>
-                    </div>
-                  ) : null}
                 </div>
               ) : null}
             </Card>

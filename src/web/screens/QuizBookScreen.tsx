@@ -162,6 +162,8 @@ function ListView({
       <div className="mt-4 grid grid-cols-3 gap-3">
         <StatCard
           label="Đã làm"
+          active={state.listStatusFilter === "done"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "done" ? "all" : "done" })}
           value={
             <>
               {doneCount}
@@ -179,7 +181,13 @@ function ListView({
             </>
           }
         />
-        <StatCard label="Đã biết" tone="amber" value={knownCount} />
+        <StatCard
+          label="Đã biết"
+          tone="amber"
+          active={state.listStatusFilter === "known"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "known" ? "all" : "known" })}
+          value={knownCount}
+        />
       </div>
 
       <FilterBar>
@@ -196,7 +204,7 @@ function ListView({
           ))}
         </select>
         <div className="flex flex-wrap gap-1.5">
-          {(["all", "not-started", "done", "known"] as const).map((s) => (
+          {(["all", "not-started"] as const).map((s) => (
             <button
               key={s}
               onClick={() => mutate({ listStatusFilter: s })}

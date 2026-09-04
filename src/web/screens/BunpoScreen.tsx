@@ -57,6 +57,12 @@ const BUCKET_STAT_COLOR: Record<ProgressBucket, string> = {
   flagged: "border-t-rose-300 text-rose-600",
   new: "border-t-neutral-300 text-neutral-600",
 };
+const BUCKET_ACTIVE_RING: Record<ProgressBucket, string> = {
+  mastered: "border-emerald-400 ring-2 ring-emerald-400",
+  learning: "border-amber-400 ring-2 ring-amber-400",
+  flagged: "border-rose-400 ring-2 ring-rose-400",
+  new: "border-neutral-400 ring-2 ring-neutral-400",
+};
 
 const USAGE_TERM_GLOSSARY: { term: string; explanation: string }[] = [
   { term: "辞書形", explanation: "Thể từ điển (dạng nguyên mẫu của động từ), vd: 食べる" },
@@ -187,7 +193,7 @@ function ListView({
               key={b}
               onClick={() => setBucketFilter(bucketFilter === b ? null : b)}
               className={`rounded-2xl border border-t-4 bg-white p-4 text-left transition-colors ${BUCKET_STAT_COLOR[b]} ${
-                bucketFilter === b ? "border-neutral-800 ring-2 ring-neutral-800" : "border-neutral-200"
+                bucketFilter === b ? BUCKET_ACTIVE_RING[b] : "border-neutral-200"
               }`}
             >
               <div className="text-xl font-bold">{bucketCounts[b]}</div>

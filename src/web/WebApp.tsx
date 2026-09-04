@@ -205,7 +205,6 @@ export function WebApp() {
         targetId={targetId}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
-        onOpenStats={() => go("stats", "reading")}
         onCurrentItemChange={syncCurrentItem}
       />
     );

@@ -4,7 +4,7 @@ import readingN3TaisakuRaw from "../data/reading-n3-taisaku.json";
 import mocktestN3ShinkanzenRaw from "../data/mocktest-n3-shinkanzen.json";
 import readingN3Dokkai55Raw from "../data/reading-n3-dokkai55.json";
 import readingN3Dokkai115Raw from "../data/reading-n3-dokkai115.json";
-import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook, ReadingQuestionType } from "../types/reading.ts";
+import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook, ReadingQuestionType, ReadingBodySegment } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
@@ -26,6 +26,81 @@ export const ALL_READING: ReadingPassage[] = [
 const READING_BY_ID = new Map(ALL_READING.map((p) => [p.id, p]));
 export function findReadingById(id: string): ReadingPassage | undefined {
   return READING_BY_ID.get(id);
+}
+
+// Breaks one segment's text into one piece per sentence (plus a piece
+// boundary right before each "\n"). A segment's furigana is NOT necessarily
+// for its whole text -- in this dataset a segment routinely spans multiple
+// sentences with the furigana reading only the one kanji word right at its
+// end (e.g. "に入れないこと。\n入れるときは管理人" carries furigana for just
+// 管理人, the trailing word) -- so cutting is always safe as long as the
+// reading travels with whichever piece it actually belongs to.
+const CLOSING_PUNCT = /[」』）)]/;
+function splitPlainText(text: string): string[] {
+  const pieces: string[] = [];
+  let buf = "";
+  let i = 0;
+  while (i < text.length) {
+    const ch = text[i];
+    if (ch === "\n" && buf.length > 0) {
+      pieces.push(buf);
+      buf = "";
+    }
+    buf += ch;
+    if (ch === "。" || ch === "！" || ch === "？") {
+      // Absorb an immediately-following closing quote/paren/bracket (「...」。
+      // style dialogue) into this same piece instead of leaving it to
+      // wrongly open the next one.
+      while (i + 1 < text.length && CLOSING_PUNCT.test(text[i + 1])) {
+        i++;
+        buf += text[i];
+      }
+      pieces.push(buf);
+      buf = "";
+    }
+    i++;
+  }
+  if (buf) pieces.push(buf);
+  return pieces;
+}
+
+// Groups body segments into sentences (up to and including one ending in
+// 。！？) -- the same grouping scripts/translate-reading-sentences.ts uses to
+// derive what to send to Gemini, so `sentencesVi[i]` always lines up with
+// splitBodyIntoSentences(body)[i]. Any trailing text with no terminator
+// (rare -- a passage not ending in punctuation) forms one last group.
+//
+// A piece starting with "\n" (how a heading like "使用方法" is followed by
+// the numbered "①..." text in this dataset -- the break sits at the *start*
+// of what follows, not the end of the heading's own segment) also closes the
+// current group first, so a heading doesn't get glued onto the sentence
+// after it.
+const SENTENCE_END = /[。！？]$/;
+export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodySegment[][] {
+  const groups: ReadingBodySegment[][] = [];
+  let current: ReadingBodySegment[] = [];
+  function addPiece(text: string, furigana: string | null) {
+    if (text.startsWith("\n") && current.length > 0) {
+      groups.push(current);
+      current = [];
+    }
+    current.push({ text, furigana });
+    if (SENTENCE_END.test(text)) {
+      groups.push(current);
+      current = [];
+    }
+  }
+  for (const seg of body) {
+    const pieces = splitPlainText(seg.text);
+    // The furigana reading applies to a kanji word within this segment,
+    // which -- per how this dataset is structured -- always sits in the
+    // trailing piece (a segment never starts mid-word right after a kanji
+    // compound and then continues into an earlier sentence). Every earlier
+    // piece carries no reading of its own.
+    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null));
+  }
+  if (current.length > 0) groups.push(current);
+  return groups;
 }
 
 // Progress (correct/wrong counts, mastery bucket) is tracked per-question,
@@ -158,7 +233,13 @@ export interface ReadingViewerState {
   // exam-style before checking anything.
   resultsRevealed: boolean;
   answers: Record<string, (number | null)[]>;
-  listStatusFilter: "all" | "not-started" | "done";
+  // "needs-review" is done passages with at least 1 wrong answer -- a
+  // subset of "done", not mutually exclusive with it at the data level, but
+  // treated as its own distinct filter value here (see ReadingScreen.tsx's
+  // visiblePassages) so the list's status buttons can partition passages
+  // into exactly 4 useful buckets: not-started / in-progress / done-clean /
+  // done-with-mistakes.
+  listStatusFilter: "all" | "not-started" | "done" | "in-progress" | "needs-review";
 }
 
 const STORAGE_KEY = "readingViewer";
