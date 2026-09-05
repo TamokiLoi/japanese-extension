@@ -11,17 +11,28 @@
 import listeningSoumatomeRaw from "../data/listening-soumatome-n3.json";
 import listeningSpeedmasterRaw from "../data/listening-speedmaster-n3.json";
 import listeningShinkanzenRaw from "../data/listening-shinkanzen-n3.json";
+// listening-dethi-2025-12.json: Mondai 3/4/5 (16 câu) của phần 聴解 đề thi
+// thật N3 tháng 12/2025 -- khác các bộ trên, sách nguồn (script + audio do
+// người dùng bổ sung) KHÔNG có đáp án in sẵn cho phần nghe, nên correctIndex
+// ở đây là Gemini nghe audio suy luận rồi được kiểm tra lại thủ công từng
+// câu (xem field `notes` của từng câu) -- không đáng tin bằng đáp án in sẵn
+// thật như soumatome/speedmaster/shinkanzen. Mondai 1/2 (12 câu đầu) bị bỏ
+// qua vì 4 lựa chọn của 2 mondai đó chỉ in trên đề giấy (問題用紙), không đọc
+// thành tiếng trong audio nên không có nguồn thật để trích xuất.
+import listeningDethi202512Raw from "../data/listening-dethi-2025-12.json";
 import type { ListeningDataset, ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
 const soumatomeDataset = listeningSoumatomeRaw as unknown as ListeningDataset;
 const speedmasterDataset = listeningSpeedmasterRaw as unknown as ListeningDataset;
 const shinkanzenDataset = listeningShinkanzenRaw as unknown as ListeningDataset;
+const dethi202512Dataset = listeningDethi202512Raw as unknown as ListeningDataset;
 
 export const ALL_LISTENING: ListeningQuestion[] = [
   ...soumatomeDataset.questions,
   ...speedmasterDataset.questions,
   ...shinkanzenDataset.questions,
+  ...dethi202512Dataset.questions,
 ];
 
 const LISTENING_BY_ID = new Map(ALL_LISTENING.map((q) => [q.id, q]));
@@ -45,9 +56,10 @@ export const BOOK_LABELS: Record<string, string> = {
   soumatome: "Nihongo Sou Matome N3 Choukai",
   speedmaster: "Speed Master N3 Choukai",
   shinkanzen: "Shin Kanzen Master N3 Choukai",
+  "dethi-2025-12": "Đề thi thật N3 T12/2025 (聴解, 16/28 câu)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {

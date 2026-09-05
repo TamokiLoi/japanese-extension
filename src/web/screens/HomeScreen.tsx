@@ -236,9 +236,12 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
     (item) => map[item.id] !== undefined,
   ).length;
   const [streak, weekDays, dethiHistory] = await Promise.all([getStudyStreak(), getWeekStudyDays(), loadDeThiHistory()]);
-  // "Đề đã làm" counts distinct papers with at least one finished attempt,
+  // "Phần đã làm" counts distinct papers with at least one finished attempt,
   // against every paper across every exam -- a real completion ratio, same
-  // shape as the other progress cards, not a fabricated number.
+  // shape as the other progress cards, not a fabricated number. This counts
+  // PAPERS ("phần"), not exams ("đề") -- ALL_EXAMS currently has 25 exams x
+  // 2 papers each (moji-goi, bunpou-dokkai; no timed listening paper yet),
+  // so totalPapers is 50 even though there are only 25 đề.
   const attemptedPapers = new Set(dethiHistory.map((h) => `${h.examId}:${h.paperId}`)).size;
   const totalPapers = ALL_EXAMS.reduce((n, exam) => n + exam.papers.length, 0);
   return {
@@ -885,7 +888,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   img="icon-jlpt.png"
                   label="Đề thi JLPT"
                   progress={stats.progress.dethi}
-                  suffix="đề"
+                  suffix="phần"
                   onClick={() => onNavigate("exams")}
                 />
               </div>

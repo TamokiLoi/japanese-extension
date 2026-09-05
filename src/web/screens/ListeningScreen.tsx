@@ -307,7 +307,7 @@ function QuestionView({
 }) {
   const [selected, setSelected] = useState<number | null>(null);
   const [progressMap, setProgressMap] = useState<ListeningProgressMap>({});
-  const [showTranslation, setShowTranslation] = useState(true);
+  const [showTranslation, setShowTranslation] = useState(false);
   const answered = selected !== null;
   const currentIndex = filtered.findIndex((q) => q.id === question.id);
   const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
@@ -384,8 +384,16 @@ function QuestionView({
           <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
           <span>{isBlind && !answered ? "Nghe rồi chọn đáp án đúng" : question.scenario || question.question}</span>
         </div>
-        {answered && question.scenarioVi ? <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div> : null}
-        <AudioPlayer key={question.id} src={assetUrl(question.audioUrl)} />
+        {answered && showTranslation && question.scenarioVi ? (
+          <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div>
+        ) : null}
+        <AudioPlayer
+          key={question.id}
+          src={assetUrl(question.audioUrl)}
+          translationToggle={
+            answered && question.turns.length === 0 ? { active: showTranslation, onToggle: () => setShowTranslation((v) => !v) } : undefined
+          }
+        />
       </Card>
 
       {answered && question.turns.length > 0 ? (
@@ -419,7 +427,7 @@ function QuestionView({
         {!isBlind || answered ? (
           <>
             <div className="font-semibold text-neutral-800">{question.question}</div>
-            {answered ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
+            {answered && showTranslation ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
           </>
         ) : null}
 
@@ -480,7 +488,7 @@ function QuestionView({
                   className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
                 >
                   {opt}
-                  {answered ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
+                  {answered && showTranslation ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
                 </button>
               );
             })}
