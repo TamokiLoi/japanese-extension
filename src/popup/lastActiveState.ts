@@ -40,6 +40,14 @@ export async function saveLastActive(screen: Screen, targetId?: string): Promise
   await storageSet(STORAGE_KEY, entry);
 }
 
+// Validates screen against the *current* RESUMABLE_SCREENS -- the GitHub
+// Pages build persists this in localStorage indefinitely, so a browser that
+// last visited an older/newer deploy can still be holding a screen value
+// that isn't a resumable screen (or a valid Screen at all) anymore. Without
+// this check, callers doing a lookup keyed by screen (e.g. HomeScreen's
+// RESUME_META[lastActive.screen]) would crash on the stale value.
 export async function loadLastActive(): Promise<LastActive | null> {
-  return (await storageGet<LastActive>(STORAGE_KEY)) ?? null;
+  const stored = await storageGet<LastActive>(STORAGE_KEY);
+  if (!stored || !isResumableScreen(stored.screen)) return null;
+  return stored;
 }

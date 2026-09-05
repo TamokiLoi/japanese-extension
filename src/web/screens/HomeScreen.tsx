@@ -745,7 +745,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                 className="absolute inset-0 hidden md:block"
                 style={{ background: "linear-gradient(90deg, #fff5f6 0%, #fff5f6cc 40%, transparent 75%)" }}
               />
-              {lastActive && stats
+              {lastActive && stats && RESUME_META[lastActive.screen]
                 ? (() => {
                     const resume = RESUME_META[lastActive.screen];
                     const ResumeIcon = resume.icon;
