@@ -72,6 +72,23 @@ export const VOCAB_MODE_LABELS: Record<VocabQuizMode, string> = {
   wordFromReading: "Xem cách đọc, đoán từ",
 };
 
+// Arrow-shorthand of the labels above, for the per-direction progress
+// badges on a card's detail view (Kanji/Vocab) -- those need to fit 2-4
+// side by side without wrapping, where the full "Xem X, đoán Y" phrasing
+// doesn't. Full labels stay as-is anywhere else (e.g. Quiz's "Dạng câu hỏi"
+// picker), only these badges use the short form; the full text is kept as
+// each badge's `title` tooltip.
+export const KANJI_MODE_SHORT_LABELS: Record<KanjiQuizMode, string> = {
+  meaning: "Chữ→Nghĩa",
+  character: "Nghĩa→Chữ",
+};
+export const VOCAB_MODE_SHORT_LABELS: Record<VocabQuizMode, string> = {
+  meaning: "Từ→Nghĩa",
+  reading: "Từ→Đọc",
+  wordFromMeaning: "Nghĩa→Từ",
+  wordFromReading: "Đọc→Từ",
+};
+
 // Generalized over just {kind, mode} (not the full QuizQuestion) so it's
 // reusable by reviewState.ts's typed-recall/reveal questions too.
 export function requiredDirectionsFor(question: { kind: QuizContentType; mode: string }): string[] {

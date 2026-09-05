@@ -85,10 +85,13 @@ export async function clearProgress(ids: string[]): Promise<void> {
 }
 
 // Count of a given id list that are currently mastered -- used for the
-// menu screen's "X/Y đã thuộc" summary under Kanji/Từ vựng.
+// menu screen's "X/Y đã thuộc" summary under Kanji/Từ vựng. Excludes a card
+// that's also flagged (same flagged-wins precedence as bucketFor) -- toggling
+// either now keeps the two exclusive going forward, but this guards against
+// any record saved with both still true from before that fix.
 export async function countMastered(ids: string[]): Promise<number> {
   const map = await loadProgressMap();
-  return ids.filter((id) => map[id]?.mastered).length;
+  return ids.filter((id) => map[id]?.mastered && !map[id]?.flagged).length;
 }
 
 // Called once per Quiz answer. `direction` is the quiz mode just drilled
@@ -166,10 +169,18 @@ export async function markViewed(id: string): Promise<void> {
   await saveProgressMap(map);
 }
 
+// "flagged" (cần ôn lại) and "mastered" (đã thuộc) are mutually exclusive --
+// a card can't be both "still struggling" and "already known" at once, so
+// turning one on always clears the other (same as the auto-flag/auto-clear
+// already done in recordAnswer above).
 export async function toggleFlag(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.flagged = !cur.flagged;
+  if (cur.flagged) {
+    cur.mastered = false;
+    cur.dueAt = undefined;
+  }
   // Manually touching a card is itself a "seen" event -- without this, a
   // card only ever flagged/mastered by hand (never quizzed) keeps
   // lastSeenAt at 0 and bucketFor() falls through to "new" regardless of
@@ -189,6 +200,7 @@ export async function toggleMastered(id: string): Promise<ItemProgress> {
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.mastered = !cur.mastered;
   cur.dueAt = cur.mastered ? Date.now() + REVIEW_INTERVAL_MS : undefined;
+  if (cur.mastered) cur.flagged = false;
   cur.lastSeenAt = Date.now();
   map[id] = cur;
   await saveProgressMap(map);
@@ -289,7 +301,7 @@ export function filterByProgress<T extends { id: string }>(
   if (filter === "all") return items;
   if (filter === "flagged") return items.filter((item) => map[item.id]?.flagged);
   if (filter === "due") return items.filter((item) => isDueForReview(map[item.id]));
-  return items.filter((item) => !map[item.id]?.mastered);
+  return items.filter((item) => !map[item.id]?.mastered || map[item.id]?.flagged);
 }
 
 // Quiz question targets are picked with a weight favoring cards that still

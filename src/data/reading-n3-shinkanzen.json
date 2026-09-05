@@ -290,17 +290,16 @@
       "book": "shinkanzen",
       "sentencesVi": [
         "Cách sử dụng",
-        "1. Kéo tay cầm ở bên phải ra.",
-        "2. Bằng cách xoay tay cầm liên tục theo hướng mũi tên, bạn có thể tạo ra điện.",
-        "Phát điện trong 1 phút, có thể sử dụng khoảng 10 phút.",
-        "3. Khi nhấn công tắc đèn, đèn sẽ sáng.",
-        "4. Sau khi nhấn công tắc đèn, nếu nhấn nút màu trắng, bạn có thể làm cho đèn nhấp nháy.",
-        "",
+        "① Kéo tay quay ở bên phải ra.",
+        "② Quay tay quay lặp đi lặp lại theo chiều mũi tên để phát điện.",
+        "Quay phát điện trong 1 phút thì có thể dùng đèn khoảng 10 phút.",
+        "③ Nhấn công tắc đèn để bật đèn.",
+        "④ Sau khi nhấn công tắc đèn, nhấn nút màu trắng để đèn nhấp nháy.",
         "Lưu ý khi sử dụng",
-        "・Trong trường hợp sử dụng trong thời gian dài, đèn có thể trở nên tối đi.",
-        "・Khi đèn tối đi, hãy xoay tay cầm dùng để phát điện.",
-        "・Việc này sẽ gây ra hỏng hóc, vì vậy xin vui lòng không mở ra và tháo rời bên trong.",
-        "・Sản phẩm này không có tính chống nước, vì vậy xin vui lòng không làm ướt."
+        "・Nếu dùng liên tục trong thời gian dài, đèn có thể bị mờ đi.",
+        "Khi đó hãy quay tay quay phát điện.",
+        "・Không được mở nắp bên trong để tháo rời, vì có thể gây hỏng hóc.",
+        "・Sản phẩm này không chống nước, không được để bị ướt."
       ]
     },
     {
@@ -616,19 +615,14 @@
       ],
       "book": "shinkanzen",
       "sentencesVi": [
-        "Đến: 1234abc@lits.ac.jp",
-        "Tiêu đề: Cuộc hẹn ngày thứ Hai",
-        "Thời gian gửi: Ngày 16 tháng 7 năm 20XX 13:16",
-        "",
-        "Sara-san",
-        "Xin chào, tôi là Yamada.",
-        "Đã có hẹn là bạn sẽ đến phòng nghiên cứu vào thứ Hai tuần tới,",
-        "nhưng thực ra đột nhiên có cuộc họp phát sinh nên tôi bị kẹt lịch mất rồi.",
-        "Thật xin lỗi nhưng xin hãy cho phép tôi thay đổi ngày giờ.",
-        "Nếu sớm hơn thì tốt thì ngày mai, sau 5:00 chiều ngày 17,",
-        "còn nếu tốt hơn là sau thứ Hai thì vào thứ Tư hoặc thứ Năm, từ 10 giờ là được.",
-        "Hãy cho tôi biết thời gian thuận tiện của Sara-san nhé.",
-        "",
+        "Người nhận: 1234abc@lits.ac.jp",
+        "Tiêu đề: Hẹn thứ Hai",
+        "Thời gian gửi: 13:16 ngày 16/7/20XX",
+        "Chào Sara, Tôi là Yamada.",
+        "Chúng ta đã hẹn thứ Hai tuần sau em đến phòng nghiên cứu, nhưng thực ra tôi vừa có cuộc họp đột xuất nên không tiện được nữa.",
+        "Xin lỗi em, cho tôi đổi lại ngày giờ nhé.",
+        "Nếu muốn sớm hơn thì 5 giờ chiều trở đi ngày mai (17), hoặc nếu sau thứ Hai cũng được thì thứ Tư, thứ Năm từ 10 giờ đều OK.",
+        "Em cho tôi biết em rảnh lúc nào nhé.",
         "Đại học ○×, Khoa Ngoại ngữ",
         "Yamada Hana"
       ]
@@ -5548,7 +5542,25 @@
           "questionType": "detail"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Kính gửi,",
+        "Hoa anh đào đã nở rộ, tiết trời đã thực sự vào xuân.",
+        "Không biết dạo này anh có khỏe không?",
+        "Nhân dịp này, buổi hòa nhạc của thầy dạy guitar mà tôi đang theo học sẽ được tổ chức vào ngày 10 tháng 6.",
+        "Lần này, cô Minami Yukari — một nghệ sĩ guitar chuyên nghiệp, bạn của thầy — sẽ tham gia biểu diễn với vai trò khách mời đặc biệt.",
+        "Chi tiết xin xem tờ rơi đính kèm.",
+        "Tôi biết anh bận rộn, nhưng rất mong anh có thể đến tham dự.",
+        "Vì số ghế có hạn, nếu anh đến được, xin vui lòng gửi email cho tôi trước một ngày.",
+        "Tôi sẽ chuẩn bị sẵn vé vào cửa.",
+        "Không cần trả tiền.",
+        "Thời tiết vẫn còn thay đổi thất thường.",
+        "Mong anh giữ gìn sức khỏe.",
+        "Ngày 3 tháng 4 năm 2013",
+        "Oyama Haruki",
+        "Gửi anh Hendra Milan",
+        "Trân trọng."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-042",
@@ -6354,7 +6366,21 @@
           "questionType": "main-idea"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Trong tiếng Nhật, cách nói \"する\" (làm/khiến) ít được ưa chuộng bằng cách nói \"なる\" (trở thành/tự nhiên xảy ra).",
+        "Khi dùng \"する\", người nghe cảm nhận được có ý chí chủ động của người nói; còn khi dùng \"なる\", người nghe cảm nhận đó không phải là ý muốn của người nói, mà là một trạng thái tự nhiên xảy ra như vậy.",
+        "Ví dụ, trong một nhà hàng cấm hút thuốc, có một vị khách đang hút thuốc, phía nhà hàng sẽ nói thế nào để khách ngừng hút?",
+        "Người quyết định nhà hàng này cấm hút thuốc chính là nhân viên nhà hàng.",
+        "Nhà hàng này hẳn đã được nhân viên quyết định cấm hút thuốc.",
+        "Vậy thì có lẽ nói \"Ở đây chúng tôi cấm hút thuốc\" (theo ý muốn chủ động) nghe có vẻ tự nhiên hơn.",
+        "Nhưng cách nói \"~にする\" này, như đã viết ở trên, lại truyền tải mạnh mẽ ý chí của người nói.",
+        "Trong tình huống này, nó thể hiện rõ một ý chí đối lập với hành động \"hút thuốc\" của khách.",
+        "Và có thể khiến khách tức giận.",
+        "Ngược lại, nếu nói \"Ở đây đang là khu vực cấm hút thuốc\" (dạng tự nhiên xảy ra), thì câu nói không liên quan đến ý muốn cá nhân, chỉ đơn thuần truyền đạt quy định của nhà hàng, nên không tạo cảm giác đối lập mà vẫn truyền đạt được điều muốn nói.",
+        "Như vậy, người Nhật khéo léo dùng \"なる\" để tránh xung đột với người khác.",
+        "\"する\" và \"なる\" nhìn trên mặt chữ chỉ khác nhau một chút, nhưng trong giao tiếp lại tạo ra sự khác biệt rất lớn."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-043",
@@ -7396,7 +7422,24 @@
           "questionType": "main-idea"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Đối với người Nhật, hoa anh đào là loài cây đặc biệt.",
+        "Cứ đến mùa xuân, gia đình và bạn bè lại tụ tập ngắm hoa (hanami) để thưởng thức vẻ đẹp của hoa anh đào.",
+        "Có nhiều nơi nổi tiếng về hoa anh đào trên khắp nước Nhật, nhưng ngay cả công viên hay con đường có hàng cây gần nhà cũng có rất nhiều chỗ có thể ngắm hoa.",
+        "Cây anh đào là loại cây rất tốn công chăm sóc.",
+        "Hoa chỉ đẹp trong khoảng một tuần vào mùa xuân rồi bắt đầu rụng ngay, những cánh hoa nhỏ bay khắp nơi, phải quét dọn nhiều ngày liền.",
+        "Lá thì đến mùa thu chuyển sang màu đỏ hoặc vàng, lại làm đẹp mắt chúng ta một lần nữa, nhưng cũng nhanh chóng rụng xuống, việc dọn dẹp lượng lá rụng lớn cũng rất vất vả.",
+        "Nhưng vì cây đã cho ta ngắm hoa đẹp và lá đỏ, nên chỉ vì việc quét dọn mà than phiền thì cũng không nên.",
+        "Điều tốn công nhất đối với cây anh đào chính là làm sao để nó sống lâu.",
+        "Nếu bỏ mặc không chăm sóc, cây sẽ yếu dần và có thể chết khô trong khoảng 60-70 năm.",
+        "Vì vậy, người ta cần cắt bớt những cành không cần thiết, chống đỡ những cành nặng bị trĩu xuống, và chăm sóc đủ kiểu khác.",
+        "Công việc này rất phiền phức, nhưng vẫn được những người yêu quý cây anh đào thực hiện trên khắp cả nước, nên những cây anh đào sống hơn 100 năm tuổi cũng không hiếm.",
+        "Không chỉ trân trọng những cây anh đào lâu năm, việc trồng thêm cây anh đào mới cũng rất phổ biến.",
+        "Hễ có công viên hay trường học mới được xây, thể nào cũng có cây anh đào non được trồng ở đó.",
+        "Dù biết là tốn công chăm sóc, người Nhật vẫn muốn có cây anh đào ở gần nơi mình sống.",
+        "Có lẽ không có loài cây nào đặc biệt với người Nhật hơn hoa anh đào."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-044",
@@ -8218,7 +8261,22 @@
           "questionType": "main-idea"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Hiện nay, kiểu nhà ở gọi là \"share house\" — nơi nhiều người không phải người thân sống chung trong một ngôi nhà — đang ngày càng phổ biến.",
+        "Share house là kiểu nhà mà mỗi người có phòng riêng có khóa như ở căn hộ, nhưng bếp, phòng khách, vòi sen, nhà vệ sinh... đều dùng chung.",
+        "Tiền thuê nhà tương đương với các căn hộ xung quanh, nhưng vì có khu vực dùng chung nên không cần đặt tủ lạnh trong phòng riêng, có thể sử dụng phòng của mình rộng rãi hơn.",
+        "Ngoài ra, không chỉ được tận hưởng sự tự do của việc sống một mình, mà còn có thể giao lưu với những người ở khác tại khu vực chung, nên bớt cô đơn và bất an hơn.",
+        "Nếu sống cùng những người khác công việc, khác quốc gia, khác độ tuổi, có thể sẽ có những khám phá thú vị.",
+        "Tuy nhiên, để sống thoải mái cũng cần lưu ý vài điểm.",
+        "Trước khi vào ở, nhất định nên đi xem thực tế, xác nhận xem cách sống của mình có hợp với những người đang sống ở đó không.",
+        "Cũng nên kiểm tra độ tuổi và nghề nghiệp của họ.",
+        "Về cách sử dụng khu vực chung, cũng nên tìm hiểu trước quy định ra sao.",
+        "Vì việc dọn dẹp, tiếng ồn... có thể gây ra vấn đề.",
+        "Ngoài ra, cũng nên xác nhận xem có sẵn giường hay các thiết bị điện như máy giặt hay không.",
+        "Nếu có sẵn, khi vào ở phải bỏ đồ cũ mình đang có, còn khi chuyển đi thì phải tự mua lại.",
+        "Nếu chú ý những điểm trên trước khi vào ở, sẽ ít gặp thất bại hơn."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-045",
@@ -9284,7 +9342,31 @@
           "questionType": "detail"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Đường sắt Nhật Bản nổi tiếng vì đúng giờ.",
+        "Điều đó không thể thiếu sự nỗ lực của những người liên quan đến ngành đường sắt.",
+        "Việc dọn vệ sinh tàu cũng là một trong số đó.",
+        "Hãy xem trường hợp tàu Shinkansen.",
+        "Với đoàn tàu 16 toa, 55 người phụ trách công việc dọn dẹp, bao gồm cả đổ rác và dọn nhà vệ sinh.",
+        "Mỗi toa (63-100 ghế) thường do 2 người phụ trách.",
+        "Thời gian chỉ có 10-12 phút.",
+        "Nếu trễ sẽ gây phiền cho hành khách và làm chậm giờ khởi hành.",
+        "Khi vào trong toa, người phụ trách trước hết thu gom các chai nhựa, lon rỗng, tháo tấm vải trắng phủ trên lưng ghế.",
+        "Sau đó đưa ghế về vị trí ban đầu, lắp tấm vải mới.",
+        "Dùng chổi làm sạch ghế, lau tay vịn.",
+        "Dùng gương kiểm tra xem có đồ bỏ quên trên kệ hành lý không.",
+        "Cuối cùng quét sàn.",
+        "Tất cả phải hoàn thành trong thời gian quy định.",
+        "Chị Ajiki, người bắt đầu công việc này 12 năm trước với vị trí làm thêm, trước đó là nội trợ, nhận ra công việc này khác hẳn với việc dọn nhà.",
+        "Vì vậy, vào ngày nghỉ, chị đã xếp ghế trong phòng khách nhà mình rồi bấm giờ để luyện tập.",
+        "Sau 2 năm, chị có thể biết thời gian còn lại mà không cần nhìn đồng hồ.",
+        "Sau đó, nhờ được công nhận năng lực, chị trở thành nhân viên chính thức, năm thứ 8 trở thành tổ trưởng, và hiện nay là quản lý chỉ đạo 550 người.",
+        "Từng có lần vì bão mà tàu Shinkansen bị trễ, thời gian dọn dẹp chỉ còn 4 phút.",
+        "Chị đã nén lo lắng, tập trung mọi người lại và chỉ đạo tỉ mỉ xem nên làm những việc tối thiểu cần thiết nào.",
+        "Chị nói không bao giờ quên được niềm vui khi tàu khởi hành đúng giờ đã định hôm đó.",
+        "Nhờ có nhiều người như vậy, đường sắt mới có thể chạy đúng giờ."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-046",
@@ -10138,7 +10220,20 @@
           "questionType": "detail"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Gần đây, không chỉ ở đại học mà cả tiểu học, trung học cơ sở, cũng có ý kiến cho rằng những học sinh học kém, không theo kịp bài giảng, nên học lại cùng một khối lớp thay vì lên lớp trên.",
+        "Liệu điều này có thực sự tốt cho trẻ em hay không?",
+        "Trước hết, vấn đề thứ nhất là: ở các trường tiểu học, trung học cơ sở nơi mối liên kết trong lớp rất chặt chẽ, việc chỉ một mình mình không được lên lớp sẽ là một cú sốc lớn.",
+        "Hơn nữa, nếu học sinh lớp dưới dần học giỏi hơn mình, các em có thể mất động lực và tự tin.",
+        "Vấn đề khác là: dù học lại đúng nội dung đó, kết quả học tập chưa chắc đã cải thiện.",
+        "Việc học kém thường do các nguyên nhân như không có thói quen học tập, không biết cách học, hoặc chưa nắm được kiến thức nền tảng.",
+        "Nếu không giải quyết những nguyên nhân này, kết quả cũng sẽ không thay đổi.",
+        "Tất nhiên, nếu học sinh không hiểu nội dung của lớp hiện tại mà vẫn lên lớp trên, các em sẽ không thể theo kịp nội dung khó hơn.",
+        "Nhưng nếu có tình nguyện viên hướng dẫn riêng cho học sinh đó, vấn đề này có thể được cải thiện.",
+        "Ví dụ, sau giờ học, các sinh viên đại học muốn trở thành giáo viên, hoặc giáo viên đã nghỉ hưu, đến trường tìm hiểu vấn đề của học sinh đó và hướng dẫn phù hợp với từng em.",
+        "Nếu làm được như vậy, học sinh sẽ không mất động lực, và dù ở lớp trên vẫn có thể theo kịp bài học."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-047",
@@ -10896,7 +10991,28 @@
           "questionType": "main-idea"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Thỉnh thoảng có người nói rằng không hiểu được người yêu hay bạn đời của mình đang nghĩ gì.",
+        "Nhưng có lẽ chính việc kỳ vọng đối phương suy nghĩ giống mình mới là điều sai lầm.",
+        "Hôm trước, tôi nghe được một câu chuyện thú vị về sự khác biệt giữa nam và nữ.",
+        "Theo đó, trong một số tình huống, cách suy nghĩ và hành động của nam giới và nữ giới khác nhau khá rõ.",
+        "Hãy vừa đọc vừa suy nghĩ xem a) và b) — cái nào nói về nam, cái nào nói về nữ.",
+        "1. Về mua sắm",
+        "a) Nếu món đồ vốn 200 yên được giảm còn 100 yên, dù không cần cũng mua.",
+        "b) Nếu món đồ vốn 100 yên tăng lên 200 yên, nếu cần thì vẫn mua.",
+        "2. Về tương lai",
+        "a) Trước khi kết hôn thì lo lắng về tương lai.",
+        "b) Trước khi kết hôn thì không hề lo lắng gì về tương lai.",
+        "3. Về hôn nhân",
+        "a) Mong đối phương thay đổi, nhưng đối phương không thay đổi.",
+        "b) Mong đối phương đừng thay đổi, nhưng đối phương lại thay đổi.",
+        "Vậy, bạn có nhận ra ngay a) và b), cái nào là nam, cái nào là nữ không?",
+        "Nghe nói a) là nữ, b) là nam.",
+        "Nhìn lại bản thân và những người xung quanh, quả thực thấy khá đúng.",
+        "Có lẽ nên nghĩ rằng nam và nữ vốn dĩ khác nhau.",
+        "Vì đối phương khác mình, nếu không nỗ lực để thu hẹp khoảng cách đó, sẽ khó mà xây dựng được một mối quan hệ tốt đẹp."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-048",
@@ -11886,7 +12002,30 @@
           "questionType": "inference"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Núi Phú Sĩ cao 3.776 mét, là ngọn núi cao nhất Nhật Bản, đồng thời cũng là Di sản Văn hóa Thế giới.",
+        "Vì đường leo núi được xây dựng hoàn thiện, mỗi năm có tới hàng trăm nghìn người tìm cách chinh phục đỉnh núi.",
+        "Tôi cũng tham gia một tour để leo núi.",
+        "Lúc mới bắt đầu leo khá dễ dàng.",
+        "Nhưng khoảng 3 tiếng sau, đá ngày càng nhiều, việc leo trở nên khó khăn hơn.",
+        "Thêm vào đó thời tiết cũng xấu đi, phía trước lẫn phía sau đều trắng xóa, gần như không nhìn thấy gì.",
+        "Hóa ra lúc đó chúng tôi đang ở ngay trong đám mây.",
+        "Không nhìn thấy gì cả, chỉ có thể bước từng bước về phía trước, lúc đó tôi cảm thấy bất an và mệt mỏi.",
+        "Một lúc sau, thời tiết đột nhiên trở nên tốt hơn.",
+        "Không phải mây đã di chuyển đi.",
+        "Mà là chúng tôi đã vượt lên trên tầng mây.",
+        "Dưới chân chúng tôi, mây trải rộng như một biển mây.",
+        "Nhìn thấy cảnh tượng tuyệt đẹp đó, tôi lấy lại sức và đến được nhà nghỉ trên núi đúng giờ dự kiến.",
+        "Chúng tôi nghỉ lại đó một đêm.",
+        "Sáng hôm sau, khi trời còn tối, chúng tôi xuất phát từ nhà nghỉ leo lên đến đỉnh, và ở đó có rất đông người đang chờ ngắm mặt trời mọc.",
+        "Dần dần, bầu trời tối mờ chuyển sang màu xanh sáng, rồi phần dưới của bầu trời chuyển sang màu cam.",
+        "Sau đó, mặt trời từ từ nhô lên, ánh sáng chói lòa lan tỏa.",
+        "Ánh sáng ngày càng mạnh, chiếu rọi lên chúng tôi.",
+        "Đỉnh núi rất lạnh, nhưng khi ánh nắng mặt trời chiếu vào, tôi cảm nhận được cơ thể dần ấm lên.",
+        "Leo núi Phú Sĩ rất vất vả, nhưng tôi đã có được nhiều trải nghiệm tuyệt vời mà chỉ khi leo lên mới có được.",
+        "Tôi từng nghe có người năm nào cũng leo núi này, và giờ tôi hiểu rõ cảm giác của họ."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-049",
@@ -12684,7 +12823,20 @@
           "questionType": "detail"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Có một nghề gọi là \"nhà bình luận\" (評論家).",
+        "Đó là công việc có kiến thức sâu về một lĩnh vực nào đó, đưa ra những giải thích, đánh giá để mọi người tham khảo.",
+        "Ngày nay, từ nhà bình luận chính trị, bình luận kinh tế cho đến cả \"nhà bình luận ramen\", đủ mọi lĩnh vực đều có người hoạt động trên truyền hình, tạp chí.",
+        "Nhưng khác với bác sĩ hay giáo viên, không hề có kỳ thi cấp chứng chỉ để trở thành nhà bình luận.",
+        "Vậy rốt cuộc họ đã trở thành nhà bình luận bằng cách nào?",
+        "Phần lớn trong số họ không hẳn là học kiến thức sâu rộng chỉ để đi bình luận.",
+        "Nhiều người từ khi còn trẻ đã có kiến thức và hứng thú vượt trội với một lĩnh vực nào đó, rồi trong lúc say mê học hỏi, dần dần biến nó thành nghề nghiệp của mình lúc nào không hay.",
+        "Được làm công việc đúng với lĩnh vực mình yêu thích quả là điều đáng ghen tị, nhưng không phải chỉ cần có kiến thức sâu rộng vượt trội là có thể trở thành nhà bình luận.",
+        "Để có thu nhập từ nghề bình luận, họ cần phải được các phương tiện truyền thông đại chúng như báo, tạp chí, truyền hình... để mắt tới.",
+        "Để được truyền thông chú ý, cần có sức thuyết phục và sự cuốn hút khiến người ta cảm thấy tin tưởng và muốn nghe, hơn nữa cũng cần có vận may để có cơ hội xuất hiện trên truyền thông.",
+        "Có lẽ chỉ khi hội đủ cả kiến thức vượt trội, sức thuyết phục và sự cuốn hút khiến người khác muốn lắng nghe, cùng với vận may nắm bắt cơ hội, người ta mới có thể trở thành nhà bình luận."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-050",
@@ -13526,7 +13678,22 @@
           "questionType": "main-idea"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Vào kỳ nghỉ hè, tôi đã đi du lịch đến một thị trấn nọ.",
+        "Đó là nơi sinh ra và cũng là nơi nhà văn mà tôi rất yêu thích thời đi học từng sống và hoạt động.",
+        "Tôi đã ao ước được tận mắt nhìn thấy nơi đó, và cuối cùng điều đó cũng thành hiện thực.",
+        "Vì ông đã qua đời mấy chục năm rồi, chắc chắn cảnh vật đã thay đổi hoàn toàn.",
+        "Dù vậy, việc đi dạo trong thị trấn xanh tươi xinh đẹp — bối cảnh trong tiểu thuyết của ông — vẫn rất thú vị.",
+        "Nhưng có lẽ vì từ khi đi làm tôi hầu như không còn đọc tác phẩm của ông nữa, nên không có cảm xúc gì thêm; thành thật mà nói, tôi cảm thấy hơi thiếu thốn điều gì đó.",
+        "Thế nhưng, khi bước vào một bảo tàng tưởng niệm, mọi thứ đã khác.",
+        "Ở đó trưng bày các bản thảo và thư tay do chính ông viết.",
+        "Nhìn ngắm chúng, dần dần nội dung những cuốn tiểu thuyết và bài thơ tôi từng đọc ngày xưa lại hiện lên trong tâm trí.",
+        "Đặc biệt, khi đọc bản thảo bài thơ ông viết lúc em gái mình qua đời, tôi cảm nhận nỗi đau buồn của ông gần gũi đến mức nhói lòng.",
+        "Tôi nhận ra rằng, dù thời gian có trôi qua bao lâu, chữ viết tay vẫn thể hiện mạnh mẽ con người đó là ai, họ đã cảm nhận điều gì.",
+        "Tôi vốn viết chữ xấu nên luôn cố gắng dùng máy tính.",
+        "Nhưng kể từ đó, tôi bắt đầu nghĩ rằng dù chữ có xấu, nếu viết bằng cả tấm lòng, có lẽ vẫn truyền tải được điều gì đó."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-051",
@@ -14544,7 +14711,24 @@
           "questionType": "main-idea"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "\"Nhật ký tiệm hoa\" là tiểu thuyết lấy bối cảnh một tiệm hoa.",
+        "Truyện miêu tả tỉ mỉ mối quan hệ giữa nhân viên làm thêm của tiệm hoa với nhiều vị khách khác nhau đến mua hoa.",
+        "Tác giả Yamaguchi Shizuka là nữ nhà văn đang được chú ý, từng đoạt giải Tiểu thuyết xuất sắc nhất năm 2012 với tác phẩm \"Một mình\".",
+        "Cô được yêu thích vì cách thể hiện đầy tình cảm sự trong sáng của tuổi trẻ.",
+        "Trong \"Nhật ký tiệm hoa\", nhân vật chính là Yuu, 17 tuổi, không đi học cũng không đi làm.",
+        "Yuu vốn không có hứng thú với bất cứ điều gì, bắt đầu làm thêm ở một tiệm hoa nhỏ.",
+        "Ở đó, mỗi ngày lại xuất hiện những vị khách hơi khác thường: một bà cụ chỉ mua đúng một bông hoa, hay một cậu học sinh tiểu học muốn đổi máy chơi game để lấy hoa...",
+        "Khách nào cũng muốn Yuu chọn hoa giúp mình.",
+        "Bối rối, Yuu bắt đầu hỏi khách về hoàn cảnh của họ — vì sao muốn mua hoa đó, hoa dành cho ai...",
+        "Qua những cuộc trò chuyện với khách, Yuu dần suy nghĩ về nhiều điều như tầm quan trọng của mối quan hệ giữa người với người, ý nghĩa của việc làm việc, và bắt đầu thay đổi.",
+        "Chứng kiến Yuu — người từng sống những ngày không chút niềm vui — trở nên tươi sáng và mạnh mẽ hơn khi làm việc có ích cho người khác, độc giả chắc chắn sẽ được tiếp thêm động lực.",
+        "Đó cũng chính là lời động viên tác giả gửi đến độc giả.",
+        "Ngoài ra, truyện còn giới thiệu tên và ý nghĩa của rất nhiều loài hoa, là kiến thức hữu ích khi bạn muốn tặng hoa cho ai đó.",
+        "Đây là cuốn sách khiến người đọc thêm yêu con người và tràn đầy năng lượng, rất thích hợp đọc khi bạn cảm thấy mệt mỏi vì các mối quan hệ hoặc chưa tìm được mục tiêu cho mình.",
+        "Rất mong những người cùng lứa tuổi với Yuu sẽ đọc cuốn sách này."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-052",
@@ -15172,7 +15356,23 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "S Mart (mở cửa 24h) rất gần và tiện lợi!",
+        "Đợt giảm giá hời tháng 6!",
+        "(Chỉ áp dụng 18h~24h!)",
+        "Thời gian khuyến mãi: Thứ Hai 2/6/2014 ~ Thứ Bảy 28/6/2014",
+        "* Vui lòng cắt phiếu giảm giá bên dưới và xuất trình cùng sản phẩm tại quầy thu ngân!",
+        "* Mỗi khách chỉ được sử dụng 1 tờ quảng cáo này.",
+        "* Mỗi phiếu giảm giá chỉ áp dụng giảm giá cho 1 sản phẩm.",
+        "* Tùy cửa hàng có thể hết một số sản phẩm.",
+        "* Phiếu giảm giá chỉ sử dụng được từ 18h đến 24h.",
+        "【Bảng giảm giá】",
+        "2/6 (Hai) ~ 14/6 (Bảy): Chocolate — giảm 30 yên so với giá niêm yết",
+        "2/6 (Hai) ~ 14/6 (Bảy): Bánh donut — giảm 20 yên so với giá niêm yết",
+        "15/6 (CN) ~ 28/6 (Bảy): Kem — giảm 20 yên so với giá niêm yết",
+        "15/6 (CN) ~ 28/6 (Bảy): Cà phê nóng — giảm 30 yên so với giá niêm yết"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-053",
@@ -15608,7 +15808,22 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Bạn có muốn cùng làm việc tại quán sushi không!",
+        "Tuyển nhân viên làm thêm!",
+        "Loại công việc: Phụ bếp",
+        "Thời gian làm việc / lương: ① 8:00-15:00, lương giờ 900 yên",
+        "② 15:00-24:00, lương giờ 1.000 yên (mức lương theo giờ có xét đến kinh nghiệm)",
+        "* Yêu cầu: làm được 2 ngày/tuần, mỗi ngày từ 5 tiếng trở lên.",
+        "* Ngày và giờ làm có thể trao đổi.",
+        "* Không có kinh nghiệm cũng OK!",
+        "* Hoan nghênh nội trợ, sinh viên.",
+        "(Không nhận học sinh cấp 3)",
+        "Cách ứng tuyển: Gọi điện trước, sau đó mang theo sơ yếu lý lịch (có dán ảnh) đến phỏng vấn.",
+        "Địa điểm làm việc / liên hệ: A-shi Yamada-cho 2-2-1",
+        "Sushi no Yoshino (chi nhánh Yamada) TEL: 1111-3333"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-054",
@@ -16064,7 +16279,24 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Trang thông tin căn hộ \"My House Net\" (Cập nhật tháng 3 năm 20XX)",
+        "Ga Nakayamada — đi bộ 3 phút",
+        "Căn hộ xây được 10 năm",
+        "Tiền thuê: 30.000 yên",
+        "Tiền đặt cọc / tiền lễ: 1 tháng / 1 tháng",
+        "Phòng đơn (one-room): 19,84 m²",
+        "・Hướng Nam",
+        "・Tầng 2 của tòa nhà 5 tầng",
+        "・Cách siêu thị 400m",
+        "・Miễn phí môi giới!",
+        "Khi ký hợp đồng chỉ cần trả tiền thuê 1 tháng cộng tiền đặt cọc và tiền lễ mỗi loại 1 tháng!",
+        "・Có thể nuôi thú cưng (cần trao đổi trước)!",
+        "(Sơ đồ phòng: lối vào, bồn rửa mặt, phòng tắm/nhà vệ sinh, tủ đồ, phòng ở 19,84m², ban công ở phía phòng hướng Nam.)",
+        "Chú thích 1: Tiền đặt cọc (敷金) — tiền gửi cho chủ nhà làm tiền bảo đảm khi ký hợp đồng thuê căn hộ.",
+        "Chú thích 2: Tiền lễ (礼金) — tiền trả cho chủ nhà như một khoản \"cảm ơn\" khi ký hợp đồng thuê căn hộ."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-055",
@@ -16764,7 +16996,28 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "\"Bunka Cafe\" http://bunkacafe.com",
+        "Vừa uống trà vừa có khoảng thời gian vui vẻ cùng những người đến từ nhiều quốc gia khác nhau ♪",
+        "★ Lớp học ngoại ngữ ★",
+        "① Tiếng Nhật — Thứ Hai hàng tuần, 15:00~16:30",
+        "② Tiếng Ả Rập — Thứ Tư hàng tuần, 19:00~20:30",
+        "③ Tiếng Trung — Chủ Nhật tuần thứ 4 trong tháng, 14:00~15:30",
+        "★ Lớp văn hóa Nhật Bản ★",
+        "④ Lớp trà đạo — Chủ Nhật tuần thứ 4, 15:00~17:00. Học trà đạo, ăn bánh kẹo truyền thống Nhật, tìm hiểu những điều liên quan đến trà.",
+        "⑤ Lớp Kyoto — khoảng 1 lần/tháng. Trao đổi thông tin về chùa chiền, ẩm thực, và các chủ đề liên quan đến Kyoto.",
+        "⑥ Lớp văn hóa đại chúng Nhật Bản — khoảng 1 lần/tháng. Tìm hiểu và trò chuyện về anime, J-pop và nhiều nét văn hóa Nhật Bản khác.",
+        "★ Sự kiện ★",
+        "⑦ Lớp học nấu ăn các nước — vài lần/năm. Cùng nhau nấu và thưởng thức món ăn của nhiều quốc gia ♪",
+        "☆ Học phí (thành viên \"Bunka Cafe\" được giảm 500 yên)",
+        "Lớp ngoại ngữ: 2.000 yên/buổi",
+        "Lớp văn hóa Nhật: 1.500 yên/buổi",
+        "☆ Số lượng: tối đa 8 người (ưu tiên đăng ký trước)",
+        "☆ Đăng ký: đặt chỗ qua mạng trước ít nhất 3 ngày",
+        "→ info@bunkacafe.com",
+        "☆ Địa điểm: Nhà văn hóa Minato (đi bộ 4 phút từ ga Minato)"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-056",
@@ -17228,7 +17481,35 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Higashi-cho — Hướng dẫn nhà hàng",
+        "① Olive no Kaze",
+        "Có thể thưởng thức nhiều món ăn từ các nước Nam Âu.",
+        "Phù hợp cho tiệc.",
+        "[Trưa] 800~1.500 yên [Tối] 2.000~5.000 yên",
+        "Giờ mở cửa: 11:00~14:00, 18:00~24:00",
+        "Nghỉ: Thứ Năm",
+        "② Sankai",
+        "Hương vị quê nhà Nhật Bản với cá và rau tươi.",
+        "Sashimi ngon nhất.",
+        "[Trưa] 950~1.500 yên [Tối] 3.500~8.000 yên",
+        "Giờ mở cửa: 11:30~14:30, 18:00~22:00",
+        "Nghỉ: Thứ Ba",
+        "③ Yoneyama",
+        "Thực đơn phong phú các món Nhật như tempura, sushi.",
+        "Có phòng riêng.",
+        "[Trưa] 1.000~2.300 yên [Tối] 3.800~8.800 yên",
+        "Giờ mở cửa: 12:00~14:00, 17:30~21:30",
+        "Mở cửa quanh năm, không nghỉ.",
+        "④ Lee An",
+        "Nhà hàng Trung Hoa nổi tiếng với món cua.",
+        "Có cả thực đơn ăn thỏa thích.",
+        "[Trưa] 1.000~1.800 yên [Tối] 2.500~12.000 yên",
+        "Giờ mở cửa: 11:00~14:00, 17:00~23:00",
+        "Nghỉ: Thứ Ba",
+        "Có phòng riêng."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-057",
@@ -17792,7 +18073,38 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Nhà hàng Sakura — Thực đơn giao hàng tận nhà. Mở cửa quanh năm.",
+        "Cơm hộp theo ngày (đều 600 yên, kèm súp miso).",
+        "Thứ Hai: Cơm hộp hamburger.",
+        "Thứ Ba: Cơm hộp tonkatsu.",
+        "Thứ Tư: Cơm hộp gà rán.",
+        "Thứ Năm: Cơm hộp croquette.",
+        "Thứ Sáu: Cơm hộp thịt nướng.",
+        "Cơm.",
+        "Cơm cà ri: 550 yên.",
+        "Cơm trứng cuộn: 600 yên.",
+        "Oyakodon: 720 yên.",
+        "Katsudon: 800 yên.",
+        "Salad.",
+        "Salad ngô: 200 yên.",
+        "Salad khoai tây: 230 yên.",
+        "Đồ uống.",
+        "Cola: 150 yên.",
+        "Nước cam: 150 yên.",
+        "Trà xanh: 120 yên.",
+        "※ Nếu gọi cùng món ăn, đồ uống chỉ 100 yên!",
+        "TEL: 5555-8888.",
+        "Giờ nhận đơn: 9:00~20:30. Thứ Bảy/Chủ Nhật/ngày lễ kết thúc lúc 19:30.",
+        "Giờ giao hàng: 10:30~21:00 (trừ khung 14:00~17:00). Thứ Bảy/Chủ Nhật/ngày lễ kết thúc lúc 20:00.",
+        "* Chỉ gọi 1 món cũng được nhận đơn!",
+        "Đơn hàng dưới 1.000 yên sẽ tính thêm phí giao hàng 200 yên/lần giao.",
+        "* Đơn từ 10 phần trở lên vui lòng đặt trước ngày hôm trước.",
+        "* Cũng có thể đặt hàng qua internet.",
+        "http://www.aaa.ccc",
+        "(Chú thích: giao hàng tận nhà là việc giao sản phẩm đến tận nhà khách hàng.)"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-058",
@@ -18344,7 +18656,28 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "HÓA ĐƠN CƯỚC ĐIỆN THOẠI DI ĐỘNG NAT",
+        "Tokyo-to, ○○-shi, ××-chou 3-5-2",
+        "Kính gửi: Kang Hae-mi",
+        "Kỳ sử dụng: 1/5/2014 ~ 31/5/2014",
+        "Số tiền phải thanh toán: 7.800 yên",
+        "Hạn thanh toán: Thứ Hai, ngày 30/6/2014",
+        "Liên hệ:",
+        "NAT: 0800-222-3333",
+        "Thứ Hai~Chủ Nhật (mở quanh năm) 9:00-20:00",
+        "Ngày phát hành: 3/6/2014",
+        "Hướng dẫn cách thanh toán",
+        "● Thanh toán bằng tiền mặt:",
+        "Cắt \"phiếu chuyển khoản\" bên dưới, thanh toán tại cửa hàng tiện lợi gần nhất hoặc ngân hàng/bưu điện.",
+        "● Thanh toán bằng thẻ tín dụng:",
+        "Thanh toán qua website của NAT.",
+        "Nếu làm thủ tục trích nợ tự động từ tài khoản ngân hàng, tiền sẽ tự động được trừ vào ngày 26 hàng tháng.",
+        "Kang nhận được lá thư ở trang bên trái qua đường bưu điện.",
+        "Cô đã mở tài khoản ngân hàng, nhưng không có tài khoản bưu điện.",
+        "Cô cũng chưa có thẻ tín dụng."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-059",
@@ -19116,7 +19449,33 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "PHIẾU BẢO HÀNH",
+        "Ngày mua: 1/5/2014",
+        "Hãng sản xuất: Princess",
+        "Tên vợt: Shot 35",
+        "Màu: Xanh dương",
+        "1. Nếu trong điều kiện sử dụng bình thường mà bị hư hỏng, chúng tôi sẽ sửa chữa hoặc đổi mới miễn phí trong thời hạn bảo hành ghi bên dưới, tính từ ngày mua hàng.",
+        "・ Vợt bóng bàn: 6 tháng kể từ ngày mua.",
+        "Riêng loại cho trẻ em: 1 năm.",
+        "・ Vợt cầu lông: 3 tháng kể từ ngày mua.",
+        "Riêng loại cho trẻ em: 6 tháng.",
+        "・ Vợt tennis: 9 tháng kể từ ngày mua.",
+        "* Chỉ áp dụng cho khách mua hàng trong nước Nhật Bản.",
+        "2. Trong các trường hợp sau, dù còn trong thời hạn bảo hành cũng không thể sửa chữa hoặc đổi mới:",
+        "・ Hư hỏng do hỏa hoạn, động đất, thiên tai lũ lụt...",
+        "・ Hư hỏng do cách sử dụng như sau:",
+        "(đặt vật nặng lên trên vợt;",
+        "ném vợt hoặc dùng vợt đập đồ vật;",
+        "dùng vợt vào việc khác ngoài đánh bóng/cầu...)",
+        "・ Hư hỏng do để vợt trong tình trạng như sau:",
+        "(để lâu ở nơi có ánh nắng chiếu vào, hoặc nơi ẩm ướt...)",
+        "3. Nếu làm mất phiếu bảo hành, có thể sẽ không được sửa chữa hoặc đổi mới.",
+        "Racket Shop Fuji",
+        "Tokyo-to ○○-shi ××-chou 1-2-3",
+        "Tel: 03-8888-7777"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-060",
@@ -19616,7 +19975,31 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "A. Giờ chiếu phim",
+        "Rạp 1 (50 ghế):",
+        "10:15-12:25 Bàn ăn lớn",
+        "14:00-16:10 Bàn ăn lớn",
+        "17:15-19:25 Bàn ăn lớn",
+        "Rạp 2 (150 ghế):",
+        "11:45-13:30 Mèo và Ichiro",
+        "15:15-17:00 Mèo và Ichiro",
+        "19:15-21:35 Ohana♡",
+        "Rạp 3 (300 ghế):",
+        "11:15-14:15 Ninja Gió",
+        "14:30-17:30 Ninja Gió",
+        "B. Giới thiệu phim",
+        "* \"Bàn ăn lớn\" — Cuộc sống thường ngày của một gia đình 15 người.",
+        "Phim tài liệu ghi lại 3 năm đầy tiếng cười và nước mắt.",
+        "* \"Mèo và Ichiro\" — Ichiro là cậu bé 7 tuổi.",
+        "Khi đeo kính vào, cậu có thể nói chuyện được với mèo!",
+        "?",
+        "* \"Ninja Gió\" — Ninja Hanzo di chuyển nhanh như gió.",
+        "Chuyển thể từ bộ truyện tranh nổi tiếng.",
+        "* \"Ohana♡\" — 5 thành viên của một đội nhảy trên hành trình chinh phục đỉnh cao thế giới, dần trở nên thân thiết như một gia đình.",
+        "\"Ohana\" trong tiếng Hawaii nghĩa là \"gia đình\"."
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-061",
@@ -20452,7 +20835,41 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Wen muốn xin việc vào một công ty, nên đã đăng ký tham gia buổi giải thích công ty qua website của công ty đó.",
+        "Sau đó, Wen nhận được email xác nhận có đính kèm tệp.",
+        "Công ty Cổ phần △△ — Email xác nhận đặt chỗ Buổi giải thích công ty",
+        "【Thời gian tổ chức】 Ngày 1/12/20xx, 13:00~14:30",
+        "Kính gửi anh/chị Wen Molly,",
+        "Chúng tôi là bộ phận tuyển dụng của Công ty Cổ phần △△.",
+        "Cảm ơn anh/chị đã đăng ký tham gia buổi giải thích công ty.",
+        "Xin vui lòng kiểm tra lại ngày giờ và những vật dụng cần mang theo, và tham dự đúng giờ.",
+        "\"Buổi giải thích công ty\"",
+        "● Vật dụng cần mang theo",
+        "・Dụng cụ viết",
+        "・Sơ yếu lý lịch (vui lòng dán ảnh)",
+        "・Bản in email xác nhận đặt chỗ này",
+        "● Trang phục",
+        "Vest công sở",
+        "● Địa điểm",
+        "Trụ sở chính công ty △△ 〒111-2222 Tokyo-to ○○-shi □□2-3-4, Tòa nhà số 1 công ty △△",
+        "● Phương tiện di chuyển",
+        "Tuyến JR Chuo, Sobu; Tokyo Metro tuyến Tozai — đi bộ 10 phút từ ga \"○×\"",
+        "● Nơi tiếp đón",
+        "Quầy tiếp tân trụ sở chính công ty △△ ở tầng 1 tòa nhà",
+        "● Thời gian bắt đầu tiếp đón",
+        "Từ 10 phút trước giờ bắt đầu",
+        "* Dù đến sớm cũng không thể được hướng dẫn.",
+        "Ngoài ra, không thể tham gia nếu đến sau giờ bắt đầu.",
+        "<Lưu ý>",
+        "* Vui lòng đến đúng giờ trong ngày diễn ra sự kiện.",
+        "* Nếu muốn đổi ngày tham gia, hãy làm trước ngày hôm trước bằng cách hủy qua trang hướng dẫn tuyển dụng trên website công ty rồi đăng ký lại.",
+        "* Nếu đến trễ hoặc vắng mặt ngay trong ngày, vui lòng liên hệ trực tiếp với công ty.",
+        "(Phụ trách tuyển dụng: 03-4567-8901)",
+        "Công ty Cổ phần △△ — Bộ phận tuyển dụng",
+        "Mail: saiyo@△△.ne.jp"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-062",
@@ -21064,7 +21481,35 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "★ Bản tin hỗ trợ đời sống du học sinh ★",
+        "★ Số tháng 1 năm 20XX ★",
+        "Chúc mừng năm mới!",
+        "Tết Nhật Bản của các bạn thế nào?",
+        "Bản tin hỗ trợ đời sống du học sinh năm nay cũng sẽ tiếp tục giới thiệu nhiều thông tin hữu ích, mong các bạn ủng hộ!",
+        "Mục lục　1. Tin tức………Tiệc mừng năm mới / Trao đổi đồ dùng không cần",
+        "　　　　　2. Chuyên đề……\"Cách tiết kiệm của mọi người\"",
+        "◆ 1. Tin tức",
+        "Tiệc mừng năm mới　Cùng giã bánh mochi, thưởng thức món ăn Tết Nhật...",
+        "Thời gian: Thứ Bảy 15/1, 13:00~17:00",
+        "Địa điểm: Phòng họp Nhà văn hóa thị dân ○○",
+        "Đăng ký tham gia tại đây ① http://ryugakuoen.or.jp/shinnen.htm",
+        "Trao đổi đồ dùng không cần",
+        "Nếu bạn ghi lại đồ nội thất, thiết bị điện... mà bạn muốn có hoặc không cần nữa, biết đâu sẽ trao đổi được với ai đó.",
+        "Trang trao đổi tại đây http://ryugakuoen.or.jp/koukan.htm",
+        "◆ 2. Chuyên đề \"Cách tiết kiệm của mọi người\"",
+        "Rất nhiều ý tưởng từ các du học sinh: cách giảm 30% tiền điện, thông tin cửa hàng giá rẻ... giúp bạn tiết kiệm khéo léo mà vẫn tận hưởng cuộc sống ở Nhật!",
+        "Hãy tham khảo nhé!",
+        "Trang chuyên đề tại đây http://ryugakuoen.or.jp/tokushu.htm",
+        "◆ Xem lại các số cũ tại đây http://ryugakuoen.or.jp/menu-mmag.htm",
+        "◆ Bản tin này chỉ dùng để gửi đi.",
+        "Không thể trả lời đến địa chỉ này.",
+        "Góp ý, thắc mắc xin liên hệ tại đây ② http://ryugakuoen.or.jp/ad/mail.htm",
+        "◆ Hủy đăng ký nhận bản tin tại đây ③ http://ryugakuoen.or.jp/mmag.resign.htm",
+        "Đơn vị phát hành: Nhóm NPO Hỗ trợ đời sống du học sinh",
+        "Ban biên tập: Ủy ban bản tin　e-mail: ④×××@ryuugakuoen.or.jp"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-063",
@@ -21636,7 +22081,29 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Vì món hàng Chin mua trên mạng bị lỗi, Chin đã liên hệ qua email yêu cầu trả hàng, và nhận được thư trả lời như sau.",
+        "Kính gửi chị Chin Suchi,",
+        "Cảm ơn chị đã luôn ủng hộ cửa hàng ○×.",
+        "Tôi là Kimura, người phụ trách.",
+        "Lần này, sản phẩm 【Ấm điện ABC】 chị đã mua gần đây có lỗi, chúng tôi thành thật xin lỗi vì điều này.",
+        "Dù có phần bất tiện, mong chị gửi trả lại sản phẩm 【Ấm điện ABC】 theo hình thức người nhận trả cước.",
+        "● Địa chỉ nhận hàng trả về: 〒123-4567 Tokyo-to ○○-ku ○○-chou 1-2-3",
+        "Công ty Cổ phần ○×Shop",
+        "Tel: 03-1234-5678",
+        "Sau khi nhận được hàng, chúng tôi sẽ tiến hành hoàn tiền cho chị.",
+        "Vì vậy, mong chị cho biết thông tin tài khoản ngân hàng để nhận tiền hoàn lại.",
+        "Vui lòng điền vào các mục dưới đây và trả lời email này.",
+        "● Tên ngân hàng: 　　　　　● Tên chi nhánh:",
+        "● Số tài khoản: 　　　　　　● Tên chủ tài khoản:",
+        "Chúng tôi thành thật xin lỗi vì đã gây phiền phức cho chị lần này.",
+        "Rất mong được phục vụ chị trong những lần sau.",
+        "○×Shop　Kimura ○○",
+        "URL: http://shop.marubatsu.com",
+        "Tel: 03-1234-5678",
+        "e-mail: ×××@marubatsu.com"
+      ]
     },
     {
       "id": "reading-shinkanzen-n3-064",
@@ -22052,7 +22519,21 @@
           "questionType": "info-search"
         }
       ],
-      "book": "shinkanzen"
+      "book": "shinkanzen",
+      "sentencesVi": [
+        "Biểu đồ bên là kết quả khảo sát về loài động vật yêu thích, thực hiện trên 3.600 người Nhật (có thể chọn nhiều đáp án).",
+        "Biểu đồ thể hiện thứ hạng từ 1 đến 8 trong kết quả khảo sát năm 1983 và năm 2007.",
+        "【Động vật yêu thích (chọn nhiều)】",
+        "Chó: 1983 ~60%, 2007 ~65%",
+        "Mèo: 1983 ~38%, 2007 ~33%",
+        "Cá heo: 1983 ~28%, 2007 ~29%",
+        "Ngựa: 1983 ~35%, 2007 ~25%",
+        "Thỏ: 1983 ~44%, 2007 ~22%",
+        "Gấu trúc (Panda): 1983 ~51%, 2007 ~21%",
+        "Gấu túi Koala: 1983 ~43%, 2007 ~19%",
+        "Sóc: 1983 ~42%, 2007 ~18%",
+        "(Trích từ \"Những thứ người Nhật yêu thích\" của Viện Nghiên cứu Văn hóa Phát thanh NHK)"
+      ]
     }
   ]
 }

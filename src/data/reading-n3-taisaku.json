@@ -1669,7 +1669,27 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "Kỹ thuật của cả 3 câu: tách bài văn dài thành BẢNG TÓM TẮT theo từng đoạn trước khi trả lời, thay vì đọc lại toàn bài mỗi câu hỏi.\nBảng Halloween (dòng 1-9): dòng2=nguồn gốc tôn giáo Celt hơn 2000 năm trước; dòng3-4=trẻ cầm đèn lồng bí ngô đi quanh xóm; dòng4-5=nói \"Trick or treat\" xin kẹo; dòng8=có tổ chức tiệc hóa trang.\nBảng Thất Tịch (dòng 10-20): dòng12=Ngưu Lang Chức Nữ được gặp nhau 1 năm 1 lần; dòng13=viết điều ước lên tanzaku treo lên tre (kiểu THÔNG THƯỜNG); dòng14-15=RIÊNG ở Hakodate, trẻ mặc yukata đi từng nhà hát bài đặc trưng; dòng16-17=hát xong thì được tặng kẹo bánh.\nVới câu hỏi \"đâu là điểm SAI/không thuộc chủ đề X\", chỉ cần đối chiếu từng đáp án với bảng tóm tắt của đúng chủ đề đó — đáp án nào không xuất hiện trong bảng chính là đáp án cần chọn. Với câu hỏi \"điểm CHUNG\", so sánh hai bảng và tìm chi tiết trùng nhau ở cả hai (ở đây là việc trẻ em đi từng nhà và nhận quà bánh)."
+      "studyNote": "Kỹ thuật của cả 3 câu: tách bài văn dài thành BẢNG TÓM TẮT theo từng đoạn trước khi trả lời, thay vì đọc lại toàn bài mỗi câu hỏi.\nBảng Halloween (dòng 1-9): dòng2=nguồn gốc tôn giáo Celt hơn 2000 năm trước; dòng3-4=trẻ cầm đèn lồng bí ngô đi quanh xóm; dòng4-5=nói \"Trick or treat\" xin kẹo; dòng8=có tổ chức tiệc hóa trang.\nBảng Thất Tịch (dòng 10-20): dòng12=Ngưu Lang Chức Nữ được gặp nhau 1 năm 1 lần; dòng13=viết điều ước lên tanzaku treo lên tre (kiểu THÔNG THƯỜNG); dòng14-15=RIÊNG ở Hakodate, trẻ mặc yukata đi từng nhà hát bài đặc trưng; dòng16-17=hát xong thì được tặng kẹo bánh.\nVới câu hỏi \"đâu là điểm SAI/không thuộc chủ đề X\", chỉ cần đối chiếu từng đáp án với bảng tóm tắt của đúng chủ đề đó — đáp án nào không xuất hiện trong bảng chính là đáp án cần chọn. Với câu hỏi \"điểm CHUNG\", so sánh hai bảng và tìm chi tiết trùng nhau ở cả hai (ở đây là việc trẻ em đi từng nhà và nhận quà bánh).",
+      "sentencesVi": [
+        "Halloween và Thất Tịch",
+        "31/10 là ngày Halloween.",
+        "Ở đất nước các bạn, ngày này người ta thường làm gì?",
+        "Halloween vốn là lễ nghi tôn giáo của người Celt cách đây hơn 2000 năm.",
+        "Vào Halloween, trẻ em cầm chiếc đèn lồng khoét từ bí ngô, đi vòng quanh các nhà hàng xóm.",
+        "Rồi chúng nói \"Trick or treat\" (không cho kẹo thì bị chọc phá đấy!) để xin kẹo.",
+        "Gần đây, ở Nhật, càng gần tháng 10 càng thấy nhiều cửa hàng trang trí Halloween và bán các sản phẩm liên quan.",
+        "Ngày xưa đây là lễ hội khá xa lạ ở Nhật, nhưng gần đây có vẻ đã trở nên quen thuộc, người ta còn tổ chức tiệc hóa trang.",
+        "Nhân tiện, thành phố Hakodate ở Hokkaido nổi tiếng với hải sản ngon và cảnh đêm tuyệt đẹp.",
+        "Điều khiến người mới chuyển đến đây ngạc nhiên đầu tiên chính là lễ Thất Tịch.",
+        "Ngưu Lang và Chức Nữ sống xa nhau, chỉ được phép gặp nhau 1 lần mỗi năm — đó chính là ngày Thất Tịch.",
+        "Thông thường vào ngày này, người ta viết điều ước lên dải giấy (tanzaku) rồi treo lên cành tre.",
+        "Tuy nhiên, Thất Tịch ở Hakodate hơi khác.",
+        "Trẻ em mặc yukata đi từng nhà, hát bài \"Treo dải giấy lên cây tre, mừng lễ Thất Tịch thật to, xin một cây nến nhé\".",
+        "Sau khi trẻ hát xong, chủ nhà sẽ tặng kẹo bánh cho chúng.",
+        "Cảnh này có giống với lễ hội nào đó không?",
+        "Tuy không cầm bí ngô, nhưng việc nói lời đặc biệt để xin kẹo thì giống hệt Halloween.",
+        "Phong tục này không chỉ có ở Hakodate mà còn ở nhiều nơi khác tại Hokkaido, nhưng không thấy ở các vùng khác của Nhật Bản."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-04",
@@ -1806,7 +1826,15 @@
           "questionType": "inference"
         }
       ],
-      "studyNote": "① Chữ Hán trong chữ ký cuối trang thường tiết lộ ai/nơi nào đăng thông báo — đây là mẹo nhanh để xác định bối cảnh mà không cần đọc hết nội dung.\n② Poster có 2 lớp quy tắc: quy tắc CHUNG (chỉ hút ở khu hút thuốc) và quy tắc NGOẠI LỆ theo giờ (khung 平日 7:30-9:30 thì cấm hoàn toàn, kể cả khu hút thuốc). Khi so 4 đáp án, phải kiểm tra đủ 3 yếu tố: đúng thứ trong tuần (phải là ngày thường thứ Hai-Sáu, không phải Chủ nhật), đúng khung giờ, và đúng địa điểm bị cấm (ở đây là \"mọi nơi\" chứ không riêng khu hút thuốc) — chỉ đáp án khớp đủ cả ba mới đúng."
+      "studyNote": "① Chữ Hán trong chữ ký cuối trang thường tiết lộ ai/nơi nào đăng thông báo — đây là mẹo nhanh để xác định bối cảnh mà không cần đọc hết nội dung.\n② Poster có 2 lớp quy tắc: quy tắc CHUNG (chỉ hút ở khu hút thuốc) và quy tắc NGOẠI LỆ theo giờ (khung 平日 7:30-9:30 thì cấm hoàn toàn, kể cả khu hút thuốc). Khi so 4 đáp án, phải kiểm tra đủ 3 yếu tố: đúng thứ trong tuần (phải là ngày thường thứ Hai-Sáu, không phải Chủ nhật), đúng khung giờ, và đúng địa điểm bị cấm (ở đây là \"mọi nơi\" chứ không riêng khu hút thuốc) — chỉ đáp án khớp đủ cả ba mới đúng.",
+      "sentencesVi": [
+        "Cấm hút thuốc / No Smoking",
+        "Xin quý khách hút thuốc tại khu vực hút thuốc.",
+        "Tuy nhiên, xin đừng hút thuốc vào khung giờ sau.",
+        "Giờ cấm hút",
+        "Ngày thường: 7:30～9:30",
+        "Trưởng ga"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-05",
@@ -3050,7 +3078,39 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Với câu hỏi định nghĩa món ăn, tìm đúng câu mô tả trực tiếp trong bài (ở đây là câu mở đầu định nghĩa oyakodon) rồi so khớp từng thành phần với 4 đáp án — loại các đáp án sai LOẠI THỊT hoặc sai LOẠI RAU trước, dù nghe tên gần giống.\n② Với câu hỏi \"cái gì KHÔNG có trong danh sách\", nên đọc bản hướng dẫn công thức (phần liệt kê 材料) thay vì đoạn cảm nghĩ, vì danh sách nguyên liệu ở đó rõ ràng, dễ đối chiếu hơn — nguyên liệu nào không xuất hiện trong danh sách chính là đáp án.\n③ Bài có HAI người khác quan điểm (Amanda và bạn người Nhật) — cần đọc kỹ câu hỏi hỏi về AI, rồi tìm đúng câu miêu tả sở thích của người đó, tránh nhầm giữa hai ý kiến trái ngược nằm sát nhau.\nGhi chú từ vựng: cách diễn tả mức lửa 強・中・弱 (mạnh/vừa/yếu), mức độ lớn nhỏ 大・中・小 (to/vừa/nhỏ). Từ tượng thanh/tượng hình: ぐつぐつ (tiếng sôi lục bục, diễn tả trạng thái đang sôi) và とんとん (tiếng gõ nhẹ liên tiếp)."
+      "studyNote": "① Với câu hỏi định nghĩa món ăn, tìm đúng câu mô tả trực tiếp trong bài (ở đây là câu mở đầu định nghĩa oyakodon) rồi so khớp từng thành phần với 4 đáp án — loại các đáp án sai LOẠI THỊT hoặc sai LOẠI RAU trước, dù nghe tên gần giống.\n② Với câu hỏi \"cái gì KHÔNG có trong danh sách\", nên đọc bản hướng dẫn công thức (phần liệt kê 材料) thay vì đoạn cảm nghĩ, vì danh sách nguyên liệu ở đó rõ ràng, dễ đối chiếu hơn — nguyên liệu nào không xuất hiện trong danh sách chính là đáp án.\n③ Bài có HAI người khác quan điểm (Amanda và bạn người Nhật) — cần đọc kỹ câu hỏi hỏi về AI, rồi tìm đúng câu miêu tả sở thích của người đó, tránh nhầm giữa hai ý kiến trái ngược nằm sát nhau.\nGhi chú từ vựng: cách diễn tả mức lửa 強・中・弱 (mạnh/vừa/yếu), mức độ lớn nhỏ 大・中・小 (to/vừa/nhỏ). Từ tượng thanh/tượng hình: ぐつぐつ (tiếng sôi lục bục, diễn tả trạng thái đang sôi) và とんとん (tiếng gõ nhẹ liên tiếp).",
+      "sentencesVi": [
+        "Amanda đã làm món cơm gà trứng (oyakodon) trong lớp tiếng Nhật.",
+        "Cô đã thuyết trình cảm nghĩ của mình cho các bạn cùng lớp nghe.",
+        "Dễ làm!",
+        "Ngon!",
+        "Cơm gà trứng (Oyakodon)",
+        "Tôi đã làm oyakodon trong lớp tiếng Nhật.",
+        "Mọi người đã từng ăn oyakodon chưa?",
+        "Oyakodon là món ăn có thịt gà và trứng đã nấu chín được đặt lên trên cơm.",
+        "Oyakodon rất dễ làm.",
+        "Đầu tiên, cắt thịt gà và hành tây thành miếng vừa ăn.",
+        "Sau đó, đun mirin trong nồi cho sôi lăn tăn, rồi thêm đường, nước tương, nước dùng.",
+        "Khi sôi, cho hành tây và thịt gà vào.",
+        "Nấu chín thịt gà bằng lửa vừa rồi giảm lửa nhỏ.",
+        "Đập trứng ra, dùng đũa gõ nhẹ khoảng 5 lần để trứng vỡ lòng đào, sau đó tăng lửa rồi cho vào.",
+        "Điểm mấu chốt là không khuấy trộn trứng bằng đũa lúc này.",
+        "Khuấy sẽ làm trứng bị dai cứng.",
+        "Để trứng ở trạng thái lòng đào là hoàn thành.",
+        "Bạn người Nhật của tôi nói rằng trứng chưa chín kỹ, còn mềm thì ngon hơn, nhưng tôi lại thích trứng chín kỹ, hơi cứng.",
+        "Món oyakodon tôi tự làm rất ngon.",
+        "Lần sau tôi sẽ thử làm ở nhà.",
+        "Sau khi thuyết trình xong, các bạn cùng lớp muốn được chỉ cách làm oyakodon dễ hiểu hơn, nên Amanda đã viết bản hướng dẫn sau.",
+        "★ Cách làm Oyakodon ★ Cho 2 người",
+        "【Nguyên liệu】ức gà 1/2 miếng, trứng 3-4 quả, hành tây 1/2 củ, mirin 100cc, nước tương 50cc, đường 1/2-1 muỗng lớn, nước+bột nêm dashi 50cc, cơm 1 tô",
+        "【Cách làm】",
+        "① Cắt thịt gà và hành tây thành miếng vừa ăn.",
+        "② Đun mirin trong nồi, khi sôi lăn tăn thì thêm đường, nước tương, nước dùng.",
+        "③ Khi sôi, cho hành tây và thịt gà vào, nấu chín thịt gà bằng lửa vừa rồi giảm lửa nhỏ.",
+        "④ Đập trứng ra, dùng đũa gõ nhẹ khoảng 5 lần cho vỡ, tăng lửa rồi cho vào.",
+        "(Lưu ý!) Lúc làm vỡ trứng, không được khuấy trộn.",
+        "Khuấy sẽ làm trứng bị cứng."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-06",
@@ -3762,7 +3822,31 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Thông báo dạng \"kế hoạch dự phòng nhiều tầng\" (nếu A thì B, nếu B cũng thất bại thì C) rất hay xuất hiện trong thư nhà trường — phải đọc đúng ĐIỀU KIỆN của câu hỏi (ở đây chỉ hỏi về trường hợp NGÀY 19 mưa, chưa phải trường hợp cả 2 ngày đều mưa) để không nhảy sang phương án dự phòng xa hơn.\n② Khi 4 đáp án đều có cùng một cụm từ chung (ở đây là \"バスで行く\" — đều đi bằng xe buýt), điểm khác biệt thật sự nằm ở phần còn lại của câu (chia theo nhóm/khối lớp/giới tính/lớp) — cần soi đúng phần đó trong văn bản gốc.\n③ Với câu hỏi \"cái gì KHÔNG cần mang\", nên đọc kỹ từng mục trong danh sách 持ち物 và cẩn thận với các từ GẦN GIỐNG NHAU về mặt chữ nhưng khác nghĩa (ごみ箱=thùng rác vs ごみ袋=túi rác) — đề thường cài bẫy bằng cách đổi một chữ trong từ có sẵn."
+      "studyNote": "① Thông báo dạng \"kế hoạch dự phòng nhiều tầng\" (nếu A thì B, nếu B cũng thất bại thì C) rất hay xuất hiện trong thư nhà trường — phải đọc đúng ĐIỀU KIỆN của câu hỏi (ở đây chỉ hỏi về trường hợp NGÀY 19 mưa, chưa phải trường hợp cả 2 ngày đều mưa) để không nhảy sang phương án dự phòng xa hơn.\n② Khi 4 đáp án đều có cùng một cụm từ chung (ở đây là \"バスで行く\" — đều đi bằng xe buýt), điểm khác biệt thật sự nằm ở phần còn lại của câu (chia theo nhóm/khối lớp/giới tính/lớp) — cần soi đúng phần đó trong văn bản gốc.\n③ Với câu hỏi \"cái gì KHÔNG cần mang\", nên đọc kỹ từng mục trong danh sách 持ち物 và cẩn thận với các từ GẦN GIỐNG NHAU về mặt chữ nhưng khác nghĩa (ごみ箱=thùng rác vs ごみ袋=túi rác) — đề thường cài bẫy bằng cách đổi một chữ trong từ có sẵn.",
+      "sentencesVi": [
+        "Ngày 1 tháng 9 năm 20××",
+        "Toàn thể giáo viên chủ nhiệm khối lớp 4, trường tiểu học Fujimi, quận Chuo",
+        "Kính gửi quý phụ huynh",
+        "Thông báo về chuyến dã ngoại",
+        "Đã vào mùa thu trong lành, nắng đẹp liên tục.",
+        "Vào ngày 19/9, học sinh khối lớp 4 sẽ đi dã ngoại núi Takao.",
+        "Mong quý phụ huynh hợp tác để các em có thể trải qua chuyến đi an toàn và vui vẻ.",
+        "【Ngày giờ】19/9 (thứ Hai) 8:00～",
+        "＊ Nếu ngày 19 mưa, sẽ dời sang 21/9 (thứ Tư).",
+        "＊ Nếu ngày 21 cũng mưa, sẽ đi Bảo tàng Khoa học thay thế.",
+        "【Lịch trình tập trung】",
+        "8:00 Tập trung ở nhà thể chất (đúng giờ, không trễ)",
+        "8:20 Xuất phát ＊ Đi xe buýt theo từng lớp đến núi Takao.",
+        "9:30 Bắt đầu leo núi",
+        "12:00 Ăn trưa trên đỉnh núi",
+        "14:00 Bắt đầu xuống núi",
+        "16:00 Về đến trường, giải tán",
+        "【Trang phục】Trang phục dễ leo núi (giày thể thao, đeo balo)",
+        "＊ Nhất định phải mang theo áo ấm chống lạnh.",
+        "【Đồ cần mang】Cơm hộp, bình nước, đồ đi mưa, tấm trải nilon, túi rác,",
+        "Bánh kẹo (trong hạn 300 yên)",
+        "※ Nếu vắng mặt vào ngày đi, xin liên hệ giáo viên chủ nhiệm trước giờ xuất phát."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-07",
@@ -4458,7 +4542,28 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Tìm đúng từ khóa địa danh (神奈川県, 相模湾, 東京都) xuất hiện trong bài rồi đọc câu chứa nó — câu \"鎌倉は神奈川県にあり、相模湾に面した町です\" trả lời trực tiếp. Cẩn thận với \"鎌倉幕府\" — nghe như địa danh nhưng thực chất là tên chính quyền (幕府 = nơi tướng quân điều hành chính sự), không phải một nơi chốn độc lập.\n② Với đoạn văn dài, tách thành bảng tóm tắt theo câu trước khi so đáp án: còn nhiều thiên nhiên (dòng6), thấy được biểu cảm theo mùa (dòng6-7), lá đỏ mùa THU rất đẹp (dòng8), khách khắp nơi đến (dòng8), có quán ăn/tiệm bánh cổ (dòng9), gặp món ngon (dòng9), nhiều chùa (dòng10), nổi tiếng nhất là Đại Phật (dòng11). Đối chiếu từng đáp án với bảng này để loại nhanh các đáp án sai (thị trấn mới/không thiên nhiên/lá đỏ mùa xuân đều bị bảng tóm tắt phủ định).\n③ Với câu hỏi về chi phí, tìm trực tiếp dòng ghi số tiền — phần trong ngoặc đơn ngay sau con số chính là lời giải thích số tiền đó bao gồm những khoản nào, không cần suy luận thêm."
+      "studyNote": "① Tìm đúng từ khóa địa danh (神奈川県, 相模湾, 東京都) xuất hiện trong bài rồi đọc câu chứa nó — câu \"鎌倉は神奈川県にあり、相模湾に面した町です\" trả lời trực tiếp. Cẩn thận với \"鎌倉幕府\" — nghe như địa danh nhưng thực chất là tên chính quyền (幕府 = nơi tướng quân điều hành chính sự), không phải một nơi chốn độc lập.\n② Với đoạn văn dài, tách thành bảng tóm tắt theo câu trước khi so đáp án: còn nhiều thiên nhiên (dòng6), thấy được biểu cảm theo mùa (dòng6-7), lá đỏ mùa THU rất đẹp (dòng8), khách khắp nơi đến (dòng8), có quán ăn/tiệm bánh cổ (dòng9), gặp món ngon (dòng9), nhiều chùa (dòng10), nổi tiếng nhất là Đại Phật (dòng11). Đối chiếu từng đáp án với bảng này để loại nhanh các đáp án sai (thị trấn mới/không thiên nhiên/lá đỏ mùa xuân đều bị bảng tóm tắt phủ định).\n③ Với câu hỏi về chi phí, tìm trực tiếp dòng ghi số tiền — phần trong ngoặc đơn ngay sau con số chính là lời giải thích số tiền đó bao gồm những khoản nào, không cần suy luận thêm.",
+      "sentencesVi": [
+        "Tour Kamakura",
+        "Mọi người có muốn đi Kamakura không?",
+        "Kamakura nằm ở tỉnh Kanagawa, là thị trấn hướng ra vịnh Sagami.",
+        "Đây cũng là nơi từng có mạc phủ do Minamoto no Yoritomo lập nên.",
+        "Từ nội thành Tokyo đi mất khoảng 1 tiếng.",
+        "Kamakura còn giữ được nhiều thiên nhiên, có thể thấy nhiều vẻ đẹp khác nhau theo mùa.",
+        "Đặc biệt, lá đỏ mùa thu rất đẹp, thu hút khách du lịch từ khắp Nhật Bản.",
+        "Ngoài ra còn có nhiều quán ăn cổ, tiệm bánh kẹo truyền thống, có thể thưởng thức món ngon.",
+        "Và điều không thể quên là tượng Phật lớn (Đại Phật).",
+        "Kamakura có nhiều chùa, nhưng nổi tiếng nhất là tượng Đại Phật.",
+        "Cao 12,38 mét, là bảo vật quốc gia DUY NHẤT trong số các tượng Phật ở Kamakura.",
+        "Kamakura đầy sức hấp dẫn, mời mọi người cùng đi nhé!",
+        "Thời gian: 17/10 (thứ Bảy). ＊Nếu mưa sẽ không đi.",
+        "Điểm tập trung: Ga JR Yotsuya.",
+        "Giờ tập trung: 10 giờ sáng.",
+        "Chi phí: 3.300円 (tiền tàu điện, tiền ăn trưa).",
+        "Cách đăng ký: liên hệ Tanaka Kyoko lớp 2A qua điện thoại hoặc email.",
+        "Di động: 000-1890-1523",
+        "Email: kyot_333@aaaweb.ne.jp"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-08",
@@ -4863,7 +4968,22 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Cách đọc bảng giờ tàu/xe: trục dọc là GIỜ, trục ngang là PHÚT — ví dụ hàng \"9 giờ\", cột \"46\" nghĩa là 9:46. Với bài toán ghép lịch trình, tính THỜI GIAN ĐẾN của từng lựa chọn (giờ khởi hành + thời gian di chuyển) rồi so với deadline (ở đây là 10:30) và điểm bắt đầu sớm nhất có thể (9:40) — loại các lựa chọn đến trễ hoặc khởi hành trước khi rảnh.\n② Bẫy thường gặp: câu hỏi đếm người liên quan đến nhiều nhân vật rải rác khắp đoạn văn, không chỉ nằm gần bảng số liệu — phải đọc hết toàn văn, kể cả câu cuối cùng, trước khi kết luận."
+      "studyNote": "① Cách đọc bảng giờ tàu/xe: trục dọc là GIỜ, trục ngang là PHÚT — ví dụ hàng \"9 giờ\", cột \"46\" nghĩa là 9:46. Với bài toán ghép lịch trình, tính THỜI GIAN ĐẾN của từng lựa chọn (giờ khởi hành + thời gian di chuyển) rồi so với deadline (ở đây là 10:30) và điểm bắt đầu sớm nhất có thể (9:40) — loại các lựa chọn đến trễ hoặc khởi hành trước khi rảnh.\n② Bẫy thường gặp: câu hỏi đếm người liên quan đến nhiều nhân vật rải rác khắp đoạn văn, không chỉ nằm gần bảng số liệu — phải đọc hết toàn văn, kể cả câu cuối cùng, trước khi kết luận.",
+      "sentencesVi": [
+        "Hôm nay là thứ Bảy.",
+        "Vì trường được nghỉ, Kim và Su quyết định đi Bảo tàng Mỹ thuật Midori.",
+        "Họ định đi bằng xe buýt.",
+        "Bảng dưới là giờ chạy xe buýt.",
+        "【Giờ xe buýt tuyến đi Bảo tàng Mỹ thuật Midori】",
+        "7 giờ: 6, 16, 26, 36, 46, 56",
+        "8 giờ: 6, 16, 26, 36, 46, 56",
+        "9 giờ: 6, 16, 26, 36, 46, 56",
+        "10 giờ: 6, 16, 26, 36, 46, 56",
+        "11 giờ: 10, 20, 30, 40, 50",
+        "Kim và Su hẹn gặp nhau ở trạm xe buýt lúc 9:40 sáng.",
+        "Từ đó đến bảo tàng mất 35 phút đi xe buýt.",
+        "Kim gọi điện rủ thêm hai bạn cùng lớp là Sherry và Michael, và hẹn gặp cả hai trước cổng bảo tàng lúc 10:30."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-09",
@@ -5328,7 +5448,22 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "Cấu trúc chuẩn của một văn bản thư từ trang trọng (ビジネス文書):\n① ngày viết thư (日付)\n② tên công ty/cá nhân NHẬN thư (宛て先) — ghi ở trên cùng bên trái\n③ tên công ty/cá nhân GỬI thư (差出人) — ghi ngay dưới, lệch phải\n④ tiêu đề văn bản (件名) — tóm tắt mục đích lá thư\n⑤ cặp mở đầu-kết thúc trang trọng \"拝啓...敬具\" — luôn đi cùng nhau khi viết thư lịch sự, thể hiện sự tôn trọng người nhận\n⑥ câu chào theo mùa (季節のあいさつ, còn gọi 時候のあいさつ) — phong tục Nhật luôn mở đầu thư bằng một câu về thời tiết/mùa\n⑦ câu hỏi thăm tình hình đối phương, ví dụ \"貴社におかれましては、益々ご清祥のこととお喜び申し上げます\"\n⑧ nội dung chính (本文)\n⑨ lời chào kết thúc, thường kèm lời mời liên hệ nếu có thắc mắc\nTừ vựng cần nhớ: 貴社におかれましては = kính ngữ của \"quý công ty của ngài\"; 益々 = càng ngày càng (đồng nghĩa さらに); ご清祥のこととお喜び申し上げます = chúc mừng ngài luôn mạnh khỏe, thịnh vượng; 致します = khiêm nhường ngữ của する; ご検討いただければ幸いです = nếu ngài xem xét giúp thì tôi rất vui; 何かご不明な点などございましたら = nếu có điều gì chưa rõ. Phân biệt 弊社 (công ty CHÚNG TÔI, khiêm tốn) với 御社/貴社 (công ty CỦA NGÀI, kính trọng) — nhầm hai từ này sẽ hiểu ngược vai trò các bên trong thư."
+      "studyNote": "Cấu trúc chuẩn của một văn bản thư từ trang trọng (ビジネス文書):\n① ngày viết thư (日付)\n② tên công ty/cá nhân NHẬN thư (宛て先) — ghi ở trên cùng bên trái\n③ tên công ty/cá nhân GỬI thư (差出人) — ghi ngay dưới, lệch phải\n④ tiêu đề văn bản (件名) — tóm tắt mục đích lá thư\n⑤ cặp mở đầu-kết thúc trang trọng \"拝啓...敬具\" — luôn đi cùng nhau khi viết thư lịch sự, thể hiện sự tôn trọng người nhận\n⑥ câu chào theo mùa (季節のあいさつ, còn gọi 時候のあいさつ) — phong tục Nhật luôn mở đầu thư bằng một câu về thời tiết/mùa\n⑦ câu hỏi thăm tình hình đối phương, ví dụ \"貴社におかれましては、益々ご清祥のこととお喜び申し上げます\"\n⑧ nội dung chính (本文)\n⑨ lời chào kết thúc, thường kèm lời mời liên hệ nếu có thắc mắc\nTừ vựng cần nhớ: 貴社におかれましては = kính ngữ của \"quý công ty của ngài\"; 益々 = càng ngày càng (đồng nghĩa さらに); ご清祥のこととお喜び申し上げます = chúc mừng ngài luôn mạnh khỏe, thịnh vượng; 致します = khiêm nhường ngữ của する; ご検討いただければ幸いです = nếu ngài xem xét giúp thì tôi rất vui; 何かご不明な点などございましたら = nếu có điều gì chưa rõ. Phân biệt 弊社 (công ty CHÚNG TÔI, khiêm tốn) với 御社/貴社 (công ty CỦA NGÀI, kính trọng) — nhầm hai từ này sẽ hiểu ngược vai trò các bên trong thư.",
+      "sentencesVi": [
+        "Ngày 19 tháng 9 năm 20××",
+        "Công ty cổ phần Nhà xuất bản Condor, Phòng Kinh doanh",
+        "Kính gửi ông Kawamura Kazuo",
+        "Công ty cổ phần Yamano Shokai, Phòng Bán hàng",
+        "Akiyama Hiroshi",
+        "Thông báo gửi catalogue",
+        "Kính thưa, đầu thu se lạnh, kính chúc quý công ty ngày càng thịnh vượng.",
+        "Lần này, công ty chúng tôi đã phát triển sản phẩm mới là máy in dùng cho doanh nghiệp.",
+        "Chúng tôi đã gửi catalogue giới thiệu sản phẩm này qua đường bưu điện, kính mong quý công ty vui lòng nhận.",
+        "Rất mong quý công ty xem xét sử dụng cho công việc kinh doanh của mình.",
+        "Nếu có điều gì chưa rõ, xin liên hệ Akiyama.",
+        "Trân trọng.",
+        "Kính thư"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-10",
@@ -5641,7 +5776,20 @@
           "questionType": "reference-vocab"
         }
       ],
-      "studyNote": "① Địa chỉ nhận thư: 様 dùng cho CÁ NHÂN, 御中 dùng cho CÔNG TY/TỔ CHỨC — thư này gửi \"人事部 御中\" (phòng ban, một tổ chức) nên dùng 御中 là đúng chuẩn, không gắn được vào tên riêng.\n② Với email lịch sự, câu đầu thường là lời TỰ GIỚI THIỆU (thay cho câu chào mùa như thư giấy), sau đó mới đến MỤC ĐÍCH chính (thường có dấu hiệu \"〜たいのですが\" hoặc \"〜幸いです\").\nTừ vựng: ～に興味がある (có hứng thú với ~, đồng nghĩa ～に関心がある) — chú ý trợ từ đi kèm là に chứ không phải が. Cách gọi công ty: khi nói về công ty ĐỐI PHƯƠNG dùng 御社/貴社 (kính trọng), khi nói về công ty CỦA MÌNH dùng 弊社/当社 (khiêm tốn)."
+      "studyNote": "① Địa chỉ nhận thư: 様 dùng cho CÁ NHÂN, 御中 dùng cho CÔNG TY/TỔ CHỨC — thư này gửi \"人事部 御中\" (phòng ban, một tổ chức) nên dùng 御中 là đúng chuẩn, không gắn được vào tên riêng.\n② Với email lịch sự, câu đầu thường là lời TỰ GIỚI THIỆU (thay cho câu chào mùa như thư giấy), sau đó mới đến MỤC ĐÍCH chính (thường có dấu hiệu \"〜たいのですが\" hoặc \"〜幸いです\").\nTừ vựng: ～に興味がある (có hứng thú với ~, đồng nghĩa ～に関心がある) — chú ý trợ từ đi kèm là に chứ không phải が. Cách gọi công ty: khi nói về công ty ĐỐI PHƯƠNG dùng 御社/貴社 (kính trọng), khi nói về công ty CỦA MÌNH dùng 弊社/当社 (khiêm tốn).",
+      "sentencesVi": [
+        "Kính gửi Phòng Nhân sự, Công ty Cổ phần Air Systems",
+        "Xin chào lần đầu.",
+        "Tôi là Sai Teiki, sinh viên năm 4 trường Đại học Yotsuya.",
+        "Tôi đang theo học chuyên ngành Điện tử - Thông tin thuộc khoa Lý công.",
+        "Sau khi xem website quý công ty, tôi rất muốn tham gia buổi giới thiệu công ty tổ chức vào tháng 9, không biết cần làm thủ tục gì.",
+        "Rất mong quý công ty chỉ giúp cách thức tham gia.",
+        "Mong sớm nhận được hồi âm.",
+        "Mong quý công ty giúp đỡ.",
+        "Khoa Lý công, Đại học Yotsuya",
+        "Sai Teiki (Thôi Trịnh Quý)",
+        "s20090810@yotsuya.bc.jp"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-11",
@@ -6162,7 +6310,21 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Với email thông báo giao dịch, luôn xác định rõ AI GỬI CHO AI và VAI TRÒ của mỗi bên trước: người nhận email (đầu thư, \"～様\") là khách hàng; người ký tên cuối là nhân viên cửa hàng. Cẩn thận phân biệt \"ngày GỬI HÀNG\" (発送日, đã xảy ra \"hôm nay\") với \"ngày DỰ KIẾN GIAO\" (お届け予定, một mốc trong tương lai) — hai khái niệm khác nhau dù đều liên quan đến vận chuyển.\n② Khi câu hỏi tình huống (\"nếu... thì phải làm gì\"), tìm đúng đoạn hướng dẫn hành động tương ứng — email này có 2 hướng dẫn riêng biệt: một cho việc theo dõi vận chuyển (dùng URL) và một cho việc không mở được file đính kèm (gọi điện cửa hàng) — đừng nhầm lẫn hai tình huống.\nTừ vựng: 受注⇔発注 (nhận đơn ⇔ đặt đơn, hai chiều ngược nhau); 発送 (gửi hàng đi); 配送 = 配達 (giao hàng) + 発送 (gửi hàng); お届け = cách nói lịch sự của \"届ける\"; 閲覧 (xem/duyệt); プリントする = プリントアウトする (in ra); 開封 (mở phong bì/tài liệu đã đóng gói); 添付ファイル (file đính kèm); アクセスする = 接続する (kết nối, truy cập)."
+      "studyNote": "① Với email thông báo giao dịch, luôn xác định rõ AI GỬI CHO AI và VAI TRÒ của mỗi bên trước: người nhận email (đầu thư, \"～様\") là khách hàng; người ký tên cuối là nhân viên cửa hàng. Cẩn thận phân biệt \"ngày GỬI HÀNG\" (発送日, đã xảy ra \"hôm nay\") với \"ngày DỰ KIẾN GIAO\" (お届け予定, một mốc trong tương lai) — hai khái niệm khác nhau dù đều liên quan đến vận chuyển.\n② Khi câu hỏi tình huống (\"nếu... thì phải làm gì\"), tìm đúng đoạn hướng dẫn hành động tương ứng — email này có 2 hướng dẫn riêng biệt: một cho việc theo dõi vận chuyển (dùng URL) và một cho việc không mở được file đính kèm (gọi điện cửa hàng) — đừng nhầm lẫn hai tình huống.\nTừ vựng: 受注⇔発注 (nhận đơn ⇔ đặt đơn, hai chiều ngược nhau); 発送 (gửi hàng đi); 配送 = 配達 (giao hàng) + 発送 (gửi hàng); お届け = cách nói lịch sự của \"届ける\"; 閲覧 (xem/duyệt); プリントする = プリントアウトする (in ra); 開封 (mở phong bì/tài liệu đã đóng gói); 添付ファイル (file đính kèm); アクセスする = 接続する (kết nối, truy cập).",
+      "sentencesVi": [
+        "Kính gửi bà Harada Akiko",
+        "Tôi là Yamamoto, Trung tâm nhận đơn hàng của \"PC Akinai\".",
+        "Cảm ơn quý khách đã đặt hàng tại cửa hàng chúng tôi.",
+        "Sản phẩm quý khách đặt đã được gửi đi hôm nay.",
+        "Dự kiến giao hàng: 18h-21h ngày 19/8.",
+        "★ Mã vận đơn: 423471042654, giao qua công ty vận chuyển Sayama Kyubin.",
+        "Quý khách có thể kiểm tra tình trạng vận chuyển qua đường link dưới đây, xin mời sử dụng.",
+        "http://k2k.sayama-exp.co.jp/p/sayawa/web/okurijoinput.jsp",
+        "～～～ Gửi tất cả quý khách đã mua hàng ～～～",
+        "Chúng tôi đã đính kèm \"Tài liệu hướng dẫn về dịch vụ hậu mãi\" cho sản phẩm quý khách đặt trong email này, mong quý khách xem qua.",
+        "Xin xem hoặc in ra khi cần.",
+        "※ Quý khách nào không mở/xem được file đính kèm, xin vui lòng liên hệ cửa hàng chúng tôi."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-12a",
@@ -6355,7 +6517,13 @@
           "questionType": "reference-vocab"
         }
       ],
-      "studyNote": "Với thành ngữ có chữ \"目\" (mắt), nghĩa thường mang tính ẩn dụ chứ không phải nghĩa đen — 目につく = dễ nhận thấy. Một số thành ngữ liên quan: 目がない (mê mẩn/rất thích cái gì), 目が高い (có con mắt tinh tường, biết phân biệt tốt xấu), 目が飛び出る (giật mình kinh ngạc, ví dụ vì giá quá đắt), 目が届く (để ý/quan tâm chu đáo).\nVới chỉ thị từ (これ・それ・あれ・どれ), luôn tìm nghĩa ở câu/cụm từ NGAY TRƯỚC nó. Nhưng cẩn thận: nếu trước đó có một danh sách liệt kê nhiều mục, chỉ thị từ đứng SAU danh sách có thể gộp lại chỉ TOÀN BỘ danh sách đó, không chỉ riêng mục cuối cùng — cần đọc kỹ ngữ cảnh (ở đây từ \"トップ3\" = top 3 xác nhận rõ nó gộp cả 3 mục)."
+      "studyNote": "Với thành ngữ có chữ \"目\" (mắt), nghĩa thường mang tính ẩn dụ chứ không phải nghĩa đen — 目につく = dễ nhận thấy. Một số thành ngữ liên quan: 目がない (mê mẩn/rất thích cái gì), 目が高い (có con mắt tinh tường, biết phân biệt tốt xấu), 目が飛び出る (giật mình kinh ngạc, ví dụ vì giá quá đắt), 目が届く (để ý/quan tâm chu đáo).\nVới chỉ thị từ (これ・それ・あれ・どれ), luôn tìm nghĩa ở câu/cụm từ NGAY TRƯỚC nó. Nhưng cẩn thận: nếu trước đó có một danh sách liệt kê nhiều mục, chỉ thị từ đứng SAU danh sách có thể gộp lại chỉ TOÀN BỘ danh sách đó, không chỉ riêng mục cuối cùng — cần đọc kỹ ngữ cảnh (ở đây từ \"トップ3\" = top 3 xác nhận rõ nó gộp cả 3 mục).",
+      "sentencesVi": [
+        "Máy bán hàng tự động",
+        "Khi đi bộ trong thành phố, thứ ①dễ đập vào mắt nhất vẫn là máy bán đồ uống tự động.",
+        "Loại này chiếm khoảng một nửa tổng số máy bán hàng tự động ở Nhật, tiếp theo là máy bán vé/phiếu ăn, và máy bán thuốc lá.",
+        "②Đó là top 3."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-12b",
@@ -6748,7 +6916,22 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Nguyên tắc chung với chỉ thị từ (こそあど言葉): luôn nhìn vào câu/ý NGAY TRƯỚC vị trí chỉ thị từ xuất hiện — đừng đoán mò hay tìm xa hơn.\n② Với bài so sánh 2 khái niệm song song (ở đây là 2 kiểu văn hóa chào hỏi), nên lập bảng tóm tắt riêng cho từng khái niệm trước khi đối chiếu đáp án: 「おじぎの文化」→ khoảng cách XA hơn, cúi chào không va đầu, nhưng bắt tay thì thấy hơi xa. 「握手の文化」→ khoảng cách GẦN hơn (phù hợp bắt tay), nếu cúi chào thì suýt va đầu. Từ bảng này, việc loại các đáp án nói ngược hoặc bịa thêm chi tiết (như \"vừa bắt tay vừa cúi chào\") trở nên rất nhanh."
+      "studyNote": "① Nguyên tắc chung với chỉ thị từ (こそあど言葉): luôn nhìn vào câu/ý NGAY TRƯỚC vị trí chỉ thị từ xuất hiện — đừng đoán mò hay tìm xa hơn.\n② Với bài so sánh 2 khái niệm song song (ở đây là 2 kiểu văn hóa chào hỏi), nên lập bảng tóm tắt riêng cho từng khái niệm trước khi đối chiếu đáp án: 「おじぎの文化」→ khoảng cách XA hơn, cúi chào không va đầu, nhưng bắt tay thì thấy hơi xa. 「握手の文化」→ khoảng cách GẦN hơn (phù hợp bắt tay), nếu cúi chào thì suýt va đầu. Từ bảng này, việc loại các đáp án nói ngược hoặc bịa thêm chi tiết (như \"vừa bắt tay vừa cúi chào\") trở nên rất nhanh.",
+      "sentencesVi": [
+        "Khi người Nhật gặp nhau, họ chào hỏi thế nào?",
+        "Có lẽ hai người sẽ cúi đầu chào (ojigi).",
+        "Vì Nhật Bản có \"văn hóa cúi chào\".",
+        "Lần này, một người là người Nhật, người còn lại là người nước khác.",
+        "Hai người này đã cúi chào nhau.",
+        "Lúc đó, đầu của hai người va vào nhau.",
+        "Vì người kia đến từ đất nước có văn hóa bắt tay.",
+        "Khi hai người Nhật cúi chào nhau, đầu sẽ không va vào nhau.",
+        "Ở khoảng cách đó, nếu bắt tay có thể sẽ cảm thấy hơi xa.",
+        "Ngược lại, nếu người của \"văn hóa bắt tay\" cúi chào nhau, đầu sẽ suýt va vào nhau.",
+        "Đó là vì khoảng cách giữa hai người phù hợp cho việc bắt tay lại gần hơn khoảng cách của người \"văn hóa cúi chào\".",
+        "Vậy, bạn thuộc văn hóa nào?",
+        "Hãy thử xem nhé."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-13",
@@ -7224,7 +7407,21 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "Kỹ thuật xử lý từ vựng khó/chuyên ngành: đừng hoảng khi gặp từ lạ như \"免疫力\" — bài thường TỰ ĐỊNH NGHĨA ngay ở câu đầu (\"免疫力というのは、体を病気から守る力のことです\"). Cứ đọc hết đoạn văn, nghĩa của từ khó thường lộ ra qua ngữ cảnh xung quanh.\nChú ý các cặp từ ĐỒNG NGHĩA được dùng thay phiên nhau trong cùng một bài để tránh lặp từ: 免疫力が弱くなる = 免疫力が低下する = 抵抗力が弱くなる (đều nghĩa giảm sức đề kháng); 強くなる = 高くなる = アップする (đều nghĩa tăng lên). Nhận diện được các từ đồng nghĩa này giúp không bị nhầm khi đáp án dùng từ khác với bài gốc nhưng cùng nghĩa.\nTừ vựng [外来語＋する]: アップする (tăng lên, từ \"up\"), ダウンする (giảm xuống, từ \"down\"), ストップする (dừng lại, từ \"stop\"), プレイする (chơi/thi đấu, từ \"play\"), チェックする (kiểm tra/xác nhận, từ \"check\")."
+      "studyNote": "Kỹ thuật xử lý từ vựng khó/chuyên ngành: đừng hoảng khi gặp từ lạ như \"免疫力\" — bài thường TỰ ĐỊNH NGHĨA ngay ở câu đầu (\"免疫力というのは、体を病気から守る力のことです\"). Cứ đọc hết đoạn văn, nghĩa của từ khó thường lộ ra qua ngữ cảnh xung quanh.\nChú ý các cặp từ ĐỒNG NGHĩA được dùng thay phiên nhau trong cùng một bài để tránh lặp từ: 免疫力が弱くなる = 免疫力が低下する = 抵抗力が弱くなる (đều nghĩa giảm sức đề kháng); 強くなる = 高くなる = アップする (đều nghĩa tăng lên). Nhận diện được các từ đồng nghĩa này giúp không bị nhầm khi đáp án dùng từ khác với bài gốc nhưng cùng nghĩa.\nTừ vựng [外来語＋する]: アップする (tăng lên, từ \"up\"), ダウンする (giảm xuống, từ \"down\"), ストップする (dừng lại, từ \"stop\"), プレイする (chơi/thi đấu, từ \"play\"), チェックする (kiểm tra/xác nhận, từ \"check\").",
+      "sentencesVi": [
+        "Sức đề kháng miễn dịch",
+        "Sức đề kháng miễn dịch là khả năng bảo vệ cơ thể khỏi bệnh tật.",
+        "Khi sức đề kháng miễn dịch yếu đi, ta dễ mắc bệnh hơn.",
+        "Vậy làm sao để tăng cường sức đề kháng miễn dịch?",
+        "Trước hết, chế độ ăn uống rất quan trọng.",
+        "Những gì ta ăn mỗi ngày tạo nên nền tảng cơ thể.",
+        "Gần đây, các loại \"nấm\" như nấm shiitake, nấm kim châm, nấm maitake được chú ý vì chứa nhiều thành phần tăng cường miễn dịch.",
+        "Ngoài ra, cũng cần ăn các thực phẩm giúp điều hòa môi trường ruột như sữa chua, natto, và các thực phẩm giàu chất xơ như konnyaku.",
+        "Stress được cho là làm giảm sức đề kháng miễn dịch.",
+        "Khi có chuyện buồn hay đau khổ, sức đề kháng với bệnh tật dường như yếu đi.",
+        "Ngược lại, \"tiếng cười\" giúp tăng sức đề kháng miễn dịch.",
+        "Hãy cố gắng cười thật to vài lần mỗi ngày."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part1-14",
@@ -7865,7 +8062,19 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Xác định trọng tâm bài trước khi đọc chi tiết: tiêu đề + đoạn mở đầu cho biết bài đang nói về ranh giới tuổi \"thành niên\" ở Nhật (20 tuổi) và những quyền BỊ GIỚI HẠN nếu chưa đủ tuổi — từ đó suy ra câu hỏi về \"18 tuổi làm được gì\" cần tìm ở đoạn nói riêng về lý do hạ tuổi (đoạn 2 lý do, đặc biệt đoạn thứ hai liệt kê những gì tuổi 18 CÓ THỂ làm).\n② Bẫy thường gặp trong câu hỏi \"nội dung nào đúng\": đáp án sai thường KHÔNG PHẢI SAI HẲN, mà BỊA THÊM một chi tiết/điều kiện/mức độ mà bài gốc không hề nói (ví dụ thêm \"phải\", \"rất nhiều\", một động cơ nghe hợp lý nhưng không có trong văn bản). Luôn đối chiếu từng đáp án với câu CHÍNH XÁC trong bài, không suy diễn hay đoán thêm.\nGhi nhớ: 大人 (người lớn) trong bài được dùng gần như đồng nghĩa với 成人 (người thành niên) — chỉ người đã trưởng thành, tự lập được về kinh tế."
+      "studyNote": "① Xác định trọng tâm bài trước khi đọc chi tiết: tiêu đề + đoạn mở đầu cho biết bài đang nói về ranh giới tuổi \"thành niên\" ở Nhật (20 tuổi) và những quyền BỊ GIỚI HẠN nếu chưa đủ tuổi — từ đó suy ra câu hỏi về \"18 tuổi làm được gì\" cần tìm ở đoạn nói riêng về lý do hạ tuổi (đoạn 2 lý do, đặc biệt đoạn thứ hai liệt kê những gì tuổi 18 CÓ THỂ làm).\n② Bẫy thường gặp trong câu hỏi \"nội dung nào đúng\": đáp án sai thường KHÔNG PHẢI SAI HẲN, mà BỊA THÊM một chi tiết/điều kiện/mức độ mà bài gốc không hề nói (ví dụ thêm \"phải\", \"rất nhiều\", một động cơ nghe hợp lý nhưng không có trong văn bản). Luôn đối chiếu từng đáp án với câu CHÍNH XÁC trong bài, không suy diễn hay đoán thêm.\nGhi nhớ: 大人 (người lớn) trong bài được dùng gần như đồng nghĩa với 成人 (người thành niên) — chỉ người đã trưởng thành, tự lập được về kinh tế.",
+      "sentencesVi": [
+        "\"Người thành niên\" là bao nhiêu tuổi?",
+        "Nhật Bản coi người từ 20 tuổi trở lên là \"thành niên\".",
+        "Nếu chưa thành niên, không được uống rượu, hút thuốc, hay tham gia bầu cử.",
+        "Tuy nhiên, gần đây có tranh luận về việc hạ độ tuổi thành niên xuống 18.",
+        "Có nhiều lý do, nhưng lý do đầu tiên là mở rộng sự tham gia chính trị của người dân.",
+        "Nếu tuổi được bầu cử là 18, sẽ có nhiều công dân hơn được tham gia bầu cử.",
+        "Lý do thứ hai: tuổi 18 là độ tuổi có thể tự lập về kinh tế, có thể kết hôn, có thể lấy bằng lái xe.",
+        "Cũng có người ở tuổi này đã đi làm, nên có thể coi là người lớn.",
+        "Hơn nữa, ở nhiều nước như Anh, Úc, Ý, Đức, Thụy Sĩ, Trung Quốc..., người thành niên được quy định là 18 tuổi.",
+        "Ngoài ra, Hàn Quốc — vốn cũng coi 20 tuổi là tuổi thành niên giống Nhật — đã quyết định hạ xuống 19 tuổi kể từ năm 2012."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-01",
@@ -8890,7 +9099,37 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "Kỹ thuật đọc bản đồ + hội thoại chỉ đường:\n① Luôn xác định ĐIỂM XUẤT PHÁT trước (ở đây là trước ga, sau đó là cửa hàng tiện lợi đối diện tiệm hoa) — vị trí xuất phát thay đổi giữa hội thoại 1 và 2, đừng nhầm.\n② Gạch chân các mốc chỉ đường quan trọng theo THỨ TỰ xuất hiện trong câu, và đánh dấu từng bước trên bản đồ: \"đi thẳng\" (まっすぐ行く) → \"ngã tư thứ mấy\" (＿つ目の交差点) → \"rẽ trái/phải\" (曲がる) → \"bên trái/phải\" (左側／右側) → đích đến.\n③ Cụm \"なな向かい\" (đối diện chéo) khác với \"向かい\" (đối diện thẳng) — cả hai đều là mốc tham chiếu hữu ích để xác định đúng vị trí trên bản đồ khi có nhiều lựa chọn giống nhau (ở đây là 4 quán cà phê a/b/c/d).\nCác cụm chỉ đường thường gặp: まっすぐ行く (đi thẳng), 左に曲がる／右に曲がる (rẽ trái/phải), 一つ目の交差点を右に曲がる (rẽ phải ở ngã tư thứ nhất), 交差点を越える (qua khỏi ngã tư), 三つ目の角を左に曲がる (rẽ trái ở góc thứ ba), 道を渡る (băng qua đường), 道の左側／右側 (bên trái/phải đường).\nCách nói vị trí tương đối: ～の上／～の中／～の下 (trên/trong/dưới ~), まえ／うしろ (trước/sau), となり (bên cạnh), 近く／そば (gần), 間 (ở giữa), なな向かい (đối diện chéo).\nMẫu câu \"A と、B\" để mô tả kết quả khi đi theo hướng dẫn: \"まっすぐ行くと、図書館があります\" (đi thẳng thì sẽ thấy thư viện) — có thể thay bằng \"そうすると\" hoặc dạng \"～ば\" (まっすぐ行けば、図書館があります) mà nghĩa không đổi."
+      "studyNote": "Kỹ thuật đọc bản đồ + hội thoại chỉ đường:\n① Luôn xác định ĐIỂM XUẤT PHÁT trước (ở đây là trước ga, sau đó là cửa hàng tiện lợi đối diện tiệm hoa) — vị trí xuất phát thay đổi giữa hội thoại 1 và 2, đừng nhầm.\n② Gạch chân các mốc chỉ đường quan trọng theo THỨ TỰ xuất hiện trong câu, và đánh dấu từng bước trên bản đồ: \"đi thẳng\" (まっすぐ行く) → \"ngã tư thứ mấy\" (＿つ目の交差点) → \"rẽ trái/phải\" (曲がる) → \"bên trái/phải\" (左側／右側) → đích đến.\n③ Cụm \"なな向かい\" (đối diện chéo) khác với \"向かい\" (đối diện thẳng) — cả hai đều là mốc tham chiếu hữu ích để xác định đúng vị trí trên bản đồ khi có nhiều lựa chọn giống nhau (ở đây là 4 quán cà phê a/b/c/d).\nCác cụm chỉ đường thường gặp: まっすぐ行く (đi thẳng), 左に曲がる／右に曲がる (rẽ trái/phải), 一つ目の交差点を右に曲がる (rẽ phải ở ngã tư thứ nhất), 交差点を越える (qua khỏi ngã tư), 三つ目の角を左に曲がる (rẽ trái ở góc thứ ba), 道を渡る (băng qua đường), 道の左側／右側 (bên trái/phải đường).\nCách nói vị trí tương đối: ～の上／～の中／～の下 (trên/trong/dưới ~), まえ／うしろ (trước/sau), となり (bên cạnh), 近く／そば (gần), 間 (ở giữa), なな向かい (đối diện chéo).\nMẫu câu \"A と、B\" để mô tả kết quả khi đi theo hướng dẫn: \"まっすぐ行くと、図書館があります\" (đi thẳng thì sẽ thấy thư viện) — có thể thay bằng \"そうすると\" hoặc dạng \"～ば\" (まっすぐ行けば、図書館があります) mà nghĩa không đổi.",
+      "sentencesVi": [
+        "【Bản đồ】Trên đại lộ chạy từ ga về hướng Bắc có nhiều ngã tư liên tiếp.",
+        "Johnson hiện đang đứng trước ga.",
+        "Đi từ trước ga về hướng Bắc, bên trái có \"siêu thị\", \"hiệu sách\"; bên phải có \"quán cà phê ⓐ\", \"hiệu thuốc\".",
+        "Ngã tư thứ nhất (＝gần cửa hàng tiện lợi nơi Johnson đang đứng).",
+        "Từ đó đi tiếp về hướng Bắc, bên trái có \"ngân hàng\", bên phải có \"phòng khám nha khoa\".",
+        "Góc bên phải ngã tư thứ hai có \"tiệm hoa\".",
+        "Rẽ ở đó rồi đi thêm một đoạn, bên phải có \"bệnh viện\".",
+        "Quán cà phê ⓑ nằm giữa hiệu sách và tiệm hoa, quán cà phê ⓒ gần bảo tàng mỹ thuật, quán cà phê ⓓ nằm cạnh tiệm bánh mì.",
+        "〈Hội thoại 1〉",
+        "Hôm nay lần đầu tiên Johnson đến thị trấn này.",
+        "Hiện anh đang đứng trước ga.",
+        "Anh có nơi muốn đến nhưng không biết đường, nên đã hỏi một người đang đi bộ gần đó.",
+        "Johnson: \"Tôi muốn đến (　　), phải đi thế nào ạ?\"",
+        "Người đi đường: \"Để xem nào～, là (　　) đúng không nhỉ.\"",
+        "\"Anh cứ đi thẳng theo con đường này.\"",
+        "\"Ở góc phải ngã tư thứ hai có một tiệm hoa.\"",
+        "\"Rẽ ở đó rồi đi thêm một đoạn ngắn, nó sẽ ở bên phải.\"",
+        "〈Hội thoại 2〉",
+        "Johnson hiện đang ở cửa hàng tiện lợi đối diện tiệm hoa.",
+        "Anh quyết định đến một quán cà phê nổi tiếng gần đây nhưng không biết đường đi.",
+        "Vì vậy anh hỏi nhân viên cửa hàng.",
+        "Johnson: \"Tôi nghe nói gần đây có một quán cà phê nổi tiếng, anh có biết nó ở đâu không?\"",
+        "Nhân viên cửa hàng: \"À, chắc là quán 'Little Kitchen' đó.\"",
+        "\"Ở đó ngon lắm.\"",
+        "\"Để xem nào～, anh cứ đi thẳng theo con đường lớn trước mặt, về hướng nhà ga.\"",
+        "\"Qua khỏi ngã tư thứ nhất là sẽ thấy nó ngay phía trước.\"",
+        "\"Nó nằm bên trái đường, và đối diện chéo có một ngân hàng.\"",
+        "\"Cứ đi thẳng theo đường này là sẽ thấy ngay thôi.\""
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-02",
@@ -10141,7 +10380,53 @@
           "questionType": "inference"
         }
       ],
-      "studyNote": "Đây là dạng bài kết hợp POSTER + HỘI THOẠI — phải đọc CẢ HAI để trả lời đúng: có thông tin chỉ nằm trong poster (nội dung cuộc thi, điều kiện, giải thưởng), có thông tin chỉ nằm trong hội thoại (ai nuôi con gì, ai sẽ làm gì tiếp theo). Đọc hội thoại TRONG BỐI CẢNH đang xem poster (giống hai người vừa xem vừa bàn) sẽ dễ hiểu hơn là đọc tách rời.\nKỹ thuật loại trừ: với câu hỏi \"điều nào đúng\", nếu 3 đáp án rõ ràng sai (bịa thêm điều kiện, đảo ngược sự thật, hoặc mâu thuẫn với văn bản), đáp án còn lại chắc chắn đúng — không cần chứng minh trực tiếp.\nBẫy thường gặp: câu \"木村さんは、リンさんに『ペットは家族協会』への問い合わせ方を教えてもらう\" nghe hợp lý thoáng qua nhưng SAI CHIỀU — phải đọc kỹ AI dạy AI, AI nhờ AI, chứ không suy đoán theo cảm tính. Cũng cần phân biệt \"賞をもらう\" (nhận giải) và \"応募する\" (tham gia dự thi) — hai việc khác nhau, chỉ ai ĐỦ ĐIỀU KIỆN mới tham gia được, và trong số người tham gia chỉ một phần nhỏ mới thắng giải."
+      "studyNote": "Đây là dạng bài kết hợp POSTER + HỘI THOẠI — phải đọc CẢ HAI để trả lời đúng: có thông tin chỉ nằm trong poster (nội dung cuộc thi, điều kiện, giải thưởng), có thông tin chỉ nằm trong hội thoại (ai nuôi con gì, ai sẽ làm gì tiếp theo). Đọc hội thoại TRONG BỐI CẢNH đang xem poster (giống hai người vừa xem vừa bàn) sẽ dễ hiểu hơn là đọc tách rời.\nKỹ thuật loại trừ: với câu hỏi \"điều nào đúng\", nếu 3 đáp án rõ ràng sai (bịa thêm điều kiện, đảo ngược sự thật, hoặc mâu thuẫn với văn bản), đáp án còn lại chắc chắn đúng — không cần chứng minh trực tiếp.\nBẫy thường gặp: câu \"木村さんは、リンさんに『ペットは家族協会』への問い合わせ方を教えてもらう\" nghe hợp lý thoáng qua nhưng SAI CHIỀU — phải đọc kỹ AI dạy AI, AI nhờ AI, chứ không suy đoán theo cảm tính. Cũng cần phân biệt \"賞をもらう\" (nhận giải) và \"応募する\" (tham gia dự thi) — hai việc khác nhau, chỉ ai ĐỦ ĐIỀU KIỆN mới tham gia được, và trong số người tham gia chỉ một phần nhỏ mới thắng giải.",
+      "sentencesVi": [
+        "Cuộc thi ảnh Thú cưng — Kêu gọi tác phẩm",
+        "Hãy gửi ảnh chú thú cưng đáng yêu của bạn.",
+        "Ngoài tiền thưởng, chúng tôi còn chuẩn bị nhiều giải thưởng khác như quần áo, thức ăn cho thú cưng.",
+        "Chủ đề tác phẩm: \"Thú cưng tôi yêu\"",
+        "Thời gian nhận bài: 1/6～31/8",
+        "Điều kiện tham gia: Là người nghiệp dư.",
+        "Là ảnh thú cưng của chính bạn do chính bạn chụp.",
+        "Là tác phẩm chưa từng công bố.",
+        "Mỗi người chỉ được gửi 1 tác phẩm.",
+        "【Giải thưởng】",
+        "Giải nhất: 1 giải — bằng khen, tiền thưởng 100.000円",
+        "Giải nhì: 1 giải — bằng khen, tiền thưởng 50.000円",
+        "Giải khuyến khích: 20 giải — bằng khen, tiền thưởng 10.000円",
+        "Giải chọn: 30 giải — bằng khen, đồ dùng thú cưng các loại",
+        "Giải tham gia: tất cả người tham gia — dây đeo thú cưng",
+        "Mọi thắc mắc xin liên hệ qua email đến \"Hiệp hội Thú cưng là Gia đình\" bên dưới.",
+        "Chúng tôi sẽ hồi âm qua email hướng dẫn cách tham gia chi tiết.",
+        "petpetfami@cc.com \"Hiệp hội Thú cưng là Gia đình\" phụ trách: Nekota",
+        "Rin: \"Poster kia ghi 'thú cưng' nhỉ.\"",
+        "\"Ý là mèo hay chó đang nuôi ở nhà đúng không?\"",
+        "Kimura: \"Đúng vậy.\"",
+        "\"Ghi là chụp ảnh thú cưng đang nuôi rồi gửi thì được nhiều giải thưởng đấy.\"",
+        "Rin: \"Giải thưởng à?\"",
+        "Kimura: \"Ai gửi ảnh đẹp thì... để xem nào, người gửi ảnh đẹp nhất được 100.000 yên.\"",
+        "\"Ghê thật.\"",
+        "\"Mình cũng thử gửi xem sao.\"",
+        "Rin: \"Kimura có nuôi thú cưng không?\"",
+        "Kimura: \"À, đúng rồi nhỉ.\"",
+        "\"Phải là ảnh thú cưng CỦA MÌNH mới được.\"",
+        "\"Có ghi vậy đấy.\"",
+        "\"Chỗ điều kiện tham gia có ghi ai được tham gia.\"",
+        "\"Phải là ảnh thú cưng của mình, tự mình chụp mới được.\"",
+        "Rin: \"Mình có nuôi mèo, nên có thể gửi ảnh đó nhỉ.\"",
+        "\"Cố lên thôi.\"",
+        "Kimura: \"Hay đấy.\"",
+        "\"Nhất định phải giành giải nhất nhé.\"",
+        "Rin: \"Chụp ảnh xong còn phải giành giải nhất nữa cơ đấy.\"",
+        "Kimura: \"Đúng vậy.\"",
+        "\"Nhưng về cách gửi thì phải hỏi qua email đấy.\"",
+        "\"Chắc có nhiều quy định lắm.\"",
+        "Rin: \"Hỏi qua email nghe có vẻ khó hơn chụp ảnh.\"",
+        "\"Cậu giúp mình được không?\"",
+        "Kimura: \"Tất nhiên là được rồi.\"",
+        "\"Mình cũng thấy vui lây rồi đây.\""
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-03",
@@ -10868,7 +11153,23 @@
           "questionType": "main-idea"
         }
       ],
-      "studyNote": "① たずねる là từ trang trọng đồng nghĩa với 聞く/質問する (hỏi) — không phải 頼む (nhờ vả); và mẫu ngữ pháp \"Vた＋ところ\" diễn tả \"vừa làm V thì phát hiện/xảy ra kết quả sau đó\", gần nghĩa nhất với \"Vたら\" trong các lựa chọn.\n② Từ vựng chỉ SỐ LƯỢNG TƯƠNG ĐỐI cần nhớ theo cặp đối lập: 強 (mạnh, hơn một chút) ⇔ 弱 (yếu, kém một chút); のぼる (lên đến, đạt tới mức đó hoặc hơn) ⇔ とどまる (dừng lại ở mức đó, không hơn). Ví dụ: 1割強 > 10% một chút; 3割弱 < 30% một chút; \"4割にのぼった\" = đạt tới 40%; \"2割にとどまった\" = chỉ dừng ở 20%, không hơn.\n③ Với bài có cả văn bản VÀ biểu đồ, cần xác định rõ CÂU HỎI đang hỏi về nội dung nào — có câu chỉ cần đọc văn bản, có câu chỉ cần đọc biểu đồ. Khi biểu đồ có nhiều mục nhỏ liên quan (như とても得意/やや得意 đều thuộc nhóm \"得意\"), phải CỘNG DỒN đúng nhóm được hỏi, không lấy nhầm một mục con.\nCấu trúc thường gặp của bài có khảo sát: nêu số liệu → giải thích ý nghĩa → so sánh với nhóm khác — đọc theo cấu trúc này giúp định vị nhanh câu trả lời."
+      "studyNote": "① たずねる là từ trang trọng đồng nghĩa với 聞く/質問する (hỏi) — không phải 頼む (nhờ vả); và mẫu ngữ pháp \"Vた＋ところ\" diễn tả \"vừa làm V thì phát hiện/xảy ra kết quả sau đó\", gần nghĩa nhất với \"Vたら\" trong các lựa chọn.\n② Từ vựng chỉ SỐ LƯỢNG TƯƠNG ĐỐI cần nhớ theo cặp đối lập: 強 (mạnh, hơn một chút) ⇔ 弱 (yếu, kém một chút); のぼる (lên đến, đạt tới mức đó hoặc hơn) ⇔ とどまる (dừng lại ở mức đó, không hơn). Ví dụ: 1割強 > 10% một chút; 3割弱 < 30% một chút; \"4割にのぼった\" = đạt tới 40%; \"2割にとどまった\" = chỉ dừng ở 20%, không hơn.\n③ Với bài có cả văn bản VÀ biểu đồ, cần xác định rõ CÂU HỎI đang hỏi về nội dung nào — có câu chỉ cần đọc văn bản, có câu chỉ cần đọc biểu đồ. Khi biểu đồ có nhiều mục nhỏ liên quan (như とても得意/やや得意 đều thuộc nhóm \"得意\"), phải CỘNG DỒN đúng nhóm được hỏi, không lấy nhầm một mục con.\nCấu trúc thường gặp của bài có khảo sát: nêu số liệu → giải thích ý nghĩa → so sánh với nhóm khác — đọc theo cấu trúc này giúp định vị nhanh câu trả lời.",
+      "sentencesVi": [
+        "Khi hỏi học sinh lớp 8 về ①ý thức đối với môn tiếng Anh, khảo sát của Trung tâm Nghiên cứu Phát triển Giáo dục Benesse cho thấy 6 phần 10 cảm thấy \"không giỏi\".",
+        "Trong đó, gần 7 phần 10 bắt đầu cảm thấy vậy từ giai đoạn lớp 6, hơn 1 phần 10 đã cảm thấy không giỏi từ TRƯỚC KHI vào cấp 2.",
+        "(Lược)",
+        "Khảo sát lần này cũng cho thấy 91,4% học sinh từng học tiếng Anh ở tiểu học.",
+        "Trong đó, 70,7% học sinh nói tiếng Anh tiểu học \"vui\".",
+        "Mặt khác, chỉ có 41,8% trả lời rằng \"có hứng thú với nước ngoài/tiếng Anh\".",
+        "Khảo sát lần này cũng hỏi về xã hội và hình dung tương lai của bản thân.",
+        "Hơn 7 phần 10 học sinh nghĩ rằng \"khi trưởng thành, xã hội sẽ cần nói tiếng Anh nhiều hơn bây giờ\".",
+        "Tuy nhiên, chỉ 20,4% học sinh muốn \"đi du học nước ngoài trong tương lai\", 14,6% muốn \"làm công việc dùng tiếng Anh trong tương lai\" — đều là thiểu số.",
+        "Số học sinh muốn \"thử nói chuyện với người nước ngoài bằng tiếng Anh\" hay \"làm bạn với người nước ngoài\" cũng chỉ dừng ở một nửa.",
+        "【Giỏi hay không giỏi tiếng Anh?",
+        "】",
+        "",
+        "Rất giỏi 8,0%／Hơi giỏi 29,5%／Hơi kém 32,5%／Rất kém 29,3%／Không trả lời/không rõ 0,7%"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-04",
@@ -11747,7 +12048,22 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Chỉ thị từ \"そのような\" luôn quy chiếu về câu/ý NGAY TRƯỚC nó — cẩn thận không nhầm với hệ QUẢ hay NGUYÊN NHÂN nằm ở câu tiếp theo.\n② \"ところ\" là từ đa nghĩa quan trọng trong N3, có ít nhất 3 cách dùng chính cần phân biệt: (1) địa điểm cụ thể (例：東京のどこかおもしろいところ), (2) giai đoạn của một hành động/quá trình (例：今、出かけるところ = vừa sắp/đang/vừa mới làm gì), (3) điểm/khía cạnh trừu tượng của sự việc (例：この車の一番いいところ = điểm tốt nhất của xe). Ngoài ra \"ところで\" đứng riêng là từ nối chuyển chủ đề, không liên quan các nghĩa trên.\n③ Với bài có nhiều từ dễ nhầm nghĩa gần giống nhau (使用者=ユーザー, 満足度, 人気, 認知度, 使用数), hãy tạo bảng phân biệt rõ ràng: 認知度 (độ biết đến) ≠ 使用数 (số lượng dùng thực tế) ≠ 満足度 (mức hài lòng của người ĐÃ dùng) ≠ 人気 (mức độ được ưa chuộng nói chung) — bốn khái niệm độc lập, một hãng có thể cao ở mục này nhưng thấp ở mục khác.\n④ Với bảng xếp hạng nhiều cột (như bảng 4 mục × 5 hạng ở đây), kỹ thuật đọc là chọn MỘT công ty rồi dò xem nó xuất hiện ở đâu trong TẤT CẢ các cột, thay vì đọc từng cột riêng lẻ — cách này giúp trả lời nhanh các câu hỏi so sánh chéo giữa các mục."
+      "studyNote": "① Chỉ thị từ \"そのような\" luôn quy chiếu về câu/ý NGAY TRƯỚC nó — cẩn thận không nhầm với hệ QUẢ hay NGUYÊN NHÂN nằm ở câu tiếp theo.\n② \"ところ\" là từ đa nghĩa quan trọng trong N3, có ít nhất 3 cách dùng chính cần phân biệt: (1) địa điểm cụ thể (例：東京のどこかおもしろいところ), (2) giai đoạn của một hành động/quá trình (例：今、出かけるところ = vừa sắp/đang/vừa mới làm gì), (3) điểm/khía cạnh trừu tượng của sự việc (例：この車の一番いいところ = điểm tốt nhất của xe). Ngoài ra \"ところで\" đứng riêng là từ nối chuyển chủ đề, không liên quan các nghĩa trên.\n③ Với bài có nhiều từ dễ nhầm nghĩa gần giống nhau (使用者=ユーザー, 満足度, 人気, 認知度, 使用数), hãy tạo bảng phân biệt rõ ràng: 認知度 (độ biết đến) ≠ 使用数 (số lượng dùng thực tế) ≠ 満足度 (mức hài lòng của người ĐÃ dùng) ≠ 人気 (mức độ được ưa chuộng nói chung) — bốn khái niệm độc lập, một hãng có thể cao ở mục này nhưng thấp ở mục khác.\n④ Với bảng xếp hạng nhiều cột (như bảng 4 mục × 5 hạng ở đây), kỹ thuật đọc là chọn MỘT công ty rồi dò xem nó xuất hiện ở đâu trong TẤT CẢ các cột, thay vì đọc từng cột riêng lẻ — cách này giúp trả lời nhanh các câu hỏi so sánh chéo giữa các mục.",
+      "sentencesVi": [
+        "Dù ở văn phòng hay ở nhà, số người dùng máy tính hằng ngày ngày càng tăng.",
+        "Máy tính liên tục được cải tiến, dòng máy mới không ngừng ra mắt, cạnh tranh giữa các hãng cũng ngày càng khốc liệt.",
+        "①Trong bối cảnh đó, hãng máy tính nào được người dùng biết đến nhiều nhất, hay loại máy nào đang được dùng nhiều nhất là sản phẩm của hãng nào... đều là những ②điểm đáng quan tâm.",
+        "Vì vậy, lần này đã có khảo sát về độ nhận biết thương hiệu, số lượng sử dụng thực tế, và mức độ hài lòng của người dùng, cho kết quả như sau.",
+        "Hãng được biết đến nhiều nhất là công ty A; máy tính khiến người dùng hài lòng nhất là công ty B (dòng laptop) và công ty C (dòng để bàn).",
+        "Qua đó có thể thấy, dù ai cũng biết đến một hãng, không có nghĩa là mức độ hài lòng của người dùng với hãng đó cao.",
+        "Ngoài ra, cũng có hãng như công ty H — được nhiều người sử dụng nhưng độ nhận biết lại thấp.",
+        "Chi tiết như bảng sau.",
+        "【Hạng mục／Thứ hạng: 1／2／3／4／5】",
+        "Độ nhận biết: Cty A／Cty D／Cty J／Cty K／Cty E",
+        "Số lượng sử dụng: Cty A／Cty D／Cty H／Cty I／Cty B",
+        "Mức hài lòng (Laptop): Cty B／Cty F／Cty A／Cty D／Cty J",
+        "Mức hài lòng (Để bàn): Cty C／Cty G／Cty D／Cty A／Cty K"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-05",
@@ -12732,7 +13048,25 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Với các từ ghép Hán-Nhật lạ mang tính ẩn dụ (頭打ち, よこばい, 急伸, 勢いが鈍る), hãy phân tích qua CHỮ HÁN cấu thành: 頭打ち = 頭 (đầu) + 打つ (đập) → \"đập lên đỉnh đầu\" ẩn dụ cho việc không thể tăng/đi lên thêm được nữa; よこばい = 横 (ngang) + はう (bò) → di chuyển ngang, không đi lên; 急伸 = 急 (gấp) + 伸びる (kéo dài/tăng) → tăng nhanh đột ngột; 鈍る = từ dùng cho dao/kéo bị CÙN đi, ở đây ẩn dụ cho việc đà tăng trưởng yếu dần.\n② Với bài có VĂN BẢN + BIỂU ĐỒ, luôn đọc kỹ trục hoành/trục tung của biểu đồ trước (ở đây: trục ngang là NĂM, trục dọc là CHIỀU CAO tính bằng cm) — độ dốc của đường biểu diễn cho biết tốc độ tăng (dốc = tăng nhanh, phẳng/ngang = gần như không tăng).\n③ Với dạng câu hỏi \"chọn 2 đáp án đúng trong 6 lựa chọn A-F\", nên kiểm tra TỪNG lựa chọn một cách độc lập, đối chiếu trực tiếp với câu cụ thể trong bài — không suy diễn thêm điều bài không nói (như đáp án E về việc tập thể dục, hoàn toàn không được nhắc đến trong bài).\nGhi nhớ: nhiều động từ ghép trong tiếng Nhật do 2 động từ hợp lại, mang nghĩa mới: 伸び＋続ける→伸び続ける (tiếp tục tăng), 歩き＋出す→歩き出す (bắt đầu đi), 食べ＋終わる→食べ終わる (ăn xong)."
+      "studyNote": "① Với các từ ghép Hán-Nhật lạ mang tính ẩn dụ (頭打ち, よこばい, 急伸, 勢いが鈍る), hãy phân tích qua CHỮ HÁN cấu thành: 頭打ち = 頭 (đầu) + 打つ (đập) → \"đập lên đỉnh đầu\" ẩn dụ cho việc không thể tăng/đi lên thêm được nữa; よこばい = 横 (ngang) + はう (bò) → di chuyển ngang, không đi lên; 急伸 = 急 (gấp) + 伸びる (kéo dài/tăng) → tăng nhanh đột ngột; 鈍る = từ dùng cho dao/kéo bị CÙN đi, ở đây ẩn dụ cho việc đà tăng trưởng yếu dần.\n② Với bài có VĂN BẢN + BIỂU ĐỒ, luôn đọc kỹ trục hoành/trục tung của biểu đồ trước (ở đây: trục ngang là NĂM, trục dọc là CHIỀU CAO tính bằng cm) — độ dốc của đường biểu diễn cho biết tốc độ tăng (dốc = tăng nhanh, phẳng/ngang = gần như không tăng).\n③ Với dạng câu hỏi \"chọn 2 đáp án đúng trong 6 lựa chọn A-F\", nên kiểm tra TỪNG lựa chọn một cách độc lập, đối chiếu trực tiếp với câu cụ thể trong bài — không suy diễn thêm điều bài không nói (như đáp án E về việc tập thể dục, hoàn toàn không được nhắc đến trong bài).\nGhi nhớ: nhiều động từ ghép trong tiếng Nhật do 2 động từ hợp lại, mang nghĩa mới: 伸び＋続ける→伸び続ける (tiếp tục tăng), 歩き＋出す→歩き出す (bắt đầu đi), 食べ＋終わる→食べ終わる (ăn xong).",
+      "sentencesVi": [
+        "Có vẻ chiều cao người Nhật ①chững lại trong thời gian gần đây.",
+        "Ở thế hệ sinh sau thập niên 80, xu hướng ②giữ nguyên (không tăng) thể hiện rõ rệt.",
+        "Sau chiến tranh, chiều cao đã liên tục tăng.",
+        "Đặc biệt nổi bật ở nhóm sinh từ thập niên 40 đến giữa thập niên 60, chiều cao trung bình tuổi 20 ③tăng vọt với tốc độ 2～3cm mỗi 10 năm.",
+        "Bà Kawamura Makiko, nghiên cứu viên trưởng (nhân chủng học) tại Viện Nghiên cứu Khoa học Công nghệ Công nghiệp Tổng hợp cho biết: “Chiều cao trung bình được quyết định bởi lượng và chất thực phẩm, tình trạng vệ sinh.”",
+        "“Sự cải thiện sau chiến tranh có lẽ nhờ vào lượng protein động vật hấp thụ tăng lên.”",
+        "Cùng với sự phát triển của kinh tế Nhật Bản, cơ thể chúng ta cũng tăng trưởng nhanh, nhưng từ đó về sau ④đà tăng đã chậm lại.",
+        "Chiều cao người trưởng thành bị ảnh hưởng lớn bởi mức tăng trưởng ở giai đoạn sơ sinh - trẻ nhỏ.",
+        "Với người Nhật, khoảng cách chiều cao giữa các thế hệ đo tại thời điểm vào tiểu học vẫn tồn tại đến khi trưởng thành.",
+        "Chiều cao học sinh lớp 1 gần như không đổi trong khoảng 20 năm qua, nên bà Kawamura dự đoán: “Nếu môi trường xã hội không có thay đổi mạnh, có lẽ chiều cao sẽ không tăng thêm nữa.”",
+        "Tuy nhiên, với người cao tuổi, do nhóm “thế hệ tăng trưởng cao” (bao gồm thế hệ dankai) liên tục gia nhập nhóm tuổi này, chiều cao trung bình của nhóm cao tuổi vẫn sẽ tiếp tục tăng trong thời gian tới.",
+        "【Biểu đồ: Chiều cao người Nhật (trục dọc: cm, trục ngang: 1954～2005)】",
+        "Nam (20 tuổi): tăng nhẹ liên tục, khoảng 170cm.",
+        "Nữ (20 tuổi): tăng nhẹ liên tục, khoảng 158cm (thấp hơn nam).",
+        "Bé trai (lớp 1): gần như không đổi từ khoảng 1990.",
+        "Bé gái (lớp 1): gần như không đổi từ khoảng 1990."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-06",
@@ -13312,7 +13646,23 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Với thư kinh doanh, luôn xác định NGƯỜI GỬI qua phần địa chỉ/tên ở đầu thư (trước tiêu đề, dưới ngày tháng) — đây là công thức thư đã học ở PART1 bài ⑨: ngày tháng → người NHẬN → người GỬI → tiêu đề → nội dung.\n② Với thư PHÚC ĐÁP (trả lời một thư/câu hỏi trước đó mà ta không thấy trực tiếp), cách suy ra nội dung thư GỐC là tìm từ khóa \"về việc...\", \"cảm ơn đã hỏi về...\" trong thư trả lời — ở đây tiêu đề \"当社商品へのご質問について\" và câu \"名前に関心をお寄せいただき\" đều chỉ về chủ đề CÁI TÊN sản phẩm.\n③ Từ vựng: 同封する (gửi kèm trong cùng phong bì, khác với gửi riêng); 試食する (dùng thử để nếm xem có ngon không — cấu trúc 試+する = thử làm gì đó xem sao, tương tự 試着する=mặc thử, 試飲する=uống thử, 試乗する=lái/đi thử).\nCách chơi chữ trong tiếng Nhật: 1 từ mới có thể ghép từ 2 nguồn khác loại (ở đây: tiếng Anh \"tea time\" + cách đọc Hán-Nhật của chữ 休 là \"きゅう\") — hiện tượng này khá phổ biến trong tên thương hiệu/sản phẩm tiếng Nhật hiện đại."
+      "studyNote": "① Với thư kinh doanh, luôn xác định NGƯỜI GỬI qua phần địa chỉ/tên ở đầu thư (trước tiêu đề, dưới ngày tháng) — đây là công thức thư đã học ở PART1 bài ⑨: ngày tháng → người NHẬN → người GỬI → tiêu đề → nội dung.\n② Với thư PHÚC ĐÁP (trả lời một thư/câu hỏi trước đó mà ta không thấy trực tiếp), cách suy ra nội dung thư GỐC là tìm từ khóa \"về việc...\", \"cảm ơn đã hỏi về...\" trong thư trả lời — ở đây tiêu đề \"当社商品へのご質問について\" và câu \"名前に関心をお寄せいただき\" đều chỉ về chủ đề CÁI TÊN sản phẩm.\n③ Từ vựng: 同封する (gửi kèm trong cùng phong bì, khác với gửi riêng); 試食する (dùng thử để nếm xem có ngon không — cấu trúc 試+する = thử làm gì đó xem sao, tương tự 試着する=mặc thử, 試飲する=uống thử, 試乗する=lái/đi thử).\nCách chơi chữ trong tiếng Nhật: 1 từ mới có thể ghép từ 2 nguồn khác loại (ở đây: tiếng Anh \"tea time\" + cách đọc Hán-Nhật của chữ 休 là \"きゅう\") — hiện tượng này khá phổ biến trong tên thương hiệu/sản phẩm tiếng Nhật hiện đại.",
+      "sentencesVi": [
+        "Ngày lành tháng 7 năm 20××",
+        "Kính gửi ông Yamamoto Taro",
+        "Công ty cổ phần Bánh kẹo Ocha, Phòng Kinh doanh, Bộ phận Chăm sóc khách hàng, Tanaka Midori",
+        "Về câu hỏi liên quan đến sản phẩm của công ty chúng tôi",
+        "Kính thưa, giữa mùa hè oi ả, kính chúc ông ngày càng khỏe mạnh.",
+        "Lần này, cảm ơn ông đã liên hệ hỏi về sản phẩm mới \"Tea Time - Kyu Time\" của công ty chúng tôi.",
+        "Sản phẩm này được phát triển làm món ăn vặt hằng ngày, đặc biệt là loại bánh quy chúng tôi mong ông thưởng thức cùng trà đen.",
+        "Cái tên \"Tea Time - Kyu Time\" được ghép từ \"tea time\" (giờ uống trà) và \"kyu time\".",
+        "\"Kyu\" là cách đọc khác của chữ Hán 休 (nghỉ) — chữ này còn xuất hiện trong các từ như 休憩 (nghỉ giải lao), 休息 (nghỉ ngơi), 休暇 (nghỉ phép) — nên chúng tôi lấy đó đặt tên cho sản phẩm, ý chỉ giờ nghỉ ngơi trong công việc hay học tập.",
+        "Cảm ơn ông đã quan tâm đến tên sản phẩm của công ty chúng tôi.",
+        "Chúng tôi xin gửi kèm một hộp \"Tea Time - Kyu Time\".",
+        "Xin mời ông dùng thử như một người bạn đồng hành cùng tách trà.",
+        "Mong tiếp tục nhận được sự ủng hộ của ông trong thời gian tới.",
+        "Kính thư"
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-07",
@@ -14355,7 +14705,28 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Với bài văn dài, KHÔNG nên đọc từ đầu đến cuối một mạch rồi mới xem câu hỏi — nên LƯỚT QUA câu hỏi trước để biết cần tìm gì, rồi mới đọc kỹ đoạn liên quan.\n② Chỉ thị từ có thể được TÁI SỬ DỤNG cùng một ký hiệu (①,②) ở nhiều vị trí khác nhau trong cùng bài — phải xác định đúng LẦN xuất hiện mà câu hỏi đang nhắc tới (ở đây câu hỏi về \"①それ\" là lần thứ HAI chữ ① xuất hiện, không phải lần đầu tương ứng với \"chạy đến xin lỗi\").\n③ Thành ngữ có yếu tố ẩn dụ (目くじらを立てる = nổi giận, 心が狭い = hẹp hòi) không nên hiểu theo nghĩa đen từng chữ (クジラ=cá voi không liên quan) — nếu gặp từ lạ trong thành ngữ, tìm gợi ý nghĩa từ CÁC TỪ XUNG QUANH nó trong câu (ở đây \"心が狭い\" đứng ngay sau để gợi ý \"目くじらを立てる\" mang sắc thái tiêu cực, hẹp hòi).\n④ Chủ đề cốt lõi của bài (khác biệt văn hóa về cảm nhận thời gian, \"tốt\" ở nơi này có thể \"không tốt\" ở nơi khác) thường được nhắc lại dưới nhiều hình thức khác nhau xuyên suốt bài — nhận diện được chủ đề chính giúp loại nhanh các đáp án đưa ra kết luận TUYỆT ĐỐI (\"cách nào cũng tốt nhất\", \"ai cũng vậy\") vì chúng mâu thuẫn với tinh thần \"khác biệt tùy văn hóa\" của bài."
+      "studyNote": "① Với bài văn dài, KHÔNG nên đọc từ đầu đến cuối một mạch rồi mới xem câu hỏi — nên LƯỚT QUA câu hỏi trước để biết cần tìm gì, rồi mới đọc kỹ đoạn liên quan.\n② Chỉ thị từ có thể được TÁI SỬ DỤNG cùng một ký hiệu (①,②) ở nhiều vị trí khác nhau trong cùng bài — phải xác định đúng LẦN xuất hiện mà câu hỏi đang nhắc tới (ở đây câu hỏi về \"①それ\" là lần thứ HAI chữ ① xuất hiện, không phải lần đầu tương ứng với \"chạy đến xin lỗi\").\n③ Thành ngữ có yếu tố ẩn dụ (目くじらを立てる = nổi giận, 心が狭い = hẹp hòi) không nên hiểu theo nghĩa đen từng chữ (クジラ=cá voi không liên quan) — nếu gặp từ lạ trong thành ngữ, tìm gợi ý nghĩa từ CÁC TỪ XUNG QUANH nó trong câu (ở đây \"心が狭い\" đứng ngay sau để gợi ý \"目くじらを立てる\" mang sắc thái tiêu cực, hẹp hòi).\n④ Chủ đề cốt lõi của bài (khác biệt văn hóa về cảm nhận thời gian, \"tốt\" ở nơi này có thể \"không tốt\" ở nơi khác) thường được nhắc lại dưới nhiều hình thức khác nhau xuyên suốt bài — nhận diện được chủ đề chính giúp loại nhanh các đáp án đưa ra kết luận TUYỆT ĐỐI (\"cách nào cũng tốt nhất\", \"ai cũng vậy\") vì chúng mâu thuẫn với tinh thần \"khác biệt tùy văn hóa\" của bài.",
+      "sentencesVi": [
+        "Bạn hẹn gặp một người bạn thân ở nhà ga để đi mua sắm cùng.",
+        "Bạn đến trễ 10 phút.",
+        "Vậy, bạn sẽ làm gì?",
+        "① Chạy đến chỗ bạn và xin lỗi.",
+        "② Không chạy, cứ đi đến chỗ bạn như bình thường và chào hỏi.",
+        "Không đặc biệt xin lỗi.",
+        "Thời gian là con số nên có vẻ mang tính khách quan, nhưng cảm nhận về thời gian lại khác nhau tùy văn hóa.",
+        "Phần lớn người Nhật sẽ chọn ① “chạy đến chỗ bạn và xin lỗi”.",
+        "(…lược…) Ngoài ra, dù có lý do trễ hẹn, thứ tự vẫn là xin lỗi trước rồi mới giải thích lý do sau.",
+        "Mặt khác, cũng có người cho rằng 10 phút không phải là khoảng thời gian dài, và ① đó chỉ là sai số cho phép.",
+        "Với bạn bè thân thiết, việc ② nổi giận vì trễ 10–20 phút bị coi là hẹp hòi.",
+        "Cũng có cách nghĩ rằng không chạy là vì cho rằng việc mình chạy trông không đẹp mắt trong mắt người xung quanh.",
+        "Nếu mình làm điều không đẹp mắt thì cũng khiến bạn đang chờ cảm thấy xấu hổ lây, nên không chạy.",
+        "Cách cảm nhận và hành động với thời gian cũng khác nhau tùy văn hóa, và điều được coi là “tốt” ở văn hóa này không hiếm khi lại là “không tốt” ở văn hóa khác.",
+        "Vậy, nếu có tiệc tại nhà bạn bắt đầu lúc 7 giờ tối, bạn sẽ đến lúc mấy giờ?",
+        "Câu trả lời rất đa dạng tùy văn hóa.",
+        "Có người đến lúc 7 giờ 10 phút, có người đến tận 10 giờ tối; câu trả lời đã đa dạng, mà lý do đằng sau còn đa dạng hơn — đó chính là điều thú vị của văn hóa.",
+        "Khi đến một nước khác, người dân ở đó có cảm nhận về thời gian như thế nào?",
+        "Tốt nhất nên tìm hiểu để hành động cho phù hợp."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-08",
@@ -15175,7 +15546,22 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Câu hỏi loại \"doanh nghiệp muốn làm gì\" cần tìm đúng ĐỘNG TỪ MỤC ĐÍCH trong bài (ở đây: \"情報を...得ようとしている\" = đang cố THU THẬP thông tin) — không nhầm với các mục đích liên quan nhưng không được nêu trực tiếp (quảng cáo, doanh số).\n② Từ nối \"つまり\" dùng khi vế sau DIỄN GIẢI LẠI/nói khác đi cùng một ý của vế trước — khác với \"そのうえ\" (hơn nữa, bổ sung ý MỚI), \"けれども\" (nhưng, tương phản), \"結局\" (cuối cùng, kết luận). Nhận diện quan hệ giữa 2 vế câu là chìa khóa chọn đúng từ nối.\n③ Cấu trúc bài: nêu hiện tượng (internet phổ biến) → nêu vấn đề doanh nghiệp quan tâm → giải pháp (phần mềm phân loại) → hạn chế còn tồn tại → kết luận. Câu hỏi \"nội dung nào đúng\" thường khớp với đoạn KẾT LUẬN ở cuối bài — đọc kỹ đoạn cuối trước khi kiểm tra từng đáp án."
+      "studyNote": "① Câu hỏi loại \"doanh nghiệp muốn làm gì\" cần tìm đúng ĐỘNG TỪ MỤC ĐÍCH trong bài (ở đây: \"情報を...得ようとしている\" = đang cố THU THẬP thông tin) — không nhầm với các mục đích liên quan nhưng không được nêu trực tiếp (quảng cáo, doanh số).\n② Từ nối \"つまり\" dùng khi vế sau DIỄN GIẢI LẠI/nói khác đi cùng một ý của vế trước — khác với \"そのうえ\" (hơn nữa, bổ sung ý MỚI), \"けれども\" (nhưng, tương phản), \"結局\" (cuối cùng, kết luận). Nhận diện quan hệ giữa 2 vế câu là chìa khóa chọn đúng từ nối.\n③ Cấu trúc bài: nêu hiện tượng (internet phổ biến) → nêu vấn đề doanh nghiệp quan tâm → giải pháp (phần mềm phân loại) → hạn chế còn tồn tại → kết luận. Câu hỏi \"nội dung nào đúng\" thường khớp với đoạn KẾT LUẬN ở cuối bài — đọc kỹ đoạn cuối trước khi kiểm tra từng đáp án.",
+      "sentencesVi": [
+        "Đã lâu năm kể từ khi từ \"internet\" trở nên quen thuộc.",
+        "Mỗi ngày, người ta gửi/nhận email, và khi muốn tìm hiểu điều gì, ngày càng nhiều người tra cứu trên mạng đầu tiên.",
+        "Hơn nữa, không chỉ tra cứu, cũng có người muốn tự mình phát tín thông tin, nên trên các diễn đàn mạng và blog luôn tràn ngập nhiều thông tin.",
+        "Điều thu hút sự chú ý ở đây chính là các doanh nghiệp.",
+        "Mỗi công ty đang cố gắng thu thập thông tin qua \"tiếng nói\" trên mạng — người dùng sản phẩm/dịch vụ của mình nghĩ gì, (②) người tiêu dùng có thấy sản phẩm công ty mình tốt hay không, có điểm nào cần cải thiện không.",
+        "Tìm kiếm trên internet, chỉ cần nhập từ khóa hay tên sản phẩm là có thể tìm thấy nhiều thông tin liên quan, rất tiện lợi.",
+        "Nhưng tùy từ khóa, thông tin có thể quá nhiều, khiến việc kiểm tra hết là rất vất vả.",
+        "Vì vậy, người ta đã phát triển phần mềm có thể chọn lọc và cung cấp thông tin hữu ích cho doanh nghiệp.",
+        "Trong đó có cả phần mềm phân loại xem một sản phẩm đang được đánh giá \"tốt\" hay \"xấu\".",
+        "Ví dụ, hệ thống này phân loại: nếu có từ như \"tốt\", \"tuyệt vời\" thì xếp vào nhóm tích cực; nếu có từ như \"tệ\", \"tồi\" thì xếp vào nhóm tiêu cực.",
+        "Tuy nhiên, vẫn còn vấn đề.",
+        "Ví dụ, khi gặp thông tin dạng \"~ thì tốt, nhưng ~ thì tệ\", rất khó để phân loại đó là \"tốt\" hay \"xấu\".",
+        "Cuối cùng, để phân loại lời nói của con người một cách máy móc bằng phần mềm, vẫn còn rất nhiều vấn đề cần giải quyết."
+      ]
     },
     {
       "id": "reading-taisaku-n3-part2-09",
@@ -16067,7 +16453,25 @@
           "questionType": "detail"
         }
       ],
-      "studyNote": "① Với bài có bảng số liệu nhiều cột theo từng năm, kỹ thuật đọc là dò theo TỪNG DÒNG (từng năm) để thấy xu hướng của MỘT cột theo thời gian, rồi so sánh xu hướng của các cột KHÁC NHAU với nhau — ở đây tổng dân số GIẢM liên tục nhưng tỷ suất sinh GIẢM RỒI TĂNG, hai xu hướng không giống nhau, nên \"tỷ lệ thuận\" (比例) không đúng.\n② Đơn vị trong bảng số liệu tiếng Nhật thường là \"万\" (vạn = 10.000), không phải đơn vị người trực tiếp — LUÔN kiểm tra đơn vị ghi trong tiêu đề cột trước khi tính toán, đây là lỗi rất dễ mắc khi làm bài có bảng số liệu.\n③ Từ vựng chỉ xu hướng tăng/giảm cần phân biệt mức độ: 急激に増える (tăng vọt/đột ngột) mạnh hơn hẳn 若干増える (tăng nhẹ, một chút); よこばい (đi ngang, không đổi nhiều) khác với cả tăng và giảm rõ rệt — chọn nhầm mức độ là lỗi phổ biến trong câu hỏi tóm tắt xu hướng."
+      "studyNote": "① Với bài có bảng số liệu nhiều cột theo từng năm, kỹ thuật đọc là dò theo TỪNG DÒNG (từng năm) để thấy xu hướng của MỘT cột theo thời gian, rồi so sánh xu hướng của các cột KHÁC NHAU với nhau — ở đây tổng dân số GIẢM liên tục nhưng tỷ suất sinh GIẢM RỒI TĂNG, hai xu hướng không giống nhau, nên \"tỷ lệ thuận\" (比例) không đúng.\n② Đơn vị trong bảng số liệu tiếng Nhật thường là \"万\" (vạn = 10.000), không phải đơn vị người trực tiếp — LUÔN kiểm tra đơn vị ghi trong tiêu đề cột trước khi tính toán, đây là lỗi rất dễ mắc khi làm bài có bảng số liệu.\n③ Từ vựng chỉ xu hướng tăng/giảm cần phân biệt mức độ: 急激に増える (tăng vọt/đột ngột) mạnh hơn hẳn 若干増える (tăng nhẹ, một chút); よこばい (đi ngang, không đổi nhiều) khác với cả tăng và giảm rõ rệt — chọn nhầm mức độ là lỗi phổ biến trong câu hỏi tóm tắt xu hướng.",
+      "sentencesVi": [
+        "Sau chiến tranh, dân số Nhật Bản liên tục tăng.",
+        "Tuy nhiên, tốc độ tăng dân số dần chậm lại, đến năm 2005 thì rốt cuộc chuyển sang giảm.",
+        "Nguyên nhân là do tuổi kết hôn tăng lên, phụ nữ tham gia xã hội nhiều hơn... khiến số con trung bình mỗi phụ nữ sinh ra ngày càng giảm.",
+        "Dự đoán dân số Nhật sẽ tiếp tục giảm, đến năm 2052 tỷ lệ người từ 65 tuổi trở lên sẽ đạt 40%, tức cứ 2,5 người dân thì có 1 người cao tuổi.",
+        "Nhìn vào bảng \"②Tỷ lệ dân số tương lai theo độ tuổi\" bên dưới, dân số 0-14 tuổi và 15-64 tuổi liên tục giảm qua từng năm, trong khi dân số từ 65 tuổi trở lên lại có xu hướng tăng.",
+        "Tuy nhiên, dù tỷ suất sinh giảm đến năm 2010, từ 2020 trở đi được dự đoán sẽ tăng nhẹ.",
+        "Sau đó, đến năm 2055 không có thay đổi lớn, gần như đi ngang.",
+        "Để tăng số phụ nữ muốn sinh con, việc xây thêm nhà trẻ và tạo môi trường thuận lợi cho phụ nữ quay lại xã hội (đi làm) có lẽ là điểm mấu chốt để giải quyết vấn đề ít con - già hóa dân số.",
+        "【Bảng: Tỷ lệ dân số tương lai theo độ tuổi (Năm／Tổng dân số vạn người／0-14 tuổi %／15-64 tuổi %／65 tuổi trở lên %／Tỷ suất sinh tổng hợp)】",
+        "2007: 12777／13.5／65.0／21.5／1.34",
+        "2010: 12718／13.0／63.9／23.1／1.22",
+        "2020: 12274／10.8／60.0／29.2／1.23",
+        "2030: 11522／9.7／58.5／31.8／1.24",
+        "2040: 10570／9.3／54.2／36.5／1.25",
+        "2050: 9515／8.6／51.8／39.6／1.26",
+        "2055: 8993／8.4／51.1／40.5／1.26"
+      ]
     }
   ]
 }

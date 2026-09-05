@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, ChevronLeft, RotateCcw } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 import type { QuizBookQuestion } from "../../types/quizBook.ts";
 import {
   ALL_QUIZBOOK,
@@ -23,7 +23,12 @@ import {
   matchesFilters,
   type QuizBookViewerState,
 } from "../../popup/quizBookState.ts";
-import { recordAnswer as recordGlobalAnswer, clearProgress as clearGlobalProgress } from "../../popup/progressState.ts";
+import {
+  recordAnswer as recordGlobalAnswer,
+  clearProgress as clearGlobalProgress,
+  loadProgressMap,
+  type ProgressMap,
+} from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
@@ -34,8 +39,7 @@ import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
-
-const STATUS_LABELS = { all: "Tất cả", "not-started": "Chưa làm", done: "Đã làm", known: "Đã biết" } as const;
+import { useFloatingNav } from "../WebAppShell.tsx";
 
 export function QuizBookScreen({
   targetId,
@@ -46,13 +50,33 @@ export function QuizBookScreen({
 } = {}) {
   const [state, setState] = useState<QuizBookViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
+  // "Cần ôn lại" (below) reads the same wrong-streak auto-flag that Kanji/
+  // Vocab/Bunpo use (progressState.ts), which recordGlobalAnswer already
+  // writes to on every answer here -- this just needs to be re-read after
+  // each answer/reset so the list's counts stay in sync.
+  const [progressMap, setProgressMap] = useState<ProgressMap>({});
+
+  async function refreshProgressMap() {
+    setProgressMap(await loadProgressMap());
+  }
+
+  useEffect(() => {
+    refreshProgressMap();
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
-      if (targetId && findQuizBookById(targetId)) {
-        s = { ...s, currentQuestionId: targetId, sessionIds: null, sessionIndex: 0 };
+      const target = targetId ? findQuizBookById(targetId) : undefined;
+      if (target) {
+        // Cross-linked in from another screen (e.g. a Vocab/Bunpo reference)
+        // rather than a "Bắt đầu" session -- page through the rest of the
+        // same book in its natural order so Trước/Tiếp has something to do
+        // instead of landing on a lone question with no way to browse on.
+        const bookQuestions = ALL_QUIZBOOK.filter((q) => q.book === target.book);
+        const sessionIndex = bookQuestions.findIndex((q) => q.id === target.id);
+        s = { ...s, currentQuestionId: target.id, sessionIds: bookQuestions.map((q) => q.id), sessionIndex: Math.max(0, sessionIndex) };
         await saveViewerState(s);
       }
       if (cancelled) return;
@@ -80,10 +104,10 @@ export function QuizBookScreen({
   const question = state.currentQuestionId ? findQuizBookById(state.currentQuestionId) : undefined;
 
   if (question) {
-    return <QuestionView q={question} state={state} mutate={mutate} />;
+    return <QuestionView q={question} state={state} mutate={mutate} onAnswered={refreshProgressMap} />;
   }
 
-  return <ListView state={state} mutate={mutate} error={error} setError={setError} />;
+  return <ListView state={state} mutate={mutate} error={error} setError={setError} progressMap={progressMap} onProgressChange={refreshProgressMap} />;
 }
 
 function ListView({
@@ -91,25 +115,37 @@ function ListView({
   mutate,
   error,
   setError,
+  progressMap,
+  onProgressChange,
 }: {
   state: QuizBookViewerState;
   mutate: (partial: Partial<QuizBookViewerState>) => Promise<void>;
   error?: string;
   setError: (e?: string) => void;
+  progressMap: ProgressMap;
+  onProgressChange: () => Promise<void>;
 }) {
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
   const filtered = ALL_QUIZBOOK.filter((q) => matchesFilters(q, state));
   const progressOf = (q: QuizBookQuestion) => getQuestionProgress(q.id, state.answers, state.correctStreaks);
+  // "Cần ôn lại" reuses the same wrong-streak auto-flag Kanji/Vocab/Bunpo
+  // show (progressState.ts) -- recordGlobalAnswer already writes it on every
+  // answer here, this just reads it back.
+  const isFlagged = (q: QuizBookQuestion) => progressMap[q.id]?.flagged ?? false;
   const doneCount = filtered.filter((q) => progressOf(q).status !== "not-started").length;
-  const knownCount = filtered.filter((q) => progressOf(q).status === "known").length;
   const correctCount = filtered.filter((q) => progressOf(q).correct).length;
+  const needsReviewCount = filtered.filter(isFlagged).length;
+  const inProgressCount = filtered.filter((q) => progressOf(q).status !== "not-started" && !isFlagged(q)).length;
 
   const visibleQuestions = filtered.filter((q) => {
     if (state.listStatusFilter === "all") return true;
     const status = progressOf(q).status;
+    if (state.listStatusFilter === "needs-review") return isFlagged(q);
+    if (state.listStatusFilter === "in-progress") return status !== "not-started" && !isFlagged(q);
+    if (state.listStatusFilter === "correct") return progressOf(q).correct;
     if (state.listStatusFilter === "done") return status === "done" || status === "known";
-    return status === state.listStatusFilter;
+    return status === state.listStatusFilter; // "not-started" | "known" (popup screen's own filter chips)
   });
 
   const quizPoolSize = filtered.length;
@@ -144,6 +180,7 @@ function ListView({
     // every answer, or Home/Stats would keep showing this question's old
     // mastery streak as if it were never reset.
     await clearGlobalProgress([id]);
+    await onProgressChange();
   }
 
   async function handleResetAllFiltered() {
@@ -153,13 +190,14 @@ function ListView({
     const next = ids.reduce((s, id) => resetQuestionAnswer(s, id), state);
     await mutate(next);
     await clearGlobalProgress(ids);
+    await onProgressChange();
   }
 
   return (
     <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Luyện đề" icon={{ img: "icon-review.png", bg: "#ffe4e6" }} />
+      <PageHeader title="Luyện đề" subtitle={`${filtered.length} câu`} icon={{ img: "icon-review.png", bg: "#ffe4e6" }} />
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
+      <div className="mt-4 grid grid-cols-2 gap-3">
         <StatCard
           label="Đã làm"
           active={state.listStatusFilter === "done"}
@@ -174,6 +212,8 @@ function ListView({
         <StatCard
           label="Đúng"
           tone="emerald"
+          active={state.listStatusFilter === "correct"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "correct" ? "all" : "correct" })}
           value={
             <>
               {correctCount}
@@ -182,11 +222,18 @@ function ListView({
           }
         />
         <StatCard
-          label="Đã biết"
+          label="Đang làm"
           tone="amber"
-          active={state.listStatusFilter === "known"}
-          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "known" ? "all" : "known" })}
-          value={knownCount}
+          active={state.listStatusFilter === "in-progress"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "in-progress" ? "all" : "in-progress" })}
+          value={inProgressCount}
+        />
+        <StatCard
+          label="Cần ôn lại"
+          tone="rose"
+          active={state.listStatusFilter === "needs-review"}
+          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "needs-review" ? "all" : "needs-review" })}
+          value={needsReviewCount}
         />
       </div>
 
@@ -203,17 +250,11 @@ function ListView({
             </option>
           ))}
         </select>
-        <div className="flex flex-wrap gap-1.5">
-          {(["all", "not-started"] as const).map((s) => (
-            <button
-              key={s}
-              onClick={() => mutate({ listStatusFilter: s })}
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium ${state.listStatusFilter === s ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-500"}`}
-            >
-              {STATUS_LABELS[s]}
-            </button>
-          ))}
-        </div>
+        {doneCount > 0 ? (
+          <button onClick={handleResetAllFiltered} className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-rose-600">
+            <RotateCcw size={12} /> Đặt lại tất cả ({doneCount})
+          </button>
+        ) : null}
       </FilterBar>
 
       <ActiveFilters
@@ -242,17 +283,6 @@ function ListView({
               }))),
         ]}
       />
-
-      {doneCount > 0 ? (
-        <div className="mt-2 flex justify-end">
-          <button
-            onClick={handleResetAllFiltered}
-            className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-rose-600"
-          >
-            <RotateCcw size={12} /> Đặt lại tất cả ({doneCount})
-          </button>
-        </div>
-      ) : null}
 
       {error ? <p className="mt-3 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">{error}</p> : null}
 
@@ -348,7 +378,9 @@ function ListView({
             return (
               <button
                 key={q.id}
-                onClick={() => mutate({ currentQuestionId: q.id, sessionIds: null, sessionIndex: 0 })}
+                onClick={() =>
+                  mutate({ currentQuestionId: q.id, sessionIds: visibleQuestions.map((vq) => vq.id), sessionIndex: i })
+                }
                 className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${borderCls}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
@@ -397,16 +429,21 @@ function QuestionView({
   q,
   state,
   mutate,
+  onAnswered,
 }: {
   q: QuizBookQuestion;
   state: QuizBookViewerState;
   mutate: (partial: Partial<QuizBookViewerState>) => Promise<void>;
+  onAnswered: () => Promise<void>;
 }) {
   const confirm = useConfirm();
+  useFloatingNav(true);
   const answered = state.answers[q.id] ?? null;
   const session = state.sessionIds;
   const sessionPos = session ? session.indexOf(q.id) : -1;
   const isLastInSession = session !== null && sessionPos === session.length - 1;
+  const prevId = session && sessionPos > 0 ? session[sessionPos - 1] : undefined;
+  const nextId = session && sessionPos >= 0 && sessionPos < session.length - 1 ? session[sessionPos + 1] : undefined;
 
   async function handleAnother() {
     if (session) {
@@ -429,6 +466,8 @@ function QuestionView({
   async function handleReset() {
     if (!(await confirm("Làm lại câu này từ đầu? Kết quả đã trả lời sẽ bị xoá."))) return;
     await mutate(resetQuestionAnswer(state, q.id));
+    await clearGlobalProgress([q.id]);
+    await onAnswered();
   }
 
   async function jumpTo(i: number) {
@@ -495,9 +534,10 @@ function QuestionView({
               <button
                 key={oi}
                 disabled={answered !== null}
-                onClick={() => {
-                  void recordGlobalAnswer(q.id, oi === q.correctIndex, "answer", ["answer"]);
-                  mutate(recordAnswer(state, q.id, oi));
+                onClick={async () => {
+                  await recordGlobalAnswer(q.id, oi === q.correctIndex, "answer", ["answer"]);
+                  await mutate(recordAnswer(state, q.id, oi));
+                  await onAnswered();
                 }}
                 className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
               >
@@ -532,6 +572,25 @@ function QuestionView({
       <Button className="mt-6 w-full" onClick={handleAnother}>
         {session ? (isLastInSession ? "🏁 Hoàn thành" : "Câu tiếp theo →") : <><Shuffle size={16} /> Câu khác</>}
       </Button>
+
+      {prevId ? (
+        <button
+          onClick={() => mutate({ currentQuestionId: prevId, sessionIndex: sessionPos - 1 })}
+          aria-label="Câu trước"
+          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      ) : null}
+      {nextId ? (
+        <button
+          onClick={() => mutate({ currentQuestionId: nextId, sessionIndex: sessionPos + 1 })}
+          aria-label="Câu sau"
+          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+        >
+          <ChevronRight size={18} />
+        </button>
+      ) : null}
     </div>
   );
 }

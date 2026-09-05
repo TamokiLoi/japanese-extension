@@ -5,11 +5,16 @@
 //
 // Every passage already has a full-block `translationVi` (already
 // translated, reviewed, in use as the old fallback block translation) --
-// so this does NOT re-translate from scratch. It asks Gemini to *split/
+// so this does NOT re-translate from scratch. It asks the model to *split/
 // rearrange* that existing text into per-sentence pieces aligned to the JP
 // sentences, reusing the existing wording as-is wherever possible. Cheaper
 // than fresh translation and keeps the wording consistent with what's
 // already been reviewed.
+//
+// Uses the local OpenAI Codex CLI (`codex exec`) instead of a raw API call --
+// it's already logged in with a ChatGPT subscription on this machine, so
+// this runs against that subscription's usage rather than a separate
+// pay-per-token API key.
 //
 // Sentence boundaries are derived from `body` the exact same way
 // splitBodyIntoSentences() in src/popup/readingState.ts does (duplicated
@@ -20,11 +25,12 @@
 //
 // Usage: node --experimental-strip-types scripts/translate-reading-sentences.ts
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { spawn } from "node:child_process";
+import { tmpdir } from "node:os";
 
 const ROOT = join(import.meta.dirname, "..");
-const MODEL = "gemini-flash-lite-latest";
 const DATA_FILES = [
   "reading-n3-shinkanzen.json",
   "reading-n3-speedmaster.json",
@@ -71,88 +77,128 @@ function splitPlainText(text: string): string[] {
   return pieces;
 }
 
+// A "\n" only closes the current group when it sits at the very START of a
+// body segment's own raw text (segment.text.startsWith("\n")) -- see the
+// matching comment in src/popup/readingState.ts for why (mid-segment "\n" is
+// PDF line-wrap noise, sometimes falling mid-word, and must not force a
+// break or the two halves of one sentence become separate incomplete ones).
 const SENTENCE_END = /[。！？]$/;
 function splitBodyIntoSentences(body: BodySegment[]): BodySegment[][] {
   const groups: BodySegment[][] = [];
   let current: BodySegment[] = [];
-  function addPiece(text: string, furigana: string | null) {
-    if (text.startsWith("\n") && current.length > 0) {
+  function addPiece(text: string, furigana: string | null, genuineBreak: boolean) {
+    if (genuineBreak && current.length > 0) {
       groups.push(current);
       current = [];
     }
-    current.push({ text, furigana });
-    if (SENTENCE_END.test(text)) {
+    const cleanText = genuineBreak ? text : text.replace(/^\n+/, "");
+    current.push({ text: cleanText, furigana });
+    if (SENTENCE_END.test(cleanText)) {
       groups.push(current);
       current = [];
     }
   }
   for (const seg of body) {
     const pieces = splitPlainText(seg.text);
-    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null));
+    const segStartsWithNewline = seg.text.startsWith("\n");
+    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null, i === 0 && segStartsWithNewline));
   }
   if (current.length > 0) groups.push(current);
   return groups;
 }
 
-function readApiKey(): string {
-  const text = readFileSync(join(ROOT, "_scratch/.env.gemini"), "utf8");
-  const match = text.match(/GEMINI_API_KEY=(\S+)/);
-  if (!match) throw new Error("No GEMINI_API_KEY found");
-  return match[1];
+// The VS Code ChatGPT extension and the standalone Codex installer both drop
+// a codex.exe under a version-hashed folder, so the exact path shifts on
+// every update -- search known install roots for whichever one exists
+// rather than hardcoding a path, falling back to `codex` on PATH.
+function findCodexBinary(): string {
+  const roots = [
+    join(process.env.LOCALAPPDATA ?? "", "OpenAI", "Codex", "bin"),
+    join(process.env.USERPROFILE ?? "", ".vscode", "extensions"),
+  ];
+  for (const root of roots) {
+    if (!existsSync(root)) continue;
+    for (const entry of readdirSync(root, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const candidates = [
+        join(root, entry.name, "codex.exe"),
+        join(root, entry.name, "bin", "windows-x86_64", "codex.exe"),
+      ];
+      for (const c of candidates) if (existsSync(c)) return c;
+    }
+  }
+  return "codex"; // rely on PATH
+}
+const CODEX_BIN = findCodexBinary();
+
+function runCodex(args: string[], stdin: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const proc = spawn(CODEX_BIN, args, { cwd: ROOT, stdio: ["pipe", "pipe", "pipe"] });
+    let stderr = "";
+    proc.stdout.on("data", () => {}); // event log -- we read the final answer from --output-last-message instead
+    proc.stderr.on("data", (d) => (stderr += d.toString()));
+    proc.on("error", reject);
+    proc.on("close", (code) => {
+      if (code === 0) resolve(stderr);
+      else reject(new Error(`codex exec exited ${code}: ${stderr.slice(-500)}`));
+    });
+    proc.stdin.write(stdin);
+    proc.stdin.end();
+  });
 }
 
-async function alignBatchOnce(apiKey: string, jpSentences: string[], translationVi: string): Promise<string[]> {
+async function alignBatchOnce(jpSentences: string[], translationVi: string): Promise<string[]> {
   const prompt =
     `Đây là bản dịch tiếng Việt ĐẦY ĐỦ (đã có sẵn, KHÔNG cần dịch lại) của 1 bài đọc hiểu JLPT:\n"""${translationVi}"""\n\n` +
     `Đây là ${jpSentences.length} câu tiếng Nhật gốc theo đúng thứ tự trong bài:\n` +
     jpSentences.map((s, i) => `${i + 1}. ${s}`).join("\n") +
     `\n\nHãy TÁCH bản dịch tiếng Việt ở trên thành đúng ${jpSentences.length} đoạn, mỗi đoạn khớp với 1 câu tiếng Nhật cùng số thứ tự. ` +
     `Giữ nguyên nguyên văn cách dùng từ của bản dịch đã có, chỉ được chỉnh sửa nhẹ (thêm/bớt dấu câu, tách câu ghép) để mỗi đoạn đọc độc lập vẫn rõ nghĩa -- KHÔNG dịch lại hay đổi nội dung. ` +
-    `Trả lời DUY NHẤT 1 JSON array cùng thứ tự, ĐÚNG ${jpSentences.length} phần tử, mỗi phần tử là 1 chuỗi tiếng Việt.`;
+    `Trả lời bằng cách gọi kết quả cuối cùng theo đúng schema đã cho (field 'sentences', mảng ${jpSentences.length} chuỗi).`;
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-    method: "POST",
-    headers: { "x-goog-api-key": apiKey, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { responseMimeType: "application/json", responseSchema: { type: "ARRAY", items: { type: "STRING" } } },
+  const schemaPath = join(tmpdir(), "codex-reading-align-schema.json");
+  const outPath = join(tmpdir(), `codex-reading-align-out-${process.pid}.json`);
+  writeFileSync(
+    schemaPath,
+    JSON.stringify({
+      type: "object",
+      properties: { sentences: { type: "array", items: { type: "string" }, minItems: jpSentences.length, maxItems: jpSentences.length } },
+      required: ["sentences"],
+      additionalProperties: false,
     }),
-  });
-  if (!res.ok) throw new Error(`Gemini call failed: HTTP ${res.status} ${await res.text()}`);
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error(`No text in response: ${JSON.stringify(data).slice(0, 500)}`);
+  );
+
+  await runCodex(
+    ["exec", "--skip-git-repo-check", "--sandbox", "read-only", "--ephemeral", "--output-schema", schemaPath, "--output-last-message", outPath, "-"],
+    prompt,
+  );
+  const text = readFileSync(outPath, "utf8");
   const parsed = JSON.parse(text);
-  if (!Array.isArray(parsed)) throw new Error(`Expected array, got ${typeof parsed}`);
-  return parsed;
+  if (!parsed || !Array.isArray(parsed.sentences)) throw new Error(`Expected {sentences: [...]}, got: ${text.slice(0, 300)}`);
+  return parsed.sentences;
 }
 
-// The API intermittently 503s under load ("high demand"), and the
-// connection itself occasionally times out/resets (plain network flakiness,
-// not an HTTP response at all -- e.g. "TypeError: fetch failed" wrapping a
-// UND_ERR_HEADERS_TIMEOUT) -- neither is our fault, so retry with backoff
-// before giving up. Only a clearly permanent failure (bad API key, bad
-// request) skips the retry.
-async function alignBatchRaw(apiKey: string, jpSentences: string[], translationVi: string): Promise<string[]> {
-  const delays = [3000, 8000, 20000, 45000, 90000, 90000, 90000];
+// codex exec occasionally fails outright (session hiccup, subscription usage
+// throttling) -- retry with backoff before giving up.
+async function alignBatchRaw(jpSentences: string[], translationVi: string): Promise<string[]> {
+  const delays = [5000, 15000, 30000, 60000, 120000];
   for (let attempt = 0; ; attempt++) {
     try {
-      return await alignBatchOnce(apiKey, jpSentences, translationVi);
+      return await alignBatchOnce(jpSentences, translationVi);
     } catch (err) {
-      const permanent = err instanceof Error && /HTTP (400|401|403)/.test(err.message);
-      if (permanent || attempt >= delays.length) throw err;
-      console.log(`    (retrying in ${delays[attempt]}ms: ${(err as Error).message.slice(0, 100).replace(/\n/g, " ")})`);
+      if (attempt >= delays.length) throw err;
+      console.log(`    (retrying in ${delays[attempt]}ms: ${(err as Error).message.slice(0, 150).replace(/\n/g, " ")})`);
       await new Promise((r) => setTimeout(r, delays[attempt]));
     }
   }
 }
 
-// The split is one call per passage (needs the whole translationVi as
-// context, so it can't be chunked/halved the way fresh per-sentence
-// translation could) -- on a count mismatch, just ask again a few times.
-async function alignPassage(apiKey: string, jpSentences: string[], translationVi: string): Promise<string[]> {
+// One call per passage (needs the whole translationVi as context, so it
+// can't be chunked/halved the way fresh per-sentence translation could) --
+// on a count mismatch, just ask again a few times.
+async function alignPassage(jpSentences: string[], translationVi: string): Promise<string[]> {
   for (let attempt = 0; attempt < 3; attempt++) {
-    const result = await alignBatchRaw(apiKey, jpSentences, translationVi);
+    const result = await alignBatchRaw(jpSentences, translationVi);
     if (result.length === jpSentences.length) return result;
     console.log(`    (count mismatch: got ${result.length}, expected ${jpSentences.length} -- retrying)`);
   }
@@ -160,7 +206,6 @@ async function alignPassage(apiKey: string, jpSentences: string[], translationVi
 }
 
 async function main() {
-  const apiKey = readApiKey();
   const onlyFirst = process.argv.includes("--sample");
 
   for (const file of DATA_FILES) {
@@ -188,7 +233,7 @@ async function main() {
     // it left off instead of redoing already-billed API calls.
     let done = 0;
     for (const { passage, jpSentences } of pending) {
-      passage.sentencesVi = await alignPassage(apiKey, jpSentences, passage.translationVi);
+      passage.sentencesVi = await alignPassage(jpSentences, passage.translationVi);
       done++;
       console.log(`  -> ${done}/${pending.length} passages (${passage.id})`);
       writeFileSync(dataPath, JSON.stringify(dataset, null, 2) + "\n");

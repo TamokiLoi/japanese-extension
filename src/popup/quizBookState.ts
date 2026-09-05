@@ -192,7 +192,10 @@ export interface QuizBookViewerState {
   currentQuestionId: string | null;
   answers: Record<string, number | null>;
   correctStreaks: Record<string, number>;
-  listStatusFilter: "all" | "not-started" | "done" | "known";
+  // "not-started"/"known" are the popup extension screen's own filter chips
+  // (kept for that surface's backward compatibility); "correct"/"in-progress"/
+  // "needs-review" are the web dashboard's newer stat-card filters.
+  listStatusFilter: "all" | "not-started" | "done" | "known" | "correct" | "in-progress" | "needs-review";
   questionCount: number;
   sessionIds: string[] | null;
   sessionIndex: number;

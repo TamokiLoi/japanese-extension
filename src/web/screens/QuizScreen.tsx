@@ -161,6 +161,7 @@ function SegmentedRadio<T extends string>({
   onChange,
   scrollX = false,
   variant = "pills",
+  stack = false,
 }: {
   options: [T, string][];
   value: T;
@@ -175,15 +176,20 @@ function SegmentedRadio<T extends string>({
   // "pills" (default) keeps the individual rose-outlined buttons, still
   // correct for "Trạng thái" whose mockup uses that same look.
   variant?: "pills" | "segmented";
+  // "Dạng câu hỏi"'s options are full "Xem X, đoán Y" sentences (2-4 of
+  // them) -- squeezed evenly side by side (flex-1) they wrap mid-word and
+  // the last one can run off the edge. Stacked one per row, full width, each
+  // stays on one line and is easier to tap besides.
+  stack?: boolean;
 }) {
   if (variant === "segmented") {
     return (
-      <div className="flex gap-1 rounded-xl bg-neutral-100 p-1">
+      <div className={`flex gap-1 rounded-xl bg-neutral-100 p-1 ${stack ? "flex-col" : ""}`}>
         {options.map(([v, label]) => (
           <button
             key={v}
             onClick={() => onChange(v)}
-            className={`flex-1 rounded-lg px-2 py-2 text-center text-xs font-semibold ${
+            className={`rounded-lg px-3 py-2 text-xs font-semibold ${stack ? "w-full text-left" : "flex-1 text-center"} ${
               value === v ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
             }`}
           >
@@ -330,6 +336,7 @@ function SetupView({
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
               variant="segmented"
+              stack
               options={KANJI_MASTERY_DIRECTIONS.map((m): [KanjiQuizMode, string] => [m, KANJI_MODE_LABELS[m]])}
               value={settings.kanjiMode}
               onChange={(v) => updateSettings({ kanjiMode: v as KanjiQuizMode })}
@@ -342,6 +349,7 @@ function SetupView({
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
               variant="segmented"
+              stack
               options={VOCAB_MASTERY_DIRECTIONS.map((m): [VocabQuizMode, string] => [m, VOCAB_MODE_LABELS[m]])}
               value={settings.vocabMode}
               onChange={(v) => updateSettings({ vocabMode: v as VocabQuizMode })}
@@ -354,6 +362,7 @@ function SetupView({
             <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
             <SegmentedRadio
               variant="segmented"
+              stack
               options={[
                 ["meaning", "Xem mẫu ngữ pháp, đoán nghĩa"],
                 ["pattern", "Xem nghĩa, đoán mẫu ngữ pháp"],

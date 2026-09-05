@@ -31,6 +31,7 @@ import { formatHanViet } from "../../hanVietFormat.ts";
 import {
   KANJI_MASTERY_DIRECTIONS,
   KANJI_MODE_LABELS,
+  KANJI_MODE_SHORT_LABELS,
   saveQuizSettings,
   loadQuizSettings,
 } from "../../popup/quizState.ts";
@@ -409,18 +410,19 @@ export function KanjiScreen({
           <div className="mt-6 text-center text-6xl font-bold text-neutral-800">{k.character}</div>
 
           {progress ? (
-            <div className="mx-auto mt-3.5 flex max-w-xs flex-wrap items-center justify-center gap-1.5">
+            <div className="mt-3.5 flex justify-center gap-1 overflow-x-auto px-1 pb-1">
               {KANJI_MASTERY_DIRECTIONS.map((dir) => {
                 const streak = progress.directionStreaks[dir] ?? 0;
                 const done = streak >= MASTERY_STREAK_THRESHOLD;
                 return (
                   <span
                     key={dir}
-                    className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                    title={KANJI_MODE_LABELS[dir]}
+                    className={`shrink-0 rounded-full border px-1.5 py-0.5 text-[10px] font-medium whitespace-nowrap ${
                       done ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-amber-200 bg-amber-50 text-amber-600"
                     }`}
                   >
-                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {KANJI_MODE_LABELS[dir]}
+                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {KANJI_MODE_SHORT_LABELS[dir]}
                   </span>
                 );
               })}

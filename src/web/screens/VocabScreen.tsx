@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap } from "lucide-react";
-import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS } from "../../popup/quizState.ts";
+import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS, loadQuizSettings, saveQuizSettings } from "../../popup/quizState.ts";
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
@@ -98,12 +98,14 @@ export function VocabScreen({
   onOpenKanji,
   onOpenReading,
   onOpenQuizBook,
+  onOpenQuiz,
   jumpToId,
   onCurrentItemChange,
 }: {
   onOpenKanji: (kanjiId: string) => void;
   onOpenReading: (passageId: string) => void;
   onOpenQuizBook: (questionId: string) => void;
+  onOpenQuiz: () => void;
   jumpToId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
 }) {
@@ -440,23 +442,43 @@ export function VocabScreen({
           {v.reading ? <div className="mt-1 text-center text-neutral-500">{v.reading}</div> : null}
 
           {progress ? (
-            <div className="mx-auto mt-3.5 flex max-w-xs flex-wrap items-center justify-center gap-1.5">
+            <div className="mt-3.5 flex gap-1 overflow-x-auto px-1 pb-1">
               {VOCAB_MASTERY_DIRECTIONS.map((dir) => {
                 const streak = progress.directionStreaks[dir] ?? 0;
                 const done = streak >= MASTERY_STREAK_THRESHOLD;
                 return (
                   <span
                     key={dir}
-                    className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                    title={VOCAB_MODE_LABELS[dir]}
+                    className={`shrink-0 rounded-full border px-1.5 py-0.5 text-[10px] font-medium whitespace-nowrap ${
                       done ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-amber-200 bg-amber-50 text-amber-600"
                     }`}
                   >
-                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {VOCAB_MODE_LABELS[dir]}
+                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {VOCAB_MODE_SHORT_LABELS[dir]}
                   </span>
                 );
               })}
             </div>
           ) : null}
+
+          {progress
+            ? (() => {
+                const missing = VOCAB_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
+                if (!missing) return null;
+                return (
+                  <button
+                    onClick={async () => {
+                      const qs = await loadQuizSettings();
+                      await saveQuizSettings({ ...qs, contentType: "vocab", vocabMode: missing });
+                      onOpenQuiz();
+                    }}
+                    className="mx-auto mt-2 block text-xs font-semibold text-rose-600 hover:underline"
+                  >
+                    Luyện ngay dạng còn thiếu: {VOCAB_MODE_LABELS[missing]}
+                  </button>
+                );
+              })()
+            : null}
 
           <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
             {v.hanViet.length > 0 ? (

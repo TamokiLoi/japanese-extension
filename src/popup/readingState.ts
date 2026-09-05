@@ -66,38 +66,46 @@ function splitPlainText(text: string): string[] {
 
 // Groups body segments into sentences (up to and including one ending in
 // 。！？) -- the same grouping scripts/translate-reading-sentences.ts uses to
-// derive what to send to Gemini, so `sentencesVi[i]` always lines up with
-// splitBodyIntoSentences(body)[i]. Any trailing text with no terminator
+// derive what to send to the translator, so `sentencesVi[i]` always lines up
+// with splitBodyIntoSentences(body)[i]. Any trailing text with no terminator
 // (rare -- a passage not ending in punctuation) forms one last group.
 //
-// A piece starting with "\n" (how a heading like "使用方法" is followed by
-// the numbered "①..." text in this dataset -- the break sits at the *start*
-// of what follows, not the end of the heading's own segment) also closes the
-// current group first, so a heading doesn't get glued onto the sentence
-// after it.
+// A "\n" only closes the current group when it sits at the very START of a
+// body *segment's own* raw text (segment.text.startsWith("\n")) -- that's
+// how a heading like "使用方法" is followed by the numbered "①..." text, or
+// how a flyer's separate label lines ("あて先：...", "件名：...") are laid
+// out in this dataset, and really is a deliberate line break. A "\n" that
+// shows up *mid-segment* instead (splitPlainText cutting seg.text at an
+// embedded "\n") is PDF line-wrap noise, not a real boundary -- sometimes
+// falling mid-word (e.g. "でもい" + "\nいです" -- literally through the
+// middle of "いい") -- so it must NOT force a break, or the two halves of
+// one sentence end up as separate incomplete "sentences". Stripping the
+// leading "\n" off a non-genuine break just re-joins the words cleanly.
 const SENTENCE_END = /[。！？]$/;
 export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodySegment[][] {
   const groups: ReadingBodySegment[][] = [];
   let current: ReadingBodySegment[] = [];
-  function addPiece(text: string, furigana: string | null) {
-    if (text.startsWith("\n") && current.length > 0) {
+  function addPiece(text: string, furigana: string | null, genuineBreak: boolean) {
+    if (genuineBreak && current.length > 0) {
       groups.push(current);
       current = [];
     }
-    current.push({ text, furigana });
-    if (SENTENCE_END.test(text)) {
+    const cleanText = genuineBreak ? text : text.replace(/^\n+/, "");
+    current.push({ text: cleanText, furigana });
+    if (SENTENCE_END.test(cleanText)) {
       groups.push(current);
       current = [];
     }
   }
   for (const seg of body) {
     const pieces = splitPlainText(seg.text);
+    const segStartsWithNewline = seg.text.startsWith("\n");
     // The furigana reading applies to a kanji word within this segment,
     // which -- per how this dataset is structured -- always sits in the
     // trailing piece (a segment never starts mid-word right after a kanji
     // compound and then continues into an earlier sentence). Every earlier
     // piece carries no reading of its own.
-    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null));
+    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null, i === 0 && segStartsWithNewline));
   }
   if (current.length > 0) groups.push(current);
   return groups;
