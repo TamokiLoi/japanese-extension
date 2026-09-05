@@ -5,6 +5,8 @@ import dongnghiaRaw from "../data/vocab-tanoshii-dongnghia-n3.json";
 import tangoN3Raw from "../data/vocab-tango-n3.json";
 import tangoN4Raw from "../data/vocab-tango-n4.json";
 import tangoN5Raw from "../data/vocab-tango-n5.json";
+import tangoN2Raw from "../data/vocab-tango-n2.json";
+import tangoN1Raw from "../data/vocab-tango-n1.json";
 import tuLayRaw from "../data/vocab-tu-lay.json";
 import trangtu91Raw from "../data/vocab-trangtu-91.json";
 import dongtu200Raw from "../data/vocab-dongtu-200.json";
@@ -23,6 +25,8 @@ export type VocabSource =
   | "tango-n3"
   | "tango-n4"
   | "tango-n5"
+  | "tango-n2"
+  | "tango-n1"
   | "tu-lay"
   | "trangtu-91";
 
@@ -52,6 +56,8 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tango-n3": "Tango N3",
   "tango-n4": "Tango N4",
   "tango-n5": "Tango N5",
+  "tango-n2": "Tango N2",
+  "tango-n1": "Tango N1",
   "tu-lay": "Từ láy",
   "trangtu-91": "91 trạng từ thường dùng",
 };
@@ -65,6 +71,8 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "tango-n3",
   "tango-n4",
   "tango-n5",
+  "tango-n2",
+  "tango-n1",
   "tu-lay",
   "trangtu-91",
 ];
@@ -81,6 +89,8 @@ const dongnghiaDataset = dongnghiaRaw as unknown as TanoshiiSynonymDataset;
 const tangoN3Dataset = tangoN3Raw as unknown as TanoshiiVocabDataset;
 const tangoN4Dataset = tangoN4Raw as unknown as TanoshiiVocabDataset;
 const tangoN5Dataset = tangoN5Raw as unknown as TanoshiiVocabDataset;
+const tangoN2Dataset = tangoN2Raw as unknown as TanoshiiVocabDataset;
+const tangoN1Dataset = tangoN1Raw as unknown as TanoshiiVocabDataset;
 const tuLayDataset = tuLayRaw as unknown as TanoshiiVocabDataset;
 const trangtu91Dataset = trangtu91Raw as unknown as TanoshiiVocabDataset;
 // "dongtu" gộp 3 nguồn động từ N3-N4 (tanoshii N4, 200 động từ Thu Hương,
@@ -153,6 +163,8 @@ export const ALL_VOCAB: VocabCard[] = [
   ...fromTanoshiiVocab("tango-n3", tangoN3Dataset),
   ...fromTanoshiiVocab("tango-n4", tangoN4Dataset),
   ...fromTanoshiiVocab("tango-n5", tangoN5Dataset),
+  ...fromTanoshiiVocab("tango-n2", tangoN2Dataset),
+  ...fromTanoshiiVocab("tango-n1", tangoN1Dataset),
   ...fromTanoshiiVocab("tu-lay", tuLayDataset),
   ...fromTanoshiiVocab("trangtu-91", trangtu91Dataset),
 ];
