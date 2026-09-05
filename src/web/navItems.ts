@@ -13,6 +13,7 @@ import {
   RotateCcw,
   Headphones,
   ClipboardCheck,
+  DatabaseBackup,
 } from "lucide-react";
 
 export interface NavItem {
@@ -37,6 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
   { screen: "stats", label: "Thống kê", icon: BarChart3 },
+  { screen: "backup", label: "Sao lưu dữ liệu", icon: DatabaseBackup },
   { screen: "guide", label: "Hướng dẫn", icon: Info },
 ];
 
@@ -60,5 +62,5 @@ export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "review"] },
-  { label: "Công cụ", screens: ["stats", "guide"] },
+  { label: "Công cụ", screens: ["stats", "backup", "guide"] },
 ];

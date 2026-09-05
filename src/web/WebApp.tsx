@@ -14,6 +14,7 @@ import { ReadingScreen } from "./screens/ReadingScreen.tsx";
 import { StatsScreen } from "./screens/StatsScreen.tsx";
 import { ReviewScreen } from "./screens/ReviewScreen.tsx";
 import { GuideScreen } from "./screens/GuideScreen.tsx";
+import { BackupScreen } from "./screens/BackupScreen.tsx";
 import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import "./tailwind.css";
@@ -222,6 +223,8 @@ export function WebApp() {
     );
   } else if (screen === "guide") {
     content = <GuideScreen />;
+  } else if (screen === "backup") {
+    content = <BackupScreen />;
   } else if (screen === "listening") {
     content = <ListeningHubScreen initialTab="listening" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "dictation") {
