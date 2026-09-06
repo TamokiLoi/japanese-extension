@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap } from "lucide-react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown } from "lucide-react";
+import type { VerbConjugations } from "../../types/vocab.ts";
 import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS, loadQuizSettings, saveQuizSettings } from "../../popup/quizState.ts";
 import {
   ALL_VOCAB,
@@ -67,6 +68,53 @@ const BUCKET_ACTIVE_RING: Record<ProgressBucket, string> = {
   flagged: "border-rose-400 ring-2 ring-rose-400",
   new: "border-neutral-400 ring-2 ring-neutral-400",
 };
+
+// Mazii's own labelling ("Tên thể tiếng Việt (kanji/kana)") -- meaning-based
+// Vietnamese name where the form has one (Quá khứ, Phủ định...), otherwise
+// just the form's Japanese name (Te), matching CHUA-CONVERT.md's POC spec.
+const CONJUGATION_LABELS: Record<keyof VerbConjugations, string> = {
+  masu: "Lịch sự (ます)",
+  te: "Thể Te (て)",
+  ta: "Quá khứ (た)",
+  nai: "Phủ định (ない)",
+  potential: "Khả năng (られる/える)",
+  passive: "Bị động (られる)",
+  causative: "Sai khiến (させる)",
+  causativePassive: "Sai khiến bị động (させられる)",
+  conditionalBa: "Điều kiện (ば)",
+  conditionalTara: "Điều kiện (たら)",
+  volitional: "Ý chí (よう/おう)",
+  imperative: "Mệnh lệnh (ろ/よ)",
+  prohibitive: "Cấm chỉ (な)",
+};
+const CONJUGATION_ORDER = Object.keys(CONJUGATION_LABELS) as (keyof VerbConjugations)[];
+
+function VerbConjugationTable({ conjugations }: { conjugations: VerbConjugations }) {
+  const [open, setOpen] = useState(false);
+  const rows = CONJUGATION_ORDER.filter((k) => conjugations[k]);
+  if (rows.length === 0) return null;
+  return (
+    <div className="mt-4">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between rounded-2xl border border-neutral-200 bg-white px-4 py-2.5 text-left text-sm font-medium text-neutral-600 hover:bg-neutral-50"
+      >
+        <span>Bảng chia thể ({rows.length})</span>
+        <ChevronDown size={16} className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open ? (
+        <dl className="mt-2 divide-y divide-neutral-100 rounded-2xl border border-neutral-200 bg-white px-4">
+          {rows.map((k) => (
+            <div key={k} className="flex items-center justify-between gap-3 py-2.5 text-sm">
+              <dt className="text-neutral-400">{CONJUGATION_LABELS[k]}</dt>
+              <dd className="font-medium text-neutral-800">{conjugations[k]}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : null}
+    </div>
+  );
+}
 
 function WordWithKanjiLinks({ word, onOpenKanji }: { word: string; onOpenKanji: (kanjiId: string) => void }) {
   return (
@@ -440,6 +488,12 @@ export function VocabScreen({
             <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
           </div>
           {v.reading ? <div className="mt-1 text-center text-neutral-500">{v.reading}</div> : null}
+          {v.verbGroup || v.transitivity ? (
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
+              {v.verbGroup ? <Badge variant="secondary">{v.verbGroup}</Badge> : null}
+              {v.transitivity ? <Badge variant="secondary">{v.transitivity}</Badge> : null}
+            </div>
+          ) : null}
 
           {progress ? (
             <div className="mt-3.5 flex gap-1 overflow-x-auto px-1 pb-1">
@@ -512,6 +566,8 @@ export function VocabScreen({
               {v.exampleVi ? <div className="mt-1 text-emerald-700">{v.exampleVi}</div> : null}
             </div>
           ) : null}
+
+          {v.conjugations ? <VerbConjugationTable conjugations={v.conjugations} /> : null}
 
           {readingMatches.length > 0 ? (
             <div className="mt-4">

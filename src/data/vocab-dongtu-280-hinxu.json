@@ -9,7 +9,7 @@
       "book": "280 Động từ N3 cách nhớ - Hinxu Tanoshii",
       "pipeline": "gemini-3.1-flash-lite vision extraction"
     },
-    "notes": "STT (id suffix) giữ nguyên số gốc trong sách (không liên tục 1-280, vì trích từ bộ động từ lớn hơn, các số chạy tới 795).,Sách trình bày theo cặp tự động từ/tha động từ; nhiều entry trong cặp thứ hai không có câu mnemonic riêng trong sách gốc (chỉ ghi Hán Việt + nghĩa), nên mnemonic là mảng rỗng cho các mục đó -- không phải lỗi trích xuất.,Level do Gemini tự phân loại N3/N4 vì sách không ghi rõ theo từng dòng. Đã loại bỏ các mục trùng lặp (kanji+reading) với bộ 200 động từ N3-N4 và bộ 83 động từ N4 Tanoshii, để tránh hiển thị trùng khi gộp chung nhóm Động từ (2026-09-02). Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context cho phần đã tra xong (183/609, phần còn lại chờ quota Gemini reset), không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02)."
+    "notes": "STT (id suffix) giữ nguyên số gốc trong sách (không liên tục 1-280, vì trích từ bộ động từ lớn hơn, các số chạy tới 795).,Sách trình bày theo cặp tự động từ/tha động từ; nhiều entry trong cặp thứ hai không có câu mnemonic riêng trong sách gốc (chỉ ghi Hán Việt + nghĩa), nên mnemonic là mảng rỗng cho các mục đó -- không phải lỗi trích xuất.,Level do Gemini tự phân loại N3/N4 vì sách không ghi rõ theo từng dòng. Đã loại bỏ các mục trùng lặp (kanji+reading) với bộ 200 động từ N3-N4 và bộ 83 động từ N4 Tanoshii, để tránh hiển thị trùng khi gộp chung nhóm Động từ (2026-09-02). Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context cho phần đã tra xong (183/609, phần còn lại chờ quota Gemini reset), không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02). Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context, không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02)."
   },
   "words": [
     {
@@ -26,7 +26,22 @@
         "Khát nước thì ra SÔNG (かわ) mà uống"
       ],
       "example": "のどがかわいた",
-      "exampleVi": "Tôi khát nước"
+      "exampleVi": "Tôi khát nước",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "渇きます",
+        "te": "渇いて",
+        "ta": "渇いた",
+        "nai": "渇かない",
+        "potential": "渇ける",
+        "passive": "渇かれる",
+        "causative": "渇かせる",
+        "conditionalBa": "渇けば",
+        "conditionalTara": "渇いたら",
+        "volitional": "渇こう",
+        "imperative": "渇け"
+      }
     },
     {
       "id": "hinxu280-122",
@@ -42,7 +57,22 @@
         "ngửi con CÁ NGỪ (かぐ)"
       ],
       "example": "においをかぐ",
-      "exampleVi": "Ngửi thấy mùi."
+      "exampleVi": "Ngửi thấy mùi.",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "嗅ぎます",
+        "te": "嗅いで",
+        "ta": "嗅いだ",
+        "nai": "嗅がない",
+        "potential": "嗅げる",
+        "passive": "嗅がれる",
+        "causative": "嗅がせる",
+        "conditionalBa": "嗅げば",
+        "conditionalTara": "嗅いだら",
+        "volitional": "嗅ごう",
+        "imperative": "嗅げ"
+      }
     },
     {
       "id": "hinxu280-123",
@@ -58,7 +88,22 @@
         "làm việc TÀ TÀ (たた) là bị đánh"
       ],
       "example": "子どものおしりをたたく",
-      "exampleVi": "Đánh vào mông đứa trẻ."
+      "exampleVi": "Đánh vào mông đứa trẻ.",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "叩きます",
+        "te": "叩いて",
+        "ta": "叩いた",
+        "nai": "叩かない",
+        "potential": "叩ける",
+        "passive": "叩かれる",
+        "causative": "叩かせる",
+        "conditionalBa": "叩けば",
+        "conditionalTara": "叩いたら",
+        "volitional": "叩こう",
+        "imperative": "叩け"
+      }
     },
     {
       "id": "hinxu280-124",
@@ -74,7 +119,22 @@
         "NAM NGU RỒI (なぐる) thì nam bị đánh"
       ],
       "example": "教師が生徒を殴る、問題になっている",
-      "exampleVi": "Việc giáo viên đánh học sinh đang trở thành vấn đề"
+      "exampleVi": "Việc giáo viên đánh học sinh đang trở thành vấn đề",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "殴ります",
+        "te": "殴って",
+        "ta": "殴った",
+        "nai": "殴らない",
+        "potential": "殴れる",
+        "passive": "殴られる",
+        "causative": "殴らせる",
+        "conditionalBa": "殴れば",
+        "conditionalTara": "殴ったら",
+        "volitional": "殴ろう",
+        "imperative": "殴れ"
+      }
     },
     {
       "id": "hinxu280-125",
@@ -88,7 +148,22 @@
         "KÊ (け) vô rồi đá"
       ],
       "example": "ボールをける",
-      "exampleVi": "Đá bóng."
+      "exampleVi": "Đá bóng.",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "蹴ります",
+        "te": "蹴って",
+        "ta": "蹴った",
+        "nai": "蹴らない",
+        "potential": "蹴れる",
+        "passive": "蹴られる",
+        "causative": "蹴らせる",
+        "conditionalBa": "蹴れば",
+        "conditionalTara": "蹴ったら",
+        "volitional": "蹴ろう",
+        "imperative": "蹴れ"
+      }
     },
     {
       "id": "hinxu280-126",
@@ -104,7 +179,22 @@
         "Ôm đá cuội (だく)"
       ],
       "example": "子供を両手でしっかりと抱く",
-      "exampleVi": "Ôm chặt con bằng 2 tay"
+      "exampleVi": "Ôm chặt con bằng 2 tay",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "抱きます",
+        "te": "抱いて",
+        "ta": "抱いた",
+        "nai": "抱かない",
+        "potential": "抱ける",
+        "passive": "抱かれる",
+        "causative": "抱かせる",
+        "conditionalBa": "抱けば",
+        "conditionalTara": "抱いたら",
+        "volitional": "抱こう",
+        "imperative": "抱け"
+      }
     },
     {
       "id": "hinxu280-128",
@@ -116,9 +206,26 @@
         "ĐẢO"
       ],
       "meaningVi": "làm đổ",
-      "mnemonic": [],
+      "mnemonic": [
+        "倒す (taosu): tha động từ (làm đổ, đánh bại) khác với 倒れる (taoreru): tự động từ (bị đổ, ngã)."
+      ],
       "example": "花びんを倒して割ってしまった",
-      "exampleVi": "Tôi làm đổ bình hoa và làm nó vỡ mất rồi."
+      "exampleVi": "Tôi làm đổ bình hoa và làm nó vỡ mất rồi.",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "倒します",
+        "te": "倒して",
+        "ta": "倒した",
+        "nai": "倒さない",
+        "potential": "倒せる",
+        "passive": "倒される",
+        "causative": "倒させる",
+        "conditionalBa": "倒せば",
+        "conditionalTara": "倒したら",
+        "volitional": "倒そう",
+        "imperative": "倒せ"
+      }
     },
     {
       "id": "hinxu280-129",
@@ -134,7 +241,22 @@
         "ÔNG KIA (おき) thức dậy rồi"
       ],
       "example": "きょうは8時に起きた / きのう、教室でちょっとした事件が起こった",
-      "exampleVi": "Hôm nay đã thức dậy lúc 8h / Tối qua xảy ra một vụ việc nhỏ ở phòng học"
+      "exampleVi": "Hôm nay đã thức dậy lúc 8h / Tối qua xảy ra một vụ việc nhỏ ở phòng học",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "起きます",
+        "te": "起きて",
+        "ta": "起きた",
+        "nai": "起きない",
+        "potential": "起きられる",
+        "passive": "起きられる",
+        "causative": "起きさせる",
+        "conditionalBa": "起きれば",
+        "conditionalTara": "起きたら",
+        "volitional": "起きよう",
+        "imperative": "起きろ"
+      }
     },
     {
       "id": "hinxu280-130",
@@ -150,7 +272,22 @@
         "ÔNG CỐ (おこ) xảy ra chuyện rồi"
       ],
       "example": "うちの子は朝起こしてもなかなか起きない",
-      "exampleVi": "Con tôi buổi sáng dù có đánh thức cũng mãi không chịu dậy"
+      "exampleVi": "Con tôi buổi sáng dù có đánh thức cũng mãi không chịu dậy",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "起こします",
+        "te": "起こして",
+        "ta": "起こした",
+        "nai": "起こさない",
+        "potential": "起こせる",
+        "passive": "起こされる",
+        "causative": "起こさせる",
+        "conditionalBa": "起こせば",
+        "conditionalTara": "起こしたら",
+        "volitional": "起こそう",
+        "imperative": "起こせ"
+      }
     },
     {
       "id": "hinxu280-131",
@@ -166,7 +303,22 @@
         "TAO GIỮ NÈ (たずね) đến mà hỏi"
       ],
       "example": "交番で警官に市役所までの道を尋ねる",
-      "exampleVi": "Hỏi cảnh sát ở đồn đường đến cơ quan hành chính thành phố"
+      "exampleVi": "Hỏi cảnh sát ở đồn đường đến cơ quan hành chính thành phố",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "尋ねます",
+        "te": "尋ねて",
+        "ta": "尋ねた",
+        "nai": "尋ねない",
+        "potential": "尋ねられる",
+        "passive": "尋ねられる",
+        "causative": "尋ねさせる",
+        "conditionalBa": "尋ねれば",
+        "conditionalTara": "尋ねたら",
+        "volitional": "尋ねよう",
+        "imperative": "尋ねろ"
+      }
     },
     {
       "id": "hinxu280-132",
@@ -182,7 +334,22 @@
         "gọi nhau DÔ BƯNG DÔ BƯNG (よぶ)"
       ],
       "example": "名前を呼ばれたら返事をしてく ださい",
-      "exampleVi": "Sau khi được gọi tên thì hãy trả lời"
+      "exampleVi": "Sau khi được gọi tên thì hãy trả lời",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "呼びます",
+        "te": "呼んで",
+        "ta": "呼んだ",
+        "nai": "呼ばない",
+        "potential": "呼べる",
+        "passive": "呼ばれる",
+        "causative": "呼ぶせる",
+        "conditionalBa": "呼べば",
+        "conditionalTara": "呼んだら",
+        "volitional": "呼ぼう",
+        "imperative": "呼べ"
+      }
     },
     {
       "id": "hinxu280-133",
@@ -198,7 +365,22 @@
         "uống RƯỢU (さけ) rồi la hét"
       ],
       "example": "大声で叫んだが、相手は気づかずにいってしまった",
-      "exampleVi": "Đã hét to nhưng đối phương không nhận ra mà đi mất"
+      "exampleVi": "Đã hét to nhưng đối phương không nhận ra mà đi mất",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "叫びます",
+        "te": "叫んで",
+        "ta": "叫んだ",
+        "nai": "叫ばない",
+        "potential": "叫べる",
+        "passive": "叫ばれる",
+        "causative": "叫ばせる",
+        "conditionalBa": "叫べば",
+        "conditionalTara": "叫んだら",
+        "volitional": "叫ぼう",
+        "imperative": "叫べ"
+      }
     },
     {
       "id": "hinxu280-134",
@@ -214,7 +396,22 @@
         "ĐÁM MA RỒI (だまる) thì im lặng"
       ],
       "example": "先生が質問したが誰も答えないで黙っている",
-      "exampleVi": "Giáo viên đã hỏi nhưng mọi người im lặng không ai trả lời"
+      "exampleVi": "Giáo viên đã hỏi nhưng mọi người im lặng không ai trả lời",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "黙ります",
+        "te": "黙って",
+        "ta": "黙った",
+        "nai": "黙らない",
+        "potential": "黙れる",
+        "passive": "黙られる",
+        "causative": "黙らせる",
+        "conditionalBa": "黙れば",
+        "conditionalTara": "黙ったら",
+        "volitional": "黙ろう",
+        "imperative": "黙れ"
+      }
     },
     {
       "id": "hinxu280-136",
@@ -230,7 +427,22 @@
         "đếm CÁ ZÔ Ế (かぞえ)"
       ],
       "example": "数を数える",
-      "exampleVi": "Đếm số"
+      "exampleVi": "Đếm số",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "数えます",
+        "te": "数えて",
+        "ta": "数えた",
+        "nai": "数えない",
+        "potential": "数えられる",
+        "passive": "数えられる",
+        "causative": "数えさせる",
+        "conditionalBa": "数えれば",
+        "conditionalTara": "数えたら",
+        "volitional": "数えよう",
+        "imperative": "数えろ"
+      }
     },
     {
       "id": "hinxu280-139",
@@ -246,7 +458,22 @@
         "gấp CÁI CHIẾU tatami (たたむ)"
       ],
       "example": "洗濯物をたたむ",
-      "exampleVi": "Gấp đồ giặt"
+      "exampleVi": "Gấp đồ giặt",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "畳みます",
+        "te": "畳んで",
+        "ta": "畳んだ",
+        "nai": "畳まない",
+        "potential": "畳める",
+        "passive": "畳まれる",
+        "causative": "畳ませる",
+        "conditionalBa": "畳めば",
+        "conditionalTara": "畳んだら",
+        "volitional": "畳もう",
+        "imperative": "畳め"
+      }
     },
     {
       "id": "hinxu280-141",
@@ -260,7 +487,22 @@
         "ÔNG GỌI (おご) vào ông đãi"
       ],
       "example": "昨日は後輩に焼肉をおごった",
-      "exampleVi": "Hôm qua đã chiêu đãi đàn em thịt nướng"
+      "exampleVi": "Hôm qua đã chiêu đãi đàn em thịt nướng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "おごります",
+        "te": "おごって",
+        "ta": "おごった",
+        "nai": "おごらない",
+        "potential": "おごれる",
+        "passive": "おごられる",
+        "causative": "おごらせる",
+        "conditionalBa": "おごれば",
+        "conditionalTara": "おごったら",
+        "volitional": "おごろう",
+        "imperative": "おごれ"
+      }
     },
     {
       "id": "hinxu280-146",
@@ -272,9 +514,26 @@
         "TẢ"
       ],
       "meaningVi": "chụp được",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 写る (うつる) là tự động từ: được chụp, được in ra (ảnh hiện lên). 写す (うつす) là tha động từ: chụp ảnh, chép lại."
+      ],
       "example": "このカメラは暗いところでもよく写る",
-      "exampleVi": "Chiếc máy ảnh này thì dù là chỗ tối cũng chụp tốt"
+      "exampleVi": "Chiếc máy ảnh này thì dù là chỗ tối cũng chụp tốt",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "写ります",
+        "te": "写って",
+        "ta": "写った",
+        "nai": "写らない",
+        "potential": "写れる",
+        "passive": "写られる",
+        "causative": "写らせる",
+        "conditionalBa": "写れば",
+        "conditionalTara": "写ったら",
+        "volitional": "写ろう",
+        "imperative": "写れ"
+      }
     },
     {
       "id": "hinxu280-147",
@@ -290,7 +549,22 @@
         "ƯNG CHƯA (うつ) để sao lại"
       ],
       "example": "写真を写す",
-      "exampleVi": "Chụp ảnh"
+      "exampleVi": "Chụp ảnh",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "写します",
+        "te": "写して",
+        "ta": "写した",
+        "nai": "写さない",
+        "potential": "写せる",
+        "passive": "写される",
+        "causative": "写させる",
+        "conditionalBa": "写せば",
+        "conditionalTara": "写したら",
+        "volitional": "写そう",
+        "imperative": "写せ"
+      }
     },
     {
       "id": "hinxu280-148",
@@ -306,7 +580,22 @@
         "NGHĨ (思い) RA (出す) nghĩ ra là đang nhớ gì đó"
       ],
       "example": "毎年春になると、高校の入学式を思い出します",
-      "exampleVi": "Mỗi năm, hễ đến mùa xuân thì lại nhớ đến lễ nhập học của trường cấp 3"
+      "exampleVi": "Mỗi năm, hễ đến mùa xuân thì lại nhớ đến lễ nhập học của trường cấp 3",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "思い出します",
+        "te": "思い出して",
+        "ta": "思い出した",
+        "nai": "思い出さない",
+        "potential": "思い出せる",
+        "passive": "思い出される",
+        "causative": "思い出させる",
+        "conditionalBa": "思い出せば",
+        "conditionalTara": "思い出したら",
+        "volitional": "思い出そう",
+        "imperative": "思い出せ"
+      }
     },
     {
       "id": "hinxu280-149",
@@ -322,7 +611,22 @@
         "ĐI TRỄ (おそい) là XẤU (わる) là điều được dạy"
       ],
       "example": "この料理の作り方は母から教わりました",
-      "exampleVi": "Cách làm món ăn này đã được dạy từ mẹ"
+      "exampleVi": "Cách làm món ăn này đã được dạy từ mẹ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "教わります",
+        "te": "教わって",
+        "ta": "教わった",
+        "nai": "教わらない",
+        "potential": "教われる",
+        "passive": "教わられる",
+        "causative": "教わらせる",
+        "conditionalBa": "教われば",
+        "conditionalTara": "教わったら",
+        "volitional": "教わろう",
+        "imperative": "教われ"
+      }
     },
     {
       "id": "hinxu280-154",
@@ -338,7 +642,22 @@
         "CHÚ CÁ MA (つかま) bị bắt"
       ],
       "example": "犯人が警察に捕まった",
-      "exampleVi": "Phạm nhân đã bị cảnh sát bắt"
+      "exampleVi": "Phạm nhân đã bị cảnh sát bắt",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "捕まります",
+        "te": "捕まって",
+        "ta": "捕まった",
+        "nai": "捕まらない",
+        "potential": "捕まれる",
+        "passive": "捕まられる",
+        "causative": "捕まらせる",
+        "conditionalBa": "捕まれば",
+        "conditionalTara": "捕まったら",
+        "volitional": "捕まろう",
+        "imperative": "捕まれ"
+      }
     },
     {
       "id": "hinxu280-155",
@@ -354,7 +673,22 @@
         "bắt CHÚ CÁ MA Ế (つかまえ)"
       ],
       "example": "警察が泥棒を捕まえた",
-      "exampleVi": "Cảnh sát đã bắt kẻ trộm"
+      "exampleVi": "Cảnh sát đã bắt kẻ trộm",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "捕まえます",
+        "te": "捕まえて",
+        "ta": "捕まえた",
+        "nai": "捕まえない",
+        "potential": "捕まえられる",
+        "passive": "捕まえられる",
+        "causative": "捕まらせる",
+        "conditionalBa": "捕まえれば",
+        "conditionalTara": "捕まえたら",
+        "volitional": "捕まえよう",
+        "imperative": "捕まえろ"
+      }
     },
     {
       "id": "hinxu280-156",
@@ -366,9 +700,26 @@
         "THỪA"
       ],
       "meaningVi": "leo lên",
-      "mnemonic": [],
+      "mnemonic": [
+        "Để nhớ từ này, hãy tưởng tượng hình ảnh bạn bước lên một chiếc xe (bộ Thừa/乗) với đôi chân (bộ Túc/足 - nằm ở dưới cùng của chữ Hán) để đi lại."
+      ],
       "example": "毎朝、電車に乗って学校に通っている",
-      "exampleVi": "Mỗi sáng, tôi đã lên tàu điện và đến trường"
+      "exampleVi": "Mỗi sáng, tôi đã lên tàu điện và đến trường",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "乗ります",
+        "te": "乗って",
+        "ta": "乗った",
+        "nai": "乗らない",
+        "potential": "乗れる",
+        "passive": "乗られる",
+        "causative": "乗らせる",
+        "conditionalBa": "乗れば",
+        "conditionalTara": "乗ったら",
+        "volitional": "乗ろう",
+        "imperative": "乗れ"
+      }
     },
     {
       "id": "hinxu280-158",
@@ -380,9 +731,26 @@
         "GIÁNG"
       ],
       "meaningVi": "xuống",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 降りる (dùng cho phương tiện giao thông như xuống xe, tàu, hoặc thời tiết như mưa, tuyết rơi), 下りる (dùng cho di chuyển từ trên xuống dưới như xuống núi, xuống cầu thang, hoặc nhận được sự cho phép/cấp phép)."
+      ],
       "example": "電車を降りる",
-      "exampleVi": "Xuống tàu điện"
+      "exampleVi": "Xuống tàu điện",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "降りります",
+        "te": "降りりて",
+        "ta": "降りりた",
+        "nai": "降りりない",
+        "potential": "降りられる",
+        "passive": "降りられる",
+        "causative": "降りさせる",
+        "conditionalBa": "降りれば",
+        "conditionalTara": "降りたら",
+        "volitional": "降りよう",
+        "imperative": "降りろ"
+      }
     },
     {
       "id": "hinxu280-159",
@@ -398,7 +766,22 @@
         "đưa cái Ô RỘNG (おろ) xuống xe"
       ],
       "example": "あの銀行の前で降ろしてください",
-      "exampleVi": "Lấy đồ trên giá xuống"
+      "exampleVi": "Lấy đồ trên giá xuống",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "降ろします",
+        "te": "降ろして",
+        "ta": "降ろした",
+        "nai": "降ろさない",
+        "potential": "降ろせる",
+        "passive": "降ろされる",
+        "causative": "降ろさせる",
+        "conditionalBa": "降ろせば",
+        "conditionalTara": "降ろしたら",
+        "volitional": "降ろそう",
+        "imperative": "降ろせ"
+      }
     },
     {
       "id": "hinxu280-160",
@@ -410,9 +793,26 @@
         "TRỰC"
       ],
       "meaningVi": "được sửa",
-      "mnemonic": [],
+      "mnemonic": [
+        "Để phân biệt: 直る (Tự động từ) - cái gì đó tự sửa/tự khỏi; 直す (Tha động từ) - ai đó sửa cái gì đó."
+      ],
       "example": "壊れたパソコンが直った",
-      "exampleVi": "Chiếc máy tính bị hỏng đã được sửa"
+      "exampleVi": "Chiếc máy tính bị hỏng đã được sửa",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "直ります",
+        "te": "直って",
+        "ta": "直った",
+        "nai": "直らない",
+        "potential": "直れる",
+        "passive": "直られる",
+        "causative": "直らせる",
+        "conditionalBa": "直れば",
+        "conditionalTara": "直ったら",
+        "volitional": "直ろう",
+        "imperative": "直れ"
+      }
     },
     {
       "id": "hinxu280-161",
@@ -428,7 +828,22 @@
         "cùng sửa NÀO (なお)"
       ],
       "example": "壊れた時計を直す",
-      "exampleVi": "Sửa chiếc máy tính đã hỏng"
+      "exampleVi": "Sửa chiếc máy tính đã hỏng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "直します",
+        "te": "直して",
+        "ta": "直した",
+        "nai": "直さない",
+        "potential": "直せる",
+        "passive": "直される",
+        "causative": "直させる",
+        "conditionalBa": "直せば",
+        "conditionalTara": "直したら",
+        "volitional": "直そう",
+        "imperative": "直せ"
+      }
     },
     {
       "id": "hinxu280-162",
@@ -440,9 +855,26 @@
         "TRỊ"
       ],
       "meaningVi": "hồi phục",
-      "mnemonic": [],
+      "mnemonic": [
+        "治る (tự động từ): bệnh/thương tích được chữa khỏi. 直る (tự động từ): đồ vật bị hỏng được sửa lại."
+      ],
       "example": "なかなか頭痛が治らない",
-      "exampleVi": "Mãi mà đau đầu không khỏi"
+      "exampleVi": "Mãi mà đau đầu không khỏi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "治ります",
+        "te": "治って",
+        "ta": "治った",
+        "nai": "治らない",
+        "potential": "治れる",
+        "passive": "治られる",
+        "causative": "治らせる",
+        "conditionalBa": "治れば",
+        "conditionalTara": "治ったら",
+        "volitional": "治ろう",
+        "imperative": "治れ"
+      }
     },
     {
       "id": "hinxu280-163",
@@ -458,7 +890,22 @@
         "cùng chữa bệnh NÀO (なお)"
       ],
       "example": "よく休んで早くかぜを治してください",
-      "exampleVi": "Hãy nghỉ ngơi tốt để chữa bệnh cúm nhanh"
+      "exampleVi": "Hãy nghỉ ngơi tốt để chữa bệnh cúm nhanh",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "治します",
+        "te": "治して",
+        "ta": "治した",
+        "nai": "治さない",
+        "potential": "治せる",
+        "passive": "治される",
+        "causative": "治させる",
+        "conditionalBa": "治せば",
+        "conditionalTara": "治したら",
+        "volitional": "治そう",
+        "imperative": "治せ"
+      }
     },
     {
       "id": "hinxu280-164",
@@ -474,7 +921,22 @@
         "NA CỨ (なく) KÊU LÊN (なる) như sắp bị chết"
       ],
       "example": "社長が９０歳でなくなった",
-      "exampleVi": "Giám đốc đã chết khi 90 tuổi"
+      "exampleVi": "Giám đốc đã chết khi 90 tuổi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "亡くなります",
+        "te": "亡くなって",
+        "ta": "亡くなった",
+        "nai": "亡くならない",
+        "potential": "亡くなれる",
+        "passive": "亡くなられる",
+        "causative": "亡くならせる",
+        "conditionalBa": "亡くなれば",
+        "conditionalTara": "亡くなったら",
+        "volitional": "亡くなろう",
+        "imperative": "亡くなれ"
+      }
     },
     {
       "id": "hinxu280-165",
@@ -486,9 +948,26 @@
         "VONG"
       ],
       "meaningVi": "mất",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 無くす (làm mất đồ đạc), còn 亡くす dùng cho việc mất mát người thân (qua đời)."
+      ],
       "example": "彼は子供のとき、父親をなくした",
-      "exampleVi": "Anh ấy thì còn nhỏ, bố đã mất"
+      "exampleVi": "Anh ấy thì còn nhỏ, bố đã mất",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "亡くします",
+        "te": "亡くして",
+        "ta": "亡くした",
+        "nai": "亡くさない",
+        "potential": "亡くせる",
+        "passive": "亡くされる",
+        "causative": "亡くさせる",
+        "conditionalBa": "亡くせば",
+        "conditionalTara": "亡くしたら",
+        "volitional": "亡くそう",
+        "imperative": "亡くせ"
+      }
     },
     {
       "id": "hinxu280-166",
@@ -504,7 +983,22 @@
         "CON NGỰA (うま) được sinh ra"
       ],
       "example": "先月子供が生まれた",
-      "exampleVi": "Những năm 90, nhiều tác phẩm truyện tranh nổi tiếng đã được sinh ra"
+      "exampleVi": "Những năm 90, nhiều tác phẩm truyện tranh nổi tiếng đã được sinh ra",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "生まれます",
+        "te": "生まれて",
+        "ta": "生まれた",
+        "nai": "生まれない",
+        "potential": "生まれる",
+        "passive": "―",
+        "causative": "生まれさせる",
+        "conditionalBa": "生まれれば",
+        "conditionalTara": "生まれたら",
+        "volitional": "生まれよう",
+        "imperative": "生まれろ"
+      }
     },
     {
       "id": "hinxu280-167",
@@ -516,9 +1010,26 @@
         "SINH"
       ],
       "meaningVi": "sinh",
-      "mnemonic": [],
+      "mnemonic": [
+        "生む (うむ): Sinh đẻ, tạo ra (thứ gì đó mới); 生まれる (うまれる): Được sinh ra (tự động từ)."
+      ],
       "example": "妻が先日元気な女の子を産んだ。",
-      "exampleVi": "Gà đẻ trứng"
+      "exampleVi": "Gà đẻ trứng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "生みます",
+        "te": "生んで",
+        "ta": "生んだ",
+        "nai": "生まない",
+        "potential": "生める",
+        "passive": "生まれる",
+        "causative": "生ませる",
+        "conditionalBa": "生めば",
+        "conditionalTara": "生んだら",
+        "volitional": "生もう",
+        "imperative": "生め"
+      }
     },
     {
       "id": "hinxu280-168",
@@ -534,7 +1045,22 @@
         "tình cờ GẶP(会う) ở ĐÊ (で)"
       ],
       "example": "駅で偶然大学時代の友に出会った",
-      "exampleVi": "Chỗ này thì có vẻ là nơi bố mẹ tôi đã gặp nhau lần đầu"
+      "exampleVi": "Chỗ này thì có vẻ là nơi bố mẹ tôi đã gặp nhau lần đầu",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "出会います",
+        "te": "出会って",
+        "ta": "出会った",
+        "nai": "出会わない",
+        "potential": "出会える",
+        "passive": "出会われる",
+        "causative": "出会わせる",
+        "conditionalBa": "出会えば",
+        "conditionalTara": "出会ったら",
+        "volitional": "出会おう",
+        "imperative": "出会え"
+      }
     },
     {
       "id": "hinxu280-169",
@@ -550,7 +1076,22 @@
         "học chung với chữ hỏi thăm"
       ],
       "example": "友人の家を訪ねた",
-      "exampleVi": "Đã đến thăm nhà bạn"
+      "exampleVi": "Đã đến thăm nhà bạn",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "訪ねます",
+        "te": "訪ねて",
+        "ta": "訪ねた",
+        "nai": "訪ねない",
+        "potential": "訪ねられる",
+        "passive": "訪ねられる",
+        "causative": "訪ねさせる",
+        "conditionalBa": "訪ねれば",
+        "conditionalTara": "訪ねたら",
+        "volitional": "訪ねよう",
+        "imperative": "訪ねろ"
+      }
     },
     {
       "id": "hinxu280-170",
@@ -566,7 +1107,22 @@
         "DÍNH VÀO (つき) rồi PHÙ HỢP (あう) là hẹn hò"
       ],
       "example": "隣家の人と親しく付き合っている",
-      "exampleVi": "Làm thân với hàng xóm"
+      "exampleVi": "Làm thân với hàng xóm",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "付き合います",
+        "te": "付き合って",
+        "ta": "付き合った",
+        "nai": "付き合わない",
+        "potential": "付き合える",
+        "passive": "付き合われる",
+        "causative": "付き合わせる",
+        "conditionalBa": "付き合えば",
+        "conditionalTara": "付き合ったら",
+        "volitional": "付き合おう",
+        "imperative": "付き合え"
+      }
     },
     {
       "id": "hinxu280-171",
@@ -582,7 +1138,22 @@
         "trồng CÂY(き) thì có hiệu quả"
       ],
       "example": "この薬は頭痛によく効く",
-      "exampleVi": "Thuốc này thì có hiệu quả với đau đầu"
+      "exampleVi": "Thuốc này thì có hiệu quả với đau đầu",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "効きます",
+        "te": "効いて",
+        "ta": "効いた",
+        "nai": "効かない",
+        "potential": "効ける",
+        "passive": "効かれる",
+        "causative": "効かせる",
+        "conditionalBa": "効けば",
+        "conditionalTara": "効いたら",
+        "volitional": "効こう",
+        "imperative": "効け"
+      }
     },
     {
       "id": "hinxu280-172",
@@ -596,7 +1167,22 @@
         "hàng bán NHANH ((はやい) là hàng thịnh hành đồ đang HẠ YÁ RỒI ((はやる) nên thịnh hành"
       ],
       "example": "この冬は赤い色が流行っている",
-      "exampleVi": "Mùa đông này màu đỏ rất được ưa chuộng"
+      "exampleVi": "Mùa đông này màu đỏ rất được ưa chuộng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "はやります",
+        "te": "はやって",
+        "ta": "はやった",
+        "nai": "はやらない",
+        "potential": "はやれる",
+        "passive": "はやられる",
+        "causative": "はやらせる",
+        "conditionalBa": "はやれば",
+        "conditionalTara": "はやったら",
+        "volitional": "はやろう",
+        "imperative": "はやれ"
+      }
     },
     {
       "id": "hinxu280-173",
@@ -612,7 +1198,22 @@
         "ĐỨNG(たつ) im là thời gian trôi qua"
       ],
       "example": "日本へ来て10年が経った",
-      "exampleVi": "Đã đến Nhật được 10 năm rồi"
+      "exampleVi": "Đã đến Nhật được 10 năm rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "経ちます",
+        "te": "経って",
+        "ta": "経った",
+        "nai": "経たない",
+        "potential": "経てる",
+        "passive": "経たれる",
+        "causative": "経たせる",
+        "conditionalBa": "経てば",
+        "conditionalTara": "経ったら",
+        "volitional": "経とう",
+        "imperative": "経て"
+      }
     },
     {
       "id": "hinxu280-175",
@@ -624,9 +1225,26 @@
         "GIAN HỢP"
       ],
       "meaningVi": "kịp giờ",
-      "mnemonic": [],
+      "mnemonic": [
+        "間に合う là tự động từ (kịp giờ), 間に合わせる là tha động từ (làm cho kịp giờ/tạm thay thế)."
+      ],
       "example": "レポートを、頑張って締め切りに間に合わせた",
-      "exampleVi": "Cố gắng làm báo cáo kịp thời hạn"
+      "exampleVi": "Cố gắng làm báo cáo kịp thời hạn",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "間に合わせます",
+        "te": "間に合わせて",
+        "ta": "間に合わせた",
+        "nai": "間に合わせない",
+        "potential": "間に合わせられる",
+        "passive": "間に合わせられる",
+        "causative": "間に合わせさせる",
+        "conditionalBa": "間に合わせれば",
+        "conditionalTara": "間に合わせたら",
+        "volitional": "間に合わせよう",
+        "imperative": "間に合わせろ"
+      }
     },
     {
       "id": "hinxu280-176",
@@ -642,7 +1260,22 @@
         "CÁ YOI đi đi về về"
       ],
       "example": "学校に通う",
-      "exampleVi": "Đến trường"
+      "exampleVi": "Đến trường",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "通います",
+        "te": "通って",
+        "ta": "通った",
+        "nai": "通わない",
+        "potential": "通える",
+        "passive": "通われる",
+        "causative": "通わせる",
+        "conditionalBa": "通えば",
+        "conditionalTara": "通ったら",
+        "volitional": "通おう",
+        "imperative": "通え"
+      }
     },
     {
       "id": "hinxu280-177",
@@ -658,7 +1291,22 @@
         "CÔ MÙ(こむ) đứng đông đúc"
       ],
       "example": "電車がこむ",
-      "exampleVi": "Tàu điện đông"
+      "exampleVi": "Tàu điện đông",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "込みます",
+        "te": "込んで",
+        "ta": "込んだ",
+        "nai": "込まない",
+        "potential": "込める",
+        "passive": "込まれる",
+        "causative": "込ませる",
+        "conditionalBa": "込めば",
+        "conditionalTara": "込んだら",
+        "volitional": "込もう",
+        "imperative": "込め"
+      }
     },
     {
       "id": "hinxu280-178",
@@ -674,7 +1322,22 @@
         "SAI(ちがう) đối tượng thì lướt qua đời nhau"
       ],
       "example": "この道が狭いので、自動車がすれ違うのは大変だ",
-      "exampleVi": "Con đường này thì hẹp, việc vượt xe ô tô thì vất vả"
+      "exampleVi": "Con đường này thì hẹp, việc vượt xe ô tô thì vất vả",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "すれ違います",
+        "te": "すれ違って",
+        "ta": "すれ違った",
+        "nai": "すれ違わない",
+        "potential": "すれ違える",
+        "passive": "すれ違われる",
+        "causative": "すれ違わせる",
+        "conditionalBa": "すれ違えば",
+        "conditionalTara": "すれ違ったら",
+        "volitional": "すれ違おう",
+        "imperative": "すれ違え"
+      }
     },
     {
       "id": "hinxu280-179",
@@ -686,9 +1349,26 @@
         "QUẢI"
       ],
       "meaningVi": "được bao phủ",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt 掛かる (tự động từ - cái gì đó được treo/mắc/tốn) và 掛ける (tha động từ - treo/mắc cái gì đó lên)."
+      ],
       "example": "このサラダには何もかかっていないようだ",
-      "exampleVi": "Xà lách này thì có vẻ không bao phủ bằng thứ gì"
+      "exampleVi": "Xà lách này thì có vẻ không bao phủ bằng thứ gì",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "掛かります",
+        "te": "掛かって",
+        "ta": "掛かった",
+        "nai": "掛からない",
+        "potential": "掛かれる",
+        "passive": "掛かれる",
+        "causative": "掛からせる",
+        "conditionalBa": "掛かれば",
+        "conditionalTara": "掛かったら",
+        "volitional": "掛かろう",
+        "imperative": "掛かれ"
+      }
     },
     {
       "id": "hinxu280-181",
@@ -700,9 +1380,26 @@
         "ĐỘNG"
       ],
       "meaningVi": "hoạt động",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 動く (ugoku - tự động từ: cái gì đó tự di chuyển/hoạt động) và 動かす (ugokasu - tha động từ: làm cho cái gì đó di chuyển)."
+      ],
       "example": "[写真を撮るから動かないでください]",
-      "exampleVi": "Vì chụp ảnh nên hãy đừng chuyển động"
+      "exampleVi": "Vì chụp ảnh nên hãy đừng chuyển động",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "動きます",
+        "te": "動いて",
+        "ta": "動いた",
+        "nai": "動かない",
+        "potential": "動ける",
+        "passive": "動かれる",
+        "causative": "動かせる",
+        "conditionalBa": "動けば",
+        "conditionalTara": "動いたら",
+        "volitional": "動こう",
+        "imperative": "動け"
+      }
     },
     {
       "id": "hinxu280-182",
@@ -718,7 +1415,22 @@
         "Ừ GOM CẢ (うごか) vào là chuyển động vào"
       ],
       "example": "ひどいけがをして、体を動かすこともできない",
-      "exampleVi": "Bị vết thương nặng nên không thể chuyển động được cơ thể"
+      "exampleVi": "Bị vết thương nặng nên không thể chuyển động được cơ thể",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "動かします",
+        "te": "動かして",
+        "ta": "動かした",
+        "nai": "動かさない",
+        "potential": "動かせる",
+        "passive": "動かされる",
+        "causative": "動かさせる",
+        "conditionalBa": "動かせば",
+        "conditionalTara": "動かしたら",
+        "volitional": "動かそう",
+        "imperative": "動かせ"
+      }
     },
     {
       "id": "hinxu280-183",
@@ -734,7 +1446,22 @@
         "chia xa thì tặng HOA (はな)"
       ],
       "example": "あぶないから、ストーブから離れて遊びなさい",
-      "exampleVi": "Vì nguy hiểm nên hãy chơi ở xa lò sưởi"
+      "exampleVi": "Vì nguy hiểm nên hãy chơi ở xa lò sưởi",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "離れます",
+        "te": "離れて",
+        "ta": "離れた",
+        "nai": "離れない",
+        "potential": "離れられる",
+        "passive": "離れられる",
+        "causative": "離れさせる",
+        "conditionalBa": "離れれば",
+        "conditionalTara": "離れたら",
+        "volitional": "離れよう",
+        "imperative": "離れろ"
+      }
     },
     {
       "id": "hinxu280-184",
@@ -746,9 +1473,26 @@
         "LY"
       ],
       "meaningVi": "tách ra",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 離す (tha động từ - làm cho xa cách, buông tay) và 離れる (tự động từ - cách xa, rời xa)."
+      ],
       "example": "テストの時は、机を離して並べる",
-      "exampleVi": "Khi kiểm tra thì bàn được xếp cách ra"
+      "exampleVi": "Khi kiểm tra thì bàn được xếp cách ra",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "離します",
+        "te": "離して",
+        "ta": "離した",
+        "nai": "離さない",
+        "potential": "離せる",
+        "passive": "離される",
+        "causative": "離させる",
+        "conditionalBa": "離せば",
+        "conditionalTara": "離したら",
+        "volitional": "離そう",
+        "imperative": "離せ"
+      }
     },
     {
       "id": "hinxu280-185",
@@ -762,7 +1506,22 @@
         "gắn BÙA CHÚ (ぶつ) để tránh va chạm"
       ],
       "example": "道で自転車にぶつかってけがをした",
-      "exampleVi": "Trên đường bị xe đâm nên đã bị thương"
+      "exampleVi": "Trên đường bị xe đâm nên đã bị thương",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "ぶつかります",
+        "te": "ぶつかって",
+        "ta": "ぶつかった",
+        "nai": "ぶつからない",
+        "potential": "ぶつかれる",
+        "passive": "ぶつかられる",
+        "causative": "ぶつからせる",
+        "conditionalBa": "ぶつかれば",
+        "conditionalTara": "ぶつかったら",
+        "volitional": "ぶつかろう",
+        "imperative": "ぶつかれ"
+      }
     },
     {
       "id": "hinxu280-186",
@@ -772,9 +1531,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "đâm",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: ぶつかる (tự động từ: va vào, đâm vào) và ぶつける (tha động từ: ném vào, đập vào, làm va vào)."
+      ],
       "example": "運転していて、車を電柱にぶつけてしまった",
-      "exampleVi": "Lúc đang lái xe thì đã đâm xe vô cột điện mất rồi"
+      "exampleVi": "Lúc đang lái xe thì đã đâm xe vô cột điện mất rồi",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "ぶつけます",
+        "te": "ぶつけて",
+        "ta": "ぶつけた",
+        "nai": "ぶつけない",
+        "potential": "ぶつけられる",
+        "passive": "ぶつけられる",
+        "causative": "ぶつけさせる",
+        "conditionalBa": "ぶつければ",
+        "conditionalTara": "ぶつけたら",
+        "volitional": "ぶつけよう",
+        "imperative": "ぶつけろ"
+      }
     },
     {
       "id": "hinxu280-187",
@@ -784,9 +1560,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "bị tràn",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt こぼれる (tự động từ: bị tràn ra, bị đổ ra) và こぼす (tha động từ: làm tràn, làm đổ)."
+      ],
       "example": "手が震えて、お茶がこぼれてしまった",
-      "exampleVi": "Tay bị run nên trà đã tràn ra mất rồi"
+      "exampleVi": "Tay bị run nên trà đã tràn ra mất rồi",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "こぼれます",
+        "te": "こぼれて",
+        "ta": "こぼれた",
+        "nai": "こぼれない",
+        "potential": "こぼれられる",
+        "passive": "こぼれられる",
+        "causative": "こぼれさせる",
+        "conditionalBa": "こぼれれば",
+        "conditionalTara": "こぼれたら",
+        "volitional": "こぼれよう",
+        "imperative": "こぼれろ"
+      }
     },
     {
       "id": "hinxu280-188",
@@ -800,7 +1593,22 @@
         "CỐ BỔ (こぼ) thì nước nó tràn ra"
       ],
       "example": "コップを倒して水をこぼしてしまって",
-      "exampleVi": "Cốc bị vỡ nên nước tràn ra mất rồi"
+      "exampleVi": "Cốc bị vỡ nên nước tràn ra mất rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "こぼします",
+        "te": "こぼして",
+        "ta": "こぼした",
+        "nai": "こぼさない",
+        "potential": "こぼせる",
+        "passive": "こぼされる",
+        "causative": "こぼさせる",
+        "conditionalBa": "こぼせば",
+        "conditionalTara": "こぼしたら",
+        "volitional": "こぼそう",
+        "imperative": "こぼせ"
+      }
     },
     {
       "id": "hinxu280-189",
@@ -814,7 +1622,21 @@
         "lau bằng QUẦN ÁO (ふく)"
       ],
       "example": "汗をふく",
-      "exampleVi": "Lau mồ hôi"
+      "exampleVi": "Lau mồ hôi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "conjugations": {
+        "masu": "ふきます",
+        "te": "ふいて",
+        "ta": "ふいた",
+        "nai": "ふかない",
+        "potential": "ふける",
+        "passive": "ふかれる",
+        "causative": "ふかせる",
+        "conditionalBa": "ふけば",
+        "conditionalTara": "ふいたら",
+        "volitional": "ふこう",
+        "imperative": "ふけ"
+      }
     },
     {
       "id": "hinxu280-192",
@@ -830,7 +1652,22 @@
         "bọc TỪ TỪ (つつ) TRÙM TRÙM (つつ) lên là bao bọc lại"
       ],
       "example": "プレゼントをきれいな紙で包む",
-      "exampleVi": "Bọc quà bằng giấy đẹp"
+      "exampleVi": "Bọc quà bằng giấy đẹp",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "包みます",
+        "te": "包んで",
+        "ta": "包んだ",
+        "nai": "包まない",
+        "potential": "包める",
+        "passive": "包まれる",
+        "causative": "包ませる",
+        "conditionalBa": "包めば",
+        "conditionalTara": "包んだら",
+        "volitional": "包もう",
+        "imperative": "包め"
+      }
     },
     {
       "id": "hinxu280-193",
@@ -846,7 +1683,22 @@
         "dán hình HARI WON lên tường"
       ],
       "example": "壁にポスターを張る",
-      "exampleVi": "Dán poster lên tường"
+      "exampleVi": "Dán poster lên tường",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "張ります",
+        "te": "張って",
+        "ta": "張った",
+        "nai": "張らない",
+        "potential": "張れる",
+        "passive": "張られる",
+        "causative": "張らせる",
+        "conditionalBa": "張れば",
+        "conditionalTara": "張ったら",
+        "volitional": "張ろう",
+        "imperative": "張れ"
+      }
     },
     {
       "id": "hinxu280-194",
@@ -862,7 +1714,22 @@
         "NA CỨ(なく) KÊU LÊN (なる) rằng bị mất đồ"
       ],
       "example": "部屋のカギがなくなってしまった",
-      "exampleVi": "Chìa khóa phòng đã bị mất rồi"
+      "exampleVi": "Chìa khóa phòng đã bị mất rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "無くなります",
+        "te": "無くなって",
+        "ta": "無くなった",
+        "nai": "無くならない",
+        "potential": "無くなれる",
+        "passive": "無くなれる",
+        "causative": "無くならせる",
+        "conditionalBa": "無くなれば",
+        "conditionalTara": "無くなったら",
+        "volitional": "無くなろう",
+        "imperative": "無くなれ"
+      }
     },
     {
       "id": "hinxu280-195",
@@ -874,9 +1741,26 @@
         "VÔ"
       ],
       "meaningVi": "mất",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với なくなる (tự động từ): なくす là làm mất cái gì đó (có tác động), còn なくなる là cái gì đó bị mất, không còn nữa."
+      ],
       "example": "パスポートを無くして困っている",
-      "exampleVi": "Passport bị mất nên đang khốn khổ"
+      "exampleVi": "Passport bị mất nên đang khốn khổ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "無くします",
+        "te": "無くして",
+        "ta": "無くした",
+        "nai": "無くさない",
+        "potential": "無くせる",
+        "passive": "無くされる",
+        "causative": "無くさせる",
+        "conditionalBa": "無くせば",
+        "conditionalTara": "無くしたら",
+        "volitional": "無くそう",
+        "imperative": "無くせ"
+      }
     },
     {
       "id": "hinxu280-196",
@@ -888,9 +1772,26 @@
         "TÚC"
       ],
       "meaningVi": "đủ",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 足りる (thường dùng cho số lượng, nhu cầu) và 足る (thường dùng trong văn viết hoặc diễn đạt sự đủ đầy về chất/giá trị)."
+      ],
       "example": "この収入では生活するのに全然足りない",
-      "exampleVi": "Với thu nhập này thì hoàn toàn không đủ cho cuộc sống"
+      "exampleVi": "Với thu nhập này thì hoàn toàn không đủ cho cuộc sống",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "足ります",
+        "te": "足りて",
+        "ta": "足りた",
+        "nai": "足りない",
+        "potential": "足りられる",
+        "passive": "足りられる",
+        "causative": "足りさせる",
+        "conditionalBa": "足りれば",
+        "conditionalTara": "足りたら",
+        "volitional": "足りよう",
+        "imperative": "足りろ"
+      }
     },
     {
       "id": "hinxu280-199",
@@ -906,7 +1807,22 @@
         "đồ ăn HÔI (臭い) là đồ ăn HƯ"
       ],
       "example": "腐ったものを食べて、おなかを壊してしまった",
-      "exampleVi": "Ăn đồ hư nên bụng bị hỏng mất rồi (đau bụng)"
+      "exampleVi": "Ăn đồ hư nên bụng bị hỏng mất rồi (đau bụng)",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "腐ります",
+        "te": "腐って",
+        "ta": "腐った",
+        "nai": "腐らない",
+        "potential": "腐れる",
+        "passive": "腐られる",
+        "causative": "腐らせる",
+        "conditionalBa": "腐れば",
+        "conditionalTara": "腐ったら",
+        "volitional": "腐ろう",
+        "imperative": "腐れ"
+      }
     },
     {
       "id": "hinxu280-200",
@@ -916,9 +1832,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "bị lột",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 剥く (Muku - tha động từ): 剥く là hành động lột vỏ (tác động vào vật), còn 剥ける là trạng thái vỏ tự tróc ra hoặc dễ dàng bị lột."
+      ],
       "example": "海で日焼けをして、背中の皮がむけた",
-      "exampleVi": "Phơi nắng một ngày ở biển nên da ở lưng đã bị tróc ra"
+      "exampleVi": "Phơi nắng một ngày ở biển nên da ở lưng đã bị tróc ra",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "剥けます",
+        "te": "剥けて",
+        "ta": "剥けた",
+        "nai": "剥けない",
+        "potential": "剥けられる",
+        "passive": "剥けられる",
+        "causative": "剥けさせる",
+        "conditionalBa": "剥ければ",
+        "conditionalTara": "剥けたら",
+        "volitional": "剥けよう",
+        "imperative": "剥けろ"
+      }
     },
     {
       "id": "hinxu280-201",
@@ -932,7 +1865,22 @@
         "MUA CỦ (むく) về gọt"
       ],
       "example": "果物の皮をむく",
-      "exampleVi": "Gọt vỏ hoa quả"
+      "exampleVi": "Gọt vỏ hoa quả",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "剥きます",
+        "te": "剥いて",
+        "ta": "剥いた",
+        "nai": "剥かない",
+        "potential": "剥ける",
+        "passive": "剥かれる",
+        "causative": "剥かせる",
+        "conditionalBa": "剥けば",
+        "conditionalTara": "剥いたら",
+        "volitional": "剥こう",
+        "imperative": "剥け"
+      }
     },
     {
       "id": "hinxu280-202",
@@ -948,7 +1896,22 @@
         "SÚT trượt BỂ RỒI hoặc bị trượt chân nên SỨ BỂ RỒI (すべる)"
       ],
       "example": "新しいスケート場はきれいで、楽しく滑ることができた",
-      "exampleVi": "Sân trượt băng mới thì đẹp, đã có thể vui vẻ đi trượt rồi"
+      "exampleVi": "Sân trượt băng mới thì đẹp, đã có thể vui vẻ đi trượt rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "滑ります",
+        "te": "滑って",
+        "ta": "滑った",
+        "nai": "滑らない",
+        "potential": "滑れる",
+        "passive": "滑られる",
+        "causative": "滑らせる",
+        "conditionalBa": "滑れば",
+        "conditionalTara": "滑ったら",
+        "volitional": "滑ろう",
+        "imperative": "滑れ"
+      }
     },
     {
       "id": "hinxu280-203",
@@ -960,9 +1923,26 @@
         "TÍCH"
       ],
       "meaningVi": "được tích tụ",
-      "mnemonic": [],
+      "mnemonic": [
+        "Dùng để nói về tuyết rơi dày hoặc rác, bụi bẩn chất đống theo thời gian."
+      ],
       "example": "きのう降った雪が積もっている",
-      "exampleVi": "Tuyết rơi hôm qua đang chất đống lên"
+      "exampleVi": "Tuyết rơi hôm qua đang chất đống lên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "積もります",
+        "te": "積もって",
+        "ta": "積もった",
+        "nai": "積もらない",
+        "potential": "積もれる",
+        "passive": "積もられる",
+        "causative": "積もらせる",
+        "conditionalBa": "積もれば",
+        "conditionalTara": "積もったら",
+        "volitional": "積もろう",
+        "imperative": "積もれ"
+      }
     },
     {
       "id": "hinxu280-204",
@@ -978,7 +1958,22 @@
         "CHÚ MÙ (つむ) tích trữ đồ đạc"
       ],
       "example": "机の上に本がたくさん積んである",
-      "exampleVi": "Trên bàn, có nhiều sách được chất đống"
+      "exampleVi": "Trên bàn, có nhiều sách được chất đống",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "積みます",
+        "te": "積んで",
+        "ta": "積んだ",
+        "nai": "積まない",
+        "potential": "積める",
+        "passive": "積まれる",
+        "causative": "積ませる",
+        "conditionalBa": "積めば",
+        "conditionalTara": "積んだら",
+        "volitional": "積もう",
+        "imperative": "積め"
+      }
     },
     {
       "id": "hinxu280-205",
@@ -990,9 +1985,26 @@
         "KHÔNG"
       ],
       "meaningVi": "bị thủng",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 空く (あく - tự động từ): (cái gì đó) trống, hở, rảnh; 空ける (あける - tha động từ): làm trống, để dành (thời gian)."
+      ],
       "example": "くつしたに穴が空いてしまった",
-      "exampleVi": "Chiếc tất đã bị thủng một lỗ rồi"
+      "exampleVi": "Chiếc tất đã bị thủng một lỗ rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "空きます",
+        "te": "空いて",
+        "ta": "空いた",
+        "nai": "空かない",
+        "potential": "空ける",
+        "passive": "空かれる",
+        "causative": "空かせる",
+        "conditionalBa": "空けば",
+        "conditionalTara": "空いたら",
+        "volitional": "空こう",
+        "imperative": "空け"
+      }
     },
     {
       "id": "hinxu280-206",
@@ -1008,7 +2020,22 @@
         "ANH KÊU (あけ) làm trống chỗ này cho anh"
       ],
       "example": "かべに穴を空ける",
-      "exampleVi": "Đục một lỗ thủng trên tường"
+      "exampleVi": "Đục một lỗ thủng trên tường",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "空けます",
+        "te": "空けて",
+        "ta": "空けた",
+        "nai": "空けない",
+        "potential": "空けられる",
+        "passive": "空けられる",
+        "causative": "空けさせる",
+        "conditionalBa": "空ければ",
+        "conditionalTara": "空けたら",
+        "volitional": "空けよう",
+        "imperative": "空けろ"
+      }
     },
     {
       "id": "hinxu280-207",
@@ -1024,7 +2051,22 @@
         "XẢ GA (さが) là nó giảm xuống"
       ],
       "example": "熱が下がる",
-      "exampleVi": "Sốt giảm xuống rồi"
+      "exampleVi": "Sốt giảm xuống rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "下がります",
+        "te": "下がって",
+        "ta": "下がった",
+        "nai": "下がらない",
+        "potential": "下がれる",
+        "passive": "下がられる",
+        "causative": "下がらせる",
+        "conditionalBa": "下がれば",
+        "conditionalTara": "下がったら",
+        "volitional": "下がろう",
+        "imperative": "下がれ"
+      }
     },
     {
       "id": "hinxu280-208",
@@ -1036,9 +2078,26 @@
         "HẠ"
       ],
       "meaningVi": "giảm",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 下げる (さげる - tha động từ - hạ xuống, giảm xuống) >< 下がる (さがる - tự động từ - đi xuống, giảm đi)."
+      ],
       "example": "熱を下げる",
-      "exampleVi": "Giảm sốt xuống"
+      "exampleVi": "Giảm sốt xuống",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "下げます",
+        "te": "下げて",
+        "ta": "下げた",
+        "nai": "下げない",
+        "potential": "下げられる",
+        "passive": "下げられる",
+        "causative": "下げさせる",
+        "conditionalBa": "下げれば",
+        "conditionalTara": "下げたら",
+        "volitional": "下げよう",
+        "imperative": "下げろ"
+      }
     },
     {
       "id": "hinxu280-214",
@@ -1054,7 +2113,22 @@
         "MOZA (もや) đốt cháy bản nhạc"
       ],
       "example": "火を燃やす",
-      "exampleVi": "Đốt lửa lên"
+      "exampleVi": "Đốt lửa lên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "燃やします",
+        "te": "燃やして",
+        "ta": "燃やした",
+        "nai": "燃やさない",
+        "potential": "燃やせる",
+        "passive": "燃やされる",
+        "causative": "燃やさせる",
+        "conditionalBa": "燃やせば",
+        "conditionalTara": "燃やしたら",
+        "volitional": "燃やそう",
+        "imperative": "燃やせ"
+      }
     },
     {
       "id": "hinxu280-217",
@@ -1070,7 +2144,22 @@
         "NA RÚ (なる) lên (kêu lên)"
       ],
       "example": "雷が鳴っている",
-      "exampleVi": "Sấm đang kêu"
+      "exampleVi": "Sấm đang kêu",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "鳴ります",
+        "te": "鳴って",
+        "ta": "鳴った",
+        "nai": "鳴らない",
+        "potential": "鳴れる",
+        "passive": "鳴られる",
+        "causative": "鳴らせる",
+        "conditionalBa": "鳴れば",
+        "conditionalTara": "鳴ったら",
+        "volitional": "鳴ろう",
+        "imperative": "鳴れ"
+      }
     },
     {
       "id": "hinxu280-218",
@@ -1082,9 +2171,26 @@
         "MINH"
       ],
       "meaningVi": "làm kêu",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 鳴る (naru - tự động từ: kêu, reo) và 鳴らす (narasu - tha động từ: làm cho kêu, bấm chuông)."
+      ],
       "example": "ブザーを鳴らす",
-      "exampleVi": "Thổi còi"
+      "exampleVi": "Thổi còi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "鳴らします",
+        "te": "鳴らして",
+        "ta": "鳴らした",
+        "nai": "鳴らさない",
+        "potential": "鳴らせる",
+        "passive": "鳴らされる",
+        "causative": "鳴らさせる",
+        "conditionalBa": "鳴らせば",
+        "conditionalTara": "鳴らしたら",
+        "volitional": "鳴らそう",
+        "imperative": "鳴らせ"
+      }
     },
     {
       "id": "hinxu280-219",
@@ -1100,7 +2206,22 @@
         "GIÀ CỨ (やく) ĐỨNG (たつ) thôi cũng có ích rồi"
       ],
       "example": "インターネットの情報は、勉強や仕事に役立つ",
-      "exampleVi": "Thông tin trên internet thì có ích cho học tập và công việc"
+      "exampleVi": "Thông tin trên internet thì có ích cho học tập và công việc",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "役に立ちます",
+        "te": "役に立って",
+        "ta": "役に立った",
+        "nai": "役に立たない",
+        "potential": "役に立てる",
+        "passive": "役に立たれる",
+        "causative": "役に立たせる",
+        "conditionalBa": "役に立てば",
+        "conditionalTara": "役に立ったら",
+        "volitional": "役に立とう",
+        "imperative": "役に立て"
+      }
     },
     {
       "id": "hinxu280-220",
@@ -1112,9 +2233,26 @@
         "DỊCH LẬP"
       ],
       "meaningVi": "được sử dụng",
-      "mnemonic": [],
+      "mnemonic": [
+        "役立つ (Tự động từ: có ích) vs 役立てる (Tha động từ: làm cho có ích/ứng dụng vào việc gì đó)."
+      ],
       "example": "インターネットの情報は、勉強や仕事の役に立てる",
-      "exampleVi": "Thông tin trên internet thì được sử dụng cho học tập và công việc"
+      "exampleVi": "Thông tin trên internet thì được sử dụng cho học tập và công việc",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "役立てます",
+        "te": "役立てて",
+        "ta": "役立てた",
+        "nai": "役立てない",
+        "potential": "役立てられる",
+        "passive": "役立てられる",
+        "causative": "役立てさせる",
+        "conditionalBa": "役立てれば",
+        "conditionalTara": "役立てたら",
+        "volitional": "役立てよう",
+        "imperative": "役立てろ"
+      }
     },
     {
       "id": "hinxu280-413",
@@ -1128,7 +2266,22 @@
         "KẠ CỬA (かく) để gãi"
       ],
       "example": "頭をかく",
-      "exampleVi": "Gãi đầu"
+      "exampleVi": "Gãi đầu",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "掻きます",
+        "te": "掻いて",
+        "ta": "掻いた",
+        "nai": "掻かない",
+        "potential": "掻ける",
+        "passive": "掻かれる",
+        "causative": "掻かせる",
+        "conditionalBa": "掻けば",
+        "conditionalTara": "掻いたら",
+        "volitional": "掻こう",
+        "imperative": "掻け"
+      }
     },
     {
       "id": "hinxu280-414",
@@ -1142,7 +2295,22 @@
         "Tóm lấy CHÚ CÁ MỪ (つかむ)"
       ],
       "example": "電車で突然腕をつかまれてびっくりした",
-      "exampleVi": "Trên tàu điện, đột nhiên bị chộp cánh tay, đã giật cả mình"
+      "exampleVi": "Trên tàu điện, đột nhiên bị chộp cánh tay, đã giật cả mình",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "掴みます",
+        "te": "掴んで",
+        "ta": "掴んだ",
+        "nai": "掴まない",
+        "potential": "掴める",
+        "passive": "掴まれる",
+        "causative": "掴ませる",
+        "conditionalBa": "掴めば",
+        "conditionalTara": "掴んだら",
+        "volitional": "掴もう",
+        "imperative": "掴め"
+      }
     },
     {
       "id": "hinxu280-415",
@@ -1158,7 +2326,22 @@
         "cơm nắm là おにぎり, vậy nắm là にぎる"
       ],
       "example": "子供は怖がって母親の手を強くにぎった",
-      "exampleVi": "Trẻ con sợ nên đã nắm mạnh lấy tay mẹ"
+      "exampleVi": "Trẻ con sợ nên đã nắm mạnh lấy tay mẹ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "握ります",
+        "te": "握って",
+        "ta": "握った",
+        "nai": "握らない",
+        "potential": "握れる",
+        "passive": "握られる",
+        "causative": "握らせる",
+        "conditionalBa": "握れば",
+        "conditionalTara": "握ったら",
+        "volitional": "握ろう",
+        "imperative": "握れ"
+      }
     },
     {
       "id": "hinxu280-416",
@@ -1174,7 +2357,22 @@
         "ÔNG SANG (おさ) giữ cửa (ấn giữ) giúp tôi"
       ],
       "example": "あの人はお腹を抑えて座っている、腹痛だろうか",
-      "exampleVi": "Người kia cứ giữ bụng mà ngồi, chắc là đau bụng"
+      "exampleVi": "Người kia cứ giữ bụng mà ngồi, chắc là đau bụng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "抑えます",
+        "te": "抑えて",
+        "ta": "抑えた",
+        "nai": "抑えない",
+        "potential": "抑えられる",
+        "passive": "抑えられる",
+        "causative": "抑えさせる",
+        "conditionalBa": "抑えれば",
+        "conditionalTara": "抑えたら",
+        "volitional": "抑えよう",
+        "imperative": "抑えろ"
+      }
     },
     {
       "id": "hinxu280-417",
@@ -1190,7 +2388,22 @@
         "近 (GẦN) つく(DÍNH) dính vào gần nhau là đến gần"
       ],
       "example": "目的地に近づいてきた",
-      "exampleVi": "Tiến gần đến mục đích"
+      "exampleVi": "Tiến gần đến mục đích",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "近づきます",
+        "te": "近づいて",
+        "ta": "近づいた",
+        "nai": "近づかない",
+        "potential": "近づける",
+        "passive": "近づかれる",
+        "causative": "近づかせる",
+        "conditionalBa": "近づけば",
+        "conditionalTara": "近づいたら",
+        "volitional": "近づこう",
+        "imperative": "近づけ"
+      }
     },
     {
       "id": "hinxu280-418",
@@ -1202,9 +2415,26 @@
         "CẬN"
       ],
       "meaningVi": "mang đến gần",
-      "mnemonic": [],
+      "mnemonic": [
+        "近づく (tự động từ: lại gần) khác với 近づける (tha động từ: làm cho lại gần, mang lại gần)."
+      ],
       "example": "車を道のわきに近づける",
-      "exampleVi": "Mang (lái) ô tô tiến sát vỉa hè đường"
+      "exampleVi": "Mang (lái) ô tô tiến sát vỉa hè đường",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "近づけます",
+        "te": "近づけて",
+        "ta": "近づけた",
+        "nai": "近づけない",
+        "potential": "近づけられる",
+        "passive": "近づけられる",
+        "causative": "近づけさせる",
+        "conditionalBa": "近づければ",
+        "conditionalTara": "近づけたら",
+        "volitional": "近づけよう",
+        "imperative": "近づけ"
+      }
     },
     {
       "id": "hinxu280-419",
@@ -1220,7 +2450,22 @@
         "hợp nhau thì gặp gỡ (合う)"
       ],
       "example": "ふと顔を上げると、先生の目が合ってしまった",
-      "exampleVi": "Đột nhiên ngẩng mặt lên thì gặp mắt thầy"
+      "exampleVi": "Đột nhiên ngẩng mặt lên thì gặp mắt thầy",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "合います",
+        "te": "合って",
+        "ta": "合った",
+        "nai": "合わない",
+        "potential": "合える",
+        "passive": "合われる",
+        "causative": "合わせる",
+        "conditionalBa": "合えば",
+        "conditionalTara": "合ったら",
+        "volitional": "合おう",
+        "imperative": "合え"
+      }
     },
     {
       "id": "hinxu280-420",
@@ -1236,7 +2481,22 @@
         "ANH QUA (あわ) điều chỉnh giúp tôi chiếc XE (せ)"
       ],
       "example": "みんなで力を合わせて頑張りましょう",
-      "exampleVi": "Mọi người cùng hợp sức cố gắng"
+      "exampleVi": "Mọi người cùng hợp sức cố gắng",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "合わせます",
+        "te": "合わせて",
+        "ta": "合わせた",
+        "nai": "合わせない",
+        "potential": "合わせられる",
+        "passive": "合わせられる",
+        "causative": "合わせさせる",
+        "conditionalBa": "合わせれば",
+        "conditionalTara": "合わせたら",
+        "volitional": "合わせよう",
+        "imperative": "合わせろ"
+      }
     },
     {
       "id": "hinxu280-421",
@@ -1252,7 +2512,22 @@
         "ANH TA (あた) trúng RỒI (る)"
       ],
       "example": "ボールが当たって窓ガラスが割れた",
-      "exampleVi": "Quả bóng bị đánh vào cửa sổ, kính cửa đã vỡ"
+      "exampleVi": "Quả bóng bị đánh vào cửa sổ, kính cửa đã vỡ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "当たります",
+        "te": "当たって",
+        "ta": "当たった",
+        "nai": "当たらない",
+        "potential": "当たれる",
+        "passive": "当たられる",
+        "causative": "当たらせる",
+        "conditionalBa": "当たれば",
+        "conditionalTara": "当たったら",
+        "volitional": "当たろう",
+        "imperative": "当たれ"
+      }
     },
     {
       "id": "hinxu280-422",
@@ -1264,9 +2539,26 @@
         "ĐƯƠNG"
       ],
       "meaningVi": "đánh",
-      "mnemonic": [],
+      "mnemonic": [
+        "当てる: Đánh trúng, đoán trúng, đặt vào (当てはめる: áp dụng; 当たり前: đương nhiên)."
+      ],
       "example": "相手選手のボールが速いのでラケットに当てるのも大変だ",
-      "exampleVi": "Quả bóng của tuyển thủ đội bạn nhanh nên khó đánh vào vợt"
+      "exampleVi": "Quả bóng của tuyển thủ đội bạn nhanh nên khó đánh vào vợt",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "当てます",
+        "te": "当てて",
+        "ta": "当てた",
+        "nai": "当てない",
+        "potential": "当てられる",
+        "passive": "当てられる",
+        "causative": "当てさせる",
+        "conditionalBa": "当てれば",
+        "conditionalTara": "当てたら",
+        "volitional": "当てよう",
+        "imperative": "当てろ"
+      }
     },
     {
       "id": "hinxu280-424",
@@ -1282,7 +2574,22 @@
         "HỢP (合う) rồi GIỐNG (にる) nữa là hợp thời trang"
       ],
       "example": "彼女は着物がよく似合う",
-      "exampleVi": "Cô ấy rất hợp với Kimono"
+      "exampleVi": "Cô ấy rất hợp với Kimono",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "似合います",
+        "te": "似合って",
+        "ta": "似合った",
+        "nai": "似合わない",
+        "potential": "似合える",
+        "passive": "似合われる",
+        "causative": "似合わせる",
+        "conditionalBa": "似合えば",
+        "conditionalTara": "似合ったら",
+        "volitional": "似合おう",
+        "imperative": "似合え"
+      }
     },
     {
       "id": "hinxu280-425",
@@ -1298,7 +2605,22 @@
         "NHI RU (にる) giống mẹ"
       ],
       "example": "彼女は母親によく似ている",
-      "exampleVi": "Cô ấy rất giống mẹ"
+      "exampleVi": "Cô ấy rất giống mẹ",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "似ます",
+        "te": "似て",
+        "ta": "似た",
+        "nai": "似ない",
+        "potential": "似られる",
+        "passive": "似られる",
+        "causative": "似させる",
+        "conditionalBa": "似れば",
+        "conditionalTara": "似たら",
+        "volitional": "似よう",
+        "imperative": "似ろ"
+      }
     },
     {
       "id": "hinxu280-426",
@@ -1314,7 +2636,22 @@
         "NHÌN XEM (にせ) rồi bắt chước"
       ],
       "example": "アイドルに髪型を似せる",
-      "exampleVi": "Bắt chước kiểu tóc thần tượng"
+      "exampleVi": "Bắt chước kiểu tóc thần tượng",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "似せます",
+        "te": "似せて",
+        "ta": "似せた",
+        "nai": "似せない",
+        "potential": "似せられる",
+        "passive": "似せられる",
+        "causative": "似させる",
+        "conditionalBa": "似せれば",
+        "conditionalTara": "似せたら",
+        "volitional": "似せよう",
+        "imperative": "似せろ"
+      }
     },
     {
       "id": "hinxu280-427",
@@ -1330,7 +2667,22 @@
         "những người TRẺ (わか) được phân về 1 đội"
       ],
       "example": "トイレは男性用と女性用に分かれている",
-      "exampleVi": "Nhà vệ sinh được chia ra nam sử dụng và nữ sử dụng"
+      "exampleVi": "Nhà vệ sinh được chia ra nam sử dụng và nữ sử dụng",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "分かれます",
+        "te": "分かれて",
+        "ta": "分かれた",
+        "nai": "分かれない",
+        "potential": "分かれられる",
+        "passive": "分かられる",
+        "causative": "分かれさせる",
+        "conditionalBa": "分かれれば",
+        "conditionalTara": "分かれたら",
+        "volitional": "分かれよう",
+        "imperative": "分かれろ"
+      }
     },
     {
       "id": "hinxu280-428",
@@ -1342,9 +2694,26 @@
         "PHÂN"
       ],
       "meaningVi": "chia",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 分ける (わける) là tha động từ (chia ra, phân loại - chủ ý của người nói), còn 別れる (わかれる) là tự động từ (chia tay, ly biệt)."
+      ],
       "example": "財産を３人の子供に分ける",
-      "exampleVi": "Chia tài sản cho ba người con"
+      "exampleVi": "Chia tài sản cho ba người con",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "分けます",
+        "te": "分けて",
+        "ta": "分けた",
+        "nai": "分けない",
+        "potential": "分けられる",
+        "passive": "分けられる",
+        "causative": "分けさせる",
+        "conditionalBa": "分ければ",
+        "conditionalTara": "分けたら",
+        "volitional": "分けよう",
+        "imperative": "分けろ"
+      }
     },
     {
       "id": "hinxu280-429",
@@ -1360,7 +2729,22 @@
         "TAO XÚC (たす) thêm vào"
       ],
       "example": "味が薄かったので塩を足した",
-      "exampleVi": "Vị nhạt nên đã cho thêm muối"
+      "exampleVi": "Vị nhạt nên đã cho thêm muối",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "足します",
+        "te": "足して",
+        "ta": "足した",
+        "nai": "足さない",
+        "potential": "足せる",
+        "passive": "足される",
+        "causative": "足させる",
+        "conditionalBa": "足せば",
+        "conditionalTara": "足したら",
+        "volitional": "足そう",
+        "imperative": "足せ"
+      }
     },
     {
       "id": "hinxu280-431",
@@ -1372,9 +2756,26 @@
         "TĂNG"
       ],
       "meaningVi": "tăng lên",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 増える (tự động từ: cái gì đó tăng lên) và 増やす (tha động từ: làm cho cái gì đó tăng lên)."
+      ],
       "example": "貯金が増える",
-      "exampleVi": "Tiền tiết kiệm tăng lên (tự tăng do lãi)"
+      "exampleVi": "Tiền tiết kiệm tăng lên (tự tăng do lãi)",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "増えます",
+        "te": "増えて",
+        "ta": "増えた",
+        "nai": "増えない",
+        "potential": "増えられる",
+        "passive": "増えられる",
+        "causative": "増やさせる",
+        "conditionalBa": "増えれば",
+        "conditionalTara": "増えたら",
+        "volitional": "増えよう",
+        "imperative": "増えろ"
+      }
     },
     {
       "id": "hinxu280-433",
@@ -1386,9 +2787,26 @@
         "GIẢM"
       ],
       "meaningVi": "giảm xuống",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 減らす (Herasu - Tha động từ): 減る (Heru - Tự động từ) là cái gì đó tự giảm đi, còn 減らす (Herasu) là mình chủ động làm cho cái gì đó giảm xuống."
+      ],
       "example": "貯金が減る",
-      "exampleVi": "Tiền tiết kiệm giảm xuống"
+      "exampleVi": "Tiền tiết kiệm giảm xuống",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "減ります",
+        "te": "減って",
+        "ta": "減った",
+        "nai": "減らない",
+        "potential": "減れる",
+        "passive": "減られる",
+        "causative": "減らせる",
+        "conditionalBa": "減れば",
+        "conditionalTara": "減ったら",
+        "volitional": "減ろう",
+        "imperative": "減れ"
+      }
     },
     {
       "id": "hinxu280-435",
@@ -1404,7 +2822,22 @@
         "con sông (かわ) bị thay đổi"
       ],
       "example": "季節が変わる",
-      "exampleVi": "Mùa thay đổi (tự thay)"
+      "exampleVi": "Mùa thay đổi (tự thay)",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "変わります",
+        "te": "変わって",
+        "ta": "変わった",
+        "nai": "変わらない",
+        "potential": "変われる",
+        "passive": "変わられる",
+        "causative": "変わせる",
+        "conditionalBa": "変われば",
+        "conditionalTara": "変わったら",
+        "volitional": "変わろう",
+        "imperative": "変われ"
+      }
     },
     {
       "id": "hinxu280-436",
@@ -1420,7 +2853,22 @@
         "CÀ É RỒI (かえる), phải thay đổi kế hoạch thôi"
       ],
       "example": "髪型を変える",
-      "exampleVi": "Thay đổi kiểu tóc"
+      "exampleVi": "Thay đổi kiểu tóc",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "変えます",
+        "te": "変えて",
+        "ta": "変えた",
+        "nai": "変えない",
+        "potential": "変えられる",
+        "passive": "変えられる",
+        "causative": "変えさせる",
+        "conditionalBa": "変えれば",
+        "conditionalTara": "変えたら",
+        "volitional": "変えよう",
+        "imperative": "変えろ"
+      }
     },
     {
       "id": "hinxu280-437",
@@ -1432,9 +2880,26 @@
         "ĐẠI"
       ],
       "meaningVi": "thay",
-      "mnemonic": [],
+      "mnemonic": [
+        "代わる (đại diện, thay thế người), 替わる (thay đổi cái mới, đổi mới), 換わる (đổi ngang giá trị, đổi vị trí, đổi cái này lấy cái kia)."
+      ],
       "example": "４月に店長が代わった",
-      "exampleVi": "Chủ quán đã thay đổi vào tháng 4"
+      "exampleVi": "Chủ quán đã thay đổi vào tháng 4",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "かわります",
+        "te": "かわって",
+        "ta": "かわった",
+        "nai": "かわらない",
+        "potential": "かわれる",
+        "passive": "かわられる",
+        "causative": "かわらせる",
+        "conditionalBa": "かわれば",
+        "conditionalTara": "かわったら",
+        "volitional": "かわろう",
+        "imperative": "かわれ"
+      }
     },
     {
       "id": "hinxu280-438",
@@ -1446,9 +2911,26 @@
         "ĐẠI"
       ],
       "meaningVi": "đổi",
-      "mnemonic": [],
+      "mnemonic": [
+        "Cách phân biệt: 代える (đại - thay thế người/vai trò), 替える (thế - thay đổi/đổi cái này lấy cái kia), 換える (hoán - trao đổi/đổi tiền/đổi vị trí)."
+      ],
       "example": "千円札を百円玉に代えてもらった",
-      "exampleVi": "Đã được đổi từ 1 sen sang tiền xu 100 yên"
+      "exampleVi": "Đã được đổi từ 1 sen sang tiền xu 100 yên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "かえます",
+        "te": "かえて",
+        "ta": "かえた",
+        "nai": "かえない",
+        "potential": "かえる",
+        "passive": "かえられる",
+        "causative": "かえさせる",
+        "conditionalBa": "かえれば",
+        "conditionalTara": "かえたら",
+        "volitional": "かえろう",
+        "imperative": "かえれ"
+      }
     },
     {
       "id": "hinxu280-441",
@@ -1464,7 +2946,22 @@
         "DÌU GIỮ RỒI (ゆず) nhường ghế cho người già"
       ],
       "example": "電車の中でお年寄りに席を譲った",
-      "exampleVi": "Trong xe điện đã nhường ghế cho người già"
+      "exampleVi": "Trong xe điện đã nhường ghế cho người già",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "譲ります",
+        "te": "譲って",
+        "ta": "譲った",
+        "nai": "譲らない",
+        "potential": "譲れる",
+        "passive": "譲られる",
+        "causative": "譲らせる",
+        "conditionalBa": "譲れば",
+        "conditionalTara": "譲ったら",
+        "volitional": "譲ろう",
+        "imperative": "譲れ"
+      }
     },
     {
       "id": "hinxu280-442",
@@ -1480,7 +2977,22 @@
         "TAO XỬ CẢ RỒI (たすかる) là được cứu"
       ],
       "example": "飛行機が落ちたが山人が助かった",
-      "exampleVi": "Máy bay rơi nhưng đã được người trên núi giúp"
+      "exampleVi": "Máy bay rơi nhưng đã được người trên núi giúp",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "助かります",
+        "te": "助かって",
+        "ta": "助かった",
+        "nai": "助からない",
+        "potential": "助かれる",
+        "passive": "助かられる",
+        "causative": "助からせる",
+        "conditionalBa": "助かれば",
+        "conditionalTara": "助かったら",
+        "volitional": "助かろう",
+        "imperative": "助かれ"
+      }
     },
     {
       "id": "hinxu280-443",
@@ -1492,9 +3004,26 @@
         "TRỢ"
       ],
       "meaningVi": "giúp",
-      "mnemonic": [],
+      "mnemonic": [
+        "助ける (tha động từ) là cứu giúp người khác, còn 助かる (tự động từ) là tự mình được cứu/được sống sót."
+      ],
       "example": "川に落ちた子供を助けた",
-      "exampleVi": "Đã giúp đứa bé rơi xuống sông"
+      "exampleVi": "Đã giúp đứa bé rơi xuống sông",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "助けます",
+        "te": "助けて",
+        "ta": "助けた",
+        "nai": "助けない",
+        "potential": "助けられる",
+        "passive": "助けられる",
+        "causative": "助けさせる",
+        "conditionalBa": "助ければ",
+        "conditionalTara": "助けたら",
+        "volitional": "助けよう",
+        "imperative": "助けろ"
+      }
     },
     {
       "id": "hinxu280-444",
@@ -1510,7 +3039,22 @@
         "người DỄ (easy いじ) bị bắt nạt"
       ],
       "example": "弟をいじめる",
-      "exampleVi": "Bắt nạt em trai"
+      "exampleVi": "Bắt nạt em trai",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "いじめます",
+        "te": "いじめて",
+        "ta": "いじめた",
+        "nai": "いじめない",
+        "potential": "いじめられる",
+        "passive": "いじめられる",
+        "causative": "いじめさせる",
+        "conditionalBa": "いじめれば",
+        "conditionalTara": "いじめれば",
+        "volitional": "いじめよう",
+        "imperative": "いじめろ"
+      }
     },
     {
       "id": "hinxu280-445",
@@ -1526,7 +3070,22 @@
         "lừa tao là tao ĐÀO MÃ SỬ/ mấy chỗ ĐÁM MA (だま) thì hay có lừa gạt"
       ],
       "example": "彼は独身だと騙して５人の女性と付き合っていた",
-      "exampleVi": "Anh ta lừa là độc thân và đã hẹn hò với 5 người nữ"
+      "exampleVi": "Anh ta lừa là độc thân và đã hẹn hò với 5 người nữ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "騙します",
+        "te": "騙して",
+        "ta": "騙した",
+        "nai": "騙さない",
+        "potential": "騙せる",
+        "passive": "騙される",
+        "causative": "騙させる",
+        "conditionalBa": "騙せば",
+        "conditionalTara": "騙したら",
+        "volitional": "騙そう",
+        "imperative": "騙せ"
+      }
     },
     {
       "id": "hinxu280-446",
@@ -1542,7 +3101,22 @@
         "NỮ SƯ MÙ (ぬすむ) chuyên ăn trộm"
       ],
       "example": "留守中に泥棒に入られて、お金を盗まれた",
-      "exampleVi": "Trong lúc vắng nhà đã bị kẻ trộm lẻn vào và lấy cắp mất tiền"
+      "exampleVi": "Trong lúc vắng nhà đã bị kẻ trộm lẻn vào và lấy cắp mất tiền",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "盗みます",
+        "te": "盗んで",
+        "ta": "盗んだ",
+        "nai": "盗まない",
+        "potential": "盗める",
+        "passive": "盗まれる",
+        "causative": "盗ませる",
+        "conditionalBa": "盗めば",
+        "conditionalTara": "盗んだら",
+        "volitional": "盗もう",
+        "imperative": "盗め"
+      }
     },
     {
       "id": "hinxu280-447",
@@ -1558,7 +3132,22 @@
         "bị đâm thì né XA XA (ささ)"
       ],
       "example": "指にとげが刺さって痛い",
-      "exampleVi": "Ngón tay bị gai đâm vào đau"
+      "exampleVi": "Ngón tay bị gai đâm vào đau",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "刺さります",
+        "te": "刺さって",
+        "ta": "刺さった",
+        "nai": "刺さらない",
+        "potential": "刺される",
+        "passive": "刺される",
+        "causative": "刺させる",
+        "conditionalBa": "刺されば",
+        "conditionalTara": "刺さったら",
+        "volitional": "刺さろう",
+        "imperative": "刺され"
+      }
     },
     {
       "id": "hinxu280-448",
@@ -1574,7 +3163,22 @@
         "XÀ XUỐNG (さす) rồi đâm"
       ],
       "example": "指にとげを刺してしまった",
-      "exampleVi": "Gai đâm vào ngón tay mất rồi"
+      "exampleVi": "Gai đâm vào ngón tay mất rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "刺します",
+        "te": "刺して",
+        "ta": "刺した",
+        "nai": "刺さない",
+        "potential": "刺せる",
+        "passive": "刺される",
+        "causative": "刺させる",
+        "conditionalBa": "刺せば",
+        "conditionalTara": "刺したら",
+        "volitional": "刺そう",
+        "imperative": "刺せ"
+      }
     },
     {
       "id": "hinxu280-449",
@@ -1590,7 +3194,22 @@
         "giết người thì nằm sợ CO RO (ころ)"
       ],
       "example": "ゴキブリをスリッパでたたいて殺した",
-      "exampleVi": "Dùng dép đập chết con gián"
+      "exampleVi": "Dùng dép đập chết con gián",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "殺します",
+        "te": "殺して",
+        "ta": "殺した",
+        "nai": "殺さない",
+        "potential": "殺せる",
+        "passive": "殺される",
+        "causative": "殺させる",
+        "conditionalBa": "殺せば",
+        "conditionalTara": "殺したら",
+        "volitional": "殺そう",
+        "imperative": "殺せ"
+      }
     },
     {
       "id": "hinxu280-450",
@@ -1606,7 +3225,22 @@
         "giấu đồ vào CĂN CỨ/ CÁ CƯỢC (かく) thua rồi đi trốn"
       ],
       "example": "逃げた犯人は空き家に隠れていた",
-      "exampleVi": "Thủ phạm bỏ trốn đã ẩn nấp trong căn nhà hoang"
+      "exampleVi": "Thủ phạm bỏ trốn đã ẩn nấp trong căn nhà hoang",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "隠れます",
+        "te": "隠れて",
+        "ta": "隠れた",
+        "nai": "隠れない",
+        "potential": "隠れられる",
+        "passive": "隠れられる",
+        "causative": "隠れさせる",
+        "conditionalBa": "隠れれば",
+        "conditionalTara": "隠れたら",
+        "volitional": "隠れよう",
+        "imperative": "隠れろ"
+      }
     },
     {
       "id": "hinxu280-451",
@@ -1622,7 +3256,22 @@
         "cất đồ sau CÁNH CỬA(かく)"
       ],
       "example": "お金を引き出しの奥に隠した",
-      "exampleVi": "Đã giấu tiền vào góc trong ngăn kéo"
+      "exampleVi": "Đã giấu tiền vào góc trong ngăn kéo",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "隠します",
+        "te": "隠して",
+        "ta": "隠した",
+        "nai": "隠さない",
+        "potential": "隠せる",
+        "passive": "隠される",
+        "causative": "隠させる",
+        "conditionalBa": "隠せば",
+        "conditionalTara": "隠したら",
+        "volitional": "隠そう",
+        "imperative": "隠せ"
+      }
     },
     {
       "id": "hinxu280-452",
@@ -1638,7 +3287,22 @@
         "chôn CON NGỰA"
       ],
       "example": "山が崩れて家が埋まってしまった",
-      "exampleVi": "Núi sạt xuống nên ngôi nhà đã bị vùi lấp rồi"
+      "exampleVi": "Núi sạt xuống nên ngôi nhà đã bị vùi lấp rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "埋まります",
+        "te": "埋まって",
+        "ta": "埋まった",
+        "nai": "埋まらない",
+        "potential": "埋まれる",
+        "passive": "埋まられる",
+        "causative": "埋まらせる",
+        "conditionalBa": "埋まれば",
+        "conditionalTara": "埋まったら",
+        "volitional": "埋まろう",
+        "imperative": "埋まれ"
+      }
     },
     {
       "id": "hinxu280-453",
@@ -1654,7 +3318,22 @@
         "mấy đứa U MÊ (うめ) thì phải chôn"
       ],
       "example": "穴を掘ってごみを埋めた",
-      "exampleVi": "Đã đào lỗ rồi lấp rác vào"
+      "exampleVi": "Đã đào lỗ rồi lấp rác vào",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "埋めます",
+        "te": "埋めて",
+        "ta": "埋めた",
+        "nai": "埋めない",
+        "potential": "埋めることができる",
+        "passive": "埋められる",
+        "causative": "埋めるさせる",
+        "conditionalBa": "埋めれば",
+        "conditionalTara": "埋めたら",
+        "volitional": "埋めよう",
+        "imperative": "埋めろ"
+      }
     },
     {
       "id": "hinxu280-454",
@@ -1670,7 +3349,22 @@
         "CÁC CÔ (かこ) vây quanh"
       ],
       "example": "テーブルを囲んで座る",
-      "exampleVi": "Ngồi vây quanh bàn"
+      "exampleVi": "Ngồi vây quanh bàn",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "囲みます",
+        "te": "囲んで",
+        "ta": "囲んだ",
+        "nai": "囲まない",
+        "potential": "囲める",
+        "passive": "囲まれる",
+        "causative": "囲ませる",
+        "conditionalBa": "囲めば",
+        "conditionalTara": "囲んだら",
+        "volitional": "囲もう",
+        "imperative": "囲め"
+      }
     },
     {
       "id": "hinxu280-455",
@@ -1686,7 +3380,22 @@
         "bị BÀ VỢ (つま) nhồi nhét"
       ],
       "example": "かばんにたくさん荷物が詰まっていて重い",
-      "exampleVi": "Trong cặp đầy hành lý nên nặng"
+      "exampleVi": "Trong cặp đầy hành lý nên nặng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "詰まります",
+        "te": "詰まって",
+        "ta": "詰まった",
+        "nai": "詰まらない",
+        "potential": "詰まれる",
+        "passive": "詰まられる",
+        "causative": "詰まらせる",
+        "conditionalBa": "詰まれば",
+        "conditionalTara": "詰まったら",
+        "volitional": "詰まろう",
+        "imperative": "詰まれ"
+      }
     },
     {
       "id": "hinxu280-456",
@@ -1698,9 +3407,26 @@
         "CẬT"
       ],
       "meaningVi": "đóng gói",
-      "mnemonic": [],
+      "mnemonic": [
+        "Dùng để chỉ việc đóng gói, nhồi nhét đồ đạc vào thùng hoặc dồn ép đối phương trong tranh luận/công việc."
+      ],
       "example": "かばんに荷物を詰める",
-      "exampleVi": "Đóng đầy hành lý vào cặp"
+      "exampleVi": "Đóng đầy hành lý vào cặp",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "詰めます",
+        "te": "詰めて",
+        "ta": "詰めた",
+        "nai": "詰めない",
+        "potential": "詰められる",
+        "passive": "詰められる",
+        "causative": "詰めさせる",
+        "conditionalBa": "詰めれば",
+        "conditionalTara": "詰めたら",
+        "volitional": "詰めよう",
+        "imperative": "詰めろ"
+      }
     },
     {
       "id": "hinxu280-459",
@@ -1716,7 +3442,22 @@
         "cái TÔ BỰ (とぶ) bay trên không trung"
       ],
       "example": "鳥が空を飛んでいる",
-      "exampleVi": "Chim bay trên bầu trời"
+      "exampleVi": "Chim bay trên bầu trời",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "飛びます",
+        "te": "飛んで",
+        "ta": "飛んだ",
+        "nai": "飛ばない",
+        "potential": "飛べる",
+        "passive": "飛ばれる",
+        "causative": "飛ばせる",
+        "conditionalBa": "飛べば",
+        "conditionalTara": "飛んだら",
+        "volitional": "飛ぼう",
+        "imperative": "飛べ"
+      }
     },
     {
       "id": "hinxu280-460",
@@ -1732,7 +3473,22 @@
         "TÔI BẮT SU (とばす) phóng đồ lên cao"
       ],
       "example": "紙飛行機を飛ばす",
-      "exampleVi": "Cho máy bay giấy bay"
+      "exampleVi": "Cho máy bay giấy bay",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "飛ばします",
+        "te": "飛ばして",
+        "ta": "飛ばした",
+        "nai": "飛ばさない",
+        "potential": "飛ばせる",
+        "passive": "飛ばされる",
+        "causative": "飛ばさせる",
+        "conditionalBa": "飛ばせば",
+        "conditionalTara": "飛ばしたら",
+        "volitional": "飛ばそう",
+        "imperative": "飛ばせ"
+      }
     },
     {
       "id": "hinxu280-461",
@@ -1748,7 +3504,22 @@
         "PHUN RA (ふる) như rắc muối"
       ],
       "example": "手を振る",
-      "exampleVi": "Vẫy tay"
+      "exampleVi": "Vẫy tay",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "振ります",
+        "te": "振って",
+        "ta": "振った",
+        "nai": "振らない",
+        "potential": "振れる",
+        "passive": "振られる",
+        "causative": "振らせる",
+        "conditionalBa": "振れば",
+        "conditionalTara": "振ったら",
+        "volitional": "振ろう",
+        "imperative": "振れ"
+      }
     },
     {
       "id": "hinxu280-462",
@@ -1762,7 +3533,22 @@
         "MẸ CỨ (めく) lật hoài cuốn sổ"
       ],
       "example": "カードをめくる",
-      "exampleVi": "Lật thẻ"
+      "exampleVi": "Lật thẻ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "めくります",
+        "te": "めくって",
+        "ta": "めくった",
+        "nai": "めくらない",
+        "potential": "めくれる",
+        "passive": "めくられる",
+        "causative": "めくらせる",
+        "conditionalBa": "めくれば",
+        "conditionalTara": "めくったら",
+        "volitional": "めくろう",
+        "imperative": "めくれ"
+      }
     },
     {
       "id": "hinxu280-463",
@@ -1778,7 +3564,22 @@
         "đi CÀ KÊ (かけ) bị NHÌN (みる) thấy là bị bắt gặp"
       ],
       "example": "町で偶然、昔の友達を見かけた",
-      "exampleVi": "Tình cờ trong khu phố, đã gặp lại bạn ngày xưa"
+      "exampleVi": "Tình cờ trong khu phố, đã gặp lại bạn ngày xưa",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "見かけます",
+        "te": "見かけて",
+        "ta": "見かけた",
+        "nai": "見かけない",
+        "potential": "見かけられる",
+        "passive": "見かけられる",
+        "causative": "見かけさせる",
+        "conditionalBa": "見かければ",
+        "conditionalTara": "見かけたら",
+        "volitional": "見かけよう",
+        "imperative": "見かけろ"
+      }
     },
     {
       "id": "hinxu280-465",
@@ -1794,7 +3595,22 @@
         "TAO MÊ (ため) thì tao thử"
       ],
       "example": "洋服が似合うかどうか、着てためしてみた",
-      "exampleVi": "Đã thử mặc xem đồ tây có phù hợp hay không."
+      "exampleVi": "Đã thử mặc xem đồ tây có phù hợp hay không.",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "試します",
+        "te": "試して",
+        "ta": "試した",
+        "nai": "試さない",
+        "potential": "試せる",
+        "passive": "試される",
+        "causative": "試させる",
+        "conditionalBa": "試せば",
+        "conditionalTara": "試したら",
+        "volitional": "試そう",
+        "imperative": "試せ"
+      }
     },
     {
       "id": "hinxu280-466",
@@ -1810,7 +3626,22 @@
         "KÉO RA 繰り返し rồi TRẢ LẠI 返す là lập đi lập lại"
       ],
       "example": "同じ失敗を繰り返してはいけません",
-      "exampleVi": "Lặp lại cùng một thất bại thì không được"
+      "exampleVi": "Lặp lại cùng một thất bại thì không được",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "繰り返します",
+        "te": "繰り返して",
+        "ta": "繰り返した",
+        "nai": "繰り返さない",
+        "potential": "繰り返せる",
+        "passive": "繰り返される",
+        "causative": "繰り返させる",
+        "conditionalBa": "繰り返せば",
+        "conditionalTara": "繰り返したら",
+        "volitional": "繰り返そう",
+        "imperative": "繰り返せ"
+      }
     },
     {
       "id": "hinxu280-467",
@@ -1826,7 +3657,22 @@
         "thông dịch là ほんやく, vậy DỊCH đứng 1 mình đọc là やくす"
       ],
       "example": "英語を日本語に訳す",
-      "exampleVi": "Dịch Anh Ngữ sang Nhật Ngữ"
+      "exampleVi": "Dịch Anh Ngữ sang Nhật Ngữ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "訳します",
+        "te": "訳して",
+        "ta": "訳した",
+        "nai": "訳さない",
+        "potential": "訳せる",
+        "passive": "訳される",
+        "causative": "訳させる",
+        "conditionalBa": "訳せば",
+        "conditionalTara": "訳したら",
+        "volitional": "訳そう",
+        "imperative": "訳せ"
+      }
     },
     {
       "id": "hinxu280-468",
@@ -1842,7 +3688,22 @@
         "tổ chức sinh nhật cho ÔNG CỐ NÀO (おこなう)"
       ],
       "example": "試験を行う",
-      "exampleVi": "Tổ chức kỳ thi"
+      "exampleVi": "Tổ chức kỳ thi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "行います",
+        "te": "行って",
+        "ta": "行った",
+        "nai": "行わない",
+        "potential": "行える",
+        "passive": "行われる",
+        "causative": "行わせる",
+        "conditionalBa": "行えば",
+        "conditionalTara": "行ったら",
+        "volitional": "行おう",
+        "imperative": "行え"
+      }
     },
     {
       "id": "hinxu280-469",
@@ -1858,7 +3719,22 @@
         "KHÁC (違う) THỜI GIAN (間) thì dễ làm sai"
       ],
       "example": "この計算は間違っている",
-      "exampleVi": "Phép tính này bị sai rồi"
+      "exampleVi": "Phép tính này bị sai rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "間違います",
+        "te": "間違って",
+        "ta": "間違った",
+        "nai": "間違わない",
+        "potential": "間違える",
+        "passive": "間違われる",
+        "causative": "間違わせる",
+        "conditionalBa": "間違えば",
+        "conditionalTara": "間違ったら",
+        "volitional": "間違おう",
+        "imperative": "間違え"
+      }
     },
     {
       "id": "hinxu280-471",
@@ -1870,9 +3746,26 @@
         "HỨA"
       ],
       "meaningVi": "tha thứ, cho phép",
-      "mnemonic": [],
+      "mnemonic": [
+        "Ghi nhớ bằng cách ghép: 許 (hứa/cho phép) + す (làm) = Cho phép làm/Tha thứ."
+      ],
       "example": "ひどいことを言われてけんかになったが、相手があやまったので許してあげた",
-      "exampleVi": "Đã tranh cãi vì bị nói ra những thứ tồi tệ nhưng mà đối phương đã tạ lỗi nên đã tha thứ cho họ"
+      "exampleVi": "Đã tranh cãi vì bị nói ra những thứ tồi tệ nhưng mà đối phương đã tạ lỗi nên đã tha thứ cho họ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "許します",
+        "te": "許して",
+        "ta": "許した",
+        "nai": "許さない",
+        "potential": "許せる",
+        "passive": "許される",
+        "causative": "許させる",
+        "conditionalBa": "許せば",
+        "conditionalTara": "許したら",
+        "volitional": "許そう",
+        "imperative": "許せ"
+      }
     },
     {
       "id": "hinxu280-472",
@@ -1888,7 +3781,22 @@
         "đã quen với việc NA RÊN RỒI (なれる)"
       ],
       "example": "日本へ来て半年たって、生活にも慣れた",
-      "exampleVi": "Đã sang Nhật được nửa năm năm cũng đã quen với cuộc sống"
+      "exampleVi": "Đã sang Nhật được nửa năm năm cũng đã quen với cuộc sống",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "慣れます",
+        "te": "慣れて",
+        "ta": "慣れた",
+        "nai": "慣れない",
+        "potential": "慣れられる",
+        "passive": "慣れられる",
+        "causative": "慣れさせる",
+        "conditionalBa": "慣れれば",
+        "conditionalTara": "慣れたら",
+        "volitional": "慣れよう",
+        "imperative": "慣れろ"
+      }
     },
     {
       "id": "hinxu280-473",
@@ -1904,7 +3812,22 @@
         "NÀO RA SÂN (ならす) để làm quen"
       ],
       "example": "準備運動をして体を慣らしてからプールに入ったほうがいい",
-      "exampleVi": "Nên vận động chuẩn bị để cơ thể thích nghi rồi mới vào bể bơi"
+      "exampleVi": "Nên vận động chuẩn bị để cơ thể thích nghi rồi mới vào bể bơi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "慣らします",
+        "te": "慣らして",
+        "ta": "慣らした",
+        "nai": "慣らさない",
+        "potential": "慣らせる",
+        "passive": "慣らされる",
+        "causative": "慣らさせる",
+        "conditionalBa": "慣らせば",
+        "conditionalTara": "慣らしたら",
+        "volitional": "慣らそう",
+        "imperative": "慣らせ"
+      }
     },
     {
       "id": "hinxu280-474",
@@ -1920,7 +3843,22 @@
         "từ này nghe mỗi ngày nhỉ, 皆さん、立ってください ^^"
       ],
       "example": "名前を呼ばれたら立ってください",
-      "exampleVi": "Nếu được gọi tên thì hãy đứng dậy"
+      "exampleVi": "Nếu được gọi tên thì hãy đứng dậy",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "立ちます",
+        "te": "立って",
+        "ta": "立った",
+        "nai": "立たない",
+        "potential": "立てる",
+        "passive": "立たれる",
+        "causative": "立たせる",
+        "conditionalBa": "立てば",
+        "conditionalTara": "立ったら",
+        "volitional": "立とう",
+        "imperative": "立て"
+      }
     },
     {
       "id": "hinxu280-475",
@@ -1932,9 +3870,26 @@
         "LẬP"
       ],
       "meaningVi": "dựng lên",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 立つ (Tự động từ - đứng/được dựng lên) và 立てる (Tha động từ - dựng cái gì đó lên/xây dựng)."
+      ],
       "example": "屋根の上にアンテナを立てる",
-      "exampleVi": "Anten được dựng lên trên mái nhà"
+      "exampleVi": "Anten được dựng lên trên mái nhà",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "立てます",
+        "te": "立てて",
+        "ta": "立てた",
+        "nai": "立てない",
+        "potential": "立てられる",
+        "passive": "立てられる",
+        "causative": "立てさせる",
+        "conditionalBa": "立てれば",
+        "conditionalTara": "立てたら",
+        "volitional": "立てよう",
+        "imperative": "立てろ"
+      }
     },
     {
       "id": "hinxu280-476",
@@ -1950,7 +3905,22 @@
         "ĐỨNG LÊN (たつ) để xây dựng đất nước"
       ],
       "example": "家の前に大きなマンションが建った",
-      "exampleVi": "Trước nhà một khu chung cư lớn đã được hoàn thành"
+      "exampleVi": "Trước nhà một khu chung cư lớn đã được hoàn thành",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "建ちます",
+        "te": "建って",
+        "ta": "建った",
+        "nai": "建たない",
+        "potential": "建てる",
+        "passive": "建たれる",
+        "causative": "建たせる",
+        "conditionalBa": "建てば",
+        "conditionalTara": "建ったら",
+        "volitional": "建とう",
+        "imperative": "建て"
+      }
     },
     {
       "id": "hinxu280-478",
@@ -1966,7 +3936,22 @@
         "nuôi dưỡng thì cho uống SODA (そだ)"
       ],
       "example": "雨が多い年は米がよく育つ",
-      "exampleVi": "Năm có mưa lớn thì cây lúa (gạo) được chăm sóc tốt"
+      "exampleVi": "Năm có mưa lớn thì cây lúa (gạo) được chăm sóc tốt",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "育ちます",
+        "te": "育って",
+        "ta": "育った",
+        "nai": "育たない",
+        "potential": "育てる",
+        "passive": "育たれる",
+        "causative": "育たせる",
+        "conditionalBa": "育てば",
+        "conditionalTara": "育ったら",
+        "volitional": "育とう",
+        "imperative": "育て"
+      }
     },
     {
       "id": "hinxu280-479",
@@ -1978,9 +3963,26 @@
         "DỤC"
       ],
       "meaningVi": "nuôi, dạy",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 育てる (sodateru) là tha động từ (nuôi nấng, dạy dỗ - có tác động vào đối tượng), còn 育つ (sodatsu) là tự động từ (lớn lên, phát triển - tự bản thân lớn lên)."
+      ],
       "example": "母は5人の子供を育てた",
-      "exampleVi": "Mẹ nuôi dạy 5 đứa con"
+      "exampleVi": "Mẹ nuôi dạy 5 đứa con",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "育てます",
+        "te": "育てて",
+        "ta": "育てた",
+        "nai": "育てない",
+        "potential": "育てられる",
+        "passive": "育てられる",
+        "causative": "育てさせる",
+        "conditionalBa": "育てれば",
+        "conditionalTara": "育てたら",
+        "volitional": "育てよう",
+        "imperative": "育てろ"
+      }
     },
     {
       "id": "hinxu280-480",
@@ -1996,7 +3998,22 @@
         "HÀ É RỒI (はえる) nên lông tóc sinh sôi đầy người"
       ],
       "example": "髪が生える",
-      "exampleVi": "Tóc mọc ra"
+      "exampleVi": "Tóc mọc ra",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "生えます",
+        "te": "生えて",
+        "ta": "生えた",
+        "nai": "生えない",
+        "potential": "生えられる",
+        "passive": "生えられる",
+        "causative": "生えさせる",
+        "conditionalBa": "生えれば",
+        "conditionalTara": "生えたら",
+        "volitional": "生えよう",
+        "imperative": "生えろ"
+      }
     },
     {
       "id": "hinxu280-481",
@@ -2012,7 +4029,22 @@
         "HÀ GIÀ (はや) nên thích nuôi râu"
       ],
       "example": "ひげを生やす",
-      "exampleVi": "Để râu mọc ra"
+      "exampleVi": "Để râu mọc ra",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "生やします",
+        "te": "生やして",
+        "ta": "生やした",
+        "nai": "生やさない",
+        "potential": "生やせる",
+        "passive": "生やされる",
+        "causative": "生やさせる",
+        "conditionalBa": "生やせば",
+        "conditionalTara": "生やしたら",
+        "volitional": "生やそう",
+        "imperative": "生やせ"
+      }
     },
     {
       "id": "hinxu280-486",
@@ -2024,9 +4056,26 @@
         "CÁT"
       ],
       "meaningVi": "bị vỡ",
-      "mnemonic": [],
+      "mnemonic": [
+        "割れる (tự động từ: bị vỡ) >< 割る (tha động từ: làm vỡ)"
+      ],
       "example": "ガラスが割れる",
-      "exampleVi": "Kính bị vỡ"
+      "exampleVi": "Kính bị vỡ",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "割れます",
+        "te": "割れて",
+        "ta": "割れた",
+        "nai": "割れない",
+        "potential": "割れられる",
+        "passive": "割れられる",
+        "causative": "割れさせる",
+        "conditionalBa": "割れれば",
+        "conditionalTara": "割れたら",
+        "volitional": "割れよう",
+        "imperative": "割れろ"
+      }
     },
     {
       "id": "hinxu280-487",
@@ -2042,7 +4091,22 @@
         "QUÁ RUN (わる) nên làm vỡ bát"
       ],
       "example": "ガラスを割る",
-      "exampleVi": "Làm vỡ kính"
+      "exampleVi": "Làm vỡ kính",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "割ります",
+        "te": "割って",
+        "ta": "割った",
+        "nai": "割らない",
+        "potential": "割れる",
+        "passive": "割られる",
+        "causative": "割らせる",
+        "conditionalBa": "割れば",
+        "conditionalTara": "割ったら",
+        "volitional": "割ろう",
+        "imperative": "割れ"
+      }
     },
     {
       "id": "hinxu280-488",
@@ -2058,7 +4122,22 @@
         "Ô RẺ (おれ) tiền nên nhanh gãy"
       ],
       "example": "強い風で枝が折れた",
-      "exampleVi": "Vì gió mạnh nên cây bị gãy"
+      "exampleVi": "Vì gió mạnh nên cây bị gãy",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "折れます",
+        "te": "折れて",
+        "ta": "折れた",
+        "nai": "折れない",
+        "potential": "折れられる",
+        "passive": "折れられる",
+        "causative": "折れさせる",
+        "conditionalBa": "折れれば",
+        "conditionalTara": "折れたら",
+        "volitional": "折れよう",
+        "imperative": "折れろ"
+      }
     },
     {
       "id": "hinxu280-489",
@@ -2070,9 +4149,26 @@
         "TRIẾT"
       ],
       "meaningVi": "làm gãy",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 折る (oru - tha động từ, bẻ/gập cái gì đó) và 折れる (oreru - tự động từ, cái gì đó bị gãy/bị bẻ)."
+      ],
       "example": "スキーをして足の骨を折った",
-      "exampleVi": "Trượt tuyết nên làm gãy xương bàn chân"
+      "exampleVi": "Trượt tuyết nên làm gãy xương bàn chân",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "折ります",
+        "te": "折って",
+        "ta": "折った",
+        "nai": "折らない",
+        "potential": "折れる",
+        "passive": "折られる",
+        "causative": "折らせる",
+        "conditionalBa": "折れば",
+        "conditionalTara": "折ったら",
+        "volitional": "折ろう",
+        "imperative": "折れ"
+      }
     },
     {
       "id": "hinxu280-490",
@@ -2084,9 +4180,26 @@
         "PHÁ"
       ],
       "meaningVi": "bị rách",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 破れる (yabureru - tự động từ: bị rách, bị phá vỡ) và 破る (yaburu - tha động từ: xé, làm rách)."
+      ],
       "example": "紙が破れる",
-      "exampleVi": "Giấy bị rách"
+      "exampleVi": "Giấy bị rách",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "破れます",
+        "te": "破れて",
+        "ta": "破れた",
+        "nai": "破れない",
+        "potential": "破れられる",
+        "passive": "破れられる",
+        "causative": "破れさせる",
+        "conditionalBa": "破れれば",
+        "conditionalTara": "破れたら",
+        "volitional": "破れよう",
+        "imperative": "破れろ"
+      }
     },
     {
       "id": "hinxu280-491",
@@ -2102,7 +4215,22 @@
         "GIÀ BỰC (やぶ) thì già xé rách"
       ],
       "example": "紙を破る",
-      "exampleVi": "Làm rách giấy"
+      "exampleVi": "Làm rách giấy",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "破ります",
+        "te": "破って",
+        "ta": "破った",
+        "nai": "破らない",
+        "potential": "破れる",
+        "passive": "破られる",
+        "causative": "破らせる",
+        "conditionalBa": "破れば",
+        "conditionalTara": "破ったら",
+        "volitional": "破ろう",
+        "imperative": "破れ"
+      }
     },
     {
       "id": "hinxu280-492",
@@ -2118,7 +4246,22 @@
         "quẹo vào tiệm MANGA (まが)"
       ],
       "example": "曲がった道",
-      "exampleVi": "Con đường cong"
+      "exampleVi": "Con đường cong",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "曲がります",
+        "te": "曲がって",
+        "ta": "曲がった",
+        "nai": "曲がらない",
+        "potential": "曲がれる",
+        "passive": "曲がられる",
+        "causative": "曲がらせる",
+        "conditionalBa": "曲がれば",
+        "conditionalTara": "曲がったら",
+        "volitional": "曲がろう",
+        "imperative": "曲がれ"
+      }
     },
     {
       "id": "hinxu280-493",
@@ -2130,9 +4273,26 @@
         "KHÚC"
       ],
       "meaningVi": "bẻ, uốn",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 曲がる (Magaru - Tự động từ: cái gì đó bị cong) và 曲げる (Mageru - Tha động từ: làm cho cái gì đó cong)."
+      ],
       "example": "針金を曲げる",
-      "exampleVi": "Bẻ cong dây kim loại"
+      "exampleVi": "Bẻ cong dây kim loại",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "曲げます",
+        "te": "曲げて",
+        "ta": "曲げた",
+        "nai": "曲げない",
+        "potential": "曲げられる",
+        "passive": "曲げられる",
+        "causative": "曲げさせる",
+        "conditionalBa": "曲げれば",
+        "conditionalTara": "曲げたら",
+        "volitional": "曲げよう",
+        "imperative": "曲げろ"
+      }
     },
     {
       "id": "hinxu280-494",
@@ -2148,7 +4308,22 @@
         "HÀ ZƯ (はず) kí nên tuột cả nút áo"
       ],
       "example": "ボタンが外れる",
-      "exampleVi": "Cái nút bị dời ra"
+      "exampleVi": "Cái nút bị dời ra",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "外れます",
+        "te": "外れて",
+        "ta": "外れた",
+        "nai": "外れない",
+        "potential": "外れられる",
+        "passive": "外れられる",
+        "causative": "外れさせる",
+        "conditionalBa": "外れれば",
+        "conditionalTara": "外れたら",
+        "volitional": "外れよう",
+        "imperative": "外れろ"
+      }
     },
     {
       "id": "hinxu280-495",
@@ -2160,9 +4335,26 @@
         "NGOẠI"
       ],
       "meaningVi": "tách ra",
-      "mnemonic": [],
+      "mnemonic": [
+        "Dùng để diễn tả hành động tháo cái gì đó ra khỏi vị trí (như tháo kính, tháo cúc áo) hoặc bỏ qua, loại bỏ (như bỏ tên khỏi danh sách)."
+      ],
       "example": "めがねを外す",
-      "exampleVi": "Gỡ gương ra"
+      "exampleVi": "Gỡ gương ra",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "外します",
+        "te": "外して",
+        "ta": "外した",
+        "nai": "外さない",
+        "potential": "外せる",
+        "passive": "外される",
+        "causative": "外させる",
+        "conditionalBa": "外せば",
+        "conditionalTara": "外したら",
+        "volitional": "外そう",
+        "imperative": "外せ"
+      }
     },
     {
       "id": "hinxu280-496",
@@ -2174,9 +4366,26 @@
         "DAO"
       ],
       "meaningVi": "bị rung",
-      "mnemonic": [],
+      "mnemonic": [
+        "揺れる (yureru): tự động từ (cái gì đó tự rung lắc), 揺らす (yurasu): tha động từ (làm cho cái gì đó rung lắc)."
+      ],
       "example": "風で木の葉が揺れている",
-      "exampleVi": "Trong gió lá cây đung đưa"
+      "exampleVi": "Trong gió lá cây đung đưa",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "揺れます",
+        "te": "揺れて",
+        "ta": "揺れた",
+        "nai": "揺れない",
+        "potential": "揺れられる",
+        "passive": "揺れられる",
+        "causative": "揺れさせる",
+        "conditionalBa": "揺れれば",
+        "conditionalTara": "揺れたら",
+        "volitional": "揺れよう",
+        "imperative": "揺れろ"
+      }
     },
     {
       "id": "hinxu280-497",
@@ -2192,7 +4401,22 @@
         "nhà dao động thì DÌU RA (ゆら) mà chạy"
       ],
       "example": "子供の乗ったブランコを揺らして遊ばせた",
-      "exampleVi": "Đung đưa xích đu mà bọn trẻ leo lên cho chúng chơi"
+      "exampleVi": "Đung đưa xích đu mà bọn trẻ leo lên cho chúng chơi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "揺らします",
+        "te": "揺らして",
+        "ta": "揺らした",
+        "nai": "揺らさない",
+        "potential": "揺らせる",
+        "passive": "揺らされる",
+        "causative": "揺らさせる",
+        "conditionalBa": "揺らせば",
+        "conditionalTara": "揺らしたら",
+        "volitional": "揺らそう",
+        "imperative": "揺らせ"
+      }
     },
     {
       "id": "hinxu280-498",
@@ -2208,7 +4432,22 @@
         "sông thì chảy DÀI (なが)"
       ],
       "example": "町の中心を大きな川が流れている",
-      "exampleVi": "Dòng sông lớn chảy qua trung tâm khu phố"
+      "exampleVi": "Dòng sông lớn chảy qua trung tâm khu phố",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "流れます",
+        "te": "流れて",
+        "ta": "流れた",
+        "nai": "流れない",
+        "potential": "流れることができる",
+        "passive": "流れられる",
+        "causative": "流れさせる",
+        "conditionalBa": "流れれば",
+        "conditionalTara": "流れたら",
+        "volitional": "流れよう",
+        "imperative": "流れろ"
+      }
     },
     {
       "id": "hinxu280-499",
@@ -2220,9 +4459,26 @@
         "LƯU"
       ],
       "meaningVi": "cho chảy",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 流す (Tha động từ - làm cho cái gì trôi đi) và 流れる (Tự động từ - cái gì đó trôi đi)."
+      ],
       "example": "汚れた水を川に流してはいけない",
-      "exampleVi": "Nước bẩn không được cho chảy vào sông"
+      "exampleVi": "Nước bẩn không được cho chảy vào sông",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "流します",
+        "te": "流して",
+        "ta": "流した",
+        "nai": "流さない",
+        "potential": "流せる",
+        "passive": "流される",
+        "causative": "流させる",
+        "conditionalBa": "流せば",
+        "conditionalTara": "流したら",
+        "volitional": "流そう",
+        "imperative": "流せ"
+      }
     },
     {
       "id": "hinxu280-501",
@@ -2238,7 +4494,22 @@
         "NƯỚC RA (ぬら) là làm ướt"
       ],
       "example": "水をこぼして、服を濡らしてしまった",
-      "exampleVi": "Làm tràn nước nên làm ướt quần áo mất rồi"
+      "exampleVi": "Làm tràn nước nên làm ướt quần áo mất rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "濡らします",
+        "te": "濡らして",
+        "ta": "濡らした",
+        "nai": "濡らさない",
+        "potential": "濡らせる",
+        "passive": "濡らされる",
+        "causative": "濡らせる",
+        "conditionalBa": "濡らせば",
+        "conditionalTara": "濡らしたら",
+        "volitional": "濡らそう",
+        "imperative": "濡らせ"
+      }
     },
     {
       "id": "hinxu280-502",
@@ -2254,7 +4525,22 @@
         "MÀY DÓT (まよう) thì mày lạc"
       ],
       "example": "道に迷う",
-      "exampleVi": "Lạc đường"
+      "exampleVi": "Lạc đường",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "迷います",
+        "te": "迷って",
+        "ta": "迷った",
+        "nai": "迷わない",
+        "potential": "迷える",
+        "passive": "迷われる",
+        "causative": "迷わせる",
+        "conditionalBa": "迷えば",
+        "conditionalTara": "迷ったら",
+        "volitional": "迷おう",
+        "imperative": "迷え"
+      }
     },
     {
       "id": "hinxu280-503",
@@ -2270,7 +4556,22 @@
         "NÃO GIÀ (なや) thì phiền não"
       ],
       "example": "就職するか、進学するか、悩んでいる",
-      "exampleVi": "Băn khoăn đi làm hay học cao lên"
+      "exampleVi": "Băn khoăn đi làm hay học cao lên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "悩みます",
+        "te": "悩んで",
+        "ta": "悩んだ",
+        "nai": "悩まない",
+        "potential": "悩める",
+        "passive": "悩まれる",
+        "causative": "悩ませる",
+        "conditionalBa": "悩めば",
+        "conditionalTara": "悩んだら",
+        "volitional": "悩もう",
+        "imperative": "悩め"
+      }
     },
     {
       "id": "hinxu280-504",
@@ -2286,7 +4587,22 @@
         "ANH QUA TỚI RỒI (あわてる) thì vội vàng"
       ],
       "example": "学校に遅れそうになって、慌てて家を出た",
-      "exampleVi": "Có vẻ như bị muộn đến trường, vội vàng ra khỏi nhà"
+      "exampleVi": "Có vẻ như bị muộn đến trường, vội vàng ra khỏi nhà",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "慌てます",
+        "te": "慌てて",
+        "ta": "慌てた",
+        "nai": "慌てない",
+        "potential": "慌てられる",
+        "passive": "慌てられる",
+        "causative": "慌てさせる",
+        "conditionalBa": "慌てれば",
+        "conditionalTara": "慌てたら",
+        "volitional": "慌てよう",
+        "imperative": "慌てろ"
+      }
     },
     {
       "id": "hinxu280-506",
@@ -2298,9 +4614,26 @@
         "GIÁC"
       ],
       "meaningVi": "mở mắt, tỉnh",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 覚ます (さます) là tha động từ (làm cho tỉnh, đánh thức), còn 覚める (さめる) là tự động từ (tự tỉnh giấc)."
+      ],
       "example": "目を覚ますと、もう１０時だった",
-      "exampleVi": "Mở mắt ra đã 10 giờ rồi"
+      "exampleVi": "Mở mắt ra đã 10 giờ rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "覚まします",
+        "te": "覚まして",
+        "ta": "覚ました",
+        "nai": "覚まさない",
+        "potential": "覚ませる",
+        "passive": "覚まされる",
+        "causative": "覚ませる",
+        "conditionalBa": "覚ませば",
+        "conditionalTara": "覚ましたら",
+        "volitional": "覚まそう",
+        "imperative": "覚ませ"
+      }
     },
     {
       "id": "hinxu280-507",
@@ -2316,7 +4649,22 @@
         "ねむい là buồn ngủ rồi, vậy động từ là ngủ"
       ],
       "example": "入試の前日 緊張して夜眠れなかった",
-      "exampleVi": "Vào ngày trước khi vào thi, căng thẳng nên không thể ngủ được"
+      "exampleVi": "Vào ngày trước khi vào thi, căng thẳng nên không thể ngủ được",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "眠ります",
+        "te": "眠って",
+        "ta": "眠った",
+        "nai": "眠らない",
+        "potential": "眠れる",
+        "passive": "眠られる",
+        "causative": "眠らせる",
+        "conditionalBa": "眠れば",
+        "conditionalTara": "眠ったら",
+        "volitional": "眠ろう",
+        "imperative": "眠れ"
+      }
     },
     {
       "id": "hinxu280-508",
@@ -2332,7 +4680,22 @@
         "đọc giống INOCHI (いのち) sinh mệnh, cầu nguyện cho sinh mệnh"
       ],
       "example": "家族の健康を神に祈った",
-      "exampleVi": "Cầu nguyện thần linh cho sức khỏe của gia đình"
+      "exampleVi": "Cầu nguyện thần linh cho sức khỏe của gia đình",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "祈ります",
+        "te": "祈って",
+        "ta": "祈った",
+        "nai": "祈らない",
+        "potential": "祈れる",
+        "passive": "祈られる",
+        "causative": "祈らせる",
+        "conditionalBa": "祈れば",
+        "conditionalTara": "祈ったら",
+        "volitional": "祈ろう",
+        "imperative": "祈れ"
+      }
     },
     {
       "id": "hinxu280-509",
@@ -2348,7 +4711,22 @@
         "từ お祝い chắc ai cũng biết nhỉ, chỉ cần bỏ chữ お là động từ"
       ],
       "example": "新年を祝って乾杯した",
-      "exampleVi": "Đã cạn ly ăn mừng năm mới"
+      "exampleVi": "Đã cạn ly ăn mừng năm mới",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "祝います",
+        "te": "祝って",
+        "ta": "祝った",
+        "nai": "祝わない",
+        "potential": "祝える",
+        "passive": "祝われる",
+        "causative": "祝わせる",
+        "conditionalBa": "祝えば",
+        "conditionalTara": "祝ったら",
+        "volitional": "祝おう",
+        "imperative": "祝え"
+      }
     },
     {
       "id": "hinxu280-510",
@@ -2364,7 +4742,22 @@
         "cảm giác thích Kanji rồi (かんじる)"
       ],
       "example": "寒さを感じる",
-      "exampleVi": "Cảm thấy cái lạnh"
+      "exampleVi": "Cảm thấy cái lạnh",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "感じます",
+        "te": "感じて",
+        "ta": "感じた",
+        "nai": "感じない",
+        "potential": "感じられる",
+        "passive": "感じられる",
+        "causative": "感じさせる",
+        "conditionalBa": "感じれば",
+        "conditionalTara": "感じたら",
+        "volitional": "感じよう",
+        "imperative": "感じろ"
+      }
     },
     {
       "id": "hinxu280-716",
@@ -2380,7 +4773,22 @@
         "đọc giống leo trèo 登る NÓ BÒ (のぼ) lên trên"
       ],
       "example": "階段を上る",
-      "exampleVi": "lên cầu thang"
+      "exampleVi": "lên cầu thang",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "上ります",
+        "te": "上って",
+        "ta": "上った",
+        "nai": "上らない",
+        "potential": "上れる",
+        "passive": "上られる",
+        "causative": "上らせる",
+        "conditionalBa": "上れば",
+        "conditionalTara": "上ったら",
+        "volitional": "上ろう",
+        "imperative": "上れ"
+      }
     },
     {
       "id": "hinxu280-717",
@@ -2396,7 +4804,22 @@
         "CỤC ĐÁ RƠI (くだる) rồi là cục đá đang đi xuống"
       ],
       "example": "坂を下る",
-      "exampleVi": "Xuống núi"
+      "exampleVi": "Xuống núi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "下ります",
+        "te": "下って",
+        "ta": "下った",
+        "nai": "下らない",
+        "potential": "下れる",
+        "passive": "下られる",
+        "causative": "下らせる",
+        "conditionalBa": "下れば",
+        "conditionalTara": "下ったら",
+        "volitional": "下ろう",
+        "imperative": "下れ"
+      }
     },
     {
       "id": "hinxu280-720",
@@ -2408,9 +4831,26 @@
         "THÔNG"
       ],
       "meaningVi": "thông qua, được chấp nhận, đi qua",
-      "mnemonic": [],
+      "mnemonic": [
+        "通る (tooru): đi qua, thông qua. VD: 道を通る (đi qua đường), 意見が通る (ý kiến được thông qua)."
+      ],
       "example": "この道は車がたくさん通る",
-      "exampleVi": "Con đường này có nhiều ô tô đi qua"
+      "exampleVi": "Con đường này có nhiều ô tô đi qua",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "通ります",
+        "te": "通って",
+        "ta": "通った",
+        "nai": "通らない",
+        "potential": "通れる",
+        "passive": "通られる",
+        "causative": "通らせる",
+        "conditionalBa": "通れば",
+        "conditionalTara": "通ったら",
+        "volitional": "通ろう",
+        "imperative": "通れ"
+      }
     },
     {
       "id": "hinxu280-721",
@@ -2422,9 +4862,26 @@
         "THÔNG"
       ],
       "meaningVi": "xuyên qua, thông qua",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 通る (tự động từ: đi qua, thông qua) - 通す (tha động từ: cho đi qua, xuyên qua, giữ vững ý kiến)"
+      ],
       "example": "カテンを通して光が部屋の中に入ってくる",
-      "exampleVi": "làm cho ánh sáng xuyên qua rèm và đi vào trong phòng"
+      "exampleVi": "làm cho ánh sáng xuyên qua rèm và đi vào trong phòng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "通します",
+        "te": "通して",
+        "ta": "通した",
+        "nai": "通さない",
+        "potential": "通せる",
+        "passive": "通される",
+        "causative": "通させる",
+        "conditionalBa": "通せば",
+        "conditionalTara": "通したら",
+        "volitional": "通そう",
+        "imperative": "通せ"
+      }
     },
     {
       "id": "hinxu280-722",
@@ -2440,7 +4897,22 @@
         "CÔ É RỒI (こえる) thì cô cố mà vượt qua"
       ],
       "example": "この山を越えると隣の県だ",
-      "exampleVi": "Nếu vượt qua ngọn núi này thì sang tỉnh bên cạnh rồi"
+      "exampleVi": "Nếu vượt qua ngọn núi này thì sang tỉnh bên cạnh rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "越えます／超えます",
+        "te": "越えて／超えて",
+        "ta": "越えた／超えた",
+        "nai": "越えない／超えない",
+        "potential": "越えることができる／超えることができる",
+        "passive": "越えられる／超えられる",
+        "causative": "越えさせる／超えさせる",
+        "conditionalBa": "越えれば／超えれば",
+        "conditionalTara": "越えたら／超えたら",
+        "volitional": "越えよう／超えよう",
+        "imperative": "越えろ／超えろ"
+      }
     },
     {
       "id": "hinxu280-723",
@@ -2452,9 +4924,26 @@
         "QUÁ"
       ],
       "meaningVi": "quá, đi qua",
-      "mnemonic": [],
+      "mnemonic": [
+        "Khi kết hợp với động từ khác (V-masu + 過ぎる), nó có nghĩa là làm gì đó quá mức, ví dụ: 食べ過ぎる (ăn quá nhiều)."
+      ],
       "example": "列車は広島駅を過ぎた",
-      "exampleVi": "Đoàn tàu đã đi quá Hiroshima rồi"
+      "exampleVi": "Đoàn tàu đã đi quá Hiroshima rồi",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "過ぎます",
+        "te": "過ぎて",
+        "ta": "過ぎた",
+        "nai": "過ぎない",
+        "potential": "過ぎられる",
+        "passive": "過ぎられる",
+        "causative": "過ぎさせる",
+        "conditionalBa": "過ぎれば",
+        "conditionalTara": "過ぎたら",
+        "volitional": "過ぎよう",
+        "imperative": "過ぎろ"
+      }
     },
     {
       "id": "hinxu280-724",
@@ -2470,7 +4959,22 @@
         "tôi đã trải qua 1 ngày SUGOI (すご)"
       ],
       "example": "大学時代を東京で過ごした",
-      "exampleVi": "Đã trải qua thời đại học tại Tokyo"
+      "exampleVi": "Đã trải qua thời đại học tại Tokyo",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "過ごします",
+        "te": "過ごして",
+        "ta": "過ごした",
+        "nai": "過ごさない",
+        "potential": "過ごせる",
+        "passive": "過ごされる",
+        "causative": "過ごさせる",
+        "conditionalBa": "過ごせば",
+        "conditionalTara": "過ごしたら",
+        "volitional": "過ごそう",
+        "imperative": "過ごせ"
+      }
     },
     {
       "id": "hinxu280-725",
@@ -2482,9 +4986,26 @@
         "DI"
       ],
       "meaningVi": "được chuyển",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 移る (うつる - tự động từ): (cái gì đó) di chuyển, chuyển sang; 移す (うつす - tha động từ): di chuyển, chuyển (cái gì đó) đi."
+      ],
       "example": "黒板の字が見えにくかったので、前の席に移った",
-      "exampleVi": "Vì chữ trên bảng đen khó có thể nhìn được nên tôi đã chuyển lên ghế phía trên"
+      "exampleVi": "Vì chữ trên bảng đen khó có thể nhìn được nên tôi đã chuyển lên ghế phía trên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "移ります",
+        "te": "移って",
+        "ta": "移った",
+        "nai": "移らない",
+        "potential": "移れる",
+        "passive": "移られる",
+        "causative": "移らせる",
+        "conditionalBa": "移れば",
+        "conditionalTara": "移ったら",
+        "volitional": "移ろう",
+        "imperative": "移れ"
+      }
     },
     {
       "id": "hinxu280-726",
@@ -2500,7 +5021,22 @@
         "ƯNG CHƯA (うつ) rồi di chuyển + 映 : phản ánh, phản chiếu + 移 ; di chuyển + 写 : sao lại"
       ],
       "example": "本塔を大阪から東京に移した",
-      "exampleVi": "Trụ sở chính đã chuyển từ Osaka đến Tokyo"
+      "exampleVi": "Trụ sở chính đã chuyển từ Osaka đến Tokyo",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "移します",
+        "te": "移して",
+        "ta": "移した",
+        "nai": "移さない",
+        "potential": "移せる",
+        "passive": "移される",
+        "causative": "移させる",
+        "conditionalBa": "移せば",
+        "conditionalTara": "移したら",
+        "volitional": "移そう",
+        "imperative": "移せ"
+      }
     },
     {
       "id": "hinxu280-727",
@@ -2516,7 +5052,22 @@
         "CHÚ RÊN RỈ (つれる) thì phải dẫn chú đi"
       ],
       "example": "子供を動物園へ連れて行った",
-      "exampleVi": "Đã đưa bọn trẻ đến vườn thú"
+      "exampleVi": "Đã đưa bọn trẻ đến vườn thú",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "連れます",
+        "te": "連れて",
+        "ta": "連れた",
+        "nai": "連れない",
+        "potential": "連れられる",
+        "passive": "連れられる",
+        "causative": "連れさせる",
+        "conditionalBa": "連れれば",
+        "conditionalTara": "連れたら",
+        "volitional": "連れよう",
+        "imperative": "連れろ"
+      }
     },
     {
       "id": "hinxu280-728",
@@ -2532,7 +5083,22 @@
         "BAN ĐÊM (よる) thì phải ghé vô khách sạn"
       ],
       "example": "窓のそばに寄って外を見た",
-      "exampleVi": "Ghé lại bên cạnh cửa sổ và đã thấy bên ngoài"
+      "exampleVi": "Ghé lại bên cạnh cửa sổ và đã thấy bên ngoài",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "寄ります",
+        "te": "寄って",
+        "ta": "寄った",
+        "nai": "寄らない",
+        "potential": "寄れる",
+        "passive": "寄られる",
+        "causative": "寄らせる",
+        "conditionalBa": "寄れば",
+        "conditionalTara": "寄ったら",
+        "volitional": "寄ろう",
+        "imperative": "寄れ"
+      }
     },
     {
       "id": "hinxu280-729",
@@ -2544,9 +5110,26 @@
         "KỲ"
       ],
       "meaningVi": "ghé vào",
-      "mnemonic": [],
+      "mnemonic": [
+        "寄せる (tha động từ) - làm cho lại gần, dồn vào. 寄る (tự động từ) - lại gần, ghé vào."
+      ],
       "example": "地震のときは車を道の左側に寄せて止めなければならない",
-      "exampleVi": "Lúc động đất phải ghé xe ô tô vào bên đường và dừng lại"
+      "exampleVi": "Lúc động đất phải ghé xe ô tô vào bên đường và dừng lại",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "寄せます",
+        "te": "寄せて",
+        "ta": "寄せた",
+        "nai": "寄せない",
+        "potential": "寄せられる",
+        "passive": "寄せられる",
+        "causative": "寄せさせる",
+        "conditionalBa": "寄せれば",
+        "conditionalTara": "寄せたら",
+        "volitional": "寄せよう",
+        "imperative": "寄せろ"
+      }
     },
     {
       "id": "hinxu280-731",
@@ -2562,7 +5145,22 @@
         "É RỒI (える) làm sao có được hạnh phúc"
       ],
       "example": "収入を得る",
-      "exampleVi": "Có được thu nhập"
+      "exampleVi": "Có được thu nhập",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "得ます",
+        "te": "得て",
+        "ta": "得た",
+        "nai": "得ない",
+        "potential": "得られる",
+        "passive": "得られる",
+        "causative": "得させる",
+        "conditionalBa": "得れば",
+        "conditionalTara": "得たら",
+        "volitional": "得よう",
+        "imperative": "得ろ"
+      }
     },
     {
       "id": "hinxu280-732",
@@ -2574,9 +5172,26 @@
         "HƯỚNG"
       ],
       "meaningVi": "hướng, đối diện",
-      "mnemonic": [],
+      "mnemonic": [
+        "向く (tự động từ): hướng về, đối diện. 向ける (tha động từ): hướng cái gì đó về phía nào."
+      ],
       "example": "私の部屋は東南を向いている",
-      "exampleVi": "Phòng tôi hướng về phía đông nam"
+      "exampleVi": "Phòng tôi hướng về phía đông nam",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "向きます",
+        "te": "向いて",
+        "ta": "向いた",
+        "nai": "向かない",
+        "potential": "向ける",
+        "passive": "向かれる",
+        "causative": "向かせる",
+        "conditionalBa": "向けば",
+        "conditionalTara": "向いたら",
+        "volitional": "向こう",
+        "imperative": "向け"
+      }
     },
     {
       "id": "hinxu280-733",
@@ -2588,9 +5203,26 @@
         "HƯỚNG"
       ],
       "meaningVi": "hướng đến, quay",
-      "mnemonic": [],
+      "mnemonic": [
+        "向ける (tha động từ) là hướng cái gì vào đâu; 向く (tự động từ) là cái gì hướng về phía nào."
+      ],
       "example": "顔を右に向ける",
-      "exampleVi": "Quay mặt về bên phải"
+      "exampleVi": "Quay mặt về bên phải",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "向けます",
+        "te": "向けて",
+        "ta": "向けた",
+        "nai": "向けない",
+        "potential": "向けられる",
+        "passive": "向けられる",
+        "causative": "向けさせる",
+        "conditionalBa": "向ければ",
+        "conditionalTara": "向けたら",
+        "volitional": "向けよう",
+        "imperative": "向けろ"
+      }
     },
     {
       "id": "hinxu280-735",
@@ -2602,9 +5234,26 @@
         "TIẾN"
       ],
       "meaningVi": "giới thiệu, gợi ý",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 勧める (cũng đọc là susumeru): 薦める dùng khi tiến cử, giới thiệu ai đó/cái gì đó vào một vị trí, vai trò; còn 勧める dùng khi rủ rê, khuyên bảo, mời mọc."
+      ],
       "example": "先生にすすめられた本を買った",
-      "exampleVi": "Đã mua quyển sách thầy giáo đề nghị"
+      "exampleVi": "Đã mua quyển sách thầy giáo đề nghị",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "薦めます",
+        "te": "薦めて",
+        "ta": "薦めた",
+        "nai": "薦めない",
+        "potential": "薦めることができる",
+        "passive": "薦められる",
+        "causative": "薦めさせる",
+        "conditionalBa": "薦めれば",
+        "conditionalTara": "薦めたら",
+        "volitional": "薦めよう",
+        "imperative": "薦めろ"
+      }
     },
     {
       "id": "hinxu280-737",
@@ -2620,7 +5269,22 @@
         "bảo vệ cái MẶT MO (まも)"
       ],
       "example": "法律の守る",
-      "exampleVi": "Tuân thủ luật pháp"
+      "exampleVi": "Tuân thủ luật pháp",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "守ります",
+        "te": "守って",
+        "ta": "守った",
+        "nai": "守らない",
+        "potential": "守れる",
+        "passive": "守られる",
+        "causative": "守らせる",
+        "conditionalBa": "守れば",
+        "conditionalTara": "守ったら",
+        "volitional": "守ろう",
+        "imperative": "守れ"
+      }
     },
     {
       "id": "hinxu280-738",
@@ -2636,7 +5300,21 @@
         "nghe như mấy bà Hàn Quốc đang tranh cãi ARATSOOO (あらそう)"
       ],
       "example": "あの兄弟はいつも小さなことで争っている",
-      "exampleVi": "Anh em nhà ý thì lúc nào cũng tranh giành việc nhỏ"
+      "exampleVi": "Anh em nhà ý thì lúc nào cũng tranh giành việc nhỏ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "conjugations": {
+        "masu": "争います",
+        "te": "争って",
+        "ta": "争った",
+        "nai": "争わない",
+        "potential": "争える",
+        "passive": "争われる",
+        "causative": "争わせる",
+        "conditionalBa": "争えば",
+        "conditionalTara": "争ったら",
+        "volitional": "争おう",
+        "imperative": "争え"
+      }
     },
     {
       "id": "hinxu280-739",
@@ -2652,7 +5330,22 @@
         "hi vọng con mình NÓ GIỎI NÓ GIỎI (のぞ)"
       ],
       "example": "卒業後は、教師になることを望んでいる",
-      "exampleVi": "Mong rằng sau khi tốt nghiệp thì trở thành giáo viên"
+      "exampleVi": "Mong rằng sau khi tốt nghiệp thì trở thành giáo viên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "望みます",
+        "te": "望んで",
+        "ta": "望んだ",
+        "nai": "望まない",
+        "potential": "望める",
+        "passive": "望まれる",
+        "causative": "望ませる",
+        "conditionalBa": "望めば",
+        "conditionalTara": "望んだら",
+        "volitional": "望もう",
+        "imperative": "望め"
+      }
     },
     {
       "id": "hinxu280-740",
@@ -2668,7 +5361,22 @@
         "Muốn XIN GÌ (しんじ) thì cũng phải có được sự tin tưởng"
       ],
       "example": "昨日　ゆうれいを見たよ　うそよ、信じられない",
-      "exampleVi": "Hôm qua tôi đã thấy hồn ma đấy. Nói dối, không thể tin được"
+      "exampleVi": "Hôm qua tôi đã thấy hồn ma đấy. Nói dối, không thể tin được",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "信じます",
+        "te": "信じて",
+        "ta": "信じた",
+        "nai": "信じない",
+        "potential": "信じられる",
+        "passive": "信じられる",
+        "causative": "信じさせる",
+        "conditionalBa": "信じれば",
+        "conditionalTara": "信じたら",
+        "volitional": "信じよう",
+        "imperative": "信じろ"
+      }
     },
     {
       "id": "hinxu280-741",
@@ -2684,7 +5392,22 @@
         "CHƯA CỨNG (つうじ) mà đã hiểu rồi"
       ],
       "example": "日本に来た時、私の日本語が通じるかどうか心配だった",
-      "exampleVi": "Sau khi đến Nhật, đã lo lắng là Tiếng Nhật của tôi có thông thạo hay không"
+      "exampleVi": "Sau khi đến Nhật, đã lo lắng là Tiếng Nhật của tôi có thông thạo hay không",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "通じます",
+        "te": "通じて",
+        "ta": "通じた",
+        "nai": "通じない",
+        "potential": "通じられる",
+        "passive": "通じられる",
+        "causative": "通じさせる",
+        "conditionalBa": "通じれば",
+        "conditionalTara": "通じたら",
+        "volitional": "通じよう",
+        "imperative": "通じろ"
+      }
     },
     {
       "id": "hinxu280-742",
@@ -2700,7 +5423,22 @@
         "MÙA THU (あき) thì thật chán"
       ],
       "example": "好きなものでも、毎日食べると飽きてしまう",
-      "exampleVi": "Dù là đồ mình thích, ăn mỗi ngày thì cũng chán mất"
+      "exampleVi": "Dù là đồ mình thích, ăn mỗi ngày thì cũng chán mất",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "飽きます",
+        "te": "飽きて",
+        "ta": "飽きた",
+        "nai": "飽きない",
+        "potential": "飽きられる",
+        "passive": "飽きられる",
+        "causative": "飽きさせる",
+        "conditionalBa": "飽きれば",
+        "conditionalTara": "飽きたら",
+        "volitional": "飽きよう",
+        "imperative": "飽きろ"
+      }
     },
     {
       "id": "hinxu280-743",
@@ -2716,7 +5454,22 @@
         "Ý NGHĨA (おもい) ĐƯỢC GẮN VÀO (つく) là nảy ra nghĩ ra"
       ],
       "example": "アイディアを思いつく",
-      "exampleVi": "Nghĩ ra ý tưởng"
+      "exampleVi": "Nghĩ ra ý tưởng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "思いつきます",
+        "te": "思いついて",
+        "ta": "思いついた",
+        "nai": "思いつかない",
+        "potential": "思いつける",
+        "passive": "思いつかれる",
+        "causative": "思いつかせる",
+        "conditionalBa": "思いつけば",
+        "conditionalTara": "思いついたら",
+        "volitional": "思いつこう",
+        "imperative": "思いつけ"
+      }
     },
     {
       "id": "hinxu280-744",
@@ -2732,7 +5485,22 @@
         "VỪA NGHĨ (おもい) VỪA LÀM (やる) là có sự quan tâm"
       ],
       "example": "父親の言葉はきびしかったが、その言葉は子供を思いやる気持ちが表れていた",
-      "exampleVi": "Những lời của Cha thì đã nghiêm khắc nhưng mà, những lời đấy đã thể hiện tâm tình quan tâm đến bọn trẻ"
+      "exampleVi": "Những lời của Cha thì đã nghiêm khắc nhưng mà, những lời đấy đã thể hiện tâm tình quan tâm đến bọn trẻ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "思いやります",
+        "te": "思いやって",
+        "ta": "思いやった",
+        "nai": "思いやらない",
+        "potential": "思いやれる",
+        "passive": "思いやられる",
+        "causative": "思いやらせる",
+        "conditionalBa": "思いやれば",
+        "conditionalTara": "思いやったら",
+        "volitional": "思いやろう",
+        "imperative": "思いやれ"
+      }
     },
     {
       "id": "hinxu280-745",
@@ -2748,7 +5516,22 @@
         "NHIỆT trong NHIỆT TÂM là ねつ, TRUNG trong TRUNG QUỐC là ちゅう, bị xúc âm thành ねっちゅう"
       ],
       "example": "母は今カラオケに熱中している",
-      "exampleVi": "Mẹ thì đang rất say mê karaoke"
+      "exampleVi": "Mẹ thì đang rất say mê karaoke",
+      "verbGroup": "Nhóm 3 (bất quy tắc)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "熱中します",
+        "te": "熱中して",
+        "ta": "熱中した",
+        "nai": "熱中しない",
+        "potential": "熱中できる",
+        "passive": "熱中される",
+        "causative": "熱中させる",
+        "conditionalBa": "熱中すれば",
+        "conditionalTara": "熱中したら",
+        "volitional": "熱中しよう",
+        "imperative": "熱中しろ"
+      }
     },
     {
       "id": "hinxu280-746",
@@ -2764,7 +5547,22 @@
         "sống trong LỚP HỌC (くらす)"
       ],
       "example": "都会で暮らすのは便利だが、お金がかかる",
-      "exampleVi": "Sinh sống ở đô thị thì tiện lợi nhưng mà tốn tiền"
+      "exampleVi": "Sinh sống ở đô thị thì tiện lợi nhưng mà tốn tiền",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "暮らします",
+        "te": "暮らして",
+        "ta": "暮らした",
+        "nai": "暮らさない",
+        "potential": "暮らせる",
+        "passive": "暮らされる",
+        "causative": "暮らさせる",
+        "conditionalBa": "暮らせば",
+        "conditionalTara": "暮らしたら",
+        "volitional": "暮らそう",
+        "imperative": "暮らせ"
+      }
     },
     {
       "id": "hinxu280-747",
@@ -2780,7 +5578,22 @@
         "MÁ CỨ (まく) quấn cái khăn choàng"
       ],
       "example": "マフラーを首に巻く",
-      "exampleVi": "Quấn khăn quanh cổ"
+      "exampleVi": "Quấn khăn quanh cổ",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "巻きます",
+        "te": "巻いて",
+        "ta": "巻いた",
+        "nai": "巻かない",
+        "potential": "巻ける",
+        "passive": "巻かれる",
+        "causative": "巻かせる",
+        "conditionalBa": "巻けば",
+        "conditionalTara": "巻いたら",
+        "volitional": "巻こう",
+        "imperative": "巻け"
+      }
     },
     {
       "id": "hinxu280-748",
@@ -2796,7 +5609,22 @@
         "MUA SỢI (むす) để BUỘC (ぶ)"
       ],
       "example": "くつのひもを結ぶ",
-      "exampleVi": "Buộc dây giày"
+      "exampleVi": "Buộc dây giày",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "結びます",
+        "te": "結んで",
+        "ta": "結んだ",
+        "nai": "結ばない",
+        "potential": "結べる",
+        "passive": "結ばれる",
+        "causative": "結ばせる",
+        "conditionalBa": "結べば",
+        "conditionalTara": "結んだら",
+        "volitional": "結ぼう",
+        "imperative": "結べ"
+      }
     },
     {
       "id": "hinxu280-749",
@@ -2812,7 +5640,22 @@
         "kết thúc SỨ MỆNH (すむ) đời mình"
       ],
       "example": "仕事が済んだらすぐ帰る",
-      "exampleVi": "Về ngay sau khi kết thúc công việc"
+      "exampleVi": "Về ngay sau khi kết thúc công việc",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "済みます",
+        "te": "済んで",
+        "ta": "済んだ",
+        "nai": "済まない",
+        "potential": "済める",
+        "passive": "済まれる",
+        "causative": "済ませる",
+        "conditionalBa": "済めば",
+        "conditionalTara": "済んだら",
+        "volitional": "済もう",
+        "imperative": "済め"
+      }
     },
     {
       "id": "hinxu280-750",
@@ -2824,9 +5667,26 @@
         "TẾ"
       ],
       "meaningVi": "hoàn tất",
-      "mnemonic": [],
+      "mnemonic": [
+        "Dùng để diễn tả việc hoàn tất, giải quyết xong một việc gì đó (ví dụ: ăn xong, giải quyết xong công việc, trả nợ xong)."
+      ],
       "example": "お金の支払いを済ませる",
-      "exampleVi": "Hoàn tất thanh toán tiền"
+      "exampleVi": "Hoàn tất thanh toán tiền",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "済ませます",
+        "te": "済ませて",
+        "ta": "済ませた",
+        "nai": "済ませない",
+        "potential": "済ませられる",
+        "passive": "済ませられる",
+        "causative": "済ませさせる",
+        "conditionalBa": "済ませれば",
+        "conditionalTara": "済ませたら",
+        "volitional": "済ませよう",
+        "imperative": "済ませろ"
+      }
     },
     {
       "id": "hinxu280-751",
@@ -2838,9 +5698,26 @@
         "XUẤT LAI"
       ],
       "meaningVi": "có thể, hoàn thành",
-      "mnemonic": [],
+      "mnemonic": [
+        "出来る là khả năng động từ của する (làm), nghĩa là có thể làm được việc gì đó."
+      ],
       "example": "駅前に新しいスーパーが出来た",
-      "exampleVi": "Trước nhà ga siêu thị mới đã hoàn thành"
+      "exampleVi": "Trước nhà ga siêu thị mới đã hoàn thành",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "出来ます",
+        "te": "出来て",
+        "ta": "出来た",
+        "nai": "出来ない",
+        "potential": "出来られる",
+        "passive": "出来られる",
+        "causative": "出来させる",
+        "conditionalBa": "出来れば",
+        "conditionalTara": "出来たら",
+        "volitional": "出来よう",
+        "imperative": "出来ろ"
+      }
     },
     {
       "id": "hinxu280-752",
@@ -2856,7 +5733,22 @@
         "cái gì mà ĐẸP (きれ) thì rất nhanh hết hạn"
       ],
       "example": "このはさみはよく切れる",
-      "exampleVi": "Cái kéo này thì cắt tốt"
+      "exampleVi": "Cái kéo này thì cắt tốt",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "切れます",
+        "te": "切れて",
+        "ta": "切れた",
+        "nai": "切れない",
+        "potential": "切れられる",
+        "passive": "切れられる",
+        "causative": "切れさせる",
+        "conditionalBa": "切れれば",
+        "conditionalTara": "切れたら",
+        "volitional": "切れよう",
+        "imperative": "切れろ"
+      }
     },
     {
       "id": "hinxu280-753",
@@ -2872,7 +5764,22 @@
         "KÌ RA (きら) thì xài hết"
       ],
       "example": "うっかりしていて、砂糖を切らしてしまった",
-      "exampleVi": "Không để ý chút là đường đã hết sạch mất rồi"
+      "exampleVi": "Không để ý chút là đường đã hết sạch mất rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "切らします",
+        "te": "切らして",
+        "ta": "切らした",
+        "nai": "切らさない",
+        "potential": "切らせる",
+        "passive": "切らされる",
+        "causative": "切らせる",
+        "conditionalBa": "切らせば",
+        "conditionalTara": "切らしたら",
+        "volitional": "切らそう",
+        "imperative": "切らせ"
+      }
     },
     {
       "id": "hinxu280-758",
@@ -2886,7 +5793,22 @@
         "CHÚ NÀY GAN RỨA (つながる), dám kết nối với tui"
       ],
       "example": "本州と四国は橋でつながっている",
-      "exampleVi": "Honshuu và Shikoku được kết nối bằng cầu"
+      "exampleVi": "Honshuu và Shikoku được kết nối bằng cầu",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "つながります",
+        "te": "つながって",
+        "ta": "つながった",
+        "nai": "つながらない",
+        "potential": "つながれる",
+        "passive": "つながれる",
+        "causative": "つながらせる",
+        "conditionalBa": "つながれば",
+        "conditionalTara": "つながったら",
+        "volitional": "つながろう",
+        "imperative": "つながれ"
+      }
     },
     {
       "id": "hinxu280-759",
@@ -2896,9 +5818,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "kết nối, tham gia",
-      "mnemonic": [],
+      "mnemonic": [
+        "Cách nhớ: Tưởng tượng hành động 'nối' các vật lại với nhau bằng sợi dây. Ví dụ: Internet つなぐ (kết nối internet)."
+      ],
       "example": "この橋は本州と四国をつないでいる",
-      "exampleVi": "Cây cầu này thì đang kết nối Honshuu và Shikoku"
+      "exampleVi": "Cây cầu này thì đang kết nối Honshuu và Shikoku",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "つなぎます",
+        "te": "つないで",
+        "ta": "つないだ",
+        "nai": "つながない",
+        "potential": "つなげる",
+        "passive": "つながれる",
+        "causative": "つながせる",
+        "conditionalBa": "つなげば",
+        "conditionalTara": "つないだら",
+        "volitional": "つなごう",
+        "imperative": "つなげ"
+      }
     },
     {
       "id": "hinxu280-760",
@@ -2912,7 +5851,22 @@
         "CHÚ NÀY GHÊ RỨA (つなげる), nắm bắt được cơ hội lớn"
       ],
       "example": "このチャンスをぜひ成功につなげたい",
-      "exampleVi": "Muốn làm chặt cơ hội này chắc chắn đến thành công"
+      "exampleVi": "Muốn làm chặt cơ hội này chắc chắn đến thành công",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "つなげます",
+        "te": "つなげて",
+        "ta": "つなげた",
+        "nai": "つなげない",
+        "potential": "つなげられる",
+        "passive": "つなげられる",
+        "causative": "つなげさせる",
+        "conditionalBa": "つなげれば",
+        "conditionalTara": "つなげたら",
+        "volitional": "つなげよう",
+        "imperative": "つなげろ"
+      }
     },
     {
       "id": "hinxu280-763",
@@ -2928,7 +5882,22 @@
         "cũng có nghĩa là được kéo ra, được dài ra (tuy nhiên dùng trong trường hợp thời gian, deadline, kỳ hạn)"
       ],
       "example": "レポートの締め切りが延びてよかった",
-      "exampleVi": "Hạn nộp báo cáo đã được kéo dài, thật tốt quá"
+      "exampleVi": "Hạn nộp báo cáo đã được kéo dài, thật tốt quá",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "延びます",
+        "te": "延びて",
+        "ta": "延びた",
+        "nai": "延びない",
+        "potential": "延びる",
+        "passive": "延びられる",
+        "causative": "延ばせる",
+        "conditionalBa": "延びれば",
+        "conditionalTara": "延びたら",
+        "volitional": "延びよう",
+        "imperative": "延びろ"
+      }
     },
     {
       "id": "hinxu280-764",
@@ -2940,9 +5909,26 @@
         "DUYÊN"
       ],
       "meaningVi": "trì hoãn, kéo dài",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt 延ばす (kéo dài thời gian/hạn định) và 伸ばす (kéo dài vật lý/chiều dài, kỹ năng)"
+      ],
       "example": "チケットが取れなかったので、帰国の日を延ばした",
-      "exampleVi": "Vì không lấy được vé nên đã kéo dài (hoãn lại) ngày về nước"
+      "exampleVi": "Vì không lấy được vé nên đã kéo dài (hoãn lại) ngày về nước",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "延ばします",
+        "te": "延ばして",
+        "ta": "延ばした",
+        "nai": "延ばさない",
+        "potential": "延ばせる",
+        "passive": "延ばされる",
+        "causative": "延ばさせる",
+        "conditionalBa": "延ばせば",
+        "conditionalTara": "延ばしたら",
+        "volitional": "延ばそう",
+        "imperative": "延ばせ"
+      }
     },
     {
       "id": "hinxu280-765",
@@ -2958,7 +5944,22 @@
         "áo CÀ SA (かさ) được xếp chồng"
       ],
       "example": "印刷したら、紙が２枚重なって出て来た",
-      "exampleVi": "Sau khi in xong thì hai tờ giấy chồng lên nhau và đi ra"
+      "exampleVi": "Sau khi in xong thì hai tờ giấy chồng lên nhau và đi ra",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "重なります",
+        "te": "重なって",
+        "ta": "重なった",
+        "nai": "重ならない",
+        "potential": "重なれる",
+        "passive": "重なられる",
+        "causative": "重ならせる",
+        "conditionalBa": "重なれば",
+        "conditionalTara": "重なったら",
+        "volitional": "重なろう",
+        "imperative": "重なれ"
+      }
     },
     {
       "id": "hinxu280-766",
@@ -2970,9 +5971,26 @@
         "TRỌNG"
       ],
       "meaningVi": "chồng lên, tích trữ",
-      "mnemonic": [],
+      "mnemonic": [
+        "Cách nhớ: Nhớ đến hình ảnh xếp chồng các lớp lên nhau (như xếp chồng đĩa, xếp chồng công việc)."
+      ],
       "example": "皿を重ねて置いておく",
-      "exampleVi": "Chồng đĩa lên và để sẵn đó"
+      "exampleVi": "Chồng đĩa lên và để sẵn đó",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "重ねます",
+        "te": "重ねて",
+        "ta": "重ねた",
+        "nai": "重ねない",
+        "potential": "重ねられる",
+        "passive": "重ねられる",
+        "causative": "重ねさせる",
+        "conditionalBa": "重ねれば",
+        "conditionalTara": "重ねたら",
+        "volitional": "重ねよう",
+        "imperative": "重ねろ"
+      }
     },
     {
       "id": "hinxu280-769",
@@ -2984,9 +6002,26 @@
         "TẢI"
       ],
       "meaningVi": "vừa, được công bố",
-      "mnemonic": [],
+      "mnemonic": [
+        "載る (Tự động từ: lên xe, đăng báo) >< 載せる (Tha động từ: chất lên, đăng bài báo)."
+      ],
       "example": "この荷物は大きすぎて、私の車にはのらないだろう",
-      "exampleVi": "Hành lý này thì lớn quá, chắc là không vừa xe của tôi được"
+      "exampleVi": "Hành lý này thì lớn quá, chắc là không vừa xe của tôi được",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "載ります",
+        "te": "載って",
+        "ta": "載った",
+        "nai": "載らない",
+        "potential": "載れる",
+        "passive": "載られる",
+        "causative": "載らせる",
+        "conditionalBa": "載れば",
+        "conditionalTara": "載ったら",
+        "volitional": "載ろう",
+        "imperative": "載れ"
+      }
     },
     {
       "id": "hinxu280-770",
@@ -3002,7 +6037,22 @@
         "NÀO XÊ RA (のせる) để tao tải lên"
       ],
       "example": "棚に荷物を載せる",
-      "exampleVi": "Cho hành lý lên giá"
+      "exampleVi": "Cho hành lý lên giá",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "載せます",
+        "te": "載せて",
+        "ta": "載せた",
+        "nai": "載せない",
+        "potential": "載せられる",
+        "passive": "載せられる",
+        "causative": "載せる",
+        "conditionalBa": "載せれば",
+        "conditionalTara": "載せたら",
+        "volitional": "載せよう",
+        "imperative": "載せろ"
+      }
     },
     {
       "id": "hinxu280-771",
@@ -3016,7 +6066,22 @@
         "そそ nghe giống SẮP SỬA, SẮP SỬA (そろ) đồng đều rồi"
       ],
       "example": "全員がそろったら、出発しましょう",
-      "exampleVi": "Mọi người tụ tập đủ thì xuất phát nào"
+      "exampleVi": "Mọi người tụ tập đủ thì xuất phát nào",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "そろいます",
+        "te": "そろって",
+        "ta": "そろった",
+        "nai": "そろわない",
+        "potential": "そろえる",
+        "passive": "そろわれる",
+        "causative": "そろわせる",
+        "conditionalBa": "そろえば",
+        "conditionalTara": "そろったら",
+        "volitional": "そろおう",
+        "imperative": "そろえ"
+      }
     },
     {
       "id": "hinxu280-772",
@@ -3026,9 +6091,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "gom lại, chuẩn bị sẵn sàng",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 揃う (Tự động từ: cái gì đó được tập hợp lại/đầy đủ) vs 揃える (Tha động từ: thu thập/làm cho cái gì đó đầy đủ)."
+      ],
       "example": "マージャンをするため、メンバーをそろえた",
-      "exampleVi": "Để chơi mạt chược thì đã tập hợp đủ thành viên"
+      "exampleVi": "Để chơi mạt chược thì đã tập hợp đủ thành viên",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "そろえます",
+        "te": "そろえて",
+        "ta": "そろえた",
+        "nai": "そろえない",
+        "potential": "そろえられる",
+        "passive": "そろえられる",
+        "causative": "そろえさせる",
+        "conditionalBa": "そろえれば",
+        "conditionalTara": "そろえたら",
+        "volitional": "そろえよう",
+        "imperative": "そろえろ"
+      }
     },
     {
       "id": "hinxu280-773",
@@ -3038,9 +6120,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "được thống nhất, được tổ chức, được sắp xếp",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: まとまる (tự động từ: được tập hợp lại, được giải quyết xong, được thống nhất) và まとめる (tha động từ: tập hợp lại, tóm tắt, giải quyết, thống nhất)."
+      ],
       "example": "3時間話し合って、やっとクラスの意見がまとまった",
-      "exampleVi": "Sau 3 tiếng bàn bạc cuối cùng ý kiến của lớp đã thống nhất"
+      "exampleVi": "Sau 3 tiếng bàn bạc cuối cùng ý kiến của lớp đã thống nhất",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "まとまります",
+        "te": "まとまって",
+        "ta": "まとまった",
+        "nai": "まとまらない",
+        "potential": "まとまれる",
+        "passive": "まとまられる",
+        "causative": "まとまらせる",
+        "conditionalBa": "まとまれば",
+        "conditionalTara": "まとまったら",
+        "volitional": "まとまろう",
+        "imperative": "まとまれ"
+      }
     },
     {
       "id": "hinxu280-774",
@@ -3054,7 +6153,22 @@
         "MÁ TÔI MÊ (まとめ) tóm tắt"
       ],
       "example": "引越しの前に、要らなくなったものをまとめて捨てた",
-      "exampleVi": "Trước khi chuyển nhà đã tập hợp những thứ không cần thiết nữa và vứt đi rồi"
+      "exampleVi": "Trước khi chuyển nhà đã tập hợp những thứ không cần thiết nữa và vứt đi rồi",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "まとめます",
+        "te": "まとめて",
+        "ta": "まとめた",
+        "nai": "まとめない",
+        "potential": "まとめられる",
+        "passive": "まとめられる",
+        "causative": "まとめさせる",
+        "conditionalBa": "まとめれば",
+        "conditionalTara": "まとめたり",
+        "volitional": "まとめよう",
+        "imperative": "まとめろ"
+      }
     },
     {
       "id": "hinxu280-775",
@@ -3070,7 +6184,22 @@
         "CHƯA CỨNG (つく) thì phải dính thêm vào"
       ],
       "example": "けがをしてシャツに血がついた",
-      "exampleVi": "Bị thương nên máu đã dính vào áo sơ mi"
+      "exampleVi": "Bị thương nên máu đã dính vào áo sơ mi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "付きます",
+        "te": "付いて",
+        "ta": "付いた",
+        "nai": "付かない",
+        "potential": "付くことができる",
+        "passive": "付かれる",
+        "causative": "付かせる",
+        "conditionalBa": "付けば",
+        "conditionalTara": "付いたら",
+        "volitional": "付こう",
+        "imperative": "付け"
+      }
     },
     {
       "id": "hinxu280-776",
@@ -3082,9 +6211,26 @@
         "PHÓ"
       ],
       "meaningVi": "gắn, thêm vào",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 付く (Tự động từ): つける (tha) là hành động gắn cái gì đó vào, つく (tự) là cái gì đó tự dính vào/được gắn vào."
+      ],
       "example": "パンにジャムを付ける",
-      "exampleVi": "Thêm mứt vào bánh mì"
+      "exampleVi": "Thêm mứt vào bánh mì",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "付けます",
+        "te": "付けて",
+        "ta": "付けた",
+        "nai": "付けない",
+        "potential": "付けられる",
+        "passive": "付けられる",
+        "causative": "付けさせる",
+        "conditionalBa": "付ければ",
+        "conditionalTara": "付けたら",
+        "volitional": "付けよう",
+        "imperative": "付けろ"
+      }
     },
     {
       "id": "hinxu280-777",
@@ -3094,9 +6240,26 @@
       "partOfSpeech": "Động từ",
       "hanViet": [],
       "meaningVi": "được tiết kiệm",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt たまる (Tự động từ: Tích tụ, đọng lại) và ためる (Tha động từ: Để dành, tích trữ)."
+      ],
       "example": "お金がたまる",
-      "exampleVi": "Tiền được tiết kiệm"
+      "exampleVi": "Tiền được tiết kiệm",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "たまります",
+        "te": "たまって",
+        "ta": "たまった",
+        "nai": "たまらない",
+        "potential": "たまれる",
+        "passive": "たまれる",
+        "causative": "たまらせる",
+        "conditionalBa": "たまれば",
+        "conditionalTara": "たまったら",
+        "volitional": "たまろう",
+        "imperative": "たまれ"
+      }
     },
     {
       "id": "hinxu280-778",
@@ -3110,7 +6273,22 @@
         "TAO MÊ (ため) thì tao để dành"
       ],
       "example": "お金をためる",
-      "exampleVi": "Tiết kiệm tiền"
+      "exampleVi": "Tiết kiệm tiền",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "ためます",
+        "te": "ためて",
+        "ta": "ためた",
+        "nai": "ためない",
+        "potential": "ためられる",
+        "passive": "ためられる",
+        "causative": "ためさせる",
+        "conditionalBa": "ためれば",
+        "conditionalTara": "ためたら",
+        "volitional": "ためよう",
+        "imperative": "ためろ"
+      }
     },
     {
       "id": "hinxu280-779",
@@ -3126,7 +6304,22 @@
         "từ điển MAZZI (まじ) bị lẫn lộn"
       ],
       "example": "女の子が男の子に交じってサッカーをしている",
-      "exampleVi": "Các bé gái được lẫn vào các bé trai rồi chơi bóng đá"
+      "exampleVi": "Các bé gái được lẫn vào các bé trai rồi chơi bóng đá",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "混じります",
+        "te": "混じって",
+        "ta": "混じた",
+        "nai": "混じらない",
+        "potential": "混じれる",
+        "passive": "混じられる",
+        "causative": "混じらせる",
+        "conditionalBa": "混じれば",
+        "conditionalTara": "混じったら",
+        "volitional": "混じろう",
+        "imperative": "混じれ"
+      }
     },
     {
       "id": "hinxu280-780",
@@ -3138,9 +6331,26 @@
         "GIAO HỖN"
       ],
       "meaningVi": "được trộn lẫn",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 混ざる (mazaru) là tự động từ (vật tự trộn lẫn), 混ぜる (mazeru) là tha động từ (ai đó trộn vật gì vào)."
+      ],
       "example": "男女が交ざってサッカーをした",
-      "exampleVi": "Nam và nữ đã lẫn vào nhau cùng chơi bóng đá"
+      "exampleVi": "Nam và nữ đã lẫn vào nhau cùng chơi bóng đá",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "混ざります",
+        "te": "混ざって",
+        "ta": "混ざった",
+        "nai": "混ざらない",
+        "potential": "混ざれる",
+        "passive": "混ざられる",
+        "causative": "混ざらせる",
+        "conditionalBa": "混ざれば",
+        "conditionalTara": "混ざったら",
+        "volitional": "混ざろう",
+        "imperative": "混ざれ"
+      }
     },
     {
       "id": "hinxu280-781",
@@ -3152,9 +6362,26 @@
         "GIAO HỖN"
       ],
       "meaningVi": "trộn vào",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt 交ぜる (trộn những thứ khác loại vào nhau) và 混ぜる (trộn lẫn các thứ lại với nhau để tạo thành một hỗn hợp đồng nhất)."
+      ],
       "example": "お米に豆を交ぜていた",
-      "exampleVi": "Đã trộn lẫn gạo và đậu nành với nhau"
+      "exampleVi": "Đã trộn lẫn gạo và đậu nành với nhau",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "混ぜます",
+        "te": "混ぜて",
+        "ta": "混ぜた",
+        "nai": "混ぜない",
+        "potential": "混ぜられる",
+        "passive": "混ぜられる",
+        "causative": "混ぜさせる",
+        "conditionalBa": "混ぜれば",
+        "conditionalTara": "混ぜたら",
+        "volitional": "混ぜよう",
+        "imperative": "混ぜろ"
+      }
     },
     {
       "id": "hinxu280-782",
@@ -3166,9 +6393,26 @@
         "GIẢI DUNG"
       ],
       "meaningVi": "được giải quyết, nóng chảy",
-      "mnemonic": [],
+      "mnemonic": [
+        "溶ける: Tan chảy (băng, kem), 解ける: Giải quyết (vấn đề), cởi bỏ (nút thắt), tan biến (hiểu lầm)."
+      ],
       "example": "3時間かかって、やっと問題が解けた",
-      "exampleVi": "Tốn hơn 3 tiếng, cuối cùng vấn đề cũng đã được giải quyết"
+      "exampleVi": "Tốn hơn 3 tiếng, cuối cùng vấn đề cũng đã được giải quyết",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "溶けます／解けます",
+        "te": "溶けて／解けて",
+        "ta": "溶けた／解けた",
+        "nai": "溶けない／解けない",
+        "potential": "溶けられる／解けられる",
+        "passive": "溶けられる／解けられる",
+        "causative": "溶けさせる／解けさせる",
+        "conditionalBa": "溶ければ／解ければ",
+        "conditionalTara": "溶けたら／解けたら",
+        "volitional": "溶けよう／解けよう",
+        "imperative": "溶けろ／解けろ"
+      }
     },
     {
       "id": "hinxu280-783",
@@ -3184,7 +6428,22 @@
         "TÔI CỨ(とく) giải quyết thì làm sao nào"
       ],
       "example": "数学の問題を解く",
-      "exampleVi": "Giải bài toán"
+      "exampleVi": "Giải bài toán",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "解きます／溶きます／溶かします",
+        "te": "解いて／溶いて／溶かして",
+        "ta": "解いた／溶いた／溶かした",
+        "nai": "解かない／溶かない／溶かさない",
+        "potential": "解ける／溶ける／溶かせる",
+        "passive": "解かれる／溶かれる／溶かされる",
+        "causative": "解かせる／溶かせる／溶かさせる",
+        "conditionalBa": "解けば／溶けば／溶かせば",
+        "conditionalTara": "解いたら／溶いたら／溶かしたら",
+        "volitional": "解こう／溶こう／溶かそう",
+        "imperative": "解け／溶け／溶かせ"
+      }
     },
     {
       "id": "hinxu280-785",
@@ -3196,9 +6455,26 @@
         "HÀM"
       ],
       "meaningVi": "bao gồm",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt 含める (fukumeru - bao gồm, chứa đựng - tha động từ) và 含まる (fukumaru - được bao gồm - tự động từ)."
+      ],
       "example": "うちの家族は私を含めて5人です",
-      "exampleVi": "Gia đình tôi thì gồm cả tôi là 5 người"
+      "exampleVi": "Gia đình tôi thì gồm cả tôi là 5 người",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "含めます",
+        "te": "含めて",
+        "ta": "含めた",
+        "nai": "含めない",
+        "potential": "含められる",
+        "passive": "含められる",
+        "causative": "含めさせる",
+        "conditionalBa": "含めれば",
+        "conditionalTara": "含めたら",
+        "volitional": "含めよう",
+        "imperative": "含めろ"
+      }
     },
     {
       "id": "hinxu280-786",
@@ -3210,9 +6486,26 @@
         "BẠT"
       ],
       "meaningVi": "tháo, tuột",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt: 抜ける (Tự động từ: cái gì đó bị tuột ra, thoát ra) và 抜く (Tha động từ: lấy cái gì đó ra, nhổ ra)."
+      ],
       "example": "髪の毛が抜ける",
-      "exampleVi": "Tóc rụng"
+      "exampleVi": "Tóc rụng",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "抜けます",
+        "te": "抜けて",
+        "ta": "抜けた",
+        "nai": "抜けない",
+        "potential": "抜けれる",
+        "passive": "抜けられる",
+        "causative": "抜けさせる",
+        "conditionalBa": "抜ければ",
+        "conditionalTara": "抜けたら",
+        "volitional": "抜けよう",
+        "imperative": "抜け"
+      }
     },
     {
       "id": "hinxu280-787",
@@ -3224,9 +6517,26 @@
         "BẠT"
       ],
       "meaningVi": "lấy ra",
-      "mnemonic": [],
+      "mnemonic": [
+        "抜く (nuku): Nhổ, rút, lược bỏ (làm cho cái gì đó mất đi hoặc lấy ra)."
+      ],
       "example": "虫歯を抜く",
-      "exampleVi": "Nhổ răng sâu"
+      "exampleVi": "Nhổ răng sâu",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "抜きます",
+        "te": "抜いて",
+        "ta": "抜いた",
+        "nai": "抜かない",
+        "potential": "抜ける",
+        "passive": "抜かれる",
+        "causative": "抜かせる",
+        "conditionalBa": "抜けば",
+        "conditionalTara": "抜いたら",
+        "volitional": "抜こう",
+        "imperative": "抜け"
+      }
     },
     {
       "id": "hinxu280-788",
@@ -3242,7 +6552,22 @@
         "ANH RA WÀI(あらわ) là anh xuất hiện (biểu hiện) quài"
       ],
       "example": "犯人は金を取りに現れたところを逮捕された",
-      "exampleVi": "Phạm nhân thì đã bị bắt tại chỗ đã trộm tiền"
+      "exampleVi": "Phạm nhân thì đã bị bắt tại chỗ đã trộm tiền",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "現れます",
+        "te": "現れて",
+        "ta": "現れた",
+        "nai": "現れない",
+        "potential": "現れられる",
+        "passive": "現れられる",
+        "causative": "現れさせる",
+        "conditionalBa": "現れれば",
+        "conditionalTara": "現れたら",
+        "volitional": "現れよう",
+        "imperative": "現れろ"
+      }
     },
     {
       "id": "hinxu280-789",
@@ -3254,9 +6579,26 @@
         "HIỆN"
       ],
       "meaningVi": "xuất hiện, hiện ra",
-      "mnemonic": [],
+      "mnemonic": [
+        "Phân biệt với 表す (thể hiện, biểu đạt ý tưởng/cảm xúc) và 現す (xuất hiện, làm cho lộ diện, thường đi với 姿 hoặc 本性)."
+      ],
       "example": "雲がなくなって、富士山が姿を現した",
-      "exampleVi": "Mây biến mất rồi núi Phú Sỹ đã xuất hiện hình dạng (kiểu hiện nguyên hình :v)"
+      "exampleVi": "Mây biến mất rồi núi Phú Sỹ đã xuất hiện hình dạng (kiểu hiện nguyên hình :v)",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "現します",
+        "te": "現して",
+        "ta": "現した",
+        "nai": "現さない",
+        "potential": "現せる",
+        "passive": "現される",
+        "causative": "現させる",
+        "conditionalBa": "現せば",
+        "conditionalTara": "現したら",
+        "volitional": "現そう",
+        "imperative": "現せ"
+      }
     },
     {
       "id": "hinxu280-792",
@@ -3272,7 +6614,22 @@
         "CHIA RA CHIA RA (ちら) là bừa bộn lung tung, rơi rụng lả tả"
       ],
       "example": "風で桜が散ってしまった",
-      "exampleVi": "Hoa Anh Đào đã tàn vì gió"
+      "exampleVi": "Hoa Anh Đào đã tàn vì gió",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "散ります",
+        "te": "散って",
+        "ta": "散った",
+        "nai": "散らない",
+        "potential": "散れる",
+        "passive": "散られる",
+        "causative": "散らせる",
+        "conditionalBa": "散れば",
+        "conditionalTara": "散ったら",
+        "volitional": "散ろう",
+        "imperative": "散れ"
+      }
     },
     {
       "id": "hinxu280-793",
@@ -3284,9 +6641,26 @@
         "TÁN"
       ],
       "meaningVi": "tàn",
-      "mnemonic": [],
+      "mnemonic": [
+        "Cách nhớ: 散らす (chirasu) là tha động từ (làm cho rụng/tan tác), còn 散る (chiru) là tự động từ (tự rụng/tan tác)."
+      ],
       "example": "風が桜を散らしてしまった",
-      "exampleVi": "Gió đã làm Hoa Anh Đào tàn mất rồi"
+      "exampleVi": "Gió đã làm Hoa Anh Đào tàn mất rồi",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "散らします",
+        "te": "散らして",
+        "ta": "散らした",
+        "nai": "散らさない",
+        "potential": "散らせる",
+        "passive": "散らされる",
+        "causative": "散らさせる",
+        "conditionalBa": "散らせば",
+        "conditionalTara": "散らしたら",
+        "volitional": "散らそう",
+        "imperative": "散らせ"
+      }
     },
     {
       "id": "hinxu280-794",
@@ -3302,7 +6676,22 @@
         "ANH KÊU (あけ) bắt đầu/kết thúc"
       ],
       "example": "夜が明ける",
-      "exampleVi": "Đêm tàn"
+      "exampleVi": "Đêm tàn",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tự động từ",
+      "conjugations": {
+        "masu": "明けます",
+        "te": "明けて",
+        "ta": "明けた",
+        "nai": "明けない",
+        "potential": "明けられる",
+        "passive": "明けられる",
+        "causative": "明けさせる",
+        "conditionalBa": "明ければ",
+        "conditionalTara": "明けたら",
+        "volitional": "明けよう",
+        "imperative": "明けろ"
+      }
     },
     {
       "id": "hinxu280-795",
@@ -3318,7 +6707,22 @@
         "SAY SƯA (さす) bung dù, nhỏ mắt"
       ],
       "example": "雨がやんで、日が差してきた",
-      "exampleVi": "Mưa tạnh rồi nắng lên"
+      "exampleVi": "Mưa tạnh rồi nắng lên",
+      "verbGroup": "Nhóm 1 (Godan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "差します",
+        "te": "差して",
+        "ta": "差した",
+        "nai": "差さない",
+        "potential": "差せる",
+        "passive": "差される",
+        "causative": "差させる",
+        "conditionalBa": "差せば",
+        "conditionalTara": "差したら",
+        "volitional": "差そう",
+        "imperative": "差せ"
+      }
     }
   ]
 }

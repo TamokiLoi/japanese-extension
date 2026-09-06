@@ -23,10 +23,12 @@ export interface VerbConjugations {
   potential?: string;
   passive?: string;
   causative?: string;
+  causativePassive?: string;
   conditionalBa?: string;
   conditionalTara?: string;
   volitional?: string;
   imperative?: string;
+  prohibitive?: string;
 }
 
 export interface TanoshiiVocabWord {
