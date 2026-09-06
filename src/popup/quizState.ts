@@ -1,9 +1,11 @@
 import type { Kanji, JlptLevel } from "../types/kanji.ts";
 import type { VocabCard } from "./vocabState.ts";
 import type { BunpoGrammarPoint } from "../types/bunpo.ts";
+import type { ItBookVocabWord } from "../types/itBook.ts";
 import { getOrderedList as getKanjiOrderedList, loadViewerState as loadKanjiViewerState } from "./kanjiState.ts";
 import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabViewerState } from "./vocabState.ts";
 import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
+import { getOrderedList as getItBookVocabOrderedList, loadViewerState as loadItBookVocabViewerState } from "./itBookState.ts";
 import { loadProgressMap, pickWeighted, bucketFor, type ProgressMap, type ProgressBucket } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
@@ -18,7 +20,7 @@ export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30, 50, 100];
 export const ALL_QUESTIONS_SENTINEL = Number.MAX_SAFE_INTEGER;
 const CHOICE_COUNT = 4;
 
-export type QuizContentType = "kanji" | "vocab" | "bunpo";
+export type QuizContentType = "kanji" | "vocab" | "bunpo" | "itBookVocab";
 // "meaning": show the kanji, pick its Hán Việt/nghĩa. "character": the
 // reverse -- show Hán Việt/nghĩa as the prompt, pick the matching kanji.
 export type KanjiQuizMode = "meaning" | "character";
@@ -29,6 +31,10 @@ export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFro
 // "meaning": show the grammar pattern, pick its Vietnamese meaning.
 // "pattern": the reverse -- show the meaning, pick the matching pattern.
 export type BunpoQuizMode = "meaning" | "pattern";
+// "meaning": show the IT term, pick its Vietnamese meaning. "wordFromMeaning":
+// the reverse. No reading-based mode -- unlike regular Vocab, most IT terms
+// are katakana loanwords whose reading equals the word itself.
+export type ItBookVocabQuizMode = "meaning" | "wordFromMeaning";
 
 export interface QuizChoice {
   text: string;
@@ -44,7 +50,9 @@ export interface QuizQuestion {
   // built once from whatever mode was selected at start time, and mastery
   // tracking needs to know exactly which direction each answer came from.
   mode: string;
-  level: JlptLevel;
+  // Absent for content without a JLPT level (currently only IT Book vocab)
+  // -- QuizScreen.tsx skips the level badge when this is undefined.
+  level?: JlptLevel;
   promptLabel: string;
   prompt: string;
   choices: QuizChoice[];
@@ -70,6 +78,10 @@ export const VOCAB_MODE_LABELS: Record<VocabQuizMode, string> = {
   reading: "Xem từ, đoán cách đọc",
   wordFromMeaning: "Xem nghĩa, đoán từ",
   wordFromReading: "Xem cách đọc, đoán từ",
+};
+export const IT_BOOK_VOCAB_MODE_LABELS: Record<ItBookVocabQuizMode, string> = {
+  meaning: "Xem từ, đoán nghĩa",
+  wordFromMeaning: "Xem nghĩa, đoán từ",
 };
 
 // Arrow-shorthand of the labels above, for the per-direction progress
@@ -163,7 +175,7 @@ function pickQuestionTargets<T extends { id: string }>(pool: T[], progressMap: P
   return targets;
 }
 
-function buildQuestion<T extends { id: string; level: JlptLevel }>(
+function buildQuestion<T extends { id: string; level?: JlptLevel }>(
   pool: T[],
   target: T,
   kind: QuizContentType,
@@ -259,11 +271,37 @@ export async function buildBunpoQuiz(
     .filter((q): q is QuizQuestion => q !== null);
 }
 
+export async function buildItBookVocabQuiz(
+  mode: ItBookVocabQuizMode,
+  questionCount: number,
+  bucket: QuizBucketFilter = "all",
+): Promise<QuizQuestion[]> {
+  const state = await loadItBookVocabViewerState();
+  const pool = getItBookVocabOrderedList({ ...state, randomOrder: false });
+  if (pool.length === 0) return [];
+  const progressMap = await loadProgressMap();
+  const scoped = filterByBucket(pool, progressMap, bucket);
+  if (scoped.length === 0) return [];
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
+
+  const meaningOf = (v: ItBookVocabWord) => v.meaningVi || "?";
+  const wordOf = (v: ItBookVocabWord) => v.word;
+
+  return targets
+    .map((v) =>
+      mode === "wordFromMeaning"
+        ? buildQuestion(pool, v, "itBookVocab", mode, wordOf, "Từ nào có nghĩa này?", meaningOf)
+        : buildQuestion(pool, v, "itBookVocab", mode, meaningOf, "Từ này nghĩa là gì?", wordOf),
+    )
+    .filter((q): q is QuizQuestion => q !== null);
+}
+
 export interface QuizSettings {
   contentType: QuizContentType;
   kanjiMode: KanjiQuizMode;
   vocabMode: VocabQuizMode;
   bunpoMode: BunpoQuizMode;
+  itBookVocabMode: ItBookVocabQuizMode;
   questionCount: number;
   progressBucket: QuizBucketFilter;
   // Opt-in: auto-advance to the next question a fixed delay after answering,
@@ -287,6 +325,7 @@ export async function loadQuizSettings(): Promise<QuizSettings> {
     kanjiMode: saved?.kanjiMode ?? "meaning",
     vocabMode: saved?.vocabMode ?? "meaning",
     bunpoMode: saved?.bunpoMode ?? "meaning",
+    itBookVocabMode: saved?.itBookVocabMode ?? "meaning",
     questionCount: saved?.questionCount ?? DEFAULT_QUESTION_COUNT,
     progressBucket: saved?.progressBucket ?? "all",
     autoAdvance: saved?.autoAdvance ?? false,

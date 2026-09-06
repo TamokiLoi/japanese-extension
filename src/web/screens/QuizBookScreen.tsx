@@ -32,6 +32,7 @@ import {
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../components/ui/select.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { StatCard } from "../components/StatCard.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
@@ -239,17 +240,22 @@ function ListView({
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
-        <select
+        <Select
+          items={countOptions.map((n) => ({ value: n, label: n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu` }))}
           value={selectedCount}
-          onChange={(e) => mutate({ questionCount: Number(e.target.value) })}
-          className="max-w-[45%] truncate rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-medium text-neutral-600 sm:max-w-none"
+          onValueChange={(value) => value !== null && mutate({ questionCount: value })}
         >
-          {countOptions.map((n) => (
-            <option key={n} value={n}>
-              {n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`}
-            </option>
-          ))}
-        </select>
+          <SelectTrigger className="h-auto max-w-[45%] rounded-full py-1.5 text-xs font-medium text-neutral-600 shadow-none sm:max-w-none">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {countOptions.map((n) => (
+              <SelectItem key={n} value={n}>
+                {n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         {doneCount > 0 ? (
           <button onClick={handleResetAllFiltered} className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400 hover:text-rose-600">
             <RotateCcw size={12} /> Đặt lại tất cả ({doneCount})

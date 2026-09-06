@@ -39,6 +39,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
   { screen: "itBookVocab", label: "Từ vựng IT", icon: Cpu },
+  { screen: "itBookLessons", label: "Bài học IT", icon: BookOpenText },
   { screen: "stats", label: "Thống kê", icon: BarChart3 },
   { screen: "backup", label: "Sao lưu dữ liệu", icon: DatabaseBackup },
   { screen: "guide", label: "Hướng dẫn", icon: Info },
@@ -64,6 +65,6 @@ export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "review"] },
-  { label: "IT Book", screens: ["itBookVocab"] },
+  { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide"] },
 ];

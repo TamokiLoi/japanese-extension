@@ -210,12 +210,17 @@ function SetupView({
     })();
   }, []);
 
+  // "itBookVocab" is unreachable here -- IT Book is a web-dashboard-only
+  // feature (see App.tsx's fallback message for that screen), so this
+  // popup's own "Nội dung" picker below never offers it as an option. The
+  // entries exist only so these Records satisfy Record<QuizContentType, ...>.
   const filterTextByType: Record<QuizContentType, string> = {
     kanji: kanjiFilterText,
     vocab: vocabFilterText,
     bunpo: bunpoFilterText,
+    itBookVocab: "—",
   };
-  const filterScreenLabel: Record<QuizContentType, string> = { kanji: "Kanji", vocab: "Từ vựng", bunpo: "Bunpo" };
+  const filterScreenLabel: Record<QuizContentType, string> = { kanji: "Kanji", vocab: "Từ vựng", bunpo: "Bunpo", itBookVocab: "Từ vựng IT" };
 
   async function updateSettings(partial: Partial<QuizSettings>) {
     const next = { ...settings, ...partial };

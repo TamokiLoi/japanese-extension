@@ -4,6 +4,7 @@ import {
   buildKanjiQuiz,
   buildVocabQuiz,
   buildBunpoQuiz,
+  buildItBookVocabQuiz,
   loadQuizSettings,
   saveQuizSettings,
   loadQuizSession,
@@ -19,12 +20,14 @@ import {
   type KanjiQuizMode,
   type VocabQuizMode,
   type BunpoQuizMode,
+  type ItBookVocabQuizMode,
   type QuizBucketFilter,
   requiredDirectionsFor,
   KANJI_MASTERY_DIRECTIONS,
   VOCAB_MASTERY_DIRECTIONS,
   KANJI_MODE_LABELS,
   VOCAB_MODE_LABELS,
+  IT_BOOK_VOCAB_MODE_LABELS,
   AUTO_ADVANCE_DELAY_MS,
 } from "../../popup/quizState.ts";
 import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../../popup/progressState.ts";
@@ -36,9 +39,16 @@ import {
   SOURCE_LABELS as BUNPO_SOURCE_LABELS,
   getFilteredList as getBunpoFilteredList,
 } from "../../popup/bunpoState.ts";
+import {
+  loadViewerState as loadItBookVocabViewerState,
+  findItBookVocabById,
+  LESSON_LABELS as IT_BOOK_LESSON_LABELS,
+  getOrderedList as getItBookVocabOrderedList,
+} from "../../popup/itBookState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "../components/ui/select.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
@@ -201,7 +211,7 @@ function SegmentedRadio<T extends string>({
           <button
             key={v}
             onClick={() => onChange(v)}
-            className={`rounded-lg px-3 py-2 text-xs font-semibold ${stack ? "w-full text-left" : "flex-1 text-center"} ${
+            className={`rounded-lg px-1.5 py-2 text-xs font-semibold whitespace-nowrap ${stack ? "w-full text-left" : "flex-1 text-center"} ${
               value === v ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
             }`}
           >
@@ -245,19 +255,22 @@ function SetupView({
   const [kanjiFilterText, setKanjiFilterText] = useState("—");
   const [vocabFilterText, setVocabFilterText] = useState("—");
   const [bunpoFilterText, setBunpoFilterText] = useState("—");
+  const [itBookVocabFilterText, setItBookVocabFilterText] = useState("—");
   const [questionCount, setQuestionCount] = useState(settings.questionCount);
   const [bucketCounts, setBucketCounts] = useState<Record<QuizBucketFilter, number> | null>(null);
 
   useEffect(() => {
     (async () => {
-      const [kanjiState, vocabState, bunpoState] = await Promise.all([
+      const [kanjiState, vocabState, bunpoState, itBookVocabState] = await Promise.all([
         loadKanjiViewerState(),
         loadVocabViewerState(),
         loadBunpoViewerState(),
+        loadItBookVocabViewerState(),
       ]);
       setKanjiFilterText(kanjiState.selectedLevels.join(", ") || "—");
       setVocabFilterText(vocabState.selectedSources.map((s) => SOURCE_LABELS[s]).join(", ") || "—");
       setBunpoFilterText(bunpoState.selectedSources.map((s) => BUNPO_SOURCE_LABELS[s]).join(", ") || "—");
+      setItBookVocabFilterText(itBookVocabState.selectedLessons.map((l) => IT_BOOK_LESSON_LABELS[l]).join(", ") || "—");
     })();
   }, []);
 
@@ -277,6 +290,8 @@ function SetupView({
           p = p.filter((v) => v.reading && v.reading !== v.word);
         }
         pool = p;
+      } else if (settings.contentType === "itBookVocab") {
+        pool = getItBookVocabOrderedList({ ...(await loadItBookVocabViewerState()), randomOrder: false });
       } else {
         pool = getBunpoFilteredList(await loadBunpoViewerState());
       }
@@ -286,8 +301,13 @@ function SetupView({
     })();
   }, [settings.contentType, settings.vocabMode]);
 
-  const filterTextByType: Record<QuizContentType, string> = { kanji: kanjiFilterText, vocab: vocabFilterText, bunpo: bunpoFilterText };
-  const filterScreenLabel: Record<QuizContentType, string> = { kanji: "Kanji", vocab: "Từ vựng", bunpo: "Bunpo" };
+  const filterTextByType: Record<QuizContentType, string> = {
+    kanji: kanjiFilterText,
+    vocab: vocabFilterText,
+    bunpo: bunpoFilterText,
+    itBookVocab: itBookVocabFilterText,
+  };
+  const filterScreenLabel: Record<QuizContentType, string> = { kanji: "Kanji", vocab: "Từ vựng", bunpo: "Bunpo", itBookVocab: "Từ vựng IT" };
 
   async function updateSettings(partial: Partial<QuizSettings>) {
     const next = { ...settings, ...partial };
@@ -301,7 +321,9 @@ function SetupView({
         ? await buildKanjiQuiz(settings.kanjiMode, questionCount, settings.progressBucket)
         : settings.contentType === "vocab"
           ? await buildVocabQuiz(settings.vocabMode, questionCount, settings.progressBucket)
-          : await buildBunpoQuiz(settings.bunpoMode, questionCount, settings.progressBucket);
+          : settings.contentType === "itBookVocab"
+            ? await buildItBookVocabQuiz(settings.itBookVocabMode, questionCount, settings.progressBucket)
+            : await buildBunpoQuiz(settings.bunpoMode, questionCount, settings.progressBucket);
     if (questions.length === 0) {
       onError(
         settings.progressBucket === "all"
@@ -337,6 +359,7 @@ function SetupView({
               ["kanji", "Kanji"],
               ["vocab", "Từ vựng"],
               ["bunpo", "Ngữ pháp"],
+              ["itBookVocab", "Từ vựng IT"],
             ]}
             value={settings.contentType}
             onChange={(v) => updateSettings({ contentType: v as QuizContentType })}
@@ -385,23 +408,47 @@ function SetupView({
           </div>
         ) : null}
 
+        {settings.contentType === "itBookVocab" ? (
+          <div>
+            <div className="mb-2 text-sm font-semibold text-neutral-500">Dạng câu hỏi</div>
+            <SegmentedRadio
+              variant="segmented"
+              stack
+              options={(Object.keys(IT_BOOK_VOCAB_MODE_LABELS) as ItBookVocabQuizMode[]).map((m): [ItBookVocabQuizMode, string] => [
+                m,
+                IT_BOOK_VOCAB_MODE_LABELS[m],
+              ])}
+              value={settings.itBookVocabMode}
+              onChange={(v) => updateSettings({ itBookVocabMode: v as ItBookVocabQuizMode })}
+            />
+          </div>
+        ) : null}
+
         <div>
           <div className="mb-2 text-sm font-semibold text-neutral-500">Số câu hỏi</div>
-          <select
+          <Select
+            items={[...QUESTION_COUNT_OPTIONS, ALL_QUESTIONS_SENTINEL].map((n) => ({
+              value: n,
+              label: n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`,
+            }))}
             value={questionCount}
-            onChange={(e) => {
-              const value = Number(e.target.value);
+            onValueChange={(value) => {
+              if (value === null) return;
               setQuestionCount(value);
               saveQuizSettings({ ...settings, questionCount: value });
             }}
-            className="rounded-lg border border-neutral-200 px-3 py-1.5 text-sm"
           >
-            {[...QUESTION_COUNT_OPTIONS, ALL_QUESTIONS_SENTINEL].map((n) => (
-              <option key={n} value={n}>
-                {n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`}
-              </option>
-            ))}
-          </select>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {[...QUESTION_COUNT_OPTIONS, ALL_QUESTIONS_SENTINEL].map((n) => (
+                <SelectItem key={n} value={n}>
+                  {n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu`}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <label className="flex cursor-pointer items-center gap-2.5 text-sm text-neutral-700">
@@ -498,6 +545,28 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
         <button onClick={() => open.onOpenBunpo(g.id)} className="flex items-center gap-1 pt-1 font-semibold text-rose-600">
           Xem thẻ đầy đủ <ArrowRight size={14} />
         </button>
+      </div>
+    );
+  }
+  if (q.kind === "itBookVocab") {
+    const w = findItBookVocabById(q.id);
+    if (!w) return null;
+    return (
+      <div className="mt-4 space-y-1.5 rounded-xl bg-neutral-50 p-4 text-sm">
+        {w.hanViet.length > 0 ? (
+          <div>
+            <b className="text-neutral-700">Hán Việt:</b> {formatHanViet(w.hanViet)}
+          </div>
+        ) : null}
+        <div>
+          <b className="text-neutral-700">Nghĩa:</b> {w.meaningVi}
+        </div>
+        {w.reading && w.reading !== w.word ? (
+          <div>
+            <b className="text-neutral-700">Cách đọc:</b> {w.reading}
+          </div>
+        ) : null}
+        <div className="text-xs text-neutral-400">{IT_BOOK_LESSON_LABELS[w.lesson]}</div>
       </div>
     );
   }
@@ -691,9 +760,11 @@ function PlayView({
       </button>
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
-        <span className="w-fit rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(q.level)}>
-          {q.level}
-        </span>
+        {q.level ? (
+          <span className="w-fit rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(q.level)}>
+            {q.level}
+          </span>
+        ) : null}
         <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-neutral-400">{q.promptLabel}</div>
         <div className={`mt-1 font-bold text-neutral-800 ${q.prompt.length > 6 ? "text-2xl" : "text-4xl"}`}>{q.prompt}</div>
 

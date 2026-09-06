@@ -1,9 +1,28 @@
 import { fileURLToPath } from "node:url";
-import { defineConfig } from "vite";
+import { rm } from "node:fs/promises";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import { crx } from "@crxjs/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import manifest from "./manifest.config.ts";
+
+// public/images/it-book/ (~26MB of scanned page images, see
+// ItBookLessonsScreen.tsx's "Ảnh trang sách gốc") is web-dashboard-only --
+// IT Book has no popup UI at all (App.tsx's fallback message). `public/` has
+// no per-build-target filtering in Vite, so both builds copy it verbatim by
+// default; this deletes it from the extension's dist/ right after Vite
+// copies public/ there, so the Chrome package doesn't ship 26MB nobody in
+// the popup can ever reach. No-op for the pages build (the images are the
+// whole point there).
+function pruneItBookImagesFromExtensionBuild(): Plugin {
+  return {
+    name: "prune-it-book-images",
+    apply: "build",
+    closeBundle: async () => {
+      await rm("dist/images/it-book", { recursive: true, force: true });
+    },
+  };
+}
 
 // GH_PAGES=true switches to the static-site build for GitHub Pages: no
 // crx() (that plugin assumes a manifest.json + service worker + chrome.*
@@ -23,7 +42,7 @@ const isPages = process.env.GH_PAGES === "true";
 
 export default defineConfig({
   base: isPages ? "/japanese-extension/" : "/",
-  plugins: isPages ? [react(), tailwindcss()] : [react(), crx({ manifest })],
+  plugins: isPages ? [react(), tailwindcss()] : [react(), crx({ manifest }), pruneItBookImagesFromExtensionBuild()],
   // "@/*" -> src/web/* -- see the tsconfig.json comment; shadcn/ui's
   // generated components (src/web/components/ui/**) import each other and
   // ./lib/utils this way. Harmless for the extension build: it's just an

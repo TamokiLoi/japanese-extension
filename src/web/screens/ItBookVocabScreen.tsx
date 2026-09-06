@@ -66,7 +66,7 @@ async function getFilteredList(state: ItBookViewerState): Promise<ItBookVocabWor
   return filterByProgress(getOrderedList(state), map, state.progressFilter);
 }
 
-export function ItBookVocabScreen() {
+export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = {}) {
   const [state, setState] = useState<ItBookViewerState | null>(null);
   const [list, setList] = useState<ItBookVocabWord[]>([]);
   const [progress, setProgress] = useState<ItemProgress | null>(null);
@@ -78,6 +78,10 @@ export function ItBookVocabScreen() {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
+      // Coming from "Bài học IT"'s "N từ vựng của bài này" link -- narrow the
+      // filter to just that lesson instead of whatever was last selected, so
+      // the count the user just saw actually matches what they land on.
+      if (jumpToLesson !== undefined) s = { ...s, selectedLessons: [jumpToLesson] };
       const l = await getFilteredList(s);
       // Always lands on the overview grid on a fresh visit, regardless of
       // whatever mode was last saved -- mirrors VocabScreen.tsx/KanjiScreen.tsx.
@@ -90,7 +94,8 @@ export function ItBookVocabScreen() {
     return () => {
       cancelled = true;
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [jumpToLesson]);
 
   useEffect(() => {
     let cancelled = false;

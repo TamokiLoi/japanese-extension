@@ -6,6 +6,60 @@
     <link rel="icon" type="image/png" href="/icons/icon48.png" />
     <title>Nihongo Nin</title>
     <link rel="stylesheet" href="/src/popup/style.css" />
+    <style>
+      /* Shown immediately from the static HTML, before any JS parses or the
+         web build's dynamically-imported WebApp chunk arrives -- replaces
+         what used to be a blank white flash with the app's own logo. Plain
+         CSS only (no Tailwind/React dependency) so it can render before
+         either is available; removed by the inline script below once #app
+         actually has content. */
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fafafa;
+        transition: opacity 0.15s ease-out;
+      }
+      #splash[data-hide] {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #splash .ring {
+        position: relative;
+        width: 76px;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #splash .ring::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid #f3dede;
+        border-top-color: #e11d48;
+        animation: splash-spin 0.8s linear infinite;
+      }
+      #splash img {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+      }
+      @keyframes splash-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #splash .ring::before {
+          animation: none;
+        }
+      }
+    </style>
     <script>
       // Undoes public/404.html's redirect trick: GitHub Pages has no
       // server-side SPA rewrite, so a direct link/reload on a non-root path
@@ -30,7 +84,40 @@
     </script>
   </head>
   <body>
+    <div id="splash">
+      <div class="ring">
+        <img src="/icons/icon128.png" alt="" />
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/popup/main.tsx"></script>
+    <script>
+      // Hides the splash once React has actually mounted something into
+      // #app, instead of on a fixed timer -- works the same whether that
+      // takes a few ms (extension popup, everything bundled locally) or
+      // noticeably longer (web build's dynamically-imported WebApp chunk).
+      (function () {
+        var splash = document.getElementById("splash");
+        var appEl = document.getElementById("app");
+        if (!splash || !appEl) return;
+        function hide() {
+          splash.setAttribute("data-hide", "");
+          setTimeout(function () {
+            splash.remove();
+          }, 200);
+        }
+        if (appEl.childNodes.length > 0) {
+          hide();
+          return;
+        }
+        var observer = new MutationObserver(function () {
+          if (appEl.childNodes.length > 0) {
+            observer.disconnect();
+            hide();
+          }
+        });
+        observer.observe(appEl, { childList: true });
+      })();
+    </script>
   </body>
 </html>

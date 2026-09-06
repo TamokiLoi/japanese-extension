@@ -1,11 +1,23 @@
 import itBookVocabRaw from "../data/it-book-vocab.json";
-import type { ItBookVocabDataset, ItBookVocabWord } from "../types/itBook.ts";
+import itBookLessonsRaw from "../data/it-book-lessons.json";
+import type { ItBookVocabDataset, ItBookVocabWord, ItBookLessonDataset, ItBookLesson } from "../types/itBook.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
 const dataset = itBookVocabRaw as unknown as ItBookVocabDataset;
 
 export const ALL_IT_BOOK_VOCAB: ItBookVocabWord[] = dataset.words;
+
+const lessonDataset = itBookLessonsRaw as unknown as ItBookLessonDataset;
+
+// The book's 15 reading/dialogue lessons -- OCR'd separately from the vocab
+// above (see _scratch/it-book-lessons/ for the extraction pipeline). Kept
+// sorted by lessonNumber so ItBookLessonsScreen can index straight into it.
+export const ALL_IT_BOOK_LESSONS: ItBookLesson[] = [...lessonDataset.lessons].sort((a, b) => a.lessonNumber - b.lessonNumber);
+
+export function findItBookLessonByNumber(n: number): ItBookLesson | undefined {
+  return ALL_IT_BOOK_LESSONS.find((l) => l.lessonNumber === n);
+}
 
 // 0 = "Từ thông dụng" (general terms, not tied to one lesson), 1-15 = the
 // book's 15 lessons in order -- see `assets/data/it-book/Tango IT.txt`'s

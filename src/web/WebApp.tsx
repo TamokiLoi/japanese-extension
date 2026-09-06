@@ -18,6 +18,7 @@ import { BackupScreen } from "./screens/BackupScreen.tsx";
 import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
+import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
 import "./tailwind.css";
 
 // "/" in dev/the extension build, "/japanese-extension/" on GitHub Pages
@@ -233,7 +234,9 @@ export function WebApp() {
   } else if (screen === "exams") {
     content = <DeThiScreen targetId={targetId} />;
   } else if (screen === "itBookVocab") {
-    content = <ItBookVocabScreen />;
+    content = <ItBookVocabScreen jumpToLesson={targetId ? Number(targetId) : undefined} />;
+  } else if (screen === "itBookLessons") {
+    content = <ItBookLessonsScreen onOpenVocab={(lesson) => go("itBookVocab", String(lesson))} />;
   } else {
     content = <App key={navKey} />;
   }
