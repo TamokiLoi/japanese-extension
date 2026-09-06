@@ -18,6 +18,7 @@ import {
   Target,
   BarChart3,
   TrendingUp,
+  CalendarCheck,
 } from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
 import { ALL_KANJI, getOrderedList as getFilteredKanji, loadViewerState as loadKanjiViewerState } from "../../popup/kanjiState.ts";
@@ -62,6 +63,7 @@ import {
   type DailyPlanItem,
 } from "../../popup/dailyPlanState.ts";
 import { ALL_EXAMS, loadDeThiHistory } from "../../popup/dethiState.ts";
+import { loadRoadmapSettings } from "../../popup/roadmapState.ts";
 import { loadLastActive, type LastActive, type ResumableScreen } from "../../popup/lastActiveState.ts";
 import { FilterSheet } from "../components/FilterSheet.tsx";
 
@@ -684,6 +686,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
   const [goals, setGoals] = useState<DailyGoals | null>(null);
   const [plan, setPlan] = useState<DailyPlan | null>(null);
   const [lastActive, setLastActive] = useState<LastActive | null>(null);
+  const [hasRoadmap, setHasRoadmap] = useState<boolean | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -694,6 +697,9 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
       setGoals(g);
       setPlan(computePlan(c, g));
       setLastActive(last);
+    });
+    loadRoadmapSettings().then((s) => {
+      if (!cancelled) setHasRoadmap(!!s.examDate);
     });
     return () => {
       cancelled = true;
@@ -712,6 +718,22 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-4">
       <h1 className="text-2xl font-bold text-neutral-800">{greeting()} 🌸</h1>
       <p className="mt-1 text-neutral-500">Hôm nay học tiếp một chút nhé. Kiên trì mỗi ngày, kết quả sẽ đến!</p>
+
+      {hasRoadmap === false ? (
+        <button
+          onClick={() => onNavigate("roadmap")}
+          className="mt-4 flex w-full items-center gap-3 rounded-2xl border border-rose-200 bg-rose-50 p-3.5 text-left hover:bg-rose-100"
+        >
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-rose-600">
+            <CalendarCheck size={17} />
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-semibold text-neutral-800">Lên lộ trình ôn thi N3</div>
+            <div className="truncate text-xs text-neutral-500">Nhập ngày thi, app tự chia kế hoạch học theo từng giai đoạn</div>
+          </div>
+          <ArrowRight size={16} className="shrink-0 text-rose-400" />
+        </button>
+      ) : null}
 
       {stats ? (
         <div className="mt-4 flex flex-col gap-6 md:mt-5 md:flex-row md:items-start">

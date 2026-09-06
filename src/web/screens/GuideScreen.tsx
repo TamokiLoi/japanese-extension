@@ -1,4 +1,20 @@
-import { Search, BookMarked, BookOpenText, GraduationCap, HelpCircle, RotateCcw, BarChart3, Filter, Headphones, ClipboardCheck, Info } from "lucide-react";
+import {
+  Search,
+  BookMarked,
+  BookOpenText,
+  GraduationCap,
+  HelpCircle,
+  RotateCcw,
+  BarChart3,
+  Filter,
+  Headphones,
+  ClipboardCheck,
+  Info,
+  CalendarCheck,
+  Cpu,
+  MessageCircleQuestion,
+  DatabaseBackup,
+} from "lucide-react";
 import { Card } from "../components/ui/card.tsx";
 
 interface GuideItem {
@@ -65,6 +81,16 @@ const GUIDE_SECTIONS: GuideItem[] = [
     ],
   },
   {
+    icon: CalendarCheck,
+    title: "Lộ trình N3",
+    points: [
+      "Nhập ngày thi N3, app tự chia 3 giai đoạn (Nền tảng → Luyện đề → Nước rút) theo % thời gian đã trôi qua.",
+      "Mỗi giai đoạn tự xếp Kanji/Từ vựng/Ngữ pháp/Đọc/Nghe theo đúng thứ tự sách từ dễ đến khó, dựa trên tiến độ thật (bộ nào chưa học hết mới coi là 'đang học' -- học nhanh/chậm hơn dự kiến thì tự điều chỉnh, không theo lịch cố định).",
+      "Bấm vào 1 dòng sẽ tự nhảy sang đúng màn đó, lọc sẵn đúng bộ đang học -- khỏi cần tự chọn lại bộ lọc.",
+      "Icon quyển sổ ở góc header mở 'Ghi chú tài liệu' -- mô tả ngắn + độ khó từng sách để biết trước nên học gì.",
+    ],
+  },
+  {
     icon: HelpCircle,
     title: "Quiz",
     points: [
@@ -87,6 +113,30 @@ const GUIDE_SECTIONS: GuideItem[] = [
     points: [
       "Xem tổng quan Đã thuộc/Đang học/Cần ôn lại/Chưa học theo Kanji hoặc Từ vựng, và tiến độ theo từng cấp độ/nguồn.",
       "Bấm vào 1 ô tổng quan (vd 'Cần ôn lại') để lọc danh sách bên dưới chỉ hiện đúng nhóm đó.",
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "IT Book",
+    points: [
+      "Riêng cho người học tiếng Nhật ngành IT -- từ vựng và 15 bài đọc/hội thoại chuyển thể từ 1 giáo trình IT tiếng Nhật thật.",
+      "Mỗi bài có ảnh chụp trang sách gốc (gập/mở được) để xem sơ đồ/bảng biểu không bị mất khi chuyển thành văn bản, kèm bài trắc nghiệm 'IT用語を覚えましょう' có đáp án thật để tự chấm.",
+    ],
+  },
+  {
+    icon: MessageCircleQuestion,
+    title: "Hỏi AI",
+    points: [
+      "Nút tròn nổi ở mọi màn (góc dưới trái trên mobile, dưới phải trên desktop) -- tự lấy ngữ cảnh từ thẻ đang xem để hỏi nhanh.",
+      "Mặc định mở tab ChatGPT/Gemini kèm sẵn câu hỏi -- hoàn toàn miễn phí. Muốn trả lời ngay tại chỗ thì tự nhập API key riêng (OpenAI hoặc Gemini) qua icon bánh răng trong popup -- key chỉ lưu trên máy bạn.",
+    ],
+  },
+  {
+    icon: DatabaseBackup,
+    title: "Sao lưu dữ liệu",
+    points: [
+      "Xuất toàn bộ tiến độ học (đã thuộc, streak, cài đặt lộ trình...) ra 1 file JSON.",
+      "Nhập lại file đó trên máy/trình duyệt khác để tiếp tục đúng tiến độ, không cần học lại từ đầu khi đổi thiết bị.",
     ],
   },
 ];

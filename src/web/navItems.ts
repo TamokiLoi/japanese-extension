@@ -15,6 +15,7 @@ import {
   ClipboardCheck,
   DatabaseBackup,
   Cpu,
+  CalendarCheck,
 } from "lucide-react";
 
 export interface NavItem {
@@ -36,6 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "listening", label: "Luyện nghe", icon: Headphones },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "exams", label: "Đề thi JLPT", icon: ClipboardCheck },
+  { screen: "roadmap", label: "Lộ trình N3", icon: CalendarCheck },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
   { screen: "itBookVocab", label: "Từ vựng IT", icon: Cpu },
@@ -64,7 +66,7 @@ export interface NavGroup {
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search"] },
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
-  { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "review"] },
+  { label: "Luyện thi", screens: ["quizBook", "exams", "roadmap", "quiz", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide"] },
 ];

@@ -22,6 +22,7 @@ const BACKUP_KEYS = [
   "dictationProgress",
   "dethiHistory",
   "dailyGoals",
+  "roadmapSettings",
   "lastActiveScreen",
   "quizSettings",
   "quizSession",

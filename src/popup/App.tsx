@@ -28,7 +28,8 @@ export type Screen =
   | "exams"
   | "backup"
   | "itBookVocab"
-  | "itBookLessons";
+  | "itBookLessons"
+  | "roadmap";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -49,6 +50,7 @@ export const VALID_SCREENS: Screen[] = [
   "backup",
   "itBookVocab",
   "itBookLessons",
+  "roadmap",
 ];
 
 interface Route {
@@ -195,6 +197,9 @@ export function App() {
   }
   if (screen === "itBookLessons") {
     return <p className="empty">Bài học IT hiện chỉ có trên bản Web Dashboard.</p>;
+  }
+  if (screen === "roadmap") {
+    return <p className="empty">Lộ trình ôn thi hiện chỉ có trên bản Web Dashboard.</p>;
   }
   return (
     <QuizScreen

@@ -165,7 +165,7 @@ export function WebAppShell({
         {drawerOpen ? (
           <div className="fixed inset-0 z-40 md:hidden">
             <div className="absolute inset-0 bg-black/30" onClick={() => setDrawerOpen(false)} />
-            <div className="absolute inset-y-0 left-0 flex w-64 flex-col bg-white p-4 shadow-xl">
+            <div className="absolute inset-y-0 left-0 flex w-64 flex-col overflow-y-auto bg-white p-4 shadow-xl">
               <div className="mb-5 flex items-center justify-between px-2">
                 <BrandLink onClick={() => go("menu")} />
                 <button className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100" onClick={() => setDrawerOpen(false)}>

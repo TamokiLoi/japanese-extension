@@ -12,7 +12,7 @@
       "lookup": "jisho.org + mazii.net qua Gemini url_context tool",
       "pipeline": "gemini-3.1-flash-lite url_context lookup"
     },
-    "notes": "Bổ sung các động từ N3/N4 phổ biến còn thiếu so với danh sách tham khảo do Gemini tạo, sau khi đối chiếu với bộ dữ liệu Động từ hiện có (vocab-tanoshii-dongtu-n4.json, vocab-dongtu-200.json, vocab-dongtu-280-hinxu.json). Mỗi từ được tra cứu riêng lẻ qua jisho.org (xác nhận đọc/loại từ/ví dụ) và mazii.net (nghĩa tiếng Việt), mnemonic tự sinh theo phong cách các bộ dữ liệu động từ khác (lồng âm Hán Việt/liên tưởng âm đọc). Level giữ theo đúng nhóm N3/N4 trong danh sách tham khảo. Ngày 2026-09-02. Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context cho phần đã tra xong (183/609, phần còn lại chờ quota Gemini reset), không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02). Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context, không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02)."
+    "notes": "Bổ sung các động từ N3/N4 phổ biến còn thiếu so với danh sách tham khảo do Gemini tạo, sau khi đối chiếu với bộ dữ liệu Động từ hiện có (vocab-tanoshii-dongtu-n4.json, vocab-dongtu-200.json, vocab-dongtu-280-hinxu.json). Mỗi từ được tra cứu riêng lẻ qua jisho.org (xác nhận đọc/loại từ/ví dụ) và mazii.net (nghĩa tiếng Việt), mnemonic tự sinh theo phong cách các bộ dữ liệu động từ khác (lồng âm Hán Việt/liên tưởng âm đọc). Level giữ theo đúng nhóm N3/N4 trong danh sách tham khảo. Ngày 2026-09-02. Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context cho phần đã tra xong (183/609, phần còn lại chờ quota Gemini reset), không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02). Đã bổ sung verbGroup/transitivity/conjugations (chia thể) tra cứu từ mazii.net qua Gemini url_context, không ghi đè meaningVi/example/mnemonic đã có sẵn (2026-09-02). Bổ sung thêm 2 thể causativePassive (使役受身)/prohibitive (禁止) tra cứu từ mazii.net qua Gemini url_context, additive vào conjugations đã có sẵn (2026-09-06). Bổ sung thêm 2 thể causativePassive (使役受身)/prohibitive (禁止) tra cứu từ mazii.net qua Gemini url_context, additive vào conjugations đã có sẵn (2026-09-06)."
   },
   "words": [
     {
@@ -43,7 +43,9 @@
         "conditionalBa": "謝れば",
         "conditionalTara": "謝ったら",
         "volitional": "謝ろう",
-        "imperative": "謝れ"
+        "imperative": "謝れ",
+        "causativePassive": "謝らせられる",
+        "prohibitive": "謝るな"
       }
     },
     {
@@ -74,7 +76,9 @@
         "conditionalBa": "失えば",
         "conditionalTara": "失ったら",
         "volitional": "失おう",
-        "imperative": "失え"
+        "imperative": "失え",
+        "causativePassive": "失わせられる",
+        "prohibitive": "失うな"
       }
     },
     {
@@ -105,7 +109,9 @@
         "conditionalBa": "疑えば",
         "conditionalTara": "疑ったら",
         "volitional": "疑おう",
-        "imperative": "疑え"
+        "imperative": "疑え",
+        "causativePassive": "疑わせられる",
+        "prohibitive": "疑うな"
       }
     },
     {
@@ -136,7 +142,9 @@
         "conditionalBa": "打てば",
         "conditionalTara": "打ったら",
         "volitional": "打とう",
-        "imperative": "打て"
+        "imperative": "打て",
+        "causativePassive": "打たせられる",
+        "prohibitive": "打つな"
       }
     },
     {
@@ -167,7 +175,9 @@
         "conditionalBa": "驚けば",
         "conditionalTara": "驚いたら",
         "volitional": "驚こう",
-        "imperative": "驚け"
+        "imperative": "驚け",
+        "causativePassive": "驚かせられる",
+        "prohibitive": "驚くな"
       }
     },
     {
@@ -199,7 +209,9 @@
         "conditionalBa": "感謝すれば",
         "conditionalTara": "感謝したら",
         "volitional": "感謝しよう",
-        "imperative": "感謝しろ"
+        "imperative": "感謝しろ",
+        "causativePassive": "感謝させられる",
+        "prohibitive": "感謝するな"
       }
     },
     {
@@ -230,7 +242,9 @@
         "conditionalBa": "刻めば",
         "conditionalTara": "刻んだら",
         "volitional": "刻もう",
-        "imperative": "刻め"
+        "imperative": "刻め",
+        "causativePassive": "刻ませられる",
+        "prohibitive": "刻むな"
       }
     },
     {
@@ -260,7 +274,9 @@
         "conditionalBa": "急げば",
         "conditionalTara": "急いだら",
         "volitional": "急ごう",
-        "imperative": "急げ"
+        "imperative": "急げ",
+        "causativePassive": "急ぐ",
+        "prohibitive": "急ぐな"
       }
     },
     {
@@ -322,7 +338,9 @@
         "conditionalBa": "触れば",
         "conditionalTara": "触ったら",
         "volitional": "触ろう",
-        "imperative": "触れ"
+        "imperative": "触れ",
+        "causativePassive": "触らせられる",
+        "prohibitive": "触るな"
       }
     },
     {
@@ -353,7 +371,9 @@
         "conditionalBa": "叱れば",
         "conditionalTara": "叱ったら",
         "volitional": "叱ろう",
-        "imperative": "叱れ"
+        "imperative": "叱れ",
+        "causativePassive": "叱らせられる",
+        "prohibitive": "叱るな"
       }
     },
     {
@@ -384,7 +404,9 @@
         "conditionalBa": "閉めれば",
         "conditionalTara": "閉めたら",
         "volitional": "閉めよう",
-        "imperative": "閉めろ"
+        "imperative": "閉めろ",
+        "causativePassive": "閉めさせられる",
+        "prohibitive": "閉めるな"
       }
     },
     {
@@ -415,7 +437,9 @@
         "conditionalBa": "戦えば",
         "conditionalTara": "戦ったら",
         "volitional": "戦おう",
-        "imperative": "戦え"
+        "imperative": "戦え",
+        "causativePassive": "戦わせられる",
+        "prohibitive": "戦うな"
       }
     },
     {
@@ -446,7 +470,9 @@
         "conditionalBa": "止めれば",
         "conditionalTara": "止めたら",
         "volitional": "止めよう",
-        "imperative": "止めろ"
+        "imperative": "止めろ",
+        "causativePassive": "止めさせられる",
+        "prohibitive": "止めるな"
       }
     },
     {
@@ -478,7 +504,9 @@
         "conditionalBa": "手伝えば",
         "conditionalTara": "手伝ったら",
         "volitional": "手伝おう",
-        "imperative": "手伝え"
+        "imperative": "手伝え",
+        "causativePassive": "手伝わせられる",
+        "prohibitive": "手伝うな"
       }
     },
     {
@@ -509,7 +537,9 @@
         "conditionalBa": "泣けば",
         "conditionalTara": "泣いたら",
         "volitional": "泣こう",
-        "imperative": "泣け"
+        "imperative": "泣け",
+        "causativePassive": "泣かせられる",
+        "prohibitive": "泣くな"
       }
     },
     {
@@ -540,7 +570,9 @@
         "conditionalBa": "逃げれば",
         "conditionalTara": "逃げたら",
         "volitional": "逃げよう",
-        "imperative": "逃げろ"
+        "imperative": "逃げろ",
+        "causativePassive": "逃げさせられる",
+        "prohibitive": "逃げるな"
       }
     },
     {
@@ -571,7 +603,9 @@
         "conditionalBa": "塗れば",
         "conditionalTara": "塗ったら",
         "volitional": "塗ろう",
-        "imperative": "塗れ"
+        "imperative": "塗れ",
+        "causativePassive": "塗らせられる",
+        "prohibitive": "塗るな"
       }
     },
     {
@@ -602,7 +636,9 @@
         "conditionalBa": "払えば",
         "conditionalTara": "払ったら",
         "volitional": "払おう",
-        "imperative": "払え"
+        "imperative": "払え",
+        "causativePassive": "払わせられる",
+        "prohibitive": "払うな"
       }
     },
     {
@@ -633,7 +669,9 @@
         "conditionalBa": "太れば",
         "conditionalTara": "太ったら",
         "volitional": "太ろう",
-        "imperative": "太れ"
+        "imperative": "太れ",
+        "causativePassive": "太らせられる",
+        "prohibitive": "太るな"
       }
     },
     {
@@ -665,7 +703,9 @@
         "conditionalBa": "踏めば",
         "conditionalTara": "踏んだら",
         "volitional": "踏もう",
-        "imperative": "踏め"
+        "imperative": "踏め",
+        "causativePassive": "踏ませられる",
+        "prohibitive": "踏むな"
       }
     },
     {
@@ -696,7 +736,9 @@
         "conditionalBa": "褒めれば",
         "conditionalTara": "褒めたら",
         "volitional": "褒めよう",
-        "imperative": "褒めろ"
+        "imperative": "褒めろ",
+        "causativePassive": "褒めさせられる",
+        "prohibitive": "褒めるな"
       }
     },
     {
@@ -727,7 +769,9 @@
         "conditionalBa": "回れば",
         "conditionalTara": "回ったら",
         "volitional": "回ろう",
-        "imperative": "回れ"
+        "imperative": "回れ",
+        "causativePassive": "回らせられる",
+        "prohibitive": "回るな"
       }
     },
     {
@@ -758,7 +802,9 @@
         "conditionalBa": "回せば",
         "conditionalTara": "回したら",
         "volitional": "回そう",
-        "imperative": "回せ"
+        "imperative": "回せ",
+        "causativePassive": "回させられる",
+        "prohibitive": "回すな"
       }
     },
     {
@@ -789,7 +835,9 @@
         "conditionalBa": "向かえば",
         "conditionalTara": "向かったら",
         "volitional": "向かおう",
-        "imperative": "向かえ"
+        "imperative": "向かえ",
+        "causativePassive": "向かわせられる",
+        "prohibitive": "向かうな"
       }
     },
     {
@@ -820,7 +868,9 @@
         "conditionalBa": "焼けば",
         "conditionalTara": "焼いたら",
         "volitional": "焼こう",
-        "imperative": "焼け"
+        "imperative": "焼け",
+        "causativePassive": "焼かせられる",
+        "prohibitive": "焼くな"
       }
     },
     {
@@ -880,7 +930,9 @@
         "conditionalBa": "やめれば",
         "conditionalTara": "やめたら",
         "volitional": "やめよう",
-        "imperative": "やめろ"
+        "imperative": "やめろ",
+        "causativePassive": "やめさせられる",
+        "prohibitive": "やめるな"
       }
     },
     {
@@ -911,7 +963,9 @@
         "conditionalBa": "辞めれば",
         "conditionalTara": "辞めたら",
         "volitional": "辞めよう",
-        "imperative": "辞めろ"
+        "imperative": "辞めろ",
+        "causativePassive": "辞めさせられる",
+        "prohibitive": "辞めるな"
       }
     },
     {
@@ -942,7 +996,9 @@
         "conditionalBa": "仰げば",
         "conditionalTara": "仰いだら",
         "volitional": "仰ごう",
-        "imperative": "仰げ"
+        "imperative": "仰げ",
+        "causativePassive": "仰がせられる",
+        "prohibitive": "仰ぐな"
       }
     },
     {
@@ -1002,7 +1058,9 @@
         "conditionalBa": "憧れれば",
         "conditionalTara": "憧れたら",
         "volitional": "憧れよう",
-        "imperative": "憧れろ"
+        "imperative": "憧れろ",
+        "causativePassive": "憧れさせられる",
+        "prohibitive": "憧れるな"
       }
     },
     {
@@ -1033,7 +1091,9 @@
         "conditionalBa": "味わえば",
         "conditionalTara": "味わったら",
         "volitional": "味わおう",
-        "imperative": "味わえ"
+        "imperative": "味わえ",
+        "causativePassive": "味わわせられる",
+        "prohibitive": "味わうな"
       }
     },
     {
@@ -1064,7 +1124,9 @@
         "conditionalBa": "当てはめれば",
         "conditionalTara": "当てはめたら",
         "volitional": "当てはめよう",
-        "imperative": "当てはめろ"
+        "imperative": "当てはめろ",
+        "causativePassive": "当てはめさせられる",
+        "prohibitive": "当てはめるな"
       }
     },
     {
@@ -1093,7 +1155,9 @@
         "conditionalBa": "暴れれば",
         "conditionalTara": "暴れたら",
         "volitional": "暴れよう",
-        "imperative": "暴れろ"
+        "imperative": "暴れろ",
+        "causativePassive": "暴れさせられる",
+        "prohibitive": "暴れるな"
       }
     },
     {
@@ -1186,7 +1250,9 @@
         "conditionalBa": "甘えれば",
         "conditionalTara": "甘えたら",
         "volitional": "甘えよう",
-        "imperative": "甘えろ"
+        "imperative": "甘えろ",
+        "causativePassive": "甘えさせられる",
+        "prohibitive": "甘えるな"
       }
     },
     {
@@ -1217,7 +1283,9 @@
         "conditionalBa": "余れば",
         "conditionalTara": "余ったら",
         "volitional": "余ろう",
-        "imperative": "余れ"
+        "imperative": "余れ",
+        "causativePassive": "余らせられる",
+        "prohibitive": "余るな"
       }
     },
     {
@@ -1248,7 +1316,9 @@
         "conditionalBa": "あふれれば",
         "conditionalTara": "あふれたら",
         "volitional": "あふれよう",
-        "imperative": "あふれろ"
+        "imperative": "あふれろ",
+        "causativePassive": "溢れさせられる",
+        "prohibitive": "溢れるな"
       }
     },
     {
@@ -1279,7 +1349,9 @@
         "conditionalBa": "甘やかせば",
         "conditionalTara": "甘やかしたら",
         "volitional": "甘やかそう",
-        "imperative": "甘やかせ"
+        "imperative": "甘やかせ",
+        "causativePassive": "甘やかさせられる",
+        "prohibitive": "甘やかすな"
       }
     },
     {
@@ -1310,7 +1382,9 @@
         "conditionalBa": "操れば",
         "conditionalTara": "操ったら",
         "volitional": "操ろう",
-        "imperative": "操れ"
+        "imperative": "操れ",
+        "causativePassive": "操らせられる",
+        "prohibitive": "操るな"
       }
     },
     {
@@ -1339,7 +1413,9 @@
         "conditionalBa": "あやまれば",
         "conditionalTara": "あやまったら",
         "volitional": "あやまろう",
-        "imperative": "あやまれ"
+        "imperative": "あやまれ",
+        "causativePassive": "あやまらせられる",
+        "prohibitive": "あやまるな"
       }
     },
     {
@@ -1370,7 +1446,9 @@
         "conditionalBa": "荒れれば",
         "conditionalTara": "荒れたら",
         "volitional": "荒れよう",
-        "imperative": "荒れろ"
+        "imperative": "荒れろ",
+        "causativePassive": "荒れさせられる",
+        "prohibitive": "荒れるな"
       }
     },
     {
@@ -1401,7 +1479,9 @@
         "conditionalBa": "抱えれば",
         "conditionalTara": "抱えたら",
         "volitional": "抱えよう",
-        "imperative": "抱えろ"
+        "imperative": "抱えろ",
+        "causativePassive": "抱えられる",
+        "prohibitive": "抱えるな"
       }
     },
     {
@@ -1494,7 +1574,9 @@
         "conditionalBa": "担げば",
         "conditionalTara": "担いだら",
         "volitional": "担ごう",
-        "imperative": "担げ"
+        "imperative": "担げ",
+        "causativePassive": "担がせられる",
+        "prohibitive": "担ぐな"
       }
     },
     {
@@ -1525,7 +1607,9 @@
         "conditionalBa": "悲しめば",
         "conditionalTara": "悲しんだら",
         "volitional": "悲しもう",
-        "imperative": "悲しめ"
+        "imperative": "悲しめ",
+        "causativePassive": "悲しませられる",
+        "prohibitive": "悲しむな"
       }
     },
     {
@@ -1583,7 +1667,9 @@
         "conditionalBa": "からかえば",
         "conditionalTara": "からかったら",
         "volitional": "からかおう",
-        "imperative": "からかえ"
+        "imperative": "からかえ",
+        "causativePassive": "揶揄わせられる",
+        "prohibitive": "揶揄うな"
       }
     },
     {
@@ -1645,7 +1731,9 @@
         "conditionalBa": "かわけば",
         "conditionalTara": "かわいたら",
         "volitional": "かわこう",
-        "imperative": "かわけ"
+        "imperative": "かわけ",
+        "causativePassive": "乾かせられる",
+        "prohibitive": "乾くな"
       }
     },
     {
@@ -1705,7 +1793,9 @@
         "conditionalBa": "きしめば",
         "conditionalTara": "きしんだら",
         "volitional": "きしまおう",
-        "imperative": "きしめ"
+        "imperative": "きしめ",
+        "causativePassive": "きしませられる",
+        "prohibitive": "きしむな"
       }
     },
     {
@@ -1736,7 +1826,9 @@
         "conditionalBa": "築けば",
         "conditionalTara": "築いたら",
         "volitional": "築こう",
-        "imperative": "築け"
+        "imperative": "築け",
+        "causativePassive": "築かせられる",
+        "prohibitive": "築くな"
       }
     },
     {
@@ -1767,7 +1859,9 @@
         "conditionalBa": "競えば",
         "conditionalTara": "競ったら",
         "volitional": "競おう",
-        "imperative": "競え"
+        "imperative": "競え",
+        "causativePassive": "競わせられる",
+        "prohibitive": "競うな"
       }
     },
     {
@@ -1798,7 +1892,9 @@
         "conditionalBa": "鍛えれば",
         "conditionalTara": "鍛えたら",
         "volitional": "鍛えよう",
-        "imperative": "鍛えろ"
+        "imperative": "鍛えろ",
+        "causativePassive": "鍛えさせられる",
+        "prohibitive": "鍛えるな"
       }
     },
     {
@@ -1829,7 +1925,9 @@
         "conditionalBa": "着飾れば",
         "conditionalTara": "着飾ったら",
         "volitional": "着飾ろう",
-        "imperative": "着飾れ"
+        "imperative": "着飾れ",
+        "causativePassive": "着飾らせられる",
+        "prohibitive": "着飾るな"
       }
     },
     {
@@ -1860,7 +1958,9 @@
         "conditionalBa": "拒めば",
         "conditionalTara": "拒んだら",
         "volitional": "拒もう",
-        "imperative": "拒め"
+        "imperative": "拒め",
+        "causativePassive": "拒ませられる",
+        "prohibitive": "拒むな"
       }
     },
     {
@@ -1889,7 +1989,9 @@
         "conditionalBa": "好めば",
         "conditionalTara": "好んだら",
         "volitional": "好もう",
-        "imperative": "好め"
+        "imperative": "好め",
+        "causativePassive": "好ませられる",
+        "prohibitive": "好むな"
       }
     },
     {
@@ -1920,7 +2022,9 @@
         "conditionalBa": "凝れば",
         "conditionalTara": "凝ったら",
         "volitional": "凝ろう",
-        "imperative": "凝れ"
+        "imperative": "凝れ",
+        "causativePassive": "凝らせられる",
+        "prohibitive": "凝るな"
       }
     },
     {
@@ -1951,7 +2055,9 @@
         "conditionalBa": "転がれば",
         "conditionalTara": "転がったら",
         "volitional": "転がろう",
-        "imperative": "転がれ"
+        "imperative": "転がれ",
+        "causativePassive": "転がらせられる",
+        "prohibitive": "転がるな"
       }
     },
     {
@@ -1982,7 +2088,9 @@
         "conditionalBa": "転がせば",
         "conditionalTara": "転がしたら",
         "volitional": "転がそう",
-        "imperative": "転がせ"
+        "imperative": "転がせ",
+        "causativePassive": "転がさせられる",
+        "prohibitive": "転がすな"
       }
     },
     {
@@ -2075,7 +2183,9 @@
         "conditionalBa": "凍えれば",
         "conditionalTara": "凍えたら",
         "volitional": "凍えよう",
-        "imperative": "凍えろ"
+        "imperative": "凍えろ",
+        "causativePassive": "凍えさせられる",
+        "prohibitive": "凍えるな"
       }
     },
     {
@@ -2135,7 +2245,9 @@
         "conditionalBa": "絶えれば",
         "conditionalTara": "絶えたら",
         "volitional": "絶えよう",
-        "imperative": "絶えろ"
+        "imperative": "絶えろ",
+        "causativePassive": "絶えさせられる",
+        "prohibitive": "絶えるな"
       }
     },
     {
@@ -2166,7 +2278,9 @@
         "conditionalBa": "蓄えれば",
         "conditionalTara": "蓄えたら",
         "volitional": "蓄えよう",
-        "imperative": "蓄えろ"
+        "imperative": "蓄えろ",
+        "causativePassive": "蓄えさせられる",
+        "prohibitive": "蓄えるな"
       }
     },
     {
@@ -2257,7 +2371,9 @@
         "conditionalBa": "立ち寄れば",
         "conditionalTara": "立ち寄ったら",
         "volitional": "立ち寄ろう",
-        "imperative": "立ち寄れ"
+        "imperative": "立ち寄れ",
+        "causativePassive": "立ち寄らせられる",
+        "prohibitive": "立ち寄るな"
       }
     },
     {
@@ -2288,7 +2404,9 @@
         "conditionalBa": "達成すれば",
         "conditionalTara": "達成したら",
         "volitional": "達成しよう",
-        "imperative": "達成しろ"
+        "imperative": "達成しろ",
+        "causativePassive": "達成させられる",
+        "prohibitive": "達成するな"
       }
     },
     {
@@ -2319,7 +2437,9 @@
         "conditionalBa": "散らかせば",
         "conditionalTara": "散らかしたら",
         "volitional": "散らかそう",
-        "imperative": "散らかせ"
+        "imperative": "散らかせ",
+        "causativePassive": "散らかさせられる",
+        "prohibitive": "散らかすな"
       }
     },
     {
@@ -2379,7 +2499,9 @@
         "conditionalBa": "つかめば",
         "conditionalTara": "つかんだら",
         "volitional": "つかもう",
-        "imperative": "つかめ"
+        "imperative": "つかめ",
+        "causativePassive": "掴まされる",
+        "prohibitive": "掴むな"
       }
     },
     {
@@ -2426,7 +2548,9 @@
         "conditionalBa": "突き出せば",
         "conditionalTara": "突き出したら",
         "volitional": "突き出そう",
-        "imperative": "突き出せ"
+        "imperative": "突き出せ",
+        "causativePassive": "突き出させられる",
+        "prohibitive": "突き出すな"
       }
     },
     {
@@ -2457,7 +2581,9 @@
         "conditionalBa": "努めれば",
         "conditionalTara": "努めたら",
         "volitional": "努めよう",
-        "imperative": "努めろ"
+        "imperative": "努めろ",
+        "causativePassive": "努めさせられる",
+        "prohibitive": "努めるな"
       }
     },
     {
@@ -2488,7 +2614,9 @@
         "conditionalBa": "務めれば",
         "conditionalTara": "務めたら",
         "volitional": "務めよう",
-        "imperative": "務めろ"
+        "imperative": "務めろ",
+        "causativePassive": "務めさせられる",
+        "prohibitive": "務めるな"
       }
     },
     {
@@ -2519,7 +2647,9 @@
         "conditionalBa": "連なれば",
         "conditionalTara": "連なったら",
         "volitional": "連なろう",
-        "imperative": "連なれ"
+        "imperative": "連なれ",
+        "causativePassive": "連ならせられる",
+        "prohibitive": "連なるな"
       }
     },
     {
@@ -2579,7 +2709,9 @@
         "conditionalBa": "つるせば",
         "conditionalTara": "つるしたら",
         "volitional": "つるそう",
-        "imperative": "つるせ"
+        "imperative": "つるせ",
+        "causativePassive": "つるさせられる",
+        "prohibitive": "つるすな"
       }
     },
     {
@@ -2641,7 +2773,9 @@
         "conditionalBa": "照らせば",
         "conditionalTara": "照らしたら",
         "volitional": "照らそう",
-        "imperative": "照らせ"
+        "imperative": "照らせ",
+        "causativePassive": "照らさせられる",
+        "prohibitive": "照らすな"
       }
     },
     {
@@ -2672,7 +2806,9 @@
         "conditionalBa": "溶かせば",
         "conditionalTara": "溶かしたら",
         "volitional": "溶かそう",
-        "imperative": "溶かせ"
+        "imperative": "溶かせ",
+        "causativePassive": "溶かす",
+        "prohibitive": "溶かすな"
       }
     },
     {
@@ -2732,7 +2868,9 @@
         "conditionalBa": "戸惑えば",
         "conditionalTara": "戸惑ったら",
         "volitional": "戸惑おう",
-        "imperative": "戸惑え"
+        "imperative": "戸惑え",
+        "causativePassive": "戸惑わせられる",
+        "prohibitive": "戸惑うな"
       }
     },
     {
@@ -2794,7 +2932,9 @@
         "conditionalBa": "取り扱えば",
         "conditionalTara": "取り扱ったら",
         "volitional": "取り扱おう",
-        "imperative": "取り扱え"
+        "imperative": "取り扱え",
+        "causativePassive": "取り扱わせられる",
+        "prohibitive": "取り扱うな"
       }
     },
     {
@@ -2825,7 +2965,9 @@
         "conditionalBa": "取り寄せれば",
         "conditionalTara": "取り寄せたら",
         "volitional": "取り寄せよう",
-        "imperative": "取り寄せろ"
+        "imperative": "取り寄せろ",
+        "causativePassive": "取り寄せさせられる",
+        "prohibitive": "取り寄せるな"
       }
     },
     {
@@ -2856,7 +2998,9 @@
         "conditionalBa": "捕らえれば",
         "conditionalTara": "捕らえたら",
         "volitional": "捕らえよう",
-        "imperative": "捕らえろ"
+        "imperative": "捕らえろ",
+        "causativePassive": "とらえさせられる",
+        "prohibitive": "とらえするな"
       }
     },
     {
@@ -2947,7 +3091,9 @@
         "conditionalBa": "なでれば",
         "conditionalTara": "なでたら",
         "volitional": "なでよう",
-        "imperative": "なでろ"
+        "imperative": "なでろ",
+        "causativePassive": "なでさせられる",
+        "prohibitive": "なでるな"
       }
     },
     {
@@ -2978,7 +3124,9 @@
         "conditionalBa": "習えば",
         "conditionalTara": "習ったら",
         "volitional": "習おう",
-        "imperative": "習え"
+        "imperative": "習え",
+        "causativePassive": "習わせられる",
+        "prohibitive": "習うな"
       }
     },
     {
@@ -3009,7 +3157,9 @@
         "conditionalBa": "馴染めば",
         "conditionalTara": "馴染んだら",
         "volitional": "馴染もう",
-        "imperative": "馴染め"
+        "imperative": "馴染め",
+        "causativePassive": "馴染ませられる",
+        "prohibitive": "馴染むな"
       }
     },
     {
@@ -3040,7 +3190,9 @@
         "conditionalBa": "納得すれば",
         "conditionalTara": "納得したら",
         "volitional": "納得しよう",
-        "imperative": "納得しろ"
+        "imperative": "納得しろ",
+        "causativePassive": "納得させられる",
+        "prohibitive": "納得するな"
       }
     },
     {
@@ -3071,7 +3223,9 @@
         "conditionalBa": "逃せば",
         "conditionalTara": "逃したら",
         "volitional": "逃そう",
-        "imperative": "逃せ"
+        "imperative": "逃せ",
+        "causativePassive": "逃させられる",
+        "prohibitive": "逃すな"
       }
     },
     {
@@ -3133,7 +3287,9 @@
         "conditionalBa": "にらめば",
         "conditionalTara": "にらんだら",
         "volitional": "にらもう",
-        "imperative": "にらめ"
+        "imperative": "にらめ",
+        "causativePassive": "睨ませられる",
+        "prohibitive": "睨むな"
       }
     },
     {
@@ -3162,7 +3318,9 @@
         "conditionalBa": "ねじれば",
         "conditionalTara": "ねじったら",
         "volitional": "ねじろう",
-        "imperative": "ねじれ"
+        "imperative": "ねじれ",
+        "causativePassive": "捻らせられる",
+        "prohibitive": "捻るな"
       }
     },
     {
@@ -3193,7 +3351,9 @@
         "conditionalBa": "狙えば",
         "conditionalTara": "狙ったら",
         "volitional": "狙おう",
-        "imperative": "狙え"
+        "imperative": "狙え",
+        "causativePassive": "狙わせられる",
+        "prohibitive": "狙うな"
       }
     },
     {
@@ -3224,7 +3384,9 @@
         "conditionalBa": "ねむれば",
         "conditionalTara": "ねむったら",
         "volitional": "ねむろう",
-        "imperative": "ねむれ"
+        "imperative": "ねむれ",
+        "causativePassive": "眠らせられる",
+        "prohibitive": "眠るな"
       }
     },
     {
@@ -3253,7 +3415,9 @@
         "conditionalBa": "ねらえば",
         "conditionalTara": "ねらったら",
         "volitional": "ねらおう",
-        "imperative": "ねらえ"
+        "imperative": "ねらえ",
+        "causativePassive": "狙わせられる",
+        "prohibitive": "狙うな"
       }
     },
     {
@@ -3314,7 +3478,9 @@
         "conditionalBa": "ののしれば",
         "conditionalTara": "ののしったら",
         "volitional": "ののしろう",
-        "imperative": "ののしれ"
+        "imperative": "ののしれ",
+        "causativePassive": "ののしらせられる",
+        "prohibitive": "ののしるな"
       }
     },
     {
@@ -3376,7 +3542,9 @@
         "conditionalBa": "広めれば",
         "conditionalTara": "広めたら",
         "volitional": "広めよう",
-        "imperative": "広めろ"
+        "imperative": "広めろ",
+        "causativePassive": "広めさせられる",
+        "prohibitive": "広めるな"
       }
     },
     {
@@ -3407,7 +3575,9 @@
         "conditionalBa": "控えれば",
         "conditionalTara": "控えたら",
         "volitional": "控えよう",
-        "imperative": "控えろ"
+        "imperative": "控えろ",
+        "causativePassive": "控えさせられる",
+        "prohibitive": "控えるな"
       }
     },
     {
@@ -3438,7 +3608,9 @@
         "conditionalBa": "響けば",
         "conditionalTara": "響いたら",
         "volitional": "響こう",
-        "imperative": "響け"
+        "imperative": "響け",
+        "causativePassive": "響かせられる",
+        "prohibitive": "響くな"
       }
     },
     {
@@ -3469,7 +3641,9 @@
         "conditionalBa": "光れば",
         "conditionalTara": "光ったら",
         "volitional": "光ろう",
-        "imperative": "光れ"
+        "imperative": "光れ",
+        "causativePassive": "光らせられる",
+        "prohibitive": "光るな"
       }
     },
     {
@@ -3498,7 +3672,9 @@
         "conditionalBa": "ひっくり返せば",
         "conditionalTara": "ひっくり返したら",
         "volitional": "ひっくり返そう",
-        "imperative": "ひっくり返せ"
+        "imperative": "ひっくり返せ",
+        "causativePassive": "ひっくり返させられる",
+        "prohibitive": "ひっくり返すな"
       }
     },
     {
@@ -3587,7 +3763,9 @@
         "conditionalBa": "震えれば",
         "conditionalTara": "震えたら",
         "volitional": "震えよう",
-        "imperative": "震えろ"
+        "imperative": "震えろ",
+        "causativePassive": "震わせられる",
+        "prohibitive": "震えるな"
       }
     },
     {
@@ -3678,7 +3856,9 @@
         "conditionalBa": "隔てれば",
         "conditionalTara": "隔てたら",
         "volitional": "隔てよう",
-        "imperative": "隔てろ"
+        "imperative": "隔てろ",
+        "causativePassive": "隔てさせられる",
+        "prohibitive": "隔てるな"
       }
     },
     {
@@ -3707,7 +3887,9 @@
         "conditionalBa": "へらせば",
         "conditionalTara": "へらしたら",
         "volitional": "へらそう",
-        "imperative": "へらせ"
+        "imperative": "へらせ",
+        "causativePassive": "へらさせられる",
+        "prohibitive": "へらすな"
       }
     },
     {
@@ -3765,7 +3947,9 @@
         "conditionalBa": "ほほえめば",
         "conditionalTara": "ほほえんだら",
         "volitional": "ほほえもう",
-        "imperative": "ほほえめ"
+        "imperative": "ほほえめ",
+        "causativePassive": "ほほえませられる",
+        "prohibitive": "ほほえむな"
       }
     },
     {
@@ -3915,7 +4099,9 @@
         "conditionalBa": "増せば",
         "conditionalTara": "増したら",
         "volitional": "増そう",
-        "imperative": "増せ"
+        "imperative": "増せ",
+        "causativePassive": "増させられる",
+        "prohibitive": "増すな"
       }
     },
     {
@@ -3944,7 +4130,9 @@
         "conditionalBa": "またげば",
         "conditionalTara": "またいだら",
         "volitional": "またごう",
-        "imperative": "またげ"
+        "imperative": "またげ",
+        "causativePassive": "跨がせられる",
+        "prohibitive": "跨ぐな"
       }
     },
     {
@@ -4018,7 +4206,9 @@
         "conditionalBa": "磨けば",
         "conditionalTara": "磨いたら",
         "volitional": "磨こう",
-        "imperative": "磨け"
+        "imperative": "磨け",
+        "causativePassive": "磨かせられる",
+        "prohibitive": "磨くな"
       }
     },
     {
@@ -4049,7 +4239,9 @@
         "conditionalBa": "乱れれば",
         "conditionalTara": "乱れたら",
         "volitional": "乱れよう",
-        "imperative": "乱れろ"
+        "imperative": "乱れろ",
+        "causativePassive": "乱れさせられる",
+        "prohibitive": "乱れるな"
       }
     },
     {
@@ -4111,7 +4303,9 @@
         "conditionalBa": "満たせば",
         "conditionalTara": "満たしたら",
         "volitional": "満たそう",
-        "imperative": "満たせ"
+        "imperative": "満たせ",
+        "causativePassive": "満たさせられる",
+        "prohibitive": "満たすな"
       }
     },
     {
@@ -4173,7 +4367,9 @@
         "conditionalBa": "実れば",
         "conditionalTara": "実ったら",
         "volitional": "実ろう",
-        "imperative": "実れ"
+        "imperative": "実れ",
+        "causativePassive": "実らせられる",
+        "prohibitive": "実るな"
       }
     },
     {
@@ -4293,7 +4489,9 @@
         "conditionalBa": "盛れば",
         "conditionalTara": "盛ったら",
         "volitional": "盛ろう",
-        "imperative": "盛れ"
+        "imperative": "盛れ",
+        "causativePassive": "盛らせられる",
+        "prohibitive": "盛るな"
       }
     },
     {
@@ -4324,7 +4522,9 @@
         "conditionalBa": "漏れれば",
         "conditionalTara": "漏れたら",
         "volitional": "漏れよう",
-        "imperative": "漏れろ"
+        "imperative": "漏れろ",
+        "causativePassive": "漏れさせられる",
+        "prohibitive": "漏れるな"
       }
     },
     {
@@ -4355,7 +4555,9 @@
         "conditionalBa": "漏らせば",
         "conditionalTara": "漏らしたら",
         "volitional": "漏らそう",
-        "imperative": "漏らせ"
+        "imperative": "漏らせ",
+        "causativePassive": "漏らさせられる",
+        "prohibitive": "漏らすな"
       }
     },
     {
@@ -4384,7 +4586,9 @@
         "conditionalBa": "やどせば",
         "conditionalTara": "やどしたら",
         "volitional": "やどそう",
-        "imperative": "やどせ"
+        "imperative": "やどせ",
+        "causativePassive": "やどさせられる",
+        "prohibitive": "やどすな"
       }
     },
     {
@@ -4473,7 +4677,9 @@
         "conditionalBa": "譲れば",
         "conditionalTara": "譲ったら",
         "volitional": "譲ろう",
-        "imperative": "譲れ"
+        "imperative": "譲れ",
+        "causativePassive": "譲らせられる",
+        "prohibitive": "譲るな"
       }
     },
     {
@@ -4564,7 +4770,9 @@
         "conditionalBa": "呼びかければ",
         "conditionalTara": "呼びかけたら",
         "volitional": "呼びかけよう",
-        "imperative": "呼びかけろ"
+        "imperative": "呼びかけろ",
+        "causativePassive": "呼びかけさせられる",
+        "prohibitive": "呼びかけるな"
       }
     },
     {
@@ -4593,7 +4801,9 @@
         "conditionalBa": "よみがえれば",
         "conditionalTara": "よみがえったら",
         "volitional": "よみがえろう",
-        "imperative": "よみがえれ"
+        "imperative": "よみがえれ",
+        "causativePassive": "よみがえらせられる",
+        "prohibitive": "よみがえるな"
       }
     },
     {
@@ -4624,7 +4834,9 @@
         "conditionalBa": "略せば",
         "conditionalTara": "略したら",
         "volitional": "略そう",
-        "imperative": "略せ"
+        "imperative": "略せ",
+        "causativePassive": "略させられる",
+        "prohibitive": "略すな"
       }
     },
     {
@@ -4655,7 +4867,9 @@
         "conditionalBa": "論じれば",
         "conditionalTara": "論じたら",
         "volitional": "論じよう",
-        "imperative": "論じろ"
+        "imperative": "論じろ",
+        "causativePassive": "論じさせられる",
+        "prohibitive": "論じるな"
       }
     },
     {

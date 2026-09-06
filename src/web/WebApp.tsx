@@ -19,6 +19,7 @@ import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
 import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
+import { RoadmapScreen } from "./screens/RoadmapScreen.tsx";
 import { resolveChatContext } from "./lib/chatContext.ts";
 import "./tailwind.css";
 
@@ -238,6 +239,8 @@ export function WebApp() {
     content = <ItBookVocabScreen jumpToLesson={targetId ? Number(targetId) : undefined} />;
   } else if (screen === "itBookLessons") {
     content = <ItBookLessonsScreen onOpenVocab={(lesson) => go("itBookVocab", String(lesson))} />;
+  } else if (screen === "roadmap") {
+    content = <RoadmapScreen onNavigate={go} />;
   } else {
     content = <App key={navKey} />;
   }
