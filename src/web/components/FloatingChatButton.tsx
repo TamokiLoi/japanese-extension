@@ -10,13 +10,17 @@ import {
   DEFAULT_OPENAI_MODEL,
 } from "../../popup/openaiKeyState.ts";
 import {
-  loadGeminiKey,
-  saveGeminiKey,
-  clearGeminiKey,
+  loadGeminiKeys,
+  addGeminiKey,
+  removeGeminiKey,
+  loadActiveGeminiKey,
+  selectGeminiKey,
+  loadSelectedGeminiKeyId,
   loadGeminiModel,
   saveGeminiModel,
   GEMINI_MODELS,
   DEFAULT_GEMINI_MODEL,
+  type GeminiKeyEntry,
 } from "../../popup/geminiKeyState.ts";
 import { askOpenAi, OpenAiChatError } from "../lib/openaiChat.ts";
 import { askGemini, GeminiChatError } from "../lib/geminiChat.ts";
@@ -75,6 +79,8 @@ export function FloatingChatButton({ getContext }: { getContext: () => string })
   const [provider, setProvider] = useState<Provider>("gemini");
   const [openaiKey, setOpenaiKey] = useState<string | undefined>(undefined);
   const [geminiKey, setGeminiKey] = useState<string | undefined>(undefined);
+  const [geminiKeys, setGeminiKeys] = useState<GeminiKeyEntry[]>([]);
+  const [selectedGeminiKeyId, setSelectedGeminiKeyId] = useState("");
   const [openaiModel, setOpenaiModel] = useState(DEFAULT_OPENAI_MODEL as string);
   const [geminiModel, setGeminiModel] = useState(DEFAULT_GEMINI_MODEL as string);
   const [showSettings, setShowSettings] = useState(false);
@@ -86,7 +92,9 @@ export function FloatingChatButton({ getContext }: { getContext: () => string })
 
   useEffect(() => {
     void loadOpenAiKey().then(setOpenaiKey);
-    void loadGeminiKey().then(setGeminiKey);
+    void loadActiveGeminiKey().then(setGeminiKey);
+    void loadGeminiKeys().then(setGeminiKeys);
+    void loadSelectedGeminiKeyId().then(setSelectedGeminiKeyId);
     void loadOpenAiModel().then(setOpenaiModel);
     void loadGeminiModel().then(setGeminiModel);
     void storageGet<Provider>(LAST_PROVIDER_KEY).then((p) => {
@@ -180,23 +188,34 @@ export function FloatingChatButton({ getContext }: { getContext: () => string })
     if (provider === "chatgpt") {
       await saveOpenAiKey(keyInput.trim());
       setOpenaiKey(keyInput.trim());
+      setKeyInput("");
+      setShowSettings(false);
     } else {
-      await saveGeminiKey(keyInput.trim());
-      setGeminiKey(keyInput.trim());
+      const next = await addGeminiKey(keyInput.trim());
+      setGeminiKeys(next);
+      setSelectedGeminiKeyId(await loadSelectedGeminiKeyId());
+      setGeminiKey(await loadActiveGeminiKey());
+      setKeyInput("");
     }
-    setKeyInput("");
-    setShowSettings(false);
   }
 
   async function handleClearKey() {
-    if (provider === "chatgpt") {
-      await clearOpenAiKey();
-      setOpenaiKey(undefined);
-    } else {
-      await clearGeminiKey();
-      setGeminiKey(undefined);
-    }
+    await clearOpenAiKey();
+    setOpenaiKey(undefined);
     setShowSettings(false);
+  }
+
+  async function handleSelectGeminiKey(id: string) {
+    await selectGeminiKey(id);
+    setSelectedGeminiKeyId(id);
+    setGeminiKey(await loadActiveGeminiKey());
+  }
+
+  async function handleRemoveGeminiKey(id: string) {
+    const next = await removeGeminiKey(id);
+    setGeminiKeys(next);
+    setSelectedGeminiKeyId(await loadSelectedGeminiKeyId());
+    setGeminiKey(await loadActiveGeminiKey());
   }
 
   return (
@@ -270,7 +289,49 @@ export function FloatingChatButton({ getContext }: { getContext: () => string })
                     Key chỉ lưu trên máy này, dùng để chat trả lời ngay tại đây thay vì mở tab {PROVIDER_LABEL[provider]}. Bạn tự
                     chịu phí sử dụng theo tài khoản {PROVIDER_LABEL[provider]} của mình.
                   </p>
-                  {currentKey ? (
+                  {provider === "gemini" ? (
+                    <>
+                      <p className="mt-1 text-[11px] text-neutral-400">
+                        Thêm được nhiều key (vd nhiều tài khoản Google) -- chọn key nào thì dùng đúng key đó để chat, tiện đổi khi 1
+                        key bị hết hạn mức miễn phí trong ngày.
+                      </p>
+                      {geminiKeys.length > 0 ? (
+                        <div className="mt-2 flex flex-col gap-1.5">
+                          {geminiKeys.map((k) => (
+                            <div
+                              key={k.id}
+                              className={`flex items-center justify-between rounded-lg px-3 py-2 text-xs ring-1 ${
+                                k.id === selectedGeminiKeyId ? "bg-rose-50 text-rose-700 ring-rose-200" : "bg-white text-neutral-500 ring-neutral-200"
+                              }`}
+                            >
+                              <button onClick={() => handleSelectGeminiKey(k.id)} className="flex-1 text-left font-medium">
+                                {k.id === selectedGeminiKeyId ? "● " : "○ "}••••{k.key.slice(-4)}
+                              </button>
+                              <button onClick={() => handleRemoveGeminiKey(k.id)} className="ml-2 shrink-0 font-semibold text-rose-600 hover:underline">
+                                Xóa
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
+                      <div className="mt-2 flex gap-1.5">
+                        <input
+                          type="password"
+                          value={keyInput}
+                          onChange={(e) => setKeyInput(e.target.value)}
+                          placeholder="AIza... (thêm key mới)"
+                          className="min-w-0 flex-1 rounded-lg border border-neutral-200 px-2.5 py-1.5 text-xs outline-none focus:border-rose-300"
+                        />
+                        <button
+                          onClick={handleSaveKey}
+                          disabled={!keyInput.trim()}
+                          className="shrink-0 rounded-lg bg-neutral-900 px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-40"
+                        >
+                          Thêm
+                        </button>
+                      </div>
+                    </>
+                  ) : currentKey ? (
                     <div className="mt-2 flex items-center justify-between rounded-lg bg-white px-3 py-2 text-xs text-neutral-500 ring-1 ring-neutral-200">
                       <span>Đã lưu key: ••••{currentKey.slice(-4)}</span>
                       <button onClick={handleClearKey} className="font-semibold text-rose-600 hover:underline">
@@ -283,7 +344,7 @@ export function FloatingChatButton({ getContext }: { getContext: () => string })
                         type="password"
                         value={keyInput}
                         onChange={(e) => setKeyInput(e.target.value)}
-                        placeholder={provider === "chatgpt" ? "sk-..." : "AIza..."}
+                        placeholder="sk-..."
                         className="min-w-0 flex-1 rounded-lg border border-neutral-200 px-2.5 py-1.5 text-xs outline-none focus:border-rose-300"
                       />
                       <button
