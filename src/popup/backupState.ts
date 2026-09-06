@@ -15,6 +15,7 @@ const BACKUP_KEYS = [
   "readingViewer",
   "listeningViewer",
   "dictationViewer",
+  "itBookViewer",
   "itemProgress",
   "studyLog",
   "listeningProgress",

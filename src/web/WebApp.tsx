@@ -17,6 +17,7 @@ import { GuideScreen } from "./screens/GuideScreen.tsx";
 import { BackupScreen } from "./screens/BackupScreen.tsx";
 import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
+import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
 import "./tailwind.css";
 
 // "/" in dev/the extension build, "/japanese-extension/" on GitHub Pages
@@ -231,6 +232,8 @@ export function WebApp() {
     content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "exams") {
     content = <DeThiScreen targetId={targetId} />;
+  } else if (screen === "itBookVocab") {
+    content = <ItBookVocabScreen />;
   } else {
     content = <App key={navKey} />;
   }

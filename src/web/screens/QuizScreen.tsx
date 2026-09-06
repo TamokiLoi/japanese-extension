@@ -45,6 +45,18 @@ import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 
+// Shared between "Trạng thái"'s pill labels and the "0 câu" error message,
+// so a user who lands on an empty bucket (e.g. "Chưa học" with nothing left
+// untouched) sees exactly which one by name instead of a generic "đổi trạng
+// thái đi" that doesn't say what's currently selected.
+const QUIZ_BUCKET_LABELS: Record<QuizBucketFilter, string> = {
+  all: "Tất cả",
+  learning: "Đang học",
+  flagged: "Cần ôn lại",
+  new: "Chưa học",
+  mastered: "Đã thuộc",
+};
+
 type QuizStep = "resume" | "setup" | "play" | "result";
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
@@ -294,7 +306,7 @@ function SetupView({
       onError(
         settings.progressBucket === "all"
           ? "Không đủ dữ liệu để tạo câu hỏi với bộ lọc hiện tại — hãy chọn thêm level/nguồn ở màn tương ứng."
-          : "Không có thẻ nào khớp trạng thái đã chọn trong bộ lọc hiện tại — hãy đổi trạng thái hoặc nới bộ lọc level/nguồn ở màn tương ứng.",
+          : `Không có thẻ nào ở trạng thái "${QUIZ_BUCKET_LABELS[settings.progressBucket]}" trong bộ lọc hiện tại — hãy đổi trạng thái hoặc nới bộ lọc level/nguồn ở màn tương ứng.`,
       );
       return;
     }
@@ -414,15 +426,9 @@ function SetupView({
           <div className="mb-2 text-sm font-semibold text-neutral-500">Trạng thái</div>
           <SegmentedRadio
             scrollX
-            options={(
-              [
-                ["all", "Tất cả"],
-                ["learning", "Đang học"],
-                ["flagged", "Cần ôn lại"],
-                ["new", "Chưa học"],
-                ["mastered", "Đã thuộc"],
-              ] as [QuizBucketFilter, string][]
-            ).map(([v, label]): [QuizBucketFilter, string] => [v, bucketCounts ? `${label} (${bucketCounts[v]})` : label])}
+            options={(Object.keys(QUIZ_BUCKET_LABELS) as QuizBucketFilter[]).map(
+              (v): [QuizBucketFilter, string] => [v, bucketCounts ? `${QUIZ_BUCKET_LABELS[v]} (${bucketCounts[v]})` : QUIZ_BUCKET_LABELS[v]],
+            )}
             value={settings.progressBucket}
             onChange={(v) => updateSettings({ progressBucket: v as QuizBucketFilter })}
           />
