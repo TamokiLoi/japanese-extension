@@ -59,9 +59,19 @@ export interface StopStatus {
   label: string;
   total: number;
   remainingNew: number;
+  masteredCount: number;
   done: boolean;
   note?: string;
 }
+
+// A stop counts as "done" (ready to move to the next one) once at least
+// this fraction of its items are genuinely "đã thuộc" (mastered -- correct
+// streak across every quiz direction, see progressState.ts), not merely
+// "opened once". Deliberately NOT 100%: a handful of stubbornly hard/
+// easily-forgotten words would otherwise block the whole roadmap from ever
+// advancing past that one stop -- those stragglers still show up in "Cần
+// ôn lại"/Ôn tập as normal, they just don't gate progress here.
+const MASTERY_ADVANCE_THRESHOLD = 0.9;
 
 export interface TypeCurriculum {
   stops: StopStatus[];
@@ -147,8 +157,16 @@ export function stopItems(type: PlanType, key: string): { id: string }[] {
 
 function buildTypeCurriculum(stops: Stop[], map: ProgressMap): TypeCurriculum {
   const statuses: StopStatus[] = stops.map((s) => {
-    const remainingNew = s.items.reduce((n, it) => n + (bucketFor(map[it.id]) === "new" ? 1 : 0), 0);
-    return { key: s.key, label: s.label, total: s.items.length, remainingNew, done: s.items.length > 0 && remainingNew === 0, note: s.note };
+    let remainingNew = 0;
+    let masteredCount = 0;
+    for (const it of s.items) {
+      const bucket = bucketFor(map[it.id]);
+      if (bucket === "new") remainingNew++;
+      if (bucket === "mastered") masteredCount++;
+    }
+    const total = s.items.length;
+    const done = total > 0 && masteredCount / total >= MASTERY_ADVANCE_THRESHOLD;
+    return { key: s.key, label: s.label, total, remainingNew, masteredCount, done, note: s.note };
   });
   const currentIndex = statuses.findIndex((s) => !s.done);
   return { stops: statuses, currentIndex: currentIndex === -1 ? null : currentIndex };

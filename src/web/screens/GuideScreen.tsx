@@ -108,14 +108,6 @@ const GUIDE_SECTIONS: GuideItem[] = [
     ],
   },
   {
-    icon: BarChart3,
-    title: "Thống kê",
-    points: [
-      "Xem tổng quan Đã thuộc/Đang học/Cần ôn lại/Chưa học theo Kanji hoặc Từ vựng, và tiến độ theo từng cấp độ/nguồn.",
-      "Bấm vào 1 ô tổng quan (vd 'Cần ôn lại') để lọc danh sách bên dưới chỉ hiện đúng nhóm đó.",
-    ],
-  },
-  {
     icon: Cpu,
     title: "IT Book",
     points: [
@@ -137,6 +129,14 @@ const GUIDE_SECTIONS: GuideItem[] = [
     points: [
       "Xuất toàn bộ tiến độ học (đã thuộc, streak, cài đặt lộ trình...) ra 1 file JSON.",
       "Nhập lại file đó trên máy/trình duyệt khác để tiếp tục đúng tiến độ, không cần học lại từ đầu khi đổi thiết bị.",
+    ],
+  },
+  {
+    icon: BarChart3,
+    title: "Thống kê",
+    points: [
+      "Xem tổng quan Đã thuộc/Đang học/Cần ôn lại/Chưa học theo Kanji hoặc Từ vựng, và tiến độ theo từng cấp độ/nguồn.",
+      "Bấm vào 1 ô tổng quan (vd 'Cần ôn lại') để lọc danh sách bên dưới chỉ hiện đúng nhóm đó.",
     ],
   },
 ];

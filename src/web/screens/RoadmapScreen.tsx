@@ -20,14 +20,14 @@ import { FilterSheet } from "../components/FilterSheet.tsx";
 
 const PHASE_LABEL: Record<RoadmapPhase, string> = {
   foundation: "Nền tảng",
-  practice: "Luyện đề",
+  practice: "Đọc - Nghe",
   sprint: "Nước rút",
   "past-exam": "Đã qua ngày thi",
 };
 const PHASE_DESC: Record<RoadmapPhase, string> = {
-  foundation: "Tập trung học Kanji, Từ vựng, Ngữ pháp trước khi chuyển sang luyện đề.",
-  practice: "Bắt đầu luyện đề, thêm Đọc hiểu và Luyện nghe vào kế hoạch hằng ngày.",
-  sprint: "Tập trung thi thử và ôn lại lỗi sai trước ngày thi.",
+  foundation: "Tập trung học Kanji, Từ vựng, Ngữ pháp trước khi chuyển sang Đọc hiểu, Luyện nghe.",
+  practice: "Thêm Đọc hiểu và Luyện nghe vào kế hoạch hằng ngày, vẫn tiếp tục Kanji/Từ vựng/Ngữ pháp.",
+  sprint: "Bắt đầu luyện đề, thi thử và ôn lại lỗi sai trước ngày thi.",
   "past-exam": "",
 };
 const FOUNDATION_TYPES: PlanType[] = ["kanji", "vocab", "bunpo"];
@@ -174,8 +174,10 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   useEffect(() => {
     if (!status || status.phase === "past-exam") return;
     loadRoadmapData().then(setData);
-    if (status.phase !== "foundation") loadQuizBookRemaining().then(setQuizRemaining);
-    if (status.phase === "sprint") loadDethiSummary().then(setDethiSummary);
+    if (status.phase === "sprint") {
+      loadQuizBookRemaining().then(setQuizRemaining);
+      loadDethiSummary().then(setDethiSummary);
+    }
   }, [status?.phase]);
 
   async function handleSaveDate() {
@@ -304,7 +306,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                     key={type}
                     icon={meta.icon}
                     title={meta.label}
-                    subtitle={`Đã học hết ${cur.stops.length} bộ -- có thể ôn lại hoặc bật thêm nguồn khác ở bộ lọc.`}
+                    subtitle={`Đã thuộc đủ ${cur.stops.length} bộ (≥90%) -- có thể ôn lại hoặc bật thêm nguồn khác ở bộ lọc.`}
                     onClick={() => handleRowClick(type, null)}
                     accent="#e11d48"
                     done
@@ -329,6 +331,10 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                           {currentStop.note ? ` (${currentStop.note})` : ""} · bộ {cur.currentIndex + 1}/{cur.stops.length}
                         </span>
                         {note ? <DifficultyBadge difficulty={note.difficulty} /> : null}
+                      </div>
+                      <div>
+                        {currentStop.masteredCount}/{currentStop.total} đã thuộc (
+                        {Math.round((currentStop.masteredCount / currentStop.total) * 100)}%, cần 90% để qua bộ tiếp theo)
                       </div>
                       {item ? (
                         <div>
@@ -355,11 +361,11 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
         )}
       </div>
 
-      {status.phase !== "foundation" ? (
+      {status.phase === "sprint" ? (
         <div className="mt-5">
-          <h2 className="text-sm font-semibold tracking-wide text-neutral-400 uppercase">Luyện đề hôm nay</h2>
-          {quizRemaining ? (
-            <div className="mt-2.5">
+          <h2 className="text-sm font-semibold tracking-wide text-neutral-400 uppercase">Nước rút</h2>
+          <div className="mt-2.5 flex flex-col gap-2">
+            {quizRemaining ? (
               <PlanRow
                 icon={GraduationCap}
                 title="Luyện đề"
@@ -367,17 +373,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                 onClick={() => onNavigate("quizBook")}
                 accent="#d97706"
               />
-            </div>
-          ) : (
-            <p className="mt-2 text-sm text-neutral-400">Đang tải...</p>
-          )}
-        </div>
-      ) : null}
-
-      {status.phase === "sprint" ? (
-        <div className="mt-5">
-          <h2 className="text-sm font-semibold tracking-wide text-neutral-400 uppercase">Nước rút</h2>
-          <div className="mt-2.5 flex flex-col gap-2">
+            ) : null}
             {dethiSummary ? (
               <PlanRow
                 icon={ClipboardCheck}
