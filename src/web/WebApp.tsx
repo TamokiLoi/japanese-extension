@@ -19,6 +19,7 @@ import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
 import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
 import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
+import { resolveChatContext } from "./lib/chatContext.ts";
 import "./tailwind.css";
 
 // "/" in dev/the extension build, "/japanese-extension/" on GitHub Pages
@@ -243,7 +244,13 @@ export function WebApp() {
 
   return (
     <ConfirmProvider>
-      <WebAppShell active={screen} onNavigate={go} returnTo={returnTo} onGoBack={goBack}>
+      <WebAppShell
+        active={screen}
+        onNavigate={go}
+        returnTo={returnTo}
+        onGoBack={goBack}
+        getChatContext={() => resolveChatContext(screen, currentItemRef.current)}
+      >
         {content}
       </WebAppShell>
     </ConfirmProvider>
