@@ -5,12 +5,15 @@
 // in this browser's localStorage/chrome.storage in the clear. That's an
 // acceptable trade for a single user's own key on their own device (same
 // trust boundary as e.g. a browser-saved password), not for a key anyone
-// else would ever share.
-const MODEL = "gpt-4o-mini";
+// else would ever share. `model` is user-selectable (see openaiKeyState.ts's
+// OPENAI_MODELS). `history` carries the whole conversation so far (this
+// call's own reply not yet included) so a follow-up question has real
+// multi-turn context, same as chatting on chatgpt.com directly.
+import type { ChatMessage } from "./chatTypes.ts";
 
 export class OpenAiChatError extends Error {}
 
-export async function askOpenAi(apiKey: string, prompt: string): Promise<string> {
+export async function askOpenAi(apiKey: string, history: ChatMessage[], model: string): Promise<string> {
   let res: Response;
   try {
     res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -20,14 +23,14 @@ export async function askOpenAi(apiKey: string, prompt: string): Promise<string>
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: MODEL,
+        model,
         messages: [
           {
             role: "system",
             content:
               "Bạn là trợ lý hỗ trợ học tiếng Nhật, trả lời ngắn gọn, rõ ràng bằng tiếng Việt trừ khi người dùng yêu cầu khác.",
           },
-          { role: "user", content: prompt },
+          ...history.map((m) => ({ role: m.role, content: m.text })),
         ],
         temperature: 0.5,
         max_tokens: 700,

@@ -64,9 +64,9 @@ export interface NavGroup {
 }
 
 export const NAV_GROUPS: NavGroup[] = [
-  { screens: ["menu", "search"] },
+  { screens: ["menu", "search", "roadmap"] },
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
-  { label: "Luyện thi", screens: ["quizBook", "exams", "roadmap", "quiz", "review"] },
+  { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide"] },
 ];

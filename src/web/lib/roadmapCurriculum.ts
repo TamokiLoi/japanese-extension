@@ -52,6 +52,15 @@ interface Stop {
   label: string;
   items: { id: string }[];
   note?: string;
+  // false marks a stop as bonus/optional -- still listed (e.g. in the "Toàn
+  // bộ lộ trình" view) and still reachable, but skipped when deciding
+  // whether the type as a whole counts as "done enough" to stop gating the
+  // roadmap. Grammar in particular aggregates 7 separate real N3 grammar
+  // books -- requiring every one of them in sequence before the roadmap
+  // considers "Ngữ pháp" finished is far more than needed to pass N3 (one
+  // book's worth, ~150-200 points, is the realistic bar); the rest stay
+  // available as optional extra practice. Defaults to true (required).
+  required?: boolean;
 }
 
 export interface StopStatus {
@@ -62,6 +71,7 @@ export interface StopStatus {
   masteredCount: number;
   done: boolean;
   note?: string;
+  required: boolean;
 }
 
 // A stop counts as "done" (ready to move to the next one) once at least
@@ -120,10 +130,17 @@ const VOCAB_STOPS: Stop[] = VOCAB_ORDER.filter((s) => VOCAB_AVAILABLE_SOURCES.in
 
 // bunpoState.ts's own AVAILABLE_SOURCES order is already curated
 // (theo-chuong first) -- reuse it as-is rather than inventing a new one.
+// Only these 2 count as "required" -- together they're already a full N3
+// grammar pass (structured by chapter + everything confirmed to have shown
+// up in real past exams); the other 5 sources are each their OWN separate
+// full N3 grammar book, so going through all 7 in sequence would be well
+// past what's needed to pass N3 (per user request, 2026-09-06).
+const BUNPO_REQUIRED_SOURCES: BunpoSource[] = ["theo-chuong", "jlpt-da-ra"];
 const BUNPO_STOPS: Stop[] = BUNPO_AVAILABLE_SOURCES.map((s) => ({
   key: s,
   label: BUNPO_SOURCE_LABELS[s],
   items: ALL_BUNPO.filter((g) => g.sources.includes(s) && INCLUDE_LEVELS.includes(g.level)),
+  required: BUNPO_REQUIRED_SOURCES.includes(s),
 })).filter((stop) => stop.items.length > 0);
 
 // readingState.ts's BOOK_ORDER is already easy -> hard (speedmaster first,
@@ -166,9 +183,13 @@ function buildTypeCurriculum(stops: Stop[], map: ProgressMap): TypeCurriculum {
     }
     const total = s.items.length;
     const done = total > 0 && masteredCount / total >= MASTERY_ADVANCE_THRESHOLD;
-    return { key: s.key, label: s.label, total, remainingNew, masteredCount, done, note: s.note };
+    return { key: s.key, label: s.label, total, remainingNew, masteredCount, done, note: s.note, required: s.required !== false };
   });
-  const currentIndex = statuses.findIndex((s) => !s.done);
+  // Only required stops gate "is this type done enough" -- an optional/
+  // bonus stop left untouched never blocks the roadmap from considering the
+  // type finished, though it's still reachable (e.g. from "Toàn bộ lộ
+  // trình") for anyone who wants the extra practice.
+  const currentIndex = statuses.findIndex((s) => s.required && !s.done);
   return { stops: statuses, currentIndex: currentIndex === -1 ? null : currentIndex };
 }
 

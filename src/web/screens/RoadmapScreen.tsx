@@ -1,5 +1,20 @@
 import { useEffect, useState } from "react";
-import { Settings, BookMarked, Library, PenSquare, BookOpenText, Headphones, GraduationCap, ClipboardCheck, RotateCcw, ChevronRight, CheckCircle2, NotebookText } from "lucide-react";
+import {
+  Settings,
+  BookMarked,
+  Library,
+  PenSquare,
+  BookOpenText,
+  Headphones,
+  GraduationCap,
+  ClipboardCheck,
+  RotateCcw,
+  ChevronRight,
+  CheckCircle2,
+  NotebookText,
+  ListChecks,
+  Circle,
+} from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
 import {
   loadRoadmapSettings,
@@ -156,6 +171,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   const [dethiSummary, setDethiSummary] = useState<DethiSummary | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
+  const [fullRoadmapOpen, setFullRoadmapOpen] = useState(false);
 
   useEffect(() => {
     loadRoadmapSettings().then((s) => setExamDateState(s.examDate));
@@ -264,6 +280,14 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
         action={
           <div className="flex items-center gap-1.5">
             <button
+              onClick={() => setFullRoadmapOpen(true)}
+              aria-label="Toàn bộ lộ trình"
+              title="Toàn bộ lộ trình"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 hover:bg-neutral-50"
+            >
+              <ListChecks size={16} />
+            </button>
+            <button
               onClick={() => setNotesOpen(true)}
               aria-label="Ghi chú tài liệu"
               title="Ghi chú tài liệu"
@@ -301,12 +325,14 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
               const meta = PLAN_META[type];
               const cur = data.curricula[type];
               if (cur.currentIndex === null) {
+                const requiredCount = cur.stops.filter((s) => s.required).length;
+                const bonusCount = cur.stops.length - requiredCount;
                 return (
                   <PlanRow
                     key={type}
                     icon={meta.icon}
                     title={meta.label}
-                    subtitle={`Đã thuộc đủ ${cur.stops.length} bộ (≥90%) -- có thể ôn lại hoặc bật thêm nguồn khác ở bộ lọc.`}
+                    subtitle={`Đã thuộc đủ ${requiredCount} bộ cốt lõi (≥90%)${bonusCount > 0 ? ` -- còn ${bonusCount} bộ mở rộng tùy chọn, xem ở "Toàn bộ lộ trình"` : ""}.`}
                     onClick={() => handleRowClick(type, null)}
                     accent="#e11d48"
                     done
@@ -426,6 +452,60 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
             );
           })}
         </div>
+      </FilterSheet>
+
+      <FilterSheet open={fullRoadmapOpen} onClose={() => setFullRoadmapOpen(false)} title="Toàn bộ lộ trình">
+        {data ? (
+          <div className="flex flex-col gap-5">
+            {PLAN_TYPES.map((type) => {
+              const meta = PLAN_META[type];
+              const cur = data.curricula[type];
+              const Icon = meta.icon;
+              return (
+                <div key={type}>
+                  <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wide text-neutral-400 uppercase">
+                    <Icon size={13} /> {meta.label}
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    {cur.stops.map((s, i) => {
+                      const isCurrent = cur.currentIndex === i;
+                      const pct = s.total > 0 ? Math.round((s.masteredCount / s.total) * 100) : 0;
+                      return (
+                        <div
+                          key={s.key}
+                          className={`flex items-center gap-2.5 rounded-xl border px-3 py-2 text-sm ${
+                            isCurrent ? "border-rose-300 bg-rose-50" : "border-neutral-200 bg-white"
+                          }`}
+                        >
+                          {s.done ? (
+                            <CheckCircle2 size={16} className="shrink-0 text-emerald-500" />
+                          ) : isCurrent ? (
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+                              <span className="h-2 w-2 rounded-full bg-rose-600" />
+                            </span>
+                          ) : (
+                            <Circle size={16} className="shrink-0 text-neutral-300" />
+                          )}
+                          <span className={`min-w-0 flex-1 truncate ${isCurrent ? "font-semibold text-neutral-800" : s.done ? "text-neutral-500" : "text-neutral-600"}`}>
+                            {s.label}
+                          </span>
+                          {!s.required ? (
+                            <span className="shrink-0 rounded-full bg-neutral-100 px-1.5 py-0.5 text-[10px] font-medium text-neutral-400">Tùy chọn</span>
+                          ) : null}
+                          <span className="shrink-0 text-xs text-neutral-400">
+                            {s.masteredCount}/{s.total} ({pct}%)
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="text-sm text-neutral-400">Đang tải...</p>
+        )}
       </FilterSheet>
     </div>
   );

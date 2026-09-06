@@ -19,3 +19,18 @@ export async function saveOpenAiKey(key: string): Promise<void> {
 export async function clearOpenAiKey(): Promise<void> {
   await storageRemove(STORAGE_KEY);
 }
+
+// Escape hatch for when OpenAI's default model is overloaded/deprecated --
+// mirrors geminiKeyState.ts's GEMINI_MODELS.
+export const OPENAI_MODELS = ["gpt-4o-mini", "gpt-4o", "gpt-4.1-mini", "gpt-4.1"] as const;
+export const DEFAULT_OPENAI_MODEL: (typeof OPENAI_MODELS)[number] = "gpt-4o-mini";
+
+const MODEL_STORAGE_KEY = "openaiModel";
+
+export async function loadOpenAiModel(): Promise<string> {
+  return (await storageGet<string>(MODEL_STORAGE_KEY)) ?? DEFAULT_OPENAI_MODEL;
+}
+
+export async function saveOpenAiModel(model: string): Promise<void> {
+  await storageSet(MODEL_STORAGE_KEY, model);
+}

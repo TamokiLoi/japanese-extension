@@ -3,17 +3,20 @@
 // meaningful difference for the user: Gemini's free tier needs no billing
 // setup at all (unlike OpenAI's API, which always requires prepaid credit
 // even alongside a paid ChatGPT plan) -- see google.dev's key-generation
-// page. Model id "gemini-3.5-flash" matches what the rest of this repo's
-// tooling already uses successfully with a Gemini key (see
-// _scratch/translate_reading_log.txt).
-const MODEL = "gemini-3.5-flash";
+// page. `model` is user-selectable (see geminiKeyState.ts's GEMINI_MODELS)
+// since Google's "high demand" 503 hits one model at a time -- switching
+// to a different one is a real fix, unlike retrying the same one. `history`
+// carries the whole conversation so far (this call's own reply not yet
+// included) so a follow-up question has real multi-turn context -- Gemini's
+// "model" role is this app's "assistant".
+import type { ChatMessage } from "./chatTypes.ts";
 
 export class GeminiChatError extends Error {}
 
-export async function askGemini(apiKey: string, prompt: string): Promise<string> {
+export async function askGemini(apiKey: string, history: ChatMessage[], model: string): Promise<string> {
   let res: Response;
   try {
-    res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+    res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -24,7 +27,7 @@ export async function askGemini(apiKey: string, prompt: string): Promise<string>
             },
           ],
         },
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        contents: history.map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.text }] })),
         generationConfig: { temperature: 0.5, maxOutputTokens: 700 },
       }),
     });
