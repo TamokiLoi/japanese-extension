@@ -6,7 +6,7 @@ import { getOrderedList as getKanjiOrderedList, loadViewerState as loadKanjiView
 import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabViewerState } from "./vocabState.ts";
 import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
 import { getOrderedList as getItBookVocabOrderedList, loadViewerState as loadItBookVocabViewerState } from "./itBookState.ts";
-import { loadProgressMap, pickWeighted, bucketFor, type ProgressMap, type ProgressBucket } from "./progressState.ts";
+import { loadProgressMap, pickWeighted, bucketForDirection, type ProgressMap, type ProgressBucket } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
 
@@ -153,22 +153,27 @@ function sampleDistractorTexts<T>(pool: T[], target: T, answerOf: (item: T) => s
 // the multiple-choice options down to just 1-2 candidates.
 export type QuizBucketFilter = ProgressBucket | "all";
 
-function filterByBucket<T extends { id: string }>(pool: T[], progressMap: ProgressMap, bucket: QuizBucketFilter): T[] {
+// `direction` is the quiz mode about to be drilled (e.g. "meaning"/
+// "character" for Kanji) -- bucketing is scoped to that one direction's own
+// streak (see bucketForDirection) so switching "Dạng câu hỏi" actually
+// changes which cards count as done/learning/new, instead of every mode
+// showing the same aggregate-mastered count.
+function filterByBucket<T extends { id: string }>(pool: T[], progressMap: ProgressMap, bucket: QuizBucketFilter, direction: string): T[] {
   if (bucket === "all") return pool;
-  return pool.filter((item) => bucketFor(progressMap[item.id]) === bucket);
+  return pool.filter((item) => bucketForDirection(progressMap[item.id], direction) === bucket);
 }
 
 // Picks `count` distinct question targets from `pool`, weighted so cards
-// that aren't mastered yet (or are manually flagged as difficult) come up
-// more often -- see progressState.ts's weightFor.
-function pickQuestionTargets<T extends { id: string }>(pool: T[], progressMap: ProgressMap, count: number): T[] {
+// that aren't mastered yet *in this direction* (or are manually flagged as
+// difficult) come up more often -- see progressState.ts's weightFor.
+function pickQuestionTargets<T extends { id: string }>(pool: T[], progressMap: ProgressMap, count: number, direction: string): T[] {
   const targets: T[] = [];
   const used = new Set<string>();
   const n = Math.min(count, pool.length);
   for (let i = 0; i < n; i++) {
     const candidates = pool.filter((item) => !used.has(item.id));
     if (candidates.length === 0) break;
-    const picked = pickWeighted(candidates, progressMap);
+    const picked = pickWeighted(candidates, progressMap, direction);
     used.add(picked.id);
     targets.push(picked);
   }
@@ -203,9 +208,9 @@ export async function buildKanjiQuiz(
   const pool = getKanjiOrderedList({ ...state, randomOrder: false });
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const scoped = filterByBucket(pool, progressMap, bucket);
+  const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
-  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
   return targets
     .map((k) =>
       mode === "character"
@@ -225,9 +230,9 @@ export async function buildVocabQuiz(
   if (mode === "reading" || mode === "wordFromReading") pool = pool.filter((v) => v.reading && v.reading !== v.word);
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const scoped = filterByBucket(pool, progressMap, bucket);
+  const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
-  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
 
   const meaningOf = (v: VocabCard) => v.meaningVi || "?";
   const readingOf = (v: VocabCard) => v.reading as string;
@@ -255,9 +260,9 @@ export async function buildBunpoQuiz(
   const pool = getBunpoFilteredList(state);
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const scoped = filterByBucket(pool, progressMap, bucket);
+  const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
-  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
 
   const patternOf = (g: BunpoGrammarPoint) => g.pattern;
   const meaningOf = (g: BunpoGrammarPoint) => g.meaningVi;
@@ -280,9 +285,9 @@ export async function buildItBookVocabQuiz(
   const pool = getItBookVocabOrderedList({ ...state, randomOrder: false });
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
-  const scoped = filterByBucket(pool, progressMap, bucket);
+  const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
-  const targets = pickQuestionTargets(scoped, progressMap, questionCount);
+  const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
 
   const meaningOf = (v: ItBookVocabWord) => v.meaningVi || "?";
   const wordOf = (v: ItBookVocabWord) => v.word;

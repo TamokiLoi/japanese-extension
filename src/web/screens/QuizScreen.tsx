@@ -30,7 +30,7 @@ import {
   IT_BOOK_VOCAB_MODE_LABELS,
   AUTO_ADVANCE_DELAY_MS,
 } from "../../popup/quizState.ts";
-import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../../popup/progressState.ts";
+import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../../popup/progressState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
 import {
@@ -274,10 +274,23 @@ function SetupView({
     })();
   }, []);
 
+  // Which specific quiz direction the counts below should be scoped to --
+  // same field the currently selected "Nội dung" tab drills. Kept in sync
+  // with buildXQuiz's own `mode` argument for that content type.
+  const currentDirection =
+    settings.contentType === "kanji"
+      ? settings.kanjiMode
+      : settings.contentType === "vocab"
+        ? settings.vocabMode
+        : settings.contentType === "itBookVocab"
+          ? settings.itBookVocabMode
+          : settings.bunpoMode;
+
   // Same pool each buildXQuiz call would draw from (level/source filter, plus
-  // Vocab's reading-mode narrowing) -- counted per bucket so "Trạng thái" can
-  // show how many cards each option actually has before starting, instead of
-  // finding out only after "Bắt đầu" fails with "not enough data".
+  // Vocab's reading-mode narrowing) -- counted per bucket, scoped to
+  // `currentDirection`, so "Trạng thái" shows how many cards are actually
+  // done/left *for the selected "Dạng câu hỏi"* before starting, instead of
+  // the same aggregate number regardless of which direction is picked.
   useEffect(() => {
     (async () => {
       const progressMap = await loadProgressMap();
@@ -296,10 +309,10 @@ function SetupView({
         pool = getBunpoFilteredList(await loadBunpoViewerState());
       }
       const counts: Record<QuizBucketFilter, number> = { all: pool.length, mastered: 0, flagged: 0, learning: 0, new: 0 };
-      for (const item of pool) counts[bucketFor(progressMap[item.id])]++;
+      for (const item of pool) counts[bucketForDirection(progressMap[item.id], currentDirection)]++;
       setBucketCounts(counts);
     })();
-  }, [settings.contentType, settings.vocabMode]);
+  }, [settings.contentType, currentDirection]);
 
   const filterTextByType: Record<QuizContentType, string> = {
     kanji: kanjiFilterText,
@@ -710,7 +723,7 @@ function PlayView({
         summary={`Câu ${idx + 1}/${session.questions.length} · đã trả lời ${session.answers.filter((a) => a !== null).length}`}
         onJump={goTo}
         items={session.questions.map((question, i) => {
-          const isMastered = progressMap ? bucketFor(progressMap[question.id]) === "mastered" : false;
+          const isMastered = progressMap ? bucketForDirection(progressMap[question.id], question.mode) === "mastered" : false;
           const answerIndex = session.answers[i];
           const status: PaletteStatus =
             i === idx ? "current" : answerIndex === null ? "unanswered" : question.choices[answerIndex].correct ? "correct" : "wrong";

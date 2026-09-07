@@ -233,6 +233,26 @@ export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {
   return "learning";
 }
 
+// Same 4-way classification as bucketFor, but scoped to one quiz
+// direction/mode instead of the card's overall `mastered` flag -- e.g.
+// Kanji's "character" quiz mode should stop resurfacing a card once ITS OWN
+// direction streak hits the threshold, even if the card's other direction
+// ("meaning") was never drilled and the card overall isn't `mastered` yet
+// (mastered only flips once every required direction is independently
+// proven -- see recordAnswer). Used by Quiz's setup screen (pool counts +
+// question-target filtering) so switching "Dạng câu hỏi" actually changes
+// which cards count as done, instead of showing the same aggregate number
+// for every direction. "flagged" stays a global signal (the auto-flag wrong
+// streak isn't tracked per direction) -- same as bucketFor.
+export function bucketForDirection(progress: ItemProgress | undefined, direction: string): ProgressBucket {
+  if (!progress) return "new";
+  if (progress.flagged) return "flagged";
+  const streak = progress.directionStreaks[direction];
+  if ((streak ?? 0) >= MASTERY_STREAK_THRESHOLD) return "mastered";
+  if (streak === undefined) return "new"; // never answered in this specific direction yet
+  return "learning";
+}
+
 // Shared tile styling for any "overview grid" screen (Kanji, Vocab) --
 // reuses the .reading-tile-* classes from the Luyện đề tile grid so the
 // color language stays consistent app-wide: green = mastered, yellow/orange
@@ -305,19 +325,23 @@ export function filterByProgress<T extends { id: string }>(
 }
 
 // Quiz question targets are picked with a weight favoring cards that still
-// need work, so struggling cards resurface more often without a full SRS
-// scheduler: flagged cards weigh the most, then not-yet-mastered cards,
-// mastered cards still appear occasionally (weight 1) to catch regressions.
-export function weightFor(progress: ItemProgress | undefined): number {
+// need work *in the exact direction/mode being drilled*, so struggling
+// cards resurface more often without a full SRS scheduler: flagged cards
+// weigh the most (a global signal), then due-for-review, then cards whose
+// streak in this direction hasn't hit the mastery threshold yet -- a card
+// already proven in this direction still appears occasionally (weight 1) to
+// catch regressions, even while its overall `mastered` flag (which needs
+// every direction proven) is still false.
+export function weightFor(progress: ItemProgress | undefined, direction: string): number {
   if (!progress) return 3; // never seen -- treat like an unmastered card
   if (progress.flagged) return 5;
   if (isDueForReview(progress)) return 4; // due for its scheduled review -- resurface it
-  if (!progress.mastered) return 3;
+  if ((progress.directionStreaks?.[direction] ?? 0) < MASTERY_STREAK_THRESHOLD) return 3;
   return 1;
 }
 
-export function pickWeighted<T extends { id: string }>(items: T[], map: ProgressMap): T {
-  const weights = items.map((item) => weightFor(map[item.id]));
+export function pickWeighted<T extends { id: string }>(items: T[], map: ProgressMap, direction: string): T {
+  const weights = items.map((item) => weightFor(map[item.id], direction));
   const total = weights.reduce((sum, w) => sum + w, 0);
   let r = Math.random() * total;
   for (let i = 0; i < items.length; i++) {
