@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown } from "lucide-react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2 } from "lucide-react";
+import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "../lib/speak.ts";
 import type { VerbConjugations } from "../../types/vocab.ts";
 import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS, loadQuizSettings, saveQuizSettings } from "../../popup/quizState.ts";
 import {
@@ -165,6 +166,15 @@ export function VocabScreen({
   // See KanjiScreen.tsx's identical field for why this is local/display-only
   // instead of living in state.progressFilter.
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
+  // Voice availability can change after mount (voice list loads
+  // asynchronously on some browsers, or the device finishes downloading a
+  // Japanese TTS voice pack while this screen is still open), so keep
+  // listening instead of only checking once.
+  const [canSpeak, setCanSpeak] = useState(false);
+  useEffect(() => {
+    setCanSpeak(hasJapaneseVoice());
+    return onVoicesChanged(() => setCanSpeak(hasJapaneseVoice()));
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -457,6 +467,16 @@ export function VocabScreen({
               ) : null}
             </div>
             <div className="flex shrink-0 items-center gap-1.5">
+              {canSpeak ? (
+                <button
+                  onClick={() => speakJapanese(v.word)}
+                  aria-label="Phát âm"
+                  title="Phát âm"
+                  className="flex h-7.5 w-7.5 items-center justify-center rounded-full text-neutral-300 hover:bg-neutral-100 hover:text-rose-500"
+                >
+                  <Volume2 size={17} />
+                </button>
+              ) : null}
               <button
                 title={progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
                 onClick={async () => {
@@ -562,7 +582,18 @@ export function VocabScreen({
 
           {v.example ? (
             <div className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm">
-              <div className="text-neutral-800">{v.example}</div>
+              <div className="flex items-start justify-between gap-2">
+                <div className="text-neutral-800">{v.example}</div>
+                {canSpeak ? (
+                  <button
+                    onClick={() => speakJapanese(v.example!)}
+                    aria-label="Phát âm ví dụ"
+                    className="shrink-0 text-emerald-600 hover:text-emerald-800"
+                  >
+                    <Volume2 size={16} />
+                  </button>
+                ) : null}
+              </div>
               {v.exampleVi ? <div className="mt-1 text-emerald-700">{v.exampleVi}</div> : null}
             </div>
           ) : null}

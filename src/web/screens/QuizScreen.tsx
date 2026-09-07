@@ -31,6 +31,7 @@ import {
   AUTO_ADVANCE_DELAY_MS,
 } from "../../popup/quizState.ts";
 import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../../popup/progressState.ts";
+import { speakJapanese } from "../lib/speak.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
 import {
@@ -505,6 +506,16 @@ function SetupView({
 // Generalized over just {id, kind} (not the full QuizQuestion) so it's
 // reusable by ReviewScreen.tsx's typed-recall/reveal questions too.
 export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizContentType } } & OpenCallbacks) {
+  // Auto-pronounce the vocab word as soon as its detail reveals (right after
+  // the user picks an answer) -- lets them hear it without an extra tap.
+  // Silently no-ops if the device has no Japanese TTS voice (speakJapanese
+  // itself guards on window.speechSynthesis being present).
+  useEffect(() => {
+    if (q.kind !== "vocab") return;
+    const v = findVocabById(q.id);
+    if (v) speakJapanese(v.word);
+  }, [q.id, q.kind]);
+
   if (q.kind === "kanji") {
     const k = findKanjiById(q.id);
     if (!k) return null;
