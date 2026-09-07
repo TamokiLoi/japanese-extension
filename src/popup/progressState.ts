@@ -247,7 +247,11 @@ export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {
 export function bucketForDirection(progress: ItemProgress | undefined, direction: string): ProgressBucket {
   if (!progress) return "new";
   if (progress.flagged) return "flagged";
-  const streak = progress.directionStreaks[direction];
+  // Optional chaining: a progress record saved before this field existed
+  // (older app version) has `directionStreaks` missing entirely, not just
+  // the one key -- indexing straight into it would throw and silently break
+  // the whole counts effect that calls this in a loop.
+  const streak = progress.directionStreaks?.[direction];
   if ((streak ?? 0) >= MASTERY_STREAK_THRESHOLD) return "mastered";
   if (streak === undefined) return "new"; // never answered in this specific direction yet
   return "learning";

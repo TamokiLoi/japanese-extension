@@ -412,7 +412,7 @@ export function KanjiScreen({
           {progress ? (
             <div className="mt-3.5 flex justify-center gap-1 overflow-x-auto px-1 pb-1">
               {KANJI_MASTERY_DIRECTIONS.map((dir) => {
-                const streak = progress.directionStreaks[dir] ?? 0;
+                const streak = progress.directionStreaks?.[dir] ?? 0;
                 const done = streak >= MASTERY_STREAK_THRESHOLD;
                 return (
                   <span
@@ -431,7 +431,7 @@ export function KanjiScreen({
 
           {progress
             ? (() => {
-                const missing = KANJI_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
+                const missing = KANJI_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks?.[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
                 if (!missing) return null;
                 return (
                   <button

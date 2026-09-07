@@ -498,7 +498,7 @@ export function VocabScreen({
           {progress ? (
             <div className="mt-3.5 flex gap-1 overflow-x-auto px-1 pb-1">
               {VOCAB_MASTERY_DIRECTIONS.map((dir) => {
-                const streak = progress.directionStreaks[dir] ?? 0;
+                const streak = progress.directionStreaks?.[dir] ?? 0;
                 const done = streak >= MASTERY_STREAK_THRESHOLD;
                 return (
                   <span
@@ -517,7 +517,7 @@ export function VocabScreen({
 
           {progress
             ? (() => {
-                const missing = VOCAB_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
+                const missing = VOCAB_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks?.[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
                 if (!missing) return null;
                 return (
                   <button
