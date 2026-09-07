@@ -11,7 +11,8 @@ export type BunpoSource =
   | "try-n3"
   | "400-mau-thong-dung"
   | "n4-infographic"
-  | "the-dong-tu";
+  | "the-dong-tu"
+  | "kinh-ngu";
 
 export interface BunpoGrammarPoint {
   id: string;

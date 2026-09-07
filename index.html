@@ -43,11 +43,21 @@
         border: 3px solid #f3dede;
         border-top-color: #e11d48;
         animation: splash-spin 0.8s linear infinite;
+        /* Chromium/Android WebView bug: a border-radius element that's
+           animated (or sits under an ancestor whose opacity is animated,
+           as happens here right as #splash fades out via [data-hide])
+           can rasterize as a solid black frame during GPU layer
+           promotion instead of clipping to the rounded shape. Forcing
+           the mask-image paint path instead of border-radius clipping
+           avoids it -- white/black keywords are both fully opaque, so
+           this mask is a visual no-op, purely a rendering-path switch. */
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
       }
       #splash img {
         width: 52px;
         height: 52px;
         border-radius: 14px;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
       }
       @keyframes splash-spin {
         to {
