@@ -1,10 +1,23 @@
-import dethiRaw from "../data/dethi-n3-imo-26bo.json";
+import dethiImoRaw from "../data/dethi-n3-imo-26bo.json";
+import dethiCacNamRaw from "../data/dethi-n3-cac-nam.json";
 import type { DeThiDataset, DeThiExam, DeThiPaper } from "../types/dethi.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
 
-const dataset = dethiRaw as unknown as DeThiDataset;
+const imoDataset = dethiImoRaw as unknown as DeThiDataset;
+const cacNamDataset = dethiCacNamRaw as unknown as DeThiDataset;
 
-export const ALL_EXAMS: DeThiExam[] = dataset.exams;
+export const ALL_EXAMS: DeThiExam[] = [...cacNamDataset.exams, ...imoDataset.exams];
+
+// Groups ExamListView's grid by DeThiExam.source instead of one flat list --
+// "cac-nam" (mỗi kỳ thi thật riêng, có cả 聴解 thật) và "imo" (bộ 26 đề mô
+// phỏng, không có 聴解) trông rất giống nhau (đều ghi "N3-..." + "đề thật")
+// nên gộp chung dễ nhầm là cùng 1 bộ.
+export const SOURCE_LABELS: Record<string, string> = {
+  "cac-nam": "Đề thi thật từng kỳ",
+  imo: "Bộ 26 đề mô phỏng (IMO)",
+};
+const SOURCE_ORDER: string[] = ["cac-nam", "imo"];
+export const AVAILABLE_SOURCES: string[] = SOURCE_ORDER.filter((s) => ALL_EXAMS.some((e) => e.source === s));
 
 export function findExamById(examId: string): DeThiExam | undefined {
   return ALL_EXAMS.find((e) => e.id === examId);
@@ -29,6 +42,11 @@ export interface DeThiSession {
   currentIndex: number;
   startedAt: number;
   deadlineAt: number;
+  // "Ôn tập" attempt (only offered for a 聴解 paper's manual-control audio
+  // mode) -- untimed (deadlineAt pushed far out so it never auto-submits)
+  // and submitPaper() skips appendHistory for it, so it never touches
+  // history/"% cao nhất". Absent/false = a normal timed "Bắt đầu" attempt.
+  practiceMode?: boolean;
 }
 
 const DETHI_SESSION_KEY = "dethiSession";
@@ -52,7 +70,9 @@ export function isDeThiSessionUnfinished(session: DeThiSession): boolean {
   return session.answers.some((a) => a === null);
 }
 
-export function startPaperAttempt(examId: string, paper: DeThiPaper): DeThiSession {
+const PRACTICE_DEADLINE_YEARS = 100; // effectively "never" for useCountdown's auto-submit
+
+export function startPaperAttempt(examId: string, paper: DeThiPaper, practiceMode = false): DeThiSession {
   const startedAt = Date.now();
   return {
     examId,
@@ -60,7 +80,8 @@ export function startPaperAttempt(examId: string, paper: DeThiPaper): DeThiSessi
     answers: paper.questions.map(() => null),
     currentIndex: 0,
     startedAt,
-    deadlineAt: startedAt + paper.timeMinutes * 60_000,
+    deadlineAt: practiceMode ? startedAt + PRACTICE_DEADLINE_YEARS * 365 * 24 * 60 * 60_000 : startedAt + paper.timeMinutes * 60_000,
+    ...(practiceMode ? { practiceMode: true } : {}),
   };
 }
 
@@ -162,7 +183,7 @@ export async function submitPaper(session: DeThiSession): Promise<DeThiHistoryEn
     finishedAt: Date.now(),
   };
 
-  await appendHistory(entry);
+  if (!session.practiceMode) await appendHistory(entry);
   await clearDeThiSession();
   return entry;
 }

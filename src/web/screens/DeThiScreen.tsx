@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
 import {
   ALL_EXAMS,
+  SOURCE_LABELS,
+  AVAILABLE_SOURCES,
   findExamById,
   findPaper,
   loadDeThiSession,
@@ -16,12 +18,16 @@ import {
   type DeThiHistoryEntry,
   type DeThiPaperSummary,
 } from "../../popup/dethiState.ts";
+import { ALL_LISTENING } from "../../popup/listeningState.ts";
+import type { Screen } from "../../popup/App.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
+import { AudioPlayer } from "../components/AudioPlayer.tsx";
+import { assetUrl } from "../../platform/assetUrl";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
@@ -42,13 +48,61 @@ function paperIcon(paperId: string) {
   return PenSquare;
 }
 
+function formatAudioTime(s: number): string {
+  if (!Number.isFinite(s)) return "0:00";
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return `${m}:${sec < 10 ? "0" : ""}${sec}`;
+}
+
+// "Thi thật": audio bắt buộc tự phát ngay khi vào bài (cùng lúc đồng hồ bắt
+// đầu đếm) và chạy 1 lần xuyên suốt, không cho dừng/tua -- chỉ 1 timeline
+// đọc (div progress bar, KHÔNG phải <input type=range>) để người học biết
+// đang ở đâu, không có nút play/pause/tốc độ/lặp lại nào. Khác hẳn
+// AudioPlayer.tsx (dùng cho chế độ "Ôn tập" bên cạnh) vốn cho điều khiển
+// tay đầy đủ.
+function ExamAudioTimeline({ src }: { src: string }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => {
+    audioRef.current?.play().catch(() => {
+      // Trình duyệt chặn autoplay (hiếm khi xảy ra vì "Bắt đầu" vừa là 1 cú
+      // click của người dùng) -- không có gì để làm thêm, người học vẫn thấy
+      // timeline đứng yên ở 0:00 và biết cần tương tác lại.
+    });
+  }, []);
+
+  const pct = duration > 0 ? (currentTime / duration) * 100 : 0;
+
+  return (
+    <div className="flex items-center gap-3">
+      <audio
+        ref={audioRef}
+        src={src}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+      />
+      <span className="w-9 text-right text-xs tabular-nums text-neutral-400">{formatAudioTime(currentTime)}</span>
+      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-neutral-200">
+        <div className="h-full rounded-full bg-rose-600 transition-[width]" style={{ width: `${pct}%` }} />
+      </div>
+      <span className="w-9 text-xs tabular-nums text-neutral-400">{formatAudioTime(duration)}</span>
+    </div>
+  );
+}
+
 function formatDuration(sec: number): string {
   const m = Math.floor(sec / 60);
   const s = sec % 60;
   return m > 0 ? `${m} phút ${s > 0 ? `${s} giây` : ""}`.trim() : `${s} giây`;
 }
 
-export function DeThiScreen({ targetId }: { targetId?: string } = {}) {
+export function DeThiScreen({
+  targetId,
+  onNavigate,
+}: { targetId?: string; onNavigate?: (screen: Screen, id?: string) => void } = {}) {
   const [step, setStep] = useState<Step | null>(null);
 
   useEffect(() => {
@@ -93,7 +147,8 @@ export function DeThiScreen({ targetId }: { targetId?: string } = {}) {
       <ExamDetailView
         exam={exam}
         onBack={() => setStep({ name: "examList" })}
-        onStart={(paper) => setStep({ name: "taking", session: startPaperAttempt(exam.id, paper) })}
+        onStart={(paper, practiceMode) => setStep({ name: "taking", session: startPaperAttempt(exam.id, paper, practiceMode) })}
+        onNavigate={onNavigate}
       />
     );
   }
@@ -166,38 +221,46 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
       </div>
       <div className="mt-1.5 text-[11px] text-neutral-400">🔒 N2/N1 khoá -- chưa có bộ đề, sẽ mở khi cập nhật dữ liệu.</div>
 
-      <div className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
-        {ALL_EXAMS.map((exam) => {
-          const paperSummaries = summary(exam, summaries[exam.id]);
-          const doneCount = paperSummaries.filter((s) => s.attempts > 0).length;
-          const best = paperSummaries.some((s) => s.bestPercent !== null)
-            ? Math.round(
-                paperSummaries.reduce((sum, s) => sum + (s.bestPercent ?? 0), 0) /
-                  paperSummaries.filter((s) => s.bestPercent !== null).length,
-              )
-            : null;
-          return (
-            <button
-              key={exam.id}
-              onClick={() => onOpen(exam.id)}
-              className="flex flex-col items-start gap-2 rounded-2xl border border-neutral-200 bg-white p-4 text-left hover:border-rose-200 hover:bg-rose-50/40"
-            >
-              <div className="text-sm font-bold text-neutral-800">{exam.examLabel}</div>
-              <div className="flex gap-1">
-                {exam.papers.map((p, i) => (
-                  <span
-                    key={p.id}
-                    className={`h-2 w-2 rounded-full ${paperSummaries[i]?.attempts ? "bg-emerald-500" : "bg-neutral-200"}`}
-                  />
-                ))}
-              </div>
-              <div className="text-[11px] font-semibold text-neutral-400">
-                {doneCount === 0 ? "Chưa làm" : best !== null ? `${best}%` : `${doneCount}/${exam.papers.length}`}
-              </div>
-            </button>
-          );
-        })}
-      </div>
+      {AVAILABLE_SOURCES.map((source) => (
+        <div key={source} className="mt-6">
+          <h2 className="text-sm font-semibold text-neutral-600">
+            {SOURCE_LABELS[source] ?? source}{" "}
+            <span className="font-normal text-neutral-400">({ALL_EXAMS.filter((e) => e.source === source).length})</span>
+          </h2>
+          <div className="mt-2.5 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
+            {ALL_EXAMS.filter((exam) => exam.source === source).map((exam) => {
+              const paperSummaries = summary(exam, summaries[exam.id]);
+              const doneCount = paperSummaries.filter((s) => s.attempts > 0).length;
+              const best = paperSummaries.some((s) => s.bestPercent !== null)
+                ? Math.round(
+                    paperSummaries.reduce((sum, s) => sum + (s.bestPercent ?? 0), 0) /
+                      paperSummaries.filter((s) => s.bestPercent !== null).length,
+                  )
+                : null;
+              return (
+                <button
+                  key={exam.id}
+                  onClick={() => onOpen(exam.id)}
+                  className="flex flex-col items-start gap-2 rounded-2xl border border-neutral-200 bg-white p-4 text-left hover:border-rose-200 hover:bg-rose-50/40"
+                >
+                  <div className="text-sm font-bold text-neutral-800">{exam.examLabel}</div>
+                  <div className="flex gap-1">
+                    {exam.papers.map((p, i) => (
+                      <span
+                        key={p.id}
+                        className={`h-2 w-2 rounded-full ${paperSummaries[i]?.attempts ? "bg-emerald-500" : "bg-neutral-200"}`}
+                      />
+                    ))}
+                  </div>
+                  <div className="text-[11px] font-semibold text-neutral-400">
+                    {doneCount === 0 ? "Chưa làm" : best !== null ? `${best}%` : `${doneCount}/${exam.papers.length}`}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -206,9 +269,29 @@ function summary(exam: DeThiExam, byPaper: Record<string, DeThiPaperSummary> | u
   return exam.papers.map((p) => byPaper?.[p.id] ?? { attempts: 0, bestPercent: null, lastFinishedAt: null });
 }
 
-function ExamDetailView({ exam, onBack, onStart }: { exam: DeThiExam; onBack: () => void; onStart: (paper: DeThiPaper) => void }) {
+function ExamDetailView({
+  exam,
+  onBack,
+  onStart,
+  onNavigate,
+}: {
+  exam: DeThiExam;
+  onBack: () => void;
+  onStart: (paper: DeThiPaper, practiceMode?: boolean) => void;
+  onNavigate?: (screen: Screen, id?: string) => void;
+}) {
   const confirm = useConfirm();
   const [summaries, setSummaries] = useState<Record<string, DeThiPaperSummary> | null>(null);
+
+  // Native audio paper (e.g. "choukai") already renders in the normal
+  // papers.map grid below like any other paper -- the "link out to Luyện
+  // nghe" fallback card only makes sense when the exam has NO native 聴解
+  // paper of its own, only a separately-converted Luyện nghe book.
+  const hasNativeAudioPaper = exam.papers.some((p) => p.audioUrl);
+  const firstListeningQuestion =
+    !hasNativeAudioPaper && exam.listeningBook ? ALL_LISTENING.find((q) => q.book === exam.listeningBook) : undefined;
+  const listeningCount =
+    !hasNativeAudioPaper && exam.listeningBook ? ALL_LISTENING.filter((q) => q.book === exam.listeningBook).length : 0;
 
   useEffect(() => {
     let cancelled = false;
@@ -283,6 +366,15 @@ function ExamDetailView({ exam, onBack, onStart }: { exam: DeThiExam; onBack: ()
                 <Button className="flex-1" onClick={() => onStart(paper)}>
                   Bắt đầu <ChevronRight size={15} />
                 </Button>
+                {paper.audioUrl ? (
+                  <Button
+                    variant="outline"
+                    title="Nghe tự do -- dừng/tua/lặp lại/đổi tốc độ được, không tính giờ, không lưu vào lịch sử"
+                    onClick={() => onStart(paper, true)}
+                  >
+                    Ôn tập
+                  </Button>
+                ) : null}
                 {s && s.attempts > 0 ? (
                   <button
                     title="Xoá lịch sử làm bài, đặt lại trạng thái Chưa làm"
@@ -301,22 +393,43 @@ function ExamDetailView({ exam, onBack, onStart }: { exam: DeThiExam; onBack: ()
           );
         })}
 
-        {/* Placeholder for the listening paper this book doesn't include yet */}
-        <Card className="gap-3 rounded-2xl border-dashed border-neutral-200 bg-neutral-50/60 p-5 ring-0">
-          <div className="flex items-center justify-between">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
-              <Headphones size={19} className="text-neutral-400" />
+        {hasNativeAudioPaper ? null : firstListeningQuestion ? (
+          <Card className="gap-3 rounded-2xl border-neutral-200 p-5 ring-0">
+            <div className="flex items-center justify-between">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
+                <Headphones size={19} className="text-neutral-600" />
+              </div>
+              <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-[11px] font-semibold text-neutral-500">
+                {listeningCount} câu
+              </span>
             </div>
-            <span className="rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-700">Sắp có</span>
-          </div>
-          <div>
-            <div className="text-base font-bold text-neutral-400">Nghe hiểu</div>
-          </div>
-          <p className="text-xs font-medium text-neutral-400">Bộ đề gốc chưa có phần nghe — sẽ cập nhật khi có dữ liệu.</p>
-          <Button className="mt-1 w-full" variant="outline" disabled>
-            Chưa mở
-          </Button>
-        </Card>
+            <div>
+              <div className="text-base font-bold text-neutral-800">Nghe hiểu</div>
+            </div>
+            <p className="text-xs font-medium text-neutral-500">
+              Phần 聴解 của đề này -- làm trong màn Luyện nghe (chấm riêng, không tính giờ chung với 2 phần trên).
+            </p>
+            <Button className="mt-1 w-full" onClick={() => onNavigate?.("listening", firstListeningQuestion.id)}>
+              Bắt đầu <ChevronRight size={15} />
+            </Button>
+          </Card>
+        ) : (
+          <Card className="gap-3 rounded-2xl border-dashed border-neutral-200 bg-neutral-50/60 p-5 ring-0">
+            <div className="flex items-center justify-between">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
+                <Headphones size={19} className="text-neutral-400" />
+              </div>
+              <span className="rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-semibold text-amber-700">Sắp có</span>
+            </div>
+            <div>
+              <div className="text-base font-bold text-neutral-400">Nghe hiểu</div>
+            </div>
+            <p className="text-xs font-medium text-neutral-400">Bộ đề gốc chưa có phần nghe — sẽ cập nhật khi có dữ liệu.</p>
+            <Button className="mt-1 w-full" variant="outline" disabled>
+              Chưa mở
+            </Button>
+          </Card>
+        )}
       </div>
 
       <div className="mt-6 grid grid-cols-2 divide-x divide-neutral-100 overflow-hidden rounded-2xl border border-neutral-200 bg-white sm:grid-cols-4">
@@ -419,13 +532,19 @@ function TakingView({
           </h1>
         </div>
         <div className="flex items-center gap-2">
-          <span
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-bold tabular-nums ${
-              isLow ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 bg-white text-neutral-700"
-            }`}
-          >
-            <Clock size={14} /> {timeLabel}
-          </span>
+          {session.practiceMode ? (
+            <span className="flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-bold text-amber-700">
+              Ôn tập
+            </span>
+          ) : (
+            <span
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-bold tabular-nums ${
+                isLow ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 bg-white text-neutral-700"
+              }`}
+            >
+              <Clock size={14} /> {timeLabel}
+            </span>
+          )}
           <button
             title="Nộp bài, xem kết quả"
             onClick={async () => {
@@ -439,6 +558,28 @@ function TakingView({
         </div>
       </div>
 
+      {paper.audioUrl ? (
+        // Đặt ở vị trí cố định ngoài Card câu hỏi để React không unmount lại
+        // audio mỗi khi đổi câu (idx thay đổi), giữ nguyên tiến trình phát.
+        <Card className="mt-4 gap-2 rounded-2xl border-neutral-200 p-4 ring-0">
+          {session.practiceMode ? (
+            <>
+              <div className="text-xs font-semibold text-neutral-400">
+                Chế độ ôn tập -- không tính giờ, không lưu vào lịch sử. Tự do dừng/tua/lặp lại/đổi tốc độ.
+              </div>
+              <AudioPlayer src={assetUrl(paper.audioUrl)} />
+            </>
+          ) : (
+            <>
+              <div className="text-xs font-semibold text-neutral-400">
+                Audio tự phát 1 lần xuyên suốt cả bài, đúng như thi thật -- không dừng/tua được. Tự do chuyển câu bên dưới trong lúc nghe.
+              </div>
+              <ExamAudioTimeline src={assetUrl(paper.audioUrl)} />
+            </>
+          )}
+        </Card>
+      ) : null}
+
       <QuestionPalette
         summary={`Câu ${idx + 1}/${paper.questions.length} · đã trả lời ${session.answers.filter((a) => a !== null).length}`}
         onJump={goTo}
@@ -450,11 +591,13 @@ function TakingView({
       />
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
-        <div className="flex items-center gap-2 text-xs font-semibold text-neutral-400 uppercase">
-          <span style={levelBadgeStyle("N3")} className="rounded-full px-2 py-0.5 text-[10px] font-bold normal-case">
-            N3
-          </span>
-          {q.problemGroup}
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 text-xs font-semibold text-neutral-400 uppercase">
+            <span style={levelBadgeStyle("N3")} className="rounded-full px-2 py-0.5 text-[10px] font-bold normal-case">
+              N3
+            </span>
+            {q.problemGroup}
+          </div>
         </div>
 
         {q.passage ? (
@@ -463,26 +606,45 @@ function TakingView({
 
         <div className="mt-4 text-lg leading-relaxed font-semibold text-neutral-800">{q.question}</div>
 
-        <div className="mt-5 grid gap-2 sm:grid-cols-2">
-          {q.options.map((opt, oi) => (
-            <button
-              key={oi}
-              onClick={() => selectAnswer(oi)}
-              className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${
-                answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
-              }`}
-            >
-              <span
-                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${
-                  answered === oi ? "border-rose-300 text-rose-600" : "border-neutral-300 text-neutral-400"
+        {q.optionsImage ? (
+          <>
+            <img src={assetUrl(q.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-4 w-full rounded-lg border border-neutral-200" />
+            <div className="mt-3 grid grid-cols-4 gap-2">
+              {Array.from({ length: q.optionCount ?? 4 }, (_, oi) => (
+                <button
+                  key={oi}
+                  onClick={() => selectAnswer(oi)}
+                  className={`rounded-lg border py-2 text-center text-sm font-bold ${
+                    answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
+                  }`}
+                >
+                  {oi + 1}
+                </button>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="mt-5 grid gap-2 sm:grid-cols-2">
+            {q.options.map((opt, oi) => (
+              <button
+                key={oi}
+                onClick={() => selectAnswer(oi)}
+                className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${
+                  answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
                 }`}
               >
-                {oi + 1}
-              </span>
-              {opt}
-            </button>
-          ))}
-        </div>
+                <span
+                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${
+                    answered === oi ? "border-rose-300 text-rose-600" : "border-neutral-300 text-neutral-400"
+                  }`}
+                >
+                  {oi + 1}
+                </span>
+                {opt}
+              </button>
+            ))}
+          </div>
+        )}
       </Card>
 
       {/* Desktop-only inline row -- on mobile, see the floating buttons below.
@@ -588,21 +750,39 @@ function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["quest
         <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{question.passage}</div>
       ) : null}
       <div className="mt-3 text-base font-semibold text-neutral-800">{question.question}</div>
-      <div className="mt-4 grid gap-2 sm:grid-cols-2">
-        {question.options.map((opt, oi) => {
-          let cls = "border-neutral-200 opacity-60";
-          if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
-          else if (oi === chosenIndex) cls = "border-rose-300 bg-rose-50 text-rose-700";
-          return (
-            <div key={oi} className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${cls}`}>
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
-                {oi + 1}
-              </span>
-              {opt}
-            </div>
-          );
-        })}
-      </div>
+      {question.optionsImage ? (
+        <>
+          <img src={assetUrl(question.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-3 w-full rounded-lg border border-neutral-200" />
+          <div className="mt-3 grid grid-cols-4 gap-2">
+            {Array.from({ length: question.optionCount ?? 4 }, (_, oi) => {
+              let cls = "border-neutral-200 opacity-60";
+              if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+              else if (oi === chosenIndex) cls = "border-rose-300 bg-rose-50 text-rose-700";
+              return (
+                <div key={oi} className={`rounded-lg border py-2 text-center text-sm font-bold ${cls}`}>
+                  {oi + 1}
+                </div>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          {question.options.map((opt, oi) => {
+            let cls = "border-neutral-200 opacity-60";
+            if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+            else if (oi === chosenIndex) cls = "border-rose-300 bg-rose-50 text-rose-700";
+            return (
+              <div key={oi} className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${cls}`}>
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
+                  {oi + 1}
+                </span>
+                {opt}
+              </div>
+            );
+          })}
+        </div>
+      )}
       {chosenIndex === null ? <p className="mt-3 text-xs font-medium text-neutral-400">Bạn chưa trả lời câu này.</p> : null}
     </Card>
   );

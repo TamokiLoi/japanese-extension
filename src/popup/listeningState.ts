@@ -20,6 +20,13 @@ import listeningShinkanzenRaw from "../data/listening-shinkanzen-n3.json";
 // qua vì 4 lựa chọn của 2 mondai đó chỉ in trên đề giấy (問題用紙), không đọc
 // thành tiếng trong audio nên không có nguồn thật để trích xuất.
 import listeningDethi202512Raw from "../data/listening-dethi-2025-12.json";
+// listening-cacnam-2020-12.json: Mondai 1 (6 cau) cua phan 聴解 de thi that
+// N3 T12/2020, tu assets/data/de-thi-cac-nam/ -- KHAC listening-dethi-2025-12
+// o cho nguon nay CO dap an in san that cho ca phan nghe (khong phai AI suy
+// luan), va de PDF co in day du lua chon cho ca cau tranh (3ban/6ban dung
+// optionsImage). Pilot 6/28 cau cua rieng de T12/2020; 11 ky con lai + Mondai
+// 2/3/4/5 cua chinh de nay chua convert.
+import listeningCacNam202012Raw from "../data/listening-cacnam-2020-12.json";
 import type { ListeningDataset, ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
@@ -27,12 +34,14 @@ const soumatomeDataset = listeningSoumatomeRaw as unknown as ListeningDataset;
 const speedmasterDataset = listeningSpeedmasterRaw as unknown as ListeningDataset;
 const shinkanzenDataset = listeningShinkanzenRaw as unknown as ListeningDataset;
 const dethi202512Dataset = listeningDethi202512Raw as unknown as ListeningDataset;
+const cacNam202012Dataset = listeningCacNam202012Raw as unknown as ListeningDataset;
 
 export const ALL_LISTENING: ListeningQuestion[] = [
   ...soumatomeDataset.questions,
   ...speedmasterDataset.questions,
   ...shinkanzenDataset.questions,
   ...dethi202512Dataset.questions,
+  ...cacNam202012Dataset.questions,
 ];
 
 const LISTENING_BY_ID = new Map(ALL_LISTENING.map((q) => [q.id, q]));
@@ -57,9 +66,10 @@ export const BOOK_LABELS: Record<string, string> = {
   speedmaster: "Speed Master N3 Choukai",
   shinkanzen: "Shin Kanzen Master N3 Choukai",
   "dethi-2025-12": "Đề thi thật N3 T12/2025 (聴解, 16/28 câu)",
+  "cacnam-2020-12": "Đề thi thật N3 T12/2020 (聴解, 6/28 câu -- Mondai 1)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12", "cacnam-2020-12"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {
