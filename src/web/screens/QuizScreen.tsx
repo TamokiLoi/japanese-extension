@@ -792,14 +792,11 @@ function PlayView({
         <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-neutral-400">{q.promptLabel}</div>
         <div className={`mt-1 font-bold text-neutral-800 ${q.prompt.length > 6 ? "text-2xl" : "text-4xl"}`}>{q.prompt}</div>
 
-        {/* 4-column grid only suits short choices (a bare kanji character, "character" mode) --
-            "meaning" mode choices are full phrases and need the wider 1/2-col layout to avoid
-            cramped mid-word wrapping. */}
-        <div
-          className={`mt-5 grid gap-2 ${
-            q.kind === "kanji" && q.choices.every((c) => c.text.length <= 2) ? "grid-cols-4" : "grid-cols-1 sm:grid-cols-2"
-          }`}
-        >
+        {/* Single column on mobile (reachable one-handed) even for bare-kanji
+            choices, which used to force a cramped 4-across row; two columns
+            once there's room (sm+) so four short choices don't stretch full
+            width on desktop. */}
+        <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {q.choices.map((c, i) => {
             let cls = "border-neutral-200 hover:bg-neutral-50";
             if (answered !== null) {
@@ -819,7 +816,9 @@ function PlayView({
                   await saveQuizSession(newSession);
                   onSessionChange(newSession);
                 }}
-                className={`rounded-xl border px-4 py-3 text-left text-sm font-medium ${cls} ${q.kind === "kanji" && c.text.length === 1 ? "text-center text-2xl" : ""}`}
+                className={`rounded-xl border px-4 py-3 text-sm font-medium ${cls} ${
+                  q.kind === "kanji" && c.text.length === 1 ? "text-center text-2xl" : "text-left"
+                }`}
               >
                 {c.text}
               </button>

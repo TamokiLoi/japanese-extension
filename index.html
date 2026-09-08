@@ -3,10 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Explicit light-only signal, declared as early as possible (before
+         any CSS/JS) so nothing downstream -- browser auto-dark heuristics
+         included -- has a window to guess otherwise. style.css's own
+         `color-scheme: light` on :root is a redundant second signal for
+         everything that arrives after this. -->
+    <meta name="color-scheme" content="light" />
     <link rel="icon" type="image/png" href="/icons/icon48.png" />
     <title>Nihongo Nin</title>
     <link rel="stylesheet" href="/src/popup/style.css" />
     <style>
+      html {
+        color-scheme: light;
+      }
       /* Shown immediately from the static HTML, before any JS parses or the
          web build's dynamically-imported WebApp chunk arrives -- replaces
          what used to be a blank white flash with the app's own logo. Plain
@@ -27,7 +36,18 @@
         opacity: 0;
         pointer-events: none;
       }
-      #splash .ring {
+      /* Named "spinner-ring", not "ring" -- the web build also loads
+         Tailwind's CSS (src/web/**), which ships its own utility class
+         literally named .ring (the focus-ring box-shadow utility). A
+         same-named class here collided with it: once that stylesheet
+         chunk finished loading -- timing-wise, right as #app mounts and
+         this splash is about to fade out -- Tailwind's box-shadow (black
+         by default, no ring color set) started applying to this div,
+         showing as a black SQUARE frame around the round spinner+logo for
+         the last instant before hide() ran. Confirmed via computed
+         styles: the box-shadow traced back to Tailwind's plain `.ring`
+         rule, not any local CSS or the image itself. */
+      #splash .spinner-ring {
         position: relative;
         width: 76px;
         height: 76px;
@@ -35,7 +55,7 @@
         align-items: center;
         justify-content: center;
       }
-      #splash .ring::before {
+      #splash .spinner-ring::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -43,21 +63,28 @@
         border: 3px solid #f3dede;
         border-top-color: #e11d48;
         animation: splash-spin 0.8s linear infinite;
-        /* Chromium/Android WebView bug: a border-radius element that's
-           animated (or sits under an ancestor whose opacity is animated,
-           as happens here right as #splash fades out via [data-hide])
-           can rasterize as a solid black frame during GPU layer
-           promotion instead of clipping to the rounded shape. Forcing
-           the mask-image paint path instead of border-radius clipping
-           avoids it -- white/black keywords are both fully opaque, so
-           this mask is a visual no-op, purely a rendering-path switch. */
-        -webkit-mask-image: -webkit-radial-gradient(white, black);
       }
-      #splash img {
+      /* icon128.png is a fully opaque square (no transparent corners) --
+         border-radius applied directly to the <img> only clips reliably
+         once the browser has laid out AND decoded the image, and on some
+         mobile browsers the image's first paint (right when it finishes
+         loading, which given the network fetch is usually near the end
+         of the splash's visible time) shows the full square before that
+         catches up -- seen as a black square (the icon's dark background)
+         framing the red logo mark. Doing the clip on a wrapper via
+         overflow:hidden is layout-based, not tied to the image's own
+         decode/paint timing, so it clips from the very first frame. */
+      #splash .logo-clip {
+        display: block;
         width: 52px;
         height: 52px;
         border-radius: 14px;
-        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        overflow: hidden;
+      }
+      #splash .logo-clip img {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
       @keyframes splash-spin {
         to {
@@ -65,7 +92,7 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        #splash .ring::before {
+        #splash .spinner-ring::before {
           animation: none;
         }
       }
@@ -95,8 +122,8 @@
   </head>
   <body>
     <div id="splash">
-      <div class="ring">
-        <img src="/icons/icon128.png" alt="" />
+      <div class="spinner-ring">
+        <span class="logo-clip"><img src="/icons/icon128.png" alt="" /></span>
       </div>
     </div>
     <div id="app"></div>
