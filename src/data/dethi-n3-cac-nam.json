@@ -2708,6 +2708,482 @@
               "passage": "（同上）"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [
+                "会場を予約する",
+                "プレゼントを用意する",
+                "参加者をグループに分ける",
+                "参加者の名札を作る"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 58.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "レインコートを着る",
+                "船の乗り場に移動する",
+                "船での注意点を聞く",
+                "荷物をロッカーに入れる"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 137.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "工場見学の計画を立てる",
+                "タクシーを予約する",
+                "メールで連絡する",
+                "食事をする場所を決める"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 205.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "ほかのアルバイトに電話をする",
+                "両替に行く",
+                "レジの仕事をする",
+                "窓ガラスを掃除する"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 285.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "生年月日、性別",
+                "生年月日、性別、電話番号",
+                "生年月日、性別、電話番号、住所",
+                "電話番号、住所"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 367.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "お茶を準備する",
+                "使えるへやを探す",
+                "パソコンを用意する",
+                "うけつけに連絡する"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 447.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "ゴミを出す日をまちがえたから",
+                "へやでギターをひいたから",
+                "テレビの音がうるさかったから",
+                "アパートの前に車を止めたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 565.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "生き物の種類が多いところ",
+                "見せ方が新しいところ",
+                "生き物の説明が詳しいところ",
+                "観察会をやっているところ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 663.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "Tシャツのえ",
+                "Tシャツのサイズ",
+                "Tシャツの数",
+                "Tシャツのとどく日"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 766.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "農業がせんもんだったから",
+                "親を手伝いたかったから",
+                "じっかの野菜で商品を作りたかったから",
+                "お金をたくさん稼ぎたかったから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 899.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "料理が毎日かわるところ",
+                "店が静かなところ",
+                "店員が親切なところ",
+                "ワインが一杯無料なところ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 993.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "観光地を走れるから",
+                "すばらしい自然が見られるから",
+                "町の人の応援がうれしいから",
+                "友だちと一緒に走れるから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1113.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "一人暮らしに向いているペット",
+                "犬を飼うことのよさ",
+                "鳥を上手に飼う方法",
+                "いろいろな種類のペットがいる店"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1300.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "森の歴史",
+                "森の生き物",
+                "森で取れる食べ物",
+                "森の中でのルール"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1406.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "ホテル経営の失敗",
+                "効果的な宣伝方法",
+                "これからの経営目標",
+                "収入が増えた理由"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1497.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "車椅子、押してもらえる？",
+                "車椅子、押そうか。",
+                "車椅子、押すのをやめようか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1621.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "ヘルメット、かぶらないと。",
+                "ヘルメットはそこに戻して。",
+                "ヘルメット、要らないよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1660.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "すみません、通していただけますか。",
+                "どうぞ、お通りください。",
+                "通してくださって、ありがとうございます。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1698.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "クリーム、つけなくちゃ。",
+                "クリーム、まだついてるよ。",
+                "クリーム、ついちゃうよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1736.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "行ったみたいだよ。",
+                "もちろん行くよ。",
+                "えっ？中止になったの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1814.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "練習しなくてもいいんですか。",
+                "毎日漢字教えてあげましょうか。",
+                "はい、今日から、そうします。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1847.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "次は参加できるといいね。",
+                "すごいね、聞きに行くね。",
+                "どうして、出ないの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1882.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "3時間過ぎました。",
+                "もうすぐ終わると思います。",
+                "まだそんなに残っているんですか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1914.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "うん、できるだけ行くね。",
+                "ぜひ来て。",
+                "じゃ、また今度来て。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1948.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "はい、閉めて帰ります。",
+                "いいんですか。ありがとうございます。",
+                "開けておきます。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1983.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "まだお返ししていません。",
+                "すみません。けっこうです。",
+                "こちらのペンをお使いください。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2014.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "そうなんだ。マラソンもできるんだね。",
+                "マラソンはあまり得意じゃないんだね。",
+                "森君でも苦手なことはあるんだね。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2048.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "うん、いいよ。いつ行く？",
+                "えっ？僕一人で行くの？",
+                "気持ちはうれしいんだけど……"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2084.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2019-07-v1/N3-2019-07.mp3"
         }
       ]
     },
@@ -3843,6 +4319,467 @@
               "passage": "大原経済大学\n「外国人学生のための進学相談会」のご案内\n大原経済大学では、外国人学生のための進学相談会を行います。\n大学の特長や入試についてお伝えするほか、さまざまなプログラムを用意しています。\n大原経済大学で学びたい日本語学校の学生さんや、大学進学に興味がある方、ぜひご来場ください。\n日時：7月13日（土）10：00～13：00 [9：30受付開始]\n場所：大原経済大学\n予約：不要です。（3-A. 留学生課による進学相談で予約が必要な場合があります）。\n好きなプログラムだけを選んで参加していただくこともできます。\n当日の受付：大学に来たときに、必ず図書館前の受付で名前を書いてください。\n資料をお渡しします。\n各会場には各プログラムの開始時間までにお入りください。\n内容：\n[表省略]"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2019-12-listening-p1.jpg",
+              "audioStartSec": 42.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "色をはでにする",
+                "会場のちずをのせる",
+                "タイトルをかえる",
+                "文字を大きくする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 120.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": "public/images/listening/cacnam-2019-12-listening-p1.jpg",
+              "audioStartSec": 205.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "世界中につたえたい料理",
+                "ふるさとで人気がある料理",
+                "自分の思い出の料理",
+                "いちばん好きな日本料理"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 291.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "先生にメールを送りなおす",
+                "レポートをいんさつしてくる",
+                "持っているレポートを先生に出す",
+                "先生と研究室に行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 363.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": "public/images/listening/cacnam-2019-12-listening-p1.jpg",
+              "audioStartSec": 460.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "ひこうきがにがてだから",
+                "バイクを持っていけるから",
+                "食事が食べほうだいだから",
+                "いろいろな人と知り合えるから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 582.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "ラジオの音楽ばんぐみを聞く",
+                "テレビドラマを見る",
+                "同じ歌を何度も聞いておぼえる",
+                "日本人の友だちと会話する"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 685.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "テレビコマーシャルをながしたから",
+                "はこのデザインをかえたから",
+                "かかくを安くしたから",
+                "チョコレートのりょうをふやしたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 800.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "食事しながら本が読める",
+                "かりた本を家にとどけてくれる",
+                "24時間利用できる",
+                "ペットといっしょに入れる"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 916.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "けんちくじむしょではたらく",
+                "はしのデザインを自分で勉強する",
+                "大学院に進学して研究する",
+                "父親の会社でアルバイトする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1011.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "しゃちょうのむすこ",
+                "しゃちょうのむすこの友人",
+                "しゃちょうの家の近所の人",
+                "しゃちょうの大学のこうはい"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1132.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "ダンスを始めたころの思い出",
+                "ダンスを続けている理由",
+                "ダンスが上手になる方法",
+                "ダンスでのいやな経験"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1336.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "けがをしないように気をつけたい",
+                "しっかり練習することが大事だ",
+                "多くの人に応援に来てほしい",
+                "周りの人たちに助けられた"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1422.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "はやく大学生活に慣れるようにしよう",
+                "大学で新しいことにチャレンジしよう",
+                "大学では多くの人と交流しよう",
+                "大学のカウンセリングを利用しよう"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1508.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "上のかばんほうがいい？",
+                "かばん載せたら？",
+                "かばん、網棚に置くつもり？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1626.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "練習を見てくださるんですか",
+                "練習をご覧になってください",
+                "練習を見学させていただきませんか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1665.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "あのう、小さい声で話してもらいたいんですけど",
+                "あのう、うるさくしてしまって、すみません",
+                "あのう、静かにしたほうがいいでしょうか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1704.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "そこ、空くんじゃない？",
+                "そこに車はないそうだよ",
+                "そこには止まってる？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1746.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "じゃ、もう一杯",
+                "コーヒーのままで大丈夫です",
+                "かおりですか。いいかおりです"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1825.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "じゃ、ゆっくり休んでね",
+                "休み、一週間になったの？やった",
+                "ううん、家の中片付けたいな"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1857.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "あ、１つ壊れちゃったんですね",
+                "すみません、お借りします",
+                "どうぞ、使ってください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1891.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "チョコレートなら、ありますけど",
+                "ありがとうございます。いただきます",
+                "クッキーのほかにですか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1926.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "どうして自分でコピーしないの？",
+                "ぼくはノートがあるから、いいよ",
+                "いいけど、授業までに返してね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1961.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "いいえ、こちらこそ",
+                "ぜひ拝見したいです",
+                "楽しみにしております"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1994.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "会議、行けないんですか",
+                "わたしから伝えときます",
+                "あ、山田さんから聞いたんですね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2026.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "そんなに安かったの？",
+                "つい食べ過ぎちゃうよ",
+                "それじゃ、甘いのしようか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2060.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "え？資料を間違ってた？",
+                "待って、まだ捨てないで",
+                "本当？一緒に探そうか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2091.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2019-12-v1/N3-2019-12.mp3"
         }
       ]
     },
@@ -4964,6 +5901,462 @@
               "passage": "さくらまつりの協力者募集\n春とともにやって来る「山中さくらまつり」。\n毎年たくさんの人が集まる「さくらまつり」に、協力者として参加してみませんか。\n----山中さくらまつり----\n日時:4月4日(土)午前10時~午後8時\n4月5日(日)午前10時~午後7時\n募集内容\n係の名前と仕事内容:1.案内係:会場の案内と答極プログラムに参加する人を集めます。2.会場係:場内の整備・免飾りを行います。\n場所(会場):山中公園\n時間:①4月4日(土)午前9時~午後1時 ②* 午後1時~午後6時 ③* 午後6時~午後9時 ④4月5日(日)午前9時~午後1時 ⑤* 午後1時~午後6時 ⑥* 午後6時~午後8時\n応募資格:市内に住んでいる16歳以上で、2回以上参加が可能な方。(③と⑥は20歳以上の方だけです)\n募集人数:①~⑥につき・案内係:各10名 ・会場係:各10名\n応募しめ切り:3月27日(金)午後5時 ただし、先着順とし、募集人数になったらしめ切ります。\n申し込み方法:別紙の応募用紙に必要を記入して、ファックスまたは郵送してください。応募用紙は市役所ホームページにもございます。・ファックス:0038-26-1870(山中市役所市民課) ・郵送:〒000-8787 山中市本町1-1-1 山中市役所市民課\n問い合わせ先:山中市役所市民課(広田) 電話:0033-26-1877/Eメール:hirota@yamanaka-shijp"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": "public/images/listening/cacnam-2021-07-listening-p2.jpg",
+              "audioStartSec": 120
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": "public/images/listening/cacnam-2021-07-listening-p2.jpg",
+              "audioStartSec": 194
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": "public/images/listening/cacnam-2021-07-listening-p2.jpg",
+              "audioStartSec": 262
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2021-07-listening-p2.jpg",
+              "audioStartSec": 341
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "しりょうを作りなおす",
+                "おきゃくさんの所に行く",
+                "しゅっちょうのほうこくを出すがた",
+                "もりかちょうにれんらくする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 417
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "200円分の切手",
+                "自分の住所を書いたふうとう",
+                "もうしこみの用紙",
+                "めんきょしょうのコピー"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 501
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "食事に行く",
+                "本をかいに行く",
+                "どうぶつえんに行く",
+                "サッカーを見に行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 653
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "起きるのがおそかったから",
+                "乗る電車をまちがえたから",
+                "ほんとうは映画が見たくなかったから",
+                "やくそくをわすれていたからだ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 760
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "町のことを知りたかったから",
+                "好きな歌手に会いたかったから",
+                "しせいをよくしたかったから",
+                "きせつをかんじたかったから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 854
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "おしゃれな店がふえて便利だ",
+                "わかい人がたくさん来るのでいやだ",
+                "古い店がなくなってさびしい",
+                "まちに元気が出てきてよい"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 942
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "世話が楽だから",
+                "色がきれいだから",
+                "手に乗るから",
+                "かわいい声でなくから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1016
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "子どももさんかできて楽しめる",
+                "さんかする外国人がふえている",
+                "しみんがこうりゅうする機会になっている",
+                "かんこうによいえいきょうをあたえている"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1101
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "とても感動した",
+                "まったく感動しなかった",
+                "思っていたより感動した",
+                "思っていたほど感動しなかった"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1380
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "お正月のあいさつ",
+                "引っ越しのあいさつ",
+                "新しいうちにいく約束",
+                "歓迎会へのお誘い"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1465
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "チョコレートの歴史",
+                "チョコレートの原料",
+                "チョコレートの種類",
+                "チョコレートの人気"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1550
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "ご苦労様です",
+                "お待ち度様です",
+                "ご無沙汰しております"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1667
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "あれ、ボタン取れてるよ",
+                "あれ、ボタン落ちそうだよ",
+                "あれ、ボタン取らないと"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1701
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "撮るなって書いてあるよ",
+                "撮りなさいって言ってるよ",
+                "撮らなきゃいけないんだって"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1740
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "ぜひ、いらっしゃってください",
+                "また誘っていただけますか",
+                "ご一緒させてください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1780
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "お願いします",
+                "こちらこそ",
+                "大丈夫です"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1853
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "本当忙しい出張だったよ",
+                "じゃ、お土産買ってきてね",
+                "遊びじゃなくて仕事だから"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1880
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "また手伝うからいつでも言って",
+                "手伝ってくれてありがとう",
+                "何からはじめればいい"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1912
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "あとで食べるっていうことですか",
+                "じゃ、暖かいうちに、ありがとうございます",
+                "冷めちゃったんですか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1946
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "雨、やんでよかったです",
+                "ずっと、ふりそうですね",
+                "傘はいらないでしょうね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1981
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "野菜は食べなくてもいいってこと",
+                "肉だけじゃなくて野菜も食べてるよ",
+                "肉だけ食べなくちゃいけないの"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2014
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "あ、うっかりしてました。すぐやります",
+                "ホチキスはしなくていいんですか",
+                "コピーだけだったんですね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2045
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "そうですね。募集する方向で行きましょう",
+                "じゃ、募集をやめるってことですか",
+                "消費者からは募集しないですね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2082
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "じゃ、すぐ作ってきて",
+                "そこにあるんで、持ってって",
+                "机の上に置いといて"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2119
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2021-07-v1/N3-2021-07.mp3"
         }
       ]
     },
@@ -6085,6 +7478,477 @@
               "passage": "あおい市市立図書館\n4月の読書会のお知らせ\n◆大山町図書館◆\n4月12日（土）10:00～11:00/大山町図書館ロビー\n今月のテーマは「大人も楽しめる絵本」です。親子での参加も可能です。昔から人気のある絵本、最近人気のある絵本、世界中で読まれている絵本など、さまざまな絵本を読んでみましょう。\n◆南田町図書館◆\n4月19日（土）14:00～15:00/南田町図書館 2 階会議室今月のテキストは、小林ゆり『手ぶくろ』です。\n本が好きな方、図書館で語り合ってみませんか。大学生から参加できます。主に感想を話し合いますので、テキストを読んでからご参加ください。\n〈ご参加方法〉参加希望日の三日前までに、それぞれの図書館の窓口、お電話で申し込んでください。\n南田町図書館電話：056-123-4567大山町図書館電話：056-123-4578"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": "public/images/listening/cacnam-2021-12-listening-p1.jpg",
+              "audioStartSec": 197.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "1ばんせん",
+                "2ばんせん",
+                "3ばんせん",
+                "4ばんせん"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 273.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "アウ",
+                "アエ",
+                "イウ",
+                "イエ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 365.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "みんなの予定を聞く",
+                "メールで意見を聞く",
+                "かいぎの日時を知らせる",
+                "かいぎを開いて意見を聞く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 446.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "ア",
+                "アイ",
+                "イウ",
+                "アイウ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 518.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "ア",
+                "アイ",
+                "イウ",
+                "アイウ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 614.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "前の家より広いこと",
+                "駅から近いこと",
+                "にわがあること",
+                "会社から近いこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 863.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "料理の味",
+                "料理のりょう",
+                "しょっき",
+                "お店の人のサービス"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 964.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "日をまちがえたから",
+                "駅をまちがえたから",
+                "時間をまちがえたから",
+                "かいさつぐちをまちがえたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1066.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "今週の土曜日の3時",
+                "今週の水曜日の4時半",
+                "来週の土曜日の3時",
+                "来週の水曜日の4時半"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1174.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "早起きできるようになったこと",
+                "近所に知り合いがふえたこと",
+                "店で野菜を買わなくなったこと",
+                "まごが野菜を好きになったこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1296.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "にわであそぶ子どもの写真",
+                "こうえんの花の写真",
+                "いけにいた鳥の写真",
+                "めずらしい魚の写真"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1409.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "佐藤君のバイトの仲間を紹介して欲しい。",
+                "佐藤君にバイトの探し方を教えてほしい。",
+                "佐藤君のバイト先に食事に行きたい。",
+                "佐藤君のバイト先で自分もはたらきたい。"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1601.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "体の疲れは医者に相談した方がいい。",
+                "健康のためによく笑ったほうがいい。",
+                "テレビを長い時間を見ないほうがいい。",
+                "できるだけ運動をしたほうがいい。"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1806.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "よく晴れて温かい。",
+                "よく晴れるが寒い。",
+                "天気が変わりやすく寒い。",
+                "一日中雨が降って寒い。"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1889.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "手伝ってくれる。",
+                "手伝おうか。",
+                "手伝ってもいいよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2054.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "これ、召し上がってください。",
+                "では、食べさせてください。",
+                "どうぞ、お作りください。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2091.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "買い物は終わったんですか。",
+                "もう店に入れますか。",
+                "まだやってますか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2126.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "どうやって予約するのかを教えましょうか。",
+                "予約はどうすればいいんですか。",
+                "チケットを予約したら、どうでしょうか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2166.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "う～ん、できれば行きたいんだけど。",
+                "すぐクラスのみんなを誘ってよ。",
+                "パーティー、明日にしようか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2296.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "良かったな。どんなバイト。",
+                "新しいバイトを始めてみてどう。",
+                "先輩にバイトを手伝ってもらうの。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2333.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "一回でお願いします。",
+                "ええ、払わなくちゃいけません。",
+                "できるだけ早く払ってください。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2366.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "やっぱり旅行がいいな。",
+                "それなら夏休みをとるよ。",
+                "家で休んだほうが良かったよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2396.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "すみません、お願いします。",
+                "はい、わかりました。",
+                "そうですね。開けましょう。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2428.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "ちょうど借りようと思ってたから。",
+                "じゃ、なるべく早く返すから。",
+                "うん、しばらく使う予定がないから。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2458.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "少ししかうまくならないの。",
+                "毎日頑張ってるからだね。",
+                "誰か上手な人に教えてもらったら。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2491.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "それは残念だね。",
+                "ああ、気にしないで。",
+                "本当にごめんなさい。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2525.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "あっ、拝見します。",
+                "はい、お見せします。",
+                "では、お目にかかります。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2556.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2021-12-v1/N3-2021-12.mp3"
         }
       ]
     },
@@ -7192,6 +9056,472 @@
               "passage": "中村ギター教室 生徒募集\n★初めての方にもわかりやすく教えます。\n★教室に通うかどうか決める前に、60分の「特別割引レッスン」(1000円)を1回90分受けることができます。\n「講師」中村カズオ(西日本音楽大学卒業)\n「時間」1回90分(毎日10時～21時の間) ※日時は、講師と予約を相談して決めます。\n「レッスンのタイプ」\n個人レッスンと、2～3名で申し込めるグループ・レッスンがあります。\n「1ヵ月の料金」(グループ・レッスンは1名分の料金)\n月2回：個人7000円 / グループ6000円\n月3回：個人10000円 / グループ8000円\n月4回：個人13000円 / グループ10000円\n学生割引：学生の方は、上の表の料金から毎月1000円割引します。\n平日昼間割引：平日昼間(月～金の17時までに終了)にレッスンを受ける方は、上の表の料金から毎月2000円割引します。\n※二つの割引を同時に使うことはできません。\n※毎月の料金は、前の月の最終日までにお支払いください。\n「特別割引レッスン」\n・メールに、お名前、連絡先、レッスンのタイプ、希望日時を書いてお申し込みください。\n・グループ・レッスンを希望する方は、代表の方がお申し込みください。\n・料金(一人1000円)は、当日お支払いください。\n・自分のギターでレッスンを受けたい方は持ってきてください。持ってこられない方には、無料で教室のギターをお貸しします。\n中村ギター教室 〒120-5599 春中市高木町6-2-3(春中駅から徒歩1分)\nホームページ https://nakamuraguitaryuukibui.jp Eメール k-nakamura@guitar.com"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": "public/images/listening/cacnam-2022-07-listening-p1.jpg",
+              "audioStartSec": 120.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "1 料理の写真",
+                "2 料理の味の説明",
+                "3 料理のカロリー",
+                "4 料理に使っているざいりょう"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 193.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "1 600円",
+                "2 1000円",
+                "3 1200円",
+                "4 1600円"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 291.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "1 まつりのビデオを見る",
+                "2 おどりの練習をする",
+                "3 ゆかたにきがえる",
+                "4 かばんをへやの後ろにおく"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 395.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2022-07-listening-p2.jpg",
+              "audioStartSec": 474.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "1 産業のれきし",
+                "2 アジアのけいざい学",
+                "3 こくさいかんけい学",
+                "4 社会学研究"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 568.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "1 日本でアンケートを取る",
+                "2 日本でインタビューをする",
+                "3 自分の国でアンケートをする",
+                "4 自分の国でインタビューをする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 719.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "1 けしきがいい旅館",
+                "2 おいしいそば屋",
+                "3 新しくできたわがし屋",
+                "4 男の人がよく行くみやげ物屋"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 834.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "1 おもしろくなかったから",
+                "2 もっといいアルバイトが見つかったから",
+                "3 勉強する時間をふやしたかったから",
+                "4 しょうがくきんがもらえたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 962.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "1 多くの人に写真を見てもらいたいから",
+                "2 かぞくや友人をよろこばせたいから",
+                "3 日本での経験をきろくしたいから",
+                "4 日本語でこうりゅうできるから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1066.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "1 明るい色にする",
+                "2 ねだんを安くする",
+                "3 サイズをかえる",
+                "4 軽いざいりょうにする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1177.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "1 りゅうがくした国のことばが上手になった",
+                "2 りゅうがくした国のぶんかを学べた",
+                "3 自分の国のことがよく分かるようになった",
+                "4 国がちがっても分かり合える友人ができた"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1274.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "1 疲れてたときは休んだほうがいい",
+                "2 過去の資料を調べたほうがいい",
+                "3 何でも自分でやったほうがいい",
+                "4 分からないことは聞いたほうがいい"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1475.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "1 キッチンカーの店に来る客のタイプ",
+                "2 キッチンカーの店で人気の料理",
+                "3 キッチンカーで店を開くことのいい点",
+                "4 キッチンカーで店を開く方法"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1580.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "1 柿のイメージの変化",
+                "2 柿の消費量が少ない理由",
+                "3 柿の栄養とその効果",
+                "4 柿のおいしい食べ方"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1682.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "1 あのう、スプーン、いただけますか",
+                "2 あのう、スプーン、お使いください",
+                "3 あのう、スプーン、いりません"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1805.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "1 これ、着てみていい",
+                "2 これ、買うのやめたら",
+                "3 これ、いいんじゃない"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1846.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "1 あのう、間違っているところを教えてください",
+                "2 あのう、点数の計算もうやり直しません",
+                "3 あのう、点数の合計が合っていないと思うんですけど"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1887.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "1 来月、初めの一週間、休んでもらえませんか",
+                "2 来月、初めの一週間、休ませていただけませんか",
+                "3 来月、初めの一週間、休みをあげてください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1934.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "1 いいえ、もう結構です",
+                "2 ほかの飲み物はいりません",
+                "3 じゃあ、代わってください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2016.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "1 あっ、止まりそうなんだ。よかった",
+                "2 じゃあ、傘持っていたほうがよさそうだね",
+                "3 もう降り出したの"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2050.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "1 はっきり決まったら教えてください",
+                "2 よかったです。今からでも、出席可能ですから",
+                "3 そうですか。欠席ですね。分かりました"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2086.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "1 やっと終わったね",
+                "2 間に合うように頑張ろうね",
+                "3 あっ、今日準備しなくていいんだね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2125.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "1 いつもいらっしゃるの",
+                "2 研究室には行ってみた",
+                "3 そんなの？まず、メールで約束したら"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2161.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "1 もう全然動かないの",
+                "2 ああ、直してもらったんだね",
+                "3 修理、頼んだほうがいいね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2194.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "1 込まなくてよかったね",
+                "2 込むのは嫌だよね",
+                "3 えっ、明日は込んでいないの"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2231.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "1 そうでしょう。面白いよね",
+                "2 あっ、好きじゃなかった",
+                "3 えっ、どこかに忘れたの"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2265.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "1 木村さんに聞けば、何でもわかるよね",
+                "2 木村さん、パソコンのこと、全然知らないよね",
+                "3 えっ、木村さん、どこにもいないの"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2300.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2022-07-v1/N3-2022-07.mp3"
         }
       ]
     },
@@ -8313,6 +10643,476 @@
               "passage": "秋の日帰りバス旅行のご案内\n①川中市内観光と川中東温泉\n料金：平日 7,500円 / 土・日 8,500円\n食事：ついていません\n出発日：10月6日（土）、11月12日（月）\n\n②大岩チーズ場見学と川中美術館\n料金：平日 8,500円 / 土・日 9,500円\n食事：昼食\n出発日：10月30日（火）、11月10日（土）\n\n③北森市立博物館と花丸温泉\n料金：平日 11,000円 / 土・日 12,000円\n食事：昼食\n出発日：10月29日（月）、11月11日（日）\n\n④空石山ハイキングと空石温泉\n料金：平日 10,000円 / 土・日 11,000円\n食事：昼食\n出発日：10月25日（木）、11月3日（土）\n\n【お申し込み・お支払い】\n・お申し込み後のキャンセル料は、出発日の10日前～8日前までは料金の20%、出発日の7日前～2日前までは30%、出発日の前日は40%、当日の出発前までは50%、出発後は100%になります。"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [
+                "チケット売り場にチケットを買いに行く",
+                "インターネットでチケットを買う",
+                "川野さんにお金をわたす",
+                "わりびきけんをもらいに行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "しるいをいんさつする",
+                "先生にメールでしるいを送る",
+                "先生のメールにへんしんする",
+                "先生に会いに行く時間を決める"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 199.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": "public/images/listening/cacnam-2022-12-listening-p1.jpg",
+              "audioStartSec": 282.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "だいひょうしゃの名前を書く",
+                "メンバーぜんいんに住所を聞く",
+                "利用の注意点をかくにんする",
+                "使用料をはらう"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 380.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "ほかの大学のとしょかに行く",
+                "本のゆうそうをしんせいする",
+                "本のコピーをしんせいする",
+                "ぶんがくぶのしりょうしつに行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 479.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "テーブルを動かす",
+                "いすを運ぶ",
+                "かびんをかたづける",
+                "ゆかをそうじする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 577.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "前を見て話す",
+                "もう少しゆっくり話す",
+                "決められた時間内に話し終える",
+                "スピーチをみじかくする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 683.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "広くてきれいなところ",
+                "動物とあそべる場所があるところ",
+                "めずらしい動物がいるところ",
+                "動物のしゅるいが多いところ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 786.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "毎日れんしゅうする",
+                "きほんのれんしゅうをふやす",
+                "1日のれんしゅう時間をへらす",
+                "週1日はれんしゅうを休む"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 884.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "出発の前日の午後6時",
+                "出発の前日の午後8時",
+                "出発の日の午前6時",
+                "出発の日の午前8時"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1007.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "むすこがやりたいと言ったから",
+                "体力をつけさせたかったから",
+                "じしんをつけさせたかったから",
+                "勉強をがんばるようになると聞いたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1118.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "しょうひんを売るためのくふう",
+                "店でいちばん売れているもの",
+                "開店前にじゅんびすること",
+                "店を始めた年"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1229.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "勉強するのにいい場所",
+                "英語を習う目的",
+                "早起きをして感じた効果",
+                "朝一番にすること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1417.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "スーパーに買い物に行かない理由",
+                "食べ物の買いすぎを防ぐ工夫",
+                "ゴミの正しい捨て方",
+                "おやつに食べるといいもの"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1513.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "申し込み方法",
+                "授業の内容",
+                "授業を選ぶ時の注意点",
+                "教える先生の情報"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1606.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "行って参ります。",
+                "お邪魔しました。",
+                "お気を付けてお帰りください。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1728.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "あっ、ドア、ちょっと押さえててくれる？",
+                "あっ、ドア、閉めてくれない？",
+                "あっ、ドア、開けようか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1765.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "先にいってもいいよ。",
+                "ゆっくりしてていい？",
+                "ごめん、もう行かなきゃ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1803.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "見学していただけますか。",
+                "見学させてほしいんですが。",
+                "見学すればいいですか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1838.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "結構いろんなとこ行ったよ。",
+                "そこはまだ行ってないんだ。",
+                "じゃあ、温泉はどう？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1909.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "みんなの応援があったからだよ。",
+                "最後まで走れなくて、悔しいよ。",
+                "おめでとう、頑張ったね。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1939.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "お菓子はいやなの？",
+                "あっ、チョコレートあるよ。",
+                "ありがとう、食べたい。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1973.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "こちらこそ、またお会いしましょう。",
+                "ぜひ、お目にかかりたいです。",
+                "もう見たんですか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2003.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "ぜひ教えてください。",
+                "どんなことですか。",
+                "いただいたことがありますよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2033.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "明後日はダメなんだね。",
+                "明日に変えてくれるの？ありがとう。",
+                "明後日？大丈夫だよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2065.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "えっ、冷めてからのほうがいいですか。",
+                "じゃ、さっそくいただきます。"
+              ],
+              "isPicture": false,
+              "optionCount": 2,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2097.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "はい、行きます。",
+                "いいえ、行きません。",
+                "そうですか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2128.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "わかりました。",
+                "いいですよ。",
+                "そうですか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2158.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2022-12-v1/N3-2022-12.mp3"
         }
       ]
     },
@@ -9434,6 +12234,467 @@
               "passage": "丸川大学 食堂・カフェのご案内\n①丸川食堂(300席) 平日11時～15時 土・日11時～14時 大きくて、メニューが多い食堂です\n②朝花食堂(100席) 平日8時～15時 土・日8時～14時 大学でいちばん新しい食堂です\n③カフェ南川(60席) 平日8時～19時 土・日8時～14時 南川カレーが人気です\n④花丸食堂(50席) 平日11時～20時 土・日11時～14時 教師や大学で働く関係者のための食堂です 学生は利用できません\n※大学の休暇期間中の営業について\n①と②は休み、③と④は平日11時～14時に営業します。\n【パーティーについて】\n丸川大学の学生や関係者の皆様は、食堂・カフェの営業がない日や時間にパーティーを開くことができます。\n※①～③は学生が申し込めますが、④は教師か事務所の人の申し込みが必要です。\n▶料理について\n●メニューは相談して決められます。\n●①～③では一人2000円以上(土曜、日曜、祝日は、2,500円以上)、④では一人4000円以上の注文で予約受付をします。\n▶人数\n●①は18人、②は40人、③と④は20人から予約受付をします。\n●最大の人数は、各食堂・カフェの席数と同です。\n▶時間\n●①～③は20時まで、④は21時までに終えてください。\n●営業がある日は、各営業終了時間の1時間後からパーティーに利用できます。\n▶予約連絡先\n●パーティー係 YuukiBuiTNN (190-234-5678)"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": "public/images/listening/cacnam-2023-07-listening-p1.jpg",
+              "audioStartSec": 3.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "3人分コピーして、かちょうにわたす",
+                "3人分コピーして、木村さんにわたす",
+                "13人分コピーして、かちょうにわたす",
+                "13人分コピーして、木村さんにわたす"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 81.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2023-07-listening-p1.jpg",
+              "audioStartSec": 164.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": "public/images/listening/cacnam-2023-07-listening-p2.jpg",
+              "audioStartSec": 241.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "パンフレットを用意する",
+                "会場のじゅんびをする",
+                "さんかしゃにメールを送る",
+                "スケジュールを作りなおす"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 336.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "日時を書いたひょうに名前を書く",
+                "めんせつのれんしゅうをする",
+                "質問の答えを考える",
+                "スーツを用意する"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 430.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "友だちとあそびに行くこと",
+                "姉の子どもに会うこと",
+                "かぞくとおんせんに行くこと",
+                "新しいアルバイトを始めること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 513.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "今日の午後4時から",
+                "今日の午後5時から",
+                "あしたの午後4時から",
+                "あしたの午後5時から"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 617.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "軽くて使いやすいこと",
+                "体にいい料理が作れること",
+                "かんたんにおいしい料理ができること",
+                "とってがとれること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 717.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "日本ではたらきたかったから",
+                "日本語の音がきれいだと思ったから",
+                "日本のまんがにきょうみがあったから",
+                "ちがうぶんかを知りたかったから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 826.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "じっけんのもくてきを書くこと",
+                "じっけんの方法を正しく書くこと",
+                "けっかをひょうにすること",
+                "ひょうにタイトルをつけること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 938.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "仕事でひつようだら",
+                "いろいろなサイトを見たいから",
+                "インターネットに写真をのせたいから",
+                "つまに習うといいと言われたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1030.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "1.山登りの面白さ",
+                "2.山登りをするときの服装",
+                "3.山登りのいい季節",
+                "4.山で疲れない歩き方"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1131.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "1.花見をする時期",
+                "2.花見で食べるもの",
+                "3.花見が始まった理由",
+                "4.花見の昔と今"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1230.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "1.名前に使われる漢字の変化",
+                "2.漢字を使った名前が減った理由",
+                "3.名前をつけることの難しさ",
+                "4.名前をつけるときの親の気持ち"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1309.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "1.私がやろうか？",
+                "2.開けてくれない？",
+                "3.手伝わないの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1405.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "1.こちらでお待ちください",
+                "2.お着きになりました",
+                "3.呼んでいただけますか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1438.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "1.あの、コーヒーもういただいたんですけど…",
+                "2.あの、コーヒーまだでしょうか？",
+                "3.あの、コーヒー注文しますか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1471.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "1.絵を掛けなくちゃ",
+                "2.まっすぐじゃなかったら教えて",
+                "3.斜めになってるよ"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1507.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "1.倉庫の整理、終わったんですね？",
+                "2.手伝ってくれるんですか？",
+                "3.いいですよ、今からですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1538.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "1.発表、頑張ってね",
+                "2.役に立ててうれしいよ",
+                "3.アドバイスできなくてごめんね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1567.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "1.野球のこと、よく知ってるよね",
+                "2.野球、全然知らないんだね",
+                "3.野球はあまり得意じゃないんだね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1602.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "1.自分で調べたほうがいいですね",
+                "2.わかりました。ありがとうございます",
+                "3.何かあったら聞いてください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1635.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "1.もう1つ頼もうか",
+                "2.ちょうどいい量でよかったね",
+                "3.思ったより多いね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1664.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "1.1時間以内には終わりそうです",
+                "2.じゃ、会議の資料はあとでやります",
+                "3.資料、もう出来たんですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1693.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "1.よかった、ありがとう",
+                "2.えー？残念。なかったんだ",
+                "3.スーパー、閉まってたの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1727.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "1.私のレポートは見せられないよ",
+                "2.コピーならあげられるけど",
+                "3.いいよ、何のレポート？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1761.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "1.しなくてもいいんじゃない？",
+                "2.ネクタイして行かなかったの？",
+                "3.私は参加しようと思ってるよ"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1790.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2023-07-v1/N3-2023-07.mp3"
         }
       ]
     },
@@ -10561,6 +13822,472 @@
               "passage": "朝山スキー場 初級スキー教室のご案内..."
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": "public/images/listening/cacnam-2023-12-listening-p2.jpg",
+              "audioStartSec": 187.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "インターネットで調べる",
+                "レシピのメモをとる",
+                "せんぱいの本をかりる",
+                "本屋に行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 273.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "3時",
+                "3時半",
+                "4時半",
+                "5時"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 358.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2023-12-listening-p3.jpg",
+              "audioStartSec": 442.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "かいぎしつをよやくする",
+                "かんけいしゃにメールする",
+                "しりょうをいんさつする",
+                "しゅっせきしゃのかくにんをする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 531.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "しろの入り口でチケットを買う",
+                "しろの門の前に行く",
+                "ビデオを見る",
+                "レストランに行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 616.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "しゃちょうが好きな画家",
+                "日本をだいひょうする画家",
+                "しゃちょう",
+                "しゃちょうのむすめ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 842.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "ねぼうしたから",
+                "友人がわすれものをとりに来るから",
+                "カフェで友人と会わなければいけないから",
+                "おりる駅をまちがえたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 941.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "おんせんに行きたい",
+                "着物の着方を習いたい",
+                "日本料理の作り方を習いたい",
+                "しんかんせんに乗りたい"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1042.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "りゅうこうしているがらだったから",
+                "自分にあう色だったから",
+                "軽くて歩きやすかったから",
+                "ねだんが安かったから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1161.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "映画館で日本の映画が見られたこと",
+                "好きな映画がとられた場所に行けたこと",
+                "日本人の友だちができたこと",
+                "友だちと旅行できたこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1267.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "駅にエレベーターがあまりないこと",
+                "駅のトイレが使いにくいこと",
+                "ホテルのへやが不便なこと",
+                "入れない店があること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1355.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "楽しく働く方法",
+                "今の会社で働いている理由",
+                "今している仕事の大変さ",
+                "アルバイトで学んだこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1652.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "農業の種類",
+                "雨の変化",
+                "川をきれいにする方法",
+                "水が不足しないようにする工夫"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1741.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "正しい言葉の使い方",
+                "考え方を変える方法",
+                "自分の考え方の癖を知る方法",
+                "相手に伝わる話し方"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1822.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "会えるのを楽しみにしています。",
+                "ご無沙汰しております。",
+                "初めてお目にかかります。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1997.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "上着、置いていったら？",
+                "上着、取ってくれる？",
+                "上着、忘れてるよ。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2033.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "あの、この靴、直して欲しいんですが。",
+                "あの、この靴、修理しましょうか。",
+                "あの、この靴、いただけますか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2069.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "ちょっと折ってみて。",
+                "折紙、ある？",
+                "これでいい？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2108.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "今日は病院にいかなきゃいけなくて。",
+                "え、次の授業、なくなったの？",
+                "どうして出ないの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2228.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "そんなに難しかった？",
+                "ちょっとはわかったんだね。",
+                "読みやすかったなら、良かった。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2260.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "じゃ、ロビーでいただきます。",
+                "え、遠慮してませんよ。",
+                "あ、ここで食べちゃいけないんですね。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2292.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "あ、早退はしないんですね。",
+                "すみません、お先に失礼します。",
+                "あ、はい。お疲れ様でした。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2325.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "すごく緊張しました。",
+                "ぜひチャレンジしたいです。",
+                "応募してみたんですね。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2358.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "他の色は、まだ見ていません。",
+                "あ、見せていただけますか。",
+                "それは、いつ届くんですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2388.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "挨拶をしなくてよくなったんですね。",
+                "挨拶、してくれるんですか。",
+                "大勢の前で話すの、苦手なんです。すみません。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2421.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "あ、降ってきたんだね。",
+                "急いだほうがよさそうだね。",
+                "え、降ったほうがいいの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2455.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "では、私から連絡しておきます。",
+                "報告してはいけないんですね。",
+                "部長から聞いたんですか。"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2486.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2023-12-v1/N3-2023-12.mp3"
         }
       ]
     },
@@ -11682,6 +15409,477 @@
               "passage": "「買いもの券チャレンジ」\nみずき市の店で買い物したレシートを集めて応募すると、100名の方に、市内の店で使える5,000円分の買いもの券が当たります。\n参加・応募方法\n①レシートを集める\nみずき市の生活用品店、食料品店など、ホームページに書かれている参加店を利用して、レシートをもらってください。\n【期間】2月1日(月)～3月31日(水)\n・応募には、合計5,000円分以上のレシートが必要です。\n・レシートの枚数は、5枚以上必要です。\n・同じ店のレシートが2枚以上あってもいいですが、必ず3つ以上の店を利用してレシートを集めてください。\n②応募する\n応募用紙に氏名・住所・電話番号を書き、集めたレシートをはってください。応募用紙は、ホームページに書かれている店でもらえます。\n<応募方法>\nみずき市商業課に郵送、または持参してください。\n1.郵送の場合\n【期間】2月1日(月)～4月9日\n・郵送する場合は、応募用紙を封筒に入れ、切手をはって送ってください。\n2.持参の場合\n【期間】2月1日(月)～4月12日(月)\n・商業課の窓口の開いている時間（平日の10時～16時、最終日4月12日は10時～17時）に来てください。土日は休みです。"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2024-07-listening-p1.jpg",
+              "audioStartSec": 189.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "グラフの説明文をけす",
+                "グラフの説明文をくわしくする",
+                "グラフをふやす",
+                "グラフをへらす"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 272.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "じゅぎょう中にはっぴょうする",
+                "先生のへやではっぴょうする",
+                "レポートを書いて出す",
+                "はっぴょうをビデオにとって出す"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 345.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "しゅっちょうのほうこくを出す",
+                "しりょうをさがす",
+                "西田さんにれんらくする",
+                "かいぎしつにいすを運ぶ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 433.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "せんざいとゴミぶくろ",
+                "せんざいとけいこうとう",
+                "ぞうきんとゴミぶくろ",
+                "ぞうきんとけいこうとう"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 523.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "工場を見学する",
+                "せいひんの作り方をおぼえる",
+                "仕事での話し方をれんしゅうする",
+                "しょうひんのはっぴょうかいに行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 601.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "子どもが好きだから",
+                "親の仕事がおもしろそうだったから",
+                "教えるのが好きだから",
+                "あこがれる先生がいたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 822.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "おいしいレストランで食事したこと",
+                "親切な運転手と知り合ったこと",
+                "森できれいなみずうみを見たこと",
+                "しぜんの中で子どもたちとあそんだこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 937.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "山田さんがねこあそびたがっていたから",
+                "新しくて人気のカフェだから",
+                "山田さんがアルバイトをさがしているから",
+                "カフェにいるねこを見てほしいから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1057.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "空港からのむりょうのバス",
+                "ゆかたが着られるサービス",
+                "おりがみの教室",
+                "まんがやアニメのしょうかい"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1168.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "うまい人の動きを多く見たこと",
+                "足の動きを集中してれんしゅうしたこと",
+                "音楽をよく聞くようにしたこと",
+                "かがみで自分の動きを見たこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1273.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "9月4日",
+                "9月5日",
+                "9月26日",
+                "9月27日"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1394.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "姪がプレゼントを喜んでくれた",
+                "姪の笑顔がかわいかった",
+                "姪と遊んで楽しかった",
+                "姪の言葉に感動した"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1695.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "会社を辞める人が増えた理由",
+                "人間関係の上手な作り方",
+                "家で仕事をすることの良い点と悪い点",
+                "ストレスを感じる人の特徴"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1801.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "この教室の指導の仕方",
+                "スポーツと科学の関係",
+                "今日の練習の内容",
+                "子供に合った走り方"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1887.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "お世話になりました",
+                "お邪魔します",
+                "気をつけて帰ってください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2067.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "あの席に変わってもらえますか？",
+                "窓側の席に座らないといけませんか？",
+                "あっちの席に移れますか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2103.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "紐、結ぼうか？",
+                "これ、持ってもらえる？",
+                "アイスクリーム、ちょっとくれる？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2143.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "傘、お使いになりませんか？",
+                "傘、貸していただけますか？",
+                "傘、お預かりしましょうか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2181.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "あ、本当だ。ありがとう",
+                "え？落としたの気づかなかった",
+                "財布、なくしたの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2298.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "では、明日出せばいいですか？",
+                "今日必ず出します",
+                "今日は出さなくてもいいんですね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2332.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "晴れるの？よかった",
+                "晴れてほしいよね",
+                "晴れない方がいいの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2364.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "買いたくないんだね",
+                "え？僕が参加するの？",
+                "あぁ、是非一緒に"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2393.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "続けることにしたんだね",
+                "え？辞めちゃったの？",
+                "何かあったの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2425.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "あぁ、さっき出かけられたけど…",
+                "課長は知らないと思いますよ",
+                "どちらでもよさそうです"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2455.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "初めてなの？それは緊張するね",
+                "今まで1回だけだったんでしょう？大丈夫だよ",
+                "そっか、毎回なんだ。大変だね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2491.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "私が作るんですか？",
+                "教えていただけますか？",
+                "あぁ、難しかったですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2528.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "いつ壊れたの？",
+                "よく壊れないで動いているよね",
+                "とうとう壊れちゃったんだね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2563.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2024-07-v1/N3-2024-07.mp3"
         }
       ]
     },
@@ -12791,6 +16989,477 @@
               "passage": "園内活動の協力を募集します\n東山公園内の活動に、4月から新しく協力してくださる方を募集します。一緒に公園で活動しませんか。\n活動の種類 | 活動日・時間 | 活動場所・内容\n① 花や木の世話 | 毎週火曜日 9時〜11時 | 園内で、花や木の世話をします。花の手入れが初めての方も歓迎します。\n② ホームページ作り | 毎週水曜日 9時〜11時 | 公園の事務所で、ホームページの記事を書きます。※パソコンが扱える方にお願いします。\n③ 公園の掃除 | 毎週木曜日 14時〜16時 | 園内で、ごみ拾いなどをします。多くの方の協力が必要な活動です。\n④ 公園の案内 | 毎月第2日曜日 9時〜11時 | 園内を歩いて、公園を案内します。\n応募できる方\n東山市に住んでいる18歳以上の方で、説明会に参加できる方\n※4つの活動に分けて募集していますが、複数の活動への応募も可能です。\n説明会\n以下のAかBのどちらかに参加してください（AとBの内容は同じです）。参加希望日の前日までに、事務所へ電話で連絡してください。\n日時 | 場所\nA 3月15日（火）10時（約30分） | 東山文化センター 2階会議室\nB 3月19日（土）14時（約30分） | 東山文化センター 2階会議室\n応募方法\n説明会でお渡しする応募用紙に必要な情報を書いて、事務所へ持参、 hoặc 郵送してください。\n応募の前に活動に参加してみたい方\n①〜④の活動に参加してみたい方は、それぞれの活動日・時間に来てください。特に連絡は必要ありません。\n東山公園 事務所\n〒166-0113 東山市花田町13-5 電話：0685-65-9877（9：00〜17：00）"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [
+                "しゅっちょうのもくてき",
+                "会った人のじょうほう",
+                "話し合いのけっか",
+                "つぎのほうもんび"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 189.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "パソコンでもうしこむ",
+                "利用カードを作る",
+                "もうしこみ用紙に書いて出す",
+                "かりている本をかえす"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 252.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": "public/images/listening/cacnam-2024-12-listening-p3.jpg",
+              "audioStartSec": 332.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "会場のよやく時間をかえる",
+                "しゃちょうに予定を聞く",
+                "先生に会いに行く",
+                "よていひょうをなおす"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 422.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "ねる前にけいたいを見るしゅうかん",
+                "夜、ふとんに入る時間",
+                "ばんごはんの時間",
+                "夜、食べる物"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 522.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "昼ご飯を食べる",
+                "市場を見物する",
+                "バスに乗る",
+                "名札をつける"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 621.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "しょるいをわすれたから",
+                "車で会社に行くことにしたから",
+                "のどがかわいたから",
+                "はがきをわすれたから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 832.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "犬のさんぽがいい運動になること",
+                "知り合いがふえたこと",
+                "きそく正しい生活になったこと",
+                "かぞくの会話がふえたこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 932.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "てんちょうの話を聞くため",
+                "てんちょうと奥さんの写真をとるため",
+                "新しいパンを試食するため",
+                "パンを買うため"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1043.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "クラブ活動をがんばること",
+                "つぎのがっきの計画を立てること",
+                "いろいろな内容の本を読むこと",
+                "ながいぶんしょうを書くこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1158.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "はたらきたい会社が見つかったこと",
+                "自分がしたい仕事が分かってきたこと",
+                "きぼうする会社の人と話せたこと",
+                "友人とじょうほうをこうかんできたこと"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1260.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "自分でくみたてるのが楽しいから",
+                "ぶつかってもけがをしにくいから",
+                "軽くて動かしやすいから",
+                "ねだんが高くないから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1372.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "先生が学校を辞める理由",
+                "先生に贈る物",
+                "先生からのメッセージ",
+                "先生との思い出"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1685.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "緑山の自然を守る活動",
+                "緑山の木が減っている原因",
+                "自然に育った木の特徴",
+                "山に木を植える方法"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1785.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "わさびを好きになったわけ",
+                "わさびの効果",
+                "わさびが苦手な人が多い理由",
+                "わさびのおいしさの研究"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1885.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "お味はいかがですか？",
+                "では、いただきますね",
+                "1つ召し上がりませんか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2047.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "あの、隣空いていますか？",
+                "あの、ここ私の席なんですけど…",
+                "あの、どうぞ座ってください"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2082.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "あ、つけなくちゃ",
+                "あ、ついちゃうよ",
+                "あ、ついたら教えて"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2118.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "あの、はさみをちょっとお借りできますか？",
+                "はさみ、お返ししましょうか？",
+                "すみません、はさみを使っていただきたいのですが…"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2152.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "そうする。今日は帰るね",
+                "今日は練習、ないんだね",
+                "テニス、今日は休むの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2271.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "やらないかもしれないんだね",
+                "え？なんで？楽しみにしてたのに…",
+                "じゃ、見に行かなきゃね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2303.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "喜んでもらえてよかった",
+                "一緒に行けなくてごめんね",
+                "案内してくれてありがとう"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2335.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "今週中なら大丈夫ですよ",
+                "参加できそうでよかったです",
+                "はい。返事お待ちしていますね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2367.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "え？もう降ってきた？",
+                "雨が止んでから帰るの？",
+                "降る前に帰ったほうがいいね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2401.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "倉庫にあるんですね。取ってきます",
+                "ありがとうございます。お願いします",
+                "あとでもいいですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2430.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "あ、写真はご遠慮ください",
+                "素敵な写真、ありがとうございます",
+                "写真は撮っていないんですよ"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2463.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "一度会社に戻って来られるんですね",
+                "あ、そのまま家に帰られるんですね",
+                "え？家に寄って来られるんですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2498.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "遅れてるって課長が言ってたんですか？",
+                "じゃ、報告はしないことにします",
+                "そうですね。伝えておきます"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2533.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2024-12-v1/N3-2024-12.mp3"
         }
       ]
     },
@@ -13912,6 +18581,477 @@
               "passage": "青葉市 市民スポーツセンター\n利用のご案内\n【営業時間と休館日】\n営業時間 10:00～20:00（利用受付は19:30まで） ／ 休館日 毎週月曜日\n【利用方法】\n・券売機で利用券を買って、窓口へお出しください。\n・利用するには、室内用の靴が必要です。\n・18時以降、小学生と中学生は、18歳以上の大人の方と一緒にご利用ください。\n・1枚の利用券で利用できる時間は、2時間までです。2時間以上利用する場合は、必要な時間分の利用券を買ってください。\n料金表（一人2時間までの利用料金）\n一般（大人）: 380円（体育館）、200円（卓球室）\n高校生: 190円（体育館）、150円（卓球室）\n小学生・中学生: 130円（体育館）、100円（卓球室）\n※ 火、木曜日は、小学生と中学生の体育館と卓球室の料金が無料になります。\n【体育館の利用について】\n火曜日から金曜日の14時から20時までの間、決められたスポーツができます。\n毎月の体育館のスケジュール表をご確認ください。\n【卓球室の利用について】\n開館日（火曜日～日曜日）の10時から20時まで利用できます。\n9月の体育館のスケジュール表\n（表の内容は省略）"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [
+                "しんしつのたなに入れる",
+                "花子にわたす",
+                "はこを開けてみる",
+                "げんかんにおいておく"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 189.0
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "しりょうをいんさつする",
+                "しりょうをもう一度チェックする",
+                "パソコンをじゅんびする",
+                "マイクのテストをする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 253.0
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "かいぎに出る",
+                "エアコンのしゅうりをたのむ",
+                "銀行に行く",
+                "はこをそうこに運ぶ"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 331.0
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "ことばのまちがいをなおす",
+                "クラスで習った文法を使う",
+                "文と文をむすぶことばを足す",
+                "ないようをふやす"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 415.0
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": "public/images/listening/cacnam-2025-07-listening-p2.jpg",
+              "audioStartSec": 496.0
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "ゴミに出す",
+                "友だちに与える",
+                "こうりゅうセンターにもっていく",
+                "インターネットで売る"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 560.0
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "海へあそびに行く",
+                "やまのぼりをする",
+                "おまつりを見に行く",
+                "お寺を見に行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 779.0
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "水曜のグループルッスン",
+                "水曜のこじんレッスン",
+                "金曜のグループルッスン",
+                "金曜のこじんレッスン"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 875.0
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "作家が言いたいこと",
+                "本をえらんだりゆう",
+                "本に出てくる人と自分とのきょうつう点",
+                "自分の考えのへんか"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 975.0
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "けいごが正しく使えるかどうか",
+                "しょうひんがおぼえられるかどうか",
+                "クラブ活動の時間がとれるかどうか",
+                "店の人といいかんけいが作れるかどうか"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1079.0
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "いい会社にさそわれたから",
+                "親がいる町にひっこすから",
+                "ざんぎょうがふえたから",
+                "しゅっちょうが多くてたいへんだから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1189.0
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "よごれをきれいにおとすこと",
+                "やぶれた所を分からなくすること",
+                "買ったときのじょうたいにもどすこと",
+                "いんしょうがかわらないようにすること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1293.0
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "①人気のある手帳の色",
+                "②手帳に書く内容",
+                "③手帳を使い始めた理由",
+                "④手帳の選び方"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1577.0
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "①音が静かでサイズが大きくていい",
+                "②音が静かでサイズが小さくていい",
+                "③経済的でサイズが大きくていい",
+                "④経済的でサイズが小さくていい"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1650.0
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "①勉強の役に立つゲームや漫画",
+                "②机の上の上手な片付け方",
+                "③勉強に集中する方法",
+                "④本を読む時の正しい姿勢"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1744.0
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "①並んでください",
+                "②降ります",
+                "③お邪魔します"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1900.0
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "①この本、読んでみない？",
+                "②この本、読みたいと思ってたんだ",
+                "③この本、どうだった？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1928.0
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "①ね、手伝ってくれる？",
+                "②それ、手伝ってあげたら？",
+                "③コピー、手伝おうか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1959.0
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "①吉田課長はご覧になりますか？",
+                "②吉田課長にお会いしましょうか？",
+                "③吉田課長はいらっしゃいますか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1991.0
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "①伝えておきます",
+                "②あ、私も一緒に行くんですか？",
+                "③研究室に行ったかどうかわかりません"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2108.0
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "①勝てないと思ってたんだね",
+                "②おめでとう、よかったね",
+                "③え？負けちゃったの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2136.0
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "①わかった。掃除しておくね",
+                "②今日は私だよ",
+                "③掃除してくれたんだね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2165.0
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "①いつ、教えてもらえるんですか？",
+                "②はい、何かあったら伺います",
+                "③今の方がいいんですね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2193.0
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "①結構時間がかかったね",
+                "②早く終わってよかったね",
+                "③工事、もう少し時間がかかるんだね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2220.0
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "①では、今から頼んでみます",
+                "②まだできてません",
+                "③はい、どんな仕事ですか？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2248.0
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "①きっと大丈夫だよ",
+                "②決まってよかった。お祝いしよう",
+                "③面接うまくいかなかったんだね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2276.0
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "①確かに難しくないね",
+                "②うん、私も難しいと思う",
+                "③え？今日は授業ないの？"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2305.0
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "①じゃ、出席してもらえるか聞いてみます",
+                "②来週出席してくれないんですか？",
+                "③来週は急に出張が入って、すみません"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2336.0
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2025-07-v1/N3-2025-07.mp3"
         }
       ]
     },
@@ -15033,6 +20173,477 @@
               "passage": "読書席B：自分のパソコンを持ってきて使うことができる。学習席：自分のパソコンを持ってきて使うことができる。読書席Bと学習席とインターネット席の利用には、申し込みが必要です。"
             }
           ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [
+                "今日の午前10時",
+                "今日の午後6時",
+                "あしたの午前10時",
+                "あさっての午後6時"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 202
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "しんしょうひんをチェックする",
+                "そうこをせいりする",
+                "たなをそうじする",
+                "はがきをだしに行く"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 294
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [],
+              "isPicture": true,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": "public/images/listening/cacnam-2025-12-listening-p4.jpg",
+              "audioStartSec": 368
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "ホテルにメールする",
+                "ホテルに電話する",
+                "キャンセル料をふりこむ",
+                "みんなにれんらくする"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 457
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "しりょうをメールで先生に送る",
+                "しりょうをいんさつする",
+                "本をとしょかんでかりる",
+                "本を持ってくる"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 544
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "せいふくにきがえる",
+                "ちらしをくばる",
+                "りんごのパイを試食する",
+                "しょうひんをはこにつめる"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 635
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "ふだん使えるタオル",
+                "いい子どもふく",
+                "大きくなっても読めるえほん",
+                "かぞくがよろこぶ食べ物"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 869
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "へやが あたたかすぎること",
+                "ねる前にパソコンを使っていること",
+                "へやが明るいこと",
+                "まくらが高すぎること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 981
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "けしょうひんを作ること",
+                "魚をそだてること",
+                "電気を作ること",
+                "家をあたためること"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1103
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "よく晴れてあたたかい",
+                "雨がふって寒い",
+                "雨がふるがあたたかい",
+                "よく晴れるが寒い"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1227
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "色やかたちが好きなばら",
+                "かおりが好きなばら",
+                "そだてるかんきょうに合うばら",
+                "世話に時間がかからないばら"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1315
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "ねだんが高いから",
+                "きおんが ひくかったから",
+                "いちごがあまり入っていないから",
+                "せんでんが足りなかったから"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 1416
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "思ったより簡単でよかった",
+                "大変だったが、満足できた",
+                "仕事が簡単でつまらなかった",
+                "疲れるからもう行きたくない"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 1724
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "緑山のお祭り",
+                "桜が咲きやすい環境",
+                "寒い時期に咲く桜",
+                "お花見のマナー"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 1819
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "制服に対する生徒の意見",
+                "制服を着ることの良い点",
+                "人気がある制服のデザイン",
+                "制服に対する考え方の変化"
+              ],
+              "isPicture": false,
+              "optionCount": 4,
+              "correctIndex": 3,
+              "optionsImage": null,
+              "audioStartSec": 1908
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "お先に失礼します",
+                "あとでお願いします",
+                "どうぞ、お先に"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2089
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "こちら、差し上げましょうか",
+                "これ、いただいてもいいですか",
+                "このカタログ、お取りしますね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2128
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "ちょっと詰めて",
+                "隣に座ってくれない？",
+                "狭かったら言って"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2169
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "山田課長にお目にかかりたいのですが",
+                "山田課長をご覧になりましたか",
+                "山田課長にお会いになりますか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2208
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "映画終わってからバイトに行くの？",
+                "バイトなくなってよかったね",
+                "じゃ、別の日に行こうか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2338
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "そんなにおいしかったの？",
+                "あんまり好きな味じゃなかったんだね",
+                "え、食べにくかったんだ"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2371
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "わかった。参加していいよ",
+                "私は参加するよ",
+                "参加するかどうか教えて"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2405
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "エアコンつけた方がいいですか",
+                "じゃ、ここに置いておきますね",
+                "あ、消さなくていいんですね"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2441
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "次は頑張ってね",
+                "きっと大丈夫だよ",
+                "うまくできてたよ"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2478
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "申し訳ありませんでした。どんなことでしょうか",
+                "何もなかったんですね。よかったです",
+                "おかげさまで特に問題ありませんでした"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2511
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "移動しなくていいんですね",
+                "移動してくれたんですか。ありがとうございます",
+                "すぐ移動します。すみません"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 2,
+              "optionsImage": null,
+              "audioStartSec": 2551
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "伊藤さんは詳しくないんですね",
+                "伊藤さんですね、わかりました",
+                "伊藤さんに教えたらいいでしょうか"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 1,
+              "optionsImage": null,
+              "audioStartSec": 2588
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "そうだね。止まらないといいね",
+                "この駅には電車止まらないの？",
+                "どうして止まったんだろう"
+              ],
+              "isPicture": false,
+              "optionCount": 3,
+              "correctIndex": 0,
+              "optionsImage": null,
+              "audioStartSec": 2626
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2025-12-v1/N3-2025-12.mp3"
         }
       ]
     }
