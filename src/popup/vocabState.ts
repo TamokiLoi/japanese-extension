@@ -12,6 +12,7 @@ import trangtu91Raw from "../data/vocab-trangtu-91.json";
 import dongtu200Raw from "../data/vocab-dongtu-200.json";
 import dongtuHinxu280Raw from "../data/vocab-dongtu-280-hinxu.json";
 import dongtuExtraRaw from "../data/vocab-dongtu-extra-n3n4.json";
+import tuGhepDongtuRaw from "../data/vocab-tu-ghep-dongtu.json";
 import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset, VerbConjugations } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
@@ -28,7 +29,8 @@ export type VocabSource =
   | "tango-n2"
   | "tango-n1"
   | "tu-lay"
-  | "trangtu-91";
+  | "trangtu-91"
+  | "tu-ghep-dongtu";
 
 export interface VocabCard {
   id: string;
@@ -60,6 +62,7 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tango-n1": "Tango N1",
   "tu-lay": "Từ láy",
   "trangtu-91": "91 trạng từ thường dùng",
+  "tu-ghep-dongtu": "Động từ ghép",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -75,6 +78,7 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "tango-n1",
   "tu-lay",
   "trangtu-91",
+  "tu-ghep-dongtu",
 ];
 
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
@@ -100,6 +104,7 @@ const trangtu91Dataset = trangtu91Raw as unknown as TanoshiiVocabDataset;
 const dongtu200Dataset = dongtu200Raw as unknown as TanoshiiVocabDataset;
 const dongtuHinxu280Dataset = dongtuHinxu280Raw as unknown as TanoshiiVocabDataset;
 const dongtuExtraDataset = dongtuExtraRaw as unknown as TanoshiiVocabDataset;
+const tuGhepDongtuDataset = tuGhepDongtuRaw as unknown as TanoshiiVocabDataset;
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -167,6 +172,7 @@ export const ALL_VOCAB: VocabCard[] = [
   ...fromTanoshiiVocab("tango-n1", tangoN1Dataset),
   ...fromTanoshiiVocab("tu-lay", tuLayDataset),
   ...fromTanoshiiVocab("trangtu-91", trangtu91Dataset),
+  ...fromTanoshiiVocab("tu-ghep-dongtu", tuGhepDongtuDataset),
 ];
 
 export function countForSource(source: VocabSource): number {
