@@ -63,7 +63,7 @@ export function StatsScreen({
           key: source,
           label: SOURCE_LABELS[source],
           isKanjiLevel: false as const,
-          groupItems: ALL_VOCAB.filter((v) => v.source === source),
+          groupItems: ALL_VOCAB.filter((v) => v.sources.includes(source)),
         }));
   }, [contentType, map]);
 

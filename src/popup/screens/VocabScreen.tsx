@@ -321,7 +321,7 @@ export function VocabScreen({
             {progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
           </button>
           {isDueForReview(progress ?? undefined) ? <span className="due-review-badge">⏰ Đến hạn ôn lại</span> : null}
-          <div className="vocab-source-tag">{SOURCE_LABELS[v.source]}</div>
+          <div className="vocab-source-tag">{v.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}</div>
           <div className="vocab-word">
             <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
           </div>

@@ -39,14 +39,18 @@ export interface VocabCard {
   word: string;
   reading: string | null;
   level: JlptLevel;
-  source: VocabSource;
+  // Cùng 1 từ có thể xuất hiện ở nhiều bộ (vd vừa có trong Mimikara vừa có
+  // trong Tango bổ sung) -- khi đó mergeDuplicateVocab() gộp lại thành 1
+  // thẻ duy nhất, liệt kê đủ các nguồn ở đây thay vì tạo thẻ trùng lặp cho
+  // mỗi nguồn (giống cách BunpoGrammarPoint.sources đã làm).
+  sources: VocabSource[];
   hanViet: string[];
   meaningVi: string;
   mnemonic: string[];
   example: string | null;
   exampleVi: string | null;
   synonym: { word: string; reading: string | null } | null;
-  // Chỉ áp dụng cho source "dongtu" (tra cứu từ mazii.net).
+  // Chỉ áp dụng cho các nguồn động từ (tra cứu từ mazii.net / suy ra lúc convert).
   verbGroup?: string;
   transitivity?: string;
   conjugations?: VerbConjugations;
@@ -117,7 +121,7 @@ function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): 
     word: w.word,
     reading: w.reading,
     level: w.level,
-    source,
+    sources: [source],
     hanViet: w.hanViet,
     meaningVi: w.meaningVi,
     mnemonic: w.mnemonic,
@@ -136,7 +140,7 @@ function fromMimikara(dataset: MimikaraDataset): VocabCard[] {
     word: w.word,
     reading: w.reading,
     level: w.level,
-    source: "mimikara-n3",
+    sources: ["mimikara-n3"],
     hanViet: w.hanViet,
     meaningVi: w.meaningVi,
     mnemonic: w.mnemonic,
@@ -152,7 +156,7 @@ function fromDongnghia(dataset: TanoshiiSynonymDataset): VocabCard[] {
     word: p.word,
     reading: p.wordReading,
     level: p.level,
-    source: "dongnghia-n3",
+    sources: ["dongnghia-n3"],
     hanViet: [],
     meaningVi: p.meaningVi,
     mnemonic: [],
@@ -162,7 +166,55 @@ function fromDongnghia(dataset: TanoshiiSynonymDataset): VocabCard[] {
   }));
 }
 
-export const ALL_VOCAB: VocabCard[] = [
+// Cùng 1 từ (word+reading trùng khớp) có thể tới từ nhiều bộ khác nhau --
+// gộp thành 1 thẻ duy nhất thay vì để trùng lặp trong danh sách/luyện tập.
+// Thẻ đầu tiên gặp trong mảng đầu vào (theo thứ tự khai báo ở ALL_VOCAB bên
+// dưới, Mimikara luôn đứng trước) làm "chính": giữ nguyên id/level của nó
+// để không phá tiến độ học (mastered/flagged) đã lưu theo id đó, chỉ bổ
+// sung field nào đang rỗng bằng field tương ứng từ các bản trùng khác (vd
+// Mimikara thiếu example/mnemonic thì lấy từ Tango bổ sung, còn hanViet của
+// Mimikara vẫn được giữ nếu Tango bổ sung không có).
+function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
+  const groups = new Map<string, VocabCard[]>();
+  for (const c of cards) {
+    const key = `${c.word}|${c.reading ?? ""}`;
+    const group = groups.get(key);
+    if (group) group.push(c);
+    else groups.set(key, [c]);
+  }
+
+  const merged: VocabCard[] = [];
+  for (const group of groups.values()) {
+    if (group.length === 1) {
+      merged.push(group[0]);
+      continue;
+    }
+    const [primary, ...rest] = group;
+    const pick = <T,>(get: (c: VocabCard) => T | null | undefined, isEmpty: (v: T) => boolean): T | undefined => {
+      const primaryVal = get(primary);
+      if (primaryVal != null && !isEmpty(primaryVal)) return primaryVal;
+      for (const c of rest) {
+        const v = get(c);
+        if (v != null && !isEmpty(v)) return v;
+      }
+      return primaryVal ?? undefined;
+    };
+    merged.push({
+      ...primary,
+      sources: group.flatMap((c) => c.sources),
+      hanViet: pick((c) => c.hanViet, (v: string[]) => v.length === 0) ?? [],
+      mnemonic: pick((c) => c.mnemonic, (v: string[]) => v.length === 0) ?? [],
+      example: pick((c) => c.example, (v: string | null) => !v) ?? null,
+      exampleVi: pick((c) => c.exampleVi, (v: string | null) => !v) ?? null,
+      verbGroup: pick((c) => c.verbGroup, (v: string) => !v),
+      transitivity: pick((c) => c.transitivity, (v: string) => !v),
+      conjugations: pick((c) => c.conjugations, (v: VerbConjugations) => !v || Object.keys(v).length === 0),
+    });
+  }
+  return merged;
+}
+
+export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromMimikara(mimikaraDataset),
   ...fromTanoshiiVocab("dongtu", dongtuDataset),
   ...fromTanoshiiVocab("dongtu", dongtu200Dataset),
@@ -179,10 +231,10 @@ export const ALL_VOCAB: VocabCard[] = [
   ...fromTanoshiiVocab("trangtu-91", trangtu91Dataset),
   ...fromTanoshiiVocab("tu-ghep-dongtu", tuGhepDongtuDataset),
   ...fromTanoshiiVocab("tango-new", tangoNewDataset),
-];
+]);
 
 export function countForSource(source: VocabSource): number {
-  return ALL_VOCAB.filter((v) => v.source === source).length;
+  return ALL_VOCAB.filter((v) => v.sources.includes(source)).length;
 }
 
 const VOCAB_BY_ID = new Map(ALL_VOCAB.map((v) => [v.id, v]));
@@ -260,7 +312,7 @@ function seededShuffle<T>(items: T[], seed: number): T[] {
 }
 
 export function getOrderedList(state: VocabViewerState): VocabCard[] {
-  const filtered = ALL_VOCAB.filter((v) => state.selectedSources.includes(v.source));
+  const filtered = ALL_VOCAB.filter((v) => v.sources.some((s) => state.selectedSources.includes(s)));
   return state.randomOrder ? seededShuffle(filtered, state.shuffleSeed) : filtered;
 }
 
@@ -272,11 +324,10 @@ export function getOrderedList(state: VocabViewerState): VocabCard[] {
 export function resolveJumpState(state: VocabViewerState, targetId: string): VocabViewerState | null {
   const target = findVocabById(targetId);
   if (!target) return null;
+  const missingSources = target.sources.filter((s) => !state.selectedSources.includes(s));
   const newState: VocabViewerState = {
     ...state,
-    selectedSources: state.selectedSources.includes(target.source)
-      ? state.selectedSources
-      : [...state.selectedSources, target.source],
+    selectedSources: missingSources.length === 0 ? state.selectedSources : [...state.selectedSources, ...missingSources],
     progressFilter: "all",
     viewMode: "card",
   };
@@ -292,7 +343,7 @@ export function resolveJumpState(state: VocabViewerState, targetId: string): Voc
 // sources -- mirrors kanjiState.ts's pickReminderKanji.
 export async function pickReminderVocab(): Promise<VocabCard> {
   const state = await loadViewerState();
-  const pool = ALL_VOCAB.filter((v) => state.selectedSources.includes(v.source));
+  const pool = ALL_VOCAB.filter((v) => v.sources.some((s) => state.selectedSources.includes(s)));
   const list = pool.length > 0 ? pool : ALL_VOCAB;
   return list[Math.floor(Math.random() * list.length)];
 }

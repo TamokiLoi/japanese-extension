@@ -459,7 +459,7 @@ export function VocabScreen({
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-2">
               <Badge style={levelBadgeStyle(v.level)}>{v.level}</Badge>
-              <Badge variant="secondary">{SOURCE_LABELS[v.source]}</Badge>
+              <Badge variant="secondary">{v.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}</Badge>
               {isDueForReview(progress ?? undefined) ? (
                 <span className="flex items-center gap-1 text-xs font-semibold text-amber-600">
                   <Clock size={13} /> Đến hạn ôn lại

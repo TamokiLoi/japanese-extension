@@ -124,7 +124,7 @@ const VOCAB_STOPS: Stop[] = VOCAB_ORDER.filter((s) => VOCAB_AVAILABLE_SOURCES.in
   .map((s) => ({
     key: s,
     label: VOCAB_SOURCE_LABELS[s],
-    items: ALL_VOCAB.filter((v) => v.source === s && INCLUDE_LEVELS.includes(v.level)),
+    items: ALL_VOCAB.filter((v) => v.sources.includes(s) && INCLUDE_LEVELS.includes(v.level)),
   }))
   .filter((stop) => stop.items.length > 0);
 

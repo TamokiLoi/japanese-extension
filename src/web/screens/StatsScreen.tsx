@@ -167,7 +167,7 @@ function buildGroupBars(contentType: StatsContentType): GroupBar[] {
       key: source,
       label: SOURCE_LABELS[source],
       isLevel: false,
-      ids: ALL_VOCAB.filter((v) => v.source === source).map((v) => v.id),
+      ids: ALL_VOCAB.filter((v) => v.sources.includes(source)).map((v) => v.id),
     }));
   }
   if (contentType === "bunpo") {
