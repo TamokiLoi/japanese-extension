@@ -53,13 +53,22 @@ function searchKanji(q: string, qKana: string | null): SearchResult[] {
   }));
 }
 
+// See src/web/screens/SearchScreen.tsx's copy for the full rationale --
+// verbs store their dictionary form as `word`, so a conjugated query
+// ("持ち帰ろう") needs to also check the precomputed conjugation table.
+function matchesConjugation(v: (typeof ALL_VOCAB)[number], q: string): boolean {
+  if (!v.conjugations) return false;
+  return Object.values(v.conjugations).some((form) => typeof form === "string" && form.toLowerCase().includes(q));
+}
+
 function searchVocab(q: string, qKana: string | null): SearchResult[] {
   return ALL_VOCAB.filter(
     (v) =>
       v.word.toLowerCase().includes(q) ||
       matchesAny((v.reading ?? "").toLowerCase(), q, qKana) ||
       v.meaningVi.toLowerCase().includes(q) ||
-      v.hanViet.some((h) => h.toLowerCase().includes(q)),
+      v.hanViet.some((h) => h.toLowerCase().includes(q)) ||
+      matchesConjugation(v, q),
   ).map((v) => ({
     kind: "vocab" as const,
     id: v.id,
