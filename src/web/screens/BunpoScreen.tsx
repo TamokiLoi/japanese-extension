@@ -573,6 +573,22 @@ function DetailView({
             )}
           </div>
           <div className="mt-1 text-emerald-700">{g.exampleVi}</div>
+          {g.moreExamples?.map((ex, i) => (
+            <div key={i} className="mt-2 border-t border-emerald-100 pt-2">
+              <div className="text-neutral-800">
+                {highlightPatternInExample(ex.jp, g.pattern).map((frag, j) =>
+                  frag.highlighted ? (
+                    <mark key={j} className="rounded bg-emerald-200 px-0.5">
+                      {frag.text}
+                    </mark>
+                  ) : (
+                    <Fragment key={j}>{frag.text}</Fragment>
+                  ),
+                )}
+              </div>
+              <div className="mt-1 text-emerald-700">{ex.vi}</div>
+            </div>
+          ))}
         </div>
 
         {g.compareWith && g.compareWith.length > 0 ? (

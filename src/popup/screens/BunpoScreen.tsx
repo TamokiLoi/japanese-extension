@@ -493,6 +493,22 @@ function DetailView({
           </span>
           <span className="example-vi">{g.exampleVi}</span>
         </p>
+        {g.moreExamples?.map((ex, i) => (
+          <p className="example" key={i}>
+            <span className="example-jp">
+              {highlightPatternInExample(ex.jp, g.pattern).map((frag, j) =>
+                frag.highlighted ? (
+                  <mark key={j} className="example-jp-highlight">
+                    {frag.text}
+                  </mark>
+                ) : (
+                  <Fragment key={j}>{frag.text}</Fragment>
+                ),
+              )}
+            </span>
+            <span className="example-vi">{ex.vi}</span>
+          </p>
+        ))}
 
         {g.compareWith && g.compareWith.length > 0 ? (
           <div className="compare-with">

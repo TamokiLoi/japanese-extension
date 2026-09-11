@@ -3,117 +3,205 @@
     {
       "id": "bunpo-kinhngu-1",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Kính ngữ của động từ đặc biệt (特別な動詞の敬語)",
       "meaningVi": "8 động từ có dạng tôn kính ngữ／khiêm nhường ngữ đặc biệt, không theo quy tắc chia chung",
       "usage": "する → します → 尊敬語: なさる ／ 謙譲語: いたす\nいる → います → 尊敬語: いらっしゃる ／ 謙譲語: おる\n行く → 行きます → 尊敬語: いらっしゃる ／ 謙譲語: 参る・伺う\n来る → 来ます → 尊敬語: いらっしゃる ／ 謙譲語: 参る\n食べる → 食べます → 尊敬語: 召し上がる ／ 謙譲語: いただく\n飲む → 飲みます → 尊敬語: 召し上がる ／ 謙譲語: いただく\n見る → 見ます → 尊敬語: ご覧になる ／ 謙譲語: 拝見する\n思う → 思います → 尊敬語: お思いになる ／ 謙譲語: 存じる",
       "example": "食べる → 召し上がる（尊敬語）／いただく（謙譲語）",
-      "exampleVi": "ăn → mời dùng (tôn kính ngữ) / dùng, xơi (khiêm nhường ngữ)"
+      "exampleVi": "ăn → mời dùng (tôn kính ngữ) / dùng, xơi (khiêm nhường ngữ)",
+      "moreExamples": [
+        {
+          "jp": "社長は会議の時間を存じておりますか。",
+          "vi": "Giám đốc có biết (hiểu) về thời gian họp không ạ?"
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-2",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Tôn kính ngữ của động từ thông thường nhóm 1・2 (尊敬語)",
       "meaningVi": "Dùng để tôn trọng đối phương, làm cho hành động của người khác trở nên trang trọng hơn",
       "formula": "① お + Vます(bỏ ます) + になる\n② Vれる／られる (dạng bị động)",
       "usage": "① 読む → お読みになる\n待つ → お待ちになる\n帰る → お帰りになる\n\n② 先生は明日来られます。\n部長はもう帰られました。\n\n注意: Không nên dùng đồng thời cả 2 dạng (二重敬語 - kính ngữ kép): お読みになられる ✗",
       "example": "先生はもうお帰りになりました。",
-      "exampleVi": "Thầy giáo đã về rồi."
+      "exampleVi": "Thầy giáo đã về rồi.",
+      "moreExamples": [
+        {
+          "jp": "お客様はどのような商品をお探しになられますか。",
+          "vi": "Quý khách đang tìm kiếm sản phẩm loại nào ạ?"
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-3",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Khiêm nhường ngữ của động từ thông thường nhóm 1・2 (謙譲語)",
       "meaningVi": "Dùng khi nói về hành động của bản thân, hạ mình để thể hiện sự khiêm tốn",
       "formula": "お + Vます(bỏ ます) + する／いたす",
       "usage": "待つ → お待ちする\n伝える → お伝えする\n読む → お読みする\n\nTrang trọng hơn (いたす):\nお待ちいたします。\nご説明いたします。\n\nGhi chú: Nhóm 1・2 là các động từ có thể chia sang dạng bị động (Vれる／られる) để làm tôn kính ngữ; tùy ngữ cảnh có thể dùng する hoặc いたす (trang trọng hơn).",
       "example": "お待ちいたします。",
-      "exampleVi": "Tôi xin chờ ạ. (trang trọng)"
+      "exampleVi": "Tôi xin chờ ạ. (trang trọng)",
+      "moreExamples": [
+        {
+          "jp": "駅までお送りいたします。",
+          "vi": "Tôi xin phép được đưa ông/bà ra tận ga."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-4",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Tôn kính ngữ của động từ nhóm 3 - ~する (尊敬語)",
       "meaningVi": "Áp dụng cho động từ ghép với する (Hán ngữ + する)",
       "formula": "ご + N + になる",
       "usage": "利用する → ご利用になる\n説明する → ご説明になる\n出席する → ご出席になる\n\nGhi chú: Nhóm 3 (động từ ～する) dùng 「ご＋N＋になる」 để tạo 尊敬語, thường dùng trong văn viết, giao tiếp trang trọng (công việc, email, hội họp...).",
       "example": "ご出席になる",
-      "exampleVi": "(Ngài) tham dự ạ. (thể tôn kính của 出席する)"
+      "exampleVi": "(Ngài) tham dự ạ. (thể tôn kính của 出席する)",
+      "moreExamples": [
+        {
+          "jp": "社長は来週、海外へご出張になります。",
+          "vi": "Giám đốc sẽ đi công tác nước ngoài vào tuần tới."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-5",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Khiêm nhường ngữ của động từ nhóm 3 - ~する (謙譲語)",
       "meaningVi": "Áp dụng cho động từ ghép với する (Hán ngữ + する), thể hiện khiêm tốn",
       "formula": "ご + N + する／いたす",
       "usage": "利用する → ご利用する\n説明する → ご説明する\n連絡する → ご連絡する\n\nTrang trọng hơn (いたす):\nご説明いたします。\nご連絡いたします。\n\n注意: Nhóm 3 chỉ dùng 「ご＋N＋になる」(không dùng お+Vれる／られる); không nên dùng đồng thời dạng 尊敬語 và 謙譲語; chọn cách nói phù hợp với ngữ cảnh và đối tượng giao tiếp.",
       "example": "ご連絡いたします。",
-      "exampleVi": "Tôi xin liên lạc ạ. (trang trọng)"
+      "exampleVi": "Tôi xin liên lạc ạ. (trang trọng)",
+      "moreExamples": [
+        {
+          "jp": "資料を明日、ご送付いたします。",
+          "vi": "Tôi xin phép sẽ gửi tài liệu cho ông/bà vào ngày mai."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-6",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Bảng mở rộng động từ thông thường và kính ngữ",
       "meaningVi": "12 động từ thường gặp kèm ghi chú sắc thái sử dụng",
       "usage": "考える → 尊敬語: お考えになる／謙譲語: 拝察する (ご高察なさる: rất trang trọng)\n待つ → お待ちになる／お待ちする (お待ちくださる = vui lòng chờ)\n利用する → ご利用になる／利用させていただく (không phải dạng khiêm nhường đơn thuần)\n思う → お思いになる／存じる (おぼし召す: rất trang trọng/cổ điển)\n買う → お買いになる／買わせていただく (có sắc thái được phép mua)\n帰る → お帰りになる／おいとまする (おいとまする = xin phép rời đi)\n座る → お掛けになる／座らせていただく (không dùng お座りする làm mẫu chính)\n会う → お会いになる／お目にかかる ⭐ Quan trọng\n伝える → お伝えになる／申し伝える (申し伝える = truyền đạt lại)\nわかる → お分かりになる／承知する (ご理解いただく ≠ trực tiếp \"khiêm nhường của わかる\")\n読む → お読みになる／拝読する ⭐ Quan trọng\n与える → お与えになる／差し上げる (くださる = \"cho\" theo hướng người khác → mình)\n受け取る → お受け取りになる／頂戴する・拝受する (賜る: rất trang trọng)\n\nHai điểm cần đặc biệt nhớ:\n利用させていただく = được phép/xin phép được sử dụng (không nên dạy: 利用する → 利用させていただく = khiêm nhường ngữ)\n買わせていただく = được phép mua/xin phép mua (tương tự, đây là cách diễn đạt xin phép, không phải khiêm nhường ngữ đơn thuần)",
       "example": "会う → お目にかかる",
-      "exampleVi": "gặp → được hân hạnh gặp (khiêm nhường ngữ, ⭐ quan trọng)"
+      "exampleVi": "gặp → được hân hạnh gặp (khiêm nhường ngữ, ⭐ quan trọng)",
+      "moreExamples": [
+        {
+          "jp": "食べる → いただく",
+          "vi": "Ăn → xin nhận/ăn (khiêm nhường ngữ)"
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-7",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Phân biệt cách dùng Tôn kính ngữ và Khiêm nhường ngữ (敬語の使い分け)",
       "meaningVi": "Chọn 尊敬語 hay 謙譲語 tùy vào ai là người thực hiện hành động",
       "usage": "尊敬語: Mục đích tôn người thực hiện hành động lên; chủ thể thường gặp là đối phương/người cần tôn trọng.\n謙譲語: Mục đích hạ người thực hiện hành động xuống; chủ thể thường gặp là bản thân/người phía mình.\n\nQuy tắc vàng - Ai làm hành động?\nNếu là 先生 (người cần tôn trọng): ✓ 先生がお読みになります。 ✗ 先生が拝見します。\nNếu là 私 (bản thân): ✓ 私が拝読します。 ✗ 私がお読みになります。\n\n尊敬語 dùng để nâng người thực hiện hành động.\n謙譲語I dùng để hạ hành động phía mình hướng tới đối phương.\n謙譲語II／丁重語 dùng để nói hành động của phía mình một cách trang trọng với người nghe.",
       "example": "先生がお読みになります。／私が拝読します。",
-      "exampleVi": "Thầy/cô đọc ạ. / Tôi xin được đọc ạ."
+      "exampleVi": "Thầy/cô đọc ạ. / Tôi xin được đọc ạ.",
+      "moreExamples": [
+        {
+          "jp": "お客様がいらっしゃいます。／私が参ります。",
+          "vi": "Khách hàng đến. / Tôi xin phép đến."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-8",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Kính ngữ của động từ đặc biệt - bổ sung (特別な動詞の敬語 - 追加)",
       "meaningVi": "Một số động từ đặc biệt thường gặp khác trong kính ngữ",
       "usage": "言う → 言います → 尊敬語: おっしゃる ／ 謙譲語: 申す・申し上げる\n聞く → 聞きます → 尊敬語: お聞きになる／聞かれる ／ 謙譲語: 伺う\n知る → 知っています → 尊敬語: ご存じです ／ 謙譲語: 存じております\n知らない → 知りません → 尊敬語: ご存じない ／ 謙譲語: 存じません\n会う → 会います → 尊敬語: お会いになる ／ 謙譲語: お目にかかる\nくれる → くれます → 尊敬語: くださる ／ 謙譲語: （không có）\nもらう → もらいます → 尊敬語: （không có） ／ 謙譲語: いただく\n\nSửa quan trọng: Không nên ghi 知る → ご存じになる ✗. Nên ghi 知る → ご存じです／ご存じだ ✓ (dạng đúng và tự nhiên của 尊敬語 trong đời sống và công việc).\n「くださる」là động từ tôn kính ngữ, không có dạng khiêm nhường tương ứng. 「いただく」là khiêm nhường ngữ, dùng khi nhận từ người khác.",
       "example": "先生はそのことをご存じです。",
-      "exampleVi": "Thầy/cô biết việc đó."
+      "exampleVi": "Thầy/cô biết việc đó.",
+      "moreExamples": [
+        {
+          "jp": "社長のお宅に伺います。",
+          "vi": "Tôi xin phép đến thăm nhà của giám đốc."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-9",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Từ ngữ trang trọng (丁寧で上品な言葉)",
       "meaningVi": "Các từ thay thế lịch sự, dùng trong giao tiếp lịch sự, công việc, email, dịch vụ...",
       "usage": "本当に → 誠に (まことに): dùng khi bày tỏ cảm ơn, xin lỗi...\nだれ → どなた: dùng lịch sự khi hỏi về người\nどこ → どちら: có nghĩa \"ở đâu\", \"bên nào\", \"cái nào\"\nあっち → あちら: chỉ hướng/địa điểm ở xa người nói\nどっち → どちら: hỏi sự lựa chọn\nこっち → こちら: chỉ hướng/địa điểm gần người nói\nそっち → そちら: chỉ hướng/địa điểm gần người nghe\n僕・私 → わたくし: dùng khi nói về bản thân trong văn cảnh trang trọng\n今 → ただ今 (ただいま): dùng khi thông báo, tiếp khách, điện thoại...\n今度 → このたび: dùng trong thông báo, thư từ, mang tính trang trọng\nこのあいだ → 先日 (せんじつ): dùng trong văn viết, email, báo cáo...\nきのう → 昨日 (さくじつ): dùng trong văn viết, trang trọng\nきょう → 本日 (ほんじつ): dùng trong thông báo, email, sự kiện...\nあした → 明日 (みょうにち): thường gặp trong văn viết, lịch trình\nさっき → 先ほど (さきほど): dùng trong giao tiếp, điện thoại, tiếp khách...\nあとで → 後ほど (のちほど): dùng trong giao tiếp, email, thông báo\nどう → いかが: dùng khi hỏi ý kiến, đề xuất\nいくら → いかほど: hỏi giá tiền, số lượng một cách lịch sự\nすごく → 大変 (たいへん): dùng khi cảm ơn, xin lỗi, đánh giá\nちょっと → 少々 (しょうしょう): dùng khi nhờ vả, xin phép, thể hiện sự khiêm tốn\n\nLưu ý: các từ trang trọng được dùng tùy ngữ cảnh, không phải lúc nào cũng thay thế trực tiếp cho từ thông thường. Một số từ có nhiều nghĩa (どちら, ただ今, このたび...), hãy hiểu nghĩa và cách dùng phù hợp với tình huống.\n\nVí dụ thêm: このたび、お世話になりました。(Lần này, tôi đã được giúp đỡ rất nhiều.) 先ほどはありがとうございました。(Cảm ơn bạn rất nhiều vì lúc nãy.)",
       "example": "トイレはどちらですか。",
-      "exampleVi": "Nhà vệ sinh ở đâu ạ?"
+      "exampleVi": "Nhà vệ sinh ở đâu ạ?",
+      "moreExamples": [
+        {
+          "jp": "お手洗いはこちらでございます。",
+          "vi": "Nhà vệ sinh ở phía bên này ạ."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-10",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "お／ご + Danh từ・Tính từ・Phó từ",
       "meaningVi": "Thêm お／ご vào trước danh từ, tính từ, phó từ để nói lịch sự, trang trọng hơn",
       "formula": "お + 和語 (từ thuần Nhật) ／ ご + 漢語 (từ Hán) — nguyên tắc chung được 文化庁 xác nhận, nhưng có nhiều ngoại lệ nên không nên coi là quy tắc tuyệt đối",
       "usage": "お～ (thường dùng với từ thuần Nhật và một số từ cố định):\nDanh từ: お国 (đất nước - của ngài), お名前 (tên - của ngài), お仕事 (công việc - của ngài)\nな-tính từ: お元気 (khỏe - của ngài), お上手 (giỏi - của ngài), お暇 (rảnh - của ngài)\nい-tính từ: お忙しい (bận rộn - của ngài), お若い (trẻ - của ngài)\n\nご～ (thường dùng với từ Hán):\nご家族 (gia đình - của ngài), ご意見 (ý kiến - của ngài), ご旅行 (chuyến đi - của ngài), ご心配 (lo lắng - của ngài), ご熱心 (nhiệt tâm - của ngài), ご親切 (tử tế - của ngài), ご自由に (tự do/tùy ý - của ngài)\n\nLưu ý: 和語 không phải luôn luôn dùng お, 漢語 không phải luôn luôn dùng ご — vì có nhiều ngoại lệ nên cần học theo từ/cụm cố định. Một số từ có yếu tố Hán nhưng vẫn dùng お: お元気 (元気: Hán ngữ → vẫn dùng お), お加減 (加減: Hán ngữ → vẫn dùng お).",
       "example": "先生はお元気ですか。",
-      "exampleVi": "Thầy/cô có khỏe không ạ?"
+      "exampleVi": "Thầy/cô có khỏe không ạ?",
+      "moreExamples": [
+        {
+          "jp": "お忙しいところ、ありがとうございます。",
+          "vi": "Cảm ơn ông/bà đã bớt chút thời gian bận rộn."
+        }
+      ]
     },
     {
       "id": "bunpo-kinhngu-11",
       "level": "N3",
-      "sources": ["kinh-ngu"],
+      "sources": [
+        "kinh-ngu"
+      ],
       "pattern": "Bảng tổng hợp 20 động từ kính ngữ bắt buộc thuộc (N3)",
       "meaningVi": "20 động từ thường gặp trong kính ngữ, tổng hợp thể thường - 尊敬語 - 謙譲語",
       "usage": "する → なさる／いたす (làm, thực hiện)\nいる → いらっしゃる／おる (ở, có mặt)\n行く → いらっしゃる／参る・伺う (đi)\n来る → いらっしゃる／参る (đến)\n食べる → 召し上がる／いただく (ăn)\n飲む → 召し上がる／いただく (uống)\n見る → ご覧になる／拝見する (xem, nhìn)\n言う → おっしゃる／申す・申し上げる (nói)\n聞く → お聞きになる／伺う (nghe, hỏi)\n知る → ご存じです／存じております (biết)\n会う → お会いになる／お目にかかる (gặp)\n思う → お思いになる／存じる (nghĩ, cho rằng)\n読む → お読みになる／拝読する (đọc)\n待つ → お待ちになる／お待ちする (chờ)\nくれる → くださる／（không có） (cho - người khác → mình)\nもらう → （không có）／いただく (nhận - từ người khác)\n与える → お与えになる／差し上げる (cho - mình → người khác)\n受け取る → お受け取りになる／頂戴する・拝受する (nhận, tiếp nhận)\n考える → お考えになる／拝察する (suy nghĩ, xem xét)\n利用する → ご利用になる／利用させていただく (sử dụng, lợi dụng)",
       "example": "見る → ご覧になる（尊敬語）／拝見する（謙譲語）",
-      "exampleVi": "xem, nhìn → xin xem (tôn kính ngữ) / xin được xem (khiêm nhường ngữ)"
+      "exampleVi": "xem, nhìn → xin xem (tôn kính ngữ) / xin được xem (khiêm nhường ngữ)",
+      "moreExamples": [
+        {
+          "jp": "言う → おっしゃる（尊敬語）／申し上げる（謙譲語）",
+          "vi": "Nói → Ngài nói (tôn kính ngữ) / Tôi xin phép nói (khiêm nhường ngữ)"
+        }
+      ]
     }
   ]
 }
