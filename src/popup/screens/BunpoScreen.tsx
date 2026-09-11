@@ -30,7 +30,7 @@ import {
   type ProgressFilter,
   type ProgressMap,
 } from "../progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample, parseUsage } from "../bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, highlightPatternInExample, parseUsage } from "../bunpoLinks.ts";
 import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../readingState.ts";
 import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../quizBookState.ts";
 
@@ -493,6 +493,27 @@ function DetailView({
           </span>
           <span className="example-vi">{g.exampleVi}</span>
         </p>
+
+        {g.compareWith && g.compareWith.length > 0 ? (
+          <div className="compare-with">
+            <div className="compare-with-label">Dễ nhầm với</div>
+            {g.compareWith.map((c, i) => {
+              const target = findBunpoByPattern(c.pattern, g.level);
+              return (
+                <div className="compare-with-item" key={i}>
+                  {target ? (
+                    <button type="button" className="compare-with-pattern" onClick={() => mutate({ currentGrammarId: target.id })}>
+                      {c.pattern}
+                    </button>
+                  ) : (
+                    <span className="compare-with-pattern static">{c.pattern}</span>
+                  )}
+                  <div className="compare-with-note">{c.note}</div>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
 
         {readingMatches.length > 0 ? (
           <div className="related-vocab">

@@ -20,7 +20,13 @@
       "pattern": "~ていただけませんか",
       "meaningVi": "Cách nhờ vả lịch sự: “Có thể giúp tôi... được không?”",
       "example": "もう一度説明していただけませんか。",
-      "exampleVi": "Anh/chị có thể giải thích lại một lần nữa không?"
+      "exampleVi": "Anh/chị có thể giải thích lại một lần nữa không?",
+      "compareWith": [
+        {
+          "pattern": "~Vてくれませんか",
+          "note": "「~ていただけませんか」 lịch sự hơn, dùng với cấp trên hoặc người ít thân thiết hơn so với 「~Vてくれませんか」."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-3",
@@ -31,7 +37,17 @@
       "pattern": "~たらいいです",
       "meaningVi": "Dùng để đưa lời khuyên: “Nên...”",
       "example": "早く寝たらいいです。",
-      "exampleVi": "Bạn nên ngủ sớm."
+      "exampleVi": "Bạn nên ngủ sớm.",
+      "compareWith": [
+        {
+          "pattern": "~ほうがいいです",
+          "note": "「~たらいいです」 đưa ra gợi ý nhẹ nhàng, trong khi 「~ほうがいいです」 mang tính khuyên bảo mạnh mẽ hơn."
+        },
+        {
+          "pattern": "~Vばいいです",
+          "note": "Cả hai đều dùng để đưa ra lời khuyên hoặc hướng giải quyết, có thể thay thế cho nhau trong nhiều ngữ cảnh."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-4",
@@ -42,7 +58,13 @@
       "pattern": "Động từ có chủ ý và không có chủ ý",
       "meaningVi": "Hành động cố ý & trạng thái tự nhiên",
       "example": "ドアが開きました。 / ドアを開けました。",
-      "exampleVi": "Cửa đã mở. (tự mở/trạng thái) / Tôi đã mở cửa. (có chủ ý)"
+      "exampleVi": "Cửa đã mở. (tự mở/trạng thái) / Tôi đã mở cửa. (có chủ ý)",
+      "compareWith": [
+        {
+          "pattern": "Phân biệt Tha động từ & Tự động từ",
+          "note": "Động từ có chủ ý thường là tha động từ, còn không có chủ ý thường là tự động từ."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-5",
@@ -53,7 +75,13 @@
       "pattern": "Động từ thể Khả năng",
       "meaningVi": "Có thể làm được",
       "example": "日本語が話せます。",
-      "exampleVi": "Tôi có thể nói tiếng Nhật."
+      "exampleVi": "Tôi có thể nói tiếng Nhật.",
+      "compareWith": [
+        {
+          "pattern": "~V可能形",
+          "note": "「Động từ thể Khả năng」 là khái niệm chung, còn 「~V可能形」 là thể chia động từ cụ thể."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-6",
@@ -64,7 +92,13 @@
       "pattern": "~V可能形",
       "meaningVi": "có thể ~ Thể “có thể” của động từ",
       "example": "食べます → 食べられます",
-      "exampleVi": "Có thể ăn"
+      "exampleVi": "Có thể ăn",
+      "compareWith": [
+        {
+          "pattern": "Động từ thể Khả năng",
+          "note": "「~V可能形」 là dạng chia ngữ pháp của động từ, dùng để diễn tả năng lực hoặc điều kiện thực hiện hành động."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-7",
@@ -75,7 +109,13 @@
       "pattern": "~が みえます・きこえます",
       "meaningVi": "nhìn thấy, nghe thấy ~ Nhìn thấy / nghe thấy tự nhiên",
       "example": "富士山が見えます。",
-      "exampleVi": "Có thể nhìn thấy núi Phú Sĩ."
+      "exampleVi": "Có thể nhìn thấy núi Phú Sĩ.",
+      "compareWith": [
+        {
+          "pattern": "~V可能形",
+          "note": "「~が みえます・きこえます」 chỉ khả năng tự nhiên đến với giác quan, không dùng thể khả năng của động từ nhìn/nghe."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-8",
@@ -86,7 +126,13 @@
       "pattern": "~が できます",
       "meaningVi": "~ hoàn thành Hoàn thành / xuất hiện",
       "example": "駅の前にコンビニができました。",
-      "exampleVi": "Trước ga đã mở cửa hàng tiện lợi."
+      "exampleVi": "Trước ga đã mở cửa hàng tiện lợi.",
+      "compareWith": [
+        {
+          "pattern": "~V可能形",
+          "note": "「~が できます」 diễn tả việc hoàn thành hoặc có khả năng làm một việc gì đó (danh từ + ができます)."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-9",
@@ -130,7 +176,13 @@
       "pattern": "~Vている",
       "meaningVi": "Diễn tả thói quen / hành động thường xuyên",
       "example": "毎日日本語を勉強しています。",
-      "exampleVi": "Tôi học tiếng Nhật mỗi ngày."
+      "exampleVi": "Tôi học tiếng Nhật mỗi ngày.",
+      "compareWith": [
+        {
+          "pattern": "~Vて(tự)いる",
+          "note": "「~Vている」 diễn tả thói quen hoặc hành động đang lặp lại, còn 「~Vて(tự)いる」 nhấn mạnh trạng thái kết quả."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-13",
@@ -163,7 +215,13 @@
       "pattern": "Phân biệt Tha động từ & Tự động từ",
       "meaningVi": "Tha động từ: có tác động Tự động từ: tự xảy ra",
       "example": "ドアを開けます。(Tha động từ) / ドアが開きます。(Tự động từ)",
-      "exampleVi": "Mở cửa. / Cửa mở."
+      "exampleVi": "Mở cửa. / Cửa mở.",
+      "compareWith": [
+        {
+          "pattern": "Phân biệt V他てある và Vて(tự)いる",
+          "note": "Tha động từ cần có chủ thể tác động, còn tự động từ diễn tả hành động tự xảy ra."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-16",
@@ -174,7 +232,13 @@
       "pattern": "~Vて(tự)いる",
       "meaningVi": "Trạng thái sau khi tự động từ xảy ra",
       "example": "窓が開いています。",
-      "exampleVi": "Cửa sổ đang mở."
+      "exampleVi": "Cửa sổ đang mở.",
+      "compareWith": [
+        {
+          "pattern": "V他てある",
+          "note": "Vて(tự)いる chỉ trạng thái tự nhiên của tự động từ, còn Vてある chỉ kết quả do có tác động của con người."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-17",
@@ -218,7 +282,13 @@
       "pattern": "V他てある",
       "meaningVi": "Có ~ (do ai đó làm sẵn)",
       "example": "ドアが開けてあります。",
-      "exampleVi": "Cửa đã được mở sẵn."
+      "exampleVi": "Cửa đã được mở sẵn.",
+      "compareWith": [
+        {
+          "pattern": "Phân biệt V他てある và Vて(tự)いる",
+          "note": "V他てある nhấn mạnh hành động chuẩn bị có chủ ý, khác với trạng thái tự nhiên."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-21",
@@ -229,7 +299,13 @@
       "pattern": "Phân biệt V他てある và Vて(tự)いる",
       "meaningVi": "• ~てある: có chủ ý làm sẵn • ~ている: trạng thái tự nhiên",
       "example": "① 窓が開けてあります。 / ② 窓が開いています。",
-      "exampleVi": "Cửa sổ được mở sẵn. / Cửa sổ đang mở."
+      "exampleVi": "Cửa sổ được mở sẵn. / Cửa sổ đang mở.",
+      "compareWith": [
+        {
+          "pattern": "V他てある",
+          "note": "Vてある có chủ ý làm sẵn, còn Vている (với tự động từ) chỉ trạng thái tự nhiên."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-22",
@@ -240,7 +316,13 @@
       "pattern": "~Vておく",
       "meaningVi": "Làm trước / chuẩn bị trước",
       "example": "予約しておきます。",
-      "exampleVi": "Tôi sẽ đặt trước."
+      "exampleVi": "Tôi sẽ đặt trước.",
+      "compareWith": [
+        {
+          "pattern": "V他てある",
+          "note": "Vておく là hành động chuẩn bị trước cho tương lai, còn Vてある là trạng thái kết quả còn lại sau khi làm."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-23",
@@ -262,7 +344,13 @@
       "pattern": "Thể ý định (sẽ ~ / định ~)",
       "meaningVi": "行きます → 行こう。 → Cùng đi thôi / sẽ đi.",
       "example": "行きます → 行こう。",
-      "exampleVi": "Cùng đi thôi / sẽ đi."
+      "exampleVi": "Cùng đi thôi / sẽ đi.",
+      "compareWith": [
+        {
+          "pattern": "V意向形と思っています",
+          "note": "Thể ý định dùng khi quyết định ngay lúc nói hoặc thể hiện ý chí ngắn gọn, còn と思っています diễn tả dự định đã suy nghĩ từ trước."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-25",
@@ -273,7 +361,13 @@
       "pattern": "V意向形 (cùng nhau ~)",
       "meaningVi": "Cùng nhau ~",
       "example": "一緒に帰ろう。",
-      "exampleVi": "Cùng về nhé."
+      "exampleVi": "Cùng về nhé.",
+      "compareWith": [
+        {
+          "pattern": "V意向形と思っています",
+          "note": "Diễn tả ý chí rủ rê (cùng làm gì) khác với việc thể hiện suy nghĩ dự định cá nhân."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-26",
@@ -284,7 +378,17 @@
       "pattern": "V意向形と思っています",
       "meaningVi": "Đang định ~",
       "example": "日本へ行こうと思っています。",
-      "exampleVi": "Tôi đang định đi Nhật."
+      "exampleVi": "Tôi đang định đi Nhật.",
+      "compareWith": [
+        {
+          "pattern": "~つもり",
+          "note": "~つもり mang tính quyết định chắc chắn hơn, còn V意向形と思っています là dự định trong đầu."
+        },
+        {
+          "pattern": "~予定",
+          "note": "~予定 dùng cho kế hoạch đã được ấn định, còn V意向形と思っています là ý định chủ quan."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-27",
@@ -295,7 +399,17 @@
       "pattern": "~つもり",
       "meaningVi": "Dự định ~",
       "example": "来年日本へ行くつもりです。",
-      "exampleVi": "Sang năm tôi dự định đi Nhật."
+      "exampleVi": "Sang năm tôi dự định đi Nhật.",
+      "compareWith": [
+        {
+          "pattern": "~予定",
+          "note": "~つもり là dự định cá nhân có thể thay đổi, còn ~予定 là kế hoạch thường có lịch trình rõ ràng."
+        },
+        {
+          "pattern": "V意向形と思っています",
+          "note": "V意向形と思っています là suy nghĩ về dự định, còn ~つもり là dự định đã hình thành rõ ràng hơn."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-28",
@@ -306,7 +420,13 @@
       "pattern": "~予定",
       "meaningVi": "Kế hoạch / dự định",
       "example": "明日出張の予定です。",
-      "exampleVi": "Mai có kế hoạch đi công tác."
+      "exampleVi": "Mai có kế hoạch đi công tác.",
+      "compareWith": [
+        {
+          "pattern": "~つもり",
+          "note": "~予定 là kế hoạch mang tính khách quan (lịch trình), còn ~つもり là dự định chủ quan của bản thân."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-29",
@@ -339,7 +459,13 @@
       "pattern": "~でしょう",
       "meaningVi": "Có lẽ ~ / Chắc là ~",
       "example": "明日は雨でしょう。",
-      "exampleVi": "Ngày mai chắc sẽ mưa."
+      "exampleVi": "Ngày mai chắc sẽ mưa.",
+      "compareWith": [
+        {
+          "pattern": "~かもしれません",
+          "note": "~でしょう thể hiện mức độ phỏng đoán chắc chắn cao hơn, còn ~かもしれません diễn tả khả năng xảy ra thấp hơn (khoảng 50%)."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-32",
@@ -350,7 +476,13 @@
       "pattern": "~かもしれません",
       "meaningVi": "Không chừng ~ / có thể ~",
       "example": "彼は来ないかもしれません。",
-      "exampleVi": "Có thể anh ấy không đến."
+      "exampleVi": "Có thể anh ấy không đến.",
+      "compareWith": [
+        {
+          "pattern": "~でしょう",
+          "note": "~かもしれません dùng khi không chắc chắn (có thể), còn ~でしょう dùng khi người nói tự tin hơn vào phỏng đoán của mình."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-33",
@@ -372,7 +504,17 @@
       "pattern": "Thể Mệnh lệnh",
       "meaningVi": "Ra lệnh mạnh (Cách chia động từ ở Thể Mệnh lệnh)",
       "example": "早く行け！",
-      "exampleVi": "Đi nhanh lên!"
+      "exampleVi": "Đi nhanh lên!",
+      "compareWith": [
+        {
+          "pattern": "Thể Cấm chỉ",
+          "note": "Thể Mệnh lệnh dùng để ra lệnh phải làm gì, trái ngược với Thể Cấm chỉ dùng để cấm không được làm."
+        },
+        {
+          "pattern": "Cách dùng Thể Mệnh lệnh và Thể Cấm chỉ",
+          "note": "Thể Mệnh lệnh chỉ là cách chia cụ thể, còn Cách dùng Thể Mệnh lệnh và Thể Cấm chỉ giải thích ngữ cảnh sử dụng."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-35",
@@ -383,7 +525,13 @@
       "pattern": "Thể Cấm chỉ",
       "meaningVi": "Cấm làm gì đó (Cách chia động từ ở Thể Cấm chỉ)",
       "example": "入るな！",
-      "exampleVi": "Cấm vào!"
+      "exampleVi": "Cấm vào!",
+      "compareWith": [
+        {
+          "pattern": "Thể Mệnh lệnh",
+          "note": "Thể Cấm chỉ dùng để cấm đoán (không được làm), còn Thể Mệnh lệnh dùng để thúc giục làm."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-36",
@@ -394,7 +542,17 @@
       "pattern": "Cách dùng Thể Mệnh lệnh và Thể Cấm chỉ",
       "meaningVi": "Dùng trong biển báo / cảnh báo / cổ vũ",
       "example": "がんばれ！",
-      "exampleVi": "Cố lên!"
+      "exampleVi": "Cố lên!",
+      "compareWith": [
+        {
+          "pattern": "Thể Mệnh lệnh",
+          "note": "Cách dùng hướng dẫn ngữ cảnh thực tế của cả hai thể, trong khi Thể Mệnh lệnh tập trung vào cấu trúc chia."
+        },
+        {
+          "pattern": "Thể Cấm chỉ",
+          "note": "Cách dùng bao quát cả hai thể mệnh lệnh và cấm chỉ trong văn cảnh cụ thể."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-37",
@@ -405,7 +563,13 @@
       "pattern": "~Vなさい",
       "meaningVi": "Hãy ~ (mềm hơn mệnh lệnh)",
       "example": "早く寝なさい。",
-      "exampleVi": "Hãy ngủ sớm đi."
+      "exampleVi": "Hãy ngủ sớm đi.",
+      "compareWith": [
+        {
+          "pattern": "Thể Mệnh lệnh",
+          "note": "«~Vなさい» mang tính nhắc nhở nhẹ nhàng (thường bề trên nói bề dưới), trong khi Thể Mệnh lệnh mang tính ra lệnh mạnh mẽ hơn."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-38",
@@ -416,7 +580,13 @@
       "pattern": "~と読みます ~と書いてあります",
       "meaningVi": "Đọc là ~ / Có viết là ~",
       "example": "「今日」と読みます。",
-      "exampleVi": "Đọc là “kyou”."
+      "exampleVi": "Đọc là “kyou”.",
+      "compareWith": [
+        {
+          "pattern": "~という意味です",
+          "note": "«~と読みます ~と書いてあります» dùng để đọc hoặc trích dẫn nội dung chữ viết, còn «~という意味です» dùng để giải thích ý nghĩa."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-39",
@@ -427,7 +597,13 @@
       "pattern": "~という意味です",
       "meaningVi": "Nghĩa là ~",
       "example": "「ありがとう」は感謝という意味です。",
-      "exampleVi": "“Arigatou” nghĩa là cảm ơn."
+      "exampleVi": "“Arigatou” nghĩa là cảm ơn.",
+      "compareWith": [
+        {
+          "pattern": "~と読みます ~と書いてあります",
+          "note": "«~という意味です» giải thích ý nghĩa của từ/câu, còn «~と読みます ~と書いてあります» chỉ cách đọc hoặc nội dung được viết."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-40",
@@ -438,7 +614,13 @@
       "pattern": "~と言っていました",
       "meaningVi": "Nói rằng ~",
       "example": "先生は明日テストだと言っていました。",
-      "exampleVi": "Thầy giáo nói rằng mai có kiểm tra."
+      "exampleVi": "Thầy giáo nói rằng mai có kiểm tra.",
+      "compareWith": [
+        {
+          "pattern": "~と伝えていただけませんか",
+          "note": "«~と言っていました» dùng để thuật lại lời người khác đã nói, còn «~と伝えていただけませんか» dùng để nhờ ai đó chuyển lời giúp."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-41",
@@ -449,7 +631,13 @@
       "pattern": "~と伝えていただけませんか",
       "meaningVi": "Nhắn lại giúp tôi ~ được không?",
       "example": "明日休むと伝えていただけませんか。",
-      "exampleVi": "Anh/chị có thể nhắn giúp tôi rằng mai tôi nghỉ được không?"
+      "exampleVi": "Anh/chị có thể nhắn giúp tôi rằng mai tôi nghỉ được không?",
+      "compareWith": [
+        {
+          "pattern": "~と言っていました",
+          "note": "«~と伝えていただけませんか» dùng để nhờ nhắn lại lời nhắn, còn «~と言っていました» dùng để tường thuật lại lời ai đó."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-42",
@@ -505,7 +693,13 @@
       "meaningVi": "Cách chia",
       "example": "行きます → 行けば",
       "exampleVi": "Nếu đi thì ~",
-      "formula": "Vる → れば Vない → なければ する → すれば くる → れば い → ければ V đặc biệt: 来い → くれば"
+      "formula": "Vる → れば Vない → なければ する → すれば くる → れば い → ければ V đặc biệt: 来い → くれば",
+      "compareWith": [
+        {
+          "pattern": "Thể điều kiện",
+          "note": "«Cách chia động từ ở Thể Điều kiện» tập trung vào quy tắc biến đổi thể, còn «Thể điều kiện» dùng để diễn đạt ý nghĩa ngữ pháp 'nếu... thì...'."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-47",
@@ -516,7 +710,13 @@
       "pattern": "Thể điều kiện",
       "meaningVi": "Nếu ~ thì ~",
       "example": "時間があれば、行きます。",
-      "exampleVi": "Nếu có thời gian thì tôi sẽ đi."
+      "exampleVi": "Nếu có thời gian thì tôi sẽ đi.",
+      "compareWith": [
+        {
+          "pattern": "~Nなら",
+          "note": "«Thể điều kiện» dùng chung cho mọi động từ/tính từ theo quy tắc «~ba + ば», còn «~Nなら» dùng đặc thù để giả định hoặc nêu chủ đề với danh từ."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-48",
@@ -527,7 +727,13 @@
       "pattern": "~Nなら",
       "meaningVi": "Nếu là N thì ~",
       "example": "日本なら、京都が好きです。",
-      "exampleVi": "Nếu là Nhật Bản thì tôi thích Kyoto."
+      "exampleVi": "Nếu là Nhật Bản thì tôi thích Kyoto.",
+      "compareWith": [
+        {
+          "pattern": "Thể điều kiện",
+          "note": "«~Nなら» chuyên dùng với danh từ để bắt đầu chủ đề hoặc đưa ra lời khuyên dựa trên ý của đối phương, khác với «Thể điều kiện» dùng rộng rãi cho các vế giả định."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-49",
@@ -837,7 +1043,13 @@
       "meaningVi": "さしあげます : biếu (người trên) あげます : tặng (thông thường) やります : cho (động vật, cây cối...)",
       "example": "先生に花をさしあげました。",
       "exampleVi": "Tôi biếu hoa cho giáo viên.",
-      "formula": "N1 は N2 に N3 を あげます / さしあげます / やります"
+      "formula": "N1 は N2 に N3 を あげます / さしあげます / やります",
+      "compareWith": [
+        {
+          "pattern": "くれます くださいます",
+          "note": "あげます dùng khi tặng đồ cho người khác, còn くれます dùng khi ai đó tặng đồ cho mình."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-77",
@@ -849,7 +1061,13 @@
       "meaningVi": "くださいます : kính ngữ くれます : thông thường",
       "example": "先生が本をくださいました。",
       "exampleVi": "Giáo viên đã cho tôi sách.",
-      "formula": "N1 は 私に N2 を くれます / くださいます"
+      "formula": "N1 は 私に N2 を くれます / くださいます",
+      "compareWith": [
+        {
+          "pattern": "あげます さしあげます やります",
+          "note": "くださいます là dạng kính ngữ của くれます khi người trên tặng đồ cho mình."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-78",
@@ -873,7 +1091,17 @@
       "meaningVi": "Có thể làm ~ giúp tôi được không?",
       "example": "写真を撮ってくださいませんか。",
       "exampleVi": "Anh/chị có thể chụp ảnh giúp tôi được không?",
-      "formula": "Vてくださいませんか"
+      "formula": "Vてくださいませんか",
+      "compareWith": [
+        {
+          "pattern": "~ていただけませんか",
+          "note": "Cả hai đều dùng để nhờ vả, nhưng ~ていただけませんか lịch sử và trang trọng hơn."
+        },
+        {
+          "pattern": "~Vてくれませんか",
+          "note": "~Vてくれませんか dùng với bạn bè hoặc người thân quen, ít trang trọng hơn ~Vてくださいませんか."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-80",
@@ -897,7 +1125,13 @@
       "meaningVi": "Để / vì / nhằm mục đích ~",
       "example": "日本へ勉強するために行きます。",
       "exampleVi": "Tôi đi Nhật để học.",
-      "formula": "Vる / N のために"
+      "formula": "Vる / N のために",
+      "compareWith": [
+        {
+          "pattern": "~のに",
+          "note": "~ために dùng để chỉ mục đích, còn ~のに dùng để chỉ công dụng hoặc phạm vi sử dụng."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-82",
@@ -909,7 +1143,13 @@
       "meaningVi": "Để ~",
       "example": "このかばんは旅行するのに便利です。",
       "exampleVi": "Cái túi này tiện cho việc du lịch.",
-      "formula": "Vる のに"
+      "formula": "Vる のに",
+      "compareWith": [
+        {
+          "pattern": "~ために",
+          "note": "~のに dùng để chỉ mục đích sử dụng của vật, còn ~ために dùng để chỉ mục đích hành động."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-83",
@@ -1231,7 +1471,13 @@
       "pattern": "~ます trong cách nói lịch sự",
       "meaningVi": "Cách nói lịch sự cơ bản",
       "example": "毎日日本語を勉強します。",
-      "exampleVi": "Tôi học tiếng Nhật mỗi ngày."
+      "exampleVi": "Tôi học tiếng Nhật mỗi ngày.",
+      "compareWith": [
+        {
+          "pattern": "Lịch sự ngữ (丁寧語)",
+          "note": "Cách nói lịch sự cơ bản dùng để giao tiếp trang trọng với người nghe."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-110",
@@ -1243,7 +1489,13 @@
       "meaningVi": "Hạ mình để thể hiện sự lịch sự",
       "example": "私がお持ちします。",
       "exampleVi": "Tôi sẽ mang giúp quý khách.",
-      "formula": "お/ご + Vます + します"
+      "formula": "お/ご + Vます + します",
+      "compareWith": [
+        {
+          "pattern": "Tôn kính ngữ (尊敬語)",
+          "note": "Khiêm nhường ngữ hạ mình xuống còn tôn kính ngữ nâng người khác lên."
+        }
+      ]
     },
     {
       "id": "bunpo-n4-infographic-111",
@@ -1255,7 +1507,13 @@
       "meaningVi": "Cách nói lịch sự cơ bản",
       "example": "今日は暑いです。",
       "exampleVi": "Hôm nay trời nóng.",
-      "formula": "~です / ~ます"
+      "formula": "~です / ~ます",
+      "compareWith": [
+        {
+          "pattern": "~ます trong cách nói lịch sự",
+          "note": "Cả hai đều là cách nói lịch sự cơ bản trong tiếng Nhật."
+        }
+      ]
     }
   ]
 }

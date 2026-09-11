@@ -14,7 +14,13 @@
         "400-mau-thong-dung",
         "try-n3"
       ],
-      "formula": "N＋うちに"
+      "formula": "N＋うちに",
+      "compareWith": [
+        {
+          "pattern": "〜あいだに",
+          "note": "〜うちに dùng khi có cơ hội thay đổi trạng thái trước khi sự việc khác xảy ra, còn 〜あいだに dùng cho khoảng thời gian kéo dài liên tục."
+        }
+      ]
     },
     {
       "id": "bunpo-jlpt-2",
@@ -29,7 +35,13 @@
         "jlpt-da-ra",
         "shinkanzen"
       ],
-      "formula": "V辞書形"
+      "formula": "V辞書形",
+      "compareWith": [
+        {
+          "pattern": "〜ようにする",
+          "note": "〜ようになる chỉ sự thay đổi tự nhiên, còn 〜ようにする chỉ sự cố gắng tạo thói quen do ý chí con người."
+        }
+      ]
     },
     {
       "id": "bunpo-jlpt-3",
@@ -43,6 +55,12 @@
       "sources": [
         "jlpt-da-ra",
         "shinkanzen"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜ことにする",
+          "note": "〜ことになる chỉ quyết định mang tính khách quan do người khác hoặc tổ chức đưa ra, còn 〜ことにする là tự cá nhân quyết định."
+        }
       ]
     },
     {
@@ -58,7 +76,13 @@
         "jlpt-da-ra",
         "try-n3"
       ],
-      "formula": "Vた形＋ばかり"
+      "formula": "Vた形＋ばかり",
+      "compareWith": [
+        {
+          "pattern": "〜たところだ",
+          "note": "〜たばかり nhấn mạnh cảm giác vừa mới xảy ra theo chủ quan người nói (có thể lâu hơn thực tế), còn 〜たところだ chỉ đúng thời điểm vừa mới xong."
+        }
+      ]
     },
     {
       "id": "bunpo-jlpt-5",
@@ -86,7 +110,13 @@
         "jlpt-da-ra",
         "shinkanzen"
       ],
-      "formula": "V辞書形＋ところだ"
+      "formula": "V辞書形＋ところだ",
+      "compareWith": [
+        {
+          "pattern": "〜たばかり",
+          "note": "〜ところだ có thể dùng cho cả 3 trạng thái (sắp, đang, vừa mới), còn 〜たばかり chỉ chuyên dùng cho hành động vừa mới xảy ra."
+        }
+      ]
     },
     {
       "id": "bunpo-jlpt-7",
@@ -99,6 +129,12 @@
       "examTip": "Hành động chưa bắt đầu, mới có ý định.",
       "sources": [
         "jlpt-da-ra"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜つもりだ",
+          "note": "〜ようとする diễn tả hành động đang bắt đầu hoặc cố gắng thực hiện ngay lúc đó, còn 〜つもりだ là dự định trong tương lai."
+        }
       ]
     },
     {
@@ -112,6 +148,12 @@
       "examTip": "Chuẩn bị trước để tiện sau này.",
       "sources": [
         "jlpt-da-ra"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜てみる",
+          "note": "〜ておく là chuẩn bị sẵn trước cho tương lai, còn 〜てみる là làm thử để trải nghiệm."
+        }
       ]
     },
     {
@@ -125,6 +167,12 @@
       "examTip": "Thử nghiệm, trải nghiệm điều mới.",
       "sources": [
         "jlpt-da-ra"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜ておく",
+          "note": "〜てみる mang ý nghĩa thử nghiệm, trong khi 〜ておく mang ý nghĩa làm sẵn để chuẩn bị cho việc sau."
+        }
       ]
     },
     {
@@ -149,6 +197,12 @@
       "usage": "Vます形・い形容詞語幹・な形容詞語幹＋そうだ",
       "sources": [
         "jlpt-da-ra"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜そうだ（伝聞）",
+          "note": "〜そうだ（様態） dựa trên phán đoán bằng mắt thường (có vẻ như), còn 〜そうだ（伝聞） là thông tin nghe được từ người khác."
+        }
       ]
     },
     {
@@ -162,6 +216,12 @@
       "examTip": "Dùng khi truyền đạt thông tin mình nghe được.",
       "sources": [
         "jlpt-da-ra"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜そうだ（様態）",
+          "note": "〜そうだ（伝聞） dùng để truyền đạt lại thông tin nghe nói, còn 〜そうだ（様態） dùng để phán đoán tình trạng hiện tại qua quan sát."
+        }
       ]
     },
     {
@@ -1025,7 +1085,13 @@
         "jlpt-da-ra",
         "try-n3"
       ],
-      "formula": "N＋ほど〜N／V（辞書形）ほど"
+      "formula": "N＋ほど〜N／V（辞書形）ほど",
+      "compareWith": [
+        {
+          "pattern": "〜くらい／ぐらい",
+          "note": "Cả hai đều biểu thị mức độ, nhưng 「〜ほど」 thường dùng trong cấu trúc so sánh hơn kém còn 「〜くらい」 thiên về mức độ xấp xỉ."
+        }
+      ]
     },
     {
       "id": "bunpo-jlpt-78",
@@ -1037,6 +1103,12 @@
       "usage": "普通形＋くらい／ぐらい",
       "sources": [
         "jlpt-da-ra"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜ほど",
+          "note": "Cả hai đều dùng để nói về mức độ, nhưng 「〜くらい」 hay dùng cho ước lượng số lượng cụ thể hơn."
+        }
       ]
     },
     {

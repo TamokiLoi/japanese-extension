@@ -610,7 +610,13 @@
         "theo-chuong",
         "shinkanzen"
       ],
-      "formula": "たとえ＋〜ても"
+      "formula": "たとえ＋〜ても",
+      "compareWith": [
+        {
+          "pattern": "たとえ〜ても・でも…",
+          "note": "Cả hai đều diễn tả ý giả định mạnh, \"たとえ〜ても\" nhấn mạnh sự giả định dù trong hoàn cảnh nào."
+        }
+      ]
     },
     {
       "id": "bunpo-chuong4-9",
@@ -655,6 +661,12 @@
       "exampleVi": "Vì trời đang mưa nên tôi không đi ra ngoài.",
       "sources": [
         "theo-chuong"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜から",
+          "note": "\"〜ので\" mang tính khách quan và lịch sự hơn \"〜から\" khi nêu lý do."
+        }
       ]
     },
     {
@@ -689,7 +701,13 @@
         "theo-chuong",
         "try-n3"
       ],
-      "formula": "N＋のおかげで／V辞書形＋おかげで"
+      "formula": "N＋のおかげで／V辞書形＋おかげで",
+      "compareWith": [
+        {
+          "pattern": "〜せいで",
+          "note": "\"〜おかげで\" dùng cho kết quả tốt, còn \"〜せいで\" dùng cho kết quả xấu."
+        }
+      ]
     },
     {
       "id": "bunpo-chuong5-4",
@@ -704,6 +722,16 @@
       "exampleVi": "Vì ngủ quên nên tôi đã lỡ tàu.",
       "sources": [
         "theo-chuong"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜おかげで",
+          "note": "\"〜せいで\" dùng cho kết quả xấu, còn \"〜おかげで\" dùng cho kết quả tốt."
+        },
+        {
+          "pattern": "〜せいか",
+          "note": "\"〜せいで\" chỉ định nguyên nhân rõ ràng dẫn đến kết quả xấu, còn \"〜せいか\" diễn tả nguyên nhân không chắc chắn lắm."
+        }
       ]
     },
     {
@@ -719,6 +747,12 @@
       "exampleVi": "Dạo này, có lẽ nhờ tập thể dục nên cơ thể nhẹ hơn.",
       "sources": [
         "theo-chuong"
+      ],
+      "compareWith": [
+        {
+          "pattern": "〜せいで",
+          "note": "\"〜せいか\" dùng khi nguyên nhân mang tính mơ hồ (có lẽ là vì...), còn \"〜せいで\" xác định rõ nguyên nhân gây kết quả xấu."
+        }
       ]
     },
     {
@@ -783,7 +817,13 @@
         "theo-chuong",
         "try-n3"
       ],
-      "formula": "V普通形（辞書形）＋ほど／Aい＋ほど／N＋ほど"
+      "formula": "V普通形（辞書形）＋ほど／Aい＋ほど／N＋ほど",
+      "compareWith": [
+        {
+          "pattern": "（〜ば）〜ほど…・（〜なら）〜ほど…・〜ほど…",
+          "note": "Cả hai đều dùng cấu trúc càng... càng... nhưng 「〜ほど」 ngắn gọn hơn trong khi dạng đầy đủ nhấn mạnh điều kiện đi kèm."
+        }
+      ]
     },
     {
       "id": "bunpo-chuong5-10",

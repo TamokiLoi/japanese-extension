@@ -3,6 +3,16 @@ import type { ReadingPassage } from "../types/reading.ts";
 import type { QuizBookQuestion } from "../types/quizBook.ts";
 import { ALL_READING } from "./readingState.ts";
 import { ALL_QUIZBOOK } from "./quizBookState.ts";
+import { ALL_BUNPO } from "./bunpoState.ts";
+
+// compareWith entries are validated at generation time to only reference a
+// pattern string that really exists in the same-level data (see _scratch/
+// build_bunpo_compare.py) -- this just resolves that string back to a card
+// to link to. Picks the first match within the same level in case a pattern
+// string happens to repeat across levels.
+export function findBunpoByPattern(pattern: string, level: BunpoGrammarPoint["level"]): BunpoGrammarPoint | undefined {
+  return ALL_BUNPO.find((g) => g.pattern === pattern && g.level === level);
+}
 
 const MAX_MATCHES = 5;
 

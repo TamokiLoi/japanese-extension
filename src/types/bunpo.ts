@@ -31,6 +31,11 @@ export interface BunpoGrammarPoint {
   examTip?: string; // Key JLPT (chỉ "theo-chuong")
   example: string; // Ví dụ (JP)
   exampleVi: string; // Nghĩa tiếng Việt của ví dụ
+  // Các mẫu ngữ pháp cùng cấp độ mà người học hay nhầm với mẫu này, kèm cách
+  // phân biệt -- sinh bởi Gemini, chỉ trỏ tới `pattern` có thật trong bộ dữ
+  // liệu (không bịa mẫu không tồn tại). Rỗng/không có nếu mẫu này không có
+  // đối chiếu nào thật sự đáng chú ý.
+  compareWith?: { pattern: string; note: string }[];
 }
 
 export interface BunpoDataset {

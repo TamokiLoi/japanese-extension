@@ -32,7 +32,7 @@ import {
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
@@ -574,6 +574,29 @@ function DetailView({
           </div>
           <div className="mt-1 text-emerald-700">{g.exampleVi}</div>
         </div>
+
+        {g.compareWith && g.compareWith.length > 0 ? (
+          <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-700">Dễ nhầm với</div>
+            <div className="mt-2 space-y-2.5">
+              {g.compareWith.map((c, i) => {
+                const target = findBunpoByPattern(c.pattern, g.level);
+                return (
+                  <div key={i}>
+                    {target ? (
+                      <button onClick={() => mutate({ currentGrammarId: target.id })} className="font-semibold text-amber-800 underline decoration-amber-300 underline-offset-2">
+                        {c.pattern}
+                      </button>
+                    ) : (
+                      <span className="font-semibold text-amber-800">{c.pattern}</span>
+                    )}
+                    <div className="mt-0.5 text-neutral-700">{c.note}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
 
         {readingMatches.length > 0 ? (
           <div className="mt-4">
