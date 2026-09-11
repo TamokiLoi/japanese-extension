@@ -179,6 +179,14 @@ export function GuideScreen() {
           </Card>
         ))}
       </div>
+
+      <div className="mt-6 text-center text-xs text-neutral-400">
+        Một phần nội dung "Cách dùng" trong Ngữ pháp tham khảo từ{" "}
+        <a href="https://hanabira.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">
+          hanabira.org
+        </a>{" "}
+        (Creative Commons License), đã dịch và biên tập lại.
+      </div>
     </div>
   );
 }

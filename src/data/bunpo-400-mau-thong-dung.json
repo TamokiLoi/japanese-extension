@@ -9,7 +9,8 @@
       "pattern": "んですか",
       "meaningVi": "Dùng để nhấn mạnh ý quan tâm, ngạc nhiên khi hỏi về lí do, nguyên nhân hoặc tình trạng.",
       "example": "どうして日本へ来たんですか。",
-      "exampleVi": "Tại sao lại đến Nhật?"
+      "exampleVi": "Tại sao lại đến Nhật?",
+      "usage": "Công thức: V普通形 / い形 / な形・N (+な) + んですか. Dùng khi người nói quan sát thấy tình huống thực tế hoặc nghe tin tức và muốn hỏi để làm rõ nguyên nhân, bối cảnh. Tránh dùng với người bề trên vì có thể tạo cảm giác soi mói."
     },
     {
       "id": "bunpo-400-2",
@@ -20,7 +21,8 @@
       "pattern": "〜んです",
       "meaningVi": "Trả lời cho câu hỏi nhấn mạnh どうして và どうした, trình bày nguyên nhân cho điều đã nói phía trước.",
       "example": "どうして日本へ来たんですか。日本語を勉強したいんです。",
-      "exampleVi": "Tại sao lại đến Nhật? Vì mình muốn học tiếng Nhật."
+      "exampleVi": "Tại sao lại đến Nhật? Vì mình muốn học tiếng Nhật.",
+      "usage": "Công thức: V普通形 / い形 / な形・N (+な) + んです. Dùng để trình bày lý do, giải thích tình huống khi được hỏi (đặc biệt phản hồi cho câu hỏi んですか hoặc どうして), hoặc đưa ra thông tin nền cho câu hỏi/nhờ vả tiếp theo."
     },
     {
       "id": "bunpo-400-3",
@@ -37,7 +39,8 @@
           "pattern": "Vてくださいませんか",
           "note": "Cả hai đều dùng để đề nghị lịch sự, nhưng 「〜ていただけませんか」 có độ lịch sự cao hơn."
         }
-      ]
+      ],
+      "usage": "Công thức: Vて + いただけませんか. Là dạng yêu cầu/nhờ vả rất lịch sự, thích hợp dùng với cấp trên, người lớn tuổi hoặc đối tác. Thường kết hợp với vế giải thích lý do đi trước (〜んですが)."
     },
     {
       "id": "bunpo-400-4",
@@ -48,7 +51,8 @@
       "pattern": "〜疑問詞＋たらいいですか",
       "meaningVi": "Xin lời gợi ý từ người khác (Học ai, mua ở đâu, làm thế nào...)",
       "example": "日本語をどこで勉強したらいいですか。",
-      "exampleVi": "Nên học tiếng Nhật ở đâu thì tốt?"
+      "exampleVi": "Nên học tiếng Nhật ở đâu thì tốt?",
+      "usage": "Công thức: Từ hỏi (疑問詞) + Vたらいいですか. Dùng khi người nói lúng túng hoặc chưa biết cách xử lý, muốn tham khảo lời khuyên, hướng dẫn chi tiết từ người nghe."
     },
     {
       "id": "bunpo-400-5",
@@ -59,7 +63,8 @@
       "pattern": "〜可能形",
       "meaningVi": "Có thể (Thể hiện năng lực, điều kiện thực hiện hoạt động nào đó)",
       "example": "お酒が飲めます。すしも食べられます。",
-      "exampleVi": "Tôi có thể uống rượu Sake và thể ăn Sushi."
+      "exampleVi": "Tôi có thể uống rượu Sake và thể ăn Sushi.",
+      "usage": "Công thức: N1 chuyển cột い->え+ます; N2 bỏ ます+られます; N3 します->できます / きます->こられます. Trợ từ を thường chuyển thành が khi đi với thể khả năng."
     },
     {
       "id": "bunpo-400-6",
@@ -70,7 +75,8 @@
       "pattern": "N が見える・聞こえる",
       "meaningVi": "Nhìn thấy, nghe thấy một cách tự nhiên",
       "example": "部屋からホアンキェム湖が見えます。",
-      "exampleVi": "Từ phòng tôi có thể nhìn thấy hồ Hoàn Kiếm."
+      "exampleVi": "Từ phòng tôi có thể nhìn thấy hồ Hoàn Kiếm.",
+      "usage": "Công thức: N + が見える / が聞こえる. Diễn tả hình ảnh hoặc âm thanh đi vào mắt/tai một cách tự nhiên mà không cần người nói cố ý nhìn hay lắng nghe."
     },
     {
       "id": "bunpo-400-7",
@@ -81,7 +87,8 @@
       "pattern": "N1は…が、N2は",
       "meaningVi": "N1 thì... nhưng N2 thì... (2 đối tượng có tính chất trái ngược)",
       "example": "てんぷらは食べられますが、すしは食べられません。",
-      "exampleVi": "Tempura thì tôi ăn được nhưng Sushi thì không."
+      "exampleVi": "Tempura thì tôi ăn được nhưng Sushi thì không.",
+      "usage": "Công thức: N1 は [Mệnh đề 1] が、N2 は [Mệnh đề 2]. Trợ từ は được nhấn mạnh ở cả hai vế để thể hiện rõ sự đối chiếu, tương phản về tính chất hay khả năng giữa N1 và N2."
     },
     {
       "id": "bunpo-400-8",
@@ -92,7 +99,8 @@
       "pattern": "V1ながら、V2",
       "meaningVi": "Vừa làm V1 vừa làm V2",
       "example": "音楽を聞きながら、パンを食べます。",
-      "exampleVi": "Tôi vừa ăn bánh mì vừa nghe nhạc."
+      "exampleVi": "Tôi vừa ăn bánh mì vừa nghe nhạc.",
+      "usage": "Công thức: V1 (bỏ ます) + ながら、V2. Diễn tả 2 hành động diễn ra song song do cùng một chủ thể thực hiện, trong đó V2 là hành động chính."
     },
     {
       "id": "bunpo-400-9",
@@ -103,7 +111,8 @@
       "pattern": "〜し",
       "meaningVi": "Dùng để liệt kê",
       "example": "田中さんは親切だし、ユーモアもあります。",
-      "exampleVi": "Tanaka tốt bụng này, lại hài hước nữa."
+      "exampleVi": "Tanaka tốt bụng này, lại hài hước nữa.",
+      "usage": "Công thức: V普通形 / い形 / な形・N (+だ) + し. Dùng để liệt kê nhiều lý do có cùng tính chất (cùng khen hoặc cùng chê) nhằm củng cố cho kết luận hay đánh giá phía sau."
     },
     {
       "id": "bunpo-400-10",
@@ -114,7 +123,8 @@
       "pattern": "〜それで",
       "meaningVi": "Vị thế..., Vì vậy...",
       "example": "田中さんは親切だし、ユーモアもあります。それで、女の子に人気があります。",
-      "exampleVi": "Tanaka tốt bụng này, lại hài hước nữa. Vì thế mà tụi con gái rất thích."
+      "exampleVi": "Tanaka tốt bụng này, lại hài hước nữa. Vì thế mà tụi con gái rất thích.",
+      "usage": "Công thức: [Câu nguyên nhân]. それで、[Câu kết quả]. Liên từ đứng đầu câu sau để chỉ kết quả tự nhiên của sự việc trước đó. Vế sau không dùng câu thể hiện ý chí, mệnh lệnh hay rủ rê."
     },
     {
       "id": "bunpo-400-11",
@@ -125,7 +135,8 @@
       "pattern": "〜それに",
       "meaningVi": "Hơn nữa..., thêm nữa..., thêm vào đó...",
       "example": "田中さんは親切だし、ユーモアもあるし、それに、勉強も上手です。",
-      "exampleVi": "Tanaka tốt bụng này, lại hài hước, hơn nữa còn học rất giỏi."
+      "exampleVi": "Tanaka tốt bụng này, lại hài hước, hơn nữa còn học rất giỏi.",
+      "usage": "Công thức: [Câu 1]. それに、[Câu 2]. Liên từ đứng đầu câu dùng để bổ sung thêm một ý kiến, đặc điểm hoặc lý do cùng chiều nhằm làm nổi bật hơn nội dung ở câu 1."
     },
     {
       "id": "bunpo-400-12",
@@ -136,7 +147,8 @@
       "pattern": "〜状態動詞（Vている）",
       "meaningVi": "Trạng thái của sự vật, hiện tượng (tự động từ)",
       "example": "電気がついている。窓が開いている。外は雨が降っている。",
-      "exampleVi": "Điện bật, cửa sổ mở, bên ngoài mưa đang rơi."
+      "exampleVi": "Điện bật, cửa sổ mở, bên ngoài mưa đang rơi.",
+      "usage": "Công thức: Tự động từ (自動詞) + ている. Diễn tả trạng thái kết quả của một hành động hay sự biến đổi vẫn còn tiếp tục lưu lại ở hiện tại."
     },
     {
       "id": "bunpo-400-13",
@@ -147,7 +159,8 @@
       "pattern": "〜Vてしまう",
       "meaningVi": "Làm hết V, hoặc tiếc nuối khi V xảy ra...",
       "example": "スーパーで買ったお酒を全部飲んでしまいました。",
-      "exampleVi": "Tôi đã uống hết chỗ rượu mua ở siêu thị."
+      "exampleVi": "Tôi đã uống hết chỗ rượu mua ở siêu thị.",
+      "usage": "Vて + しまう (Văn nói: 〜ちゃう / 〜じゃう). Dùng diễn tả một hành động đã hoàn thành trọn vẹn, hoặc thể hiện sự tiếc nuối, hối hận vì lỡ làm điều gì đó ngoài ý muốn."
     },
     {
       "id": "bunpo-400-14",
@@ -158,7 +171,8 @@
       "pattern": "〜Vてある",
       "meaningVi": "Trạng thái của sự vật, hiện tượng do ai đó gây ra (tha động từ)",
       "example": "部屋に入ったら、机の上に花瓶が置いてある。",
-      "exampleVi": "Tôi bước vào phòng. Trên bàn có đặt lọ hoa."
+      "exampleVi": "Tôi bước vào phòng. Trên bàn có đặt lọ hoa.",
+      "usage": "Tha động từ Vて + ある. Diễn tả trạng thái hiện tại của vật là kết quả do hành động có mục đích của ai đó đã thực hiện từ trước."
     },
     {
       "id": "bunpo-400-15",
@@ -169,7 +183,8 @@
       "pattern": "〜Vておく",
       "meaningVi": "Chuẩn bị trước, giải pháp tạm thời hoặc giữ nguyên hiện trạng",
       "example": "会議の前に、資料を準備しておいてください。",
-      "exampleVi": "Trước khi có cuộc họp, hãy chuẩn bị sẵn tài liệu đi."
+      "exampleVi": "Trước khi có cuộc họp, hãy chuẩn bị sẵn tài liệu đi.",
+      "usage": "Vて + おく (Văn nói: 〜とく). Dùng để chuẩn bị trước cho một việc trong tương lai, giải quyết tạm thời hoặc giữ nguyên hiện trạng."
     },
     {
       "id": "bunpo-400-16",
@@ -180,7 +195,8 @@
       "pattern": "〜意向形",
       "meaningVi": "Thể ý chí, dạng ngắn của V ましょう",
       "example": "行こう。食べよう。勉強しよう。",
-      "exampleVi": "Đi nào! Ăn nào! Học nào!"
+      "exampleVi": "Đi nào! Ăn nào! Học nào!",
+      "usage": "V thể ý chí (Nhóm 1: đổi đuôi cột い thành cột お + う; Nhóm 2: bỏ る + よう; Nhóm 3: する->しよう, 来る->こよう). Là dạng ngắn của 〜ましょう, dùng để rủ rê hoặc biểu thị ý chí cá nhân trong hội thoại thân mật."
     },
     {
       "id": "bunpo-400-17",
@@ -191,7 +207,8 @@
       "pattern": "〜V意向形＋と思っています",
       "meaningVi": "Định làm V",
       "example": "来週、ふるさとへ帰ろうと思っています。",
-      "exampleVi": "Tôi định tuần sau về quê."
+      "exampleVi": "Tôi định tuần sau về quê.",
+      "usage": "V意向形 + と思っています. Dùng diễn tả ý định làm việc gì đó mà người nói đã suy nghĩ từ trước và hiện tại vẫn đang duy trì ý định đó."
     },
     {
       "id": "bunpo-400-18",
@@ -202,7 +219,8 @@
       "pattern": "〜つもりです",
       "meaningVi": "Định làm V, không định làm V",
       "example": "日本語を勉強するつもりです。",
-      "exampleVi": "Tôi dự định sẽ học tiếng Nhật."
+      "exampleVi": "Tôi dự định sẽ học tiếng Nhật.",
+      "usage": "V辞書形 / Vない形 + つもりです. Diễn tả ý định, quyết định chắc chắn sẽ làm (hoặc không làm) việc gì của người nói. Không dùng cho dự định của người khác."
     },
     {
       "id": "bunpo-400-19",
@@ -213,7 +231,8 @@
       "pattern": "〜予定です",
       "meaningVi": "Dự định, kế hoạch...",
       "example": "7月の終わりに日本へ出張する予定です。",
-      "exampleVi": "Cuối tháng 7 tôi có kế hoạch đi công tác Nhật Bản."
+      "exampleVi": "Cuối tháng 7 tôi có kế hoạch đi công tác Nhật Bản.",
+      "usage": "V辞書形 / Nの + 予定です. Biểu thị lịch trình, kế hoạch đã được ấn định sẵn (thường do công việc, sự kiện hoặc bên thứ ba sắp xếp)."
     },
     {
       "id": "bunpo-400-20",
@@ -224,7 +243,8 @@
       "pattern": "〜でしょう",
       "meaningVi": "Có lẽ...",
       "example": "彼は来ないでしょう。",
-      "exampleVi": "Có lẽ anh ấy sẽ không đến."
+      "exampleVi": "Có lẽ anh ấy sẽ không đến.",
+      "usage": "V thể ngắn / Adj-い / Adj-な (bỏ だ) / N (bỏ だ) + でしょう. Dùng để phán đoán, suy đoán lịch sự về một sự việc có khả năng xảy ra cao."
     },
     {
       "id": "bunpo-400-21",
@@ -235,7 +255,8 @@
       "pattern": "〜かもしれない",
       "meaningVi": "Có lẽ...",
       "example": "田中さんはあの会社を辞めるかもしれない。",
-      "exampleVi": "Có lẽ anh Tanaka sẽ nghỉ việc công ty kia."
+      "exampleVi": "Có lẽ anh Tanaka sẽ nghỉ việc công ty kia.",
+      "usage": "V thể ngắn / Adj-い / Adj-な (bỏ だ) / N (bỏ だ) + かもしれない. Diễn tả khả năng một sự việc có thể xảy ra nhưng mức độ chắc chắn không cao (khoảng 50%). Lưu ý không thêm だ sau tính từ -な và danh từ."
     },
     {
       "id": "bunpo-400-22",
@@ -246,7 +267,8 @@
       "pattern": "〜命令形",
       "meaningVi": "Làm V đi (thể mệnh lệnh) thể hiện sắc thái áp đặt mạnh mẽ như ép buộc ai đó làm gì",
       "example": "走れ！続けろ！集中しろ！",
-      "exampleVi": "Chạy đi! Tiếp tục đi! Tập trung vào!"
+      "exampleVi": "Chạy đi! Tiếp tục đi! Tập trung vào!",
+      "usage": "V thể mệnh lệnh (Nhóm 1: đuôi cột い->え; Nhóm 2: bỏ る+ろ; Nhóm 3: する->しろ, 来る->こい). Mang sắc thái ra lệnh trực tiếp, áp đặt mạnh mẽ; thường dùng trong tình huống khẩn cấp, cổ vũ thể thao hoặc chỉ dẫn/biển báo."
     },
     {
       "id": "bunpo-400-23",
@@ -257,7 +279,8 @@
       "pattern": "〜禁止形",
       "meaningVi": "Không được làm (thể cấm chỉ) sắc thái áp đặt mạnh cấm ai đó làm gì",
       "example": "酒を飲むな！",
-      "exampleVi": "Không được uống rượu!"
+      "exampleVi": "Không được uống rượu!",
+      "usage": "V辞書形 + な. Dùng để ra lệnh cấm đoán trực tiếp không được làm việc gì. Thường dùng trong tình huống khẩn cấp, biển báo giao thông/cấm đoán hoặc lời nói của nam giới có thẩm quyền."
     },
     {
       "id": "bunpo-400-24",
@@ -268,7 +291,8 @@
       "pattern": "〜と読みます・〜と書いてあります",
       "meaningVi": "Đọc là..., Viết là...",
       "example": "「営業中」この漢字は「えいぎょうちゅう」と読みます。",
-      "exampleVi": "Chữ Kanji này đọc là Eigyouchuu."
+      "exampleVi": "Chữ Kanji này đọc là Eigyouchuu.",
+      "usage": "[N/Chữ Hán] + と読みます / [Cụm từ] + と書いてあります. Dùng để giải thích cách đọc của chữ Hán hoặc trích dẫn thông tin được ghi trên biển báo, tài liệu."
     },
     {
       "id": "bunpo-400-25",
@@ -279,7 +303,8 @@
       "pattern": "〜どういう意味ですか。〜という意味です",
       "meaningVi": "Ý nghĩa như thế nào? Nghĩa là...",
       "example": "このマークはどういう意味ですか。「右に曲がるなという意味です。」",
-      "exampleVi": "Kí hiệu này có ý nghĩa gì vậy? [Có nghĩa là không được rẽ phải.]"
+      "exampleVi": "Kí hiệu này có ý nghĩa gì vậy? [Có nghĩa là không được rẽ phải.]",
+      "usage": "Cấu trúc: [Từ/Câu/Ký hiệu] + はどういう意味ですか / [Câu (thể thông thường)] + という意味です. Dùng để hỏi và giải thích ý nghĩa của một từ ngữ, ký hiệu hoặc câu nói."
     },
     {
       "id": "bunpo-400-26",
@@ -290,7 +315,8 @@
       "pattern": "〜と言っていました",
       "meaningVi": "Nói là...",
       "example": "社長は「明日、9時に駅前で集まってください」と言っていました。",
-      "exampleVi": "Giám đốc đã nói \"Ngày mai hãy tập trung trước ga lúc 9h\"."
+      "exampleVi": "Giám đốc đã nói \"Ngày mai hãy tập trung trước ga lúc 9h\".",
+      "usage": "Cấu trúc: [Người] + は + 「Lời nói trực tiếp」/ Thể thông thường + と言っていました. Dùng để truyền đạt lại lời nói của người thứ ba cho người nghe, nhấn mạnh nội dung người đó đã phát ngôn."
     },
     {
       "id": "bunpo-400-27",
@@ -301,7 +327,8 @@
       "pattern": "Vたほうがいいです・〜ないほうがいいです",
       "meaningVi": "Nên..., không nên làm V",
       "example": "たくさん野菜を食べたほうがいいです。",
-      "exampleVi": "Nên ăn nhiều rau xanh."
+      "exampleVi": "Nên ăn nhiều rau xanh.",
+      "usage": "Cấu trúc: Vた + ほうがいいです / Vない + ほうがいいです. Dùng khi đưa ra lời khuyên hoặc gợi ý cho ai đó nên hay không nên làm gì; tránh dùng trực tiếp với người lớn tuổi hoặc cấp trên."
     },
     {
       "id": "bunpo-400-28",
@@ -312,7 +339,8 @@
       "pattern": "〜しかVません",
       "meaningVi": "Chỉ V",
       "example": "日本料理はすししか食べられません。",
-      "exampleVi": "Món Nhật thì tôi chỉ có thể ăn Sushi thôi."
+      "exampleVi": "Món Nhật thì tôi chỉ có thể ăn Sushi thôi.",
+      "usage": "Cấu trúc: N + しか + V phủ định (Vません/Vない). Dùng để nhấn mạnh sự ít ỏi, giới hạn chỉ có duy nhất; luôn đi kèm động từ phủ định nhưng mang ý nghĩa khẳng định."
     },
     {
       "id": "bunpo-400-29",
@@ -323,7 +351,8 @@
       "pattern": "〜まだVています",
       "meaningVi": "Vẫn đang V.",
       "example": "田中さんはまだ仕事をしている。",
-      "exampleVi": "Anh Tanaka vẫn đang làm việc."
+      "exampleVi": "Anh Tanaka vẫn đang làm việc.",
+      "usage": "Cấu trúc: まだ + Vて + います. Diễn tả một hành động hoặc trạng thái vẫn đang tiếp diễn ở hiện tại mà chưa kết thúc."
     },
     {
       "id": "bunpo-400-30",
@@ -334,7 +363,8 @@
       "pattern": "〜まだVていません",
       "meaningVi": "Vẫn chưa V.",
       "example": "山田さんはまだ来ていません。",
-      "exampleVi": "Anh Yamada vẫn chưa đến."
+      "exampleVi": "Anh Yamada vẫn chưa đến.",
+      "usage": "Cấu trúc: まだ + Vて + いません. Diễn tả một hành động chưa được thực hiện tính đến thời điểm hiện tại, nhưng có dự định hoặc kỳ vọng sẽ làm trong tương lai."
     },
     {
       "id": "bunpo-400-31",
@@ -345,7 +375,8 @@
       "pattern": "〜と伝えていただけませんか",
       "meaningVi": "Có thể nhắn giùm, chuyển lời là... giúp tôi được không?",
       "example": "木村さん、今日欠席した名村さんに「明日、テストがあります」と伝えていただけませんか。",
-      "exampleVi": "Kimura, em có thể nhắn tới bạn Namura hôm nay vắng là ngày mai có bài kiểm tra giúp tôi không?"
+      "exampleVi": "Kimura, em có thể nhắn tới bạn Namura hôm nay vắng là ngày mai có bài kiểm tra giúp tôi không?",
+      "usage": "Cấu trúc: Lời nhắn (thể thông thường) + と伝えていただけませんか. Dùng để nhờ người nghe nhắn giùm, chuyển lời một cách lịch sự tới người thứ ba."
     },
     {
       "id": "bunpo-400-32",
@@ -356,7 +387,8 @@
       "pattern": "〜とおりに",
       "meaningVi": "Theo đúng như...",
       "example": "聞いたとおりに、ノートに書いておきました。",
-      "exampleVi": "Tôi đã viết sẵn vào vở theo đúng những gì nghe được."
+      "exampleVi": "Tôi đã viết sẵn vào vở theo đúng những gì nghe được.",
+      "usage": "Cấu trúc: V辞書形 / Vた + とおりに | N の + とおりに (hoặc N + どおりに). Diễn tả việc làm một hành động chính xác theo đúng sự hướng dẫn, chỉ bảo hoặc theo những gì đã thấy/nghe."
     },
     {
       "id": "bunpo-400-33",
@@ -367,7 +399,8 @@
       "pattern": "〜あとで",
       "meaningVi": "Sau khi...",
       "example": "仕事が終わったあとで、飲みに行かない？",
-      "exampleVi": "Sau khi công việc kết thúc, đi uống chứ?"
+      "exampleVi": "Sau khi công việc kết thúc, đi uống chứ?",
+      "usage": "Cấu trúc: Vた + あとで | N の + あとで. Diễn tả một hành động xảy ra sau khi một hành động hoặc sự kiện khác đã hoàn thành xong."
     },
     {
       "id": "bunpo-400-34",
@@ -378,7 +411,8 @@
       "pattern": "V1て、V2・V1ないで、V2",
       "meaningVi": "Làm V2 trong trạng thái V1, làm V2 mà không V1",
       "example": "立って話す。めがねをかけないで、本を読む。",
-      "exampleVi": "Đứng nói chuyện. Không đeo kính đọc sách."
+      "exampleVi": "Đứng nói chuyện. Không đeo kính đọc sách.",
+      "usage": "Cấu trúc: V1て + V2 / V1ないで + V2. Diễn tả trạng thái hoặc phương thức đi kèm khi thực hiện hành động V2 (làm V2 trong trạng thái đang có V1 hoặc không làm V1)."
     },
     {
       "id": "bunpo-400-35",
@@ -389,7 +423,8 @@
       "pattern": "〜条件形",
       "meaningVi": "Nếu (Dùng thể điều kiện)",
       "example": "お金があれば、ぜひ旅行したい。",
-      "exampleVi": "Nếu có tiền nhất định tôi muốn đi du lịch."
+      "exampleVi": "Nếu có tiền nhất định tôi muốn đi du lịch.",
+      "usage": "Cấu trúc: Động từ dạng -ば (V1: -i -> -eba; V2: -ru -> -reba; V3: する->すれば, くる->くれば) | Tính từ -i: -kereba | N/Tính từ -na: + なら. Diễn tả điều kiện giả định \"nếu... thì...\" làm tiền đề để vế sau xảy ra."
     },
     {
       "id": "bunpo-400-36",
@@ -414,7 +449,8 @@
       "pattern": "〜疑問詞＋V条件形いいですか",
       "meaningVi": "Xin lời khuyên (giống 疑問詞＋Vたらいいですか)",
       "example": "漢字の本を買いたいんだけど、どこで買えばいいかな？",
-      "exampleVi": "Tớ muốn mua sách Kanji. Mua ở đâu thì được nhỉ?"
+      "exampleVi": "Tớ muốn mua sách Kanji. Mua ở đâu thì được nhỉ?",
+      "usage": "Cấu trúc: 疑問詞 (どこ/どう/なに...) + V条件形 (ば) + いいですか. Dùng khi hỏi xin lời khuyên, gợi ý hoặc hướng dẫn từ người nghe về cách thức, địa điểm xử lý một vấn đề."
     },
     {
       "id": "bunpo-400-38",
@@ -452,7 +488,8 @@
       "pattern": "〜ようになります",
       "meaningVi": "Trở nên có thể... (có năng lực, thói quen mà trước không có)",
       "example": "うちの子は自分で歩けるようになったよ。",
-      "exampleVi": "Con tớ tự đi bộ được rồi đấy."
+      "exampleVi": "Con tớ tự đi bộ được rồi đấy.",
+      "usage": "Cấu trúc: V辞書形 / V可能形 + ようになる. Diễn tả sự chuyển biến trạng thái, thường đi với động từ khả năng hoặc động từ chỉ thói quen."
     },
     {
       "id": "bunpo-400-41",
@@ -463,7 +500,8 @@
       "pattern": "〜なくなります",
       "meaningVi": "Trở nên không thể... (mất đi năng lực vốn có trước kia)",
       "example": "最近、人の名前を覚えられなくなった。",
-      "exampleVi": "Gần đây, không còn nhớ được tên người khác nữa."
+      "exampleVi": "Gần đây, không còn nhớ được tên người khác nữa.",
+      "usage": "Cấu trúc: Vない形（-い）+ なくなる / V可能形ない形 + なくなる. Biểu thị sự chuyển biến sang trạng thái không còn thực hiện được hành động đó nữa."
     },
     {
       "id": "bunpo-400-42",
@@ -474,7 +512,8 @@
       "pattern": "〜ようにします",
       "meaningVi": "Cố gắng...",
       "example": "毎日、いくら忙しくても、2時間日本語を勉強するようにしています。",
-      "exampleVi": "Mỗi ngày dù bận đến mấy tôi vẫn luôn cố gắng dành 2 tiếng để học tiếng Nhật."
+      "exampleVi": "Mỗi ngày dù bận đến mấy tôi vẫn luôn cố gắng dành 2 tiếng để học tiếng Nhật.",
+      "usage": "Cấu trúc: V辞書形 / Vない形 + ようにする (thường dùng ようにしている). Nhấn mạnh sự nỗ lực, ý chí của bản thân để duy trì hoặc hình thành một thói quen."
     },
     {
       "id": "bunpo-400-43",
@@ -499,7 +538,8 @@
       "pattern": "S1はS2にV受身形",
       "meaningVi": "S1 bị S2 V (hành động tác động trực tiếp vào S1) (bị động trực tiếp)",
       "example": "弟は母に叱られた。",
-      "exampleVi": "Em tôi bị mẹ mắng."
+      "exampleVi": "Em tôi bị mẹ mắng.",
+      "usage": "Cấu trúc: N1（người nhận）は N2（người làm）に V受身形. Nhấn mạnh vào đối tượng chịu tác động; thường mang sắc thái phiền phức, khó chịu đối với chủ ngữ."
     },
     {
       "id": "bunpo-400-45",
@@ -510,7 +550,8 @@
       "pattern": "S1はS2にNをV受身形",
       "meaningVi": "S1 bị S2 làm V ảnh hưởng đến N thuộc S1 (bị động gián tiếp)",
       "example": "弟にシャツを汚された。",
-      "exampleVi": "Tôi bị em trai làm bẩn cái áo sơ mi"
+      "exampleVi": "Tôi bị em trai làm bẩn cái áo sơ mi",
+      "usage": "Cấu trúc: N1（chủ thể）は N2（người làm）に N3（sở hữu của N1）を V受身形. Hành động tác động lên N3 gây ảnh hưởng xấu đến N1. Lưu ý không lấy N3 làm chủ ngữ."
     },
     {
       "id": "bunpo-400-46",
@@ -521,7 +562,8 @@
       "pattern": "NはV受身形",
       "meaningVi": "N được, bị... (bị động không quan tâm đến tác nhân thực hiện)",
       "example": "ベトナムの米は日本へ輸出されている。",
-      "exampleVi": "Gạo Việt Nam được xuất khẩu sang Nhật Bản."
+      "exampleVi": "Gạo Việt Nam được xuất khẩu sang Nhật Bản.",
+      "usage": "Cấu trúc: N（vật/sự việc）は/が + V受身形. Dùng khi tác nhân thực hiện không quan trọng, không rõ là ai hoặc biểu thị sự thật khách quan, tin tức."
     },
     {
       "id": "bunpo-400-47",
@@ -532,7 +574,8 @@
       "pattern": "SによってV受身形",
       "meaningVi": "V được làm bởi S (V là động từ mang tính sáng tạo, S là người nổi tiếng)",
       "example": "電話はベルによって発明された。",
-      "exampleVi": "Điện thoại được phát minh bởi Bell."
+      "exampleVi": "Điện thoại được phát minh bởi Bell.",
+      "usage": "Cấu trúc: N（người sáng tạo/phát minh）+ によって + V受身形. Thường đi với các động từ như 発明する, 発見する, 作る, 書く... Bắt buộc dùng によって thay cho に."
     },
     {
       "id": "bunpo-400-48",
@@ -543,7 +586,8 @@
       "pattern": "〜から・でV受身形",
       "meaningVi": "Được làm bằng..., được làm từ...",
       "example": "このパンは小麦粉で作られた。このワインは米から作られた。",
-      "exampleVi": "Bánh mì này được làm bằng bột mì. Rượu này được làm từ gạo."
+      "exampleVi": "Bánh mì này được làm bằng bột mì. Rượu này được làm từ gạo.",
+      "usage": "Cấu trúc: N + で / から + 作られる. Dùng 「で」 khi nhận biết được vật liệu bằng mắt thường; dùng 「から」 khi vật liệu bị biến đổi chất hoàn toàn."
     },
     {
       "id": "bunpo-400-49",
@@ -554,7 +598,8 @@
       "pattern": "〜のは",
       "meaningVi": "Danh từ hóa động từ.",
       "example": "友達と映画館で映画を見るのはおもしろい。",
-      "exampleVi": "Xem phim với bạn bè ở rạp thật thú vị."
+      "exampleVi": "Xem phim với bạn bè ở rạp thật thú vị.",
+      "usage": "Cấu trúc: V普通形 + のは + Tính từ (難しい, 楽しい, 大変だ...). Biến cả mệnh đề động từ thành chủ ngữ để đưa ra nhận xét, đánh giá."
     },
     {
       "id": "bunpo-400-50",
@@ -565,7 +610,8 @@
       "pattern": "〜のが",
       "meaningVi": "Danh từ hóa động từ.",
       "example": "新しい友達と話すのが大好きです。",
-      "exampleVi": "Tôi thích nói chuyện với những người bạn mới."
+      "exampleVi": "Tôi thích nói chuyện với những người bạn mới.",
+      "usage": "Cấu trúc: V普通形 + のが + Tính từ/Từ chỉ cảm xúc, năng lực. Thường đi kèm với 好き, 嫌い, 上手, 下手, 得意, 早い, 遅い..."
     },
     {
       "id": "bunpo-400-51",
@@ -576,7 +622,8 @@
       "pattern": "〜のを知っていますか",
       "meaningVi": "Có biết... (danh từ hóa động từ)",
       "example": "彼女は来月結婚するのを知っていますか。",
-      "exampleVi": "Có biết tháng sau cô ấy lấy chồng không?"
+      "exampleVi": "Có biết tháng sau cô ấy lấy chồng không?",
+      "usage": "Cấu trúc: Thể thông thường (普通形) + のを知っていますか (Lưu ý: N/A tính từ đuôi な giữ nguyên な). Dùng để hỏi đối phương có biết một sự việc/thông tin cụ thể nào đó không."
     },
     {
       "id": "bunpo-400-52",
@@ -587,7 +634,8 @@
       "pattern": "〜のを忘れました",
       "meaningVi": "Quên... (danh từ hóa động từ)",
       "example": "レポートを書くのを忘れてしまった。",
-      "exampleVi": "Quên mất phải viết báo cáo rồi."
+      "exampleVi": "Quên mất phải viết báo cáo rồi.",
+      "usage": "Cấu trúc: V辞書形 + のを忘れました / 忘れてしまった. Diễn tả việc lỡ quên thực hiện một hành động hoặc một nghĩa vụ cần làm."
     },
     {
       "id": "bunpo-400-53",
@@ -598,7 +646,8 @@
       "pattern": "〜て（Vて・Aくて・Aで・Nで）",
       "meaningVi": "Vì...",
       "example": "部屋が暑くて、勉強できない。",
-      "exampleVi": "Vì phòng nóng nên không thể học được."
+      "exampleVi": "Vì phòng nóng nên không thể học được.",
+      "usage": "Công thức: Vて / Aくて / Aで / Nで. Dùng để nêu nguyên nhân, lý do tự nhiên mang tính khách quan. Vế sau không đi với câu lệnh, ý chí hay rủ rê."
     },
     {
       "id": "bunpo-400-54",
@@ -609,7 +658,8 @@
       "pattern": "〜ので",
       "meaningVi": "Vì...",
       "example": "用事があるので、明日休ませていただけませんか。",
-      "exampleVi": "Vì có việc bận nên mai cho phép tôi nghỉ được không?"
+      "exampleVi": "Vì có việc bận nên mai cho phép tôi nghỉ được không?",
+      "usage": "Công thức: V/Aい(thông thường) + ので | Aな/N + なので. Dùng nêu lý do khách quan, nhẹ nhàng và lịch sự hơn から. Thường dùng trong giao tiếp lịch sự hoặc khi xin phép."
     },
     {
       "id": "bunpo-400-55",
@@ -620,7 +670,8 @@
       "pattern": "〜途中で",
       "meaningVi": "Trên đường...",
       "example": "家へ帰る途中で、田中さんに会った。",
-      "exampleVi": "Trên đường về nhà, tôi gặp anh Tanaka."
+      "exampleVi": "Trên đường về nhà, tôi gặp anh Tanaka.",
+      "usage": "Công thức: Vる + 途中で / Nの + 途中で. Diễn tả một hành động khác chen ngang khi đang trên đường đi hoặc đang trong quá trình thực hiện việc gì đó."
     },
     {
       "id": "bunpo-400-56",
@@ -631,7 +682,8 @@
       "pattern": "〜疑問詞＋か、〜",
       "meaningVi": "Chèn câu nghi vấn có từ để hỏi",
       "example": "彼女はどこで働いているか、知っていますか。",
-      "exampleVi": "Có biết cô ấy đang làm việc ở đâu không?"
+      "exampleVi": "Có biết cô ấy đang làm việc ở đâu không?",
+      "usage": "Công thức: 疑問詞 + [V/Aい/Aな/N (thể thông thường, Aな/N bỏ だ)] + か. Dùng để lồng một câu hỏi có từ để hỏi (ai, ở đâu, khi nào...) vào làm thành phần của câu lớn."
     },
     {
       "id": "bunpo-400-57",
@@ -642,7 +694,8 @@
       "pattern": "〜かどうか、〜",
       "meaningVi": "Chèn câu nghi vấn không có từ để hỏi",
       "example": "彼は明日来るかどうか、わかりません。",
-      "exampleVi": "Tôi không biết ngày mai anh ấy có đến hay không?"
+      "exampleVi": "Tôi không biết ngày mai anh ấy có đến hay không?",
+      "usage": "Công thức: V/Aい/Aな/N (thể thông thường, Aな/N bỏ だ) + かどうか. Dùng lồng một câu hỏi nghi vấn Đúng/Sai (có hay không) vào trong câu lớn, thường đi với các động từ như 知る, 分かる, 調べる."
     },
     {
       "id": "bunpo-400-58",
@@ -653,7 +706,8 @@
       "pattern": "〜Vてみます",
       "meaningVi": "Thử làm V...",
       "example": "日本のすしを食べてみたいです。",
-      "exampleVi": "Tôi muốn thử ăn món Sushi của Nhật."
+      "exampleVi": "Tôi muốn thử ăn món Sushi của Nhật.",
+      "usage": "Công thức: Vて + みます. Diễn tả hành động làm thử một việc gì đó để xem kết quả ra sao hoặc để lấy trải nghiệm."
     },
     {
       "id": "bunpo-400-59",
@@ -664,7 +718,8 @@
       "pattern": "やります",
       "meaningVi": "Mình cho người dưới, động vật, thực vật cái gì đó...",
       "example": "弟にお菓子をやりました。",
-      "exampleVi": "Tôi cho em trai kẹo."
+      "exampleVi": "Tôi cho em trai kẹo.",
+      "usage": "Công thức: N (người dưới/động vật/thực vật) に N を やります. Là dạng thân mật của あげます, chỉ dùng khi cho/tặng đối tượng là cấp dưới, em nhỏ, thú cưng hoặc tưới nước cho cây."
     },
     {
       "id": "bunpo-400-60",
@@ -675,7 +730,8 @@
       "pattern": "それ・その",
       "meaningVi": "Dùng khi đề cập đến điều đã nói trước đó.",
       "example": "彼に出会った日を決して忘れられない。その日、彼に助けてもらわなかったら、死んだと思う。",
-      "exampleVi": "Tôi không thể quên được ngày gặp anh ấy. Ngày hôm đó, nếu không được anh ta cứu thì tôi đã chết rồi."
+      "exampleVi": "Tôi không thể quên được ngày gặp anh ấy. Ngày hôm đó, nếu không được anh ta cứu thì tôi đã chết rồi.",
+      "usage": "Công thức: それ (đại từ) / その + N. Dùng để chỉ định lại sự vật, sự việc hoặc thông tin vừa được đề cập ở câu trước đó trong đoạn văn/hội thoại."
     },
     {
       "id": "bunpo-400-61",
@@ -686,7 +742,8 @@
       "pattern": "Vてくださいませんか",
       "meaningVi": "Bạn làm V giúp tôi được không?",
       "example": "私の宿題を手伝ってくださいませんか。",
-      "exampleVi": "Bạn có thể giúp mình làm bài tập về nhà được không?"
+      "exampleVi": "Bạn có thể giúp mình làm bài tập về nhà được không?",
+      "usage": "Công thức: Vて + くださいませんか. Mẫu câu nhờ vả lịch sự, thể hiện thái độ tôn trọng đối phương hơn so với Vてください."
     },
     {
       "id": "bunpo-400-62",
@@ -716,7 +773,8 @@
           "pattern": "ために",
           "note": "「Vるのに」 dùng để trình bày công dụng hoặc đánh giá, còn 「ために」 dùng cho mục đích."
         }
-      ]
+      ],
+      "usage": "Công thức: Vる + のに / N + に. Dùng biểu thị mục đích, công dụng; thường đi kèm với các từ như 使う, 便利だ, 役に立つ, 時間/お金がかかる."
     },
     {
       "id": "bunpo-400-64",
@@ -727,7 +785,8 @@
       "pattern": "〜数量詞＋で",
       "meaningVi": "Làm gì đó với 1 lượng sẵn có (thời gian, tiền...)",
       "example": "ここからハノイ駅まで10分で行けますか。",
-      "exampleVi": "Từ đây có thể đi đến ga Hà Nội trong 10 phút không?"
+      "exampleVi": "Từ đây có thể đi đến ga Hà Nội trong 10 phút không?",
+      "usage": "Công thức: 数量詞 + で. Trợ từ で biểu thị phạm vi, giới hạn về thời gian hoặc tiền bạc cần thiết để hoàn thành một hành động."
     },
     {
       "id": "bunpo-400-65",
@@ -738,7 +797,8 @@
       "pattern": "〜数量詞＋は",
       "meaningVi": "Lượng tối thiểu khi làm 1 việc gì đó.",
       "example": "パーティーの準備に10人は必要だ。",
-      "exampleVi": "Cần ít nhất 10 người để chuẩn bị bữa tiệc."
+      "exampleVi": "Cần ít nhất 10 người để chuẩn bị bữa tiệc.",
+      "usage": "Công thức: 数量詞 + は. Trợ từ は đứng sau lượng từ để nhấn mạnh mức độ tối thiểu (ít nhất phải cần/có bấy nhiêu)."
     },
     {
       "id": "bunpo-400-66",
@@ -749,7 +809,8 @@
       "pattern": "〜数量詞＋も",
       "meaningVi": "Lượng mà người nói cho rằng là nhiều khi làm 1 việc gì đó.",
       "example": "ビデオを修理するのに1万円もかかりました。",
-      "exampleVi": "Mất những 1 man để sửa cuốn băng Video."
+      "exampleVi": "Mất những 1 man để sửa cuốn băng Video.",
+      "usage": "Công thức: 数量詞 + も. Sắc thái: Thể hiện tâm lý kinh ngạc, bất ngờ của người nói khi mức độ hoặc số lượng vượt ngoài dự tính ban đầu."
     },
     {
       "id": "bunpo-400-67",
@@ -766,7 +827,8 @@
           "pattern": "そうです（伝聞）",
           "note": "「〜そうです」 (thể trạng thái) dựa trên phán đoán qua thị giác, còn 「そうです」 (truyền văn) là nghe nói từ người khác."
         }
-      ]
+      ],
+      "usage": "Công thức: Vます（bỏ ます）/ Aい（bỏ い）/ Aな（bỏ な）+ そうだ (Lưu ý: いい → よさそう, ない → なさそう). Sắc thái: Dùng cho phán đoán dựa trên quan sát trực giác. KHÔNG dùng đi kèm danh từ."
     },
     {
       "id": "bunpo-400-68",
@@ -777,7 +839,8 @@
       "pattern": "〜Vてきます",
       "meaningVi": "Làm gì đó rồi quay lại...",
       "example": "ちょっとコンビニで飲み物を買ってきます。",
-      "exampleVi": "Tôi đi mua nước ở Combini một lát rồi quay lại."
+      "exampleVi": "Tôi đi mua nước ở Combini một lát rồi quay lại.",
+      "usage": "Công thức: Vて形 + きます. Sắc thái: Diễn tả việc di chuyển đi làm một hành động nào đó ở nơi khác rồi quay trở lại vị trí ban đầu."
     },
     {
       "id": "bunpo-400-69",
@@ -788,7 +851,8 @@
       "pattern": "〜すぎます",
       "meaningVi": "Quá...",
       "example": "パンはかたすぎて、食べられない。",
-      "exampleVi": "Vì bánh mì quá cứng nên không thể ăn được."
+      "exampleVi": "Vì bánh mì quá cứng nên không thể ăn được.",
+      "usage": "Công thức: Vます（bỏ ます）/ Aい（bỏ い）/ Aな（bỏ な）+ すぎる. Sắc thái: Thể hiện sự vượt quá mức độ bình thường hoặc kỳ vọng, đa phần mang sắc thái phàn nàn, tiêu cực."
     },
     {
       "id": "bunpo-400-70",
@@ -799,7 +863,8 @@
       "pattern": "〜Vやすいです",
       "meaningVi": "Dễ V",
       "example": "この薬は甘いから、飲みやすい。",
-      "exampleVi": "Thuốc này ngọt nên dễ uống."
+      "exampleVi": "Thuốc này ngọt nên dễ uống.",
+      "usage": "Công thức: Vます（bỏ ます）+ やすい. Sắc thái: Chỉ thuộc tính của đối tượng giúp thao tác dễ dàng, hoặc khuynh hướng dễ xảy ra một hiện tượng nào đó."
     },
     {
       "id": "bunpo-400-71",
@@ -810,7 +875,8 @@
       "pattern": "〜Vにくいです",
       "meaningVi": "Khó V...",
       "example": "レポートに間違いがたくさんあるから、直しにくい。",
-      "exampleVi": "Vì báo cáo có nhiều lỗi sai nên khó sửa quá."
+      "exampleVi": "Vì báo cáo có nhiều lỗi sai nên khó sửa quá.",
+      "usage": "Công thức: Vます（bỏ ます）+ にくい. Sắc thái: Diễn tả trở ngại xuất phát từ đặc tính của đối tượng làm cho việc thực hiện hành động gặp khó khăn."
     },
     {
       "id": "bunpo-400-72",
@@ -821,7 +887,8 @@
       "pattern": "Aくします・Aにします・Nにします",
       "meaningVi": "Làm...",
       "example": "部屋を明るくしましょう！",
-      "exampleVi": "Làm sáng phòng nên nào."
+      "exampleVi": "Làm sáng phòng nên nào.",
+      "usage": "Công thức: Aい（bỏ い）+ くする / Aな（bỏ な）+ にする / N + にする. Sắc thái: Biểu thị chủ thể cố ý tác động trực tiếp để làm biến đổi trạng thái của đối tượng."
     },
     {
       "id": "bunpo-400-73",
@@ -832,7 +899,8 @@
       "pattern": "AくV・AにV",
       "meaningVi": "Làm V một cách...",
       "example": "彼はレポートをていねいに書きました。",
-      "exampleVi": "Anh ấy viết báo cáo một cách rất cẩn thận."
+      "exampleVi": "Anh ấy viết báo cáo một cách rất cẩn thận.",
+      "usage": "Công thức: Aい（bỏ い）+ く + V / Aな（bỏ な）+ に + V. Sắc thái: Biến đổi tính từ thành trạng từ để mô tả chi tiết cách thức thực hiện hành động của động từ đi sau."
     },
     {
       "id": "bunpo-400-74",
@@ -843,7 +911,8 @@
       "pattern": "〜場合は",
       "meaningVi": "Trong trường hợp...",
       "example": "地震が起こった場合は落ち着いて行動してください。",
-      "exampleVi": "Trong trường hợp xảy ra động đất, hãy bình tĩnh xử lí."
+      "exampleVi": "Trong trường hợp xảy ra động đất, hãy bình tĩnh xử lí.",
+      "usage": "Công thức: V/Aい（普通形）/ Aな + な / N + の + 場合は. Sắc thái: Giả định một hoàn cảnh/tình huống cụ thể có thể xảy ra để đưa ra hướng giải quyết hoặc hướng dẫn."
     },
     {
       "id": "bunpo-400-75",
@@ -854,7 +923,8 @@
       "pattern": "普通形＋のに",
       "meaningVi": "Thế mà...",
       "example": "このケーキはあまりおいしくないのに、高すぎるね。",
-      "exampleVi": "Bánh này không ngon lắm thế mà đắt quá."
+      "exampleVi": "Bánh này không ngon lắm thế mà đắt quá.",
+      "usage": "Công thức: V/Aい（普通形）/ Aな + な / N + な + のに. Sắc thái: Bày tỏ cảm xúc bất ngờ, tiếc nuối hoặc bất mãn khi kết quả thực tế trái ngược hoàn toàn với kỳ vọng từ vế trước."
     },
     {
       "id": "bunpo-400-76",
@@ -865,7 +935,8 @@
       "pattern": "〜Vるところ",
       "meaningVi": "Sắp làm V...",
       "example": "今から出かけるところだから、後で電話してね！",
-      "exampleVi": "Tôi sắp ra ngoài nên cậu gọi lại sau nhé."
+      "exampleVi": "Tôi sắp ra ngoài nên cậu gọi lại sau nhé.",
+      "usage": "Công thức: V辞書形 + ところ. Sắc thái: Nhấn mạnh khoảnh khắc ngay trước khi bắt đầu thực hiện hành động, thường kết hợp với 今から, これから, ちょうど."
     },
     {
       "id": "bunpo-400-77",
@@ -876,7 +947,8 @@
       "pattern": "〜Vているところ",
       "meaningVi": "Đang làm V...",
       "example": "ただ今、公園で恋人と遊んでいる。",
-      "exampleVi": "Lúc này đây, tôi đang chơi với người yêu ở công viên."
+      "exampleVi": "Lúc này đây, tôi đang chơi với người yêu ở công viên.",
+      "usage": "Công thức: Vて形 + いるところ. Sắc thái: Nhấn mạnh tiến trình hành động đang thực sự diễn ra đúng ngay tại thời điểm nói, thường đi kèm với 今, 只今."
     },
     {
       "id": "bunpo-400-78",
@@ -887,7 +959,8 @@
       "pattern": "〜のが見える・聞こえる・感じる",
       "meaningVi": "Nhìn, nghe, cảm thấy...",
       "example": "夜中遠くから誰かが泣いているのが聞こえる。とても怖い。",
-      "exampleVi": "Giữa đêm, tôi nghe thấy tiếng ai đó khóc từ xa. Sợ dã man."
+      "exampleVi": "Giữa đêm, tôi nghe thấy tiếng ai đó khóc từ xa. Sợ dã man.",
+      "usage": "Công thức: V辞書形 + のが見える / のが聞こえる / のを感じる. Diễn tả việc nhận biết một sự việc hay hành động đang diễn ra trực tiếp qua thị giác, thính giác hoặc cảm giác tại thời điểm đó."
     },
     {
       "id": "bunpo-400-79",
@@ -898,7 +971,8 @@
       "pattern": "〜Vたところ",
       "meaningVi": "Vừa mới làm V (chính xác là vừa làm xong)",
       "example": "たった今、東京駅に着いたところだよ。",
-      "exampleVi": "Tôi vừa đến ga Tokyo."
+      "exampleVi": "Tôi vừa đến ga Tokyo.",
+      "usage": "Công thức: Vた + ところ. Diễn tả hành động thực sự vừa mới hoàn thành trong khoảnh khắc ngắn ngay trước đó. Thường đi kèm với các từ chỉ thời gian như たった今, さっき."
     },
     {
       "id": "bunpo-400-80",
@@ -909,7 +983,8 @@
       "pattern": "〜Vたばかり",
       "meaningVi": "Vừa mới làm V (chỉ là cảm nhận của người nói)",
       "example": "先月、日本に来たばかりなので、わからないことが多い。",
-      "exampleVi": "Vì tôi vừa đến Nhật tháng trước nên có nhiều điều không biết."
+      "exampleVi": "Vì tôi vừa đến Nhật tháng trước nên có nhiều điều không biết.",
+      "usage": "Công thức: Vた + ばかり. Diễn tả một hành động vừa xảy ra theo cảm nhận chủ quan của người nói, dù thời gian thực tế xảy ra có thể đã lâu (vài ngày, vài tháng)."
     },
     {
       "id": "bunpo-400-81",
@@ -920,7 +995,8 @@
       "pattern": "〜はずです",
       "meaningVi": "Chắc chắn...",
       "example": "これは有名なレストランの料理だから、とてもおいしいはずだよね。",
-      "exampleVi": "Vì đây là món của nhà hàng nổi tiếng nên chắc chắn ngon lắm nhỉ."
+      "exampleVi": "Vì đây là món của nhà hàng nổi tiếng nên chắc chắn ngon lắm nhỉ.",
+      "usage": "Công thức: 普通形 (Aな→な / N→の) + はずです. Diễn tả sự phán đoán hoặc suy luận có căn cứ logic, lý do rõ ràng của người nói rằng sự việc chắc chắn sẽ hoặc đã xảy ra."
     },
     {
       "id": "bunpo-400-82",
@@ -931,7 +1007,8 @@
       "pattern": "そうです（伝聞）",
       "meaningVi": "Nghe nói...",
       "example": "天気予報によると、明日雪が降るそうです。",
-      "exampleVi": "Theo dự báo thời tiết thì nghe nói ngày mai tuyết rơi."
+      "exampleVi": "Theo dự báo thời tiết thì nghe nói ngày mai tuyết rơi.",
+      "usage": "Công thức: 普通形 (Aな→だ / N→だ) + そうです. Dùng để truyền đạt lại thông tin nghe được từ người khác hoặc nguồn tin tức. Thường đi kèm nguồn thông tin ～によると."
     },
     {
       "id": "bunpo-400-83",
@@ -942,7 +1019,8 @@
       "pattern": "〜ようです",
       "meaningVi": "Hình như...",
       "example": "窓のガラスが割れてしまったね。昨日の晩、泥棒が部屋に入ってきたようだね。",
-      "exampleVi": "Kính cửa sổ vỡ. Hình như tối qua trộm đã vào."
+      "exampleVi": "Kính cửa sổ vỡ. Hình như tối qua trộm đã vào.",
+      "usage": "Công thức: 普通形 (Aな→な / N→の) + ようです. Diễn tả suy đoán chủ quan dựa trên những gì trực tiếp quan sát hoặc cảm nhận được từ tình huống thực tế."
     },
     {
       "id": "bunpo-400-84",
@@ -953,7 +1031,8 @@
       "pattern": "〜S1はS2をV使役形",
       "meaningVi": "S1 bắt hoặc cho phép S2 làm gì (V là tự động từ)",
       "example": "息子を日本へ留学させます。",
-      "exampleVi": "Tôi cho phép con trai đi du học Nhật Bản."
+      "exampleVi": "Tôi cho phép con trai đi du học Nhật Bản.",
+      "usage": "Công thức: S1 は S2 を + V使役形 (tự động từ). Dùng khi V là tự động từ, người nhận hành động (S2) đi với trợ từ を. Diễn tả việc S1 bắt buộc hoặc cho phép S2 làm gì."
     },
     {
       "id": "bunpo-400-85",
@@ -964,7 +1043,8 @@
       "pattern": "〜S1はS2にV使役形",
       "meaningVi": "S1 bắt hoặc cho phép S2 làm gì (V là tha động từ)",
       "example": "娘にピアノを習わせます。",
-      "exampleVi": "Tôi cho con gái học Piano."
+      "exampleVi": "Tôi cho con gái học Piano.",
+      "usage": "Công thức: S1 は S2 に + O を + V使役形 (tha động từ). Dùng khi V là tha động từ, người nhận hành động (S2) đi với trợ từ に. Diễn tả việc S1 bắt buộc hoặc cho phép S2 thực hiện hành động."
     },
     {
       "id": "bunpo-400-86",
@@ -975,7 +1055,8 @@
       "pattern": "〜Vさせていただけませんか",
       "meaningVi": "Cho phép tôi làm V được không?",
       "example": "しばらくここに車を止めさせていただけませんか。",
-      "exampleVi": "Xin lỗi, cho tôi đỗ xe ở đây 1 lát được không?"
+      "exampleVi": "Xin lỗi, cho tôi đỗ xe ở đây 1 lát được không?",
+      "usage": "Công thức: V使役形 て + いただけませんか / てもらえませんか. Dùng khi muốn xin phép đối phương một cách lịch sự để mình (người nói) được phép thực hiện hành động."
     },
     {
       "id": "bunpo-400-87",
@@ -986,7 +1067,8 @@
       "pattern": "V受身形",
       "meaningVi": "Thể bị động - tôn kính ngữ đơn giản nhất.",
       "example": "社長、明日の会議に出席されますか。",
-      "exampleVi": "Giám đốc sẽ tham gia hội nghị ngày mai chứ ạ?"
+      "exampleVi": "Giám đốc sẽ tham gia hội nghị ngày mai chứ ạ?",
+      "usage": "Công thức: Chia động từ ở thể bị động (V受身形). Ngoài nghĩa bị động thông thường, thể này còn được dùng làm tôn kính ngữ mức độ vừa phải để thể hiện sự kính trọng đối với hành động của người bề trên."
     },
     {
       "id": "bunpo-400-88",
@@ -997,7 +1079,8 @@
       "pattern": "おVになります・ごVになります",
       "meaningVi": "Tôn kính ngữ của Vます。",
       "example": "社長はもうお帰りになりました。",
-      "exampleVi": "Giám đốc đã về rồi."
+      "exampleVi": "Giám đốc đã về rồi.",
+      "usage": "Công thức: お + Vます (bỏ ます) + になります / ご + Danh từ (nhóm 3) + になります. Hình thức tôn kính ngữ mức độ cao hơn thể bị động, biểu thị sự kính trọng với hành động của người bề trên (không dùng cho hành động của bản thân)."
     },
     {
       "id": "bunpo-400-89",
@@ -1008,7 +1091,8 @@
       "pattern": "おVですか",
       "meaningVi": "Tôn kính ngữ của Vていますか。",
       "example": "お客様、何番の紙をお持ちですか。",
-      "exampleVi": "Quý khách đang cầm tờ giấy số bao nhiêu ạ?"
+      "exampleVi": "Quý khách đang cầm tờ giấy số bao nhiêu ạ?",
+      "usage": "Công thức: お + Vます (bỏ ます) + ですか / ご + Danh từ (nhóm 3) + ですか. Dạng tôn kính ngữ ngắn gọn dùng để hỏi trực tiếp và lịch sự về trạng thái/hành động đang diễn ra của đối phương (thay thế cho Vていますか)."
     },
     {
       "id": "bunpo-400-90",
@@ -1019,7 +1103,8 @@
       "pattern": "おVください・ごVください",
       "meaningVi": "Tôn kính ngữ của Vてください...",
       "example": "少々お待ちください。",
-      "exampleVi": "Xin vui lòng chờ một chút."
+      "exampleVi": "Xin vui lòng chờ một chút.",
+      "usage": "Công thức: お + Vます(bỏ ます) + ください / ご + N nhóm 3(bỏ する) + ください. Dùng để đề nghị, yêu cầu người trên hoặc khách hàng thực hiện hành động một cách tôn kính, lịch sự."
     },
     {
       "id": "bunpo-400-91",
@@ -1030,7 +1115,8 @@
       "pattern": "〜特別な尊敬語",
       "meaningVi": "Tôn kính ngữ đặc biệt...",
       "example": "どうぞ召し上がってください。",
-      "exampleVi": "Xin mời thưởng thức (ăn, uống cái gì đó)."
+      "exampleVi": "Xin mời thưởng thức (ăn, uống cái gì đó).",
+      "usage": "Công thức: Động từ chuyển sang dạng Tôn kính ngữ đặc biệt (いらっしゃいます, 召し上がります, おっしゃいます,...). Dùng để thể hiện sự kính trọng khi nói về hành động của cấp trên, người lớn tuổi hoặc khách hàng."
     },
     {
       "id": "bunpo-400-92",
@@ -1041,7 +1127,8 @@
       "pattern": "おVします・ごVします",
       "meaningVi": "Khiêm nhường ngữ...",
       "example": "先生にクラスの状況をお知らせします。",
-      "exampleVi": "Tôi sẽ thông báo cho thầy giáo về tình hình của lớp."
+      "exampleVi": "Tôi sẽ thông báo cho thầy giáo về tình hình của lớp.",
+      "usage": "Công thức: お + Vます(bỏ ます) + します / ご + N nhóm 3(bỏ する) + します. Dùng khi bản thân thực hiện hành động nhằm phục vụ hoặc liên quan đến người trên để thể hiện sự khiêm tốn."
     },
     {
       "id": "bunpo-400-93",
@@ -1052,7 +1139,8 @@
       "pattern": "おVいただきます・ごVいただきます",
       "meaningVi": "Tôn kính ngữ, ai đó là V cho mình...",
       "example": "メンバーにご登録いただきます。",
-      "exampleVi": "Sẽ nhận được việc đăng kí từ các thành viên."
+      "exampleVi": "Sẽ nhận được việc đăng kí từ các thành viên.",
+      "usage": "Công thức: お + Vます(bỏ ます) + いただきます / ご + N nhóm 3(bỏ する) + いただきます. Dùng khi nhận được hành động giúp đỡ/hợp tác từ người khác với thái độ vô cùng tôn kính."
     },
     {
       "id": "bunpo-400-94",
@@ -1063,7 +1151,8 @@
       "pattern": "〜Vてもよろしいでしょうか",
       "meaningVi": "Tôi làm V có được không?",
       "example": "あのう、このパンフレットをもらってもよろしいでしょうか。",
-      "exampleVi": "Tôi nhận cái tờ quảng cáo này được không?"
+      "exampleVi": "Tôi nhận cái tờ quảng cáo này được không?",
+      "usage": "Công thức: Vて + もよろしいでしょうか. Dùng khi người nói muốn xin phép người trên hoặc đối tác làm việc gì đó, lịch sự hơn hẳn 〜てもいいですか."
     },
     {
       "id": "bunpo-400-95",
@@ -1074,7 +1163,8 @@
       "pattern": "SにNをいただきます",
       "meaningVi": "Mình nhận gì từ người trên.",
       "example": "卒業式で校長先生に花をいただきました。",
-      "exampleVi": "Tôi nhận hoa từ thầy hiệu trưởng trong ngày tốt nghiệp."
+      "exampleVi": "Tôi nhận hoa từ thầy hiệu trưởng trong ngày tốt nghiệp.",
+      "usage": "Công thức: S (người trên) に/から + N + をいただきます. Là khiêm nhường ngữ của もらいます, dùng khi người nói nhận được vật gì từ người có vị thế cao hơn."
     },
     {
       "id": "bunpo-400-96",
@@ -1085,7 +1175,8 @@
       "pattern": "SはNをくださいます",
       "meaningVi": "Người trên cho, tặng mình (hoặc người nhà mình) cái gì đó...",
       "example": "部長は私の誕生日に赤いネクタイをくださいました。",
-      "exampleVi": "Trưởng phòng tặng tôi cái cà vạt đỏ trong ngày sinh nhật."
+      "exampleVi": "Trưởng phòng tặng tôi cái cà vạt đỏ trong ngày sinh nhật.",
+      "usage": "Công thức: S (người trên) は/が + (tôi/người thuộc phe tôi) に + N + をくださいます. Là tôn kính ngữ của くれます, dùng khi người trên cho/tặng quà cho người nói."
     },
     {
       "id": "bunpo-400-97",
@@ -1096,7 +1187,8 @@
       "pattern": "SはNをさしあげます",
       "meaningVi": "Mình cho, tặng, biếu người trên cái gì.",
       "example": "私は社長にフランスのワインをさしあげました。",
-      "exampleVi": "Tôi biếu sếp chai rượu vang Pháp."
+      "exampleVi": "Tôi biếu sếp chai rượu vang Pháp.",
+      "usage": "Công thức: (Tôi/người phe tôi) は + S (người trên) に + N + をさしあげます. Là khiêm nhường ngữ của あげます, dùng khi người nói cho/tặng người trên cái gì."
     },
     {
       "id": "bunpo-400-98",
@@ -1107,7 +1199,8 @@
       "pattern": "〜てくださいます",
       "meaningVi": "Người trên làm gì cho mình.",
       "example": "先生は作文を直してくださいました。",
-      "exampleVi": "Thầy giáo sửa bài văn cho tôi."
+      "exampleVi": "Thầy giáo sửa bài văn cho tôi.",
+      "usage": "Công thức: Vて + くださいます. Là tôn kính ngữ của 〜てくれます, dùng khi người trên làm giúp người nói (hoặc người nhà người nói) một việc gì đó."
     },
     {
       "id": "bunpo-400-99",
@@ -1118,7 +1211,8 @@
       "pattern": "〜てさしあげます",
       "meaningVi": "Làm gì cho người trên.",
       "example": "部長に出張のスケジュールを確認してさしあげました。",
-      "exampleVi": "Tôi xác nhận lịch trình chuyến công tác giúp trưởng phòng."
+      "exampleVi": "Tôi xác nhận lịch trình chuyến công tác giúp trưởng phòng.",
+      "usage": "Công thức: Vて + さしあげます. Là khiêm nhường ngữ của 〜てあげます, dùng khi làm việc gì giúp người trên (nên hạn chế dùng trực tiếp vì dễ mang sắc thái ban ơn)."
     },
     {
       "id": "bunpo-400-100",
@@ -1129,7 +1223,8 @@
       "pattern": "〜てやります",
       "meaningVi": "Làm gì cho người dưới, cho động, thực vật...",
       "example": "毎晩、弟に日本語を教えてやります。",
-      "exampleVi": "Mỗi tối tôi dạy em trai tiếng Nhật."
+      "exampleVi": "Mỗi tối tôi dạy em trai tiếng Nhật.",
+      "usage": "Công thức: Vて + やります. Dùng khi làm việc gì đó cho người nhỏ tuổi hơn, cấp dưới hoặc cho động/thực vật (cho ăn, tưới nước)."
     },
     {
       "id": "bunpo-400-101",
@@ -1153,7 +1248,8 @@
       "pattern": "〜間に…",
       "meaningVi": "Trong lúc, trong khi",
       "example": "留守の間に、泥棒が家に入って来たのでしょう。",
-      "exampleVi": "Trong lúc vắng nhà thì kẻ trộm chắc đã mò vào."
+      "exampleVi": "Trong lúc vắng nhà thì kẻ trộm chắc đã mò vào.",
+      "usage": "Công thức: V辞書形 / Vている / Vない / Nの + 間に、... Dùng khi một hành động diễn ra và kết thúc tại một thời điểm ngắn trong suốt khoảng thời gian một sự việc khác đang tiếp diễn."
     },
     {
       "id": "bunpo-400-103",
@@ -1164,7 +1260,8 @@
       "pattern": "〜てからでないと、〜てからでなければ…",
       "meaningVi": "Nếu không... thì không...",
       "example": "きちんと勉強してからでないと、N3レベルに合格するのは難しい。",
-      "exampleVi": "Nếu không học cẩn thận thì khó mà đỗ N3 được."
+      "exampleVi": "Nếu không học cẩn thận thì khó mà đỗ N3 được.",
+      "usage": "Vて + からでないと / からでなければ. Diễn tả ý nếu chưa hoàn thành việc A thì không thể làm việc B. Vế sau luôn mang ý phủ định, không thể hoặc khó thực hiện."
     },
     {
       "id": "bunpo-400-104",
@@ -1175,7 +1272,8 @@
       "pattern": "辞書形＋ところ",
       "meaningVi": "Sắp làm V",
       "example": "今から、御飯を食べるところだ。",
-      "exampleVi": "Tôi chuẩn bị ăn cơm ngay bây giờ đây."
+      "exampleVi": "Tôi chuẩn bị ăn cơm ngay bây giờ đây.",
+      "usage": "V辞書形 + ところだ. Diễn tả khoảnh khắc ngay trước khi bắt đầu hành động. Thường đi kèm các từ như 今から, これから, ちょうど."
     },
     {
       "id": "bunpo-400-105",
@@ -1186,7 +1284,8 @@
       "pattern": "ているところ",
       "meaningVi": "Đang làm V",
       "example": "ただ今、日本語を勉強しているところだ。",
-      "exampleVi": "Lúc này, tôi đang học tiếng Nhật."
+      "exampleVi": "Lúc này, tôi đang học tiếng Nhật.",
+      "usage": "Vて + いるところだ. Diễn tả hành động đang trong quá trình thực hiện tại thời điểm nói. Thường đi kèm các từ như 今, ただ今."
     },
     {
       "id": "bunpo-400-106",
@@ -1197,7 +1296,8 @@
       "pattern": "Vたところ",
       "meaningVi": "Vừa mới làm V",
       "example": "たった今、駅で木村さんに会ったところだ。",
-      "exampleVi": "Tôi vừa mới gặp anh Nakamura ở ga."
+      "exampleVi": "Tôi vừa mới gặp anh Nakamura ở ga.",
+      "usage": "Vた + ところだ. Diễn tả hành động vừa mới hoàn thành trong chốc lát. Thường đi kèm các từ như たった今, さっき."
     },
     {
       "id": "bunpo-400-107",
@@ -1208,7 +1308,8 @@
       "pattern": "〜ところだった",
       "meaningVi": "Suýt...",
       "example": "ありがとう。注意してもらわなかったら忘れていたところだったよ。",
-      "exampleVi": "Cảm ơn nhé, cậu không nhắc thì suýt nữa tớ quên mất đấy."
+      "exampleVi": "Cảm ơn nhé, cậu không nhắc thì suýt nữa tớ quên mất đấy.",
+      "usage": "V辞書形 / Vない形 + ところだった. Diễn tả một sự việc suýt chút nữa đã xảy ra (thường là kết quả xấu, nhưng thực tế đã không xảy ra). Thường đi kèm với 危うく, もう một chút nữa."
     },
     {
       "id": "bunpo-400-108",
@@ -1219,7 +1320,8 @@
       "pattern": "ところで…",
       "meaningVi": "Nhân đây, tiện đây, à mà",
       "example": "今日はお疲れ様でした。ところで、駅のそばに新しい日本料理屋ができたんですけど、今夜行ってみませんか。",
-      "exampleVi": "Hôm nay vất vả rồi. À mà, ở gần ga có nhà hàng Nhật mới mở, tối nay chúng ta đi thử nhé."
+      "exampleVi": "Hôm nay vất vả rồi. À mà, ở gần ga có nhà hàng Nhật mới mở, tối nay chúng ta đi thử nhé.",
+      "usage": "Đứng ở đầu câu (Mệnh đề 1. ところで, Mệnh đề 2). Dùng để chủ động chuyển sang một chủ đề trò chuyện mới hoàn toàn khác."
     },
     {
       "id": "bunpo-400-109",
@@ -1230,7 +1332,8 @@
       "pattern": "〜ところで…（đúng vào lúc）",
       "meaningVi": "Đúng vào lúc",
       "example": "テストの最後の一行を書いたところで、突然気を失った。",
-      "exampleVi": "Đúng vào lúc viết dòng cuối cùng của bài kiểm tra thì đột nhiên ngất xỉu."
+      "exampleVi": "Đúng vào lúc viết dòng cuối cùng của bài kiểm tra thì đột nhiên ngất xỉu.",
+      "usage": "Vた + ところで. Diễn tả hành động ở vế sau xảy ra đúng vào khoảnh khắc vế 1 vừa mới kết thúc."
     },
     {
       "id": "bunpo-400-110",
@@ -1241,7 +1344,8 @@
       "pattern": "〜ところに…／〜ところへ…",
       "meaningVi": "Đúng vào lúc",
       "example": "パーティーをしているところへ（ところに）母が帰った。",
-      "exampleVi": "Mẹ về đúng vào lúc chúng tôi đang quẩy."
+      "exampleVi": "Mẹ về đúng vào lúc chúng tôi đang quẩy.",
+      "usage": "V辞書形 / Vて形 / Vた形 + ところに / ところへ. Diễn tả một sự việc hay hành động khác bất ngờ xảy ra/chen vào đúng giai đoạn vế 1 đang diễn ra. Vế 2 thường là động từ di chuyển như 来る, 帰る, 到着する."
     },
     {
       "id": "bunpo-400-111",
@@ -1252,7 +1356,8 @@
       "pattern": "〜ところを…",
       "meaningVi": "Trong lúc",
       "example": "隣の人の答えを見ているところを先生に見られた。",
-      "exampleVi": "Trong lúc đang xem bài thằng bên cạnh thì bị thầy nhìn thấy."
+      "exampleVi": "Trong lúc đang xem bài thằng bên cạnh thì bị thầy nhìn thấy.",
+      "usage": "V辞書形 / Vて形 / Vた形 / Nの + ところを. Diễn tả hành động bị tác động/can thiệp đúng vào lúc đang ở trạng thái nào đó (thường là bị bắt gặp, phát hiện) hoặc dùng trong câu xin lỗi/cảm ơn lịch sự."
     },
     {
       "id": "bunpo-400-112",
@@ -1263,7 +1368,8 @@
       "pattern": "ところが…",
       "meaningVi": "Nhưng",
       "example": "いつもは8時半ごろ会社に着く。ところが、今日は1時間遅く到着した。",
-      "exampleVi": "Tôi luôn đến công ty lúc khoảng 8 rưỡi nhưng hôm nay tôi đã đến muộn 1 tiếng."
+      "exampleVi": "Tôi luôn đến công ty lúc khoảng 8 rưỡi nhưng hôm nay tôi đã đến muộn 1 tiếng.",
+      "usage": "Đứng ở đầu câu (Mệnh đề 1. ところが, Mệnh đề 2). Nối hai câu khi vế 2 đưa ra kết quả bất ngờ, trái ngược hoàn toàn với dự đoán hay kỳ vọng từ vế 1."
     },
     {
       "id": "bunpo-400-113",
@@ -1280,7 +1386,8 @@
           "pattern": "〜とおりだ・〜とおり（に）…・〜どおりだ・〜どおり（に）…",
           "note": "Hai mẫu này hoàn toàn giống nhau về ý nghĩa và cách dùng, chỉ khác nhau ở cách viết."
         }
-      ]
+      ],
+      "usage": "V辞書形 / Vた形 / N + とおり（に）; N + どおり（に）. Diễn tả việc thực hiện hành động theo đúng chỉ dẫn, kế hoạch hoặc dự đoán ban đầu mà không làm khác đi."
     },
     {
       "id": "bunpo-400-114",
@@ -1297,7 +1404,8 @@
           "pattern": "〜によって…・〜によっては…",
           "note": "Điểm khác biệt nhỏ là mẫu này dùng nhấn mạnh sự thay đổi theo từng trường hợp cụ thể."
         }
-      ]
+      ],
+      "usage": "N + によっては. Diễn tả ý tùy thuộc vào từng đối tượng hay trường hợp cụ thể mà có thể đưa ra kết quả khác nhau. Vế sau thường mang ý nghĩa khả năng (có thể có trường hợp...)."
     },
     {
       "id": "bunpo-400-115",
@@ -1314,7 +1422,8 @@
           "pattern": "〜たびに…",
           "note": "Cả hai đều diễn tả hành động lặp lại mỗi khi có sự việc xảy ra, mang nghĩa tương đương nhau."
         }
-      ]
+      ],
+      "usage": "Công thức: V辞書形 + たびに / N + の + たびに. Diễn tả sự lặp lại mang tính quy luật (hễ A xảy ra thì B luôn xảy ra). Không dùng cho các hoạt động thói quen sinh hoạt hằng ngày mặc định."
     },
     {
       "id": "bunpo-400-116",
@@ -1331,7 +1440,8 @@
           "pattern": "（〜ば）〜ほど…・（〜なら）〜ほど…・〜ほど…",
           "note": "Cấu trúc này diễn tả mức độ thay đổi đồng đều tương tự nhau trong cùng một vế câu."
         }
-      ]
+      ],
+      "usage": "Công thức: V条件形 + V辞書形 + ほど / Aいければ + Aい + ほど / Aなら（ば） + Aな + ほど / Nなら（ば） + Nほど. Diễn tả sự thay đổi tỉ lệ thuận, khi vế A tiến triển thì vế B cũng biến đổi theo tương ứng. Có thể rút gọn bỏ vế điều kiện phía trước."
     },
     {
       "id": "bunpo-400-117",
@@ -1361,7 +1471,8 @@
           "pattern": "〜くらいだ・〜ぐらいだ・〜くらい…・〜ぐらい…・〜ほどだ・〜ほど…",
           "note": "Dùng để chỉ mức độ xấp xỉ hoặc tương đương nhau trong giao tiếp hàng ngày."
         }
-      ]
+      ],
+      "usage": "Công thức: Số từ / N + くらい / ぐらい / ほど. Biểu thị số lượng, thời gian hoặc mức độ ước lượng không chính xác. Trong đó 「ほど」 mang sắc thái trang trọng hơn 「くらい/ぐらい」."
     },
     {
       "id": "bunpo-400-119",
@@ -1372,7 +1483,8 @@
       "pattern": "〜くらい…／〜ぐらい…（so sánh）",
       "meaningVi": "Khoảng..., cỡ...",
       "example": "このボールはりんごくらいの大きさだ。",
-      "exampleVi": "Quả bóng này to cỡ quả táo."
+      "exampleVi": "Quả bóng này to cỡ quả táo.",
+      "usage": "Công thức: N + くらい / ぐらい. Dùng một danh từ làm tiêu chuẩn so sánh để mô tả quy mô, kích thước hoặc số lượng tương đương của đối tượng được nhắc đến."
     },
     {
       "id": "bunpo-400-120",
@@ -1383,7 +1495,8 @@
       "pattern": "〜くらい…／〜ぐらい…（mức độ）",
       "meaningVi": "Đến mức, đến cỡ",
       "example": "顔も見たくないくらい嫌いだ。",
-      "exampleVi": "Tôi ghét đến mức chẳng thèm nhìn mặt."
+      "exampleVi": "Tôi ghét đến mức chẳng thèm nhìn mặt.",
+      "usage": "Công thức: V普通形 / Aい / Aな (な) / N + くらい / ぐらい. Dùng một ví dụ hoặc hình ảnh cụ thể để diễn tả mức độ cao của trạng thái ở vế sau. Đôi khi cũng dùng để biểu thị sự việc ở mức độ nhẹ, không đáng kể."
     },
     {
       "id": "bunpo-400-121",
@@ -1400,7 +1513,8 @@
           "pattern": "〜くらい…はない・〜ぐらい…はない・〜ほど…はない",
           "note": "Các mẫu này đều dùng để khẳng định N là số một, không có cái gì vượt qua."
         }
-      ]
+      ],
+      "usage": "Công thức: N + くらい / ぐらい / ほど … はない. Biểu thị đánh giá chủ quan của người nói rằng N là nhất, không có đối tượng nào khác vượt qua được N về đặc điểm đó."
     },
     {
       "id": "bunpo-400-122",
@@ -1411,7 +1525,8 @@
       "pattern": "〜くらいなら・ぐらいなら…",
       "meaningVi": "Nếu phải... thì thà...",
       "example": "自分でバイクに乗るくらいなら、歩いて行ったほうがいい。",
-      "exampleVi": "Nếu phải tự lái xe máy thì tôi thà đi bộ còn hơn."
+      "exampleVi": "Nếu phải tự lái xe máy thì tôi thà đi bộ còn hơn.",
+      "usage": "Công thức: V辞書形 + くらいなら / ぐらいなら. Diễn tả thái độ thà chấp nhận phương án ở vế sau còn hơn là phải làm việc tiêu cực ở vế trước. Vế sau hay đi với 〜ほうがいい, 〜ほうがましだ."
     },
     {
       "id": "bunpo-400-123",
@@ -1511,7 +1626,8 @@
           "pattern": "〜ため（の）に",
           "note": "〜ために… dùng để chỉ mục đích (vế sau là hành động có chủ ý), phân biệt với 〜ため… chỉ nguyên nhân."
         }
-      ]
+      ],
+      "usage": "Công thức: V辞書形 + ために / N + の + ために. Biểu thị mục đích có ý chí của người nói (chủ ngữ hai vế đồng nhất). Không đi với động từ thể khả năng hoặc động từ không có ý chí."
     },
     {
       "id": "bunpo-400-129",
@@ -1522,7 +1638,8 @@
       "pattern": "〜ために…、〜ためだ（nguyên nhân）",
       "meaningVi": "Vì, do... (nguyên nhân)",
       "example": "運転手は注意しなかったために、電柱に車が衝突してしまった。",
-      "exampleVi": "Vì tài xế không cẩn thận nên xe đã va vào cột điện."
+      "exampleVi": "Vì tài xế không cẩn thận nên xe đã va vào cột điện.",
+      "usage": "Công thức: V・Aい・Aな(な)・N(の) + ため（に）/ ためだ. Diễn tả nguyên nhân, lý do dẫn đến kết quả (thường khách quan, dùng trong văn viết/tin tức). Vế sau không dùng thể mệnh lệnh, rủ rê hay mong muốn."
     },
     {
       "id": "bunpo-400-130",
@@ -1539,7 +1656,8 @@
           "pattern": "〜によって",
           "note": "〜によって… chỉ nguyên nhân thường mang ý nghĩa là do tác động từ một yếu tố, sự việc nào đó dẫn đến kết quả."
         }
-      ]
+      ],
+      "usage": "Công thức: N + によって / N + による + N. Diễn tả nguyên nhân gây ra kết quả hoặc biến đổi lớn, thường dùng trong văn phong trang trọng, báo chí. Không dùng cho sự việc sinh hoạt cá nhân hằng ngày."
     },
     {
       "id": "bunpo-400-131",
@@ -1556,7 +1674,8 @@
           "pattern": "〜ことによって（／で）",
           "note": "〜によって… chỉ phương pháp, cách thức thực hiện để đạt được kết quả."
         }
-      ]
+      ],
+      "usage": "Công thức: N + によって / N + による + N. Chỉ phương tiện, phương pháp hay cách thức để thực hiện hành động. Không dùng cho phương tiện giao thông hay công cụ sinh hoạt cá nhân thông thường (như xe buýt, dao, kéo - khi đó dùng で)."
     },
     {
       "id": "bunpo-400-132",
@@ -1573,7 +1692,8 @@
           "pattern": "〜ことから",
           "note": "〜ことから… chỉ căn cứ hoặc nguyên nhân mà từ đó người nói rút ra phán đoán hoặc nhận định."
         }
-      ]
+      ],
+      "usage": "Công thức: V普通形 / Aい / Aな (な/である) / N (である) + ことから ; N + から. Diễn tả căn cứ, lý do nảy sinh một nhận định, tên gọi hoặc sự thay đổi. Mang tính khách quan, hay dùng trong văn viết."
     },
     {
       "id": "bunpo-400-133",
@@ -1590,7 +1710,8 @@
           "pattern": "〜おかげで",
           "note": "〜おかげで… chỉ nguyên nhân nhưng kết quả phải là tích cực, tốt đẹp."
         }
-      ]
+      ],
+      "usage": "V/A/N(普通形) + おかげで / おかげだ (N+のおかげで, Aな+なおかげで).\nDùng khi nguyên nhân dẫn đến kết quả tốt, thể hiện sự biết ơn. Đôi khi dùng mỉa mai để chỉ kết quả xấu."
     },
     {
       "id": "bunpo-400-134",
@@ -1607,7 +1728,8 @@
           "pattern": "〜せいで",
           "note": "〜せいで… chỉ nguyên nhân dẫn đến kết quả tiêu cực, xấu."
         }
-      ]
+      ],
+      "usage": "V/A/N(普通形) + せいで / せいか / せいだ (N+のせいで, Aな+なせいで).\nDùng khi nguyên nhân dẫn đến kết quả xấu, thể hiện sự trách móc hay đổ lỗi. 「〜せいか」 dùng khi không chắc chắn nguyên nhân."
     },
     {
       "id": "bunpo-400-135",
@@ -1624,7 +1746,8 @@
           "pattern": "〜ので",
           "note": "〜んだから… dùng để nêu lý do mang tính chủ quan, thuyết phục hoặc nhấn mạnh thái độ của người nói."
         }
-      ]
+      ],
+      "usage": "V/A/N(普通形) + んだから / のだから (N/Aな+なんだから / なのだから).\nNhấn mạnh lý do mà cả người nói và người nghe đều đã biết rõ; vế sau thường là đánh giá, khuyên bảo, đòi hỏi hoặc trách móc."
     },
     {
       "id": "bunpo-400-136",
@@ -1655,7 +1778,8 @@
       "pattern": "〜ては…。〜（の）では…。",
       "meaningVi": "Nếu mà...thì (xảy ra điều không hay)",
       "example": "静かにして！そんなに大きな声を出しては子どもたちが目覚めるよ。",
-      "exampleVi": "Khẽ thôi nào. Em cứ hét toáng lên như thế các con nó thức dậy bây giờ."
+      "exampleVi": "Khẽ thôi nào. Em cứ hét toáng lên như thế các con nó thức dậy bây giờ.",
+      "usage": "Vて + は / Aくて + は / Aな・N + では (hoặc V/A/N普通形 + のでは).\nGiả định một hành động/trạng thái xảy ra thì sẽ dẫn đến kết quả không hay, không mong muốn hoặc không thể chấp nhận được."
     },
     {
       "id": "bunpo-400-138",
@@ -1679,7 +1803,8 @@
       "pattern": "たとえ〜ても・でも…",
       "meaningVi": "Cho dù có...đi nữa",
       "example": "たとえどんなに両親に反対されても、君と結婚したい。",
-      "exampleVi": "Cho dù bị bố mẹ phản đối thế nào chăng nữa, anh vẫn muốn lấy em."
+      "exampleVi": "Cho dù bị bố mẹ phản đối thế nào chăng nữa, anh vẫn muốn lấy em.",
+      "usage": "たとえ + Vて + も / Aくて + も / Aな・N + でも.\nGiả định một điều kiện dù có xảy ra ở mức độ nào đi nữa thì kết quả ở vế sau vẫn không bị ảnh hưởng."
     },
     {
       "id": "bunpo-400-140",
@@ -1690,7 +1815,8 @@
       "pattern": "〜ば…。〜たら…。〜なら…。",
       "meaningVi": "Nếu mà/giá mà...thì chắc...",
       "example": "ちゃんと勉強すれば、今、こんなに後悔しないのだが。",
-      "exampleVi": "Giá mà tôi chăm chỉ học tập thì bây giờ sẽ không hối hận như thế này"
+      "exampleVi": "Giá mà tôi chăm chỉ học tập thì bây giờ sẽ không hối hận như thế này",
+      "usage": "Vば / Vたら / V/A/N + なら.\nGiả định một điều trái với thực tế ở hiện tại hoặc quá khứ, vế sau thường đi kèm tiếc nuối, hối hận hoặc suy đoán (〜のに、〜だろう)."
     },
     {
       "id": "bunpo-400-141",
@@ -1701,7 +1827,8 @@
       "pattern": "〜ということ…",
       "meaningVi": "(trình bày nội dung)",
       "example": "タツノオトシゴのあすは子が産めるということは今まで知らなかった。",
-      "exampleVi": "Trước đây tôi đã không biết rằng cá ngựa đực cũng có thể đẻ con."
+      "exampleVi": "Trước đây tôi đã không biết rằng cá ngựa đực cũng có thể đẻ con.",
+      "usage": "V/A/N(普通形) + ということ (N/Aな có thể đi trực tiếp hoặc + だ/である).\nDanh từ hóa một mệnh đề để trình bày nội dung, sự thật hoặc khái niệm (\"việc/chuyện là...\")."
     },
     {
       "id": "bunpo-400-142",
@@ -1712,7 +1839,8 @@
       "pattern": "〜ということだ。",
       "meaningVi": "Nghe nói...",
       "example": "今朝のニュースによると、日本チームが優勝したということだ。",
-      "exampleVi": "Theo tin tức sáng nay, nghe nói là đội Nhật Bản đã vô địch."
+      "exampleVi": "Theo tin tức sáng nay, nghe nói là đội Nhật Bản đã vô địch.",
+      "usage": "V/A/N(普通形) + ということだ (N/Aな+だということだ).\nDùng để truyền đạt lại thông tin nghe từ nguồn khác (nghe nói là), hoặc dùng để tóm tắt, đưa ra kết luận (\"có nghĩa là...\")."
     },
     {
       "id": "bunpo-400-143",
@@ -1723,7 +1851,8 @@
       "pattern": "〜と言われている。",
       "meaningVi": "Người ta nói rằng, mọi người nói...",
       "example": "食用油は豚のあぶらより体にいいと言われている。",
-      "exampleVi": "Người ta nói rằng dầu ăn tốt hơn mỡ lợn."
+      "exampleVi": "Người ta nói rằng dầu ăn tốt hơn mỡ lợn.",
+      "usage": "V/A/N(普通形) + と言われている.\nDùng để trích dẫn dư luận, dư báo hoặc ý kiến chung của xã hội (\"người ta nói rằng...\"), không chỉ đích danh cá nhân nào."
     },
     {
       "id": "bunpo-400-144",
@@ -1734,7 +1863,8 @@
       "pattern": "〜とか。（nghe nói）",
       "meaningVi": "Nghe nói là, nghe đồn rằng, nghe phong thanh rằng...",
       "example": "ねえ、あの子は東京大学も受かったとか。知ってるの。",
-      "exampleVi": "Này, nghe đồn là con bé kia đỗ đại học Tokyo đấy. Mày có biết không?"
+      "exampleVi": "Này, nghe đồn là con bé kia đỗ đại học Tokyo đấy. Mày có biết không?",
+      "usage": "V/A/N(普通形) + とか (Aな/N+だとか).\nDùng trong văn nói để truyền đạt tin đồn hoặc thông tin nghe phong thanh, không chắc chắn 100% (\"nghe đâu là...\")."
     },
     {
       "id": "bunpo-400-145",
@@ -1745,7 +1875,8 @@
       "pattern": "〜とか。（liệt kê）",
       "meaningVi": "Như là ... như là",
       "example": "ケーキとかお菓子とかの甘い物はあまり好きじゃない。",
-      "exampleVi": "Tôi không thích những thứ ngọt như là bánh kem hay là kẹo."
+      "exampleVi": "Tôi không thích những thứ ngọt như là bánh kem hay là kẹo.",
+      "usage": "N / V(普通形) + とか + N / V(普通形) + とか.\nLiệt kê phiền phức các ví dụ tiêu biểu trong văn nói, mang tính chất gợi ý, tương tự như 「〜や〜など」."
     },
     {
       "id": "bunpo-400-146",
@@ -1756,7 +1887,8 @@
       "pattern": "〜って。（chủ đề）",
       "meaningVi": "Tên là, gọi là...",
       "example": "これはNguyễn Nhật Ánhっていう作家の書いた本です。",
-      "exampleVi": "Đây là quyển sách do tác giả tên là Nguyễn Nhật Ánh viết."
+      "exampleVi": "Đây là quyển sách do tác giả tên là Nguyễn Nhật Ánh viết.",
+      "usage": "N + って (hoặc N + っていう + N).\nVăn nói thân mật dùng để nêu chủ đề (\"cái gọi là...\"), dùng thay thế cho 「は」, 「という」 hoặc 「というのは」."
     },
     {
       "id": "bunpo-400-147",
@@ -1767,7 +1899,8 @@
       "pattern": "〜って。（trích dẫn）",
       "meaningVi": "Rằng... (trích dẫn)",
       "example": "彼はすぐに来るって言った。",
-      "exampleVi": "Anh ta nói rằng sẽ đến ngay."
+      "exampleVi": "Anh ta nói rằng sẽ đến ngay.",
+      "usage": "Công thức: [Thể thông thường] + って. Dùng trong giao tiếp thân mật để trích dẫn trực tiếp hoặc gián tiếp lời nói, suy nghĩ của ai đó (thay cho trợ từ と)."
     },
     {
       "id": "bunpo-400-148",
@@ -1778,7 +1911,8 @@
       "pattern": "〜って。（truyền đạt lại）",
       "meaningVi": "Nghe nói... (truyền đạt lại)",
       "example": "あの店のケーキ、美味しいんだって。",
-      "exampleVi": "Nghe nói bánh ở tiệm đó ngon."
+      "exampleVi": "Nghe nói bánh ở tiệm đó ngon.",
+      "usage": "Công thức: [Thể thông thường] + って. Dùng ở cuối câu trong văn nói hàng ngày để truyền đạt lại thông tin nghe được từ người khác (thay cho 〜そうだ)."
     },
     {
       "id": "bunpo-400-149",
@@ -1789,7 +1923,8 @@
       "pattern": "〜はずがない。",
       "meaningVi": "Lẽ nào mà / làm gì có chuyện...",
       "example": "勉強しないで遊んでばかりいて、N3に合格できるはずがない。",
-      "exampleVi": "Toàn chơi thôi chẳng học hành gì cả, làm sao mà đỗ N3 được."
+      "exampleVi": "Toàn chơi thôi chẳng học hành gì cả, làm sao mà đỗ N3 được.",
+      "usage": "Công thức: V/A/N (thể thông thường) + はずがない (A-na + な, N + の). Dùng để phủ định mạnh mẽ một khả năng, thể hiện niềm tin chắc chắn của người nói rằng chuyện đó không thể xảy ra."
     },
     {
       "id": "bunpo-400-150",
@@ -1800,7 +1935,8 @@
       "pattern": "〜とは限らない。",
       "meaningVi": "Không hẳn / chưa chắc...",
       "example": "新聞に書いてあることがいつも本当のことだとは限らない。",
-      "exampleVi": "Không hẳn là những gì viết trên báo luôn luôn là sự thật."
+      "exampleVi": "Không hẳn là những gì viết trên báo luôn luôn là sự thật.",
+      "usage": "Công thức: V/A/N (thể thông thường) + とは限らない (A-na/N có thể giữ hoặc bỏ だ). Dùng để diễn tả sự việc không phải lúc nào cũng đúng hoặc luôn luôn xảy ra như quan niệm thông thường."
     },
     {
       "id": "bunpo-400-151",
@@ -1811,7 +1947,8 @@
       "pattern": "〜ないことはない。",
       "meaningVi": "Không phải là không...",
       "example": "このカレーも美味しくないことはないが、私はもっと辛いのが好きだ。",
-      "exampleVi": "Không phải cà ri này không ngon mà là tôi thích cay hơn chút nữa."
+      "exampleVi": "Không phải cà ri này không ngon mà là tôi thích cay hơn chút nữa.",
+      "usage": "Công thức: V-ない / A-くない / A-na・N + じゃない + ことはない/ cũng không hẳn. Phủ định hai lần để khẳng định nhẹ nhàng, gián tiếp rằng sự việc vẫn có khả năng hoặc có thể thực hiện được."
     },
     {
       "id": "bunpo-400-152",
@@ -1822,7 +1959,8 @@
       "pattern": "〜ことは〜が、。",
       "meaningVi": "Tuy có...nhưng...",
       "example": "この小説は読んだことは読んだが、全然分からなかった。",
-      "exampleVi": "Tiểu thuyết này đọc thì đọc rồi nhưng hoàn toàn không hiểu gì hết."
+      "exampleVi": "Tiểu thuyết này đọc thì đọc rồi nhưng hoàn toàn không hiểu gì hết.",
+      "usage": "Công thức: V/A (thể thông thường) + ことは + V/A (cùng từ, chia theo ngữ cảnh) + が/けれど. Dùng để thừa nhận một thực tế ở mức độ nào đó, nhưng vế sau sẽ đưa ra ý đánh giá phủ định hoặc hạn chế."
     },
     {
       "id": "bunpo-400-153",
@@ -1833,7 +1971,8 @@
       "pattern": "〜Vてもらいたい（ていただきたい／ほしい）",
       "meaningVi": "Muốn ai đó làm V...",
       "example": "いつもそばにいてほしいんだけど。",
-      "exampleVi": "Anh muốn em mãi bên cạnh anh."
+      "exampleVi": "Anh muốn em mãi bên cạnh anh.",
+      "usage": "Công thức: Vて + もらいたい / いただきたい / ほしい. Bày tỏ nguyện vọng mong muốn đối phương hoặc ai đó thực hiện một hành động cho mình. 「ていただきたい」 mang sắc thái lịch sự nhất."
     },
     {
       "id": "bunpo-400-154",
@@ -1844,7 +1983,8 @@
       "pattern": "〜Vさせてもらいたい（いただきたい／ほしい）",
       "meaningVi": "Muốn người khác cho mình làm V...",
       "example": "急用があるので、早く帰らせていただきたいのですが…",
-      "exampleVi": "Vì có việc gấp nên tôi muốn (được cho) về sớm ạ."
+      "exampleVi": "Vì có việc gấp nên tôi muốn (được cho) về sớm ạ.",
+      "usage": "Công thức: V-させて + もらいたい / いただきたい / ほしい. Bày tỏ nguyện vọng xin phép đối phương cho phép bản thân được thực hiện hành động V. 「させていただきたい」 dùng trong hoàn cảnh trang trọng, lịch sự."
     },
     {
       "id": "bunpo-400-155",
@@ -1855,7 +1995,8 @@
       "pattern": "〜といい、〜たらいい、〜ばいい。（khuyên）",
       "meaningVi": "...là được, ...là xong (khuyên)",
       "example": "申込書の書き方が分からなければ、彼女に聞いてみればいいですよ。",
-      "exampleVi": "Nếu không hiểu cách viết bản đăng ký, thì cứ hỏi thử cô ấy là được đấy."
+      "exampleVi": "Nếu không hiểu cách viết bản đăng ký, thì cứ hỏi thử cô ấy là được đấy.",
+      "usage": "Công thức: Vといい / Vたらいい / Vばいい. Dùng khi đưa ra lời khuyên, gợi ý giải pháp đơn giản cho người khác khi họ đang băn khoăn hoặc gặp rắc rối."
     },
     {
       "id": "bunpo-400-156",
@@ -1866,7 +2007,8 @@
       "pattern": "〜といい、〜たらいい、〜ばいい。（ước）",
       "meaningVi": "Ước gì, mong là, giá như...",
       "example": "明日、恋人と遊びに行く。晴れればいいなあ。",
-      "exampleVi": "Ngày mai đi chơi với gấu. Mong là trời sẽ nắng đẹp."
+      "exampleVi": "Ngày mai đi chơi với gấu. Mong là trời sẽ nắng đẹp.",
+      "usage": "Công thức: Vといい / Vたらいい / Vばいい (+ なあ/ bôi đậm cảm xúc). Bày tỏ mong muốn, hi vọng một điều tốt đẹp sẽ xảy ra trong tương lai hoặc giá như điều gì đó xảy ra."
     },
     {
       "id": "bunpo-400-157",
@@ -1877,7 +2019,8 @@
       "pattern": "Vれ、Vろ、Vしろ",
       "meaningVi": "Làm V đi... (mệnh lệnh)",
       "example": "あきらめないで、頑張れ！",
-      "exampleVi": "Đừng bỏ cuộc, cố gắng lên."
+      "exampleVi": "Đừng bỏ cuộc, cố gắng lên.",
+      "usage": "Công thức: Thể mệnh lệnh của động từ (Nhóm 1: đuôi -e; Nhóm 2: -ro; Nhóm 3: しろ/こい). Diễn tả ý ra lệnh trực tiếp, áp đặt. Thường dùng bởi nam giới, người cấp trên, khi cổ vũ thao trường hoặc tình huống khẩn cấp."
     },
     {
       "id": "bunpo-400-158",
@@ -1888,7 +2031,8 @@
       "pattern": "Vるな。",
       "meaningVi": "Không được làm V... (cấm chỉ)",
       "example": "動くな！動けば、血が出るよ。",
-      "exampleVi": "Không được cử động, nếu cử động máu sẽ chảy ra đấy."
+      "exampleVi": "Không được cử động, nếu cử động máu sẽ chảy ra đấy.",
+      "usage": "Công thức: V-辞書形 + な. Thể cấm đoán trực tiếp và mạnh mẽ. Thường xuất hiện trên biển báo giao thông/cảnh báo, hoặc do người có thẩm quyền/cấp trên dùng trong tình huống khẩn cấp."
     },
     {
       "id": "bunpo-400-159",
@@ -1899,7 +2043,8 @@
       "pattern": "Vること．Vないこと．",
       "meaningVi": "Phải làm V, không được làm V",
       "example": "休むときは必ず学校に連絡すること。",
-      "exampleVi": "Khi nào nghỉ nhất định phải báo trước với nhà trường."
+      "exampleVi": "Khi nào nghỉ nhất định phải báo trước với nhà trường.",
+      "usage": "V辞書形 / Vない形 + こと. Dùng để đưa ra chỉ thị, quy định hoặc lời khuyên mang tính bắt buộc (thường xuất hiện trong nội quy, thông báo, đề thi)."
     },
     {
       "id": "bunpo-400-160",
@@ -1910,7 +2055,8 @@
       "pattern": "〜べきだ・〜べき・〜べきではない。",
       "meaningVi": "Nên, cần, phải ...",
       "example": "成績が良くないね。もっと勉強すべきだ。",
-      "exampleVi": "Kết quả kém quá, em cần học thêm nữa."
+      "exampleVi": "Kết quả kém quá, em cần học thêm nữa.",
+      "usage": "V辞書形 + べきだ / べきではない (Đặc biệt: する -> すべきだ/するべきだ). Diễn tả quan điểm nên hoặc không nên làm gì theo lẽ thường, đạo đức; không dùng với quy định pháp luật hoặc khuyên vế trên."
     },
     {
       "id": "bunpo-400-161",
@@ -1921,7 +2067,8 @@
       "pattern": "〜Vたらどうか。",
       "meaningVi": "Làm V xem sao, nên V đi",
       "example": "悪いのはお前だよ。一言謝ったらどう？",
-      "exampleVi": "Mày mới là đứa sai. Thử xin lỗi một câu có chết ai."
+      "exampleVi": "Mày mới là đứa sai. Thử xin lỗi một câu có chết ai.",
+      "usage": "Vたら + どうか (hoặc たらどう / たらどうですか). Dùng để đưa ra lời gợi ý, đề xuất nhẹ nhàng cho người nghe thực hiện một hành động."
     },
     {
       "id": "bunpo-400-162",
@@ -1932,7 +2079,8 @@
       "pattern": "〜ことにする・〜ことにしている",
       "meaningVi": "Quyết định...",
       "example": "明日からよく勉強することにする。",
-      "exampleVi": "Tôi quyết định từ ngày mai sẽ học hành chăm chỉ."
+      "exampleVi": "Tôi quyết định từ ngày mai sẽ học hành chăm chỉ.",
+      "usage": "V辞書形 / Vない形 + ことにする (duy trì: ことにしている). Diễn tả quyết định do chính bản thân chủ động đưa ra. Dạng 〜ことにしている chỉ thói quen bản thân tự quy định."
     },
     {
       "id": "bunpo-400-163",
@@ -1943,7 +2091,8 @@
       "pattern": "〜ことになる・〜ことになっている。",
       "meaningVi": "Quyết định ...",
       "example": "来月、日本へ出張することになった。",
-      "exampleVi": "Tháng sau tôi được quyết định sẽ đi công tác Nhật Bản."
+      "exampleVi": "Tháng sau tôi được quyết định sẽ đi công tác Nhật Bản.",
+      "usage": "V辞書形 / Vない形 + ことになる (quy định: ことになっている). Diễn tả quyết định, kết quả do tập thể, hoàn cảnh khách quan hay quy tắc định sẵn, không xuất phát từ ý chí cá nhân."
     },
     {
       "id": "bunpo-400-164",
@@ -1954,7 +2103,8 @@
       "pattern": "〜ようにする・〜ようにしている。",
       "meaningVi": "Cố gắng ...",
       "example": "メールにはすぐ返信するようにしている。",
-      "exampleVi": "Tôi luôn cố gắng trả lời mail ngay lập tức."
+      "exampleVi": "Tôi luôn cố gắng trả lời mail ngay lập tức.",
+      "usage": "V辞書形 / Vない形 + ようにする (thói quen: ようにしている). Diễn tả sự cố gắng, nỗ lực thực hiện (hoặc tránh làm) một việc để duy trì thành thói quen."
     },
     {
       "id": "bunpo-400-165",
@@ -1965,7 +2115,8 @@
       "pattern": "〜ようになる、〜なくなる。",
       "meaningVi": "Trở nên ...",
       "example": "日本語が話せるようになりました。",
-      "exampleVi": "Bây giờ tôi đã nói được tiếng Nhật."
+      "exampleVi": "Bây giờ tôi đã nói được tiếng Nhật.",
+      "usage": "V可能形/V辞書形 + ようになる | Vない形 (bỏ い) + なくなる. Diễn tả sự thay đổi về khả năng, thói quen hoặc trạng thái (chuyển từ không thể/không làm sang có thể/có làm, hoặc ngược lại)."
     },
     {
       "id": "bunpo-400-166",
@@ -1976,7 +2127,8 @@
       "pattern": "〜V意向形＋とする。",
       "meaningVi": "Định làm V",
       "example": "眠ろうとしてもなかなか眠れなかった。",
-      "exampleVi": "Đã định ngủ rồi mà mãi không thể ngủ được."
+      "exampleVi": "Đã định ngủ rồi mà mãi không thể ngủ được.",
+      "usage": "V意向形 + とする (hoặc としている). Diễn tả hành động đang sắp sửa xảy ra trong khoảnh khắc ngắn hoặc nỗ lực định làm gì đó."
     },
     {
       "id": "bunpo-400-167",
@@ -1987,7 +2139,8 @@
       "pattern": "〜つもりだ。",
       "meaningVi": "Tưởng là, đã nghĩ là ...",
       "example": "私は今年80歳ですが、まだまだ若いつもりです。",
-      "exampleVi": "Tôi năm nay 80 rồi nhưng hãy còn trẻ lắm."
+      "exampleVi": "Tôi năm nay 80 rồi nhưng hãy còn trẻ lắm.",
+      "usage": "Vた / Vている / Aい / Aな / Nの + つもりだ. Diễn tả suy nghĩ, cảm nhận chủ quan của bản thân tin là như vậy, dù thực tế có thể không phải như thế."
     },
     {
       "id": "bunpo-400-168",
@@ -1998,7 +2151,8 @@
       "pattern": "〜について…",
       "meaningVi": "Về...",
       "example": "すみません。入学手続きについて聞きたいのですが…",
-      "exampleVi": "Xin lỗi, tôi muốn hỏi về thủ tục nhập học."
+      "exampleVi": "Xin lỗi, tôi muốn hỏi về thủ tục nhập học.",
+      "usage": "N + について (bổ nghĩa danh từ: N + についての + N). Diễn tả chủ đề, nội dung của hành động nói, suy nghĩ, điều tra hoặc hỏi đáp."
     },
     {
       "id": "bunpo-400-169",
@@ -2009,7 +2163,8 @@
       "pattern": "〜に関して…",
       "meaningVi": "Liên quan đến...",
       "example": "その事件に関しての報告はまだ受けていない。",
-      "exampleVi": "Tôi chưa nhận được báo cáo liên quan đến vụ án đó."
+      "exampleVi": "Tôi chưa nhận được báo cáo liên quan đến vụ án đó.",
+      "usage": "N + に関して (bổ nghĩa danh từ: N + に関する + N). Diễn tả chủ đề, nội dung liên quan; mang sắc thái trang trọng hơn 〜について, thường dùng trong tin tức, báo cáo, văn bản."
     },
     {
       "id": "bunpo-400-170",
@@ -2033,7 +2188,8 @@
       "pattern": "Nは〜ことだ。",
       "meaningVi": "Giải thích danh từ",
       "example": "私の将来の夢は日本語の先生になることです。",
-      "exampleVi": "Ước mơ của tôi là trở thành giáo viên tiếng Nhật."
+      "exampleVi": "Ước mơ của tôi là trở thành giáo viên tiếng Nhật.",
+      "usage": "N は + V辞書形 + ことだ. Dùng để định nghĩa hoặc giải thích nội dung cụ thể cho danh từ chủ ngữ N (thường N là 夢, 趣味, 目標...)."
     },
     {
       "id": "bunpo-400-172",
@@ -2044,7 +2200,8 @@
       "pattern": "〜ことがある。",
       "meaningVi": "Thỉnh thoảng, đôi lúc ...",
       "example": "以前は仕事が多かったので、12時ごろ家に帰ることもあった。",
-      "exampleVi": "Trước đây công việc nhiều nên thỉnh thoảng tôi về nhà lúc khoảng 12 giờ."
+      "exampleVi": "Trước đây công việc nhiều nên thỉnh thoảng tôi về nhà lúc khoảng 12 giờ.",
+      "usage": "V辞書形 / Vない形 + ことがある。Dùng để diễn tả một hành động hoặc sự việc thỉnh thoảng mới xảy ra (không phải thói quen thường xuyên). Tránh nhầm với Vた + ことがある (đã từng kinh qua)."
     },
     {
       "id": "bunpo-400-173",
@@ -2055,7 +2212,8 @@
       "pattern": "〜ことはない。",
       "meaningVi": "Không cần làm V ...",
       "example": "心配することはないよ。僕も手伝うから頑張ろう。",
-      "exampleVi": "Việc gì phải lo. Cố lên, tôi sẽ giúp một tay."
+      "exampleVi": "Việc gì phải lo. Cố lên, tôi sẽ giúp một tay.",
+      "usage": "V辞書形 + ことはない。Dùng khi khuyên bảo hoặc động viên ai đó rằng không cần thiết phải thực hiện hành động nào đó. Thường dùng trong giao tiếp trực tiếp."
     },
     {
       "id": "bunpo-400-174",
@@ -2066,7 +2224,8 @@
       "pattern": "〜のは…だ。",
       "meaningVi": "Thay thế danh từ chính",
       "example": "私が生まれたのは静かな田舎だ。",
-      "exampleVi": "Nơi tôi sinh ra là một vùng quê yên tĩnh."
+      "exampleVi": "Nơi tôi sinh ra là một vùng quê yên tĩnh.",
+      "usage": "Thể thông thường (なA→な / N→な) + のは + [N / Cụm từ] + だ/です。Biến mệnh đề đứng trước 「のは」 thành chủ đề để đưa thông tin giải thích hoặc nhấn mạnh vào phần đứng trước 「だ」."
     },
     {
       "id": "bunpo-400-175",
@@ -2077,7 +2236,8 @@
       "pattern": "〜というのは…だ。",
       "meaningVi": "Có nghĩa là... (giải thích thuật ngữ)",
       "example": "パソコンというのはパーソナルコンピューターのことだ。",
-      "exampleVi": "Pasokon có nghĩa là máy tính cá nhân."
+      "exampleVi": "Pasokon có nghĩa là máy tính cá nhân.",
+      "usage": "N + というのは + [Nのことだ / Mệnh đề + ことだ / だ]。Dùng để nêu lên một từ ngữ, thuật ngữ hay khái niệm và giải thích rõ nghĩa của nó."
     },
     {
       "id": "bunpo-400-176",
@@ -2088,7 +2248,8 @@
       "pattern": "〜のではないか。〜のではないだろうか。",
       "meaningVi": "Chẳng phải là ...hay sao?",
       "example": "こんなに塩辛い料理は体によくないのではないか。",
-      "exampleVi": "Thức ăn mặn thế này chẳng phải là không tốt cho cơ thể hay sao?"
+      "exampleVi": "Thức ăn mặn thế này chẳng phải là không tốt cho cơ thể hay sao?",
+      "usage": "Thể thông thường (なA→な / N→な) + のではないか / のではないだろうか。Dùng để đưa ra ý kiến, phán đoán cá nhân một cách nhẹ nhàng, lịch sự dưới hình thức câu hỏi ướm thử."
     },
     {
       "id": "bunpo-400-177",
@@ -2099,7 +2260,8 @@
       "pattern": "「物」と「こと」",
       "meaningVi": "Phân biệt",
       "example": "母が作る物はいつもとても美味しいですよ。料理を作ることはとても楽しい。",
-      "exampleVi": "Đồ mẹ tôi nấu lúc nào cũng ngon lắm đấy. Việc nấu ăn rất vui."
+      "exampleVi": "Đồ mẹ tôi nấu lúc nào cũng ngon lắm đấy. Việc nấu ăn rất vui.",
+      "usage": "N / Vる + 物 (vật thể hữu hình, cụ thể); Vる + こと (sự việc, hành động, khái niệm vô形). 「物」 dùng cho đồ vật thực tế; 「こと」 dùng khi danh từ hóa hành động hoặc chỉ trải nghiệm, suy nghĩ."
     },
     {
       "id": "bunpo-400-178",
@@ -2110,7 +2272,8 @@
       "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
       "meaningVi": "Như...",
       "example": "彼女の心は氷のように冷たい。",
-      "exampleVi": "Trái tim cô ta lạnh như băng."
+      "exampleVi": "Trái tim cô ta lạnh như băng.",
+      "usage": "N + の / V thể ngắn + (かの)よう + (だ / に / なN)。Dùng để so sánh một sự việc hay trạng thái với một hình ảnh khác mang tính ví von, dù thực tế không phải vậy. 「かのようだ」 tăng tính tượng hình."
     },
     {
       "id": "bunpo-400-179",
@@ -2121,7 +2284,8 @@
       "pattern": "〜ように。",
       "meaningVi": "Như là.., chẳng hạn như, giống như...",
       "example": "彼女はとても親切です。彼女のような人と結婚したいです。",
-      "exampleVi": "Cô ấy rất tốt bụng. Tôi muốn kết hôn với người như cô ấy."
+      "exampleVi": "Cô ấy rất tốt bụng. Tôi muốn kết hôn với người như cô ấy.",
+      "usage": "N + のように / V thể thông thường + ように。Dùng khi đưa ra một ví dụ tiêu biểu minh họa hoặc so sánh tính chất, trạng thái giống như đối tượng được nêu."
     },
     {
       "id": "bunpo-400-180",
@@ -2132,7 +2296,8 @@
       "pattern": "〜ように、〜ようにと、〜よう",
       "meaningVi": "Bảo ..., mong cho, cầu mong",
       "example": "雑誌を買ってくるように頼まれた。",
-      "exampleVi": "Tôi đã bị nhờ mua tạp chí."
+      "exampleVi": "Tôi đã bị nhờ mua tạp chí.",
+      "usage": "V辞書形 / Vない形 + ように (と / だ)。Dùng để nhắc lại lời dặn dò, yêu cầu ai đó làm/không làm gì một cách nhẹ nhàng, hoặc đặt ở cuối câu để diễn đạt lời cầu chúc, mong ước."
     },
     {
       "id": "bunpo-400-181",
@@ -2143,7 +2308,8 @@
       "pattern": "〜わけだ。〜というわけだ。",
       "meaningVi": "Hèn chi, thảo nào mà",
       "example": "夜中に雪が降ったんですね。昨日の夜あんなに寒かったわけですね。",
-      "exampleVi": "Nửa đêm hôm qua tuyết rơi nhỉ. Thảo nào mà đêm qua lạnh thế cơ chứ."
+      "exampleVi": "Nửa đêm hôm qua tuyết rơi nhỉ. Thảo nào mà đêm qua lạnh thế cơ chứ.",
+      "usage": "Thể thông thường (なA→な / N→đã, là + という) + わけだ / というわけだ。Dùng để diễn tả kết luận tất yếu logic hoặc sự hiểu ra lý do sau khi đã biết nguyên nhân, hoàn cảnh."
     },
     {
       "id": "bunpo-400-182",
@@ -2154,7 +2320,8 @@
       "pattern": "〜わけがない。",
       "meaningVi": "Làm gì có chuyện..., không đời nào mà...",
       "example": "こんなに暑いんだから、働けるわけがない。",
-      "exampleVi": "Nóng như thế này thì làm sao mà làm việc được."
+      "exampleVi": "Nóng như thế này thì làm sao mà làm việc được.",
+      "usage": "Thể thông thường (なA→な / N→の) + わけがない。Dùng để khẳng định một cách chắc chắn rằng điều gì đó hoàn toàn không thể xảy ra dựa trên căn cứ hoặc lý do rõ ràng."
     },
     {
       "id": "bunpo-400-183",
@@ -2165,7 +2332,8 @@
       "pattern": "〜わけではない。〜というわけではない",
       "meaningVi": "Không phải là...",
       "example": "このレストランはいつもいっぱいだが、特別に美味しいわけではない。",
-      "exampleVi": "Nhà hàng này lúc nào cũng đầy khách nhưng không phải thức ăn đặc biệt ngon."
+      "exampleVi": "Nhà hàng này lúc nào cũng đầy khách nhưng không phải thức ăn đặc biệt ngon.",
+      "usage": "Thể thông thường (なA→な/である / N→の/である/という) + わけではない / というわけではない。Dùng để phủ định một phần hoặc làm rõ rằng sự việc không hẳn, không hoàn toàn đúng như suy đoán của đối phương."
     },
     {
       "id": "bunpo-400-184",
@@ -2176,7 +2344,8 @@
       "pattern": "〜Vわけにはいかない。",
       "meaningVi": "Không thể làm V ...",
       "example": "とても疲れたが、大事な会議があるから、休むわけにはいかない。",
-      "exampleVi": "Mệt lắm nhưng vì có cuộc họp quan trọng nên không thể nghỉ được."
+      "exampleVi": "Mệt lắm nhưng vì có cuộc họp quan trọng nên không thể nghỉ được.",
+      "usage": "V辞書形 + わけにはいかない。Diễn tả việc không thể thực hiện hành động vì lý do đạo đức, trách nhiệm hoặc xã hội (không phải do thiếu năng lực)."
     },
     {
       "id": "bunpo-400-185",
@@ -2187,7 +2356,8 @@
       "pattern": "〜Vないわけにはいかない。",
       "meaningVi": "Không thể không làm V/ phải làm V ...",
       "example": "親友に飲めと言われたら、飲まないわけにはいかない。",
-      "exampleVi": "Nếu bị bạn thân bắt uống rượu thì không thể không uống."
+      "exampleVi": "Nếu bị bạn thân bắt uống rượu thì không thể không uống.",
+      "usage": "Vない形 + わけにはいかない。Diễn tả tình thế bắt buộc phải làm việc gì đó do trách nhiệm, đạo đức hay áp lực xã hội dù bản thân không muốn."
     },
     {
       "id": "bunpo-400-186",
@@ -2198,7 +2368,8 @@
       "pattern": "〜ばかり。",
       "meaningVi": "Toàn là, chỉ là...",
       "example": "この日本語センターの学生は女性ばかりだ。",
-      "exampleVi": "Học sinh trung tâm tiếng Nhật này toàn là nữ."
+      "exampleVi": "Học sinh trung tâm tiếng Nhật này toàn là nữ.",
+      "usage": "N + ばかり / Vて + ばかり。Diễn tả sự việc, đối tượng xuất hiện nhiều hoặc lặp đi lặp lại, thường đi kèm sắc thái phàn nàn, phê bình."
     },
     {
       "id": "bunpo-400-187",
@@ -2209,7 +2380,8 @@
       "pattern": "〜てばかりいる。",
       "meaningVi": "Toàn ...",
       "example": "弟は試験の日がもうすぐ来るのに、勉強しないで遊んでばかりいる。",
-      "exampleVi": "Em trai tôi sắp thi rồi mà chả học gì cả, toàn chơi thôi."
+      "exampleVi": "Em trai tôi sắp thi rồi mà chả học gì cả, toàn chơi thôi.",
+      "usage": "Vて + ばかりいる。Diễn tả việc lặp đi lặp lại một hành động duy nhất mà không làm việc khác, thể hiện sự phàn nàn hoặc không hài lòng của người nói."
     },
     {
       "id": "bunpo-400-188",
@@ -2226,7 +2398,8 @@
           "pattern": "〜ばかりか",
           "note": "Cả hai đều mang nghĩa không chỉ cái này mà còn cái khác, nhưng 「〜ばかりでなく・〜だけでなく」 thường dùng văn phong tự nhiên hơn."
         }
-      ]
+      ],
+      "usage": "N / V / A（普通形） (Aな→な/である, N→である) + ばかりでなく。Diễn tả ý \"không chỉ A mà còn có cả B\", mang tính chất bổ sung thêm thông tin."
     },
     {
       "id": "bunpo-400-189",
@@ -2243,7 +2416,8 @@
           "pattern": "〜ばかりだ",
           "note": "「〜ばかりだ（xấu đi）」 chỉ hướng thay đổi tiêu cực dần dần, còn các sắc thái khác của 「〜ばかりだ」 dùng để chỉ việc chuẩn bị xong hoặc chỉ còn chờ làm."
         }
-      ]
+      ],
+      "usage": "V辞書形 + ばかりだ。Diễn tả một xu hướng biến đổi theo hướng xấu, tiêu cực cứ tiếp diễn liên tục không có dấu hiệu dừng lại."
     },
     {
       "id": "bunpo-400-190",
@@ -2260,7 +2434,8 @@
           "pattern": "〜ばかりだ",
           "note": "「〜ばかりだ（chỉ việc）」 diễn tả trạng thái mọi thứ đã sẵn sàng chỉ chờ thực hiện, khác với dạng diễn tả xu hướng xấu đi."
         }
-      ]
+      ],
+      "usage": "V辞書形 + ばかりだ。Diễn tả mọi công đoạn chuẩn bị đã hoàn tất, hiện tại chỉ còn chờ thực hiện hành động đó nữa là xong."
     },
     {
       "id": "bunpo-400-191",
@@ -2277,7 +2452,8 @@
           "pattern": "〜たばかり",
           "note": "「〜たばかり」 nhấn mạnh thời điểm vừa mới kết thúc hành động, khác với các cấu trúc 「〜ばかりだ」 biểu thị xu hướng hay trạng thái."
         }
-      ]
+      ],
+      "usage": "Vた形 + ばかりだ。Diễn tả hành động vừa mới xảy ra chưa lâu theo cảm nhận chủ quan của người nói (kể cả khi khoảng thời gian thực tế đã lâu)."
     },
     {
       "id": "bunpo-400-192",
@@ -2294,7 +2470,8 @@
           "pattern": "〜と…〜た・〜たら…〜た。（ngẫu nhiên）",
           "note": "Cả hai đều dùng cấu trúc 「と／たら」 đi với vế sau là thì quá khứ 「た」, phân biệt chủ yếu dựa vào ngữ cảnh nhận thức hay sự việc ngẫu nhiên."
         }
-      ]
+      ],
+      "usage": "V1辞書形 + と / V1たら + V2た。Diễn tả sau khi thực hiện hành động V1 thì phát hiện, nhận ra một tình trạng/sự thật V2 đã có sẵn từ trước."
     },
     {
       "id": "bunpo-400-193",
@@ -2311,7 +2488,8 @@
           "pattern": "〜と…〜た・〜たら…〜た。（nhận thức）",
           "note": "Phân biệt qua ý nghĩa ngữ cảnh vế sau: một bên là phát hiện/nhận thức ra điều gì đó, một bên là sự việc xảy ra ngẫu nhiên."
         }
-      ]
+      ],
+      "usage": "V1 (辞書形/ている) + と / V1たら + V2た。Diễn tả một sự việc V2 bất ngờ, ngẫu nhiên xảy ra trong khi người nói đang thực hiện hành động V1."
     },
     {
       "id": "bunpo-400-194",
@@ -2328,7 +2506,8 @@
           "pattern": "〜と…〜た・〜たら…〜た。（ngẫu nhiên）",
           "note": "Cả hai đều thuộc nhóm cấu trúc 「と／たら」 kết hợp với động từ quá khứ, khác nhau ở chỗ phát sinh tình huống bất ngờ hay ngẫu nhiên."
         }
-      ]
+      ],
+      "usage": "V1辞書形 + と / V1たら + V2た。Diễn tả kết quả V2 xuất hiện ngay sau V1 là một sự việc bất ngờ, nằm ngoài dự tính của người nói."
     },
     {
       "id": "bunpo-400-195",
@@ -2345,7 +2524,8 @@
           "pattern": "〜たところ",
           "note": "「〜と…〜た」 dùng cho hành động liên tiếp hoặc kết quả tất yếu/bất ngờ, trong khi 「〜たところ」 nhấn mạnh kết quả sau khi thử làm gì."
         }
-      ]
+      ],
+      "usage": "V1辞書形 + と + V2た。Diễn tả hai hành động nối tiếp nhau gần như tức thì, ngay sau khi V1 diễn ra thì V2 xảy ra ngay lập tức."
     },
     {
       "id": "bunpo-400-196",
@@ -2362,7 +2542,8 @@
           "pattern": "〜かける / 〜かけだ",
           "note": "「〜Vかける・〜Vかけだ・〜Vかけの N」 diễn tả hành động đang dang dở, chưa hoàn thành."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋かける / かけだ / かけの N. Diễn tả hành động đang làm dở dang chưa hoàn thành, hoặc vừa mới bắt đầu thì dừng lại."
     },
     {
       "id": "bunpo-400-197",
@@ -2379,7 +2560,8 @@
           "pattern": "〜V通す。",
           "note": "「〜Vきる」 nhấn mạnh việc làm xong hoàn toàn, còn 「〜V通す」 nhấn mạnh việc duy trì hành động đến cùng không bỏ cuộc."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋きる / きれない. Diễn tả việc làm xong trọn vẹn, triệt để (Vきる) hoặc không thể làm hết do quá nhiều/quá sức (Vきれない)."
     },
     {
       "id": "bunpo-400-198",
@@ -2396,7 +2578,8 @@
           "pattern": "〜V続ける。",
           "note": "「〜V通す」 là kiên trì làm đến cùng một mục tiêu hoặc ý chí, còn 「〜V続ける」 chỉ đơn thuần là tiếp tục hành động theo thời gian."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋通す. Diễn tả sự nỗ lực kiên trì thực hiện một hành động liên tục từ đầu đến cuối bất chấp khó khăn."
     },
     {
       "id": "bunpo-400-199",
@@ -2413,7 +2596,8 @@
           "pattern": "〜V出す。",
           "note": "「〜V続ける」 chỉ hành động kéo dài liên tục, còn 「〜V出す」 chỉ thời điểm hành động bất ngờ bắt đầu phát sinh."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋続ける. Diễn tả một hành động hoặc trạng thái duy trì liên tục, không bị đứt đoạn."
     },
     {
       "id": "bunpo-400-200",
@@ -2430,7 +2614,8 @@
           "pattern": "〜V始める。",
           "note": "「〜V出す」 dùng cho hành động bắt đầu đột ngột hoặc bộc phát, còn 「〜V始める」 dùng cho việc bắt đầu một hành động một cách tự nhiên, có ý thức."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋出す. Diễn tả một hành động bất ngờ bộc phát hoặc bắt đầu một cách đột ngột ngoài dự đoán."
     },
     {
       "id": "bunpo-400-201",
@@ -2447,7 +2632,8 @@
           "pattern": "〜V出す。",
           "note": "「〜V始める」 là bắt đầu làm gì đó một cách bình thường, còn 「〜V出す」 mang sắc thái đột ngột, bất ngờ hoặc bùng phát."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋始める. Diễn tả khởi điểm của một hành động, sự việc hoặc thói quen mới."
     },
     {
       "id": "bunpo-400-202",
@@ -2464,7 +2650,8 @@
           "pattern": "〜Vにくい。",
           "note": "「〜Vやすい」 diễn tả tính chất dễ làm, còn 「〜Vにくい」 diễn tả tính chất khó làm về mặt vật lý hoặc khách quan."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋やすい. Diễn tả tính chất khách quan dễ thực hiện, hoặc khả năng/xu hướng dễ xảy ra việc gì đó."
     },
     {
       "id": "bunpo-400-203",
@@ -2481,7 +2668,8 @@
           "pattern": "〜Vづらい。",
           "note": "「〜Vにくい」 thường chỉ khó khăn do cấu trúc hoặc tính chất khách quan, còn 「〜Vづらい」 thường chỉ khó khăn do yếu tố tâm lý hoặc cảm xúc cá nhân."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋にくい. Diễn tả đặc tính khách quan của đối tượng khiến việc thực hiện hành động gặp khó khăn."
     },
     {
       "id": "bunpo-400-204",
@@ -2498,7 +2686,8 @@
           "pattern": "〜Vにくい。",
           "note": "「〜Vづらい」 nhấn mạnh sự khó khăn do cảm giác, tâm lý người nói, còn 「〜Vにくい」 nhấn mạnh sự khó khăn do đặc điểm khách quan của sự vật."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます）＋づらい. Diễn tả sự khó khăn do yếu tố chủ quan, tâm lý, sự ngại ngùng hoặc cảm giác khó chịu của người nói."
     },
     {
       "id": "bunpo-400-205",
@@ -2509,7 +2698,8 @@
       "pattern": "〜すぎる・〜すぎだ。",
       "meaningVi": "Quá...",
       "example": "働きすぎるのは健康に良くない。",
-      "exampleVi": "Làm việc quá sức không tốt cho sức khỏe."
+      "exampleVi": "Làm việc quá sức không tốt cho sức khỏe.",
+      "usage": "Vます形（bỏ ます） / Aい（bỏ い） / Aな（bỏ な）＋すぎる / すぎだ. Diễn tả mức độ vượt quá mức bình thường hoặc tiêu chuẩn, thường mang sắc thái chê bai, tiêu cực."
     },
     {
       "id": "bunpo-400-206",
@@ -2526,7 +2716,8 @@
           "pattern": "〜気味。",
           "note": "「〜がち」 dùng cho xu hướng lặp lại nhiều lần mang tính thói quen xấu, còn 「〜気味」 dùng cho cảm giác, trạng thái nhẹ vừa mới chớm xuất hiện."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます） / N ＋ がち. Diễn tả xu hướng hoặc tần suất dễ gặp, dễ xảy ra một tình trạng xấu ngoài ý muốn."
     },
     {
       "id": "bunpo-400-207",
@@ -2543,7 +2734,8 @@
           "pattern": "〜がち。",
           "note": "「〜気味」 diễn tả triệu chứng hoặc cảm giác hơi có xu hướng nhẹ, còn 「〜がち」 diễn tả tần suất hay xảy ra một sự việc không tốt."
         }
-      ]
+      ],
+      "usage": "Vます形（bỏ ます） / N ＋ 気味. Diễn tả mức độ nhẹ hoặc khuynh hướng hơi có dấu hiệu của một trạng thái xấu (thường là sức khỏe, cảm giác)."
     },
     {
       "id": "bunpo-400-208",
@@ -2554,7 +2746,8 @@
       "pattern": "〜げ。",
       "meaningVi": "Nét, vẻ...",
       "example": "彼女の笑顔にはどこか寂しさげなところがあった。",
-      "exampleVi": "Đâu đó trên khuôn mặt tươi cười của cô ấy, thoáng có một nét buồn bã."
+      "exampleVi": "Đâu đó trên khuôn mặt tươi cười của cô ấy, thoáng có một nét buồn bã.",
+      "usage": "Tính từ -i (bỏ i) + げ / Tính từ -na (bỏ na) + げ / V-ます (bỏ masu) + げ. Dùng để diễn tả cảm nhận chủ quan về trạng thái của người hoặc vật qua vẻ bề ngoài."
     },
     {
       "id": "bunpo-400-209",
@@ -2565,7 +2758,8 @@
       "pattern": "〜っぽい。",
       "meaningVi": "Hay..., giống...",
       "example": "妻は忘れっぽくて、困る。",
-      "exampleVi": "Vợ tôi hay quên nên tôi thật khổ sở."
+      "exampleVi": "Vợ tôi hay quên nên tôi thật khổ sở.",
+      "usage": "N / V-casual / Tính từ + っぽい. Dùng để chỉ đặc tính, xu hướng hoặc cảm giác giống với điều gì đó; thường mang sắc thái dễ thay đổi hoặc có khuynh hướng."
     },
     {
       "id": "bunpo-400-210",
@@ -2576,7 +2770,8 @@
       "pattern": "〜だらけだ。",
       "meaningVi": "Toàn là... (những thứ không tốt)",
       "example": "この部屋はゴミだらけだ。",
-      "exampleVi": "Căn phòng này toàn rác là rác"
+      "exampleVi": "Căn phòng này toàn rác là rác",
+      "usage": "N + だらけ. Diễn tả trạng thái một bề mặt hoặc sự vật bị bao phủ, chứa đầy một thứ gì đó, thường là những thứ tiêu cực hoặc không sạch sẽ."
     },
     {
       "id": "bunpo-400-211",
@@ -2587,7 +2782,8 @@
       "pattern": "〜らしい。",
       "meaningVi": "Đậm chất, đúng kiểu...",
       "example": "今日は秋らしい天気だ。",
-      "exampleVi": "Hôm nay thời tiết đúng kiểu mùa thu. (sự thực là mùa thu)"
+      "exampleVi": "Hôm nay thời tiết đúng kiểu mùa thu. (sự thực là mùa thu)",
+      "usage": "N + らしい. Dùng để khẳng định một đối tượng có đầy đủ những tính chất, đặc trưng tiêu biểu nhất của danh từ đó."
     },
     {
       "id": "bunpo-400-212",
@@ -2598,7 +2794,8 @@
       "pattern": "〜みたいだ。",
       "meaningVi": "Giống như... (giống ように nhưng ít trang trọng hơn)",
       "example": "君はまるで子供みたいだね。",
-      "exampleVi": "Cậu nhìn cứ như con nít ấy nhỉ. (thực tế không phải con nít)"
+      "exampleVi": "Cậu nhìn cứ như con nít ấy nhỉ. (thực tế không phải con nít)",
+      "usage": "N / V-casual / Tính từ + みたいだ. Dùng để so sánh hoặc phỏng đoán dựa trên cảm nhận trực quan, mang sắc thái thân mật, gần gũi trong văn nói."
     },
     {
       "id": "bunpo-400-213",
@@ -2609,7 +2806,8 @@
       "pattern": "こそ。",
       "meaningVi": "Chính...",
       "example": "君こそ長い間探していた人だ。",
-      "exampleVi": "Chính em là người anh tìm kiếm bấy lâu nay."
+      "exampleVi": "Chính em là người anh tìm kiếm bấy lâu nay.",
+      "usage": "Danh từ/Trợ từ + こそ. Dùng để nhấn mạnh vào một đối tượng cụ thể, khẳng định chính đối tượng đó (thay vì đối tượng khác) là người/sự việc cần nói đến."
     },
     {
       "id": "bunpo-400-214",
@@ -2620,7 +2818,8 @@
       "pattern": "でも。（đến cả）",
       "meaningVi": "Đến cả",
       "example": "そんなことは子供でも知ってるよ。",
-      "exampleVi": "Chuyện như thế đến cả trẻ con nó cũng biết."
+      "exampleVi": "Chuyện như thế đến cả trẻ con nó cũng biết.",
+      "usage": "Danh từ + でも. Đưa ra một ví dụ cực đoan để nhấn mạnh rằng mức độ thông thường cũng đã có đặc điểm đó, hoặc để coi thường khả năng."
     },
     {
       "id": "bunpo-400-215",
@@ -2631,7 +2830,8 @@
       "pattern": "でも。（như là）",
       "meaningVi": "Như là...",
       "example": "コーヒーでも飲まない？",
-      "exampleVi": "Uống gì đó như là cà phê không?"
+      "exampleVi": "Uống gì đó như là cà phê không?",
+      "usage": "Danh từ + でも. Dùng để gợi ý hoặc đưa ra một ví dụ tiêu biểu nhẹ nhàng, không nhất thiết chỉ giới hạn ở sự vật đó."
     },
     {
       "id": "bunpo-400-216",
@@ -2642,7 +2842,8 @@
       "pattern": "も。",
       "meaningVi": "Đến cả, ngay cả...",
       "example": "足が痛いから、立つこともできない。",
-      "exampleVi": "Đau chân, đến cả đứng cũng không thể."
+      "exampleVi": "Đau chân, đến cả đứng cũng không thể.",
+      "usage": "Danh từ + も. Dùng để liệt kê, nhấn mạnh rằng sự việc không chỉ dừng lại ở mức độ thông thường mà còn mở rộng đến cả đối tượng được nhắc tới."
     },
     {
       "id": "bunpo-400-217",
@@ -2653,7 +2854,8 @@
       "pattern": "も…（phủ định）",
       "meaningVi": "Cũng không",
       "example": "財布は空っぽだ。千ドンも残ってない。",
-      "exampleVi": "Ví trống rỗng, một nghìn cũng không còn."
+      "exampleVi": "Ví trống rỗng, một nghìn cũng không còn.",
+      "usage": "Danh từ + も + V-ない. Dùng để nhấn mạnh sự phủ định triệt để, ngay cả những số lượng nhỏ nhất cũng không tồn tại hoặc không thể thực hiện."
     },
     {
       "id": "bunpo-400-218",
@@ -2664,7 +2866,8 @@
       "pattern": "まで。（đến cả）",
       "meaningVi": "Đến cả...",
       "example": "赤ん坊が泣いていると、僕まで泣きたい。",
-      "exampleVi": "Con khóc đến cả tôi cũng muốn khóc theo."
+      "exampleVi": "Con khóc đến cả tôi cũng muốn khóc theo.",
+      "usage": "Danh từ + まで. Dùng để bày tỏ sự ngạc nhiên hoặc nhấn mạnh phạm vi ảnh hưởng lan rộng đến cả những đối tượng không ngờ tới."
     },
     {
       "id": "bunpo-400-219",
@@ -2675,7 +2878,8 @@
       "pattern": "まで。（cho đến）",
       "meaningVi": "Cho đến...",
       "example": "「飛行場で」君が戻ってくるまでずっと待っているよ。",
-      "exampleVi": "[Ở sân bay] Em sẽ mãi đợi anh đến khi anh trở về."
+      "exampleVi": "[Ở sân bay] Em sẽ mãi đợi anh đến khi anh trở về.",
+      "usage": "Danh từ (thời gian/địa điểm) + まで. Chỉ giới hạn của một khoảng thời gian hoặc địa điểm mà hành động, trạng thái kéo dài tới đó rồi kết thúc."
     },
     {
       "id": "bunpo-400-220",
@@ -2686,7 +2890,8 @@
       "pattern": "くらい・ぐらい。",
       "meaningVi": "Cỡ như...",
       "example": "簡単なあいさつぐらいなら日本語で言える。",
-      "exampleVi": "Nếu cỡ chào hỏi đơn giản thì tôi nói được bằng tiếng Nhật."
+      "exampleVi": "Nếu cỡ chào hỏi đơn giản thì tôi nói được bằng tiếng Nhật.",
+      "usage": "N + くらい, V-る + くらい. Dùng để nhấn mạnh mức độ thấp hoặc nhẹ nhàng của sự vật, sự việc."
     },
     {
       "id": "bunpo-400-221",
@@ -2697,7 +2902,8 @@
       "pattern": "など・なんか・なんて。",
       "meaningVi": "Các kiểu, cỡ như, cái loại...",
       "example": "お礼など要りませんよ。",
-      "exampleVi": "Cảm ơn các kiểu thì không cần đâu."
+      "exampleVi": "Cảm ơn các kiểu thì không cần đâu.",
+      "usage": "N + など/なんか/なんて. Dùng khi liệt kê ví dụ hoặc bày tỏ thái độ xem nhẹ, coi thường sự vật, sự việc được nhắc đến."
     },
     {
       "id": "bunpo-400-222",
@@ -2708,7 +2914,8 @@
       "pattern": "〜どうして・なぜ〜かというと、からだ。",
       "meaningVi": "Tại sao ... là vì...",
       "example": "どうして今日私が怒ったかというと、学生が宿題をやっていなかったからだ。",
-      "exampleVi": "Tại sao hôm nay tôi lại cáu gắt, là vì học sinh không làm bài tập."
+      "exampleVi": "Tại sao hôm nay tôi lại cáu gắt, là vì học sinh không làm bài tập.",
+      "usage": "Câu hỏi nghi vấn + ～かというと、～からだ. Dùng để nêu lý do, nguyên nhân cụ thể cho một vấn đề vừa được đề cập phía trước."
     },
     {
       "id": "bunpo-400-223",
@@ -2719,7 +2926,8 @@
       "pattern": "〜といった。",
       "meaningVi": "Có thể kể đến như...",
       "example": "私の得意な科目は数学や物理や化学といった理学系だ。",
-      "exampleVi": "Thế mạnh của tôi là các môn khoa học tự nhiên, có thể kể đến như toán, lí, hóa."
+      "exampleVi": "Thế mạnh của tôi là các môn khoa học tự nhiên, có thể kể đến như toán, lí, hóa.",
+      "usage": "N + といった + N. Dùng để đưa ra các ví dụ cụ thể nhằm giải thích hoặc định nghĩa rõ hơn cho danh từ đứng sau."
     },
     {
       "id": "bunpo-400-224",
@@ -2730,7 +2938,8 @@
       "pattern": "〜といえば…〜といったら…〜というと。",
       "meaningVi": "Nói về ~, thì...",
       "example": "日本料理といえば、すし、てんぷらは代表的なものだ。",
-      "exampleVi": "Nói về món ăn Nhật Bản thì điển hình là sushi, tempura."
+      "exampleVi": "Nói về món ăn Nhật Bản thì điển hình là sushi, tempura.",
+      "usage": "N + といえば/というと/といったら. Dùng khi muốn lấy một chủ đề làm gợi ý để dẫn dắt câu chuyện hoặc đưa ra nhận xét về chủ đề đó."
     },
     {
       "id": "bunpo-400-225",
@@ -2741,7 +2950,8 @@
       "pattern": "〜といっても…",
       "meaningVi": "Dù nói là ~ nhưng...",
       "example": "料理ができるといっても、ゆで野菜、卵焼きぐらいだよ。",
-      "exampleVi": "Dù nói là biết nấu ăn nhưng mà chỉ cỡ trứng rán, rau luộc thôi."
+      "exampleVi": "Dù nói là biết nấu ăn nhưng mà chỉ cỡ trứng rán, rau luộc thôi.",
+      "usage": "V/Adj/N-thể thường + といっても. Dùng để đính chính hoặc bổ sung, cho thấy thực tế phía sau không đáng kể như điều đã nói ở vế trước."
     },
     {
       "id": "bunpo-400-226",
@@ -2752,7 +2962,8 @@
       "pattern": "〜から…にかけて。",
       "meaningVi": "Từ ~ đến... (khoảng không gian và thời gian)",
       "example": "明日は関東地方から東北地方にかけて雨が降るでしょう。",
-      "exampleVi": "Ngày mai có lẽ sẽ mưa từ vùng Kanto đến vùng Tohoku."
+      "exampleVi": "Ngày mai có lẽ sẽ mưa từ vùng Kanto đến vùng Tohoku.",
+      "usage": "N (thời gian/địa điểm) + から + N + にかけて. Dùng để chỉ khoảng không gian hoặc thời gian kéo dài, mang tính ước lệ từ điểm này sang điểm kia."
     },
     {
       "id": "bunpo-400-227",
@@ -2763,7 +2974,8 @@
       "pattern": "〜を…として・〜をに。",
       "meaningVi": "Lấy ~ làm... (trung tâm, duyên cớ)",
       "example": "日本の世界地図は日本を中心として書かれていた。",
-      "exampleVi": "Bản đồ thế giới của Nhật được vẽ lấy nước Nhật làm trung tâm."
+      "exampleVi": "Bản đồ thế giới của Nhật được vẽ lấy nước Nhật làm trung tâm.",
+      "usage": "N + を + として/にして. Dùng để xác định mục tiêu, đối tượng hoặc căn cứ chính để thực hiện một hành động nào đó."
     },
     {
       "id": "bunpo-400-228",
@@ -2774,7 +2986,8 @@
       "pattern": "〜はもちろん…も、〜は…",
       "meaningVi": "Đương nhiên, nhưng cả...cũng",
       "example": "この漫画は子供はもちろん、大人も大好きだ。",
-      "exampleVi": "Quyển truyện tranh này trẻ con thì đương nhiên nhưng ngay cả người lớn cũng rất thích."
+      "exampleVi": "Quyển truyện tranh này trẻ con thì đương nhiên nhưng ngay cả người lớn cũng rất thích.",
+      "usage": "N + はもちろん + N + も. Dùng để khẳng định vế sau cũng giống như vế trước, mang tính chất \"đã đành... mà ngay cả... cũng...\"."
     },
     {
       "id": "bunpo-400-229",
@@ -2785,7 +2998,8 @@
       "pattern": "〜に比べて（〜に比べると）。",
       "meaningVi": "So với... thì",
       "example": "私は書くのに比べると、会話力が弱い。",
-      "exampleVi": "Tôi thì khả năng nói kém hơn so với viết."
+      "exampleVi": "Tôi thì khả năng nói kém hơn so với viết.",
+      "usage": "V/Adj/N-thể thường/đoạn văn + に比べて/に比べると. Dùng để so sánh hai sự vật, sự việc dựa trên những điểm khác biệt hoặc tương quan giữa chúng."
     },
     {
       "id": "bunpo-400-230",
@@ -2796,7 +3010,8 @@
       "pattern": "〜に加えて。",
       "meaningVi": "Ngoài ~ còn ..., ngoài ~ thêm vào đó",
       "example": "田中さんの文章は文法の間違いが少ないことに加えて主張もはっきりしてて読みやすい。",
-      "exampleVi": "Bài viết của anh Tanaka ngoài việc mắc ít lỗi ngữ pháp, quan điểm còn rất rõ ràng"
+      "exampleVi": "Bài viết của anh Tanaka ngoài việc mắc ít lỗi ngữ pháp, quan điểm còn rất rõ ràng",
+      "usage": "N + に加えて. Dùng để chỉ việc cộng thêm một yếu tố mới vào tình trạng đã có, mang nghĩa \"không chỉ mà còn...\"."
     },
     {
       "id": "bunpo-400-231",
@@ -2807,7 +3022,8 @@
       "pattern": "〜をはじめ。",
       "meaningVi": "Chẳng hạn như...",
       "example": "現在の携帯はカメラをはじめ、いろいろな機能がついている。",
-      "exampleVi": "Điện thoại di động hiện nay có rất nhiều tính năng, chẳng hạn như camera."
+      "exampleVi": "Điện thoại di động hiện nay có rất nhiều tính năng, chẳng hạn như camera.",
+      "usage": "N + をはじめ. Dùng để đưa ra ví dụ điển hình, quan trọng nhất trong một nhóm, khẳng định những thứ khác cũng tương tự."
     },
     {
       "id": "bunpo-400-232",
@@ -2818,7 +3034,8 @@
       "pattern": "〜に違いない。",
       "meaningVi": "Chắc chắn là, ~ thì không sai.",
       "example": "夜になっても電気がつかない。彼らは出かけているに違いない。",
-      "exampleVi": "Đêm rồi mà đèn không bật. Chắc chắn họ ra ngoài rồi."
+      "exampleVi": "Đêm rồi mà đèn không bật. Chắc chắn họ ra ngoài rồi.",
+      "usage": "V-thông thường, A-i, A-na/N + に違いない. Dùng để khẳng định một suy đoán chủ quan của người nói với mức độ tin tưởng rất cao."
     },
     {
       "id": "bunpo-400-233",
@@ -2829,7 +3046,8 @@
       "pattern": "〜につれて。",
       "meaningVi": "Cùng với, càng...",
       "example": "試験が近づくにつれて、だんだん心配になってきた。",
-      "exampleVi": "Kì thi càng đến gần, tôi càng lo lắng."
+      "exampleVi": "Kì thi càng đến gần, tôi càng lo lắng.",
+      "usage": "V-từ điển, N + につれて. Diễn tả sự biến đổi cùng chiều của hai sự vật hiện tượng. Dùng trong văn viết hoặc tình huống trang trọng."
     },
     {
       "id": "bunpo-400-234",
@@ -2840,7 +3058,8 @@
       "pattern": "〜に従って。",
       "meaningVi": "Cùng với, càng...",
       "example": "携帯電話が普及するに従って、通話料も安くなった。",
-      "exampleVi": "Cùng với việc điện thoại di động trở nên phổ biến, giá cước cũng trở nên rẻ hơn."
+      "exampleVi": "Cùng với việc điện thoại di động trở nên phổ biến, giá cước cũng trở nên rẻ hơn.",
+      "usage": "V-từ điển, N + に従って. Diễn tả sự biến đổi kéo theo của một sự vật khi sự vật khác thay đổi. Thường dùng trong văn viết và mang sắc thái khách quan hơn につれて."
     },
     {
       "id": "bunpo-400-235",
@@ -2851,7 +3070,8 @@
       "pattern": "〜最中に。",
       "meaningVi": "Trong lúc ... thì (sự bất ngờ)",
       "example": "着替えをしている最中に、玄関のチャイムが鳴った。",
-      "exampleVi": "Trong lúc đang thay quần áo, thì chuông cửa reo."
+      "exampleVi": "Trong lúc đang thay quần áo, thì chuông cửa reo.",
+      "usage": "V-ている, N + の + 最中に. Chỉ sự việc xảy ra trong lúc đang làm hành động khác, thường gây cản trở hoặc làm ngắt quãng hành động đó."
     },
     {
       "id": "bunpo-400-236",
@@ -2862,7 +3082,8 @@
       "pattern": "〜Vで以来。",
       "meaningVi": "Kể từ khi...",
       "example": "卒業して以来、忙しくて一度も大学を訪れていない。",
-      "exampleVi": "Kể từ khi tốt nghiệp, vì bận nên tôi chưa một lần quay lại trường đại học."
+      "exampleVi": "Kể từ khi tốt nghiệp, vì bận nên tôi chưa một lần quay lại trường đại học.",
+      "usage": "V-て + 以来. Nhấn mạnh khoảng thời gian kéo dài từ khi một hành động/sự việc xảy ra trong quá khứ cho đến nay."
     },
     {
       "id": "bunpo-400-237",
@@ -2873,7 +3094,8 @@
       "pattern": "〜を通じて（を通して）",
       "meaningVi": "Thông qua, bằng cách, trong suốt...",
       "example": "私はサークルの先輩を通じて彼女と知り合った。",
-      "exampleVi": "Tôi quen cô ấy qua các tiền bối trong câu lạc bộ."
+      "exampleVi": "Tôi quen cô ấy qua các tiền bối trong câu lạc bộ.",
+      "usage": "N + を通じて/を通して. Diễn tả phương tiện, con đường, hoặc khoảng thời gian xuyên suốt để thực hiện một hành động hoặc tình trạng nào đó."
     },
     {
       "id": "bunpo-400-238",
@@ -2884,7 +3106,8 @@
       "pattern": "〜に決まっている。",
       "meaningVi": "Chắc chắn là...",
       "example": "彼女と結婚したいといえば、両親が反対するに決まっている。",
-      "exampleVi": "Nếu tôi nói là tôi muốn lấy cô ấy, chắc chắn bố mẹ sẽ phản đối."
+      "exampleVi": "Nếu tôi nói là tôi muốn lấy cô ấy, chắc chắn bố mẹ sẽ phản đối.",
+      "usage": "V-thông thường, A-i, A-na/N + だ + に決まっている. Dùng khi người nói cho rằng kết quả là hiển nhiên, không thể khác được, mang tính khẳng định mạnh mẽ hơn に違いない."
     },
     {
       "id": "bunpo-400-239",
@@ -2895,7 +3118,8 @@
       "pattern": "〜をもとにして（に基づいて）",
       "meaningVi": "Dựa trên...",
       "example": "この映画は実際に起こった事件を元にして（に基づいて）作られた。",
-      "exampleVi": "Bộ phim này được làm dựa trên vụ án đã xảy ra trong thực tế."
+      "exampleVi": "Bộ phim này được làm dựa trên vụ án đã xảy ra trong thực tế.",
+      "usage": "N + をもとにして/に基づいて. Dùng để chỉ căn cứ, cơ sở hoặc tài liệu tham khảo để làm ra một vật hoặc đưa ra một quyết định nào đó."
     },
     {
       "id": "bunpo-400-240",
@@ -2906,7 +3130,8 @@
       "pattern": "〜からといって。",
       "meaningVi": "Tuy là ... nhưng chưa chắc đã",
       "example": "日本人だからといって、だれもが日本語が教えられるとは限らない。",
-      "exampleVi": "Là người Nhật nhưng không phải ai cũng có thể dạy được tiếng Nhật."
+      "exampleVi": "Là người Nhật nhưng không phải ai cũng có thể dạy được tiếng Nhật.",
+      "usage": "V-thông thường, A-i, A-na/N + だ + からといって. Dùng để phủ nhận một suy luận hiển nhiên; mặc dù có lý do A nhưng chưa chắc đã dẫn đến kết quả B."
     },
     {
       "id": "bunpo-400-241",
@@ -2917,7 +3142,8 @@
       "pattern": "〜わりには。",
       "meaningVi": "So với ~ thì, thế mà",
       "example": "この仕事はこんなに大変なわりには、給料が安い。",
-      "exampleVi": "Công việc này vất vả thế mà lương rẻ mạt quá."
+      "exampleVi": "Công việc này vất vả thế mà lương rẻ mạt quá.",
+      "usage": "V-thông thường, A-i, A-na/N + だ + わりには. Diễn tả kết quả không tương xứng với tiêu chuẩn hoặc mức độ dự kiến của sự việc đứng trước."
     },
     {
       "id": "bunpo-400-242",
@@ -2928,7 +3154,8 @@
       "pattern": "〜くせに。",
       "meaningVi": "Dù... (thể hiện sự chê trách, khinh miệt - vẫn nói)",
       "example": "彼は今日テストがあることを知っているくせに、私に教えてくれなかった。",
-      "exampleVi": "Hắn biết hôm nay có bài kiểm tra nhưng đã không nói cho tôi biết."
+      "exampleVi": "Hắn biết hôm nay có bài kiểm tra nhưng đã không nói cho tôi biết.",
+      "usage": "V-thông thường, A-i, A-na + な/N + の + くせに. Dùng khi muốn trách móc, chê bai hoặc thể hiện sự bất mãn vì đối phương làm ngược lại với kỳ vọng hoặc hoàn cảnh của họ."
     },
     {
       "id": "bunpo-400-243",
@@ -2939,7 +3166,8 @@
       "pattern": "〜際に…",
       "meaningVi": "Khi..., dịp...",
       "example": "アメリカの大統領は来日した際に、わたしたちの大学でスピーチを行った。",
-      "exampleVi": "Tổng thống Hoa Kỳ đã có bài phát biểu tại trường đại học của chúng ta khi ngài đến viếng thăm Nhật Bản."
+      "exampleVi": "Tổng thống Hoa Kỳ đã có bài phát biểu tại trường đại học của chúng ta khi ngài đến viếng thăm Nhật Bản.",
+      "usage": "V-từ điển/V-た, N + の + 際に. Là cách nói trang trọng của 'toki' (lúc, khi), thường dùng trong thông báo, văn bản hướng dẫn hoặc tình huống lịch sự."
     },
     {
       "id": "bunpo-400-244",
@@ -2950,7 +3178,8 @@
       "pattern": "〜に際して…",
       "meaningVi": "Khi..., dịp...",
       "example": "工事関係者は工事を始めるに際して、近所の住民にあいさつをして回った。",
-      "exampleVi": "Đơn vị thi công xây dựng đã đi một vòng chào hỏi những người dân sống gần trước khi họ bắt đầu khởi công"
+      "exampleVi": "Đơn vị thi công xây dựng đã đi một vòng chào hỏi những người dân sống gần trước khi họ bắt đầu khởi công",
+      "usage": "N + に際して / V-る + に際して. Dùng trong các tình huống trang trọng, mang tính nghi thức hoặc dịp đặc biệt, không dùng cho việc sinh hoạt thường ngày."
     },
     {
       "id": "bunpo-400-245",
@@ -2961,7 +3190,8 @@
       "pattern": "〜にあたって…",
       "meaningVi": "Khi...",
       "example": "日本で国際会議を開催するにあたり、関係各方面からの協力を得た。",
-      "exampleVi": "Chúng ta đã nhận được rất nhiều sự hỗ trợ từ những người có liên quan khi tổ chức hội nghị quốc tế tại Nhật Bản"
+      "exampleVi": "Chúng ta đã nhận được rất nhiều sự hỗ trợ từ những người có liên quan khi tổ chức hội nghị quốc tế tại Nhật Bản",
+      "usage": "N + にあたって / V-る + にあたって. Thường dùng khi bắt đầu một sự kiện quan trọng, một công việc mới hoặc dự định mang tính tích cực."
     },
     {
       "id": "bunpo-400-246",
@@ -2972,7 +3202,8 @@
       "pattern": "〜たとたん（に）",
       "meaningVi": "Vừa...thì...",
       "example": "山の頂上でワインを一口飲んだとたんに、めまいがした。",
-      "exampleVi": "Ở trên đỉnh núi, tôi vừa uống một ngụm rượu vang thì bị chóng mặt."
+      "exampleVi": "Ở trên đỉnh núi, tôi vừa uống một ngụm rượu vang thì bị chóng mặt.",
+      "usage": "V-た + とたん(に). Diễn tả sự ngạc nhiên khi một hành động xảy ra ngay sau hành động kia; không dùng với ý chí hay mệnh lệnh."
     },
     {
       "id": "bunpo-400-247",
@@ -2983,7 +3214,8 @@
       "pattern": "〜（か）と思うと、〜（か）と思ったら…",
       "meaningVi": "Vừa thấy... thì đã...",
       "example": "やっと部屋が片付いたかと思ったら、子供たちがすぐまた散らかした。",
-      "exampleVi": "Phòng vừa được dọn gọn gàng xong bọn trẻ con đã ngay lập tức làm bừa bộn rồi."
+      "exampleVi": "Phòng vừa được dọn gọn gàng xong bọn trẻ con đã ngay lập tức làm bừa bộn rồi.",
+      "usage": "V-た + かと思うと / V-た + かと思ったら. Diễn tả cảm giác bất ngờ khi sự việc thay đổi ngay tức thì, thường mang sắc thái tiêu cực hoặc ngoài dự đoán."
     },
     {
       "id": "bunpo-400-248",
@@ -2994,7 +3226,8 @@
       "pattern": "〜か〜ないかのうちに",
       "meaningVi": "Chưa kịp...đã..., vừa mới...đã",
       "example": "一郎はベッドに横になるかならないかのうちに、ぐっすり眠ってしまった。",
-      "exampleVi": "Thằng bé Ichiro chưa kịp đặt lưng xuống giường nó đã ngủ say rồi."
+      "exampleVi": "Thằng bé Ichiro chưa kịp đặt lưng xuống giường nó đã ngủ say rồi.",
+      "usage": "V-る + か + V-ない + かのうちに. Diễn tả hành động tiếp theo xảy ra gần như cùng lúc với hành động trước, nhấn mạnh vào tốc độ nhanh chóng."
     },
     {
       "id": "bunpo-400-249",
@@ -3005,7 +3238,8 @@
       "pattern": "〜（よう）としている",
       "meaningVi": "Sắp...",
       "example": "さあ、決勝戦が今、始まろうとしています。みんな緊張しています。",
-      "exampleVi": "Trận chung kết sắp bắt đầu nên mọi người đều căng thẳng."
+      "exampleVi": "Trận chung kết sắp bắt đầu nên mọi người đều căng thẳng.",
+      "usage": "V-よう + としている. Dùng cho các sự vật, hiện tượng đang ở thời điểm chuẩn bị bắt đầu hoặc kết thúc ngay tức thì."
     },
     {
       "id": "bunpo-400-250",
@@ -3016,7 +3250,8 @@
       "pattern": "〜つつある",
       "meaningVi": "Ngày càng..., dần dần",
       "example": "この会社は現在発展しつつあり、将来が期待される。",
-      "exampleVi": "Công ty này ngày một phát triển, rất nhiều người kỳ vọng vào tương lai của nó."
+      "exampleVi": "Công ty này ngày một phát triển, rất nhiều người kỳ vọng vào tương lai của nó.",
+      "usage": "V-ます + つつある. Dùng để mô tả một trạng thái đang dần dần thay đổi, mang tính khách quan và thường xuất hiện trong văn viết."
     },
     {
       "id": "bunpo-400-251",
@@ -3027,7 +3262,8 @@
       "pattern": "〜つつ。",
       "meaningVi": "Vừa...vừa...",
       "example": "将来の仕事のこと、お金のことなどを考えつつ、進路を選ばなければならない。",
-      "exampleVi": "Bạn vừa phải tính toán đến công việc và kế hoạch tài chính tương lai vừa phải lên định hướng các con đường đi"
+      "exampleVi": "Bạn vừa phải tính toán đến công việc và kế hoạch tài chính tương lai vừa phải lên định hướng các con đường đi",
+      "usage": "V-ます + つつ. Vế trước và vế sau diễn ra đồng thời cùng một chủ thể. Ngoài nghĩa 'vừa...vừa', còn có thể dùng để diễn tả sự đối lập."
     },
     {
       "id": "bunpo-400-252",
@@ -3038,7 +3274,8 @@
       "pattern": "〜上（で）…",
       "meaningVi": "Sau khi...",
       "example": "文書が保存されていることを確かめた上で、パソコンをシャットダウンしてください。",
-      "exampleVi": "Sau khi xác nhận đã lưu văn bản, hãy tắt máy tính đi."
+      "exampleVi": "Sau khi xác nhận đã lưu văn bản, hãy tắt máy tính đi.",
+      "usage": "V-る/V-た + 上で / N + の上で. Nhấn mạnh việc thực hiện hành động ở vế trước là điều kiện tiên quyết, làm tiền đề để thực hiện hành động sau."
     },
     {
       "id": "bunpo-400-253",
@@ -3049,7 +3286,8 @@
       "pattern": "〜次第…",
       "meaningVi": "Sau khi...",
       "example": "詳しいことが分かり次第、ご連絡いたします。",
-      "exampleVi": "Sau khi hiểu chi tiết cụ thể tôi sẽ liên lạc lại."
+      "exampleVi": "Sau khi hiểu chi tiết cụ thể tôi sẽ liên lạc lại.",
+      "usage": "V-ます + 次第. Dùng khi muốn nhấn mạnh việc sẽ thực hiện ngay hành động tiếp theo sau khi hành động trước kết thúc; dùng nhiều trong công việc, thư từ."
     },
     {
       "id": "bunpo-400-254",
@@ -3060,7 +3298,8 @@
       "pattern": "〜からして…",
       "meaningVi": "Ngay từ...",
       "example": "さすがプロの選手。走り方からして私とは違う。",
-      "exampleVi": "Quả là vận động viên chuyên nghiệp có khác, ngay từ cách chạy cũng khác tôi."
+      "exampleVi": "Quả là vận động viên chuyên nghiệp có khác, ngay từ cách chạy cũng khác tôi.",
+      "usage": "N + からして. Dùng khi lấy một ví dụ nhỏ hoặc một khía cạnh cụ thể để đưa ra phán đoán hoặc đánh giá toàn bộ sự việc."
     },
     {
       "id": "bunpo-400-255",
@@ -3071,7 +3310,8 @@
       "pattern": "〜限り…",
       "meaningVi": "Trong phạm vi...",
       "example": "環境を守るために私もできる限りのことをしたい。",
-      "exampleVi": "Tôi muốn làm những việc trong phạm vi tôi có thể làm để bảo vệ môi trường."
+      "exampleVi": "Tôi muốn làm những việc trong phạm vi tôi có thể làm để bảo vệ môi trường.",
+      "usage": "V-る/V-ている/V-ない + 限り / N + の限り. Diễn tả giới hạn của phạm vi hoặc mức độ, thường kết hợp với 'できる限り' (trong phạm vi có thể)."
     },
     {
       "id": "bunpo-400-256",
@@ -3082,7 +3322,8 @@
       "pattern": "〜だけ…",
       "meaningVi": "Giới hạn phạm vi",
       "example": "今日は部長に言いたいだけの不満を全部言って、すっきりした。",
-      "exampleVi": "Hôm nay đã nói ra hết những bất mãn muốn nói với trưởng phòng, thật thoải mái."
+      "exampleVi": "Hôm nay đã nói ra hết những bất mãn muốn nói với trưởng phòng, thật thoải mái.",
+      "usage": "V-る/V-た/N + だけ. Dùng để nhấn mạnh việc thực hiện triệt để hoặc đến mức tối đa những gì mình muốn hoặc khả năng cho phép."
     },
     {
       "id": "bunpo-400-257",
@@ -3093,7 +3334,8 @@
       "pattern": "〜に限り",
       "meaningVi": "Chỉ riêng...",
       "example": "このチラシをご持参のお客様に限り、すべての商品を1割引でお買い求めいただけます。",
-      "exampleVi": "Chỉ riêng những vị khách mang theo tờ quảng cáo này mới có thể mua khuyến mãi 10% với toàn bộ sản phẩm."
+      "exampleVi": "Chỉ riêng những vị khách mang theo tờ quảng cáo này mới có thể mua khuyến mãi 10% với toàn bộ sản phẩm.",
+      "usage": "N + に限り. Dùng trong thông báo chính thức hoặc biển hiệu để nêu lên một ngoại lệ đặc biệt dành riêng cho một đối tượng cụ thể."
     },
     {
       "id": "bunpo-400-258",
@@ -3104,7 +3346,8 @@
       "pattern": "〜限り（は）",
       "meaningVi": "Chừng nào...thì...",
       "example": "この町に住んでいる限り、いつでも新鮮な食べ物が手に入る。",
-      "exampleVi": "Chừng nào còn sống ở thành phố này, thì bất cứ lúc nào cũng có thể có được đồ ăn tươi ngon."
+      "exampleVi": "Chừng nào còn sống ở thành phố này, thì bất cứ lúc nào cũng có thể có được đồ ăn tươi ngon.",
+      "usage": "V-thể thường/Adj-i/Adj-na-な/N-である + 限り（は）. Diễn tả một trạng thái kéo dài liên tục trong suốt khoảng thời gian điều kiện ở vế trước còn đúng."
     },
     {
       "id": "bunpo-400-259",
@@ -3115,7 +3358,8 @@
       "pattern": "〜限りでは",
       "meaningVi": "Trong phạm vi...",
       "example": "今回の調査の限りでは、書類にミスはなかった。",
-      "exampleVi": "Trong phạm vi điều tra lần này, không có lỗi trên giấy tờ."
+      "exampleVi": "Trong phạm vi điều tra lần này, không có lỗi trên giấy tờ.",
+      "usage": "V-thể thường/Adj-i/Adj-na-な/N-である + 限りでは. Dùng để giới hạn nguồn tin hoặc phạm vi quan sát làm căn cứ cho một phán đoán hoặc kết luận."
     },
     {
       "id": "bunpo-400-260",
@@ -3126,7 +3370,8 @@
       "pattern": "〜に限って",
       "meaningVi": "Riêng..., đúng vào..., ai chứ riêng...",
       "example": "普段酒などあまり飲まない彼が、今日に限ってかなり飲んだ。何かあったんだろうか。",
-      "exampleVi": "Hắn ta bình thường chẳng mấy khi uống rượu nhưng riêng hôm nay lại uống khá nhiều, có lẽ là có chuyện gì rồi."
+      "exampleVi": "Hắn ta bình thường chẳng mấy khi uống rượu nhưng riêng hôm nay lại uống khá nhiều, có lẽ là có chuyện gì rồi.",
+      "usage": "N + に限って. Dùng để chỉ ra một sự việc trái ngược với lẽ thường hoặc kỳ vọng, thường mang sắc thái đáng tiếc hoặc ngạc nhiên."
     },
     {
       "id": "bunpo-400-261",
@@ -3137,7 +3382,8 @@
       "pattern": "〜に限らず",
       "meaningVi": "Không chỉ...mà...",
       "example": "この記念館は休日に限らず一年中入館者が多い。",
-      "exampleVi": "Bảo tàng này không chỉ ngày nghỉ, mà quanh năm khách vào tham quan rất nhiều."
+      "exampleVi": "Bảo tàng này không chỉ ngày nghỉ, mà quanh năm khách vào tham quan rất nhiều.",
+      "usage": "N + に限らず. Dùng để mở rộng phạm vi, khẳng định rằng không chỉ đối tượng đó mà các đối tượng khác cũng thuộc cùng một trạng thái."
     },
     {
       "id": "bunpo-400-262",
@@ -3148,7 +3394,8 @@
       "pattern": "〜のみならず…",
       "meaningVi": "Không chỉ...mà...",
       "example": "電気代のみならず、ガス代や水道代も値上がりするようだ。",
-      "exampleVi": "Không chỉ tiền điện, mà hình như tiền gas và tiền nước cũng tăng giá."
+      "exampleVi": "Không chỉ tiền điện, mà hình như tiền gas và tiền nước cũng tăng giá.",
+      "usage": "N/V-thể thường (Adj-na/N bỏ だ + である) + のみならず. Cách diễn đạt trang trọng, dùng khi muốn thêm một thông tin bổ trợ có cùng mức độ hoặc cao hơn so với vế đầu."
     },
     {
       "id": "bunpo-400-263",
@@ -3159,7 +3406,8 @@
       "pattern": "〜ばかりか",
       "meaningVi": "Không chỉ...mà còn...",
       "example": "友達ばかりか親兄弟も彼の居場所を知らない。",
-      "exampleVi": "Không chỉ bạn bè, mà ngay cả bố mẹ anh em không biết chỗ ở của hắn ta."
+      "exampleVi": "Không chỉ bạn bè, mà ngay cả bố mẹ anh em không biết chỗ ở của hắn ta.",
+      "usage": "V-thể thường/Adj-i/Adj-na-な/N-である + ばかりか. Diễn tả ý nghĩa \"không chỉ A mà còn thêm B\", thường dùng để nhấn mạnh sự bất ngờ hoặc mức độ cao hơn của vế sau."
     },
     {
       "id": "bunpo-400-264",
@@ -3170,7 +3418,8 @@
       "pattern": "〜はもとより…",
       "meaningVi": "Thì đương nhiên...cũng...",
       "example": "たばこは本人はもとより、周りの人にも害を及ぼす。",
-      "exampleVi": "Thuốc lá với bản thân người hút thì đương nhiên rồi, tác hại còn lan đến cả những người xung quanh nữa."
+      "exampleVi": "Thuốc lá với bản thân người hút thì đương nhiên rồi, tác hại còn lan đến cả những người xung quanh nữa.",
+      "usage": "N + はもとより. Dùng để khẳng định vế A là điều đương nhiên, từ đó nhấn mạnh rằng vế B cũng đạt được kết quả tương tự hoặc hơn thế."
     },
     {
       "id": "bunpo-400-265",
@@ -3181,7 +3430,8 @@
       "pattern": "〜上（に）",
       "meaningVi": "Không những...mà còn...",
       "example": "田中さんには仕事を手伝ってもらった上に、仕事の後、ごちそうになった。",
-      "exampleVi": "Không những được anh Tanaka giúp đỡ công việc mà sau đấy còn được ăn khao nữa."
+      "exampleVi": "Không những được anh Tanaka giúp đỡ công việc mà sau đấy còn được ăn khao nữa.",
+      "usage": "V-thể thường/Adj-i/Adj-na-な/N-である + 上（に）. Dùng để liệt kê hai tính chất cùng tốt hoặc cùng xấu, cho thấy sự cộng hưởng của các sự việc."
     },
     {
       "id": "bunpo-400-266",
@@ -3192,7 +3442,8 @@
       "pattern": "〜に関して",
       "meaningVi": "Liên quan đến...",
       "example": "高齢者の生活に関するアンケートにご協力ください。",
-      "exampleVi": "Hãy hợp tác trong cuộc khảo sát liên quan đến đời sống của người cao tuổi."
+      "exampleVi": "Hãy hợp tác trong cuộc khảo sát liên quan đến đời sống của người cao tuổi.",
+      "usage": "N + に関して. Dùng trong văn viết hoặc tình huống trang trọng để chỉ chủ đề của một nội dung, sự việc nào đó."
     },
     {
       "id": "bunpo-400-267",
@@ -3203,7 +3454,8 @@
       "pattern": "〜をめぐって…",
       "meaningVi": "Xoay quanh...",
       "example": "親が残した土地をめぐって親族が争っている。",
-      "exampleVi": "Người thân trong gia đình tranh cãi xoay quanh vấn đề đất đai mà ông cha để lại."
+      "exampleVi": "Người thân trong gia đình tranh cãi xoay quanh vấn đề đất đai mà ông cha để lại.",
+      "usage": "N + をめぐって. Diễn tả việc có nhiều người cùng quan tâm, tranh luận hoặc xung đột về một vấn đề hoặc một chủ đề duy nhất."
     },
     {
       "id": "bunpo-400-268",
@@ -3214,7 +3466,8 @@
       "pattern": "〜にかけては",
       "meaningVi": "Về...thì...",
       "example": "私は安い材料でおいしい料理を作ることにかけては誰にも負けませんよ。",
-      "exampleVi": "Tôi về việc làm món ăn ngon từ nguyên liệu rẻ tiền ấy, thì chẳng chịu thua ai đâu nhé."
+      "exampleVi": "Tôi về việc làm món ăn ngon từ nguyên liệu rẻ tiền ấy, thì chẳng chịu thua ai đâu nhé.",
+      "usage": "N + にかけては. Dùng để nhấn mạnh một khía cạnh hoặc lĩnh vực mà ai đó cực kỳ giỏi hoặc vượt trội hơn người khác."
     },
     {
       "id": "bunpo-400-269",
@@ -3225,7 +3478,8 @@
       "pattern": "〜にこたえて…",
       "meaningVi": "Đáp ứng với..., đáp lại...",
       "example": "応援してくれる人の気持ちにこたえて、立派な試合をしよう。",
-      "exampleVi": "Hãy đáp ứng với tấm lòng của những người ủng hộ bạn, và hãy thi đấu thật tốt."
+      "exampleVi": "Hãy đáp ứng với tấm lòng của những người ủng hộ bạn, và hãy thi đấu thật tốt.",
+      "usage": "N + にこたえて. Dùng khi thực hiện hành động để đáp lại yêu cầu, sự kỳ vọng hoặc mong đợi của người khác."
     },
     {
       "id": "bunpo-400-270",
@@ -3236,7 +3490,8 @@
       "pattern": "〜に沿って…",
       "meaningVi": "Theo..., dọc theo..., theo sát...",
       "example": "与えられたテーマに沿ってレポートを書き進めてください。",
-      "exampleVi": "Hãy tiếp tục viết báo cáo theo đề tài được giao."
+      "exampleVi": "Hãy tiếp tục viết báo cáo theo đề tài được giao.",
+      "usage": "N + に沿って. Dùng để chỉ hành động dựa trên, tuân theo một tiêu chuẩn, lộ trình hoặc phương châm đã định sẵn."
     },
     {
       "id": "bunpo-400-271",
@@ -3247,7 +3502,8 @@
       "pattern": "〜のもとで・〜のもとに",
       "meaningVi": "Dưới...",
       "example": "チームは新しい監督のもとで練習に励んでいる。",
-      "exampleVi": "Đội bóng đang nỗ lực luyện tập dưới sự chỉ đạo của huấn luyện viên mới."
+      "exampleVi": "Đội bóng đang nỗ lực luyện tập dưới sự chỉ đạo của huấn luyện viên mới.",
+      "usage": "N + のもとで / のもとに. Dùng để chỉ phạm vi ảnh hưởng hoặc điều kiện (như sự chỉ dẫn, quản lý) mà dưới đó một hành động diễn ra."
     },
     {
       "id": "bunpo-400-272",
@@ -3258,7 +3514,8 @@
       "pattern": "〜に伴って・〜と共に…",
       "meaningVi": "Cùng với...",
       "example": "入学する留学生数の変化に伴って、クラス数を変える必要がある。",
-      "exampleVi": "Cùng với sự thay đổi của số du học sinh vào học, cũng cần phải thay đổi số lớp."
+      "exampleVi": "Cùng với sự thay đổi của số du học sinh vào học, cũng cần phải thay đổi số lớp.",
+      "usage": "N + に伴って / と共に. Dùng để diễn tả hai sự việc thay đổi cùng lúc hoặc diễn ra song song với nhau."
     },
     {
       "id": "bunpo-400-273",
@@ -3269,7 +3526,8 @@
       "pattern": "〜次第だ…",
       "meaningVi": "Tùy thuộc vào...",
       "example": "人生が楽しいかどうかは考え方次第だ。",
-      "exampleVi": "Đời người vui hay không là tùy vào cách suy nghĩ."
+      "exampleVi": "Đời người vui hay không là tùy vào cách suy nghĩ.",
+      "usage": "N + 次第だ. Dùng để chỉ kết quả của một sự việc thay đổi tùy theo các yếu tố hoặc điều kiện khác nhau."
     },
     {
       "id": "bunpo-400-274",
@@ -3280,7 +3538,8 @@
       "pattern": "〜に応じて…",
       "meaningVi": "Ứng với..., hợp với...",
       "example": "ご予算に応じてパーティーのメニューを決めた。",
-      "exampleVi": "Quyết định thực đơn của bữa tiệc hợp với ngân sách."
+      "exampleVi": "Quyết định thực đơn của bữa tiệc hợp với ngân sách.",
+      "usage": "N + に応じて. Dùng để biểu thị sự thay đổi hoặc phản ứng sao cho phù hợp với một điều kiện hoặc tình huống nhất định."
     },
     {
       "id": "bunpo-400-275",
@@ -3291,7 +3550,8 @@
       "pattern": "〜につけて。",
       "meaningVi": "Mỗi lần...thì..., cứ...thì...",
       "example": "この歌を聞くにつけて、心に希望がわいてくる。",
-      "exampleVi": "Mỗi lần nghe bài hát này, trong tim tôi lại sực sôi hi vọng."
+      "exampleVi": "Mỗi lần nghe bài hát này, trong tim tôi lại sực sôi hi vọng.",
+      "usage": "V辞書形 + につけて. Dùng khi mỗi lần nhìn thấy hoặc nghe thấy điều gì đó thì lại nảy sinh một cảm xúc hoặc hồi ức nhất định."
     },
     {
       "id": "bunpo-400-276",
@@ -3302,7 +3562,8 @@
       "pattern": "〜やら〜やら",
       "meaningVi": "Nào là...nào là..., như là...như là...",
       "example": "勝ったチームの選手たちは泣き出すやら飛び上がるやらさまざまに喜びを表した。",
-      "exampleVi": "Các cầu thủ đội chiến thắng bộc lộ niềm vui theo nhiều cách khác nhau, nào là khóc, nào là nhảy cẫng lên."
+      "exampleVi": "Các cầu thủ đội chiến thắng bộc lộ niềm vui theo nhiều cách khác nhau, nào là khóc, nào là nhảy cẫng lên.",
+      "usage": "V/Adj/N (thể thông thường) + やら. Dùng để liệt kê nhiều ví dụ nhằm nhấn mạnh sự vất vả, hoang mang hoặc hỗn loạn của tình huống."
     },
     {
       "id": "bunpo-400-277",
@@ -3313,7 +3574,8 @@
       "pattern": "〜というか〜というか…",
       "meaningVi": "Hoặc là...hoặc là..., có thể nói là...cũng có thể nói là...",
       "example": "この部屋は仕事場というか物置というか、とにかく仕事に必要な物が全部置いてあるんです。",
-      "exampleVi": "Phòng này có thể nói là chỗ làm việc cũng có thể nói là chỗ để đồ, vì đang để tạm nhiều thứ cần cho công việc ở đây."
+      "exampleVi": "Phòng này có thể nói là chỗ làm việc cũng có thể nói là chỗ để đồ, vì đang để tạm nhiều thứ cần cho công việc ở đây.",
+      "usage": "V/Adj/N (thể thông thường) + というか. Dùng khi người nói đang lưỡng lự, không chắc chắn về cách diễn đạt chính xác cho một sự vật, sự việc."
     },
     {
       "id": "bunpo-400-278",
@@ -3324,7 +3586,8 @@
       "pattern": "〜にしても〜にしても・〜にしろ〜にしろ・〜にせよ〜にせよ",
       "meaningVi": "Cho dù là...hay là...",
       "example": "野菜にしても魚にしても、料理の材料は新鮮さが第一です。",
-      "exampleVi": "Cho dù là rau hay là cá, nguyên liệu nấu ăn tươi ngon là yếu tố quan trọng hàng đầu."
+      "exampleVi": "Cho dù là rau hay là cá, nguyên liệu nấu ăn tươi ngon là yếu tố quan trọng hàng đầu.",
+      "usage": "V/A/N (thể thông thường) + にしても. Dùng để liệt kê các trường hợp khác nhau và khẳng định rằng dù trường hợp nào xảy ra thì kết quả, đánh giá hoặc cảm xúc vẫn không đổi."
     },
     {
       "id": "bunpo-400-279",
@@ -3341,7 +3604,8 @@
           "pattern": "〜にかかわりなく・〜にかかわらず。",
           "note": "Cả hai đều dùng để diễn tả ý nghĩa bất kể, không liên quan đến."
         }
-      ]
+      ],
+      "usage": "N + を問わず. Dùng để nói rằng điều gì đó có thể thực hiện hoặc áp dụng mà không cần phân biệt, bất kể điều kiện là gì."
     },
     {
       "id": "bunpo-400-280",
@@ -3358,7 +3622,8 @@
           "pattern": "〜を問わず。",
           "note": "Cả hai đều chỉ sự không phụ thuộc vào điều kiện, giới tính hay tuổi tác."
         }
-      ]
+      ],
+      "usage": "V/N + にかかわりなく・にかかわらず. Thường dùng trong văn viết hoặc tình huống trang trọng để thể hiện việc không bị ảnh hưởng bởi yếu tố nào đó."
     },
     {
       "id": "bunpo-400-281",
@@ -3369,7 +3634,8 @@
       "pattern": "〜もかまわず。",
       "meaningVi": "Chả quan tâm đến..., chả cần biết...",
       "example": "彼は値段もかまわず、好きな料理をどんどん注文した。",
-      "exampleVi": "Anh ta chẳng quan tâm đến giá cả, cứ lần lượt gọi những món ưa thích ra."
+      "exampleVi": "Anh ta chẳng quan tâm đến giá cả, cứ lần lượt gọi những món ưa thích ra.",
+      "usage": "V-dics / N + もかまわず. Nhấn mạnh việc hành động một cách quyết liệt, không màng đến xung quanh hoặc hậu quả."
     },
     {
       "id": "bunpo-400-282",
@@ -3386,7 +3652,8 @@
           "pattern": "〜はさておき…",
           "note": "Cả hai đều dùng để tạm gác lại một vấn đề sang một bên để ưu tiên việc khác."
         }
-      ]
+      ],
+      "usage": "N + はともかく(として). Dùng khi muốn tạm gác lại một vấn đề để tập trung ưu tiên cho vấn đề quan trọng hơn."
     },
     {
       "id": "bunpo-400-283",
@@ -3403,7 +3670,8 @@
           "pattern": "〜はともかく（として）",
           "note": "Tương tự nhau trong việc tạm thời không nhắc đến đối tượng hiện tại."
         }
-      ]
+      ],
+      "usage": "N + はさておき. Tương tự như 'tạm thời để đó', dùng để chuyển chủ đề hoặc trì hoãn một việc chưa cần kíp."
     },
     {
       "id": "bunpo-400-284",
@@ -3414,7 +3682,8 @@
       "pattern": "〜どころではない・〜どころか…",
       "meaningVi": "Hóa ra không phải...",
       "example": "せきが出るので風邪かなと思っていたが、ただの風邪どころではなく、肺炎だった。",
-      "exampleVi": "Vì ho nên tôi nghĩ chắc mình bị cảm, nhưng hóa ra không phải cảm thường, mà là viêm phổi."
+      "exampleVi": "Vì ho nên tôi nghĩ chắc mình bị cảm, nhưng hóa ra không phải cảm thường, mà là viêm phổi.",
+      "usage": "V/N + どころではない / どころか. Dùng để phủ định hoàn toàn tình huống trước đó và đưa ra mức độ khác biệt, nghiêm trọng hơn."
     },
     {
       "id": "bunpo-400-285",
@@ -3425,7 +3694,8 @@
       "pattern": "〜ものか…",
       "meaningVi": "...sao,...á, không bao giờ..., đời nào mà...",
       "example": "田中さんが時間通りに来るものか。あいつはいつも遅刻なんだから。",
-      "exampleVi": "Tanaka mà đến đúng giờ á. Hắn lúc nào cũng đến muộn thôi."
+      "exampleVi": "Tanaka mà đến đúng giờ á. Hắn lúc nào cũng đến muộn thôi.",
+      "usage": "V/A/N (thể thường) + ものか. Dùng để nhấn mạnh sự phủ định mạnh mẽ, từ chối hoặc cảm xúc bất ngờ, bất mãn của người nói."
     },
     {
       "id": "bunpo-400-286",
@@ -3436,7 +3706,8 @@
       "pattern": "〜とは…。",
       "meaningVi": "Là...",
       "example": "人生とは本人が主役のドラマみたいなものだ。",
-      "exampleVi": "Đời người giống như bộ phim mà mình là nhân vật chính."
+      "exampleVi": "Đời người giống như bộ phim mà mình là nhân vật chính.",
+      "usage": "N + とは. Dùng khi muốn định nghĩa hoặc đưa ra một phát biểu mang tính triết lý, cảm thán về danh từ đó."
     },
     {
       "id": "bunpo-400-287",
@@ -3453,7 +3724,8 @@
           "pattern": "〜といったら。",
           "note": "Đều dùng khi nhắc đến một chủ đề cụ thể gây ấn tượng mạnh."
         }
-      ]
+      ],
+      "usage": "N + のこととなると. Dùng khi muốn nói đến một chủ đề cụ thể mà thái độ, hành vi của đối tượng sẽ thay đổi hoàn toàn khi nhắc tới nó."
     },
     {
       "id": "bunpo-400-288",
@@ -3470,7 +3742,8 @@
           "pattern": "〜（のこと）となると…",
           "note": "Cùng diễn tả thái độ đặc biệt khi nhắc đến một người hoặc sự việc nào đó."
         }
-      ]
+      ],
+      "usage": "V/A/N (thể thường) + といったら. Dùng để nhấn mạnh mức độ cảm xúc (ngạc nhiên, khen ngợi, chán nản) về một sự việc, khó lòng diễn tả bằng lời."
     },
     {
       "id": "bunpo-400-289",
@@ -3487,7 +3760,8 @@
           "pattern": "〜ものの",
           "note": "Cả hai đều mang ý nghĩa mặc dù... nhưng mà trái với dự đoán."
         }
-      ]
+      ],
+      "usage": "V/A (thể thường) / N + にもかかわらず. Dùng trong văn viết để biểu thị sự trái ngược giữa tình huống và kết quả, mang sắc thái trang trọng."
     },
     {
       "id": "bunpo-400-290",
@@ -3504,7 +3778,8 @@
           "pattern": "〜にもかかわらず。",
           "note": "Đều dùng để diễn tả sự đối lập, dù có vế trước nhưng vế sau vẫn xảy ra."
         }
-      ]
+      ],
+      "usage": "V/A (thể thường) / N + であるものの. Thừa nhận sự thật ở vế trước nhưng vế sau lại có kết quả trái ngược hoặc ngoài mong đợi."
     },
     {
       "id": "bunpo-400-291",
@@ -3515,7 +3790,8 @@
       "pattern": "〜ながら（も）。",
       "meaningVi": "Mặc dù...nhưng...",
       "example": "あの子は子供ながら、社会の動きをよく知っています。",
-      "exampleVi": "Đứa trẻ kia mặc dù là con nít nhưng lại biết rõ sự vận động của xã hội."
+      "exampleVi": "Đứa trẻ kia mặc dù là con nít nhưng lại biết rõ sự vận động của xã hội.",
+      "usage": "V-stem / A-stem / N + ながら(も). Mặc dù bản chất là thế, nhưng kết quả lại ngược lại. Lưu ý: Mẫu này nhấn mạnh sự đối lập của trạng thái đối tượng."
     },
     {
       "id": "bunpo-400-292",
@@ -3526,7 +3802,8 @@
       "pattern": "〜つつ（も）。",
       "meaningVi": "Dù ...",
       "example": "体に良くないと思いつつも、毎日インスタントラーメンばかり食べています。",
-      "exampleVi": "Dù nghĩ là chẳng tốt cho cơ thể nhưng ngày nào tôi cũng chỉ toàn ăn mì tôm."
+      "exampleVi": "Dù nghĩ là chẳng tốt cho cơ thể nhưng ngày nào tôi cũng chỉ toàn ăn mì tôm.",
+      "usage": "V-stem + つつ(も). Dùng trong văn viết, diễn tả sự mâu thuẫn giữa hành động thực tế và suy nghĩ trái ngược trong lòng."
     },
     {
       "id": "bunpo-400-293",
@@ -3537,7 +3814,8 @@
       "pattern": "〜としたら・〜とすれば・〜というと・〜となったら・〜となれば・〜となると",
       "meaningVi": "Nếu mà...",
       "example": "税金が上がるとなれば、国民の生活はますます大変になるだろう。",
-      "exampleVi": "Nếu mà thuế tăng, có lẽ đời sống nhân dân sẽ trở nên khó khăn hơn."
+      "exampleVi": "Nếu mà thuế tăng, có lẽ đời sống nhân dân sẽ trở nên khó khăn hơn.",
+      "usage": "V/A/N (thể thông thường) + としたら/とすれば/となると/となったら/となれば. Dùng khi giả định một tình huống cụ thể để suy luận ra kết quả hoặc hành động tiếp theo."
     },
     {
       "id": "bunpo-400-294",
@@ -3548,7 +3826,8 @@
       "pattern": "〜ものなら。",
       "meaningVi": "Nếu...",
       "example": "戻れるものなら、20年前の私に戻って人生をやり直したい。",
-      "exampleVi": "Nếu có thể quay ngược thời gian, tôi muốn quay lại là tôi của 20 năm trước và làm lại cuộc đời mình."
+      "exampleVi": "Nếu có thể quay ngược thời gian, tôi muốn quay lại là tôi của 20 năm trước và làm lại cuộc đời mình.",
+      "usage": "V-る/V-có thể + ものなら. Dùng để diễn tả một nguyện vọng khó thực hiện hoặc khó xảy ra trên thực tế."
     },
     {
       "id": "bunpo-400-295",
@@ -3559,7 +3838,8 @@
       "pattern": "〜（よ）うものなら。",
       "meaningVi": "Nếu...",
       "example": "私はアレルギー体質なので、合わない食品を食べようものなら、体のあちこちがかゆくなる。",
-      "exampleVi": "Vì tôi dễ bị dị ứng nên nếu ăn những thực phẩm không hợp, sẽ bị ngứa."
+      "exampleVi": "Vì tôi dễ bị dị ứng nên nếu ăn những thực phẩm không hợp, sẽ bị ngứa.",
+      "usage": "V-よう + ものなら. Dùng để nói về một hành động giả định nếu xảy ra thì sẽ dẫn đến kết quả tồi tệ hoặc nghiêm trọng."
     },
     {
       "id": "bunpo-400-296",
@@ -3570,7 +3850,8 @@
       "pattern": "〜ないことには。",
       "meaningVi": "Nếu không...",
       "example": "お金がないことには、この計画は進められない。",
-      "exampleVi": "Nếu không có tiền sẽ không thể xúc tiến kế hoạch được."
+      "exampleVi": "Nếu không có tiền sẽ không thể xúc tiến kế hoạch được.",
+      "usage": "V-ない + ことには. Dùng để nhấn mạnh rằng nếu không có điều kiện ở vế trước thì kết quả ở vế sau sẽ không xảy ra."
     },
     {
       "id": "bunpo-400-297",
@@ -3581,7 +3862,8 @@
       "pattern": "〜を抜きにしては。",
       "meaningVi": "Nếu không có...",
       "example": "インターネットとメールを抜きにしては、現代社会は成り立たないと言ってもいい。",
-      "exampleVi": "Internet và email nếu không có thì có thể nói rằng hiện đại xã hội không thể thành lập."
+      "exampleVi": "Internet và email nếu không có thì có thể nói rằng hiện đại xã hội không thể thành lập.",
+      "usage": "N + を抜きにしては. Dùng để khẳng định một sự vật, sự việc là yếu tố không thể thiếu để đạt được trạng thái nào đó."
     },
     {
       "id": "bunpo-400-298",
@@ -3592,7 +3874,8 @@
       "pattern": "〜にしても・〜にしても・〜にしろ・〜にせよ。",
       "meaningVi": "Cho dù...",
       "example": "準備時間が短かったにしても、もう少し立派な報告書を書いて欲しかった。",
-      "exampleVi": "Cho dù thời gian chuẩn bị có ngắn, tôi cũng muốn cậu viết bản báo cáo tuyệt hơn chút nữa."
+      "exampleVi": "Cho dù thời gian chuẩn bị có ngắn, tôi cũng muốn cậu viết bản báo cáo tuyệt hơn chút nữa.",
+      "usage": "V/A/N (thể thông thường) + にしても/にしろ/にせよ. Dùng để liệt kê hoặc thừa nhận một sự việc, sau đó đưa ra phán đoán hoặc cảm nghĩ mang tính khách quan."
     },
     {
       "id": "bunpo-400-299",
@@ -3603,7 +3886,8 @@
       "pattern": "〜ものだから・〜もので・〜もの…",
       "meaningVi": "Vì...",
       "example": "すみません。昨日はちょっと熱があったものですから、お休みしました。",
-      "exampleVi": "Xin lỗi, vì hôm qua hơi sốt nên tôi đã nghỉ ạ."
+      "exampleVi": "Xin lỗi, vì hôm qua hơi sốt nên tôi đã nghỉ ạ.",
+      "usage": "V/A/N (thể thông thường) + ものだから/もので/もの. Dùng khi muốn biện minh cho lý do của bản thân, thường đi kèm với thái độ thanh minh hoặc xin lỗi."
     },
     {
       "id": "bunpo-400-300",
@@ -3614,7 +3898,8 @@
       "pattern": "〜あまり・〜あまりの〜に…",
       "meaningVi": "Vì quá...",
       "example": "私の番が近づいてきたとき、私は緊張のあまり頭の中が真っ白になってしまった。",
-      "exampleVi": "Lúc sắp đến lượt tôi, vì quá căng thẳng mà đầu tôi trở nên trống rỗng."
+      "exampleVi": "Lúc sắp đến lượt tôi, vì quá căng thẳng mà đầu tôi trở nên trống rỗng.",
+      "usage": "V-る/A-い/N-の + あまり/あまりのNに. Dùng để diễn tả một trạng thái cảm xúc, tâm lý bị đẩy đến mức cực đoan dẫn đến kết quả không mong muốn."
     },
     {
       "id": "bunpo-400-301",
@@ -3638,7 +3923,8 @@
       "pattern": "〜ことだし。",
       "meaningVi": "Vì...",
       "example": "来週はお客さんが来ることだし、家の中の大掃除をしなくちゃ。",
-      "exampleVi": "Vì tuần sau có khách đến nên cùng tổng vệ sinh trong nhà nào."
+      "exampleVi": "Vì tuần sau có khách đến nên cùng tổng vệ sinh trong nhà nào.",
+      "usage": "V/A/N (thể thông thường) + ことだし. Dùng để đưa ra lý do chính yếu, ngoài ra còn có những lý do khác chưa được liệt kê hết."
     },
     {
       "id": "bunpo-400-303",
@@ -3662,7 +3948,8 @@
       "pattern": "〜だけに。",
       "meaningVi": "Vì..., chính vì...",
       "example": "父はよく話す人だっただけに、いなくなった後、いっそう寂しさを感じる。",
-      "exampleVi": "Chính vì bố là người hay nói, nên sau khi ông mất đi, tôi cảm thấy buồn hơn."
+      "exampleVi": "Chính vì bố là người hay nói, nên sau khi ông mất đi, tôi cảm thấy buồn hơn.",
+      "usage": "V/A/N (thể thông thường) + だけに. Dùng để nhấn mạnh mối quan hệ nhân quả: vì là như thế nên kết quả lại càng trở nên đặc biệt hoặc mạnh mẽ hơn."
     },
     {
       "id": "bunpo-400-305",
@@ -3673,7 +3960,8 @@
       "pattern": "〜ばかりに。",
       "meaningVi": "Chỉ vì...",
       "example": "家のかぎを忘れて出かけたばかりに、家族が帰ってくるまで家に入れなかった。",
-      "exampleVi": "Chỉ vì ra ngoài mà quên chìa khóa, tôi đã không thể vào nhà đến khi người nhà tôi về."
+      "exampleVi": "Chỉ vì ra ngoài mà quên chìa khóa, tôi đã không thể vào nhà đến khi người nhà tôi về.",
+      "usage": "V/A/N (thể thông thường) + ばかりに. Dùng để diễn tả sự hối tiếc về một kết quả tiêu cực xảy ra chỉ vì một nguyên nhân duy nhất."
     },
     {
       "id": "bunpo-400-306",
@@ -3684,7 +3972,8 @@
       "pattern": "〜からには・〜以上（は）・〜上は。",
       "meaningVi": "Một khi...thì phải...",
       "example": "留学するからには、ちゃんと目的があるのでしょうね。",
-      "exampleVi": "Một khi đi du học thì phải có mục đích rõ ràng."
+      "exampleVi": "Một khi đi du học thì phải có mục đích rõ ràng.",
+      "usage": "Vる/た + からには/以上/上は. Dùng để nhấn mạnh quyết tâm hoặc trách nhiệm sau khi đã xác định một tình huống nào đó."
     },
     {
       "id": "bunpo-400-307",
@@ -3695,7 +3984,8 @@
       "pattern": "〜がたい。",
       "meaningVi": "Khó...",
       "example": "あの優しい彼がそんなひどいことをしたとは信じがたい。",
-      "exampleVi": "Khó tin là cái thằng hiền lành kia lại làm những chuyện kinh khủng như thế."
+      "exampleVi": "Khó tin là cái thằng hiền lành kia lại làm những chuyện kinh khủng như thế.",
+      "usage": "V-ます bỏ ます + がたい. Thể hiện cảm giác khó lòng thực hiện được, thiên về trạng thái tâm lý hoặc sự thật khó chấp nhận."
     },
     {
       "id": "bunpo-400-308",
@@ -3706,7 +3996,8 @@
       "pattern": "〜かねる。",
       "meaningVi": "Không thể..., khó mà có thể...",
       "example": "あなたの気持ちも理解できますが、その案には賛成しかねます。",
-      "exampleVi": "Tôi hiểu cảm giác của cậu nhưng khó mà có thể đồng tình với kế hoạch đó."
+      "exampleVi": "Tôi hiểu cảm giác của cậu nhưng khó mà có thể đồng tình với kế hoạch đó.",
+      "usage": "V-ます bỏ ます + かねる. Dùng trong văn phong lịch sự để từ chối hoặc nói rằng việc gì đó vượt quá khả năng giải quyết của bản thân."
     },
     {
       "id": "bunpo-400-309",
@@ -3717,7 +4008,8 @@
       "pattern": "〜ようがない。",
       "meaningVi": "Không thể..., không có cách nào...",
       "example": "彼の連絡先が分からないので、このニュースを知らせたくても知らせようがない。",
-      "exampleVi": "Vì không biết địa chỉ liên hệ với anh ta nên dù muốn báo tin này cũng không thể báo được."
+      "exampleVi": "Vì không biết địa chỉ liên hệ với anh ta nên dù muốn báo tin này cũng không thể báo được.",
+      "usage": "V-ます bỏ ます + ようがない. Diễn tả việc muốn thực hiện hành động đó nhưng không tìm ra phương pháp hoặc công cụ để thực hiện."
     },
     {
       "id": "bunpo-400-310",
@@ -3728,7 +4020,8 @@
       "pattern": "〜どころではない。",
       "meaningVi": "Không phải lúc để..., không thể...",
       "example": "仕事が忙しくて、旅行どころではない。",
-      "exampleVi": "Đang bận việc, không phải lúc để đi du lịch."
+      "exampleVi": "Đang bận việc, không phải lúc để đi du lịch.",
+      "usage": "V-casual/N/Adj + どころではない. Dùng khi hoàn cảnh khách quan không cho phép thực hiện hành động, thường vì có việc cấp bách hoặc nghiêm trọng hơn."
     },
     {
       "id": "bunpo-400-311",
@@ -3739,7 +4032,8 @@
       "pattern": "〜得る・〜得ない。",
       "meaningVi": "Có thể... / không thể...",
       "example": "癌は誰でもかかり得る病気だ。",
-      "exampleVi": "Ung thư là căn bệnh mà ai cũng có thể mắc."
+      "exampleVi": "Ung thư là căn bệnh mà ai cũng có thể mắc.",
+      "usage": "V-thể từ điển/ない + 得る/得ない. Chỉ khả năng khách quan có thể hoặc không thể xảy ra dựa trên bản chất sự việc."
     },
     {
       "id": "bunpo-400-312",
@@ -3750,7 +4044,8 @@
       "pattern": "〜にしては。",
       "meaningVi": "Tuy là...nhưng..., dù...nhưng...",
       "example": "このかばんは1000円にしては丈夫で、デザインもいい。",
-      "exampleVi": "Cái cặp này tuy là 1 sen nhưng bền, thiết kế cũng đẹp nữa."
+      "exampleVi": "Cái cặp này tuy là 1 sen nhưng bền, thiết kế cũng đẹp nữa.",
+      "usage": "V-casual/Adj/N + にしては. Dùng để so sánh thực tế khác với tiêu chuẩn dự đoán thông thường. Thường mang ý nghĩa 'so với tiêu chuẩn đó thì...'"
     },
     {
       "id": "bunpo-400-313",
@@ -3761,7 +4056,8 @@
       "pattern": "〜だけ（のことは）ある。",
       "meaningVi": "Quả đúng là...",
       "example": "彼は10年も日本に住んでいるだけあって、日本のことをよく知っている。",
-      "exampleVi": "Anh ta quả đúng là đã sống ở Nhật 10 năm, biết rất rõ về Nhật Bản."
+      "exampleVi": "Anh ta quả đúng là đã sống ở Nhật 10 năm, biết rất rõ về Nhật Bản.",
+      "usage": "V-た/N + だけ（のことは）ある. Dùng để khen ngợi kết quả tương xứng với nỗ lực hoặc điều kiện sẵn có."
     },
     {
       "id": "bunpo-400-314",
@@ -3772,7 +4068,8 @@
       "pattern": "〜として…。",
       "meaningVi": "Tư cách là..., như là...",
       "example": "京都は日本の歴史的な古い町として知られている。",
-      "exampleVi": "Kyoto được biết đến như là một thành phố cổ mang tính lịch sử của đất nước Nhật Bản."
+      "exampleVi": "Kyoto được biết đến như là một thành phố cổ mang tính lịch sử của đất nước Nhật Bản.",
+      "usage": "N + として. Chỉ tư cách, vị trí, chức vụ hoặc vai trò của đối tượng trong một tình huống cụ thể."
     },
     {
       "id": "bunpo-400-315",
@@ -3783,7 +4080,8 @@
       "pattern": "〜にとって…。",
       "meaningVi": "Đối với...",
       "example": "今の私にとって、一番大事なのは家族だ。",
-      "exampleVi": "Đối với tôi bây giờ, điều quý giá nhất là gia đình."
+      "exampleVi": "Đối với tôi bây giờ, điều quý giá nhất là gia đình.",
+      "usage": "N + にとって. Xác định phạm vi, quan điểm hoặc sự vật, sự việc mà vấn đề đó được xem xét là quan trọng hoặc có liên quan."
     },
     {
       "id": "bunpo-400-316",
@@ -3794,7 +4092,8 @@
       "pattern": "〜にしたら〜・〜にすれば〜・〜にしてみれば・〜にしても…",
       "meaningVi": "Đối với..., nếu là..., ở vị trí của",
       "example": "学生の語学力を高めるには必要な訓練なのだが、学生にしたら退屈きわまりない授業だと思うにちがいない。",
-      "exampleVi": "Đây là việc luyện tập cần thiết để nâng cao năng lực ngoại ngữ của học sinh, nhưng đối với học sinh chắc chắn là tiết học vô cùng nhàm chán."
+      "exampleVi": "Đây là việc luyện tập cần thiết để nâng cao năng lực ngoại ngữ của học sinh, nhưng đối với học sinh chắc chắn là tiết học vô cùng nhàm chán.",
+      "usage": "N + にしたら/にすれば/にしてみれば. Đặt bản thân vào vị trí, lập trường hoặc hoàn cảnh của người khác để suy xét vấn đề."
     },
     {
       "id": "bunpo-400-317",
@@ -3805,7 +4104,8 @@
       "pattern": "〜たところ。",
       "meaningVi": "Sau khi...",
       "example": "2、3日休みたいと課長に相談したところ、2週間休んでもいいと言われた。",
-      "exampleVi": "Sau khi trao đổi với trưởng phòng là muốn nghỉ vài ngày, thì được ông nói nghỉ hẳn 2 tuần cũng được."
+      "exampleVi": "Sau khi trao đổi với trưởng phòng là muốn nghỉ vài ngày, thì được ông nói nghỉ hẳn 2 tuần cũng được.",
+      "usage": "V-た + ところ. Dùng để kể về một kết quả bất ngờ hoặc thông tin mới nhận được sau khi đã thực hiện một hành động nào đó."
     },
     {
       "id": "bunpo-400-318",
@@ -3816,7 +4116,8 @@
       "pattern": "〜きり。",
       "meaningVi": "Sau khi..., kể từ khi ...",
       "example": "この本は子供のころ読んだきり、その後一度も読んでいない。",
-      "exampleVi": "Cuốn sách này kể từ khi đọc hồi bé, sau đấy chưa từng đọc lại lần nào."
+      "exampleVi": "Cuốn sách này kể từ khi đọc hồi bé, sau đấy chưa từng đọc lại lần nào.",
+      "usage": "V-た/V-ている/N + きり. Nhấn mạnh trạng thái kéo dài không thay đổi từ một thời điểm trong quá khứ, thường đi kèm với phủ định ở vế sau."
     },
     {
       "id": "bunpo-400-319",
@@ -3827,7 +4128,8 @@
       "pattern": "〜あげく。",
       "meaningVi": "Sau khi...",
       "example": "いろいろ文句を言ったあげく、その客は何も買わずに帰った。",
-      "exampleVi": "Sau khi phàn nàn đủ thứ, vị khách về mà chả mua gì."
+      "exampleVi": "Sau khi phàn nàn đủ thứ, vị khách về mà chả mua gì.",
+      "usage": "V-た/N-の + あげく. Diễn tả kết quả không mong đợi, thường là tiêu cực, sau một quá trình nỗ lực hoặc lặp đi lặp lại nhiều lần."
     },
     {
       "id": "bunpo-400-320",
@@ -3838,7 +4140,8 @@
       "pattern": "〜末（に）。",
       "meaningVi": "Sau khi...",
       "example": "長い戦いの末、ついに勝利を勝ち取った。",
-      "exampleVi": "Sau trận chiến trường kỳ, cuối cùng cũng đã giành được thắng lợi."
+      "exampleVi": "Sau trận chiến trường kỳ, cuối cùng cũng đã giành được thắng lợi.",
+      "usage": "V-た/N-の + 末(に). Nhấn mạnh quá trình đấu tranh, cân nhắc kéo dài trước khi đạt được kết quả cuối cùng."
     },
     {
       "id": "bunpo-400-321",
@@ -3849,7 +4152,8 @@
       "pattern": "〜ずじまいだ。",
       "meaningVi": "Cuối cùng cũng không..., rốt cuộc cũng không...",
       "example": "いろんな人に聞いてみたが、結局彼の連絡先は分からずじまいだ。",
-      "exampleVi": "Đã hỏi thử nhiều người cuối cùng cũng không biết thông tin liên lạc của anh ta."
+      "exampleVi": "Đã hỏi thử nhiều người cuối cùng cũng không biết thông tin liên lạc của anh ta.",
+      "usage": "V-ない(bỏ ない) + ずじまいだ. Thể hiện sự tiếc nuối khi một việc dự định làm nhưng rốt cuộc đã không thực hiện được."
     },
     {
       "id": "bunpo-400-322",
@@ -3860,7 +4164,8 @@
       "pattern": "〜など・〜なんか・〜なんて",
       "meaningVi": "Cỡ như..., loại như...",
       "example": "彼は文章がとてもうまい。私なんて簡単な文もちゃんと書けないのに。",
-      "exampleVi": "Anh ta viết văn rất hay. Loại như tôi thì câu đơn giản cũng chẳng viết được tử tế."
+      "exampleVi": "Anh ta viết văn rất hay. Loại như tôi thì câu đơn giản cũng chẳng viết được tử tế.",
+      "usage": "N + など/なんか/なんて. Dùng để xem nhẹ, hạ thấp giá trị của danh từ được nhắc đến, hoặc thể hiện thái độ khiêm tốn của người nói."
     },
     {
       "id": "bunpo-400-323",
@@ -3871,7 +4176,8 @@
       "pattern": "〜まで・〜までして・〜てまで。",
       "meaningVi": "Đến cả, tới mức, thậm chí...",
       "example": "徹夜までしてがんばったのに、テストでいい点が取れなかった。",
-      "exampleVi": "Tôi đã rất cố gắng, thậm chí là thức trắng đêm để học, nhưng kết quả kiểm tra lại không cao."
+      "exampleVi": "Tôi đã rất cố gắng, thậm chí là thức trắng đêm để học, nhưng kết quả kiểm tra lại không cao.",
+      "usage": "N + まで / V-て + まで. Nhấn mạnh mức độ cực đoan của hành động, thể hiện sự bất ngờ hoặc khâm phục vì làm đến mức đó."
     },
     {
       "id": "bunpo-400-324",
@@ -3882,7 +4188,8 @@
       "pattern": "〜てでも",
       "meaningVi": "Dù có phải...",
       "example": "2倍の金額を払ってでもそのコンサートのチケットが欲しい。",
-      "exampleVi": "Dù có phải trả gấp 2 lần tiền tôi vẫn muốn có cái vé hòa nhạc đó."
+      "exampleVi": "Dù có phải trả gấp 2 lần tiền tôi vẫn muốn có cái vé hòa nhạc đó.",
+      "usage": "V-て + でも. Thể hiện quyết tâm mãnh liệt, chấp nhận dùng đến cả những biện pháp cực đoan để đạt được mục đích."
     },
     {
       "id": "bunpo-400-325",
@@ -3893,7 +4200,8 @@
       "pattern": "〜とみえる",
       "meaningVi": "Có vẻ...",
       "example": "朝からパチンコに行くなんて、ずいぶん暇だとみえる。",
-      "exampleVi": "Cái loại đi chơi Pachiko từ sáng, có vẻ rảnh rỗi quá."
+      "exampleVi": "Cái loại đi chơi Pachiko từ sáng, có vẻ rảnh rỗi quá.",
+      "usage": "V-thể thường/A-i/A-na/N + とみえる. Dùng để suy đoán dựa trên những gì mắt thấy, bằng chứng thực tế tại hiện trường."
     },
     {
       "id": "bunpo-400-326",
@@ -3904,7 +4212,8 @@
       "pattern": "〜かねない。",
       "meaningVi": "Có lẽ..., có khi...",
       "example": "大事なことはみんなに相談しないと、後で文句を言われかねないよ。",
-      "exampleVi": "Nếu không bàn bạc chuyện quan trọng với mọi người, có khi sẽ bị quở trách đấy."
+      "exampleVi": "Nếu không bàn bạc chuyện quan trọng với mọi người, có khi sẽ bị quở trách đấy.",
+      "usage": "V-ます(bỏ ます) + かねない. Dùng để cảnh báo khả năng cao sẽ dẫn đến kết quả xấu, mang tính chất lo ngại của người nói."
     },
     {
       "id": "bunpo-400-327",
@@ -3921,7 +4230,8 @@
           "pattern": "〜かねない。",
           "note": "「〜おそれがある」dùng cho tiêu cực, còn「〜かねない」dùng cho cả tiêu cực lẫn tích cực mang tính cá nhân."
         }
-      ]
+      ],
+      "usage": "V-る/N-の + おそれがある. Diễn tả khả năng xảy ra một sự việc không hay, mang tính khách quan, thường dùng trong văn viết hoặc báo chí."
     },
     {
       "id": "bunpo-400-328",
@@ -3932,7 +4242,8 @@
       "pattern": "〜まい・〜ではあるまいか",
       "meaningVi": "Có lẽ không...",
       "example": "誰も信じてくれまいが、これは本当の話だ。",
-      "exampleVi": "Có lẽ không ai tin nhưng đây là câu chuyện có thật."
+      "exampleVi": "Có lẽ không ai tin nhưng đây là câu chuyện có thật.",
+      "usage": "V-る/V-ない + まい. Diễn tả sự phỏng đoán mang tính chủ quan của người nói, thường mang sắc thái cứng nhắc hoặc cổ điển."
     },
     {
       "id": "bunpo-400-329",
@@ -3949,7 +4260,8 @@
           "pattern": "〜にすぎない。",
           "note": "「〜に相違ない」khẳng định chắc chắn, còn「〜にすぎない」mang nghĩa chỉ là."
         }
-      ]
+      ],
+      "usage": "V-thể thường/A-i/A-na/N + に相違ない. Diễn tả suy luận chắc chắn của người nói dựa trên căn cứ rõ ràng, thường dùng trong văn viết hoặc trình bày ý kiến trang trọng."
     },
     {
       "id": "bunpo-400-330",
@@ -3966,7 +4278,8 @@
           "pattern": "〜というものだ",
           "note": "「〜ものだ」nói về bản chất chung, còn「〜というものだ」nhấn mạnh cảm xúc đánh giá của người nói."
         }
-      ]
+      ],
+      "usage": "V辞書形/ない形, Adj-い, Adj-な(な) + ものだ. Diễn tả một chân lý khách quan, lẽ thường tình hoặc cảm xúc hoài niệm về quá khứ."
     },
     {
       "id": "bunpo-400-331",
@@ -3983,7 +4296,8 @@
           "pattern": "〜ものだ。",
           "note": "「〜というものだ」đưa ra nhận xét khẳng định cảm thán, còn「〜ものだ」diễn tả chân lý hoặc hoài niệm."
         }
-      ]
+      ],
+      "usage": "Câu thông thường + というものだ. Dùng để khẳng định mạnh mẽ một sự thật hoặc một quy tắc khách quan, thể hiện sự đồng cảm hoặc nhất trí với điều đó."
     },
     {
       "id": "bunpo-400-332",
@@ -4000,7 +4314,8 @@
           "pattern": "〜にほかならない。",
           "note": "「〜にすぎない」chỉ đơn thuần là, còn「〜にほかならない」nhấn mạnh chính xác là không gì khác."
         }
-      ]
+      ],
+      "usage": "N + にすぎない. Nhấn mạnh việc chỉ giới hạn ở mức độ đó, không hơn, thường mang hàm ý hạ thấp hoặc đánh giá khiêm tốn."
     },
     {
       "id": "bunpo-400-333",
@@ -4017,7 +4332,8 @@
           "pattern": "〜にすぎない。",
           "note": "「〜にほかならない」chính là (khẳng định mạnh), còn「〜にすぎない」chỉ là (hạ thấp mức độ)."
         }
-      ]
+      ],
+      "usage": "V/Adj-い/Adj-な/N(である) + にほかならない. Nhấn mạnh sự vật, sự việc này chính là thứ đó, không có khả năng nào khác."
     },
     {
       "id": "bunpo-400-334",
@@ -4028,7 +4344,8 @@
       "pattern": "〜に越したことはない",
       "meaningVi": "Nên...thì hơn",
       "example": "旅行の荷物は軽いに越したことはない。",
-      "exampleVi": "Hành lí đi du lịch nên nhẹ thì hơn."
+      "exampleVi": "Hành lí đi du lịch nên nhẹ thì hơn.",
+      "usage": "V辞書形, Adj-い, Adj-な/N(である) + に越したことはない. Khẳng định đây là phương án tốt nhất hoặc lý tưởng nhất."
     },
     {
       "id": "bunpo-400-335",
@@ -4039,7 +4356,8 @@
       "pattern": "〜しかない・〜よりほかない。",
       "meaningVi": "Chỉ là, chỉ còn cách ...",
       "example": "この道は一方通行だから、戻りたくても前に進むしかない。",
-      "exampleVi": "Vì đường này là đường một chiều nên dù muốn quay lại cũng chỉ còn cách đi thẳng."
+      "exampleVi": "Vì đường này là đường một chiều nên dù muốn quay lại cũng chỉ còn cách đi thẳng.",
+      "usage": "V辞書形 + しかない/よりほかない. Diễn tả tình thế không còn lựa chọn nào khác, bắt buộc phải thực hiện."
     },
     {
       "id": "bunpo-400-336",
@@ -4050,7 +4368,8 @@
       "pattern": "〜（よ）うではないか。",
       "meaningVi": "Hãy...",
       "example": "環境を守るために何ができるか、考えてみようではないか。",
-      "exampleVi": "Hãy thử suy nghĩ xem có thể làm gì để bảo vệ môi trường."
+      "exampleVi": "Hãy thử suy nghĩ xem có thể làm gì để bảo vệ môi trường.",
+      "usage": "V ý chí + ではないか. Dùng để kêu gọi, rủ rê người khác thực hiện một việc gì đó một cách trang trọng."
     },
     {
       "id": "bunpo-400-337",
@@ -4067,7 +4386,8 @@
           "pattern": "〜ものだ・〜ものではない",
           "note": "「〜ことだ」đưa ra lời khuyên cho tình huống cụ thể, còn「〜ものだ」nói về đạo đức, quy tắc chung."
         }
-      ]
+      ],
+      "usage": "V辞書形/ない形 + ことだ. Dùng để đưa ra lời khuyên, sự chỉ dẫn hoặc mệnh lệnh nhẹ nhàng về những việc nên làm."
     },
     {
       "id": "bunpo-400-338",
@@ -4084,7 +4404,8 @@
           "pattern": "〜ことだ。",
           "note": "「〜ものだ・〜ものではない」nói về đạo lý chung, còn「〜ことだ」thường khuyên nhủ trực tiếp người nghe."
         }
-      ]
+      ],
+      "usage": "V辞書形 + ものだ/ものではない. Dùng để nêu ra các quy tắc xã hội, đạo đức hoặc lời khuyên nên/không nên làm điều gì đó."
     },
     {
       "id": "bunpo-400-339",
@@ -4095,7 +4416,8 @@
       "pattern": "〜まい・〜（よ）うか〜まいか",
       "meaningVi": "Quyết không..., không có ý định...",
       "example": "こんなばかな失敗は二度とするまい。",
-      "exampleVi": "Quyết không lặp lại sai lầm ngu ngốc như thế này nữa."
+      "exampleVi": "Quyết không lặp lại sai lầm ngu ngốc như thế này nữa.",
+      "usage": "V (bỏ ます) + まい. Diễn tả ý chí quyết tâm không làm gì hoặc dự đoán tiêu cực, thường dùng cho ngôi thứ nhất hoặc ba."
     },
     {
       "id": "bunpo-400-340",
@@ -4106,7 +4428,8 @@
       "pattern": "〜ものか。",
       "meaningVi": "Không được...",
       "example": "あんな無責任な人とはもう一緒に仕事をするものか。",
-      "exampleVi": "Không được làm việc chung với cái người vô trách nhiệm như thế nữa."
+      "exampleVi": "Không được làm việc chung với cái người vô trách nhiệm như thế nữa.",
+      "usage": "V/Adj/N(な) + ものか. Thể hiện sự phủ định mạnh mẽ, thái độ tức giận hoặc quyết tâm không bao giờ làm điều đó."
     },
     {
       "id": "bunpo-400-341",
@@ -4117,7 +4440,8 @@
       "pattern": "〜てしかたがない・〜でしょうがない・〜てたまらない",
       "meaningVi": "Không thể chịu được..., quá...",
       "example": "蜂に刺されたところがかゆくてたまらない。",
-      "exampleVi": "Chỗ bị ong đốt ngứa không chịu được."
+      "exampleVi": "Chỗ bị ong đốt ngứa không chịu được.",
+      "usage": "Vて/Adj-くて + しかたがない/しょうがない/たまらない. Diễn tả cảm giác, cảm xúc tự nhiên của bản thân đang ở mức độ rất cao, không thể kìm nén được."
     },
     {
       "id": "bunpo-400-342",
@@ -4128,7 +4452,8 @@
       "pattern": "〜てならない。",
       "meaningVi": "Không thể kìm được...",
       "example": "この歌を聞くと、学生時代のことが思い出されてならない。",
-      "exampleVi": "Cứ nghe bài hát này là tôi không thể không nhớ lại thời học sinh."
+      "exampleVi": "Cứ nghe bài hát này là tôi không thể không nhớ lại thời học sinh.",
+      "usage": "V-て form + ならない。Dùng với các động từ hoặc tính từ chỉ cảm xúc, cảm giác tự nhiên phát ra từ nội tâm không thể kìm nén."
     },
     {
       "id": "bunpo-400-343",
@@ -4139,7 +4464,8 @@
       "pattern": "〜ないではいられない・〜ずにはいられない。",
       "meaningVi": "Không thể không...",
       "example": "この犬を見ていると、あいつの顔を思い出さないではいられない。",
-      "exampleVi": "Cứ nhìn thấy con chó này là tôi lại không thể không nhớ về khuôn mặt của hắn ta."
+      "exampleVi": "Cứ nhìn thấy con chó này là tôi lại không thể không nhớ về khuôn mặt của hắn ta.",
+      "usage": "V-ない form + ではいられない / V-ずにはいられない。Thể hiện sự thúc bách của cảm xúc khiến chủ thể không thể giữ mình mà phải thực hiện hành động."
     },
     {
       "id": "bunpo-400-344",
@@ -4150,7 +4476,8 @@
       "pattern": "〜ざるをえない。",
       "meaningVi": "Phải...",
       "example": "このまま赤字が続けば、経営方針を変更せざるを得ないだろう。",
-      "exampleVi": "Nếu cứ tiếp tục lỗ như thế này, có lẽ phải thay đổi phương châm kinh doanh thôi."
+      "exampleVi": "Nếu cứ tiếp tục lỗ như thế này, có lẽ phải thay đổi phương châm kinh doanh thôi.",
+      "usage": "V-ない form + ざるをえない (ngoại trừ V-suru -> せざるをえない)。Nhấn mạnh việc phải làm dù bản thân không muốn, mang sắc thái khách quan hoặc bị áp lực buộc phải thực hiện."
     },
     {
       "id": "bunpo-400-345",
@@ -4161,7 +4488,8 @@
       "pattern": "〜たいものだ・〜てほしいものだ。",
       "meaningVi": "Rất muốn, muốn...quá",
       "example": "将来はこんな家に住みたいものだなあ。",
-      "exampleVi": "Tương lai tôi rất muốn sống trong ngôi nhà như thế này."
+      "exampleVi": "Tương lai tôi rất muốn sống trong ngôi nhà như thế này.",
+      "usage": "V-たい + ものだ / V-てほしい + ものだ。Thể hiện mong muốn mạnh mẽ, chân thành của người nói về một điều gì đó từ đáy lòng."
     },
     {
       "id": "bunpo-400-346",
@@ -4172,7 +4500,8 @@
       "pattern": "〜ものだ。（thật là）",
       "meaningVi": "Thật là...",
       "example": "卒業してからもう10年か。時間が過ぎるのは早いものだ。",
-      "exampleVi": "Kể từ khi tốt nghiệp cũng đã 10 năm rồi. Thời gian trôi qua thật là nhanh."
+      "exampleVi": "Kể từ khi tốt nghiệp cũng đã 10 năm rồi. Thời gian trôi qua thật là nhanh.",
+      "usage": "V-thể thông thường + ものだ, A-i + ものだ, A-na + な + ものだ。Dùng để nhấn mạnh cảm xúc hoặc sự đồng cảm trước một sự thật hiển nhiên, một chân lý hoặc cảm xúc sâu sắc về sự việc."
     },
     {
       "id": "bunpo-400-347",
@@ -4183,7 +4512,8 @@
       "pattern": "〜ないもの（だろう）か。",
       "meaningVi": "Không thể...sao",
       "example": "母の病気が治らないものか。",
-      "exampleVi": "Bệnh tình của mẹ không thể khỏi được sao."
+      "exampleVi": "Bệnh tình của mẹ không thể khỏi được sao.",
+      "usage": "V-ない form + もの(だろう)か。Biểu thị tâm trạng lo âu hoặc hy vọng tha thiết, mong muốn tìm ra giải pháp cho một vấn đề khó khăn."
     },
     {
       "id": "bunpo-400-348",
@@ -4194,7 +4524,8 @@
       "pattern": "〜ものがある。",
       "meaningVi": "Có cảm giác...",
       "example": "毎日2時間もかけて運動するのはかなり辛いものがある。",
-      "exampleVi": "Ngày nào cũng mất 2 tiếng để đi làm, cảm giác khá là khổ sở."
+      "exampleVi": "Ngày nào cũng mất 2 tiếng để đi làm, cảm giác khá là khổ sở.",
+      "usage": "V-thể thông thường + ものがある, A-i + ものがある, A-na + な + ものがある。Dùng để diễn tả một cảm giác, tính chất tồn tại khách quan trong sự việc mà người nói không thể phủ nhận."
     },
     {
       "id": "bunpo-400-349",
@@ -4205,7 +4536,8 @@
       "pattern": "〜ことだ。（thật sự）",
       "meaningVi": "Thật sự là...",
       "example": "困ったとき助けてくれる友達がいる。ありがたいことだ。",
-      "exampleVi": "Có bạn bè giúp đỡ lúc khó khăn. Thật sự là cảm kích."
+      "exampleVi": "Có bạn bè giúp đỡ lúc khó khăn. Thật sự là cảm kích.",
+      "usage": "A-i + ことだ, A-na + な + ことだ, V-thể thông thường + ことだ。Dùng để cảm thán, nhấn mạnh cảm xúc của người nói về một sự việc đáng kinh ngạc, đáng mừng hoặc đáng buồn."
     },
     {
       "id": "bunpo-400-350",
@@ -4216,7 +4548,8 @@
       "pattern": "〜ことだろう・〜ことか。",
       "meaningVi": "Không biết bao nhiêu...",
       "example": "「無理遣いをするな」と子供にもう何回注意したことか。",
-      "exampleVi": "Không biết bao nhiêu lần tôi nhắc con là không được lãng phí."
+      "exampleVi": "Không biết bao nhiêu lần tôi nhắc con là không được lãng phí.",
+      "usage": "V-た + ことだろう / V-た + ことか。Thường đi kèm các từ nghi vấn (bao nhiêu, thế nào), dùng trong câu cảm thán để nhấn mạnh mức độ cao hoặc số lượng nhiều."
     },
     {
       "id": "bunpo-400-351",
@@ -4227,7 +4560,8 @@
       "pattern": "〜に於いて。",
       "meaningVi": "Tại, ở...",
       "example": "本日、A館に於いて、記念式典が行われる。",
-      "exampleVi": "Hôm nay, buổi lễ kỉ niệm sẽ được tổ chức tại nhà A."
+      "exampleVi": "Hôm nay, buổi lễ kỉ niệm sẽ được tổ chức tại nhà A.",
+      "usage": "N + に於いて。Dùng trong văn viết, thông báo chính thức để chỉ thời gian hoặc địa điểm xảy ra sự kiện."
     },
     {
       "id": "bunpo-400-352",
@@ -4238,7 +4572,8 @@
       "pattern": "〜に先立って。",
       "meaningVi": "Trước khi",
       "example": "入社試験に先立って、会社説明会が行われた。",
-      "exampleVi": "Trước khi thi vào công ty, người ta tổ chức buổi giới thiệu về công ty ấy."
+      "exampleVi": "Trước khi thi vào công ty, người ta tổ chức buổi giới thiệu về công ty ấy.",
+      "usage": "N + に先立って / N + に先立ち。Dùng trong văn viết hoặc tình huống trang trọng, chỉ một hành động diễn ra trước khi một sự kiện quan trọng bắt đầu."
     },
     {
       "id": "bunpo-400-353",
@@ -4249,7 +4584,8 @@
       "pattern": "〜とはいいながら。",
       "meaningVi": "Dù là...",
       "example": "彼女は母親になったとはいいながら。子育ては苦手なようだ。",
-      "exampleVi": "Cô ta dù là mẹ rồi nhưng hình như chẳng biết cách nuôi dạy con."
+      "exampleVi": "Cô ta dù là mẹ rồi nhưng hình như chẳng biết cách nuôi dạy con.",
+      "usage": "V-thể thông thường + とはいいながら, N + とはいいながら。Dùng để thừa nhận một sự thật nhưng sau đó đưa ra một nội dung đối lập hoặc kết quả không như dự đoán."
     },
     {
       "id": "bunpo-400-354",
@@ -4260,7 +4596,8 @@
       "pattern": "〜からすると・〜からいうと",
       "meaningVi": "Nhìn vào, xét về...",
       "example": "あの車は形からすると、10年ぐらい前の物だと思う。",
-      "exampleVi": "Nhìn vào hình dáng của cái ô tô kia, tôi nghĩ nó là vật từ 10 năm trước."
+      "exampleVi": "Nhìn vào hình dáng của cái ô tô kia, tôi nghĩ nó là vật từ 10 năm trước.",
+      "usage": "N + からすると/からいうと. Dùng để chỉ căn cứ hoặc quan điểm khi đánh giá hay suy đoán về một vấn đề."
     },
     {
       "id": "bunpo-400-355",
@@ -4271,7 +4608,8 @@
       "pattern": "〜ことなく",
       "meaningVi": "Không hề..., mà không...",
       "example": "母は何を言われても怒ることなく、いつもニコニコしている。",
-      "exampleVi": "Mẹ tôi dù bị nói gì cũng không hề nổi giận, cứ tủm tím sự suốt."
+      "exampleVi": "Mẹ tôi dù bị nói gì cũng không hề nổi giận, cứ tủm tím sự suốt.",
+      "usage": "V-辞書形 + ことなく. Nhấn mạnh sự việc diễn ra mà không kèm theo một hành động nào đó, thường mang sắc thái trang trọng."
     },
     {
       "id": "bunpo-400-356",
@@ -4282,7 +4620,8 @@
       "pattern": "〜ことに",
       "meaningVi": "Thật là...",
       "example": "嬉しいことに、四月から給料が1割ほどあがる。",
-      "exampleVi": "Thật là vui sướng, lương từ tháng 4 sẽ tăng lên 10%."
+      "exampleVi": "Thật là vui sướng, lương từ tháng 4 sẽ tăng lên 10%.",
+      "usage": "V-た形/い-A/な-Aな + ことに. Dùng để nhấn mạnh cảm xúc hoặc phản ứng của người nói về tình huống được nhắc đến."
     },
     {
       "id": "bunpo-400-357",
@@ -4293,7 +4632,8 @@
       "pattern": "〜だの〜だの。",
       "meaningVi": "Nào là...nào là",
       "example": "隣のうちの人はごみの出し方が悪いだの、夜の洗濯はだめだの、文句ばっかり言っている。",
-      "exampleVi": "Nhà hàng xóm suốt ngày phàn nàn, nào là chưa biết cách đổ rác, nào là không được giặt giũ vào ban đêm."
+      "exampleVi": "Nhà hàng xóm suốt ngày phàn nàn, nào là chưa biết cách đổ rác, nào là không được giặt giũ vào ban đêm.",
+      "usage": "N/V-thể thường + だの + N/V-thể thường + だの. Dùng liệt kê các ví dụ với sắc thái phê phán, bất mãn của người nói."
     },
     {
       "id": "bunpo-400-358",
@@ -4304,7 +4644,8 @@
       "pattern": "〜のみ",
       "meaningVi": "Chỉ...",
       "example": "土日のみのアルバイトを探している。",
-      "exampleVi": "Tôi đang tìm việc làm thêm chỉ vào thứ bảy chủ nhật."
+      "exampleVi": "Tôi đang tìm việc làm thêm chỉ vào thứ bảy chủ nhật.",
+      "usage": "N + のみ. Hình thức trang trọng hơn của \"dake\", dùng trong văn viết hoặc thông báo."
     },
     {
       "id": "bunpo-400-359",
@@ -4315,7 +4656,8 @@
       "pattern": "〜おそらく。",
       "meaningVi": "E rằng...",
       "example": "雲が真っ黒だから、おそらく雨になるだろう。",
-      "exampleVi": "Mây đen kịt, e rằng tối sẽ mưa"
+      "exampleVi": "Mây đen kịt, e rằng tối sẽ mưa",
+      "usage": "Thường đi kèm với phó từ chỉ sự suy đoán (〜だろう・かもしれない). Dùng để diễn tả sự dự đoán có xác suất cao."
     },
     {
       "id": "bunpo-400-360",
@@ -4326,7 +4668,8 @@
       "pattern": "〜まさか",
       "meaningVi": "Chắc chắn rằng...không",
       "example": "あんなに何度も練習したのだから、まさか失敗することはあるまい。",
-      "exampleVi": "Vì luyện tập nhiều lần như thế nên chắc chắn không có chuyện thất bại."
+      "exampleVi": "Vì luyện tập nhiều lần như thế nên chắc chắn không có chuyện thất bại.",
+      "usage": "Thường đi kèm với thể phủ định (〜ない・まい). Dùng để khẳng định mạnh mẽ sự ngạc nhiên hoặc niềm tin rằng điều gì đó không thể xảy ra."
     },
     {
       "id": "bunpo-400-361",
@@ -4337,7 +4680,8 @@
       "pattern": "〜徐々に",
       "meaningVi": "Dần dần, thong thả, chậm chậm...",
       "example": "彼の健康は徐々に回復した。",
-      "exampleVi": "Sức khỏe của anh ấy đã hồi phục dần dần."
+      "exampleVi": "Sức khỏe của anh ấy đã hồi phục dần dần.",
+      "usage": "Phó từ đứng trước câu. Chỉ sự thay đổi trạng thái diễn ra một cách chậm rãi, từ từ theo thời gian."
     },
     {
       "id": "bunpo-400-362",
@@ -4348,7 +4692,8 @@
       "pattern": "〜果たして。",
       "meaningVi": "Quả nhiên, quả thực...",
       "example": "あなたの言うことは果たして事実ですか。",
-      "exampleVi": "Những chuyện anh nói quả thực là sự thật phải không?"
+      "exampleVi": "Những chuyện anh nói quả thực là sự thật phải không?",
+      "usage": "Đứng đầu câu hoặc trước mệnh đề. Dùng để xác nhận lại một nghi vấn hoặc sự việc mà bản thân từng dự đoán trước đó."
     },
     {
       "id": "bunpo-400-363",
@@ -4359,7 +4704,8 @@
       "pattern": "〜しかも。",
       "meaningVi": "Hơn nữa, thêm nữa...",
       "example": "先生の宿題は長くて、しかも難しい。",
-      "exampleVi": "Bài tập của thầy rất dài, hơn nữa lại còn khó."
+      "exampleVi": "Bài tập của thầy rất dài, hơn nữa lại còn khó.",
+      "usage": "Dùng nối hai câu, bổ sung thêm thông tin. Nhấn mạnh rằng ngoài đặc điểm trước đó, còn có thêm một đặc điểm khác (thường cùng chiều)."
     },
     {
       "id": "bunpo-400-364",
@@ -4370,7 +4716,8 @@
       "pattern": "〜更に。",
       "meaningVi": "Thêm nữa, hơn nữa...",
       "example": "田中さんの家で料理をごちそうになった。更に、お土産もいただいた。",
-      "exampleVi": "Được chiêu đãi ở nhà anh Tanaka. Hơn nữa còn nhận được quà."
+      "exampleVi": "Được chiêu đãi ở nhà anh Tanaka. Hơn nữa còn nhận được quà.",
+      "usage": "Dùng ở đầu câu thứ hai. Diễn tả hành động hoặc trạng thái tiếp nối tăng tiến hơn so với thông tin phía trước."
     },
     {
       "id": "bunpo-400-365",
@@ -4381,7 +4728,8 @@
       "pattern": "〜あるいは",
       "meaningVi": "Hoặc là...",
       "example": "風邪かもしれない。あるいは、インフルエンザかもしれない。",
-      "exampleVi": "Có lẽ cảm lạnh rồi. Hoặc là cúm virus cũng nên."
+      "exampleVi": "Có lẽ cảm lạnh rồi. Hoặc là cúm virus cũng nên.",
+      "usage": "Liên từ nối giữa hai vế câu. Dùng để liệt kê các khả năng hoặc lựa chọn thay thế mang tính khách quan."
     },
     {
       "id": "bunpo-400-366",
@@ -4392,7 +4740,8 @@
       "pattern": "〜それとも。",
       "meaningVi": "Hay là...",
       "example": "仕事を続けるべきか。それとも、留学するべきか。",
-      "exampleVi": "Nên tiếp tục công việc. Hay là nên đi du học nhỉ."
+      "exampleVi": "Nên tiếp tục công việc. Hay là nên đi du học nhỉ.",
+      "usage": "Đứng đầu câu hoặc nối giữa hai câu hỏi. Dùng để đưa ra sự lựa chọn giữa các phương án khác nhau."
     },
     {
       "id": "bunpo-400-367",
@@ -4403,7 +4752,8 @@
       "pattern": "〜こうして。",
       "meaningVi": "Cứ thế...",
       "example": "大学では友達もできたし、いいアルバイトも見つかった。こうして、私の新しい生活が始まった。",
-      "exampleVi": "Quen được nhiều bạn ở đại học, tìm được việc làm thêm tốt. Cuộc sống mới của tôi cứ thế bắt đầu."
+      "exampleVi": "Quen được nhiều bạn ở đại học, tìm được việc làm thêm tốt. Cuộc sống mới của tôi cứ thế bắt đầu.",
+      "usage": "Đứng đầu câu. Diễn tả trình tự diễn biến sự việc hoặc cách thức thực hiện dẫn đến kết quả hiện tại."
     },
     {
       "id": "bunpo-400-368",
@@ -4414,7 +4764,8 @@
       "pattern": "〜それでも。",
       "meaningVi": "Tuy thế...",
       "example": "宝くじが当たることはめったにない。それでも、買い続けている。",
-      "exampleVi": "Hiếm khi trúng số. Tuy thế, vẫn tiếp tục mua."
+      "exampleVi": "Hiếm khi trúng số. Tuy thế, vẫn tiếp tục mua.",
+      "usage": "Đứng đầu câu. Diễn tả sự tương phản, thực hiện một hành động hoặc suy nghĩ dù tình huống trước đó gây trở ngại."
     },
     {
       "id": "bunpo-400-369",
@@ -4425,7 +4776,8 @@
       "pattern": "〜要するに。",
       "meaningVi": "Tóm lại, nói một cách ngắn gọn...",
       "example": "野菜は健康にいいが、魚や肉などのたんぱく質も取る必要がある。要するに、いろいろな物をバランスよく食べることが重要だ。",
-      "exampleVi": "Rau thì tốt cho sức khỏe nhưng chất đạm trong thịt và cá cũng rất cần thiết. Tóm lại, việc ăn nhiều chất để đảm bảo sự cân bằng rất quan trọng."
+      "exampleVi": "Rau thì tốt cho sức khỏe nhưng chất đạm trong thịt và cá cũng rất cần thiết. Tóm lại, việc ăn nhiều chất để đảm bảo sự cân bằng rất quan trọng.",
+      "usage": "Đứng đầu câu. Dùng để tóm tắt hoặc diễn đạt lại nội dung đã nêu ở câu trước một cách ngắn gọn, súc tích."
     },
     {
       "id": "bunpo-400-370",
@@ -4436,7 +4788,8 @@
       "pattern": "〜いわば。",
       "meaningVi": "Có thể nói...",
       "example": "このアニメを知らない日本人はいないだろう。いわば、これは国民的なアニメだ。",
-      "exampleVi": "Có lẽ không một người Nhật nào không biết bộ phim hoạt hình này. Có thể nói đây là bộ Anime quốc dân."
+      "exampleVi": "Có lẽ không một người Nhật nào không biết bộ phim hoạt hình này. Có thể nói đây là bộ Anime quốc dân.",
+      "usage": "Đứng đầu câu. Dùng khi muốn dùng cách nói ví von hoặc ẩn dụ để định nghĩa lại một sự vật, sự việc."
     },
     {
       "id": "bunpo-400-371",
@@ -4447,7 +4800,8 @@
       "pattern": "〜及び。",
       "meaningVi": "Và",
       "example": "会議終了後、名札及びアンケート用紙を回収します。",
-      "exampleVi": "Kết thúc buổi họp sẽ thu lại bảng tên và phiếu thăm dò."
+      "exampleVi": "Kết thúc buổi họp sẽ thu lại bảng tên và phiếu thăm dò.",
+      "usage": "N + 及び + N. Dùng trong văn viết trang trọng, tài liệu chính thức hoặc thông báo để liệt kê các danh từ."
     },
     {
       "id": "bunpo-400-372",
@@ -4458,7 +4812,8 @@
       "pattern": "〜なお（更に）",
       "meaningVi": "Ngoài ra, hơn nữa...",
       "example": "彼は手術してなお悪くなった。",
-      "exampleVi": "Anh ta còn tệ hơn nữa sau khi phẫu thuật."
+      "exampleVi": "Anh ta còn tệ hơn nữa sau khi phẫu thuật.",
+      "usage": "Đứng trước động từ hoặc tính từ. Nhấn mạnh mức độ cao hơn hoặc tình trạng vẫn tiếp diễn/gia tăng bất chấp sự việc trước đó."
     },
     {
       "id": "bunpo-400-373",
@@ -4469,7 +4824,8 @@
       "pattern": "〜さて…。",
       "meaningVi": "Nào..., à...",
       "example": "お久しぶりです。お元気ですか。さて、今日はお聞きしたいことがありまして、メールしました。",
-      "exampleVi": "Lâu lắm không gặp nhỉ. Khỏe không? À, hôm nay có chuyện muốn hỏi nên mail đấy."
+      "exampleVi": "Lâu lắm không gặp nhỉ. Khỏe không? À, hôm nay có chuyện muốn hỏi nên mail đấy.",
+      "usage": "Đứng đầu câu. Dùng để chuyển chủ đề hoặc bắt đầu một nội dung mới sau khi kết thúc phần chào hỏi."
     },
     {
       "id": "bunpo-400-374",
@@ -4480,7 +4836,8 @@
       "pattern": "〜あえて。",
       "meaningVi": "Dám...",
       "example": "彼女はまた風邪をひかないように、あえて部屋から出ようとしない。",
-      "exampleVi": "Cô ấy chẳng dám ra khỏi phòng để khỏi bị cảm lần nữa."
+      "exampleVi": "Cô ấy chẳng dám ra khỏi phòng để khỏi bị cảm lần nữa.",
+      "usage": "Đứng trước động từ. Nhấn mạnh việc thực hiện một hành động mang tính thử thách, dũng cảm hoặc khác với lẽ thường."
     },
     {
       "id": "bunpo-400-375",
@@ -4491,7 +4848,8 @@
       "pattern": "〜以外の。",
       "meaningVi": "Ngoài...ra thì",
       "example": "彼は日本語以外の外国語は全く知らない。",
-      "exampleVi": "Ngoài tiếng Nhật ra thì anh ta hoàn toàn không biết tiếng nước ngoài."
+      "exampleVi": "Ngoài tiếng Nhật ra thì anh ta hoàn toàn không biết tiếng nước ngoài.",
+      "usage": "Danh từ + 以外の + Danh từ. Chỉ ra ngoại lệ, ngoài đối tượng được nhắc đến thì không còn cái nào khác."
     },
     {
       "id": "bunpo-400-376",
@@ -4502,7 +4860,8 @@
       "pattern": "〜思うように。",
       "meaningVi": "Như đã nghĩ",
       "example": "試験は思うようにうまく出来なかった。",
-      "exampleVi": "Bài thi đã không hoàn thành tốt như đã nghĩ."
+      "exampleVi": "Bài thi đã không hoàn thành tốt như đã nghĩ.",
+      "usage": "Đi cùng với các động từ phủ định (V-nai). Diễn tả việc thực tế không giống như kỳ vọng hoặc dự định ban đầu."
     },
     {
       "id": "bunpo-400-377",
@@ -4513,7 +4872,8 @@
       "pattern": "〜あっての。",
       "meaningVi": "Vì, chính vì, do có...",
       "example": "君の援助あっての私の成功だ。",
-      "exampleVi": "Thành công của anh là do có sự trợ giúp của em."
+      "exampleVi": "Thành công của anh là do có sự trợ giúp của em.",
+      "usage": "N + あっての + N. Diễn tả điều đằng sau chỉ có thể tồn tại hoặc đạt được nhờ có điều đằng trước (thường mang tính biết ơn hoặc công nhận)."
     },
     {
       "id": "bunpo-400-378",
@@ -4524,7 +4884,8 @@
       "pattern": "〜（で）すら。",
       "meaningVi": "Thậm chí..., ngay cả...",
       "example": "腰が痛くて、起き上がることすら難しかった。",
-      "exampleVi": "Đau lưng, thậm chí ngồi dậy cũng khó khăn."
+      "exampleVi": "Đau lưng, thậm chí ngồi dậy cũng khó khăn.",
+      "usage": "N + （で）すら / V-辞書形 + ことすら. Dùng trong văn viết hoặc tình huống trang trọng để nhấn mạnh mức độ cực đoan, thường đi kèm với phủ định."
     },
     {
       "id": "bunpo-400-379",
@@ -4535,7 +4896,8 @@
       "pattern": "〜何といっても。",
       "meaningVi": "Dù thế nào thì..., nói gì thì nói...",
       "example": "何といっても、家族が一番大切だ。",
-      "exampleVi": "Dù thế nào thì gia đình cũng là thứ quan trọng nhất."
+      "exampleVi": "Dù thế nào thì gia đình cũng là thứ quan trọng nhất.",
+      "usage": "Đứng đầu câu hoặc đầu vế câu. Dùng để nhấn mạnh ý kiến cá nhân là quan trọng nhất, không gì có thể thay đổi được."
     },
     {
       "id": "bunpo-400-380",
@@ -4546,7 +4908,8 @@
       "pattern": "〜ゆえに・がゆえに。",
       "meaningVi": "Vì...",
       "example": "貧困ゆえに学校にも行けない子どもがいる。",
-      "exampleVi": "Có những đứa trẻ không được đến trường vì nghèo khó."
+      "exampleVi": "Có những đứa trẻ không được đến trường vì nghèo khó.",
+      "usage": "N + （が）ゆえ（に）/ Na + ゆえ（に）/ A-い + ゆえ（に）. Văn phong cổ, trang trọng, dùng để chỉ nguyên nhân dẫn đến một kết quả."
     },
     {
       "id": "bunpo-400-381",
@@ -4557,7 +4920,8 @@
       "pattern": "〜ような気がする。",
       "meaningVi": "Có cảm giác là..., dường như là...",
       "example": "彼女は最近、私に冷たくなったような気がする。",
-      "exampleVi": "Cô ấy gần đây có cảm giác lạnh nhạt với tôi."
+      "exampleVi": "Cô ấy gần đây có cảm giác lạnh nhạt với tôi.",
+      "usage": "V-る/V-た/V-ない/A/Na + ような気がする. Thể hiện suy đoán chủ quan dựa trên cảm tính cá nhân, không có bằng chứng cụ thể."
     },
     {
       "id": "bunpo-400-382",
@@ -4568,7 +4932,8 @@
       "pattern": "〜ろくに〜ない。",
       "meaningVi": "Không...một chút gì",
       "example": "彼は今日ろくに何も食べなかった。",
-      "exampleVi": "Anh ấy cả ngày hôm nay chẳng ăn cái gì cả."
+      "exampleVi": "Anh ấy cả ngày hôm nay chẳng ăn cái gì cả.",
+      "usage": "ろくに + V-ない. Diễn tả sự không đầy đủ, không đủ mức tối thiểu; thường mang cảm giác bực bội hoặc thất vọng."
     },
     {
       "id": "bunpo-400-383",
@@ -4579,7 +4944,8 @@
       "pattern": "〜を〜に任せる。",
       "meaningVi": "Phó thác...",
       "example": "家事をすべて奥さんに任せないでください。",
-      "exampleVi": "Việc nhà xin đừng phó thác hết cho người vợ."
+      "exampleVi": "Việc nhà xin đừng phó thác hết cho người vợ.",
+      "usage": "N + を + N + に + 任せる. Nhấn mạnh việc giao phó trách nhiệm hoặc quyền quyết định cho đối phương."
     },
     {
       "id": "bunpo-400-384",
@@ -4590,7 +4956,8 @@
       "pattern": "〜別に〜ない。",
       "meaningVi": "Không hề...",
       "example": "お前なんかいなくても、別に困らないよ。",
-      "exampleVi": "Không có mày tao vẫn không hề khó khăn nhé."
+      "exampleVi": "Không có mày tao vẫn không hề khó khăn nhé.",
+      "usage": "別に + V-ない/A-くない. Dùng để phủ nhận một cách nhẹ nhàng, tránh gây gắt hoặc tỏ ý không quan tâm."
     },
     {
       "id": "bunpo-400-385",
@@ -4601,7 +4968,8 @@
       "pattern": "〜でいいです。",
       "meaningVi": "Là được, ...là đủ",
       "example": "東京から富士山まで車でいいですね。",
-      "exampleVi": "Từ Tokyo đến núi Phú Sĩ thì đi bằng xe hơi là được nhỉ."
+      "exampleVi": "Từ Tokyo đến núi Phú Sĩ thì đi bằng xe hơi là được nhỉ.",
+      "usage": "N + でいい / V-て + でいい. Nhấn mạnh rằng lựa chọn này là đủ, không cần hơn, thường dùng khi chấp nhận một điều gì đó."
     },
     {
       "id": "bunpo-400-386",
@@ -4612,7 +4980,8 @@
       "pattern": "〜確か",
       "meaningVi": "Chắc chắn là...",
       "example": "確かにどこかで会った人だが、なかなか思い出せない。",
-      "exampleVi": "Chắc chắn là người tôi đã gặp ở đâu đó nhưng tôi lại không thể nhớ ra."
+      "exampleVi": "Chắc chắn là người tôi đã gặp ở đâu đó nhưng tôi lại không thể nhớ ra.",
+      "usage": "Đứng đầu câu hoặc giữa câu. Dùng để khẳng định sự việc là đúng thực tế, không sai lệch."
     },
     {
       "id": "bunpo-400-387",
@@ -4623,7 +4992,8 @@
       "pattern": "〜せめて。",
       "meaningVi": "Dù chỉ...cũng muốn, ít nhất thì muốn...",
       "example": "せめて君の声だけ聞きたいなあ。",
-      "exampleVi": "Anh chỉ muốn nghe giọng nói của em thôi."
+      "exampleVi": "Anh chỉ muốn nghe giọng nói của em thôi.",
+      "usage": "Đứng đầu câu hoặc trước danh từ/động từ. Thể hiện nguyện vọng tối thiểu, dù điều kiện không tốt nhưng ít nhất vẫn muốn làm điều đó."
     },
     {
       "id": "bunpo-400-388",
@@ -4634,7 +5004,8 @@
       "pattern": "〜いったん〜ば・と・たら。",
       "meaningVi": "Một khi...",
       "example": "彼女はおしゃべりな人で、いったん話し出すと止まらない。",
-      "exampleVi": "Cô ấy là người nói nhiều nên một khi nói ra sẽ không ngừng."
+      "exampleVi": "Cô ấy là người nói nhiều nên một khi nói ra sẽ không ngừng.",
+      "usage": "いったん + V-たら / V-ば / V-と. Diễn tả một hành động đã hoàn tất thì trạng thái tiếp theo sẽ xảy ra, nhấn mạnh tính liên tục của hành động sau đó."
     },
     {
       "id": "bunpo-400-389",
@@ -4651,7 +5022,8 @@
           "pattern": "〜がてら。",
           "note": "かたわら chỉ công việc chính và phụ diễn ra trong thời gian dài (song song), còn がてら dùng cho hành động nhân tiện làm việc khác."
         }
-      ]
+      ],
+      "usage": "V-る + かたわら / N + の + かたわら. Dùng khi làm hai công việc song song đòi hỏi sự đầu tư thời gian và kỹ năng đáng kể."
     },
     {
       "id": "bunpo-400-390",
@@ -4668,7 +5040,8 @@
           "pattern": "〜かたわら。",
           "note": "がてら mang nghĩa nhân tiện kết hợp hành động tiện đường, còn かたわら chỉ nghề nghiệp hoặc hoạt động song song trong đời sống."
         }
-      ]
+      ],
+      "usage": "V-ます(bỏ ます) / N + に + がてら. Dùng khi kết hợp làm một việc phụ trong khi thực hiện một mục đích chính; thường đi kèm các động từ di chuyển."
     },
     {
       "id": "bunpo-400-391",
@@ -4679,7 +5052,8 @@
       "pattern": "〜からなる。",
       "meaningVi": "Tạo thành từ..., hình thành từ...",
       "example": "日本の国会は衆議院と参議院からなり、国会は国の最高決定機関である。",
-      "exampleVi": "Quốc hội Nhật Bản được hình thành từ Hạ nghị viện và Thượng nghị viện, quốc hội là cơ quan quyết định cao nhất của cả nước."
+      "exampleVi": "Quốc hội Nhật Bản được hình thành từ Hạ nghị viện và Thượng nghị viện, quốc hội là cơ quan quyết định cao nhất của cả nước.",
+      "usage": "N + からなる. Diễn tả các bộ phận cấu thành nên một chỉnh thể; thường dùng trong văn viết hoặc thuyết minh mang tính khách quan."
     },
     {
       "id": "bunpo-400-392",
@@ -4690,7 +5064,8 @@
       "pattern": "〜さすが（に）。",
       "meaningVi": "Quả là...",
       "example": "彼女は満点で日本語能力試験のN1に合格したので、さすがに日本語が上手だ。",
-      "exampleVi": "Cô ấy đỗ N1 manten, tiếng Nhật quả là giỏi nhỉ."
+      "exampleVi": "Cô ấy đỗ N1 manten, tiếng Nhật quả là giỏi nhỉ.",
+      "usage": "V/Adj/N (thể thường) + さすが(に). Dùng để thừa nhận một sự thật đúng như mong đợi hoặc khen ngợi đối phương dựa trên kết quả thực tế."
     }
   ]
 }
