@@ -15,6 +15,11 @@ export interface DeThiQuestion {
   correctIndex: number;
   points: number;
   passage: string | null;
+  // Optional -- most papers don't have this yet (see _scratch/build_dethi_
+  // explanation.py). 1 câu tiếng Việt ngắn gọn giải thích vì sao đáp án đúng
+  // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,
+  // trích ý đoạn văn cho câu đọc hiểu).
+  explanation?: string;
   // Set only on a 聴解 (listening) paper whose options are illustrations
   // rather than text (e.g. real JLPT Mondai1/4 picture choices) -- path
   // resolved via assetUrl(), same convention as ListeningQuestion.optionsImage

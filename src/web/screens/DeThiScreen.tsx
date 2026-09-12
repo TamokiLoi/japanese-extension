@@ -783,6 +783,7 @@ function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["quest
           })}
         </div>
       )}
+      {question.explanation ? <div className="mt-3 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">{question.explanation}</div> : null}
       {chosenIndex === null ? <p className="mt-3 text-xs font-medium text-neutral-400">Bạn chưa trả lời câu này.</p> : null}
     </Card>
   );
