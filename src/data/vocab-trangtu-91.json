@@ -1,9 +1,9 @@
 {
   "meta": {
     "schemaVersion": "1.0",
-    "generatedAt": "2026-09-12T14:24:56.073Z",
+    "generatedAt": "2026-09-12T14:32:25.891Z",
     "counts": {
-      "words": 176
+      "words": 171
     },
     "sources": {
       "book": "91 trạng từ tiếng Nhật thường dùng",
@@ -12,7 +12,9 @@
     "notes": [
       "Level do Gemini tự phân loại theo kiến thức JLPT chuẩn, sách gốc không ghi cấp độ theo từng từ.",
       "Bo sung 85 tu tu assets/data/tu-vung/pho-tu-thuong-dung (Kosei Nihongo, Thu Huong Sensei), da doi chieu trung voi 91 tu goc (25 trung, bo qua). Level do Gemini tu phan loai.",
-      "Nguon Kosei thieu STT 91-100 (10 muc) trong anh goc, chua trich xuat duoc."
+      "Da bo sung STT 91-100 tu anh 17 (nguoi dung chup them) -- 3/10 tu da trung voi bo 91 goc (gioi thieu), 7 tu moi.",
+      "Da don lai 32 entry bi loi dinh dang word chua ca phan (kanji/kana) trong ngoac tu lan gop truoc.",
+      "Da xoa 12 entry trung lap thuc su (cung word, khac id) phat sinh do bug so sanh dedup luc gop Kosei (word con giu format \"tu (kanji)\" nen khong khop voi word da co) -- giu lai entry co id thap hon (id goc). Rieng \"mada\" (2 entry N5, 2 nghia \"van chua\"/\"van con\") la du lieu goc tu truoc, khong dong."
     ]
   },
   "words": [
@@ -949,18 +951,6 @@
       "exampleVi": "Vào ngày nghỉ tôi thường đọc sách ở phòng"
     },
     {
-      "id": "trangtu91-76",
-      "word": "もっと",
-      "reading": null,
-      "level": "N4",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Hơn nữa",
-      "mnemonic": [],
-      "example": "もっと練習しないと。",
-      "exampleVi": "Phải luyện tập nhiều hơn nữa"
-    },
-    {
       "id": "trangtu91-77",
       "word": "きちんと",
       "reading": null,
@@ -995,18 +985,6 @@
       "mnemonic": [],
       "example": "せっかく来たのに、友達が留守のようです。",
       "exampleVi": "Mất công đến chơi mà bạn lại vắng"
-    },
-    {
-      "id": "trangtu91-80",
-      "word": "今にも",
-      "reading": "いまにも",
-      "level": "N2",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Chẳng mấy chốc",
-      "mnemonic": [],
-      "example": "今にも雨が降りそうです。",
-      "exampleVi": "Chẳng mấy chốc thì trời mưa"
     },
     {
       "id": "trangtu91-81",
@@ -1204,7 +1182,7 @@
     },
     {
       "id": "trangtu91-97",
-      "word": "先ほど (さきほど)",
+      "word": "先ほど",
       "reading": "さきほど",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1264,7 +1242,7 @@
     },
     {
       "id": "trangtu91-102",
-      "word": "徐々に (じょじょに)",
+      "word": "徐々に",
       "reading": "じょじょに",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1276,7 +1254,7 @@
     },
     {
       "id": "trangtu91-103",
-      "word": "次第に (しだいに)",
+      "word": "次第に",
       "reading": "しだいに",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1312,7 +1290,7 @@
     },
     {
       "id": "trangtu91-106",
-      "word": "次々 (つぎつぎ)",
+      "word": "次々",
       "reading": "つぎつぎ",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1335,20 +1313,8 @@
       "exampleVi": "Trời đột nhiên bắt đầu mưa."
     },
     {
-      "id": "trangtu91-108",
-      "word": "急に (きゅうに)",
-      "reading": "きゅうに",
-      "level": "N4",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Đột ngột. Diễn tả sự thay đổi xảy ra nhanh trong thời gian ngắn.",
-      "mnemonic": [],
-      "example": "急に寒くなりました。",
-      "exampleVi": "Trời đột nhiên trở lạnh."
-    },
-    {
       "id": "trangtu91-109",
-      "word": "突然 (とつぜん)",
+      "word": "突然",
       "reading": "とつぜん",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1371,20 +1337,8 @@
       "exampleVi": "Không biết từ lúc nào tôi đã ngủ mất."
     },
     {
-      "id": "trangtu91-111",
-      "word": "非常に (ひじょうに)",
-      "reading": "ひじょうに",
-      "level": "N3",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Rất, vô cùng. Trang trọng hơn とても, hay gặp trong bài đọc và văn viết.",
-      "mnemonic": [],
-      "example": "非常に重要な問題です。",
-      "exampleVi": "Đây là vấn đề rất quan trọng."
-    },
-    {
       "id": "trangtu91-112",
-      "word": "大変 (たいへん)",
+      "word": "大変",
       "reading": "たいへん",
       "level": "N4",
       "partOfSpeech": "Trạng từ",
@@ -1396,7 +1350,7 @@
     },
     {
       "id": "trangtu91-113",
-      "word": "だいぶ (大分)",
+      "word": "だいぶ",
       "reading": "だいぶ",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1455,20 +1409,8 @@
       "exampleVi": "Không đắt đến mức đó."
     },
     {
-      "id": "trangtu91-118",
-      "word": "少し (すこし)",
-      "reading": "すこし",
-      "level": "N5",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Một chút, hơi.",
-      "mnemonic": [],
-      "example": "少し疲れました。",
-      "exampleVi": "Tôi hơi mệt."
-    },
-    {
       "id": "trangtu91-119",
-      "word": "少々 (しょうしょう)",
+      "word": "少々",
       "reading": "しょうしょう",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1492,7 +1434,7 @@
     },
     {
       "id": "trangtu91-121",
-      "word": "最も (もっとも)",
+      "word": "最も",
       "reading": "もっとも",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1503,20 +1445,8 @@
       "exampleVi": "Điều quan trọng nhất là sức khỏe."
     },
     {
-      "id": "trangtu91-122",
-      "word": "一番 (いちばん)",
-      "reading": "いちばん",
-      "level": "N5",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Nhất, số một. Dùng phổ biến trong hội thoại.",
-      "mnemonic": [],
-      "example": "夏が一番好きです。",
-      "exampleVi": "Tôi thích mùa hè nhất."
-    },
-    {
       "id": "trangtu91-123",
-      "word": "多く (おおく)",
+      "word": "多く",
       "reading": "おおく",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1540,7 +1470,7 @@
     },
     {
       "id": "trangtu91-125",
-      "word": "全く (まったく)",
+      "word": "全く",
       "reading": "まったく",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1551,20 +1481,8 @@
       "exampleVi": "Tôi hoàn toàn không hiểu."
     },
     {
-      "id": "trangtu91-126",
-      "word": "全然 (ぜんぜん)",
-      "reading": "ぜんぜん",
-      "level": "N4",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "① Hoàn toàn không… (đi với ～ない). ② Trong khẩu ngữ hiện đại có thể đi với câu khẳng định (\"hoàn toàn ổn\"), nhưng JLPT chủ yếu kiểm tra cách dùng với phủ định.",
-      "mnemonic": [],
-      "example": "全然眠くありません。",
-      "exampleVi": "Tôi hoàn toàn không buồn ngủ."
-    },
-    {
       "id": "trangtu91-127",
-      "word": "決して (けっして)",
+      "word": "決して",
       "reading": "けっして",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1573,30 +1491,6 @@
       "mnemonic": [],
       "example": "決してあきらめません。",
       "exampleVi": "Tôi nhất định sẽ không bỏ cuộc."
-    },
-    {
-      "id": "trangtu91-128",
-      "word": "絶対に (ぜったいに)",
-      "reading": "ぜったいに",
-      "level": "N3",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "① Tuyệt đối (không)… Đi với cả câu khẳng định và phủ định.",
-      "mnemonic": [],
-      "example": "絶対に忘れません。",
-      "exampleVi": "Tôi tuyệt đối sẽ không quên."
-    },
-    {
-      "id": "trangtu91-129",
-      "word": "必ず (かならず)",
-      "reading": "かならず",
-      "level": "N3",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Nhất định; chắc chắn. Diễn tả điều người nói tin sẽ xảy ra hoặc quyết tâm thực hiện.",
-      "mnemonic": [],
-      "example": "必ず合格します。",
-      "exampleVi": "Tôi nhất định sẽ đỗ."
     },
     {
       "id": "trangtu91-130",
@@ -1624,7 +1518,7 @@
     },
     {
       "id": "trangtu91-132",
-      "word": "たしかに (確かに)",
+      "word": "たしかに",
       "reading": "たしかに",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1635,32 +1529,8 @@
       "exampleVi": "Đúng là khó nhưng vẫn làm được."
     },
     {
-      "id": "trangtu91-133",
-      "word": "本当に (ほんとうに)",
-      "reading": "ほんとうに",
-      "level": "N4",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Thật sự, quả thật.",
-      "mnemonic": [],
-      "example": "本当にありがとうございました。",
-      "exampleVi": "Thật sự cảm ơn bạn rất nhiều."
-    },
-    {
-      "id": "trangtu91-134",
-      "word": "実は (じつは)",
-      "reading": "じつは",
-      "level": "N3",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Thật ra thì… ※ Dùng khi sắp nói điều đối phương chưa biết.",
-      "mnemonic": [],
-      "example": "実は相談があります。",
-      "exampleVi": "Thật ra tôi có chuyện muốn trao đổi."
-    },
-    {
       "id": "trangtu91-135",
-      "word": "実際 (じっさい)",
+      "word": "実際",
       "reading": "じっさい",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1672,7 +1542,7 @@
     },
     {
       "id": "trangtu91-136",
-      "word": "意外に (いがいに)",
+      "word": "意外に",
       "reading": "いがいに",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1696,7 +1566,7 @@
     },
     {
       "id": "trangtu91-138",
-      "word": "とくに (特に)",
+      "word": "とくに",
       "reading": "とくに",
       "level": "N4",
       "partOfSpeech": "Trạng từ",
@@ -1708,7 +1578,7 @@
     },
     {
       "id": "trangtu91-139",
-      "word": "なかでも (中でも)",
+      "word": "なかでも",
       "reading": "なかでも",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1720,7 +1590,7 @@
     },
     {
       "id": "trangtu91-140",
-      "word": "おもに (主に)",
+      "word": "おもに",
       "reading": "おもに",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1732,7 +1602,7 @@
     },
     {
       "id": "trangtu91-141",
-      "word": "例えば (たとえば)",
+      "word": "例えば",
       "reading": "たとえば",
       "level": "N4",
       "partOfSpeech": "Trạng từ",
@@ -1780,7 +1650,7 @@
     },
     {
       "id": "trangtu91-145",
-      "word": "一応 (いちおう)",
+      "word": "一応",
       "reading": "いちおう",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -1840,7 +1710,7 @@
     },
     {
       "id": "trangtu91-150",
-      "word": "約 (やく)",
+      "word": "約",
       "reading": "やく",
       "level": "N4",
       "partOfSpeech": "Trạng từ",
@@ -1861,18 +1731,6 @@
       "mnemonic": [],
       "example": "会場までおよそ３０分です。",
       "exampleVi": "Đến hội trường mất khoảng 30 phút."
-    },
-    {
-      "id": "trangtu91-152",
-      "word": "ほぼ",
-      "reading": "ほぼ",
-      "level": "N3",
-      "partOfSpeech": "Trạng từ",
-      "hanViet": [],
-      "meaningVi": "Gần như; gần đạt hoàn toàn.",
-      "mnemonic": [],
-      "example": "工事はほぼ終わりました。",
-      "exampleVi": "Công trình gần như hoàn thành."
     },
     {
       "id": "trangtu91-153",
@@ -1912,7 +1770,7 @@
     },
     {
       "id": "trangtu91-156",
-      "word": "思わず (おもわず)",
+      "word": "思わず",
       "reading": "おもわず",
       "level": "N2",
       "partOfSpeech": "Trạng từ",
@@ -1924,7 +1782,7 @@
     },
     {
       "id": "trangtu91-157",
-      "word": "思い切って (おもいきって)",
+      "word": "思い切って",
       "reading": "おもいきって",
       "level": "N3",
       "partOfSpeech": "Trạng từ",
@@ -2161,6 +2019,90 @@
       "mnemonic": [],
       "example": "彼はきっぱり断りました。",
       "exampleVi": "Anh ấy đã từ chối dứt khoát."
+    },
+    {
+      "id": "trangtu91-177",
+      "word": "はやく",
+      "reading": "はやく",
+      "level": "N5",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Nhanh lên; sớm.",
+      "mnemonic": [],
+      "example": "早く寝たほうがいいです。",
+      "exampleVi": "Bạn nên đi ngủ sớm."
+    },
+    {
+      "id": "trangtu91-178",
+      "word": "しっかり",
+      "reading": "しっかり",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Chắc chắn; cẩn thận; đầy đủ. Thường đi với 覚える・確認する・勉強する・握る。",
+      "mnemonic": [],
+      "example": "単語をしっかり覚えてください。",
+      "exampleVi": "Hãy ghi nhớ từ vựng thật kỹ."
+    },
+    {
+      "id": "trangtu91-179",
+      "word": "ちゃんと",
+      "reading": "ちゃんと",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Đàng hoàng; đúng cách; đầy đủ. Nhấn mạnh làm đúng trách nhiệm hoặc đúng quy định.",
+      "mnemonic": [],
+      "example": "朝ご飯をちゃんと食べてください。",
+      "exampleVi": "Hãy ăn sáng đầy đủ."
+    },
+    {
+      "id": "trangtu91-180",
+      "word": "ぐっすり",
+      "reading": "ぐっすり",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Ngủ say, ngủ ngon. Gần như luôn đi với 寝る・眠る。",
+      "mnemonic": [],
+      "example": "昨夜はぐっすり眠れました。",
+      "exampleVi": "Tối qua tôi ngủ rất ngon."
+    },
+    {
+      "id": "trangtu91-181",
+      "word": "すっかり",
+      "reading": "すっかり",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hoàn toàn; hết hẳn. Thường đi với 忘れる・治る・変わる。",
+      "mnemonic": [],
+      "example": "風邪はすっかり治りました。",
+      "exampleVi": "Cảm đã khỏi hẳn."
+    },
+    {
+      "id": "trangtu91-182",
+      "word": "すっきり",
+      "reading": "すっきり",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Gọn gàng; sảng khoái; nhẹ nhõm.",
+      "mnemonic": [],
+      "example": "部屋がすっきりしました。",
+      "exampleVi": "Căn phòng đã gọn gàng hơn."
+    },
+    {
+      "id": "trangtu91-183",
+      "word": "さっぱり",
+      "reading": "さっぱり",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "① Hoàn toàn không… (thường đi với 分からない・覚えていない). ② Sảng khoái, dễ chịu (sau khi tắm, cắt tóc…).",
+      "mnemonic": [],
+      "example": "日本語はさっぱり分かりません。",
+      "exampleVi": "Tôi hoàn toàn không hiểu tiếng Nhật."
     }
   ]
 }
