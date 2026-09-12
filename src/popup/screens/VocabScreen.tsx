@@ -16,6 +16,7 @@ import {
 } from "../vocabState.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../LevelDot.tsx";
+import { pruneToggle } from "../filterUtils.ts";
 import {
   getProgress,
   loadProgressMap,
@@ -154,12 +155,13 @@ export function VocabScreen({
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
-  // Cấp độ điều khiển Nguồn: chọn 1 cấp độ thì tự chọn hết mọi nguồn có ít
-  // nhất 1 từ ở cấp đó, chọn lại "Tất cả cấp độ" thì tự bật lại hết mọi
-  // nguồn -- xem bản sao ở web VocabScreen.tsx cho lý do đầy đủ.
+  // Cấp độ điều khiển Nguồn qua pruneToggle, cùng cơ chế với màn Ngữ pháp
+  // -- xem bản sao ở web VocabScreen.tsx cho lý do đầy đủ.
   async function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
-    const nextSources = AVAILABLE_SOURCES.filter((source) => ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)));
+    const nextSources = pruneToggle(state!.selectedSources, AVAILABLE_SOURCES, (source) =>
+      ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)),
+    );
     await mutate({ selectedLevels: newLevels, selectedSources: nextSources, index: 0 });
   }
 
@@ -265,12 +267,19 @@ export function VocabScreen({
           <input
             type="checkbox"
             checked={allChecked}
-            onChange={(e) => applySourceSelection(e.target.checked ? [...AVAILABLE_SOURCES] : state.selectedSources)}
+            onChange={(e) =>
+              applySourceSelection(
+                e.target.checked
+                  ? AVAILABLE_SOURCES.filter((source) => ALL_VOCAB.some((v) => v.sources.includes(source) && state.selectedLevels.includes(v.level)))
+                  : state.selectedSources,
+              )
+            }
           />
-          Tất cả <span className="muted">({ALL_VOCAB.length})</span>
+          Tất cả <span className="muted">({ALL_VOCAB.filter((v) => state.selectedLevels.includes(v.level)).length})</span>
         </label>
         {AVAILABLE_SOURCES.map((source) => {
           const checked = state.selectedSources.includes(source);
+          const count = ALL_VOCAB.filter((v) => v.sources.includes(source) && state.selectedLevels.includes(v.level)).length;
           return (
             <label key={source} className="level-check">
               <input
@@ -283,7 +292,7 @@ export function VocabScreen({
                   applySourceSelection(next);
                 }}
               />
-              {SOURCE_LABELS[source]} <span className="muted">({countForSource(source)})</span>
+              {SOURCE_LABELS[source]} <span className="muted">({count})</span>
             </label>
           );
         })}

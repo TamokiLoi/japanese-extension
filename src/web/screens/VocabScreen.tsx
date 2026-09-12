@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2 } from "lucide-react";
 import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "../lib/speak.ts";
+import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { VerbConjugations } from "../../types/vocab.ts";
 import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS, loadQuizSettings, saveQuizSettings } from "../../popup/quizState.ts";
 import {
@@ -250,13 +251,16 @@ export function VocabScreen({
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
-  // Cấp độ điều khiển Nguồn: chọn 1 cấp độ thì tự chọn hết mọi nguồn có ít
-  // nhất 1 từ ở cấp đó (không phải giữ nguyên lựa chọn nguồn cũ), chọn lại
-  // "Tất cả cấp độ" thì tự bật lại hết mọi nguồn -- theo đúng mô hình
-  // level-là-trục-chính, nguồn-phụ-thuộc-level.
+  // Cấp độ điều khiển Nguồn, cùng cơ chế pruneToggle với màn Ngữ pháp: đổi
+  // cấp độ thì loại khỏi selectedSources những nguồn không còn từ nào ở
+  // (các) cấp độ mới, giữ nguyên các nguồn vẫn còn hợp lệ -- tránh tình
+  // trạng chọn N3 mà nguồn "Tango N1" vẫn ở trạng thái đang chọn dù 0 từ
+  // khớp. Nếu prune hết sạch thì rơi về "mọi nguồn có dữ liệu ở cấp mới".
   async function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
-    const nextSources = AVAILABLE_SOURCES.filter((source) => ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)));
+    const nextSources = pruneToggle(state!.selectedSources, AVAILABLE_SOURCES, (source) =>
+      ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)),
+    );
     await mutate({ selectedLevels: newLevels, selectedSources: nextSources, index: 0 });
   }
 
@@ -390,16 +394,23 @@ export function VocabScreen({
         </FilterGroup>
         <FilterGroup title="Nguồn">
           <FilterChipOption
-            label={`Tất cả (${ALL_VOCAB.length})`}
+            label={`Tất cả (${ALL_VOCAB.filter((v) => state.selectedLevels.includes(v.level)).length})`}
             active={allChecked}
-            onClick={() => applySourceSelection(allChecked ? state.selectedSources : [...AVAILABLE_SOURCES])}
+            onClick={() =>
+              applySourceSelection(
+                allChecked
+                  ? state.selectedSources
+                  : AVAILABLE_SOURCES.filter((source) => ALL_VOCAB.some((v) => v.sources.includes(source) && state.selectedLevels.includes(v.level))),
+              )
+            }
           />
           {AVAILABLE_SOURCES.map((source) => {
             const checked = state.selectedSources.includes(source);
+            const count = ALL_VOCAB.filter((v) => v.sources.includes(source) && state.selectedLevels.includes(v.level)).length;
             return (
               <FilterChipOption
                 key={source}
-                label={`${SOURCE_LABELS[source]} (${countForSource(source)})`}
+                label={`${SOURCE_LABELS[source]} (${count})`}
                 active={checked}
                 onClick={() => {
                   const next = checked
