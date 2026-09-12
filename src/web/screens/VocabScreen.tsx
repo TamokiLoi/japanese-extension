@@ -620,6 +620,15 @@ export function VocabScreen({
                 </dd>
               </>
             ) : null}
+            {v.pairVerb ? (
+              <>
+                <dt className="text-neutral-400">{v.transitivity === "Tự động từ" ? "Tha động từ tương ứng" : "Tự động từ tương ứng"}</dt>
+                <dd className="text-neutral-800">
+                  {v.pairVerb.word}
+                  {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                </dd>
+              </>
+            ) : null}
           </dl>
 
           {v.mnemonic.length > 0 ? (

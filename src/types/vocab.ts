@@ -101,3 +101,24 @@ export interface JlptHistoryDataset {
   meta: DatasetMeta;
   entries: JlptHistoryEntry[];
 }
+
+// Cặp tự động từ - tha động từ (vd 開く/開ける) -- mỗi entry sinh ra 2
+// VocabCard (1 cho mỗi vế), liên kết chéo nhau qua VocabCard.pairVerb.
+export interface TransitivityPair {
+  id: string;
+  level: JlptLevel;
+  jidoushi: string;
+  jidoushiReading: string | null;
+  tadoushi: string;
+  tadoushiReading: string | null;
+  meaningVi: string;
+  exampleJidoushi: string | null;
+  exampleJidoushiVi: string | null;
+  exampleTadoushi: string | null;
+  exampleTadoushiVi: string | null;
+}
+
+export interface TransitivityPairDataset {
+  meta: DatasetMeta;
+  pairs: TransitivityPair[];
+}

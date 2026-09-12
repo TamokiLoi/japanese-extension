@@ -14,7 +14,14 @@ import dongtuHinxu280Raw from "../data/vocab-dongtu-280-hinxu.json";
 import dongtuExtraRaw from "../data/vocab-dongtu-extra-n3n4.json";
 import tuGhepDongtuRaw from "../data/vocab-tu-ghep-dongtu.json";
 import tangoNewRaw from "../data/vocab-tango-new.json";
-import type { TanoshiiVocabDataset, MimikaraDataset, TanoshiiSynonymDataset, VerbConjugations } from "../types/vocab.ts";
+import doicapTudongtuRaw from "../data/vocab-doicap-tudongtu.json";
+import type {
+  TanoshiiVocabDataset,
+  MimikaraDataset,
+  TanoshiiSynonymDataset,
+  TransitivityPairDataset,
+  VerbConjugations,
+} from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -32,7 +39,8 @@ export type VocabSource =
   | "tu-lay"
   | "trangtu-91"
   | "tu-ghep-dongtu"
-  | "tango-new";
+  | "tango-new"
+  | "doicap-tudongtu";
 
 export interface VocabCard {
   id: string;
@@ -50,6 +58,9 @@ export interface VocabCard {
   example: string | null;
   exampleVi: string | null;
   synonym: { word: string; reading: string | null } | null;
+  // Đối cặp tự động từ/tha động từ (vd 開く <-> 開ける) -- chỉ set khi từ
+  // này nằm trong bộ "100 cặp tự-tha động từ" (xem fromTransitivityPairs).
+  pairVerb: { word: string; reading: string | null } | null;
   // Chỉ áp dụng cho các nguồn động từ (tra cứu từ mazii.net / suy ra lúc convert).
   verbGroup?: string;
   transitivity?: string;
@@ -70,6 +81,7 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "trangtu-91": "91 trạng từ thường dùng",
   "tu-ghep-dongtu": "Động từ ghép",
   "tango-new": "Tango bổ sung",
+  "doicap-tudongtu": "100 cặp Tự-Tha động từ",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -87,12 +99,14 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "trangtu-91",
   "tu-ghep-dongtu",
   "tango-new",
+  "doicap-tudongtu",
 ];
 
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
 const dongtuDataset = dongtuRaw as unknown as TanoshiiVocabDataset;
 const mimikaraDataset = mimikaraRaw as unknown as MimikaraDataset;
 const dongnghiaDataset = dongnghiaRaw as unknown as TanoshiiSynonymDataset;
+const doicapTudongtuDataset = doicapTudongtuRaw as unknown as TransitivityPairDataset;
 // OCR-derived from personal JLPT vocab-book PDFs (see
 // assets/data/tango/_ocr_workspace/) rather than hand-authored like the
 // tanoshii sets above -- kept as its own source/label so a user who spots
@@ -128,6 +142,7 @@ function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): 
     example: w.example,
     exampleVi: w.exampleVi,
     synonym: null,
+    pairVerb: null,
     verbGroup: w.verbGroup,
     transitivity: w.transitivity,
     conjugations: w.conjugations,
@@ -147,23 +162,66 @@ function fromMimikara(dataset: MimikaraDataset): VocabCard[] {
     example: w.example,
     exampleVi: w.exampleVi,
     synonym: null,
+    pairVerb: null,
   }));
 }
 
-function fromDongnghia(dataset: TanoshiiSynonymDataset): VocabCard[] {
+function fromDongnghia(source: VocabSource, dataset: TanoshiiSynonymDataset): VocabCard[] {
   return dataset.pairs.map((p) => ({
     id: p.id,
     word: p.word,
     reading: p.wordReading,
     level: p.level,
-    sources: ["dongnghia-n3"],
+    sources: [source],
     hanViet: [],
     meaningVi: p.meaningVi,
     mnemonic: [],
     example: null,
     exampleVi: null,
     synonym: { word: p.synonym, reading: p.synonymReading },
+    pairVerb: null,
   }));
+}
+
+// Mỗi cặp tự-tha động từ sinh ra 2 VocabCard (1 cho mỗi vế), liên kết chéo
+// nhau qua pairVerb -- nếu từ đã tồn tại ở nguồn khác (vd tango-n3),
+// mergeDuplicateVocab() sẽ backfill pairVerb vào đúng thẻ đã có thay vì
+// tạo thẻ trùng, nhờ key gộp là word+reading.
+function fromTransitivityPairs(dataset: TransitivityPairDataset): VocabCard[] {
+  const cards: VocabCard[] = [];
+  for (const p of dataset.pairs) {
+    cards.push({
+      id: `${p.id}-jidoushi`,
+      word: p.jidoushi,
+      reading: p.jidoushiReading,
+      level: p.level,
+      sources: ["doicap-tudongtu"],
+      hanViet: [],
+      meaningVi: p.meaningVi,
+      mnemonic: [],
+      example: p.exampleJidoushi,
+      exampleVi: p.exampleJidoushiVi,
+      synonym: null,
+      pairVerb: { word: p.tadoushi, reading: p.tadoushiReading },
+      transitivity: "Tự động từ",
+    });
+    cards.push({
+      id: `${p.id}-tadoushi`,
+      word: p.tadoushi,
+      reading: p.tadoushiReading,
+      level: p.level,
+      sources: ["doicap-tudongtu"],
+      hanViet: [],
+      meaningVi: p.meaningVi,
+      mnemonic: [],
+      example: p.exampleTadoushi,
+      exampleVi: p.exampleTadoushiVi,
+      synonym: null,
+      pairVerb: { word: p.jidoushi, reading: p.jidoushiReading },
+      transitivity: "Tha động từ",
+    });
+  }
+  return cards;
 }
 
 // Cùng 1 từ (word+reading trùng khớp) có thể tới từ nhiều bộ khác nhau --
@@ -206,6 +264,7 @@ function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
       mnemonic: pick((c) => c.mnemonic, (v: string[]) => v.length === 0) ?? [],
       example: pick((c) => c.example, (v: string | null) => !v) ?? null,
       exampleVi: pick((c) => c.exampleVi, (v: string | null) => !v) ?? null,
+      pairVerb: pick((c) => c.pairVerb, (v: { word: string; reading: string | null }) => !v) ?? null,
       verbGroup: pick((c) => c.verbGroup, (v: string) => !v),
       transitivity: pick((c) => c.transitivity, (v: string) => !v),
       conjugations: pick((c) => c.conjugations, (v: VerbConjugations) => !v || Object.keys(v).length === 0),
@@ -221,7 +280,7 @@ export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromTanoshiiVocab("dongtu", dongtuHinxu280Dataset),
   ...fromTanoshiiVocab("dongtu", dongtuExtraDataset),
   ...fromTanoshiiVocab("tinhtu-n3", tinhtuDataset),
-  ...fromDongnghia(dongnghiaDataset),
+  ...fromDongnghia("dongnghia-n3", dongnghiaDataset),
   ...fromTanoshiiVocab("tango-n3", tangoN3Dataset),
   ...fromTanoshiiVocab("tango-n4", tangoN4Dataset),
   ...fromTanoshiiVocab("tango-n5", tangoN5Dataset),
@@ -231,6 +290,7 @@ export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromTanoshiiVocab("trangtu-91", trangtu91Dataset),
   ...fromTanoshiiVocab("tu-ghep-dongtu", tuGhepDongtuDataset),
   ...fromTanoshiiVocab("tango-new", tangoNewDataset),
+  ...fromTransitivityPairs(doicapTudongtuDataset),
 ]);
 
 export function countForSource(source: VocabSource): number {
