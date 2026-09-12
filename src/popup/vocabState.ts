@@ -80,7 +80,7 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tango-n2": "Tango N2",
   "tango-n1": "Tango N1",
   "tu-lay": "Từ láy",
-  "trangtu-91": "91 trạng từ thường dùng",
+  "trangtu-91": "Trạng từ thường dùng",
   "tu-ghep-dongtu": "Động từ ghép",
   "tango-new": "Tango bổ sung",
   "doicap-tudongtu": "100 cặp Tự-Tha động từ",
