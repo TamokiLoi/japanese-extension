@@ -25,12 +25,14 @@ import {
   requiredDirectionsFor,
   KANJI_MASTERY_DIRECTIONS,
   VOCAB_MASTERY_DIRECTIONS,
+  VOCAB_QUIZ_MODES,
   KANJI_MODE_LABELS,
   VOCAB_MODE_LABELS,
   IT_BOOK_VOCAB_MODE_LABELS,
   AUTO_ADVANCE_DELAY_MS,
 } from "../../popup/quizState.ts";
 import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../../popup/progressState.ts";
+import { isCorrectAnswer } from "../../popup/reviewState.ts";
 import { speakJapanese } from "../lib/speak.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
@@ -399,7 +401,7 @@ function SetupView({
             <SegmentedRadio
               variant="segmented"
               stack
-              options={VOCAB_MASTERY_DIRECTIONS.map((m): [VocabQuizMode, string] => [m, VOCAB_MODE_LABELS[m]])}
+              options={VOCAB_QUIZ_MODES.map((m): [VocabQuizMode, string] => [m, VOCAB_MODE_LABELS[m]])}
               value={settings.vocabMode}
               onChange={(v) => updateSettings({ vocabMode: v as VocabQuizMode })}
             />
@@ -652,6 +654,7 @@ function PlayView({
 } & OpenCallbacks) {
   const confirm = useConfirm();
   const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
+  const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
     loadProgressMap().then(setProgressMap);
@@ -660,6 +663,27 @@ function PlayView({
   const idx = session.currentIndex;
   const q = session.questions[idx];
   const answered = session.answers[idx];
+
+  // Reset the typed-input draft whenever the question changes (both moving
+  // forward and jumping back to review an earlier one) -- the answered
+  // question's own text is read from session.typedAnswers instead, not
+  // this local draft.
+  useEffect(() => {
+    setTypedText("");
+  }, [idx]);
+
+  async function submitTyped() {
+    if (answered !== null || typedText.trim() === "") return;
+    const correct = isCorrectAnswer(typedText, q.expectedAnswers ?? []);
+    await recordAnswer(q.id, correct, q.mode, requiredDirectionsFor(q));
+    const newAnswers = [...session.answers];
+    newAnswers[idx] = correct ? 0 : 1;
+    const newTypedAnswers = session.typedAnswers ? [...session.typedAnswers] : session.questions.map(() => null);
+    newTypedAnswers[idx] = typedText;
+    const newSession = { ...session, answers: newAnswers, typedAnswers: newTypedAnswers };
+    await saveQuizSession(newSession);
+    onSessionChange(newSession);
+  }
   const allAnswered = session.answers.every((a) => a !== null);
   const isLast = idx === session.questions.length - 1;
 
@@ -792,39 +816,69 @@ function PlayView({
         <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-neutral-400">{q.promptLabel}</div>
         <div className={`mt-1 font-bold text-neutral-800 ${q.prompt.length > 6 ? "text-2xl" : "text-4xl"}`}>{q.prompt}</div>
 
-        {/* Single column on mobile (reachable one-handed) even for bare-kanji
-            choices, which used to force a cramped 4-across row; two columns
-            once there's room (sm+) so four short choices don't stretch full
-            width on desktop. */}
-        <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {q.choices.map((c, i) => {
-            let cls = "border-neutral-200 hover:bg-neutral-50";
-            if (answered !== null) {
-              if (c.correct) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
-              else if (i === answered) cls = "border-rose-300 bg-rose-50 text-rose-700";
-              else cls = "border-neutral-200 opacity-50";
-            }
-            return (
-              <button
-                key={i}
-                disabled={answered !== null}
-                onClick={async () => {
-                  await recordAnswer(q.id, c.correct, q.mode, requiredDirectionsFor(q));
-                  const newAnswers = [...session.answers];
-                  newAnswers[idx] = i;
-                  const newSession = { ...session, answers: newAnswers };
-                  await saveQuizSession(newSession);
-                  onSessionChange(newSession);
-                }}
-                className={`rounded-xl border px-4 py-3 text-sm font-medium ${cls} ${
-                  q.kind === "kanji" && c.text.length === 1 ? "text-center text-2xl" : "text-left"
+        {q.answerFormat === "typed" ? (
+          <div className="mt-5">
+            <input
+              type="text"
+              autoFocus
+              disabled={answered !== null}
+              value={answered !== null ? (session.typedAnswers?.[idx] ?? q.choices[answered].text) : typedText}
+              onChange={(e) => setTypedText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") submitTyped();
+              }}
+              placeholder="Gõ furigana..."
+              className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-base disabled:bg-neutral-50"
+            />
+            {answered === null ? (
+              <Button className="mt-3 w-full" onClick={submitTyped} disabled={typedText.trim() === ""}>
+                Kiểm tra
+              </Button>
+            ) : (
+              <div
+                className={`mt-3 rounded-xl p-4 text-sm font-medium ${
+                  q.choices[answered].correct ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
                 }`}
               >
-                {c.text}
-              </button>
-            );
-          })}
-        </div>
+                {q.choices[answered].correct ? "Chính xác!" : "Chưa đúng."} Đáp án: <b>{q.expectedAnswers?.[0]}</b>
+              </div>
+            )}
+          </div>
+        ) : (
+          /* Single column on mobile (reachable one-handed) even for bare-kanji
+             choices, which used to force a cramped 4-across row; two columns
+             once there's room (sm+) so four short choices don't stretch full
+             width on desktop. */
+          <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {q.choices.map((c, i) => {
+              let cls = "border-neutral-200 hover:bg-neutral-50";
+              if (answered !== null) {
+                if (c.correct) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+                else if (i === answered) cls = "border-rose-300 bg-rose-50 text-rose-700";
+                else cls = "border-neutral-200 opacity-50";
+              }
+              return (
+                <button
+                  key={i}
+                  disabled={answered !== null}
+                  onClick={async () => {
+                    await recordAnswer(q.id, c.correct, q.mode, requiredDirectionsFor(q));
+                    const newAnswers = [...session.answers];
+                    newAnswers[idx] = i;
+                    const newSession = { ...session, answers: newAnswers };
+                    await saveQuizSession(newSession);
+                    onSessionChange(newSession);
+                  }}
+                  className={`rounded-xl border px-4 py-3 text-sm font-medium ${cls} ${
+                    q.kind === "kanji" && c.text.length === 1 ? "text-center text-2xl" : "text-left"
+                  }`}
+                >
+                  {c.text}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {answered !== null ? <QuestionDetail q={q} {...open} /> : null}
       </Card>

@@ -19,8 +19,11 @@ import {
   type VocabQuizMode,
   type BunpoQuizMode,
   requiredDirectionsFor,
+  VOCAB_QUIZ_MODES,
+  VOCAB_MODE_LABELS,
 } from "../quizState.ts";
 import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../progressState.ts";
+import { isCorrectAnswer } from "../reviewState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../vocabState.ts";
 import { loadViewerState as loadBunpoViewerState, findBunpoById, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../bunpoState.ts";
@@ -322,14 +325,7 @@ function SetupView({
           <div className="quiz-setup-group">
             <div className="quiz-setup-label">Dạng câu hỏi</div>
             <div className="quiz-radio-row">
-              {(
-                [
-                  ["meaning", "Xem từ, đoán nghĩa"],
-                  ["reading", "Xem từ, đoán cách đọc"],
-                  ["wordFromMeaning", "Xem nghĩa, đoán từ"],
-                  ["wordFromReading", "Xem cách đọc, đoán từ"],
-                ] as [VocabQuizMode, string][]
-              ).map(([value, label]) => (
+              {VOCAB_QUIZ_MODES.map((value) => (
                 <label key={value} className="quiz-radio">
                   <input
                     type="radio"
@@ -337,7 +333,7 @@ function SetupView({
                     checked={settings.vocabMode === value}
                     onChange={() => updateSettings({ vocabMode: value })}
                   />
-                  {label}
+                  {VOCAB_MODE_LABELS[value]}
                 </label>
               ))}
             </div>
@@ -523,6 +519,7 @@ function PlayView({
   onFinish: () => void;
 } & OpenCallbacks) {
   const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
+  const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
     loadProgressMap().then(setProgressMap);
@@ -533,6 +530,23 @@ function PlayView({
   const answered = session.answers[idx];
   const allAnswered = session.answers.every((a) => a !== null);
   const isLast = idx === session.questions.length - 1;
+
+  useEffect(() => {
+    setTypedText("");
+  }, [idx]);
+
+  async function submitTyped() {
+    if (answered !== null || typedText.trim() === "") return;
+    const correct = isCorrectAnswer(typedText, q.expectedAnswers ?? []);
+    await recordAnswer(q.id, correct, q.mode, requiredDirectionsFor(q));
+    const newAnswers = [...session.answers];
+    newAnswers[idx] = correct ? 0 : 1;
+    const newTypedAnswers = session.typedAnswers ? [...session.typedAnswers] : session.questions.map(() => null);
+    newTypedAnswers[idx] = typedText;
+    const newSession = { ...session, answers: newAnswers, typedAnswers: newTypedAnswers };
+    await saveQuizSession(newSession);
+    onSessionChange(newSession);
+  }
 
   async function finish() {
     await clearQuizSession();
@@ -595,33 +609,59 @@ function PlayView({
         </div>
         <div className="quiz-prompt-label">{q.promptLabel}</div>
         <div className={`quiz-prompt ${q.prompt.length > 6 ? "quiz-prompt-long" : ""}`}>{q.prompt}</div>
-        <div className="quiz-choices">
-          {q.choices.map((c, i) => {
-            const classes = ["quiz-choice"];
-            if (q.kind === "kanji" && c.text.length === 1) classes.push("quiz-choice-char");
-            if (answered !== null) {
-              if (c.correct) classes.push("quiz-choice-correct");
-              else if (i === answered) classes.push("quiz-choice-wrong");
-            }
-            return (
-              <button
-                key={i}
-                className={classes.join(" ")}
-                disabled={answered !== null}
-                onClick={async () => {
-                  await recordAnswer(q.id, c.correct, q.mode, requiredDirectionsFor(q));
-                  const newAnswers = [...session.answers];
-                  newAnswers[idx] = i;
-                  const newSession = { ...session, answers: newAnswers };
-                  await saveQuizSession(newSession);
-                  onSessionChange(newSession);
-                }}
-              >
-                {c.text}
+        {q.answerFormat === "typed" ? (
+          <div className="quiz-typed">
+            <input
+              type="text"
+              autoFocus
+              className="quiz-typed-input"
+              disabled={answered !== null}
+              value={answered !== null ? (session.typedAnswers?.[idx] ?? q.choices[answered].text) : typedText}
+              onChange={(e) => setTypedText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") submitTyped();
+              }}
+              placeholder="Gõ furigana..."
+            />
+            {answered === null ? (
+              <button className="primary-action-btn quiz-typed-submit-btn" onClick={submitTyped} disabled={typedText.trim() === ""}>
+                Kiểm tra
               </button>
-            );
-          })}
-        </div>
+            ) : (
+              <div className={`quiz-typed-result ${q.choices[answered].correct ? "quiz-typed-result-correct" : "quiz-typed-result-wrong"}`}>
+                {q.choices[answered].correct ? "Chính xác!" : "Chưa đúng."} Đáp án: <b>{q.expectedAnswers?.[0]}</b>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="quiz-choices">
+            {q.choices.map((c, i) => {
+              const classes = ["quiz-choice"];
+              if (q.kind === "kanji" && c.text.length === 1) classes.push("quiz-choice-char");
+              if (answered !== null) {
+                if (c.correct) classes.push("quiz-choice-correct");
+                else if (i === answered) classes.push("quiz-choice-wrong");
+              }
+              return (
+                <button
+                  key={i}
+                  className={classes.join(" ")}
+                  disabled={answered !== null}
+                  onClick={async () => {
+                    await recordAnswer(q.id, c.correct, q.mode, requiredDirectionsFor(q));
+                    const newAnswers = [...session.answers];
+                    newAnswers[idx] = i;
+                    const newSession = { ...session, answers: newAnswers };
+                    await saveQuizSession(newSession);
+                    onSessionChange(newSession);
+                  }}
+                >
+                  {c.text}
+                </button>
+              );
+            })}
+          </div>
+        )}
         {answered !== null ? <QuestionDetail q={q} {...open} /> : null}
       </main>
 

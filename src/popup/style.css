@@ -1457,6 +1457,42 @@ body.tab-mode .jlpt-list {
   color: #a32c1c;
 }
 
+.quiz-typed-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.quiz-typed-input:disabled {
+  background: #f7f7f7;
+}
+
+.quiz-typed-submit-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.quiz-typed-result {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.quiz-typed-result-correct {
+  background: #e6f7ea;
+  color: #1c7a3a;
+}
+
+.quiz-typed-result-wrong {
+  background: #fdeceb;
+  color: #a32c1c;
+}
+
 .quiz-detail {
   margin-top: 14px;
   padding: 10px 12px;

@@ -26,8 +26,11 @@ export type QuizContentType = "kanji" | "vocab" | "bunpo" | "itBookVocab";
 export type KanjiQuizMode = "meaning" | "character";
 // "meaning"/"reading": show the word, pick its meaning/reading. The
 // "wordFrom*" pair reverses that -- show the meaning or reading as the
-// prompt, pick the matching word.
-export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFromReading";
+// prompt, pick the matching word. "typedReading" drills the same word->
+// reading recall as "reading" but as free typing instead of multiple
+// choice (recall vs recognition) -- see buildVocabQuiz for the kanji-only
+// pool filter and QuizQuestion.answerFormat for how it's answered.
+export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFromReading" | "typedReading";
 // "meaning": show the grammar pattern, pick its Vietnamese meaning.
 // "pattern": the reverse -- show the meaning, pick the matching pattern.
 export type BunpoQuizMode = "meaning" | "pattern";
@@ -56,6 +59,15 @@ export interface QuizQuestion {
   promptLabel: string;
   prompt: string;
   choices: QuizChoice[];
+  // Absent (default) for the normal multiple-choice flow. "typed" means
+  // QuizScreen renders a text input instead of the choice buttons, checked
+  // against expectedAnswers via reviewState.ts's isCorrectAnswer -- see
+  // buildVocabQuiz's "typedReading" mode. `choices` is still populated (2
+  // synthetic entries: the correct reading, then a placeholder) purely so
+  // every other read site (scoring, palette, mastery) keeps working off
+  // session.answers as a plain choice index without a separate code path.
+  answerFormat?: "typed";
+  expectedAnswers?: string[];
 }
 
 // Which directions must each independently reach the mastery streak before
@@ -65,6 +77,13 @@ export interface QuizQuestion {
 // requiredDirectionsFor below).
 export const KANJI_MASTERY_DIRECTIONS: KanjiQuizMode[] = ["meaning", "character"];
 export const VOCAB_MASTERY_DIRECTIONS: VocabQuizMode[] = ["meaning", "reading", "wordFromMeaning", "wordFromReading"];
+// Every mode selectable in the Quiz setup picker -- a superset of
+// VOCAB_MASTERY_DIRECTIONS. "typedReading" is deliberately excluded from
+// the mastery set (it drills the same word->reading recall as "reading",
+// just by typing instead of picking -- requiring it too would make mastery
+// harder to reach than before for no real benefit, and would apply
+// retroactively to words already mastered under the old 4-direction bar).
+export const VOCAB_QUIZ_MODES: VocabQuizMode[] = [...VOCAB_MASTERY_DIRECTIONS, "typedReading"];
 
 // Shared with the Quiz setup screen's "Dạng câu hỏi" picker so a card's
 // detail view (Kanji/Vocab) can show "which direction still needs proving"
@@ -78,6 +97,7 @@ export const VOCAB_MODE_LABELS: Record<VocabQuizMode, string> = {
   reading: "Xem từ, đoán cách đọc",
   wordFromMeaning: "Xem nghĩa, đoán từ",
   wordFromReading: "Xem cách đọc, đoán từ",
+  typedReading: "Xem từ, gõ cách đọc (không trắc nghiệm)",
 };
 export const IT_BOOK_VOCAB_MODE_LABELS: Record<ItBookVocabQuizMode, string> = {
   meaning: "Xem từ, đoán nghĩa",
@@ -99,6 +119,7 @@ export const VOCAB_MODE_SHORT_LABELS: Record<VocabQuizMode, string> = {
   reading: "Từ→Đọc",
   wordFromMeaning: "Nghĩa→Từ",
   wordFromReading: "Đọc→Từ",
+  typedReading: "Gõ đọc",
 };
 
 // Generalized over just {kind, mode} (not the full QuizQuestion) so it's
@@ -220,6 +241,8 @@ export async function buildKanjiQuiz(
     .filter((q): q is QuizQuestion => q !== null);
 }
 
+const KANJI_RE = /[一-鿿]/;
+
 export async function buildVocabQuiz(
   mode: VocabQuizMode,
   questionCount: number,
@@ -228,17 +251,45 @@ export async function buildVocabQuiz(
   const state = await loadVocabViewerState();
   let pool = getVocabOrderedList({ ...state, randomOrder: false });
   if (mode === "reading" || mode === "wordFromReading") pool = pool.filter((v) => v.reading && v.reading !== v.word);
+  // Typing only makes sense for words actually written in kanji -- a
+  // hiragana or katakana word's "reading" is just itself, so there's
+  // nothing to recall/type.
+  if (mode === "typedReading") pool = pool.filter((v) => v.reading && KANJI_RE.test(v.word));
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
   const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
   const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
 
+  if (mode === "typedReading") {
+    return targets.map((v): QuizQuestion => {
+      const reading = v.reading as string;
+      return {
+        id: v.id,
+        kind: "vocab",
+        mode,
+        level: v.level,
+        promptLabel: "Từ này đọc là gì? (gõ furigana)",
+        prompt: v.word,
+        answerFormat: "typed",
+        expectedAnswers: [reading],
+        // Synthetic 2-choice shape so scoring/palette/mastery code -- all
+        // written against `choices[answerIndex]` -- doesn't need a second
+        // code path for typed questions. See QuizSession.typedAnswers for
+        // where the actual typed text is kept for display.
+        choices: [
+          { text: reading, correct: true },
+          { text: "—", correct: false },
+        ],
+      };
+    });
+  }
+
   const meaningOf = (v: VocabCard) => v.meaningVi || "?";
   const readingOf = (v: VocabCard) => v.reading as string;
   const wordOf = (v: VocabCard) => v.word;
 
-  const config: Record<VocabQuizMode, { answerOf: (v: VocabCard) => string; promptLabel: string; promptOf: (v: VocabCard) => string }> = {
+  const config: Record<Exclude<VocabQuizMode, "typedReading">, { answerOf: (v: VocabCard) => string; promptLabel: string; promptOf: (v: VocabCard) => string }> = {
     meaning: { answerOf: meaningOf, promptLabel: "Từ này nghĩa là gì?", promptOf: wordOf },
     reading: { answerOf: readingOf, promptLabel: "Từ này đọc là gì?", promptOf: wordOf },
     wordFromMeaning: { answerOf: wordOf, promptLabel: "Từ nào có nghĩa này?", promptOf: meaningOf },
@@ -349,8 +400,16 @@ export interface QuizSession {
   // Index of the choice the user picked for that question, or null if not
   // answered yet. Answering again on revisit is not allowed -- this array
   // both drives the "already answered" UI state and prevents double
-  // counting toward mastery in progressState.
+  // counting toward mastery in progressState. For "typed" questions this is
+  // still 0 (correct) or 1 (wrong) into the question's 2-entry synthetic
+  // choices, so every existing choices[a]-based read site keeps working;
+  // the actual typed text (for display) lives in typedAnswers instead.
   answers: (number | null)[];
+  // Parallel to `answers`, only meaningful where the matching question has
+  // answerFormat === "typed". Optional so older persisted sessions (saved
+  // before this field existed) still deserialize fine -- readers fall back
+  // to the synthetic choice text when this is absent/undefined.
+  typedAnswers?: (string | null)[];
   currentIndex: number;
 }
 
