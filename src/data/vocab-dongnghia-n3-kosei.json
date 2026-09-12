@@ -1,0 +1,1369 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-09-12T13:31:03.004Z",
+    "counts": {
+      "pairs": 150
+    },
+    "sources": {
+      "origin": "assets/data/tu-vung/n3/150-cap-tu-dong-nghia (Kosei Nihongo, Thu Huong Sensei)",
+      "extractedBy": "gemini-3.1-flash-lite + backfill tu ALL_VOCAB hien co + gemini text cho phan con thieu"
+    },
+    "notes": [
+      "150/150 cap trich xuat day du",
+      "wordReading/synonymReading: uu tien lay tu du lieu vocab da co trong app, phan con thieu tra bang Gemini text-only"
+    ]
+  },
+  "pairs": [
+    {
+      "id": "dongnghia-kosei-1",
+      "word": "あきらめる",
+      "wordReading": "なん",
+      "synonym": "断念する",
+      "synonymReading": "だんねんする",
+      "level": "N3",
+      "meaningVi": "từ bỏ"
+    },
+    {
+      "id": "dongnghia-kosei-2",
+      "word": "開始する",
+      "wordReading": "かいしする",
+      "synonym": "始める",
+      "synonymReading": "はじめる",
+      "level": "N3",
+      "meaningVi": "bắt đầu"
+    },
+    {
+      "id": "dongnghia-kosei-3",
+      "word": "終了する",
+      "wordReading": "しゅうりょうする",
+      "synonym": "終わる",
+      "synonymReading": "おわる",
+      "level": "N3",
+      "meaningVi": "kết thúc"
+    },
+    {
+      "id": "dongnghia-kosei-4",
+      "word": "到着する",
+      "wordReading": "とうちゃくする",
+      "synonym": "着く",
+      "synonymReading": "つく",
+      "level": "N3",
+      "meaningVi": "đến nơi"
+    },
+    {
+      "id": "dongnghia-kosei-5",
+      "word": "使用する",
+      "wordReading": "しようする",
+      "synonym": "使う",
+      "synonymReading": "つかう",
+      "level": "N3",
+      "meaningVi": "sử dụng"
+    },
+    {
+      "id": "dongnghia-kosei-6",
+      "word": "選択する",
+      "wordReading": "せんたくする",
+      "synonym": "選ぶ",
+      "synonymReading": "えらぶ",
+      "level": "N3",
+      "meaningVi": "lựa chọn"
+    },
+    {
+      "id": "dongnghia-kosei-7",
+      "word": "増加する",
+      "wordReading": "ぞうかする",
+      "synonym": "増える",
+      "synonymReading": "ふえる",
+      "level": "N3",
+      "meaningVi": "tăng lên"
+    },
+    {
+      "id": "dongnghia-kosei-8",
+      "word": "減少する",
+      "wordReading": "げんしょうする",
+      "synonym": "減る",
+      "synonymReading": "へる",
+      "level": "N3",
+      "meaningVi": "giảm xuống"
+    },
+    {
+      "id": "dongnghia-kosei-9",
+      "word": "必要",
+      "wordReading": "ひつよう",
+      "synonym": "要る",
+      "synonymReading": "いる",
+      "level": "N3",
+      "meaningVi": "cần thiết"
+    },
+    {
+      "id": "dongnghia-kosei-10",
+      "word": "重要",
+      "wordReading": "じゅうよう",
+      "synonym": "大切",
+      "synonymReading": "たいせつ",
+      "level": "N3",
+      "meaningVi": "quan trọng"
+    },
+    {
+      "id": "dongnghia-kosei-11",
+      "word": "理解する",
+      "wordReading": "りかいする",
+      "synonym": "わかる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "hiểu"
+    },
+    {
+      "id": "dongnghia-kosei-12",
+      "word": "説明する",
+      "wordReading": "せつめいする",
+      "synonym": "解説する",
+      "synonymReading": "かいせつする",
+      "level": "N3",
+      "meaningVi": "giải thích"
+    },
+    {
+      "id": "dongnghia-kosei-13",
+      "word": "質問する",
+      "wordReading": "しつもんする",
+      "synonym": "尋ねる",
+      "synonymReading": "たずねる",
+      "level": "N3",
+      "meaningVi": "hỏi"
+    },
+    {
+      "id": "dongnghia-kosei-14",
+      "word": "返事する",
+      "wordReading": "へんじする",
+      "synonym": "答える",
+      "synonymReading": "こたえる",
+      "level": "N3",
+      "meaningVi": "trả lời"
+    },
+    {
+      "id": "dongnghia-kosei-15",
+      "word": "検討する",
+      "wordReading": "けんとうする",
+      "synonym": "考える",
+      "synonymReading": "かんがえる",
+      "level": "N3",
+      "meaningVi": "cân nhắc"
+    },
+    {
+      "id": "dongnghia-kosei-16",
+      "word": "提案する",
+      "wordReading": "ていあんする",
+      "synonym": "勧める",
+      "synonymReading": "すすめる",
+      "level": "N3",
+      "meaningVi": "đề xuất"
+    },
+    {
+      "id": "dongnghia-kosei-17",
+      "word": "許可する",
+      "wordReading": "きょかする",
+      "synonym": "認める",
+      "synonymReading": "みとめる",
+      "level": "N3",
+      "meaningVi": "cho phép"
+    },
+    {
+      "id": "dongnghia-kosei-18",
+      "word": "禁止する",
+      "wordReading": "きんしする",
+      "synonym": "止める",
+      "synonymReading": "とめる",
+      "level": "N3",
+      "meaningVi": "cấm"
+    },
+    {
+      "id": "dongnghia-kosei-19",
+      "word": "参加する",
+      "wordReading": "さんかする",
+      "synonym": "加わる",
+      "synonymReading": "くわわる",
+      "level": "N3",
+      "meaningVi": "tham gia"
+    },
+    {
+      "id": "dongnghia-kosei-20",
+      "word": "出席する",
+      "wordReading": "しゅっせきする",
+      "synonym": "参加する",
+      "synonymReading": "さんかする",
+      "level": "N3",
+      "meaningVi": "có mặt, tham dự"
+    },
+    {
+      "id": "dongnghia-kosei-21",
+      "word": "欠席する",
+      "wordReading": "けっせきする",
+      "synonym": "休む",
+      "synonymReading": "やすむ",
+      "level": "N3",
+      "meaningVi": "vắng mặt"
+    },
+    {
+      "id": "dongnghia-kosei-22",
+      "word": "訪問する",
+      "wordReading": "ほうもんする",
+      "synonym": "訪ねる",
+      "synonymReading": "たずねる",
+      "level": "N3",
+      "meaningVi": "thăm viếng"
+    },
+    {
+      "id": "dongnghia-kosei-23",
+      "word": "面会する",
+      "wordReading": "めんかいする",
+      "synonym": "会う",
+      "synonymReading": "あう",
+      "level": "N3",
+      "meaningVi": "gặp mặt"
+    },
+    {
+      "id": "dongnghia-kosei-24",
+      "word": "連絡する",
+      "wordReading": "れんらくする",
+      "synonym": "知らせる",
+      "synonymReading": "しらせる",
+      "level": "N3",
+      "meaningVi": "liên lạc"
+    },
+    {
+      "id": "dongnghia-kosei-25",
+      "word": "報告する",
+      "wordReading": "ほうこくする",
+      "synonym": "伝える",
+      "synonymReading": "つたえる",
+      "level": "N3",
+      "meaningVi": "báo cáo"
+    },
+    {
+      "id": "dongnghia-kosei-26",
+      "word": "発表する",
+      "wordReading": "はっぴょうする",
+      "synonym": "公表する",
+      "synonymReading": "こうひょうする",
+      "level": "N3",
+      "meaningVi": "công bố"
+    },
+    {
+      "id": "dongnghia-kosei-27",
+      "word": "準備する",
+      "wordReading": "じゅんびする",
+      "synonym": "用意する",
+      "synonymReading": "よういする",
+      "level": "N3",
+      "meaningVi": "chuẩn bị"
+    },
+    {
+      "id": "dongnghia-kosei-28",
+      "word": "整理する",
+      "wordReading": "せいりする",
+      "synonym": "片付ける",
+      "synonymReading": "かたづける",
+      "level": "N3",
+      "meaningVi": "sắp xếp"
+    },
+    {
+      "id": "dongnghia-kosei-29",
+      "word": "掃除する",
+      "wordReading": "そうじする",
+      "synonym": "きれいにする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "dọn dẹp"
+    },
+    {
+      "id": "dongnghia-kosei-30",
+      "word": "修理する",
+      "wordReading": "しゅうりする",
+      "synonym": "直す",
+      "synonymReading": "なおす",
+      "level": "N3",
+      "meaningVi": "sửa chữa"
+    },
+    {
+      "id": "dongnghia-kosei-31",
+      "word": "故障する",
+      "wordReading": "こしょうする",
+      "synonym": "壊れる",
+      "synonymReading": "こわれる",
+      "level": "N3",
+      "meaningVi": "hỏng"
+    },
+    {
+      "id": "dongnghia-kosei-32",
+      "word": "発見する",
+      "wordReading": "はっけんする",
+      "synonym": "見つける",
+      "synonymReading": "みつける",
+      "level": "N3",
+      "meaningVi": "phát hiện"
+    },
+    {
+      "id": "dongnghia-kosei-33",
+      "word": "探す",
+      "wordReading": "さがす",
+      "synonym": "捜す",
+      "synonymReading": "さがす",
+      "level": "N3",
+      "meaningVi": "tìm kiếm"
+    },
+    {
+      "id": "dongnghia-kosei-34",
+      "word": "確認する",
+      "wordReading": "かくにんする",
+      "synonym": "確かめる",
+      "synonymReading": "たしかめる",
+      "level": "N3",
+      "meaningVi": "xác nhận"
+    },
+    {
+      "id": "dongnghia-kosei-35",
+      "word": "比較する",
+      "wordReading": "ひかくする",
+      "synonym": "比べる",
+      "synonymReading": "くらべる",
+      "level": "N3",
+      "meaningVi": "so sánh"
+    },
+    {
+      "id": "dongnghia-kosei-36",
+      "word": "成功する",
+      "wordReading": "せいこうする",
+      "synonym": "うまくいく",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "thành công"
+    },
+    {
+      "id": "dongnghia-kosei-37",
+      "word": "失敗する",
+      "wordReading": "しっぱいする",
+      "synonym": "うまくいかない",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "thất bại"
+    },
+    {
+      "id": "dongnghia-kosei-38",
+      "word": "努力する",
+      "wordReading": "どりょくする",
+      "synonym": "頑張る",
+      "synonymReading": "がんばる",
+      "level": "N3",
+      "meaningVi": "cố gắng"
+    },
+    {
+      "id": "dongnghia-kosei-39",
+      "word": "緊張する",
+      "wordReading": "きんちょうする",
+      "synonym": "ドキドキする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "căng thẳng"
+    },
+    {
+      "id": "dongnghia-kosei-40",
+      "word": "安心する",
+      "wordReading": "あんしんする",
+      "synonym": "ほっとする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "yên tâm"
+    },
+    {
+      "id": "dongnghia-kosei-41",
+      "word": "心配する",
+      "wordReading": "しんぱいする",
+      "synonym": "気にする",
+      "synonymReading": "きにする",
+      "level": "N3",
+      "meaningVi": "lo lắng"
+    },
+    {
+      "id": "dongnghia-kosei-42",
+      "word": "喜ぶ",
+      "wordReading": "よろこぶ",
+      "synonym": "うれしがる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "vui mừng"
+    },
+    {
+      "id": "dongnghia-kosei-43",
+      "word": "悲しむ",
+      "wordReading": "かなしむ",
+      "synonym": "がっかりする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "buồn"
+    },
+    {
+      "id": "dongnghia-kosei-44",
+      "word": "怒る",
+      "wordReading": "おこる",
+      "synonym": "腹が立つ",
+      "synonymReading": "はらがたつ",
+      "level": "N3",
+      "meaningVi": "tức giận"
+    },
+    {
+      "id": "dongnghia-kosei-45",
+      "word": "驚く",
+      "wordReading": "おどろく",
+      "synonym": "びっくりする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "ngạc nhiên"
+    },
+    {
+      "id": "dongnghia-kosei-46",
+      "word": "疲れる",
+      "wordReading": "つかれる",
+      "synonym": "くたびれる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "mệt mỏi"
+    },
+    {
+      "id": "dongnghia-kosei-47",
+      "word": "眠る",
+      "wordReading": "ねむる",
+      "synonym": "寝る",
+      "synonymReading": "ねる",
+      "level": "N3",
+      "meaningVi": "ngủ"
+    },
+    {
+      "id": "dongnghia-kosei-48",
+      "word": "起きる",
+      "wordReading": "おきる",
+      "synonym": "目を覚ます",
+      "synonymReading": "めをさます",
+      "level": "N3",
+      "meaningVi": "thức dậy"
+    },
+    {
+      "id": "dongnghia-kosei-49",
+      "word": "勤務する",
+      "wordReading": "きんむする",
+      "synonym": "働く",
+      "synonymReading": "はたらく",
+      "level": "N3",
+      "meaningVi": "làm việc"
+    },
+    {
+      "id": "dongnghia-kosei-50",
+      "word": "退職する",
+      "wordReading": "たいしょくする",
+      "synonym": "辞める",
+      "synonymReading": "やめる",
+      "level": "N3",
+      "meaningVi": "nghỉ việc"
+    },
+    {
+      "id": "dongnghia-kosei-51",
+      "word": "予約する",
+      "wordReading": "よやくする",
+      "synonym": "申し込む",
+      "synonymReading": "もうしこむ",
+      "level": "N3",
+      "meaningVi": "đặt trước"
+    },
+    {
+      "id": "dongnghia-kosei-52",
+      "word": "注文する",
+      "wordReading": "ちゅうもんする",
+      "synonym": "オーダーする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "gọi món, đặt hàng"
+    },
+    {
+      "id": "dongnghia-kosei-53",
+      "word": "支払う",
+      "wordReading": "しはら",
+      "synonym": "払う",
+      "synonymReading": "はらう",
+      "level": "N3",
+      "meaningVi": "thanh toán"
+    },
+    {
+      "id": "dongnghia-kosei-54",
+      "word": "受け取る",
+      "wordReading": "うけとる",
+      "synonym": "もらう",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "nhận"
+    },
+    {
+      "id": "dongnghia-kosei-55",
+      "word": "渡す",
+      "wordReading": "わたす",
+      "synonym": "手渡す",
+      "synonymReading": "てわたす",
+      "level": "N3",
+      "meaningVi": "đưa, trao"
+    },
+    {
+      "id": "dongnghia-kosei-56",
+      "word": "借りる",
+      "wordReading": "かりる",
+      "synonym": "レンタルする",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "thuê, mượn"
+    },
+    {
+      "id": "dongnghia-kosei-57",
+      "word": "返却する",
+      "wordReading": "へんきゃくする",
+      "synonym": "返す",
+      "synonymReading": "かえす",
+      "level": "N3",
+      "meaningVi": "trả lại"
+    },
+    {
+      "id": "dongnghia-kosei-58",
+      "word": "保管する",
+      "wordReading": "ほかんする",
+      "synonym": "保存する",
+      "synonymReading": "ほぞんする",
+      "level": "N3",
+      "meaningVi": "lưu giữ"
+    },
+    {
+      "id": "dongnghia-kosei-59",
+      "word": "利用する",
+      "wordReading": "りようする",
+      "synonym": "活用する",
+      "synonymReading": "かつようする",
+      "level": "N3",
+      "meaningVi": "tận dụng, sử dụng"
+    },
+    {
+      "id": "dongnghia-kosei-60",
+      "word": "続ける",
+      "wordReading": "つづける",
+      "synonym": "継続する",
+      "synonymReading": "けいぞくする",
+      "level": "N3",
+      "meaningVi": "tiếp tục"
+    },
+    {
+      "id": "dongnghia-kosei-61",
+      "word": "中止する",
+      "wordReading": "ちゅうしする",
+      "synonym": "やめる",
+      "synonymReading": "やめる",
+      "level": "N3",
+      "meaningVi": "dừng lại"
+    },
+    {
+      "id": "dongnghia-kosei-62",
+      "word": "解決する",
+      "wordReading": "かいけつする",
+      "synonym": "片付く",
+      "synonymReading": "かたづく",
+      "level": "N3",
+      "meaningVi": "giải quyết"
+    },
+    {
+      "id": "dongnghia-kosei-63",
+      "word": "発生する",
+      "wordReading": "はっせいする",
+      "synonym": "起こる",
+      "synonymReading": "おこる",
+      "level": "N3",
+      "meaningVi": "xảy ra"
+    },
+    {
+      "id": "dongnghia-kosei-64",
+      "word": "変化する",
+      "wordReading": "へんかする",
+      "synonym": "変わる",
+      "synonymReading": "かわる",
+      "level": "N3",
+      "meaningVi": "thay đổi"
+    },
+    {
+      "id": "dongnghia-kosei-65",
+      "word": "発展する",
+      "wordReading": "はってんする",
+      "synonym": "進歩する",
+      "synonymReading": "しんぽする",
+      "level": "N3",
+      "meaningVi": "phát triển"
+    },
+    {
+      "id": "dongnghia-kosei-66",
+      "word": "改善する",
+      "wordReading": "かいぜんする",
+      "synonym": "良くなる",
+      "synonymReading": "よくなる",
+      "level": "N3",
+      "meaningVi": "cải thiện"
+    },
+    {
+      "id": "dongnghia-kosei-67",
+      "word": "悪化する",
+      "wordReading": "あっかする",
+      "synonym": "ひどくなる",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "xấu đi"
+    },
+    {
+      "id": "dongnghia-kosei-68",
+      "word": "維持する",
+      "wordReading": "いじする",
+      "synonym": "保つ",
+      "synonymReading": "たもつ",
+      "level": "N3",
+      "meaningVi": "duy trì"
+    },
+    {
+      "id": "dongnghia-kosei-69",
+      "word": "影響する",
+      "wordReading": "えいきょうする",
+      "synonym": "関係する",
+      "synonymReading": "かんけいする",
+      "level": "N3",
+      "meaningVi": "ảnh hưởng"
+    },
+    {
+      "id": "dongnghia-kosei-70",
+      "word": "関連する",
+      "wordReading": "かんれんする",
+      "synonym": "関わる",
+      "synonymReading": "かかわる",
+      "level": "N3",
+      "meaningVi": "liên quan"
+    },
+    {
+      "id": "dongnghia-kosei-71",
+      "word": "明らか",
+      "wordReading": "あきらか",
+      "synonym": "はっきりした",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "rõ ràng"
+    },
+    {
+      "id": "dongnghia-kosei-72",
+      "word": "曖昧",
+      "wordReading": "あいまい",
+      "synonym": "あいまいな",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "mơ hồ"
+    },
+    {
+      "id": "dongnghia-kosei-73",
+      "word": "適当",
+      "wordReading": "てきとう",
+      "synonym": "ふさわしい",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "phù hợp"
+    },
+    {
+      "id": "dongnghia-kosei-74",
+      "word": "正確",
+      "wordReading": "せいかく",
+      "synonym": "的確",
+      "synonymReading": "てきかく",
+      "level": "N3",
+      "meaningVi": "chính xác"
+    },
+    {
+      "id": "dongnghia-kosei-75",
+      "word": "完全",
+      "wordReading": "かんぜん",
+      "synonym": "完璧",
+      "synonymReading": "かんぺき",
+      "level": "N3",
+      "meaningVi": "hoàn hảo"
+    },
+    {
+      "id": "dongnghia-kosei-76",
+      "word": "十分",
+      "wordReading": "じゅうぶん",
+      "synonym": "たっぷり",
+      "synonymReading": "[と] 〈する〉",
+      "level": "N3",
+      "meaningVi": "đầy đủ"
+    },
+    {
+      "id": "dongnghia-kosei-77",
+      "word": "豊富",
+      "wordReading": "ほうふ",
+      "synonym": "たくさんある",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "phong phú"
+    },
+    {
+      "id": "dongnghia-kosei-78",
+      "word": "不足",
+      "wordReading": "ふそく",
+      "synonym": "足りない",
+      "synonymReading": "たりない",
+      "level": "N3",
+      "meaningVi": "thiếu"
+    },
+    {
+      "id": "dongnghia-kosei-79",
+      "word": "危険",
+      "wordReading": "きけん",
+      "synonym": "リスクがある",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "nguy hiểm"
+    },
+    {
+      "id": "dongnghia-kosei-80",
+      "word": "安全",
+      "wordReading": "あんぜん",
+      "synonym": "無事",
+      "synonymReading": "ぶじ",
+      "level": "N3",
+      "meaningVi": "an toàn"
+    },
+    {
+      "id": "dongnghia-kosei-81",
+      "word": "賢い",
+      "wordReading": "かしこい",
+      "synonym": "頭がいい",
+      "synonymReading": "あたまがいい",
+      "level": "N3",
+      "meaningVi": "thông minh"
+    },
+    {
+      "id": "dongnghia-kosei-82",
+      "word": "優秀",
+      "wordReading": "ゆうしゅう",
+      "synonym": "優れている",
+      "synonymReading": "すぐれている",
+      "level": "N3",
+      "meaningVi": "xuất sắc"
+    },
+    {
+      "id": "dongnghia-kosei-83",
+      "word": "真面目",
+      "wordReading": "まじめ",
+      "synonym": "誠実",
+      "synonymReading": "せいじつ",
+      "level": "N3",
+      "meaningVi": "nghiêm túc"
+    },
+    {
+      "id": "dongnghia-kosei-84",
+      "word": "親切",
+      "wordReading": "しんせつ",
+      "synonym": "優しい",
+      "synonymReading": "やさしい",
+      "level": "N3",
+      "meaningVi": "tốt bụng"
+    },
+    {
+      "id": "dongnghia-kosei-85",
+      "word": "冷静",
+      "wordReading": "れいせい",
+      "synonym": "落ち着いている",
+      "synonymReading": "おちついている",
+      "level": "N3",
+      "meaningVi": "bình tĩnh"
+    },
+    {
+      "id": "dongnghia-kosei-86",
+      "word": "積極的",
+      "wordReading": "せっきょくてき",
+      "synonym": "前向き",
+      "synonymReading": "まえむき",
+      "level": "N3",
+      "meaningVi": "tích cực"
+    },
+    {
+      "id": "dongnghia-kosei-87",
+      "word": "消極的",
+      "wordReading": "しょうきょくてき",
+      "synonym": "引っ込み思案",
+      "synonymReading": "ひっこみじあん",
+      "level": "N3",
+      "meaningVi": "thụ động"
+    },
+    {
+      "id": "dongnghia-kosei-88",
+      "word": "勤勉",
+      "wordReading": "きんべん",
+      "synonym": "努力家",
+      "synonymReading": "どりょくか",
+      "level": "N3",
+      "meaningVi": "chăm chỉ"
+    },
+    {
+      "id": "dongnghia-kosei-89",
+      "word": "怠け者",
+      "wordReading": "なまけもの",
+      "synonym": "不精",
+      "synonymReading": "ぶしょう",
+      "level": "N3",
+      "meaningVi": "lười biếng"
+    },
+    {
+      "id": "dongnghia-kosei-90",
+      "word": "頑固",
+      "wordReading": "がんこ",
+      "synonym": "意地っ張り",
+      "synonymReading": "いじっぱり",
+      "level": "N3",
+      "meaningVi": "cứng đầu"
+    },
+    {
+      "id": "dongnghia-kosei-91",
+      "word": "美しい",
+      "wordReading": "うつくしい",
+      "synonym": "きれい",
+      "synonymReading": "きれい",
+      "level": "N3",
+      "meaningVi": "đẹp"
+    },
+    {
+      "id": "dongnghia-kosei-92",
+      "word": "醜い",
+      "wordReading": "みにくい",
+      "synonym": "みっともない",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "xấu"
+    },
+    {
+      "id": "dongnghia-kosei-93",
+      "word": "巨大",
+      "wordReading": "きょだい",
+      "synonym": "とても大きい",
+      "synonymReading": "とてもおおきい",
+      "level": "N3",
+      "meaningVi": "khổng lồ"
+    },
+    {
+      "id": "dongnghia-kosei-94",
+      "word": "小型",
+      "wordReading": "こがた",
+      "synonym": "小さい",
+      "synonymReading": "ちいさい",
+      "level": "N3",
+      "meaningVi": "nhỏ"
+    },
+    {
+      "id": "dongnghia-kosei-95",
+      "word": "素晴らしい",
+      "wordReading": "すばらしい",
+      "synonym": "すごい",
+      "synonymReading": "すごい",
+      "level": "N3",
+      "meaningVi": "tuyệt vời"
+    },
+    {
+      "id": "dongnghia-kosei-96",
+      "word": "有名",
+      "wordReading": "ゆうめい",
+      "synonym": "名高い",
+      "synonymReading": "なだかい",
+      "level": "N3",
+      "meaningVi": "nổi tiếng"
+    },
+    {
+      "id": "dongnghia-kosei-97",
+      "word": "人気",
+      "wordReading": "ひとけ",
+      "synonym": "評判がいい",
+      "synonymReading": "ひょうばんがいい",
+      "level": "N3",
+      "meaningVi": "được yêu thích"
+    },
+    {
+      "id": "dongnghia-kosei-98",
+      "word": "珍しい",
+      "wordReading": "めずらしい",
+      "synonym": "めったにない",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "hiếm"
+    },
+    {
+      "id": "dongnghia-kosei-99",
+      "word": "普通",
+      "wordReading": "ふつう",
+      "synonym": "一般的",
+      "synonymReading": "いっぱんてき",
+      "level": "N3",
+      "meaningVi": "bình thường"
+    },
+    {
+      "id": "dongnghia-kosei-100",
+      "word": "特別",
+      "wordReading": "とくべつ",
+      "synonym": "特殊",
+      "synonymReading": "とくしゅ",
+      "level": "N3",
+      "meaningVi": "đặc biệt"
+    },
+    {
+      "id": "dongnghia-kosei-101",
+      "word": "以前",
+      "wordReading": "いぜん",
+      "synonym": "前に",
+      "synonymReading": "まえに",
+      "level": "N3",
+      "meaningVi": "trước đây"
+    },
+    {
+      "id": "dongnghia-kosei-102",
+      "word": "現在",
+      "wordReading": "げんざい",
+      "synonym": "今",
+      "synonymReading": "いま",
+      "level": "N3",
+      "meaningVi": "hiện tại"
+    },
+    {
+      "id": "dongnghia-kosei-103",
+      "word": "将来",
+      "wordReading": "しょうらい",
+      "synonym": "未来",
+      "synonymReading": "みらい",
+      "level": "N3",
+      "meaningVi": "tương lai"
+    },
+    {
+      "id": "dongnghia-kosei-104",
+      "word": "すぐに",
+      "wordReading": "すぐに",
+      "synonym": "直ちに",
+      "synonymReading": "ただちに",
+      "level": "N3",
+      "meaningVi": "ngay lập tức"
+    },
+    {
+      "id": "dongnghia-kosei-105",
+      "word": "たまに",
+      "wordReading": null,
+      "synonym": "時々",
+      "synonymReading": "ときどき",
+      "level": "N3",
+      "meaningVi": "thỉnh thoảng"
+    },
+    {
+      "id": "dongnghia-kosei-106",
+      "word": "常に",
+      "wordReading": "つれ",
+      "synonym": "いつも",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "luôn luôn"
+    },
+    {
+      "id": "dongnghia-kosei-107",
+      "word": "突然",
+      "wordReading": "とつぜん",
+      "synonym": "急に",
+      "synonymReading": "きゅうに",
+      "level": "N3",
+      "meaningVi": "đột nhiên"
+    },
+    {
+      "id": "dongnghia-kosei-108",
+      "word": "ゆっくり",
+      "wordReading": null,
+      "synonym": "のんびり",
+      "synonymReading": "のんびり",
+      "level": "N3",
+      "meaningVi": "thong thả"
+    },
+    {
+      "id": "dongnghia-kosei-109",
+      "word": "わずかに",
+      "wordReading": null,
+      "synonym": "少し",
+      "synonymReading": "すこし",
+      "level": "N3",
+      "meaningVi": "một chút"
+    },
+    {
+      "id": "dongnghia-kosei-110",
+      "word": "非常に",
+      "wordReading": "ひじょうに",
+      "synonym": "とても",
+      "synonymReading": "とても",
+      "level": "N3",
+      "meaningVi": "rất"
+    },
+    {
+      "id": "dongnghia-kosei-111",
+      "word": "理由",
+      "wordReading": "りゆう",
+      "synonym": "原因",
+      "synonymReading": "げんいん",
+      "level": "N3",
+      "meaningVi": "nguyên nhân"
+    },
+    {
+      "id": "dongnghia-kosei-112",
+      "word": "結果",
+      "wordReading": "けっか",
+      "synonym": "成果",
+      "synonymReading": "せいか",
+      "level": "N3",
+      "meaningVi": "kết quả"
+    },
+    {
+      "id": "dongnghia-kosei-113",
+      "word": "目的",
+      "wordReading": "もくてき",
+      "synonym": "目標",
+      "synonymReading": "もくひょう",
+      "level": "N3",
+      "meaningVi": "mục tiêu"
+    },
+    {
+      "id": "dongnghia-kosei-114",
+      "word": "方法",
+      "wordReading": "ほうほう",
+      "synonym": "やり方",
+      "synonymReading": "やりかた",
+      "level": "N3",
+      "meaningVi": "phương pháp"
+    },
+    {
+      "id": "dongnghia-kosei-115",
+      "word": "例",
+      "wordReading": "れい",
+      "synonym": "サンプル",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "ví dụ"
+    },
+    {
+      "id": "dongnghia-kosei-116",
+      "word": "意見",
+      "wordReading": "いけん",
+      "synonym": "考え",
+      "synonymReading": "かんがえ",
+      "level": "N3",
+      "meaningVi": "ý kiến"
+    },
+    {
+      "id": "dongnghia-kosei-117",
+      "word": "判断",
+      "wordReading": "はんだん",
+      "synonym": "決定",
+      "synonymReading": "けってい",
+      "level": "N3",
+      "meaningVi": "phán đoán"
+    },
+    {
+      "id": "dongnghia-kosei-118",
+      "word": "事実",
+      "wordReading": "じじつ",
+      "synonym": "本当のこと",
+      "synonymReading": "ほんとうのこと",
+      "level": "N3",
+      "meaningVi": "sự thật"
+    },
+    {
+      "id": "dongnghia-kosei-119",
+      "word": "情報",
+      "wordReading": "じょうほう",
+      "synonym": "データ",
+      "synonymReading": "データ",
+      "level": "N3",
+      "meaningVi": "thông tin"
+    },
+    {
+      "id": "dongnghia-kosei-120",
+      "word": "知識",
+      "wordReading": "ちしき",
+      "synonym": "学識",
+      "synonymReading": "がくしき",
+      "level": "N3",
+      "meaningVi": "kiến thức"
+    },
+    {
+      "id": "dongnghia-kosei-121",
+      "word": "収入",
+      "wordReading": "しゅうにゅう",
+      "synonym": "所得",
+      "synonymReading": "しょとく",
+      "level": "N3",
+      "meaningVi": "thu nhập"
+    },
+    {
+      "id": "dongnghia-kosei-122",
+      "word": "給料",
+      "wordReading": "そゅうりょ",
+      "synonym": "賃金",
+      "synonymReading": "ちんぎん",
+      "level": "N3",
+      "meaningVi": "lương"
+    },
+    {
+      "id": "dongnghia-kosei-123",
+      "word": "料金",
+      "wordReading": "りょうきん",
+      "synonym": "代金",
+      "synonymReading": "だいきん",
+      "level": "N3",
+      "meaningVi": "chi phí"
+    },
+    {
+      "id": "dongnghia-kosei-124",
+      "word": "商品",
+      "wordReading": "しょうひん",
+      "synonym": "製品",
+      "synonymReading": "せいひん",
+      "level": "N3",
+      "meaningVi": "sản phẩm"
+    },
+    {
+      "id": "dongnghia-kosei-125",
+      "word": "顧客",
+      "wordReading": "こきゃく",
+      "synonym": "お客さん",
+      "synonymReading": "おきゃくさん",
+      "level": "N3",
+      "meaningVi": "khách hàng"
+    },
+    {
+      "id": "dongnghia-kosei-126",
+      "word": "会社",
+      "wordReading": "かいしゃ",
+      "synonym": "企業",
+      "synonymReading": "きぎょう",
+      "level": "N3",
+      "meaningVi": "công ty"
+    },
+    {
+      "id": "dongnghia-kosei-127",
+      "word": "店舗",
+      "wordReading": "てんぽ",
+      "synonym": "店",
+      "synonymReading": "みせ",
+      "level": "N3",
+      "meaningVi": "cửa hàng"
+    },
+    {
+      "id": "dongnghia-kosei-128",
+      "word": "社員",
+      "wordReading": "しゃいん",
+      "synonym": "従業員",
+      "synonymReading": "じゅうぎょういん",
+      "level": "N3",
+      "meaningVi": "nhân viên"
+    },
+    {
+      "id": "dongnghia-kosei-129",
+      "word": "会議",
+      "wordReading": "かいぎ",
+      "synonym": "ミーティング",
+      "synonymReading": "ミーティング",
+      "level": "N3",
+      "meaningVi": "cuộc họp"
+    },
+    {
+      "id": "dongnghia-kosei-130",
+      "word": "契約",
+      "wordReading": "けいやく",
+      "synonym": "約束",
+      "synonymReading": "やくそく",
+      "level": "N3",
+      "meaningVi": "hợp đồng"
+    },
+    {
+      "id": "dongnghia-kosei-131",
+      "word": "住居",
+      "wordReading": "じゅうきょ",
+      "synonym": "住宅",
+      "synonymReading": "じゅうたく",
+      "level": "N3",
+      "meaningVi": "nhà ở"
+    },
+    {
+      "id": "dongnghia-kosei-132",
+      "word": "地域",
+      "wordReading": "ちいき",
+      "synonym": "エリア",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "khu vực"
+    },
+    {
+      "id": "dongnghia-kosei-133",
+      "word": "道路",
+      "wordReading": "どうろ",
+      "synonym": "道",
+      "synonymReading": "みち",
+      "level": "N3",
+      "meaningVi": "con đường"
+    },
+    {
+      "id": "dongnghia-kosei-134",
+      "word": "乗り物",
+      "wordReading": "のりもの",
+      "synonym": "交通手段",
+      "synonymReading": "こうつうしゅだん",
+      "level": "N3",
+      "meaningVi": "phương tiện"
+    },
+    {
+      "id": "dongnghia-kosei-135",
+      "word": "旅行",
+      "wordReading": "りょこう",
+      "synonym": "観光",
+      "synonymReading": "かんこう",
+      "level": "N3",
+      "meaningVi": "du lịch"
+    },
+    {
+      "id": "dongnghia-kosei-136",
+      "word": "宿泊",
+      "wordReading": "しゅくはく",
+      "synonym": "泊まること",
+      "synonymReading": "とまること",
+      "level": "N3",
+      "meaningVi": "lưu trú"
+    },
+    {
+      "id": "dongnghia-kosei-137",
+      "word": "景色",
+      "wordReading": "けしき",
+      "synonym": "風景",
+      "synonymReading": "ふうけい",
+      "level": "N3",
+      "meaningVi": "phong cảnh"
+    },
+    {
+      "id": "dongnghia-kosei-138",
+      "word": "天候",
+      "wordReading": "てんこう",
+      "synonym": "天気",
+      "synonymReading": "てんき",
+      "level": "N3",
+      "meaningVi": "thời tiết"
+    },
+    {
+      "id": "dongnghia-kosei-139",
+      "word": "季節",
+      "wordReading": "きせつ",
+      "synonym": "シーズン",
+      "synonymReading": null,
+      "level": "N3",
+      "meaningVi": "mùa"
+    },
+    {
+      "id": "dongnghia-kosei-140",
+      "word": "自然",
+      "wordReading": "しぜん",
+      "synonym": "天然",
+      "synonymReading": "てんねん",
+      "level": "N3",
+      "meaningVi": "tự nhiên"
+    },
+    {
+      "id": "dongnghia-kosei-141",
+      "word": "健康",
+      "wordReading": "けんこう",
+      "synonym": "元気",
+      "synonymReading": "げんき",
+      "level": "N3",
+      "meaningVi": "khỏe mạnh"
+    },
+    {
+      "id": "dongnghia-kosei-142",
+      "word": "病気",
+      "wordReading": "びょうき",
+      "synonym": "疾患",
+      "synonymReading": "しっかん",
+      "level": "N3",
+      "meaningVi": "bệnh tật"
+    },
+    {
+      "id": "dongnghia-kosei-143",
+      "word": "治療",
+      "wordReading": "ちりょう",
+      "synonym": "手当て",
+      "synonymReading": "てあて",
+      "level": "N3",
+      "meaningVi": "điều trị"
+    },
+    {
+      "id": "dongnghia-kosei-144",
+      "word": "運動",
+      "wordReading": "うんどう",
+      "synonym": "スポーツ",
+      "synonymReading": "スポーツ",
+      "level": "N3",
+      "meaningVi": "vận động"
+    },
+    {
+      "id": "dongnghia-kosei-145",
+      "word": "食事",
+      "wordReading": "しょくじ",
+      "synonym": "食べ物",
+      "synonymReading": "たべもの",
+      "level": "N3",
+      "meaningVi": "bữa ăn"
+    },
+    {
+      "id": "dongnghia-kosei-146",
+      "word": "栄養",
+      "wordReading": "えいよ",
+      "synonym": "養分",
+      "synonymReading": "ようぶん",
+      "level": "N3",
+      "meaningVi": "dinh dưỡng"
+    },
+    {
+      "id": "dongnghia-kosei-147",
+      "word": "習慣",
+      "wordReading": "しゅうかん",
+      "synonym": "癖",
+      "synonymReading": "くせ",
+      "level": "N3",
+      "meaningVi": "thói quen"
+    },
+    {
+      "id": "dongnghia-kosei-148",
+      "word": "趣味",
+      "wordReading": "しゅみ",
+      "synonym": "好きなこと",
+      "synonymReading": "すきなこと",
+      "level": "N3",
+      "meaningVi": "sở thích"
+    },
+    {
+      "id": "dongnghia-kosei-149",
+      "word": "休憩",
+      "wordReading": "きゅうけい",
+      "synonym": "一休み",
+      "synonymReading": "ひとやすみ",
+      "level": "N3",
+      "meaningVi": "nghỉ giải lao"
+    },
+    {
+      "id": "dongnghia-kosei-150",
+      "word": "幸福",
+      "wordReading": "こうふく",
+      "synonym": "幸せ",
+      "synonymReading": "しあわせ",
+      "level": "N3",
+      "meaningVi": "hạnh phúc"
+    }
+  ]
+}

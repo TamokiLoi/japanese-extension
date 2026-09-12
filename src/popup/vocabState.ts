@@ -15,6 +15,7 @@ import dongtuExtraRaw from "../data/vocab-dongtu-extra-n3n4.json";
 import tuGhepDongtuRaw from "../data/vocab-tu-ghep-dongtu.json";
 import tangoNewRaw from "../data/vocab-tango-new.json";
 import doicapTudongtuRaw from "../data/vocab-doicap-tudongtu.json";
+import dongnghiaKoseiRaw from "../data/vocab-dongnghia-n3-kosei.json";
 import type {
   TanoshiiVocabDataset,
   MimikaraDataset,
@@ -40,7 +41,8 @@ export type VocabSource =
   | "trangtu-91"
   | "tu-ghep-dongtu"
   | "tango-new"
-  | "doicap-tudongtu";
+  | "doicap-tudongtu"
+  | "dongnghia-n3-kosei";
 
 export interface VocabCard {
   id: string;
@@ -82,6 +84,7 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tu-ghep-dongtu": "Động từ ghép",
   "tango-new": "Tango bổ sung",
   "doicap-tudongtu": "100 cặp Tự-Tha động từ",
+  "dongnghia-n3-kosei": "Từ đồng nghĩa N3 (Kosei)",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -100,6 +103,7 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "tu-ghep-dongtu",
   "tango-new",
   "doicap-tudongtu",
+  "dongnghia-n3-kosei",
 ];
 
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
@@ -107,6 +111,7 @@ const dongtuDataset = dongtuRaw as unknown as TanoshiiVocabDataset;
 const mimikaraDataset = mimikaraRaw as unknown as MimikaraDataset;
 const dongnghiaDataset = dongnghiaRaw as unknown as TanoshiiSynonymDataset;
 const doicapTudongtuDataset = doicapTudongtuRaw as unknown as TransitivityPairDataset;
+const dongnghiaKoseiDataset = dongnghiaKoseiRaw as unknown as TanoshiiSynonymDataset;
 // OCR-derived from personal JLPT vocab-book PDFs (see
 // assets/data/tango/_ocr_workspace/) rather than hand-authored like the
 // tanoshii sets above -- kept as its own source/label so a user who spots
@@ -291,6 +296,7 @@ export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromTanoshiiVocab("tu-ghep-dongtu", tuGhepDongtuDataset),
   ...fromTanoshiiVocab("tango-new", tangoNewDataset),
   ...fromTransitivityPairs(doicapTudongtuDataset),
+  ...fromDongnghia("dongnghia-n3-kosei", dongnghiaKoseiDataset),
 ]);
 
 export function countForSource(source: VocabSource): number {
