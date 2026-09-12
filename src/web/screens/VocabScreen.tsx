@@ -250,9 +250,14 @@ export function VocabScreen({
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
+  // Cấp độ điều khiển Nguồn: chọn 1 cấp độ thì tự chọn hết mọi nguồn có ít
+  // nhất 1 từ ở cấp đó (không phải giữ nguyên lựa chọn nguồn cũ), chọn lại
+  // "Tất cả cấp độ" thì tự bật lại hết mọi nguồn -- theo đúng mô hình
+  // level-là-trục-chính, nguồn-phụ-thuộc-level.
   async function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
-    await mutate({ selectedLevels: newLevels, index: 0 });
+    const nextSources = AVAILABLE_SOURCES.filter((source) => ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)));
+    await mutate({ selectedLevels: newLevels, selectedSources: nextSources, index: 0 });
   }
 
   async function refreshProgress() {
