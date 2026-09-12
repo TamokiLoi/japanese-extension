@@ -1,0 +1,1167 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-09-12T13:38:03.300Z",
+    "counts": {
+      "words": 100
+    },
+    "source": {
+      "name": "assets/data/tu-vung/IT/BRSE-tu-vung-hay-gap-khi-bao-va-xu-ly-loi (Mankai Academy)",
+      "note": "100/100 tu trich xuat (thieu anh trang 7 nhung khong lam gian doan STT 1-100), rieng biet voi sach FPT Software goc, gan lesson 16"
+    }
+  },
+  "words": [
+    {
+      "id": "itbook-brse-loi-1",
+      "word": "不具合",
+      "reading": "ふぐあい",
+      "hanViet": [
+        "BẤT CỤ HỢP"
+      ],
+      "meaningVi": "Lỗi, trục trặc; trạng thái hệ thống hoạt động không đúng như mong đợi",
+      "example": "ログイン後に画面が真っ白になる不具合を確認しました。",
+      "exampleVi": "Đã xác nhận lỗi màn hình trắng sau khi đăng nhập.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-2",
+      "word": "バグ",
+      "reading": "バグ",
+      "hanViet": [],
+      "meaningVi": "Bug; lỗi phần mềm do chương trình, logic hoặc xử lý",
+      "example": "検索条件を変更すると、結果が 0件になるバグがあります。",
+      "exampleVi": "Có bug khiến kết quả trở thành 0 khi thay đổi điều kiện tìm kiếm.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-3",
+      "word": "エラー",
+      "reading": "エラー",
+      "hanViet": [],
+      "meaningVi": "Lỗi; trạng thái hoặc thông báo cho biết xử lý không thành công",
+      "example": "ファイルの形式が正しくないため、エラーが表示されました。",
+      "exampleVi": "Do định dạng file không đúng nên thông báo lỗi đã xuất hiện.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-4",
+      "word": "障害",
+      "reading": "しょうがい",
+      "hanViet": [
+        "CHƯỚNG HẠI"
+      ],
+      "meaningVi": "Sự cố làm gián đoạn hoặc làm giảm chất lượng hoạt động của hệ thống/dịch vụ",
+      "example": "昨夜、決済システムで障害が発生しました。",
+      "exampleVi": "Tối qua đã xảy ra sự cố ở hệ thống thanh toán.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-5",
+      "word": "インシデント",
+      "reading": "インシデント",
+      "hanViet": [],
+      "meaningVi": "Incident; sự kiện bất thường cần được phát hiện, quản lý và xử lý",
+      "example": "このインシデントは一部ユーザーのログインに影響しています。",
+      "exampleVi": "Sự cố này đang ảnh hưởng đến việc đăng nhập của một số người dùng.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-6",
+      "word": "問題",
+      "reading": "もんだい",
+      "hanViet": [
+        "VẤN ĐỀ"
+      ],
+      "meaningVi": "Vấn đề, lỗi cần điều tra hoặc giải quyết",
+      "example": "同じ ID の注文が二重に作成される問題があります。",
+      "exampleVi": "Có vấn đề khiến hai đơn hàng có cùng ID được tạo ra.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-7",
+      "word": "課題",
+      "reading": "かだい",
+      "hanViet": [
+        "KHÓA ĐỀ"
+      ],
+      "meaningVi": "Vấn đề, hạng mục/nhiệm vụ cần giải quyết; issue",
+      "example": "現在の課題は、原因をまだ特定できていないことです。",
+      "exampleVi": "Vấn đề hiện tại là vẫn chưa xác định được nguyên nhân.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-8",
+      "word": "欠陥",
+      "reading": "けっかん",
+      "hanViet": [
+        "KHIẾM HÃM"
+      ],
+      "meaningVi": "Defect; khiếm khuyết trong yêu cầu, thiết kế, mã nguồn hoặc sản phẩm",
+      "example": "入力チェックの欠陥により、不正な値を登録できてしまいます。",
+      "exampleVi": "Do khiếm khuyết ở phần kiểm tra đầu vào nên có thể đăng ký cả giá trị không hợp lệ.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-9",
+      "word": "リスク",
+      "reading": "リスク",
+      "hanViet": [],
+      "meaningVi": "Rủi ro; khả năng xảy ra sự việc gây ảnh hưởng tiêu cực",
+      "example": "この変更には既存機能を壊すリスクがあります。",
+      "exampleVi": "Thay đổi này có rủi ro làm hỏng chức năng hiện có.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-10",
+      "word": "発生",
+      "reading": "はっせい",
+      "hanViet": [
+        "PHÁT SINH"
+      ],
+      "meaningVi": "Phát sinh, xảy ra",
+      "example": "テスト中に 500 エラーが発生しました。",
+      "exampleVi": "Trong lúc test đã phát sinh lỗi 500.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-11",
+      "word": "チケット",
+      "reading": "チケット",
+      "hanViet": [],
+      "meaningVi": "Ticket; phiếu theo dõi bug, issue hoặc công việc",
+      "example": "不具合を確認したら、Jira でチケットを作成してください。",
+      "exampleVi": "Khi xác nhận có lỗi, hãy tạo ticket trên Jira.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-12",
+      "word": "ステータス",
+      "reading": "ステータス",
+      "hanViet": [],
+      "meaningVi": "Trạng thái của ticket, lỗi hoặc công việc",
+      "example": "チケットのステータスを「対応中」に変更しました。",
+      "exampleVi": "Tôi đã chuyển trạng thái ticket sang “Đang xử lý”.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-13",
+      "word": "再現",
+      "reading": "さいげん",
+      "hanViet": [
+        "TÁI HIỆN"
+      ],
+      "meaningVi": "Tái hiện, làm cho lỗi xảy ra lại trong cùng điều kiện",
+      "example": "手順どおりに操作すると、毎回不具合を再現できます。",
+      "exampleVi": "Nếu thao tác đúng theo các bước thì lần nào cũng có thể tái hiện lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-14",
+      "word": "再現性",
+      "reading": "さいげんせい",
+      "hanViet": [
+        "TÁI HIỆN TÍNH"
+      ],
+      "meaningVi": "Khả năng/mức độ có thể tái hiện lỗi",
+      "example": "この不具合は再現性が低く、10 回に 1 回程度発生します。",
+      "exampleVi": "Lỗi này có khả năng tái hiện thấp, khoảng 10 lần mới xảy ra 1 lần.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-15",
+      "word": "再現手順",
+      "reading": "さいげんてじゅん",
+      "hanViet": [
+        "TÁI HIỆN THỦ THUẬN"
+      ],
+      "meaningVi": "Các bước thao tác để tái hiện lỗi",
+      "example": "再現手順をチケットに追記しました。",
+      "exampleVi": "Tôi đã bổ sung các bước tái hiện lỗi vào ticket.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-16",
+      "word": "テストケース",
+      "reading": "テストケース",
+      "hanViet": [],
+      "meaningVi": "Test case; trường hợp/kịch bản kiểm thử",
+      "example": "このテストケースでは、未入力時のエラー表示を確認します。",
+      "exampleVi": "Test case này kiểm tra hiển thị lỗi khi để trống trường nhập liệu.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-17",
+      "word": "期待結果",
+      "reading": "きたいけっか",
+      "hanViet": [
+        "KỲ ĐÃI KẾT QUẢ"
+      ],
+      "meaningVi": "Kết quả mong đợi",
+      "example": "期待結果は「保存に成功しました」と表示されることです。",
+      "exampleVi": "Kết quả mong đợi là hiển thị “Đã lưu thành công”.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-18",
+      "word": "実行結果",
+      "reading": "じっこうけっか",
+      "hanViet": [
+        "THỰC HÀNH KẾT QUẢ"
+      ],
+      "meaningVi": "Kết quả thực tế thu được khi thực thi test",
+      "example": "実行結果では、保存後に 500 エラーが返りました。",
+      "exampleVi": "Kết quả thực tế là sau khi lưu, hệ thống trả về lỗi 500.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-19",
+      "word": "テストデータ",
+      "reading": "テストデータ",
+      "hanViet": [],
+      "meaningVi": "Dữ liệu dùng để kiểm thử",
+      "example": "境界値を含むテストデータを準備しました。",
+      "exampleVi": "Tôi đã chuẩn bị dữ liệu test bao gồm cả các giá trị biên.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-20",
+      "word": "テスト環境",
+      "reading": "テストかんきょう",
+      "hanViet": [
+        "HOÀN CẢNH"
+      ],
+      "meaningVi": "Môi trường kiểm thử",
+      "example": "テスト環境では再現しますが、本番環境では再現しません。",
+      "exampleVi": "Lỗi tái hiện ở môi trường test nhưng không tái hiện ở môi trường...",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-21",
+      "word": "本番環境",
+      "reading": "ほんばんかんきょう",
+      "hanViet": [
+        "BẢN PHIÊN HOÀN CẢNH"
+      ],
+      "meaningVi": "Môi trường production; môi trường hệ thống thực tế đang vận hành",
+      "example": "本番環境への反映は明日の深夜に行います。",
+      "exampleVi": "Việc áp dụng thay đổi lên production sẽ được thực hiện vào đêm mai.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-22",
+      "word": "仕様",
+      "reading": "しよう",
+      "hanViet": [
+        "SĨ DẠNG"
+      ],
+      "meaningVi": "Đặc tả, specification; hành vi/chức năng đã được quy định",
+      "example": "仕様では、パスワードは 8 文字以上となっています。",
+      "exampleVi": "Theo đặc tả, mật khẩu phải có ít nhất 8 ký tự.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-23",
+      "word": "要件",
+      "reading": "ようけん",
+      "hanViet": [
+        "YẾU KIỆN"
+      ],
+      "meaningVi": "Yêu cầu của hệ thống, chức năng hoặc khách hàng",
+      "example": "要件にない動作なので、Bug か Change Request か確認が必要です。",
+      "exampleVi": "Do đây là hành vi không có trong yêu cầu nên cần xác nhận là Bug hay Change Request.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-24",
+      "word": "受入基準",
+      "reading": "うけいれきじゅん",
+      "hanViet": [
+        "THỤ NHẬP CƠ CHUẨN"
+      ],
+      "meaningVi": "Tiêu chí chấp nhận; acceptance criteria",
+      "example": "この機能が受入基準を満たしているか確認します。",
+      "exampleVi": "Tôi sẽ kiểm tra xem chức năng này có đáp ứng tiêu chí chấp nhận hay không.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-25",
+      "word": "原因",
+      "reading": "げんいん",
+      "hanViet": [
+        "NGUYÊN NHÂN"
+      ],
+      "meaningVi": "Nguyên nhân gây ra lỗi hoặc sự cố",
+      "example": "エラーの原因は API のタイムアウトでした。",
+      "exampleVi": "Nguyên nhân của lỗi là API bị timeout.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-26",
+      "word": "根本原因",
+      "reading": "こんぽんげんいん",
+      "hanViet": [
+        "CĂN BẢN NGUYÊN NHÂN"
+      ],
+      "meaningVi": "Nguyên nhân gốc rễ; root cause",
+      "example": "根本原因は設定ファイルの更新漏れでした。",
+      "exampleVi": "Nguyên nhân gốc rễ là bỏ sót việc cập nhật file cấu hình.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-27",
+      "word": "原因分析",
+      "reading": "げんいんぶんせき",
+      "hanViet": [
+        "NGUYÊN NHÂN PHÂN TÍCH"
+      ],
+      "meaningVi": "Phân tích nguyên nhân",
+      "example": "原因分析の結果、複数の要因が関係していることが分かりました。",
+      "exampleVi": "Kết quả phân tích nguyên nhân cho thấy có nhiều yếu tố liên quan.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-28",
+      "word": "調査",
+      "reading": "ちょうさ",
+      "hanViet": [
+        "ĐIỀU TRA"
+      ],
+      "meaningVi": "Điều tra, kiểm tra để làm rõ tình hình/nguyên nhân",
+      "example": "現在、ログとデータベースの内容を調査しています。",
+      "exampleVi": "Hiện tại chúng tôi đang điều tra log và nội dung trong cơ sở dữ liệu.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-29",
+      "word": "解析",
+      "reading": "かいせき",
+      "hanViet": [
+        "GIẢI TÍCH"
+      ],
+      "meaningVi": "Phân tích kỹ thuật, dữ liệu, log, hành vi hệ thống",
+      "example": "メモリ使用量が増加する原因を解析しています。",
+      "exampleVi": "Chúng tôi đang phân tích nguyên nhân khiến lượng bộ nhớ sử dụng tăng.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-30",
+      "word": "特定",
+      "reading": "とくてい",
+      "hanViet": [
+        "ĐẶC ĐỊNH"
+      ],
+      "meaningVi": "Xác định rõ đối tượng, vị trí hoặc nguyên nhân",
+      "example": "ログを確認して、エラーの原因を特定しました。",
+      "exampleVi": "Sau khi kiểm tra log, chúng tôi đã xác định được nguyên nhân lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-31",
+      "word": "切り分け",
+      "reading": "きりわけ",
+      "hanViet": [
+        "THIẾT PHÂN"
+      ],
+      "meaningVi": "Khoanh vùng, tách từng phần để xác định nơi phát sinh vấn đề",
+      "example": "フロント側かバックエンド側かを切り分けます。",
+      "exampleVi": "Chúng tôi sẽ khoanh vùng xem lỗi nằm ở phía frontend hay backend.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-32",
+      "word": "ログ",
+      "reading": "ログ",
+      "hanViet": [],
+      "meaningVi": "Log; nhật ký/bản ghi hoạt động của hệ thống",
+      "example": "エラー発生時のログを添付してください。",
+      "exampleVi": "Hãy đính kèm log tại thời điểm phát sinh lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-33",
+      "word": "証跡",
+      "reading": "しょうせき",
+      "hanViet": [
+        "CHỨNG TÍCH"
+      ],
+      "meaningVi": "Dấu vết, bằng chứng ghi lại thao tác hoặc xử lý của hệ thống",
+      "example": "操作証跡を確認し、誰が設定を変更したか調べました。",
+      "exampleVi": "Chúng tôi kiểm tra dấu vết thao tác để tìm xem ai đã thay đổi cấu hình.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-34",
+      "word": "影響",
+      "reading": "えいきょう",
+      "hanViet": [
+        "ẢNH HƯỞNG"
+      ],
+      "meaningVi": "Ảnh hưởng, tác động",
+      "example": "この修正は検索機能に影響する可能性があります。",
+      "exampleVi": "Bản sửa này có khả năng ảnh hưởng đến chức năng tìm kiếm.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-35",
+      "word": "影響範囲",
+      "reading": "えいきょうはんい",
+      "hanViet": [
+        "ẢNH HƯỞNG PHẠM VI"
+      ],
+      "meaningVi": "Phạm vi bị ảnh hưởng bởi lỗi hoặc thay đổi",
+      "example": "影響範囲は管理画面の三つの機能です。",
+      "exampleVi": "Phạm vi ảnh hưởng là ba chức năng trên màn hình quản trị.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-36",
+      "word": "影響度分析",
+      "reading": "えいきょうどぶんせき",
+      "hanViet": [
+        "ẢNH HƯỞNG ĐỘ PHÂN TÍCH"
+      ],
+      "meaningVi": "Phân tích ảnh hưởng của một thay đổi đối với các chức năng/hệ thống liên quan",
+      "example": "修正を始める前に影響度分析を実施します。",
+      "exampleVi": "Trước khi bắt đầu sửa, chúng tôi sẽ thực hiện phân tích ảnh hưởng.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-37",
+      "word": "重大度",
+      "reading": "じゅうだいど",
+      "hanViet": [
+        "TRỌNG ĐẠI ĐỘ"
+      ],
+      "meaningVi": "Mức độ nghiêm trọng; severity",
+      "example": "この不具合はデータ消失につながるため、重大度は高です。",
+      "exampleVi": "Lỗi này có thể dẫn đến mất dữ liệu nên mức độ nghiêm trọng cao.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-38",
+      "word": "優先度",
+      "reading": "ゆうせんど",
+      "hanViet": [
+        "ƯU TIÊN ĐỘ"
+      ],
+      "meaningVi": "Mức độ ưu tiên xử lý; priority",
+      "example": "リリース前なので、このバグの優先度を上げます。",
+      "exampleVi": "Vì sắp release nên chúng tôi sẽ nâng mức ưu tiên của bug này.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-39",
+      "word": "緊急度",
+      "reading": "きんきゅうど",
+      "hanViet": [
+        "KHẨN CẤP ĐỘ"
+      ],
+      "meaningVi": "Mức độ khẩn cấp cần xử lý",
+      "example": "決済ができないため、緊急度は高いです。",
+      "exampleVi": "Do không thể thanh toán nên mức độ khẩn cấp cao.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-40",
+      "word": "発生頻度",
+      "reading": "はっせいひんど",
+      "hanViet": [
+        "PHÁT SINH TẦN ĐỘ"
+      ],
+      "meaningVi": "Tần suất phát sinh lỗi",
+      "example": "現時点で、この不具合の発生頻度は約 5%です。",
+      "exampleVi": "Hiện tại tần suất phát sinh của lỗi này khoảng 5%.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-41",
+      "word": "検出",
+      "reading": "けんしゅつ",
+      "hanViet": [
+        "KIỂM XUẤT"
+      ],
+      "meaningVi": "Phát hiện lỗi, defect hoặc vấn đề thông qua kiểm thử",
+      "example": "今回のテストで三件の不具合を検出しました。",
+      "exampleVi": "Trong đợt test lần này chúng tôi đã phát hiện ba lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-42",
+      "word": "対応",
+      "reading": "たいおう",
+      "hanViet": [
+        "ĐỐI ỨNG"
+      ],
+      "meaningVi": "1) Xử lý, ứng phó với vấn đề/sự cố. 2) Hỗ trợ, tương thích với môi trường/thiết bị/phần mềm",
+      "example": "1) 現在、開発チームがこの問題に対応しています。 2) このアプリは最新の iOS に対応しています。",
+      "exampleVi": "1) Hiện đội phát triển đang xử lý vấn đề này. 2) Ứng dụng này hỗ trợ phiên bản iOS mới nhất.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-43",
+      "word": "対策",
+      "reading": "たいさく",
+      "hanViet": [
+        "ĐỐI SÁCH"
+      ],
+      "meaningVi": "Biện pháp, đối sách nhằm giải quyết hoặc phòng tránh vấn đề",
+      "example": "同じ障害を防ぐための対策を検討します。",
+      "exampleVi": "Chúng tôi sẽ xem xét biện pháp để ngăn sự cố tương tự.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-44",
+      "word": "回避策",
+      "reading": "かいひさく",
+      "hanViet": [
+        "HỒI TỊ SÁCH"
+      ],
+      "meaningVi": "Biện pháp né/tránh lỗi khi chưa thể sửa triệt để",
+      "example": "修正までの回避策として、別のブラウザを使用してください。",
+      "exampleVi": "Trong thời gian chờ sửa, hãy dùng trình duyệt khác như một biện pháp tránh lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-45",
+      "word": "ワークアラウンド",
+      "reading": "ワークアラウンド",
+      "hanViet": [],
+      "meaningVi": "Workaround; cách xử lý vòng/tạm thời để người dùng vẫn tiếp tục công việc",
+      "example": "恒久修正まで、このワークアラウンドで対応します。",
+      "exampleVi": "Cho đến khi có bản sửa triệt để, chúng tôi sẽ xử lý bằng workaround này.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-46",
+      "word": "暫定対応",
+      "reading": "ざんていたいおう",
+      "hanViet": [
+        "TẠM ĐỊNH ĐỐI ỨNG"
+      ],
+      "meaningVi": "Xử lý tạm thời nhằm giảm ảnh hưởng trước mắt",
+      "example": "暫定対応としてサービスを再起動しました。",
+      "exampleVi": "Chúng tôi đã khởi động lại dịch vụ như một biện pháp xử lý tạm thời.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-47",
+      "word": "恒久対応",
+      "reading": "こうきゅうたいおう",
+      "hanViet": [
+        "HẰNG CỬU ĐỐI ỨNG"
+      ],
+      "meaningVi": "Xử lý lâu dài, triệt để nhằm loại bỏ nguyên nhân",
+      "example": "恒久対応として認証処理の設計を見直します。",
+      "exampleVi": "Để xử lý triệt để, chúng tôi sẽ xem xét lại thiết kế của phần xác thực.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-48",
+      "word": "修正",
+      "reading": "しゅうせい",
+      "hanViet": [
+        "TU CHÍNH"
+      ],
+      "meaningVi": "Sửa lỗi hoặc nội dung sai",
+      "example": "不具合を修正したビルドを共有してください。",
+      "exampleVi": "Hãy chia sẻ build đã sửa lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-49",
+      "word": "改修",
+      "reading": "かいしゅう",
+      "hanViet": [
+        "CẢI TU"
+      ],
+      "meaningVi": "Chỉnh sửa, cải tạo chương trình/hệ thống để sửa hoặc thay đổi chức năng",
+      "example": "古い認証処理を改修して、エラーを減らしました。",
+      "exampleVi": "Chúng tôi đã chỉnh sửa phần xử lý xác thực cũ để giảm lỗi.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-50",
+      "word": "改善",
+      "reading": "かいぜん",
+      "hanViet": [
+        "CẢI THIỆN"
+      ],
+      "meaningVi": "Cải thiện chất lượng, hiệu năng hoặc cách xử lý",
+      "example": "エラーメッセージを改善して、原因が分かりやすくなりました。",
+      "exampleVi": "Thông báo lỗi đã được cải thiện để người dùng dễ hiểu nguyên nhân hơn.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-51",
+      "word": "再設定",
+      "reading": "さいせってい",
+      "hanViet": [
+        "TÁI THIẾT ĐỊNH"
+      ],
+      "meaningVi": "Thiết lập/cấu hình lại",
+      "example": "タイムゾーンを UTC に再設定しました。",
+      "exampleVi": "Chúng tôi đã thiết lập lại múi giờ thành UTC.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-52",
+      "word": "復旧",
+      "reading": "ふっきゅう",
+      "hanViet": [
+        "PHỤC CỰU"
+      ],
+      "meaningVi": "Khôi phục hệ thống/dịch vụ về trạng thái hoạt động bình thường",
+      "example": "サービスは 10 時 30 分に復旧しました。",
+      "exampleVi": "Dịch vụ đã được khôi phục lúc 10 giờ 30.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-53",
+      "word": "再起動",
+      "reading": "さいきどう",
+      "hanViet": [
+        "TÁI KHỞI ĐỘNG"
+      ],
+      "meaningVi": "Khởi động lại hệ thống, máy chủ, ứng dụng",
+      "example": "一時的な不具合のため、サーバーを再起動しました。",
+      "exampleVi": "Do lỗi tạm thời, chúng tôi đã khởi động lại máy chủ.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-54",
+      "word": "ロールバック",
+      "reading": "ロールバック",
+      "hanViet": [],
+      "meaningVi": "Rollback; quay lại phiên bản/trạng thái trước khi thay đổi",
+      "example": "問題が発生したため、前のバージョンへロールバックしました。",
+      "exampleVi": "Do xảy ra vấn đề, chúng tôi đã rollback về phiên bản trước.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-55",
+      "word": "再発",
+      "reading": "さいはつ",
+      "hanViet": [
+        "TÁI PHÁT"
+      ],
+      "meaningVi": "Tái phát; lỗi/sự cố đã xảy ra trước đó xuất hiện trở lại",
+      "example": "修正後、一週間で同じ障害が再発しました。",
+      "exampleVi": "Một tuần sau khi sửa, sự cố tương tự lại tái phát.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-56",
+      "word": "再発防止",
+      "reading": "さいはつぼうし",
+      "hanViet": [
+        "TÁI PHÁT PHÒNG CHỈ"
+      ],
+      "meaningVi": "Phòng ngừa lỗi/sự cố tương tự tái diễn",
+      "example": "再発防止のため、リリース前チェックを追加します。",
+      "exampleVi": "Để ngăn tái phát, chúng tôi sẽ bổ sung bước kiểm tra trước khi release.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-57",
+      "word": "監視",
+      "reading": "かんし",
+      "hanViet": [
+        "GIÁM THỊ"
+      ],
+      "meaningVi": "Giám sát trạng thái, hiệu năng, tài nguyên của hệ thống",
+      "example": "サーバーの状態を 24 時間監視しています。",
+      "exampleVi": "Chúng tôi giám sát trạng thái máy chủ 24 giờ mỗi ngày.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-58",
+      "word": "アラート",
+      "reading": "アラート",
+      "hanViet": [],
+      "meaningVi": "Alert; cảnh báo tự động khi xuất hiện trạng thái bất thường",
+      "example": "エラー率が閾値を超えるとアラートが通知されます。",
+      "exampleVi": "Khi tỷ lệ lỗi vượt ngưỡng, hệ thống sẽ gửi cảnh báo.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-59",
+      "word": "検知",
+      "reading": "けんち",
+      "hanViet": [
+        "KIỂM TRI"
+      ],
+      "meaningVi": "Phát hiện, nhận biết bất thường; thường dùng với hệ thống giám sát",
+      "example": "監視システムが CPU 使用率の異常を自動で検知しました。",
+      "exampleVi": "Hệ thống giám sát đã tự động phát hiện CPU sử dụng bất thường.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-60",
+      "word": "確認テスト",
+      "reading": "かくにんテスト",
+      "hanViet": [
+        "XÁC NHẬN"
+      ],
+      "meaningVi": "Confirmation test; kiểm thử để xác nhận defect ban đầu đã được sửa đúng",
+      "example": "確認テストで、元の不具合が修正されたことを確認しました。",
+      "exampleVi": "Qua confirmation test, chúng tôi xác nhận lỗi ban đầu đã được sửa.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-61",
+      "word": "リグレッションテスト",
+      "reading": "リグレッションテスト",
+      "hanViet": [],
+      "meaningVi": "Regression test; kiểm thử xem thay đổi có gây ảnh hưởng xấu tới chức năng khác hay không",
+      "example": "修正の影響がないか、リグレッションテストを実施します。",
+      "exampleVi": "Chúng tôi sẽ chạy regression test để kiểm tra bản sửa có ảnh hưởng tới chức năng khác không.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-62",
+      "word": "再テスト",
+      "reading": "さいテスト",
+      "hanViet": [
+        "TÁI"
+      ],
+      "meaningVi": "Retest; kiểm thử lại một trường hợp sau khi có thay đổi/sửa lỗi",
+      "example": "修正版が届いたら、このケースを再テストします。",
+      "exampleVi": "Khi nhận được bản đã sửa, tôi sẽ test lại case này.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-63",
+      "word": "デグレ",
+      "reading": "デグレ",
+      "hanViet": [],
+      "meaningVi": "Cách nói thực tế của degradation/regression; sửa chỗ này nhưng làm hỏng chức năng đã hoạt động ở chỗ khác",
+      "example": "今回の修正で別の画面にデグレが発生しました。",
+      "exampleVi": "Bản sửa lần này đã gây regression ở một màn hình khác.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-64",
+      "word": "検証",
+      "reading": "けんしょう",
+      "hanViet": [
+        "KIỂM CHỨNG"
+      ],
+      "meaningVi": "Kiểm chứng, xác minh xem kết quả hoặc xử lý có đúng hay không",
+      "example": "修正内容をテスト環境で検証します。",
+      "exampleVi": "Chúng tôi sẽ kiểm chứng nội dung sửa ở môi trường test.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-65",
+      "word": "正常系",
+      "reading": "せいじょうけい",
+      "hanViet": [
+        "CHÍNH THƯỜNG HỆ"
+      ],
+      "meaningVi": "Luồng/test case với đầu vào và thao tác hợp lệ, hệ thống hoạt động bình thường",
+      "example": "正常系では、正しい ID とパスワードでログインできることを確認します。",
+      "exampleVi": "Ở luồng bình thường, kiểm tra rằng có thể đăng nhập bằng ID và mật khẩu chính xác.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-66",
+      "word": "異常系",
+      "reading": "いじょうけい",
+      "hanViet": [
+        "DỊ THƯỜNG HỆ"
+      ],
+      "meaningVi": "Luồng/test case với đầu vào sai, ngoại lệ hoặc tình huống bất thường",
+      "example": "異常系では、誤ったパスワードを入力した場合の動作を確認します。",
+      "exampleVi": "Ở luồng bất thường, kiểm tra hoạt động khi nhập sai mật khẩu.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-67",
+      "word": "境界値",
+      "reading": "きょうかいち",
+      "hanViet": [
+        "CẢNH GIỚI TRỊ"
+      ],
+      "meaningVi": "Giá trị biên; giá trị ngay tại hoặc sát giới hạn",
+      "example": "文字数の境界値として 7、8、9 文字をテストします。",
+      "exampleVi": "Chúng tôi test 7, 8 và 9 ký tự làm các giá trị quanh biên.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-68",
+      "word": "異常",
+      "reading": "いじょう",
+      "hanViet": [
+        "DỊ THƯỜNG"
+      ],
+      "meaningVi": "Bất thường; trạng thái khác với trạng thái bình thường",
+      "example": "監視ツールが CPU 使用率の異常を検知しました。",
+      "exampleVi": "Công cụ giám sát đã phát hiện mức sử dụng CPU bất thường.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-69",
+      "word": "例外",
+      "reading": "れいがい",
+      "hanViet": [
+        "LỆ NGOẠI"
+      ],
+      "meaningVi": "Exception; ngoại lệ phát sinh trong quá trình xử lý chương trình",
+      "example": "API が例外を返した場合の画面表示を確認します。",
+      "exampleVi": "Chúng tôi kiểm tra hiển thị màn hình khi API trả về exception.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-70",
+      "word": "クラッシュ",
+      "reading": "クラッシュ",
+      "hanViet": [],
+      "meaningVi": "Crash; ứng dụng/chương trình bị sập đột ngột",
+      "example": "画像をアップロードするとアプリがクラッシュします。",
+      "exampleVi": "Ứng dụng bị crash khi tải ảnh lên.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-71",
+      "word": "フリーズ",
+      "reading": "フリーズ",
+      "hanViet": [],
+      "meaningVi": "Freeze; màn hình/chương trình bị đứng, không phản hồi thao tác",
+      "example": "保存ボタンを押すと画面がフリーズします。",
+      "exampleVi": "Màn hình bị đơ khi nhấn nút Lưu.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-72",
+      "word": "ハングアップ",
+      "reading": "ハングアップ",
+      "hanViet": [],
+      "meaningVi": "Hang; hệ thống/chương trình ngừng phản hồi nhưng chưa nhất thiết tắt",
+      "example": "負荷試験中にサーバーがハングアップしました。",
+      "exampleVi": "Máy chủ bị treo trong lúc kiểm thử tải.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-73",
+      "word": "タイムアウト",
+      "reading": "タイムアウト",
+      "hanViet": [],
+      "meaningVi": "Timeout; quá thời gian chờ quy định",
+      "example": "外部 API が 30 秒でタイムアウトしました。",
+      "exampleVi": "API bên ngoài đã timeout sau 30 giây.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-74",
+      "word": "ダウン",
+      "reading": "ダウン",
+      "hanViet": [],
+      "meaningVi": "Down; hệ thống/dịch vụ ngừng hoạt động",
+      "example": "データベース障害によりサービスが一時的にダウンしました。",
+      "exampleVi": "Dịch vụ tạm thời bị down do sự cố cơ sở dữ liệu.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-75",
+      "word": "ダウンタイム",
+      "reading": "ダウンタイム",
+      "hanViet": [],
+      "meaningVi": "Khoảng thời gian hệ thống/dịch vụ không hoạt động",
+      "example": "今月のダウンタイムは合計 12 分でした。",
+      "exampleVi": "Tổng downtime trong tháng này là 12 phút.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-76",
+      "word": "通信障害",
+      "reading": "つうしんしょうがい",
+      "hanViet": [
+        "THÔNG TIN CHƯỚNG HẠI"
+      ],
+      "meaningVi": "Sự cố truyền thông/mạng làm gián đoạn kết nối",
+      "example": "ネットワークの通信障害で API に接続できませんでした。",
+      "exampleVi": "Không thể kết nối API do sự cố mạng.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-77",
+      "word": "認証エラー",
+      "reading": "にんしょうエラー",
+      "hanViet": [
+        "NHẬN CHỨNG"
+      ],
+      "meaningVi": "Lỗi xác thực danh tính/token/tài khoản",
+      "example": "トークンの有効期限切れで認証エラーが発生しました。",
+      "exampleVi": "Lỗi xác thực phát sinh do token hết hạn.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-78",
+      "word": "権限不足",
+      "reading": "けんげんぶそく",
+      "hanViet": [
+        "QUYỀN HẠN BẤT TÚC"
+      ],
+      "meaningVi": "Không đủ quyền truy cập hoặc thực hiện thao tác",
+      "example": "権限不足のユーザーには管理画面を表示しないでください。",
+      "exampleVi": "Không hiển thị màn hình quản trị cho người dùng không đủ quyền.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-79",
+      "word": "性能劣化",
+      "reading": "せいのうれっか",
+      "hanViet": [
+        "TÍNH NĂNG LIỆT HÓA"
+      ],
+      "meaningVi": "Suy giảm hiệu năng",
+      "example": "リリース後、検索処理に性能劣化が見られました。",
+      "exampleVi": "Sau khi release, hiệu năng xử lý tìm kiếm bị suy giảm.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-80",
+      "word": "遅延",
+      "reading": "ちえん",
+      "hanViet": [
+        "TRÌ DIÊN"
+      ],
+      "meaningVi": "Chậm trễ; xảy ra muộn hơn thời điểm/thời gian dự kiến",
+      "example": "バッチ処理に約 20 分の遅延が発生しています。",
+      "exampleVi": "Batch đang bị chậm khoảng 20 phút.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-81",
+      "word": "処理遅延",
+      "reading": "しょりちえん",
+      "hanViet": [
+        "XỬ LÝ TRÌ DIÊN"
+      ],
+      "meaningVi": "Độ trễ trong quá trình xử lý của hệ thống",
+      "example": "大量データのため、画面表示に処理遅延が出ています。",
+      "exampleVi": "Do lượng dữ liệu lớn nên việc hiển thị màn hình đang bị trễ.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-82",
+      "word": "負荷",
+      "reading": "ふか",
+      "hanViet": [
+        "PHỤ HÀ"
+      ],
+      "meaningVi": "Tải, mức áp lực tài nguyên đặt lên hệ thống",
+      "example": "高い負荷をかけるとレスポンスが遅くなります。",
+      "exampleVi": "Khi đặt tải cao lên hệ thống, tốc độ phản hồi trở nên chậm.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-83",
+      "word": "ボトルネック",
+      "reading": "ボトルネック",
+      "hanViet": [],
+      "meaningVi": "Bottleneck; điểm nghẽn làm hạn chế hiệu năng toàn hệ thống",
+      "example": "データベースへのアクセスがボトルネックになっています。",
+      "exampleVi": "Việc truy cập cơ sở dữ liệu đang trở thành điểm nghẽn.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-84",
+      "word": "メモリリーク",
+      "reading": "メモリリーク",
+      "hanViet": [],
+      "meaningVi": "Memory leak; bộ nhớ đã dùng không được giải phóng đúng cách",
+      "example": "長時間実行するとメモリリークが発生します。",
+      "exampleVi": "Khi chạy trong thời gian dài sẽ phát sinh memory leak.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-85",
+      "word": "データ不整合",
+      "reading": "データふせいごう",
+      "hanViet": [
+        "BẤT CHỈNH HỢP"
+      ],
+      "meaningVi": "Dữ liệu không nhất quán giữa các bảng, hệ thống hoặc trạng thái",
+      "example": "API とデータベースの値にデータ不整合が発生しています。",
+      "exampleVi": "Đang có tình trạng dữ liệu không nhất quán giữa API và database.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-86",
+      "word": "重複",
+      "reading": "ちょうふく",
+      "hanViet": [
+        "TRÙNG PHỤC"
+      ],
+      "meaningVi": "Trùng lặp dữ liệu, xử lý hoặc bản ghi",
+      "example": "同じ注文が重複して登録されています。",
+      "exampleVi": "Cùng một đơn hàng đang bị đăng ký trùng lặp.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-87",
+      "word": "欠損",
+      "reading": "けっそん",
+      "hanViet": [
+        "KHIẾM TỒN"
+      ],
+      "meaningVi": "Thiếu/mất một phần dữ liệu cần có",
+      "example": "CSV の一部レコードに必須項目の欠損があります。",
+      "exampleVi": "Một số record trong CSV bị thiếu trường bắt buộc.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-88",
+      "word": "文字化け",
+      "reading": "もじばけ",
+      "hanViet": [
+        "VĂN TỰ HÓA"
+      ],
+      "meaningVi": "Lỗi ký tự hiển thị sai do encoding/mã hóa ký tự",
+      "example": "CSV を Excel で開くと日本語が文字化けします。",
+      "exampleVi": "Khi mở CSV bằng Excel, chữ tiếng Nhật bị lỗi font/encoding.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-89",
+      "word": "設定ミス",
+      "reading": "せっていミス",
+      "hanViet": [
+        "THIẾT ĐỊNH"
+      ],
+      "meaningVi": "Lỗi cấu hình, thiết lập sai",
+      "example": "環境変数の設定ミスが原因でした。",
+      "exampleVi": "Nguyên nhân là cấu hình sai biến môi trường.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-90",
+      "word": "操作ミス",
+      "reading": "そうさミス",
+      "hanViet": [
+        "THAO TÁC"
+      ],
+      "meaningVi": "Lỗi thao tác của người dùng/người vận hành",
+      "example": "管理者の操作ミスでデータが削除されました。",
+      "exampleVi": "Dữ liệu đã bị xóa do thao tác nhầm của quản trị viên.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-91",
+      "word": "仕様漏れ",
+      "reading": "しようもれ",
+      "hanViet": [
+        "SĨ DẠNG LẬU"
+      ],
+      "meaningVi": "Bỏ sót nội dung trong đặc tả",
+      "example": "仕様漏れにより、エラー時の表示が定義されていませんでした。",
+      "exampleVi": "Do bỏ sót trong đặc tả nên hiển thị khi xảy ra lỗi chưa được định nghĩa.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-92",
+      "word": "考慮漏れ",
+      "reading": "こうりょもれ",
+      "hanViet": [
+        "KHẢO LỰ LẬU"
+      ],
+      "meaningVi": "Bỏ sót một trường hợp/yếu tố cần cân nhắc",
+      "example": "タイムゾーンの考慮漏れで、日付が一日ずれました。",
+      "exampleVi": "Do bỏ sót việc cân nhắc múi giờ nên ngày bị lệch một ngày.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-93",
+      "word": "実装漏れ",
+      "reading": "じっそうもれ",
+      "hanViet": [
+        "THỰC TRANG LẬU"
+      ],
+      "meaningVi": "Bỏ sót phần cần implement",
+      "example": "入力値のバリデーションに実装漏れが見つかりました。",
+      "exampleVi": "Đã phát hiện phần validation giá trị đầu vào bị implement thiếu.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-94",
+      "word": "既知不具合",
+      "reading": "きちふぐあい",
+      "hanViet": [
+        "KÝ TRI BẤT CỤ HỢP"
+      ],
+      "meaningVi": "Known issue; lỗi đã được biết và ghi nhận từ trước",
+      "example": "これは既知不具合なので、今回のリリース対象外です。",
+      "exampleVi": "Đây là lỗi đã biết nên không thuộc phạm vi xử lý của lần release này.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-95",
+      "word": "未再現",
+      "reading": "みさいげん",
+      "hanViet": [
+        "VỊ TÁI HIỆN"
+      ],
+      "meaningVi": "Chưa thể tái hiện được lỗi",
+      "example": "この不具合は現在未再現で、引き続き調査中です。",
+      "exampleVi": "Hiện tại lỗi này vẫn chưa tái hiện được và đang tiếp tục được điều tra.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-96",
+      "word": "起票",
+      "reading": "きひょう",
+      "hanViet": [
+        "KHỞI PHIẾU"
+      ],
+      "meaningVi": "Tạo ticket/issue để chính thức ghi nhận lỗi hoặc công việc",
+      "example": "不具合を起票し、担当者を設定しました。",
+      "exampleVi": "Tôi đã tạo ticket cho lỗi và chỉ định người phụ trách.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-97",
+      "word": "保留",
+      "reading": "ほりゅう",
+      "hanViet": [
+        "BẢO LƯU"
+      ],
+      "meaningVi": "Tạm giữ, tạm hoãn xử lý; pending/on hold",
+      "example": "追加調査が必要なため、このチケットはいったん保留にします。",
+      "exampleVi": "Do cần điều tra thêm nên ticket này tạm thời được để trạng thái chờ.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-98",
+      "word": "障害報告",
+      "reading": "しょうがいほうこく",
+      "hanViet": [
+        "CHƯỚNG HẠI BÁO CÁO"
+      ],
+      "meaningVi": "Báo cáo sự cố hệ thống",
+      "example": "障害報告には、発生時刻、影響範囲、原因、対応内容を記載します。",
+      "exampleVi": "Trong báo cáo sự cố cần ghi thời điểm phát sinh, phạm vi ảnh hưởng, nguyên nhân và nội dung xử lý.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-99",
+      "word": "クローズ",
+      "reading": "クローズ",
+      "hanViet": [],
+      "meaningVi": "Close; đóng ticket sau khi vấn đề đã được xử lý/xác nhận",
+      "example": "修正確認が完了したので、チケットをクローズします。",
+      "exampleVi": "Do đã hoàn tất xác nhận bản sửa nên chúng tôi sẽ đóng ticket.",
+      "lesson": 16
+    },
+    {
+      "id": "itbook-brse-loi-100",
+      "word": "リリース",
+      "reading": "リリース",
+      "hanViet": [],
+      "meaningVi": "Release; phát hành/triển khai phiên bản phần mềm",
+      "example": "この修正は次回のリリースに含めます。",
+      "exampleVi": "Bản sửa này sẽ được đưa vào lần release tiếp theo.",
+      "lesson": 16
+    }
+  ]
+}

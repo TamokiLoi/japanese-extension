@@ -1,12 +1,14 @@
 import itBookVocabRaw from "../data/it-book-vocab.json";
+import itBookVocabBrseLoiRaw from "../data/it-book-vocab-brse-loi.json";
 import itBookLessonsRaw from "../data/it-book-lessons.json";
 import type { ItBookVocabDataset, ItBookVocabWord, ItBookLessonDataset, ItBookLesson } from "../types/itBook.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
 const dataset = itBookVocabRaw as unknown as ItBookVocabDataset;
+const brseLoiDataset = itBookVocabBrseLoiRaw as unknown as ItBookVocabDataset;
 
-export const ALL_IT_BOOK_VOCAB: ItBookVocabWord[] = dataset.words;
+export const ALL_IT_BOOK_VOCAB: ItBookVocabWord[] = [...dataset.words, ...brseLoiDataset.words];
 
 const lessonDataset = itBookLessonsRaw as unknown as ItBookLessonDataset;
 
@@ -39,6 +41,7 @@ export const LESSON_LABELS: Record<number, string> = {
   13: "Bài 13: Báo cáo chất lượng",
   14: "Bài 14: Release note",
   15: "Bài 15: Khảo sát khách hàng",
+  16: "BrSE: Báo & xử lý lỗi",
 };
 
 export const AVAILABLE_LESSONS: number[] = Object.keys(LESSON_LABELS).map(Number);

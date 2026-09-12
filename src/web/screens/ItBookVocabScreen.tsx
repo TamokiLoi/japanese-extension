@@ -383,6 +383,13 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
             <dt className="text-neutral-400">Nghĩa</dt>
             <dd className="text-neutral-800">{v.meaningVi || "—"}</dd>
           </dl>
+
+          {v.example ? (
+            <div className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm text-neutral-800">
+              <div>{v.example}</div>
+              {v.exampleVi ? <div className="mt-1 text-emerald-700">{v.exampleVi}</div> : null}
+            </div>
+          ) : null}
         </Card>
       )}
     </div>

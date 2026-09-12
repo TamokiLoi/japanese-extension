@@ -11,6 +11,10 @@ export interface ItBookVocabWord {
   hanViet: string[];
   meaningVi: string;
   lesson: number;
+  // Chỉ có ở các nguồn bổ sung ngoài sách FPT Software gốc (vd bộ từ vựng
+  // BrSE "báo & xử lý lỗi", lesson 16) -- sách gốc không có câu ví dụ.
+  example?: string;
+  exampleVi?: string;
 }
 
 interface ItBookVocabMeta {
