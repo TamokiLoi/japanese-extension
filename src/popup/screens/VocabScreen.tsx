@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
+  AVAILABLE_LEVELS,
   SOURCE_LABELS,
   countForSource,
+  countForLevel,
   getOrderedList,
   loadViewerState,
   saveViewerState,
@@ -12,6 +14,8 @@ import {
   type VocabSource,
   type VocabViewerState,
 } from "../vocabState.ts";
+import type { JlptLevel } from "../../types/kanji.ts";
+import { LevelDot } from "../LevelDot.tsx";
 import {
   getProgress,
   loadProgressMap,
@@ -150,6 +154,11 @@ export function VocabScreen({
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
+  async function applyLevelSelection(newLevels: JlptLevel[]) {
+    if (newLevels.length === 0) return;
+    await mutate({ selectedLevels: newLevels, index: 0 });
+  }
+
   async function refreshProgress() {
     const v = list[state!.index];
     if (!v) return;
@@ -186,6 +195,7 @@ export function VocabScreen({
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
   const allChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
+  const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
   const readingMatches = v ? findMatchingReadingPassages(v) : [];
   const quizBookMatches = v ? findMatchingQuizBookQuestions(v) : [];
 
@@ -205,6 +215,41 @@ export function VocabScreen({
         </button>
         <ExpandTabButton screenHash="vocab" />
       </header>
+
+      <CollapsibleSection
+        className="level-selector"
+        title="Cấp độ"
+        defaultOpen
+        summary={allLevelsChecked ? "Tất cả" : `${state.selectedLevels.length} cấp độ`}
+      >
+        <label className="level-check level-check-all">
+          <input
+            type="checkbox"
+            checked={allLevelsChecked}
+            onChange={(e) => applyLevelSelection(e.target.checked ? [...AVAILABLE_LEVELS] : state.selectedLevels)}
+          />
+          Tất cả <span className="muted">({ALL_VOCAB.length})</span>
+        </label>
+        {AVAILABLE_LEVELS.map((level) => {
+          const checked = state.selectedLevels.includes(level);
+          return (
+            <label key={level} className="level-check">
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={(e) => {
+                  const next = e.target.checked
+                    ? [...new Set([...state.selectedLevels, level])]
+                    : state.selectedLevels.filter((l) => l !== level);
+                  applyLevelSelection(next);
+                }}
+              />
+              <LevelDot level={level} />
+              {level} <span className="muted">({countForLevel(level)})</span>
+            </label>
+          );
+        })}
+      </CollapsibleSection>
 
       <CollapsibleSection
         className="level-selector"

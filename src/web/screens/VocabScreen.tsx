@@ -6,8 +6,10 @@ import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS, l
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
+  AVAILABLE_LEVELS,
   SOURCE_LABELS,
   countForSource,
+  countForLevel,
   getOrderedList,
   loadViewerState,
   saveViewerState,
@@ -16,6 +18,7 @@ import {
   type VocabSource,
   type VocabViewerState,
 } from "../../popup/vocabState.ts";
+import type { JlptLevel } from "../../types/kanji.ts";
 import {
   getProgress,
   markViewed,
@@ -247,6 +250,11 @@ export function VocabScreen({
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
+  async function applyLevelSelection(newLevels: JlptLevel[]) {
+    if (newLevels.length === 0) return;
+    await mutate({ selectedLevels: newLevels, index: 0 });
+  }
+
   async function refreshProgress() {
     const v = list[state!.index];
     if (!v) return;
@@ -272,6 +280,7 @@ export function VocabScreen({
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
   const allChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
+  const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
   const readingMatches = v ? findMatchingReadingPassages(v) : [];
   const quizBookMatches = v ? findMatchingQuizBookQuestions(v) : [];
 
@@ -289,7 +298,10 @@ export function VocabScreen({
       />
 
       <FilterBar>
-        <FilterTrigger count={allChecked ? 0 : state.selectedSources.length} onClick={() => setFilterOpen(true)} />
+        <FilterTrigger
+          count={(allChecked ? 0 : state.selectedSources.length) + (allLevelsChecked ? 0 : state.selectedLevels.length)}
+          onClick={() => setFilterOpen(true)}
+        />
         <button
           title="Đến hạn ôn lại"
           onClick={() => mutate({ progressFilter: state.progressFilter === "due" ? "all" : "due", index: 0 })}
@@ -315,6 +327,13 @@ export function VocabScreen({
 
       <ActiveFilters
         chips={[
+          ...(allLevelsChecked
+            ? []
+            : state.selectedLevels.map((l) => ({
+                key: `level-${l}`,
+                label: l,
+                onRemove: () => applyLevelSelection(state.selectedLevels.filter((x) => x !== l)),
+              }))),
           ...(allChecked
             ? []
             : state.selectedSources.map((s) => ({
@@ -338,8 +357,32 @@ export function VocabScreen({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc từ vựng"
-        onReset={() => applySourceSelection([...AVAILABLE_SOURCES])}
+        onReset={() => {
+          applyLevelSelection([...AVAILABLE_LEVELS]);
+          applySourceSelection([...AVAILABLE_SOURCES]);
+        }}
       >
+        <FilterGroup title="Cấp độ">
+          <FilterChipOption
+            label={`Tất cả cấp độ (${ALL_VOCAB.length})`}
+            active={allLevelsChecked}
+            onClick={() => applyLevelSelection(allLevelsChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
+          />
+          {AVAILABLE_LEVELS.map((level) => {
+            const checked = state.selectedLevels.includes(level);
+            return (
+              <FilterChipOption
+                key={level}
+                label={`${level} (${countForLevel(level)})`}
+                active={checked}
+                onClick={() => {
+                  const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
+                  applyLevelSelection(next);
+                }}
+              />
+            );
+          })}
+        </FilterGroup>
         <FilterGroup title="Nguồn">
           <FilterChipOption
             label={`Tất cả (${ALL_VOCAB.length})`}

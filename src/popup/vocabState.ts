@@ -237,6 +237,13 @@ export function countForSource(source: VocabSource): number {
   return ALL_VOCAB.filter((v) => v.sources.includes(source)).length;
 }
 
+const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
+export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((level) => ALL_VOCAB.some((v) => v.level === level));
+
+export function countForLevel(level: JlptLevel): number {
+  return ALL_VOCAB.filter((v) => v.level === level).length;
+}
+
 const VOCAB_BY_ID = new Map(ALL_VOCAB.map((v) => [v.id, v]));
 export function findVocabById(id: string): VocabCard | undefined {
   return VOCAB_BY_ID.get(id);
@@ -244,6 +251,7 @@ export function findVocabById(id: string): VocabCard | undefined {
 
 export interface VocabViewerState {
   selectedSources: VocabSource[];
+  selectedLevels: JlptLevel[];
   randomOrder: boolean;
   shuffleSeed: number;
   index: number;
@@ -259,6 +267,7 @@ const STORAGE_KEY = "vocabViewer";
 export function defaultViewerState(): VocabViewerState {
   return {
     selectedSources: ["mimikara-n3", "dongtu", "tinhtu-n3", "tango-n3", "tango-n4", "tango-n5"],
+    selectedLevels: [...AVAILABLE_LEVELS],
     randomOrder: false,
     shuffleSeed: Date.now(),
     index: 0,
@@ -273,8 +282,10 @@ export async function loadViewerState(): Promise<VocabViewerState> {
   const selectedSources = (saved?.selectedSources ?? fallback.selectedSources).filter((s) =>
     AVAILABLE_SOURCES.includes(s),
   );
+  const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => AVAILABLE_LEVELS.includes(l));
   return {
     selectedSources: selectedSources.length > 0 ? selectedSources : fallback.selectedSources,
+    selectedLevels: selectedLevels.length > 0 ? selectedLevels : fallback.selectedLevels,
     randomOrder: saved?.randomOrder ?? fallback.randomOrder,
     shuffleSeed: saved?.shuffleSeed ?? fallback.shuffleSeed,
     index: saved?.index ?? fallback.index,
@@ -311,23 +322,29 @@ function seededShuffle<T>(items: T[], seed: number): T[] {
   return result;
 }
 
+function matchesFilters(v: VocabCard, state: VocabViewerState): boolean {
+  return v.sources.some((s) => state.selectedSources.includes(s)) && state.selectedLevels.includes(v.level);
+}
+
 export function getOrderedList(state: VocabViewerState): VocabCard[] {
-  const filtered = ALL_VOCAB.filter((v) => v.sources.some((s) => state.selectedSources.includes(s)));
+  const filtered = ALL_VOCAB.filter((v) => matchesFilters(v, state));
   return state.randomOrder ? seededShuffle(filtered, state.shuffleSeed) : filtered;
 }
 
 // Used when jumping to a specific vocab card from elsewhere (a "chữ Hán
 // này xuất hiện trong" link on a Kanji card, a search result). Widens the
-// current source filter to include the target's source if excluded, and
+// current source/level filter to include the target's if excluded, and
 // clears the progress filter so it can't hide the very card being jumped
 // to. Returns null if the id doesn't exist in the dataset at all.
 export function resolveJumpState(state: VocabViewerState, targetId: string): VocabViewerState | null {
   const target = findVocabById(targetId);
   if (!target) return null;
   const missingSources = target.sources.filter((s) => !state.selectedSources.includes(s));
+  const missingLevel = state.selectedLevels.includes(target.level) ? [] : [target.level];
   const newState: VocabViewerState = {
     ...state,
     selectedSources: missingSources.length === 0 ? state.selectedSources : [...state.selectedSources, ...missingSources],
+    selectedLevels: missingLevel.length === 0 ? state.selectedLevels : [...state.selectedLevels, ...missingLevel],
     progressFilter: "all",
     viewMode: "card",
   };
@@ -343,7 +360,7 @@ export function resolveJumpState(state: VocabViewerState, targetId: string): Voc
 // sources -- mirrors kanjiState.ts's pickReminderKanji.
 export async function pickReminderVocab(): Promise<VocabCard> {
   const state = await loadViewerState();
-  const pool = ALL_VOCAB.filter((v) => v.sources.some((s) => state.selectedSources.includes(s)));
+  const pool = ALL_VOCAB.filter((v) => matchesFilters(v, state));
   const list = pool.length > 0 ? pool : ALL_VOCAB;
   return list[Math.floor(Math.random() * list.length)];
 }
