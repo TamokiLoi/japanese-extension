@@ -106,6 +106,41 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "dongnghia-n3-kosei",
 ];
 
+// Gộp hiển thị cho bộ lọc "Nguồn" -- KHÔNG đổi VocabSource gốc (vẫn giữ
+// nguyên để tra cứu/backfill/hiển thị badge nguồn ở chi tiết từ), chỉ gộp
+// vài nguồn có tính chất "cùng 1 việc, khác lát cắt" thành 1 chip để đỡ
+// rối: 5 bộ Tango theo từng cấp độ (đã có bộ lọc Cấp độ lo việc đó rồi) và
+// 2 bộ "Từ đồng nghĩa N3" (2 tác giả khác nhau, gần như không trùng từ --
+// xem _scratch, 0/150 trùng word+reading -- nên gộp thành 1 lựa chọn thay
+// vì 2 chip trông như trùng lặp).
+export interface VocabSourceGroup {
+  id: string;
+  label: string;
+  sources: VocabSource[];
+}
+
+const TANGO_LEVEL_SOURCES: VocabSource[] = ["tango-n3", "tango-n4", "tango-n5", "tango-n2", "tango-n1"];
+const DONGNGHIA_SOURCES: VocabSource[] = ["dongnghia-n3", "dongnghia-n3-kosei"];
+
+export const SOURCE_GROUPS: VocabSourceGroup[] = (() => {
+  const seen = new Set<VocabSource>();
+  const groups: VocabSourceGroup[] = [];
+  for (const source of AVAILABLE_SOURCES) {
+    if (seen.has(source)) continue;
+    if (TANGO_LEVEL_SOURCES.includes(source)) {
+      groups.push({ id: "group-tango-level", label: "Tango (theo cấp độ)", sources: TANGO_LEVEL_SOURCES });
+      TANGO_LEVEL_SOURCES.forEach((s) => seen.add(s));
+    } else if (DONGNGHIA_SOURCES.includes(source)) {
+      groups.push({ id: "group-dongnghia", label: "Từ đồng nghĩa N3", sources: DONGNGHIA_SOURCES });
+      DONGNGHIA_SOURCES.forEach((s) => seen.add(s));
+    } else {
+      groups.push({ id: source, label: SOURCE_LABELS[source], sources: [source] });
+      seen.add(source);
+    }
+  }
+  return groups;
+})();
+
 const tinhtuDataset = tinhtuRaw as unknown as TanoshiiVocabDataset;
 const dongtuDataset = dongtuRaw as unknown as TanoshiiVocabDataset;
 const mimikaraDataset = mimikaraRaw as unknown as MimikaraDataset;

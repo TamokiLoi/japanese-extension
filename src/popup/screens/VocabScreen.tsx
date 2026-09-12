@@ -4,6 +4,7 @@ import {
   AVAILABLE_SOURCES,
   AVAILABLE_LEVELS,
   SOURCE_LABELS,
+  SOURCE_GROUPS,
   countForSource,
   countForLevel,
   getOrderedList,
@@ -277,22 +278,22 @@ export function VocabScreen({
           />
           Tất cả <span className="muted">({ALL_VOCAB.filter((v) => state.selectedLevels.includes(v.level)).length})</span>
         </label>
-        {AVAILABLE_SOURCES.map((source) => {
-          const checked = state.selectedSources.includes(source);
-          const count = ALL_VOCAB.filter((v) => v.sources.includes(source) && state.selectedLevels.includes(v.level)).length;
+        {SOURCE_GROUPS.map((group) => {
+          const checked = group.sources.every((s) => state.selectedSources.includes(s));
+          const count = ALL_VOCAB.filter((v) => group.sources.some((s) => v.sources.includes(s)) && state.selectedLevels.includes(v.level)).length;
           return (
-            <label key={source} className="level-check">
+            <label key={group.id} className="level-check">
               <input
                 type="checkbox"
                 checked={checked}
                 onChange={(e) => {
                   const next = e.target.checked
-                    ? [...new Set([...state.selectedSources, source])]
-                    : state.selectedSources.filter((s) => s !== source);
+                    ? [...new Set([...state.selectedSources, ...group.sources])]
+                    : state.selectedSources.filter((s) => !group.sources.includes(s));
                   applySourceSelection(next);
                 }}
               />
-              {SOURCE_LABELS[source]} <span className="muted">({count})</span>
+              {group.label} <span className="muted">({count})</span>
             </label>
           );
         })}

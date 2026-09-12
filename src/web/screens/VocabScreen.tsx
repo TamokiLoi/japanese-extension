@@ -9,6 +9,7 @@ import {
   AVAILABLE_SOURCES,
   AVAILABLE_LEVELS,
   SOURCE_LABELS,
+  SOURCE_GROUPS,
   countForSource,
   countForLevel,
   getOrderedList,
@@ -251,6 +252,30 @@ export function VocabScreen({
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
+  // Gộp các nguồn đang chọn theo SOURCE_GROUPS để hiển thị active-filter
+  // chip: cả nhóm được chọn đủ (vd cả 2 bộ "Từ đồng nghĩa N3") thì gộp 1
+  // chip, còn chọn dở dang (vd chỉ Tango N3 trong nhóm 5 bộ Tango) thì vẫn
+  // hiện riêng từng nguồn như cũ.
+  function sourceFilterChips(selectedSources: VocabSource[]) {
+    const chips: { key: string; label: string; onRemove: () => void }[] = [];
+    for (const group of SOURCE_GROUPS) {
+      const selectedMembers = group.sources.filter((s) => selectedSources.includes(s));
+      if (selectedMembers.length === 0) continue;
+      if (group.sources.length > 1 && selectedMembers.length === group.sources.length) {
+        chips.push({
+          key: group.id,
+          label: group.label,
+          onRemove: () => applySourceSelection(selectedSources.filter((s) => !group.sources.includes(s))),
+        });
+      } else {
+        for (const s of selectedMembers) {
+          chips.push({ key: s, label: SOURCE_LABELS[s], onRemove: () => applySourceSelection(selectedSources.filter((x) => x !== s)) });
+        }
+      }
+    }
+    return chips;
+  }
+
   // Cấp độ điều khiển Nguồn, cùng cơ chế pruneToggle với màn Ngữ pháp: đổi
   // cấp độ thì loại khỏi selectedSources những nguồn không còn từ nào ở
   // (các) cấp độ mới, giữ nguyên các nguồn vẫn còn hợp lệ -- tránh tình
@@ -343,13 +368,7 @@ export function VocabScreen({
                 label: l,
                 onRemove: () => applyLevelSelection(state.selectedLevels.filter((x) => x !== l)),
               }))),
-          ...(allChecked
-            ? []
-            : state.selectedSources.map((s) => ({
-                key: s,
-                label: SOURCE_LABELS[s],
-                onRemove: () => applySourceSelection(state.selectedSources.filter((x) => x !== s)),
-              }))),
+          ...(allChecked ? [] : sourceFilterChips(state.selectedSources)),
           ...(state.progressFilter === "due"
             ? [
                 {
@@ -404,18 +423,18 @@ export function VocabScreen({
               )
             }
           />
-          {AVAILABLE_SOURCES.map((source) => {
-            const checked = state.selectedSources.includes(source);
-            const count = ALL_VOCAB.filter((v) => v.sources.includes(source) && state.selectedLevels.includes(v.level)).length;
+          {SOURCE_GROUPS.map((group) => {
+            const checked = group.sources.every((s) => state.selectedSources.includes(s));
+            const count = ALL_VOCAB.filter((v) => group.sources.some((s) => v.sources.includes(s)) && state.selectedLevels.includes(v.level)).length;
             return (
               <FilterChipOption
-                key={source}
-                label={`${SOURCE_LABELS[source]} (${count})`}
+                key={group.id}
+                label={`${group.label} (${count})`}
                 active={checked}
                 onClick={() => {
                   const next = checked
-                    ? state.selectedSources.filter((s) => s !== source)
-                    : [...new Set([...state.selectedSources, source])];
+                    ? state.selectedSources.filter((s) => !group.sources.includes(s))
+                    : [...new Set([...state.selectedSources, ...group.sources])];
                   applySourceSelection(next);
                 }}
               />
