@@ -1,20 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Search } from "lucide-react";
 import {
-  ALL_PODCAST_EPISODES,
-  AVAILABLE_CATEGORIES,
-  AVAILABLE_CHANNELS,
-  AVAILABLE_LEVELS,
   CHANNEL_LABELS,
-  findPodcastById,
+  computeAvailability,
   getEpisodeLevels,
   getFilteredList,
+  loadPodcastData,
   loadViewerState,
   saveViewerState,
   loadPodcastProgress,
   markWatched,
   loadPodcastFavorites,
   toggleFavorite,
+  type PodcastAvailability,
+  type PodcastData,
   type PodcastViewerState,
   type PodcastProgressMap,
   type PodcastFavoriteMap,
@@ -44,12 +43,23 @@ export function PodcastScreen({
   jumpToId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
 } = {}) {
+  // Every channel's dataset loads as its own async chunk now (see
+  // loadPodcastData in podcastState.ts) instead of a static top-level
+  // import -- 4 channels' worth of episode metadata statically imported
+  // bloated the shared WebApp bundle every OTHER screen had to download too.
+  const [data, setData] = useState<PodcastData | null>(null);
+  const [available, setAvailable] = useState<PodcastAvailability | null>(null);
   const [currentId, setCurrentId] = useState<string | null>(jumpToId ?? null);
   const [state, setState] = useState<PodcastViewerState | null>(null);
   const [favorites, setFavorites] = useState<PodcastFavoriteMap>({});
 
   useEffect(() => {
-    loadViewerState().then(setState);
+    loadPodcastData().then((d) => {
+      setData(d);
+      const avail = computeAvailability(d.episodes);
+      setAvailable(avail);
+      loadViewerState(avail).then(setState);
+    });
     loadPodcastFavorites().then(setFavorites);
   }, []);
 
@@ -68,10 +78,14 @@ export function PodcastScreen({
     setFavorites(await toggleFavorite(id));
   }
 
-  const current = currentId ? findPodcastById(currentId) : undefined;
-  const filtered = state ? getFilteredList(state) : [];
+  if (!data || !available || !state) {
+    return <div className="mx-auto max-w-3xl px-2.5 py-6 text-neutral-400 md:px-8">Đang tải...</div>;
+  }
 
-  if (current && state) {
+  const current = currentId ? data.byId.get(currentId) : undefined;
+  const filtered = getFilteredList(state, data.episodes);
+
+  if (current) {
     return (
       <EpisodeView
         key={current.id}
@@ -90,6 +104,8 @@ export function PodcastScreen({
     <ListView
       state={state}
       mutate={mutate}
+      allEpisodes={data.episodes}
+      available={available}
       filtered={filtered}
       favorites={favorites}
       onToggleFavorite={handleToggleFavorite}
@@ -101,13 +117,17 @@ export function PodcastScreen({
 function ListView({
   state,
   mutate,
+  allEpisodes,
+  available,
   filtered,
   favorites,
   onToggleFavorite,
   onOpen,
 }: {
-  state: PodcastViewerState | null;
+  state: PodcastViewerState;
   mutate: (partial: Partial<PodcastViewerState>) => void;
+  allEpisodes: PodcastEpisode[];
+  available: PodcastAvailability;
   filtered: PodcastEpisode[];
   favorites: PodcastFavoriteMap;
   onToggleFavorite: (id: string) => void;
@@ -124,11 +144,9 @@ function ListView({
     loadPodcastProgress().then(setProgress);
   }, []);
 
-  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
-
-  const allChannelsChecked = state.selectedChannels.length === AVAILABLE_CHANNELS.length;
-  const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
-  const allCategoriesChecked = state.selectedCategories.length === AVAILABLE_CATEGORIES.length;
+  const allChannelsChecked = state.selectedChannels.length === available.channels.length;
+  const allLevelsChecked = state.selectedLevels.length === available.levels.length;
+  const allCategoriesChecked = state.selectedCategories.length === available.categories.length;
   const filterCount =
     (allChannelsChecked ? 0 : state.selectedChannels.length) +
     (allLevelsChecked ? 0 : state.selectedLevels.length) +
@@ -233,13 +251,13 @@ function ListView({
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc podcast"
         onReset={() =>
-          mutate({ selectedChannels: [...AVAILABLE_CHANNELS], selectedLevels: [...AVAILABLE_LEVELS], selectedCategories: [...AVAILABLE_CATEGORIES] })
+          mutate({ selectedChannels: [...available.channels], selectedLevels: [...available.levels], selectedCategories: [...available.categories] })
         }
       >
         <FilterGroup title="Kênh">
-          {AVAILABLE_CHANNELS.map((c) => {
+          {available.channels.map((c) => {
             const checked = state.selectedChannels.includes(c);
-            const count = ALL_PODCAST_EPISODES.filter((e) => {
+            const count = allEpisodes.filter((e) => {
               if (e.channel !== c) return false;
               const levels = getEpisodeLevels(e);
               return levels.length === 0 || levels.some((l) => state.selectedLevels.includes(l));
@@ -252,8 +270,8 @@ function ListView({
                 onClick={() => {
                   const next = checked ? state.selectedChannels.filter((x) => x !== c) : [...new Set([...state.selectedChannels, c])];
                   if (next.length === 0) return;
-                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (l) =>
-                    ALL_PODCAST_EPISODES.some((e) => next.includes(e.channel) && getEpisodeLevels(e).includes(l)),
+                  const nextLevels = pruneToggle(state.selectedLevels, available.levels, (l) =>
+                    allEpisodes.some((e) => next.includes(e.channel) && getEpisodeLevels(e).includes(l)),
                   );
                   mutate({ selectedChannels: next, selectedLevels: nextLevels });
                 }}
@@ -262,11 +280,11 @@ function ListView({
           })}
         </FilterGroup>
 
-        {AVAILABLE_LEVELS.length > 0 ? (
+        {available.levels.length > 0 ? (
           <FilterGroup title="Cấp độ">
-            {AVAILABLE_LEVELS.map((l) => {
+            {available.levels.map((l) => {
               const checked = state.selectedLevels.includes(l);
-              const count = ALL_PODCAST_EPISODES.filter(
+              const count = allEpisodes.filter(
                 (e) => getEpisodeLevels(e).includes(l) && state.selectedChannels.includes(e.channel),
               ).length;
               return (
@@ -277,8 +295,8 @@ function ListView({
                   onClick={() => {
                     const next = checked ? state.selectedLevels.filter((x) => x !== l) : [...new Set([...state.selectedLevels, l])];
                     if (next.length === 0) return;
-                    const nextChannels = pruneToggle(state.selectedChannels, AVAILABLE_CHANNELS, (c) =>
-                      ALL_PODCAST_EPISODES.some((e) => {
+                    const nextChannels = pruneToggle(state.selectedChannels, available.channels, (c) =>
+                      allEpisodes.some((e) => {
                         if (e.channel !== c) return false;
                         const levels = getEpisodeLevels(e);
                         return levels.length === 0 || levels.some((x) => next.includes(x));
@@ -292,11 +310,11 @@ function ListView({
           </FilterGroup>
         ) : null}
 
-        {AVAILABLE_CATEGORIES.length > 0 ? (
+        {available.categories.length > 0 ? (
           <FilterGroup title="Chủ đề">
-            {AVAILABLE_CATEGORIES.map((cat) => {
+            {available.categories.map((cat) => {
               const checked = state.selectedCategories.includes(cat);
-              const count = ALL_PODCAST_EPISODES.filter((e) => e.category === cat && state.selectedChannels.includes(e.channel)).length;
+              const count = allEpisodes.filter((e) => e.category === cat && state.selectedChannels.includes(e.channel)).length;
               return (
                 <FilterChipOption
                   key={cat}
@@ -318,7 +336,7 @@ function ListView({
 
       {visible.length === 0 ? (
         <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">
-          {ALL_PODCAST_EPISODES.length === 0
+          {allEpisodes.length === 0
             ? "Chưa có tập podcast nào -- chạy npm run podcast:fetch để tải danh sách tập."
             : "Không có tập nào khớp bộ lọc này."}
         </p>

@@ -1,28 +1,52 @@
-// The Bitesize Japanese Podcast episode metadata, fetched once via
-// scripts/fetch-podcast-episodes.ts (YouTube Data API v3) and committed as
-// static JSON -- same reasoning as listening-*.json: the shipped app never
-// calls the YouTube API itself, it only reads this file, so no API key/quota
-// is needed by end users and the episode list still works offline.
-import podcastBitesizeRaw from "../data/podcast-bitesize.json";
+// Each channel's episode metadata is its own dynamic import (Vite gives it
+// its own chunk) instead of a static top-level import -- with 4 channels
+// now totaling ~6900 episodes, statically importing all of them bloated the
+// shared WebApp bundle every OTHER screen also had to download too (2.6MB
+// -> 7.17MB just from adding 3 more channels). Dynamic import means the
+// Podcast screen itself still has to fetch all 4 chunks up front (the
+// merged list/search/filter needs every channel's data at once), but no
+// other screen pays that cost anymore, and this scales to more channels
+// without bloating anything outside Podcast itself.
 import type { JlptLevel } from "../types/kanji.ts";
 import { PODCAST_CATEGORIES, type PodcastCategory, type PodcastDataset, type PodcastEpisode } from "../types/podcast.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
-const bitesizeDataset = podcastBitesizeRaw as unknown as PodcastDataset;
+const CHANNEL_DATA_LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
+  bitesize: () => import("../data/podcast-bitesize.json"),
+  yuyu: () => import("../data/podcast-yuyu.json"),
+  haruno: () => import("../data/podcast-haruno.json"),
+  teppei: () => import("../data/podcast-teppei.json"),
+};
 
-// Newest first -- a podcast feed reads chronologically backward, unlike the
-// book-order listening datasets above it.
-export const ALL_PODCAST_EPISODES: PodcastEpisode[] = [...bitesizeDataset.episodes].sort(
-  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-);
+export interface PodcastData {
+  episodes: PodcastEpisode[];
+  byId: Map<string, PodcastEpisode>;
+}
 
-const PODCAST_BY_ID = new Map(ALL_PODCAST_EPISODES.map((e) => [e.id, e]));
-export function findPodcastById(id: string): PodcastEpisode | undefined {
-  return PODCAST_BY_ID.get(id);
+let cachedData: Promise<PodcastData> | null = null;
+
+// Cached -- remounting PodcastScreen (navigate away and back) reuses the
+// same in-flight/resolved promise instead of re-fetching every JSON chunk
+// again.
+export function loadPodcastData(): Promise<PodcastData> {
+  if (!cachedData) {
+    cachedData = Promise.all(Object.values(CHANNEL_DATA_LOADERS).map((load) => load())).then((modules) => {
+      const episodes = modules
+        .flatMap((m) => (m.default as unknown as PodcastDataset).episodes)
+        // Newest first -- a podcast feed reads chronologically backward,
+        // unlike the book-order listening datasets elsewhere in this app.
+        .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+      return { episodes, byId: new Map(episodes.map((e) => [e.id, e])) };
+    });
+  }
+  return cachedData;
 }
 
 export const CHANNEL_LABELS: Record<string, string> = {
   bitesize: "The Bitesize Japanese Podcast",
+  yuyu: "YUYUの日本語Podcast",
+  haruno: "Haru no Nihongo",
+  teppei: "Nihongo con Teppei",
 };
 
 // Tagged per-channel (not per-episode) -- the source channels are each
@@ -31,27 +55,47 @@ export const CHANNEL_LABELS: Record<string, string> = {
 // episodes isn't worth it when the channel itself already tells you the
 // level. episode.level (see PodcastEpisode) still exists for the rare case
 // an individual episode needs to override its channel's default.
+//
+// yuyu: no level stated on every title, but one episode's own title asks
+// "YUYUのPodcastはN3の学生まで？" (up to N3 students?) and several others say
+// "intermedio" -- N4-N2 covers what that implies without over-narrowing.
+// haruno: every single title ends in "...N2〜N1聴解【中級、上級】" -- the
+// clearest-labeled channel of the four. teppei: well-known beginner/
+// intermediate podcast community-wide, titles include "for beginners" --
+// no per-episode tag though, so this is a broader community-reputation
+// estimate rather than something read off the data like haruno's.
 export const CHANNEL_LEVELS: Record<string, JlptLevel[]> = {
   bitesize: ["N3", "N2"],
+  yuyu: ["N4", "N3", "N2"],
+  haruno: ["N2", "N1"],
+  teppei: ["N4", "N3"],
 };
 
 export function getEpisodeLevels(e: PodcastEpisode): JlptLevel[] {
   return e.level ? [e.level] : (CHANNEL_LEVELS[e.channel] ?? []);
 }
 
-const CHANNEL_ORDER: string[] = ["bitesize"];
-export const AVAILABLE_CHANNELS: string[] = CHANNEL_ORDER.filter((c) => ALL_PODCAST_EPISODES.some((e) => e.channel === c));
-
+const CHANNEL_ORDER: string[] = ["bitesize", "yuyu", "haruno", "teppei"];
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
-export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((l) =>
-  ALL_PODCAST_EPISODES.some((e) => getEpisodeLevels(e).includes(l)),
-);
 
-// Shared across channels (see PODCAST_CATEGORIES in types/podcast.ts) --
-// only the ones actually used in the data show up as filter options.
-export const AVAILABLE_CATEGORIES: PodcastCategory[] = PODCAST_CATEGORIES.filter((c) =>
-  ALL_PODCAST_EPISODES.some((e) => e.category === c),
-);
+// Computed from whatever episodes actually loaded, rather than static
+// top-level constants -- data only exists once loadPodcastData() resolves,
+// so "available" here means "present in this loaded set", checked fresh
+// each time (cheap enough at a few thousand episodes, and avoids a second
+// stale cache to keep in sync with cachedData above).
+export interface PodcastAvailability {
+  channels: string[];
+  levels: JlptLevel[];
+  categories: PodcastCategory[];
+}
+
+export function computeAvailability(episodes: PodcastEpisode[]): PodcastAvailability {
+  return {
+    channels: CHANNEL_ORDER.filter((c) => episodes.some((e) => e.channel === c)),
+    levels: LEVEL_ORDER.filter((l) => episodes.some((e) => getEpisodeLevels(e).includes(l))),
+    categories: PODCAST_CATEGORIES.filter((c) => episodes.some((e) => e.category === c)),
+  };
+}
 
 export interface PodcastViewerState {
   selectedChannels: string[];
@@ -70,21 +114,21 @@ export interface PodcastViewerState {
 
 const VIEWER_STORAGE_KEY = "podcastViewer";
 
-export function defaultViewerState(): PodcastViewerState {
+export function defaultViewerState(available: PodcastAvailability): PodcastViewerState {
   return {
-    selectedChannels: [...AVAILABLE_CHANNELS],
-    selectedLevels: [...AVAILABLE_LEVELS],
-    selectedCategories: [...AVAILABLE_CATEGORIES],
+    selectedChannels: [...available.channels],
+    selectedLevels: [...available.levels],
+    selectedCategories: [...available.categories],
     autoplayNext: true,
   };
 }
 
-export async function loadViewerState(): Promise<PodcastViewerState> {
+export async function loadViewerState(available: PodcastAvailability): Promise<PodcastViewerState> {
   const saved = await storageGet<Partial<PodcastViewerState>>(VIEWER_STORAGE_KEY);
-  const fallback = defaultViewerState();
-  const selectedChannels = (saved?.selectedChannels ?? fallback.selectedChannels).filter((c) => AVAILABLE_CHANNELS.includes(c));
-  const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => AVAILABLE_LEVELS.includes(l));
-  const selectedCategories = (saved?.selectedCategories ?? fallback.selectedCategories).filter((c) => AVAILABLE_CATEGORIES.includes(c));
+  const fallback = defaultViewerState(available);
+  const selectedChannels = (saved?.selectedChannels ?? fallback.selectedChannels).filter((c) => available.channels.includes(c));
+  const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => available.levels.includes(l));
+  const selectedCategories = (saved?.selectedCategories ?? fallback.selectedCategories).filter((c) => available.categories.includes(c));
   return {
     selectedChannels: selectedChannels.length > 0 ? selectedChannels : fallback.selectedChannels,
     selectedLevels: selectedLevels.length > 0 ? selectedLevels : fallback.selectedLevels,
@@ -102,8 +146,8 @@ export async function saveViewerState(state: PodcastViewerState): Promise<void> 
 // by, so narrowing the level filter should never hide untagged content
 // outright. Same reasoning for category: an episode not yet run through
 // categorize-podcast-episodes.ts always passes the category filter.
-export function getFilteredList(state: PodcastViewerState): PodcastEpisode[] {
-  return ALL_PODCAST_EPISODES.filter((e) => {
+export function getFilteredList(state: PodcastViewerState, episodes: PodcastEpisode[]): PodcastEpisode[] {
+  return episodes.filter((e) => {
     const levels = getEpisodeLevels(e);
     return (
       state.selectedChannels.includes(e.channel) &&

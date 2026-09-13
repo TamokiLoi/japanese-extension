@@ -27,6 +27,9 @@ const ROOT = join(import.meta.dirname, "..");
 // datasets never collide or need merging by hand.
 const CHANNELS: { slug: string; handle: string }[] = [
   { slug: "bitesize", handle: "@the_bitesize_japanese_podcast" },
+  { slug: "yuyu", handle: "@yuyunihongopodcast" },
+  { slug: "haruno", handle: "@harunonihongo" },
+  { slug: "teppei", handle: "@nihongoconteppei" },
 ];
 
 function readApiKey(): string {
@@ -36,11 +39,18 @@ function readApiKey(): string {
   return match[1];
 }
 
-// "PT1H2M10S" -> 3730. YouTube's contentDetails.duration is always this
-// ISO-8601 subset (no years/months/weeks for a video length).
+// "PT1H2M10S" -> 3730. Almost always this ISO-8601 subset (no years/months/
+// weeks for a video length) -- but a handful of items (Shorts, premieres,
+// members-only posts) come back as the bare date-only "P0D" instead, which
+// this subset can't express. Rather than crash the whole channel fetch on
+// one weird item, treat anything unparseable as 0s and note it -- those are
+// almost never real long-form podcast episodes anyway.
 function parseIso8601Duration(iso: string): number {
   const match = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
-  if (!match) throw new Error(`Unrecognized duration format: ${iso}`);
+  if (!match) {
+    console.warn(`  (unrecognized duration "${iso}", treating as 0s)`);
+    return 0;
+  }
   const [, h, m, s] = match;
   return Number(h ?? 0) * 3600 + Number(m ?? 0) * 60 + Number(s ?? 0);
 }
@@ -102,15 +112,20 @@ async function fetchChannelEpisodes(apiKey: string, channel: { slug: string; han
   const uploadsPlaylistId = await fetchUploadsPlaylistId(apiKey, channel.handle);
   const videoIds = await fetchAllVideoIds(apiKey, uploadsPlaylistId);
   const details = await fetchVideoDetails(apiKey, videoIds);
-  return details.map((v) => ({
-    id: v.id,
-    channel: channel.slug,
-    title: v.snippet.title,
-    publishedAt: v.snippet.publishedAt,
-    durationSec: parseIso8601Duration(v.contentDetails.duration),
-    thumbnailUrl: v.snippet.thumbnails.high?.url ?? v.snippet.thumbnails.medium?.url ?? "",
-    description: v.snippet.description || undefined,
-  }));
+  return details
+    .map((v) => ({
+      id: v.id,
+      channel: channel.slug,
+      title: v.snippet.title,
+      publishedAt: v.snippet.publishedAt,
+      durationSec: parseIso8601Duration(v.contentDetails.duration),
+      thumbnailUrl: v.snippet.thumbnails.high?.url ?? v.snippet.thumbnails.medium?.url ?? "",
+      description: v.snippet.description || undefined,
+    }))
+    // Drops the rare "P0D"-duration item (a past livestream placeholder,
+    // not a real episode -- e.g. titled just "...のライブ") rather than
+    // shipping a 0:00 entry with nothing to actually play.
+    .filter((e) => e.durationSec > 0);
 }
 
 async function main() {
