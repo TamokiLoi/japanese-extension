@@ -331,7 +331,7 @@ function ListView({
               <button
                 key={e.id}
                 onClick={() => onOpen(e.id)}
-                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white p-2.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${
+                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${
                   watched ? "border-l-emerald-400" : "border-l-neutral-200"
                 }`}
               >
