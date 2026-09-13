@@ -210,17 +210,6 @@ function ListView({
 
       <ActiveFilters
         chips={[
-          ...(allChannelsChecked
-            ? []
-            : state.selectedChannels.map((c) => ({
-                key: `channel-${c}`,
-                label: CHANNEL_LABELS[c],
-                onRemove: () => {
-                  const next = state.selectedChannels.filter((x) => x !== c);
-                  if (next.length === 0) return;
-                  mutate({ selectedChannels: next });
-                },
-              }))),
           ...(allLevelsChecked
             ? []
             : state.selectedLevels.map((l) => ({
@@ -230,6 +219,17 @@ function ListView({
                   const next = state.selectedLevels.filter((x) => x !== l);
                   if (next.length === 0) return;
                   mutate({ selectedLevels: next });
+                },
+              }))),
+          ...(allChannelsChecked
+            ? []
+            : state.selectedChannels.map((c) => ({
+                key: `channel-${c}`,
+                label: CHANNEL_LABELS[c],
+                onRemove: () => {
+                  const next = state.selectedChannels.filter((x) => x !== c);
+                  if (next.length === 0) return;
+                  mutate({ selectedChannels: next });
                 },
               }))),
           ...(allCategoriesChecked
@@ -254,32 +254,6 @@ function ListView({
           mutate({ selectedChannels: [...available.channels], selectedLevels: [...available.levels], selectedCategories: [...available.categories] })
         }
       >
-        <FilterGroup title="Kênh">
-          {available.channels.map((c) => {
-            const checked = state.selectedChannels.includes(c);
-            const count = allEpisodes.filter((e) => {
-              if (e.channel !== c) return false;
-              const levels = getEpisodeLevels(e);
-              return levels.length === 0 || levels.some((l) => state.selectedLevels.includes(l));
-            }).length;
-            return (
-              <FilterChipOption
-                key={c}
-                label={`${CHANNEL_LABELS[c]} (${count})`}
-                active={checked}
-                onClick={() => {
-                  const next = checked ? state.selectedChannels.filter((x) => x !== c) : [...new Set([...state.selectedChannels, c])];
-                  if (next.length === 0) return;
-                  const nextLevels = pruneToggle(state.selectedLevels, available.levels, (l) =>
-                    allEpisodes.some((e) => next.includes(e.channel) && getEpisodeLevels(e).includes(l)),
-                  );
-                  mutate({ selectedChannels: next, selectedLevels: nextLevels });
-                }}
-              />
-            );
-          })}
-        </FilterGroup>
-
         {available.levels.length > 0 ? (
           <FilterGroup title="Cấp độ">
             {available.levels.map((l) => {
@@ -309,6 +283,32 @@ function ListView({
             })}
           </FilterGroup>
         ) : null}
+
+        <FilterGroup title="Kênh">
+          {available.channels.map((c) => {
+            const checked = state.selectedChannels.includes(c);
+            const count = allEpisodes.filter((e) => {
+              if (e.channel !== c) return false;
+              const levels = getEpisodeLevels(e);
+              return levels.length === 0 || levels.some((l) => state.selectedLevels.includes(l));
+            }).length;
+            return (
+              <FilterChipOption
+                key={c}
+                label={`${CHANNEL_LABELS[c]} (${count})`}
+                active={checked}
+                onClick={() => {
+                  const next = checked ? state.selectedChannels.filter((x) => x !== c) : [...new Set([...state.selectedChannels, c])];
+                  if (next.length === 0) return;
+                  const nextLevels = pruneToggle(state.selectedLevels, available.levels, (l) =>
+                    allEpisodes.some((e) => next.includes(e.channel) && getEpisodeLevels(e).includes(l)),
+                  );
+                  mutate({ selectedChannels: next, selectedLevels: nextLevels });
+                }}
+              />
+            );
+          })}
+        </FilterGroup>
 
         {available.categories.length > 0 ? (
           <FilterGroup title="Chủ đề">
