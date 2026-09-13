@@ -2,8 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Search } from "lucide-react";
 import {
   CHANNEL_LABELS,
+  allSeries,
   computeAvailability,
+  extractEpisodeNumber,
   getEpisodeLevels,
+  getEpisodeSeries,
   getFilteredList,
   loadPodcastData,
   loadViewerState,
@@ -139,18 +142,26 @@ function ListView({
   // Not persisted -- an in-session narrowing tool, same spirit as
   // ListeningScreen's statusFilter (click a stat tile again to clear it).
   const [statusFilter, setStatusFilter] = useState<"watched" | "unwatched" | "favorite" | null>(null);
+  // Also in-session, not persisted -- "newest" (publish date, the list's
+  // natural order) vs "number" (ascending by the #<n> a channel like teppei
+  // numbers its own episodes with, see extractEpisodeNumber). Only useful
+  // once narrowed to one series/channel, but harmless to offer generally.
+  const [sortMode, setSortMode] = useState<"newest" | "number">("newest");
 
   useEffect(() => {
     loadPodcastProgress().then(setProgress);
   }, []);
 
+  const seriesOptions = allSeries(available);
   const allChannelsChecked = state.selectedChannels.length === available.channels.length;
   const allLevelsChecked = state.selectedLevels.length === available.levels.length;
   const allCategoriesChecked = state.selectedCategories.length === available.categories.length;
+  const allSeriesChecked = state.selectedSeries.length === seriesOptions.length;
   const filterCount =
     (allChannelsChecked ? 0 : state.selectedChannels.length) +
     (allLevelsChecked ? 0 : state.selectedLevels.length) +
-    (allCategoriesChecked ? 0 : state.selectedCategories.length);
+    (allCategoriesChecked ? 0 : state.selectedCategories.length) +
+    (allSeriesChecked ? 0 : state.selectedSeries.length);
 
   // Search narrows the channel/level-filtered universe; the stat tiles below
   // both show live counts of THAT narrowed universe and act as a further
@@ -160,12 +171,19 @@ function ListView({
   const watchedCount = searched.filter((e) => !!progress[e.id]).length;
   const unwatchedCount = searched.length - watchedCount;
   const favoriteCount = searched.filter((e) => !!favorites[e.id]).length;
-  const visible = searched.filter((e) => {
+  const statusFiltered = searched.filter((e) => {
     if (statusFilter === "watched") return !!progress[e.id];
     if (statusFilter === "unwatched") return !progress[e.id];
     if (statusFilter === "favorite") return !!favorites[e.id];
     return true;
   });
+  // Un-numbered episodes sort to the end rather than the front -- ascending
+  // by a missing number would otherwise bunch them up first, above the
+  // actual #1.
+  const visible =
+    sortMode === "number"
+      ? [...statusFiltered].sort((a, b) => (extractEpisodeNumber(a.title) ?? Infinity) - (extractEpisodeNumber(b.title) ?? Infinity))
+      : statusFiltered;
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
@@ -179,6 +197,25 @@ function ListView({
           placeholder="Tìm theo tên tập..."
           className="w-full rounded-2xl border border-neutral-200 py-2.5 pr-3.5 pl-9 text-sm outline-none focus:border-rose-300"
         />
+      </div>
+
+      <div className="mt-3 flex items-center gap-1 rounded-full border border-neutral-200 p-1 text-sm">
+        <button
+          onClick={() => setSortMode("newest")}
+          className={`flex-1 rounded-full py-1.5 font-semibold ${
+            sortMode === "newest" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+          }`}
+        >
+          Mới nhất
+        </button>
+        <button
+          onClick={() => setSortMode("number")}
+          className={`flex-1 rounded-full py-1.5 font-semibold ${
+            sortMode === "number" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+          }`}
+        >
+          Theo số thứ tự
+        </button>
       </div>
 
       <div className="mt-3 grid grid-cols-3 gap-3">
@@ -243,6 +280,17 @@ function ListView({
                   mutate({ selectedCategories: next });
                 },
               }))),
+          ...(allSeriesChecked
+            ? []
+            : state.selectedSeries.map((s) => ({
+                key: `series-${s}`,
+                label: s,
+                onRemove: () => {
+                  const next = state.selectedSeries.filter((x) => x !== s);
+                  if (next.length === 0) return;
+                  mutate({ selectedSeries: next });
+                },
+              }))),
         ]}
       />
 
@@ -251,7 +299,12 @@ function ListView({
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc podcast"
         onReset={() =>
-          mutate({ selectedChannels: [...available.channels], selectedLevels: [...available.levels], selectedCategories: [...available.categories] })
+          mutate({
+            selectedChannels: [...available.channels],
+            selectedLevels: [...available.levels],
+            selectedCategories: [...available.categories],
+            selectedSeries: seriesOptions,
+          })
         }
       >
         {available.levels.length > 0 ? (
@@ -309,6 +362,29 @@ function ListView({
             );
           })}
         </FilterGroup>
+
+        {seriesOptions.length > 0 ? (
+          <FilterGroup title="Series">
+            {seriesOptions.map((s) => {
+              const checked = state.selectedSeries.includes(s);
+              const count = allEpisodes.filter(
+                (e) => getEpisodeSeries(e) === s && state.selectedChannels.includes(e.channel),
+              ).length;
+              return (
+                <FilterChipOption
+                  key={s}
+                  label={`${s} (${count})`}
+                  active={checked}
+                  onClick={() => {
+                    const next = checked ? state.selectedSeries.filter((x) => x !== s) : [...new Set([...state.selectedSeries, s])];
+                    if (next.length === 0) return;
+                    mutate({ selectedSeries: next });
+                  }}
+                />
+              );
+            })}
+          </FilterGroup>
+        ) : null}
 
         {available.categories.length > 0 ? (
           <FilterGroup title="Chủ đề">
