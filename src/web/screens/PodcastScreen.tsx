@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, Globe, Heart, Search } from "lucide-react";
+import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Search } from "lucide-react";
 import {
   ALL_PODCAST_EPISODES,
   AVAILABLE_CHANNELS,
@@ -414,6 +414,7 @@ function EpisodeView({
   // resolved with no file found; undefined only while still loading.
   const [transcript, setTranscript] = useState<PodcastTranscript | null | undefined>(undefined);
   const [showTranslation, setShowTranslation] = useState(false);
+  const [tab, setTab] = useState<"transcript" | "description">("transcript");
   const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
@@ -439,14 +440,18 @@ function EpisodeView({
     : -1;
   const activeRowRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    // "center" (not "nearest") -- with no inner scroll box below (see the
-    // transcript list's className), this scrolls the whole page so the
-    // active line lands mid-screen as it advances, karaoke-style. "nearest"
-    // only scrolls the minimum needed to be *technically* visible, which on
-    // a tall page left the active line peeking in at the very bottom edge
-    // instead of somewhere actually readable.
+    // "center" (not "nearest") centers the active line within its nearest
+    // scrollable ancestor (the transcript's own scroll box on mobile, see
+    // its className below) as it advances, karaoke-style -- "nearest" only
+    // scrolls the minimum needed to be *technically* visible, which left
+    // the active line peeking in at the very bottom edge instead of
+    // somewhere actually readable. Also re-fires on `tab` so switching back
+    // from the "Mô tả" tab re-centers immediately instead of waiting for
+    // the next segment change (the ref is unmounted while that tab is
+    // active, so the previous scroll position is stale by the time you
+    // switch back).
     activeRowRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
-  }, [activeSegmentIndex]);
+  }, [activeSegmentIndex, tab]);
 
   function seekTo(sec: number) {
     if (!playerReadyRef.current) return;
@@ -499,76 +504,114 @@ function EpisodeView({
         Tự động phát tập tiếp theo
       </label>
 
-      {transcript ? (
-        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-          <div className="flex items-center justify-between">
-            <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">
-              Transcript {/* human-written, not auto-generated -- see fetch-podcast-transcript.ts */}
-            </div>
-            <button
-              onClick={() => setShowTranslation((v) => !v)}
-              className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
-            >
-              <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
-            </button>
-          </div>
-          {/* Its own scroll region (mobile only) -- the sticky video block
-              above is a fixed height, so this needs a bounded height + its
-              own overflow to scroll under it without pushing the page (and
-              the pinned video with it) around. Desktop isn't sticky (see
-              above), so it just flows with the page there instead. */}
-          <div className="mt-3 max-h-[65vh] overflow-y-auto md:max-h-none md:overflow-visible">
-            {transcript.segments.map((seg, i) => {
-              const active = i === activeSegmentIndex;
-              return (
+      {(() => {
+        const descriptionCard = (
+          <Card className="mt-3 gap-2 rounded-2xl border-neutral-200 p-5 ring-0">
+            <div className="flex items-start justify-between gap-3">
+              <h2 className="font-semibold text-neutral-800">{episode.title}</h2>
+              <div className="flex shrink-0 items-center gap-3">
                 <button
-                  key={i}
-                  ref={active ? activeRowRef : undefined}
-                  onClick={() => seekTo(seg.startSec)}
-                  className={`block w-full rounded-lg px-2.5 py-2 text-left ${active ? "bg-rose-50" : "hover:bg-neutral-50"}`}
+                  onClick={onToggleFavorite}
+                  title={favorited ? "Bỏ yêu thích" : "Yêu thích"}
+                  className={favorited ? "text-rose-500" : "text-neutral-400 hover:text-rose-500"}
                 >
-                  <div className="flex gap-2.5">
-                    <span className="w-9 shrink-0 pt-0.5 text-[11px] tabular-nums text-neutral-400">{formatDuration(seg.startSec)}</span>
-                    <div>
-                      <div className={`text-[14.5px] leading-relaxed ${active ? "font-semibold text-rose-700" : "text-neutral-800"}`}>
-                        {seg.text}
-                      </div>
-                      {showTranslation && seg.textVi ? (
-                        <div className="mt-0.5 text-[13px] leading-snug text-neutral-500 italic">{seg.textVi}</div>
-                      ) : null}
-                    </div>
-                  </div>
+                  <Heart size={17} fill={favorited ? "currentColor" : "none"} />
                 </button>
-              );
-            })}
-          </div>
-        </Card>
-      ) : null}
+                <a
+                  href={`https://www.youtube.com/watch?v=${episode.id}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1 text-xs font-semibold text-neutral-400 hover:text-rose-600"
+                >
+                  <ExternalLink size={13} /> YouTube
+                </a>
+              </div>
+            </div>
+            <div className="text-xs text-neutral-400">{formatDate(episode.publishedAt)}</div>
+            {episode.description ? <p className="text-sm whitespace-pre-line text-neutral-500">{episode.description}</p> : null}
+          </Card>
+        );
 
-      <Card className="mt-3 gap-2 rounded-2xl border-neutral-200 p-5 ring-0">
-        <div className="flex items-start justify-between gap-3">
-          <h2 className="font-semibold text-neutral-800">{episode.title}</h2>
-          <div className="flex shrink-0 items-center gap-3">
-            <button
-              onClick={onToggleFavorite}
-              title={favorited ? "Bỏ yêu thích" : "Yêu thích"}
-              className={favorited ? "text-rose-500" : "text-neutral-400 hover:text-rose-500"}
-            >
-              <Heart size={17} fill={favorited ? "currentColor" : "none"} />
-            </button>
-            <a
-              href={`https://www.youtube.com/watch?v=${episode.id}`}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1 text-xs font-semibold text-neutral-400 hover:text-rose-600"
-            >
-              <ExternalLink size={13} /> YouTube
-            </a>
-          </div>
-        </div>
-        <div className="text-xs text-neutral-400">{formatDate(episode.publishedAt)}</div>
-        {episode.description ? <p className="text-sm whitespace-pre-line text-neutral-500">{episode.description}</p> : null}
-      </Card>
+        // No tabs at all when there's nothing to switch to -- most episodes
+        // don't have a transcript yet (fetched by hand per episode, see
+        // fetch-podcast-transcript.ts), so this keeps the plain single-card
+        // layout for those instead of a pointless 1-item tab bar.
+        if (!transcript) return descriptionCard;
+
+        return (
+          <>
+            <div className="mt-3 flex items-center gap-1 rounded-full border border-neutral-200 p-1">
+              <button
+                onClick={() => setTab("transcript")}
+                className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
+                  tab === "transcript" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+                }`}
+              >
+                <Captions size={15} /> Transcript
+              </button>
+              <button
+                onClick={() => setTab("description")}
+                className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
+                  tab === "description" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+                }`}
+              >
+                <FileText size={15} /> Mô tả
+              </button>
+            </div>
+
+            {tab === "description" ? (
+              descriptionCard
+            ) : (
+              <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
+                <div className="flex items-center justify-between">
+                  <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">
+                    Transcript {/* human-written, not auto-generated -- see fetch-podcast-transcript.ts */}
+                  </div>
+                  <button
+                    onClick={() => setShowTranslation((v) => !v)}
+                    className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+                  >
+                    <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+                  </button>
+                </div>
+                {/* Its own scroll region (mobile only) -- the sticky video
+                    block above is a fixed height, so this needs a bounded
+                    height + its own overflow to scroll under it without
+                    pushing the page (and the pinned video with it) around.
+                    Desktop isn't sticky (see above), so it just flows with
+                    the page there instead. */}
+                <div className="mt-3 max-h-[65vh] overflow-y-auto md:max-h-none md:overflow-visible">
+                  {transcript.segments.map((seg, i) => {
+                    const active = i === activeSegmentIndex;
+                    return (
+                      <button
+                        key={i}
+                        ref={active ? activeRowRef : undefined}
+                        onClick={() => seekTo(seg.startSec)}
+                        className={`block w-full rounded-lg px-2.5 py-2 text-left ${active ? "bg-rose-50" : "hover:bg-neutral-50"}`}
+                      >
+                        <div className="flex gap-2.5">
+                          <span className="w-9 shrink-0 pt-0.5 text-[11px] tabular-nums text-neutral-400">
+                            {formatDuration(seg.startSec)}
+                          </span>
+                          <div>
+                            <div className={`text-[14.5px] leading-relaxed ${active ? "font-semibold text-rose-700" : "text-neutral-800"}`}>
+                              {seg.text}
+                            </div>
+                            {showTranslation && seg.textVi ? (
+                              <div className="mt-0.5 text-[13px] leading-snug text-neutral-500 italic">{seg.textVi}</div>
+                            ) : null}
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </Card>
+            )}
+          </>
+        );
+      })()}
 
       {prevEpisode ? (
         <button
