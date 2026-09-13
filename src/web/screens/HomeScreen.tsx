@@ -618,7 +618,12 @@ function ProgressCard({
       <div className="relative max-w-[70%]">
         <div className="flex items-center gap-1.5">
           <img src={`${ICON_IMG}${img}`} alt="" className="h-6 w-6 shrink-0 md:h-6.75 md:w-6.75" />
-          <span className="truncate text-xs font-bold text-neutral-800 md:text-sm">{label}</span>
+          {/* Wraps instead of truncating -- max-w-4xl (see mx-auto wrapper
+              below) leaves less room per card than the old max-w-6xl did,
+              tight enough that "Từ vựng"/"Ngữ pháp" truncated to 2-3 letters
+              and lost all meaning; there's vertical room in the card
+              (min-h-39) before the % line, so 2 lines reads fine. */}
+          <span className="text-xs leading-tight font-bold text-neutral-800 md:text-sm">{label}</span>
         </div>
         <div className="mt-1.5 text-xl font-bold md:mt-2 md:text-[27px]" style={{ color: accent }}>
           {pct}%
@@ -715,7 +720,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
   const totalDue = stats ? stats.due.kanji + stats.due.vocab + stats.due.bunpo : 0;
 
   return (
-    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-4">
+    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-4">
       <h1 className="text-2xl font-bold text-neutral-800">{greeting()} 🌸</h1>
       <p className="mt-1 text-neutral-500">Hôm nay học tiếp một chút nhé. Kiên trì mỗi ngày, kết quả sẽ đến!</p>
 

@@ -20,6 +20,7 @@ import { DeThiScreen } from "./screens/DeThiScreen.tsx";
 import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
 import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
 import { RoadmapScreen } from "./screens/RoadmapScreen.tsx";
+import { PodcastScreen } from "./screens/PodcastScreen.tsx";
 import { resolveChatContext } from "./lib/chatContext.ts";
 import "./tailwind.css";
 
@@ -241,6 +242,8 @@ export function WebApp() {
     content = <ItBookLessonsScreen onOpenVocab={(lesson) => go("itBookVocab", String(lesson))} />;
   } else if (screen === "roadmap") {
     content = <RoadmapScreen onNavigate={go} />;
+  } else if (screen === "podcast") {
+    content = <PodcastScreen jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
   } else {
     content = <App key={navKey} />;
   }
