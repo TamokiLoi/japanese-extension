@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Search } from "lucide-react";
+import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Search } from "lucide-react";
 import {
   ALL_PODCAST_EPISODES,
   AVAILABLE_CHANNELS,
@@ -414,6 +414,7 @@ function EpisodeView({
   // resolved with no file found; undefined only while still loading.
   const [transcript, setTranscript] = useState<PodcastTranscript | null | undefined>(undefined);
   const [showTranslation, setShowTranslation] = useState(false);
+  const [showFurigana, setShowFurigana] = useState(false);
   const [tab, setTab] = useState<"transcript" | "description">("transcript");
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -461,14 +462,15 @@ function EpisodeView({
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
-      {/* Sticky on mobile only -- with a transcript that can run to
-          hundreds of lines, losing the video off-screen while scrolling to
-          follow along defeats the point. Desktop stays static (md:static):
-          it sits inside WebAppShell's own bordered/rounded content card, so
-          sticking to the raw viewport top there would poke out past that
-          card's edge -- and desktop has enough vertical room that it's not
-          the problem this is solving anyway. */}
-      <div className="sticky top-0 z-10 -mx-2.5 bg-neutral-50 px-2.5 pb-3 md:static md:mx-0 md:bg-transparent md:px-0 md:pb-0">
+      {/* Sticky on both mobile and desktop -- with a transcript that can
+          run to hundreds of lines, losing the video off-screen while
+          scrolling to follow along defeats the point either way. `md:top-4`
+          (not `top-0`) lines up with WebAppShell's own `md:py-4` around its
+          bordered/rounded content card, so the pinned block settles right
+          at that card's top edge instead of overlapping past it;
+          `md:rounded-t-2xl` continues that card's own corner radius so it
+          reads as "the card's header is pinned", not a separate box. */}
+      <div className="sticky top-0 z-10 bg-neutral-50 pb-3 md:top-4 md:rounded-t-2xl md:bg-white">
         <div className="flex flex-wrap items-center gap-2 pt-2 md:pt-0">
           <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
             <ChevronLeft size={15} /> Podcast
@@ -563,24 +565,30 @@ function EpisodeView({
               descriptionCard
             ) : (
               <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">
                     Transcript {/* human-written, not auto-generated -- see fetch-podcast-transcript.ts */}
                   </div>
-                  <button
-                    onClick={() => setShowTranslation((v) => !v)}
-                    className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
-                  >
-                    <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setShowFurigana((v) => !v)}
+                      className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+                    >
+                      <Languages size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+                    </button>
+                    <button
+                      onClick={() => setShowTranslation((v) => !v)}
+                      className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+                    >
+                      <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+                    </button>
+                  </div>
                 </div>
-                {/* Its own scroll region (mobile only) -- the sticky video
-                    block above is a fixed height, so this needs a bounded
-                    height + its own overflow to scroll under it without
-                    pushing the page (and the pinned video with it) around.
-                    Desktop isn't sticky (see above), so it just flows with
-                    the page there instead. */}
-                <div className="mt-3 max-h-[65vh] overflow-y-auto md:max-h-none md:overflow-visible">
+                {/* Its own scroll region -- the sticky video block above is
+                    a fixed height, so this needs a bounded height + its own
+                    overflow to scroll under it without pushing the page
+                    (and the pinned video with it) around. */}
+                <div className="mt-3 max-h-[65vh] overflow-y-auto">
                   {transcript.segments.map((seg, i) => {
                     const active = i === activeSegmentIndex;
                     return (
@@ -596,7 +604,7 @@ function EpisodeView({
                           </span>
                           <div>
                             <div className={`text-[14.5px] leading-relaxed ${active ? "font-semibold text-rose-700" : "text-neutral-800"}`}>
-                              {seg.text}
+                              {showFurigana ? renderWithFurigana(seg.text) : seg.text}
                             </div>
                             {showTranslation && seg.textVi ? (
                               <div className="mt-0.5 text-[13px] leading-snug text-neutral-500 italic">{seg.textVi}</div>
@@ -612,6 +620,37 @@ function EpisodeView({
           </>
         );
       })()}
+
+      {/* Floating duplicates of the transcript header's toggles (mobile
+          only) -- that header scrolls away with the rest of the page once
+          you're deep into a long transcript, same underlying reason the
+          video itself needed to go sticky. Stacked above the Tập trước/sau
+          buttons (bottom-36) and the chat bubble (bottom-20, both left-4)
+          so nothing overlaps. Only while actually on the transcript tab --
+          toggling furigana/translation from the Mô tả tab wouldn't do
+          anything visible anyway. */}
+      {tab === "transcript" && transcript ? (
+        <>
+          <button
+            onClick={() => setShowFurigana((v) => !v)}
+            aria-label={showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+            className={`fixed bottom-60 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full shadow-lg md:hidden ${
+              showFurigana ? "bg-rose-600 text-white" : "bg-white text-neutral-600 ring-1 ring-neutral-200"
+            }`}
+          >
+            <Languages size={17} />
+          </button>
+          <button
+            onClick={() => setShowTranslation((v) => !v)}
+            aria-label={showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+            className={`fixed bottom-48 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full shadow-lg md:hidden ${
+              showTranslation ? "bg-rose-600 text-white" : "bg-white text-neutral-600 ring-1 ring-neutral-200"
+            }`}
+          >
+            <Globe size={17} />
+          </button>
+        </>
+      ) : null}
 
       {prevEpisode ? (
         <button
@@ -674,4 +713,34 @@ function findActiveSegmentIndex(segments: { startSec: number }[], currentTime: n
     else break;
   }
   return active;
+}
+
+// The transcript's own author already writes real furigana readings inline
+// for kanji they figure a learner might not know -- e.g. "苗字（みょうじ）"
+// -- rather than generating readings ourselves (which would need real
+// Japanese morphological analysis to pick the right reading per context;
+// getting that wrong in a JLPT app would actively teach a bad pronunciation).
+// This just re-renders those already-correct annotations as real <ruby>
+// furigana instead of a parenthetical afterthought. Only fires for
+// kanji-run + hiragana/katakana-in-parens right next to each other, so an
+// unrelated aside like "（笑）" is left alone.
+const FURIGANA_PATTERN = /([一-龯々]+)[（(]([぀-ゟ゠-ヿ]+)[）)]/g;
+
+function renderWithFurigana(text: string): React.ReactNode {
+  const re = new RegExp(FURIGANA_PATTERN);
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text))) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
+    parts.push(
+      <ruby key={match.index}>
+        {match[1]}
+        <rt className="text-[9px] text-neutral-400">{match[2]}</rt>
+      </ruby>,
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
+  return parts;
 }
