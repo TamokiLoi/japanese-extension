@@ -456,29 +456,38 @@ function EpisodeView({
 
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
-      <div className="flex flex-wrap items-center gap-2">
-        <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
-          <ChevronLeft size={15} /> Podcast
-        </button>
-        <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600">
-          {CHANNEL_LABELS[episode.channel]}
-        </span>
-        <LevelBadges levels={getEpisodeLevels(episode)} size="lg" />
-      </div>
-
-      <Card className="mt-4 gap-0 overflow-hidden rounded-2xl border-neutral-200 p-0 ring-0">
-        <div className="aspect-video w-full bg-black">
-          <iframe
-            ref={iframeRef}
-            key={episode.id}
-            src={`https://www.youtube-nocookie.com/embed/${episode.id}?enablejsapi=1`}
-            title={episode.title}
-            className="h-full w-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+      {/* Sticky on mobile only -- with a transcript that can run to
+          hundreds of lines, losing the video off-screen while scrolling to
+          follow along defeats the point. Desktop stays static (md:static):
+          it sits inside WebAppShell's own bordered/rounded content card, so
+          sticking to the raw viewport top there would poke out past that
+          card's edge -- and desktop has enough vertical room that it's not
+          the problem this is solving anyway. */}
+      <div className="sticky top-0 z-10 -mx-2.5 bg-neutral-50 px-2.5 pb-3 md:static md:mx-0 md:bg-transparent md:px-0 md:pb-0">
+        <div className="flex flex-wrap items-center gap-2 pt-2 md:pt-0">
+          <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
+            <ChevronLeft size={15} /> Podcast
+          </button>
+          <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600">
+            {CHANNEL_LABELS[episode.channel]}
+          </span>
+          <LevelBadges levels={getEpisodeLevels(episode)} size="lg" />
         </div>
-      </Card>
+
+        <Card className="mt-3 gap-0 overflow-hidden rounded-2xl border-neutral-200 p-0 ring-0">
+          <div className="aspect-video w-full bg-black">
+            <iframe
+              ref={iframeRef}
+              key={episode.id}
+              src={`https://www.youtube-nocookie.com/embed/${episode.id}?enablejsapi=1`}
+              title={episode.title}
+              className="h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </Card>
+      </div>
 
       <label className="mt-3 flex items-center gap-2 text-xs font-medium text-neutral-600">
         <input
@@ -503,7 +512,12 @@ function EpisodeView({
               <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
             </button>
           </div>
-          <div className="mt-3">
+          {/* Its own scroll region (mobile only) -- the sticky video block
+              above is a fixed height, so this needs a bounded height + its
+              own overflow to scroll under it without pushing the page (and
+              the pinned video with it) around. Desktop isn't sticky (see
+              above), so it just flows with the page there instead. */}
+          <div className="mt-3 max-h-[65vh] overflow-y-auto md:max-h-none md:overflow-visible">
             {transcript.segments.map((seg, i) => {
               const active = i === activeSegmentIndex;
               return (
