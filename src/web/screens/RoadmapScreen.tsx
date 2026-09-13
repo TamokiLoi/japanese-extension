@@ -225,7 +225,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
 
   if (!examDate) {
     return (
-      <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
         <PageHeader title="Lộ trình ôn thi N3" icon={{ img: "icon-jlpt.png", bg: "#dbeafe" }} />
         <div className="mt-4 rounded-2xl border border-neutral-200 bg-white p-5">
           <p className="text-sm text-neutral-600">
@@ -256,7 +256,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
 
   if (status.phase === "past-exam") {
     return (
-      <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
         <PageHeader title="Lộ trình ôn thi N3" icon={{ img: "icon-jlpt.png", bg: "#dbeafe" }} />
         <div className="mt-4 rounded-2xl border border-neutral-200 bg-white p-5 text-center">
           <p className="text-sm text-neutral-600">Đã qua ngày thi ({examDate}). Chúc bạn thi tốt!</p>
@@ -272,7 +272,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   const pct = Math.round(status.progressRatio * 100);
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
         title="Lộ trình ôn thi N3"
         subtitle={`Còn ${status.daysRemaining} ngày · Giai đoạn: ${PHASE_LABEL[status.phase]}`}

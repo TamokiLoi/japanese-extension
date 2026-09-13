@@ -45,7 +45,7 @@ export function BackupScreen() {
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px]" style={{ background: "#ffe4e6" }}>
           <DatabaseBackup size={20} className="text-rose-600" />

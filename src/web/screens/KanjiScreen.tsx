@@ -212,7 +212,7 @@ export function KanjiScreen({
   const related = k ? vocabForKanjiChar(k.character) : null;
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
         title="Kanji"
         subtitle={isGrid ? `${list.length} thẻ` : `${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}`}

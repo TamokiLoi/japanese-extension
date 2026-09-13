@@ -261,7 +261,7 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Luyện đọc" subtitle={`${filtered.length} bài`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
 
       <div className="mt-4 grid grid-cols-2 gap-3">

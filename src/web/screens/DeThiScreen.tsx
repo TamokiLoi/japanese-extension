@@ -194,7 +194,7 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
   }, []);
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="mb-1 text-xs font-medium text-neutral-400">Luyện thi JLPT</div>
       <PageHeader title="Đề mô phỏng" icon={{ img: "icon-jlpt.png", bg: "#fef3c7" }} />
 
@@ -318,7 +318,7 @@ function ExamDetailView({
     : null;
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <button onClick={onBack} className="mb-2 flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
         <ChevronLeft size={15} /> Luyện thi JLPT
       </button>
@@ -519,7 +519,7 @@ function TakingView({
   });
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 pb-28 md:px-8 md:py-6 md:pb-6" {...swipe}>
+    <div className="mx-auto max-w-6xl px-2.5 py-2 pb-28 md:px-8 md:py-6 md:pb-6" {...swipe}>
       <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
         <ChevronLeft size={15} /> {exam.examLabel}
       </button>

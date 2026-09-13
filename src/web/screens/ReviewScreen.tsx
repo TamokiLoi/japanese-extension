@@ -52,7 +52,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
 
   if (step === "empty") {
     return (
-      <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
         <h1 className="text-2xl font-bold text-neutral-800">Ôn tập</h1>
         <p className="mt-3 text-neutral-500">
           Không có thẻ nào đến hạn ôn lại ngay bây giờ — cứ tiếp tục khám phá nội dung mới ở thanh bên nhé.
@@ -68,7 +68,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
     if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
     const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
-      <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
         <h1 className="text-2xl font-bold text-neutral-800">Ôn tập</h1>
         <p className="mt-3 text-neutral-500">
           Bạn có 1 buổi ôn tập đang làm dở ({answeredCount}/{session.questions.length} câu đã trả lời).
@@ -163,7 +163,7 @@ function PlayView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <h1 className="text-lg font-bold text-neutral-800">
         Câu {idx + 1} / {session.questions.length}
       </h1>
@@ -262,7 +262,7 @@ function ResultView({ session, onDone }: { session: ReviewSession; onDone: () =>
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">Hoàn thành!</h1>
       <div className="mt-4 flex items-center justify-center gap-2 text-5xl font-bold text-rose-600">
         <Sparkles size={36} /> {score} / {total}

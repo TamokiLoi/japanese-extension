@@ -315,7 +315,7 @@ export function ItBookLessonsScreen({ onOpenVocab }: { onOpenVocab: (lesson: num
   useFloatingNav(true);
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Bài học IT" subtitle={`${index + 1} / ${ALL_IT_BOOK_LESSONS.length}`} icon={{ img: "icon-reading.png", bg: "#e0e7ff" }} />
 
       <div className="mt-4">

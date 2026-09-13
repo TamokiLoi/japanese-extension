@@ -183,7 +183,7 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Ngữ pháp" subtitle={`${filtered.length} mẫu ngữ pháp`} icon={{ img: "icon-grammar.png", bg: "#d1fae5" }} />
 
       {bucketCounts ? (
@@ -439,7 +439,7 @@ function DetailView({
   if (!progress) return <div className="p-6 text-neutral-400">Đang tải...</div>;
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
         <button
           onClick={() => mutate({ currentGrammarId: null })}

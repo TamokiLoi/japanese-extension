@@ -110,7 +110,7 @@ export function QuizScreen(open: OpenCallbacks) {
     if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
     const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
-      <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
         <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
         <p className="mt-3 text-neutral-500">
           Bạn có 1 bài quiz đang làm dở ({answeredCount}/{session.questions.length} câu đã trả lời).
@@ -361,7 +361,7 @@ function SetupView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
         <img
           src={`${import.meta.env.BASE_URL}images/dashboard/icons/icon-quiz.png`}
@@ -741,7 +741,7 @@ function PlayView({
   });
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6" {...swipe}>
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6" {...swipe}>
       <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
         <ChevronLeft size={15} /> Quiz
       </button>
@@ -923,7 +923,7 @@ function ResultView({
   const pct = total > 0 ? Math.round((score / total) * 100) : 0;
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 text-center md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">Kết quả</h1>
       <div className="mt-4 text-5xl font-bold text-rose-600">
         {score} / {total}

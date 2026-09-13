@@ -195,7 +195,7 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Luyện đề" subtitle={`${filtered.length} câu`} icon={{ img: "icon-review.png", bg: "#ffe4e6" }} />
 
       <div className="mt-4 grid grid-cols-2 gap-3">
@@ -484,7 +484,7 @@ function QuestionView({
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => mutate({ currentQuestionId: null })}
