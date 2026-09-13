@@ -494,17 +494,46 @@ function EpisodeView({
             />
           </div>
         </Card>
-      </div>
 
-      <label className="mt-3 flex items-center gap-2 text-xs font-medium text-neutral-600">
-        <input
-          type="checkbox"
-          checked={autoplayNext}
-          onChange={(e) => onToggleAutoplay(e.target.checked)}
-          className="h-3.5 w-3.5 accent-rose-600"
-        />
-        Tự động phát tập tiếp theo
-      </label>
+        {/* Furigana/translation live here (pinned with the video) instead of
+            as a floating overlay + a copy in the Transcript card header --
+            that doubled up once the header itself scrolled out from under
+            the pinned video, showing the same 2 toggles twice on screen at
+            once. One set, always visible, no duplicate. */}
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <label className="flex items-center gap-1.5 text-xs font-medium text-neutral-600">
+            <input
+              type="checkbox"
+              checked={autoplayNext}
+              onChange={(e) => onToggleAutoplay(e.target.checked)}
+              className="h-3.5 w-3.5 accent-rose-600"
+            />
+            Tự động phát tập tiếp theo
+          </label>
+          {transcript ? (
+            <div className="ml-auto flex items-center gap-1.5">
+              <button
+                onClick={() => setShowFurigana((v) => !v)}
+                aria-label={showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+                className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                  showFurigana ? "bg-rose-600 text-white" : "border border-neutral-200 text-neutral-500 hover:bg-neutral-50"
+                }`}
+              >
+                <Languages size={14} />
+              </button>
+              <button
+                onClick={() => setShowTranslation((v) => !v)}
+                aria-label={showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+                className={`flex h-8 w-8 items-center justify-center rounded-full ${
+                  showTranslation ? "bg-rose-600 text-white" : "border border-neutral-200 text-neutral-500 hover:bg-neutral-50"
+                }`}
+              >
+                <Globe size={14} />
+              </button>
+            </div>
+          ) : null}
+        </div>
+      </div>
 
       {(() => {
         const descriptionCard = (
@@ -565,24 +594,8 @@ function EpisodeView({
               descriptionCard
             ) : (
               <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">
-                    Transcript {/* human-written, not auto-generated -- see fetch-podcast-transcript.ts */}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setShowFurigana((v) => !v)}
-                      className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
-                    >
-                      <Languages size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
-                    </button>
-                    <button
-                      onClick={() => setShowTranslation((v) => !v)}
-                      className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
-                    >
-                      <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
-                    </button>
-                  </div>
+                <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">
+                  Transcript {/* human-written, not auto-generated -- see fetch-podcast-transcript.ts. Furigana/dịch toggles live in the pinned row under the video now, not here -- see above. */}
                 </div>
                 {/* Its own scroll region -- the sticky video block above is
                     a fixed height, so this needs a bounded height + its own
@@ -620,37 +633,6 @@ function EpisodeView({
           </>
         );
       })()}
-
-      {/* Floating duplicates of the transcript header's toggles (mobile
-          only) -- that header scrolls away with the rest of the page once
-          you're deep into a long transcript, same underlying reason the
-          video itself needed to go sticky. Stacked above the Tập trước/sau
-          buttons (bottom-36) and the chat bubble (bottom-20, both left-4)
-          so nothing overlaps. Only while actually on the transcript tab --
-          toggling furigana/translation from the Mô tả tab wouldn't do
-          anything visible anyway. */}
-      {tab === "transcript" && transcript ? (
-        <>
-          <button
-            onClick={() => setShowFurigana((v) => !v)}
-            aria-label={showFurigana ? "Ẩn furigana" : "Hiện furigana"}
-            className={`fixed bottom-60 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full shadow-lg md:hidden ${
-              showFurigana ? "bg-rose-600 text-white" : "bg-white text-neutral-600 ring-1 ring-neutral-200"
-            }`}
-          >
-            <Languages size={17} />
-          </button>
-          <button
-            onClick={() => setShowTranslation((v) => !v)}
-            aria-label={showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
-            className={`fixed bottom-48 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full shadow-lg md:hidden ${
-              showTranslation ? "bg-rose-600 text-white" : "bg-white text-neutral-600 ring-1 ring-neutral-200"
-            }`}
-          >
-            <Globe size={17} />
-          </button>
-        </>
-      ) : null}
 
       {prevEpisode ? (
         <button
