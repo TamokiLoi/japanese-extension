@@ -33,6 +33,7 @@ import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 // A flat list (filterable by book/dạng câu, same layout as Reading/
 // QuizBook) + play/answer/reveal flow. Progress is dual-written: its own
@@ -118,7 +119,7 @@ function ListView({
     setState(next);
   }
 
-  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!state) return <LoadingScreen />;
 
   const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
   const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;

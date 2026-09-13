@@ -66,6 +66,7 @@ import { ALL_EXAMS, loadDeThiHistory } from "../../popup/dethiState.ts";
 import { loadRoadmapSettings } from "../../popup/roadmapState.ts";
 import { loadLastActive, type LastActive, type ResumableScreen } from "../../popup/lastActiveState.ts";
 import { FilterSheet } from "../components/FilterSheet.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 // Decorative dashboard artwork (hero/card backgrounds, quick-stat icons) --
 // same folder as icons/, so this mirrors BrandLink's `${BASE_URL}icons/...`
@@ -1072,7 +1073,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
           </div>
         </div>
       ) : (
-        <p className="mt-6 text-neutral-400">Đang tải...</p>
+        <LoadingScreen />
       )}
     </div>
   );

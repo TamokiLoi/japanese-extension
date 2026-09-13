@@ -29,6 +29,7 @@ import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { assetUrl } from "../../platform/assetUrl";
 import { useFloatingNav } from "../WebAppShell.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
 
@@ -135,7 +136,7 @@ export function DeThiScreen({
     };
   }, [targetId]);
 
-  if (!step) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!step) return <LoadingScreen />;
 
   if (step.name === "examList") {
     return <ExamListView onOpen={(examId) => setStep({ name: "examDetail", examId })} />;

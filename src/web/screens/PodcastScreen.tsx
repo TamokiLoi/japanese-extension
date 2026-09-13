@@ -26,6 +26,7 @@ import { loadTranscript } from "../../popup/podcastTranscriptState.ts";
 import type { PodcastEpisode, PodcastTranscript } from "../../types/podcast.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import { Card } from "../components/ui/card.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { StatCard } from "../components/StatCard.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
@@ -82,7 +83,7 @@ export function PodcastScreen({
   }
 
   if (!data || !available || !state) {
-    return <div className="mx-auto max-w-3xl px-2.5 py-6 text-neutral-400 md:px-8">Đang tải...</div>;
+    return <LoadingScreen />;
   }
 
   const current = currentId ? data.byId.get(currentId) : undefined;

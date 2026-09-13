@@ -55,6 +55,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from ".
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 
@@ -104,10 +105,10 @@ export function QuizScreen(open: OpenCallbacks) {
     })();
   }, []);
 
-  if (step === undefined) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (step === undefined) return <LoadingScreen />;
 
   if (step === "resume") {
-    if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    if (!session) return <LoadingScreen />;
     const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
       <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
@@ -134,7 +135,7 @@ export function QuizScreen(open: OpenCallbacks) {
   }
 
   if (step === "setup") {
-    if (!settings) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    if (!settings) return <LoadingScreen />;
     return (
       <SetupView
         settings={settings}
@@ -151,7 +152,7 @@ export function QuizScreen(open: OpenCallbacks) {
   }
 
   if (step === "play") {
-    if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    if (!session) return <LoadingScreen />;
     return (
       <PlayView
         session={session}
@@ -170,7 +171,7 @@ export function QuizScreen(open: OpenCallbacks) {
     );
   }
 
-  if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!session) return <LoadingScreen />;
   return (
     <ResultView
       session={session}

@@ -25,6 +25,7 @@ import {
 } from "../../popup/progressState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card } from "../components/ui/card.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { Progress } from "../components/ui/progress.tsx";
 import { LevelDot, levelBadgeStyle } from "../lib/levelColors.tsx";
 
@@ -276,7 +277,7 @@ export function StatsScreen({
       .sort((a, b) => (map[b.id]?.lastSeenAt ?? 0) - (map[a.id]?.lastSeenAt ?? 0));
   }, [entries, map, bucket]);
 
-  if (!map || !buckets) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!map || !buckets) return <LoadingScreen />;
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">

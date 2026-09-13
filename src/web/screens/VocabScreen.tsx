@@ -48,6 +48,7 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -306,7 +307,7 @@ export function VocabScreen({
   }, [currentId, onCurrentItemChange]);
 
   if (!state) {
-    return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    return <LoadingScreen />;
   }
 
   const v = list[state.index];

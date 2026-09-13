@@ -30,6 +30,7 @@ import { ALL_BOOK_NOTES, findBookNote } from "../lib/bookNotes.ts";
 import { ALL_QUIZBOOK, AVAILABLE_CATEGORIES, CATEGORY_LABELS, loadViewerState as loadQuizBookViewerState } from "../../popup/quizBookState.ts";
 import type { QuizBookCategory } from "../../types/quizBook.ts";
 import { ALL_EXAMS, loadDeThiHistory } from "../../popup/dethiState.ts";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { FilterSheet } from "../components/FilterSheet.tsx";
 
@@ -220,7 +221,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   }
 
   if (examDate === undefined) {
-    return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    return <LoadingScreen />;
   }
 
   if (!examDate) {
@@ -251,7 +252,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   }
 
   if (!status) {
-    return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    return <LoadingScreen />;
   }
 
   if (status.phase === "past-exam") {

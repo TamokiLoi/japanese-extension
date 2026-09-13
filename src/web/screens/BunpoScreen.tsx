@@ -43,6 +43,7 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -125,7 +126,7 @@ export function BunpoScreen({
     onCurrentItemChange?.(state?.currentGrammarId ?? undefined);
   }, [state?.currentGrammarId, onCurrentItemChange]);
 
-  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!state) return <LoadingScreen />;
 
   const current = state.currentGrammarId ? findBunpoById(state.currentGrammarId) : undefined;
 
@@ -436,7 +437,7 @@ function DetailView({
 
   useFloatingNav(true);
 
-  if (!progress) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!progress) return <LoadingScreen />;
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">

@@ -39,6 +39,7 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
 
@@ -100,7 +101,7 @@ export function QuizBookScreen({
     onCurrentItemChange?.(state?.currentQuestionId ?? undefined);
   }, [state?.currentQuestionId, onCurrentItemChange]);
 
-  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!state) return <LoadingScreen />;
 
   const question = state.currentQuestionId ? findQuizBookById(state.currentQuestionId) : undefined;
 

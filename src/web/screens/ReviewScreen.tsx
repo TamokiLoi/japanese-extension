@@ -14,6 +14,7 @@ import { recordAnswer } from "../../popup/progressState.ts";
 import { requiredDirectionsFor } from "../../popup/quizState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionDetail } from "./QuizScreen.tsx";
 
@@ -48,7 +49,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
     })();
   }, []);
 
-  if (step === undefined) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (step === undefined) return <LoadingScreen />;
 
   if (step === "empty") {
     return (
@@ -65,7 +66,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
   }
 
   if (step === "resume") {
-    if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    if (!session) return <LoadingScreen />;
     const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
       <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
@@ -99,7 +100,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
   }
 
   if (step === "play") {
-    if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    if (!session) return <LoadingScreen />;
     return (
       <PlayView
         session={session}
@@ -113,7 +114,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
     );
   }
 
-  if (!session) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!session) return <LoadingScreen />;
   return <ResultView session={session} onDone={onDone} />;
 }
 

@@ -33,6 +33,7 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 function timelineLabel(passage: ReadingPassage): string {
   const min = passage.estimatedMinutes;
@@ -148,7 +149,7 @@ export function ReadingScreen({
     onCurrentItemChange?.(state?.currentPassageId ?? undefined);
   }, [state?.currentPassageId, onCurrentItemChange]);
 
-  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!state) return <LoadingScreen />;
 
   const passage = state.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
 

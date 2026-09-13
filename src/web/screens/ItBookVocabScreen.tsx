@@ -32,6 +32,7 @@ import { PageHeader } from "../components/PageHeader.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import type { ItBookVocabWord } from "../../types/itBook.ts";
 
@@ -145,7 +146,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   useFloatingNav(!!state && state.viewMode !== "grid");
 
   if (!state) {
-    return <div className="p-6 text-neutral-400">Đang tải...</div>;
+    return <LoadingScreen />;
   }
 
   const v = list[state.index];

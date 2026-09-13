@@ -31,6 +31,7 @@ import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 type GridStatus = "correct" | "partial" | "empty";
 
@@ -89,7 +90,7 @@ export function DictationScreen({
     setProgress(await loadDictationProgress());
   }
 
-  if (!state) return <div className="p-6 text-neutral-400">Đang tải...</div>;
+  if (!state) return <LoadingScreen />;
 
   const list = getFilteredList(state);
   const current = currentId ? list.find((q) => q.id === currentId) : undefined;
