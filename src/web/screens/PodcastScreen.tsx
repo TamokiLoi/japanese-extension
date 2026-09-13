@@ -331,7 +331,9 @@ function ListView({
               <button
                 key={e.id}
                 onClick={() => onOpen(e.id)}
-                className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white p-2.5 text-left hover:border-rose-200 hover:bg-rose-50/40"
+                className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white p-2.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${
+                  watched ? "border-l-emerald-400" : "border-l-neutral-200"
+                }`}
               >
                 <img src={e.thumbnailUrl} alt="" className="h-14 w-24 shrink-0 rounded-lg object-cover" />
                 <div className="min-w-0 flex-1">
@@ -356,9 +358,6 @@ function ListView({
                 >
                   <Heart size={17} fill={favorited ? "currentColor" : "none"} />
                 </span>
-                {watched ? (
-                  <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">Đã xem</span>
-                ) : null}
               </button>
             );
           })}
