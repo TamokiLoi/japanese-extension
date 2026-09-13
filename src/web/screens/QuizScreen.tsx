@@ -156,6 +156,12 @@ export function QuizScreen(open: OpenCallbacks) {
       <PlayView
         session={session}
         autoAdvance={settings?.autoAdvance ?? false}
+        onAutoAdvanceChange={async (checked) => {
+          if (!settings) return;
+          const next = { ...settings, autoAdvance: checked };
+          setSettings(next);
+          await saveQuizSettings(next);
+        }}
         onSessionChange={setSession}
         onFinish={() => setStep("result")}
         onBack={() => setStep("setup")}
@@ -641,6 +647,7 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
 function PlayView({
   session,
   autoAdvance,
+  onAutoAdvanceChange,
   onSessionChange,
   onFinish,
   onBack,
@@ -648,6 +655,7 @@ function PlayView({
 }: {
   session: QuizSession;
   autoAdvance: boolean;
+  onAutoAdvanceChange: (checked: boolean) => void;
   onSessionChange: (session: QuizSession) => void;
   onFinish: () => void;
   onBack: () => void;
@@ -771,6 +779,16 @@ function PlayView({
         })}
       />
 
+      <label className="mt-3 flex cursor-pointer items-center gap-2.5 text-sm text-neutral-700">
+        <input
+          type="checkbox"
+          checked={autoAdvance}
+          onChange={(e) => onAutoAdvanceChange(e.target.checked)}
+          className="h-4 w-4 rounded border-neutral-300 accent-rose-600"
+        />
+        Tự động chuyển câu sau khi trả lời ({(AUTO_ADVANCE_DELAY_MS / 1000).toFixed(1)}s)
+      </label>
+
       {/* Desktop only -- on mobile these same actions live in the floating
           buttons below instead. A full-width row puts "Câu sau" right at
           the screen edge, which on a touchscreen sits inside the same zone
@@ -778,16 +796,18 @@ function PlayView({
           tapping it could get misread as "go back" and exit the quiz
           entirely instead of advancing. The floating buttons are inset
           well clear of that zone on both sides. */}
-      <div className="mt-4 hidden items-center gap-2 md:flex">
-        <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
-          <ChevronLeft size={16} /> Câu trước
-        </Button>
-        <Button className="ml-auto" disabled={answered === null} onClick={goNext}>
-          {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
-        </Button>
-      </div>
+      {autoAdvance ? null : (
+        <div className="mt-4 hidden items-center gap-2 md:flex">
+          <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
+            <ChevronLeft size={16} /> Câu trước
+          </Button>
+          <Button className="ml-auto" disabled={answered === null} onClick={goNext}>
+            {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
+          </Button>
+        </div>
+      )}
 
-      {idx > 0 ? (
+      {!autoAdvance && idx > 0 ? (
         <button
           onClick={() => goTo(idx - 1)}
           aria-label="Câu trước"
@@ -796,16 +816,18 @@ function PlayView({
           <ChevronLeft size={18} />
         </button>
       ) : null}
-      <button
-        onClick={goNext}
-        disabled={answered === null}
-        aria-label={isLast ? "Xem kết quả" : "Câu sau"}
-        className={`fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg md:hidden ${
-          answered === null ? "bg-neutral-300" : "bg-rose-600 active:bg-rose-700"
-        }`}
-      >
-        {isLast ? <Check size={16} /> : <ChevronRight size={18} />}
-      </button>
+      {autoAdvance ? null : (
+        <button
+          onClick={goNext}
+          disabled={answered === null}
+          aria-label={isLast ? "Xem kết quả" : "Câu sau"}
+          className={`fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg md:hidden ${
+            answered === null ? "bg-neutral-300" : "bg-rose-600 active:bg-rose-700"
+          }`}
+        >
+          {isLast ? <Check size={16} /> : <ChevronRight size={18} />}
+        </button>
+      )}
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
         {q.level ? (
