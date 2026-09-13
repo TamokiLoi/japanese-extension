@@ -9,6 +9,8 @@
     "podcast:fetch": "node --experimental-strip-types scripts/fetch-podcast-episodes.ts",
     "podcast:transcript:fetch": "node --experimental-strip-types scripts/fetch-podcast-transcript.ts",
     "podcast:transcript:translate": "node --experimental-strip-types scripts/translate-podcast-transcript.ts",
+    "podcast:categorize": "node --experimental-strip-types scripts/categorize-podcast-episodes.ts",
+    "podcast:transcript:level": "node --experimental-strip-types scripts/classify-podcast-level.ts",
     "icons:generate": "node --experimental-strip-types scripts/generate-icons.ts",
     "dev": "vite",
     "build": "vite build",

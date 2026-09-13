@@ -5,7 +5,7 @@
 // is needed by end users and the episode list still works offline.
 import podcastBitesizeRaw from "../data/podcast-bitesize.json";
 import type { JlptLevel } from "../types/kanji.ts";
-import type { PodcastDataset, PodcastEpisode } from "../types/podcast.ts";
+import { PODCAST_CATEGORIES, type PodcastCategory, type PodcastDataset, type PodcastEpisode } from "../types/podcast.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
 const bitesizeDataset = podcastBitesizeRaw as unknown as PodcastDataset;
@@ -47,9 +47,19 @@ export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((l) =>
   ALL_PODCAST_EPISODES.some((e) => getEpisodeLevels(e).includes(l)),
 );
 
+// Shared across channels (see PODCAST_CATEGORIES in types/podcast.ts) --
+// only the ones actually used in the data show up as filter options.
+export const AVAILABLE_CATEGORIES: PodcastCategory[] = PODCAST_CATEGORIES.filter((c) =>
+  ALL_PODCAST_EPISODES.some((e) => e.category === c),
+);
+
 export interface PodcastViewerState {
   selectedChannels: string[];
   selectedLevels: JlptLevel[];
+  // Untagged episodes (category not yet run through
+  // categorize-podcast-episodes.ts) always pass this filter -- same
+  // "nothing to exclude them by" reasoning as the untagged-level case below.
+  selectedCategories: PodcastCategory[];
   // Whether finishing an episode jumps straight into the next one in the
   // current filtered list -- a persisted playback preference, same spirit as
   // dictationState.ts's `autoAdvance` (which autoplays audio on a new
@@ -64,6 +74,7 @@ export function defaultViewerState(): PodcastViewerState {
   return {
     selectedChannels: [...AVAILABLE_CHANNELS],
     selectedLevels: [...AVAILABLE_LEVELS],
+    selectedCategories: [...AVAILABLE_CATEGORIES],
     autoplayNext: true,
   };
 }
@@ -73,9 +84,11 @@ export async function loadViewerState(): Promise<PodcastViewerState> {
   const fallback = defaultViewerState();
   const selectedChannels = (saved?.selectedChannels ?? fallback.selectedChannels).filter((c) => AVAILABLE_CHANNELS.includes(c));
   const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => AVAILABLE_LEVELS.includes(l));
+  const selectedCategories = (saved?.selectedCategories ?? fallback.selectedCategories).filter((c) => AVAILABLE_CATEGORIES.includes(c));
   return {
     selectedChannels: selectedChannels.length > 0 ? selectedChannels : fallback.selectedChannels,
     selectedLevels: selectedLevels.length > 0 ? selectedLevels : fallback.selectedLevels,
+    selectedCategories: selectedCategories.length > 0 ? selectedCategories : fallback.selectedCategories,
     autoplayNext: saved?.autoplayNext ?? fallback.autoplayNext,
   };
 }
@@ -87,11 +100,16 @@ export async function saveViewerState(state: PodcastViewerState): Promise<void> 
 // Episodes whose channel has no CHANNEL_LEVELS entry (and no per-episode
 // override) always pass the level filter -- there's nothing to exclude them
 // by, so narrowing the level filter should never hide untagged content
-// outright.
+// outright. Same reasoning for category: an episode not yet run through
+// categorize-podcast-episodes.ts always passes the category filter.
 export function getFilteredList(state: PodcastViewerState): PodcastEpisode[] {
   return ALL_PODCAST_EPISODES.filter((e) => {
     const levels = getEpisodeLevels(e);
-    return state.selectedChannels.includes(e.channel) && (levels.length === 0 || levels.some((l) => state.selectedLevels.includes(l)));
+    return (
+      state.selectedChannels.includes(e.channel) &&
+      (levels.length === 0 || levels.some((l) => state.selectedLevels.includes(l))) &&
+      (!e.category || state.selectedCategories.includes(e.category))
+    );
   });
 }
 

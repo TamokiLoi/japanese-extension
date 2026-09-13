@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Search } from "lucide-react";
 import {
   ALL_PODCAST_EPISODES,
+  AVAILABLE_CATEGORIES,
   AVAILABLE_CHANNELS,
   AVAILABLE_LEVELS,
   CHANNEL_LABELS,
@@ -127,7 +128,11 @@ function ListView({
 
   const allChannelsChecked = state.selectedChannels.length === AVAILABLE_CHANNELS.length;
   const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
-  const filterCount = (allChannelsChecked ? 0 : state.selectedChannels.length) + (allLevelsChecked ? 0 : state.selectedLevels.length);
+  const allCategoriesChecked = state.selectedCategories.length === AVAILABLE_CATEGORIES.length;
+  const filterCount =
+    (allChannelsChecked ? 0 : state.selectedChannels.length) +
+    (allLevelsChecked ? 0 : state.selectedLevels.length) +
+    (allCategoriesChecked ? 0 : state.selectedCategories.length);
 
   // Search narrows the channel/level-filtered universe; the stat tiles below
   // both show live counts of THAT narrowed universe and act as a further
@@ -209,6 +214,17 @@ function ListView({
                   mutate({ selectedLevels: next });
                 },
               }))),
+          ...(allCategoriesChecked
+            ? []
+            : state.selectedCategories.map((cat) => ({
+                key: `category-${cat}`,
+                label: cat,
+                onRemove: () => {
+                  const next = state.selectedCategories.filter((x) => x !== cat);
+                  if (next.length === 0) return;
+                  mutate({ selectedCategories: next });
+                },
+              }))),
         ]}
       />
 
@@ -216,7 +232,9 @@ function ListView({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc podcast"
-        onReset={() => mutate({ selectedChannels: [...AVAILABLE_CHANNELS], selectedLevels: [...AVAILABLE_LEVELS] })}
+        onReset={() =>
+          mutate({ selectedChannels: [...AVAILABLE_CHANNELS], selectedLevels: [...AVAILABLE_LEVELS], selectedCategories: [...AVAILABLE_CATEGORIES] })
+        }
       >
         <FilterGroup title="Kênh">
           {AVAILABLE_CHANNELS.map((c) => {
@@ -267,6 +285,29 @@ function ListView({
                       }),
                     );
                     mutate({ selectedLevels: next, selectedChannels: nextChannels });
+                  }}
+                />
+              );
+            })}
+          </FilterGroup>
+        ) : null}
+
+        {AVAILABLE_CATEGORIES.length > 0 ? (
+          <FilterGroup title="Chủ đề">
+            {AVAILABLE_CATEGORIES.map((cat) => {
+              const checked = state.selectedCategories.includes(cat);
+              const count = ALL_PODCAST_EPISODES.filter((e) => e.category === cat && state.selectedChannels.includes(e.channel)).length;
+              return (
+                <FilterChipOption
+                  key={cat}
+                  label={`${cat} (${count})`}
+                  active={checked}
+                  onClick={() => {
+                    const next = checked
+                      ? state.selectedCategories.filter((x) => x !== cat)
+                      : [...new Set([...state.selectedCategories, cat])];
+                    if (next.length === 0) return;
+                    mutate({ selectedCategories: next });
                   }}
                 />
               );
@@ -558,7 +599,15 @@ function EpisodeView({
                 </a>
               </div>
             </div>
-            <div className="text-xs text-neutral-400">{formatDate(episode.publishedAt)}</div>
+            <div className="flex flex-wrap items-center gap-1.5 text-xs text-neutral-400">
+              <span>{formatDate(episode.publishedAt)}</span>
+              {episode.category ? (
+                <>
+                  <span>·</span>
+                  <span className="rounded-full bg-neutral-100 px-2 py-0.5 font-semibold text-neutral-500">{episode.category}</span>
+                </>
+              ) : null}
+            </div>
             {episode.description ? <p className="text-sm whitespace-pre-line text-neutral-500">{episode.description}</p> : null}
           </Card>
         );
