@@ -439,7 +439,13 @@ function EpisodeView({
     : -1;
   const activeRowRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    activeRowRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    // "center" (not "nearest") -- with no inner scroll box below (see the
+    // transcript list's className), this scrolls the whole page so the
+    // active line lands mid-screen as it advances, karaoke-style. "nearest"
+    // only scrolls the minimum needed to be *technically* visible, which on
+    // a tall page left the active line peeking in at the very bottom edge
+    // instead of somewhere actually readable.
+    activeRowRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
   }, [activeSegmentIndex]);
 
   function seekTo(sec: number) {
@@ -497,7 +503,7 @@ function EpisodeView({
               <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
             </button>
           </div>
-          <div className="mt-3 max-h-96 overflow-y-auto rounded-lg">
+          <div className="mt-3">
             {transcript.segments.map((seg, i) => {
               const active = i === activeSegmentIndex;
               return (
