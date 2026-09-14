@@ -45,6 +45,16 @@ import {
 } from "../../popup/listeningState.ts";
 import { loadProgressMap, bucketFor, type ProgressMap } from "../../popup/progressState.ts";
 import { PLAN_TYPES, type PlanType } from "../../popup/dailyPlanState.ts";
+import {
+  ALL_QUIZBOOK,
+  AVAILABLE_BOOKS as QUIZBOOK_AVAILABLE_BOOKS,
+  AVAILABLE_CATEGORIES as QUIZBOOK_AVAILABLE_CATEGORIES,
+  BOOK_LABELS as QUIZBOOK_BOOK_LABELS,
+  BOOK_LEVELS as QUIZBOOK_BOOK_LEVELS,
+  BOOK_GROUP as QUIZBOOK_BOOK_GROUP,
+  loadViewerState as loadQuizBookViewerState,
+  saveViewerState as saveQuizBookViewerState,
+} from "../../popup/quizBookState.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 
 interface Stop {
@@ -107,10 +117,11 @@ const KANJI_STOPS: Stop[] = KANJI_LEVEL_ORDER.filter((lvl) => ALL_KANJI.some((k)
 
 // Curated pedagogical order (easy -> hard) towards N3, not the vocab
 // screen's own filter-list order -- deliberately excludes tango-n2/tango-n1
-// (above N3, not needed to pass N3); tango-n5 is listed here too but drops
-// out below once filtered to N4/N3-only (0 items left, it's pure N5).
+// (above N3, not needed to pass N3) and tango-n5 (a handful of its words are
+// mislabeled N4 and survive the INCLUDE_LEVELS filter below, but the book
+// itself is pure N5 content -- not worth a whole roadmap stop for N3, per
+// user request 2026-09-14).
 const VOCAB_ORDER: VocabSource[] = [
-  "tango-n5",
   "tango-n4",
   "mimikara-n3",
   "tango-n3",
@@ -120,22 +131,28 @@ const VOCAB_ORDER: VocabSource[] = [
   "tu-lay",
   "dongnghia-n3",
 ];
+// tango-n3 (1022 words, generic) is a near-total overlap with mimikara-n3
+// (879 words, the curated N3 vocab book that's already required) -- kept
+// reachable as bonus practice but not required, per user request
+// 2026-09-14 (same reasoning as bunpo's required/optional split below).
+const VOCAB_REQUIRED_SOURCES: VocabSource[] = ["tango-n4", "mimikara-n3", "dongtu", "tinhtu-n3", "trangtu-91", "tu-lay", "dongnghia-n3"];
 const VOCAB_STOPS: Stop[] = VOCAB_ORDER.filter((s) => VOCAB_AVAILABLE_SOURCES.includes(s))
   .map((s) => ({
     key: s,
     label: VOCAB_SOURCE_LABELS[s],
     items: ALL_VOCAB.filter((v) => v.sources.includes(s) && INCLUDE_LEVELS.includes(v.level)),
+    required: VOCAB_REQUIRED_SOURCES.includes(s),
   }))
   .filter((stop) => stop.items.length > 0);
 
 // bunpoState.ts's own AVAILABLE_SOURCES order is already curated
 // (theo-chuong first) -- reuse it as-is rather than inventing a new one.
-// Only these 2 count as "required" -- together they're already a full N3
-// grammar pass (structured by chapter + everything confirmed to have shown
-// up in real past exams); the other 5 sources are each their OWN separate
-// full N3 grammar book, so going through all 7 in sequence would be well
-// past what's needed to pass N3 (per user request, 2026-09-06).
-const BUNPO_REQUIRED_SOURCES: BunpoSource[] = ["theo-chuong", "jlpt-da-ra"];
+// Only "theo-chuong" counts as "required" -- it's already a full N3 grammar
+// pass structured by chapter (150 mẫu); the other 6 sources are each their
+// own separate full N3 grammar book/drill, so requiring more than one in
+// sequence is well past what's needed to pass N3 (narrowed from 2 required
+// down to 1, per user request 2026-09-14 -- "chỉ nên học sách nào").
+const BUNPO_REQUIRED_SOURCES: BunpoSource[] = ["theo-chuong"];
 const BUNPO_STOPS: Stop[] = BUNPO_AVAILABLE_SOURCES.map((s) => ({
   key: s,
   label: BUNPO_SOURCE_LABELS[s],
@@ -159,6 +176,54 @@ const LISTENING_STOPS: Stop[] = LISTENING_AVAILABLE_BOOKS.map((b) => ({
   label: LISTENING_BOOK_LABELS[b],
   items: ALL_LISTENING.filter((q) => q.book === b),
 }));
+
+// "Luyện đề" -- unlike the 5 PLAN_TYPES above, quizbook questions are
+// answered/not-answered rather than a new -> learning -> mastered pipeline
+// (see dailyPlanState.ts's PlanType comment for why it's excluded from the
+// daily-goal pacing model), so this stays a separate flat per-book progress
+// list rather than joining STOPS_BY_TYPE -- surfaced only in the "Toàn bộ
+// lộ trình" overview, not the daily "Kế hoạch hôm nay" pacing rows. Scoped
+// to N3-level "sách" books only (BOOK_GROUP) -- the "de" group's mock-exam-
+// shaped books (đề từ vựng/đồng nghĩa/2 đề thi thật trong quizbook) overlap
+// with the "Luyện JLPT" (Thi thử) summary shown right below it in the UI,
+// so listing both would reintroduce the exact "too many choices" problem
+// this redesign is meant to fix (per user request 2026-09-14).
+export interface QuizBookStopStatus {
+  key: string;
+  label: string;
+  total: number;
+  answered: number;
+  required: boolean;
+}
+
+// Only "20days-n3" (20日で合格 N3) is required -- structured as a day-by-day
+// plan mixing all 3 categories, closest fit to "go through this one
+// alongside the daily roadmap". The other 5 N3 "sách" drills stay reachable
+// as optional extra practice, per user request 2026-09-14.
+const QUIZBOOK_REQUIRED_BOOKS = new Set(["20days-n3"]);
+
+export async function loadQuizBookStops(): Promise<QuizBookStopStatus[]> {
+  const state = await loadQuizBookViewerState();
+  const books = QUIZBOOK_AVAILABLE_BOOKS.filter((b) => QUIZBOOK_BOOK_LEVELS[b] === "N3" && QUIZBOOK_BOOK_GROUP[b] === "sach");
+  return books.map((b) => {
+    const questions = ALL_QUIZBOOK.filter((q) => q.book === b);
+    const answered = questions.filter((q) => state.answers[q.id] != null).length;
+    return { key: b, label: QUIZBOOK_BOOK_LABELS[b], total: questions.length, answered, required: QUIZBOOK_REQUIRED_BOOKS.has(b) };
+  });
+}
+
+// Same "land already filtered to this stop" behavior as jumpToStop below,
+// adapted to quizBookState's own shape (selectedGroup + selectedBooks
+// instead of a single selectedSources list).
+export async function jumpToQuizBookStop(book: string): Promise<void> {
+  const state = await loadQuizBookViewerState();
+  await saveQuizBookViewerState({
+    ...state,
+    selectedGroup: QUIZBOOK_BOOK_GROUP[book],
+    selectedBooks: [book],
+    selectedCategories: [...QUIZBOOK_AVAILABLE_CATEGORIES],
+  });
+}
 
 const STOPS_BY_TYPE: Record<PlanType, Stop[]> = {
   kanji: KANJI_STOPS,

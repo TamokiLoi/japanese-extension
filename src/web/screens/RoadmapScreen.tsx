@@ -25,7 +25,15 @@ import {
 } from "../../popup/roadmapState.ts";
 import { loadProgressMap } from "../../popup/progressState.ts";
 import { loadDailyGoals, buildDailyPlanItem, PLAN_TYPES, type PlanType, type DailyPlanItem } from "../../popup/dailyPlanState.ts";
-import { loadCurricula, stopItems, jumpToStop, type RoadmapCurricula } from "../lib/roadmapCurriculum.ts";
+import {
+  loadCurricula,
+  stopItems,
+  jumpToStop,
+  loadQuizBookStops,
+  jumpToQuizBookStop,
+  type RoadmapCurricula,
+  type QuizBookStopStatus,
+} from "../lib/roadmapCurriculum.ts";
 import { ALL_BOOK_NOTES, findBookNote } from "../lib/bookNotes.ts";
 import { ALL_QUIZBOOK, AVAILABLE_CATEGORIES, CATEGORY_LABELS, loadViewerState as loadQuizBookViewerState } from "../../popup/quizBookState.ts";
 import type { QuizBookCategory } from "../../types/quizBook.ts";
@@ -170,6 +178,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   const [data, setData] = useState<RoadmapData | null>(null);
   const [quizRemaining, setQuizRemaining] = useState<Record<QuizBookCategory, number> | null>(null);
   const [dethiSummary, setDethiSummary] = useState<DethiSummary | null>(null);
+  const [quizBookStops, setQuizBookStops] = useState<QuizBookStopStatus[] | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
   const [fullRoadmapOpen, setFullRoadmapOpen] = useState(false);
@@ -191,10 +200,11 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   useEffect(() => {
     if (!status || status.phase === "past-exam") return;
     loadRoadmapData().then(setData);
-    if (status.phase === "sprint") {
-      loadQuizBookRemaining().then(setQuizRemaining);
-      loadDethiSummary().then(setDethiSummary);
-    }
+    // Loaded regardless of phase (not just "sprint") -- "Toàn bộ lộ trình" now
+    // shows Luyện đề/Luyện JLPT too, for forward planning before sprint phase.
+    loadQuizBookRemaining().then(setQuizRemaining);
+    loadDethiSummary().then(setDethiSummary);
+    loadQuizBookStops().then(setQuizBookStops);
   }, [status?.phase]);
 
   async function handleSaveDate() {
@@ -212,12 +222,19 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
     setData(null);
     setQuizRemaining(null);
     setDethiSummary(null);
+    setQuizBookStops(null);
     setSettingsOpen(false);
   }
 
   async function handleRowClick(type: PlanType, stopKey: string | null) {
     if (stopKey) await jumpToStop(type, stopKey);
     onNavigate(PLAN_META[type].screen);
+  }
+
+  async function handleQuizBookStopClick(book: string) {
+    await jumpToQuizBookStop(book);
+    setFullRoadmapOpen(false);
+    onNavigate("quizBook");
   }
 
   if (examDate === undefined) {
@@ -503,6 +520,54 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                 </div>
               );
             })}
+
+            <div>
+              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wide text-neutral-400 uppercase">
+                <GraduationCap size={13} /> Luyện đề
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {quizBookStops ? (
+                  quizBookStops.map((s) => {
+                    const pct = s.total > 0 ? Math.round((s.answered / s.total) * 100) : 0;
+                    return (
+                      <button
+                        key={s.key}
+                        onClick={() => handleQuizBookStopClick(s.key)}
+                        className="flex w-full items-center gap-2.5 rounded-xl border border-neutral-200 bg-white px-3 py-2 text-left text-sm hover:bg-neutral-50"
+                      >
+                        <span className="min-w-0 flex-1 truncate text-neutral-600">{s.label}</span>
+                        {!s.required ? (
+                          <span className="shrink-0 rounded-full bg-neutral-100 px-1.5 py-0.5 text-[10px] font-medium text-neutral-400">Tùy chọn</span>
+                        ) : null}
+                        <span className="shrink-0 text-xs text-neutral-400">
+                          {s.answered}/{s.total} ({pct}%)
+                        </span>
+                      </button>
+                    );
+                  })
+                ) : (
+                  <p className="text-sm text-neutral-400">Đang tải...</p>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wide text-neutral-400 uppercase">
+                <ClipboardCheck size={13} /> Luyện JLPT
+              </div>
+              <button
+                onClick={() => {
+                  setFullRoadmapOpen(false);
+                  onNavigate("exams");
+                }}
+                className="flex w-full items-center gap-2.5 rounded-xl border border-neutral-200 bg-white px-3 py-2 text-left text-sm hover:bg-neutral-50"
+              >
+                <span className="min-w-0 flex-1 truncate text-neutral-600">Thi thử (25 đề IMO + 13 đề thật từng kỳ)</span>
+                <span className="shrink-0 text-xs text-neutral-400">
+                  {dethiSummary ? `${dethiSummary.attemptedPapers}/${dethiSummary.totalPapers} phần` : "Đang tải..."}
+                </span>
+              </button>
+            </div>
           </div>
         ) : (
           <p className="text-sm text-neutral-400">Đang tải...</p>
