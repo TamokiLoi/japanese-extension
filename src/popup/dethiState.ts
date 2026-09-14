@@ -6,7 +6,11 @@ import { storageGet, storageSet, storageRemove } from "../platform/storage";
 const imoDataset = dethiImoRaw as unknown as DeThiDataset;
 const cacNamDataset = dethiCacNamRaw as unknown as DeThiDataset;
 
-export const ALL_EXAMS: DeThiExam[] = [...cacNamDataset.exams, ...imoDataset.exams];
+// "cac-nam" exam ids end in "YYYY-MM" (zero-padded), so a plain string
+// compare sorts them newest-first without needing to parse dates.
+const cacNamExamsNewestFirst = [...cacNamDataset.exams].sort((a, b) => b.id.localeCompare(a.id));
+
+export const ALL_EXAMS: DeThiExam[] = [...cacNamExamsNewestFirst, ...imoDataset.exams];
 
 // Groups ExamListView's grid by DeThiExam.source instead of one flat list --
 // "cac-nam" (mỗi kỳ thi thật riêng, có cả 聴解 thật) và "imo" (bộ 26 đề mô

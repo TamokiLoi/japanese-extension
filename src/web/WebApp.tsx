@@ -3,6 +3,7 @@ import { App, VALID_SCREENS, type Screen } from "../popup/App.tsx";
 import { saveLastActive } from "../popup/lastActiveState.ts";
 import { WebAppShell } from "./WebAppShell.tsx";
 import { ConfirmProvider } from "./components/ConfirmDialog.tsx";
+import { DevToolsGuard } from "./components/DevToolsGuard.tsx";
 import { HomeScreen } from "./screens/HomeScreen.tsx";
 import { VocabScreen } from "./screens/VocabScreen.tsx";
 import { KanjiScreen } from "./screens/KanjiScreen.tsx";
@@ -249,16 +250,18 @@ export function WebApp() {
   }
 
   return (
-    <ConfirmProvider>
-      <WebAppShell
-        active={screen}
-        onNavigate={go}
-        returnTo={returnTo}
-        onGoBack={goBack}
-        getChatContext={() => resolveChatContext(screen, currentItemRef.current)}
-      >
-        {content}
-      </WebAppShell>
-    </ConfirmProvider>
+    <DevToolsGuard>
+      <ConfirmProvider>
+        <WebAppShell
+          active={screen}
+          onNavigate={go}
+          returnTo={returnTo}
+          onGoBack={goBack}
+          getChatContext={() => resolveChatContext(screen, currentItemRef.current)}
+        >
+          {content}
+        </WebAppShell>
+      </ConfirmProvider>
+    </DevToolsGuard>
   );
 }
