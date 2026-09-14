@@ -130,6 +130,25 @@ const SERIES_ALIASES: Record<string, Record<string, string>> = {
 // hide them.
 const NO_SERIES_BUCKET = "Khác";
 
+// Series that are unscripted/off-topic rather than structured listening
+// practice -- unedited livestreams (Live!/Alive!), ambient background audio
+// (Sleep), a mascot-cat spinoff (Neko), a spinoff about studying English
+// instead of Japanese (Eigo con Teppei), and the untagged long-tail
+// (Khác, mostly one-off announcements/apologies, see getEpisodeSeries).
+// Still fully selectable in the filter -- just excluded from
+// defaultSelectedSeries() below so a fresh "luyện nghe từ đầu" plan isn't
+// handed hundreds of rambling livestreams by default.
+const OPTIONAL_SERIES: Record<string, Set<string>> = {
+  teppei: new Set([
+    "Nihongo con Teppei Live!",
+    "Nihongo con Teppei Alive!",
+    "Nihongo con Teppei Sleep",
+    "Nihongo con Neko",
+    "Eigo con Teppei（英語学習）",
+    NO_SERIES_BUCKET,
+  ]),
+};
+
 export function getEpisodeSeries(e: PodcastEpisode): string | undefined {
   const aliases = SERIES_ALIASES[e.channel];
   if (!aliases) return undefined;
@@ -195,6 +214,15 @@ export function allSeries(available: PodcastAvailability): string[] {
   return [...new Set(Object.values(available.seriesByChannel).flat())];
 }
 
+// What the series filter starts pre-checked with -- every series minus the
+// OPTIONAL_SERIES ones (see above). This, not allSeries(), is what
+// defaultViewerState()/the FilterSheet's "Đặt lại" button fall back to.
+export function defaultSelectedSeries(available: PodcastAvailability): string[] {
+  return Object.entries(available.seriesByChannel).flatMap(([channel, list]) =>
+    list.filter((s) => !OPTIONAL_SERIES[channel]?.has(s)),
+  );
+}
+
 export interface PodcastViewerState {
   selectedChannels: string[];
   selectedLevels: JlptLevel[];
@@ -221,7 +249,7 @@ export function defaultViewerState(available: PodcastAvailability): PodcastViewe
     selectedChannels: [...available.channels],
     selectedLevels: [...available.levels],
     selectedCategories: [...available.categories],
-    selectedSeries: allSeries(available),
+    selectedSeries: defaultSelectedSeries(available),
     autoplayNext: true,
   };
 }
@@ -232,7 +260,11 @@ export async function loadViewerState(available: PodcastAvailability): Promise<P
   const selectedChannels = (saved?.selectedChannels ?? fallback.selectedChannels).filter((c) => available.channels.includes(c));
   const selectedLevels = (saved?.selectedLevels ?? fallback.selectedLevels).filter((l) => available.levels.includes(l));
   const selectedCategories = (saved?.selectedCategories ?? fallback.selectedCategories).filter((c) => available.categories.includes(c));
-  const selectedSeries = (saved?.selectedSeries ?? fallback.selectedSeries).filter((s) => fallback.selectedSeries.includes(s));
+  // Filtered against every valid series (not just the default subset) --
+  // an optional series the user explicitly turned ON must survive reload,
+  // same as any other filter choice would.
+  const validSeries = allSeries(available);
+  const selectedSeries = (saved?.selectedSeries ?? fallback.selectedSeries).filter((s) => validSeries.includes(s));
   return {
     selectedChannels: selectedChannels.length > 0 ? selectedChannels : fallback.selectedChannels,
     selectedLevels: selectedLevels.length > 0 ? selectedLevels : fallback.selectedLevels,

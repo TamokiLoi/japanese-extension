@@ -4,6 +4,7 @@ import {
   CHANNEL_LABELS,
   allSeries,
   computeAvailability,
+  defaultSelectedSeries,
   extractEpisodeNumber,
   getEpisodeLevels,
   getEpisodeSeries,
@@ -304,7 +305,7 @@ function ListView({
             selectedChannels: [...available.channels],
             selectedLevels: [...available.levels],
             selectedCategories: [...available.categories],
-            selectedSeries: seriesOptions,
+            selectedSeries: defaultSelectedSeries(available),
           })
         }
       >
@@ -366,6 +367,10 @@ function ListView({
 
         {seriesOptions.length > 0 ? (
           <FilterGroup title="Series">
+            <p className="-mt-1 mb-1 w-full text-xs text-neutral-400">
+              Mặc định chỉ chọn các series học tập có cấu trúc -- livestream, audio ngủ, spinoff tiếng Anh... là tuỳ chọn, bật nếu
+              muốn nghe thêm.
+            </p>
             {seriesOptions.map((s) => {
               const checked = state.selectedSeries.includes(s);
               const count = allEpisodes.filter(
