@@ -798,6 +798,7 @@ function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["quest
       <div className="mt-3 text-base font-semibold text-neutral-800">
         <QuestionText text={question.question} underline={question.underline} />
       </div>
+      {question.questionVi ? <div className="mt-1 text-sm text-neutral-500 italic">{question.questionVi}</div> : null}
       {question.optionsImage ? (
         <>
           <img src={assetUrl(question.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-3 w-full rounded-lg border border-neutral-200" />
@@ -825,10 +826,13 @@ function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["quest
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
                   {oi + 1}
                 </span>
-                <QuestionText
-                  text={opt}
-                  underline={question.problemGroup === "問題5" ? p5Underline(question.question, question.underlineForms, opt) : undefined}
-                />
+                <div>
+                  <QuestionText
+                    text={opt}
+                    underline={question.problemGroup === "問題5" ? p5Underline(question.question, question.underlineForms, opt) : undefined}
+                  />
+                  {question.optionsVi?.[oi] ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}
+                </div>
               </div>
             );
           })}

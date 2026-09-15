@@ -36,6 +36,14 @@ export interface DeThiQuestion {
   // occurs verbatim in every option (nouns, na-adjectives, i-adjectives used
   // attributively -- no conjugation needed).
   underlineForms?: string[];
+  // Vietnamese translation of `question`, shown only in the post-submit
+  // review view (not while taking the paper -- would give the answer away).
+  // Populated for 問題1-4, where `question` is a full sentence. Not used for
+  // 問題5, where `question` is just the bare tested word -- see `optionsVi`.
+  questionVi?: string;
+  // 問題5 only: Vietnamese translation of each of the 4 example-usage
+  // sentences in `options` (parallel array, same order/length as `options`).
+  optionsVi?: string[];
   // Set only on a 聴解 (listening) paper whose options are illustrations
   // rather than text (e.g. real JLPT Mondai1/4 picture choices) -- path
   // resolved via assetUrl(), same convention as ListeningQuestion.optionsImage
