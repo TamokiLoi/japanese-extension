@@ -20,10 +20,22 @@ export interface DeThiQuestion {
   // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,
   // trích ý đoạn văn cho câu đọc hiểu).
   explanation?: string;
-  // Set only on 文字・語彙 問題1/問題2 (kanji reading / kanji writing) --
-  // the exact substring of `question` that the real paper prints underlined
-  // (the word being tested). UI renders it bold+underlined instead of plain.
+  // Set only on 文字・語彙 問題1/2/4 (kanji reading, kanji writing, or
+  // paraphrase) -- the exact substring of `question` that the real paper
+  // prints underlined (the word being tested). UI renders it bold+underlined
+  // instead of plain. Not used for 問題5 (usage): there `question` itself IS
+  // the tested word, underlined wherever it occurs inside each of the 4
+  // option sentences -- see `underlineForms` below for its inflected variants.
   underline?: string;
+  // 問題5 only. `question` holds the tested word in dictionary/citation form,
+  // but each option sentence uses it inflected (e.g. question "にぎる" appears
+  // as "にぎった"/"にぎって" in the options) -- plain substring match on
+  // `question` alone misses those. Lists the inflected surface forms actually
+  // occurring across this question's 4 options so the UI can underline
+  // whichever one matches each option. Absent when `question` itself already
+  // occurs verbatim in every option (nouns, na-adjectives, i-adjectives used
+  // attributively -- no conjugation needed).
+  underlineForms?: string[];
   // Set only on a 聴解 (listening) paper whose options are illustrations
   // rather than text (e.g. real JLPT Mondai1/4 picture choices) -- path
   // resolved via assetUrl(), same convention as ListeningQuestion.optionsImage

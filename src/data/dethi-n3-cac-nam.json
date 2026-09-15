@@ -451,7 +451,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "値段 có cùng nghĩa với 価格 là 'giá cả'."
+              "explanation": "値段 có cùng nghĩa với 価格 là 'giá cả'.",
+              "underline": "価格"
             },
             {
               "number": 27,
@@ -466,7 +467,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "簡単な có nghĩa gần với はらくな (không vất vả, dễ dàng)."
+              "explanation": "簡単な có nghĩa gần với はらくな (không vất vả, dễ dàng).",
+              "underline": "はらくな"
             },
             {
               "number": 28,
@@ -481,7 +483,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "あつめます (tập hợp) là nghĩa của từ 回収 (thu hồi/thu gom)."
+              "explanation": "あつめます (tập hợp) là nghĩa của từ 回収 (thu hồi/thu gom).",
+              "underline": "回収"
             },
             {
               "number": 29,
@@ -496,7 +499,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "めい (cháu gái) được định nghĩa là 兄弟の娘 (con gái của anh chị em)."
+              "explanation": "めい (cháu gái) được định nghĩa là 兄弟の娘 (con gái của anh chị em).",
+              "underline": "めい"
             },
             {
               "number": 30,
@@ -511,7 +515,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "おこづかい là 'tiền tiêu vặt', tương ứng với お金 (tiền)."
+              "explanation": "おこづかい là 'tiền tiêu vặt', tương ứng với お金 (tiền).",
+              "underline": "おこづかい"
             },
             {
               "number": 31,
@@ -541,7 +546,11 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "気づく (kidzuku) có nghĩa là nhận ra, dùng khi phát hiện ra việc để quên đồ trên tàu."
+              "explanation": "気づく (kidzuku) có nghĩa là nhận ra, dùng khi phát hiện ra việc để quên đồ trên tàu.",
+              "underlineForms": [
+                "気づいて",
+                "気づいた"
+              ]
             },
             {
               "number": 33,
@@ -2130,7 +2139,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "片付けた nghĩa là dọn dẹp, tương đồng với nghĩa của từ 整理した."
+              "explanation": "片付けた nghĩa là dọn dẹp, tương đồng với nghĩa của từ 整理した.",
+              "underline": "整理した"
             },
             {
               "number": 27,
@@ -2145,7 +2155,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "変な nghĩa là kỳ lạ, tương đồng với nghĩa của từ おかしな."
+              "explanation": "変な nghĩa là kỳ lạ, tương đồng với nghĩa của từ おかしな.",
+              "underline": "おかしな"
             },
             {
               "number": 28,
@@ -2160,7 +2171,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "終わらせて nghĩa là kết thúc/làm xong, tương đồng với nghĩa của từ 済ませる."
+              "explanation": "終わらせて nghĩa là kết thúc/làm xong, tương đồng với nghĩa của từ 済ませる.",
+              "underline": "済ませて"
             },
             {
               "number": 29,
@@ -2175,7 +2187,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "よくないところ nghĩa là điểm không tốt, tương đồng với nghĩa của từ 欠点."
+              "explanation": "よくないところ nghĩa là điểm không tốt, tương đồng với nghĩa của từ 欠点.",
+              "underline": "欠点"
             },
             {
               "number": 30,
@@ -2190,12 +2203,13 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "何も変えないで nghĩa là không thay đổi gì cả, tương đồng với nghĩa của từ そのまま."
+              "explanation": "何も変えないで nghĩa là không thay đổi gì cả, tương đồng với nghĩa của từ そのまま.",
+              "underline": "そのまま"
             },
             {
               "number": 31,
               "problemGroup": "問題5",
-              "question": "(31)報告",
+              "question": "報告",
               "options": [
                 "テレビの天気予報で明日の天気の報告をしている。",
                 "リーさんから、クラスのみんなで博物館に行こうという報告があった。",
@@ -2210,7 +2224,7 @@
             {
               "number": 32,
               "problemGroup": "問題5",
-              "question": "(32)満員",
+              "question": "満員",
               "options": [
                 "アルバイト店員を募集したが、なかなか満員にならない。",
                 "この駅の近くの道はいつも満員で、とても歩きにくい。",
@@ -2225,7 +2239,7 @@
             {
               "number": 33,
               "problemGroup": "問題5",
-              "question": "(33)かき混ぜる",
+              "question": "かき混ぜる",
               "options": [
                 "日本語の文章は漢字とひらがながかき混ぜられている。",
                 "牛乳に卵と砂糖を入れたら、よくかき混ぜてください。",
@@ -2235,12 +2249,16 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「かき混ぜる」có nghĩa là \"trộn lẫn/khuấy đều\" nguyên liệu khi nấu ăn."
+              "explanation": "Từ「かき混ぜる」có nghĩa là \"trộn lẫn/khuấy đều\" nguyên liệu khi nấu ăn.",
+              "underlineForms": [
+                "かき混ぜられて",
+                "かき混ぜて"
+              ]
             },
             {
               "number": 34,
               "problemGroup": "問題5",
-              "question": "(34)発生",
+              "question": "発生",
               "options": [
                 "この工場から、多くの新しい商品が発生している。",
                 "海の近くに新しいホテルがたくさん発生している。",
@@ -2255,7 +2273,7 @@
             {
               "number": 35,
               "problemGroup": "問題5",
-              "question": "(35)お互いに",
+              "question": "お互いに",
               "options": [
                 "あの夫婦は、どんなときでもお互いに協力し合って生きてきた。",
                 "昨日、お互いにエレベーターに乗った人は、小学校の時の先生だった。",
@@ -3857,7 +3875,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「お礼」 nghĩa là sự cảm ơn, thay thế cho cụm từ \"thư cảm ơn\"."
+              "explanation": "「お礼」 nghĩa là sự cảm ơn, thay thế cho cụm từ \"thư cảm ơn\".",
+              "underline": "感謝"
             },
             {
               "number": 27,
@@ -3872,7 +3891,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「台所」 nghĩa là bếp, đồng nghĩa với từ mượn \"kitchen\"."
+              "explanation": "「台所」 nghĩa là bếp, đồng nghĩa với từ mượn \"kitchen\".",
+              "underline": "キッチン"
             },
             {
               "number": 28,
@@ -3887,7 +3907,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「心配な」 nghĩa là lo lắng, có nghĩa tương đương với 「不安」."
+              "explanation": "「心配な」 nghĩa là lo lắng, có nghĩa tương đương với 「不安」.",
+              "underline": "不安"
             },
             {
               "number": 29,
@@ -3902,7 +3923,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「すいている」 nghĩa là đói (bụng), tương đương với cụm từ \"đói meo\"."
+              "explanation": "「すいている」 nghĩa là đói (bụng), tương đương với cụm từ \"đói meo\".",
+              "underline": "ぺこぺこ"
             },
             {
               "number": 30,
@@ -3917,7 +3939,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「何も話さないで」 có nghĩa là không nói gì, diễn giải chính xác cho từ 「黙って」."
+              "explanation": "「何も話さないで」 có nghĩa là không nói gì, diễn giải chính xác cho từ 「黙って」.",
+              "underline": "黙って"
             },
             {
               "number": 31,
@@ -3977,7 +4000,10 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「落ち着く」nghĩa là bình tĩnh, thư thái, phù hợp với ngữ cảnh nghe nhạc giúp tâm trạng ổn định."
+              "explanation": "Từ「落ち着く」nghĩa là bình tĩnh, thư thái, phù hợp với ngữ cảnh nghe nhạc giúp tâm trạng ổn định.",
+              "underlineForms": [
+                "落ち着いて"
+              ]
             },
             {
               "number": 35,
@@ -3992,7 +4018,10 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「ほえる」nghĩa là sủa (chó), rất phù hợp với ngữ cảnh tiếng chó sủa gây ồn ào vào ban đêm."
+              "explanation": "Từ「ほえる」nghĩa là sủa (chó), rất phù hợp với ngữ cảnh tiếng chó sủa gây ồn ào vào ban đêm.",
+              "underlineForms": [
+                "ほえて"
+              ]
             }
           ]
         },
@@ -5569,7 +5598,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "さまざまな nghĩa là nhiều loại, đồng nghĩa với いろいろな."
+              "explanation": "さまざまな nghĩa là nhiều loại, đồng nghĩa với いろいろな.",
+              "underline": "さまざまな"
             },
             {
               "number": 27,
@@ -5584,7 +5614,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "報告する là báo cáo, đồng nghĩa với việc 知らせる (cho biết, thông báo)."
+              "explanation": "報告する là báo cáo, đồng nghĩa với việc 知らせる (cho biết, thông báo).",
+              "underline": "報告して"
             },
             {
               "number": 28,
@@ -5599,7 +5630,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "絶対に là tuyệt đối, đồng nghĩa với かならず (nhất định)."
+              "explanation": "絶対に là tuyệt đối, đồng nghĩa với かならず (nhất định).",
+              "underline": "絶対に"
             },
             {
               "number": 29,
@@ -5614,7 +5646,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "おしまい là kết thúc, đồng nghĩa với おわり."
+              "explanation": "おしまい là kết thúc, đồng nghĩa với おわり.",
+              "underline": "おしまい"
             },
             {
               "number": 30,
@@ -5629,7 +5662,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "サボる có nghĩa là trốn học/làm để đi chơi, tức là nghỉ học vì muốn chơi."
+              "explanation": "サボる có nghĩa là trốn học/làm để đi chơi, tức là nghỉ học vì muốn chơi.",
+              "underline": "サボって"
             },
             {
               "number": 31,
@@ -5674,7 +5708,10 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "親しい nghĩa là thân thiết, dùng để mô tả mối quan hệ giữa người với người."
+              "explanation": "親しい nghĩa là thân thiết, dùng để mô tả mối quan hệ giữa người với người.",
+              "underlineForms": [
+                "親しかった"
+              ]
             },
             {
               "number": 34,
@@ -5689,7 +5726,11 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "詰める nghĩa là đóng gói, nhồi nhét đồ đạc vào trong túi hoặc hộp."
+              "explanation": "詰める nghĩa là đóng gói, nhồi nhét đồ đạc vào trong túi hoặc hộp.",
+              "underlineForms": [
+                "詰めた",
+                "詰めて"
+              ]
             },
             {
               "number": 35,
@@ -7261,7 +7302,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「退屈だった」 (chán) đồng nghĩa với 「つまらなかった」."
+              "explanation": "「退屈だった」 (chán) đồng nghĩa với 「つまらなかった」.",
+              "underline": "退屈だった"
             },
             {
               "number": 27,
@@ -7276,7 +7318,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「ふれないで」 (không chạm vào) đồng nghĩa với 「触らないで」."
+              "explanation": "「ふれないで」 (không chạm vào) đồng nghĩa với 「触らないで」.",
+              "underline": "ふれないで"
             },
             {
               "number": 28,
@@ -7291,7 +7334,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「機会」 (cơ hội) đồng nghĩa với từ mượn tiếng Anh 「チャンス」."
+              "explanation": "「機会」 (cơ hội) đồng nghĩa với từ mượn tiếng Anh 「チャンス」.",
+              "underline": "機会"
             },
             {
               "number": 29,
@@ -7306,7 +7350,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「きつかった」 (vất vả, khó khăn) đồng nghĩa với 「大変だった」."
+              "explanation": "「きつかった」 (vất vả, khó khăn) đồng nghĩa với 「大変だった」.",
+              "underline": "きつかった"
             },
             {
               "number": 30,
@@ -7321,7 +7366,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「納得した」 (hiểu rõ, thấu hiểu) đồng nghĩa với 「とてもよく分かった」."
+              "explanation": "「納得した」 (hiểu rõ, thấu hiểu) đồng nghĩa với 「とてもよく分かった」.",
+              "underline": "納得した"
             },
             {
               "number": 31,
@@ -7366,7 +7412,10 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「追い抜く」 nghĩa là 'vượt qua', dùng đúng trong ngữ cảnh chạy marathon vượt người phía trước."
+              "explanation": "「追い抜く」 nghĩa là 'vượt qua', dùng đúng trong ngữ cảnh chạy marathon vượt người phía trước.",
+              "underlineForms": [
+                "追い抜いた"
+              ]
             },
             {
               "number": 34,
@@ -7396,7 +7445,10 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「だるい」 nghĩa là 'uể oải, mệt mỏi', dùng đúng khi nói về tình trạng cơ thể."
+              "explanation": "「だるい」 nghĩa là 'uể oải, mệt mỏi', dùng đúng khi nói về tình trạng cơ thể.",
+              "underlineForms": [
+                "だるく"
+              ]
             }
           ]
         },
@@ -8952,7 +9004,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「いつも」 có nghĩa là bình thường, hằng ngày, đồng nghĩa với 「ふだん」."
+              "explanation": "「いつも」 có nghĩa là bình thường, hằng ngày, đồng nghĩa với 「ふだん」.",
+              "underline": "ふだん"
             },
             {
               "number": 26,
@@ -8967,7 +9020,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「短気」 nghĩa là nóng tính, dễ nổi giận."
+              "explanation": "「短気」 nghĩa là nóng tính, dễ nổi giận.",
+              "underline": "短気"
             },
             {
               "number": 27,
@@ -8982,7 +9036,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「運動場」 là sân vận động, đồng nghĩa với nghĩa của 「グラウンド」."
+              "explanation": "「運動場」 là sân vận động, đồng nghĩa với nghĩa của 「グラウンド」.",
+              "underline": "グラウンド"
             },
             {
               "number": 28,
@@ -8997,7 +9052,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「おい」 nghĩa là cháu trai (con của chị/em gái/trai), ở đây là con trai của chị gái."
+              "explanation": "「おい」 nghĩa là cháu trai (con của chị/em gái/trai), ở đây là con trai của chị gái.",
+              "underline": "おい"
             },
             {
               "number": 29,
@@ -9012,7 +9068,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「くわしく」 nghĩa là chi tiết, kỹ lưỡng, tương đồng với 「細かく」."
+              "explanation": "「くわしく」 nghĩa là chi tiết, kỹ lưỡng, tương đồng với 「細かく」.",
+              "underline": "くわしく"
             },
             {
               "number": 30,
@@ -9027,7 +9084,12 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「諦める」 nghĩa là từ bỏ, việc từ bỏ leo núi do bão là sử dụng đúng ngữ cảnh."
+              "explanation": "「諦める」 nghĩa là từ bỏ, việc từ bỏ leo núi do bão là sử dụng đúng ngữ cảnh.",
+              "underlineForms": [
+                "諦めて",
+                "諦めた",
+                "諦められ"
+              ]
             },
             {
               "number": 31,
@@ -9087,7 +9149,12 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「通り過ぎる」 nghĩa là đi ngang qua/đi vượt quá, dùng cho việc đi xe qua cửa tiệm là đúng."
+              "explanation": "「通り過ぎる」 nghĩa là đi ngang qua/đi vượt quá, dùng cho việc đi xe qua cửa tiệm là đúng.",
+              "underlineForms": [
+                "通り過ぎた",
+                "通り過ぎて",
+                "通り過ぎない"
+              ]
             }
           ]
         },
@@ -10654,7 +10721,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「あたえる」có nghĩa là 'cho/ban cho', tương đương với cách dùng của「あげる」."
+              "explanation": "Từ「あたえる」có nghĩa là 'cho/ban cho', tương đương với cách dùng của「あげる」.",
+              "underline": "あたえよう"
             },
             {
               "number": 27,
@@ -10669,7 +10737,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「非常に」có nghĩa là rất, cực kỳ, phù hợp để nhấn mạnh mức độ nhiều của xe cộ."
+              "explanation": "「非常に」có nghĩa là rất, cực kỳ, phù hợp để nhấn mạnh mức độ nhiều của xe cộ.",
+              "underline": "ずいぶん"
             },
             {
               "number": 28,
@@ -10684,7 +10753,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「決められた」có nghĩa là đã được quy định, đặt ở nơi đã được chỉ định trước."
+              "explanation": "「決められた」có nghĩa là đã được quy định, đặt ở nơi đã được chỉ định trước.",
+              "underline": "指定の"
             },
             {
               "number": 29,
@@ -10699,7 +10769,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「心配」nghĩa là lo lắng, phù hợp với tâm trạng trước khi nghe lời khuyên."
+              "explanation": "「心配」nghĩa là lo lắng, phù hợp với tâm trạng trước khi nghe lời khuyên.",
+              "underline": "不安だった"
             },
             {
               "number": 30,
@@ -10714,7 +10785,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「予定」có nghĩa là lịch trình, dự định, thay thế hoàn hảo cho từ schedule."
+              "explanation": "「予定」có nghĩa là lịch trình, dự định, thay thế hoàn hảo cho từ schedule.",
+              "underline": "スケジュール"
             },
             {
               "number": 31,
@@ -10744,7 +10816,11 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「だく」nghĩa là ôm, bế, hành động ẵm một đứa trẻ trên tay."
+              "explanation": "「だく」nghĩa là ôm, bế, hành động ẵm một đứa trẻ trên tay.",
+              "underlineForms": [
+                "だいて",
+                "だいた"
+              ]
             },
             {
               "number": 33,
@@ -10789,7 +10865,12 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「重なる」nghĩa là chồng chất lên nhau, dùng khi hai sự kiện diễn ra cùng một thời điểm."
+              "explanation": "「重なる」nghĩa là chồng chất lên nhau, dùng khi hai sự kiện diễn ra cùng một thời điểm.",
+              "underlineForms": [
+                "重なって",
+                "重なり",
+                "重なった"
+              ]
             }
           ]
         },
@@ -12360,7 +12441,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「サイズ」nghĩa là kích cỡ, đồng nghĩa với 「大きさ」(độ lớn)."
+              "explanation": "「サイズ」nghĩa là kích cỡ, đồng nghĩa với 「大きさ」(độ lớn).",
+              "underline": "サイズ"
             },
             {
               "number": 27,
@@ -12375,7 +12457,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「暗記する」nghĩa là học thuộc lòng, đồng nghĩa với 「覚える」(ghi nhớ)."
+              "explanation": "「暗記する」nghĩa là học thuộc lòng, đồng nghĩa với 「覚える」(ghi nhớ).",
+              "underline": "暗記して"
             },
             {
               "number": 28,
@@ -12390,7 +12473,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「得意」nghĩa là giỏi, tự tin về việc gì đó, đồng nghĩa với 「とても上手な」(rất giỏi)."
+              "explanation": "「得意」nghĩa là giỏi, tự tin về việc gì đó, đồng nghĩa với 「とても上手な」(rất giỏi).",
+              "underline": "得意な"
             },
             {
               "number": 29,
@@ -12405,7 +12489,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「欠点」có nghĩa là khuyết điểm, tức là những điểm không tốt (よくないところ)."
+              "explanation": "Từ「欠点」có nghĩa là khuyết điểm, tức là những điểm không tốt (よくないところ).",
+              "underline": "欠点"
             },
             {
               "number": 30,
@@ -12420,17 +12505,18 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「どなる」nghĩa là quát tháo, lớn tiếng giận dữ, tương đương với 大声で怒る."
+              "explanation": "Từ「どなる」nghĩa là quát tháo, lớn tiếng giận dữ, tương đương với 大声で怒る.",
+              "underline": "どならないで"
             },
             {
               "number": 31,
               "problemGroup": "問題5",
-              "question": "この会社の社長は一人で始めたが、今は大きな会社に進歩した。技術が進歩して、人々の生活は便利になった。病気が治って、食欲もだんだん進歩してきた。アパートの家賃が進歩して、来年から5,000円高くなるそうだ。",
+              "question": "進歩",
               "options": [
-                "1",
-                "2",
-                "3",
-                "4"
+                "この会社の社長は一人で始めたが、今は大きな会社に進歩した。",
+                "技術が進歩して、人々の生活は便利になった。",
+                "病気が治って、食欲もだんだん進歩してきた。",
+                "アパートの家賃が進歩して、来年から5,000円高くなるそうだ。"
               ],
               "correctIndex": 1,
               "points": 1,
@@ -12440,27 +12526,31 @@
             {
               "number": 32,
               "problemGroup": "問題5",
-              "question": "昨日、駅で観光客に英語で話しかけられた。次の旅行の行き先は、家族と話しかけて決めようと思う。名前を話しかけるので、呼ばれた人は手を挙げてください。先輩にお土産をあげて、お礼を話しかけられました。",
+              "question": "話しかける",
               "options": [
-                "1",
-                "2",
-                "3",
-                "4"
+                "昨日、駅で観光客に英語で話しかけられた。",
+                "次の旅行の行き先は、家族と話しかけて決めようと思う。",
+                "名前を話しかけるので、呼ばれた人は手を挙げてください。",
+                "先輩にお土産をあげて、お礼を話しかけられました。"
               ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「話しかける」nghĩa là bắt chuyện, phù hợp khi nói về việc bắt chuyện bằng tiếng Anh với khách du lịch."
+              "explanation": "Từ「話しかける」nghĩa là bắt chuyện, phù hợp khi nói về việc bắt chuyện bằng tiếng Anh với khách du lịch.",
+              "underlineForms": [
+                "話しかけられ",
+                "話しかけて"
+              ]
             },
             {
               "number": 33,
               "problemGroup": "問題5",
-              "question": "二つの色が交流して、きれいなピンク色になりました。このドレッシングは、野菜と交流するとおいしいですね。息子の学校は、海外の人たちと交流する機会が多いようだ。この引き出しには、兄の物と私の物が交流している。",
+              "question": "交流",
               "options": [
-                "1",
-                "2",
-                "3",
-                "4"
+                "二つの色が交流して、きれいなピンク色になりました。",
+                "このドレッシングは、野菜と交流するとおいしいですね。",
+                "息子の学校は、海外の人たちと交流する機会が多いようだ。",
+                "この引き出しには、兄の物と私の物が交流している。"
               ],
               "correctIndex": 2,
               "points": 1,
@@ -12470,12 +12560,12 @@
             {
               "number": 34,
               "problemGroup": "問題5",
-              "question": "新しい家の工事が渋滞していて、なかなか引っ越せない。事故で道が渋滞していたので、遅刻してしまった。最近仕事が忙しくて、ストレスが渋滞している。この商品はあまり売れないので、倉庫の中で渋滞している。",
+              "question": "渋滞",
               "options": [
-                "1",
-                "2",
-                "3",
-                "4"
+                "新しい家の工事が渋滞していて、なかなか引っ越せない。",
+                "事故で道が渋滞していたので、遅刻してしまった。",
+                "最近仕事が忙しくて、ストレスが渋滞している。",
+                "この商品はあまり売れないので、倉庫の中で渋滞している。"
               ],
               "correctIndex": 1,
               "points": 1,
@@ -12485,12 +12575,12 @@
             {
               "number": 35,
               "problemGroup": "問題5",
-              "question": "ガソリンが少なくなって、車が途中で止まりそうでにこにこした。大勢の前で歌ったとき、緊張して胸がにこにこした。昨日から具合が悪くて、今朝も頭が少しにこにこしている。遊んでいる私たちを見て、祖母はうれしそうににこにこしていた。",
+              "question": "にこにこ",
               "options": [
-                "1",
-                "2",
-                "3",
-                "4"
+                "ガソリンが少なくなって、車が途中で止まりそうでにこにこした。",
+                "大勢の前で歌ったとき、緊張して胸がにこにこした。",
+                "昨日から具合が悪くて、今朝も頭が少しにこにこしている。",
+                "遊んでいる私たちを見て、祖母はうれしそうににこにこしていた。"
               ],
               "correctIndex": 3,
               "points": 1,
@@ -14057,7 +14147,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「避難する」 (tỵ nạn/sơ tán) tương đương với nghĩa trốn chạy, lánh nạn 「にげて」."
+              "explanation": "「避難する」 (tỵ nạn/sơ tán) tương đương với nghĩa trốn chạy, lánh nạn 「にげて」.",
+              "underline": "避難して"
             },
             {
               "number": 27,
@@ -14072,7 +14163,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「案」 (án/ý kiến) đồng nghĩa với ý tưởng 「アイデア」."
+              "explanation": "「案」 (án/ý kiến) đồng nghĩa với ý tưởng 「アイデア」.",
+              "underline": "案"
             },
             {
               "number": 28,
@@ -14087,7 +14179,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Từ 'dama-tteita' (giữ im lặng) đồng nghĩa với việc 'không nói gì' (話さなかった)."
+              "explanation": "Từ 'dama-tteita' (giữ im lặng) đồng nghĩa với việc 'không nói gì' (話さなかった).",
+              "underline": "だまっていた"
             },
             {
               "number": 29,
@@ -14102,7 +14195,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「ベスト」 (best) có nghĩa là tốt nhất (最もよい)."
+              "explanation": "「ベスト」 (best) có nghĩa là tốt nhất (最もよい).",
+              "underline": "ベスト"
             },
             {
               "number": 30,
@@ -14117,7 +14211,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「配達する」 (giao hàng) đồng nghĩa với 「届ける」 (chuyển đến/giao đến)."
+              "explanation": "「配達する」 (giao hàng) đồng nghĩa với 「届ける」 (chuyển đến/giao đến).",
+              "underline": "配達して"
             },
             {
               "number": 31,
@@ -14162,7 +14257,11 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「取り消す」 có nghĩa là hủy bỏ (ví dụ hủy đặt chỗ - yoyaku o torikesu)."
+              "explanation": "「取り消す」 có nghĩa là hủy bỏ (ví dụ hủy đặt chỗ - yoyaku o torikesu).",
+              "underlineForms": [
+                "取り消して",
+                "取り消した"
+              ]
             },
             {
               "number": 34,
@@ -14192,7 +14291,12 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「詰める」 có nghĩa là nhồi, đóng gói, xếp đồ vào vali (スーツケースに詰める)."
+              "explanation": "「詰める」 có nghĩa là nhồi, đóng gói, xếp đồ vào vali (スーツケースに詰める).",
+              "underlineForms": [
+                "詰めて",
+                "詰めました",
+                "詰めた"
+              ]
             }
           ]
         },
@@ -15759,7 +15863,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "売り切れ (bán hết hàng) đồng nghĩa với việc hàng đã bán hết hoàn toàn."
+              "explanation": "売り切れ (bán hết hàng) đồng nghĩa với việc hàng đã bán hết hoàn toàn.",
+              "underline": "売り切れました"
             },
             {
               "number": 27,
@@ -15774,7 +15879,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「カーブ」(đường cong/khúc cua) có nghĩa là con đường bị uốn cong (曲がって)."
+              "explanation": "Từ「カーブ」(đường cong/khúc cua) có nghĩa là con đường bị uốn cong (曲がって).",
+              "underline": "カーブして"
             },
             {
               "number": 28,
@@ -15789,7 +15895,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「退屈」(chán nản) đồng nghĩa với việc cảm thấy mọi thứ tẻ nhạt (つまらない)."
+              "explanation": "Từ「退屈」(chán nản) đồng nghĩa với việc cảm thấy mọi thứ tẻ nhạt (つまらない).",
+              "underline": "退屈だ"
             },
             {
               "number": 29,
@@ -15804,7 +15911,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「すぐに」có nghĩa là \"ngay lập tức\", phù hợp với ngữ cảnh đã đi đến cửa hàng ngay sau khi được giới thiệu trên TV."
+              "explanation": "Từ「すぐに」có nghĩa là \"ngay lập tức\", phù hợp với ngữ cảnh đã đi đến cửa hàng ngay sau khi được giới thiệu trên TV.",
+              "underline": "さっそく"
             },
             {
               "number": 30,
@@ -15819,7 +15927,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「大きい」có nghĩa là \"lớn/rộng\", giải thích lý do vì sao chiếc quần bị \"lỏng\" (ゆるい)."
+              "explanation": "Từ「大きい」có nghĩa là \"lớn/rộng\", giải thích lý do vì sao chiếc quần bị \"lỏng\" (ゆるい).",
+              "underline": "ゆるい"
             },
             {
               "number": 31,
@@ -15849,7 +15958,11 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「ひびく」có nghĩa là \"vang vọng\", phù hợp với ngữ cảnh âm thanh của tiếng hát vang vọng trong quảng trường."
+              "explanation": "Từ「ひびく」có nghĩa là \"vang vọng\", phù hợp với ngữ cảnh âm thanh của tiếng hát vang vọng trong quảng trường.",
+              "underlineForms": [
+                "ひびいて",
+                "ひびいた"
+              ]
             },
             {
               "number": 33,
@@ -15879,7 +15992,10 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Từ「あわてる」có nghĩa là \"vội vàng/cuống quýt\", phù hợp với tình huống ngủ dậy muộn nên phải vội vàng ra khỏi nhà."
+              "explanation": "Từ「あわてる」có nghĩa là \"vội vàng/cuống quýt\", phù hợp với tình huống ngủ dậy muộn nên phải vội vàng ra khỏi nhà.",
+              "underlineForms": [
+                "あわてて"
+              ]
             },
             {
               "number": 35,
@@ -17466,7 +17582,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "「検討する」(cân nhắc) có nghĩa tương đồng với「よく考える」(suy nghĩ kỹ)."
+              "explanation": "「検討する」(cân nhắc) có nghĩa tương đồng với「よく考える」(suy nghĩ kỹ).",
+              "underline": "検討して"
             },
             {
               "number": 27,
@@ -17481,7 +17598,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「企業」(doanh nghiệp) có nghĩa tương đồng với「会社」(công ty)."
+              "explanation": "「企業」(doanh nghiệp) có nghĩa tương đồng với「会社」(công ty).",
+              "underline": "企業"
             },
             {
               "number": 28,
@@ -17496,7 +17614,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "「バックする」(lùi lại) có nghĩa tương đồng với「後ろに下がる」(lùi về phía sau)."
+              "explanation": "「バックする」(lùi lại) có nghĩa tương đồng với「後ろに下がる」(lùi về phía sau).",
+              "underline": "バックして"
             },
             {
               "number": 29,
@@ -17511,7 +17630,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "「一流」(hàng đầu) có nghĩa tương đồng với「素晴らしい」(tuyệt vời)."
+              "explanation": "「一流」(hàng đầu) có nghĩa tương đồng với「素晴らしい」(tuyệt vời).",
+              "underline": "一流の"
             },
             {
               "number": 30,
@@ -17526,12 +17646,13 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "「ようやく」(sau bao cố gắng) có nghĩa tương đồng với「やっと」(cuối cùng thì)."
+              "explanation": "「ようやく」(sau bao cố gắng) có nghĩa tương đồng với「やっと」(cuối cùng thì).",
+              "underline": "ようやく"
             },
             {
               "number": 31,
               "problemGroup": "問題5",
-              "question": "修理のため、エアコンの内容を一度取り出します。",
+              "question": "内容",
               "options": [
                 "修理のため、エアコンの内容を一度取り出します。",
                 "鍋の中にカレーの内容を入れて、1時間くらい煮てください。",
@@ -17546,7 +17667,7 @@
             {
               "number": 32,
               "problemGroup": "問題5",
-              "question": "彼は有名なロック歌手だったが、今は活動していない。",
+              "question": "活動",
               "options": [
                 "彼は有名なロック歌手だったが、今は活動していない。",
                 "山に登ると、新鮮な空気が活動していて気持ちがいい。",
@@ -17561,7 +17682,7 @@
             {
               "number": 33,
               "problemGroup": "問題5",
-              "question": "この辺りは、冬になると雪が落ち着いて、春になるまで溶けません。",
+              "question": "落ち着く",
               "options": [
                 "この辺りは、冬になると雪が落ち着いて、春になるまで溶けません。",
                 "シャツにしみが落ち着いてしまって、洗ってもきれいになりません。",
@@ -17571,12 +17692,16 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "Từ '落ち着く' (ochitsuku) dùng để diễn tả trạng thái tâm lý bình tĩnh, ổn định."
+              "explanation": "Từ '落ち着く' (ochitsuku) dùng để diễn tả trạng thái tâm lý bình tĩnh, ổn định.",
+              "underlineForms": [
+                "落ち着いて",
+                "落ち着きます"
+              ]
             },
             {
               "number": 34,
               "problemGroup": "問題5",
-              "question": "遠慮しないで、ぐっすり食べてください。",
+              "question": "ぐっすり",
               "options": [
                 "遠慮しないで、ぐっすり食べてください。",
                 "優勝できたのは、毎日ぐっすり練習したからだと思う。",
@@ -17591,7 +17716,7 @@
             {
               "number": 35,
               "problemGroup": "問題5",
-              "question": "日本の古い性格に興味があるので、神社やお寺によく行きます。",
+              "question": "性格",
               "options": [
                 "日本の古い性格に興味があるので、神社やお寺によく行きます。",
                 "森さんはおとなしい性格で、自分の意見はあまり言いません。",
@@ -19173,7 +19298,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "苦労した (vất vả) đồng nghĩa với 大変だった."
+              "explanation": "苦労した (vất vả) đồng nghĩa với 大変だった.",
+              "underline": "苦労した"
             },
             {
               "number": 27,
@@ -19188,7 +19314,8 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "そっと (lặng lẽ, rón rén) đồng nghĩa với 静かに."
+              "explanation": "そっと (lặng lẽ, rón rén) đồng nghĩa với 静かに.",
+              "underline": "そっと"
             },
             {
               "number": 28,
@@ -19203,7 +19330,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "早退 (về sớm) đồng nghĩa với 早く帰った."
+              "explanation": "早退 (về sớm) đồng nghĩa với 早く帰った.",
+              "underline": "早退した"
             },
             {
               "number": 29,
@@ -19218,7 +19346,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "たった (trôi qua) đồng nghĩa với 過ぎました."
+              "explanation": "たった (trôi qua) đồng nghĩa với 過ぎました.",
+              "underline": "たちました"
             },
             {
               "number": 30,
@@ -19233,7 +19362,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "さまざまな (đa dạng) đồng nghĩa với いろいろな."
+              "explanation": "さまざまな (đa dạng) đồng nghĩa với いろいろな.",
+              "underline": "さまざまな"
             },
             {
               "number": 31,
@@ -20870,7 +21000,7 @@
             {
               "number": 26,
               "problemGroup": "問題4",
-              "question": "清潔なタオルで拭いてください。",
+              "question": "清潔なタオルを拭いてください。",
               "options": [
                 "柔らかい",
                 "ぬれた",
@@ -20880,7 +21010,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "清潔な (thanh khiết/sạch khô) tương đương với 乾いた (khô)."
+              "explanation": "清潔な (sạch sẽ) tương đương với きれいな (sạch, gọn gàng).",
+              "underline": "清潔な"
             },
             {
               "number": 27,
@@ -20895,7 +21026,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "さっき (vừa nãy) đồng nghĩa với 少し前に (một lúc trước)."
+              "explanation": "さっき (vừa nãy) đồng nghĩa với 少し前に (một lúc trước).",
+              "underline": "さっき"
             },
             {
               "number": 28,
@@ -20910,7 +21042,8 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "キッチン (kitchen) đồng nghĩa với 台所 (phòng bếp)."
+              "explanation": "キッチン (kitchen) đồng nghĩa với 台所 (phòng bếp).",
+              "underline": "キッチン"
             },
             {
               "number": 29,
@@ -20925,7 +21058,8 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "指導する (hướng dẫn/chỉ bảo) tương ứng với 教える (dạy/chỉ dẫn)."
+              "explanation": "指導する (hướng dẫn/chỉ bảo) tương ứng với 教える (dạy/chỉ dẫn).",
+              "underline": "指導して"
             },
             {
               "number": 30,
@@ -20940,7 +21074,8 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Mẫu「終わりにしましょう」dùng để đề nghị kết thúc công việc hoặc hoạt động đang thực hiện."
+              "explanation": "Mẫu「終わりにしましょう」dùng để đề nghị kết thúc công việc hoặc hoạt động đang thực hiện.",
+              "underline": "おしまいましょう"
             },
             {
               "number": 31,
@@ -20955,7 +21090,11 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "握る dùng khi nắm chặt tay ai (手を握る)."
+              "explanation": "握る dùng khi nắm chặt tay ai (手を握る).",
+              "underlineForms": [
+                "にぎった",
+                "にぎって"
+              ]
             },
             {
               "number": 32,

@@ -43,9 +43,20 @@ type Step =
   // storage by this point (submitPaper clears it), this is the only copy.
   | { name: "result"; entry: DeThiHistoryEntry; session: DeThiSession };
 
-// Real JLPT 文字・語彙 問題1/2 papers underline the exact word being tested
-// (kanji whose reading is asked, or hiragana to convert to kanji). Mirrors
-// that by wrapping the first occurrence of `underline` in the question text.
+// Real JLPT 文字・語彙 papers underline the exact word being tested: the
+// kanji/word in `question` for 問題1/2/4 (via the `underline` field), or --
+// for 問題5, where `question` IS the tested word itself -- that same word
+// wherever it occurs inside each of the 4 option sentences. Mirrors that by
+// wrapping the first occurrence of `underline` in the given text.
+// 問題5: `question` is the dictionary-form word being tested, but each
+// option sentence uses it inflected -- picks whichever candidate (the
+// dictionary form itself, or one of its listed inflected forms) actually
+// occurs in this particular option.
+function p5Underline(question: string, forms: string[] | undefined, opt: string): string | undefined {
+  if (opt.includes(question)) return question;
+  return forms?.find((f) => opt.includes(f));
+}
+
 function QuestionText({ text, underline }: { text: string; underline?: string }) {
   if (!underline) return <>{text}</>;
   const i = text.indexOf(underline);
@@ -659,7 +670,10 @@ function TakingView({
                 >
                   {oi + 1}
                 </span>
-                {opt}
+                <QuestionText
+                  text={opt}
+                  underline={q.problemGroup === "問題5" ? p5Underline(q.question, q.underlineForms, opt) : undefined}
+                />
               </button>
             ))}
           </div>
@@ -695,7 +709,20 @@ function TakingView({
         >
           <ChevronRight size={18} />
         </button>
-      ) : null}
+      ) : (
+        // Ở câu cuối cùng không còn nút "Câu sau" -- thay bằng nút nộp bài nổi
+        // ở đúng vị trí đó, vì nút nộp bài ở header thường đã cuộn khỏi màn hình.
+        <button
+          onClick={async () => {
+            if (!allAnswered && !(await confirm(`Còn ${session.answers.filter((a) => a === null).length} câu chưa trả lời. Vẫn nộp bài?`))) return;
+            finish();
+          }}
+          aria-label="Nộp bài"
+          className="fixed right-4 bottom-36 z-20 flex h-10 items-center gap-1.5 rounded-full bg-emerald-600 px-4 text-sm font-semibold text-white shadow-lg active:bg-emerald-700 md:hidden"
+        >
+          <Check size={16} /> Nộp bài
+        </button>
+      )}
     </div>
   );
 }
@@ -798,7 +825,10 @@ function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["quest
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
                   {oi + 1}
                 </span>
-                {opt}
+                <QuestionText
+                  text={opt}
+                  underline={question.problemGroup === "問題5" ? p5Underline(question.question, question.underlineForms, opt) : undefined}
+                />
               </div>
             );
           })}
