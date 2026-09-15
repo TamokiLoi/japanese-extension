@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw } from "lucide-react";
+import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
 import {
   ALL_EXAMS,
@@ -14,6 +14,7 @@ import {
   submitPaper,
   getExamSummary,
   clearHistoryForPaper,
+  loadHistoryForPaper,
   type DeThiSession,
   type DeThiHistoryEntry,
   type DeThiPaperSummary,
@@ -37,11 +38,13 @@ type Step =
   | { name: "examList" }
   | { name: "examDetail"; examId: string }
   | { name: "taking"; session: DeThiSession }
-  // Keeps the just-finished session (not just the aggregate entry) so the
-  // result view can show per-question correct/wrong without needing to
-  // re-derive or re-fetch anything -- the session is already gone from
-  // storage by this point (submitPaper clears it), this is the only copy.
-  | { name: "result"; entry: DeThiHistoryEntry; session: DeThiSession };
+  // "answers" instead of the full DeThiSession -- this same step now serves
+  // two entry points: just-finished (session.answers, already in memory)
+  // and reopened from Lịch sử (a past DeThiHistoryEntry.answers, loaded from
+  // storage) -- neither needs the rest of DeThiSession (deadlineAt etc).
+  // backTo picks where the top-left back arrow and "về..." button return to.
+  | { name: "result"; entry: DeThiHistoryEntry; answers: (number | null)[]; backTo: "examDetail" | "history" }
+  | { name: "history"; examId: string; paperId: string };
 
 // Real JLPT 文字・語彙 papers underline the exact word being tested: the
 // kanji/word in `question` for 問題1/2/4 (via the `underline` field), or --
@@ -147,7 +150,7 @@ export function DeThiScreen({
         // auto-submit instead of silently discarding the attempt.
         if (found) {
           const entry = await submitPaper(session);
-          if (!cancelled) setStep({ name: "result", entry, session });
+          if (!cancelled) setStep({ name: "result", entry, answers: session.answers, backTo: "examDetail" });
           return;
         }
         await clearDeThiSession();
@@ -176,6 +179,7 @@ export function DeThiScreen({
         exam={exam}
         onBack={() => setStep({ name: "examList" })}
         onStart={(paper, practiceMode) => setStep({ name: "taking", session: startPaperAttempt(exam.id, paper, practiceMode) })}
+        onOpenHistory={(paper) => setStep({ name: "history", examId: exam.id, paperId: paper.id })}
         onNavigate={onNavigate}
       />
     );
@@ -185,16 +189,31 @@ export function DeThiScreen({
       <TakingView
         session={step.session}
         onSessionChange={(session) => setStep({ name: "taking", session })}
-        onFinish={(entry, finishedSession) => setStep({ name: "result", entry, session: finishedSession })}
+        onFinish={(entry, finishedSession) => setStep({ name: "result", entry, answers: finishedSession.answers, backTo: "examDetail" })}
         onBack={() => setStep({ name: "examDetail", examId: step.session.examId })}
+      />
+    );
+  }
+  if (step.name === "history") {
+    return (
+      <HistoryListView
+        examId={step.examId}
+        paperId={step.paperId}
+        onBack={() => setStep({ name: "examDetail", examId: step.examId })}
+        onOpenAttempt={(entry) => setStep({ name: "result", entry, answers: entry.answers ?? [], backTo: "history" })}
       />
     );
   }
   return (
     <ResultView
       entry={step.entry}
-      session={step.session}
-      onBackToExam={() => setStep({ name: "examDetail", examId: step.entry.examId })}
+      answers={step.answers}
+      onBack={() =>
+        step.backTo === "history"
+          ? setStep({ name: "history", examId: step.entry.examId, paperId: step.entry.paperId })
+          : setStep({ name: "examDetail", examId: step.entry.examId })
+      }
+      backLabel={step.backTo === "history" ? "Về lịch sử" : "Về danh sách đề"}
       onRetry={() => {
         const found = findPaper(step.entry.examId, step.entry.paperId);
         if (!found) {
@@ -301,11 +320,13 @@ function ExamDetailView({
   exam,
   onBack,
   onStart,
+  onOpenHistory,
   onNavigate,
 }: {
   exam: DeThiExam;
   onBack: () => void;
   onStart: (paper: DeThiPaper, practiceMode?: boolean) => void;
+  onOpenHistory: (paper: DeThiPaper) => void;
   onNavigate?: (screen: Screen, id?: string) => void;
 }) {
   const confirm = useConfirm();
@@ -402,6 +423,15 @@ function ExamDetailView({
                   >
                     Ôn tập
                   </Button>
+                ) : null}
+                {s && s.attempts > 0 ? (
+                  <button
+                    title="Xem lịch sử làm bài, xem lại từng câu của mỗi lần làm"
+                    onClick={() => onOpenHistory(paper)}
+                    className="flex w-10 shrink-0 items-center justify-center rounded-lg border border-neutral-200 text-neutral-500 hover:bg-neutral-50 hover:text-rose-600"
+                  >
+                    <History size={15} />
+                  </button>
                 ) : null}
                 {s && s.attempts > 0 ? (
                   <button
@@ -729,17 +759,23 @@ function TakingView({
 
 function ResultView({
   entry,
-  session,
-  onBackToExam,
+  answers,
+  onBack,
+  backLabel,
   onRetry,
 }: {
   entry: DeThiHistoryEntry;
-  session: DeThiSession;
-  onBackToExam: () => void;
+  answers: (number | null)[];
+  onBack: () => void;
+  backLabel: string;
   onRetry: () => void;
 }) {
   const found = findPaper(entry.examId, entry.paperId);
   const [reviewIndex, setReviewIndex] = useState<number | null>(null);
+  // Entries saved before DeThiHistoryEntry.answers existed have none -- the
+  // score summary above still renders fine, just skip the per-question
+  // palette/review instead of showing it against an empty array.
+  const hasAnswers = answers.length > 0;
 
   return (
     <div className="mx-auto max-w-2xl px-2.5 py-2 text-center md:px-8 md:py-6">
@@ -757,33 +793,100 @@ function ResultView({
       </div>
 
       <div className="mt-8 flex gap-2">
-        <Button variant="outline" className="flex-1" onClick={onBackToExam}>
-          Về danh sách đề
+        <Button variant="outline" className="flex-1" onClick={onBack}>
+          {backLabel}
         </Button>
         <Button className="flex-1" onClick={onRetry}>
           Làm lại
         </Button>
       </div>
 
-      {found ? (
+      {found && hasAnswers ? (
         <div className="mt-8 text-left">
           <QuestionPalette
             defaultOpen
-            summary={`${entry.correctCount} đúng · ${entry.totalQuestions - entry.correctCount - session.answers.filter((a) => a === null).length} sai${
-              session.answers.some((a) => a === null) ? ` · ${session.answers.filter((a) => a === null).length} chưa làm` : ""
+            summary={`${entry.correctCount} đúng · ${entry.totalQuestions - entry.correctCount - answers.filter((a) => a === null).length} sai${
+              answers.some((a) => a === null) ? ` · ${answers.filter((a) => a === null).length} chưa làm` : ""
             } — bấm 1 câu để xem lại`}
             onJump={(i) => setReviewIndex(i)}
             items={found.paper.questions.map((q, i) => {
-              const a = session.answers[i];
+              const a = answers[i];
               const status: PaletteStatus = a === null ? "unanswered" : a === q.correctIndex ? "correct" : "wrong";
               return { id: String(q.number), status };
             })}
           />
           {reviewIndex !== null ? (
-            <ReviewQuestion question={found.paper.questions[reviewIndex]} chosenIndex={session.answers[reviewIndex]} />
+            <ReviewQuestion question={found.paper.questions[reviewIndex]} chosenIndex={answers[reviewIndex]} />
           ) : null}
         </div>
+      ) : found ? (
+        <p className="mt-8 text-sm text-neutral-400">Lần làm này không có dữ liệu chi tiết từng câu để xem lại.</p>
       ) : null}
+    </div>
+  );
+}
+
+function HistoryListView({
+  examId,
+  paperId,
+  onBack,
+  onOpenAttempt,
+}: {
+  examId: string;
+  paperId: string;
+  onBack: () => void;
+  onOpenAttempt: (entry: DeThiHistoryEntry) => void;
+}) {
+  const found = findPaper(examId, paperId);
+  const [attempts, setAttempts] = useState<DeThiHistoryEntry[] | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadHistoryForPaper(examId, paperId).then((h) => {
+      if (!cancelled) setAttempts(h);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [examId, paperId]);
+
+  if (!found) return <div className="p-6 text-neutral-400">Không tìm thấy đề này.</div>;
+
+  return (
+    <div className="mx-auto max-w-2xl px-2.5 py-2 md:px-8 md:py-6">
+      <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
+        <ChevronLeft size={15} /> {found.exam.examLabel}
+      </button>
+      <h1 className="mt-1.5 text-lg font-bold text-neutral-800">Lịch sử · {found.paper.label}</h1>
+
+      {attempts === null ? (
+        <LoadingScreen />
+      ) : attempts.length === 0 ? (
+        <p className="mt-6 text-sm text-neutral-400">Chưa có lần làm nào.</p>
+      ) : (
+        <div className="mt-4 flex flex-col gap-2">
+          {attempts.map((a, i) => (
+            <button
+              key={a.finishedAt}
+              onClick={() => onOpenAttempt(a)}
+              className="flex items-center justify-between gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left hover:bg-neutral-50"
+            >
+              <div>
+                <div className="text-sm font-semibold text-neutral-800">
+                  Lần {attempts.length - i} · {new Date(a.finishedAt).toLocaleString("vi-VN")}
+                </div>
+                <div className="mt-0.5 text-xs text-neutral-500">
+                  {a.correctCount}/{a.totalQuestions} câu đúng · {formatDuration(a.durationSec)}
+                  {!a.answers ? " · không có dữ liệu xem lại" : ""}
+                </div>
+              </div>
+              <div className={`text-xl font-extrabold ${a.percent >= 80 ? "text-emerald-600" : a.percent >= 50 ? "text-amber-600" : "text-rose-600"}`}>
+                {a.percent}%
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

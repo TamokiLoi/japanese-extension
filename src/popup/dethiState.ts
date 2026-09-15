@@ -2,6 +2,8 @@ import dethiImoRaw from "../data/dethi-n3-imo-26bo.json";
 import dethiCacNamRaw from "../data/dethi-n3-cac-nam.json";
 import type { DeThiDataset, DeThiExam, DeThiPaper } from "../types/dethi.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
+import { findBunpoForText } from "./bunpoLinks.ts";
+import { setFlagged } from "./progressState.ts";
 
 const imoDataset = dethiImoRaw as unknown as DeThiDataset;
 const cacNamDataset = dethiCacNamRaw as unknown as DeThiDataset;
@@ -103,6 +105,12 @@ export interface DeThiHistoryEntry {
   totalQuestions: number;
   durationSec: number;
   finishedAt: number;
+  // Per-question chosen index, same shape/order as DeThiSession.answers --
+  // lets the history list reopen ReviewQuestion for an OLD attempt, not just
+  // the one just submitted. Optional only because entries saved before this
+  // field existed don't have it (those still show in the list, just without
+  // a working "xem lại" for that one attempt).
+  answers?: (number | null)[];
 }
 
 const DETHI_HISTORY_KEY = "dethiHistory";
@@ -126,6 +134,15 @@ async function appendHistory(entry: DeThiHistoryEntry): Promise<void> {
   const history = await loadDeThiHistory();
   const next = [...history, entry].slice(-DETHI_HISTORY_MAX);
   await storageSet(DETHI_HISTORY_KEY, next);
+}
+
+// Newest-first attempts for one paper, for the "Lịch sử" list -- separate
+// from loadDeThiHistory (which returns oldest-first, insertion order) since
+// every existing caller of that one only ever aggregates (max/count), so
+// changing its order would be a silent behavior change for them.
+export async function loadHistoryForPaper(examId: string, paperId: string): Promise<DeThiHistoryEntry[]> {
+  const history = await loadDeThiHistory();
+  return history.filter((h) => h.examId === examId && h.paperId === paperId).sort((a, b) => b.finishedAt - a.finishedAt);
 }
 
 export async function getBestForPaper(examId: string, paperId: string): Promise<number | null> {
@@ -185,9 +202,36 @@ export async function submitPaper(session: DeThiSession): Promise<DeThiHistoryEn
     totalQuestions: paper.questions.length,
     durationSec: Math.round((Date.now() - session.startedAt) / 1000),
     finishedAt: Date.now(),
+    answers: session.answers,
   };
 
   if (!session.practiceMode) await appendHistory(entry);
+  if (session.paperId === "bunpou-dokkai") await flagWrongGrammar(paper, session.answers);
   await clearDeThiSession();
   return entry;
+}
+
+// A wrong 問題1/2 answer (grammar cloze / sentence-reorder -- the two
+// problemGroups where the correct option IS a grammar pattern, unlike
+// 問題3-7's cloze-paragraph/reading-comprehension questions) auto-flags the
+// matching Bunpo card as "cần ôn lại" so it surfaces in Ôn tập, the same way
+// 3 wrong Quiz drills in a row would -- except here 1 wrong exam answer is
+// enough, since missing it on a real past exam is a stronger signal than a
+// single quiz slip. Only acts on an unambiguous single catalog match
+// (findBunpoForText) -- a question whose correct-answer text matches 0 or
+// 2+ grammar points is silently skipped rather than guessed at.
+async function flagWrongGrammar(paper: DeThiPaper, answers: (number | null)[]): Promise<void> {
+  const targets: string[] = [];
+  paper.questions.forEach((q, i) => {
+    if (q.problemGroup !== "問題1" && q.problemGroup !== "問題2") return;
+    if (answers[i] === null || answers[i] === q.correctIndex) return;
+    // Match against just the correct option's own text, not question+option
+    // together -- the surrounding sentence is full of common incidental
+    // words (について/と思う/ていく...) that are themselves real (but
+    // unrelated) catalog patterns, so including it turns an otherwise clean
+    // single match into a multi-match ambiguity almost every time.
+    const g = findBunpoForText(q.options[q.correctIndex], "N3");
+    if (g) targets.push(g.id);
+  });
+  for (const id of new Set(targets)) await setFlagged(id, true);
 }

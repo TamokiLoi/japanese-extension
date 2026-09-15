@@ -176,7 +176,21 @@ export async function markViewed(id: string): Promise<void> {
 export async function toggleFlag(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
-  cur.flagged = !cur.flagged;
+  return setFlaggedOn(map, id, cur, !cur.flagged);
+}
+
+// Unconditional version of toggleFlag for callers that know which way they
+// want the flag set (e.g. DeThi auto-flagging a grammar card after a wrong
+// exam answer) -- calling toggleFlag there would un-flag a card that was
+// already flagged instead of leaving it flagged.
+export async function setFlagged(id: string, flagged: boolean): Promise<ItemProgress> {
+  const map = await loadProgressMap();
+  const cur = { ...(map[id] ?? defaultProgress()) };
+  return setFlaggedOn(map, id, cur, flagged);
+}
+
+async function setFlaggedOn(map: ProgressMap, id: string, cur: ItemProgress, flagged: boolean): Promise<ItemProgress> {
+  cur.flagged = flagged;
   if (cur.flagged) {
     cur.mastered = false;
     cur.dueAt = undefined;

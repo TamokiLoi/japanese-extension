@@ -14,6 +14,29 @@ export function findBunpoByPattern(pattern: string, level: BunpoGrammarPoint["le
   return ALL_BUNPO.find((g) => g.pattern === pattern && g.level === level);
 }
 
+// Same fuzzy chunk-substring test as findMatchingReadingPassages/
+// findMatchingQuizBookQuestions below, but for a single piece of text
+// (typically just a DeThi grammar question's correct-option text, not the
+// whole sentence -- the surrounding sentence is full of common incidental
+// words that are themselves real but unrelated patterns, e.g. について/
+// と思う, which turn an otherwise clean match into a false ambiguity)
+// instead of scanning a whole corpus -- and stricter: only returns a card when
+// exactly one catalog pattern matches. A raw exam option almost never
+// equals a catalog `pattern` string literally (patterns are dictionary-style,
+// often bundling several related forms into one entry, e.g.
+// "〜てあげる・〜てもらう・〜てくれる"), so literal equality would essentially
+// never fire; this chunk-based test is the established substitute already
+// used elsewhere in this file. Ambiguous (0 or 2+) matches return undefined
+// rather than guessing, since an auto-flag caller has no human to disambiguate.
+export function findBunpoForText(text: string, level: BunpoGrammarPoint["level"]): BunpoGrammarPoint | undefined {
+  const matches = ALL_BUNPO.filter((g) => {
+    if (g.level !== level) return false;
+    const chunks = extractMatchChunks(g.pattern);
+    return chunks.length > 0 && textContainsAllChunks(text, chunks);
+  });
+  return matches.length === 1 ? matches[0] : undefined;
+}
+
 const MAX_MATCHES = 5;
 
 // Turns a grammar pattern like "〜ば〜ほど" or "〜そうだ（伝聞）" into the plain-kana
