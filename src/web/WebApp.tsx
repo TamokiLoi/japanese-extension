@@ -167,6 +167,7 @@ export function WebApp() {
         onOpenReading={(passageId) => go("reading", passageId)}
         onOpenQuizBook={(questionId) => go("quizBook", questionId)}
         onOpenQuiz={() => go("quiz")}
+        onOpenVocab={(vocabId) => go("vocab", vocabId)}
         jumpToId={targetId}
         onCurrentItemChange={syncCurrentItem}
       />

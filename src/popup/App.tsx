@@ -156,6 +156,7 @@ export function App() {
         onOpenKanji={(kanjiId) => navigate("kanji", kanjiId)}
         onOpenReading={() => navigate("reading")}
         onOpenQuizBook={() => navigate("quizBook")}
+        onOpenVocab={(vocabId) => navigate("vocab", vocabId)}
         jumpToId={targetId}
       />
     );

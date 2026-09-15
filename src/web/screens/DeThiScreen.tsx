@@ -67,7 +67,7 @@ function QuestionText({ text, underline }: { text: string; underline?: string })
   return (
     <>
       {text.slice(0, i)}
-      <span className="underline decoration-2 underline-offset-2">{underline}</span>
+      <span className="underline decoration-2 underline-offset-2 whitespace-nowrap">{underline}</span>
       {text.slice(i + underline.length)}
     </>
   );

@@ -277,6 +277,11 @@ body.web-shell.tab-mode #app {
   color: #b5340a;
 }
 
+.english-gloss {
+  color: #737373;
+  font-style: italic;
+}
+
 .muted {
   color: #999;
 }

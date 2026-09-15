@@ -16,6 +16,7 @@ import {
   loadViewerState,
   saveViewerState,
   resolveJumpState,
+  findVocabByWordReading,
   type VocabCard,
   type VocabSource,
   type VocabViewerState,
@@ -154,6 +155,7 @@ export function VocabScreen({
   onOpenReading,
   onOpenQuizBook,
   onOpenQuiz,
+  onOpenVocab,
   jumpToId,
   onCurrentItemChange,
 }: {
@@ -161,6 +163,7 @@ export function VocabScreen({
   onOpenReading: (passageId: string) => void;
   onOpenQuizBook: (questionId: string) => void;
   onOpenQuiz: () => void;
+  onOpenVocab: (vocabId: string) => void;
   jumpToId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
 }) {
@@ -642,6 +645,12 @@ export function VocabScreen({
             ) : null}
             <dt className="text-neutral-400">Nghĩa</dt>
             <dd className="text-neutral-800">{v.meaningVi || "—"}</dd>
+            {v.english ? (
+              <>
+                <dt className="text-neutral-400">Tiếng Anh</dt>
+                <dd className="text-neutral-500 italic">{v.english}</dd>
+              </>
+            ) : null}
             {v.synonym ? (
               <>
                 <dt className="text-neutral-400">Đồng nghĩa</dt>
@@ -651,15 +660,32 @@ export function VocabScreen({
                 </dd>
               </>
             ) : null}
-            {v.pairVerb ? (
-              <>
-                <dt className="text-neutral-400">{v.transitivity === "Tự động từ" ? "Tha động từ tương ứng" : "Tự động từ tương ứng"}</dt>
-                <dd className="text-neutral-800">
-                  {v.pairVerb.word}
-                  {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
-                </dd>
-              </>
-            ) : null}
+            {v.pairVerb
+              ? (() => {
+                  const target = findVocabByWordReading(v.pairVerb.word, v.pairVerb.reading);
+                  return (
+                    <>
+                      <dt className="text-neutral-400">{v.transitivity === "Tự động từ" ? "Tha động từ" : "Tự động từ"}</dt>
+                      <dd className="text-neutral-800">
+                        {target ? (
+                          <button
+                            onClick={() => onOpenVocab(target.id)}
+                            className="cursor-pointer font-medium text-rose-600 decoration-dotted decoration-2 underline-offset-4 hover:underline"
+                          >
+                            {v.pairVerb.word}
+                            {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                          </button>
+                        ) : (
+                          <>
+                            {v.pairVerb.word}
+                            {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                          </>
+                        )}
+                      </dd>
+                    </>
+                  );
+                })()
+              : null}
           </dl>
 
           {v.mnemonic.length > 0 ? (

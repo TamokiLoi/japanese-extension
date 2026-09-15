@@ -45,6 +45,10 @@ export interface TanoshiiVocabWord {
   verbGroup?: string;
   transitivity?: string;
   conjugations?: VerbConjugations;
+  // Nghĩa tiếng Anh gốc -- chủ yếu có ích với từ katakana (mượn từ tiếng
+  // Anh) để người học thấy rõ từ gốc. Optional vì hầu hết nguồn dữ liệu
+  // (OCR sách giấy) không có sẵn field này.
+  english?: string;
 }
 
 export interface TanoshiiVocabDataset {

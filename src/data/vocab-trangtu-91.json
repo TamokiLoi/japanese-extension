@@ -3,7 +3,7 @@
     "schemaVersion": "1.0",
     "generatedAt": "2026-09-12T14:32:25.891Z",
     "counts": {
-      "words": 171
+      "words": 175
     },
     "sources": {
       "book": "91 trạng từ tiếng Nhật thường dùng",
@@ -14,7 +14,9 @@
       "Bo sung 85 tu tu assets/data/tu-vung/pho-tu-thuong-dung (Kosei Nihongo, Thu Huong Sensei), da doi chieu trung voi 91 tu goc (25 trung, bo qua). Level do Gemini tu phan loai.",
       "Da bo sung STT 91-100 tu anh 17 (nguoi dung chup them) -- 3/10 tu da trung voi bo 91 goc (gioi thieu), 7 tu moi.",
       "Da don lai 32 entry bi loi dinh dang word chua ca phan (kanji/kana) trong ngoac tu lan gop truoc.",
-      "Da xoa 12 entry trung lap thuc su (cung word, khac id) phat sinh do bug so sanh dedup luc gop Kosei (word con giu format \"tu (kanji)\" nen khong khop voi word da co) -- giu lai entry co id thap hon (id goc). Rieng \"mada\" (2 entry N5, 2 nghia \"van chua\"/\"van con\") la du lieu goc tu truoc, khong dong."
+      "Da xoa 12 entry trung lap thuc su (cung word, khac id) phat sinh do bug so sanh dedup luc gop Kosei (word con giu format \"tu (kanji)\" nen khong khop voi word da co) -- giu lai entry co id thap hon (id goc). Rieng \"mada\" (2 entry N5, 2 nghia \"van chua\"/\"van con\") la du lieu goc tu truoc, khong dong.",
+      "Bo sung thu cong tu id 184 (仕方ない): tu nay khong xuat hien trong bat ky bo vocab nguon nao (N1-N5) du dung nhieu trong doc hieu/nghe N3, nguoi dung yeu cau them vao muc trang tu.",
+      "Bo sung thu cong id 185-187 (少し前に, 少し遅れて, 急いで) theo yeu cau nguoi dung. 急いで da co san trong tango-new (N5, source rieng) -- entry o day chi de no cung xuat hien duoi source \"Trang tu thuong dung\", mergeDuplicateVocab() se gop lai thanh 1 the duy nhat theo word+reading."
     ]
   },
   "words": [
@@ -2103,6 +2105,58 @@
       "mnemonic": [],
       "example": "日本語はさっぱり分かりません。",
       "exampleVi": "Tôi hoàn toàn không hiểu tiếng Nhật."
+    },
+    {
+      "id": "trangtu91-184",
+      "word": "仕方ない",
+      "reading": "しかたない",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [
+        "SĨ PHƯƠNG"
+      ],
+      "meaningVi": "Đành chịu, không còn cách nào khác, chẳng thể làm gì được (dạng trạng từ hóa: 仕方なく = một cách bất đắc dĩ, đành phải)",
+      "mnemonic": [],
+      "example": "電車が止まってしまったので、仕方なく歩いて帰った。",
+      "exampleVi": "Vì tàu điện dừng nên tôi đành phải đi bộ về nhà."
+    },
+    {
+      "id": "trangtu91-185",
+      "word": "少し前に",
+      "reading": "すこしまえに",
+      "level": "N4",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Một chút trước đây, cách đây không lâu.",
+      "mnemonic": [],
+      "example": "少し前に田中さんから電話がありました。",
+      "exampleVi": "Cách đây một chút, anh Tanaka đã gọi điện đến."
+    },
+    {
+      "id": "trangtu91-186",
+      "word": "少し遅れて",
+      "reading": "すこしおくれて",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [],
+      "meaningVi": "Hơi trễ một chút, muộn một chút.",
+      "mnemonic": [],
+      "example": "電車が少し遅れて駅に着いた。",
+      "exampleVi": "Tàu điện đã đến ga trễ một chút."
+    },
+    {
+      "id": "trangtu91-187",
+      "word": "急いで",
+      "reading": "いそいで",
+      "level": "N5",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [
+        "CẤP"
+      ],
+      "meaningVi": "Vội vàng, gấp gáp, vội vã mà (làm gì đó).",
+      "mnemonic": [],
+      "example": "遅れそうだったので急いで駅へ向かった。",
+      "exampleVi": "Vì có vẻ sắp trễ nên tôi đã vội vã đi tới ga."
     }
   ]
 }

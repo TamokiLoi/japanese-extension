@@ -11,6 +11,7 @@ import {
   loadViewerState,
   saveViewerState,
   resolveJumpState,
+  findVocabByWordReading,
   type VocabCard,
   type VocabSource,
   type VocabViewerState,
@@ -76,12 +77,14 @@ export function VocabScreen({
   onOpenKanji,
   onOpenReading,
   onOpenQuizBook,
+  onOpenVocab,
   jumpToId,
 }: {
   onBack: () => void;
   onOpenKanji: (kanjiId: string) => void;
   onOpenReading: () => void;
   onOpenQuizBook: () => void;
+  onOpenVocab: (vocabId: string) => void;
   jumpToId?: string;
 }) {
   const [state, setState] = useState<VocabViewerState | null>(null);
@@ -397,6 +400,13 @@ export function VocabScreen({
             <dt>Nghĩa</dt>
             <dd>{v.meaningVi || "—"}</dd>
 
+            {v.english ? (
+              <>
+                <dt>Tiếng Anh</dt>
+                <dd className="english-gloss">{v.english}</dd>
+              </>
+            ) : null}
+
             {v.synonym ? (
               <>
                 <dt>Đồng nghĩa</dt>
@@ -406,15 +416,29 @@ export function VocabScreen({
                 </dd>
               </>
             ) : null}
-            {v.pairVerb ? (
-              <>
-                <dt>{v.transitivity === "Tự động từ" ? "Tha động từ tương ứng" : "Tự động từ tương ứng"}</dt>
-                <dd>
-                  {v.pairVerb.word}
-                  {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
-                </dd>
-              </>
-            ) : null}
+            {v.pairVerb
+              ? (() => {
+                  const target = findVocabByWordReading(v.pairVerb.word, v.pairVerb.reading);
+                  return (
+                    <>
+                      <dt>{v.transitivity === "Tự động từ" ? "Tha động từ" : "Tự động từ"}</dt>
+                      <dd>
+                        {target ? (
+                          <span className="word-kanji-link" onClick={() => onOpenVocab(target.id)}>
+                            {v.pairVerb.word}
+                            {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                          </span>
+                        ) : (
+                          <>
+                            {v.pairVerb.word}
+                            {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                          </>
+                        )}
+                      </dd>
+                    </>
+                  );
+                })()
+              : null}
           </dl>
 
           {v.mnemonic.length > 0 ? (

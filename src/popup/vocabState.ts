@@ -67,6 +67,9 @@ export interface VocabCard {
   verbGroup?: string;
   transitivity?: string;
   conjugations?: VerbConjugations;
+  // Nghĩa tiếng Anh gốc, hữu ích nhất với từ katakana -- chỉ có ở nguồn nào
+  // giữ lại field này (hiện chỉ tango-new, xem fromTanoshiiVocab).
+  english?: string;
 }
 
 export const SOURCE_LABELS: Record<VocabSource, string> = {
@@ -186,6 +189,7 @@ function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): 
     verbGroup: w.verbGroup,
     transitivity: w.transitivity,
     conjugations: w.conjugations,
+    english: w.english,
   }));
 }
 
@@ -308,6 +312,7 @@ function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
       verbGroup: pick((c) => c.verbGroup, (v: string) => !v),
       transitivity: pick((c) => c.transitivity, (v: string) => !v),
       conjugations: pick((c) => c.conjugations, (v: VerbConjugations) => !v || Object.keys(v).length === 0),
+      english: pick((c) => c.english, (v: string) => !v),
     });
   }
   return merged;
@@ -348,6 +353,14 @@ export function countForLevel(level: JlptLevel): number {
 const VOCAB_BY_ID = new Map(ALL_VOCAB.map((v) => [v.id, v]));
 export function findVocabById(id: string): VocabCard | undefined {
   return VOCAB_BY_ID.get(id);
+}
+
+// Used to resolve a bare {word, reading} reference (pairVerb, synonym) back
+// to the VocabCard/id that holds it, so it can be rendered as a jump link
+// instead of inert text -- see resolveJumpState for the actual navigation.
+const VOCAB_BY_WORD_READING = new Map(ALL_VOCAB.map((v) => [`${v.word}|${v.reading ?? ""}`, v]));
+export function findVocabByWordReading(word: string, reading: string | null): VocabCard | undefined {
+  return VOCAB_BY_WORD_READING.get(`${word}|${reading ?? ""}`);
 }
 
 export interface VocabViewerState {
