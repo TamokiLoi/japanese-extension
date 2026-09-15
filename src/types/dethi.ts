@@ -20,6 +20,10 @@ export interface DeThiQuestion {
   // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,
   // trích ý đoạn văn cho câu đọc hiểu).
   explanation?: string;
+  // Set only on 文字・語彙 問題1/問題2 (kanji reading / kanji writing) --
+  // the exact substring of `question` that the real paper prints underlined
+  // (the word being tested). UI renders it bold+underlined instead of plain.
+  underline?: string;
   // Set only on a 聴解 (listening) paper whose options are illustrations
   // rather than text (e.g. real JLPT Mondai1/4 picture choices) -- path
   // resolved via assetUrl(), same convention as ListeningQuestion.optionsImage

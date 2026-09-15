@@ -43,6 +43,22 @@ type Step =
   // storage by this point (submitPaper clears it), this is the only copy.
   | { name: "result"; entry: DeThiHistoryEntry; session: DeThiSession };
 
+// Real JLPT 文字・語彙 問題1/2 papers underline the exact word being tested
+// (kanji whose reading is asked, or hiragana to convert to kanji). Mirrors
+// that by wrapping the first occurrence of `underline` in the question text.
+function QuestionText({ text, underline }: { text: string; underline?: string }) {
+  if (!underline) return <>{text}</>;
+  const i = text.indexOf(underline);
+  if (i === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, i)}
+      <span className="underline decoration-2 underline-offset-2">{underline}</span>
+      {text.slice(i + underline.length)}
+    </>
+  );
+}
+
 function paperIcon(paperId: string) {
   if (paperId.includes("moji") || paperId.includes("goi")) return BookOpenText;
   if (paperId.includes("choukai") || paperId.includes("listening")) return Headphones;
@@ -605,7 +621,9 @@ function TakingView({
           <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{q.passage}</div>
         ) : null}
 
-        <div className="mt-4 text-lg leading-relaxed font-semibold text-neutral-800">{q.question}</div>
+        <div className="mt-4 text-lg leading-relaxed font-semibold text-neutral-800">
+          <QuestionText text={q.question} underline={q.underline} />
+        </div>
 
         {q.optionsImage ? (
           <>
@@ -750,7 +768,9 @@ function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["quest
       {question.passage ? (
         <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{question.passage}</div>
       ) : null}
-      <div className="mt-3 text-base font-semibold text-neutral-800">{question.question}</div>
+      <div className="mt-3 text-base font-semibold text-neutral-800">
+        <QuestionText text={question.question} underline={question.underline} />
+      </div>
       {question.optionsImage ? (
         <>
           <img src={assetUrl(question.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-3 w-full rounded-lg border border-neutral-200" />
