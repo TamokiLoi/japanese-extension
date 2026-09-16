@@ -16,6 +16,7 @@ import tuGhepDongtuRaw from "../data/vocab-tu-ghep-dongtu.json";
 import tangoNewRaw from "../data/vocab-tango-new.json";
 import doicapTudongtuRaw from "../data/vocab-doicap-tudongtu.json";
 import dongnghiaKoseiRaw from "../data/vocab-dongnghia-n3-kosei.json";
+import jlptN3DethiRaw from "../data/vocab-jlpt-n3-dethi.json";
 import type {
   TanoshiiVocabDataset,
   MimikaraDataset,
@@ -42,7 +43,8 @@ export type VocabSource =
   | "tu-ghep-dongtu"
   | "tango-new"
   | "doicap-tudongtu"
-  | "dongnghia-n3-kosei";
+  | "dongnghia-n3-kosei"
+  | "jlpt-n3-dethi";
 
 export interface VocabCard {
   id: string;
@@ -88,6 +90,7 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "tango-new": "Tango bổ sung",
   "doicap-tudongtu": "100 cặp Tự-Tha động từ",
   "dongnghia-n3-kosei": "Từ đồng nghĩa N3 (Kosei)",
+  "jlpt-n3-dethi": "JLPT-N3",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -107,6 +110,7 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "tango-new",
   "doicap-tudongtu",
   "dongnghia-n3-kosei",
+  "jlpt-n3-dethi",
 ];
 
 // Gộp hiển thị cho bộ lọc "Nguồn" -- KHÔNG đổi VocabSource gốc (vẫn giữ
@@ -171,6 +175,9 @@ const dongtuHinxu280Dataset = dongtuHinxu280Raw as unknown as TanoshiiVocabDatas
 const dongtuExtraDataset = dongtuExtraRaw as unknown as TanoshiiVocabDataset;
 const tuGhepDongtuDataset = tuGhepDongtuRaw as unknown as TanoshiiVocabDataset;
 const tangoNewDataset = tangoNewRaw as unknown as TanoshiiVocabDataset;
+// Từ vựng quét ra từ 13 đề N3 thật (2019-2025) -- xuất hiện trong câu hỏi/đáp
+// án phần 文字・語彙 nhưng chưa có ở bất kỳ nguồn nào khác (kể cả dạng な/する).
+const jlptN3DethiDataset = jlptN3DethiRaw as unknown as TanoshiiVocabDataset;
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -337,6 +344,7 @@ export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromTanoshiiVocab("tango-new", tangoNewDataset),
   ...fromTransitivityPairs(doicapTudongtuDataset),
   ...fromDongnghia("dongnghia-n3-kosei", dongnghiaKoseiDataset),
+  ...fromTanoshiiVocab("jlpt-n3-dethi", jlptN3DethiDataset),
 ]);
 
 export function countForSource(source: VocabSource): number {

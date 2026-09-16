@@ -1,0 +1,1127 @@
+{
+  "meta": {
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-09-16T05:39:28.054Z",
+    "counts": {
+      "words": 81
+    },
+    "sources": {
+      "origin": "src/data/dethi-n3-cac-nam.json (13 de N3 that 2019-2025)",
+      "pipeline": "Quet toan bo cau hoi+dap an phan Tu vung (問題1-5) cua 13 de, doi chieu voi tu dien hien co, loai cau/cum tu va dang chia dong tu da co san o dang nguyen the (bao gom ca bien the co duoi な/する), giu lai 81/114 tu that su con thieu (2 tu con lai la hau to don le 者/員, khong them)."
+    },
+    "notes": [
+      "Nguon: doi chieu voi 13 de N3 that (T7 & T12 2019-2025) trong dethi-n3-cac-nam.json.",
+      "hanViet de trong voi tu thuan Nhat (kun-reading, khong co Han-Viet chuan) hoac tu muon katakana."
+    ]
+  },
+  "words": [
+    {
+      "id": "jlpt-n3-dethi-1",
+      "word": "十分",
+      "reading": "じゅうぶん",
+      "level": "N4",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [
+        "THẬP PHÂN"
+      ],
+      "meaningVi": "Đầy đủ, đủ",
+      "mnemonic": [],
+      "example": "準備は十分にできています。",
+      "exampleVi": "Đã chuẩn bị đầy đủ."
+    },
+    {
+      "id": "jlpt-n3-dethi-2",
+      "word": "線",
+      "reading": "せん",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TUYẾN"
+      ],
+      "meaningVi": "Đường kẻ, tuyến",
+      "mnemonic": [],
+      "example": "定規で線を引く。",
+      "exampleVi": "Kẻ đường thẳng bằng thước."
+    },
+    {
+      "id": "jlpt-n3-dethi-3",
+      "word": "一般的",
+      "reading": "いっぱんてきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "NHẤT BÁN ĐÍCH"
+      ],
+      "meaningVi": "Mang tính phổ biến, thông thường",
+      "mnemonic": [],
+      "example": "これは一般的な考え方だ。",
+      "exampleVi": "Đây là cách nghĩ phổ biến."
+    },
+    {
+      "id": "jlpt-n3-dethi-4",
+      "word": "中古",
+      "reading": "ちゅうこ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TRUNG CỔ"
+      ],
+      "meaningVi": "Đã qua sử dụng, đồ cũ",
+      "mnemonic": [],
+      "example": "中古の車を買った。",
+      "exampleVi": "Tôi đã mua một chiếc xe cũ."
+    },
+    {
+      "id": "jlpt-n3-dethi-5",
+      "word": "人工的",
+      "reading": "じんこうてきな",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "NHÂN CÔNG ĐÍCH"
+      ],
+      "meaningVi": "Mang tính nhân tạo",
+      "mnemonic": [],
+      "example": "これは人工的に作られた湖だ。",
+      "exampleVi": "Đây là hồ được tạo ra một cách nhân tạo."
+    },
+    {
+      "id": "jlpt-n3-dethi-6",
+      "word": "動作",
+      "reading": "どうさ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐỘNG TÁC"
+      ],
+      "meaningVi": "Động tác, hành động",
+      "mnemonic": [],
+      "example": "ロボットの動作を確認する。",
+      "exampleVi": "Kiểm tra động tác của robot."
+    },
+    {
+      "id": "jlpt-n3-dethi-7",
+      "word": "家具",
+      "reading": "かぐ",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "GIA CỤ"
+      ],
+      "meaningVi": "Đồ nội thất",
+      "mnemonic": [],
+      "example": "新しい家具を買った。",
+      "exampleVi": "Tôi đã mua đồ nội thất mới."
+    },
+    {
+      "id": "jlpt-n3-dethi-8",
+      "word": "帯",
+      "reading": "おび",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐỚI"
+      ],
+      "meaningVi": "Dải, đai (obi)",
+      "mnemonic": [],
+      "example": "着物に帯を締める。",
+      "exampleVi": "Thắt đai obi vào kimono."
+    },
+    {
+      "id": "jlpt-n3-dethi-9",
+      "word": "延期",
+      "reading": "えんき",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "DIÊN KỲ"
+      ],
+      "meaningVi": "Hoãn lại",
+      "mnemonic": [],
+      "example": "会議が延期になった。",
+      "exampleVi": "Cuộc họp đã bị hoãn lại."
+    },
+    {
+      "id": "jlpt-n3-dethi-10",
+      "word": "早速",
+      "reading": "さっそく",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [
+        "TẢO TỐC"
+      ],
+      "meaningVi": "Ngay lập tức",
+      "mnemonic": [],
+      "example": "早速お返事いたします。",
+      "exampleVi": "Tôi sẽ trả lời ngay lập tức."
+    },
+    {
+      "id": "jlpt-n3-dethi-11",
+      "word": "時期",
+      "reading": "じき",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "THỜI KỲ"
+      ],
+      "meaningVi": "Thời kỳ, giai đoạn",
+      "mnemonic": [],
+      "example": "今は忙しい時期だ。",
+      "exampleVi": "Bây giờ là thời kỳ bận rộn."
+    },
+    {
+      "id": "jlpt-n3-dethi-12",
+      "word": "段",
+      "reading": "だん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐOẠN"
+      ],
+      "meaningVi": "Bậc (thang), cấp bậc",
+      "mnemonic": [],
+      "example": "階段の段を数える。",
+      "exampleVi": "Đếm số bậc thang."
+    },
+    {
+      "id": "jlpt-n3-dethi-13",
+      "word": "決心",
+      "reading": "けっしん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "QUYẾT TÂM"
+      ],
+      "meaningVi": "Quyết tâm",
+      "mnemonic": [],
+      "example": "留学する決心をした。",
+      "exampleVi": "Tôi đã quyết tâm đi du học."
+    },
+    {
+      "id": "jlpt-n3-dethi-14",
+      "word": "滞在",
+      "reading": "たいざい",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TRỆ TẠI"
+      ],
+      "meaningVi": "Lưu trú, ở lại",
+      "mnemonic": [],
+      "example": "一週間日本に滞在する。",
+      "exampleVi": "Lưu trú ở Nhật một tuần."
+    },
+    {
+      "id": "jlpt-n3-dethi-15",
+      "word": "留守",
+      "reading": "るす",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "LƯU THỦ"
+      ],
+      "meaningVi": "Vắng nhà",
+      "mnemonic": [],
+      "example": "彼は今、留守です。",
+      "exampleVi": "Anh ấy hiện đang vắng nhà."
+    },
+    {
+      "id": "jlpt-n3-dethi-16",
+      "word": "裏",
+      "reading": "うら",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "LÝ"
+      ],
+      "meaningVi": "Mặt sau, phía sau",
+      "mnemonic": [],
+      "example": "紙の裏に名前を書く。",
+      "exampleVi": "Viết tên ở mặt sau tờ giấy."
+    },
+    {
+      "id": "jlpt-n3-dethi-17",
+      "word": "逆",
+      "reading": "ぎゃく",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "NGHỊCH"
+      ],
+      "meaningVi": "Ngược lại",
+      "mnemonic": [],
+      "example": "それは逆の意味だ。",
+      "exampleVi": "Đó là nghĩa ngược lại."
+    },
+    {
+      "id": "jlpt-n3-dethi-18",
+      "word": "部品",
+      "reading": "ぶひん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BỘ PHẨM"
+      ],
+      "meaningVi": "Linh kiện, phụ tùng",
+      "mnemonic": [],
+      "example": "車の部品を交換する。",
+      "exampleVi": "Thay linh kiện xe hơi."
+    },
+    {
+      "id": "jlpt-n3-dethi-19",
+      "word": "郵便",
+      "reading": "ゆうびん",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BƯU TIỆN"
+      ],
+      "meaningVi": "Bưu điện, bưu phẩm",
+      "mnemonic": [],
+      "example": "郵便で荷物を送る。",
+      "exampleVi": "Gửi hàng qua đường bưu điện."
+    },
+    {
+      "id": "jlpt-n3-dethi-20",
+      "word": "配る",
+      "reading": "くばる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Phân phát, chia",
+      "mnemonic": [],
+      "example": "プリントを配る。",
+      "exampleVi": "Phát tài liệu in."
+    },
+    {
+      "id": "jlpt-n3-dethi-21",
+      "word": "オーバー",
+      "reading": "オーバー",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [],
+      "meaningVi": "Vượt quá (oversの、cũng có nghĩa áo khoác tùy ngữ cảnh)",
+      "mnemonic": [],
+      "example": "予算をオーバーしてしまった。",
+      "exampleVi": "Tôi đã tiêu vượt quá ngân sách."
+    },
+    {
+      "id": "jlpt-n3-dethi-22",
+      "word": "お互いに",
+      "reading": "おたがいに",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [
+        "HỖ"
+      ],
+      "meaningVi": "Lẫn nhau",
+      "mnemonic": [],
+      "example": "お互いに助け合いましょう。",
+      "exampleVi": "Hãy giúp đỡ lẫn nhau nhé."
+    },
+    {
+      "id": "jlpt-n3-dethi-23",
+      "word": "かき混ぜる",
+      "reading": "かきまぜる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Khuấy trộn",
+      "mnemonic": [],
+      "example": "スプーンでよくかき混ぜる。",
+      "exampleVi": "Khuấy đều bằng thìa."
+    },
+    {
+      "id": "jlpt-n3-dethi-24",
+      "word": "一度に",
+      "reading": "いちどに",
+      "level": "N3",
+      "partOfSpeech": "Trạng từ",
+      "hanViet": [
+        "NHẤT ĐỘ"
+      ],
+      "meaningVi": "Cùng một lúc",
+      "mnemonic": [],
+      "example": "一度にたくさんのことをするのは難しい。",
+      "exampleVi": "Làm nhiều việc cùng một lúc rất khó."
+    },
+    {
+      "id": "jlpt-n3-dethi-25",
+      "word": "一流",
+      "reading": "いちりゅう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "NHẤT LƯU"
+      ],
+      "meaningVi": "Hạng nhất, đẳng cấp",
+      "mnemonic": [],
+      "example": "彼は一流の医者だ。",
+      "exampleVi": "Anh ấy là bác sĩ hạng nhất."
+    },
+    {
+      "id": "jlpt-n3-dethi-26",
+      "word": "不用",
+      "reading": "ふよう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BẤT DỤNG"
+      ],
+      "meaningVi": "Không cần dùng, thừa",
+      "mnemonic": [],
+      "example": "不用な物を捨てる。",
+      "exampleVi": "Vứt bỏ đồ không cần dùng."
+    },
+    {
+      "id": "jlpt-n3-dethi-27",
+      "word": "中年",
+      "reading": "ちゅうねん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TRUNG NIÊN"
+      ],
+      "meaningVi": "Trung niên",
+      "mnemonic": [],
+      "example": "中年の男性が歩いている。",
+      "exampleVi": "Một người đàn ông trung niên đang đi bộ."
+    },
+    {
+      "id": "jlpt-n3-dethi-28",
+      "word": "会費",
+      "reading": "かいひ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "HỘI PHÍ"
+      ],
+      "meaningVi": "Hội phí",
+      "mnemonic": [],
+      "example": "会費を払う。",
+      "exampleVi": "Đóng hội phí."
+    },
+    {
+      "id": "jlpt-n3-dethi-29",
+      "word": "具合",
+      "reading": "ぐあい",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [],
+      "meaningVi": "Tình trạng (sức khỏe/tình hình)",
+      "mnemonic": [],
+      "example": "体の具合はどうですか。",
+      "exampleVi": "Tình trạng cơ thể (sức khỏe) của bạn thế nào?"
+    },
+    {
+      "id": "jlpt-n3-dethi-30",
+      "word": "加熱",
+      "reading": "かねつ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "GIA NHIỆT"
+      ],
+      "meaningVi": "Làm nóng, gia nhiệt",
+      "mnemonic": [],
+      "example": "電子レンジで加熱する。",
+      "exampleVi": "Làm nóng bằng lò vi sóng."
+    },
+    {
+      "id": "jlpt-n3-dethi-31",
+      "word": "半々",
+      "reading": "はんはん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BÁN BÁN"
+      ],
+      "meaningVi": "Một nửa một nửa",
+      "mnemonic": [],
+      "example": "費用を半々に分ける。",
+      "exampleVi": "Chia chi phí một nửa một nửa."
+    },
+    {
+      "id": "jlpt-n3-dethi-32",
+      "word": "原料",
+      "reading": "げんりょう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "NGUYÊN LIỆU"
+      ],
+      "meaningVi": "Nguyên liệu",
+      "mnemonic": [],
+      "example": "小麦を原料にしたパン。",
+      "exampleVi": "Bánh mì làm từ nguyên liệu bột mì."
+    },
+    {
+      "id": "jlpt-n3-dethi-33",
+      "word": "台",
+      "reading": "だい",
+      "level": "N5",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐÀI"
+      ],
+      "meaningVi": "Cái, chiếc (lượng từ đếm máy móc, xe)",
+      "mnemonic": [],
+      "example": "車が1台止まっている。",
+      "exampleVi": "Có một chiếc xe đang đỗ."
+    },
+    {
+      "id": "jlpt-n3-dethi-34",
+      "word": "各駅",
+      "reading": "かくえき",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "CÁC DỊCH"
+      ],
+      "meaningVi": "Từng ga (tàu dừng mọi ga)",
+      "mnemonic": [],
+      "example": "各駅停車の電車に乗る。",
+      "exampleVi": "Đi tàu dừng ở từng ga."
+    },
+    {
+      "id": "jlpt-n3-dethi-35",
+      "word": "同席",
+      "reading": "どうせき",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐỒNG TỊCH"
+      ],
+      "meaningVi": "Ngồi cùng bàn, cùng dự",
+      "mnemonic": [],
+      "example": "会議に同席する。",
+      "exampleVi": "Cùng dự cuộc họp."
+    },
+    {
+      "id": "jlpt-n3-dethi-36",
+      "word": "地面",
+      "reading": "じめん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐỊA DIỆN"
+      ],
+      "meaningVi": "Mặt đất",
+      "mnemonic": [],
+      "example": "雨で地面がぬれている。",
+      "exampleVi": "Mặt đất bị ướt vì mưa."
+    },
+    {
+      "id": "jlpt-n3-dethi-37",
+      "word": "増加",
+      "reading": "ぞうか",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TĂNG GIA"
+      ],
+      "meaningVi": "Tăng lên",
+      "mnemonic": [],
+      "example": "人口が増加している。",
+      "exampleVi": "Dân số đang tăng lên."
+    },
+    {
+      "id": "jlpt-n3-dethi-38",
+      "word": "増減",
+      "reading": "ぞうげん",
+      "level": "N2",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TĂNG GIẢM"
+      ],
+      "meaningVi": "Tăng giảm",
+      "mnemonic": [],
+      "example": "体重の増減を記録する。",
+      "exampleVi": "Ghi lại việc tăng giảm cân nặng."
+    },
+    {
+      "id": "jlpt-n3-dethi-39",
+      "word": "家内",
+      "reading": "かない",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "GIA NỘI"
+      ],
+      "meaningVi": "Vợ (của tôi)",
+      "mnemonic": [],
+      "example": "家内と買い物に行った。",
+      "exampleVi": "Tôi đã đi mua sắm cùng vợ."
+    },
+    {
+      "id": "jlpt-n3-dethi-40",
+      "word": "小型",
+      "reading": "こがた",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TIỂU HÌNH"
+      ],
+      "meaningVi": "Cỡ nhỏ",
+      "mnemonic": [],
+      "example": "小型の車を運転する。",
+      "exampleVi": "Lái xe cỡ nhỏ."
+    },
+    {
+      "id": "jlpt-n3-dethi-41",
+      "word": "干す",
+      "reading": "ほす",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Phơi khô",
+      "mnemonic": [],
+      "example": "洗濯物を外に干す。",
+      "exampleVi": "Phơi đồ giặt ngoài trời."
+    },
+    {
+      "id": "jlpt-n3-dethi-42",
+      "word": "後期",
+      "reading": "こうき",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "HẬU KỲ"
+      ],
+      "meaningVi": "Kỳ sau, hậu kỳ",
+      "mnemonic": [],
+      "example": "後期の授業が始まる。",
+      "exampleVi": "Kỳ học sau bắt đầu."
+    },
+    {
+      "id": "jlpt-n3-dethi-43",
+      "word": "怖がる",
+      "reading": "こわがる",
+      "level": "N4",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Sợ hãi",
+      "mnemonic": [],
+      "example": "子供が犬を怖がる。",
+      "exampleVi": "Đứa trẻ sợ con chó."
+    },
+    {
+      "id": "jlpt-n3-dethi-44",
+      "word": "拝見",
+      "reading": "はいけん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BÁI KIẾN"
+      ],
+      "meaningVi": "Xem (khiêm nhường ngữ của 見る)",
+      "mnemonic": [],
+      "example": "お手紙を拝見しました。",
+      "exampleVi": "Tôi đã xem thư của ngài."
+    },
+    {
+      "id": "jlpt-n3-dethi-45",
+      "word": "指定",
+      "reading": "してい",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "CHỈ ĐỊNH"
+      ],
+      "meaningVi": "Chỉ định",
+      "mnemonic": [],
+      "example": "席を指定する。",
+      "exampleVi": "Chỉ định chỗ ngồi."
+    },
+    {
+      "id": "jlpt-n3-dethi-46",
+      "word": "掲示",
+      "reading": "けいじ",
+      "level": "N2",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "YẾT THỊ"
+      ],
+      "meaningVi": "Thông báo (dán bảng)",
+      "mnemonic": [],
+      "example": "掲示板にお知らせを貼る。",
+      "exampleVi": "Dán thông báo lên bảng."
+    },
+    {
+      "id": "jlpt-n3-dethi-47",
+      "word": "方角",
+      "reading": "ほうがく",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "PHƯƠNG GIÁC"
+      ],
+      "meaningVi": "Phương hướng",
+      "mnemonic": [],
+      "example": "方角がわからなくなった。",
+      "exampleVi": "Tôi không biết phương hướng nữa."
+    },
+    {
+      "id": "jlpt-n3-dethi-48",
+      "word": "日常",
+      "reading": "にちじょう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "NHẬT THƯỜNG"
+      ],
+      "meaningVi": "Hằng ngày, thường nhật",
+      "mnemonic": [],
+      "example": "日常の生活を大切にする。",
+      "exampleVi": "Trân trọng cuộc sống hằng ngày."
+    },
+    {
+      "id": "jlpt-n3-dethi-49",
+      "word": "時代",
+      "reading": "じだい",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "THỜI ĐẠI"
+      ],
+      "meaningVi": "Thời đại",
+      "mnemonic": [],
+      "example": "時代が変わった。",
+      "exampleVi": "Thời đại đã thay đổi."
+    },
+    {
+      "id": "jlpt-n3-dethi-50",
+      "word": "月末",
+      "reading": "げつまつ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "NGUYỆT MẠT"
+      ],
+      "meaningVi": "Cuối tháng",
+      "mnemonic": [],
+      "example": "月末に家賃を払う。",
+      "exampleVi": "Trả tiền thuê nhà vào cuối tháng."
+    },
+    {
+      "id": "jlpt-n3-dethi-51",
+      "word": "朝刊",
+      "reading": "ちょうかん",
+      "level": "N2",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TRIÊU SAN"
+      ],
+      "meaningVi": "Báo buổi sáng",
+      "mnemonic": [],
+      "example": "朝刊を読む。",
+      "exampleVi": "Đọc báo buổi sáng."
+    },
+    {
+      "id": "jlpt-n3-dethi-52",
+      "word": "未来",
+      "reading": "みらい",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "VỊ LAI"
+      ],
+      "meaningVi": "Tương lai",
+      "mnemonic": [],
+      "example": "未来の夢について話す。",
+      "exampleVi": "Nói về ước mơ tương lai."
+    },
+    {
+      "id": "jlpt-n3-dethi-53",
+      "word": "案",
+      "reading": "あん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ÁN"
+      ],
+      "meaningVi": "Đề án, phương án",
+      "mnemonic": [],
+      "example": "新しい案を出す。",
+      "exampleVi": "Đưa ra phương án mới."
+    },
+    {
+      "id": "jlpt-n3-dethi-54",
+      "word": "歓迎",
+      "reading": "かんげい",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "HOAN NGHÊNH"
+      ],
+      "meaningVi": "Hoan nghênh, chào đón",
+      "mnemonic": [],
+      "example": "新入生を歓迎する。",
+      "exampleVi": "Chào đón tân sinh viên."
+    },
+    {
+      "id": "jlpt-n3-dethi-55",
+      "word": "歩道",
+      "reading": "ほどう",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BỘ ĐẠO"
+      ],
+      "meaningVi": "Vỉa hè, lối đi bộ",
+      "mnemonic": [],
+      "example": "歩道を歩く。",
+      "exampleVi": "Đi bộ trên vỉa hè."
+    },
+    {
+      "id": "jlpt-n3-dethi-56",
+      "word": "残り",
+      "reading": "のこり",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [],
+      "meaningVi": "Phần còn lại",
+      "mnemonic": [],
+      "example": "残りのケーキを食べる。",
+      "exampleVi": "Ăn phần bánh còn lại."
+    },
+    {
+      "id": "jlpt-n3-dethi-57",
+      "word": "泊める",
+      "reading": "とめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Cho ở trọ, cho ngủ nhờ",
+      "mnemonic": [],
+      "example": "友達を家に泊める。",
+      "exampleVi": "Cho bạn ở nhờ nhà mình."
+    },
+    {
+      "id": "jlpt-n3-dethi-58",
+      "word": "深い",
+      "reading": "ふかい",
+      "level": "N4",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [],
+      "meaningVi": "Sâu",
+      "mnemonic": [],
+      "example": "この川は深い。",
+      "exampleVi": "Con sông này sâu."
+    },
+    {
+      "id": "jlpt-n3-dethi-59",
+      "word": "済ませる",
+      "reading": "すませる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Làm xong, hoàn tất",
+      "mnemonic": [],
+      "example": "宿題を済ませる。",
+      "exampleVi": "Làm xong bài tập."
+    },
+    {
+      "id": "jlpt-n3-dethi-60",
+      "word": "減少",
+      "reading": "げんしょう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "GIẢM THIỂU"
+      ],
+      "meaningVi": "Giảm sút",
+      "mnemonic": [],
+      "example": "人口が減少している。",
+      "exampleVi": "Dân số đang giảm."
+    },
+    {
+      "id": "jlpt-n3-dethi-61",
+      "word": "満員",
+      "reading": "まんいん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "MÃN VIÊN"
+      ],
+      "meaningVi": "Đầy (không còn chỗ)",
+      "mnemonic": [],
+      "example": "電車が満員だ。",
+      "exampleVi": "Tàu điện đầy chật kín người."
+    },
+    {
+      "id": "jlpt-n3-dethi-62",
+      "word": "父母",
+      "reading": "ふぼ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "PHỤ MẪU"
+      ],
+      "meaningVi": "Cha mẹ",
+      "mnemonic": [],
+      "example": "父母への感謝の手紙を書く。",
+      "exampleVi": "Viết thư cảm ơn cha mẹ."
+    },
+    {
+      "id": "jlpt-n3-dethi-63",
+      "word": "石油",
+      "reading": "せきゆ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "THẠCH DU"
+      ],
+      "meaningVi": "Dầu mỏ",
+      "mnemonic": [],
+      "example": "石油の価格が上がった。",
+      "exampleVi": "Giá dầu mỏ đã tăng."
+    },
+    {
+      "id": "jlpt-n3-dethi-64",
+      "word": "秒",
+      "reading": "びょう",
+      "level": "N5",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "MIỂU"
+      ],
+      "meaningVi": "Giây",
+      "mnemonic": [],
+      "example": "10秒待ってください。",
+      "exampleVi": "Hãy đợi 10 giây."
+    },
+    {
+      "id": "jlpt-n3-dethi-65",
+      "word": "秘密",
+      "reading": "ひみつ",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BÍ MẬT"
+      ],
+      "meaningVi": "Bí mật",
+      "mnemonic": [],
+      "example": "これは秘密にしてください。",
+      "exampleVi": "Xin hãy giữ bí mật chuyện này."
+    },
+    {
+      "id": "jlpt-n3-dethi-66",
+      "word": "終わらせる",
+      "reading": "おわらせる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Kết thúc, làm cho xong",
+      "mnemonic": [],
+      "example": "仕事を早く終わらせる。",
+      "exampleVi": "Kết thúc công việc sớm."
+    },
+    {
+      "id": "jlpt-n3-dethi-67",
+      "word": "組",
+      "reading": "くみ",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TỔ"
+      ],
+      "meaningVi": "Nhóm, tổ",
+      "mnemonic": [],
+      "example": "クラスを4つの組に分ける。",
+      "exampleVi": "Chia lớp thành 4 nhóm."
+    },
+    {
+      "id": "jlpt-n3-dethi-68",
+      "word": "縮小",
+      "reading": "しゅくしょう",
+      "level": "N2",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "SÚC TIỂU"
+      ],
+      "meaningVi": "Thu nhỏ",
+      "mnemonic": [],
+      "example": "会社の規模を縮小する。",
+      "exampleVi": "Thu nhỏ quy mô công ty."
+    },
+    {
+      "id": "jlpt-n3-dethi-69",
+      "word": "翌日",
+      "reading": "よくじつ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "DỰC NHẬT"
+      ],
+      "meaningVi": "Ngày hôm sau",
+      "mnemonic": [],
+      "example": "翌日、彼から連絡があった。",
+      "exampleVi": "Ngày hôm sau, anh ấy đã liên lạc."
+    },
+    {
+      "id": "jlpt-n3-dethi-70",
+      "word": "翌週",
+      "reading": "よくしゅう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "DỰC CHU"
+      ],
+      "meaningVi": "Tuần sau",
+      "mnemonic": [],
+      "example": "翌週から新しい仕事が始まる。",
+      "exampleVi": "Từ tuần sau công việc mới bắt đầu."
+    },
+    {
+      "id": "jlpt-n3-dethi-71",
+      "word": "胃",
+      "reading": "い",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "VỊ"
+      ],
+      "meaningVi": "Dạ dày",
+      "mnemonic": [],
+      "example": "胃が痛い。",
+      "exampleVi": "Đau dạ dày."
+    },
+    {
+      "id": "jlpt-n3-dethi-72",
+      "word": "見本",
+      "reading": "みほん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "KIẾN BẢN"
+      ],
+      "meaningVi": "Hàng mẫu",
+      "mnemonic": [],
+      "example": "見本を見せてください。",
+      "exampleVi": "Xin cho tôi xem hàng mẫu."
+    },
+    {
+      "id": "jlpt-n3-dethi-73",
+      "word": "訪問",
+      "reading": "ほうもん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "PHỎNG VẤN"
+      ],
+      "meaningVi": "Thăm viếng",
+      "mnemonic": [],
+      "example": "先生の家を訪問する。",
+      "exampleVi": "Đến thăm nhà thầy giáo."
+    },
+    {
+      "id": "jlpt-n3-dethi-74",
+      "word": "諦める",
+      "reading": "あきらめる",
+      "level": "N3",
+      "partOfSpeech": "Động từ",
+      "hanViet": [],
+      "meaningVi": "Từ bỏ",
+      "mnemonic": [],
+      "example": "夢を諦めない。",
+      "exampleVi": "Không từ bỏ ước mơ."
+    },
+    {
+      "id": "jlpt-n3-dethi-75",
+      "word": "講演",
+      "reading": "こうえん",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "GIẢNG DIỄN"
+      ],
+      "meaningVi": "Buổi diễn thuyết",
+      "mnemonic": [],
+      "example": "講演を聞きに行く。",
+      "exampleVi": "Đi nghe buổi diễn thuyết."
+    },
+    {
+      "id": "jlpt-n3-dethi-76",
+      "word": "貧乏",
+      "reading": "びんぼう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "BẦN PHẠP"
+      ],
+      "meaningVi": "Nghèo khó",
+      "mnemonic": [],
+      "example": "貧乏な生活をしている。",
+      "exampleVi": "Sống cuộc sống nghèo khó."
+    },
+    {
+      "id": "jlpt-n3-dethi-77",
+      "word": "返し",
+      "reading": "かえし",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [],
+      "meaningVi": "Sự trả lại, đáp lại",
+      "mnemonic": [],
+      "example": "お返しに何かあげたい。",
+      "exampleVi": "Tôi muốn tặng lại thứ gì đó để đáp lễ."
+    },
+    {
+      "id": "jlpt-n3-dethi-78",
+      "word": "連休",
+      "reading": "れんきゅう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "LIÊN HƯU"
+      ],
+      "meaningVi": "Kỳ nghỉ liên tiếp",
+      "mnemonic": [],
+      "example": "連休に旅行に行く。",
+      "exampleVi": "Đi du lịch vào kỳ nghỉ liên tiếp."
+    },
+    {
+      "id": "jlpt-n3-dethi-79",
+      "word": "運休",
+      "reading": "うんきゅう",
+      "level": "N2",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "VẬN HƯU"
+      ],
+      "meaningVi": "Ngừng vận hành (tàu xe)",
+      "mnemonic": [],
+      "example": "台風で電車が運休になった。",
+      "exampleVi": "Tàu điện ngừng chạy vì bão."
+    },
+    {
+      "id": "jlpt-n3-dethi-80",
+      "word": "運動場",
+      "reading": "うんどうじょう",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "VẬN ĐỘNG TRƯỜNG"
+      ],
+      "meaningVi": "Sân vận động, sân chơi",
+      "mnemonic": [],
+      "example": "運動場で遊ぶ。",
+      "exampleVi": "Chơi ở sân vận động."
+    },
+    {
+      "id": "jlpt-n3-dethi-81",
+      "word": "駐車",
+      "reading": "ちゅうしゃ",
+      "level": "N4",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TRÚ XA"
+      ],
+      "meaningVi": "Đỗ xe",
+      "mnemonic": [],
+      "example": "ここに駐車してはいけません。",
+      "exampleVi": "Không được đỗ xe ở đây."
+    }
+  ]
+}
