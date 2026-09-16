@@ -1,4 +1,5 @@
 import type { JlptLevel } from "./kanji.ts";
+import type { ReadingBodySegment } from "./reading.ts";
 
 export interface DeThiProblemGroup {
   label: string;
@@ -41,6 +42,15 @@ export interface DeThiQuestion {
   // Populated for 問題1-4, where `question` is a full sentence. Not used for
   // 問題5, where `question` is just the bare tested word -- see `optionsVi`.
   questionVi?: string;
+  // `question` split into segments with furigana, same shape/convention as
+  // ReadingPassage.body (types/reading.ts) -- toggled on only in the
+  // post-submit review view (real JLPT papers never print furigana; this is
+  // purely a study aid). When present, a segment's `text` exactly matches
+  // `underline`/`underlineForms` substrings so the UI can still bold+underline
+  // the tested word while rendering ruby -- see QuestionText in DeThiScreen.
+  // Optional: most questions don't have this yet, plain `question` text is
+  // shown when absent regardless of the furigana toggle state.
+  questionFurigana?: ReadingBodySegment[];
   // 問題5 only: Vietnamese translation of each of the 4 example-usage
   // sentences in `options` (parallel array, same order/length as `options`).
   optionsVi?: string[];

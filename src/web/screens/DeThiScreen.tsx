@@ -60,7 +60,48 @@ function p5Underline(question: string, forms: string[] | undefined, opt: string)
   return forms?.find((f) => opt.includes(f));
 }
 
-function QuestionText({ text, underline }: { text: string; underline?: string }) {
+// `furigana`/`showFurigana` are optional -- when a segment list is present
+// (see DeThiQuestion.questionFurigana) AND the review screen's furigana
+// toggle is on, renders each segment as <ruby> instead of the plain-text
+// underline path below. A segment's `text` is expected to exactly match
+// `underline` when both are set (see the field's doc comment in
+// types/dethi.ts) so the tested word still gets bolded+underlined on top of
+// its ruby reading.
+function QuestionText({
+  text,
+  underline,
+  furigana,
+  showFurigana,
+}: {
+  text: string;
+  underline?: string;
+  furigana?: { text: string; furigana: string | null }[];
+  showFurigana?: boolean;
+}) {
+  if (showFurigana && furigana && furigana.length > 0) {
+    return (
+      <>
+        {furigana.map((seg, i) => {
+          const isUnderlined = underline != null && seg.text === underline;
+          const content = seg.furigana ? (
+            <ruby>
+              {seg.text}
+              <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
+            </ruby>
+          ) : (
+            seg.text
+          );
+          return isUnderlined ? (
+            <span key={i} className="underline decoration-2 underline-offset-2 whitespace-nowrap">
+              {content}
+            </span>
+          ) : (
+            <span key={i}>{content}</span>
+          );
+        })}
+      </>
+    );
+  }
   if (!underline) return <>{text}</>;
   const i = text.indexOf(underline);
   if (i === -1) return <>{text}</>;
@@ -772,6 +813,7 @@ function ResultView({
 }) {
   const found = findPaper(entry.examId, entry.paperId);
   const [reviewIndex, setReviewIndex] = useState<number | null>(null);
+  const [showFurigana, setShowFurigana] = useState(false);
   // Entries saved before DeThiHistoryEntry.answers existed have none -- the
   // score summary above still renders fine, just skip the per-question
   // palette/review instead of showing it against an empty array.
@@ -816,7 +858,17 @@ function ResultView({
             })}
           />
           {reviewIndex !== null ? (
-            <ReviewQuestion question={found.paper.questions[reviewIndex]} chosenIndex={answers[reviewIndex]} />
+            <>
+              <button
+                onClick={() => setShowFurigana(!showFurigana)}
+                className={`mt-3 rounded-full border px-3 py-1.5 text-xs font-semibold ${
+                  showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
+                }`}
+              >
+                {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+              </button>
+              <ReviewQuestion question={found.paper.questions[reviewIndex]} chosenIndex={answers[reviewIndex]} showFurigana={showFurigana} />
+            </>
           ) : null}
         </div>
       ) : found ? (
@@ -891,15 +943,25 @@ function HistoryListView({
   );
 }
 
-function ReviewQuestion({ question, chosenIndex }: { question: DeThiPaper["questions"][number]; chosenIndex: number | null }) {
+function ReviewQuestion({
+  question,
+  chosenIndex,
+  showFurigana,
+}: {
+  question: DeThiPaper["questions"][number];
+  chosenIndex: number | null;
+  showFurigana?: boolean;
+}) {
   return (
     <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-      <div className="text-xs font-semibold text-neutral-400 uppercase">{question.problemGroup}</div>
+      <div className="text-xs font-semibold text-neutral-400 uppercase">
+        Câu {question.number} · {question.problemGroup}
+      </div>
       {question.passage ? (
         <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{question.passage}</div>
       ) : null}
-      <div className="mt-3 text-base font-semibold text-neutral-800">
-        <QuestionText text={question.question} underline={question.underline} />
+      <div className="mt-3 text-base font-semibold text-neutral-800 leading-loose">
+        <QuestionText text={question.question} underline={question.underline} furigana={question.questionFurigana} showFurigana={showFurigana} />
       </div>
       {question.questionVi ? <div className="mt-1 text-sm text-neutral-500 italic">{question.questionVi}</div> : null}
       {question.optionsImage ? (
