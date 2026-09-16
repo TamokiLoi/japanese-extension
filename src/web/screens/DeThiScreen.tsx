@@ -991,10 +991,12 @@ function ReviewQuestion({
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
                   {oi + 1}
                 </span>
-                <div>
+                <div className="leading-loose">
                   <QuestionText
                     text={opt}
                     underline={question.problemGroup === "問題5" ? p5Underline(question.question, question.underlineForms, opt) : undefined}
+                    furigana={question.optionsFurigana?.[oi]}
+                    showFurigana={showFurigana}
                   />
                   {question.optionsVi?.[oi] ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}
                 </div>

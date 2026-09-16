@@ -54,6 +54,12 @@ export interface DeThiQuestion {
   // 問題5 only: Vietnamese translation of each of the 4 example-usage
   // sentences in `options` (parallel array, same order/length as `options`).
   optionsVi?: string[];
+  // 問題5 only: furigana segments for each of the 4 example-usage sentences
+  // in `options` (parallel array/shape to `optionsVi`) -- `question` itself
+  // is just the bare tested word there, not a sentence, so furigana applies
+  // to the options instead of `questionFurigana`. Same toggle/rendering
+  // convention as `questionFurigana`.
+  optionsFurigana?: ReadingBodySegment[][];
   // Set only on a 聴解 (listening) paper whose options are illustrations
   // rather than text (e.g. real JLPT Mondai1/4 picture choices) -- path
   // resolved via assetUrl(), same convention as ListeningQuestion.optionsImage
