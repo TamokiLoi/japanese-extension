@@ -26,6 +26,50 @@ export interface PodcastData {
   byId: Map<string, PodcastEpisode>;
 }
 
+// Confirmed via yt-dlp (see scripts/fetch-podcast-transcript.ts) to have no
+// real Japanese caption track at all -- not a fetch failure, not "not yet
+// processed" (unlike haruno, which just hasn't had transcripts run yet and
+// stays fully visible). Every OTHER bitesize episode (696/728) has a full
+// transcript+translation in src/data/podcast-transcripts/. Hand-picked list
+// rather than a runtime check because the transcript files themselves are
+// lazy-loaded chunks (see podcastTranscriptState.ts) -- checking "does a
+// file exist" for all 728 up front would mean fetching every chunk's
+// manifest just to filter the list.
+const NO_CAPTIONS_EPISODE_IDS = new Set([
+  "atcvw3gM7KE",
+  "HNnqtWAq858",
+  "2Ozdr6lMxUY",
+  "reSqfwQAsIc",
+  "cPo5UA6TItk",
+  "MqcXAc1WHn0",
+  "spnOQsTbPdU",
+  "0Zd7HnoRQJ8",
+  "MLEsLDqs2SU",
+  "_jAzFEeUJmA",
+  "gP6kO1qHCVc",
+  "aUMBUcvanF4",
+  "4KWTeTlC2tU",
+  "FibrxEKXGnM",
+  "1KYfbkg1P1I",
+  "oYu9hntJ-Zo",
+  "HOEyT42cHlY",
+  "2otwEWVyvWw",
+  "WcPtqk0AEIs",
+  "SOrRw7oBt80",
+  "wEcT90Sug98",
+  "eV6Ado8Um7w",
+  "ZyLL-FjGNmM",
+  "Z7no3vWituE",
+  "iSo_h7w-fe0",
+  "nGSXiKIlJy0",
+  "RfYPVyH7NSg",
+  "WAoIQYftCns",
+  "YLrXMjEFPhU",
+  "v3K4k6fH8cY",
+  "-RLrMSvXWvw",
+  "BgnHm8ddXq0",
+]);
+
 let cachedData: Promise<PodcastData> | null = null;
 
 // Cached -- remounting PodcastScreen (navigate away and back) reuses the
@@ -36,6 +80,7 @@ export function loadPodcastData(): Promise<PodcastData> {
     cachedData = Promise.all(Object.values(CHANNEL_DATA_LOADERS).map((load) => load())).then((modules) => {
       const episodes = modules
         .flatMap((m) => (m.default as unknown as PodcastDataset).episodes)
+        .filter((e) => !NO_CAPTIONS_EPISODE_IDS.has(e.id))
         // Newest first -- a podcast feed reads chronologically backward,
         // unlike the book-order listening datasets elsewhere in this app.
         .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
