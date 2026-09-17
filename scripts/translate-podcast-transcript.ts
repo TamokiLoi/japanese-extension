@@ -28,6 +28,7 @@ const KEY_NAMES: Record<string, string> = {
   key4: "GEMINI_API_KEY_LAKEMANGA",
   key5: "GEMINI_API_KEY_TAMOKILOIJP",
   key6: "GEMINI_API_KEY_VOTHIHON",
+  key7: "GEMINI_API_KEY_TAMOKINGUYEN",
 };
 
 function readApiKey(keyFlag: string | undefined): string {
@@ -117,7 +118,7 @@ async function translateBatch(apiKey: string, lines: string[]): Promise<string[]
 async function main() {
   const videoId = process.argv[2];
   if (!videoId) {
-    console.error("Usage: translate-podcast-transcript.ts <videoId> [--key2|--key3|--key4|--key5|--key6]");
+    console.error("Usage: translate-podcast-transcript.ts <videoId> [--key2|--key3|--key4|--key5|--key6|--key7]");
     process.exit(1);
   }
   const keyFlag = process.argv.slice(3).find((a) => a.startsWith("--key"))?.slice(2);
