@@ -245,7 +245,14 @@ export function WebApp() {
   } else if (screen === "roadmap") {
     content = <RoadmapScreen onNavigate={go} />;
   } else if (screen === "podcast") {
-    content = <PodcastScreen jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
+    content = (
+      <PodcastScreen
+        jumpToId={targetId}
+        onCurrentItemChange={syncCurrentItem}
+        onOpenVocab={(vocabId) => go("vocab", vocabId)}
+        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+      />
+    );
   } else {
     content = <App key={navKey} />;
   }

@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Search } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Library, PenSquare, Search } from "lucide-react";
 import {
   CHANNEL_LABELS,
   allSeries,
@@ -24,6 +24,7 @@ import {
 } from "../../popup/podcastState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { loadTranscript } from "../../popup/podcastTranscriptState.ts";
+import { findVocabInTranscript, findBunpoInTranscript } from "../../popup/podcastLinks.ts";
 import type { PodcastEpisode, PodcastTranscript } from "../../types/podcast.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import { Card } from "../components/ui/card.tsx";
@@ -44,9 +45,13 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 export function PodcastScreen({
   jumpToId,
   onCurrentItemChange,
+  onOpenVocab,
+  onOpenBunpo,
 }: {
   jumpToId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
+  onOpenVocab?: (vocabId: string) => void;
+  onOpenBunpo?: (bunpoId: string) => void;
 } = {}) {
   // Every channel's dataset loads as its own async chunk now (see
   // loadPodcastData in podcastState.ts) instead of a static top-level
@@ -102,6 +107,8 @@ export function PodcastScreen({
         onToggleFavorite={() => handleToggleFavorite(current.id)}
         onBack={() => setCurrentId(null)}
         onOpen={setCurrentId}
+        onOpenVocab={onOpenVocab}
+        onOpenBunpo={onOpenBunpo}
       />
     );
   }
@@ -476,6 +483,8 @@ function EpisodeView({
   onToggleFavorite,
   onBack,
   onOpen,
+  onOpenVocab,
+  onOpenBunpo,
 }: {
   episode: PodcastEpisode;
   filtered: PodcastEpisode[];
@@ -485,6 +494,8 @@ function EpisodeView({
   onToggleFavorite: () => void;
   onBack: () => void;
   onOpen: (id: string) => void;
+  onOpenVocab?: (vocabId: string) => void;
+  onOpenBunpo?: (bunpoId: string) => void;
 }) {
   useFloatingNav(true);
   const currentIndex = filtered.findIndex((e) => e.id === episode.id);
@@ -562,6 +573,12 @@ function EpisodeView({
     setTranscript(undefined);
     loadTranscript(episode.id).then(setTranscript);
   }, [episode.id]);
+
+  // Memoized against `transcript` itself (not recomputed every render) --
+  // EpisodeView re-renders every 500ms from the currentTime poll below, and
+  // this scans the whole ALL_VOCAB/ALL_BUNPO dictionaries.
+  const vocabMatches = useMemo(() => (transcript ? findVocabInTranscript(transcript) : []), [transcript]);
+  const bunpoMatches = useMemo(() => (transcript ? findBunpoInTranscript(transcript) : []), [transcript]);
 
   // Polls rather than relying on a player event -- the IFrame API has no
   // "timeupdate" event, only coarse onStateChange, so this is the standard
@@ -719,6 +736,47 @@ function EpisodeView({
 
         return (
           <>
+            {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
+              <Card className="mt-3 gap-3 rounded-2xl border-neutral-200 p-4 ring-0">
+                {vocabMatches.length > 0 ? (
+                  <div>
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
+                      <Library size={14} /> Từ vựng trong tập này (bấm để xem lại)
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {vocabMatches.map((v) => (
+                        <button
+                          key={v.id}
+                          onClick={() => onOpenVocab?.(v.id)}
+                          className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
+                        >
+                          {v.word}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+                {bunpoMatches.length > 0 ? (
+                  <div>
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
+                      <PenSquare size={14} /> Ngữ pháp trong tập này (bấm để xem lại)
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {bunpoMatches.map((g) => (
+                        <button
+                          key={g.id}
+                          onClick={() => onOpenBunpo?.(g.id)}
+                          className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
+                        >
+                          {g.pattern}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </Card>
+            ) : null}
+
             <div className="mt-3 flex items-center gap-1 rounded-full border border-neutral-200 p-1">
               <button
                 onClick={() => setTab("transcript")}

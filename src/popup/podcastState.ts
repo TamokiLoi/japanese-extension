@@ -11,11 +11,14 @@ import type { JlptLevel } from "../types/kanji.ts";
 import { PODCAST_CATEGORIES, type PodcastCategory, type PodcastDataset, type PodcastEpisode } from "../types/podcast.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
+// yuyu/teppei temporarily disabled -- user felt the podcast list had too
+// much content at once; keeping bitesize + haruno only for now. Re-add both
+// lines below (and in CHANNEL_ORDER further down) to restore.
 const CHANNEL_DATA_LOADERS: Record<string, () => Promise<{ default: unknown }>> = {
   bitesize: () => import("../data/podcast-bitesize.json"),
-  yuyu: () => import("../data/podcast-yuyu.json"),
+  // yuyu: () => import("../data/podcast-yuyu.json"),
   haruno: () => import("../data/podcast-haruno.json"),
-  teppei: () => import("../data/podcast-teppei.json"),
+  // teppei: () => import("../data/podcast-teppei.json"),
 };
 
 export interface PodcastData {
@@ -166,7 +169,8 @@ export function getEpisodeSeries(e: PodcastEpisode): string | undefined {
   return aliases[raw.toLowerCase()] ?? (raw || NO_SERIES_BUCKET);
 }
 
-const CHANNEL_ORDER: string[] = ["bitesize", "yuyu", "haruno", "teppei"];
+// Matches CHANNEL_DATA_LOADERS above -- yuyu/teppei temporarily disabled.
+const CHANNEL_ORDER: string[] = ["bitesize", "haruno"];
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 
 // Computed from whatever episodes actually loaded, rather than static

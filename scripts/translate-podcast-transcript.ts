@@ -11,10 +11,20 @@ const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-flash-lite-latest";
 const BATCH_SIZE = 20;
 
-function readApiKey(): string {
+const KEY_NAMES: Record<string, string> = {
+  key2: "GEMINI_API_KEY_OLD_LOINGUYENLAMTHANH",
+  key3: "GEMINI_API_KEY_LOINLT1991",
+  key4: "GEMINI_API_KEY_LAKEMANGA",
+  key5: "GEMINI_API_KEY_TAMOKILOIJP",
+  key6: "GEMINI_API_KEY_VOTHIHON",
+};
+
+function readApiKey(keyFlag: string | undefined): string {
+  const keyName = keyFlag ? KEY_NAMES[keyFlag] : "GEMINI_API_KEY";
+  if (keyFlag && !keyName) throw new Error(`Unknown key flag: ${keyFlag}`);
   const text = readFileSync(join(ROOT, "_scratch/.env.gemini"), "utf8");
-  const match = text.match(/GEMINI_API_KEY=(\S+)/);
-  if (!match) throw new Error("No GEMINI_API_KEY found");
+  const match = text.match(new RegExp(`${keyName}=(\\S+)`));
+  if (!match) throw new Error(`No ${keyName} found`);
   return match[1];
 }
 
@@ -74,11 +84,12 @@ async function translateBatch(apiKey: string, lines: string[]): Promise<string[]
 async function main() {
   const videoId = process.argv[2];
   if (!videoId) {
-    console.error("Usage: translate-podcast-transcript.ts <videoId>");
+    console.error("Usage: translate-podcast-transcript.ts <videoId> [--key2|--key3|--key4|--key5|--key6]");
     process.exit(1);
   }
+  const keyFlag = process.argv.slice(3).find((a) => a.startsWith("--key"))?.slice(2);
 
-  const apiKey = readApiKey();
+  const apiKey = readApiKey(keyFlag);
   const dataPath = join(ROOT, "src/data/podcast-transcripts", `${videoId}.json`);
   const transcript = JSON.parse(readFileSync(dataPath, "utf8")) as PodcastTranscript;
 
