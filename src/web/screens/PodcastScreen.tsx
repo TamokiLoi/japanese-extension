@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Languages, Library, PenSquare, Search } from "lucide-react";
+import { Captions, ChevronLeft, ChevronRight, ExternalLink, FileText, Globe, Heart, Library, PenSquare, Search } from "lucide-react";
 import {
   CHANNEL_LABELS,
   allSeries,
@@ -565,9 +565,19 @@ function EpisodeView({
   // resolved with no file found; undefined only while still loading.
   const [transcript, setTranscript] = useState<PodcastTranscript | null | undefined>(undefined);
   const [showTranslation, setShowTranslation] = useState(false);
-  const [showFurigana, setShowFurigana] = useState(false);
-  const [tab, setTab] = useState<"transcript" | "description">("transcript");
+  const [tab, setTab] = useState<"transcript" | "vocab" | "description">("transcript");
   const [currentTime, setCurrentTime] = useState(0);
+
+  // Switching into the Từ vựng/Ngữ pháp tab pauses playback -- that tab is
+  // meant for reading/tapping through chips at your own pace, not following
+  // along with audio, and the transcript itself can run long enough that
+  // scrolling up to reach the pause button is annoying. The user resumes
+  // manually when ready (no auto-resume on leaving the tab -- that would
+  // restart a video they may have intentionally paused for a while).
+  function handleTabChange(next: "transcript" | "vocab" | "description") {
+    setTab(next);
+    if (next === "vocab" && playerReadyRef.current) playerRef.current?.pauseVideo();
+  }
 
   useEffect(() => {
     setTranscript(undefined);
@@ -652,11 +662,19 @@ function EpisodeView({
           </div>
         </Card>
 
-        {/* Furigana/translation live here (pinned with the video) instead of
+        {/* Translation toggle lives here (pinned with the video) instead of
             as a floating overlay + a copy in the Transcript card header --
             that doubled up once the header itself scrolled out from under
-            the pinned video, showing the same 2 toggles twice on screen at
-            once. One set, always visible, no duplicate. */}
+            the pinned video, showing the same toggle twice on screen at
+            once. One set, always visible, no duplicate.
+            (Furigana toggle removed 2026-09-17 -- see renderWithFurigana's
+            old spot below: it only reused rare inline "漢字（かな）" author
+            annotations, which a real transcript has too few of to look like
+            it does anything. Tried kuromoji/MeCab-based auto-generation as
+            a replacement -- systematically misreads "N月" as つき instead of
+            がつ (a JLPT app teaching a wrong reading is worse than no
+            reading), so this is parked pending a Gemini-based pass like the
+            exam furigana pipeline, not implemented yet.) */}
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <label className="flex items-center gap-1.5 text-xs font-medium text-neutral-600">
             <input
@@ -670,15 +688,6 @@ function EpisodeView({
           {transcript ? (
             <div className="ml-auto flex items-center gap-1.5">
               <button
-                onClick={() => setShowFurigana((v) => !v)}
-                aria-label={showFurigana ? "Ẩn furigana" : "Hiện furigana"}
-                className={`flex h-8 w-8 items-center justify-center rounded-full ${
-                  showFurigana ? "bg-rose-600 text-white" : "border border-neutral-200 text-neutral-500 hover:bg-neutral-50"
-                }`}
-              >
-                <Languages size={14} />
-              </button>
-              <button
                 onClick={() => setShowTranslation((v) => !v)}
                 aria-label={showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
                 className={`flex h-8 w-8 items-center justify-center rounded-full ${
@@ -690,6 +699,41 @@ function EpisodeView({
             </div>
           ) : null}
         </div>
+
+        {/* Pinned with the video (not scrolled away below the transcript's
+            own long list) so switching to "Từ vựng" mid-episode never
+            requires scrolling back up first -- the whole point of moving
+            this out of a plain card further down the page. */}
+        {transcript ? (
+          <div className="mt-3 flex items-center gap-1 rounded-full border border-neutral-200 p-1">
+            <button
+              onClick={() => handleTabChange("transcript")}
+              className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
+                tab === "transcript" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+              }`}
+            >
+              <Captions size={15} /> Transcript
+            </button>
+            {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
+              <button
+                onClick={() => handleTabChange("vocab")}
+                className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
+                  tab === "vocab" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+                }`}
+              >
+                <Library size={15} /> Vocab
+              </button>
+            ) : null}
+            <button
+              onClick={() => handleTabChange("description")}
+              className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
+                tab === "description" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
+              }`}
+            >
+              <FileText size={15} /> Description
+            </button>
+          </div>
+        ) : null}
       </div>
 
       {(() => {
@@ -736,7 +780,9 @@ function EpisodeView({
 
         return (
           <>
-            {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
+            {tab === "description" ? (
+              descriptionCard
+            ) : tab === "vocab" ? (
               <Card className="mt-3 gap-3 rounded-2xl border-neutral-200 p-4 ring-0">
                 {vocabMatches.length > 0 ? (
                   <div>
@@ -775,29 +821,6 @@ function EpisodeView({
                   </div>
                 ) : null}
               </Card>
-            ) : null}
-
-            <div className="mt-3 flex items-center gap-1 rounded-full border border-neutral-200 p-1">
-              <button
-                onClick={() => setTab("transcript")}
-                className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
-                  tab === "transcript" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
-                }`}
-              >
-                <Captions size={15} /> Transcript
-              </button>
-              <button
-                onClick={() => setTab("description")}
-                className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
-                  tab === "description" ? "bg-rose-50 text-rose-600" : "text-neutral-500 hover:bg-neutral-50"
-                }`}
-              >
-                <FileText size={15} /> Mô tả
-              </button>
-            </div>
-
-            {tab === "description" ? (
-              descriptionCard
             ) : (
               <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
                 <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">
@@ -823,7 +846,7 @@ function EpisodeView({
                           </span>
                           <div>
                             <div className={`text-[14.5px] leading-relaxed ${active ? "font-semibold text-rose-700" : "text-neutral-800"}`}>
-                              {showFurigana ? renderWithFurigana(seg.text) : seg.text}
+                              {seg.text}
                             </div>
                             {showTranslation && seg.textVi ? (
                               <div className="mt-0.5 text-[13px] leading-snug text-neutral-500 italic">{seg.textVi}</div>
@@ -903,32 +926,3 @@ function findActiveSegmentIndex(segments: { startSec: number }[], currentTime: n
   return active;
 }
 
-// The transcript's own author already writes real furigana readings inline
-// for kanji they figure a learner might not know -- e.g. "苗字（みょうじ）"
-// -- rather than generating readings ourselves (which would need real
-// Japanese morphological analysis to pick the right reading per context;
-// getting that wrong in a JLPT app would actively teach a bad pronunciation).
-// This just re-renders those already-correct annotations as real <ruby>
-// furigana instead of a parenthetical afterthought. Only fires for
-// kanji-run + hiragana/katakana-in-parens right next to each other, so an
-// unrelated aside like "（笑）" is left alone.
-const FURIGANA_PATTERN = /([一-龯々]+)[（(]([぀-ゟ゠-ヿ]+)[）)]/g;
-
-function renderWithFurigana(text: string): React.ReactNode {
-  const re = new RegExp(FURIGANA_PATTERN);
-  const parts: React.ReactNode[] = [];
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-  while ((match = re.exec(text))) {
-    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
-    parts.push(
-      <ruby key={match.index}>
-        {match[1]}
-        <rt className="text-[9px] text-neutral-400">{match[2]}</rt>
-      </ruby>,
-    );
-    lastIndex = match.index + match[0].length;
-  }
-  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
-  return parts;
-}
