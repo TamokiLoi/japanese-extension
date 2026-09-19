@@ -1311,6 +1311,56 @@ body.tab-mode .jlpt-list {
   margin: 0;
 }
 
+.quiz-resume-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quiz-resume-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.quiz-resume-card-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.quiz-resume-card-sub {
+  font-size: 11px;
+  color: #888;
+}
+
+.quiz-resume-card-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.quiz-resume-btn {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  background: #b5340a;
+  color: #fff;
+}
+
+.quiz-resume-btn-outline {
+  background: #fff;
+  color: #b5340a;
+  border: 1px solid #f0c090;
+}
+
 .quiz-error {
   font-size: 12px;
   color: #b5340a;

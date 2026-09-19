@@ -7,9 +7,9 @@ import {
   buildItBookVocabQuiz,
   loadQuizSettings,
   saveQuizSettings,
-  loadQuizSession,
-  saveQuizSession,
-  clearQuizSession,
+  loadQuizSlots,
+  saveQuizSlot,
+  deleteQuizSlot,
   isSessionUnfinished,
   QUESTION_COUNT_OPTIONS,
   ALL_QUESTIONS_SENTINEL,
@@ -31,6 +31,7 @@ import {
   IT_BOOK_VOCAB_MODE_LABELS,
   AUTO_ADVANCE_DELAY_MS,
 } from "../../popup/quizState.ts";
+import { newSlotId, type SessionSlot } from "../../popup/sessionSlots.ts";
 import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../../popup/progressState.ts";
 import { isCorrectAnswer } from "../../popup/reviewState.ts";
 import { speakJapanese } from "../lib/speak.ts";
@@ -71,7 +72,7 @@ const QUIZ_BUCKET_LABELS: Record<QuizBucketFilter, string> = {
   mastered: "Đã thuộc",
 };
 
-type QuizStep = "resume" | "setup" | "play" | "result";
+type QuizStep = "setup" | "play" | "result";
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
   onOpenVocab: (vocabId: string) => void;
@@ -83,56 +84,37 @@ type OpenCallbacks = {
 // `step` as local state -- the web shell's sidebar/hash routing has no
 // concept of a sub-step, and Quiz's own screens already provide their own
 // way back (setup -> resume via "Bắt đầu bài mới", result -> "Làm lại").
+//
+// Resumable slots are shown as a list at the TOP of "setup" (not a separate
+// gate step) so they stay visible/up to date across setup<->play<->result
+// without needing to leave Quiz entirely and come back -- an earlier version
+// only checked slots once on mount, so a quiz started/finished/deleted
+// during the same visit didn't show up in the list until a full remount.
 export function QuizScreen(open: OpenCallbacks) {
   const [step, setStep] = useState<QuizStep>();
   const [session, setSession] = useState<QuizSession | null>(null);
   const [settings, setSettings] = useState<QuizSettings | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
+  const [resumeSlots, setResumeSlots] = useState<SessionSlot<QuizSession>[]>([]);
+
+  async function refreshResumeSlots(): Promise<SessionSlot<QuizSession>[]> {
+    const slots = (await loadQuizSlots()).filter((s) => isSessionUnfinished(s.data));
+    setResumeSlots(slots);
+    return slots;
+  }
 
   useEffect(() => {
     (async () => {
-      // Loaded unconditionally (not just on the "setup" path) so PlayView
-      // can read settings.autoAdvance even when arriving via "Tiếp tục" on
-      // an in-progress session instead of a fresh setup submission.
-      const [existing, loadedSettings] = await Promise.all([loadQuizSession(), loadQuizSettings()]);
+      // Settings loaded unconditionally (not just on the "setup" path) so
+      // PlayView can read settings.autoAdvance even when arriving via
+      // "Tiếp tục" on an in-progress session instead of a fresh setup submission.
+      const [, loadedSettings] = await Promise.all([refreshResumeSlots(), loadQuizSettings()]);
       setSettings(loadedSettings);
-      if (existing && isSessionUnfinished(existing)) {
-        setSession(existing);
-        setStep("resume");
-        return;
-      }
       setStep("setup");
     })();
   }, []);
 
   if (step === undefined) return <LoadingScreen />;
-
-  if (step === "resume") {
-    if (!session) return <LoadingScreen />;
-    const answeredCount = session.answers.filter((a) => a !== null).length;
-    return (
-      <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
-        <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
-        <p className="mt-3 text-neutral-500">
-          Bạn có 1 bài quiz đang làm dở ({answeredCount}/{session.questions.length} câu đã trả lời).
-        </p>
-        <Button className="mt-6 w-full" onClick={() => setStep("play")}>
-          Tiếp tục
-        </Button>
-        <Button
-          variant="outline"
-          className="mt-2 w-full"
-          onClick={async () => {
-            await clearQuizSession();
-            setSettings(await loadQuizSettings());
-            setStep("setup");
-          }}
-        >
-          Bắt đầu bài mới
-        </Button>
-      </div>
-    );
-  }
 
   if (step === "setup") {
     if (!settings) return <LoadingScreen />;
@@ -142,6 +124,15 @@ export function QuizScreen(open: OpenCallbacks) {
         error={error}
         onSettingsChange={setSettings}
         onError={setError}
+        resumeSlots={resumeSlots}
+        onResumeSlot={(slot) => {
+          setSession(slot.data);
+          setStep("play");
+        }}
+        onDeleteSlot={async (id) => {
+          await deleteQuizSlot(id);
+          await refreshResumeSlots();
+        }}
         onStart={(newSession) => {
           setSession(newSession);
           setError(undefined);
@@ -165,7 +156,10 @@ export function QuizScreen(open: OpenCallbacks) {
         }}
         onSessionChange={setSession}
         onFinish={() => setStep("result")}
-        onBack={() => setStep("setup")}
+        onBack={async () => {
+          await refreshResumeSlots();
+          setStep("setup");
+        }}
         {...open}
       />
     );
@@ -176,7 +170,8 @@ export function QuizScreen(open: OpenCallbacks) {
     <ResultView
       session={session}
       onRetry={async () => {
-        setSettings(await loadQuizSettings());
+        const [, loadedSettings] = await Promise.all([refreshResumeSlots(), loadQuizSettings()]);
+        setSettings(loadedSettings);
         setStep("setup");
       }}
       onReviewQuestion={(index) => {
@@ -254,12 +249,18 @@ function SetupView({
   error,
   onSettingsChange,
   onError,
+  resumeSlots,
+  onResumeSlot,
+  onDeleteSlot,
   onStart,
 }: {
   settings: QuizSettings;
   error?: string;
   onSettingsChange: (next: QuizSettings) => void;
   onError: (msg: string | undefined) => void;
+  resumeSlots: SessionSlot<QuizSession>[];
+  onResumeSlot: (slot: SessionSlot<QuizSession>) => void;
+  onDeleteSlot: (id: string) => void;
   onStart: (session: QuizSession) => void;
 }) {
   const [kanjiFilterText, setKanjiFilterText] = useState("—");
@@ -355,8 +356,8 @@ function SetupView({
       );
       return;
     }
-    const session: QuizSession = { questions, answers: questions.map(() => null), currentIndex: 0 };
-    await saveQuizSession(session);
+    const session: QuizSession = { id: newSlotId(), questions, answers: questions.map(() => null), currentIndex: 0 };
+    await saveQuizSlot(session);
     onError(undefined);
     onStart(session);
   }
@@ -372,6 +373,30 @@ function SetupView({
         />
         <h1 className="text-2xl font-bold text-neutral-800">Quiz</h1>
       </div>
+
+      {resumeSlots.length > 0 ? (
+        <div className="mt-4">
+          <p className="text-sm font-semibold text-neutral-500">Bài đang làm dở</p>
+          <div className="mt-2 flex flex-col gap-2">
+            {resumeSlots.map((slot) => (
+              <div key={slot.id} className="flex items-center justify-between gap-3 rounded-xl border border-neutral-200 bg-white px-4 py-3">
+                <div className="min-w-0">
+                  <div className="truncate font-semibold text-neutral-800">{slot.title}</div>
+                  <div className="text-sm text-neutral-500">{slot.subtitle}</div>
+                </div>
+                <div className="flex shrink-0 gap-2">
+                  <Button size="sm" onClick={() => onResumeSlot(slot)}>
+                    Tiếp tục
+                  </Button>
+                  <Button size="sm" variant="outline" onClick={() => onDeleteSlot(slot.id)}>
+                    Xoá
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       <Card className="mt-4 gap-5 rounded-2xl border-neutral-200 p-6 ring-0">
         <div>
@@ -690,7 +715,7 @@ function PlayView({
     const newTypedAnswers = session.typedAnswers ? [...session.typedAnswers] : session.questions.map(() => null);
     newTypedAnswers[idx] = typedText;
     const newSession = { ...session, answers: newAnswers, typedAnswers: newTypedAnswers };
-    await saveQuizSession(newSession);
+    await saveQuizSlot(newSession);
     onSessionChange(newSession);
   }
   const allAnswered = session.answers.every((a) => a !== null);
@@ -699,13 +724,13 @@ function PlayView({
   useFloatingNav(true);
 
   async function finish() {
-    await clearQuizSession();
+    await deleteQuizSlot(session.id);
     onFinish();
   }
 
   async function goTo(newIndex: number) {
     const newSession = { ...session, currentIndex: newIndex };
-    await saveQuizSession(newSession);
+    await saveQuizSlot(newSession);
     onSessionChange(newSession);
   }
 
@@ -850,7 +875,7 @@ function PlayView({
               onKeyDown={(e) => {
                 if (e.key === "Enter") submitTyped();
               }}
-              placeholder="Gõ furigana..."
+              placeholder={q.mode === "typedHanViet" ? "Gõ Hán Việt..." : "Gõ furigana..."}
               className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-base disabled:bg-neutral-50"
             />
             {answered === null ? (
@@ -889,7 +914,7 @@ function PlayView({
                     const newAnswers = [...session.answers];
                     newAnswers[idx] = i;
                     const newSession = { ...session, answers: newAnswers };
-                    await saveQuizSession(newSession);
+                    await saveQuizSlot(newSession);
                     onSessionChange(newSession);
                   }}
                   className={`rounded-xl border px-4 py-3 text-sm font-medium ${cls} ${

@@ -22,6 +22,8 @@ import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
 import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
 import { RoadmapScreen } from "./screens/RoadmapScreen.tsx";
 import { PodcastScreen } from "./screens/PodcastScreen.tsx";
+import { TranslationPracticeScreen } from "./screens/TranslationPracticeScreen.tsx";
+import { MatchGameScreen } from "./screens/MatchGameScreen.tsx";
 import { resolveChatContext } from "./lib/chatContext.ts";
 import "./tailwind.css";
 
@@ -253,6 +255,10 @@ export function WebApp() {
         onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
       />
     );
+  } else if (screen === "translationPractice") {
+    content = <TranslationPracticeScreen />;
+  } else if (screen === "matchGame") {
+    content = <MatchGameScreen />;
   } else {
     content = <App key={navKey} />;
   }

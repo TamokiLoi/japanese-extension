@@ -8,7 +8,8 @@ import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoVi
 import { getOrderedList as getItBookVocabOrderedList, loadViewerState as loadItBookVocabViewerState } from "./itBookState.ts";
 import { loadProgressMap, pickWeighted, bucketForDirection, type ProgressMap, type ProgressBucket } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
-import { storageGet, storageSet, storageRemove } from "../platform/storage";
+import { storageGet, storageSet } from "../platform/storage";
+import { loadSlots, upsertSlot, deleteSlot, type SessionSlot } from "./sessionSlots.ts";
 
 export const DEFAULT_QUESTION_COUNT = 10;
 export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30, 50, 100];
@@ -26,11 +27,12 @@ export type QuizContentType = "kanji" | "vocab" | "bunpo" | "itBookVocab";
 export type KanjiQuizMode = "meaning" | "character";
 // "meaning"/"reading": show the word, pick its meaning/reading. The
 // "wordFrom*" pair reverses that -- show the meaning or reading as the
-// prompt, pick the matching word. "typedReading" drills the same word->
-// reading recall as "reading" but as free typing instead of multiple
-// choice (recall vs recognition) -- see buildVocabQuiz for the kanji-only
-// pool filter and QuizQuestion.answerFormat for how it's answered.
-export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFromReading" | "typedReading";
+// prompt, pick the matching word. "typedReading"/"typedHanViet" drill the
+// same word-> reading/hán việt recall as "reading" but as free typing
+// instead of multiple choice (recall vs recognition) -- see buildVocabQuiz
+// for the kanji-only pool filter and QuizQuestion.answerFormat for how
+// they're answered.
+export type VocabQuizMode = "meaning" | "reading" | "wordFromMeaning" | "wordFromReading" | "typedReading" | "typedHanViet";
 // "meaning": show the grammar pattern, pick its Vietnamese meaning.
 // "pattern": the reverse -- show the meaning, pick the matching pattern.
 export type BunpoQuizMode = "meaning" | "pattern";
@@ -78,12 +80,13 @@ export interface QuizQuestion {
 export const KANJI_MASTERY_DIRECTIONS: KanjiQuizMode[] = ["meaning", "character"];
 export const VOCAB_MASTERY_DIRECTIONS: VocabQuizMode[] = ["meaning", "reading", "wordFromMeaning", "wordFromReading"];
 // Every mode selectable in the Quiz setup picker -- a superset of
-// VOCAB_MASTERY_DIRECTIONS. "typedReading" is deliberately excluded from
-// the mastery set (it drills the same word->reading recall as "reading",
-// just by typing instead of picking -- requiring it too would make mastery
-// harder to reach than before for no real benefit, and would apply
-// retroactively to words already mastered under the old 4-direction bar).
-export const VOCAB_QUIZ_MODES: VocabQuizMode[] = [...VOCAB_MASTERY_DIRECTIONS, "typedReading"];
+// VOCAB_MASTERY_DIRECTIONS. "typedReading"/"typedHanViet" are deliberately
+// excluded from the mastery set (they drill the same word->reading/hán việt
+// recall as "reading", just by typing instead of picking -- requiring them
+// too would make mastery harder to reach than before for no real benefit,
+// and would apply retroactively to words already mastered under the old
+// 4-direction bar).
+export const VOCAB_QUIZ_MODES: VocabQuizMode[] = [...VOCAB_MASTERY_DIRECTIONS, "typedReading", "typedHanViet"];
 
 // Shared with the Quiz setup screen's "Dạng câu hỏi" picker so a card's
 // detail view (Kanji/Vocab) can show "which direction still needs proving"
@@ -98,10 +101,22 @@ export const VOCAB_MODE_LABELS: Record<VocabQuizMode, string> = {
   wordFromMeaning: "Xem nghĩa, đoán từ",
   wordFromReading: "Xem cách đọc, đoán từ",
   typedReading: "Xem từ, gõ cách đọc (không trắc nghiệm)",
+  typedHanViet: "Xem từ, gõ Hán Việt (không trắc nghiệm)",
 };
 export const IT_BOOK_VOCAB_MODE_LABELS: Record<ItBookVocabQuizMode, string> = {
   meaning: "Xem từ, đoán nghĩa",
   wordFromMeaning: "Xem nghĩa, đoán từ",
+};
+export const BUNPO_MODE_LABELS: Record<BunpoQuizMode, string> = {
+  meaning: "Xem mẫu ngữ pháp, đoán nghĩa",
+  pattern: "Xem nghĩa, đoán mẫu ngữ pháp",
+};
+
+export const CONTENT_TYPE_LABELS: Record<QuizContentType, string> = {
+  kanji: "Kanji",
+  vocab: "Từ vựng",
+  bunpo: "Ngữ pháp",
+  itBookVocab: "Từ vựng IT",
 };
 
 // Arrow-shorthand of the labels above, for the per-direction progress
@@ -120,6 +135,7 @@ export const VOCAB_MODE_SHORT_LABELS: Record<VocabQuizMode, string> = {
   wordFromMeaning: "Nghĩa→Từ",
   wordFromReading: "Đọc→Từ",
   typedReading: "Gõ đọc",
+  typedHanViet: "Gõ Hán Việt",
 };
 
 // Generalized over just {kind, mode} (not the full QuizQuestion) so it's
@@ -255,6 +271,9 @@ export async function buildVocabQuiz(
   // hiragana or katakana word's "reading" is just itself, so there's
   // nothing to recall/type.
   if (mode === "typedReading") pool = pool.filter((v) => v.reading && KANJI_RE.test(v.word));
+  // Hán Việt only applies to words with kanji AND a known hán việt reading
+  // (several sources, e.g. dongnghia/doicap-tudongtu, leave hanViet empty).
+  if (mode === "typedHanViet") pool = pool.filter((v) => v.hanViet.length > 0 && KANJI_RE.test(v.word));
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
   const scoped = filterByBucket(pool, progressMap, bucket, mode);
@@ -285,11 +304,34 @@ export async function buildVocabQuiz(
     });
   }
 
+  if (mode === "typedHanViet") {
+    return targets.map((v): QuizQuestion => {
+      // Some sources list >1 accepted hán việt reading for the same kanji
+      // (e.g. 楽 -> "LẠC"/"NHẠC" depending on context) -- expectedAnswers
+      // already supports multiple acceptable strings, so pass the array
+      // through as-is instead of joining it into one phrase.
+      return {
+        id: v.id,
+        kind: "vocab",
+        mode,
+        level: v.level,
+        promptLabel: "Từ này Hán Việt là gì? (gõ Hán Việt)",
+        prompt: v.word,
+        answerFormat: "typed",
+        expectedAnswers: v.hanViet,
+        choices: [
+          { text: formatHanViet(v.hanViet), correct: true },
+          { text: "—", correct: false },
+        ],
+      };
+    });
+  }
+
   const meaningOf = (v: VocabCard) => v.meaningVi || "?";
   const readingOf = (v: VocabCard) => v.reading as string;
   const wordOf = (v: VocabCard) => v.word;
 
-  const config: Record<Exclude<VocabQuizMode, "typedReading">, { answerOf: (v: VocabCard) => string; promptLabel: string; promptOf: (v: VocabCard) => string }> = {
+  const config: Record<Exclude<VocabQuizMode, "typedReading" | "typedHanViet">, { answerOf: (v: VocabCard) => string; promptLabel: string; promptOf: (v: VocabCard) => string }> = {
     meaning: { answerOf: meaningOf, promptLabel: "Từ này nghĩa là gì?", promptOf: wordOf },
     reading: { answerOf: readingOf, promptLabel: "Từ này đọc là gì?", promptOf: wordOf },
     wordFromMeaning: { answerOf: wordOf, promptLabel: "Từ nào có nghĩa này?", promptOf: meaningOf },
@@ -393,9 +435,13 @@ export async function saveQuizSettings(settings: QuizSettings): Promise<void> {
 }
 
 // A quiz in progress, persisted so it survives a popup/tab reload instead
-// of silently vanishing -- see screens/quiz.ts's resume prompt. Cleared
-// once the user reaches the result screen or explicitly starts over.
+// of silently vanishing -- see screens/quiz.ts's resume prompt. Each start
+// gets its own `id`/slot (via sessionSlots.ts) instead of one single
+// "current session" key, so several unfinished quizzes (different
+// content/mode/filters) can be resumed independently -- deleted once the
+// user reaches the result screen or explicitly deletes that slot.
 export interface QuizSession {
+  id: string;
   questions: QuizQuestion[];
   // Index of the choice the user picked for that question, or null if not
   // answered yet. Answering again on revisit is not allowed -- this array
@@ -413,18 +459,35 @@ export interface QuizSession {
   currentIndex: number;
 }
 
-const QUIZ_SESSION_KEY = "quizSession";
+const QUIZ_SLOTS_KEY = "quizSessionSlots";
 
-export async function loadQuizSession(): Promise<QuizSession | null> {
-  return (await storageGet<QuizSession>(QUIZ_SESSION_KEY)) ?? null;
+export async function loadQuizSlots(): Promise<SessionSlot<QuizSession>[]> {
+  return loadSlots<QuizSession>(QUIZ_SLOTS_KEY);
 }
 
-export async function saveQuizSession(session: QuizSession): Promise<void> {
-  await storageSet(QUIZ_SESSION_KEY, session);
+export async function saveQuizSlot(session: QuizSession): Promise<void> {
+  const answered = session.answers.filter((a) => a !== null).length;
+  const first = session.questions[0];
+  const modeLabel = !first
+    ? ""
+    : first.kind === "kanji"
+      ? KANJI_MODE_LABELS[first.mode as KanjiQuizMode]
+      : first.kind === "vocab"
+        ? VOCAB_MODE_LABELS[first.mode as VocabQuizMode]
+        : first.kind === "bunpo"
+          ? BUNPO_MODE_LABELS[first.mode as BunpoQuizMode]
+          : IT_BOOK_VOCAB_MODE_LABELS[first.mode as ItBookVocabQuizMode];
+  await upsertSlot(QUIZ_SLOTS_KEY, {
+    id: session.id,
+    savedAt: Date.now(),
+    title: first ? `${CONTENT_TYPE_LABELS[first.kind]} · ${modeLabel}` : "Quiz",
+    subtitle: `${answered}/${session.questions.length} câu`,
+    data: session,
+  });
 }
 
-export async function clearQuizSession(): Promise<void> {
-  await storageRemove(QUIZ_SESSION_KEY);
+export async function deleteQuizSlot(id: string): Promise<void> {
+  await deleteSlot(QUIZ_SLOTS_KEY, id);
 }
 
 export function isSessionUnfinished(session: QuizSession): boolean {

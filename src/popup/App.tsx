@@ -30,7 +30,9 @@ export type Screen =
   | "itBookVocab"
   | "itBookLessons"
   | "roadmap"
-  | "podcast";
+  | "podcast"
+  | "translationPractice"
+  | "matchGame";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -53,6 +55,8 @@ export const VALID_SCREENS: Screen[] = [
   "itBookLessons",
   "roadmap",
   "podcast",
+  "translationPractice",
+  "matchGame",
 ];
 
 interface Route {
@@ -114,9 +118,9 @@ export function App() {
 
   // For a screen with its own internal "steps" (currently only Quiz:
   // setup/play/result), some step transitions shouldn't be back-able
-  // (e.g. resolving on mount whether to show "resume" or "setup", or
-  // starting a new quiz after finishing one) -- those replace the step on
-  // the current stack entry in place instead of pushing a new one.
+  // (e.g. resolving on mount which step to land on, or starting a new quiz
+  // after finishing one) -- those replace the step on the current stack
+  // entry in place instead of pushing a new one.
   function replaceStep(newStep: string) {
     setStack((s) => {
       const top = s[s.length - 1];
@@ -206,6 +210,12 @@ export function App() {
   }
   if (screen === "podcast") {
     return <p className="empty">Podcast hiện chỉ có trên bản Web Dashboard.</p>;
+  }
+  if (screen === "translationPractice") {
+    return <p className="empty">Luyện dịch hiện chỉ có trên bản Web Dashboard.</p>;
+  }
+  if (screen === "matchGame") {
+    return <p className="empty">Ghép cặp hiện chỉ có trên bản Web Dashboard.</p>;
   }
   return (
     <QuizScreen

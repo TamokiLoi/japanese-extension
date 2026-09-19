@@ -17,6 +17,7 @@ import {
   Cpu,
   CalendarCheck,
   Podcast,
+  Puzzle,
 } from "lucide-react";
 
 export interface NavItem {
@@ -37,10 +38,14 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
   { screen: "listening", label: "Luyện nghe", icon: Headphones },
   { screen: "podcast", label: "Podcast", icon: Podcast },
+  // "translationPractice" deliberately not listed here -- feature is on
+  // hold pending reconsideration (see project-translation-practice-poc
+  // memory), hide the nav entry without removing the screen/routing.
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "exams", label: "Đề thi JLPT", icon: ClipboardCheck },
   { screen: "roadmap", label: "Lộ trình N3", icon: CalendarCheck },
   { screen: "quiz", label: "Quiz", icon: HelpCircle },
+  { screen: "matchGame", label: "Ghép cặp", icon: Puzzle },
   { screen: "review", label: "Ôn tập", icon: RotateCcw },
   { screen: "itBookVocab", label: "Từ vựng IT", icon: Cpu },
   { screen: "itBookLessons", label: "Bài học IT", icon: BookOpenText },
@@ -68,7 +73,7 @@ export interface NavGroup {
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search", "roadmap"] },
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening", "podcast"] },
-  { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "review"] },
+  { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "matchGame", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide"] },
 ];

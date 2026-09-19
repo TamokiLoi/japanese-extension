@@ -5,9 +5,9 @@ import {
   buildBunpoQuiz,
   loadQuizSettings,
   saveQuizSettings,
-  loadQuizSession,
-  saveQuizSession,
-  clearQuizSession,
+  loadQuizSlots,
+  saveQuizSlot,
+  deleteQuizSlot,
   isSessionUnfinished,
   QUESTION_COUNT_OPTIONS,
   ALL_QUESTIONS_SENTINEL,
@@ -22,6 +22,7 @@ import {
   VOCAB_QUIZ_MODES,
   VOCAB_MODE_LABELS,
 } from "../quizState.ts";
+import { newSlotId, type SessionSlot } from "../sessionSlots.ts";
 import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../progressState.ts";
 import { isCorrectAnswer } from "../reviewState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
@@ -29,7 +30,7 @@ import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS }
 import { loadViewerState as loadBunpoViewerState, findBunpoById, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../bunpoState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 
-type QuizStep = "resume" | "setup" | "play" | "result";
+type QuizStep = "setup" | "play" | "result";
 
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
@@ -63,17 +64,18 @@ export function QuizScreen({
   const [session, setSession] = useState<QuizSession | null>(null);
   const [settings, setSettings] = useState<QuizSettings | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
+  const [resumeSlots, setResumeSlots] = useState<SessionSlot<QuizSession>[]>([]);
+
+  async function refreshResumeSlots(): Promise<SessionSlot<QuizSession>[]> {
+    const slots = (await loadQuizSlots()).filter((s) => isSessionUnfinished(s.data));
+    setResumeSlots(slots);
+    return slots;
+  }
 
   useEffect(() => {
     if (step !== undefined) return;
     (async () => {
-      const existing = await loadQuizSession();
-      if (existing && isSessionUnfinished(existing)) {
-        setSession(existing);
-        onStepReplace("resume");
-        return;
-      }
-      const loadedSettings = await loadQuizSettings();
+      const [, loadedSettings] = await Promise.all([refreshResumeSlots(), loadQuizSettings()]);
       setSettings(loadedSettings);
       onStepReplace("setup");
     })();
@@ -97,40 +99,6 @@ export function QuizScreen({
     return loadingHeader();
   }
 
-  if (step === "resume") {
-    if (!session) return loadingHeader();
-    const answeredCount = session.answers.filter((a) => a !== null).length;
-    return (
-      <>
-        <header className="toolbar">
-          <button className="icon-btn" title="Về menu" onClick={onBack}>
-            ←
-          </button>
-          <span className="counter">Quiz</span>
-        </header>
-        <section className="quiz-setup">
-          <p className="quiz-filter-note">
-            Bạn có 1 bài quiz đang làm dở ({answeredCount}/{session.questions.length} câu đã trả lời).
-          </p>
-          <button className="primary-action-btn" onClick={() => onStepChange("play")}>
-            Tiếp tục
-          </button>
-          <button
-            className="secondary-action-btn"
-            onClick={async () => {
-              await clearQuizSession();
-              const loadedSettings = await loadQuizSettings();
-              setSettings(loadedSettings);
-              onStepReplace("setup");
-            }}
-          >
-            Bắt đầu bài mới
-          </button>
-        </section>
-      </>
-    );
-  }
-
   if (step === "setup") {
     if (!settings) return loadingHeader();
     return (
@@ -140,6 +108,15 @@ export function QuizScreen({
         onBack={onBack}
         onSettingsChange={setSettings}
         onError={setError}
+        resumeSlots={resumeSlots}
+        onResumeSlot={(slot) => {
+          setSession(slot.data);
+          onStepChange("play");
+        }}
+        onDeleteSlot={async (id) => {
+          await deleteQuizSlot(id);
+          await refreshResumeSlots();
+        }}
         onStart={(newSession) => {
           setSession(newSession);
           setError(undefined);
@@ -168,7 +145,7 @@ export function QuizScreen({
       session={session}
       onBack={onBack}
       onRetry={async () => {
-        const loadedSettings = await loadQuizSettings();
+        const [, loadedSettings] = await Promise.all([refreshResumeSlots(), loadQuizSettings()]);
         setSettings(loadedSettings);
         onStepReplace("setup");
       }}
@@ -186,6 +163,9 @@ function SetupView({
   onBack,
   onSettingsChange,
   onError,
+  resumeSlots,
+  onResumeSlot,
+  onDeleteSlot,
   onStart,
 }: {
   settings: QuizSettings;
@@ -193,6 +173,9 @@ function SetupView({
   onBack: () => void;
   onSettingsChange: (next: QuizSettings) => void;
   onError: (msg: string | undefined) => void;
+  resumeSlots: SessionSlot<QuizSession>[];
+  onResumeSlot: (slot: SessionSlot<QuizSession>) => void;
+  onDeleteSlot: (id: string) => void;
   onStart: (session: QuizSession) => void;
 }) {
   const [kanjiFilterText, setKanjiFilterText] = useState("—");
@@ -243,11 +226,12 @@ function SetupView({
       return;
     }
     const session: QuizSession = {
+      id: newSlotId(),
       questions,
       answers: questions.map(() => null),
       currentIndex: 0,
     };
-    await saveQuizSession(session);
+    await saveQuizSlot(session);
     onError(undefined);
     onStart(session);
   }
@@ -262,6 +246,29 @@ function SetupView({
       </header>
 
       <section className="quiz-setup">
+        {resumeSlots.length > 0 ? (
+          <div className="quiz-setup-group">
+            <div className="quiz-setup-label">Bài đang làm dở</div>
+            <div className="quiz-resume-list">
+              {resumeSlots.map((slot) => (
+                <div key={slot.id} className="quiz-resume-card">
+                  <div>
+                    <div className="quiz-resume-card-title">{slot.title}</div>
+                    <div className="quiz-resume-card-sub">{slot.subtitle}</div>
+                  </div>
+                  <div className="quiz-resume-card-actions">
+                    <button className="quiz-resume-btn" onClick={() => onResumeSlot(slot)}>
+                      Tiếp tục
+                    </button>
+                    <button className="quiz-resume-btn quiz-resume-btn-outline" onClick={() => onDeleteSlot(slot.id)}>
+                      Xoá
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
         <div className="quiz-setup-group">
           <div className="quiz-setup-label">Nội dung</div>
           <div className="quiz-radio-row">
@@ -544,18 +551,18 @@ function PlayView({
     const newTypedAnswers = session.typedAnswers ? [...session.typedAnswers] : session.questions.map(() => null);
     newTypedAnswers[idx] = typedText;
     const newSession = { ...session, answers: newAnswers, typedAnswers: newTypedAnswers };
-    await saveQuizSession(newSession);
+    await saveQuizSlot(newSession);
     onSessionChange(newSession);
   }
 
   async function finish() {
-    await clearQuizSession();
+    await deleteQuizSlot(session.id);
     onFinish();
   }
 
   async function goTo(newIndex: number) {
     const newSession = { ...session, currentIndex: newIndex };
-    await saveQuizSession(newSession);
+    await saveQuizSlot(newSession);
     onSessionChange(newSession);
   }
 
@@ -621,7 +628,7 @@ function PlayView({
               onKeyDown={(e) => {
                 if (e.key === "Enter") submitTyped();
               }}
-              placeholder="Gõ furigana..."
+              placeholder={q.mode === "typedHanViet" ? "Gõ Hán Việt..." : "Gõ furigana..."}
             />
             {answered === null ? (
               <button className="primary-action-btn quiz-typed-submit-btn" onClick={submitTyped} disabled={typedText.trim() === ""}>
@@ -652,7 +659,7 @@ function PlayView({
                     const newAnswers = [...session.answers];
                     newAnswers[idx] = i;
                     const newSession = { ...session, answers: newAnswers };
-                    await saveQuizSession(newSession);
+                    await saveQuizSlot(newSession);
                     onSessionChange(newSession);
                   }}
                 >
