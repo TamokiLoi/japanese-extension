@@ -551,7 +551,7 @@ export function VocabScreen({
             <div className="flex shrink-0 items-center gap-1.5">
               {canSpeak ? (
                 <button
-                  onClick={() => speakJapanese(v.word)}
+                  onClick={() => speakJapanese(v.reading || v.word)}
                   aria-label="Phát âm"
                   title="Phát âm"
                   className="flex h-7.5 w-7.5 items-center justify-center rounded-full text-neutral-300 hover:bg-neutral-100 hover:text-rose-500"

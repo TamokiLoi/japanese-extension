@@ -547,7 +547,7 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
   useEffect(() => {
     if (q.kind !== "vocab") return;
     const v = findVocabById(q.id);
-    if (v) speakJapanese(v.word);
+    if (v) speakJapanese(v.reading || v.word);
   }, [q.id, q.kind]);
 
   if (q.kind === "kanji") {
