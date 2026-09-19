@@ -27,6 +27,24 @@ import listeningDethi202512Raw from "../data/listening-dethi-2025-12.json";
 // optionsImage). Pilot 6/28 cau cua rieng de T12/2020; 11 ky con lai + Mondai
 // 2/3/4/5 cua chinh de nay chua convert.
 import listeningCacNam202012Raw from "../data/listening-cacnam-2020-12.json";
+// listening-kaiwa-100cau.json: 100 câu hội thoại thường ngày ngắn (KHÔNG
+// phải nội dung 聴解 JLPT thật -- nguồn là 1 infographic tổng hợp câu giao
+// tiếp, TTS bằng Gemini) -- thêm chủ yếu để làm giàu "Nghe chép chính tả"
+// (mỗi câu 1 audio ngắn, hợp dictation) hơn là 1 câu hỏi nghe hiểu thật.
+// taskType cố tình để "gaiyou" (KHÔNG phải "sokuji") dù mỗi câu chỉ có 1
+// audio ngắn giống sokuji về hình thức -- referenceTextFor() (xem
+// dictationState.ts) gộp cả `options` vào nội dung chép chính tả CHỈ với
+// sokuji (giả định đúng của 発話表現・即時応答 thật: cả tình huống lẫn 3 lựa
+// chọn đều được ĐỌC THÀNH TIẾNG trong audio) -- nhưng audio của bộ này chỉ
+// đọc đúng 1 câu, 4 lựa chọn nghĩa tiếng Việt là tự sinh (xem
+// _scratch/build_kaiwa_listening.mjs) chứ không hề được đọc, nên nếu gắn
+// sokuji thì bài chép chính tả sẽ bị chấm sai (nội dung "phải chép" bị cộng
+// thêm cả đáp án trắc nghiệm chưa từng phát ra tiếng). Đánh đổi: mặc định
+// Nghe chép chính tả chỉ hiện sokuji (xem defaultViewerState() ở
+// dictationState.ts) nên bộ này cần người dùng tự mở rộng bộ lọc loại câu
+// sang "gaiyou" mới thấy -- giống các câu kadai/point/gaiyou của những sách
+// khác vốn đã vậy từ trước, không phải hạn chế riêng của bộ này.
+import listeningKaiwa100cauRaw from "../data/listening-kaiwa-100cau.json";
 import type { ListeningDataset, ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
@@ -35,13 +53,17 @@ const speedmasterDataset = listeningSpeedmasterRaw as unknown as ListeningDatase
 const shinkanzenDataset = listeningShinkanzenRaw as unknown as ListeningDataset;
 const dethi202512Dataset = listeningDethi202512Raw as unknown as ListeningDataset;
 const cacNam202012Dataset = listeningCacNam202012Raw as unknown as ListeningDataset;
+const kaiwa100cauDataset = listeningKaiwa100cauRaw as unknown as ListeningDataset;
 
 export const ALL_LISTENING: ListeningQuestion[] = [
   ...soumatomeDataset.questions,
   ...speedmasterDataset.questions,
   ...shinkanzenDataset.questions,
-  ...dethi202512Dataset.questions,
-  ...cacNam202012Dataset.questions,
+  // dethi202512Dataset and cacNam202012Dataset deliberately left out of the
+  // pool -- both are partial extractions (16/28 and 6/28 câu) that clutter
+  // the Sách filter with confusing low counts. Re-add once each exam's
+  // 聴解 section is fully converted.
+  ...kaiwa100cauDataset.questions,
 ];
 
 const LISTENING_BY_ID = new Map(ALL_LISTENING.map((q) => [q.id, q]));
@@ -67,9 +89,10 @@ export const BOOK_LABELS: Record<string, string> = {
   shinkanzen: "Shin Kanzen Master N3 Choukai",
   "dethi-2025-12": "Đề thi thật N3 T12/2025 (聴解, 16/28 câu)",
   "cacnam-2020-12": "Đề thi thật N3 T12/2020 (聴解, 6/28 câu -- Mondai 1)",
+  "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12", "cacnam-2020-12"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "kaiwa-100cau"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {

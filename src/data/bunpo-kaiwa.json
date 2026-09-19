@@ -1,0 +1,356 @@
+{
+  "grammarPoints": [
+    {
+      "id": "bunpo-kaiwa-1",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Thể Thông Thường + ～し、～し",
+      "meaningVi": "Vừa ～ vừa",
+      "example": "お腹がすいたし、のどがかわいたし、何か食べたいです。",
+      "exampleVi": "Vừa đói bụng vừa khát nước nên tôi muốn ăn chút gì đó."
+    },
+    {
+      "id": "bunpo-kaiwa-2",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vてあげます",
+      "meaningVi": "Làm V cho ai đó",
+      "example": "山田さんにお金を貸してあげます。",
+      "exampleVi": "Tôi cho anh Yamada mượn tiền."
+    },
+    {
+      "id": "bunpo-kaiwa-3",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vてもらいます",
+      "meaningVi": "Nhận V từ ai",
+      "example": "山田さんに手伝ってもらいます。",
+      "exampleVi": "Tôi nhận được sự giúp đỡ từ anh Yamada."
+    },
+    {
+      "id": "bunpo-kaiwa-4",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vてくれます",
+      "meaningVi": "Ai đó làm V cho tôi",
+      "example": "田中さんが料理を作ってくれます。",
+      "exampleVi": "Anh Tanaka nấu ăn cho tôi."
+    },
+    {
+      "id": "bunpo-kaiwa-5",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vる/Nの + 予定",
+      "meaningVi": "Dự định",
+      "example": "来年日本へ行く予定です。",
+      "exampleVi": "Tôi dự định năm sau sẽ đi Nhật."
+    },
+    {
+      "id": "bunpo-kaiwa-6",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vる/Nない + つもり",
+      "meaningVi": "Định",
+      "example": "来週、車を買うつもりです。",
+      "exampleVi": "Tôi dự định tuần sau mua xe hơi."
+    },
+    {
+      "id": "bunpo-kaiwa-7",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vよう + と思います",
+      "meaningVi": "Định là",
+      "example": "日本に留学しようと思います。",
+      "exampleVi": "Tôi đang định đi du học Nhật Bản."
+    },
+    {
+      "id": "bunpo-kaiwa-8",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V/Aな/Nの + ようだ",
+      "meaningVi": "Có vẻ như",
+      "example": "雪が降ったようだ。",
+      "exampleVi": "Có vẻ như tuyết đã rơi."
+    },
+    {
+      "id": "bunpo-kaiwa-9",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vておきます",
+      "meaningVi": "Làm sẵn",
+      "example": "ここに住所を書いておきます。",
+      "exampleVi": "Tôi sẽ ghi sẵn địa chỉ vào đây."
+    },
+    {
+      "id": "bunpo-kaiwa-13",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "ば",
+      "meaningVi": "Nếu... thì",
+      "example": "年をとれば身体が弱くなります。",
+      "exampleVi": "Nếu có tuổi thì thân thể sẽ yếu đi."
+    },
+    {
+      "id": "bunpo-kaiwa-14",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "なら",
+      "meaningVi": "Nếu... thì",
+      "example": "お金のことなら、心配しなくてもいいです。",
+      "exampleVi": "Nếu là chuyện tiền bạc thì cũng đừng nên lo lắng."
+    },
+    {
+      "id": "bunpo-kaiwa-15",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "と",
+      "meaningVi": "Hễ mà... thì",
+      "example": "このボタンを押すと水が出ます。",
+      "exampleVi": "Hễ nhấn nút này thì nước sẽ chảy ra đấy."
+    },
+    {
+      "id": "bunpo-kaiwa-16",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vてみます",
+      "meaningVi": "Thử làm V",
+      "example": "すしを食べてみます。",
+      "exampleVi": "Tôi thử ăn sushi."
+    },
+    {
+      "id": "bunpo-kaiwa-18",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "によると～そうです",
+      "meaningVi": "Theo như... thì",
+      "example": "天気予報によると明日は晴れるそうです。",
+      "exampleVi": "Theo như dự báo thời tiết thì ngày mai trời sẽ nắng."
+    },
+    {
+      "id": "bunpo-kaiwa-20",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V受身",
+      "meaningVi": "Bị, được",
+      "example": "私は先生にしかれた。",
+      "exampleVi": "Tôi bị cô giáo mắng."
+    },
+    {
+      "id": "bunpo-kaiwa-21",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V禁止",
+      "meaningVi": "Cấm",
+      "example": "教室でけいたい電話を使うな。",
+      "exampleVi": "Cấm sd điện thoại trong lớp."
+    },
+    {
+      "id": "bunpo-kaiwa-22",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V可能",
+      "meaningVi": "Có thể",
+      "example": "すしが食べられます。",
+      "exampleVi": "Tôi có thể ăn được sushi."
+    },
+    {
+      "id": "bunpo-kaiwa-23",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V使役",
+      "meaningVi": "Bắt, cho phép",
+      "example": "母は私に部屋を掃除させます。",
+      "exampleVi": "Mẹ bắt tôi dọn dẹp phòng."
+    },
+    {
+      "id": "bunpo-kaiwa-25",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vなさい",
+      "meaningVi": "Hãy làm V",
+      "example": "しずかにしなさい。",
+      "exampleVi": "Hãy giữ trật tự đi."
+    },
+    {
+      "id": "bunpo-kaiwa-26",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "ても",
+      "meaningVi": "Cho dù",
+      "example": "走っても電車に間に合わないだろう。",
+      "exampleVi": "Cho dù có chạy đi nữa, cũng chẳng kịp tàu điện."
+    },
+    {
+      "id": "bunpo-kaiwa-27",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vてしまいます",
+      "meaningVi": "Làm V cho xong",
+      "example": "宿題をやってしまったら、遊びに行けます。",
+      "exampleVi": "Làm cho xong bài tập này là có thể đi chơi"
+    },
+    {
+      "id": "bunpo-kaiwa-30",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "のに",
+      "meaningVi": "Cho, để (mục đích)",
+      "example": "彼女をせっとくするのに時間がかかります。",
+      "exampleVi": "Để thuyết phục cô ấy thì cũng tốn thời gian đấy."
+    },
+    {
+      "id": "bunpo-kaiwa-33",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vずに",
+      "meaningVi": "Không làm V",
+      "example": "思わずに涙が出てきた。",
+      "exampleVi": "Bất giác nước mắt tuôn trào ra."
+    },
+    {
+      "id": "bunpo-kaiwa-35",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "かどうか",
+      "meaningVi": "Có hay không",
+      "example": "明日来るかどうか言ってよ。",
+      "exampleVi": "Ngày mai có đến hay không thì em nói luôn đi."
+    },
+    {
+      "id": "bunpo-kaiwa-39",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vてあります",
+      "meaningVi": "Có (thứ) gì",
+      "example": "使い方はここに書いてあります。",
+      "exampleVi": "Cách sử dụng có ghi ở đây."
+    },
+    {
+      "id": "bunpo-kaiwa-41",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Aい→く / Aな→にする",
+      "meaningVi": "Làm A",
+      "example": "部屋をきれいにします。",
+      "exampleVi": "Làm sạch phòng."
+    },
+    {
+      "id": "bunpo-kaiwa-45",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "～場合",
+      "meaningVi": "Trong trường hợp",
+      "example": "雨天の場合は遅延します。",
+      "exampleVi": "Trong trường hợp thời mưa thì sẽ hoãn."
+    },
+    {
+      "id": "bunpo-kaiwa-50",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vたほうがいい",
+      "meaningVi": "Nên làm",
+      "example": "カゼをひいたら休んだほうがいいです。",
+      "exampleVi": "Nếu bị cảm cúm thì nên nghỉ ngơi."
+    },
+    {
+      "id": "bunpo-kaiwa-51",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "Vないほうがいい",
+      "meaningVi": "Không nên làm",
+      "example": "お酒を飲まないほうがいいよ。",
+      "exampleVi": "Không nên uống rượu đâu."
+    },
+    {
+      "id": "bunpo-kaiwa-53",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V始めます",
+      "meaningVi": "Bắt đầu làm V",
+      "example": "日本語を勉強し始めました。",
+      "exampleVi": "Tôi đã bắt đầu học tiếng Nhật."
+    },
+    {
+      "id": "bunpo-kaiwa-54",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V終わります",
+      "meaningVi": "Làm xong V",
+      "example": "食器を洗い終わります。",
+      "exampleVi": "Tôi đã rửa xong bát."
+    },
+    {
+      "id": "bunpo-kaiwa-56",
+      "level": "N4",
+      "sources": [
+        "kaiwa"
+      ],
+      "pattern": "V方",
+      "meaningVi": "Cách làm V",
+      "example": "この料理の作り方を知っています。",
+      "exampleVi": "Bạn biết cách nấu món ăn này không."
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import bunpoTryN3Raw from "../data/bunpo-try-n3.json";
 import bunpoN4InfographicRaw from "../data/bunpo-n4-infographic.json";
 import bunpoTheDongTuRaw from "../data/bunpo-the-dong-tu.json";
 import bunpoKinhNguRaw from "../data/bunpo-kinh-ngu.json";
+import bunpoKaiwaRaw from "../data/bunpo-kaiwa.json";
 import type { BunpoDataset, BunpoGrammarPoint, BunpoSource } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
@@ -19,6 +20,7 @@ const tryN3Dataset = bunpoTryN3Raw as unknown as BunpoDataset;
 const n4InfographicDataset = bunpoN4InfographicRaw as unknown as BunpoDataset;
 const theDongTuDataset = bunpoTheDongTuRaw as unknown as BunpoDataset;
 const kinhNguDataset = bunpoKinhNguRaw as unknown as BunpoDataset;
+const kaiwaDataset = bunpoKaiwaRaw as unknown as BunpoDataset;
 export const ALL_BUNPO: BunpoGrammarPoint[] = [
   ...jlptDaRaDataset.grammarPoints,
   ...theoChuongDataset.grammarPoints,
@@ -28,6 +30,7 @@ export const ALL_BUNPO: BunpoGrammarPoint[] = [
   ...n4InfographicDataset.grammarPoints,
   ...theDongTuDataset.grammarPoints,
   ...kinhNguDataset.grammarPoints,
+  ...kaiwaDataset.grammarPoints,
 ];
 
 const BUNPO_BY_ID = new Map(ALL_BUNPO.map((g) => [g.id, g]));
@@ -44,6 +47,7 @@ export const SOURCE_LABELS: Record<BunpoSource, string> = {
   "n4-infographic": "Tổng hợp ngữ pháp N4",
   "the-dong-tu": "13 thể động từ",
   "kinh-ngu": "Kính ngữ (敬語)",
+  kaiwa: "60 mẫu ngữ pháp Kaiwa",
 };
 
 const SOURCE_ORDER: BunpoSource[] = [
@@ -55,6 +59,7 @@ const SOURCE_ORDER: BunpoSource[] = [
   "n4-infographic",
   "the-dong-tu",
   "kinh-ngu",
+  "kaiwa",
 ];
 export const AVAILABLE_SOURCES: BunpoSource[] = SOURCE_ORDER.filter((s) => ALL_BUNPO.some((g) => g.sources.includes(s)));
 

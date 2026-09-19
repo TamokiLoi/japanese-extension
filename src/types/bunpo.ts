@@ -4,6 +4,8 @@ import type { JlptLevel } from "./kanji.ts";
 // "theo-chuong": ngữ pháp học theo chương (sơ đồ tư duy), có usage/examTip.
 // "shinkanzen"/"try-n3"/"400-mau-thong-dung": trích từ phần giải thích ngữ pháp
 // (không phải câu hỏi) của 3 nguồn bổ sung -- xem bunpoState.ts.
+// "kaiwa": 32/60 mẫu ngữ pháp hội thoại thường ngày không trùng với 7 nguồn
+// còn lại (28/60 mẫu trùng đã bỏ qua, xem _scratch/kaiwa_ngupap_matching.json).
 export type BunpoSource =
   | "jlpt-da-ra"
   | "theo-chuong"
@@ -12,7 +14,8 @@ export type BunpoSource =
   | "400-mau-thong-dung"
   | "n4-infographic"
   | "the-dong-tu"
-  | "kinh-ngu";
+  | "kinh-ngu"
+  | "kaiwa";
 
 export interface BunpoGrammarPoint {
   id: string;
