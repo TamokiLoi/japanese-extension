@@ -20,7 +20,13 @@ import {
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
-import { recordAnswer as recordSharedAnswer, clearProgress as clearSharedProgress } from "../../popup/progressState.ts";
+import {
+  recordAnswer as recordSharedAnswer,
+  clearProgress as clearSharedProgress,
+  loadProgressMap,
+  MASTERY_STREAK_THRESHOLD,
+  type ProgressMap,
+} from "../../popup/progressState.ts";
 import { assetUrl } from "../../platform/assetUrl";
 import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { Card } from "../components/ui/card.tsx";
@@ -98,6 +104,7 @@ function ListView({
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
   const [progress, setProgress] = useState<ListeningProgressMap>({});
+  const [sharedProgress, setSharedProgress] = useState<ProgressMap>({});
   // Which stat card is narrowing the rendered rows, if any -- local/
   // display-only (not persisted, not threaded into `filtered`) so it never
   // affects Trước/Tiếp paging order inside a question, only which rows show
@@ -110,6 +117,7 @@ function ListView({
     // JSX position -- React fully unmounts/remounts across that switch, so
     // this effect reliably reruns and picks up whatever just changed.
     loadListeningProgress().then(setProgress);
+    loadProgressMap().then(setSharedProgress);
   }, []);
 
   async function mutate(partial: Partial<ListeningViewerState>) {
@@ -280,7 +288,13 @@ function ListView({
                   </div>
                 </div>
                 {status === "correct" ? (
-                  <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">✓ đúng</span>
+                  sharedProgress[q.id]?.mastered ? (
+                    <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">✓ Đã thuộc</span>
+                  ) : (
+                    <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">
+                      ✓ {Math.min(sharedProgress[q.id]?.directionStreaks.answer ?? 0, MASTERY_STREAK_THRESHOLD)}/{MASTERY_STREAK_THRESHOLD}
+                    </span>
+                  )
                 ) : status === "wrong" ? (
                   <span className="shrink-0 rounded-full bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-600">✗ sai</span>
                 ) : (
@@ -392,12 +406,19 @@ function QuestionView({
           key={question.id}
           src={assetUrl(question.audioUrl)}
           translationToggle={
-            answered && question.turns.length === 0 ? { active: showTranslation, onToggle: () => setShowTranslation((v) => !v) } : undefined
+            answered && (question.turns.length === 0 || question.taskType === "sokuji")
+              ? { active: showTranslation, onToggle: () => setShowTranslation((v) => !v) }
+              : undefined
           }
         />
       </Card>
 
-      {answered && question.turns.length > 0 ? (
+      {/* sokuji (即時応答) is a single printed/spoken line + 3 direct-answer
+          options -- some datasets store that one line as a 1-item turns[]
+          instead of turns: [], but it's still not a real dialogue, so it
+          never gets its own Transcript card (translation toggle above
+          already covers it). */}
+      {answered && question.turns.length > 0 && question.taskType !== "sokuji" ? (
         <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
           <div className="flex items-center justify-between">
             <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
