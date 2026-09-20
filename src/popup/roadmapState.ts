@@ -13,6 +13,15 @@ export interface RoadmapSettings {
 const STORAGE_KEY = "roadmapSettings";
 const EMPTY_SETTINGS: RoadmapSettings = { examDate: null, startDate: null };
 
+// LOCAL calendar date (not `now.toISOString().slice(0, 10)`, which is UTC --
+// for any positive-UTC-offset timezone like Vietnam (UTC+7), that reads as
+// still-yesterday for the first several hours of every local day, throwing
+// off daysRemaining/progressRatio and startDate by a full day during that
+// window). Same pattern as progressState.ts's dayKey.
+function localDateKey(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 export async function loadRoadmapSettings(): Promise<RoadmapSettings> {
   const saved = await storageGet<Partial<RoadmapSettings>>(STORAGE_KEY);
   return { examDate: saved?.examDate ?? EMPTY_SETTINGS.examDate, startDate: saved?.startDate ?? EMPTY_SETTINGS.startDate };
@@ -24,7 +33,7 @@ export async function saveRoadmapSettings(settings: RoadmapSettings): Promise<vo
 
 export async function setExamDate(examDate: string): Promise<RoadmapSettings> {
   const current = await loadRoadmapSettings();
-  const next: RoadmapSettings = { examDate, startDate: current.startDate ?? new Date().toISOString().slice(0, 10) };
+  const next: RoadmapSettings = { examDate, startDate: current.startDate ?? localDateKey(new Date()) };
   await saveRoadmapSettings(next);
   return next;
 }
@@ -51,7 +60,7 @@ export function computeRoadmapStatus(settings: RoadmapSettings, now: Date = new 
   if (!settings.examDate || !settings.startDate) return null;
   const start = new Date(`${settings.startDate}T00:00:00`).getTime();
   const exam = new Date(`${settings.examDate}T00:00:00`).getTime();
-  const today = new Date(`${now.toISOString().slice(0, 10)}T00:00:00`).getTime();
+  const today = new Date(`${localDateKey(now)}T00:00:00`).getTime();
   const totalDays = Math.max(1, Math.round((exam - start) / 86_400_000));
   const daysRemaining = Math.round((exam - today) / 86_400_000);
   if (daysRemaining < 0) return { phase: "past-exam", daysRemaining, totalDays, progressRatio: 1 };

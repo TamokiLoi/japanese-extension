@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronRight, Sparkles } from "lucide-react";
 import {
   buildReviewQuestions,
@@ -32,9 +32,21 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
   useEffect(() => {
     (async () => {
       const existing = await loadReviewSession();
-      if (existing && isReviewSessionUnfinished(existing)) {
+      if (existing) {
         setSession(existing);
-        setStep("resume");
+        if (isReviewSessionUnfinished(existing)) {
+          setStep("resume");
+        } else {
+          // Every question got answered but the user never clicked through
+          // to "Xem kết quả" (e.g. closed the tab right after the last
+          // answer) -- without this branch, isReviewSessionUnfinished reads
+          // as "not unfinished" indistinguishably from "finished AND
+          // already viewed", so the next visit silently discarded this
+          // fully-answered session and built a new one, and the user never
+          // saw its result.
+          await clearReviewSession();
+          setStep("result");
+        }
         return;
       }
       const questions = await buildReviewQuestions();
@@ -133,9 +145,16 @@ function PlayView({
   const answered = session.answers[idx];
   const [answerText, setAnswerText] = useState("");
   const isLast = idx === session.questions.length - 1;
+  // Guards grade() against being invoked twice for the same question before
+  // its async recordAnswer+save completes (OS key-repeat firing multiple
+  // Enter keydowns, a fast double-click/tap on a RevealPanel grade button)
+  // -- `answered` alone doesn't catch this since it's still null in-closure
+  // on both calls until the first one's state update lands.
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     setAnswerText("");
+    submittingRef.current = false;
   }, [idx]);
 
   async function submitTyped() {
@@ -145,6 +164,8 @@ function PlayView({
   }
 
   async function grade(correct: boolean, text: string) {
+    if (submittingRef.current || answered !== null) return;
+    submittingRef.current = true;
     await recordAnswer(q.id, correct, q.mode, requiredDirectionsFor(q));
     const newAnswers = [...session.answers];
     newAnswers[idx] = { text, correct };
@@ -211,7 +232,7 @@ function PlayView({
             )}
           </div>
         ) : answered === null ? (
-          <RevealPanel q={q} onGrade={grade} />
+          <RevealPanel key={q.id} q={q} onGrade={grade} />
         ) : (
           <div className="mt-5 rounded-xl bg-neutral-50 p-4 text-center text-lg font-semibold text-neutral-800">{q.displayAnswer}</div>
         )}

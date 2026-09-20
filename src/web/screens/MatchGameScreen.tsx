@@ -14,6 +14,7 @@ import {
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import { newSlotId, type SessionSlot } from "../../popup/sessionSlots.ts";
+import { shuffle } from "../../popup/arrayUtils.ts";
 import {
   loadMatchGameSlots,
   saveMatchGameSlot,
@@ -56,21 +57,12 @@ function answerOf(card: VocabCard, mode: PairMode): string {
   return mode === "reading" ? (card.reading as string) : card.meaningVi || "?";
 }
 
-function shuffled<T>(items: T[]): T[] {
-  const arr = [...items];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
 function buildPool(levels: JlptLevel[], sources: VocabSource[], mode: PairMode): VocabCard[] {
   const filtered = ALL_VOCAB.filter((v) => levels.includes(v.level) && v.sources.some((s) => sources.includes(s)));
   // "reading" pairs only make sense for kanji words whose reading isn't
   // just itself (mirrors quizState.ts's "reading" mode pool filter).
   const usable = mode === "reading" ? filtered.filter((v) => v.reading && v.reading !== v.word) : filtered.filter((v) => v.meaningVi);
-  return shuffled(usable);
+  return shuffle(usable);
 }
 
 export function MatchGameScreen() {
@@ -194,8 +186,8 @@ export function MatchGameScreen() {
       skipNextBatchEffect.current = false;
       return;
     }
-    const newLeft = shuffled(batchWords.map((v) => ({ cardId: v.id, text: v.word })));
-    const newRight = shuffled(batchWords.map((v) => ({ cardId: v.id, text: answerOf(v, mode) })));
+    const newLeft = shuffle(batchWords.map((v) => ({ cardId: v.id, text: v.word })));
+    const newRight = shuffle(batchWords.map((v) => ({ cardId: v.id, text: answerOf(v, mode) })));
     setLeftOrder(newLeft);
     setRightOrder(newRight);
     setMatchedIds(new Set());

@@ -166,13 +166,16 @@ const BUNPO_STOPS: Stop[] = BUNPO_AVAILABLE_SOURCES.map((s) => ({
 })).filter((stop) => stop.items.length > 0);
 
 // readingState.ts's BOOK_ORDER is already easy -> hard (speedmaster first,
-// per BOOK_DIFFICULTY_NOTE) -- reuse it as-is.
+// per BOOK_DIFFICULTY_NOTE) -- reuse it as-is. Filtering out any 0-item stop
+// (same as KANJI/VOCAB/BUNPO_STOPS above) matters here too: buildTypeCurriculum
+// requires total > 0 to ever mark a stop "done", so an empty stop left in
+// would permanently stall the roadmap on it (and render "NaN%").
 const READING_STOPS: Stop[] = READING_AVAILABLE_BOOKS.map((b) => ({
   key: b,
   label: READING_BOOK_LABELS[b],
   items: ALL_READING_QUESTIONS.filter((q) => q.book === b),
   note: BOOK_DIFFICULTY_NOTE[b],
-}));
+})).filter((stop) => stop.items.length > 0);
 
 // listeningState.ts's BOOK_ORDER puts the lower-confidence AI-inferred
 // "dethi-2025-12" book last -- reuse it as-is.
@@ -180,7 +183,7 @@ const LISTENING_STOPS: Stop[] = LISTENING_AVAILABLE_BOOKS.map((b) => ({
   key: b,
   label: LISTENING_BOOK_LABELS[b],
   items: ALL_LISTENING.filter((q) => q.book === b),
-}));
+})).filter((stop) => stop.items.length > 0);
 
 // "Luyện đề" -- unlike the 5 PLAN_TYPES above, quizbook questions are
 // answered/not-answered rather than a new -> learning -> mastered pipeline
@@ -265,10 +268,14 @@ function buildTypeCurriculum(stops: Stop[], map: ProgressMap): TypeCurriculum {
 
 export type RoadmapCurricula = Record<PlanType, TypeCurriculum>;
 
-export async function loadCurricula(): Promise<RoadmapCurricula> {
-  const map = await loadProgressMap();
+// `map` is optional so existing callers with no progress map already in
+// hand can still call this standalone -- RoadmapScreen.tsx's loadRoadmapData
+// passes its own (already being loaded there anyway) to avoid a second
+// redundant loadProgressMap() storage read on every roadmap load.
+export async function loadCurricula(map?: ProgressMap): Promise<RoadmapCurricula> {
+  const resolvedMap = map ?? (await loadProgressMap());
   const result = {} as RoadmapCurricula;
-  for (const type of PLAN_TYPES) result[type] = buildTypeCurriculum(STOPS_BY_TYPE[type], map);
+  for (const type of PLAN_TYPES) result[type] = buildTypeCurriculum(STOPS_BY_TYPE[type], resolvedMap);
   return result;
 }
 

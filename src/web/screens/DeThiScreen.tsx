@@ -13,6 +13,8 @@ import {
   startPaperAttempt,
   submitPaper,
   getExamSummary,
+  summarizeExam,
+  loadDeThiHistory,
   clearHistoryForPaper,
   loadHistoryForPaper,
   type DeThiSession,
@@ -79,10 +81,18 @@ function QuestionText({
   showFurigana?: boolean;
 }) {
   if (showFurigana && furigana && furigana.length > 0) {
+    // Underline only the FIRST matching segment -- matches the plain-text
+    // path below (text.indexOf), which only ever finds the first occurrence.
+    // Without this, a tested word/kanji that happens to appear twice in the
+    // sentence got underlined at every occurrence with furigana on, but only
+    // the first with it off -- a toggle that's only supposed to affect ruby
+    // readings ended up changing which text reads as "the tested word".
+    let underlinedOnce = false;
     return (
       <>
         {furigana.map((seg, i) => {
-          const isUnderlined = underline != null && seg.text === underline;
+          const isUnderlined = !underlinedOnce && underline != null && seg.text === underline;
+          if (isUnderlined) underlinedOnce = true;
           const content = seg.furigana ? (
             <ruby>
               {seg.text}
@@ -273,7 +283,11 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const entries = await Promise.all(ALL_EXAMS.map(async (e) => [e.id, await getExamSummary(e.id)] as const));
+      // One shared history read instead of getExamSummary(e.id) per exam --
+      // each of those separately re-reads+re-scans the whole history array
+      // from storage, ~38x redundant work for the same data.
+      const history = await loadDeThiHistory();
+      const entries = ALL_EXAMS.map((e) => [e.id, summarizeExam(e, history)] as const);
       if (!cancelled) setSummaries(Object.fromEntries(entries));
     })();
     return () => {

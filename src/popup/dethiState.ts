@@ -158,12 +158,14 @@ export interface DeThiPaperSummary {
   lastFinishedAt: number | null;
 }
 
-export async function getExamSummary(examId: string): Promise<Record<string, DeThiPaperSummary>> {
-  const history = await loadDeThiHistory();
-  const exam = findExamById(examId);
+// Pure/sync half of getExamSummary, split out so a caller summarizing every
+// exam (ExamListView) can loadDeThiHistory() ONCE and call this per exam,
+// instead of each exam separately re-reading+re-scanning the whole (up to
+// DETHI_HISTORY_MAX-entry) history array from storage.
+export function summarizeExam(exam: DeThiExam | undefined, history: DeThiHistoryEntry[]): Record<string, DeThiPaperSummary> {
   const summary: Record<string, DeThiPaperSummary> = {};
   for (const paper of exam?.papers ?? []) {
-    const attempts = history.filter((h) => h.examId === examId && h.paperId === paper.id);
+    const attempts = history.filter((h) => h.examId === exam!.id && h.paperId === paper.id);
     summary[paper.id] =
       attempts.length === 0
         ? { attempts: 0, bestPercent: null, lastFinishedAt: null }
@@ -174,6 +176,11 @@ export async function getExamSummary(examId: string): Promise<Record<string, DeT
           };
   }
   return summary;
+}
+
+export async function getExamSummary(examId: string): Promise<Record<string, DeThiPaperSummary>> {
+  const history = await loadDeThiHistory();
+  return summarizeExam(findExamById(examId), history);
 }
 
 // Chấm điểm bằng barem thật (question.points), không phải đếm số câu đúng

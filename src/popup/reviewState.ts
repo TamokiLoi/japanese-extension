@@ -46,8 +46,31 @@ function kanjiMeaning(k: Kanji): string {
   return k.meanings.vi.length > 0 ? k.meanings.vi.join(", ") : (k.meanings.viDraft?.join(", ") ?? "");
 }
 
+// Randomizes between both KANJI_MASTERY_DIRECTIONS (quizState.ts), same as
+// vocabToQuestion/bunpoToQuestion below -- previously always built "meaning"
+// and never "character", so a kanji that had regressed specifically on the
+// "character" direction (shown the meaning, recall the character) was never
+// re-drilled by Review, leaving that direction's staleness undetected. Typed
+// free-text isn't practical for "type the kanji character" (no IME
+// assumption), so this direction uses "reveal" + self-grade instead, same
+// reasoning as bunpoToQuestion's free-text answers below.
 function kanjiToQuestion(k: Kanji): ReviewQuestion {
   const meanings = k.meanings.vi.length > 0 ? k.meanings.vi : (k.meanings.viDraft ?? []);
+  const meaningText = `${formatHanViet(k.hanViet, "?")} — ${kanjiMeaning(k) || k.meanings.en.join(", ") || "?"}`;
+  const mode = Math.random() < 0.5 ? "character" : "meaning";
+  if (mode === "character") {
+    return {
+      id: k.id,
+      kind: "kanji",
+      mode: "character",
+      level: k.level,
+      promptLabel: "Nghĩa này ứng với chữ Hán nào?",
+      prompt: meaningText,
+      answerFormat: "reveal",
+      expectedAnswers: [],
+      displayAnswer: k.character,
+    };
+  }
   return {
     id: k.id,
     kind: "kanji",
@@ -57,7 +80,7 @@ function kanjiToQuestion(k: Kanji): ReviewQuestion {
     prompt: k.character,
     answerFormat: "typed",
     expectedAnswers: [...k.hanViet, ...meanings, ...k.meanings.en],
-    displayAnswer: `${formatHanViet(k.hanViet, "?")} — ${kanjiMeaning(k) || k.meanings.en.join(", ") || "?"}`,
+    displayAnswer: meaningText,
   };
 }
 
@@ -85,7 +108,14 @@ function vocabToQuestion(v: VocabCard): ReviewQuestion {
     promptLabel: "Từ này nghĩa là gì?",
     prompt: v.word,
     answerFormat: "typed",
-    expectedAnswers: [v.meaningVi],
+    // meaningVi is often several comma-separated synonyms (e.g. "cao tuổi,
+    // lớn tuổi") -- split into separate acceptable answers like
+    // kanjiToQuestion's hanViet/meanings arrays, so typing just ONE correct
+    // synonym isn't marked wrong for not matching the whole joined string.
+    expectedAnswers: v.meaningVi
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
     displayAnswer: v.meaningVi,
   };
 }

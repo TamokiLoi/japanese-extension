@@ -84,7 +84,8 @@ interface RoadmapData {
 }
 
 async function loadRoadmapData(): Promise<RoadmapData> {
-  const [map, goals, curricula] = await Promise.all([loadProgressMap(), loadDailyGoals(), loadCurricula()]);
+  const [map, goals] = await Promise.all([loadProgressMap(), loadDailyGoals()]);
+  const curricula = await loadCurricula(map);
   const dailyPlan: Partial<Record<PlanType, DailyPlanItem>> = {};
   for (const type of PLAN_TYPES) {
     const cur = curricula[type];
@@ -378,7 +379,8 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                       </div>
                       <div>
                         {currentStop.masteredCount}/{currentStop.total} đã thuộc (
-                        {Math.round((currentStop.masteredCount / currentStop.total) * 100)}%, cần 90% để qua bộ tiếp theo)
+                        {currentStop.total > 0 ? Math.round((currentStop.masteredCount / currentStop.total) * 100) : 0}%, cần
+                        90% để qua bộ tiếp theo)
                       </div>
                       {item ? (
                         <div>
