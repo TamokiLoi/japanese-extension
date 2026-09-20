@@ -221,18 +221,18 @@ export function BackupScreen() {
               Google sẽ yêu cầu chọn tài khoản và cấp quyền quản lý riêng dữ liệu do Nihongo Nin tạo. Bản sao lưu nằm trong vùng ẩn
               của ứng dụng; app không thể xem các file Drive khác.
             </p>
-            <div className="ml-1 flex flex-wrap gap-2 pl-4">
+            <div className="ml-1 grid grid-cols-2 gap-2 pl-4">
               <button
                 onClick={() => void handleDriveExport()}
                 disabled={busy !== null || !isGoogleDriveBackupConfigured()}
-                className="inline-flex items-center gap-1.5 rounded-full bg-sky-600 px-4 py-2 text-xs font-semibold text-white hover:bg-sky-700 disabled:opacity-50"
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-sky-600 px-3 py-2 text-xs font-semibold text-white hover:bg-sky-700 disabled:opacity-50"
               >
                 <CloudUpload size={14} /> {busy === "drive-export" ? "Đang sao lưu..." : "Sao lưu lên Drive"}
               </button>
               <button
                 onClick={() => void handleDriveImport()}
                 disabled={busy !== null || !isGoogleDriveBackupConfigured()}
-                className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-white px-4 py-2 text-xs font-semibold text-sky-700 hover:bg-sky-50 disabled:opacity-50"
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-sky-200 bg-white px-3 py-2 text-xs font-semibold text-sky-700 hover:bg-sky-50 disabled:opacity-50"
               >
                 <CloudDownload size={14} /> {busy === "drive-import" ? "Đang khôi phục..." : "Khôi phục từ Drive"}
               </button>
