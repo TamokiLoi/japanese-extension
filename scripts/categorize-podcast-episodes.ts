@@ -14,11 +14,35 @@ const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-flash-lite-latest";
 const BATCH_SIZE = 25;
 
-function readApiKey(): string {
+// Rotation order across the 6 accounts in .env.gemini (see memory
+// reference_gemini_api_keys.md) -- GEMINI_API_KEY_VOTHIHON was removed
+// (dead key), don't re-add it here.
+const KEY_NAMES = [
+  "GEMINI_API_KEY",
+  "GEMINI_API_KEY_OLD_LOINGUYENLAMTHANH",
+  "GEMINI_API_KEY_LOINLT1991",
+  "GEMINI_API_KEY_LAKEMANGA",
+  "GEMINI_API_KEY_TAMOKILOIJP",
+  "GEMINI_API_KEY_TAMOKINGUYEN",
+];
+
+function readAllApiKeys(): string[] {
   const text = readFileSync(join(ROOT, "_scratch/.env.gemini"), "utf8");
-  const match = text.match(/GEMINI_API_KEY=(\S+)/);
-  if (!match) throw new Error("No GEMINI_API_KEY found");
-  return match[1];
+  const keys: string[] = [];
+  for (const name of KEY_NAMES) {
+    const match = text.match(new RegExp(`^${name}=(\\S+)`, "m"));
+    if (match) keys.push(match[1]);
+  }
+  if (keys.length === 0) throw new Error("No Gemini API keys found in .env.gemini");
+  return keys;
+}
+
+// True for a daily-quota exhaustion (rotate to the next account and keep
+// going) or a dead/disabled key (401/403 -- see the "rotation script gotcha"
+// in reference_gemini_api_keys.md: don't just retry the same key forever).
+function isRotatableError(err: unknown): boolean {
+  const msg = err instanceof Error ? err.message : String(err);
+  return (/HTTP 429/.test(msg) && /PerDay/.test(msg)) || /HTTP 401/.test(msg) || /HTTP 403/.test(msg);
 }
 
 async function classifyBatchRaw(apiKey: string, items: { title: string; description?: string }[]): Promise<string[]> {
@@ -82,7 +106,8 @@ async function classifyBatch(apiKey: string, items: { title: string; description
 
 async function main() {
   const channel = process.argv[2] ?? "bitesize";
-  const apiKey = readApiKey();
+  const keys = readAllApiKeys();
+  let keyIdx = 0;
   const dataPath = join(ROOT, "src/data", `podcast-${channel}.json`);
   const dataset = JSON.parse(readFileSync(dataPath, "utf8")) as PodcastDataset;
 
@@ -91,12 +116,21 @@ async function main() {
 
   for (let i = 0; i < pending.length; i += BATCH_SIZE) {
     const batch = pending.slice(i, i + BATCH_SIZE);
-    const categories = await classifyBatch(
-      apiKey,
-      batch.map((e) => ({ title: e.title, description: e.description })),
-    );
+    let categories: string[] | undefined;
+    while (categories === undefined) {
+      try {
+        categories = await classifyBatch(
+          keys[keyIdx],
+          batch.map((e) => ({ title: e.title, description: e.description })),
+        );
+      } catch (err) {
+        if (!isRotatableError(err) || keyIdx >= keys.length - 1) throw err;
+        keyIdx++;
+        console.log(`  (key ${keyIdx} exhausted/dead, rotating to key ${keyIdx + 1}/${keys.length})`);
+      }
+    }
     batch.forEach((e, j) => {
-      const cat = categories[j];
+      const cat = categories![j];
       e.category = (PODCAST_CATEGORIES as readonly string[]).includes(cat) ? (cat as (typeof PODCAST_CATEGORIES)[number]) : undefined;
     });
     writeFileSync(dataPath, JSON.stringify(dataset, null, 2) + "\n");
