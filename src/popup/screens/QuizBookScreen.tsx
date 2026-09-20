@@ -19,17 +19,15 @@ import {
   getQuestionProgress,
   resetQuestionAnswer,
   recordAnswer,
+  matchesFilters,
   buildSession,
   type QuizBookGroup,
   type QuizBookViewerState,
 } from "../quizBookState.ts";
+import { recordAnswer as recordGlobalAnswer } from "../progressState.ts";
 import { LevelDot } from "../LevelDot.tsx";
 import { ExpandTabButton } from "../TabMode.tsx";
 import { CollapsibleSection } from "../CollapsibleSection.tsx";
-
-function matchesFilters(q: QuizBookQuestion, state: QuizBookViewerState): boolean {
-  return state.selectedCategories.includes(q.category) && state.selectedBooks.includes(q.book);
-}
 
 function StatusIcon({ status, correct }: { status: "not-started" | "done" | "known"; correct: boolean }) {
   if (status === "known") {
@@ -415,7 +413,10 @@ function QuestionView({
                   key={oi}
                   className={classes.join(" ")}
                   disabled={answered !== null}
-                  onClick={() => mutate(recordAnswer(state, q.id, oi))}
+                  onClick={async () => {
+                    await recordGlobalAnswer(q.id, oi === q.correctIndex, "answer", ["answer"]);
+                    await mutate(recordAnswer(state, q.id, oi));
+                  }}
                 >
                   {opt}
                 </button>

@@ -7,7 +7,6 @@ import {
   AVAILABLE_SOURCES,
   AVAILABLE_CHAPTERS,
   SOURCE_LABELS,
-  countForLevel,
   findBunpoById,
   findChapterTitle,
   getFilteredList,
@@ -20,12 +19,12 @@ import { ExpandTabButton } from "../TabMode.tsx";
 import { CollapsibleSection } from "../CollapsibleSection.tsx";
 import { useDebouncedValue } from "../useDebouncedValue.ts";
 import {
-  getProgress,
   loadProgressMap,
   toggleFlag,
   toggleMastered,
   filterByProgress,
   bucketFor,
+  defaultProgress,
   type ItemProgress,
   type ProgressFilter,
   type ProgressMap,
@@ -93,11 +92,17 @@ export function BunpoScreen({
     };
   }, [targetId]);
 
-  async function mutate(partial: Partial<BunpoViewerState>) {
-    if (!state) return;
-    const next = { ...state, ...partial };
-    await saveViewerState(next);
-    setState(next);
+  // Functional setState so each call builds on the LATEST state instead of
+  // a stale closure -- see web BunpoScreen.tsx's identical comment (a
+  // debounced search-query save racing a row click, or any two mutate()
+  // calls fired close together, would otherwise silently drop one change).
+  function mutate(partial: Partial<BunpoViewerState>) {
+    setState((prev) => {
+      if (!prev) return prev;
+      const next = { ...prev, ...partial };
+      void saveViewerState(next);
+      return next;
+    });
   }
 
   if (!state) {
@@ -137,7 +142,7 @@ function ListView({
 }: {
   state: BunpoViewerState;
   onBack: () => void;
-  mutate: (partial: Partial<BunpoViewerState>) => Promise<void>;
+  mutate: (partial: Partial<BunpoViewerState>) => void;
 }) {
   const [query, setQuery] = useState(state.listSearchQuery);
   const debouncedQuery = useDebouncedValue(query, 150);
@@ -189,10 +194,15 @@ function ListView({
             checked={allLevelsChecked}
             onChange={(e) => applyLevelSelection(e.target.checked ? [...AVAILABLE_LEVELS] : state.selectedLevels)}
           />
-          Tất cả <span className="muted">({ALL_BUNPO.length})</span>
+          Tất cả{" "}
+          <span className="muted">({ALL_BUNPO.filter((g) => g.sources.some((s) => state.selectedSources.includes(s))).length})</span>
         </label>
         {AVAILABLE_LEVELS.map((level) => {
           const checked = state.selectedLevels.includes(level);
+          // Factors in the currently selected sources, same as the source
+          // checkboxes below factor in the selected levels -- see web
+          // BunpoScreen.tsx's identical comment.
+          const count = ALL_BUNPO.filter((g) => g.level === level && g.sources.some((s) => state.selectedSources.includes(s))).length;
           return (
             <label key={level} className="level-check">
               <input
@@ -206,7 +216,7 @@ function ListView({
                 }}
               />
               <LevelDot level={level} />
-              {level} <span className="muted">({countForLevel(level)})</span>
+              {level} <span className="muted">({count})</span>
             </label>
           );
         })}
@@ -222,7 +232,7 @@ function ListView({
           <div className="level-selector-inline">
             {AVAILABLE_SOURCES.map((source) => {
               const checked = state.selectedSources.includes(source);
-              const count = ALL_BUNPO.filter((g) => g.sources.includes(source)).length;
+              const count = ALL_BUNPO.filter((g) => g.sources.includes(source) && state.selectedLevels.includes(g.level)).length;
               return (
                 <label key={source} className="level-check">
                   <input
@@ -300,7 +310,13 @@ function ListView({
             const bucket = bucketFor(progressMap[g.id]);
             const bucketMark = bucket === "mastered" ? "✓ " : bucket === "flagged" ? "🚩 " : "";
             return (
-              <div key={g.id} className="jlpt-entry bunpo-entry" onClick={() => mutate({ currentGrammarId: g.id })}>
+              <div
+                key={g.id}
+                className="jlpt-entry bunpo-entry"
+                // Commit the live query together with currentGrammarId --
+                // see web BunpoScreen.tsx's identical comment.
+                onClick={() => mutate({ currentGrammarId: g.id, listSearchQuery: query })}
+              >
                 <span className="search-tag-level">
                   <LevelDot level={g.level} />
                   {g.level}
@@ -333,16 +349,23 @@ function DetailView({
   onBack: () => void;
   onOpenReading: () => void;
   onOpenQuizBook: () => void;
-  mutate: (partial: Partial<BunpoViewerState>) => Promise<void>;
+  mutate: (partial: Partial<BunpoViewerState>) => void;
 }) {
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [visibleList, setVisibleList] = useState<BunpoGrammarPoint[]>([]);
   const [showUsageGlossary, setShowUsageGlossary] = useState(false);
 
+  // One shared load -- see web BunpoScreen.tsx's identical comment
+  // (getProgress(id) internally re-reads loadProgressMap() itself).
+  async function loadDetail(): Promise<{ p: ItemProgress; progressMap: ProgressMap }> {
+    const progressMap = await loadProgressMap();
+    return { p: progressMap[g.id] ?? defaultProgress(), progressMap };
+  }
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, progressMap] = await Promise.all([getProgress(g.id), loadProgressMap()]);
+      const { p, progressMap } = await loadDetail();
       if (cancelled) return;
       setProgress(p);
       setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
@@ -360,8 +383,13 @@ function DetailView({
   const prevItem = currentIndex > 0 ? visibleList[currentIndex - 1] : null;
   const nextItem = currentIndex >= 0 && currentIndex < visibleList.length - 1 ? visibleList[currentIndex + 1] : null;
 
+  // Also recomputes visibleList -- see web BunpoScreen.tsx's identical
+  // comment (toggling flag/mastered can move `g` in or out of the current
+  // progressFilter bucket).
   async function refreshProgress() {
-    setProgress(await getProgress(g.id));
+    const { p, progressMap } = await loadDetail();
+    setProgress(p);
+    setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
   }
 
   async function handleOpenReading(passageId: string) {

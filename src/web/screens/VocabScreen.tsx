@@ -185,28 +185,35 @@ export function VocabScreen({
     return onVoicesChanged(() => setCanSpeak(hasJapaneseVoice()));
   }, []);
 
-  // While a jump view is open, holds the selectedSources/selectedLevels that
-  // were actually persisted BEFORE resolveJumpState widened them for display
-  // -- mutate() below keeps saving these instead of the widened ones, so
-  // e.g. opening a search result that happens to also live in another bộ
-  // never permanently changes the study filter used elsewhere (Quiz,
-  // reminders). Cleared (null) outside a jump view, or once the user
-  // explicitly edits the filter themselves.
-  const baseFilterRef = useRef<{ selectedSources: VocabSource[]; selectedLevels: JlptLevel[] } | null>(null);
+  // While a jump view is open, holds the selectedSources/selectedLevels/
+  // progressFilter/viewMode that were actually persisted BEFORE
+  // resolveJumpState overrode them for display -- mutate() below keeps
+  // saving these instead of the jump-view ones (refreshing progressFilter/
+  // viewMode here as the user changes them, see mutate()), so e.g. opening
+  // a search result that happens to also live in another bộ never
+  // permanently changes the study filter or clears "Đến hạn ôn lại" used
+  // elsewhere (Quiz, reminders). Cleared (null) outside a jump view, or once
+  // the user explicitly edits the source/level filter themselves.
+  const baseFilterRef = useRef<Pick<VocabViewerState, "selectedSources" | "selectedLevels" | "progressFilter" | "viewMode"> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
       let l: VocabCard[];
+      // Computed locally and only committed to the ref once this effect run
+      // is confirmed to still be the latest one (after the `cancelled`
+      // check below) -- otherwise a slower, already-superseded jump (e.g.
+      // two jump links clicked in quick succession) could resolve after a
+      // newer one and clobber the ref with its stale base filter.
+      let nextBase: typeof baseFilterRef.current = null;
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
-          baseFilterRef.current = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels };
+          nextBase = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
           s = jumped;
           l = getOrderedList(s);
         } else {
-          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
           await saveViewerState(s);
@@ -215,12 +222,12 @@ export function VocabScreen({
         // Entering the screen fresh (not via a jump link) always lands on
         // the overview grid, regardless of whatever mode was last saved --
         // mirrors KanjiScreen.tsx's viewMode reset.
-        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
         await saveViewerState(s);
       }
       if (cancelled) return;
+      baseFilterRef.current = nextBase;
       setState(s);
       setList(l);
     })();
@@ -258,10 +265,21 @@ export function VocabScreen({
   async function mutate(partial: Partial<VocabViewerState>, recomputeList = true) {
     if (!state) return;
     const next: VocabViewerState = { ...state, ...partial };
-    const toPersist = baseFilterRef.current
-      ? { ...next, selectedSources: baseFilterRef.current.selectedSources, selectedLevels: baseFilterRef.current.selectedLevels }
-      : next;
+    // Restore the pre-jump base for these 4 fields, then re-apply `partial`
+    // on top -- so an explicit change made THIS call (e.g. toggling "Đến
+    // hạn ôn lại" or the grid/card button while a jump view is open) always
+    // wins over the stale base, instead of resolveJumpState's display-only
+    // override (still sitting in `next` via `state`) silently overwriting
+    // the user's real saved filter.
+    const toPersist = baseFilterRef.current ? { ...next, ...baseFilterRef.current, ...partial } : next;
     await saveViewerState(toPersist);
+    // Keep the ref's progressFilter/viewMode in sync with whatever just got
+    // persisted, so the NEXT mutate() call (one that doesn't touch these
+    // fields) preserves this call's explicit change instead of reverting to
+    // the original pre-jump value.
+    if (baseFilterRef.current) {
+      baseFilterRef.current = { ...baseFilterRef.current, progressFilter: toPersist.progressFilter, viewMode: toPersist.viewMode };
+    }
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);

@@ -62,6 +62,15 @@ export function PodcastScreen({
   const [currentId, setCurrentId] = useState<string | null>(jumpToId ?? null);
   const [state, setState] = useState<PodcastViewerState | null>(null);
   const [favorites, setFavorites] = useState<PodcastFavoriteMap>({});
+  // Snapshot of exactly the list ListView's `visible` was showing at the
+  // moment the user tapped a row -- ListView applies search text, the
+  // watched/unwatched/favorite tile, and sort-by-number ON TOP of
+  // `filtered` (channel/level/category/series only), so EpisodeView's
+  // prev/next and autoplay-next must navigate this, not the narrower
+  // `filtered`, or they can jump to an episode the user had filtered out.
+  // Stays null (falling back to `filtered`) when entering via jumpToId with
+  // no ListView click to snapshot from.
+  const [currentList, setCurrentList] = useState<PodcastEpisode[] | null>(null);
 
   useEffect(() => {
     loadPodcastData().then((d) => {
@@ -100,7 +109,7 @@ export function PodcastScreen({
       <EpisodeView
         key={current.id}
         episode={current}
-        filtered={filtered}
+        filtered={currentList ?? filtered}
         autoplayNext={state.autoplayNext}
         onToggleAutoplay={(v) => mutate({ autoplayNext: v })}
         favorited={!!favorites[current.id]}
@@ -121,7 +130,10 @@ export function PodcastScreen({
       filtered={filtered}
       favorites={favorites}
       onToggleFavorite={handleToggleFavorite}
-      onOpen={setCurrentId}
+      onOpen={(id, list) => {
+        setCurrentList(list);
+        setCurrentId(id);
+      }}
     />
   );
 }
@@ -143,7 +155,7 @@ function ListView({
   filtered: PodcastEpisode[];
   favorites: PodcastFavoriteMap;
   onToggleFavorite: (id: string) => void;
-  onOpen: (id: string) => void;
+  onOpen: (id: string, list: PodcastEpisode[]) => void;
 }) {
   const [filterOpen, setFilterOpen] = useState(false);
   const [progress, setProgress] = useState<PodcastProgressMap>({});
@@ -437,7 +449,7 @@ function ListView({
             return (
               <button
                 key={e.id}
-                onClick={() => onOpen(e.id)}
+                onClick={() => onOpen(e.id, visible)}
                 className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${
                   watched ? "border-l-emerald-400" : "border-l-neutral-200"
                 }`}
@@ -498,9 +510,17 @@ function EpisodeView({
   onOpenBunpo?: (bunpoId: string) => void;
 }) {
   useFloatingNav(true);
-  const currentIndex = filtered.findIndex((e) => e.id === episode.id);
-  const prevEpisode = currentIndex > 0 ? filtered[currentIndex - 1] : null;
-  const nextEpisode = currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
+  // Memoized -- EpisodeView re-renders every 500ms from the currentTime
+  // poll while a video plays, and `filtered`/episode.id rarely change
+  // between ticks, so an unmemoized findIndex would rescan the whole
+  // episode list (1000+ entries) on every single tick for no reason.
+  const { prevEpisode, nextEpisode } = useMemo(() => {
+    const currentIndex = filtered.findIndex((e) => e.id === episode.id);
+    return {
+      prevEpisode: currentIndex > 0 ? filtered[currentIndex - 1] : null,
+      nextEpisode: currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null,
+    };
+  }, [filtered, episode.id]);
 
   useEffect(() => {
     markWatched(episode.id);

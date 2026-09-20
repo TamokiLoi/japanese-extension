@@ -10,6 +10,7 @@ import { loadProgressMap, pickWeighted, bucketForDirection, type ProgressMap, ty
 import { formatHanViet } from "../hanVietFormat.ts";
 import { storageGet, storageSet } from "../platform/storage";
 import { loadSlots, upsertSlot, deleteSlot, type SessionSlot } from "./sessionSlots.ts";
+import { shuffle } from "./arrayUtils.ts";
 
 export const DEFAULT_QUESTION_COUNT = 10;
 export const QUESTION_COUNT_OPTIONS = [5, 10, 15, 20, 30, 50, 100];
@@ -156,29 +157,32 @@ function kanjiAnswerText(k: Kanji): string {
   return `${formatHanViet(k.hanViet, "?")} - ${kanjiMeaning(k)}`;
 }
 
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
-
 // Random wrong-answer text from the same pool, excluding the target itself
 // and any candidate whose answer text happens to match the correct one
 // (two different kanji can share an English gloss, for instance).
+//
+// Uses a PARTIAL Fisher-Yates (swaps and consumes one element at a time,
+// stopping once `count` distractors are found) instead of `shuffle(pool)` --
+// this is called once per question built, and shuffling the entire pool
+// upfront just to usually only need the first 2-3 distinct-text items off
+// it was the dominant cost of building a large "Tất cả" quiz session (a
+// ~3,400-word pool means ~3,400 full-pool shuffles, tens of millions of
+// swaps, enough to visibly freeze the UI thread while building the session).
 function sampleDistractorTexts<T>(pool: T[], target: T, answerOf: (item: T) => string, count: number): string[] {
   const correctText = answerOf(target);
   const seen = new Set<string>([correctText]);
   const result: string[] = [];
-  for (const item of shuffle(pool)) {
+  const arr = [...pool];
+  const n = arr.length;
+  for (let i = 0; i < n && result.length < count; i++) {
+    const j = i + Math.floor(Math.random() * (n - i));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+    const item = arr[i];
     if (item === target) continue;
     const text = answerOf(item);
     if (seen.has(text)) continue;
     seen.add(text);
     result.push(text);
-    if (result.length >= count) break;
   }
   return result;
 }

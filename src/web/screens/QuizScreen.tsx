@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import {
   buildKanjiQuiz,
@@ -698,6 +698,15 @@ function PlayView({
   const q = session.questions[idx];
   const answered = session.answers[idx];
 
+  // Set true only by the two "just picked an answer right now" handlers
+  // below (submitTyped, the choice button's onClick), and consumed
+  // (reset to false) the moment the auto-advance effect actually schedules
+  // a move -- so navigating to an ALREADY-answered question (QuestionPalette
+  // jump, swipe right to review) never re-triggers it. Without this, that
+  // effect only checked `answered !== null`, which is equally true whether
+  // the answer just happened or the user is simply looking at an old one.
+  const justAnsweredRef = useRef(false);
+
   // Reset the typed-input draft whenever the question changes (both moving
   // forward and jumping back to review an earlier one) -- the answered
   // question's own text is read from session.typedAnswers instead, not
@@ -715,6 +724,7 @@ function PlayView({
     const newTypedAnswers = session.typedAnswers ? [...session.typedAnswers] : session.questions.map(() => null);
     newTypedAnswers[idx] = typedText;
     const newSession = { ...session, answers: newAnswers, typedAnswers: newTypedAnswers };
+    justAnsweredRef.current = true;
     await saveQuizSlot(newSession);
     onSessionChange(newSession);
   }
@@ -753,7 +763,8 @@ function PlayView({
   // moving on (by this timer, a manual tap, or a swipe) changes one of those
   // deps and cleans the old timer up before a new one could stack on top.
   useEffect(() => {
-    if (!autoAdvance || answered === null) return;
+    if (!autoAdvance || answered === null || !justAnsweredRef.current) return;
+    justAnsweredRef.current = false;
     const t = setTimeout(goNext, AUTO_ADVANCE_DELAY_MS);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -914,6 +925,7 @@ function PlayView({
                     const newAnswers = [...session.answers];
                     newAnswers[idx] = i;
                     const newSession = { ...session, answers: newAnswers };
+                    justAnsweredRef.current = true;
                     await saveQuizSlot(newSession);
                     onSessionChange(newSession);
                   }}

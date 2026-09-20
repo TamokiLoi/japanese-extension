@@ -116,24 +116,27 @@ export function KanjiScreen({
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
 
   // See web VocabScreen.tsx's identical field: keeps mutate() persisting the
-  // pre-jump level filter instead of the one resolveJumpState widens just to
-  // display the jumped-to kanji, so opening a link/search result never
-  // permanently changes the levels used by Quiz/reminders elsewhere.
-  const baseFilterRef = useRef<{ selectedLevels: KanjiViewerState["selectedLevels"] } | null>(null);
+  // pre-jump level filter/progressFilter/viewMode instead of the ones
+  // resolveJumpState overrides just to display the jumped-to kanji, so
+  // opening a link/search result never permanently changes the levels used
+  // by Quiz/reminders elsewhere, nor silently clears "Đến hạn ôn lại".
+  const baseFilterRef = useRef<Pick<KanjiViewerState, "selectedLevels" | "progressFilter" | "viewMode"> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
       let l: Kanji[];
+      // Only committed to the ref after the `cancelled` check below, so a
+      // slower already-superseded jump can't clobber a newer one's base.
+      let nextBase: typeof baseFilterRef.current = null;
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
-          baseFilterRef.current = { selectedLevels: s.selectedLevels };
+          nextBase = { selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
           s = jumped;
           l = getOrderedList(s);
         } else {
-          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
           await saveViewerState(s);
@@ -143,12 +146,12 @@ export function KanjiScreen({
         // the overview grid, regardless of whatever mode was last saved --
         // "which kanji do I already know" should be the first thing you see
         // each visit, not wherever you happened to leave off studying.
-        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
         await saveViewerState(s);
       }
       if (cancelled) return;
+      baseFilterRef.current = nextBase;
       setState(s);
       setList(l);
     })();
@@ -186,8 +189,14 @@ export function KanjiScreen({
   async function mutate(partial: Partial<KanjiViewerState>, recomputeList = true) {
     if (!state) return;
     const next: KanjiViewerState = { ...state, ...partial };
-    const toPersist = baseFilterRef.current ? { ...next, selectedLevels: baseFilterRef.current.selectedLevels } : next;
+    // Restore the pre-jump base, then re-apply `partial` on top so an
+    // explicit change made THIS call still wins -- see web VocabScreen.tsx's
+    // identical comment for the full reasoning.
+    const toPersist = baseFilterRef.current ? { ...next, ...baseFilterRef.current, ...partial } : next;
     await saveViewerState(toPersist);
+    if (baseFilterRef.current) {
+      baseFilterRef.current = { ...baseFilterRef.current, progressFilter: toPersist.progressFilter, viewMode: toPersist.viewMode };
+    }
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);

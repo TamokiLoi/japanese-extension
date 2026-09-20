@@ -23,7 +23,7 @@ import {
   VOCAB_MODE_LABELS,
 } from "../quizState.ts";
 import { newSlotId, type SessionSlot } from "../sessionSlots.ts";
-import { recordAnswer, loadProgressMap, bucketFor, type ProgressMap } from "../progressState.ts";
+import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../progressState.ts";
 import { isCorrectAnswer } from "../reviewState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../vocabState.ts";
@@ -594,7 +594,7 @@ function PlayView({
           const classes = ["quiz-grid-cell"];
           if (i === idx) classes.push("quiz-grid-cell-current");
           const stateClass = cellStateClass(session, i);
-          const isMastered = progressMap ? bucketFor(progressMap[question.id]) === "mastered" : false;
+          const isMastered = progressMap ? bucketForDirection(progressMap[question.id], question.mode) === "mastered" : false;
           if (stateClass) classes.push(stateClass);
           else if (isMastered) classes.push("quiz-grid-cell-mastered");
           return (

@@ -135,7 +135,18 @@ export function getFilteredList(state: BunpoViewerState): BunpoGrammarPoint[] {
   return ALL_BUNPO.filter((g) => {
     if (!state.selectedLevels.includes(g.level)) return false;
     if (!g.sources.some((s) => state.selectedSources.includes(s))) return false;
-    if (g.sources.includes("theo-chuong") && g.chapter !== undefined && !state.selectedChapters.includes(g.chapter)) {
+    // Only gate on chapter when the user still has "theo-chuong" selected --
+    // otherwise a merged item that also belongs to another currently-
+    // selected source (e.g. shinkanzen) would get wrongly dropped by a
+    // stale selectedChapters left over from when theo-chuong was checked
+    // (the chapter picker UI is hidden once theo-chuong is unchecked, so
+    // there'd be no way to reset it).
+    if (
+      g.sources.includes("theo-chuong") &&
+      state.selectedSources.includes("theo-chuong") &&
+      g.chapter !== undefined &&
+      !state.selectedChapters.includes(g.chapter)
+    ) {
       return false;
     }
     return true;

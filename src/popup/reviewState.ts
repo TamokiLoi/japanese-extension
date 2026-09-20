@@ -6,6 +6,7 @@ import { ALL_BUNPO } from "./bunpoState.ts";
 import { loadProgressMap, filterByProgress } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
+import { shuffle } from "./arrayUtils.ts";
 
 export type ReviewContentType = "kanji" | "vocab" | "bunpo";
 // "typed": user types the answer, auto-checked against expectedAnswers.
@@ -40,14 +41,6 @@ export interface ReviewSession {
   currentIndex: number;
 }
 
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
 
 function kanjiMeaning(k: Kanji): string {
   return k.meanings.vi.length > 0 ? k.meanings.vi.join(", ") : (k.meanings.viDraft?.join(", ") ?? "");

@@ -16,6 +16,7 @@ import quizbookN3TwentyDaysRaw from "../data/quizbook-n3-20days.json";
 import type { QuizBookDataset, QuizBookQuestion, QuizBookCategory } from "../types/quizBook.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
+import { shuffle } from "./arrayUtils.ts";
 
 const n3500monDataset = quizbookN3500monRaw as unknown as QuizBookDataset;
 const n4500monDataset = quizbookN4500monRaw as unknown as QuizBookDataset;
@@ -288,17 +289,8 @@ export function recordAnswer(state: QuizBookViewerState, id: string, optionIndex
   };
 }
 
-function shuffled<T>(items: T[]): T[] {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
 export function buildSession(pool: QuizBookQuestion[], count: number): string[] {
-  const ids = shuffled(pool).map((q) => q.id);
+  const ids = shuffle(pool).map((q) => q.id);
   if (count >= ids.length) return ids;
   return ids.slice(0, Math.max(1, count));
 }

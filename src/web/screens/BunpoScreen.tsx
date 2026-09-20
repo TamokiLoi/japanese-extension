@@ -8,7 +8,6 @@ import {
   AVAILABLE_SOURCES,
   AVAILABLE_CHAPTERS,
   SOURCE_LABELS,
-  countForLevel,
   findBunpoById,
   findChapterTitle,
   getFilteredList,
@@ -18,7 +17,6 @@ import {
 } from "../../popup/bunpoState.ts";
 import { useDebouncedValue } from "../../popup/useDebouncedValue.ts";
 import {
-  getProgress,
   markViewed,
   loadProgressMap,
   toggleFlag,
@@ -26,6 +24,7 @@ import {
   filterByProgress,
   bucketFor,
   countBuckets,
+  defaultProgress,
   BUCKET_ITEM_BORDER,
   type ItemProgress,
   type ProgressFilter,
@@ -115,11 +114,20 @@ export function BunpoScreen({
     };
   }, [targetId]);
 
-  async function mutate(partial: Partial<BunpoViewerState>) {
-    if (!state) return;
-    const next = { ...state, ...partial };
-    await saveViewerState(next);
-    setState(next);
+  // Functional setState so each call builds on the LATEST state instead of
+  // whatever `state` this closure captured at render time -- two mutate()
+  // calls fired close together (e.g. FilterSheet's onReset calling it twice
+  // in the same tick, or a debounced search-query save racing a row click)
+  // would otherwise both compute `next` off the same stale snapshot, and
+  // whichever's setState/save resolves last silently wins, dropping the
+  // other's change.
+  function mutate(partial: Partial<BunpoViewerState>) {
+    setState((prev) => {
+      if (!prev) return prev;
+      const next = { ...prev, ...partial };
+      void saveViewerState(next);
+      return next;
+    });
   }
 
   useEffect(() => {
@@ -142,7 +150,7 @@ function ListView({
   mutate,
 }: {
   state: BunpoViewerState;
-  mutate: (partial: Partial<BunpoViewerState>) => Promise<void>;
+  mutate: (partial: Partial<BunpoViewerState>) => void;
 }) {
   const [query, setQuery] = useState(state.listSearchQuery);
   const debouncedQuery = useDebouncedValue(query, 150);
@@ -266,16 +274,21 @@ function ListView({
       >
         <FilterGroup title="Cấp độ">
           <FilterChipOption
-            label={`Tất cả cấp độ (${ALL_BUNPO.length})`}
+            label={`Tất cả cấp độ (${ALL_BUNPO.filter((g) => g.sources.some((s) => state.selectedSources.includes(s))).length})`}
             active={allLevelsChecked}
             onClick={() => applyLevelSelection(allLevelsChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
           />
           {AVAILABLE_LEVELS.map((level) => {
             const checked = state.selectedLevels.includes(level);
+            // Factors in the currently selected sources, same as the
+            // "Nguồn" chips below factor in the selected levels -- otherwise
+            // a level chip could show a nonzero count that actually yields 0
+            // items once combined with the active source filter.
+            const count = ALL_BUNPO.filter((g) => g.level === level && g.sources.some((s) => state.selectedSources.includes(s))).length;
             return (
               <FilterChipOption
                 key={level}
-                label={`${level} (${countForLevel(level)})`}
+                label={`${level} (${count})`}
                 active={checked}
                 onClick={() => {
                   const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
@@ -367,7 +380,13 @@ function ListView({
             return (
               <button
                 key={g.id}
-                onClick={() => mutate({ currentGrammarId: g.id })}
+                // Commit the live (not yet debounce-persisted) query
+                // together with currentGrammarId in the same update -- so
+                // DetailView's visibleList (computed from
+                // state.listSearchQuery) matches what was actually on
+                // screen when tapped, instead of racing the ~150ms debounce
+                // and briefly using a stale/unfiltered query.
+                onClick={() => mutate({ currentGrammarId: g.id, listSearchQuery: query })}
                 className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
@@ -400,16 +419,24 @@ function DetailView({
   state: BunpoViewerState;
   onOpenReading: (passageId: string) => void;
   onOpenQuizBook: (questionId: string) => void;
-  mutate: (partial: Partial<BunpoViewerState>) => Promise<void>;
+  mutate: (partial: Partial<BunpoViewerState>) => void;
 }) {
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [visibleList, setVisibleList] = useState<BunpoGrammarPoint[]>([]);
   const [showUsageGlossary, setShowUsageGlossary] = useState(false);
 
+  // One shared load -- getProgress(id) internally re-reads loadProgressMap()
+  // itself, so calling both separately (as this used to) did the same
+  // storage read/parse twice on every mount and every flag/mastered toggle.
+  async function loadDetail(): Promise<{ p: ItemProgress; progressMap: ProgressMap }> {
+    const progressMap = await loadProgressMap();
+    return { p: progressMap[g.id] ?? defaultProgress(), progressMap };
+  }
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [p, progressMap] = await Promise.all([getProgress(g.id), loadProgressMap()]);
+      const { p, progressMap } = await loadDetail();
       if (cancelled) return;
       setProgress(p);
       setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
@@ -431,8 +458,15 @@ function DetailView({
   const prevItem = currentIndex > 0 ? visibleList[currentIndex - 1] : null;
   const nextItem = currentIndex >= 0 && currentIndex < visibleList.length - 1 ? visibleList[currentIndex + 1] : null;
 
+  // Also recomputes visibleList (not just `progress`) -- toggling
+  // flag/mastered can move `g` in or out of the current progressFilter
+  // bucket (e.g. progressFilter "flagged"), and without this the position
+  // counter and prev/next targets kept pointing at the stale pre-toggle list
+  // until the user left and re-entered the detail view.
   async function refreshProgress() {
-    setProgress(await getProgress(g.id));
+    const { p, progressMap } = await loadDetail();
+    setProgress(p);
+    setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
   }
 
   useFloatingNav(true);

@@ -143,6 +143,10 @@ function ListView({
     await clearListeningAnswers(ids);
     await clearSharedProgress(ids);
     setProgress(await loadListeningProgress());
+    // clearSharedProgress only wipes storage -- without this, the in-memory
+    // sharedProgress map (mastered flag/streaks used above) keeps its stale
+    // pre-reset values until something else happens to reload it.
+    setSharedProgress(await loadProgressMap());
   }
 
   return (
@@ -292,7 +296,7 @@ function ListView({
                     <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">✓ Đã thuộc</span>
                   ) : (
                     <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">
-                      ✓ {Math.min(sharedProgress[q.id]?.directionStreaks.answer ?? 0, MASTERY_STREAK_THRESHOLD)}/{MASTERY_STREAK_THRESHOLD}
+                      ✓ {Math.min(sharedProgress[q.id]?.directionStreaks?.answer ?? 0, MASTERY_STREAK_THRESHOLD)}/{MASTERY_STREAK_THRESHOLD}
                     </span>
                   )
                 ) : status === "wrong" ? (
@@ -406,19 +410,20 @@ function QuestionView({
           key={question.id}
           src={assetUrl(question.audioUrl)}
           translationToggle={
-            answered && (question.turns.length === 0 || question.taskType === "sokuji")
+            answered && question.turns.length === 0
               ? { active: showTranslation, onToggle: () => setShowTranslation((v) => !v) }
               : undefined
           }
         />
       </Card>
 
-      {/* sokuji (即時応答) is a single printed/spoken line + 3 direct-answer
-          options -- some datasets store that one line as a 1-item turns[]
-          instead of turns: [], but it's still not a real dialogue, so it
-          never gets its own Transcript card (translation toggle above
-          already covers it). */}
-      {answered && question.turns.length > 0 && question.taskType !== "sokuji" ? (
+      {/* sokuji (即時応答) items with no turns[] at all rely on the toggle
+          above (question.scenarioVi). But many sokuji items in the actual
+          data (shinkanzen/soumatome N3) store an EMPTY scenario/scenarioVi
+          and put the real translation in turns[0].textVi instead -- those
+          still need the Transcript card below to have anywhere to show it,
+          so this no longer excludes taskType === "sokuji" once turns exist. */}
+      {answered && question.turns.length > 0 ? (
         <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
           <div className="flex items-center justify-between">
             <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>

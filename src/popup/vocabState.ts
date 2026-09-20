@@ -69,8 +69,9 @@ export interface VocabCard {
   verbGroup?: string;
   transitivity?: string;
   conjugations?: VerbConjugations;
-  // Nghĩa tiếng Anh gốc, hữu ích nhất với từ katakana -- chỉ có ở nguồn nào
-  // giữ lại field này (hiện chỉ tango-new, xem fromTanoshiiVocab).
+  // Nghĩa tiếng Anh -- có ở nguồn nào giữ lại field này trong dữ liệu gốc
+  // (tango-new: từ mượn katakana, xem fromTanoshiiVocab; mimikara-n3: nghĩa
+  // từ jisho.org, xem fromMimikara). Optional vì hầu hết nguồn khác không có.
   english?: string;
 }
 

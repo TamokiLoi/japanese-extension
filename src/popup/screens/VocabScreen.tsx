@@ -93,34 +93,36 @@ export function VocabScreen({
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
 
   // See web VocabScreen.tsx's identical field for the full explanation --
-  // keeps mutate() persisting the pre-jump filter instead of the widened one
-  // resolveJumpState computes just for display.
-  const baseFilterRef = useRef<{ selectedSources: VocabSource[]; selectedLevels: JlptLevel[] } | null>(null);
+  // keeps mutate() persisting the pre-jump filter/progressFilter/viewMode
+  // instead of the ones resolveJumpState overrides just for display.
+  const baseFilterRef = useRef<Pick<VocabViewerState, "selectedSources" | "selectedLevels" | "progressFilter" | "viewMode"> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
       let l: VocabCard[];
+      // Only committed to the ref after the `cancelled` check below, so a
+      // slower already-superseded jump can't clobber a newer one's base.
+      let nextBase: typeof baseFilterRef.current = null;
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
-          baseFilterRef.current = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels };
+          nextBase = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
           s = jumped;
           l = getOrderedList(s);
         } else {
-          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
           await saveViewerState(s);
         }
       } else {
-        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
         await saveViewerState(s);
       }
       if (cancelled) return;
+      baseFilterRef.current = nextBase;
       setState(s);
       setList(l);
     })();
@@ -155,10 +157,14 @@ export function VocabScreen({
   async function mutate(partial: Partial<VocabViewerState>, recomputeList = true) {
     if (!state) return;
     const next: VocabViewerState = { ...state, ...partial };
-    const toPersist = baseFilterRef.current
-      ? { ...next, selectedSources: baseFilterRef.current.selectedSources, selectedLevels: baseFilterRef.current.selectedLevels }
-      : next;
+    // Restore the pre-jump base, then re-apply `partial` on top so an
+    // explicit change made THIS call still wins -- see web VocabScreen.tsx's
+    // identical comment for the full reasoning.
+    const toPersist = baseFilterRef.current ? { ...next, ...baseFilterRef.current, ...partial } : next;
     await saveViewerState(toPersist);
+    if (baseFilterRef.current) {
+      baseFilterRef.current = { ...baseFilterRef.current, progressFilter: toPersist.progressFilter, viewMode: toPersist.viewMode };
+    }
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);

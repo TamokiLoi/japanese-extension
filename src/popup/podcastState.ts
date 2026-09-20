@@ -78,13 +78,17 @@ let cachedData: Promise<PodcastData> | null = null;
 export function loadPodcastData(): Promise<PodcastData> {
   if (!cachedData) {
     cachedData = Promise.all(Object.values(CHANNEL_DATA_LOADERS).map((load) => load())).then((modules) => {
-      const episodes = modules
-        .flatMap((m) => (m.default as unknown as PodcastDataset).episodes)
+      const allEpisodes = modules.flatMap((m) => (m.default as unknown as PodcastDataset).episodes);
+      const episodes = allEpisodes
         .filter((e) => !NO_CAPTIONS_EPISODE_IDS.has(e.id))
         // Newest first -- a podcast feed reads chronologically backward,
         // unlike the book-order listening datasets elsewhere in this app.
         .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-      return { episodes, byId: new Map(episodes.map((e) => [e.id, e])) };
+      // byId keeps EVERY episode, including no-caption ones -- only the
+      // browsable `episodes` list excludes them. Otherwise a pre-existing
+      // favorite/watched-progress entry or a deep link pointing at one of
+      // those ids would resolve to nothing and silently strand that data.
+      return { episodes, byId: new Map(allEpisodes.map((e) => [e.id, e])) };
     });
   }
   return cachedData;
