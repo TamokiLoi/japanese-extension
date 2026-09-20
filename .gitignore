@@ -8,6 +8,8 @@ dist-pages/
 # never commit the original PDFs. icon-source.jpg is fine to keep.
 assets/data/
 .env
+.env.local
+.env.*.local
 _scratch/
 .venv*/
 

@@ -19,13 +19,21 @@ export function useFloatingNav(present: boolean) {
 
 function SidebarFooter() {
   return (
-    <div className="mt-auto pt-4 text-xs text-neutral-400">
+    <div className="mt-auto flex flex-col gap-1 pt-4 text-xs text-neutral-400">
       <span>
         ©2026 Tamoki Nguyen -{" "}
         <a href="tel:0938947221" className="hover:text-rose-600">
           0938.947.221
         </a>
       </span>
+      <a
+        href="https://github.com/TamokiLoi/japanese-extension/blob/main/PRIVACY.md"
+        target="_blank"
+        rel="noreferrer"
+        className="hover:text-rose-600"
+      >
+        Chính sách quyền riêng tư
+      </a>
     </div>
   );
 }

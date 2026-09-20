@@ -116,10 +116,20 @@ npm run data:sync
 
 ## Chạy Web Dashboard
 
+Tạo `.env.local` từ `.env.example` và điền OAuth Client ID nếu muốn thử sao
+lưu Google Drive:
+
+```bash
+VITE_GOOGLE_CLIENT_ID=000000000000-example.apps.googleusercontent.com
+```
+
+Client ID là cấu hình công khai của ứng dụng web. Không đưa OAuth client
+secret vào frontend hoặc biến `VITE_*`.
+
 Chạy development server ở chế độ web:
 
 ```bash
-npx cross-env GH_PAGES=true vite
+npx cross-env GH_PAGES=true vite --port 5173 --strictPort
 ```
 
 Build và preview bản web:
@@ -132,6 +142,9 @@ npm run preview:pages
 Output được tạo tại `dist-pages/`. Vite dùng base path
 `/japanese-extension/` cho GitHub Pages. Direct link được khôi phục qua
 `public/404.html` và History API router trong `WebApp.tsx`.
+
+GitHub Pages build đọc Client ID từ repository variable
+`GOOGLE_CLIENT_ID` trong workflow deploy.
 
 ## Build extension legacy
 
