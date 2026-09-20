@@ -14,30 +14,37 @@ import { exportBackupJson, importBackupJson, type ImportResult } from "../../pop
 export function BackupScreen() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [exportMessage, setExportMessage] = useState<{ ok: boolean; text: string } | null>(null);
+  const [importMessage, setImportMessage] = useState<{ ok: boolean; text: string } | null>(null);
 
   async function handleExport() {
-    const json = await exportBackupJson();
-    const blob = new Blob([json], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `nihongo-nin-backup-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
+    setExportMessage(null);
+    try {
+      const json = await exportBackupJson();
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `nihongo-nin-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      setExportMessage({ ok: true, text: "Đã xuất file sao lưu -- kiểm tra thư mục Downloads." });
+    } catch {
+      setExportMessage({ ok: false, text: "Có lỗi xảy ra khi xuất file." });
+    }
   }
 
   async function handleImportFile(file: File) {
     setBusy(true);
-    setMessage(null);
+    setImportMessage(null);
     try {
       const text = await file.text();
       const result: ImportResult = await importBackupJson(text);
       if (result.ok) {
-        setMessage({ ok: true, text: `Đã khôi phục ${result.restoredKeys?.length ?? 0} mục dữ liệu. Đang tải lại trang để áp dụng...` });
+        setImportMessage({ ok: true, text: `Đã khôi phục ${result.restoredKeys?.length ?? 0} mục dữ liệu. Đang tải lại trang để áp dụng...` });
         setTimeout(() => location.reload(), 1200);
       } else {
-        setMessage({ ok: false, text: result.error ?? "Có lỗi xảy ra khi nhập dữ liệu." });
+        setImportMessage({ ok: false, text: result.error ?? "Có lỗi xảy ra khi nhập dữ liệu." });
       }
     } finally {
       setBusy(false);
@@ -82,6 +89,9 @@ export function BackupScreen() {
               <Download size={14} /> Xuất file sao lưu
             </button>
           </div>
+          {exportMessage ? (
+            <p className={`ml-1 pl-4 text-sm ${exportMessage.ok ? "text-emerald-600" : "text-rose-600"}`}>{exportMessage.text}</p>
+          ) : null}
         </Card>
 
         <Card className="gap-3 rounded-2xl border-neutral-200 p-5 ring-0">
@@ -114,8 +124,8 @@ export function BackupScreen() {
               }}
             />
           </div>
-          {message ? (
-            <p className={`ml-1 pl-4 text-sm ${message.ok ? "text-emerald-600" : "text-rose-600"}`}>{message.text}</p>
+          {importMessage ? (
+            <p className={`ml-1 pl-4 text-sm ${importMessage.ok ? "text-emerald-600" : "text-rose-600"}`}>{importMessage.text}</p>
           ) : null}
         </Card>
       </div>
