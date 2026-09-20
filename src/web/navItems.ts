@@ -18,6 +18,7 @@ import {
   CalendarCheck,
   Podcast,
   Puzzle,
+  Settings,
 } from "lucide-react";
 
 export interface NavItem {
@@ -52,14 +53,8 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "stats", label: "Thống kê", icon: BarChart3 },
   { screen: "backup", label: "Sao lưu dữ liệu", icon: DatabaseBackup },
   { screen: "guide", label: "Hướng dẫn", icon: Info },
+  { screen: "settings", label: "Cài đặt", icon: Settings },
 ];
-
-// The most-used destinations, shown in the mobile bottom bar -- the rest
-// (plus these same ones again) live in the hamburger drawer, reachable via
-// the header's menu button. "search" sits here instead of a "Thêm" (More)
-// drawer-opener button, since the drawer is already one tap away from the
-// header and a direct search shortcut is used far more often.
-export const BOTTOM_NAV_SCREENS: Screen[] = ["menu", "kanji", "vocab", "bunpo", "search"];
 
 // Groups the sidebar/drawer nav into labeled sections (per
 // UI_REVIEW_V2.md §11) so 9 destinations don't read as one flat, equally
@@ -75,5 +70,5 @@ export const NAV_GROUPS: NavGroup[] = [
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening", "podcast"] },
   { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "matchGame", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
-  { label: "Công cụ", screens: ["stats", "backup", "guide"] },
+  { label: "Công cụ", screens: ["stats", "backup", "guide", "settings"] },
 ];

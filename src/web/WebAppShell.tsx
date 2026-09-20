@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Menu, X, ArrowUp, ArrowLeft } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
-import { NAV_ITEMS, NAV_GROUPS, BOTTOM_NAV_SCREENS } from "./navItems.ts";
+import { NAV_ITEMS, NAV_GROUPS } from "./navItems.ts";
 import { FloatingChatButton } from "./components/FloatingChatButton.tsx";
 
 // Screens with their own fixed bottom-36 prev/next buttons (Reading,
@@ -142,6 +142,7 @@ export function WebAppShell({
   returnTo,
   onGoBack,
   getChatContext,
+  bottomNavShortcuts,
   children,
 }: {
   active: Screen;
@@ -149,6 +150,7 @@ export function WebAppShell({
   returnTo: { screen: Screen; targetId?: string } | null;
   onGoBack: () => void;
   getChatContext: () => string;
+  bottomNavShortcuts: Screen[];
   children: React.ReactNode;
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -173,10 +175,14 @@ export function WebAppShell({
         {drawerOpen ? (
           <div className="fixed inset-0 z-40 md:hidden">
             <div className="absolute inset-0 bg-black/30" onClick={() => setDrawerOpen(false)} />
-            <div className="absolute inset-y-0 left-0 flex w-64 flex-col overflow-y-auto bg-white p-4 shadow-xl">
+            <div className="absolute inset-y-0 left-0 flex w-[88vw] max-w-80 flex-col overflow-y-auto bg-white p-4 shadow-xl">
               <div className="mb-5 flex items-center justify-between px-2">
                 <BrandLink onClick={() => go("menu")} />
-                <button className="rounded-lg p-1.5 text-neutral-500 hover:bg-neutral-100" onClick={() => setDrawerOpen(false)}>
+                <button
+                  aria-label="Đóng menu"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-neutral-500 hover:bg-neutral-100"
+                  onClick={() => setDrawerOpen(false)}
+                >
                   <X size={20} />
                 </button>
               </div>
@@ -193,23 +199,29 @@ export function WebAppShell({
             actually wrapping its own content down to fit. */}
         <div className="flex min-h-screen min-w-0 flex-1 flex-col">
           {/* Mobile header */}
-          <header className="flex items-center gap-3 border-b border-neutral-200 bg-white px-3 py-2 md:hidden">
-            <button className="rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100" onClick={() => setDrawerOpen(true)}>
+          <header className="sticky top-0 z-30 grid h-14 grid-cols-[44px_1fr_44px] items-center border-b border-neutral-200/80 bg-white/95 px-2 backdrop-blur md:hidden">
+            <button
+              aria-label="Mở menu"
+              className="flex h-11 w-11 items-center justify-center rounded-xl text-neutral-600 hover:bg-neutral-100"
+              onClick={() => setDrawerOpen(true)}
+            >
               <Menu size={22} />
             </button>
-            <button onClick={() => go("menu")} className="flex items-center gap-2">
-              <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-6 w-6 rounded-md" />
-              <span className="font-bold text-rose-600">Nihongo Nin</span>
+            <div className="truncate px-2 text-center text-sm font-semibold text-neutral-800">
+              {active === "menu" ? "Nihongo Nin" : (NAV_ITEMS.find((item) => item.screen === active)?.label ?? "Nihongo Nin")}
+            </div>
+            <button aria-label="Về Trang chủ" onClick={() => go("menu")} className="flex h-11 w-11 items-center justify-center rounded-xl hover:bg-rose-50">
+              <img src={`${import.meta.env.BASE_URL}icons/icon48.png`} alt="" className="h-7 w-7 rounded-lg" />
             </button>
           </header>
 
-          <main className="flex-1 pb-16 md:px-6 md:py-4">
+          <main className="flex-1 pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:px-6 md:py-4">
             <div className="md:rounded-2xl md:border md:border-neutral-200/50 md:bg-white md:shadow-sm">{children}</div>
           </main>
 
           {/* Mobile bottom nav */}
-          <nav className="fixed inset-x-0 bottom-0 z-30 flex border-t border-neutral-200 bg-white md:hidden">
-            {BOTTOM_NAV_SCREENS.map((screen) => {
+          <nav className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-neutral-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+            {(["menu", ...bottomNavShortcuts, "search"] as Screen[]).map((screen) => {
               const item = NAV_ITEMS.find((i) => i.screen === screen)!;
               const Icon = item.icon;
               const isActive = active === screen;
@@ -217,12 +229,15 @@ export function WebAppShell({
                 <button
                   key={screen}
                   onClick={() => go(screen)}
-                  className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[11px] font-medium ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`flex min-w-0 flex-col items-center gap-0.5 py-1.5 text-[10px] font-medium ${
                     isActive ? "text-rose-600" : "text-neutral-500"
                   }`}
                 >
-                  <Icon size={20} strokeWidth={isActive ? 2.4 : 2} />
-                  {item.label}
+                  <span className={`flex h-7 min-w-11 items-center justify-center rounded-full px-3 ${isActive ? "bg-rose-100" : ""}`}>
+                    <Icon size={19} strokeWidth={isActive ? 2.4 : 2} />
+                  </span>
+                  <span className="max-w-full truncate px-0.5">{screen === "listening" ? "Nghe" : item.label}</span>
                 </button>
               );
             })}

@@ -23,6 +23,12 @@ import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
 import { RoadmapScreen } from "./screens/RoadmapScreen.tsx";
 import { PodcastScreen } from "./screens/PodcastScreen.tsx";
 import { MatchGameScreen } from "./screens/MatchGameScreen.tsx";
+import { SettingsScreen } from "./screens/SettingsScreen.tsx";
+import {
+  DEFAULT_BOTTOM_NAV_SHORTCUTS,
+  loadBottomNavShortcuts,
+  saveBottomNavShortcuts,
+} from "./lib/bottomNavSettings.ts";
 import { resolveChatContext } from "./lib/chatContext.ts";
 import "./tailwind.css";
 
@@ -71,6 +77,7 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
 // works exactly as before once inside a section rendered via <App/>.
 export function WebApp() {
   const [{ screen, targetId, returnTo }, setRoute] = useState(readFromPath);
+  const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
   // Several screens (Kanji/Vocab/Bunpo/QuizBook/Reading/Listening/Dictation)
   // page between items -- Trước/Tiếp, tapping a grid tile, jumping via the
   // question palette -- entirely through their own local/persisted state,
@@ -84,8 +91,14 @@ export function WebApp() {
 
   useEffect(() => {
     document.body.classList.add("web-shell");
+    void loadBottomNavShortcuts().then(setBottomNavShortcuts);
     return () => document.body.classList.remove("web-shell");
   }, []);
+
+  function updateBottomNavShortcuts(shortcuts: Screen[]) {
+    setBottomNavShortcuts(shortcuts);
+    void saveBottomNavShortcuts(shortcuts);
+  }
 
   // Keeps the address bar honest (a manual refresh or copied link still
   // resolves to the right item) without going through setRoute/go() -- a
@@ -256,6 +269,8 @@ export function WebApp() {
     );
   } else if (screen === "matchGame") {
     content = <MatchGameScreen />;
+  } else if (screen === "settings") {
+    content = <SettingsScreen shortcuts={bottomNavShortcuts} onChange={updateBottomNavShortcuts} />;
   } else {
     content = <App key={navKey} />;
   }
@@ -269,6 +284,7 @@ export function WebApp() {
           returnTo={returnTo}
           onGoBack={goBack}
           getChatContext={() => resolveChatContext(screen, currentItemRef.current)}
+          bottomNavShortcuts={bottomNavShortcuts}
         >
           {content}
         </WebAppShell>

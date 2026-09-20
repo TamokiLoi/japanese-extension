@@ -32,7 +32,8 @@ export type Screen =
   | "roadmap"
   | "podcast"
   | "translationPractice"
-  | "matchGame";
+  | "matchGame"
+  | "settings";
 
 export const VALID_SCREENS: Screen[] = [
   "menu",
@@ -57,6 +58,7 @@ export const VALID_SCREENS: Screen[] = [
   "podcast",
   "translationPractice",
   "matchGame",
+  "settings",
 ];
 
 interface Route {
