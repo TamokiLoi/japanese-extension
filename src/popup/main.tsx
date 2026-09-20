@@ -1,9 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { isExtensionRuntime } from "../platform/runtime.ts";
-import { App } from "./App.tsx";
 
-export type { Screen } from "./App.tsx";
-export { VALID_SCREENS } from "./App.tsx";
+export type { Screen } from "./screens.ts";
+export { VALID_SCREENS } from "./screens.ts";
 
 // Quiz (and the "⤢ mở tab" button on Kanji/Vocab) opens in a full browser
 // tab instead of the popup -- see MenuScreen.tsx / TabMode.tsx. `?tab=1`
@@ -27,5 +26,7 @@ if (__IS_PAGES_BUILD__ && !isExtensionRuntime()) {
     createRoot(document.getElementById("app")!).render(<WebApp />);
   });
 } else {
-  createRoot(document.getElementById("app")!).render(<App />);
+  import("./App.tsx").then(({ App }) => {
+    createRoot(document.getElementById("app")!).render(<App />);
+  });
 }

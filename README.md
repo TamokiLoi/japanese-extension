@@ -129,8 +129,11 @@ secret vào frontend hoặc biến `VITE_*`.
 Chạy development server ở chế độ web:
 
 ```bash
-npx cross-env GH_PAGES=true vite --port 5173 --strictPort
+npm run dev
 ```
+
+`npm run dev` là web mode mặc định. Nếu cần chạy lại extension legacy bằng
+Vite/CRXJS, dùng `npm run dev:extension`.
 
 Build và preview bản web:
 

@@ -9,57 +9,9 @@ import { StatsScreen } from "./screens/StatsScreen.tsx";
 import { ReadingScreen } from "./screens/ReadingScreen.tsx";
 import { QuizBookScreen } from "./screens/QuizBookScreen.tsx";
 import { BunpoScreen } from "./screens/BunpoScreen.tsx";
+import { VALID_SCREENS, type Screen } from "./screens.ts";
 
-export type Screen =
-  | "menu"
-  | "kanji"
-  | "vocab"
-  | "quiz"
-  | "search"
-  | "jlptHistory"
-  | "stats"
-  | "reading"
-  | "quizBook"
-  | "bunpo"
-  | "review"
-  | "guide"
-  | "listening"
-  | "dictation"
-  | "exams"
-  | "backup"
-  | "itBookVocab"
-  | "itBookLessons"
-  | "roadmap"
-  | "podcast"
-  | "translationPractice"
-  | "matchGame"
-  | "settings";
-
-export const VALID_SCREENS: Screen[] = [
-  "menu",
-  "kanji",
-  "vocab",
-  "quiz",
-  "search",
-  "jlptHistory",
-  "stats",
-  "reading",
-  "quizBook",
-  "bunpo",
-  "review",
-  "guide",
-  "listening",
-  "dictation",
-  "exams",
-  "backup",
-  "itBookVocab",
-  "itBookLessons",
-  "roadmap",
-  "podcast",
-  "translationPractice",
-  "matchGame",
-  "settings",
-];
+export { VALID_SCREENS, type Screen } from "./screens.ts";
 
 interface Route {
   screen: Screen;

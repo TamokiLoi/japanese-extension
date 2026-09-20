@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { Menu, X, ArrowUp, ArrowLeft } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS } from "./navItems.ts";
-import { FloatingChatButton } from "./components/FloatingChatButton.tsx";
 
 // Screens with their own fixed bottom-36 prev/next buttons (Reading,
 // Listening, Dictation, Quiz, DeThi) register here so ScrollToTopButton can
@@ -141,7 +140,6 @@ export function WebAppShell({
   onNavigate,
   returnTo,
   onGoBack,
-  getChatContext,
   bottomNavShortcuts,
   children,
 }: {
@@ -149,7 +147,6 @@ export function WebAppShell({
   onNavigate: (screen: Screen) => void;
   returnTo: { screen: Screen; targetId?: string } | null;
   onGoBack: () => void;
-  getChatContext: () => string;
   bottomNavShortcuts: Screen[];
   children: React.ReactNode;
 }) {
@@ -250,8 +247,6 @@ export function WebAppShell({
             />
           ) : null}
           <ScrollToTopButton floatingNavPresent={floatingNavPresent} />
-          {/* Temporarily hidden, not needed right now -- per user request 2026-09-20. Re-enable by uncommenting. */}
-          {/* <FloatingChatButton getContext={getChatContext} /> */}
         </div>
       </div>
     </FloatingNavContext.Provider>

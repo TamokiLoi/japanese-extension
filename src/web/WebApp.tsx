@@ -1,36 +1,38 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { App, VALID_SCREENS, type Screen } from "../popup/App.tsx";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { VALID_SCREENS, type Screen } from "../popup/screens.ts";
 import { saveLastActive } from "../popup/lastActiveState.ts";
 import { WebAppShell } from "./WebAppShell.tsx";
 import { ConfirmProvider } from "./components/ConfirmDialog.tsx";
 import { DevToolsGuard } from "./components/DevToolsGuard.tsx";
-import { HomeScreen } from "./screens/HomeScreen.tsx";
-import { VocabScreen } from "./screens/VocabScreen.tsx";
-import { KanjiScreen } from "./screens/KanjiScreen.tsx";
-import { SearchScreen } from "./screens/SearchScreen.tsx";
-import { BunpoScreen } from "./screens/BunpoScreen.tsx";
-import { QuizScreen } from "./screens/QuizScreen.tsx";
-import { QuizBookScreen } from "./screens/QuizBookScreen.tsx";
-import { ReadingScreen } from "./screens/ReadingScreen.tsx";
-import { StatsScreen } from "./screens/StatsScreen.tsx";
-import { ReviewScreen } from "./screens/ReviewScreen.tsx";
-import { GuideScreen } from "./screens/GuideScreen.tsx";
-import { BackupScreen } from "./screens/BackupScreen.tsx";
-import { ListeningHubScreen } from "./screens/ListeningHubScreen.tsx";
-import { DeThiScreen } from "./screens/DeThiScreen.tsx";
-import { ItBookVocabScreen } from "./screens/ItBookVocabScreen.tsx";
-import { ItBookLessonsScreen } from "./screens/ItBookLessonsScreen.tsx";
-import { RoadmapScreen } from "./screens/RoadmapScreen.tsx";
-import { PodcastScreen } from "./screens/PodcastScreen.tsx";
-import { MatchGameScreen } from "./screens/MatchGameScreen.tsx";
-import { SettingsScreen } from "./screens/SettingsScreen.tsx";
+import { LoadingScreen } from "./components/LoadingScreen.tsx";
 import {
   DEFAULT_BOTTOM_NAV_SHORTCUTS,
   loadBottomNavShortcuts,
   saveBottomNavShortcuts,
 } from "./lib/bottomNavSettings.ts";
-import { resolveChatContext } from "./lib/chatContext.ts";
 import "./tailwind.css";
+
+const HomeScreen = lazy(() => import("./screens/HomeScreen.tsx").then((module) => ({ default: module.HomeScreen })));
+const VocabScreen = lazy(() => import("./screens/VocabScreen.tsx").then((module) => ({ default: module.VocabScreen })));
+const KanjiScreen = lazy(() => import("./screens/KanjiScreen.tsx").then((module) => ({ default: module.KanjiScreen })));
+const SearchScreen = lazy(() => import("./screens/SearchScreen.tsx").then((module) => ({ default: module.SearchScreen })));
+const BunpoScreen = lazy(() => import("./screens/BunpoScreen.tsx").then((module) => ({ default: module.BunpoScreen })));
+const QuizScreen = lazy(() => import("./screens/QuizScreen.tsx").then((module) => ({ default: module.QuizScreen })));
+const QuizBookScreen = lazy(() => import("./screens/QuizBookScreen.tsx").then((module) => ({ default: module.QuizBookScreen })));
+const ReadingScreen = lazy(() => import("./screens/ReadingScreen.tsx").then((module) => ({ default: module.ReadingScreen })));
+const StatsScreen = lazy(() => import("./screens/StatsScreen.tsx").then((module) => ({ default: module.StatsScreen })));
+const ReviewScreen = lazy(() => import("./screens/ReviewScreen.tsx").then((module) => ({ default: module.ReviewScreen })));
+const GuideScreen = lazy(() => import("./screens/GuideScreen.tsx").then((module) => ({ default: module.GuideScreen })));
+const BackupScreen = lazy(() => import("./screens/BackupScreen.tsx").then((module) => ({ default: module.BackupScreen })));
+const ListeningHubScreen = lazy(() => import("./screens/ListeningHubScreen.tsx").then((module) => ({ default: module.ListeningHubScreen })));
+const DeThiScreen = lazy(() => import("./screens/DeThiScreen.tsx").then((module) => ({ default: module.DeThiScreen })));
+const ItBookVocabScreen = lazy(() => import("./screens/ItBookVocabScreen.tsx").then((module) => ({ default: module.ItBookVocabScreen })));
+const ItBookLessonsScreen = lazy(() => import("./screens/ItBookLessonsScreen.tsx").then((module) => ({ default: module.ItBookLessonsScreen })));
+const RoadmapScreen = lazy(() => import("./screens/RoadmapScreen.tsx").then((module) => ({ default: module.RoadmapScreen })));
+const PodcastScreen = lazy(() => import("./screens/PodcastScreen.tsx").then((module) => ({ default: module.PodcastScreen })));
+const MatchGameScreen = lazy(() => import("./screens/MatchGameScreen.tsx").then((module) => ({ default: module.MatchGameScreen })));
+const SettingsScreen = lazy(() => import("./screens/SettingsScreen.tsx").then((module) => ({ default: module.SettingsScreen })));
+const LegacyApp = lazy(() => import("../popup/App.tsx").then((module) => ({ default: module.App })));
 
 // "/" in dev/the extension build, "/japanese-extension/" on GitHub Pages
 // (see vite.config.ts's `base`) -- routes are built/read relative to this so
@@ -272,7 +274,7 @@ export function WebApp() {
   } else if (screen === "settings") {
     content = <SettingsScreen shortcuts={bottomNavShortcuts} onChange={updateBottomNavShortcuts} />;
   } else {
-    content = <App key={navKey} />;
+    content = <LegacyApp key={navKey} />;
   }
 
   return (
@@ -283,10 +285,9 @@ export function WebApp() {
           onNavigate={go}
           returnTo={returnTo}
           onGoBack={goBack}
-          getChatContext={() => resolveChatContext(screen, currentItemRef.current)}
           bottomNavShortcuts={bottomNavShortcuts}
         >
-          {content}
+          <Suspense fallback={<LoadingScreen />}>{content}</Suspense>
         </WebAppShell>
       </ConfirmProvider>
     </DevToolsGuard>

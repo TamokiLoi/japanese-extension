@@ -21,26 +21,6 @@ import {
   CalendarCheck,
 } from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
-import { ALL_KANJI, getOrderedList as getFilteredKanji, loadViewerState as loadKanjiViewerState } from "../../popup/kanjiState.ts";
-import { ALL_VOCAB, getOrderedList as getFilteredVocab, loadViewerState as loadVocabViewerState } from "../../popup/vocabState.ts";
-import { ALL_BUNPO, getFilteredList as getFilteredBunpo, loadViewerState as loadBunpoViewerState } from "../../popup/bunpoState.ts";
-import {
-  getFilteredQuestions as getFilteredReading,
-  loadViewerState as loadReadingViewerState,
-  findReadingById,
-  getPassageProgress,
-} from "../../popup/readingState.ts";
-import {
-  ALL_QUIZBOOK,
-  matchesFilters as matchesQuizBookFilters,
-  loadViewerState as loadQuizBookViewerState,
-} from "../../popup/quizBookState.ts";
-import { getFilteredList as getFilteredListening, loadViewerState as loadListeningViewerState } from "../../popup/listeningState.ts";
-import {
-  dictationProgressId,
-  getFilteredList as getFilteredDictation,
-  loadViewerState as loadDictationViewerState,
-} from "../../popup/dictationState.ts";
 import {
   loadProgressMap,
   countBuckets,
@@ -62,7 +42,6 @@ import {
   type DailyGoals,
   type DailyPlanItem,
 } from "../../popup/dailyPlanState.ts";
-import { ALL_EXAMS, loadDeThiHistory } from "../../popup/dethiState.ts";
 import { loadRoadmapSettings } from "../../popup/roadmapState.ts";
 import { loadLastActive, type LastActive, type ResumableScreen } from "../../popup/lastActiveState.ts";
 import { FilterSheet } from "../components/FilterSheet.tsx";
@@ -190,33 +169,46 @@ function computePlan(content: FilteredContent, goals: DailyGoals): DailyPlan {
 }
 
 async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> {
+  // These modules contain the large learning datasets. Loading them inside
+  // the effect lets the Home shell/heading paint first instead of blocking
+  // the first React render on parsing every JSON collection up front.
+  const [kanji, vocab, bunpo, reading, quizBook, listening, dictation, dethi] = await Promise.all([
+    import("../../popup/kanjiState.ts"),
+    import("../../popup/vocabState.ts"),
+    import("../../popup/bunpoState.ts"),
+    import("../../popup/readingState.ts"),
+    import("../../popup/quizBookState.ts"),
+    import("../../popup/listeningState.ts"),
+    import("../../popup/dictationState.ts"),
+    import("../../popup/dethiState.ts"),
+  ]);
   const [map, kanjiState, vocabState, bunpoState, readingState, quizBookState, listeningState, dictationState] = await Promise.all([
     loadProgressMap(),
-    loadKanjiViewerState(),
-    loadVocabViewerState(),
-    loadBunpoViewerState(),
-    loadReadingViewerState(),
-    loadQuizBookViewerState(),
-    loadListeningViewerState(),
-    loadDictationViewerState(),
+    kanji.loadViewerState(),
+    vocab.loadViewerState(),
+    bunpo.loadViewerState(),
+    reading.loadViewerState(),
+    quizBook.loadViewerState(),
+    listening.loadViewerState(),
+    dictation.loadViewerState(),
   ]);
   // Each content type is narrowed to whatever that section's own filter
   // sheet currently has selected (its persisted viewer state), rather than
   // always counting the full dataset -- "Kho học liệu"/"Tổng quan tiến độ"
   // then answer "how much of what I'm actually studying right now",
   // matching each screen's own filtered list instead of a fixed grand total.
-  const filteredKanji = getFilteredKanji(kanjiState);
-  const filteredVocab = getFilteredVocab(vocabState);
-  const filteredBunpo = getFilteredBunpo(bunpoState);
-  const filteredReading = getFilteredReading(readingState);
-  const filteredListening = getFilteredListening(listeningState);
-  const filteredQuizBook = ALL_QUIZBOOK.filter((q) => matchesQuizBookFilters(q, quizBookState));
+  const filteredKanji = kanji.getOrderedList(kanjiState);
+  const filteredVocab = vocab.getOrderedList(vocabState);
+  const filteredBunpo = bunpo.getFilteredList(bunpoState);
+  const filteredReading = reading.getFilteredQuestions(readingState);
+  const filteredListening = listening.getFilteredList(listeningState);
+  const filteredQuizBook = quizBook.ALL_QUIZBOOK.filter((q) => quizBook.matchesFilters(q, quizBookState));
   // Listening's own "answer"-direction entries use the question's plain id;
   // Dictation's use a "dict:"-prefixed id (see dictationProgressId) so the
   // two tracks don't collide in the same ItemProgress record for one
   // question -- both need to be in this pool for the bucket/total counts
   // below to reflect them, as two separate trackable items each.
-  const filteredDictationItems = getFilteredDictation(dictationState).map((q) => ({ id: dictationProgressId(q.id) }));
+  const filteredDictationItems = dictation.getFilteredList(dictationState).map((q) => ({ id: dictation.dictationProgressId(q.id) }));
   const filteredItems = [
     ...filteredKanji,
     ...filteredVocab,
@@ -232,13 +224,13 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
   // those questions belong to, then check each one's own answers record.
   const passageIds = new Set(filteredReading.map((q) => q.passageId));
   const lessonsDone = [...passageIds].filter((id) => {
-    const passage = findReadingById(id);
-    return passage && getPassageProgress(passage, readingState.answers).status === "done";
+    const passage = reading.findReadingById(id);
+    return passage && reading.getPassageProgress(passage, readingState.answers).status === "done";
   }).length;
   const questionsPracticed = [...filteredListening, ...filteredDictationItems, ...filteredQuizBook].filter(
     (item) => map[item.id] !== undefined,
   ).length;
-  const [streak, weekDays, dethiHistory] = await Promise.all([getStudyStreak(), getWeekStudyDays(), loadDeThiHistory()]);
+  const [streak, weekDays, dethiHistory] = await Promise.all([getStudyStreak(), getWeekStudyDays(), dethi.loadDeThiHistory()]);
   // "Phần đã làm" counts distinct papers with at least one finished attempt,
   // against every paper across every exam -- a real completion ratio, same
   // shape as the other progress cards, not a fabricated number. This counts
@@ -246,7 +238,7 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
   // 2 papers each (moji-goi, bunpou-dokkai; no timed listening paper yet),
   // so totalPapers is 50 even though there are only 25 đề.
   const attemptedPapers = new Set(dethiHistory.map((h) => `${h.examId}:${h.paperId}`)).size;
-  const totalPapers = ALL_EXAMS.reduce((n, exam) => n + exam.papers.length, 0);
+  const totalPapers = dethi.ALL_EXAMS.reduce((n, exam) => n + exam.papers.length, 0);
   return {
     stats: {
       streak,
@@ -267,9 +259,9 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
       // Dictation still show up in "Tổng quan tiến độ" above (bucket counts
       // include them), just not in this specific due-review CTA yet.
       due: {
-        kanji: countDue(ALL_KANJI, map),
-        vocab: countDue(ALL_VOCAB, map),
-        bunpo: countDue(ALL_BUNPO, map),
+        kanji: countDue(kanji.ALL_KANJI, map),
+        vocab: countDue(vocab.ALL_VOCAB, map),
+        bunpo: countDue(bunpo.ALL_BUNPO, map),
       },
       progress: {
         kanji: { mastered: masteredCount(filteredKanji), total: filteredKanji.length },

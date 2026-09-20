@@ -55,6 +55,14 @@ export default defineConfig({
   build: {
     outDir: isPages ? "dist-pages" : "dist",
   },
+  // Build output can be large (including audio files) and is never source
+  // input. Watching it makes the dev server reload for its own build output
+  // and can crash on Windows with EBUSY while a build is replacing files.
+  server: {
+    watch: {
+      ignored: ["**/dist/**", "**/dist-pages/**"],
+    },
+  },
   // Inlined as a literal boolean at build time (see src/vite-env.d.ts for the
   // type). main.tsx guards the src/web/ dynamic import behind this so
   // esbuild/Rollup can dead-code-eliminate the whole `import()` -- and the
