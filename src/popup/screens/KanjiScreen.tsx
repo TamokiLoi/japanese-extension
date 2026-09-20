@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Kanji } from "../../types/kanji.ts";
 import {
   ALL_KANJI,
@@ -66,6 +66,9 @@ export function KanjiScreen({
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
 
+  // See web VocabScreen.tsx's identical field for the full explanation.
+  const baseFilterRef = useRef<{ selectedLevels: KanjiViewerState["selectedLevels"] } | null>(null);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -74,17 +77,21 @@ export function KanjiScreen({
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
+          baseFilterRef.current = { selectedLevels: s.selectedLevels };
           s = jumped;
           l = getOrderedList(s);
         } else {
+          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+          await saveViewerState(s);
         }
       } else {
+        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+        await saveViewerState(s);
       }
-      await saveViewerState(s);
       if (cancelled) return;
       setState(s);
       setList(l);
@@ -120,7 +127,8 @@ export function KanjiScreen({
   async function mutate(partial: Partial<KanjiViewerState>, recomputeList = true) {
     if (!state) return;
     const next: KanjiViewerState = { ...state, ...partial };
-    await saveViewerState(next);
+    const toPersist = baseFilterRef.current ? { ...next, selectedLevels: baseFilterRef.current.selectedLevels } : next;
+    await saveViewerState(toPersist);
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);
@@ -130,6 +138,7 @@ export function KanjiScreen({
     // Never allow an empty selection -- simply skip the mutation so the
     // controlled checkboxes stay reflecting the previous (valid) state.
     if (newLevels.length === 0) return;
+    baseFilterRef.current = null;
     await mutate({ selectedLevels: newLevels, index: 0 });
   }
 

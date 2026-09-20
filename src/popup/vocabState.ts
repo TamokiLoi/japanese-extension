@@ -214,6 +214,7 @@ function fromMimikara(dataset: MimikaraDataset): VocabCard[] {
     exampleVi: w.exampleVi,
     synonym: null,
     pairVerb: null,
+    english: w.english,
   }));
 }
 

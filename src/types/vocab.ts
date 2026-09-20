@@ -83,6 +83,13 @@ export interface MimikaraWord {
   mnemonic: string[];
   example: string | null;
   exampleVi: string | null;
+  // Nghĩa tiếng Anh từ jisho.org -- fetch + merge cho 874/880 từ trong đợt
+  // kiểm tra chất lượng nghĩa 2026-09-19/20 (xem
+  // _scratch/mimikara_mazii_jisho_diffs.json; 6 từ không có do jisho không
+  // trả kết quả hoặc trả rỗng). Nhiều nghĩa cách nhau bởi ", " trong 1 string
+  // (giống english trên TanoshiiVocabWord), đã dedupe các biến thể chỉ khác
+  // hoa/thường từ jisho.
+  english?: string;
 }
 
 export interface MimikaraDataset {

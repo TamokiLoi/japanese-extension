@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2 } from "lucide-react";
 import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "../lib/speak.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
@@ -185,6 +185,15 @@ export function VocabScreen({
     return onVoicesChanged(() => setCanSpeak(hasJapaneseVoice()));
   }, []);
 
+  // While a jump view is open, holds the selectedSources/selectedLevels that
+  // were actually persisted BEFORE resolveJumpState widened them for display
+  // -- mutate() below keeps saving these instead of the widened ones, so
+  // e.g. opening a search result that happens to also live in another bộ
+  // never permanently changes the study filter used elsewhere (Quiz,
+  // reminders). Cleared (null) outside a jump view, or once the user
+  // explicitly edits the filter themselves.
+  const baseFilterRef = useRef<{ selectedSources: VocabSource[]; selectedLevels: JlptLevel[] } | null>(null);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -193,20 +202,24 @@ export function VocabScreen({
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
+          baseFilterRef.current = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels };
           s = jumped;
           l = getOrderedList(s);
         } else {
+          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+          await saveViewerState(s);
         }
       } else {
         // Entering the screen fresh (not via a jump link) always lands on
         // the overview grid, regardless of whatever mode was last saved --
         // mirrors KanjiScreen.tsx's viewMode reset.
+        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
+        await saveViewerState(s);
       }
-      await saveViewerState(s);
       if (cancelled) return;
       setState(s);
       setList(l);
@@ -245,7 +258,10 @@ export function VocabScreen({
   async function mutate(partial: Partial<VocabViewerState>, recomputeList = true) {
     if (!state) return;
     const next: VocabViewerState = { ...state, ...partial };
-    await saveViewerState(next);
+    const toPersist = baseFilterRef.current
+      ? { ...next, selectedSources: baseFilterRef.current.selectedSources, selectedLevels: baseFilterRef.current.selectedLevels }
+      : next;
+    await saveViewerState(toPersist);
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);
@@ -253,6 +269,10 @@ export function VocabScreen({
 
   async function applySourceSelection(newSources: VocabSource[]) {
     if (newSources.length === 0) return;
+    // The user is now explicitly choosing a filter -- it should stick,
+    // overriding whatever pre-jump filter mutate() would otherwise keep
+    // persisting instead.
+    baseFilterRef.current = null;
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
@@ -287,6 +307,7 @@ export function VocabScreen({
   // khớp. Nếu prune hết sạch thì rơi về "mọi nguồn có dữ liệu ở cấp mới".
   async function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
+    baseFilterRef.current = null;
     const nextSources = pruneToggle(state!.selectedSources, AVAILABLE_SOURCES, (source) =>
       ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)),
     );

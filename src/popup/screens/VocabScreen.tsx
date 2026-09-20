@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
@@ -92,6 +92,11 @@ export function VocabScreen({
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
 
+  // See web VocabScreen.tsx's identical field for the full explanation --
+  // keeps mutate() persisting the pre-jump filter instead of the widened one
+  // resolveJumpState computes just for display.
+  const baseFilterRef = useRef<{ selectedSources: VocabSource[]; selectedLevels: JlptLevel[] } | null>(null);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -100,17 +105,21 @@ export function VocabScreen({
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
+          baseFilterRef.current = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels };
           s = jumped;
           l = getOrderedList(s);
         } else {
+          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+          await saveViewerState(s);
         }
       } else {
+        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+        await saveViewerState(s);
       }
-      await saveViewerState(s);
       if (cancelled) return;
       setState(s);
       setList(l);
@@ -146,7 +155,10 @@ export function VocabScreen({
   async function mutate(partial: Partial<VocabViewerState>, recomputeList = true) {
     if (!state) return;
     const next: VocabViewerState = { ...state, ...partial };
-    await saveViewerState(next);
+    const toPersist = baseFilterRef.current
+      ? { ...next, selectedSources: baseFilterRef.current.selectedSources, selectedLevels: baseFilterRef.current.selectedLevels }
+      : next;
+    await saveViewerState(toPersist);
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);
@@ -156,6 +168,7 @@ export function VocabScreen({
     // Never allow an empty selection -- simply skip the mutation so the
     // controlled checkboxes stay reflecting the previous (valid) state.
     if (newSources.length === 0) return;
+    baseFilterRef.current = null;
     await mutate({ selectedSources: newSources, index: 0 });
   }
 
@@ -163,6 +176,7 @@ export function VocabScreen({
   // -- xem bản sao ở web VocabScreen.tsx cho lý do đầy đủ.
   async function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
+    baseFilterRef.current = null;
     const nextSources = pruneToggle(state!.selectedSources, AVAILABLE_SOURCES, (source) =>
       ALL_VOCAB.some((v) => v.sources.includes(source) && newLevels.includes(v.level)),
     );

@@ -227,7 +227,8 @@ export function WebAppShell({
             />
           ) : null}
           <ScrollToTopButton floatingNavPresent={floatingNavPresent} />
-          <FloatingChatButton getContext={getChatContext} />
+          {/* Temporarily hidden, not needed right now -- per user request 2026-09-20. Re-enable by uncommenting. */}
+          {/* <FloatingChatButton getContext={getChatContext} /> */}
         </div>
       </div>
     </FloatingNavContext.Provider>

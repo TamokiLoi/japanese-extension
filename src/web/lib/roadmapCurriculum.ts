@@ -120,22 +120,27 @@ const KANJI_STOPS: Stop[] = KANJI_LEVEL_ORDER.filter((lvl) => ALL_KANJI.some((k)
 // (above N3, not needed to pass N3) and tango-n5 (a handful of its words are
 // mislabeled N4 and survive the INCLUDE_LEVELS filter below, but the book
 // itself is pure N5 content -- not worth a whole roadmap stop for N3, per
-// user request 2026-09-14).
+// user request 2026-09-14). Mimikara N3 leads the order (moved ahead of
+// Tango N4, per user request 2026-09-20): it's the curated N3 vocab book
+// meant to be the main focus, with both Tango sets kept as optional extra
+// practice below instead of gating the roadmap first.
 const VOCAB_ORDER: VocabSource[] = [
-  "tango-n4",
   "mimikara-n3",
-  "tango-n3",
   "dongtu",
   "tinhtu-n3",
   "trangtu-91",
   "tu-lay",
   "dongnghia-n3",
+  "tango-n4",
+  "tango-n3",
 ];
-// tango-n3 (1022 words, generic) is a near-total overlap with mimikara-n3
-// (879 words, the curated N3 vocab book that's already required) -- kept
-// reachable as bonus practice but not required, per user request
-// 2026-09-14 (same reasoning as bunpo's required/optional split below).
-const VOCAB_REQUIRED_SOURCES: VocabSource[] = ["tango-n4", "mimikara-n3", "dongtu", "tinhtu-n3", "trangtu-91", "tu-lay", "dongnghia-n3"];
+// Both Tango sets (tango-n4, tango-n3) are near-total overlaps with
+// mimikara-n3 (879 words, the curated N3 vocab book that's the required
+// focus) -- kept reachable as bonus practice but not required, per user
+// request 2026-09-20 (tango-n3 was already optional; tango-n4 joined it so
+// the whole Tango book stays optional and mimikara-n3 is the one that gates
+// the roadmap -- same reasoning as bunpo's required/optional split below).
+const VOCAB_REQUIRED_SOURCES: VocabSource[] = ["mimikara-n3", "dongtu", "tinhtu-n3", "trangtu-91", "tu-lay", "dongnghia-n3"];
 const VOCAB_STOPS: Stop[] = VOCAB_ORDER.filter((s) => VOCAB_AVAILABLE_SOURCES.includes(s))
   .map((s) => ({
     key: s,

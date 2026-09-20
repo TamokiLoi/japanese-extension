@@ -42,11 +42,13 @@ export function DevToolsGuard({ children }: { children: ReactNode }) {
   const consecutiveHits = useRef(0);
 
   useEffect(() => {
-    // `npm run dev` only -- never true for `vite build` (the LAN preview
-    // server and the real GitHub Pages deploy both run the built output),
-    // so this only disables the guard for local development, not for the
-    // phone-testing LAN server.
-    if (import.meta.env.DEV) return;
+    // Skipped for `npm run dev` (import.meta.env.DEV) and for a LAN test
+    // build (VITE_LAN_TEST=true passed to `vite build:pages` -- see
+    // src/web/README or the LAN-server workflow notes). The real GitHub
+    // Pages deploy (.github/workflows/deploy.yml) never sets VITE_LAN_TEST,
+    // so the guard stays active there -- this only opens F12 up for
+    // whoever's testing a change over the LAN, not for casual site visitors.
+    if (import.meta.env.DEV || import.meta.env.VITE_LAN_TEST === "true") return;
     const check = () => {
       if (isDevToolsOpenBySize() || isDevToolsOpenByPause()) {
         consecutiveHits.current += 1;

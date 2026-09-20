@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
 import type { Kanji } from "../../types/kanji.ts";
 import {
@@ -115,6 +115,12 @@ export function KanjiScreen({
   // buckets can't express (see BUCKET_ORDER vs. ProgressFilter's "due").
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
 
+  // See web VocabScreen.tsx's identical field: keeps mutate() persisting the
+  // pre-jump level filter instead of the one resolveJumpState widens just to
+  // display the jumped-to kanji, so opening a link/search result never
+  // permanently changes the levels used by Quiz/reminders elsewhere.
+  const baseFilterRef = useRef<{ selectedLevels: KanjiViewerState["selectedLevels"] } | null>(null);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -123,21 +129,25 @@ export function KanjiScreen({
       if (jumpToId) {
         const jumped = resolveJumpState(s, jumpToId);
         if (jumped) {
+          baseFilterRef.current = { selectedLevels: s.selectedLevels };
           s = jumped;
           l = getOrderedList(s);
         } else {
+          baseFilterRef.current = null;
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+          await saveViewerState(s);
         }
       } else {
         // Entering the screen fresh (not via a jump link) always lands on
         // the overview grid, regardless of whatever mode was last saved --
         // "which kanji do I already know" should be the first thing you see
         // each visit, not wherever you happened to leave off studying.
+        baseFilterRef.current = null;
         l = await getFilteredList(s);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
+        await saveViewerState(s);
       }
-      await saveViewerState(s);
       if (cancelled) return;
       setState(s);
       setList(l);
@@ -176,7 +186,8 @@ export function KanjiScreen({
   async function mutate(partial: Partial<KanjiViewerState>, recomputeList = true) {
     if (!state) return;
     const next: KanjiViewerState = { ...state, ...partial };
-    await saveViewerState(next);
+    const toPersist = baseFilterRef.current ? { ...next, selectedLevels: baseFilterRef.current.selectedLevels } : next;
+    await saveViewerState(toPersist);
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);
@@ -184,6 +195,7 @@ export function KanjiScreen({
 
   async function applyLevelSelection(newLevels: (typeof AVAILABLE_LEVELS)[number][]) {
     if (newLevels.length === 0) return;
+    baseFilterRef.current = null;
     await mutate({ selectedLevels: newLevels, index: 0 });
   }
 
