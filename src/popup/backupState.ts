@@ -25,13 +25,23 @@ const BACKUP_KEYS = [
   "roadmapSettings",
   "lastActiveScreen",
   "quizSettings",
-  "quizSession",
+  "quizSessionSlots",
+  "matchGameSessionSlots",
   "reviewSession",
   "dethiSession",
   "reminderSettings",
   "quizReminderSettings",
   "lastReminderKind",
+  "podcastViewer",
+  "podcastProgress",
+  "podcastFavorites",
 ] as const;
+// NOTE: "quizSessionSlots" was previously (wrongly) listed as "quizSession"
+// -- a key nothing ever actually wrote to, so Quiz's in-progress sessions
+// were silently never backed up. "matchGameSessionSlots" and the 3 podcast
+// keys (podcastState.ts) were missing entirely. Verify against each state
+// module's own STORAGE_KEY/*_KEY const when adding a new feature here --
+// see the comment above BACKUP_KEYS.
 
 const BACKUP_VERSION = 1;
 
@@ -89,6 +99,18 @@ export async function importBackupJson(json: string): Promise<ImportResult> {
     return { ok: false, error: "File sao lưu không chứa dữ liệu nào nhận diện được." };
   }
 
-  await storageSetMany(toRestore);
+  try {
+    await storageSetMany(toRestore);
+  } catch (e) {
+    // On the web build this falls back to per-key localStorage.setItem
+    // (platform/storage.ts), which throws synchronously (e.g.
+    // QuotaExceededError) once a large restored backup exceeds the origin's
+    // storage quota -- without this catch, that rejection propagated as an
+    // unhandled promise rejection and the caller (BackupScreen.tsx's
+    // `finally`-only try block) showed no error at all, just a busy state
+    // quietly clearing with the restore silently incomplete.
+    const message = e instanceof Error ? e.message : String(e);
+    return { ok: false, error: `Không thể ghi dữ liệu khôi phục: ${message}` };
+  }
   return { ok: true, restoredKeys };
 }

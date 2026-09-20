@@ -135,7 +135,7 @@ const GUIDE_SECTIONS: GuideItem[] = [
     icon: BarChart3,
     title: "Thống kê",
     points: [
-      "Xem tổng quan Đã thuộc/Đang học/Cần ôn lại/Chưa học theo Kanji hoặc Từ vựng, và tiến độ theo từng cấp độ/nguồn.",
+      "Xem tổng quan Đã thuộc/Đang học/Cần ôn lại/Chưa học theo Kanji, Từ vựng, Ngữ pháp, Đọc hiểu, Luyện đề, Luyện nghe hoặc Nghe chép chính tả, và tiến độ theo từng cấp độ/nguồn.",
       "Bấm vào 1 ô tổng quan (vd 'Cần ôn lại') để lọc danh sách bên dưới chỉ hiện đúng nhóm đó.",
     ],
   },

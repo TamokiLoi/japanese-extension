@@ -24,6 +24,13 @@ function matchesAny(text: string, q: string, qKana: string | null): boolean {
   return text.includes(q) || (qKana !== null && text.includes(qKana));
 }
 
+// See src/web/screens/SearchScreen.tsx's identical helper -- kun-yomi
+// readings store okurigana markers ("ひと.つ", "ひと-") a search query never
+// contains, so they're stripped before matching.
+function matchesReading(reading: string, q: string, qKana: string | null): boolean {
+  return matchesAny(reading.replace(/[.\-]/g, ""), q, qKana);
+}
+
 interface SearchResult {
   kind: "kanji" | "vocab" | "bunpo";
   id: string;
@@ -41,8 +48,8 @@ function searchKanji(q: string, qKana: string | null): SearchResult[] {
       k.meanings.vi.some((m) => m.toLowerCase().includes(q)) ||
       (k.meanings.viDraft ?? []).some((m) => m.toLowerCase().includes(q)) ||
       k.meanings.en.some((m) => m.toLowerCase().includes(q)) ||
-      k.readings.on.some((r) => matchesAny(r, q, qKana)) ||
-      k.readings.kun.some((r) => matchesAny(r, q, qKana)),
+      k.readings.on.some((r) => matchesReading(r, q, qKana)) ||
+      k.readings.kun.some((r) => matchesReading(r, q, qKana)),
   ).map((k) => ({
     kind: "kanji" as const,
     id: k.id,

@@ -182,16 +182,28 @@ export function MenuScreen({ onSelect }: { onSelect: (screen: MenuScreen) => voi
   }
 
   async function handleExport() {
-    const json = await exportBackupJson();
-    const blob = new Blob([json], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `nihongo-nin-backup-${new Date().toISOString().slice(0, 10)}.json`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
+    try {
+      const json = await exportBackupJson();
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const now = new Date();
+      const pad = (n: number) => String(n).padStart(2, "0");
+      // Local time (not toISOString's UTC) so the stamp matches the clock the
+      // user is looking at, and includes hour+minute so exporting more than
+      // once in a day doesn't silently overwrite the previous download --
+      // see src/web/screens/BackupScreen.tsx's identical fix.
+      const stamp = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `nihongo-nin-backup-${stamp}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      setBackupMessage({ ok: true, text: "Đã xuất file sao lưu -- kiểm tra thư mục Downloads." });
+    } catch {
+      setBackupMessage({ ok: false, text: "Có lỗi xảy ra khi xuất file." });
+    }
   }
 
   async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {

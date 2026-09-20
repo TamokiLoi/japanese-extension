@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
 import {
   ALL_IT_BOOK_VOCAB,
@@ -75,19 +75,35 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   const [filterOpen, setFilterOpen] = useState(false);
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
 
+  // See web VocabScreen.tsx's identical field: keeps mutate() persisting the
+  // pre-jump lesson filter instead of the one-lesson narrowing below, which
+  // is only meant to affect what this visit displays -- without this, every
+  // "N từ vựng của bài này" link permanently overwrote the user's real saved
+  // lesson filter (ItBookVocabScreen had no equivalent of VocabScreen's/
+  // KanjiScreen's resolveJumpState protection).
+  const baseFilterRef = useRef<Pick<ItBookViewerState, "selectedLessons" | "progressFilter" | "viewMode"> | null>(null);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
+      let l: ItBookVocabWord[];
       // Coming from "Bài học IT"'s "N từ vựng của bài này" link -- narrow the
       // filter to just that lesson instead of whatever was last selected, so
       // the count the user just saw actually matches what they land on.
-      if (jumpToLesson !== undefined) s = { ...s, selectedLessons: [jumpToLesson] };
-      const l = await getFilteredList(s);
-      // Always lands on the overview grid on a fresh visit, regardless of
-      // whatever mode was last saved -- mirrors VocabScreen.tsx/KanjiScreen.tsx.
-      s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
-      await saveViewerState(s);
+      if (jumpToLesson !== undefined) {
+        baseFilterRef.current = { selectedLessons: s.selectedLessons, progressFilter: s.progressFilter, viewMode: s.viewMode };
+        s = { ...s, selectedLessons: [jumpToLesson] };
+        l = await getFilteredList(s);
+        s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
+      } else {
+        baseFilterRef.current = null;
+        l = await getFilteredList(s);
+        // Always lands on the overview grid on a fresh visit, regardless of
+        // whatever mode was last saved -- mirrors VocabScreen.tsx/KanjiScreen.tsx.
+        s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
+        await saveViewerState(s);
+      }
       if (cancelled) return;
       setState(s);
       setList(l);
@@ -125,7 +141,11 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   async function mutate(partial: Partial<ItBookViewerState>, recomputeList = true) {
     if (!state) return;
     const next: ItBookViewerState = { ...state, ...partial };
-    await saveViewerState(next);
+    const toPersist = baseFilterRef.current ? { ...next, ...baseFilterRef.current, ...partial } : next;
+    await saveViewerState(toPersist);
+    if (baseFilterRef.current) {
+      baseFilterRef.current = { ...baseFilterRef.current, progressFilter: toPersist.progressFilter, viewMode: toPersist.viewMode };
+    }
     const newList = recomputeList ? await getFilteredList(next) : list;
     setState(next);
     setList(newList);
@@ -133,6 +153,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
 
   async function applyLessonSelection(newLessons: number[]) {
     if (newLessons.length === 0) return;
+    baseFilterRef.current = null;
     await mutate({ selectedLessons: newLessons, index: 0 });
   }
 
