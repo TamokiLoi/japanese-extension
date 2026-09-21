@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2 } from "lucide-react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus } from "lucide-react";
 import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "../lib/speak.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { VerbConjugations } from "../../types/vocab.ts";
@@ -50,6 +50,8 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import { CorrectionEditorSheet, CORRECTION_ISSUE_LABELS } from "../components/CorrectionEditorSheet.tsx";
+import { loadCorrectionsForEntity, type DataCorrectionEntry } from "../../popup/dataCorrectionState.ts";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -172,6 +174,8 @@ export function VocabScreen({
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [correctionOpen, setCorrectionOpen] = useState(false);
+  const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
   // See KanjiScreen.tsx's identical field for why this is local/display-only
   // instead of living in state.progressFilter.
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
@@ -347,6 +351,20 @@ export function VocabScreen({
   useEffect(() => {
     onCurrentItemChange?.(currentId);
   }, [currentId, onCurrentItemChange]);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (!currentId) {
+      setCorrections([]);
+      return;
+    }
+    void loadCorrectionsForEntity(currentId).then((entries) => {
+      if (!cancelled) setCorrections(entries);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [currentId]);
 
   if (!state) {
     return <LoadingScreen />;
@@ -599,6 +617,21 @@ export function VocabScreen({
                 </button>
               ) : null}
               <button
+                onClick={() => setCorrectionOpen(true)}
+                aria-label="Góp ý dữ liệu"
+                title="Góp ý nghĩa hoặc dữ liệu chưa chính xác"
+                className={`relative flex h-7.5 w-7.5 items-center justify-center rounded-full hover:bg-amber-50 hover:text-amber-600 ${
+                  corrections.length > 0 ? "text-amber-600" : "text-neutral-300"
+                }`}
+              >
+                <MessageSquarePlus size={17} />
+                {corrections.length > 0 ? (
+                  <span className="absolute -top-1 -right-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-500 px-1 text-[9px] font-bold text-white">
+                    {corrections.length}
+                  </span>
+                ) : null}
+              </button>
+              <button
                 title={progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
                 onClick={async () => {
                   await toggleFlag(v.id);
@@ -727,6 +760,26 @@ export function VocabScreen({
               : null}
           </dl>
 
+          {corrections.length > 0 ? (
+            <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-left text-sm text-amber-900">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-semibold">Góp ý dữ liệu của bạn ({corrections.length})</span>
+                <button onClick={() => setCorrectionOpen(true)} className="text-xs font-semibold text-amber-700 hover:underline">
+                  Thêm góp ý
+                </button>
+              </div>
+              <div className="mt-2 space-y-2">
+                {corrections.slice(0, 3).map((entry) => (
+                  <div key={entry.id} className="rounded-lg bg-white/70 px-3 py-2">
+                    <div className="text-xs font-semibold text-amber-700">{CORRECTION_ISSUE_LABELS[entry.issueType]}</div>
+                    <div className="mt-0.5 whitespace-pre-wrap text-neutral-700">{entry.suggestedValue}</div>
+                  </div>
+                ))}
+              </div>
+              {corrections.length > 3 ? <div className="mt-2 text-xs text-amber-700">Còn {corrections.length - 3} góp ý trong Cài đặt.</div> : null}
+            </div>
+          ) : null}
+
           {v.mnemonic.length > 0 ? (
             <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-800">
               <span className="font-semibold">Mẹo nhớ:</span> {v.mnemonic.join(" / ")}
@@ -750,6 +803,19 @@ export function VocabScreen({
               {v.exampleVi ? <div className="mt-1 text-emerald-700">{v.exampleVi}</div> : null}
             </div>
           ) : null}
+
+          <CorrectionEditorSheet
+            open={correctionOpen}
+            onClose={() => setCorrectionOpen(false)}
+            entityId={v.id}
+            snapshot={{
+              word: v.word,
+              reading: v.reading,
+              meaningVi: v.meaningVi,
+              sources: v.sources.map((source) => SOURCE_LABELS[source]),
+            }}
+            onSaved={(saved) => setCorrections((current) => [saved, ...current.filter((entry) => entry.id !== saved.id)])}
+          />
 
           {v.conjugations ? <VerbConjugationTable conjugations={v.conjugations} /> : null}
 

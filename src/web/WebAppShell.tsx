@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Menu, X, ArrowUp, ArrowLeft } from "lucide-react";
+import { Menu, X, ArrowUp, ArrowLeft, ChevronDown } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS } from "./navItems.ts";
 
@@ -25,14 +25,6 @@ function SidebarFooter() {
           0938.947.221
         </a>
       </span>
-      <a
-        href="https://github.com/TamokiLoi/japanese-extension/blob/main/PRIVACY.md"
-        target="_blank"
-        rel="noreferrer"
-        className="hover:text-rose-600"
-      >
-        Chính sách quyền riêng tư
-      </a>
     </div>
   );
 }
@@ -73,19 +65,49 @@ function NavLink({
 }
 
 function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (screen: Screen) => void }) {
+  const activeGroupLabel = NAV_GROUPS.find((group) => group.label && group.screens.includes(active))?.label;
+  const [openGroups, setOpenGroups] = useState<string[]>(() => (activeGroupLabel ? [activeGroupLabel] : []));
+
+  useEffect(() => {
+    if (!activeGroupLabel) return;
+    setOpenGroups((current) => (current.includes(activeGroupLabel) ? current : [...current, activeGroupLabel]));
+  }, [activeGroupLabel]);
+
+  function toggleGroup(label: string) {
+    setOpenGroups((current) =>
+      current.includes(label) ? current.filter((item) => item !== label) : [...current, label],
+    );
+  }
+
   return (
-    <nav className="flex flex-col gap-2.5">
-      {NAV_GROUPS.map((group, i) => (
-        <div key={group.label ?? `group-${i}`} className="flex flex-col gap-0.5">
-          {group.label ? (
-            <div className="px-3 pb-0.5 text-[11px] font-semibold tracking-wide text-neutral-400 uppercase">{group.label}</div>
-          ) : null}
-          {group.screens.map((screen) => {
-            const item = NAV_ITEMS.find((i) => i.screen === screen)!;
-            return <NavLink key={item.screen} item={item} active={active === item.screen} onClick={() => onNavigate(item.screen)} />;
-          })}
-        </div>
-      ))}
+    <nav className="flex flex-col gap-1.5">
+      {NAV_GROUPS.map((group, i) => {
+        const expanded = group.label ? openGroups.includes(group.label) : true;
+        const containsActive = group.screens.includes(active);
+        return (
+          <div key={group.label ?? `group-${i}`} className="flex flex-col gap-0.5">
+            {group.label ? (
+              <button
+                type="button"
+                aria-expanded={expanded}
+                onClick={() => toggleGroup(group.label!)}
+                className={`flex w-full items-center justify-between rounded-lg px-3 py-1.5 text-[11px] font-bold tracking-wide uppercase transition-colors hover:bg-neutral-100 ${
+                  containsActive ? "text-rose-600" : "text-neutral-400"
+                }`}
+              >
+                <span>{group.label}</span>
+                <ChevronDown size={14} className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
+              </button>
+            ) : null}
+            {expanded
+              ? group.screens.map((screen) => {
+                  const item = NAV_ITEMS.find((navItem) => navItem.screen === screen)!;
+                  return <NavLink key={item.screen} item={item} active={active === item.screen} onClick={() => onNavigate(item.screen)} />;
+                })
+              : null}
+          </div>
+        );
+      })}
     </nav>
   );
 }

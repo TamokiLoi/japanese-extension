@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History } from "lucide-react";
+import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
 import {
   ALL_EXAMS,
@@ -25,6 +25,7 @@ import { ALL_LISTENING } from "../../popup/listeningState.ts";
 import type { Screen } from "../../popup/App.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
@@ -279,6 +280,9 @@ export function DeThiScreen({
 
 function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
   const [summaries, setSummaries] = useState<Record<string, Record<string, DeThiPaperSummary>>>({});
+  const [history, setHistory] = useState<DeThiHistoryEntry[]>([]);
+  const [expandedSources, setExpandedSources] = useState<string[]>([]);
+  const [sortMode, setSortMode] = useState<"newest" | "oldest" | "started" | "unstarted">("newest");
 
   useEffect(() => {
     let cancelled = false;
@@ -288,12 +292,24 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
       // from storage, ~38x redundant work for the same data.
       const history = await loadDeThiHistory();
       const entries = ALL_EXAMS.map((e) => [e.id, summarizeExam(e, history)] as const);
-      if (!cancelled) setSummaries(Object.fromEntries(entries));
+      if (!cancelled) {
+        setSummaries(Object.fromEntries(entries));
+        setHistory(history);
+      }
     })();
     return () => {
       cancelled = true;
     };
   }, []);
+
+  const startedExamCount = ALL_EXAMS.filter((exam) => summary(exam, summaries[exam.id]).some((paper) => paper.attempts > 0)).length;
+  const bestResult = history.length > 0 ? Math.max(...history.map((entry) => entry.percent)) : null;
+
+  function toggleSource(source: string) {
+    setExpandedSources((current) =>
+      current.includes(source) ? current.filter((item) => item !== source) : [...current, source],
+    );
+  }
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
@@ -323,46 +339,135 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
       </div>
       <div className="mt-1.5 text-[11px] text-neutral-400">🔒 N2/N1 khoá -- chưa có bộ đề, sẽ mở khi cập nhật dữ liệu.</div>
 
-      {AVAILABLE_SOURCES.map((source) => (
-        <div key={source} className="mt-6">
-          <h2 className="text-sm font-semibold text-neutral-600">
-            {SOURCE_LABELS[source] ?? source}{" "}
-            <span className="font-normal text-neutral-400">({ALL_EXAMS.filter((e) => e.source === source).length})</span>
-          </h2>
-          <div className="mt-2.5 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
-            {ALL_EXAMS.filter((exam) => exam.source === source).map((exam) => {
+      <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="rounded-2xl border border-sky-100 bg-sky-50 p-3 sm:p-4">
+          <div className="text-xl font-bold text-sky-700 sm:text-2xl">{startedExamCount}</div>
+          <div className="mt-0.5 text-[11px] font-medium text-sky-700/70 sm:text-xs">Đề đã bắt đầu</div>
+        </div>
+        <div className="rounded-2xl border border-violet-100 bg-violet-50 p-3 sm:p-4">
+          <div className="text-xl font-bold text-violet-700 sm:text-2xl">{history.length}</div>
+          <div className="mt-0.5 text-[11px] font-medium text-violet-700/70 sm:text-xs">Lượt làm</div>
+        </div>
+        <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-3 sm:p-4">
+          <div className="text-xl font-bold text-emerald-700 sm:text-2xl">{bestResult === null ? "—" : `${bestResult}%`}</div>
+          <div className="mt-0.5 text-[11px] font-medium text-emerald-700/70 sm:text-xs">Kết quả cao nhất</div>
+        </div>
+      </div>
+
+      <div className="mt-5 flex items-center justify-end gap-2">
+        <span className="hidden items-center gap-1.5 text-xs font-medium text-neutral-500 sm:flex">
+          <ArrowUpDown size={14} /> Sắp xếp
+        </span>
+        <Select
+          items={[
+            { value: "newest", label: "Mới nhất" },
+            { value: "oldest", label: "Cũ nhất" },
+            { value: "started", label: "Đã làm trước" },
+            { value: "unstarted", label: "Chưa làm trước" },
+          ]}
+          value={sortMode}
+          onValueChange={(value) => value !== null && setSortMode(value as typeof sortMode)}
+        >
+          <SelectTrigger aria-label="Sắp xếp danh sách đề" className="h-9 w-[168px] rounded-xl bg-white shadow-none">
+            <ArrowUpDown size={14} className="text-neutral-400 sm:hidden" />
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="newest">Mới nhất</SelectItem>
+            <SelectItem value="oldest">Cũ nhất</SelectItem>
+            <SelectItem value="started">Đã làm trước</SelectItem>
+            <SelectItem value="unstarted">Chưa làm trước</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      {AVAILABLE_SOURCES.map((source) => {
+        const sourceExams = ALL_EXAMS.filter((exam) => exam.source === source);
+        const orderedExams = [...sourceExams].sort((a, b) => {
+          const aStarted = summary(a, summaries[a.id]).some((paper) => paper.attempts > 0);
+          const bStarted = summary(b, summaries[b.id]).some((paper) => paper.attempts > 0);
+          if (sortMode === "started" && aStarted !== bStarted) return aStarted ? -1 : 1;
+          if (sortMode === "unstarted" && aStarted !== bStarted) return aStarted ? 1 : -1;
+          const defaultOrder = sourceExams.indexOf(a) - sourceExams.indexOf(b);
+          return sortMode === "oldest" ? -defaultOrder : defaultOrder;
+        });
+        const initialLimit = source === "cac-nam" ? 5 : 6;
+        const expanded = expandedSources.includes(source);
+        const visibleExams = expanded ? orderedExams : orderedExams.slice(0, initialLimit);
+
+        return (
+        <section key={source} className="mt-7">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <h2 className="text-base font-bold text-neutral-800">{SOURCE_LABELS[source] ?? source}</h2>
+              <p className="mt-0.5 text-xs text-neutral-400">{sourceExams.length} đề · Chọn một đề để xem các phần thi</p>
+            </div>
+            {sourceExams.length > initialLimit ? (
+              <button onClick={() => toggleSource(source)} className="shrink-0 text-xs font-semibold text-rose-600 hover:text-rose-700">
+                {expanded ? "Thu gọn" : `Xem tất cả (${sourceExams.length})`}
+              </button>
+            ) : null}
+          </div>
+          <div className="mt-3 grid gap-3 lg:grid-cols-2">
+            {visibleExams.map((exam) => {
               const paperSummaries = summary(exam, summaries[exam.id]);
               const doneCount = paperSummaries.filter((s) => s.attempts > 0).length;
+              const attemptCount = paperSummaries.reduce((total, item) => total + item.attempts, 0);
               const best = paperSummaries.some((s) => s.bestPercent !== null)
                 ? Math.round(
                     paperSummaries.reduce((sum, s) => sum + (s.bestPercent ?? 0), 0) /
                       paperSummaries.filter((s) => s.bestPercent !== null).length,
                   )
                 : null;
+              const progressPercent = Math.round((doneCount / exam.papers.length) * 100);
+              const isStarted = doneCount > 0;
               return (
                 <button
                   key={exam.id}
                   onClick={() => onOpen(exam.id)}
-                  className="flex flex-col items-start gap-2 rounded-2xl border border-neutral-200 bg-white p-4 text-left hover:border-rose-200 hover:bg-rose-50/40"
+                  className="group rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-rose-200 hover:shadow-md sm:p-5"
                 >
-                  <div className="text-sm font-bold text-neutral-800">{exam.examLabel}</div>
-                  <div className="flex gap-1">
-                    {exam.papers.map((p, i) => (
-                      <span
-                        key={p.id}
-                        className={`h-2 w-2 rounded-full ${paperSummaries[i]?.attempts ? "bg-emerald-500" : "bg-neutral-200"}`}
-                      />
-                    ))}
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-base font-bold text-neutral-800">{exam.examLabel}</span>
+                        <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${source === "cac-nam" ? "bg-amber-50 text-amber-700" : "bg-sky-50 text-sky-700"}`}>
+                          {source === "cac-nam" ? "Đề thật" : "Mô phỏng"}
+                        </span>
+                      </div>
+                      <div className="mt-1 text-xs text-neutral-400">N3 · {exam.papers.length} phần thi</div>
+                    </div>
+                    <span className="flex shrink-0 items-center gap-1 text-xs font-bold text-rose-600">
+                      {isStarted ? "Luyện tiếp" : "Bắt đầu"} <ChevronRight size={14} className="transition group-hover:translate-x-0.5" />
+                    </span>
                   </div>
-                  <div className="text-[11px] font-semibold text-neutral-400">
-                    {doneCount === 0 ? "Chưa làm" : best !== null ? `${best}%` : `${doneCount}/${exam.papers.length}`}
+
+                  <div className="mt-4 h-2 overflow-hidden rounded-full bg-neutral-100">
+                    <div className="h-full rounded-full bg-emerald-500 transition-all" style={{ width: `${progressPercent}%` }} />
+                  </div>
+                  <div className="mt-2 flex items-center justify-between gap-2 text-xs">
+                    <span className="font-medium text-neutral-500">Đã làm {doneCount}/{exam.papers.length} phần</span>
+                    <span className="text-neutral-400">
+                      {attemptCount > 0 ? `${attemptCount} lượt` : "Chưa có kết quả"}
+                    </span>
+                  </div>
+
+                  <div className="mt-3 flex items-center gap-4 border-t border-neutral-100 pt-3 text-xs text-neutral-500">
+                    <span className="flex items-center gap-1.5">
+                      <Trophy size={13} className={best === null ? "text-neutral-300" : "text-amber-500"} />
+                      Tỷ lệ TB <strong className="text-neutral-700">{best === null ? "—" : `${best}%`}</strong>
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Play size={12} className={isStarted ? "text-emerald-500" : "text-neutral-300"} />
+                      {isStarted ? "Đang học" : "Sẵn sàng"}
+                    </span>
                   </div>
                 </button>
               );
             })}
           </div>
-        </div>
-      ))}
+        </section>
+      )})}
     </div>
   );
 }
@@ -440,12 +545,12 @@ function ExamDetailView({
         </span>
       </div>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-5 grid gap-3 xl:grid-cols-3">
         {exam.papers.map((paper) => {
           const Icon = paperIcon(paper.id);
           const s = summaries?.[paper.id];
           return (
-            <Card key={paper.id} className="gap-3 rounded-2xl border-neutral-200 p-5 ring-0">
+            <Card key={paper.id} className="gap-3 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm ring-0">
               <div className="flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
                   <Icon size={19} className="text-neutral-600" />
@@ -470,15 +575,19 @@ function ExamDetailView({
                 <Button className="flex-1" onClick={() => onStart(paper)}>
                   Bắt đầu <ChevronRight size={15} />
                 </Button>
-                {paper.audioUrl ? (
-                  <Button
-                    variant="outline"
-                    title="Nghe tự do -- dừng/tua/lặp lại/đổi tốc độ được, không tính giờ, không lưu vào lịch sử"
-                    onClick={() => onStart(paper, true)}
-                  >
-                    Ôn tập
-                  </Button>
-                ) : null}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  aria-label={`Ôn tập ${paper.label}`}
+                  title={
+                    paper.audioUrl
+                      ? "Ôn tập không tính giờ; có thể dừng, tua, lặp lại và đổi tốc độ audio"
+                      : "Ôn tập không tính giờ và không lưu vào lịch sử"
+                  }
+                  onClick={() => onStart(paper, true)}
+                >
+                  <BookOpenText size={16} />
+                </Button>
                 {s && s.attempts > 0 ? (
                   <button
                     title="Xem lịch sử làm bài, xem lại từng câu của mỗi lần làm"
@@ -507,7 +616,7 @@ function ExamDetailView({
         })}
 
         {hasNativeAudioPaper ? null : firstListeningQuestion ? (
-          <Card className="gap-3 rounded-2xl border-neutral-200 p-5 ring-0">
+          <Card className="gap-3 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm ring-0">
             <div className="flex items-center justify-between">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
                 <Headphones size={19} className="text-neutral-600" />
@@ -527,7 +636,7 @@ function ExamDetailView({
             </Button>
           </Card>
         ) : (
-          <Card className="gap-3 rounded-2xl border-dashed border-neutral-200 bg-neutral-50/60 p-5 ring-0">
+          <Card className="gap-3 rounded-2xl border border-dashed border-neutral-200 bg-neutral-50/60 p-5 shadow-sm ring-0">
             <div className="flex items-center justify-between">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
                 <Headphones size={19} className="text-neutral-400" />
@@ -590,9 +699,13 @@ function TakingView({
     onFinish(entry, session);
   }
 
-  const { label: timeLabel, isLow } = useCountdown(session.deadlineAt, () => {
-    finish();
-  });
+  const { label: timeLabel, isLow } = useCountdown(
+    session.deadlineAt,
+    () => {
+      finish();
+    },
+    !session.practiceMode,
+  );
 
   useFloatingNav(true);
 
