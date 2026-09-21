@@ -36,6 +36,7 @@ const BACKUP_KEYS = [
   "podcastProgress",
   "podcastFavorites",
   "bottomNavShortcuts",
+  "dataCorrectionNotes",
 ] as const;
 // NOTE: "quizSessionSlots" was previously (wrongly) listed as "quizSession"
 // -- a key nothing ever actually wrote to, so Quiz's in-progress sessions

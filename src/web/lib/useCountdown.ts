@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 // remaining" counter someone could pause by backgrounding the tab) --
 // resuming after a reload still counts down from the real deadline.
 // Calls onExpire() exactly once when the deadline passes.
-export function useCountdown(deadlineAt: number, onExpire: () => void) {
+export function useCountdown(deadlineAt: number, onExpire: () => void, enabled = true) {
   const [remainingMs, setRemainingMs] = useState(() => Math.max(0, deadlineAt - Date.now()));
   const expiredRef = useRef(false);
   const onExpireRef = useRef(onExpire);
@@ -12,6 +12,7 @@ export function useCountdown(deadlineAt: number, onExpire: () => void) {
 
   useEffect(() => {
     expiredRef.current = false;
+    if (!enabled) return;
 
     function tick() {
       const remaining = Math.max(0, deadlineAt - Date.now());
@@ -25,7 +26,7 @@ export function useCountdown(deadlineAt: number, onExpire: () => void) {
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, [deadlineAt]);
+  }, [deadlineAt, enabled]);
 
   const totalSeconds = Math.floor(remainingMs / 1000);
   const minutes = Math.floor(totalSeconds / 60);

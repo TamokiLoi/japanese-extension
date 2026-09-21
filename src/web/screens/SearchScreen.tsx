@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import { isRomaji, toHiragana } from "wanakana";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB } from "../../popup/vocabState.ts";
@@ -8,6 +8,8 @@ import { useDebouncedValue } from "../../popup/useDebouncedValue.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../lib/levelColors.tsx";
+import { NewVocabCorrectionSheet } from "../components/NewVocabCorrectionSheet.tsx";
+import { Button } from "../components/ui/button.tsx";
 
 const MAX_RESULTS = 40;
 
@@ -126,6 +128,8 @@ export function SearchScreen({
 }) {
   const [query, setQuery] = useState("");
   const [activeKinds, setActiveKinds] = useState<SearchResult["kind"][]>(["kanji", "vocab", "bunpo"]);
+  const [newVocabOpen, setNewVocabOpen] = useState(false);
+  const [savedWord, setSavedWord] = useState<string | null>(null);
   const debouncedQuery = useDebouncedValue(query, 150);
 
   const q = debouncedQuery.trim().toLowerCase();
@@ -167,6 +171,10 @@ export function SearchScreen({
             {q ? <p className="text-sm text-neutral-500">{results.length} kết quả</p> : null}
           </div>
         </div>
+        <Button variant="outline" className="rounded-xl" onClick={() => setNewVocabOpen(true)}>
+          <Plus size={15} /> <span className="hidden sm:inline">Thêm từ mới</span>
+          <span className="sm:hidden">Thêm từ</span>
+        </Button>
       </div>
 
       <input
@@ -198,7 +206,13 @@ export function SearchScreen({
           Nhập để tìm trong {ALL_KANJI.length} Kanji, {ALL_VOCAB.length} từ vựng và {ALL_BUNPO.length} mẫu ngữ pháp.
         </p>
       ) : results.length === 0 ? (
-        <p className="mt-6 text-neutral-400">Không tìm thấy gì.</p>
+        <div className="mt-6 rounded-2xl border border-dashed border-neutral-200 bg-neutral-50/70 px-4 py-6 text-center">
+          <p className="text-sm font-semibold text-neutral-600">Không tìm thấy “{query.trim()}” trong dữ liệu.</p>
+          <p className="mt-1 text-xs text-neutral-400">Bạn có thể ghi lại từ này để bổ sung vào dữ liệu sau.</p>
+          <Button className="mt-4" onClick={() => setNewVocabOpen(true)}>
+            <Plus size={15} /> Thêm “{query.trim()}”
+          </Button>
+        </div>
       ) : (
         <div className="mt-4 flex flex-col gap-2">
           {results.map((r) => (
@@ -225,6 +239,19 @@ export function SearchScreen({
           ))}
         </div>
       )}
+
+      {savedWord ? (
+        <div className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-700">
+          Đã lưu “{savedWord}” vào danh sách góp ý dữ liệu.
+        </div>
+      ) : null}
+
+      <NewVocabCorrectionSheet
+        open={newVocabOpen}
+        initialWord={query.trim()}
+        onClose={() => setNewVocabOpen(false)}
+        onSaved={(saved) => setSavedWord(saved.snapshot.word)}
+      />
     </div>
   );
 }
