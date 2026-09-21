@@ -20,3 +20,11 @@ assets/nihongo-nin-dashboard-assets-v3/
 assets/nihongo-nin-transparent-icons-v1/
 assets/logo-icon.png
 mockups/
+
+# Local agent configuration and notes.
+.claude/settings.local.json
+CLAUDE.md
+
+# Temporary screenshots and test-run output.
+artifacts/
+test-results/
