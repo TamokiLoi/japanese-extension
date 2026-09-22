@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2 } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import {
   ALL_READING,
@@ -572,10 +572,12 @@ function PassageView({
   ];
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
   const [highlightReferences, setHighlightReferences] = useState(false);
+  const [visibleQuestionTranslations, setVisibleQuestionTranslations] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     setReferenceTab("questions");
     setHighlightReferences(false);
+    setVisibleQuestionTranslations({});
   }, [passage.id]);
 
   const currentIndex = visiblePassages.findIndex((p) => p.id === passage.id);
@@ -735,7 +737,7 @@ function PassageView({
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
               <h2 className="text-base font-bold text-neutral-800">Từ vựng và ngữ pháp trong bài</h2>
-              <p className="mt-0.5 text-xs text-neutral-500">Bấm vào từng mục để xem lại. Các mục được lấy từ dữ liệu liên kết của bài đọc.</p>
+              <p className="mt-0.5 text-xs text-neutral-500">Ưu tiên các từ khó và mẫu ngữ pháp đáng chú ý trong bài đọc.</p>
             </div>
             <button
               onClick={() => setHighlightReferences(!highlightReferences)}
@@ -750,7 +752,7 @@ function PassageView({
           {vocabMatches.length > 0 ? (
             <div>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500">
-                <Library size={14} /> Từ vựng trong bài
+                <Library size={14} /> Từ vựng trọng tâm
               </div>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {vocabMatches.map((v) => (
@@ -789,12 +791,31 @@ function PassageView({
       <div className="mt-6 flex flex-col gap-4">
         {passage.questions.map((q, qi) => {
           const answered = answers[qi];
+          const showQuestionTranslation = visibleQuestionTranslations[qi] === true;
           return (
             <Card key={qi} className="gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-              <div className="font-semibold text-neutral-800">
-                Câu {qi + 1}: {q.question}
+              <div className="flex flex-col items-start gap-2">
+                <div className="font-semibold text-neutral-800">
+                  Câu {qi + 1}: {q.question}
+                </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setVisibleQuestionTranslations((current) => ({
+                      ...current,
+                      [qi]: !current[qi],
+                    }))
+                  }
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+                    showQuestionTranslation
+                      ? "border-sky-200 bg-sky-50 text-sky-700"
+                      : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+                  }`}
+                >
+                  <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
+                </button>
               </div>
-              {state.resultsRevealed && answered !== null ? <div className="mt-1 text-sm text-neutral-500">{q.questionVi}</div> : null}
+              {showQuestionTranslation ? <div className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{q.questionVi}</div> : null}
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {q.options.map((opt, oi) => {
                   let cls = "border-neutral-200 hover:bg-neutral-50";
