@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X } from "lucide-react";
+import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus } from "lucide-react";
 import type { BunpoGrammarPoint, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -8,6 +8,8 @@ import {
   AVAILABLE_SOURCES,
   AVAILABLE_CHAPTERS,
   SOURCE_LABELS,
+  TRY_N3_CHAPTERS,
+  tryN3GrammarIds,
   findBunpoById,
   findChapterTitle,
   getFilteredList,
@@ -43,6 +45,8 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import { CorrectionEditorSheet, CORRECTION_ISSUE_LABELS } from "../components/CorrectionEditorSheet.tsx";
+import { loadCorrectionsForEntity, type DataCorrectionEntry } from "../../popup/dataCorrectionState.ts";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -82,7 +86,10 @@ function matchesQuery(g: BunpoGrammarPoint, q: string): boolean {
 
 function getVisibleList(state: BunpoViewerState, searchQuery: string, progressMap: ProgressMap): BunpoGrammarPoint[] {
   const q = searchQuery.trim().toLowerCase();
-  return filterByProgress(getFilteredList(state).filter((g) => matchesQuery(g, q)), progressMap, state.progressFilter);
+  const base = filterByProgress(getFilteredList(state).filter((g) => matchesQuery(g, q)), progressMap, state.progressFilter);
+  if (state.tryN3Chapter === null || !state.selectedSources.includes("try-n3")) return base;
+  const ids = tryN3GrammarIds(state.tryN3Chapter);
+  return base.filter((g) => ids.has(g.id));
 }
 
 export function BunpoScreen({
@@ -159,7 +166,6 @@ function ListView({
   // See KanjiScreen.tsx's identical field -- local/display-only, narrows the
   // rendered rows without touching state.progressFilter or refetching.
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
-
   useEffect(() => {
     loadProgressMap().then(setProgressMap);
   }, [state]);
@@ -177,9 +183,13 @@ function ListView({
   const allChaptersSelected = state.selectedChapters.length === AVAILABLE_CHAPTERS.length;
 
   const filtered = progressMap ? getVisibleList(state, debouncedQuery, progressMap) : [];
-  const bucketCounts = progressMap ? countBuckets(filtered, progressMap) : null;
+  const selectedTryN3Ids =
+    state.tryN3Chapter !== null && state.selectedSources.includes("try-n3") ? tryN3GrammarIds(state.tryN3Chapter) : null;
+  const chapterFiltered = selectedTryN3Ids ? filtered.filter((g) => selectedTryN3Ids.has(g.id)) : filtered;
+  const bucketCounts = progressMap ? countBuckets(chapterFiltered, progressMap) : null;
+  const tryN3N3CardCount = ALL_BUNPO.filter((g) => g.level === "N3" && g.sources.includes("try-n3")).length;
   const visibleRows =
-    bucketFilter !== null && progressMap ? filtered.filter((g) => bucketFor(progressMap[g.id]) === bucketFilter) : filtered;
+    bucketFilter !== null && progressMap ? chapterFiltered.filter((g) => bucketFor(progressMap[g.id]) === bucketFilter) : chapterFiltered;
 
   function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
@@ -193,7 +203,7 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Ngữ pháp" subtitle={`${filtered.length} mẫu ngữ pháp`} icon={{ img: "icon-grammar.png", bg: "#d1fae5" }} />
+      <PageHeader title="Ngữ pháp" subtitle={`${chapterFiltered.length} mẫu ngữ pháp`} icon={{ img: "icon-grammar.png", bg: "#d1fae5" }} />
 
       {bucketCounts ? (
         <div className="mt-4 grid grid-cols-2 gap-3">
@@ -248,7 +258,7 @@ function ListView({
                 onRemove: () => {
                   const next = state.selectedSources.filter((s) => s !== source);
                   if (next.length === 0) return;
-                  mutate({ selectedSources: next as BunpoSource[] });
+                  mutate({ selectedSources: next as BunpoSource[], tryN3Chapter: next.includes("try-n3") ? state.tryN3Chapter : null });
                 },
               }))),
           ...(state.progressFilter !== "all"
@@ -263,13 +273,72 @@ function ListView({
         ]}
       />
 
+      {!allSourcesChecked && state.selectedSources.includes("try-n3") ? (
+        <section className="mt-4 rounded-2xl border border-rose-100 bg-rose-50/40 p-3.5 sm:p-4">
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <div className="text-sm font-bold text-neutral-800">Theo bài trong sách TRY! N3</div>
+              <p className="mt-0.5 text-xs text-neutral-500">
+                Cấu trúc 11 bài của sách, tách biệt với 15 chương ngữ pháp hiện có.
+              </p>
+            </div>
+            <span className="rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-rose-600 ring-1 ring-rose-100">
+              11 bài · 155 câu
+            </span>
+          </div>
+
+          <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+            <button
+              type="button"
+              onClick={() => mutate({ tryN3Chapter: null })}
+              className={`rounded-xl border bg-white p-3 text-left transition-colors ${
+                state.tryN3Chapter === null
+                  ? "border-rose-300 ring-2 ring-rose-100"
+                  : "border-neutral-200 hover:border-rose-200"
+              }`}
+            >
+              <div className="text-xs font-bold text-rose-600">Tất cả bài</div>
+              <div className="mt-1 text-[11px] text-neutral-500">{tryN3N3CardCount} thẻ N3 liên quan</div>
+            </button>
+            {TRY_N3_CHAPTERS.map((unit) => {
+              const mappedCount = tryN3GrammarIds(unit.chapter).size;
+              return (
+              <button
+                key={unit.chapter}
+                type="button"
+                onClick={() => mutate({ tryN3Chapter: unit.chapter })}
+                className={`rounded-xl border bg-white p-3 text-left transition-colors ${
+                  state.tryN3Chapter === unit.chapter
+                    ? "border-rose-300 ring-2 ring-rose-100"
+                    : "border-neutral-200 hover:border-rose-200"
+                }`}
+              >
+                <div className="text-xs font-bold text-neutral-800">Bài {unit.chapter}</div>
+                <div className="mt-1 line-clamp-2 text-[11px] leading-snug text-neutral-500">{unit.titleVi}</div>
+                <div className="mt-2 text-[10px] font-semibold text-neutral-400">
+                  {mappedCount} thẻ · {unit.quizCount} câu
+                </div>
+              </button>
+              );
+            })}
+          </div>
+
+          {state.tryN3Chapter !== null ? (
+            <div className="mt-3 rounded-xl bg-white px-3 py-2 text-xs text-neutral-500 ring-1 ring-rose-100">
+              Đang lọc danh sách theo <span className="font-semibold text-rose-600">Bài {state.tryN3Chapter}</span>.
+              Các thẻ bên dưới là những mẫu đã được liên kết với bài trong sách; một mẫu có thể xuất hiện ở nhiều bài nếu sách dùng lại cấu trúc đó.
+            </div>
+          ) : null}
+        </section>
+      ) : null}
+
       <FilterSheet
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc ngữ pháp"
         onReset={() => {
           applyLevelSelection([...AVAILABLE_LEVELS]);
-          mutate({ selectedSources: [...AVAILABLE_SOURCES] });
+          mutate({ selectedSources: [...AVAILABLE_SOURCES], tryN3Chapter: null });
         }}
       >
         <FilterGroup title="Cấp độ">
@@ -299,7 +368,7 @@ function ListView({
           })}
         </FilterGroup>
         <FilterGroup title="Nguồn">
-          {/* "Học theo chương" isn't a real book/tài liệu like the others here --
+          {/* "Lộ trình N3" isn't a real book/tài liệu like the others here --
               it's an organizing structure (with its own chapter picker), so it
               gets its own group below instead of sitting in this list as if it
               were just another source. */}
@@ -318,16 +387,16 @@ function ListView({
                     ? state.selectedSources.filter((s) => s !== source)
                     : [...new Set([...state.selectedSources, source])];
                   if (next.length === 0) return;
-                  mutate({ selectedSources: next as BunpoSource[] });
+                  mutate({ selectedSources: next as BunpoSource[], tryN3Chapter: next.includes("try-n3") ? state.tryN3Chapter : null });
                 }}
               />
             );
           })}
         </FilterGroup>
         {AVAILABLE_SOURCES.includes("theo-chuong") ? (
-          <FilterGroup title="Học theo chương">
+          <FilterGroup title="Lộ trình N3">
             <FilterChipOption
-              label={`Bật lọc theo chương (${ALL_BUNPO.filter((g) => g.sources.includes("theo-chuong") && state.selectedLevels.includes(g.level)).length})`}
+              label={`Bật lộ trình 15 chương (${ALL_BUNPO.filter((g) => g.sources.includes("theo-chuong") && state.selectedLevels.includes(g.level)).length})`}
               active={theoChuongChecked}
               onClick={() => {
                 const next = theoChuongChecked
@@ -369,7 +438,7 @@ function ListView({
       </FilterSheet>
 
       <div className="mt-4 flex flex-col gap-2">
-        {filtered.length === 0 ? (
+        {chapterFiltered.length === 0 ? (
           <p className="mt-6 text-neutral-400">Không có mẫu ngữ pháp nào khớp bộ lọc này.</p>
         ) : visibleRows.length === 0 ? (
           <p className="mt-6 text-neutral-400">Không có mẫu nào ở trạng thái "{BUCKET_LABEL[bucketFilter!]}".</p>
@@ -424,6 +493,8 @@ function DetailView({
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [visibleList, setVisibleList] = useState<BunpoGrammarPoint[]>([]);
   const [showUsageGlossary, setShowUsageGlossary] = useState(false);
+  const [correctionOpen, setCorrectionOpen] = useState(false);
+  const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
 
   // One shared load -- getProgress(id) internally re-reads loadProgressMap()
   // itself, so calling both separately (as this used to) did the same
@@ -440,6 +511,7 @@ function DetailView({
       if (cancelled) return;
       setProgress(p);
       setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
+      setCorrections(await loadCorrectionsForEntity(g.id));
       // Fire-and-forget -- looking at a grammar point's detail is itself
       // "studying" it today, independent of whether the user also
       // flags/masters it.
@@ -528,6 +600,15 @@ function DetailView({
           </div>
           <div className="flex shrink-0 items-center gap-1.5">
             <button
+              title="Góp ý hoặc ghi chú dữ liệu"
+              onClick={() => setCorrectionOpen(true)}
+              className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                corrections.length > 0 ? "text-amber-600" : "text-neutral-300 hover:text-neutral-400"
+              }`}
+            >
+              <MessageSquarePlus size={17} />
+            </button>
+            <button
               title={progress.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
               onClick={async () => {
                 await toggleFlag(g.id);
@@ -594,6 +675,45 @@ function DetailView({
             </>
           ) : null}
         </dl>
+
+        <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50/70 p-3 text-sm">
+          <button onClick={() => setCorrectionOpen(true)} className="flex w-full items-center justify-between gap-2 text-left">
+            <span className="flex items-center gap-2 font-semibold text-amber-800">
+              <MessageSquarePlus size={15} />
+              {corrections.length > 0 ? `Ghi chú / góp ý của bạn (${corrections.length})` : "Thêm ghi chú hoặc góp ý"}
+            </span>
+            <span className="text-xs font-semibold text-amber-700">Mở</span>
+          </button>
+          {corrections.length > 0 ? (
+            <div className="mt-2 space-y-1.5">
+              {corrections.slice(0, 2).map((entry) => (
+                <div key={entry.id} className="rounded-lg bg-white/70 px-2.5 py-1.5 text-xs">
+                  <div className="font-semibold text-amber-700">{CORRECTION_ISSUE_LABELS[entry.issueType]}</div>
+                  <div className="mt-0.5 whitespace-pre-wrap text-neutral-700">{entry.suggestedValue}</div>
+                </div>
+              ))}
+              {corrections.length > 2 ? <div className="text-xs text-amber-700">Còn {corrections.length - 2} ghi chú trong Cài đặt.</div> : null}
+            </div>
+          ) : (
+            <div className="mt-1 text-xs text-amber-700/70">Lưu trên trình duyệt và có thể xuất thành JSON để cập nhật dữ liệu sau.</div>
+          )}
+        </div>
+
+        <CorrectionEditorSheet
+          open={correctionOpen}
+          onClose={() => setCorrectionOpen(false)}
+          entityType="grammar"
+          entityId={g.id}
+          snapshot={{
+            pattern: g.pattern,
+            level: g.level,
+            meaningVi: g.meaningVi,
+            sources: g.sources.map((source) => SOURCE_LABELS[source]),
+            chapter: g.chapter,
+            chapterTitle: g.chapterTitle,
+          }}
+          onSaved={(saved) => setCorrections((current) => [saved, ...current.filter((entry) => entry.id !== saved.id)])}
+        />
 
         <div className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm">
           <div className="text-neutral-800">

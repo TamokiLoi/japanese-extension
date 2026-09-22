@@ -26,7 +26,7 @@ export function SettingsScreen({
   const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
   const [editing, setEditing] = useState<DataCorrectionEntry | null>(null);
   const [newVocabOpen, setNewVocabOpen] = useState(false);
-  const [editingNewVocab, setEditingNewVocab] = useState<DataCorrectionEntry | null>(null);
+  const [editingNewVocab, setEditingNewVocab] = useState<Extract<DataCorrectionEntry, { entityType: "vocab" }> | null>(null);
 
   useEffect(() => {
     void loadDataCorrections().then(setCorrections);
@@ -56,7 +56,7 @@ export function SettingsScreen({
   async function handleDelete(entry: DataCorrectionEntry) {
     const accepted = await confirm({
       title: "Xoá góp ý dữ liệu?",
-      message: `Góp ý cho “${entry.snapshot.word}” sẽ bị xoá khỏi trình duyệt này.`,
+      message: `Góp ý cho “${entry.entityType === "grammar" ? entry.snapshot.pattern : entry.snapshot.word}” sẽ bị xoá khỏi trình duyệt này.`,
       confirmLabel: "Xoá",
     });
     if (!accepted) return;
@@ -146,7 +146,7 @@ export function SettingsScreen({
 
         {corrections.length === 0 ? (
           <div className="mt-4 rounded-xl border border-dashed border-neutral-200 bg-neutral-50 px-4 py-6 text-center text-sm text-neutral-400">
-            Mở một thẻ Từ vựng và bấm biểu tượng góp ý để ghi nhận dữ liệu cần sửa.
+            Mở một thẻ Từ vựng hoặc Ngữ pháp và bấm biểu tượng góp ý để ghi nhận dữ liệu cần sửa.
           </div>
         ) : (
           <div className="mt-4 space-y-3">
@@ -155,8 +155,11 @@ export function SettingsScreen({
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-bold text-neutral-800">{entry.snapshot.word}</span>
-                      {entry.snapshot.reading ? <span className="text-xs text-neutral-500">{entry.snapshot.reading}</span> : null}
+                      <span className="font-bold text-neutral-800">{entry.entityType === "grammar" ? entry.snapshot.pattern : entry.snapshot.word}</span>
+                      {entry.entityType === "vocab" && entry.snapshot.reading ? <span className="text-xs text-neutral-500">{entry.snapshot.reading}</span> : null}
+                      <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-neutral-500">
+                        {entry.entityType === "grammar" ? "Ngữ pháp" : "Từ vựng"}
+                      </span>
                       <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${entry.status === "applied" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}`}>
                         {entry.status === "applied" ? "Đã xử lý" : "Chưa xử lý"}
                       </span>
@@ -165,7 +168,7 @@ export function SettingsScreen({
                   </div>
                   <div className="flex shrink-0 gap-1">
                     <button
-                      onClick={() => (entry.issueType === "add-new-vocab" ? setEditingNewVocab(entry) : setEditing(entry))}
+                      onClick={() => (entry.entityType === "vocab" && entry.issueType === "add-new-vocab" ? setEditingNewVocab(entry) : setEditing(entry))}
                       title="Sửa góp ý"
                       className="rounded-lg p-1.5 text-neutral-400 hover:bg-white hover:text-neutral-700"
                     >

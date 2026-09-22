@@ -1,7 +1,8 @@
 import type { JlptLevel } from "./kanji.ts";
 
 // "jlpt-da-ra": ngữ pháp đã ra trong đề thi JLPT (bảng phẳng, không chương).
-// "theo-chuong": ngữ pháp học theo chương (sơ đồ tư duy), có usage/examTip.
+// "theo-chuong": lộ trình ngữ pháp N3 nội bộ của app (15 chương), có
+// usage/examTip; đây không phải mục lục của một cuốn sách cụ thể.
 // "shinkanzen"/"try-n3"/"400-mau-thong-dung": trích từ phần giải thích ngữ pháp
 // (không phải câu hỏi) của 3 nguồn bổ sung -- xem bunpoState.ts.
 // "kaiwa": 32/60 mẫu ngữ pháp hội thoại thường ngày không trùng với 7 nguồn
@@ -47,4 +48,16 @@ export interface BunpoGrammarPoint {
 
 export interface BunpoDataset {
   grammarPoints: BunpoGrammarPoint[];
+}
+
+// Book-level chapter metadata is kept separate from BunpoGrammarPoint.chapter.
+// `chapter` belongs to the app's 15-chapter thematic curriculum; these entries
+// describe the 11 units in the TRY! N3 book.
+export interface TryN3Chapter {
+  chapter: number;
+  titleJa: string;
+  titleVi: string;
+  quizCount: number;
+  /** Grammar cards that have been manually linked to this book unit. */
+  grammarIds?: string[];
 }

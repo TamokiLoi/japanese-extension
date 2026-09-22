@@ -3,11 +3,12 @@ import bunpoTheoChuongRaw from "../data/bunpo-n3-theo-chuong.json";
 import bunpo400MauRaw from "../data/bunpo-400-mau-thong-dung.json";
 import bunpoShinkanzenRaw from "../data/bunpo-shinkanzen.json";
 import bunpoTryN3Raw from "../data/bunpo-try-n3.json";
+import tryN3ChaptersRaw from "../data/try-n3-chapters.json";
 import bunpoN4InfographicRaw from "../data/bunpo-n4-infographic.json";
 import bunpoTheDongTuRaw from "../data/bunpo-the-dong-tu.json";
 import bunpoKinhNguRaw from "../data/bunpo-kinh-ngu.json";
 import bunpoKaiwaRaw from "../data/bunpo-kaiwa.json";
-import type { BunpoDataset, BunpoGrammarPoint, BunpoSource } from "../types/bunpo.ts";
+import type { BunpoDataset, BunpoGrammarPoint, BunpoSource, TryN3Chapter } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -17,6 +18,7 @@ const theoChuongDataset = bunpoTheoChuongRaw as unknown as BunpoDataset;
 const mau400Dataset = bunpo400MauRaw as unknown as BunpoDataset;
 const shinkanzenDataset = bunpoShinkanzenRaw as unknown as BunpoDataset;
 const tryN3Dataset = bunpoTryN3Raw as unknown as BunpoDataset;
+export const TRY_N3_CHAPTERS = (tryN3ChaptersRaw as { chapters: TryN3Chapter[] }).chapters;
 const n4InfographicDataset = bunpoN4InfographicRaw as unknown as BunpoDataset;
 const theDongTuDataset = bunpoTheDongTuRaw as unknown as BunpoDataset;
 const kinhNguDataset = bunpoKinhNguRaw as unknown as BunpoDataset;
@@ -40,7 +42,8 @@ export function findBunpoById(id: string): BunpoGrammarPoint | undefined {
 
 export const SOURCE_LABELS: Record<BunpoSource, string> = {
   "jlpt-da-ra": "Đã ra trong đề JLPT",
-  "theo-chuong": "Học theo chương",
+  // This is the app's own 15-chapter N3 learning path, not a book TOC.
+  "theo-chuong": "Lộ trình N3",
   shinkanzen: "Shinkanzen",
   "try-n3": "TRY! N3",
   "400-mau-thong-dung": "400 mẫu thông dụng",
@@ -84,6 +87,10 @@ export interface BunpoViewerState {
   selectedLevels: JlptLevel[];
   selectedSources: BunpoSource[];
   selectedChapters: number[];
+  // Web-only preview filter for a TRY! N3 book unit. It is intentionally
+  // separate from selectedChapters, which belongs to the app's 15-chapter
+  // thematic curriculum.
+  tryN3Chapter: number | null;
   currentGrammarId: string | null;
   listSearchQuery: string;
   progressFilter: ProgressFilter;
@@ -96,6 +103,7 @@ export function defaultViewerState(): BunpoViewerState {
     selectedLevels: [...AVAILABLE_LEVELS],
     selectedSources: [...AVAILABLE_SOURCES],
     selectedChapters: [...AVAILABLE_CHAPTERS],
+    tryN3Chapter: null,
     currentGrammarId: null,
     listSearchQuery: "",
     progressFilter: "all",
@@ -116,11 +124,19 @@ export async function loadViewerState(): Promise<BunpoViewerState> {
     selectedLevels: selectedLevels.length > 0 ? selectedLevels : fallback.selectedLevels,
     selectedSources: selectedSources.length > 0 ? selectedSources : fallback.selectedSources,
     selectedChapters: selectedChapters.length > 0 ? selectedChapters : fallback.selectedChapters,
+    tryN3Chapter:
+      typeof saved?.tryN3Chapter === "number" && TRY_N3_CHAPTERS.some((unit) => unit.chapter === saved.tryN3Chapter)
+        ? saved.tryN3Chapter
+        : null,
     currentGrammarId:
       saved?.currentGrammarId && findBunpoById(saved.currentGrammarId) ? saved.currentGrammarId : null,
     listSearchQuery: saved?.listSearchQuery ?? fallback.listSearchQuery,
     progressFilter: saved?.progressFilter ?? fallback.progressFilter,
   };
+}
+
+export function tryN3GrammarIds(chapter: number): Set<string> {
+  return new Set(TRY_N3_CHAPTERS.find((unit) => unit.chapter === chapter)?.grammarIds ?? []);
 }
 
 export async function saveViewerState(state: BunpoViewerState): Promise<void> {

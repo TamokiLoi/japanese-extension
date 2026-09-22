@@ -19,7 +19,7 @@ export function NewVocabCorrectionSheet({
 }: {
   open: boolean;
   onClose: () => void;
-  entry?: DataCorrectionEntry | null;
+  entry?: Extract<DataCorrectionEntry, { entityType: "vocab" }> | null;
   initialWord?: string;
   onSaved: (saved: DataCorrectionEntry) => void;
 }) {

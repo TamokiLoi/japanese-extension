@@ -18,13 +18,15 @@ File hợp lệ phải có:
 - `version` được hỗ trợ; hiện tại là `1`.
 - `corrections` là mảng.
 - Mỗi entry có `id`, `entityType`, `entityId`, `snapshot`, `issueType`, `suggestedValue`, `status`.
-- `entityType` hiện chỉ hỗ trợ `vocab`.
+- `entityType` hỗ trợ `vocab` và `grammar`.
 - `issueType` thuộc một trong:
   - `add-new-vocab`
   - `wrong-meaning`
   - `additional-meaning`
   - `wrong-reading`
+  - `wrong-usage`
   - `wrong-example`
+  - `personal-note`
   - `other`
 
 Từ chối hoặc yêu cầu sửa file nếu thiếu trường bắt buộc, sai version, trùng `id`, hoặc `suggestedValue` rỗng.
@@ -52,6 +54,13 @@ Tìm trùng trong tất cả nguồn từ vựng trước khi thêm:
 - Kiểm tra cả bộ từ vựng JLPT và IT Book nếu từ có thể thuộc hai miền.
 
 Nếu đã có cùng từ và cách đọc, ưu tiên bổ sung/sửa entry hiện tại thay vì tạo ID mới.
+
+### Entry ngữ pháp
+
+- Tìm đúng `entityId` trong `ALL_BUNPO` và kiểm tra snapshot `pattern`, `level`, `meaningVi` với dữ liệu hiện tại.
+- Với `wrong-meaning` hoặc `additional-meaning`, cần đối chiếu cấu trúc và ngữ cảnh câu ví dụ, không chỉ dịch riêng pattern.
+- Với `wrong-usage`, kiểm tra công thức, thể kết hợp và sắc thái sử dụng bằng ít nhất một nguồn ngữ pháp đáng tin cậy cùng một ví dụ thực tế.
+- `personal-note` chỉ là ghi chú người dùng, không được tự động áp dụng vào `src/data`.
 
 ## 3. Kiểm chứng bắt buộc bằng Gemini
 

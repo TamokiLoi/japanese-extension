@@ -8,7 +8,9 @@ export type CorrectionIssueType =
   | "wrong-meaning"
   | "additional-meaning"
   | "wrong-reading"
+  | "wrong-usage"
   | "wrong-example"
+  | "personal-note"
   | "other";
 
 export type CorrectionStatus = "open" | "applied";
@@ -21,11 +23,23 @@ export interface VocabCorrectionSnapshot {
   sources: string[];
 }
 
-export interface DataCorrectionEntry {
+export interface GrammarCorrectionSnapshot {
+  pattern: string;
+  level: string;
+  meaningVi: string;
+  sources: string[];
+  chapter?: number;
+  chapterTitle?: string;
+}
+
+export type CorrectionSnapshot = VocabCorrectionSnapshot | GrammarCorrectionSnapshot;
+export type CorrectionEntityType = "vocab" | "grammar";
+
+interface DataCorrectionBase {
   id: string;
-  entityType: "vocab";
+  entityType: CorrectionEntityType;
   entityId: string;
-  snapshot: VocabCorrectionSnapshot;
+  snapshot: CorrectionSnapshot;
   issueType: CorrectionIssueType;
   suggestedValue: string;
   note: string;
@@ -34,10 +48,15 @@ export interface DataCorrectionEntry {
   updatedAt: string;
 }
 
+export type DataCorrectionEntry =
+  | (DataCorrectionBase & { entityType: "vocab"; snapshot: VocabCorrectionSnapshot })
+  | (DataCorrectionBase & { entityType: "grammar"; snapshot: GrammarCorrectionSnapshot });
+
 export interface SaveCorrectionInput {
   id?: string;
+  entityType?: CorrectionEntityType;
   entityId: string;
-  snapshot: VocabCorrectionSnapshot;
+  snapshot: CorrectionSnapshot;
   issueType: CorrectionIssueType;
   suggestedValue: string;
   note: string;
@@ -55,7 +74,7 @@ export async function loadDataCorrections(): Promise<DataCorrectionEntry[]> {
     (entry): entry is DataCorrectionEntry =>
       typeof entry === "object" &&
       entry !== null &&
-      (entry as DataCorrectionEntry).entityType === "vocab" &&
+      ((entry as DataCorrectionEntry).entityType === "vocab" || (entry as DataCorrectionEntry).entityType === "grammar") &&
       typeof (entry as DataCorrectionEntry).id === "string" &&
       typeof (entry as DataCorrectionEntry).entityId === "string" &&
       typeof (entry as DataCorrectionEntry).suggestedValue === "string",
@@ -70,9 +89,10 @@ export async function saveDataCorrection(input: SaveCorrectionInput): Promise<Da
   const entries = await loadDataCorrections();
   const existing = input.id ? entries.find((entry) => entry.id === input.id) : undefined;
   const now = new Date().toISOString();
+  const entityType = input.entityType ?? existing?.entityType ?? "vocab";
   const next: DataCorrectionEntry = {
     id: existing?.id ?? createId(),
-    entityType: "vocab",
+    entityType,
     entityId: input.entityId,
     snapshot: input.snapshot,
     issueType: input.issueType,
