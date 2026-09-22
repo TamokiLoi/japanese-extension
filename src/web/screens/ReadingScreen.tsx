@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2 } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import {
@@ -21,6 +21,7 @@ import {
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
 import { findVocabInPassage, findBunpoInPassage } from "../../popup/readingLinks.ts";
+import { extractMatchChunks } from "../../popup/bunpoLinks.ts";
 import { recordAnswer } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
@@ -41,24 +42,61 @@ function timelineLabel(passage: ReadingPassage): string {
   return `${LENGTH_LABELS[passage.length]} · ~${min}-${max} phút`;
 }
 
-function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showFurigana: boolean }) {
+type ReferenceTerm = { text: string; kind: "vocab" | "bunpo" };
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function renderTextWithReferences(text: string, terms: ReferenceTerm[], highlightReferences: boolean): ReactNode {
+  const renderLines = (value: string, keyPrefix: string) =>
+    value.split("\n").map((line, lineIndex, lines) => (
+      <span key={`${keyPrefix}-${lineIndex}`}>
+        {line}
+        {lineIndex < lines.length - 1 ? <br /> : null}
+      </span>
+    ));
+
+  if (!highlightReferences || terms.length === 0) return renderLines(text, "plain");
+
+  const uniqueTerms = [...new Set(terms.map((term) => term.text).filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length);
+  if (uniqueTerms.length === 0) return renderLines(text, "plain");
+  const pattern = new RegExp(`(${uniqueTerms.map(escapeRegExp).join("|")})`, "g");
+
+  return text.split(pattern).map((part, index) => {
+    const matched = uniqueTerms.includes(part);
+    const lines = renderLines(part, `highlight-${index}`);
+    return matched ? (
+      <strong key={index} className="font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2">
+        {lines}
+      </strong>
+    ) : (
+      <span key={index}>{lines}</span>
+    );
+  });
+}
+
+function ReadingBody({
+  passage,
+  showFurigana,
+  referenceTerms = [],
+  highlightReferences = false,
+}: {
+  passage: ReadingPassage;
+  showFurigana: boolean;
+  referenceTerms?: ReferenceTerm[];
+  highlightReferences?: boolean;
+}) {
   return (
     <>
       {passage.body.map((seg, i) =>
         showFurigana && seg.furigana ? (
           <ruby key={i}>
-            {seg.text}
+            {renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}
             <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
           </ruby>
         ) : (
-          <span key={i}>
-            {seg.text.split("\n").map((line, li, arr) => (
-              <span key={li}>
-                {line}
-                {li < arr.length - 1 ? <br /> : null}
-              </span>
-            ))}
-          </span>
+          <span key={i}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}</span>
         ),
       )}
     </>
@@ -69,7 +107,17 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
 // passage has per-sentence data -- interleaves each JP sentence with its VI
 // translation right below it (same idea as Listening's turn+textVi), rather
 // than one dense translated block after the whole passage.
-function ReadingBodyInterleaved({ passage, showFurigana }: { passage: ReadingPassage; showFurigana: boolean }) {
+function ReadingBodyInterleaved({
+  passage,
+  showFurigana,
+  referenceTerms = [],
+  highlightReferences = false,
+}: {
+  passage: ReadingPassage;
+  showFurigana: boolean;
+  referenceTerms?: ReferenceTerm[];
+  highlightReferences?: boolean;
+}) {
   const groups = splitBodyIntoSentences(passage.body);
   return (
     <div className="flex flex-col gap-3">
@@ -79,11 +127,11 @@ function ReadingBodyInterleaved({ passage, showFurigana }: { passage: ReadingPas
             {segs.map((seg, si) =>
               showFurigana && seg.furigana ? (
                 <ruby key={si}>
-                  {seg.text}
+                  {renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}
                   <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
                 </ruby>
               ) : (
-                <span key={si}>{seg.text}</span>
+                <span key={si}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}</span>
               ),
             )}
           </div>
@@ -518,6 +566,17 @@ function PassageView({
   const correctCount = passage.questions.filter((q, qi) => answers[qi] === q.correctIndex).length;
   const vocabMatches = findVocabInPassage(passage);
   const bunpoMatches = findBunpoInPassage(passage);
+  const referenceTerms: ReferenceTerm[] = [
+    ...vocabMatches.map((v) => ({ text: v.word, kind: "vocab" as const })),
+    ...bunpoMatches.flatMap((g) => extractMatchChunks(g.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
+  ];
+  const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
+  const [highlightReferences, setHighlightReferences] = useState(false);
+
+  useEffect(() => {
+    setReferenceTab("questions");
+    setHighlightReferences(false);
+  }, [passage.id]);
 
   const currentIndex = visiblePassages.findIndex((p) => p.id === passage.id);
   const prevPassage = currentIndex > 0 ? visiblePassages[currentIndex - 1] : null;
@@ -607,9 +666,19 @@ function PassageView({
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="text-lg leading-loose text-neutral-800">
           {state.showTranslation && passage.sentencesVi ? (
-            <ReadingBodyInterleaved passage={passage} showFurigana={state.showFurigana} />
+            <ReadingBodyInterleaved
+              passage={passage}
+              showFurigana={state.showFurigana}
+              referenceTerms={referenceTerms}
+              highlightReferences={highlightReferences}
+            />
           ) : (
-            <ReadingBody passage={passage} showFurigana={state.showFurigana} />
+            <ReadingBody
+              passage={passage}
+              showFurigana={state.showFurigana}
+              referenceTerms={referenceTerms}
+              highlightReferences={highlightReferences}
+            />
           )}
         </div>
       </Card>
@@ -636,19 +705,59 @@ function PassageView({
         </div>
       ) : null}
 
-      {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
-        <Card className="mt-3 gap-3 rounded-2xl border-neutral-200 p-4 ring-0">
+      <div className="mt-5 flex rounded-xl border border-neutral-200 bg-neutral-50 p-1" role="tablist" aria-label="Nội dung bài đọc">
+        <button
+          role="tab"
+          aria-selected={referenceTab === "questions"}
+          onClick={() => setReferenceTab("questions")}
+          className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+            referenceTab === "questions" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+          }`}
+        >
+          Câu hỏi ({total})
+        </button>
+        {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
+          <button
+            role="tab"
+            aria-selected={referenceTab === "references"}
+            onClick={() => setReferenceTab("references")}
+            className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+              referenceTab === "references" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+            }`}
+          >
+            Tham khảo ({vocabMatches.length + bunpoMatches.length})
+          </button>
+        ) : null}
+      </div>
+
+      {referenceTab === "references" ? (
+        <Card className="mt-4 gap-4 rounded-2xl border-neutral-200 p-4 ring-0">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 className="text-base font-bold text-neutral-800">Từ vựng và ngữ pháp trong bài</h2>
+              <p className="mt-0.5 text-xs text-neutral-500">Bấm vào từng mục để xem lại. Các mục được lấy từ dữ liệu liên kết của bài đọc.</p>
+            </div>
+            <button
+              onClick={() => setHighlightReferences(!highlightReferences)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
+                highlightReferences ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
+              }`}
+            >
+              {highlightReferences ? "Tắt bôi đậm trong bài" : "Bôi đậm trong bài"}
+            </button>
+          </div>
+
           {vocabMatches.length > 0 ? (
             <div>
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
-                <Library size={14} /> Từ vựng trong bài (bấm để xem lại)
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500">
+                <Library size={14} /> Từ vựng trong bài
               </div>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {vocabMatches.map((v) => (
                   <button
                     key={v.id}
                     onClick={() => onOpenVocab(v.id)}
-                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
+                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
                   >
                     {v.word}
                   </button>
@@ -658,15 +767,15 @@ function PassageView({
           ) : null}
           {bunpoMatches.length > 0 ? (
             <div>
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
-                <PenSquare size={14} /> Ngữ pháp trong bài (bấm để xem lại)
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500">
+                <PenSquare size={14} /> Ngữ pháp trong bài
               </div>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {bunpoMatches.map((g) => (
                   <button
                     key={g.id}
                     onClick={() => onOpenBunpo(g.id)}
-                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
+                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
                   >
                     {g.pattern}
                   </button>
@@ -675,8 +784,8 @@ function PassageView({
             </div>
           ) : null}
         </Card>
-      ) : null}
-
+      ) : (
+      <>
       <div className="mt-6 flex flex-col gap-4">
         {passage.questions.map((q, qi) => {
           const answered = answers[qi];
@@ -751,6 +860,8 @@ function PassageView({
           </Button>
         </div>
       </div>
+      </>
+      )}
 
       {prevPassage ? (
         <button
