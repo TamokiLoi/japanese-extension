@@ -46,7 +46,7 @@ type Step =
   // and reopened from Lịch sử (a past DeThiHistoryEntry.answers, loaded from
   // storage) -- neither needs the rest of DeThiSession (deadlineAt etc).
   // backTo picks where the top-left back arrow and "về..." button return to.
-  | { name: "result"; entry: DeThiHistoryEntry; answers: (number | null)[]; backTo: "examDetail" | "history" }
+  | { name: "result"; entry: DeThiHistoryEntry; answers: (number | null)[]; backTo: "examDetail" | "history"; practiceMode?: boolean }
   | { name: "history"; examId: string; paperId: string };
 
 // Real JLPT 文字・語彙 papers underline the exact word being tested: the
@@ -241,7 +241,7 @@ export function DeThiScreen({
       <TakingView
         session={step.session}
         onSessionChange={(session) => setStep({ name: "taking", session })}
-        onFinish={(entry, finishedSession) => setStep({ name: "result", entry, answers: finishedSession.answers, backTo: "examDetail" })}
+        onFinish={(entry, finishedSession) => setStep({ name: "result", entry, answers: finishedSession.answers, backTo: "examDetail", practiceMode: finishedSession.practiceMode })}
         onBack={() => setStep({ name: "examDetail", examId: step.session.examId })}
       />
     );
@@ -260,6 +260,7 @@ export function DeThiScreen({
     <ResultView
       entry={step.entry}
       answers={step.answers}
+      practiceMode={step.practiceMode}
       onBack={() =>
         step.backTo === "history"
           ? setStep({ name: "history", examId: step.entry.examId, paperId: step.entry.paperId })
@@ -272,7 +273,7 @@ export function DeThiScreen({
           setStep({ name: "examList" });
           return;
         }
-        setStep({ name: "taking", session: startPaperAttempt(found.exam.id, found.paper) });
+        setStep({ name: "taking", session: startPaperAttempt(found.exam.id, found.paper, step.practiceMode) });
       }}
     />
   );
@@ -928,12 +929,14 @@ function TakingView({
 function ResultView({
   entry,
   answers,
+  practiceMode = false,
   onBack,
   backLabel,
   onRetry,
 }: {
   entry: DeThiHistoryEntry;
   answers: (number | null)[];
+  practiceMode?: boolean;
   onBack: () => void;
   backLabel: string;
   onRetry: () => void;
@@ -945,10 +948,20 @@ function ResultView({
   // score summary above still renders fine, just skip the per-question
   // palette/review instead of showing it against an empty array.
   const hasAnswers = answers.length > 0;
+  const actions = (
+    <div className="mt-8 flex gap-2">
+      <Button variant="outline" className="flex-1" onClick={onBack}>
+        {backLabel}
+      </Button>
+      <Button className="flex-1" onClick={onRetry}>
+        Làm lại
+      </Button>
+    </div>
+  );
 
   return (
-    <div className="mx-auto max-w-2xl px-2.5 py-2 text-center md:px-8 md:py-6">
-      <h1 className="text-2xl font-bold text-neutral-800">Kết quả</h1>
+    <div className={`mx-auto px-2.5 py-2 text-center md:px-8 md:py-6 ${practiceMode ? "max-w-3xl" : "max-w-2xl"}`}>
+      <h1 className="text-2xl font-bold text-neutral-800">{practiceMode ? "Kết quả ôn tập" : "Kết quả"}</h1>
       <p className="mt-1 text-sm text-neutral-500">
         {found ? `${found.exam.examLabel} · ${found.paper.label}` : ""}
       </p>
@@ -958,19 +971,34 @@ function ResultView({
         <div className="mt-1 text-sm font-medium text-neutral-500">
           {entry.correctPoints}/{entry.totalPoints} điểm · {entry.correctCount}/{entry.totalQuestions} câu đúng
         </div>
-        <div className="mt-1 text-xs text-neutral-400">Thời gian làm bài: {formatDuration(entry.durationSec)}</div>
+        {practiceMode ? (
+          <div className="mt-1 text-xs text-neutral-500">Lượt ôn tập này không lưu vào lịch sử. Hãy xem đáp án trước khi rời trang.</div>
+        ) : (
+          <div className="mt-1 text-xs text-neutral-400">Thời gian làm bài: {formatDuration(entry.durationSec)}</div>
+        )}
       </div>
 
-      <div className="mt-8 flex gap-2">
-        <Button variant="outline" className="flex-1" onClick={onBack}>
-          {backLabel}
-        </Button>
-        <Button className="flex-1" onClick={onRetry}>
-          Làm lại
-        </Button>
-      </div>
+      {!practiceMode ? actions : null}
 
-      {found && hasAnswers ? (
+      {practiceMode && found && hasAnswers ? (
+        <div className="mt-8 text-left">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="text-lg font-bold text-neutral-800">Đáp án và giải thích</h2>
+            <button
+              onClick={() => setShowFurigana(!showFurigana)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
+                showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
+              }`}
+            >
+              {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+            </button>
+          </div>
+          <p className="mt-1 text-xs text-neutral-500">Đáp án đúng màu xanh, câu trả lời sai màu đỏ.</p>
+          {found.paper.questions.map((question, i) => (
+            <ReviewQuestion key={i} question={question} chosenIndex={answers[i]} showFurigana={showFurigana} />
+          ))}
+        </div>
+      ) : found && hasAnswers ? (
         <div className="mt-8 text-left">
           <QuestionPalette
             defaultOpen
@@ -1001,6 +1029,7 @@ function ResultView({
       ) : found ? (
         <p className="mt-8 text-sm text-neutral-400">Lần làm này không có dữ liệu chi tiết từng câu để xem lại.</p>
       ) : null}
+      {practiceMode ? actions : null}
     </div>
   );
 }
