@@ -14,13 +14,18 @@ import { CorrectionEditorSheet, CORRECTION_ISSUE_LABELS } from "../components/Co
 import { NewVocabCorrectionSheet } from "../components/NewVocabCorrectionSheet.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
+import type { SearchDisplayMode } from "../lib/searchSettings.ts";
 
 export function SettingsScreen({
   shortcuts,
   onChange,
+  searchDisplayMode,
+  onSearchDisplayModeChange,
 }: {
   shortcuts: Screen[];
   onChange: (shortcuts: Screen[]) => void;
+  searchDisplayMode: SearchDisplayMode;
+  onSearchDisplayModeChange: (mode: SearchDisplayMode) => void;
 }) {
   const confirm = useConfirm();
   const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
@@ -116,6 +121,50 @@ export function SettingsScreen({
         <div className="mt-4 flex items-center gap-2 text-sm text-emerald-600">
           <Check size={16} />
           Thay đổi được lưu tự động trên trình duyệt này.
+        </div>
+      </section>
+
+      <section className="mt-5 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm md:p-5">
+        <h2 className="font-semibold text-neutral-800">Cách mở Tra cứu</h2>
+        <p className="mt-1 text-sm text-neutral-500">Chọn cách mở khi bấm Tra cứu ở sidebar hoặc thanh menu dưới.</p>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {([
+            {
+              value: "page" as const,
+              title: "Trang riêng",
+              description: "Chuyển sang trang Tra cứu đầy đủ, phù hợp khi tra cứu lâu.",
+            },
+            {
+              value: "popup" as const,
+              title: "Popup trên trang hiện tại",
+              description: "Giữ nguyên bài đang học và tìm nhanh trong cửa sổ nổi.",
+            },
+          ] satisfies { value: SearchDisplayMode; title: string; description: string }[]).map((option) => {
+            const active = searchDisplayMode === option.value;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                aria-pressed={active}
+                onClick={() => onSearchDisplayModeChange(option.value)}
+                className={`rounded-xl border p-3 text-left transition ${
+                  active ? "border-rose-300 bg-rose-50/70 ring-2 ring-rose-100" : "border-neutral-200 bg-neutral-50 hover:border-rose-200"
+                }`}
+              >
+                <span className="flex items-center gap-2 text-sm font-semibold text-neutral-800">
+                  <span className={`h-3 w-3 rounded-full border-2 ${active ? "border-rose-500 bg-rose-500" : "border-neutral-300 bg-white"}`} />
+                  {option.title}
+                </span>
+                <span className="mt-1 block pl-5 text-xs leading-relaxed text-neutral-500">{option.description}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-4 flex items-center gap-2 text-sm text-emerald-600">
+          <Check size={16} />
+          Chế độ được lưu tự động trên trình duyệt này.
         </div>
       </section>
 

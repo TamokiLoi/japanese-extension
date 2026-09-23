@@ -1,4 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
 import { VALID_SCREENS, type Screen } from "../popup/screens.ts";
 import { saveLastActive } from "../popup/lastActiveState.ts";
 import { WebAppShell } from "./WebAppShell.tsx";
@@ -10,6 +11,12 @@ import {
   loadBottomNavShortcuts,
   saveBottomNavShortcuts,
 } from "./lib/bottomNavSettings.ts";
+import {
+  DEFAULT_SEARCH_DISPLAY_MODE,
+  loadSearchDisplayMode,
+  saveSearchDisplayMode,
+  type SearchDisplayMode,
+} from "./lib/searchSettings.ts";
 import "./tailwind.css";
 
 const HomeScreen = lazy(() => import("./screens/HomeScreen.tsx").then((module) => ({ default: module.HomeScreen })));
@@ -80,6 +87,8 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
 export function WebApp() {
   const [{ screen, targetId, returnTo }, setRoute] = useState(readFromPath);
   const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
+  const [searchDisplayMode, setSearchDisplayMode] = useState<SearchDisplayMode>(DEFAULT_SEARCH_DISPLAY_MODE);
+  const [searchPopupOpen, setSearchPopupOpen] = useState(false);
   // Several screens (Kanji/Vocab/Bunpo/QuizBook/Reading/Listening/Dictation)
   // page between items -- Trước/Tiếp, tapping a grid tile, jumping via the
   // question palette -- entirely through their own local/persisted state,
@@ -94,12 +103,18 @@ export function WebApp() {
   useEffect(() => {
     document.body.classList.add("web-shell");
     void loadBottomNavShortcuts().then(setBottomNavShortcuts);
+    void loadSearchDisplayMode().then(setSearchDisplayMode);
     return () => document.body.classList.remove("web-shell");
   }, []);
 
   function updateBottomNavShortcuts(shortcuts: Screen[]) {
     setBottomNavShortcuts(shortcuts);
     void saveBottomNavShortcuts(shortcuts);
+  }
+
+  function updateSearchDisplayMode(mode: SearchDisplayMode) {
+    setSearchDisplayMode(mode);
+    void saveSearchDisplayMode(mode);
   }
 
   // Keeps the address bar honest (a manual refresh or copied link still
@@ -164,6 +179,14 @@ export function WebApp() {
     // Fire-and-forget -- Home's "Tiếp tục học" banner reads this back on its
     // own next mount, nothing here needs to await it.
     void saveLastActive(next, id);
+  }
+
+  function navigate(next: Screen, id?: string) {
+    if (next === "search" && searchDisplayMode === "popup" && !id) {
+      setSearchPopupOpen(true);
+      return;
+    }
+    go(next, id);
   }
 
   function goBack() {
@@ -272,7 +295,14 @@ export function WebApp() {
   } else if (screen === "matchGame") {
     content = <MatchGameScreen />;
   } else if (screen === "settings") {
-    content = <SettingsScreen shortcuts={bottomNavShortcuts} onChange={updateBottomNavShortcuts} />;
+    content = (
+      <SettingsScreen
+        shortcuts={bottomNavShortcuts}
+        onChange={updateBottomNavShortcuts}
+        searchDisplayMode={searchDisplayMode}
+        onSearchDisplayModeChange={updateSearchDisplayMode}
+      />
+    );
   } else {
     content = <LegacyApp key={navKey} />;
   }
@@ -282,13 +312,53 @@ export function WebApp() {
       <ConfirmProvider>
         <WebAppShell
           active={screen}
-          onNavigate={go}
+          onNavigate={navigate}
           returnTo={returnTo}
           onGoBack={goBack}
           bottomNavShortcuts={bottomNavShortcuts}
+          searchPopupEnabled={searchDisplayMode === "popup"}
         >
           <Suspense fallback={<LoadingScreen />}>{content}</Suspense>
         </WebAppShell>
+{searchPopupOpen ? (
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-label="Tra cứu nhanh"
+    className="fixed inset-0 z-50 overflow-y-auto bg-black/40 p-3 md:p-8"
+    onClick={() => setSearchPopupOpen(false)}
+  >
+    <div
+      className="relative mx-auto min-h-full max-w-3xl rounded-2xl bg-white pt-10 shadow-2xl md:min-h-0 md:pt-2"
+      onClick={(event) => event.stopPropagation()}
+    >
+              <button
+                type="button"
+                aria-label="Đóng Tra cứu"
+                onClick={() => setSearchPopupOpen(false)}
+                className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-neutral-500 shadow-sm ring-1 ring-neutral-200 hover:bg-neutral-100 hover:text-neutral-800"
+              >
+                <X size={18} />
+              </button>
+              <Suspense fallback={<LoadingScreen />}>
+                <SearchScreen
+                  onOpenKanji={(id) => {
+                    setSearchPopupOpen(false);
+                    go("kanji", id);
+                  }}
+                  onOpenVocab={(id) => {
+                    setSearchPopupOpen(false);
+                    go("vocab", id);
+                  }}
+                  onOpenBunpo={(id) => {
+                    setSearchPopupOpen(false);
+                    go("bunpo", id);
+                  }}
+                />
+              </Suspense>
+            </div>
+          </div>
+        ) : null}
       </ConfirmProvider>
     </DevToolsGuard>
   );

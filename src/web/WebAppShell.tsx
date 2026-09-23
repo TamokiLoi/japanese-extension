@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Menu, X, ArrowUp, ArrowLeft, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowUp, ArrowLeft, ChevronDown, Search } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS } from "./navItems.ts";
 
@@ -112,7 +112,22 @@ function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (scree
   );
 }
 
-function ScrollToTopButton({ floatingNavPresent }: { floatingNavPresent: boolean }) {
+function FloatingSearchButton({ floatingNavPresent, onClick }: { floatingNavPresent: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label="Mở Tra cứu nhanh"
+      title="Mở Tra cứu nhanh"
+      className={`fixed right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 ${
+        floatingNavPresent ? "bottom-50" : "bottom-20"
+      }`}
+    >
+      <Search size={18} />
+    </button>
+  );
+}
+
+function ScrollToTopButton({ floatingNavPresent, searchPopupEnabled }: { floatingNavPresent: boolean; searchPopupEnabled: boolean }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -130,8 +145,16 @@ function ScrollToTopButton({ floatingNavPresent }: { floatingNavPresent: boolean
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Lên đầu trang"
       title="Lên đầu trang"
-      className={`fixed right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 ${
-        floatingNavPresent ? "bottom-50" : "bottom-20"
+      className={`fixed right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 ${
+        searchPopupEnabled ? "md:bottom-20" : "md:bottom-6"
+      } ${
+        floatingNavPresent
+          ? searchPopupEnabled
+            ? "bottom-[17rem]"
+            : "bottom-50"
+          : searchPopupEnabled
+            ? "bottom-32"
+            : "bottom-20"
       }`}
     >
       <ArrowUp size={18} />
@@ -163,6 +186,7 @@ export function WebAppShell({
   returnTo,
   onGoBack,
   bottomNavShortcuts,
+  searchPopupEnabled,
   children,
 }: {
   active: Screen;
@@ -170,6 +194,7 @@ export function WebAppShell({
   returnTo: { screen: Screen; targetId?: string } | null;
   onGoBack: () => void;
   bottomNavShortcuts: Screen[];
+  searchPopupEnabled: boolean;
   children: React.ReactNode;
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -268,7 +293,10 @@ export function WebAppShell({
               onClick={onGoBack}
             />
           ) : null}
-          <ScrollToTopButton floatingNavPresent={floatingNavPresent} />
+          {searchPopupEnabled && active !== "search" ? (
+            <FloatingSearchButton floatingNavPresent={floatingNavPresent} onClick={() => go("search")} />
+          ) : null}
+          <ScrollToTopButton floatingNavPresent={floatingNavPresent} searchPopupEnabled={searchPopupEnabled} />
         </div>
       </div>
     </FloatingNavContext.Provider>
