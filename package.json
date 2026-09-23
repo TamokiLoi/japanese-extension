@@ -7,6 +7,7 @@
   "scripts": {
     "data:sync": "node --experimental-strip-types scripts/copy-data.ts",
     "data:validate:try-n3": "node --experimental-strip-types scripts/validate-try-n3-chapters.ts",
+    "listening:enrich": "node --experimental-strip-types scripts/enrich-listening-content.ts",
     "podcast:fetch": "node --experimental-strip-types scripts/fetch-podcast-episodes.ts",
     "podcast:transcript:fetch": "node --experimental-strip-types scripts/fetch-podcast-transcript.ts",
     "podcast:transcript:translate": "node --experimental-strip-types scripts/translate-podcast-transcript.ts",

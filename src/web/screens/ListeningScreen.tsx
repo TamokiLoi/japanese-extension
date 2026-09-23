@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Headphones, ChevronLeft, ChevronRight, Globe, Info, RotateCcw, Undo2, X } from "lucide-react";
+import { Headphones, ChevronLeft, ChevronRight, Globe, Info, BookOpenText, RotateCcw, Undo2, X } from "lucide-react";
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
@@ -40,6 +40,7 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import { FuriganaText } from "../components/FuriganaText.tsx";
 
 const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; description: string }> = {
   kadai: {
@@ -110,6 +111,21 @@ function ListeningTypeInfo({ taskType }: { taskType: ListeningTaskType }) {
         </>
       ) : null}
     </div>
+  );
+}
+
+function FuriganaToggle({ active, onToggle }: { active: boolean; onToggle: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-pressed={active}
+      className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold ${
+        active ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600 hover:bg-neutral-50"
+      }`}
+    >
+      <BookOpenText size={13} /> {active ? "Ẩn furigana" : "Hiện furigana"}
+    </button>
   );
 }
 
@@ -399,6 +415,7 @@ function QuestionView({
   const [selected, setSelected] = useState<number | null>(null);
   const [progressMap, setProgressMap] = useState<ListeningProgressMap>({});
   const [showTranslation, setShowTranslation] = useState(false);
+  const [showFurigana, setShowFurigana] = useState(false);
   const answered = selected !== null;
   const currentIndex = filtered.findIndex((q) => q.id === question.id);
   const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
@@ -429,6 +446,16 @@ function QuestionView({
   // the Japanese text is revealed after the learner answers for review.
   const isAudioOnlyOptions = question.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(question.taskType);
   const isBlind = isAudioOnlyOptions && !question.optionsImage;
+  const audioPrompt = isBlind && !answered
+    ? question.taskType === "hatsugen" && question.scenario
+      ? question.scenario
+      : question.taskType === "gaiyou"
+        ? "Nghe toàn bộ bài rồi chọn đáp án đúng"
+        : "Nghe rồi chọn đáp án đúng"
+    : question.scenario || question.question;
+  const optionExplanations = question.optionExplanations ?? [];
+  const hasOptionExplanations = optionExplanations.some((explanation) => explanation.trim());
+  const audioPromptFurigana = question.scenario ? question.scenarioFurigana : question.questionFurigana;
 
   function selectAnswer(oi: number) {
     const correct = oi === question.correctIndex;
@@ -475,13 +502,7 @@ function QuestionView({
         <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
           <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
           <span>
-            {isBlind && !answered
-              ? question.taskType === "hatsugen" && question.scenario
-                ? question.scenario
-                : question.taskType === "gaiyou"
-                  ? "Nghe toàn bộ bài rồi chọn đáp án đúng"
-                  : "Nghe rồi chọn đáp án đúng"
-              : question.scenario || question.question}
+            {showFurigana && answered ? <FuriganaText annotations={audioPromptFurigana} text={audioPrompt} /> : audioPrompt}
           </span>
         </div>
         {answered && showTranslation && question.scenarioVi ? (
@@ -506,21 +527,27 @@ function QuestionView({
           so this no longer excludes audio-only response types once turns exist. */}
       {answered && question.turns.length > 0 ? (
         <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
-            <button
-              onClick={() => setShowTranslation((v) => !v)}
-              className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
-            >
-              <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
-            </button>
+            <div className="flex flex-wrap justify-end gap-2">
+              <FuriganaToggle active={showFurigana} onToggle={() => setShowFurigana((v) => !v)} />
+              <button
+                type="button"
+                onClick={() => setShowTranslation((v) => !v)}
+                className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+              >
+                <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+              </button>
+            </div>
           </div>
           <div className="mt-3 flex flex-col gap-3.5">
             {question.turns.map((t, i) => (
               <div key={i}>
                 <div className="text-[14.5px] leading-relaxed text-neutral-800">
-                  <b className="font-bold text-neutral-400">{t.speaker}：</b>
-                  {t.text}
+                  <b className="font-bold text-neutral-400">
+                    {t.speaker}：
+                  </b>
+                  {showFurigana ? <FuriganaText annotations={t.furigana} text={t.text} /> : t.text}
                 </div>
                 {showTranslation && t.textVi ? (
                   <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-[13px] leading-snug text-neutral-500 italic">{t.textVi}</div>
@@ -532,9 +559,16 @@ function QuestionView({
       ) : null}
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
+        {answered && question.turns.length === 0 ? (
+          <div className="mb-3 flex justify-end">
+            <FuriganaToggle active={showFurigana} onToggle={() => setShowFurigana((v) => !v)} />
+          </div>
+        ) : null}
         {!isBlind || answered ? (
           <>
-            <div className="font-semibold text-neutral-800">{question.question}</div>
+            <div className="font-semibold text-neutral-800">
+              {showFurigana ? <FuriganaText annotations={question.questionFurigana} text={question.question} /> : question.question}
+            </div>
             {answered && showTranslation ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
           </>
         ) : null}
@@ -595,7 +629,7 @@ function QuestionView({
                   onClick={() => selectAnswer(oi)}
                   className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
                 >
-                  {opt}
+                  {showFurigana ? <FuriganaText annotations={question.optionFurigana?.[oi]} text={opt} /> : opt}
                   {answered && showTranslation ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
                 </button>
               );
@@ -609,6 +643,29 @@ function QuestionView({
               {selected === question.correctIndex ? "✓ Đúng" : "✗ Sai"}
             </div>
             {question.explanation ? <div className="text-neutral-600">{question.explanation}</div> : null}
+            {hasOptionExplanations ? (
+              <div className="border-t border-neutral-100 pt-3">
+                <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Giải thích từng đáp án</div>
+                <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
+                  {optionExplanations.map((explanation, oi) =>
+                    explanation.trim() ? (
+                      <div key={oi} className="flex gap-2">
+                        <span
+                          className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                            oi === question.correctIndex
+                              ? "bg-emerald-100 text-emerald-700"
+                              : "bg-neutral-100 text-neutral-500"
+                          }`}
+                        >
+                          {String.fromCharCode(65 + oi)}
+                        </span>
+                        <span>{explanation}</span>
+                      </div>
+                    ) : null,
+                  )}
+                </div>
+              </div>
+            ) : null}
             {question.notes ? <div className="rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.notes}</div> : null}
           </div>
         ) : null}
@@ -620,6 +677,8 @@ function QuestionView({
             variant="outline"
             onClick={() => {
               setSelected(null);
+              setShowTranslation(false);
+              setShowFurigana(false);
               setProgressMap((m) => {
                 const next = { ...m };
                 delete next[question.id];

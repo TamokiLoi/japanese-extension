@@ -11,7 +11,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ご飯行かない？"
+          "text": "ご飯行かない？",
+          "furigana": [
+            {
+              "word": "ご飯",
+              "reading": "ごはん"
+            },
+            {
+              "word": "行かない",
+              "reading": "いかない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -29,9 +39,23 @@
         "Đi ăn cơm không?"
       ],
       "correctIndex": 3,
-      "explanation": "ご飯行かない？ (Gohan ikanai?) -- Want to grab some food?",
+      "explanation": "Lựa chọn đúng là câu hỏi rủ rê đi ăn cơm, dựa trên từ khóa 'ご飯' (cơm) và '行かない' (không đi à/đi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa rủ đi cùng, không đề cập đến việc ăn uống.",
+        "Câu này là lời nhờ vả giúp đỡ, không liên quan đến việc đi ăn.",
+        "Câu này nói về việc đi xem pháo hoa, không phải đi ăn.",
+        "Lựa chọn đúng vì khớp với nghĩa của từ 'ご飯' và cấu trúc rủ rê trong câu."
       ]
     },
     {
@@ -45,7 +69,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "今週末暇？"
+          "text": "今週末暇？",
+          "furigana": [
+            {
+              "word": "今週末",
+              "reading": "こんしゅうまつ"
+            },
+            {
+              "word": "暇",
+              "reading": "ひま"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -63,9 +97,23 @@
         "Tớ đãi, đi ăn không?"
       ],
       "correctIndex": 2,
-      "explanation": "今週末暇？ (Konshuumatsu hima?) -- Are you free this weekend?",
+      "explanation": "Lựa chọn đúng hỏi về thời gian rảnh vào cuối tuần, khớp với '今週末' (cuối tuần này) và '暇' (rảnh rỗi) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này là lời xin phép hỏi nhờ, không hỏi về thời gian rảnh.",
+        "Câu này hỏi về việc muốn thử món ăn, không hỏi về thời gian.",
+        "Lựa chọn đúng vì dịch chính xác nghĩa của câu hỏi về thời gian cuối tuần.",
+        "Câu này là lời mời đi ăn, không hỏi về việc có rảnh hay không."
       ]
     },
     {
@@ -79,7 +127,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "映画を見に行こうよ！"
+          "text": "映画を見に行こうよ！",
+          "furigana": [
+            {
+              "word": "映画",
+              "reading": "えいが"
+            },
+            {
+              "word": "見",
+              "reading": "み"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -97,9 +159,23 @@
         "Nhờ cậu để ý hành lý giúp tớ chút"
       ],
       "correctIndex": 1,
-      "explanation": "映画を見に行こうよ！ (Eiga wo mi ni ikou yo!) -- Let's go watch a movie!",
+      "explanation": "Lựa chọn đúng là lời rủ đi xem phim, dựa trên từ khóa '映画' (phim) và '見に行こう' (đi xem nào).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này nói về việc đi mua sắm, không phải đi xem phim.",
+        "Lựa chọn đúng vì khớp với hành động đi xem phim trong câu thoại.",
+        "Câu này nói về việc thử món mới, không phải đi xem phim.",
+        "Câu này là lời nhờ vả trông giữ hành lý, không liên quan đến việc đi xem phim."
       ]
     },
     {
@@ -113,7 +189,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "一緒に行く？"
+          "text": "一緒に行く？",
+          "furigana": [
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -131,9 +217,23 @@
         "Tối nay ăn ngoài không?"
       ],
       "correctIndex": 0,
-      "explanation": "一緒に行く？ (Issho ni iku?) -- Shall we go together?",
+      "explanation": "Lựa chọn đúng là lời rủ đi cùng, dựa trên từ khóa '一緒' (cùng nhau) và '行く' (đi).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn đúng vì dịch chính xác ý nghĩa của việc đi cùng nhau.",
+        "Câu này đề cập đến việc đi làm sớm và ăn sáng, không khớp với câu thoại.",
+        "Câu này là lời nhờ đưa đồ, không phải rủ đi cùng.",
+        "Câu này nói về việc ăn ngoài vào buổi tối, không khớp với câu thoại."
       ]
     },
     {
@@ -147,7 +247,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "よかったら一緒に行こうよ"
+          "text": "よかったら一緒に行こうよ",
+          "furigana": [
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -165,9 +275,23 @@
         "Nếu được thì đi cùng nhé"
       ],
       "correctIndex": 3,
-      "explanation": "よかったら一緒に行こうよ (Yokattara issho ni ikou yo) -- Come along if you can.",
+      "explanation": "Lựa chọn đúng là lời mời đi cùng một cách lịch sự, dựa trên cụm 'よかったら' (nếu được thì) và '一緒に行こう' (đi cùng nhé).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này nói cụ thể về đi xem hoa anh đào, không có trong câu thoại.",
+        "Câu này là lời nhờ sửa chữa, không liên quan đến việc đi cùng.",
+        "Câu này nói về việc học nhóm, không liên quan đến việc đi cùng.",
+        "Lựa chọn đúng vì phản ánh đúng cấu trúc mời mọc lịch sự 'nếu được thì đi cùng nhé'."
       ]
     },
     {
@@ -181,7 +305,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "あの店行ってみない？"
+          "text": "あの店行ってみない？",
+          "furigana": [
+            {
+              "word": "店",
+              "reading": "みせ"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -199,9 +333,23 @@
         "Muốn thử leo núi không?"
       ],
       "correctIndex": 2,
-      "explanation": "あの店行ってみない？ (Ano mise itte minai?) -- How about checking out that place?",
+      "explanation": "Lựa chọn đúng là lời rủ thử ghé vào quán đó, dựa trên từ khóa '店' (quán) và '行ってみない' (thử đi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này là lời nhờ giữ chỗ, không phải rủ đi quán.",
+        "Câu này nói về việc đi công viên, không phải đi quán.",
+        "Lựa chọn đúng vì khớp với hành động thử ghé vào quán trong câu thoại.",
+        "Câu này nói về việc leo núi, không liên quan đến việc đi quán."
       ]
     },
     {
@@ -215,7 +363,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "カラオケ行こうか？"
+          "text": "カラオケ行こうか？",
+          "furigana": [
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -233,9 +387,23 @@
         "Có thể ghé qua giúp tớ việc này không?"
       ],
       "correctIndex": 1,
-      "explanation": "カラオケ行こうか？ (Karaoke ikou ka hann?) -- Want to go do karaoke?",
+      "explanation": "Lựa chọn đúng là lời rủ đi hát karaoke, dựa trên từ khóa 'カラオケ' (karaoke) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này nói về việc thử quán mới, không phải đi karaoke.",
+        "Lựa chọn đúng vì khớp với nội dung đi hát karaoke trong câu thoại.",
+        "Câu này nói về việc đi xem phim, không phải đi karaoke.",
+        "Câu này là lời nhờ ghé qua giúp việc, không phải rủ đi karaoke."
       ]
     },
     {
@@ -249,7 +417,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "今度一緒に行こうね"
+          "text": "今度一緒に行こうね",
+          "furigana": [
+            {
+              "word": "今度",
+              "reading": "こんど"
+            },
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -267,9 +449,23 @@
         "Nếu không bận thì đi chung nhé"
       ],
       "correctIndex": 0,
-      "explanation": "今度一緒に行こうね (Kondo issho ni ikou ne) -- Join me next time.",
+      "explanation": "Lựa chọn đúng là lời hẹn đi cùng vào lần sau, dựa trên từ khóa '今度' (lần tới) và '一緒に行こう' (đi cùng nhé).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn đúng vì khớp với ý nghĩa hẹn đi cùng vào lần tới.",
+        "Câu này là lời hỏi xem có muốn đi cùng không, không nhấn mạnh vào 'lần sau'.",
+        "Câu này là lời nhờ chụp ảnh, không liên quan đến việc đi cùng.",
+        "Câu này là lời mời đi chung nếu không bận, không nhấn mạnh vào 'lần sau'."
       ]
     },
     {
@@ -283,7 +479,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと散歩しない？"
+          "text": "ちょっと散歩しない？",
+          "furigana": [
+            {
+              "word": "散歩",
+              "reading": "さんぽ"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -301,9 +503,23 @@
         "Đi dạo một chút không?"
       ],
       "correctIndex": 3,
-      "explanation": "ちょっと散歩しない？ (Chotto sanpo shinai?) -- Fancy a short walk?",
+      "explanation": "Lựa chọn đúng là câu hỏi rủ rê đi dạo, dựa trên từ khóa 散歩 (đi dạo) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến việc ghé chỗ nào khác.",
+        "Không nhắc đến việc ăn cơm.",
+        "Không phải là lời mời đi cùng chung chung.",
+        "Khớp với nghĩa của 散歩 (đi dạo)."
       ]
     },
     {
@@ -317,7 +533,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "今夜予定ある？"
+          "text": "今夜予定ある？",
+          "furigana": [
+            {
+              "word": "今夜",
+              "reading": "こんや"
+            },
+            {
+              "word": "予定",
+              "reading": "よてい"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -335,9 +561,23 @@
         "Có muốn thử làm cùng không?"
       ],
       "correctIndex": 2,
-      "explanation": "今夜予定ある？ (Konya yotei aru?) -- Got any plans for tonight?",
+      "explanation": "Lựa chọn đúng hỏi về lịch trình tối nay, dựa trên từ khóa 今夜 (tối nay) và 予定 (dự định/hẹn).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Sai thời gian, không phải cuối tuần.",
+        "Không đề cập đến việc đãi ăn.",
+        "Khớp với nghĩa hỏi về dự định tối nay.",
+        "Không phải là lời đề nghị làm cùng."
       ]
     },
     {
@@ -351,7 +591,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "コーヒー飲みに行こう"
+          "text": "コーヒー飲みに行こう",
+          "furigana": [
+            {
+              "word": "飲み",
+              "reading": "のみ"
+            },
+            {
+              "word": "行こう",
+              "reading": "いこう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -369,9 +619,23 @@
         "Đi xem phim đi!"
       ],
       "correctIndex": 1,
-      "explanation": "コーヒー飲みに行こう (Koohii nomi ni ikou) -- Let's go get coffee.",
+      "explanation": "Lựa chọn đúng là lời mời đi uống cà phê, dựa trên từ khóa コーヒー (cà phê) và 飲みに行く (đi uống).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến món mới hay quán quen.",
+        "Khớp với hành động đi uống cà phê.",
+        "Không nhấn mạnh vào thời điểm đi ngay.",
+        "Không liên quan đến việc xem phim."
       ]
     },
     {
@@ -385,7 +649,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "海行きたくない？"
+          "text": "海行きたくない？",
+          "furigana": [
+            {
+              "word": "海",
+              "reading": "うみ"
+            },
+            {
+              "word": "行きたくない",
+              "reading": "いきたくない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -403,9 +677,23 @@
         "Mai cùng đi làm sớm ăn sáng nhé"
       ],
       "correctIndex": 0,
-      "explanation": "海行きたくない？ (Umi ikitakunai?) -- Want to go to the beach?",
+      "explanation": "Lựa chọn đúng là lời mời đi biển, dựa trên từ khóa 海 (biển) và cấu trúc rủ rê 行きたくない (không muốn đi sao/đi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý định đi biển.",
+        "Không đề cập đến việc nghỉ ngơi.",
+        "Quá chung chung, không chỉ rõ địa điểm.",
+        "Không liên quan đến việc đi làm hay ăn sáng."
       ]
     },
     {
@@ -419,7 +707,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "暇だったらうちに来てよ"
+          "text": "暇だったらうちに来てよ",
+          "furigana": [
+            {
+              "word": "暇",
+              "reading": "ひま"
+            },
+            {
+              "word": "来",
+              "reading": "き"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -437,9 +735,23 @@
         "Nếu rảnh thì ghé nhà tớ chơi"
       ],
       "correctIndex": 3,
-      "explanation": "暇だったらうちに来てよ (Hima dattara uchi ni kite yo) -- Drop by my place if you're free.",
+      "explanation": "Lựa chọn đúng là lời mời ghé nhà chơi nếu rảnh, dựa trên từ khóa 暇 (rảnh) và うちに来て (đến nhà tớ).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến việc đặt bàn.",
+        "Không phải lời mời đi cùng chung chung.",
+        "Không liên quan đến việc xem hoa anh đào.",
+        "Khớp với điều kiện rảnh và hành động ghé nhà."
       ]
     },
     {
@@ -453,7 +765,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "土曜何かする？"
+          "text": "土曜何かする？",
+          "furigana": [
+            {
+              "word": "土曜",
+              "reading": "どよう"
+            },
+            {
+              "word": "何",
+              "reading": "なに"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -471,9 +793,23 @@
         "Có muốn ghé thăm tớ cuối tuần không?"
       ],
       "correctIndex": 2,
-      "explanation": "土曜何かする？ (Douyou nanika suru?) -- Doing anything this Saturday?",
+      "explanation": "Lựa chọn đúng hỏi về dự định thứ bảy, dựa trên từ khóa 土曜 (thứ bảy) và 何かする (làm gì đó).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến việc ghé quán.",
+        "Không đề cập đến việc leo núi.",
+        "Khớp với câu hỏi về dự định thứ bảy.",
+        "Không phải lời mời ghé thăm cụ thể."
       ]
     },
     {
@@ -487,7 +823,25 @@
       "turns": [
         {
           "speaker": "",
-          "text": "鍋食べに行こうよ、寒いし"
+          "text": "鍋食べに行こうよ、寒いし",
+          "furigana": [
+            {
+              "word": "鍋",
+              "reading": "なべ"
+            },
+            {
+              "word": "食べ",
+              "reading": "たべ"
+            },
+            {
+              "word": "行こう",
+              "reading": "いこう"
+            },
+            {
+              "word": "寒",
+              "reading": "さむ"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -505,9 +859,23 @@
         "Đi hát karaoke không?"
       ],
       "correctIndex": 1,
-      "explanation": "鍋食べに行こうよ、寒いし (Nabe tabe ni ikou yo, samui shi) -- Let's have hot pot since it's this cold.",
+      "explanation": "Lựa chọn đúng là lời mời đi ăn lẩu vì trời lạnh, dựa trên từ khóa 鍋 (lẩu) và 寒い (lạnh).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến việc xem phim.",
+        "Khớp với hành động đi ăn lẩu và lý do trời lạnh.",
+        "Không đề cập đến việc đi tiếp lần sau.",
+        "Không liên quan đến karaoke."
       ]
     },
     {
@@ -521,7 +889,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "一緒にジム行かない？"
+          "text": "一緒にジム行かない？",
+          "furigana": [
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -539,9 +917,23 @@
         "Tớ định đi, cậu đi cùng không?"
       ],
       "correctIndex": 0,
-      "explanation": "一緒にジム行かない？ (Issho ni jimu ikanai?) -- Want to hit the gym together?",
+      "explanation": "Lựa chọn đúng là lời mời đi tập gym cùng, dựa trên từ khóa 一緒 (cùng nhau) và ジム (gym).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý định đi tập gym cùng nhau.",
+        "Không phải là lời nhờ vả giúp đỡ.",
+        "Không đề cập đến việc đi lần sau.",
+        "Không phải là câu khẳng định dự định cá nhân."
       ]
     },
     {
@@ -555,7 +947,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "連休どこか行かない？"
+          "text": "連休どこか行かない？",
+          "furigana": [
+            {
+              "word": "連休",
+              "reading": "れんきゅう"
+            },
+            {
+              "word": "行かない",
+              "reading": "いかない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -573,9 +975,23 @@
         "Nghỉ lễ này đi du lịch không?"
       ],
       "correctIndex": 3,
-      "explanation": "連休どこか行かない？ (Renkyuu dokoka ikanai?) -- Want to travel this holiday?",
+      "explanation": "Lựa chọn đúng là câu hỏi về việc đi du lịch trong kỳ nghỉ lễ, dựa trên từ khóa 連休 (kỳ nghỉ dài) và 行かない (không đi sao/đi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc mượn đồ.",
+        "Không đề cập đến việc đi dạo.",
+        "Không nói về việc ghé thăm địa điểm nào đó.",
+        "Khớp với nội dung rủ đi du lịch trong kỳ nghỉ lễ."
       ]
     },
     {
@@ -589,7 +1005,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "花見に行こうよ"
+          "text": "花見に行こうよ",
+          "furigana": [
+            {
+              "word": "花見",
+              "reading": "はなみ"
+            },
+            {
+              "word": "行こう",
+              "reading": "いこう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -607,9 +1033,23 @@
         "Có thể làm giúp tớ việc này không?"
       ],
       "correctIndex": 2,
-      "explanation": "花見に行こうよ (Hanabi mi ni ikou yo) -- Let's go watch the fireworks.",
+      "explanation": "Lựa chọn đúng là lời mời đi ngắm hoa, dựa trên từ khóa 花見 (ngắm hoa).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không hỏi về lịch trình buổi tối.",
+        "Không phải lời mời làm việc chung.",
+        "Khớp với ý nghĩa đi ngắm hoa (thường được hiểu là đi chơi/ngắm cảnh).",
+        "Không phải lời nhờ vả công việc."
       ]
     },
     {
@@ -623,7 +1063,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "あれ食べてみたくない？"
+          "text": "あれ食べてみたくない？",
+          "furigana": [
+            {
+              "word": "食べて",
+              "reading": "たべて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -641,9 +1087,23 @@
         "Đi uống cà phê đi"
       ],
       "correctIndex": 1,
-      "explanation": "あれ食べてみたくない？ (Are tabete mitakunai?) -- Want to try that dish?",
+      "explanation": "Lựa chọn đúng là lời đề nghị thử món ăn, dựa trên từ khóa 食べてみる (thử ăn).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không nói về thời gian đi.",
+        "Khớp với ý nghĩa muốn thử món ăn đó.",
+        "Không phải lời xin lỗi hay nhờ vả.",
+        "Không đề cập đến việc uống cà phê."
       ]
     },
     {
@@ -657,7 +1117,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "買い物付き合ってよ"
+          "text": "買い物付き合ってよ",
+          "furigana": [
+            {
+              "word": "買い物",
+              "reading": "かいもの"
+            },
+            {
+              "word": "付き合って",
+              "reading": "つきあって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -675,9 +1145,23 @@
         "Muốn nghỉ ngơi ở đâu đó không?"
       ],
       "correctIndex": 0,
-      "explanation": "買い物付き合ってよ (Kaimono tsukiatte yo) -- Come shopping with me.",
+      "explanation": "Lựa chọn đúng là lời rủ đi mua sắm, dựa trên từ khóa 買い物 (mua sắm) và 付き合って (đi cùng).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý nghĩa rủ đi mua sắm cùng.",
+        "Không phải lời nhờ vả chung chung.",
+        "Không đề cập đến việc đi biển.",
+        "Không nói về việc nghỉ ngơi."
       ]
     },
     {
@@ -691,7 +1175,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "今夜外で食べない？"
+          "text": "今夜外で食べない？",
+          "furigana": [
+            {
+              "word": "今夜",
+              "reading": "こんや"
+            },
+            {
+              "word": "外",
+              "reading": "そと"
+            },
+            {
+              "word": "食べない",
+              "reading": "たべない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -709,9 +1207,23 @@
         "Tối nay ăn ngoài không?"
       ],
       "correctIndex": 3,
-      "explanation": "今夜外で食べない？ (Konya soto de tabenai?) -- Eating out tonight?",
+      "explanation": "Lựa chọn đúng là lời rủ đi ăn ngoài vào tối nay, dựa trên từ khóa 今夜 (tối nay) và 外で食べない (không ăn ngoài sao).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không phải lời nhờ chờ đợi.",
+        "Không phải lời mời đến nhà.",
+        "Không đề cập đến việc đặt bàn.",
+        "Khớp với ý nghĩa rủ đi ăn ngoài tối nay."
       ]
     },
     {
@@ -725,7 +1237,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "一緒に勉強しない？"
+          "text": "一緒に勉強しない？",
+          "furigana": [
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "勉強",
+              "reading": "べんきょう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -743,9 +1265,23 @@
         "Nhờ cậu giúp xem cái này với"
       ],
       "correctIndex": 2,
-      "explanation": "一緒に勉強しない？ (Issho ni benkyou shinai?) -- Want to join a study group?",
+      "explanation": "Lựa chọn đúng là lời rủ học cùng nhau, dựa trên từ khóa 一緒 (cùng nhau) và 勉強 (học).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không hỏi về kế hoạch thứ bảy.",
+        "Không phải lời mời ghé thăm.",
+        "Khớp với ý nghĩa rủ học nhóm cùng nhau.",
+        "Không phải lời nhờ giúp đỡ."
       ]
     },
     {
@@ -759,7 +1295,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "公園行かない？"
+          "text": "公園行かない？",
+          "furigana": [
+            {
+              "word": "公園",
+              "reading": "こうえん"
+            },
+            {
+              "word": "行かない",
+              "reading": "いかない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -777,9 +1323,23 @@
         "Đi ăn lẩu nhé, lạnh thế này"
       ],
       "correctIndex": 1,
-      "explanation": "公園行かない？ (Kouen ikanai?) -- Want to hang out at the park?",
+      "explanation": "Lựa chọn đúng là lời rủ đi công viên, dựa trên từ khóa 公園 (công viên).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không nói về việc đi tiếp lần sau.",
+        "Khớp với ý nghĩa rủ đi công viên.",
+        "Không phải lời hỏi đường.",
+        "Không đề cập đến việc đi ăn lẩu."
       ]
     },
     {
@@ -793,7 +1353,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "新しくできた店行ってみたくない？"
+          "text": "新しくできた店行ってみたくない？",
+          "furigana": [
+            {
+              "word": "新しく",
+              "reading": "あたらしく"
+            },
+            {
+              "word": "店",
+              "reading": "みせ"
+            },
+            {
+              "word": "行って",
+              "reading": "いって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -811,9 +1385,23 @@
         "Giúp tớ một chút được không?"
       ],
       "correctIndex": 0,
-      "explanation": "新しくできた店行ってみたくない？ (Atarashiku dekita mise itte mitakunai?) -- Want to try that newly opened place?",
+      "explanation": "Lựa chọn đúng là lời rủ đi thử quán mới mở, dựa trên từ khóa 新しくできた店 (quán mới mở) và 行ってみたくない (không muốn thử đi sao).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý nghĩa rủ đi thử quán mới mở.",
+        "Không phải lời nhờ chuyển đồ.",
+        "Không đề cập đến việc tập gym.",
+        "Không phải lời nhờ giúp đỡ chung chung."
       ]
     },
     {
@@ -827,7 +1415,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "忙しくなければ一緒にどう？"
+          "text": "忙しくなければ一緒にどう？",
+          "furigana": [
+            {
+              "word": "忙しく",
+              "reading": "いそがしく"
+            },
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -845,9 +1443,23 @@
         "Nếu không bận thì đi chung nhé"
       ],
       "correctIndex": 3,
-      "explanation": "忙しくなければ一緒にどう？ (Isogashikunakereba issho ni dou?) -- Come along if you're not busy.",
+      "explanation": "Lựa chọn đúng dựa trên cụm từ '忙しくなければ' (nếu không bận) và '一緒にどう' (đi cùng nhé/thế nào).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không khớp với nội dung câu hỏi về việc rủ đi cùng.",
+        "Không đề cập đến nghỉ lễ hay du lịch.",
+        "Không phải là lời đề nghị mượn đồ.",
+        "Khớp hoàn toàn với ý nghĩa của câu tiếng Nhật về việc rủ đi cùng nếu không bận."
       ]
     },
     {
@@ -861,7 +1473,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "一緒に行けばいいじゃん"
+          "text": "一緒に行けばいいじゃん",
+          "furigana": [
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "行けば",
+              "reading": "いけば"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -879,9 +1501,23 @@
         "Giúp tớ mang cái này với"
       ],
       "correctIndex": 2,
-      "explanation": "一緒に行けばいいじゃん (Issho ni ikeba ii jan) -- Why not come along?",
+      "explanation": "Cấu trúc '～ばいいじゃん' mang nghĩa gợi ý hoặc đề xuất, kết hợp với '一緒に行けば' (đi cùng thì tốt/sao không đi cùng).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không nhắc đến pháo hoa.",
+        "Không phải là lời nhờ vả.",
+        "Khớp với ý nghĩa gợi ý đi cùng của câu tiếng Nhật.",
+        "Không liên quan đến việc mang đồ."
       ]
     },
     {
@@ -895,7 +1531,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "おごるから行こうよ"
+          "text": "おごるから行こうよ",
+          "furigana": [
+            {
+              "word": "行こう",
+              "reading": "いこう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -913,9 +1555,23 @@
         "Có muốn thử món đó không?"
       ],
       "correctIndex": 1,
-      "explanation": "おごるから行こうよ (Ogoru kara ikou yo) -- My treat, want to grab a bite?",
+      "explanation": "Từ 'おごる' (đãi/bao) là manh mối chính cho thấy đây là lời mời đi ăn.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không phải là lời nhờ vả.",
+        "Khớp với ý nghĩa 'tớ đãi' và lời mời đi cùng.",
+        "Không phải là câu hỏi nhờ vả.",
+        "Không đề cập đến việc thử món ăn cụ thể."
       ]
     },
     {
@@ -929,7 +1585,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "いつもの店で新メニュー試してみない？"
+          "text": "いつもの店で新メニュー試してみない？",
+          "furigana": [
+            {
+              "word": "店",
+              "reading": "みせ"
+            },
+            {
+              "word": "新",
+              "reading": "しん"
+            },
+            {
+              "word": "試して",
+              "reading": "ためして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -947,9 +1617,23 @@
         "Cậu rảnh thì giúp tớ cái này nhé"
       ],
       "correctIndex": 0,
-      "explanation": "いつもの店で新メニュー試してみない？ (Itsumo no mise de shin menyuu tameshite minai?) -- Want to try new dishes at our usual spot?",
+      "explanation": "Cụm 'いつもの店' (quán quen) và '新メニュー試してみない' (thử món mới không) khớp trực tiếp với lựa chọn đầu tiên.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp hoàn toàn với nội dung câu tiếng Nhật.",
+        "Không liên quan đến hành lý.",
+        "Không đề cập đến việc mua sắm.",
+        "Không phải là lời nhờ giúp đỡ."
       ]
     },
     {
@@ -963,7 +1647,29 @@
       "turns": [
         {
           "speaker": "",
-          "text": "明日早めに行って朝ごはん食べようよ"
+          "text": "明日早めに行って朝ごはん食べようよ",
+          "furigana": [
+            {
+              "word": "明日",
+              "reading": "あした"
+            },
+            {
+              "word": "早め",
+              "reading": "はやめ"
+            },
+            {
+              "word": "行って",
+              "reading": "いって"
+            },
+            {
+              "word": "朝",
+              "reading": "あさ"
+            },
+            {
+              "word": "食べよう",
+              "reading": "たべよう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -981,9 +1687,23 @@
         "Mai cùng đi làm sớm ăn sáng nhé"
       ],
       "correctIndex": 3,
-      "explanation": "明日早めに行って朝ごはん食べようよ (Ashita hayame ni itte asagohan tabeyou yo) -- Let's go to work early tomorrow and grab breakfast.",
+      "explanation": "Câu chứa '明日' (mai), '早め' (sớm) và '朝ごはん' (ăn sáng), khớp với lựa chọn cuối cùng.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đưa đồ.",
+        "Không đề cập đến ăn ngoài buổi tối.",
+        "Không phải là lời nhờ chờ đợi.",
+        "Khớp chính xác với các thành phần thời gian và hành động trong câu."
       ]
     },
     {
@@ -997,7 +1717,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "お花見行かない？"
+          "text": "お花見行かない？",
+          "furigana": [
+            {
+              "word": "花見",
+              "reading": "はなみ"
+            },
+            {
+              "word": "行かない",
+              "reading": "いかない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1015,9 +1745,23 @@
         "Có thể sửa giúp tớ chỗ này không?"
       ],
       "correctIndex": 2,
-      "explanation": "お花見行かない？ (Ohanami ikanai?) -- Going to see the cherry blossoms?",
+      "explanation": "Từ 'お花見' (ngắm hoa anh đào) là từ khóa chính để xác định lựa chọn đúng.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến học nhóm.",
+        "Không phải là lời nhờ giúp đỡ.",
+        "Khớp với ý nghĩa của từ '花見'.",
+        "Không liên quan đến việc sửa chữa."
       ]
     },
     {
@@ -1031,7 +1775,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "山登りしてみない？"
+          "text": "山登りしてみない？",
+          "furigana": [
+            {
+              "word": "山登り",
+              "reading": "やまのぼり"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1049,9 +1799,23 @@
         "Đi công viên chơi không?"
       ],
       "correctIndex": 1,
-      "explanation": "山登りしてみない？ (Yamanobori shite minai?) -- Want to try mountain climbing?",
+      "explanation": "Từ '山登り' (leo núi) là từ khóa chính xác cho lựa chọn này.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến chỉ đường.",
+        "Khớp với ý nghĩa của từ '山登り'.",
+        "Không liên quan đến việc giữ chỗ.",
+        "Không liên quan đến công viên."
       ]
     },
     {
@@ -1065,7 +1829,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "暇なら映画一緒にどう？"
+          "text": "暇なら映画一緒にどう？",
+          "furigana": [
+            {
+              "word": "暇",
+              "reading": "ひま"
+            },
+            {
+              "word": "映画",
+              "reading": "えいが"
+            },
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1083,9 +1861,23 @@
         "Chuyển giúp tớ cái đó với"
       ],
       "correctIndex": 0,
-      "explanation": "暇なら映画一緒にどう？ (Hima nara eiga issho ni dou?) -- Go see a movie together if you're free.",
+      "explanation": "Câu chứa '暇' (rảnh) và '映画' (phim), khớp với lựa chọn đầu tiên.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp chính xác với nội dung câu tiếng Nhật.",
+        "Không liên quan đến việc ghé qua.",
+        "Không liên quan đến quán mới.",
+        "Không liên quan đến việc chuyển đồ."
       ]
     },
     {
@@ -1099,7 +1891,25 @@
       "turns": [
         {
           "speaker": "",
-          "text": "私行くつもりだけど一緒に来る？"
+          "text": "私行くつもりだけど一緒に来る？",
+          "furigana": [
+            {
+              "word": "私",
+              "reading": "わたし"
+            },
+            {
+              "word": "行く",
+              "reading": "いく"
+            },
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            },
+            {
+              "word": "来る",
+              "reading": "くる"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1117,9 +1927,23 @@
         "Tớ định đi, cậu đi cùng không?"
       ],
       "correctIndex": 3,
-      "explanation": "私行くつもりだけど一緒に来る？ (Watashi iku tsumori dakedo issho ni kuru hann?) -- I'm planning to go, want to join?",
+      "explanation": "Lựa chọn đúng thể hiện ý định đi đâu đó của người nói và lời mời người nghe đi cùng, khớp với cấu trúc 'つもり' (định) và '一緒に来る？' (đi cùng không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc chụp ảnh.",
+        "Sai lệch về ý định cá nhân của người nói.",
+        "Không phải là lời nhờ vả làm phiền.",
+        "Phản ánh chính xác ý định đi và lời mời đi cùng."
       ]
     },
     {
@@ -1133,7 +1957,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ついでにあそこも寄ろうよ"
+          "text": "ついでにあそこも寄ろうよ",
+          "furigana": [
+            {
+              "word": "寄ろう",
+              "reading": "よろう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1151,9 +1981,23 @@
         "Đi ăn cơm không?"
       ],
       "correctIndex": 2,
-      "explanation": "ついでにあそこも寄ろうよ (Tsuide ni asoko mo yorou yo) -- Let's drop by that place while we're at it.",
+      "explanation": "Lựa chọn đúng phản ánh chính xác từ 'ついでに' (nhân tiện) và '寄ろう' (ghé qua).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến việc đi cùng luôn.",
+        "Không phải là lời nhờ vả mang đồ.",
+        "Khớp với ý nghĩa nhân tiện ghé qua địa điểm đó.",
+        "Không liên quan đến việc đi ăn cơm."
       ]
     },
     {
@@ -1167,7 +2011,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "一緒にやってみない？"
+          "text": "一緒にやってみない？",
+          "furigana": [
+            {
+              "word": "一緒",
+              "reading": "いっしょ"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1185,9 +2035,23 @@
         "Tớ đãi, đi ăn không?"
       ],
       "correctIndex": 1,
-      "explanation": "一緒にやってみない？ (Issho ni yatte minai?) -- Want to try doing it together?",
+      "explanation": "Lựa chọn đúng phản ánh cấu trúc '一緒に' (cùng nhau) và 'やってみない' (thử làm không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không phải là câu hỏi nhờ vả.",
+        "Khớp với ý nghĩa rủ làm cùng nhau.",
+        "Không đề cập đến thời gian cuối tuần.",
+        "Không liên quan đến việc mời đi ăn."
       ]
     },
     {
@@ -1201,7 +2065,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "今から行っちゃう？"
+          "text": "今から行っちゃう？",
+          "furigana": [
+            {
+              "word": "今",
+              "reading": "いま"
+            },
+            {
+              "word": "行っちゃう",
+              "reading": "いっちゃう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1219,9 +2093,23 @@
         "Nhờ cậu để ý hành lý giúp tớ chút"
       ],
       "correctIndex": 0,
-      "explanation": "今から行っちゃう？ (Ima kara icchau?) -- Or should we go right now?",
+      "explanation": "Lựa chọn đúng phản ánh '今から' (từ bây giờ) và '行っちゃう' (đi luôn).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý nghĩa đi ngay bây giờ.",
+        "Không đề cập đến việc xem phim.",
+        "Không liên quan đến việc đi ăn món mới.",
+        "Không phải là lời nhờ vả trông hành lý."
       ]
     },
     {
@@ -1235,7 +2123,8 @@
       "turns": [
         {
           "speaker": "",
-          "text": "どこかでゆっくりしない？"
+          "text": "どこかでゆっくりしない？",
+          "furigana": []
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1253,9 +2142,23 @@
         "Muốn nghỉ ngơi ở đâu đó không?"
       ],
       "correctIndex": 3,
-      "explanation": "どこかでゆっくりしない？ (Dokoka de yukkuri shinai?) -- Want to rest somewhere?",
+      "explanation": "Lựa chọn đúng phản ánh 'どこかで' (ở đâu đó) và 'ゆっくりしない' (nghỉ ngơi/thư giãn không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Quá chung chung.",
+        "Không đề cập đến thời gian hay công việc.",
+        "Không phải là lời nhờ vả đưa đồ.",
+        "Khớp với ý nghĩa rủ đi nghỉ ngơi ở đâu đó."
       ]
     },
     {
@@ -1269,7 +2172,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "予約しとくから行く？"
+          "text": "予約しとくから行く？",
+          "furigana": [
+            {
+              "word": "予約",
+              "reading": "よやく"
+            },
+            {
+              "word": "行く",
+              "reading": "いく"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1287,9 +2200,23 @@
         "Nếu được thì đi cùng nhé"
       ],
       "correctIndex": 2,
-      "explanation": "予約しとくから行く？ (Yoyaku shitoku kara iku?) -- I'll book a table in advance, you coming?",
+      "explanation": "Lựa chọn đúng phản ánh '予約しとく' (đặt trước) và '行く？' (đi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không đề cập đến hoa anh đào.",
+        "Không phải là lời nhờ sửa đồ.",
+        "Khớp với ý nghĩa đặt bàn trước và rủ đi.",
+        "Không đề cập đến việc đặt trước."
       ]
     },
     {
@@ -1303,7 +2230,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "週末うちに遊びに来ない？"
+          "text": "週末うちに遊びに来ない？",
+          "furigana": [
+            {
+              "word": "週末",
+              "reading": "しゅうまつ"
+            },
+            {
+              "word": "遊び",
+              "reading": "あそび"
+            },
+            {
+              "word": "来ない",
+              "reading": "こない"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1321,9 +2262,23 @@
         "Muốn thử leo núi không?"
       ],
       "correctIndex": 1,
-      "explanation": "週末うちに遊びに来ない？ (Shuumatsu uchi ni asobi ni konai?) -- Want to visit me this weekend?",
+      "explanation": "Lựa chọn đúng phản ánh '週末' (cuối tuần) và '遊びに来ない' (đến chơi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không phải là lời nhờ giữ chỗ.",
+        "Khớp với ý nghĩa rủ đến chơi cuối tuần.",
+        "Không đề cập đến quán xá.",
+        "Không đề cập đến việc leo núi."
       ]
     },
     {
@@ -1337,7 +2292,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "気に入ったらまた行こうね"
+          "text": "気に入ったらまた行こうね",
+          "furigana": [
+            {
+              "word": "気に入ったら",
+              "reading": "きにいったら"
+            },
+            {
+              "word": "行こう",
+              "reading": "いこう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1355,9 +2320,23 @@
         "Có thể ghé qua giúp tớ việc này không?"
       ],
       "correctIndex": 0,
-      "explanation": "気に入ったらまた行こうね (Ki ni ittara mata ikou ne) -- If you like it, we can go again next time.",
+      "explanation": "Lựa chọn đúng phản ánh '気に入ったら' (nếu thích) và 'また行こう' (lần sau lại đi nhé).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý nghĩa nếu thích thì lần sau đi tiếp.",
+        "Không đề cập đến karaoke.",
+        "Không đề cập đến xem phim.",
+        "Không phải là lời nhờ vả."
       ]
     },
     {
@@ -1371,7 +2350,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと手伝ってくれない？"
+          "text": "ちょっと手伝ってくれない？",
+          "furigana": [
+            {
+              "word": "手伝って",
+              "reading": "てつだって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1389,9 +2374,23 @@
         "Giúp tớ một chút được không?"
       ],
       "correctIndex": 3,
-      "explanation": "ちょっと手伝ってくれない？ (Chotto tetsudatte kurenai?) -- Could you help me out a bit?",
+      "explanation": "Lựa chọn đúng là câu yêu cầu sự giúp đỡ, tương ứng với động từ 手伝う (giúp đỡ) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đi cùng.",
+        "Không liên quan đến việc đi cùng.",
+        "Không liên quan đến việc chụp ảnh.",
+        "Khớp với nghĩa của động từ 手伝う (giúp đỡ)."
       ]
     },
     {
@@ -1405,7 +2404,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それちょっと貸して"
+          "text": "それちょっと貸して",
+          "furigana": [
+            {
+              "word": "貸して",
+              "reading": "かして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1423,9 +2428,23 @@
         "Đi dạo một chút không?"
       ],
       "correctIndex": 2,
-      "explanation": "それちょっと貸して (Sore chotto kashite) -- Can I borrow that for a second?",
+      "explanation": "Lựa chọn đúng là câu nhờ mượn đồ, tương ứng với động từ 貸す (cho mượn) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc ghé chỗ khác.",
+        "Không liên quan đến việc ăn uống.",
+        "Khớp với nghĩa của động từ 貸す (cho mượn).",
+        "Không liên quan đến việc đi dạo."
       ]
     },
     {
@@ -1439,7 +2458,8 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これやってもらえる？"
+          "text": "これやってもらえる？",
+          "furigana": []
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1457,9 +2477,23 @@
         "Có muốn thử làm cùng không?"
       ],
       "correctIndex": 1,
-      "explanation": "これやってもらえる？ (Kore yatte moraeru?) -- Can you help me with this task?",
+      "explanation": "Lựa chọn đúng là câu nhờ vả làm việc gì đó, tương ứng với cấu trúc ～てもらえる (có thể làm giúp cho tôi không).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến hỏi thời gian rảnh.",
+        "Khớp với cấu trúc nhờ vả làm việc.",
+        "Không liên quan đến hỏi về lịch hẹn.",
+        "Không liên quan đến việc rủ làm cùng."
       ]
     },
     {
@@ -1473,7 +2507,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "悪いんだけどお願いがあるんだ"
+          "text": "悪いんだけどお願いがあるんだ",
+          "furigana": [
+            {
+              "word": "悪いんだけど",
+              "reading": "わるいんだけど"
+            },
+            {
+              "word": "お願い",
+              "reading": "おねがい"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1491,9 +2535,23 @@
         "Đi xem phim đi!"
       ],
       "correctIndex": 0,
-      "explanation": "悪いんだけどお願いがあるんだ (Warui n da kedo onegai ga aru n da) -- Sorry, but I have a favor to ask.",
+      "explanation": "Lựa chọn đúng là câu mở đầu bằng lời xin lỗi để nhờ vả, tương ứng với 悪いんだけど (tớ xin lỗi nhưng...) và お願い (nhờ vả).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý xin lỗi và nhờ vả.",
+        "Không liên quan đến việc đi uống cà phê.",
+        "Không liên quan đến việc đi ngay bây giờ.",
+        "Không liên quan đến việc đi xem phim."
       ]
     },
     {
@@ -1507,7 +2565,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "暇な時これやっといて"
+          "text": "暇な時これやっといて",
+          "furigana": [
+            {
+              "word": "暇な",
+              "reading": "ひまな"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1525,9 +2593,23 @@
         "Cậu rảnh thì giúp tớ cái này nhé"
       ],
       "correctIndex": 3,
-      "explanation": "暇な時これやっといて (Hima na toki kore yattoite) -- Help me with this if you have time.",
+      "explanation": "Lựa chọn đúng là câu nhờ làm việc khi có thời gian rảnh, tương ứng với 暇な時 (khi rảnh) và やっておく (làm sẵn/làm giúp).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đi biển.",
+        "Không liên quan đến việc nghỉ ngơi.",
+        "Không liên quan đến việc đi cùng.",
+        "Khớp với ý nhờ giúp việc khi rảnh."
       ]
     },
     {
@@ -1541,7 +2623,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと待ってもらえない？"
+          "text": "ちょっと待ってもらえない？",
+          "furigana": [
+            {
+              "word": "待って",
+              "reading": "まって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1559,9 +2647,23 @@
         "Nếu rảnh thì ghé nhà tớ chơi"
       ],
       "correctIndex": 2,
-      "explanation": "ちょっと待ってもらえない？ (Chotto matte moraenai?) -- Can you wait for me a moment?",
+      "explanation": "Lựa chọn đúng là câu nhờ đợi, tương ứng với động từ 待つ (chờ đợi) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đặt bàn.",
+        "Không liên quan đến việc đi cùng.",
+        "Khớp với ý nhờ chờ đợi.",
+        "Không liên quan đến việc ghé nhà."
       ]
     },
     {
@@ -1575,7 +2677,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これちょっと見てくれない？"
+          "text": "これちょっと見てくれない？",
+          "furigana": [
+            {
+              "word": "見て",
+              "reading": "みて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1593,9 +2701,23 @@
         "Có muốn ghé thăm tớ cuối tuần không?"
       ],
       "correctIndex": 1,
-      "explanation": "これちょっと見てくれない？ (Kore chotto mite kurenai?) -- Could you please take a look at this?",
+      "explanation": "Lựa chọn đúng là câu nhờ xem giúp cái gì đó, tương ứng với động từ 見る (xem) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc ghé quán.",
+        "Khớp với ý nhờ xem giúp.",
+        "Không liên quan đến việc hỏi làm gì.",
+        "Không liên quan đến việc ghé thăm."
       ]
     },
     {
@@ -1609,7 +2731,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "道教えてもらえる？"
+          "text": "道教えてもらえる？",
+          "furigana": [
+            {
+              "word": "道",
+              "reading": "みち"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1627,9 +2759,23 @@
         "Đi hát karaoke không?"
       ],
       "correctIndex": 0,
-      "explanation": "道教えてもらえる？ (Michi oshiete moraeru?) -- Can you show me the way?",
+      "explanation": "Lựa chọn đúng là câu hỏi đường, tương ứng với 道 (đường) và 教える (chỉ dẫn) trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý hỏi đường.",
+        "Không liên quan đến việc ăn lẩu.",
+        "Không liên quan đến việc đi tiếp.",
+        "Không liên quan đến việc hát karaoke."
       ]
     },
     {
@@ -1643,7 +2789,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それ取ってくれる？"
+          "text": "それ取ってくれる？",
+          "furigana": [
+            {
+              "word": "取って",
+              "reading": "とって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1661,9 +2813,23 @@
         "Chuyển giúp tớ cái đó với"
       ],
       "correctIndex": 3,
-      "explanation": "それ取ってくれる？ (Sore totte kureru?) -- Pass me that, please.",
+      "explanation": "Lựa chọn đúng là câu yêu cầu chuyển hoặc lấy giúp một vật, dựa trên động từ 取る (lấy/cầm).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc tập gym.",
+        "Câu này mang nghĩa nhờ vả chung chung, không cụ thể bằng hành động lấy đồ.",
+        "Không có ý nghĩa về việc đi cùng nhau.",
+        "Đây là lựa chọn đúng vì 取ってくれる có nghĩa là lấy/chuyển giúp cái đó."
       ]
     },
     {
@@ -1677,7 +2843,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "もうちょっとゆっくり話してもらえる？"
+          "text": "もうちょっとゆっくり話してもらえる？",
+          "furigana": [
+            {
+              "word": "話して",
+              "reading": "はなして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1695,9 +2867,23 @@
         "Có thể nói chậm hơn chút không?"
       ],
       "correctIndex": 3,
-      "explanation": "もうちょっとゆっくり話してもらえる？ (Mou chotto yukkuri hanashite moraeru?) -- Could you speak a bit slower?",
+      "explanation": "Lựa chọn đúng dựa trên động từ 話す (nói) và trạng từ ゆっくり (chậm rãi).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc chờ đợi.",
+        "Không liên quan đến việc sửa chữa.",
+        "Không liên quan đến việc mượn đồ.",
+        "Đây là lựa chọn đúng vì câu thoại yêu cầu nói chậm lại."
       ]
     },
     {
@@ -1711,7 +2897,8 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ごめん、ちょっといい？"
+          "text": "ごめん、ちょっといい？",
+          "furigana": []
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1729,9 +2916,23 @@
         "Cho tớ mượn cái đó chút"
       ],
       "correctIndex": 1,
-      "explanation": "ごめん、ちょっといい？ (Gomen, chotto ii?) -- Sorry to bother you, can I ask a favor?",
+      "explanation": "Lựa chọn đúng là câu xin lỗi để bắt đầu một lời nhờ vả hoặc hỏi chuyện.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đi dạo.",
+        "Đây là lựa chọn đúng vì ごめん và ちょっといい là cách mở đầu lời nhờ vả lịch sự.",
+        "Không liên quan đến du lịch.",
+        "Không liên quan đến việc mượn đồ."
       ]
     },
     {
@@ -1745,7 +2946,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これ持ってくれない？"
+          "text": "これ持ってくれない？",
+          "furigana": [
+            {
+              "word": "持って",
+              "reading": "もって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1763,9 +2970,23 @@
         "Tối nay có hẹn gì chưa?"
       ],
       "correctIndex": 0,
-      "explanation": "これ持ってくれない？ (Kore motte kurenai?) -- Help me carry this.",
+      "explanation": "Lựa chọn đúng dựa trên động từ 持つ (cầm/mang).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là lựa chọn đúng vì 持ってくれない có nghĩa là nhờ mang giúp cái này.",
+        "Không liên quan đến việc xem pháo hoa.",
+        "Câu này quá chung chung, không chỉ rõ hành động mang đồ.",
+        "Không liên quan đến việc hỏi về lịch hẹn."
       ]
     },
     {
@@ -1779,7 +3000,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと聞いてもいい？"
+          "text": "ちょっと聞いてもいい？",
+          "furigana": [
+            {
+              "word": "聞いても",
+              "reading": "きいても"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1797,9 +3024,23 @@
         "Cho tớ hỏi nhờ chút được không?"
       ],
       "correctIndex": 3,
-      "explanation": "ちょっと聞いてもいい？ (Chotto kiitemo ii?) -- Can I ask you something?",
+      "explanation": "Lựa chọn đúng dựa trên động từ 聞く (hỏi/nghe).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc thử món ăn.",
+        "Câu này mang nghĩa nhờ vả chung, không rõ là hỏi.",
+        "Không liên quan đến việc uống cà phê.",
+        "Đây là lựa chọn đúng vì 聞いてもいい là xin phép được hỏi."
       ]
     },
     {
@@ -1813,7 +3054,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "荷物ちょっと見てくれる？"
+          "text": "荷物ちょっと見てくれる？",
+          "furigana": [
+            {
+              "word": "荷物",
+              "reading": "にもつ"
+            },
+            {
+              "word": "見て",
+              "reading": "みて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1831,9 +3082,23 @@
         "Đi mua sắm cùng tớ đi"
       ],
       "correctIndex": 2,
-      "explanation": "荷物ちょっと見てくれる？ (Nimotsu chotto mitete kureru?) -- Could you keep an eye on my luggage?",
+      "explanation": "Lựa chọn đúng dựa trên từ 荷物 (hành lý) và động từ 見る (nhìn/trông coi).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc giúp đỡ chung chung.",
+        "Không liên quan đến việc đi biển.",
+        "Đây là lựa chọn đúng vì 荷物を見て là nhờ trông coi hành lý.",
+        "Không liên quan đến việc mua sắm."
       ]
     },
     {
@@ -1847,7 +3112,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それ渡してくれない？"
+          "text": "それ渡してくれない？",
+          "furigana": [
+            {
+              "word": "渡して",
+              "reading": "わたして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1865,9 +3136,23 @@
         "Có thể chờ tớ chút không?"
       ],
       "correctIndex": 1,
-      "explanation": "それ渡してくれない？ (Sore watashite kurenai?) -- Hand me that, please.",
+      "explanation": "Lựa chọn đúng dựa trên động từ 渡す (trao/đưa).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc ghé nhà.",
+        "Đây là lựa chọn đúng vì 渡してくれない là nhờ đưa giúp cái đó.",
+        "Không liên quan đến việc ăn ngoài.",
+        "Không liên quan đến việc chờ đợi."
       ]
     },
     {
@@ -1881,7 +3166,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ここ直してもらえる？"
+          "text": "ここ直してもらえる？",
+          "furigana": [
+            {
+              "word": "直して",
+              "reading": "なおして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1899,9 +3190,23 @@
         "Thứ bảy này làm gì đó không?"
       ],
       "correctIndex": 0,
-      "explanation": "ここ直してもらえる？ (Koko naoshite moraeru?) -- Can you help me fix this part?",
+      "explanation": "Lựa chọn đúng dựa trên động từ 直す (sửa chữa).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là lựa chọn đúng vì 直してもらえる là nhờ sửa giúp chỗ này.",
+        "Không liên quan đến việc học nhóm.",
+        "Câu này chỉ là nhờ xem, không phải nhờ sửa.",
+        "Không liên quan đến việc hỏi về thứ bảy."
       ]
     },
     {
@@ -1915,7 +3220,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "席取っといてくれる？"
+          "text": "席取っといてくれる？",
+          "furigana": [
+            {
+              "word": "席",
+              "reading": "せき"
+            },
+            {
+              "word": "取っといて",
+              "reading": "とっといて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1933,9 +3248,23 @@
         "Nhờ cậu giữ chỗ giúp tớ nhé"
       ],
       "correctIndex": 3,
-      "explanation": "席取っといてくれる？ (Seki tottoite kureru?) -- Could you save a seat for me?",
+      "explanation": "Lựa chọn đúng là nhờ cậu giữ chỗ giúp tớ nhé, vì câu thoại sử dụng động từ 取る (lấy/giữ) kết hợp với cấu trúc ～ておく (làm sẵn việc gì đó).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc giữ chỗ.",
+        "Lựa chọn này không liên quan đến việc giữ chỗ.",
+        "Lựa chọn này không liên quan đến việc giữ chỗ.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc giữ chỗ (席を取る)."
       ]
     },
     {
@@ -1949,7 +3278,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと寄ってやってもらえない？"
+          "text": "ちょっと寄ってやってもらえない？",
+          "furigana": [
+            {
+              "word": "寄って",
+              "reading": "よって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -1967,9 +3302,23 @@
         "Muốn thử cái quán mới mở không?"
       ],
       "correctIndex": 2,
-      "explanation": "ちょっと寄ってやってもらえない？ (Chotto yotte yatte moraenai?) -- Can you drop by to help me with this?",
+      "explanation": "Lựa chọn đúng là có thể ghé qua giúp tớ việc này không, vì động từ 寄る (ghé qua) xuất hiện trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc ghé qua.",
+        "Lựa chọn này không liên quan đến việc ghé qua.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc ghé qua (寄る) và nhờ vả (～てもらう).",
+        "Lựa chọn này không liên quan đến việc ghé qua."
       ]
     },
     {
@@ -1983,7 +3332,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "写真撮ってもらえる？"
+          "text": "写真撮ってもらえる？",
+          "furigana": [
+            {
+              "word": "写真",
+              "reading": "しゃしん"
+            },
+            {
+              "word": "撮って",
+              "reading": "とって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2001,9 +3360,23 @@
         "Xin lỗi làm phiền, nhờ chút được không?"
       ],
       "correctIndex": 1,
-      "explanation": "写真撮ってもらえる？ (Shashin totte moraeru?) -- Could you take a picture of me?",
+      "explanation": "Lựa chọn đúng là chụp giúp tớ một tấm được không, vì câu thoại chứa từ 写真 (ảnh) và động từ 撮る (chụp).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc chụp ảnh.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc chụp ảnh (写真撮る) và nhờ vả (～てもらう).",
+        "Lựa chọn này không liên quan đến việc chụp ảnh.",
+        "Lựa chọn này không liên quan đến việc chụp ảnh."
       ]
     },
     {
@@ -2017,7 +3390,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ペンちょっと貸して"
+          "text": "ペンちょっと貸して",
+          "furigana": [
+            {
+              "word": "貸して",
+              "reading": "かして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2035,9 +3414,23 @@
         "Có thể sửa giúp tớ chỗ này không?"
       ],
       "correctIndex": 2,
-      "explanation": "ペンちょっと貸して (Pen chotto kashite) -- Can I borrow a pen?",
+      "explanation": "Lựa chọn đúng là cho tớ mượn bút một chút, vì động từ 貸す (cho mượn) được sử dụng trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc mượn bút.",
+        "Lựa chọn này không liên quan đến việc mượn bút.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc cho mượn bút (ペンを貸す).",
+        "Lựa chọn này không liên quan đến việc mượn bút."
       ]
     },
     {
@@ -2051,7 +3444,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "終わったら教えてね"
+          "text": "終わったら教えてね",
+          "furigana": [
+            {
+              "word": "終わったら",
+              "reading": "おわったら"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2069,9 +3472,23 @@
         "Tối nay ăn ngoài không?"
       ],
       "correctIndex": 2,
-      "explanation": "終わったら教えてね (Owattara oshiete ne) -- Let me know when it's done, please.",
+      "explanation": "Lựa chọn đúng là nhờ cậu báo giúp tớ khi xong nhé, vì câu thoại sử dụng 終わる (kết thúc/xong) và 教える (báo/dạy).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc báo khi xong việc.",
+        "Lựa chọn này không liên quan đến việc báo khi xong việc.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc báo khi xong việc (終わったら教えて).",
+        "Lựa chọn này không liên quan đến việc báo khi xong việc."
       ]
     },
     {
@@ -2085,7 +3502,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "もう少し待ってもらえない"
+          "text": "もう少し待ってもらえない",
+          "furigana": [
+            {
+              "word": "もう少し",
+              "reading": "もうすこし"
+            },
+            {
+              "word": "待って",
+              "reading": "まって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2103,9 +3530,23 @@
         "Chưa chắc đã đúng đâu nhỉ"
       ],
       "correctIndex": 1,
-      "explanation": "もう少し待ってもらえない (Mou sukoshi matte moraemasuka) -- Can you wait a bit longer?",
+      "explanation": "Lựa chọn đúng là có thể đợi thêm chút được không, vì động từ 待つ (đợi) xuất hiện trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc đợi.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc đợi (待つ) và nhờ vả (～てもらえない).",
+        "Lựa chọn này không liên quan đến việc đợi.",
+        "Lựa chọn này không liên quan đến việc đợi."
       ]
     },
     {
@@ -2119,7 +3560,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "もう一回確認してくれない？"
+          "text": "もう一回確認してくれない？",
+          "furigana": [
+            {
+              "word": "一回",
+              "reading": "いっかい"
+            },
+            {
+              "word": "確認",
+              "reading": "かくにん"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2137,9 +3588,23 @@
         "Lần sau đi cùng nhé"
       ],
       "correctIndex": 1,
-      "explanation": "もう一回確認してくれない？ (Mou ikkai kakunin shite kurenai?) -- Could you double-check this?",
+      "explanation": "Lựa chọn đúng là nhờ cậu kiểm tra lại giúp, vì từ 確認 (xác nhận/kiểm tra) xuất hiện trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc kiểm tra.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc kiểm tra lại (確認する).",
+        "Lựa chọn này không liên quan đến việc kiểm tra.",
+        "Lựa chọn này không liên quan đến việc kiểm tra."
       ]
     },
     {
@@ -2153,7 +3618,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "あそこ紹介してもらえない？"
+          "text": "あそこ紹介してもらえない？",
+          "furigana": [
+            {
+              "word": "紹介",
+              "reading": "しょうかい"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2171,9 +3642,23 @@
         "Muốn thử cái quán mới mở không?"
       ],
       "correctIndex": 1,
-      "explanation": "あそこ紹介してもらえない？ (Asoko shoukai shite moraeru?) -- Can you recommend that place to me?",
+      "explanation": "Lựa chọn đúng là có thể giới thiệu giúp tớ chỗ đó không, vì từ 紹介 (giới thiệu) xuất hiện trong câu thoại.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này không liên quan đến việc giới thiệu.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc giới thiệu (紹介する).",
+        "Lựa chọn này không liên quan đến việc giới thiệu.",
+        "Lựa chọn này không liên quan đến việc giới thiệu."
       ]
     },
     {
@@ -2187,7 +3672,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それ気をつけといてね"
+          "text": "それ気をつけといてね",
+          "furigana": [
+            {
+              "word": "気をつけといて",
+              "reading": "きをつけといて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2205,9 +3696,23 @@
         "Muốn thử leo núi không?"
       ],
       "correctIndex": 0,
-      "explanation": "それ気をつけといてね (Sore ki wo tsuketoite ne) -- Please keep an eye on that matter.",
+      "explanation": "Câu này sử dụng cấu trúc ～ておく (để sẵn/chuẩn bị sẵn) kết hợp với 気をつける (chú ý), mang nghĩa nhờ đối phương để tâm hoặc chú ý đến việc gì đó.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là lựa chọn đúng, phản ánh chính xác ý nghĩa nhờ vả đối phương chú ý/để tâm đến sự việc.",
+        "Lựa chọn này sai vì không liên quan đến việc thử món ăn.",
+        "Lựa chọn này sai vì không đề cập đến việc ghé thăm quán.",
+        "Lựa chọn này sai vì không có nội dung về leo núi."
       ]
     },
     {
@@ -2221,7 +3726,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "頼んでもいいかな？"
+          "text": "頼んでもいいかな？",
+          "furigana": [
+            {
+              "word": "頼んで",
+              "reading": "たのんで"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2239,9 +3750,23 @@
         "Nhờ cậu góp ý giúp tớ với"
       ],
       "correctIndex": 1,
-      "explanation": "頼んでもいいかな？ (Tanonde mo ii kana?) -- Would you mind if I asked a favor?",
+      "explanation": "Câu này sử dụng cấu trúc ～てもいいかな (tớ nhờ... được không?), thể hiện sự xin phép hoặc nhờ vả một cách lịch sự.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này chưa sát nghĩa, vì câu gốc mang tính chất hỏi ý kiến trước khi nhờ vả.",
+        "Đây là lựa chọn đúng, diễn đạt ý xin phép nhờ vả một cách lịch sự.",
+        "Lựa chọn này sai vì nói về sở thích cá nhân thay vì nhờ vả.",
+        "Lựa chọn này sai vì không đề cập đến việc góp ý."
       ]
     },
     {
@@ -2255,7 +3780,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "連絡先教えてもらえる？"
+          "text": "連絡先教えてもらえる？",
+          "furigana": [
+            {
+              "word": "連絡先",
+              "reading": "れんらくさき"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2273,9 +3808,23 @@
         "Cho tớ xin số cậu được không?"
       ],
       "correctIndex": 3,
-      "explanation": "連絡先教えてもらえる？ (Renrakusaki oshiete moraeru?) -- Can I have your phone number?",
+      "explanation": "Câu này hỏi về 連絡先 (thông tin liên lạc) và sử dụng cấu trúc ～てもらえる (có thể cho tớ... được không?).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này sai vì không liên quan đến món ăn.",
+        "Lựa chọn này sai vì không phải là yêu cầu nhắc lại thông tin.",
+        "Lựa chọn này sai vì không đề cập đến karaoke.",
+        "Đây là lựa chọn đúng, khớp với nghĩa xin thông tin liên lạc."
       ]
     },
     {
@@ -2289,7 +3838,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "タクシー呼んでくれる？"
+          "text": "タクシー呼んでくれる？",
+          "furigana": [
+            {
+              "word": "呼んで",
+              "reading": "よんで"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2307,9 +3862,23 @@
         "Nhờ cậu giúp xem cái này với"
       ],
       "correctIndex": 2,
-      "explanation": "タクシー呼んでくれる？ (Takushii yonde kureru?) -- Could you call a taxi for me?",
+      "explanation": "Câu này sử dụng động từ 呼ぶ (gọi) và cấu trúc nhờ vả ～てくれる (cậu gọi giúp tớ... được không?).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này sai vì chỉ là lời xin lỗi chung chung.",
+        "Lựa chọn này sai vì không liên quan đến việc mở cửa.",
+        "Đây là lựa chọn đúng, khớp với hành động gọi taxi.",
+        "Lựa chọn này sai vì không đề cập đến việc xem xét cái gì đó."
       ]
     },
     {
@@ -2323,7 +3892,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "送ってもらえる？"
+          "text": "送ってもらえる？",
+          "furigana": [
+            {
+              "word": "送って",
+              "reading": "おくって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2341,9 +3916,23 @@
         "Có thể giúp tớ một tay không?"
       ],
       "correctIndex": 2,
-      "explanation": "送ってもらえる？ (Okutte moraeru?) -- Can you give me a ride home?",
+      "explanation": "Câu này sử dụng động từ 送る (tiễn/đưa về) và cấu trúc nhờ vả ～てもらえる (có thể... giúp tớ không?).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này sai vì không liên quan đến mua sắm.",
+        "Lựa chọn này sai vì quá chung chung.",
+        "Đây là lựa chọn đúng, khớp với nghĩa đưa về.",
+        "Lựa chọn này sai vì không đề cập đến việc giúp một tay."
       ]
     },
     {
@@ -2357,7 +3946,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "時間見といてくれる？"
+          "text": "時間見といてくれる？",
+          "furigana": [
+            {
+              "word": "時間",
+              "reading": "じかん"
+            },
+            {
+              "word": "見といて",
+              "reading": "みといて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2375,9 +3974,23 @@
         "Tớ nghĩ vẫn còn thiếu gì đó"
       ],
       "correctIndex": 2,
-      "explanation": "時間見といてくれる？ (Jikan mitoite kureru hann?) -- Could you keep track of time for me?",
+      "explanation": "Câu này sử dụng từ 時間 (thời gian) và cấu trúc ～ておく (để ý sẵn/theo dõi sẵn).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này sai vì không liên quan đến học nhóm.",
+        "Lựa chọn này sai vì không liên quan đến việc ký tên.",
+        "Đây là lựa chọn đúng, khớp với nghĩa nhờ để ý thời gian.",
+        "Lựa chọn này sai vì không liên quan đến việc thiếu sót."
       ]
     },
     {
@@ -2391,7 +4004,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと見せてもらえる？"
+          "text": "ちょっと見せてもらえる？",
+          "furigana": [
+            {
+              "word": "見せて",
+              "reading": "みせて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2409,9 +4028,23 @@
         "Tớ nghĩ nên thử cách khác"
       ],
       "correctIndex": 2,
-      "explanation": "ちょっと見せてもらえる？ (Chotto misete moraeru?) -- Can you show it to me?",
+      "explanation": "Câu này sử dụng động từ 見せる (cho xem) và cấu trúc nhờ vả ～てもらえる (có thể... cho tớ xem không?).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này sai vì không liên quan đến việc lo liệu công việc.",
+        "Lựa chọn này sai vì không liên quan đến việc hỏi ý kiến.",
+        "Đây là lựa chọn đúng, khớp với nghĩa cho xem thử.",
+        "Lựa chọn này sai vì không liên quan đến việc thử cách khác."
       ]
     },
     {
@@ -2425,7 +4058,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "もう一回言ってもらえる？"
+          "text": "もう一回言ってもらえる？",
+          "furigana": [
+            {
+              "word": "一回",
+              "reading": "いっかい"
+            },
+            {
+              "word": "言って",
+              "reading": "いって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2443,9 +4086,23 @@
         "Tớ nghĩ không cần thiết đến mức đó đâu"
       ],
       "correctIndex": 2,
-      "explanation": "もう一回言ってもらえる？ (Mou ikkai itte moraeru?) -- Could you say that again?",
+      "explanation": "Câu này sử dụng cụm もう一回 (thêm một lần nữa) và động từ 言う (nói), cấu trúc nhờ vả ～てもらえる.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này sai vì không liên quan đến việc ghé nhà.",
+        "Lựa chọn này sai vì không liên quan đến tập gym.",
+        "Đây là lựa chọn đúng, khớp với nghĩa nhờ nói lại.",
+        "Lựa chọn này sai vì không liên quan đến việc đánh giá sự cần thiết."
       ]
     },
     {
@@ -2459,7 +4116,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "手貸してくれない？"
+          "text": "手貸してくれない？",
+          "furigana": [
+            {
+              "word": "手",
+              "reading": "て"
+            },
+            {
+              "word": "貸して",
+              "reading": "かして"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2477,9 +4144,23 @@
         "Chuyển giúp tớ cái đó với"
       ],
       "correctIndex": 1,
-      "explanation": "手貸してくれない？ (Te kashite kurenai?) -- Can you lend me a hand?",
+      "explanation": "Lựa chọn đúng là câu thể hiện lời nhờ vả giúp đỡ, tương ứng với cụm từ '手貸して' (cho mượn tay/giúp một tay).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc ghé nhà chơi.",
+        "Khớp với nghĩa của câu thoại về việc nhờ giúp đỡ.",
+        "Không liên quan đến việc đánh giá sự việc.",
+        "Sai nghĩa, câu này không đề cập đến việc chuyển đồ vật."
       ]
     },
     {
@@ -2493,7 +4174,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これお願いできる？"
+          "text": "これお願いできる？",
+          "furigana": [
+            {
+              "word": "お願い",
+              "reading": "おねがい"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2511,9 +4198,23 @@
         "Có thể giúp tớ đặt chỗ không?"
       ],
       "correctIndex": 0,
-      "explanation": "これお願いできる？ (Kore onegai dekiru?) -- Could you take care of this for me?",
+      "explanation": "Lựa chọn đúng là câu hỏi nhờ vả thực hiện một việc cụ thể, tương ứng với 'これお願いできる？' (Cậu làm giúp tớ cái này được không?).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với nghĩa nhờ vả thực hiện công việc.",
+        "Sai nghĩa, không đề cập đến việc mang vác đồ.",
+        "Sai nghĩa, không liên quan đến học nhóm.",
+        "Sai nghĩa, không đề cập đến việc đặt chỗ."
       ]
     },
     {
@@ -2527,7 +4228,8 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ここにサインしてもらえる？"
+          "text": "ここにサインしてもらえる？",
+          "furigana": []
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2545,9 +4247,23 @@
         "Nhờ cậu ký giúp vào đây"
       ],
       "correctIndex": 3,
-      "explanation": "ここにサインしてもらえる？ (Koko ni sain shite moraeru?) -- Could you sign here, please?",
+      "explanation": "Lựa chọn đúng là câu nhờ ký tên, tương ứng với 'サインしてもらえる？' (Có thể ký giúp tớ không?).",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc cân nhắc.",
+        "Sai nghĩa, không đề cập đến việc sửa chữa.",
+        "Không liên quan đến ý kiến về sự cần thiết.",
+        "Khớp với nghĩa nhờ ký tên vào tài liệu."
       ]
     },
     {
@@ -2561,7 +4277,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ドア開けてくれる？"
+          "text": "ドア開けてくれる？",
+          "furigana": [
+            {
+              "word": "開けて",
+              "reading": "あけて"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2579,9 +4301,23 @@
         "Có thể mở giúp tớ cửa không?"
       ],
       "correctIndex": 3,
-      "explanation": "ドア開けてくれる？ (Doa akete kureru?) -- Can you open the door for me?",
+      "explanation": "Lựa chọn đúng là câu nhờ mở cửa, tương ứng với 'ドア開けてくれる？'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Sai nghĩa, không đề cập đến chỉ đường.",
+        "Sai nghĩa, không liên quan đến du lịch.",
+        "Sai nghĩa, không liên quan đến hẹn hò.",
+        "Khớp với nghĩa nhờ mở cửa."
       ]
     },
     {
@@ -2595,7 +4331,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "電気消しといてくれる？"
+          "text": "電気消しといてくれる？",
+          "furigana": [
+            {
+              "word": "電気",
+              "reading": "でんき"
+            },
+            {
+              "word": "消し",
+              "reading": "けし"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2613,9 +4359,23 @@
         "Cá nhân tớ thì thích cách này hơn"
       ],
       "correctIndex": 0,
-      "explanation": "電気消しといてくれる？ (Denki keshitoite kureru?) -- Could you turn off the lights?",
+      "explanation": "Lựa chọn đúng là câu nhờ tắt đèn, tương ứng với '電気消しといてくれる？'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với nghĩa nhờ tắt đèn.",
+        "Sai nghĩa, không đề cập đến quán ăn.",
+        "Sai nghĩa, không đề cập đến việc báo tin.",
+        "Sai nghĩa, không liên quan đến sở thích cá nhân."
       ]
     },
     {
@@ -2629,7 +4389,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "意見もらえないかな？"
+          "text": "意見もらえないかな？",
+          "furigana": [
+            {
+              "word": "意見",
+              "reading": "いけん"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2647,9 +4413,23 @@
         "Có thể cho tớ xem thử không?"
       ],
       "correctIndex": 1,
-      "explanation": "意見もらえないかな？ (Iken moraenai kana?) -- Could you give me your feedback?",
+      "explanation": "Lựa chọn đúng là câu nhờ cho ý kiến, tương ứng với '意見もらえないかな？'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Sai nghĩa, không liên quan đến sự chắc chắn.",
+        "Khớp với nghĩa nhờ góp ý.",
+        "Sai nghĩa, không đề cập đến việc sửa chữa.",
+        "Sai nghĩa, không đề cập đến việc xem thử."
       ]
     },
     {
@@ -2663,7 +4443,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これ読んでもらえる？"
+          "text": "これ読んでもらえる？",
+          "furigana": [
+            {
+              "word": "読んでもらえる",
+              "reading": "よんでもらえる"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2681,9 +4467,23 @@
         "Nếu không bận thì đi chung nhé"
       ],
       "correctIndex": 2,
-      "explanation": "これ読んでもらえる？ (Kore yonde moraeru?) -- Could you read this for me?",
+      "explanation": "Lựa chọn đúng là câu nhờ đọc giúp, tương ứng với 'これ読んでもらえる？'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Sai nghĩa, không đề cập đến quán ăn.",
+        "Sai nghĩa, không liên quan đến quan điểm cá nhân.",
+        "Khớp với nghĩa nhờ đọc giúp tài liệu.",
+        "Sai nghĩa, không liên quan đến việc đi chung."
       ]
     },
     {
@@ -2697,7 +4497,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "予約しといてもらえる？"
+          "text": "予約しといてもらえる？",
+          "furigana": [
+            {
+              "word": "予約",
+              "reading": "よやく"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2715,9 +4521,23 @@
         "Có thể giúp tớ đặt chỗ không?"
       ],
       "correctIndex": 3,
-      "explanation": "予約しといてもらえる？ (Yoyaku shitoite moraeru?) -- Can you help me make a reservation?",
+      "explanation": "Lựa chọn đúng là câu nhờ đặt chỗ, tương ứng với '予約しといてもらえる？'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Sai nghĩa, quá chung chung.",
+        "Sai nghĩa, không liên quan đến công viên.",
+        "Sai nghĩa, không đề cập đến tốc độ nói.",
+        "Khớp với nghĩa nhờ đặt chỗ trước."
       ]
     },
     {
@@ -2731,7 +4551,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "ちょっと乗せてってくれない？"
+          "text": "ちょっと乗せてってくれない？",
+          "furigana": [
+            {
+              "word": "乗せてって",
+              "reading": "のせてって"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2749,9 +4575,23 @@
         "Có muốn thử làm cùng không?"
       ],
       "correctIndex": 1,
-      "explanation": "ちょっと乗せてってくれない？ (Chotto nosetette kurenai?) -- Could you give me a short ride?",
+      "explanation": "Lựa chọn đúng thể hiện yêu cầu nhờ vả ai đó chở mình đi bằng phương tiện.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc thiếu sót.",
+        "Khớp với nghĩa của động từ 乗せる (chở/cho đi nhờ).",
+        "Không đề cập đến việc ghé thăm nhà.",
+        "Không phải là lời mời cùng làm việc gì đó."
       ]
     },
     {
@@ -2765,7 +4605,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "こっちの方がいいと思う"
+          "text": "こっちの方がいいと思う",
+          "furigana": [
+            {
+              "word": "方",
+              "reading": "ほう"
+            },
+            {
+              "word": "思う",
+              "reading": "おもう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2783,9 +4633,23 @@
         "Cùng tập gym không?"
       ],
       "correctIndex": 0,
-      "explanation": "こっちの方がいいと思う (Kocchi no hou ga ii to omou) -- I think doing this way is better.",
+      "explanation": "Lựa chọn đúng thể hiện quan điểm cá nhân rằng phương án này tốt hơn phương án kia.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với cấu trúc so sánh こっちの方がいい (cái này tốt hơn).",
+        "Không liên quan đến việc mượn đồ.",
+        "Không phải là lời mời đi cùng.",
+        "Không đề cập đến việc tập gym."
       ]
     },
     {
@@ -2799,7 +4663,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それはちょっと違うかな"
+          "text": "それはちょっと違うかな",
+          "furigana": [
+            {
+              "word": "違",
+              "reading": "ちが"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2817,9 +4687,23 @@
         "Đi ăn lẩu nhé, lạnh thế này"
       ],
       "correctIndex": 0,
-      "explanation": "それはちょっと違うかな (Sore wa chotto chigau kana) -- That's a bit different, I think",
+      "explanation": "Lựa chọn đúng phản ánh ý kiến không đồng tình hoặc cho rằng điều đó không đúng.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với nghĩa của 違う (khác/không đúng).",
+        "Không phải là lời nhờ vả.",
+        "Không đề cập đến kế hoạch lần sau.",
+        "Không liên quan đến việc đi ăn lẩu."
       ]
     },
     {
@@ -2833,7 +4717,8 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それもいいんじゃない？"
+          "text": "それもいいんじゃない？",
+          "furigana": []
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2851,9 +4736,23 @@
         "Có đi xem hoa anh đào không?"
       ],
       "correctIndex": 2,
-      "explanation": "それもいいんじゃない？ (Sore mo ii n janai?) -- That's good too, isn't it?",
+      "explanation": "Lựa chọn đúng thể hiện sự đồng tình hoặc đánh giá tích cực về một phương án.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không phải là lời mời uống cà phê.",
+        "Không thể hiện sự lo lắng.",
+        "Khớp với cấu trúc いいんじゃない (chẳng phải tốt sao/cũng được đấy chứ).",
+        "Không đề cập đến việc xem hoa."
       ]
     },
     {
@@ -2867,7 +4766,8 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それでいいのかな"
+          "text": "それでいいのかな",
+          "furigana": []
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2885,9 +4785,23 @@
         "Có thể giới thiệu giúp tớ chỗ đó không?"
       ],
       "correctIndex": 1,
-      "explanation": "それでいいのかな (Sore de ii no kana) -- I wonder if that's okay",
+      "explanation": "Lựa chọn đúng thể hiện sự nghi vấn hoặc xác nhận lại xem điều đó có ổn hay không.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc ghé chỗ khác.",
+        "Khớp với nghĩa của câu hỏi xác nhận ổn không.",
+        "Không phải là lời nhờ trông hành lý.",
+        "Không phải là lời nhờ giới thiệu."
       ]
     },
     {
@@ -2901,7 +4815,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "正直、そう思わないな"
+          "text": "正直、そう思わないな",
+          "furigana": [
+            {
+              "word": "正直",
+              "reading": "しょうじき"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2919,9 +4843,23 @@
         "Cùng học nhóm không?"
       ],
       "correctIndex": 0,
-      "explanation": "正直、そう思わないな (Shoujiki, sou omowanai na) -- Honestly, I don't think so",
+      "explanation": "Lựa chọn đúng thể hiện quan điểm cá nhân một cách thẳng thắn rằng mình không nghĩ như vậy.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với 正直 (thật lòng) và そう思わない (không nghĩ vậy).",
+        "Không liên quan đến việc đi chung.",
+        "Không phải là lời nhờ vả.",
+        "Không đề cập đến việc học nhóm."
       ]
     },
     {
@@ -2935,7 +4873,29 @@
       "turns": [
         {
           "speaker": "",
-          "text": "別の方法試した方がいいと思う"
+          "text": "別の方法試した方がいいと思う",
+          "furigana": [
+            {
+              "word": "別",
+              "reading": "べつ"
+            },
+            {
+              "word": "方法",
+              "reading": "ほうほう"
+            },
+            {
+              "word": "試",
+              "reading": "ため"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2953,9 +4913,23 @@
         "Tớ nghĩ nên thử cách khác thì hơn"
       ],
       "correctIndex": 3,
-      "explanation": "別の方法試した方がいいと思う (Betsu no houhou tameshita hou ga ii to omou) -- I think we should try a different way",
+      "explanation": "Lựa chọn đúng thể hiện lời khuyên nên thử một phương pháp khác.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến tốc độ nói.",
+        "Không phải là nhận xét về sự khác biệt.",
+        "Không đề cập đến kế hoạch lần sau.",
+        "Khớp với ý định thử cách khác."
       ]
     },
     {
@@ -2969,7 +4943,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これはちょっと自信ないな"
+          "text": "これはちょっと自信ないな",
+          "furigana": [
+            {
+              "word": "自信",
+              "reading": "じしん"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -2987,9 +4967,23 @@
         "Có thể giúp tớ đặt chỗ không?"
       ],
       "correctIndex": 0,
-      "explanation": "これはちょっと自信ないな (Kore wa chotto jishin nai na) -- I'm not so confident about this",
+      "explanation": "Lựa chọn đúng thể hiện sự thiếu tự tin về một vấn đề nào đó.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với 自信ない (không tự tin).",
+        "Không liên quan đến việc rảnh rỗi.",
+        "Không phải là lời nhờ vả.",
+        "Không liên quan đến việc đặt chỗ."
       ]
     },
     {
@@ -3003,7 +4997,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "問題は別のところにあると思う"
+          "text": "問題は別のところにあると思う",
+          "furigana": [
+            {
+              "word": "問題",
+              "reading": "もんだい"
+            },
+            {
+              "word": "別",
+              "reading": "べつ"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3021,9 +5029,23 @@
         "Tớ nghĩ vấn đề nằm ở chỗ khác"
       ],
       "correctIndex": 3,
-      "explanation": "問題は別のところにあると思う (Mondai wa betsu no tokoro ni aru to omou) -- I think the problem is somewhere else",
+      "explanation": "Lựa chọn đúng phản ánh chính xác ý nghĩa của câu tiếng Nhật, trong đó '問題' là vấn đề và '別のところ' là chỗ khác.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đặt bàn.",
+        "Không liên quan đến việc leo núi.",
+        "Không liên quan đến việc nhờ giúp đỡ.",
+        "Khớp với ý nghĩa 'vấn đề nằm ở chỗ khác'."
       ]
     },
     {
@@ -3037,7 +5059,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "もうちょっと考えた方がいいかも"
+          "text": "もうちょっと考えた方がいいかも",
+          "furigana": [
+            {
+              "word": "考",
+              "reading": "かんが"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3055,9 +5087,23 @@
         "Có lẽ nên suy nghĩ thêm chút nữa"
       ],
       "correctIndex": 3,
-      "explanation": "もうちょっと考えた方がいいかも (Mou chotto kangaeta hou ga ii kamo) -- Maybe we should think about it a bit more",
+      "explanation": "Lựa chọn đúng diễn đạt ý kiến đề xuất nên suy nghĩ thêm, tương ứng với cụm '考えた方がいい'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc hỏi thời gian rảnh.",
+        "Không liên quan đến việc rủ đi cùng.",
+        "Không liên quan đến việc giữ chỗ.",
+        "Khớp với ý nghĩa đề nghị suy nghĩ thêm."
       ]
     },
     {
@@ -3071,7 +5117,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "そこまで必要ないと思う"
+          "text": "そこまで必要ないと思う",
+          "furigana": [
+            {
+              "word": "必要",
+              "reading": "ひつよう"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3089,9 +5145,23 @@
         "Đi xem pháo hoa nhé"
       ],
       "correctIndex": 1,
-      "explanation": "そこまで必要ないと思う (Soko made hitsuyou nai to omou) -- I don't think it's necessary to that extent",
+      "explanation": "Lựa chọn đúng thể hiện quan điểm không cần thiết đến mức độ đó, khớp với cụm 'そこまで必要ない'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc nhờ trông hành lý.",
+        "Khớp với ý nghĩa không cần thiết đến mức đó.",
+        "Không liên quan đến việc hẹn lần sau.",
+        "Không liên quan đến việc đi xem pháo hoa."
       ]
     },
     {
@@ -3105,7 +5175,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "個人的にはこっちが好き"
+          "text": "個人的にはこっちが好き",
+          "furigana": [
+            {
+              "word": "個人的",
+              "reading": "こじんてき"
+            },
+            {
+              "word": "好",
+              "reading": "す"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3123,9 +5203,23 @@
         "Cá nhân tớ thì thích cái này hơn"
       ],
       "correctIndex": 3,
-      "explanation": "個人的にはこっちが好き (Kojinteki ni wa kocchi ga suki) -- Personally, I like this one better",
+      "explanation": "Lựa chọn đúng thể hiện sở thích cá nhân đối với vật này hơn, khớp với '個人的にはこっちが好き'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc nhờ đưa đồ.",
+        "Không liên quan đến việc tập gym.",
+        "Không liên quan đến việc đi công viên.",
+        "Khớp với ý nghĩa thích cái này hơn."
       ]
     },
     {
@@ -3139,7 +5233,29 @@
       "turns": [
         {
           "speaker": "",
-          "text": "他の人の意見も聞いた方がいいかも"
+          "text": "他の人の意見も聞いた方がいいかも",
+          "furigana": [
+            {
+              "word": "他",
+              "reading": "ほか"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "意見",
+              "reading": "いけん"
+            },
+            {
+              "word": "聞",
+              "reading": "き"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3157,9 +5273,23 @@
         "Thứ bảy này làm gì đó không?"
       ],
       "correctIndex": 1,
-      "explanation": "他の人の意見も聞いた方がいいかも (Hoka no hito no iken mo kiita hou ga ii kamo) -- Maybe we should hear other people's opinions too",
+      "explanation": "Lựa chọn đúng khuyên nên tham khảo ý kiến người khác, khớp với '他の人の意見も聞いた方がいい'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đi ăn lẩu.",
+        "Khớp với ý nghĩa nên nghe thêm ý kiến người khác.",
+        "Không liên quan đến việc đưa ra ý kiến cá nhân.",
+        "Không liên quan đến việc hỏi kế hoạch cuối tuần."
       ]
     },
     {
@@ -3173,7 +5303,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "まだ何か足りない気がする"
+          "text": "まだ何か足りない気がする",
+          "furigana": [
+            {
+              "word": "何",
+              "reading": "なに"
+            },
+            {
+              "word": "足",
+              "reading": "た"
+            },
+            {
+              "word": "気",
+              "reading": "き"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3191,9 +5335,23 @@
         "Nhân tiện ghé chỗ đó luôn nhé"
       ],
       "correctIndex": 1,
-      "explanation": "まだ何か足りない気がする (Mada nanika tarinai ki ga suru) -- I feel like something is still missing",
+      "explanation": "Lựa chọn đúng diễn đạt cảm giác thiếu sót điều gì đó, khớp với '何か足りない気がする'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc đi công viên.",
+        "Khớp với ý nghĩa cảm thấy còn thiếu gì đó.",
+        "Không liên quan đến việc nhờ kiểm tra.",
+        "Không liên quan đến việc ghé chỗ khác."
       ]
     },
     {
@@ -3207,7 +5365,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "最初からやり直した方がいいかも"
+          "text": "最初からやり直した方がいいかも",
+          "furigana": [
+            {
+              "word": "最初",
+              "reading": "さいしょ"
+            },
+            {
+              "word": "直",
+              "reading": "なお"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3225,9 +5397,23 @@
         "Tớ nghĩ đi theo hướng này là đúng đấy"
       ],
       "correctIndex": 0,
-      "explanation": "最初からやり直した方がいいかも (Saisho kara yarinaoshita hou ga ii kamo) -- Maybe we should start over from the beginning",
+      "explanation": "Lựa chọn đúng đề xuất làm lại từ đầu, khớp với '最初からやり直した方がいい'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Khớp với ý nghĩa làm lại từ đầu.",
+        "Không liên quan đến việc gọi taxi.",
+        "Không liên quan đến việc cảm thấy thiếu sót.",
+        "Không liên quan đến việc xác nhận hướng đi."
       ]
     },
     {
@@ -3241,7 +5427,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "この方向で合ってると思う"
+          "text": "この方向で合ってると思う",
+          "furigana": [
+            {
+              "word": "方向",
+              "reading": "ほうこう"
+            },
+            {
+              "word": "合",
+              "reading": "あ"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3259,9 +5459,23 @@
         "Tớ nghĩ đi theo hướng này là đúng đấy"
       ],
       "correctIndex": 3,
-      "explanation": "この方向で合ってると思う (Kono houkou de atteru to omou) -- I think this direction is right",
+      "explanation": "Lựa chọn đúng xác nhận hướng đi là chính xác, khớp với 'この方向で合ってると思う'.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Không liên quan đến việc giữ chỗ.",
+        "Không liên quan đến việc chuyển đồ.",
+        "Không liên quan đến việc yêu cầu nhắc lại.",
+        "Khớp với ý nghĩa đi đúng hướng."
       ]
     },
     {
@@ -3275,7 +5489,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "反対はしないけどちょっと心配"
+          "text": "反対はしないけどちょっと心配",
+          "furigana": [
+            {
+              "word": "反対",
+              "reading": "はんたい"
+            },
+            {
+              "word": "心配",
+              "reading": "しんぱい"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3293,9 +5517,23 @@
         "Xin lỗi làm phiền, nhờ chút được không?"
       ],
       "correctIndex": 1,
-      "explanation": "反対はしないけどちょっと心配 (Hantai wa shinai kedo chotto shinpai) -- I'm not against it, but I'm a bit worried",
+      "explanation": "Câu thoại chứa từ 反対 (phản đối) và 心配 (lo lắng), khớp với nội dung của lựa chọn đúng.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này nói về sự thiếu tự tin, không liên quan đến từ khóa phản đối hay lo lắng.",
+        "Lựa chọn này dịch sát nghĩa của 反対はしない (không phản đối) và 心配 (lo lắng).",
+        "Lựa chọn này nói về việc mượn đồ, không có trong câu thoại.",
+        "Lựa chọn này là một lời nhờ vả, không khớp với ý nghĩa của câu thoại."
       ]
     },
     {
@@ -3309,7 +5547,13 @@
       "turns": [
         {
           "speaker": "",
-          "text": "言われてみればそうかも"
+          "text": "言われてみればそうかも",
+          "furigana": [
+            {
+              "word": "言われてみれば",
+              "reading": "いわれてみれば"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3327,9 +5571,23 @@
         "Nghe cậu nói vậy thì cũng có lý đấy"
       ],
       "correctIndex": 3,
-      "explanation": "言われてみればそうかも (Iwarete mireba sou kamo) -- Now that you mention it, maybe so",
+      "explanation": "Cụm từ 言われてみれば có nghĩa là 'nếu được nghe nói như vậy thì...', tương ứng với việc nhận ra điều gì đó có lý sau khi được người khác chỉ ra.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này là một lời rủ rê đi cùng, không khớp với nghĩa của câu thoại.",
+        "Lựa chọn này nói về việc đi ăn món mới, không liên quan đến câu thoại.",
+        "Lựa chọn này nói về việc nhờ kiểm tra, không có trong câu thoại.",
+        "Lựa chọn này phản ánh đúng ý nghĩa của cụm từ 言われてみれば (khi nghe cậu nói thì thấy có lý)."
       ]
     },
     {
@@ -3343,7 +5601,17 @@
       "turns": [
         {
           "speaker": "",
-          "text": "それ、本当に合ってるのかな"
+          "text": "それ、本当に合ってるのかな",
+          "furigana": [
+            {
+              "word": "本当",
+              "reading": "ほんとう"
+            },
+            {
+              "word": "合ってる",
+              "reading": "あってる"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3361,9 +5629,23 @@
         "Cậu làm giúp tớ cái này được không?"
       ],
       "correctIndex": 2,
-      "explanation": "それ、本当に合ってるのかな (Sore, hontou ni atteru no kana) -- I wonder if that's really correct",
+      "explanation": "Câu thoại sử dụng từ 本当 (thật sự) và 合ってる (đúng/chính xác), khớp với nội dung của lựa chọn đúng.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này là một lời nhờ vả, không khớp với câu hỏi về tính đúng đắn.",
+        "Lựa chọn này hỏi về đường đi, không liên quan đến câu thoại.",
+        "Lựa chọn này dịch chính xác ý nghĩa của câu thoại về việc nghi vấn tính đúng đắn của sự việc.",
+        "Lựa chọn này là một lời nhờ vả, không khớp với câu thoại."
       ]
     },
     {
@@ -3377,7 +5659,21 @@
       "turns": [
         {
           "speaker": "",
-          "text": "これを優先した方がいいと思う"
+          "text": "これを優先した方がいいと思う",
+          "furigana": [
+            {
+              "word": "優先",
+              "reading": "ゆうせん"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "Câu vừa nghe có nghĩa là gì?",
@@ -3395,9 +5691,23 @@
         "Nhờ cậu ký giúp vào đây"
       ],
       "correctIndex": 0,
-      "explanation": "これを優先した方がいいと思う (Kore wo yuusen shita hou ga ii to omou) -- I think we should prioritize this",
+      "explanation": "Câu thoại chứa từ 優先 (ưu tiên), khớp với nội dung của lựa chọn đúng về việc nên ưu tiên thực hiện việc này trước.",
       "notes": [
         "Đáp án trắc nghiệm (nghĩa tiếng Việt) được tạo tự động, không phải câu hỏi gốc từ sách -- chỉ dùng để có 1 câu hỏi hợp lệ cho màn Luyện nghe, trọng tâm chính của bộ này là Nghe chép chính tả."
+      ],
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Lựa chọn này phản ánh đúng ý nghĩa của việc ưu tiên (優先) cái này trước.",
+        "Lựa chọn này nói về việc mở cửa, không liên quan đến từ khóa ưu tiên.",
+        "Lựa chọn này là một lời nhờ vả, không khớp với ý nghĩa của câu thoại.",
+        "Lựa chọn này nói về việc ký tên, không liên quan đến từ khóa ưu tiên."
       ]
     }
   ]

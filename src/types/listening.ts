@@ -8,6 +8,7 @@ export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "hatsugen" | "sok
 export interface ListeningTurn {
   speaker: string;
   text: string;
+  furigana?: { word: string; reading: string }[];
   // Vietnamese translation of `text`, shown under the Japanese line in the
   // transcript panel. Optional since older data may not have it yet --
   // see scripts/translate-listening-turns.ts.
@@ -24,9 +25,11 @@ export interface ListeningQuestion {
   // Path resolved via assetUrl() -- see platform/assetUrl.ts.
   audioUrl: string;
   scenario: string;
+  scenarioFurigana?: { word: string; reading: string }[];
   scenarioVi: string;
   turns: ListeningTurn[];
   question: string;
+  questionFurigana?: { word: string; reading: string }[];
   questionVi: string;
   // Some 課題理解-style items use illustrated (picture) answer choices --
   // the book never prints those as text anywhere, so there's nothing to OCR.
@@ -36,7 +39,12 @@ export interface ListeningQuestion {
   // set means "ignore options/optionsVi, render optionCount numbered
   // buttons under this image instead."
   options: string[];
+  optionFurigana?: { word: string; reading: string }[][];
   optionsVi: string[];
+  // Optional explanation for each answer choice, shown after the learner
+  // answers. This is useful for listening questions where several choices
+  // look similar but only one is a natural response to the audio.
+  optionExplanations?: string[];
   optionsImage?: string;
   optionCount?: number;
   correctIndex: number;

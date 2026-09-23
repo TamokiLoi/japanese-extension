@@ -12,27 +12,137 @@
         {
           "speaker": "女",
           "text": "先週お話ししたように、あさっての授業では発表をしてもらいますから、準備しておいてください。",
-          "textVi": "Như tôi đã nói tuần trước, trong buổi học ngày kia các bạn sẽ phải thuyết trình, nên hãy chuẩn bị trước nhé."
+          "textVi": "Như tôi đã nói tuần trước, trong buổi học ngày kia các bạn sẽ phải thuyết trình, nên hãy chuẩn bị trước nhé.",
+          "furigana": [
+            {
+              "word": "先週",
+              "reading": "せんしゅう"
+            },
+            {
+              "word": "お話し",
+              "reading": "おはなし"
+            },
+            {
+              "word": "授業",
+              "reading": "じゅぎょう"
+            },
+            {
+              "word": "発表",
+              "reading": "はっぴょう"
+            },
+            {
+              "word": "準備",
+              "reading": "じゅんび"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "発表の時パソコンを使ってもいいですか。写真を見せたいんですけれど。",
-          "textVi": "Lúc thuyết trình tôi dùng máy tính được không ạ? Vì tôi muốn cho mọi người xem ảnh."
+          "textVi": "Lúc thuyết trình tôi dùng máy tính được không ạ? Vì tôi muốn cho mọi người xem ảnh.",
+          "furigana": [
+            {
+              "word": "発表",
+              "reading": "はっぴょう"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            },
+            {
+              "word": "使って",
+              "reading": "つかって"
+            },
+            {
+              "word": "写真",
+              "reading": "しゃしん"
+            },
+            {
+              "word": "見せたい",
+              "reading": "みせたい"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "いいですけど、リーさんはまだ原稿ができてないでしょう？写真だけでは発表になりませんよ。すぐにやって、見せてください。",
-          "textVi": "Được chứ, nhưng mà Lee vẫn chưa viết xong bản thảo phải không? Chỉ dùng ảnh thì không thành bài thuyết trình được đâu. Làm ngay đi rồi đưa tôi xem nhé."
+          "textVi": "Được chứ, nhưng mà Lee vẫn chưa viết xong bản thảo phải không? Chỉ dùng ảnh thì không thành bài thuyết trình được đâu. Làm ngay đi rồi đưa tôi xem nhé.",
+          "furigana": [
+            {
+              "word": "原稿",
+              "reading": "げんこう"
+            },
+            {
+              "word": "写真",
+              "reading": "しゃしん"
+            },
+            {
+              "word": "発表",
+              "reading": "はっぴょう"
+            },
+            {
+              "word": "見せて",
+              "reading": "みせて"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "はい。書き直すのはまとめのところだけでいいですか。",
-          "textVi": "Vâng. Tôi chỉ cần viết lại phần tổng kết thôi phải không ạ?"
+          "textVi": "Vâng. Tôi chỉ cần viết lại phần tổng kết thôi phải không ạ?",
+          "furigana": [
+            {
+              "word": "書き直す",
+              "reading": "かきなおす"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "ええ、そこがちょっとわかりにくいので、もう少し直さないと。ほかの準備は原稿が完成してからでいいです。それから、あしたはグループで発表の練習をするので、漢字の読み方も確認してきてくださいね。",
-          "textVi": "Ừ, chỗ đó hơi khó hiểu nên phải sửa lại thêm chút nữa. Các chuẩn bị khác đợi viết xong bản thảo hãy làm. À, ngày mai nhóm mình sẽ luyện tập thuyết trình nên hãy kiểm tra lại cả cách đọc kanji nhé."
+          "textVi": "Ừ, chỗ đó hơi khó hiểu nên phải sửa lại thêm chút nữa. Các chuẩn bị khác đợi viết xong bản thảo hãy làm. À, ngày mai nhóm mình sẽ luyện tập thuyết trình nên hãy kiểm tra lại cả cách đọc kanji nhé.",
+          "furigana": [
+            {
+              "word": "もう少し",
+              "reading": "もうすこし"
+            },
+            {
+              "word": "直さないと",
+              "reading": "なおさないと"
+            },
+            {
+              "word": "準備",
+              "reading": "じゅんび"
+            },
+            {
+              "word": "原稿",
+              "reading": "げんこう"
+            },
+            {
+              "word": "完成",
+              "reading": "かんせい"
+            },
+            {
+              "word": "発表",
+              "reading": "はっぴょう"
+            },
+            {
+              "word": "練習",
+              "reading": "れんしゅう"
+            },
+            {
+              "word": "漢字",
+              "reading": "かんじ"
+            },
+            {
+              "word": "読み方",
+              "reading": "よみかた"
+            },
+            {
+              "word": "確認",
+              "reading": "かくにん"
+            }
+          ]
         }
       ],
       "question": "男の学生はまず何をしなければなりませんか。",
@@ -50,7 +160,107 @@
         "Xác nhận cách đọc kanji"
       ],
       "correctIndex": 1,
-      "explanation": "Vì câu hỏi dùng từ 'đầu tiên' (mazu), chúng ta cần suy nghĩ về việc phải làm trước tiên. Giáo viên sau khi nói 'Bản thảo chưa hoàn thành' đã bảo 'Hãy làm ngay và cho tôi xem'. Nam sinh viên trả lời 'Vâng' để đồng ý với chỉ thị và xác nhận lại 'Chỉ cần viết lại phần tổng kết thôi phải không?', nên đáp án là 2. Bằng cách này, hãy chú ý đến những từ chỉ việc cần làm như chỉ thị, nhờ vả và xem đối phương có đồng ý hay không."
+      "explanation": "Giáo viên yêu cầu nam sinh viên phải sửa lại bản thảo trước vì phần tổng kết chưa rõ ràng, các công việc khác như luyện tập hay kiểm tra kanji sẽ thực hiện sau khi bản thảo hoàn thành.",
+      "scenarioFurigana": [
+        {
+          "word": "日本語",
+          "reading": "にほんご"
+        },
+        {
+          "word": "女の先生",
+          "reading": "おんなのせんせい"
+        },
+        {
+          "word": "発表",
+          "reading": "はっぴょう"
+        },
+        {
+          "word": "準備",
+          "reading": "じゅんび"
+        },
+        {
+          "word": "話",
+          "reading": "はな"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "学生",
+          "reading": "がくせい"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "学生",
+          "reading": "がくせい"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "写真",
+            "reading": "しゃしん"
+          },
+          {
+            "word": "準備",
+            "reading": "じゅんび"
+          }
+        ],
+        [
+          {
+            "word": "原稿",
+            "reading": "げんこう"
+          },
+          {
+            "word": "直す",
+            "reading": "なおす"
+          }
+        ],
+        [
+          {
+            "word": "発表",
+            "reading": "はっぴょう"
+          },
+          {
+            "word": "練習",
+            "reading": "れんしゅう"
+          }
+        ],
+        [
+          {
+            "word": "漢字",
+            "reading": "かんじ"
+          },
+          {
+            "word": "読み方",
+            "reading": "よみかた"
+          },
+          {
+            "word": "確認",
+            "reading": "かくにん"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Giáo viên nói rằng chỉ dùng ảnh thì không thành bài thuyết trình, cần ưu tiên hoàn thành bản thảo trước.",
+        "Lựa chọn đúng vì giáo viên yêu cầu nam sinh viên phải sửa lại phần tổng kết trong bản thảo ngay lập tức.",
+        "Giáo viên nói việc luyện tập sẽ diễn ra vào ngày mai, sau khi đã hoàn thành bản thảo.",
+        "Giáo viên yêu cầu kiểm tra cách đọc kanji cho buổi luyện tập ngày mai, không phải việc cần làm đầu tiên."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-002",
@@ -64,37 +274,139 @@
         {
           "speaker": "女",
           "text": "渡辺君、あしたの飲み会、行く？",
-          "textVi": "Watanabe-kun, buổi nhậu ngày mai có đi không?"
+          "textVi": "Watanabe-kun, buổi nhậu ngày mai có đi không?",
+          "furigana": [
+            {
+              "word": "渡辺君",
+              "reading": "わたなべくん"
+            },
+            {
+              "word": "飲み会",
+              "reading": "のみかい"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "あー、行こうと思っていたんだけど……。",
-          "textVi": "À, tớ cũng định đi nhưng mà..."
+          "textVi": "À, tớ cũng định đi nhưng mà...",
+          "furigana": [
+            {
+              "word": "行",
+              "reading": "い"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "あ、アルバイトの日か。",
-          "textVi": "À, trúng ngày làm thêm à?"
+          "textVi": "À, trúng ngày làm thêm à?",
+          "furigana": [
+            {
+              "word": "日",
+              "reading": "ひ"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "それは前から休みをもらってたからいいんだけど。あしたはさ、姉の子供を預かってほしいって頼まれちゃってね。友達の結婚式に行くからって。",
-          "textVi": "Hôm đó thì tớ xin nghỉ từ trước rồi nên không sao. Chỉ là ngày mai tớ bị nhờ trông con hộ của bà chị. Chị ấy bảo phải đi dự đám cưới bạn."
+          "textVi": "Hôm đó thì tớ xin nghỉ từ trước rồi nên không sao. Chỉ là ngày mai tớ bị nhờ trông con hộ của bà chị. Chị ấy bảo phải đi dự đám cưới bạn.",
+          "furigana": [
+            {
+              "word": "前",
+              "reading": "まえ"
+            },
+            {
+              "word": "休",
+              "reading": "やす"
+            },
+            {
+              "word": "姉",
+              "reading": "あね"
+            },
+            {
+              "word": "子供",
+              "reading": "こども"
+            },
+            {
+              "word": "預",
+              "reading": "あず"
+            },
+            {
+              "word": "頼",
+              "reading": "たの"
+            },
+            {
+              "word": "友達",
+              "reading": "ともだち"
+            },
+            {
+              "word": "結婚式",
+              "reading": "けっこんしき"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "お兄さんはいないの？",
-          "textVi": "Anh trai cậu đâu không nhờ?"
+          "textVi": "Anh trai cậu đâu không nhờ?",
+          "furigana": [
+            {
+              "word": "兄",
+              "reading": "あに"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "うん、いつもなら週末は休みなんだけど……。子供が１人じゃかわいそうだしね。",
-          "textVi": "Ừ, bình thường cuối tuần thì tôi nghỉ cơ mà... mà để con ở nhà một mình thì tội nghiệp lắm."
+          "textVi": "Ừ, bình thường cuối tuần thì tôi nghỉ cơ mà... mà để con ở nhà một mình thì tội nghiệp lắm.",
+          "furigana": [
+            {
+              "word": "週末",
+              "reading": "しゅうまつ"
+            },
+            {
+              "word": "休",
+              "reading": "やす"
+            },
+            {
+              "word": "子供",
+              "reading": "こども"
+            },
+            {
+              "word": "１人",
+              "reading": "ひとり"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "ふうん。大変そうだけど、頑張ってね。",
-          "textVi": "Hừm. Nghe có vẻ vất vả nhỉ, cố lên nhé."
+          "textVi": "Hừm. Nghe có vẻ vất vả nhỉ, cố lên nhé.",
+          "furigana": [
+            {
+              "word": "大変",
+              "reading": "たいへん"
+            },
+            {
+              "word": "頑張",
+              "reading": "がんば"
+            }
+          ]
         }
       ],
       "question": "男の人はどうして飲み会に行けませんか。",
@@ -112,7 +424,106 @@
         "Vì cuối tuần không được nghỉ"
       ],
       "correctIndex": 1,
-      "explanation": "Hãy suy nghĩ lý do người đàn ông không thể đi tiệc nhậu bằng cách dựa vào các phương án. Về 'việc làm thêm', anh ấy nói 'Được (= không vấn đề gì)' nên không phải. Vì anh ấy nói '(Được nhờ) trông con hộ', nên đáp án là 2. Người 'đi dự đám cưới bạn' là chị gái, còn người 'bình thường cuối tuần được nghỉ nhưng (tuần này thì không)' là anh trai. Bằng cách này, hãy chú ý đến những từ giống hoặc đồng nghĩa với các phương án xuất hiện trong bài hội thoại, và suy nghĩ về điều mà người nói muốn truyền đạt (khẳng định hay phủ định)."
+      "explanation": "Người đàn ông không thể đi nhậu vì phải trông con giúp chị gái do chị ấy bận đi dự đám cưới bạn.",
+      "scenarioFurigana": [
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひ"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "話",
+          "reading": "はな"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "飲み会",
+          "reading": "のみかい"
+        },
+        {
+          "word": "行",
+          "reading": "い"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "飲み会",
+          "reading": "のみかい"
+        },
+        {
+          "word": "行",
+          "reading": "い"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "子供",
+            "reading": "こども"
+          },
+          {
+            "word": "世話",
+            "reading": "せわ"
+          }
+        ],
+        [
+          {
+            "word": "友達",
+            "reading": "ともだち"
+          },
+          {
+            "word": "結婚式",
+            "reading": "けっこんしき"
+          },
+          {
+            "word": "行",
+            "reading": "い"
+          }
+        ],
+        [
+          {
+            "word": "週末",
+            "reading": "しゅうまつ"
+          },
+          {
+            "word": "休",
+            "reading": "やす"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Người đàn ông đã xin nghỉ làm thêm từ trước nên đây không phải lý do anh ấy không đi nhậu.",
+        "Lựa chọn đúng vì anh ấy phải trông con giúp chị gái vào ngày mai.",
+        "Đây là lý do chị gái của người đàn ông phải đi, không phải lý do trực tiếp khiến người đàn ông không đi nhậu.",
+        "Người đàn ông nói bình thường cuối tuần anh ấy được nghỉ, nên đây không phải lý do anh ấy không đi nhậu."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-003",
@@ -126,7 +537,129 @@
         {
           "speaker": "女",
           "text": "試験の時などに、緊張してしまうって困ったことはありませんか。そんな時に役立つ、いくつかのやり方をご紹介しましょう。ある人は、緊張している時に「お父さん、ありがとう。お母さん、ありがとう」とほかの人への感謝を心の中で言うと、落ち着けるそうです。また、体に一度ぐっと力を入れて、その後力を抜くと、落ち着けるという人もいます。一度試してみてはいかがですか。",
-          "textVi": "Bạn đã bao giờ gặp rắc rối vì cảm thấy căng thẳng trong các kỳ thi chưa? Hãy cùng điểm qua một số cách hữu ích trong những lúc như vậy nhé. Có người cho rằng khi đang căng thẳng, nếu thầm nói lời cảm ơn với người khác trong lòng như \"Cảm ơn bố, cảm ơn mẹ\" thì sẽ có thể bình tĩnh lại. Ngoài ra, cũng có người nói rằng nếu gồng mình lên một lần rồi thả lỏng cơ thể thì sẽ trấn tĩnh được. Tại sao bạn không thử một lần xem sao?"
+          "textVi": "Bạn đã bao giờ gặp rắc rối vì cảm thấy căng thẳng trong các kỳ thi chưa? Hãy cùng điểm qua một số cách hữu ích trong những lúc như vậy nhé. Có người cho rằng khi đang căng thẳng, nếu thầm nói lời cảm ơn với người khác trong lòng như \"Cảm ơn bố, cảm ơn mẹ\" thì sẽ có thể bình tĩnh lại. Ngoài ra, cũng có người nói rằng nếu gồng mình lên một lần rồi thả lỏng cơ thể thì sẽ trấn tĩnh được. Tại sao bạn không thử một lần xem sao?",
+          "furigana": [
+            {
+              "word": "試験",
+              "reading": "しけん"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            },
+            {
+              "word": "緊張",
+              "reading": "きんちょう"
+            },
+            {
+              "word": "困った",
+              "reading": "こまった"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            },
+            {
+              "word": "役立つ",
+              "reading": "やくだつ"
+            },
+            {
+              "word": "やり方",
+              "reading": "やりかた"
+            },
+            {
+              "word": "ご紹介",
+              "reading": "ごしょうかい"
+            },
+            {
+              "word": "ある人",
+              "reading": "あるひと"
+            },
+            {
+              "word": "緊張",
+              "reading": "きんちょう"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            },
+            {
+              "word": "お父さん",
+              "reading": "おとうさん"
+            },
+            {
+              "word": "お母さん",
+              "reading": "おかあさん"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "感謝",
+              "reading": "かんしゃ"
+            },
+            {
+              "word": "心",
+              "reading": "こころ"
+            },
+            {
+              "word": "中",
+              "reading": "なか"
+            },
+            {
+              "word": "言う",
+              "reading": "いう"
+            },
+            {
+              "word": "落ち着ける",
+              "reading": "おちつける"
+            },
+            {
+              "word": "体",
+              "reading": "からだ"
+            },
+            {
+              "word": "一度",
+              "reading": "いちど"
+            },
+            {
+              "word": "力",
+              "reading": "ちから"
+            },
+            {
+              "word": "入れて",
+              "reading": "いれて"
+            },
+            {
+              "word": "その後",
+              "reading": "そのあと"
+            },
+            {
+              "word": "力",
+              "reading": "ちから"
+            },
+            {
+              "word": "抜くと",
+              "reading": "ぬくと"
+            },
+            {
+              "word": "落ち着ける",
+              "reading": "おちつける"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "一度",
+              "reading": "いちど"
+            },
+            {
+              "word": "試して",
+              "reading": "ためして"
+            }
+          ]
         }
       ],
       "question": "女の人は何について話していますか。",
@@ -144,7 +677,103 @@
         "Mối quan hệ giữa việc dồn lực và sự căng thẳng"
       ],
       "correctIndex": 1,
-      "explanation": "Chủ đề mà người phụ nữ nêu ra khi nói 'Tôi xin giới thiệu' chính là 'những phương pháp hữu ích' khi cảm thấy 'căng thẳng', do đó đáp án là 2. Việc 'nói lời cảm ơn trong lòng' và 'dùng lực siết chặt cơ thể rồi thả lỏng' là các ví dụ cho phương pháp đó. Bằng cách này, hãy chú ý xem tổng thể đang nói về vấn đề gì và ý định của người nói là gì."
+      "explanation": "Người phụ nữ giới thiệu các cách thức để giữ bình tĩnh khi cảm thấy căng thẳng, vì vậy lựa chọn đúng là phương pháp để trở nên bình tĩnh.",
+      "scenarioFurigana": [
+        {
+          "word": "女の人",
+          "reading": "おんなのひと"
+        },
+        {
+          "word": "話しています",
+          "reading": "はなしています"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "女の人",
+          "reading": "おんなのひと"
+        },
+        {
+          "word": "何",
+          "reading": "な"
+        },
+        {
+          "word": "話しています",
+          "reading": "はなしています"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "人",
+            "reading": "ひと"
+          },
+          {
+            "word": "緊張",
+            "reading": "きんちょう"
+          },
+          {
+            "word": "理由",
+            "reading": "りゆう"
+          }
+        ],
+        [
+          {
+            "word": "落ち着く",
+            "reading": "おちつく"
+          },
+          {
+            "word": "方法",
+            "reading": "ほうほう"
+          }
+        ],
+        [
+          {
+            "word": "両親",
+            "reading": "りょうしん"
+          },
+          {
+            "word": "感謝",
+            "reading": "かんしゃ"
+          },
+          {
+            "word": "伝",
+            "reading": "つた"
+          },
+          {
+            "word": "方",
+            "reading": "かた"
+          }
+        ],
+        [
+          {
+            "word": "力",
+            "reading": "ちから"
+          },
+          {
+            "word": "入",
+            "reading": "い"
+          },
+          {
+            "word": "方",
+            "reading": "かた"
+          },
+          {
+            "word": "緊張",
+            "reading": "きんちょう"
+          },
+          {
+            "word": "関係",
+            "reading": "かんけい"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Bài nói không giải thích nguyên nhân gây ra căng thẳng mà tập trung vào cách giải quyết.",
+        "Đây là nội dung chính của bài nói, tập trung vào các cách thức giúp trấn tĩnh.",
+        "Việc cảm ơn cha mẹ chỉ là một ví dụ cụ thể được đưa ra để giúp bình tĩnh, không phải là chủ đề chính.",
+        "Việc gồng mình và thả lỏng chỉ là một ví dụ về phương pháp, không phải là phân tích về mối quan hệ giữa lực và sự căng thẳng."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-004",
@@ -158,7 +787,45 @@
         {
           "speaker": "男",
           "text": "1 あの、この書類の書き方、教えてもよろしいでしょうか。\n2 あの、この書類の書き方、教えていただきたいんですがけど。\n3 あの、この書類の書き方、教えていただきましょうか。",
-          "textVi": "Xin lỗi, anh/chị có thể chỉ cho tôi cách điền vào tờ giấy này được không ạ?"
+          "textVi": "Xin lỗi, anh/chị có thể chỉ cho tôi cách điền vào tờ giấy này được không ạ?",
+          "furigana": [
+            {
+              "word": "書類",
+              "reading": "しょるい"
+            },
+            {
+              "word": "書き方",
+              "reading": "かきかた"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            },
+            {
+              "word": "書類",
+              "reading": "しょるい"
+            },
+            {
+              "word": "書き方",
+              "reading": "かきかた"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            },
+            {
+              "word": "書類",
+              "reading": "しょるい"
+            },
+            {
+              "word": "書き方",
+              "reading": "かきかた"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            }
+          ]
         }
       ],
       "question": "何と言いますか。",
@@ -175,7 +842,100 @@
         "Xin lỗi, tôi có thể nhờ anh/chị..."
       ],
       "correctIndex": 1,
-      "explanation": "Câu giải thích tình huống nói là 'hỏi nhân viên hành chính', nên nhân viên hành chính sẽ là người chỉ dẫn cho người nói (mũi tên chỉ đến). Số 2 là cách nói nhờ vả người khác dạy giúp, phù hợp với tình huống. Số 1 là cách xin phép được làm gì đó, số 3 là cách đưa ra đề xuất. Bằng cách này, hãy hiểu rõ tình huống và hoàn cảnh để chọn biểu hiện phù hợp, chú ý xem biểu hiện đó diễn tả hành động của ai và có phải là biểu hiện cố định dùng trong tình huống đó không."
+      "explanation": "Lựa chọn đúng là cách diễn đạt thể hiện mong muốn của bản thân một cách lịch sự khi nhờ vả người khác trong môi trường đại học.",
+      "scenarioFurigana": [
+        {
+          "word": "大学",
+          "reading": "だいがく"
+        },
+        {
+          "word": "事務",
+          "reading": "じむ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "書類",
+          "reading": "しょるい"
+        },
+        {
+          "word": "書き方",
+          "reading": "かきかた"
+        },
+        {
+          "word": "聞きます",
+          "reading": "ききます"
+        },
+        {
+          "word": "何",
+          "reading": "なん"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "何",
+          "reading": "なん"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "書類",
+            "reading": "しょるい"
+          },
+          {
+            "word": "書き方",
+            "reading": "かきかた"
+          },
+          {
+            "word": "教えて",
+            "reading": "おしえて"
+          }
+        ],
+        [
+          {
+            "word": "書類",
+            "reading": "しょるい"
+          },
+          {
+            "word": "書き方",
+            "reading": "かきかた"
+          },
+          {
+            "word": "教えて",
+            "reading": "おしえて"
+          }
+        ],
+        [
+          {
+            "word": "書類",
+            "reading": "しょるい"
+          },
+          {
+            "word": "書き方",
+            "reading": "かきかた"
+          },
+          {
+            "word": "教えて",
+            "reading": "おしえて"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này sử dụng 'yoroishou deshou ka', mang sắc thái hỏi về sự cho phép một cách hơi cứng nhắc trong ngữ cảnh nhờ vả thông thường.",
+        "Đây là cách diễn đạt tự nhiên và lịch sự nhất để bày tỏ mong muốn được người khác hướng dẫn.",
+        "Cấu trúc 'itadakimashou ka' mang nghĩa 'tôi sẽ nhận sự giúp đỡ của bạn nhé', nghe giống như đang tự quyết định thay cho đối phương, không phù hợp để nhờ vả."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-006",
@@ -189,22 +949,40 @@
         {
           "speaker": "女",
           "text": "これ、あっちに運んでおこうか。",
-          "textVi": "Cái này, để tôi khiêng ra đằng kia nhé."
+          "textVi": "Cái này, để tôi khiêng ra đằng kia nhé.",
+          "furigana": [
+            {
+              "word": "運んで",
+              "reading": "はこんで"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "あ、それはいいよ。",
-          "textVi": "À, cái đó khỏi cần đâu."
+          "textVi": "À, cái đó khỏi cần đâu.",
+          "furigana": []
         },
         {
           "speaker": "男",
           "text": "この本、あした返さないと。",
-          "textVi": "Quyển sách này, ngày mai phải trả rồi."
+          "textVi": "Quyển sách này, ngày mai phải trả rồi.",
+          "furigana": [
+            {
+              "word": "本",
+              "reading": "ほん"
+            },
+            {
+              "word": "返さない",
+              "reading": "かえさない"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "うん、わかった。",
-          "textVi": "Ừ, tôi biết rồi."
+          "textVi": "Ừ, tôi biết rồi.",
+          "furigana": []
         }
       ],
       "question": "会話を聞いてください。女の人はこれからどうしますか。",
@@ -222,7 +1000,58 @@
         "Không trả lại"
       ],
       "correctIndex": 1,
-      "explanation": "(1) Người phụ nữ đã đề nghị 'sẽ mang đi giúp', nhưng người đàn ông nói 'Không cần đâu', nghĩa là không cần làm cũng được. (2) 'Phải trả lại thôi' là biểu hiện chỉ việc phải làm từ bây giờ, và người phụ nữ đã đồng ý với điều đó."
+      "explanation": "Người đàn ông đã từ chối lời đề nghị giúp đỡ của người phụ nữ, vì vậy lựa chọn đúng là người phụ nữ sẽ không mang đồ đi.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "会話",
+          "reading": "かいわ"
+        },
+        {
+          "word": "聞いて",
+          "reading": "きいて"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "運ぶ",
+            "reading": "はこぶ"
+          }
+        ],
+        [
+          {
+            "word": "運ばない",
+            "reading": "はこばない"
+          }
+        ],
+        [
+          {
+            "word": "返す",
+            "reading": "かえす"
+          }
+        ],
+        [
+          {
+            "word": "返さない",
+            "reading": "かえさない"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Sai vì người đàn ông đã từ chối sự giúp đỡ.",
+        "Lựa chọn đúng vì người đàn ông nói 'đó khỏi cần đâu'.",
+        "Sai vì người đàn ông chỉ nhắc về việc trả sách chứ không yêu cầu người phụ nữ làm việc đó.",
+        "Sai vì hội thoại không đề cập đến việc người phụ nữ trả hay không trả sách."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-007",
@@ -236,22 +1065,40 @@
         {
           "speaker": "男",
           "text": "予約しておきましょうか。",
-          "textVi": "Tôi đặt chỗ trước luôn nhé?"
+          "textVi": "Tôi đặt chỗ trước luôn nhé?",
+          "furigana": [
+            {
+              "word": "予約",
+              "reading": "よやく"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "しなくてもいいんじゃないかな。",
-          "textVi": "Không cần làm thế cũng được mà nhỉ?"
+          "textVi": "Không cần làm thế cũng được mà nhỉ?",
+          "furigana": []
         },
         {
           "speaker": "男",
           "text": "田中さんにも電話しとく？",
-          "textVi": "Gọi điện cho anh Tanaka luôn chứ?"
+          "textVi": "Gọi điện cho anh Tanaka luôn chứ?",
+          "furigana": [
+            {
+              "word": "田中",
+              "reading": "たなか"
+            },
+            {
+              "word": "電話",
+              "reading": "でんわ"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "ああ、そうしたほうがいいんじゃない？",
-          "textVi": "Ừ, làm thế có khi lại hay đấy?"
+          "textVi": "Ừ, làm thế có khi lại hay đấy?",
+          "furigana": []
         }
       ],
       "question": "男の人はこれからどうしますか。",
@@ -265,7 +1112,44 @@
         "Gọi điện / Không gọi điện"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Người phụ nữ cho rằng không cần đặt chỗ nhưng lại đồng ý với việc gọi điện cho anh Tanaka, vì vậy người đàn ông sẽ không đặt chỗ nhưng sẽ thực hiện cuộc gọi.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "予約",
+            "reading": "よやく"
+          },
+          {
+            "word": "予約",
+            "reading": "よやく"
+          }
+        ],
+        [
+          {
+            "word": "電話",
+            "reading": "でんわ"
+          },
+          {
+            "word": "電話",
+            "reading": "でんわ"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Lựa chọn đúng vì người phụ nữ nói 'không cần làm thế cũng được'.",
+        "Lựa chọn đúng vì người phụ nữ đồng ý với việc gọi điện cho anh Tanaka."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-008",
@@ -279,42 +1163,162 @@
         {
           "speaker": "男",
           "text": "スポーツ大会の賞品の係、君だったよね。優勝チームの賞品、もう決めた？",
-          "textVi": "Cậu phụ trách phần quà của đại hội thể thao phải không? Đã quyết định quà cho đội vô địch chưa?"
+          "textVi": "Cậu phụ trách phần quà của đại hội thể thao phải không? Đã quyết định quà cho đội vô địch chưa?",
+          "furigana": [
+            {
+              "word": "大会",
+              "reading": "たいかい"
+            },
+            {
+              "word": "賞品",
+              "reading": "しょうひん"
+            },
+            {
+              "word": "係",
+              "reading": "かかり"
+            },
+            {
+              "word": "君",
+              "reading": "きみ"
+            },
+            {
+              "word": "優勝",
+              "reading": "ゆうしょう"
+            },
+            {
+              "word": "賞品",
+              "reading": "しょうひん"
+            },
+            {
+              "word": "決めた",
+              "reading": "きめた"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "うーん、何がいいかよくわからなくて。ね、お金はどうかな。",
-          "textVi": "Hừm, tớ không biết nên chọn gì nữa. Này, tiền thì sao nhỉ?"
+          "textVi": "Hừm, tớ không biết nên chọn gì nữa. Này, tiền thì sao nhỉ?",
+          "furigana": [
+            {
+              "word": "何",
+              "reading": "なに"
+            },
+            {
+              "word": "お金",
+              "reading": "おかね"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "それはつまらないんじゃないの？ それなら、図書カードか何かの方がいいと思うけど。",
-          "textVi": "Thế thì chán lắm phải không? Nếu vậy, tớ nghĩ dùng thẻ mua sách hay gì đó thì tốt hơn."
+          "textVi": "Thế thì chán lắm phải không? Nếu vậy, tớ nghĩ dùng thẻ mua sách hay gì đó thì tốt hơn.",
+          "furigana": [
+            {
+              "word": "図書",
+              "reading": "としょ"
+            },
+            {
+              "word": "何か",
+              "reading": "なにか"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            },
+            {
+              "word": "思う",
+              "reading": "おもう"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "うーん、今、みんなあまり本、読まないでしょう？",
-          "textVi": "Hừm, dạo này mọi người ít đọc sách lắm phải không?"
+          "textVi": "Hừm, dạo này mọi người ít đọc sách lắm phải không?",
+          "furigana": [
+            {
+              "word": "今",
+              "reading": "いま"
+            },
+            {
+              "word": "本",
+              "reading": "ほん"
+            },
+            {
+              "word": "読まない",
+              "reading": "よまない"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "そうだなあ。去年はタオルとお茶だったよね。",
-          "textVi": "Cũng đúng nhỉ. Năm ngoái là khăn tắm với trà phải không?"
+          "textVi": "Cũng đúng nhỉ. Năm ngoái là khăn tắm với trà phải không?",
+          "furigana": [
+            {
+              "word": "去年",
+              "reading": "きょねん"
+            },
+            {
+              "word": "お茶",
+              "reading": "おちゃ"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "じゃ、去年と同じにしようかな。",
-          "textVi": "Hay là cứ làm giống năm ngoái nhỉ?"
+          "textVi": "Hay là cứ làm giống năm ngoái nhỉ?",
+          "furigana": [
+            {
+              "word": "去年",
+              "reading": "きょねん"
+            },
+            {
+              "word": "同じ",
+              "reading": "おなじ"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "それなら、飲み物はお茶よりビールの方がいいな。コーヒーでもいいし。",
-          "textVi": "Nếu thế, đồ uống thì bia ngon hơn trà đấy. Cà phê cũng được."
+          "textVi": "Nếu thế, đồ uống thì bia ngon hơn trà đấy. Cà phê cũng được.",
+          "furigana": [
+            {
+              "word": "飲み物",
+              "reading": "のみもの"
+            },
+            {
+              "word": "お茶",
+              "reading": "おちゃ"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "ビールは飲まない人もいるんじゃない？ でも、お茶よりはコーヒーがいいかもね。じゃ、そうしよう。",
-          "textVi": "Không phải có người không uống bia sao? Nhưng mà, cà phê có khi lại ngon hơn trà đấy. Thờ thế đi."
+          "textVi": "Không phải có người không uống bia sao? Nhưng mà, cà phê có khi lại ngon hơn trà đấy. Thờ thế đi.",
+          "furigana": [
+            {
+              "word": "飲まない",
+              "reading": "のまない"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "お茶",
+              "reading": "おちゃ"
+            }
+          ]
         }
       ],
       "question": "女の人は賞品を何にしますか。",
@@ -332,7 +1336,102 @@
         "Khăn tắm và cà phê"
       ],
       "correctIndex": 3,
-      "explanation": "Người đàn ông không đồng ý với đề xuất 'tiền'. Người phụ nữ không đồng ý với 'thẻ mua sách'. Vì 'năm ngoái là khăn tắm và trà', họ nói sẽ làm 'giống' năm nay, nhưng lại nói 'cà phê thì thích hơn trà'."
+      "explanation": "Người phụ nữ quyết định chọn khăn tắm giống năm ngoái, nhưng thay trà bằng cà phê theo gợi ý của người đàn ông.",
+      "scenarioFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひ"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "会社",
+          "reading": "かいしゃ"
+        },
+        {
+          "word": "大会",
+          "reading": "たいかい"
+        },
+        {
+          "word": "賞品",
+          "reading": "しょうひん"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "賞品",
+          "reading": "しょうひん"
+        },
+        {
+          "word": "何",
+          "reading": "な"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "賞品",
+          "reading": "しょうひん"
+        },
+        {
+          "word": "何",
+          "reading": "な"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "お金",
+            "reading": "おかね"
+          }
+        ],
+        [
+          {
+            "word": "図書",
+            "reading": "としょ"
+          }
+        ],
+        [
+          {
+            "word": "お茶",
+            "reading": "おちゃ"
+          }
+        ],
+        []
+      ],
+      "optionExplanations": [
+        "Sai vì người đàn ông cho rằng tiền là lựa chọn nhàm chán.",
+        "Sai vì người phụ nữ lo ngại mọi người ít đọc sách.",
+        "Sai vì họ quyết định thay đổi đồ uống so với năm ngoái.",
+        "Lựa chọn đúng vì người phụ nữ đồng ý dùng khăn tắm và thay trà bằng cà phê."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-009",
@@ -346,32 +1445,148 @@
         {
           "speaker": "女",
           "text": "あの、マイクは発表者用と、司会者用の２本でよろしいでしょうか。",
-          "textVi": "Dạ, micro thì loại dành cho người phát biểu và loại cho người dẫn chương trình, hai cái là đủ phải không ạ?"
+          "textVi": "Dạ, micro thì loại dành cho người phát biểu và loại cho người dẫn chương trình, hai cái là đủ phải không ạ?",
+          "furigana": [
+            {
+              "word": "発表者",
+              "reading": "はっぴょうしゃ"
+            },
+            {
+              "word": "用",
+              "reading": "よう"
+            },
+            {
+              "word": "司会者",
+              "reading": "しかいしゃ"
+            },
+            {
+              "word": "用",
+              "reading": "よう"
+            },
+            {
+              "word": "２本",
+              "reading": "にほん"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "あー、質問用にもう１本、後ろに用意しておいたほうがいいね。",
-          "textVi": "À, nên chuẩn bị thêm một cái ở phía sau để cho người đặt câu hỏi nữa nhé."
+          "textVi": "À, nên chuẩn bị thêm một cái ở phía sau để cho người đặt câu hỏi nữa nhé.",
+          "furigana": [
+            {
+              "word": "質問",
+              "reading": "しつもん"
+            },
+            {
+              "word": "用",
+              "reading": "よう"
+            },
+            {
+              "word": "１本",
+              "reading": "いっぽん"
+            },
+            {
+              "word": "後ろ",
+              "reading": "うしろ"
+            },
+            {
+              "word": "用意",
+              "reading": "ようい"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "わかりました。じゃ、後で借りてきます。",
-          "textVi": "Tôi hiểu rồi. Vậy lát nữa tôi đi mượn."
+          "textVi": "Tôi hiểu rồi. Vậy lát nữa tôi đi mượn.",
+          "furigana": [
+            {
+              "word": "後",
+              "reading": "あと"
+            },
+            {
+              "word": "借りて",
+              "reading": "かりて"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "えーと、もう商品は見ていただけるように置いてあるし……あ、名札はどうなってる？ 先に並べておかないと……。",
-          "textVi": "À, hàng hóa thì đã bày ra để mọi người xem rồi và... ơ, bảng tên thế nào rồi? Phải xếp sẵn ra chứ..."
+          "textVi": "À, hàng hóa thì đã bày ra để mọi người xem rồi và... ơ, bảng tên thế nào rồi? Phải xếp sẵn ra chứ...",
+          "furigana": [
+            {
+              "word": "商品",
+              "reading": "しょうひん"
+            },
+            {
+              "word": "見て",
+              "reading": "みて"
+            },
+            {
+              "word": "置いて",
+              "reading": "おいて"
+            },
+            {
+              "word": "名札",
+              "reading": "なふだ"
+            },
+            {
+              "word": "先",
+              "reading": "さき"
+            },
+            {
+              "word": "並べて",
+              "reading": "ならべて"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "あ、ここにあるので、今やります。それから、資料はもうまとめて受付のところに置いておきました。",
-          "textVi": "À, nó ở đây, em làm ngay đây. Tiện thể, tài liệu thì em đã gom lại và để ở quầy tiếp tân rồi ạ."
+          "textVi": "À, nó ở đây, em làm ngay đây. Tiện thể, tài liệu thì em đã gom lại và để ở quầy tiếp tân rồi ạ.",
+          "furigana": [
+            {
+              "word": "今",
+              "reading": "いま"
+            },
+            {
+              "word": "資料",
+              "reading": "しりょう"
+            },
+            {
+              "word": "受付",
+              "reading": "うけつけ"
+            },
+            {
+              "word": "置いて",
+              "reading": "おいて"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "そう。ありがとう。じゃ、僕はちょっと新聞社の人に電話してくるよ。",
-          "textVi": "Thế à. Cảm ơn nhé. Thế, anh đi gọi điện cho người bên tòa soạn báo chút đây."
+          "textVi": "Thế à. Cảm ơn nhé. Thế, anh đi gọi điện cho người bên tòa soạn báo chút đây.",
+          "furigana": [
+            {
+              "word": "僕",
+              "reading": "ぼく"
+            },
+            {
+              "word": "新聞社",
+              "reading": "しんぶんしゃ"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "電話",
+              "reading": "でんわ"
+            }
+          ]
         }
       ],
       "question": "女の人はこの後すぐ何をしなければなりませんか。",
@@ -389,7 +1604,119 @@
         "Mang tài liệu đi cất"
       ],
       "correctIndex": 2,
-      "explanation": "Về 'micro', cô ấy nói 'Lát nữa tôi sẽ đi mượn', còn về 'bảng tên', cô ấy nói 'Tôi làm ngay đây', nên cô ấy sẽ xếp bảng tên ngay sau đây. Các mục 'hàng hóa' và 'tài liệu' đã chuẩn bị xong."
+      "explanation": "Người đàn ông hỏi về bảng tên và người phụ nữ trả lời rằng cô ấy sẽ làm việc đó ngay bây giờ.",
+      "scenarioFurigana": [
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひ"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "新商品",
+          "reading": "しんしょうひん"
+        },
+        {
+          "word": "発表会",
+          "reading": "はっぴょうかい"
+        },
+        {
+          "word": "準備",
+          "reading": "じゅんび"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "後",
+          "reading": "あと"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "後",
+          "reading": "あと"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "準備",
+            "reading": "じゅんび"
+          }
+        ],
+        [
+          {
+            "word": "商品",
+            "reading": "しょうひん"
+          },
+          {
+            "word": "並べる",
+            "reading": "ならべる"
+          }
+        ],
+        [
+          {
+            "word": "名札",
+            "reading": "なふだ"
+          },
+          {
+            "word": "並べる",
+            "reading": "ならべる"
+          }
+        ],
+        [
+          {
+            "word": "資料",
+            "reading": "しりょう"
+          },
+          {
+            "word": "運んで",
+            "reading": "はこんで"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Sai vì cô ấy sẽ đi mượn micro sau đó, không phải việc ưu tiên ngay lúc này.",
+        "Sai vì hàng hóa đã được bày sẵn.",
+        "Lựa chọn đúng vì người phụ nữ xác nhận sẽ xếp bảng tên ngay sau khi được nhắc.",
+        "Sai vì tài liệu đã được cô ấy mang đến quầy tiếp tân trước đó."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-010",
@@ -403,7 +1730,105 @@
         {
           "speaker": "女",
           "text": "もしもし、杉内です。借りていた本のことなんですけど、今週の金曜日に返す約束でしたが、ちょっと行けなくなってしまったんです。それで、前の日の木曜日の夕方、アルバイトの帰りにお宅にうかがってもいいでしょうか。留守だったら、ポストに入れておきます。月曜日のゼミの時にとも思ったんですが、来週は祝日でお休みなんですよね。来週だと遅すぎるので……どうもすみません。",
-          "textVi": "Alo, tôi là Sugiuchi đây. Về cuốn sách tôi mượn, hẹn là trả vào thứ Sáu tuần này, nhưng tôi lại không đến được. Vì thế, chiều thứ Năm hôm trước, trên đường đi làm thêm về, tôi ghé qua nhà bạn được chứ? Nếu bạn vắng nhà, tôi sẽ bỏ vào hòm thư. Tôi cũng nghĩ hay là trả lúc họp seminar ngày Thứ Hai, nhưng tuần sau lại nghỉ lễ mất rồi. Nếu để sang tuần thì muộn quá... Làm phiền bạn quá."
+          "textVi": "Alo, tôi là Sugiuchi đây. Về cuốn sách tôi mượn, hẹn là trả vào thứ Sáu tuần này, nhưng tôi lại không đến được. Vì thế, chiều thứ Năm hôm trước, trên đường đi làm thêm về, tôi ghé qua nhà bạn được chứ? Nếu bạn vắng nhà, tôi sẽ bỏ vào hòm thư. Tôi cũng nghĩ hay là trả lúc họp seminar ngày Thứ Hai, nhưng tuần sau lại nghỉ lễ mất rồi. Nếu để sang tuần thì muộn quá... Làm phiền bạn quá.",
+          "furigana": [
+            {
+              "word": "杉内",
+              "reading": "すぎうち"
+            },
+            {
+              "word": "借",
+              "reading": "か"
+            },
+            {
+              "word": "本",
+              "reading": "ほん"
+            },
+            {
+              "word": "今週",
+              "reading": "こんしゅう"
+            },
+            {
+              "word": "金曜日",
+              "reading": "きんようび"
+            },
+            {
+              "word": "返",
+              "reading": "かえ"
+            },
+            {
+              "word": "約束",
+              "reading": "やくそく"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            },
+            {
+              "word": "前",
+              "reading": "まえ"
+            },
+            {
+              "word": "日",
+              "reading": "ひ"
+            },
+            {
+              "word": "木曜日",
+              "reading": "もくようび"
+            },
+            {
+              "word": "夕方",
+              "reading": "ゆうがた"
+            },
+            {
+              "word": "帰",
+              "reading": "かえ"
+            },
+            {
+              "word": "宅",
+              "reading": "たく"
+            },
+            {
+              "word": "留守",
+              "reading": "るす"
+            },
+            {
+              "word": "入れて",
+              "reading": "いれて"
+            },
+            {
+              "word": "月曜日",
+              "reading": "げつようび"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            },
+            {
+              "word": "来週",
+              "reading": "らいしゅう"
+            },
+            {
+              "word": "祝日",
+              "reading": "しゅくじつ"
+            },
+            {
+              "word": "休",
+              "reading": "やす"
+            },
+            {
+              "word": "来週",
+              "reading": "らいしゅう"
+            },
+            {
+              "word": "遅",
+              "reading": "おそ"
+            }
+          ]
         }
       ],
       "question": "いつ本を返すか",
@@ -421,7 +1846,95 @@
         "Thứ Hai tuần sau nữa"
       ],
       "correctIndex": 1,
-      "explanation": "Câu hỏi là 'khi nào trả sách'. Khi nghe chú ý đến các từ trong phương án, 'Thứ Sáu tuần này' nói là 'đã không thể đi được nữa' nên không đúng. Sau đó, 'Thứ Năm tuần này' vào 'buổi chiều tối' cô ấy có nói 'tôi ghé qua có được không', nên đây là đáp án. 'Thứ Hai tuần sau' là 'ngày lễ nghỉ', còn 'Thứ Hai tuần sau nữa' thì 'quá muộn', nên cả hai đều không đúng."
+      "explanation": "Người phụ nữ nói rằng hẹn trả sách vào thứ Sáu nhưng không đến được, nên cô ấy đề nghị ghé qua vào chiều thứ Năm. Lựa chọn đúng là thời điểm cô ấy đề xuất thay thế.",
+      "scenarioFurigana": [
+        {
+          "word": "留守番電話",
+          "reading": "るすばんでんわ"
+        },
+        {
+          "word": "聞",
+          "reading": "き"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "本",
+          "reading": "ほん"
+        },
+        {
+          "word": "返",
+          "reading": "かえ"
+        },
+        {
+          "word": "言",
+          "reading": "い"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "本",
+          "reading": "ほん"
+        },
+        {
+          "word": "返",
+          "reading": "かえ"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "今週",
+            "reading": "こんしゅう"
+          },
+          {
+            "word": "金曜日",
+            "reading": "きんようび"
+          }
+        ],
+        [
+          {
+            "word": "今週",
+            "reading": "こんしゅう"
+          },
+          {
+            "word": "木曜日",
+            "reading": "もくようび"
+          }
+        ],
+        [
+          {
+            "word": "来週",
+            "reading": "らいしゅう"
+          },
+          {
+            "word": "月曜日",
+            "reading": "げつようび"
+          }
+        ],
+        [
+          {
+            "word": "再来週",
+            "reading": "さらいしゅう"
+          },
+          {
+            "word": "月曜日",
+            "reading": "げつようび"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là thời điểm hẹn ban đầu nhưng người phụ nữ không thể đến.",
+        "Đây là thời điểm người phụ nữ đề xuất ghé qua để trả sách.",
+        "Người phụ nữ đã cân nhắc trả vào thứ Hai nhưng tuần sau lại là ngày nghỉ lễ.",
+        "Người phụ nữ cho rằng để sang tuần sau thì quá muộn."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-015",
@@ -435,32 +1948,171 @@
         {
           "speaker": "男",
           "text": "あれ？松本さん、中国語、勉強してるの？",
-          "textVi": "Ể? Matsumoto, cậu đang học tiếng Trung à?"
+          "textVi": "Ể? Matsumoto, cậu đang học tiếng Trung à?",
+          "furigana": [
+            {
+              "word": "松本",
+              "reading": "まつもと"
+            },
+            {
+              "word": "中国語",
+              "reading": "ちゅうごくご"
+            },
+            {
+              "word": "勉強",
+              "reading": "べんきょう"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "あ、ちょっとだけ……。",
-          "textVi": "À, một chút thôi..."
+          "textVi": "À, một chút thôi...",
+          "furigana": []
         },
         {
           "speaker": "男",
           "text": "最近、うちの会社も中国の人と仕事をする機会が増えたし、これからは役に立つだろうね。中国語ができれば、旅行にも行けるし。",
-          "textVi": "Dạo này công ty mình cơ hội làm việc với người Trung Quốc cũng tăng lên, từ giờ chắc sẽ có ích nhỉ. Biết tiếng Trung thì đi du lịch cũng được."
+          "textVi": "Dạo này công ty mình cơ hội làm việc với người Trung Quốc cũng tăng lên, từ giờ chắc sẽ có ích nhỉ. Biết tiếng Trung thì đi du lịch cũng được.",
+          "furigana": [
+            {
+              "word": "最近",
+              "reading": "さいきん"
+            },
+            {
+              "word": "会社",
+              "reading": "かいしゃ"
+            },
+            {
+              "word": "中国",
+              "reading": "ちゅうごく"
+            },
+            {
+              "word": "人",
+              "reading": "ひ"
+            },
+            {
+              "word": "仕事",
+              "reading": "しごと"
+            },
+            {
+              "word": "機会",
+              "reading": "きかい"
+            },
+            {
+              "word": "増",
+              "reading": "ふ"
+            },
+            {
+              "word": "役",
+              "reading": "やく"
+            },
+            {
+              "word": "立",
+              "reading": "た"
+            },
+            {
+              "word": "中国語",
+              "reading": "ちゅうごくご"
+            },
+            {
+              "word": "旅行",
+              "reading": "りょこう"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "あー、わたし、飛行機苦手なんで……。まあたしかに仕事で使えるぐらいになれればいいでしょうけど、わたしの場合は、単に趣味で……。",
-          "textVi": "À, tôi sợ đi máy bay lắm... À thì đúng là giỏi lên để dùng cho công việc thì tốt thật đấy, nhưng trường hợp của tôi thì chỉ là sở thích thôi..."
+          "textVi": "À, tôi sợ đi máy bay lắm... À thì đúng là giỏi lên để dùng cho công việc thì tốt thật đấy, nhưng trường hợp của tôi thì chỉ là sở thích thôi...",
+          "furigana": [
+            {
+              "word": "飛行機",
+              "reading": "ひこうき"
+            },
+            {
+              "word": "苦手",
+              "reading": "にがて"
+            },
+            {
+              "word": "仕事",
+              "reading": "しごと"
+            },
+            {
+              "word": "使",
+              "reading": "つか"
+            },
+            {
+              "word": "場合",
+              "reading": "ばあい"
+            },
+            {
+              "word": "単",
+              "reading": "たん"
+            },
+            {
+              "word": "趣味",
+              "reading": "しゅみ"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "へえ。中国人の友達でもできたの？",
-          "textVi": "Ồ. Cậu kết bạn được với người Trung Quốc à?"
+          "textVi": "Ồ. Cậu kết bạn được với người Trung Quốc à?",
+          "furigana": [
+            {
+              "word": "中国人",
+              "reading": "ちゅうごくじん"
+            },
+            {
+              "word": "友達",
+              "reading": "ともだち"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "そういうチャンスでもあればいいんですけど。実は最近、中国のお土産でCDをもらったんですが、それがすごくいいんです。音楽だけじゃなくて、意味を知りたいなって思って……。",
-          "textVi": "Được như thế thì tốt quá. Thật ra gần đây tôi được tặng một chiếc CD quà lưu niệm từ Trung Quốc, nghe hay lắm. Không chỉ nhạc hay mà tôi còn muốn hiểu cả ý nghĩa của nó nữa..."
+          "textVi": "Được như thế thì tốt quá. Thật ra gần đây tôi được tặng một chiếc CD quà lưu niệm từ Trung Quốc, nghe hay lắm. Không chỉ nhạc hay mà tôi còn muốn hiểu cả ý nghĩa của nó nữa...",
+          "furigana": [
+            {
+              "word": "実は",
+              "reading": "じつは"
+            },
+            {
+              "word": "最近",
+              "reading": "さいきん"
+            },
+            {
+              "word": "中国",
+              "reading": "ちゅうごく"
+            },
+            {
+              "word": "土産",
+              "reading": "みやげ"
+            },
+            {
+              "word": "音楽",
+              "reading": "おんがく"
+            },
+            {
+              "word": "意味",
+              "reading": "いみ"
+            },
+            {
+              "word": "知",
+              "reading": "し"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            }
+          ]
         }
       ],
       "question": "中国語を勉強している目的は何ですか",
@@ -478,7 +2130,127 @@
         "Để hiểu ý nghĩa bài hát"
       ],
       "correctIndex": 3,
-      "explanation": "Dù được bảo là sẽ \"hữu ích\" trong \"công việc\" và cô ấy cũng công nhận \"đúng vậy\", \"giá mà sử dụng được thì tốt\", nhưng vì đây \"chỉ là sở thích\" nên đáp án 1 không chính xác. Đáp án 2 sai vì cô ấy nói \"sợ đi máy bay\". Đáp án 3 về \"bạn bè\" không đúng vì cô ấy nói \"giá mà có cơ hội (= hiện không có cơ hội)\"."
+      "explanation": "Người phụ nữ phủ nhận việc học vì công việc hay du lịch, cô ấy nói rằng mình học vì muốn hiểu ý nghĩa của bài hát trong chiếc CD được tặng.",
+      "scenarioFurigana": [
+        {
+          "word": "会社",
+          "reading": "かいしゃ"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひ"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "話",
+          "reading": "はな"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "中国語",
+          "reading": "ちゅうごくご"
+        },
+        {
+          "word": "勉強",
+          "reading": "べんきょう"
+        },
+        {
+          "word": "目的",
+          "reading": "もくてき"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "中国語",
+          "reading": "ちゅうごくご"
+        },
+        {
+          "word": "勉強",
+          "reading": "べんきょう"
+        },
+        {
+          "word": "目的",
+          "reading": "もくてき"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "仕事",
+            "reading": "しごと"
+          },
+          {
+            "word": "使",
+            "reading": "つか"
+          }
+        ],
+        [
+          {
+            "word": "中国",
+            "reading": "ちゅうごく"
+          },
+          {
+            "word": "行",
+            "reading": "い"
+          }
+        ],
+        [
+          {
+            "word": "友達",
+            "reading": "ともだち"
+          },
+          {
+            "word": "話",
+            "reading": "はな"
+          }
+        ],
+        [
+          {
+            "word": "歌",
+            "reading": "うた"
+          },
+          {
+            "word": "意味",
+            "reading": "いみ"
+          },
+          {
+            "word": "知",
+            "reading": "し"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Người phụ nữ nói rằng đó chỉ là sở thích, không phải vì công việc.",
+        "Người phụ nữ sợ đi máy bay nên không có ý định đi Trung Quốc.",
+        "Cô ấy nói rằng nếu có cơ hội kết bạn thì tốt, nhưng đó không phải là mục đích học.",
+        "Cô ấy xác nhận muốn hiểu ý nghĩa của bài hát trong CD."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-017",
@@ -492,17 +2264,47 @@
         {
           "speaker": "女",
           "text": "推薦状を書いてもいいですか。",
-          "textVi": "Tôi viết thư giới thiệu nhé?"
+          "textVi": "Tôi viết thư giới thiệu nhé?",
+          "furigana": [
+            {
+              "word": "推薦状",
+              "reading": "すいせんじょう"
+            },
+            {
+              "word": "書",
+              "reading": "か"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "推薦状を書いていただけませんか。",
-          "textVi": "Bạn có thể viết thư giới thiệu cho tôi được không?"
+          "textVi": "Bạn có thể viết thư giới thiệu cho tôi được không?",
+          "furigana": [
+            {
+              "word": "推薦状",
+              "reading": "すいせんじょう"
+            },
+            {
+              "word": "書",
+              "reading": "か"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "推薦状をお書きしましょうか。",
-          "textVi": "Tôi viết thư giới thiệu cho bạn nhé?"
+          "textVi": "Tôi viết thư giới thiệu cho bạn nhé?",
+          "furigana": [
+            {
+              "word": "推薦状",
+              "reading": "すいせんじょう"
+            },
+            {
+              "word": "書",
+              "reading": "か"
+            }
+          ]
         }
       ],
       "question": "先生に推薦状を書いてもらいたいです。何と言いますか。",
@@ -518,8 +2320,68 @@
         "Em viết thư giới thiệu cho thầy/cô nhé?"
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Khi muốn nhờ vả cấp trên hoặc thầy cô, cần sử dụng cấu trúc lịch sự '～ていただけませんか'.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "先生",
+          "reading": "せんせい"
+        },
+        {
+          "word": "推薦状",
+          "reading": "すいせんじょう"
+        },
+        {
+          "word": "書",
+          "reading": "か"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言",
+          "reading": "い"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "推薦状",
+            "reading": "すいせんじょう"
+          },
+          {
+            "word": "書",
+            "reading": "か"
+          }
+        ],
+        [
+          {
+            "word": "推薦状",
+            "reading": "すいせんじょう"
+          },
+          {
+            "word": "書",
+            "reading": "か"
+          }
+        ],
+        [
+          {
+            "word": "推薦状",
+            "reading": "すいせんじょう"
+          },
+          {
+            "word": "書",
+            "reading": "か"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Cách nói này mang nghĩa 'Tôi viết được không?', không phải là lời nhờ vả.",
+        "Đây là cách nhờ vả lịch sự, phù hợp để nói với thầy cô.",
+        "Cách nói này mang nghĩa 'Tôi viết giúp thầy cô nhé?', không phải là nhờ thầy cô viết."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-018",
@@ -533,17 +2395,35 @@
         {
           "speaker": "女",
           "text": "かさ、借りてくれない？",
-          "textVi": "Cậu không mượn dù à?"
+          "textVi": "Cậu không mượn dù à?",
+          "furigana": [
+            {
+              "word": "借",
+              "reading": "か"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "かさ、貸したらどう？",
-          "textVi": "Cậu cho mượn dù thì sao?"
+          "textVi": "Cậu cho mượn dù thì sao?",
+          "furigana": [
+            {
+              "word": "貸",
+              "reading": "か"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "かさ、貸そうか。",
-          "textVi": "Tôi cho mượn dù nhé?"
+          "textVi": "Tôi cho mượn dù nhé?",
+          "furigana": [
+            {
+              "word": "貸",
+              "reading": "か"
+            }
+          ]
         }
       ],
       "question": "友達がかさがなくて困っているようです。何と言いますか。",
@@ -559,8 +2439,52 @@
         "Tôi cho bạn mượn ô nhé."
       ],
       "correctIndex": 2,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Khi thấy bạn gặp khó khăn và muốn đề nghị giúp đỡ, sử dụng cấu trúc '～ましょうか'.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "友達",
+          "reading": "ともだち"
+        },
+        {
+          "word": "困",
+          "reading": "こま"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言",
+          "reading": "い"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "借",
+            "reading": "か"
+          }
+        ],
+        [
+          {
+            "word": "貸",
+            "reading": "か"
+          }
+        ],
+        [
+          {
+            "word": "貸",
+            "reading": "か"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này hỏi bạn có mượn không, không phải đề nghị cho mượn.",
+        "Câu này hỏi ý kiến bạn về việc cho mượn, không phải đề nghị giúp.",
+        "Đây là cách đề nghị giúp đỡ phù hợp trong tình huống này."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-019",
@@ -574,7 +2498,17 @@
         {
           "speaker": "女",
           "text": "この本、よかったですよ。読みますか。",
-          "textVi": "Cuốn sách này hay lắm đấy. Cậu đọc không?"
+          "textVi": "Cuốn sách này hay lắm đấy. Cậu đọc không?",
+          "furigana": [
+            {
+              "word": "本",
+              "reading": "ほん"
+            },
+            {
+              "word": "読",
+              "reading": "よ"
+            }
+          ]
         }
       ],
       "question": "",
@@ -588,8 +2522,28 @@
         "Vâng, tôi đọc."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi bạn có muốn đọc sách không, lựa chọn đúng là câu trả lời xác nhận hành động của bản thân.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "読",
+            "reading": "よ"
+          }
+        ],
+        [
+          {
+            "word": "読",
+            "reading": "よ"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'chúng ta cùng đọc', không phù hợp với câu hỏi.",
+        "Đây là câu trả lời xác nhận việc mình sẽ đọc."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-020",
@@ -603,7 +2557,17 @@
         {
           "speaker": "男",
           "text": "もう3時ですね。そろそろ行きませんか。",
-          "textVi": "Đã 3 giờ rồi nhỉ. Sắp sửa đi chưa?"
+          "textVi": "Đã 3 giờ rồi nhỉ. Sắp sửa đi chưa?",
+          "furigana": [
+            {
+              "word": "時",
+              "reading": "じ"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            }
+          ]
         }
       ],
       "question": "",
@@ -617,8 +2581,28 @@
         "Vâng, chúng ta cùng đi nhé."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói đề nghị cùng đi, lựa chọn đúng là câu trả lời đồng ý với lời đề nghị đó.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "行",
+            "reading": "い"
+          }
+        ],
+        [
+          {
+            "word": "行",
+            "reading": "い"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Không, tôi đi đây', không phải là đồng ý cùng đi.",
+        "Đây là câu trả lời đồng ý cùng đi."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-021",
@@ -632,7 +2616,13 @@
         {
           "speaker": "女",
           "text": "暑くないですか。エアコン、つけましょうか。",
-          "textVi": "Có nóng không? Tôi bật điều hòa nhé?"
+          "textVi": "Có nóng không? Tôi bật điều hòa nhé?",
+          "furigana": [
+            {
+              "word": "暑",
+              "reading": "あつ"
+            }
+          ]
         }
       ],
       "question": "",
@@ -646,8 +2636,18 @@
         "Vâng, bạn không bật à?"
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói đề nghị bật điều hòa, lựa chọn đúng là câu trả lời đồng ý với đề nghị đó.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời đồng ý và nhờ người nói bật điều hòa.",
+        "Câu này mang nghĩa 'Bạn không bật à?', không phải là câu trả lời đồng ý."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-022",
@@ -661,7 +2661,25 @@
         {
           "speaker": "男",
           "text": "あ、薬を飲まれるなら、水をお持ちしましょう。",
-          "textVi": "À, nếu anh uống thuốc thì để tôi lấy nước cho."
+          "textVi": "À, nếu anh uống thuốc thì để tôi lấy nước cho.",
+          "furigana": [
+            {
+              "word": "薬",
+              "reading": "くすり"
+            },
+            {
+              "word": "飲",
+              "reading": "の"
+            },
+            {
+              "word": "水",
+              "reading": "みず"
+            },
+            {
+              "word": "持",
+              "reading": "も"
+            }
+          ]
         }
       ],
       "question": "",
@@ -675,8 +2693,28 @@
         "Vâng, tôi mang cho."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói đề nghị lấy nước giúp, lựa chọn đúng là câu trả lời cảm ơn và chấp nhận sự giúp đỡ.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "願",
+            "reading": "ねが"
+          }
+        ],
+        [
+          {
+            "word": "持",
+            "reading": "も"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời cảm ơn và chấp nhận sự giúp đỡ.",
+        "Câu này mang nghĩa 'Vâng, tôi mang cho', không phải là câu trả lời chấp nhận sự giúp đỡ."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-023",
@@ -690,7 +2728,21 @@
         {
           "speaker": "男",
           "text": "今年の夏の旅行はどこがいいでしょうか。",
-          "textVi": "Chuyến du lịch hè năm nay đi đâu thì được nhỉ?"
+          "textVi": "Chuyến du lịch hè năm nay đi đâu thì được nhỉ?",
+          "furigana": [
+            {
+              "word": "今年",
+              "reading": "ことし"
+            },
+            {
+              "word": "夏",
+              "reading": "なつ"
+            },
+            {
+              "word": "旅行",
+              "reading": "りょこう"
+            }
+          ]
         }
       ],
       "question": "",
@@ -704,8 +2756,36 @@
         "Năm nay tôi lại chọn núi Phú Sĩ."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói đang hỏi ý kiến về địa điểm du lịch, lựa chọn đúng là câu đề xuất phương án đi núi Phú Sĩ như năm ngoái.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "今年",
+            "reading": "ことし"
+          },
+          {
+            "word": "富士山",
+            "reading": "ふじさん"
+          }
+        ],
+        [
+          {
+            "word": "今年",
+            "reading": "ことし"
+          },
+          {
+            "word": "富士山",
+            "reading": "ふじさん"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là câu đề xuất ý kiến, phù hợp với ngữ cảnh hỏi ý kiến người nghe.",
+        "Đây là câu khẳng định quyết định cá nhân, không phù hợp với câu hỏi mang tính gợi ý."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-025",
@@ -719,7 +2799,21 @@
         {
           "speaker": "男",
           "text": "ごみ、捨てに行くけど、ついでにこれも捨ててこようか。",
-          "textVi": "Anh đi đổ rác đúng không, tiện thể vứt luôn cái này hộ em nhé?"
+          "textVi": "Anh đi đổ rác đúng không, tiện thể vứt luôn cái này hộ em nhé?",
+          "furigana": [
+            {
+              "word": "捨",
+              "reading": "す"
+            },
+            {
+              "word": "行",
+              "reading": "い"
+            },
+            {
+              "word": "捨",
+              "reading": "す"
+            }
+          ]
         }
       ],
       "question": "",
@@ -733,8 +2827,28 @@
         "Ừ, tớ vứt đây."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói nhờ vả việc đổ rác, lựa chọn đúng là câu đồng ý và nhận lời giúp đỡ.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "願",
+            "reading": "ねが"
+          }
+        ],
+        [
+          {
+            "word": "捨",
+            "reading": "す"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này thể hiện sự đồng ý và chấp nhận lời nhờ vả, rất tự nhiên.",
+        "Câu này chỉ khẳng định hành động vứt rác của bản thân, thiếu sự xác nhận giúp đỡ người kia."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-026",
@@ -748,7 +2862,25 @@
         {
           "speaker": "女",
           "text": "田中君。テニス部に入ったのね。面白い？",
-          "textVi": "Tanaka. Cậu vào câu lạc bộ quần vợt à. Có vui không?"
+          "textVi": "Tanaka. Cậu vào câu lạc bộ quần vợt à. Có vui không?",
+          "furigana": [
+            {
+              "word": "田中君",
+              "reading": "たなかくん"
+            },
+            {
+              "word": "テニス部",
+              "reading": "てにすぶ"
+            },
+            {
+              "word": "入",
+              "reading": "はい"
+            },
+            {
+              "word": "面白",
+              "reading": "おもしろ"
+            }
+          ]
         }
       ],
       "question": "",
@@ -762,8 +2894,36 @@
         "Ừ, hay là anh Sato cũng vào nhỉ."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi về câu lạc bộ quần vợt, lựa chọn đúng là câu mời gọi người kia cùng tham gia.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "佐藤",
+            "reading": "さとう"
+          },
+          {
+            "word": "入",
+            "reading": "はい"
+          }
+        ],
+        [
+          {
+            "word": "佐藤",
+            "reading": "さとう"
+          },
+          {
+            "word": "入",
+            "reading": "はい"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này hỏi ngược lại người kia có muốn tham gia không, phù hợp với ngữ cảnh trò chuyện.",
+        "Câu này mang nghĩa rủ rê cùng vào, nhưng cách dùng '入ろうか' không tự nhiên bằng cách hỏi ý kiến đối phương."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-027",
@@ -777,7 +2937,13 @@
         {
           "speaker": "男",
           "text": "あの、今ちょっとよろしいでしょうか。",
-          "textVi": "À, bây giờ anh/chị có chút thời gian không?"
+          "textVi": "À, bây giờ anh/chị có chút thời gian không?",
+          "furigana": [
+            {
+              "word": "今",
+              "reading": "いま"
+            }
+          ]
         }
       ],
       "question": "",
@@ -791,8 +2957,23 @@
         "Vâng, có chuyện gì thế ạ?"
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói muốn xin thời gian để trao đổi, lựa chọn đúng là câu hỏi lại mục đích của người nói.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "何",
+            "reading": "なん"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này dùng để đáp lại lời cảm ơn, không liên quan đến việc xin thời gian.",
+        "Câu này hỏi lại có chuyện gì, thể hiện sự sẵn sàng lắng nghe."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-028",
@@ -806,7 +2987,17 @@
         {
           "speaker": "女",
           "text": "お先に失礼します。",
-          "textVi": "Tôi xin phép về trước."
+          "textVi": "Tôi xin phép về trước.",
+          "furigana": [
+            {
+              "word": "先",
+              "reading": "さき"
+            },
+            {
+              "word": "失礼",
+              "reading": "しつれい"
+            }
+          ]
         }
       ],
       "question": "",
@@ -820,8 +3011,32 @@
         "Anh chị vất vả rồi."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói xin phép về trước, lựa chọn đúng là câu chào hỏi xã giao phù hợp trong môi trường làm việc.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "元気",
+            "reading": "げんき"
+          }
+        ],
+        [
+          {
+            "word": "疲",
+            "reading": "つか"
+          },
+          {
+            "word": "様",
+            "reading": "さま"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này dùng khi chia tay lâu dài hoặc chúc sức khỏe, không phù hợp khi đồng nghiệp về trước.",
+        "Câu này là lời chào chuẩn mực khi đồng nghiệp kết thúc công việc và ra về."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-029",
@@ -835,7 +3050,17 @@
         {
           "speaker": "男",
           "text": "冷たいお飲み物でもいかがですか。",
-          "textVi": "Anh/chị dùng chút đồ uống lạnh gì không?"
+          "textVi": "Anh/chị dùng chút đồ uống lạnh gì không?",
+          "furigana": [
+            {
+              "word": "冷",
+              "reading": "つめ"
+            },
+            {
+              "word": "飲み物",
+              "reading": "のみもの"
+            }
+          ]
         }
       ],
       "question": "",
@@ -849,8 +3074,18 @@
         "Làm phiền bạn nhé."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói mời đồ uống lạnh, lựa chọn đúng là câu nhận lời mời một cách lịch sự.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này thể hiện sự nhận lời mời dùng đồ uống.",
+        "Câu này dùng khi đến thăm nhà người khác, không liên quan đến việc nhận đồ uống."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-030",
@@ -864,7 +3099,13 @@
         {
           "speaker": "女",
           "text": "いろいろお世話になりました。",
-          "textVi": "Cảm ơn anh/chị vì đã giúp đỡ tôi rất nhiều."
+          "textVi": "Cảm ơn anh/chị vì đã giúp đỡ tôi rất nhiều.",
+          "furigana": [
+            {
+              "word": "世話",
+              "reading": "せわ"
+            }
+          ]
         }
       ],
       "question": "",
@@ -878,8 +3119,23 @@
         "Mời bạn lại đến nhé."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói cảm ơn vì đã giúp đỡ, lựa chọn đúng là câu đáp lại lời cảm ơn và mời quay lại.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "待",
+            "reading": "ま"
+          }
+        ],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này dùng để xin lỗi vì bắt người khác đợi, không phù hợp với lời cảm ơn.",
+        "Câu này đáp lại lời cảm ơn và thể hiện sự hiếu khách, mong muốn gặp lại."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-031",
@@ -893,7 +3149,17 @@
         {
           "speaker": "男",
           "text": "映画でも見ない？",
-          "textVi": "Đi xem phim không?"
+          "textVi": "Đi xem phim không?",
+          "furigana": [
+            {
+              "word": "映画",
+              "reading": "えいが"
+            },
+            {
+              "word": "見",
+              "reading": "み"
+            }
+          ]
         }
       ],
       "question": "",
@@ -907,8 +3173,28 @@
         "Được chứ. Mình đang có chương trình muốn xem đây."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói rủ đi xem phim, lựa chọn đúng là câu đồng ý và bày tỏ sự quan tâm đến bộ phim.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "見",
+            "reading": "み"
+          }
+        ],
+        [
+          {
+            "word": "見",
+            "reading": "み"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này hỏi lý do không xem, không khớp với lời rủ rê.",
+        "Câu này đồng ý đi xem và xác nhận có bộ phim muốn xem, rất phù hợp."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-032",
@@ -922,7 +3208,17 @@
         {
           "speaker": "女",
           "text": "もう佐々木さんに連絡した？",
-          "textVi": "Cậu đã liên lạc với anh Sasaki chưa?"
+          "textVi": "Cậu đã liên lạc với anh Sasaki chưa?",
+          "furigana": [
+            {
+              "word": "佐々木",
+              "reading": "ささき"
+            },
+            {
+              "word": "連絡",
+              "reading": "れんらく"
+            }
+          ]
         }
       ],
       "question": "",
@@ -936,8 +3232,31 @@
         "À, hôm nay bận cả ngày."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi về việc đã liên lạc với anh Sasaki chưa. Lựa chọn đúng là câu trả lời cho thấy người nghe bận rộn cả ngày nên chưa thể thực hiện việc đó.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "今日",
+            "reading": "きょう"
+          },
+          {
+            "word": "一日",
+            "reading": "いちにち"
+          },
+          {
+            "word": "忙",
+            "reading": "いそが"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa ngạc nhiên vì đối phương đã làm rồi, không phù hợp với ngữ cảnh cần giải thích lý do chưa làm.",
+        "Câu này giải thích lý do bận rộn cả ngày, là câu trả lời hợp lý cho câu hỏi về việc đã liên lạc hay chưa."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-034",
@@ -951,7 +3270,17 @@
         {
           "speaker": "男",
           "text": "あしたのパーティー、僕も出席しなくちゃいけない？",
-          "textVi": "Bữa tiệc ngày mai, tớ cũng phải tham dự à?"
+          "textVi": "Bữa tiệc ngày mai, tớ cũng phải tham dự à?",
+          "furigana": [
+            {
+              "word": "僕",
+              "reading": "ぼく"
+            },
+            {
+              "word": "出席",
+              "reading": "しゅっせき"
+            }
+          ]
         }
       ],
       "question": "",
@@ -965,8 +3294,23 @@
         "Nghe nói không đi được nữa à."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi liệu mình có bắt buộc phải tham dự bữa tiệc không. Lựa chọn đúng thể hiện mong muốn của người nghe rằng người nói nên tham dự.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "行けなくなった",
+            "reading": "いけなくなった"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này thể hiện mong muốn người nói nên tham dự, là câu trả lời phù hợp cho câu hỏi xác nhận sự cần thiết.",
+        "Câu này nói về việc không thể đi được nữa, không liên quan đến việc trả lời câu hỏi về sự cần thiết phải tham dự."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-054",
@@ -980,7 +3324,13 @@
         {
           "speaker": "男",
           "text": "土曜日、よかったらうちにいらっしゃいませんか。",
-          "textVi": "Thứ Bảy, nếu không bận thì anh/chị đến nhà tôi chơi nhé?"
+          "textVi": "Thứ Bảy, nếu không bận thì anh/chị đến nhà tôi chơi nhé?",
+          "furigana": [
+            {
+              "word": "土曜日",
+              "reading": "どようび"
+            }
+          ]
         }
       ],
       "question": "",
@@ -996,8 +3346,39 @@
         "Vâng, tôi rất sẵn lòng nhận."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói mời người nghe đến nhà chơi. Lựa chọn đúng sử dụng khiêm nhường ngữ 'うかがいます' để đáp lại lời mời đến thăm nhà người khác.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "喜んで",
+            "reading": "よろこんで"
+          },
+          {
+            "word": "行かせます",
+            "reading": "いかせます"
+          }
+        ],
+        [
+          {
+            "word": "喜んで",
+            "reading": "よろこんで"
+          }
+        ],
+        [
+          {
+            "word": "喜んで",
+            "reading": "よろこんで"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Sử dụng sai khiêm nhường ngữ '行かせます' (tôi sẽ để cho đi), không phù hợp để đáp lại lời mời.",
+        "Sử dụng đúng khiêm nhường ngữ 'うかがいます' (tôi xin phép đến), phù hợp để đáp lại lời mời đến nhà.",
+        "Sử dụng sai động từ 'いただきます' (tôi xin nhận), không phù hợp với ngữ cảnh lời mời đến thăm."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-055",
@@ -1011,7 +3392,17 @@
         {
           "speaker": "女",
           "text": "申込書の書き方はこれでいいでしょうか。",
-          "textVi": "Cách điền phiếu đăng ký thế này đã được chưa ạ?"
+          "textVi": "Cách điền phiếu đăng ký thế này đã được chưa ạ?",
+          "furigana": [
+            {
+              "word": "申込書",
+              "reading": "もうしこみしょ"
+            },
+            {
+              "word": "書き方",
+              "reading": "かきかた"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1027,8 +3418,35 @@
         "Vậy, chúng ta hãy gặp nhau một chút nhé."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi về cách điền phiếu đăng ký. Lựa chọn đúng sử dụng khiêm nhường ngữ '拝見します' để thể hiện việc người nói sẽ xem qua giúp.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "拝見",
+            "reading": "はいけん"
+          }
+        ],
+        [
+          {
+            "word": "ご覧",
+            "reading": "ごらん"
+          }
+        ],
+        [
+          {
+            "word": "目",
+            "reading": "め"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Sử dụng đúng khiêm nhường ngữ '拝見します' (tôi xin phép xem), phù hợp để đáp lại yêu cầu kiểm tra.",
+        "Sử dụng tôn kính ngữ 'ご覧になってください' (xin mời ngài xem), không phù hợp vì người nói là người kiểm tra giúp.",
+        "Sử dụng sai cụm từ 'お目にかかりましょう' (chúng ta hãy gặp nhau), không liên quan đến việc kiểm tra phiếu."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-056",
@@ -1042,7 +3460,13 @@
         {
           "speaker": "女",
           "text": "これ、1枚もらってもいいですか。",
-          "textVi": "Cái này, tôi lấy một tờ được chứ?"
+          "textVi": "Cái này, tôi lấy một tờ được chứ?",
+          "furigana": [
+            {
+              "word": "1枚",
+              "reading": "いちまい"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1058,8 +3482,29 @@
         "Bất cứ ai cũng sẽ cho bạn đấy."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói xin phép lấy một tờ. Lựa chọn đúng là câu trả lời lịch sự cho phép người nghe tự lấy.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "自由",
+            "reading": "じゆう"
+          },
+          {
+            "word": "お取り",
+            "reading": "おとり"
+          }
+        ],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này cho phép người nghe tự lấy một cách lịch sự, phù hợp với yêu cầu.",
+        "Câu này nói về việc có thể nhận bất cứ lúc nào, không trực tiếp trả lời cho việc xin phép lấy ngay lúc này.",
+        "Câu này nói về việc người khác sẽ cho, không phù hợp với ngữ cảnh người nói đang xin phép lấy."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-058",
@@ -1073,7 +3518,17 @@
         {
           "speaker": "男",
           "text": "あの、何かご用でしょうか。",
-          "textVi": "Dạ, anh/chị cần gì ạ?"
+          "textVi": "Dạ, anh/chị cần gì ạ?",
+          "furigana": [
+            {
+              "word": "何か",
+              "reading": "なにか"
+            },
+            {
+              "word": "ご用",
+              "reading": "ごよう"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1089,8 +3544,47 @@
         "Tôi rất muốn được gặp anh/chị Tanaka."
       ],
       "correctIndex": 2,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi có việc gì không. Lựa chọn đúng sử dụng khiêm nhường ngữ 'お目にかかりたい' để bày tỏ mong muốn gặp mặt.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "田中",
+            "reading": "たなか"
+          },
+          {
+            "word": "拝見",
+            "reading": "はいけん"
+          }
+        ],
+        [
+          {
+            "word": "田中",
+            "reading": "たなか"
+          },
+          {
+            "word": "お会い",
+            "reading": "おあい"
+          }
+        ],
+        [
+          {
+            "word": "田中",
+            "reading": "たなか"
+          },
+          {
+            "word": "お目",
+            "reading": "おめ"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Sử dụng sai khiêm nhường ngữ '拝見したい' (muốn nhìn), không phù hợp để nói về việc gặp người.",
+        "Sử dụng sai cấu trúc 'お会いになる' (tôn kính ngữ), không phù hợp khi nói về mong muốn của bản thân.",
+        "Sử dụng đúng khiêm nhường ngữ 'お目にかかりたい' (muốn gặp), phù hợp để bày tỏ mong muốn gặp mặt."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-059",
@@ -1104,7 +3598,13 @@
         {
           "speaker": "女",
           "text": "パソコン、使わせていただきたいんですが。",
-          "textVi": "Tôi muốn xin phép dùng máy tính."
+          "textVi": "Tôi muốn xin phép dùng máy tính.",
+          "furigana": [
+            {
+              "word": "使わせて",
+              "reading": "つかわせて"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1120,8 +3620,35 @@
         "Anh/chị sẽ sử dụng cái ở đằng kia đấy."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói xin phép sử dụng máy tính. Lựa chọn đúng là lời mời lịch sự sử dụng máy tính ở đằng kia.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "使わせて",
+            "reading": "つかわせて"
+          }
+        ],
+        [
+          {
+            "word": "お使い",
+            "reading": "おつかい"
+          }
+        ],
+        [
+          {
+            "word": "使われます",
+            "reading": "つかわれます"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này hỏi lại liệu có thể dùng cái đằng kia không, không phải là câu trả lời cho phép.",
+        "Câu này mời người nói sử dụng máy tính ở đằng kia một cách lịch sự, phù hợp với yêu cầu.",
+        "Câu này nói về việc người khác sẽ sử dụng, không phù hợp với ngữ cảnh cho phép người nói dùng."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-060",
@@ -1135,7 +3662,17 @@
         {
           "speaker": "男",
           "text": "あの、お客様、ご予約はされましたか。",
-          "textVi": "Dạ thưa quý khách, quý khách đã đặt chỗ trước chưa ạ?"
+          "textVi": "Dạ thưa quý khách, quý khách đã đặt chỗ trước chưa ạ?",
+          "furigana": [
+            {
+              "word": "お客様",
+              "reading": "おきゃくさま"
+            },
+            {
+              "word": "ご予約",
+              "reading": "ごよやく"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1151,8 +3688,34 @@
         "Vâng, ngài đã gọi điện thoại phải không?"
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói hỏi về việc đặt chỗ trước. Lựa chọn đúng xác nhận đã thực hiện việc đặt chỗ qua điện thoại vào ngày hôm qua.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "昨日",
+            "reading": "きのう"
+          },
+          {
+            "word": "電話",
+            "reading": "でんわ"
+          }
+        ],
+        [
+          {
+            "word": "お電話",
+            "reading": "おでんわ"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này phủ định việc đã đặt chỗ, không phù hợp nếu người nghe đã đặt.",
+        "Câu này xác nhận đã đặt chỗ qua điện thoại vào ngày hôm qua, là câu trả lời hợp lý.",
+        "Câu này hỏi ngược lại người nói, không phải là câu trả lời xác nhận việc đặt chỗ."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-061",
@@ -1166,7 +3729,21 @@
         {
           "speaker": "男",
           "text": "今朝の新聞、お読みになりましたか。",
-          "textVi": "Anh/chị đã đọc báo sáng nay chưa?"
+          "textVi": "Anh/chị đã đọc báo sáng nay chưa?",
+          "furigana": [
+            {
+              "word": "今朝",
+              "reading": "けさ"
+            },
+            {
+              "word": "新聞",
+              "reading": "しんぶん"
+            },
+            {
+              "word": "お読み",
+              "reading": "およみ"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1182,8 +3759,35 @@
         "Không, tôi rất muốn xem."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người hỏi sử dụng kính ngữ để hỏi về việc đọc báo. Lựa chọn đúng là câu trả lời phủ định tự nhiên và lịch sự cho câu hỏi đó.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "読んで",
+            "reading": "よんで"
+          }
+        ],
+        [
+          {
+            "word": "お読み",
+            "reading": "およみ"
+          }
+        ],
+        [
+          {
+            "word": "拝見",
+            "reading": "はいけん"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời phủ định đúng ngữ pháp và lịch sự cho câu hỏi về việc đã đọc báo hay chưa.",
+        "Cách dùng kính ngữ 'お読みしませんでした' là sai, không đúng quy tắc chia động từ khiêm nhường ngữ.",
+        "Câu này mang nghĩa 'tôi muốn xem', không trả lời trực tiếp cho câu hỏi đã đọc hay chưa."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-062",
@@ -1197,7 +3801,8 @@
         {
           "speaker": "女",
           "text": "どなたがいらっしゃったんですか。",
-          "textVi": "Ai đã đến thế ạ?"
+          "textVi": "Ai đã đến thế ạ?",
+          "furigana": []
         }
       ],
       "question": "",
@@ -1213,8 +3818,35 @@
         "Bố tôi đã đến."
       ],
       "correctIndex": 2,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Câu hỏi hỏi về danh tính người đã đến. Lựa chọn đúng cung cấp thông tin về người đã đến bằng cách sử dụng khiêm nhường ngữ phù hợp.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "京都",
+            "reading": "きょうと"
+          }
+        ],
+        [
+          {
+            "word": "昨日",
+            "reading": "きのう"
+          }
+        ],
+        [
+          {
+            "word": "父",
+            "reading": "ちち"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này trả lời về địa điểm (đã ở Kyoto), không trả lời cho câu hỏi về người đã đến.",
+        "Câu này dùng kính ngữ cho người khác, không phù hợp để giới thiệu người thân của mình.",
+        "Đây là câu trả lời đúng, sử dụng khiêm nhường ngữ 'まいりました' để nói về việc bố mình đã đến."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-063",
@@ -1228,7 +3860,13 @@
         {
           "speaker": "女",
           "text": "何名様ですか。",
-          "textVi": "Dạ, quý khách đi mấy người ạ?"
+          "textVi": "Dạ, quý khách đi mấy người ạ?",
+          "furigana": [
+            {
+              "word": "何名様",
+              "reading": "なんめいさま"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1244,8 +3882,39 @@
         "Không, tôi là Suzuki."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Câu hỏi hỏi về số lượng người. Lựa chọn đúng là câu trả lời trực tiếp về số người đi cùng.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "4人",
+            "reading": "よにん"
+          }
+        ],
+        [
+          {
+            "word": "田中",
+            "reading": "たなか"
+          },
+          {
+            "word": "申します",
+            "reading": "もうします"
+          }
+        ],
+        [
+          {
+            "word": "鈴木",
+            "reading": "すずき"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời đúng cho câu hỏi về số lượng người.",
+        "Câu này trả lời về tên, không phải số lượng người.",
+        "Câu này trả lời về tên, không phải số lượng người."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-064",
@@ -1259,7 +3928,13 @@
         {
           "speaker": "女",
           "text": "あした、来ないの？",
-          "textVi": "Mai không đến à?"
+          "textVi": "Mai không đến à?",
+          "furigana": [
+            {
+              "word": "来ない",
+              "reading": "こない"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1273,8 +3948,23 @@
         "Không, tớ đi mà."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Câu hỏi là câu phủ định 'Ngày mai không đến à?'. Lựa chọn đúng là câu trả lời xác nhận lại hành động sẽ đi.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "行く",
+            "reading": "いく"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này không liên quan đến việc đi hay không đi.",
+        "Đây là câu trả lời đúng, phủ định lại câu hỏi để khẳng định rằng người nói sẽ đi."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-066",
@@ -1288,7 +3978,17 @@
         {
           "speaker": "女",
           "text": "大切だから、書いといて。",
-          "textVi": "Quan trọng lắm đấy, nhớ ghi lại nhé."
+          "textVi": "Quan trọng lắm đấy, nhớ ghi lại nhé.",
+          "furigana": [
+            {
+              "word": "大切",
+              "reading": "たいせつ"
+            },
+            {
+              "word": "書いといて",
+              "reading": "かいといて"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1302,8 +4002,18 @@
         "Hừm, vậy à."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói yêu cầu ghi lại vì điều đó quan trọng. Lựa chọn đúng là lời xác nhận sẽ thực hiện hành động ghi chép.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời đúng, xác nhận đã hiểu và sẽ ghi chép lại.",
+        "Câu này chỉ thể hiện sự tiếp nhận thông tin một cách hời hợt, không xác nhận sẽ thực hiện yêu cầu."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-067",
@@ -1317,7 +4027,25 @@
         {
           "speaker": "女",
           "text": "もう少し前の方に座ったらどう？",
-          "textVi": "Hay là ngồi lên phía trên một chút đi?"
+          "textVi": "Hay là ngồi lên phía trên một chút đi?",
+          "furigana": [
+            {
+              "word": "もう少し",
+              "reading": "もうすこし"
+            },
+            {
+              "word": "前",
+              "reading": "まえ"
+            },
+            {
+              "word": "方",
+              "reading": "ほう"
+            },
+            {
+              "word": "座ったら",
+              "reading": "すわったら"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1331,8 +4059,28 @@
         "Không, ở đây được rồi."
       ],
       "correctIndex": 1,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói gợi ý ngồi lên phía trên. Lựa chọn đúng là lời từ chối lịch sự vì cảm thấy vị trí hiện tại đã ổn.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "座って",
+            "reading": "すわって"
+          }
+        ],
+        [
+          {
+            "word": "大丈夫",
+            "reading": "だいじょうぶ"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này khuyên ngược lại người kia ngồi thử, không phải là câu trả lời cho lời gợi ý.",
+        "Đây là câu trả lời đúng, từ chối lời gợi ý vì cho rằng vị trí hiện tại là ổn."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-068",
@@ -1346,7 +4094,21 @@
         {
           "speaker": "女",
           "text": "忘れずに名前を書くようにね。",
-          "textVi": "Nhớ viết tên vào đấy nhé."
+          "textVi": "Nhớ viết tên vào đấy nhé.",
+          "furigana": [
+            {
+              "word": "忘れずに",
+              "reading": "わすれずに"
+            },
+            {
+              "word": "名前",
+              "reading": "なまえ"
+            },
+            {
+              "word": "書く",
+              "reading": "かく"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1360,8 +4122,18 @@
         "Vâng, có vẻ là như vậy."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Người nói đưa ra yêu cầu/nhắc nhở. Lựa chọn đúng là lời xác nhận đã hiểu yêu cầu đó.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời đúng, xác nhận đã hiểu và sẽ tuân thủ yêu cầu.",
+        "Câu này không phải là câu trả lời cho một yêu cầu, nó mang nghĩa phỏng đoán tình huống."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-069",
@@ -1375,7 +4147,17 @@
         {
           "speaker": "女",
           "text": "「かるた」って何か知ってる？",
-          "textVi": "Cậu có biết \"karuta\" là gì không?"
+          "textVi": "Cậu có biết \"karuta\" là gì không?",
+          "furigana": [
+            {
+              "word": "何か",
+              "reading": "なにか"
+            },
+            {
+              "word": "知ってる",
+              "reading": "しってる"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1389,8 +4171,23 @@
         "À, vậy à."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Câu hỏi hỏi về kiến thức của người nghe đối với một sự vật. Lựa chọn đúng là câu trả lời xác nhận có biết thông qua trải nghiệm.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "見た",
+            "reading": "みた"
+          }
+        ],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời đúng, xác nhận đã biết về sự vật thông qua việc xem trên TV.",
+        "Câu này chỉ là phản ứng ghi nhận thông tin, không trả lời cho câu hỏi có biết hay không."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-070",
@@ -1404,7 +4201,13 @@
         {
           "speaker": "女",
           "text": "お子さん、おいくつですか。",
-          "textVi": "Con nhà anh/chị mấy tuổi rồi ạ?"
+          "textVi": "Con nhà anh/chị mấy tuổi rồi ạ?",
+          "furigana": [
+            {
+              "word": "お子さん",
+              "reading": "おこさん"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1418,8 +4221,36 @@
         "Có 3 bé trai."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Lựa chọn đúng là câu trả lời phù hợp nhất cho câu hỏi về tuổi của con cái.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "来月",
+            "reading": "らいげつ"
+          },
+          {
+            "word": "8歳",
+            "reading": "はっさい"
+          }
+        ],
+        [
+          {
+            "word": "男の子",
+            "reading": "おとこのこ"
+          },
+          {
+            "word": "人",
+            "reading": "にん"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời trực tiếp cho câu hỏi về tuổi của con.",
+        "Đây là câu trả lời cho câu hỏi về số lượng con cái, không phải tuổi."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-071",
@@ -1433,7 +4264,21 @@
         {
           "speaker": "女",
           "text": "先生、何て言ってた？",
-          "textVi": "Thầy cô nói thế nào vậy?"
+          "textVi": "Thầy cô nói thế nào vậy?",
+          "furigana": [
+            {
+              "word": "先生",
+              "reading": "せんせい"
+            },
+            {
+              "word": "何て",
+              "reading": "なんて"
+            },
+            {
+              "word": "言ってた",
+              "reading": "いってた"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1447,8 +4292,28 @@
         "Cậu bận lắm nhỉ."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Lựa chọn đúng phản ánh nội dung lời nhắn của giáo viên về việc không được nghỉ.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "休んじゃ",
+            "reading": "やすんじゃ"
+          }
+        ],
+        [
+          {
+            "word": "忙しい",
+            "reading": "いそがしい"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này truyền đạt đúng yêu cầu của giáo viên là không được nghỉ học.",
+        "Câu này chỉ là nhận xét về tình trạng bận rộn, không phải lời nhắn của giáo viên."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-074",
@@ -1462,7 +4327,25 @@
         {
           "speaker": "女",
           "text": "来週の試験に出るところ、教えていただけませんか。",
-          "textVi": "Thầy/cô có thể chỉ cho em phần nào sẽ ra trong bài thi tuần tới được không ạ?"
+          "textVi": "Thầy/cô có thể chỉ cho em phần nào sẽ ra trong bài thi tuần tới được không ạ?",
+          "furigana": [
+            {
+              "word": "来週",
+              "reading": "らいしゅう"
+            },
+            {
+              "word": "試験",
+              "reading": "しけん"
+            },
+            {
+              "word": "出る",
+              "reading": "でる"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1478,8 +4361,47 @@
         "Tôi muốn xuất phát lúc 11 giờ rưỡi..."
       ],
       "correctIndex": 0,
-      "explanation": "",
-      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được."
+      "explanation": "Lựa chọn đúng trả lời trực tiếp vào nội dung phạm vi bài thi mà người hỏi muốn biết.",
+      "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "8課",
+            "reading": "はち"
+          },
+          {
+            "word": "勉強",
+            "reading": "べんきょう"
+          }
+        ],
+        [
+          {
+            "word": "教室",
+            "reading": "きょうしつ"
+          },
+          {
+            "word": "行けば",
+            "reading": "いけば"
+          }
+        ],
+        [
+          {
+            "word": "11時半",
+            "reading": "じゅういちじはん"
+          },
+          {
+            "word": "出たい",
+            "reading": "でたい"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Trả lời đúng phạm vi kiến thức cần ôn tập cho bài thi.",
+        "Đây là câu hỏi về địa điểm học, không liên quan đến phạm vi bài thi.",
+        "Đây là câu nói về thời gian cá nhân muốn rời đi, không trả lời câu hỏi về nội dung thi."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-076",
@@ -1493,7 +4415,69 @@
         {
           "speaker": "男",
           "text": "わたしたちはよく「みんな持っているから」とか「みんなもそう言っている」なんていう言い方をします。しかし、実際には「みんな」というのは自分の周りの2、3人だったということがよくあります。わたしたちは「みんな」という言葉を簡単に使い過ぎていると思います。言葉はもう少し正しく使うようにしたほうがいいのではないでしょうか。",
-          "textVi": "Chúng ta hay dùng những cách nói như \"vì ai cũng có\" hoặc \"ai cũng nói thế\". Nhưng thực tế, \"mọi người\" ấy thường chỉ là hai, ba người xung quanh chúng ta thôi. Tôi nghĩ chúng ta đang dùng từ \"mọi người\" quá dễ dãi. Có lẽ chúng ta nên dùng từ ngữ chính xác hơn một chút thì tốt hơn."
+          "textVi": "Chúng ta hay dùng những cách nói như \"vì ai cũng có\" hoặc \"ai cũng nói thế\". Nhưng thực tế, \"mọi người\" ấy thường chỉ là hai, ba người xung quanh chúng ta thôi. Tôi nghĩ chúng ta đang dùng từ \"mọi người\" quá dễ dãi. Có lẽ chúng ta nên dùng từ ngữ chính xác hơn một chút thì tốt hơn.",
+          "furigana": [
+            {
+              "word": "持っている",
+              "reading": "もっている"
+            },
+            {
+              "word": "言",
+              "reading": "い"
+            },
+            {
+              "word": "言い方",
+              "reading": "いいかた"
+            },
+            {
+              "word": "実際",
+              "reading": "じっさい"
+            },
+            {
+              "word": "自分",
+              "reading": "じぶん"
+            },
+            {
+              "word": "周り",
+              "reading": "まわり"
+            },
+            {
+              "word": "人",
+              "reading": "にん"
+            },
+            {
+              "word": "言葉",
+              "reading": "ことば"
+            },
+            {
+              "word": "簡単",
+              "reading": "かんたん"
+            },
+            {
+              "word": "使い過ぎている",
+              "reading": "つかいすぎている"
+            },
+            {
+              "word": "思",
+              "reading": "おも"
+            },
+            {
+              "word": "言葉",
+              "reading": "ことば"
+            },
+            {
+              "word": "少し",
+              "reading": "すこし"
+            },
+            {
+              "word": "正しく",
+              "reading": "ただしく"
+            },
+            {
+              "word": "使う",
+              "reading": "つかう"
+            }
+          ]
         }
       ],
       "question": "男の人が言いたいことは何ですか。",
@@ -1509,7 +4493,84 @@
         "Nên chú ý đến ý nghĩa khi sử dụng từ ngữ"
       ],
       "correctIndex": 2,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng tóm tắt ý chính của người nói về việc cần cẩn trọng hơn khi sử dụng từ ngữ.",
+      "scenarioFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "言いたい",
+          "reading": "いいたい"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "言葉",
+            "reading": "ことば"
+          },
+          {
+            "word": "便利",
+            "reading": "べんり"
+          }
+        ],
+        [
+          {
+            "word": "言葉",
+            "reading": "ことば"
+          },
+          {
+            "word": "使ってはいけない",
+            "reading": "つかってはいけない"
+          }
+        ],
+        [
+          {
+            "word": "言葉",
+            "reading": "ことば"
+          },
+          {
+            "word": "意味",
+            "reading": "いみ"
+          },
+          {
+            "word": "注意",
+            "reading": "ちゅうい"
+          },
+          {
+            "word": "使ったほうがいい",
+            "reading": "つかったほうがいい"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Người nói không đề cập đến sự tiện lợi mà đang phê phán cách dùng từ.",
+        "Người nói khuyên dùng từ chính xác hơn chứ không cấm sử dụng từ 'mọi người'.",
+        "Đây là kết luận chính xác nhất về lời khuyên của người nói trong bài."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-077",
@@ -1523,42 +4584,169 @@
         {
           "speaker": "女",
           "text": "本田君、アルバイト、始めたんだって？",
-          "textVi": "Honda này, nghe nói cậu bắt đầu đi làm thêm à?"
+          "textVi": "Honda này, nghe nói cậu bắt đầu đi làm thêm à?",
+          "furigana": [
+            {
+              "word": "本田",
+              "reading": "ほんだ"
+            },
+            {
+              "word": "君",
+              "reading": "くん"
+            },
+            {
+              "word": "始めた",
+              "reading": "はじめた"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "うん。先週から。留学生の寮の仕事なんだけど。",
-          "textVi": "Ừ, từ tuần trước. Công việc ở ký túc xá lưu học sinh ấy mà."
+          "textVi": "Ừ, từ tuần trước. Công việc ở ký túc xá lưu học sinh ấy mà.",
+          "furigana": [
+            {
+              "word": "先週",
+              "reading": "せんしゅう"
+            },
+            {
+              "word": "留学生",
+              "reading": "りゅうがくせい"
+            },
+            {
+              "word": "寮",
+              "reading": "りょう"
+            },
+            {
+              "word": "仕事",
+              "reading": "しごと"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "へえ。どう？",
-          "textVi": "Thế à. Thế nào?"
+          "textVi": "Thế à. Thế nào?",
+          "furigana": []
         },
         {
           "speaker": "男",
           "text": "実は、始める前はもっと暇かと思ってたんだけどね。でも、面白いよ、いろんな国の人と話せて。",
-          "textVi": "Thực ra, trước khi làm thì tớ cứ nghĩ là rảnh rỗi hơn cơ. Nhưng mà hay lắm, được nói chuyện với người từ nhiều nước mà."
+          "textVi": "Thực ra, trước khi làm thì tớ cứ nghĩ là rảnh rỗi hơn cơ. Nhưng mà hay lắm, được nói chuyện với người từ nhiều nước mà.",
+          "furigana": [
+            {
+              "word": "実は",
+              "reading": "じつは"
+            },
+            {
+              "word": "始める",
+              "reading": "はじめる"
+            },
+            {
+              "word": "前",
+              "reading": "まえ"
+            },
+            {
+              "word": "暇",
+              "reading": "ひま"
+            },
+            {
+              "word": "思って",
+              "reading": "おもって"
+            },
+            {
+              "word": "面白い",
+              "reading": "おもしろい"
+            },
+            {
+              "word": "国",
+              "reading": "くに"
+            },
+            {
+              "word": "人",
+              "reading": "ひ"
+            },
+            {
+              "word": "話せて",
+              "reading": "はなせて"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "そう。本田君は英語学科だから、英語を使うチャンスができていいね。",
-          "textVi": "Vậy sao. Cậu học khoa tiếng Anh nên có cơ hội dùng tiếng Anh thì tốt quá nhỉ."
+          "textVi": "Vậy sao. Cậu học khoa tiếng Anh nên có cơ hội dùng tiếng Anh thì tốt quá nhỉ.",
+          "furigana": [
+            {
+              "word": "本田",
+              "reading": "ほんだ"
+            },
+            {
+              "word": "君",
+              "reading": "くん"
+            },
+            {
+              "word": "英語学科",
+              "reading": "えいごがっか"
+            },
+            {
+              "word": "英語",
+              "reading": "えいご"
+            },
+            {
+              "word": "使う",
+              "reading": "つかう"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "それが、そうでもないんだ。寮ではみんなだいたい日本語を使うから。",
-          "textVi": "Khổ nỗi lại không phải thế. Ở ký túc xá mọi người hầu như toàn dùng tiếng thế mà."
+          "textVi": "Khổ nỗi lại không phải thế. Ở ký túc xá mọi người hầu như toàn dùng tiếng thế mà.",
+          "furigana": [
+            {
+              "word": "寮",
+              "reading": "りょう"
+            },
+            {
+              "word": "日本語",
+              "reading": "にほんご"
+            },
+            {
+              "word": "使う",
+              "reading": "つかう"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "ふーん、そうか。でも、続けるんでしょう？",
-          "textVi": "Hừm, vậy sao. Nhưng mà chắc vẫn làm tiếp chứ?"
+          "textVi": "Hừm, vậy sao. Nhưng mà chắc vẫn làm tiếp chứ?",
+          "furigana": [
+            {
+              "word": "続ける",
+              "reading": "つづける"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "うん、世界のいろいろなことを教えてもらおうと思ってるんだ。",
-          "textVi": "Ừ, tớ định sẽ nhờ họ kể cho nghe nhiều điều về thế giới."
+          "textVi": "Ừ, tớ định sẽ nhờ họ kể cho nghe nhiều điều về thế giới.",
+          "furigana": [
+            {
+              "word": "世界",
+              "reading": "せかい"
+            },
+            {
+              "word": "教えて",
+              "reading": "おしえて"
+            },
+            {
+              "word": "思ってる",
+              "reading": "おもってる"
+            }
+          ]
         }
       ],
       "question": "男の人がこのアルバイトを続ける理由はなんですか。",
@@ -1576,7 +4764,123 @@
         "Người thấu hiểu tâm tư trẻ em"
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng dựa trên ý định của người nam là muốn học hỏi kiến thức về thế giới từ những người bạn quốc tế tại ký túc xá.",
+      "scenarioFurigana": [
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひ"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "続ける",
+          "reading": "つづける"
+        },
+        {
+          "word": "理由",
+          "reading": "りゆう"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "続ける",
+          "reading": "つづける"
+        },
+        {
+          "word": "理由",
+          "reading": "りゆう"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "親切",
+            "reading": "しんせつ"
+          },
+          {
+            "word": "教えられる",
+            "reading": "おしえられる"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ],
+        [
+          {
+            "word": "知識",
+            "reading": "ちしき"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ],
+        [
+          {
+            "word": "教え方",
+            "reading": "おしえかた"
+          },
+          {
+            "word": "上手",
+            "reading": "じょうず"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ],
+        [
+          {
+            "word": "子供",
+            "reading": "こども"
+          },
+          {
+            "word": "心",
+            "reading": "こころ"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Không phải lý do chính để tiếp tục công việc.",
+        "Người nam muốn tiếp tục vì muốn học hỏi kiến thức từ những người bạn quốc tế.",
+        "Không đề cập đến kỹ năng dạy học của người khác.",
+        "Không liên quan đến nội dung hội thoại."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-078",
@@ -1590,7 +4894,117 @@
         {
           "speaker": "女",
           "text": "今日はいい先生について考えてみましょう。よく、親切だからいい先生だとか、いろんなことを知っているからいい先生だと言う人がいます。もちろん親切ではない人や何も知らない人は先生としてはよくないと思いますが、親切だけなら、お母さんでも近所の人でもいいのです。また、いろんなことをよく知っていても、それを子供たちや学生たちがわかるように教えられなければ意味がありません。やはり先生というのは、それができるプロのことを言うのではないでしょうか。",
-          "textVi": "Hôm nay chúng ta hãy suy nghĩ về một giáo viên giỏi nhé. Thường thì có người nói rằng giáo viên tốt là người nhiệt tình, hoặc biết nhiều thứ. Đương nhiên người không nhiệt tình hay không biết gì thì không tốt làm mẹ hay người hàng xóm cũng được. Hơn nữa, dù biết nhiều thứ đi nữa mà không dạy cho trẻ em hay học sinh hiểu được thì cũng vô nghĩa. Suy cho cùng, giáo viên phải là những chuyên gia làm được điều đó chứ nhỉ."
+          "textVi": "Hôm nay chúng ta hãy suy nghĩ về một giáo viên giỏi nhé. Thường thì có người nói rằng giáo viên tốt là người nhiệt tình, hoặc biết nhiều thứ. Đương nhiên người không nhiệt tình hay không biết gì thì không tốt làm mẹ hay người hàng xóm cũng được. Hơn nữa, dù biết nhiều thứ đi nữa mà không dạy cho trẻ em hay học sinh hiểu được thì cũng vô nghĩa. Suy cho cùng, giáo viên phải là những chuyên gia làm được điều đó chứ nhỉ.",
+          "furigana": [
+            {
+              "word": "今日",
+              "reading": "きょう"
+            },
+            {
+              "word": "先生",
+              "reading": "せんせい"
+            },
+            {
+              "word": "考えて",
+              "reading": "かんがえて"
+            },
+            {
+              "word": "親切",
+              "reading": "しんせつ"
+            },
+            {
+              "word": "先生",
+              "reading": "せんせい"
+            },
+            {
+              "word": "知って",
+              "reading": "しって"
+            },
+            {
+              "word": "先生",
+              "reading": "せんせい"
+            },
+            {
+              "word": "言う",
+              "reading": "いう"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "親切",
+              "reading": "しんせつ"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "何も",
+              "reading": "なにも"
+            },
+            {
+              "word": "知らない",
+              "reading": "しらない"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "先生",
+              "reading": "せんせい"
+            },
+            {
+              "word": "思い",
+              "reading": "おもい"
+            },
+            {
+              "word": "親切",
+              "reading": "しんせつ"
+            },
+            {
+              "word": "お母さん",
+              "reading": "おかあさん"
+            },
+            {
+              "word": "近所",
+              "reading": "きんじょ"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "知って",
+              "reading": "しって"
+            },
+            {
+              "word": "子供",
+              "reading": "こども"
+            },
+            {
+              "word": "学生",
+              "reading": "がくせい"
+            },
+            {
+              "word": "教えられなければ",
+              "reading": "おしえられなければ"
+            },
+            {
+              "word": "意味",
+              "reading": "いみ"
+            },
+            {
+              "word": "先生",
+              "reading": "せんせい"
+            },
+            {
+              "word": "言う",
+              "reading": "いう"
+            }
+          ]
         }
       ],
       "question": "女の人はいい先生というのはどんな人だと言っていますか。",
@@ -1608,7 +5022,107 @@
         "Người thấu hiểu tâm tư trẻ em"
       ],
       "correctIndex": 2,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng nhấn mạnh vào khả năng truyền đạt kiến thức cho học sinh, điều mà người nói coi là đặc trưng của một giáo viên chuyên nghiệp.",
+      "scenarioFurigana": [
+        {
+          "word": "講演会",
+          "reading": "こうえんかい"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "先生",
+          "reading": "せんせい"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "言っています",
+          "reading": "いっています"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "親切",
+            "reading": "しんせつ"
+          },
+          {
+            "word": "教えられる",
+            "reading": "おしえられる"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ],
+        [
+          {
+            "word": "知識",
+            "reading": "ちしき"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ],
+        [
+          {
+            "word": "教え方",
+            "reading": "おしえかた"
+          },
+          {
+            "word": "上手",
+            "reading": "じょうず"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ],
+        [
+          {
+            "word": "子供",
+            "reading": "こども"
+          },
+          {
+            "word": "心",
+            "reading": "こころ"
+          },
+          {
+            "word": "人",
+            "reading": "ひと"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Sự thân thiện là tốt nhưng chưa đủ để làm giáo viên giỏi.",
+        "Kiến thức nhiều là cần thiết nhưng nếu không dạy được thì vô nghĩa.",
+        "Đây là lựa chọn đúng vì người nói nhấn mạnh vào khả năng dạy cho học sinh hiểu.",
+        "Không được đề cập trong bài diễn thuyết."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-079",
@@ -1622,7 +5136,117 @@
         {
           "speaker": "男",
           "text": "新入社員の皆さん、一緒に仕事をしてみて、わたしは皆さんがちょっとおとなし過ぎると感じました。うるさいよりいいじゃないかと思います。もちろん、上の人の言うことを聞いて、言われたことをちゃんとやることも大切です。しかし、会社ではそれだけでは仕事をしていることになりません。いつも言われるのを待っているばかりでは、本当に仕事をしているとは言えないのです。もっと積極的に意見を言ったり考えたりして、皆さんから動いてください。",
-          "textVi": "Các nhân viên mới, qua thời gian cùng làm việc, tôi cảm thấy các bạn hơi quá hiền lành. Có lẽ các bạn nghĩ thà ồn ào còn hơn phải không? Đương nhiên việc nghe lời cấp trên và làm đàng hoàng những gì được giao là rất quan trọng. Tuy nhiên, ở công ty chỉ thế thôi thì chưa phải là làm việc. Nếu lúc nào cũng chỉ đợi người ta bảo mới làm thì không thể gọi là thực sự làm việc được. Các bạn hãy tích cực nêu ý kiến, suy nghĩ và chủ động hành động hơn nữa đi."
+          "textVi": "Các nhân viên mới, qua thời gian cùng làm việc, tôi cảm thấy các bạn hơi quá hiền lành. Có lẽ các bạn nghĩ thà ồn ào còn hơn phải không? Đương nhiên việc nghe lời cấp trên và làm đàng hoàng những gì được giao là rất quan trọng. Tuy nhiên, ở công ty chỉ thế thôi thì chưa phải là làm việc. Nếu lúc nào cũng chỉ đợi người ta bảo mới làm thì không thể gọi là thực sự làm việc được. Các bạn hãy tích cực nêu ý kiến, suy nghĩ và chủ động hành động hơn nữa đi.",
+          "furigana": [
+            {
+              "word": "新入社員",
+              "reading": "しんにゅうしゃいん"
+            },
+            {
+              "word": "皆さん",
+              "reading": "みなさん"
+            },
+            {
+              "word": "一緒に",
+              "reading": "いっしょに"
+            },
+            {
+              "word": "仕事",
+              "reading": "しごと"
+            },
+            {
+              "word": "皆さん",
+              "reading": "みなさん"
+            },
+            {
+              "word": "過ぎる",
+              "reading": "すぎる"
+            },
+            {
+              "word": "感じました",
+              "reading": "かんじました"
+            },
+            {
+              "word": "思います",
+              "reading": "おもいます"
+            },
+            {
+              "word": "上",
+              "reading": "うえ"
+            },
+            {
+              "word": "人",
+              "reading": "ひと"
+            },
+            {
+              "word": "言う",
+              "reading": "いう"
+            },
+            {
+              "word": "聞いて",
+              "reading": "きいて"
+            },
+            {
+              "word": "言われた",
+              "reading": "いわれた"
+            },
+            {
+              "word": "大切",
+              "reading": "たいせつ"
+            },
+            {
+              "word": "会社",
+              "reading": "かいしゃ"
+            },
+            {
+              "word": "仕事",
+              "reading": "しごと"
+            },
+            {
+              "word": "言われる",
+              "reading": "いわれる"
+            },
+            {
+              "word": "待っている",
+              "reading": "まっている"
+            },
+            {
+              "word": "本当に",
+              "reading": "ほんとうに"
+            },
+            {
+              "word": "仕事",
+              "reading": "しごと"
+            },
+            {
+              "word": "言えない",
+              "reading": "いえない"
+            },
+            {
+              "word": "積極的",
+              "reading": "せっきょくてき"
+            },
+            {
+              "word": "意見",
+              "reading": "いけん"
+            },
+            {
+              "word": "言ったり",
+              "reading": "いったり"
+            },
+            {
+              "word": "考えたり",
+              "reading": "かんがえたり"
+            },
+            {
+              "word": "皆さん",
+              "reading": "みなさん"
+            },
+            {
+              "word": "動いて",
+              "reading": "うごいて"
+            }
+          ]
         }
       ],
       "question": "男の人が新入社員に伝えたいことは何ですか。",
@@ -1640,7 +5264,95 @@
         "Nên chủ động hành động"
       ],
       "correctIndex": 3,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng phản ánh lời khuyên của người nói về việc nhân viên mới cần chủ động trong công việc thay vì chỉ đợi lệnh.",
+      "scenarioFurigana": [
+        {
+          "word": "会社",
+          "reading": "かいしゃ"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "新入社員",
+          "reading": "しんにゅうしゃいん"
+        },
+        {
+          "word": "伝えたい",
+          "reading": "つたえたい"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "静か",
+            "reading": "しずか"
+          },
+          {
+            "word": "仕事",
+            "reading": "しごと"
+          }
+        ],
+        [
+          {
+            "word": "先輩",
+            "reading": "せんぱい"
+          },
+          {
+            "word": "話",
+            "reading": "はなし"
+          },
+          {
+            "word": "聞いた",
+            "reading": "きいた"
+          }
+        ],
+        [
+          {
+            "word": "言われた",
+            "reading": "いわれた"
+          }
+        ],
+        [
+          {
+            "word": "自分",
+            "reading": "じぶん"
+          },
+          {
+            "word": "行動",
+            "reading": "こうどう"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Người nói không yêu cầu làm việc trong yên lặng.",
+        "Việc nghe lời cấp trên là quan trọng nhưng không phải là điều duy nhất cần làm.",
+        "Người nói phê phán việc chỉ đợi người khác bảo mới làm.",
+        "Đây là thông điệp chính: cần chủ động nêu ý kiến và hành động."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-080",
@@ -1654,37 +5366,207 @@
         {
           "speaker": "男",
           "text": "山口さん、ちょっと頼みたいことがあるんだけど、君、犬が好きだって言ってたよね。",
-          "textVi": "Yamaguchi này, tôi có việc muốn nhờ chút, cậu từng bảo thích chó phải không?"
+          "textVi": "Yamaguchi này, tôi có việc muốn nhờ chút, cậu từng bảo thích chó phải không?",
+          "furigana": [
+            {
+              "word": "山口",
+              "reading": "やまぐち"
+            },
+            {
+              "word": "頼みたい",
+              "reading": "たのみたい"
+            },
+            {
+              "word": "君",
+              "reading": "きみ"
+            },
+            {
+              "word": "犬",
+              "reading": "いぬ"
+            },
+            {
+              "word": "好き",
+              "reading": "すき"
+            },
+            {
+              "word": "言ってた",
+              "reading": "いってた"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "はい、大好きです。子供の時、うちには３匹もいたんです。",
-          "textVi": "Vâng, thích lắm ạ. Hồi nhỏ nhà em nuôi tận ba con cơ."
+          "textVi": "Vâng, thích lắm ạ. Hồi nhỏ nhà em nuôi tận ba con cơ.",
+          "furigana": [
+            {
+              "word": "大好き",
+              "reading": "だいすき"
+            },
+            {
+              "word": "子供",
+              "reading": "こども"
+            },
+            {
+              "word": "時",
+              "reading": "とき"
+            },
+            {
+              "word": "匹",
+              "reading": "ひき"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "じゃ、犬の世話なんか慣れているよね。僕も犬飼ってるんだけど、実は１か月……。",
-          "textVi": "Thế thì chắc quen việc chăm sóc chó nhỉ. Tôi cũng nuôi một con, thực ra là một tháng..."
+          "textVi": "Thế thì chắc quen việc chăm sóc chó nhỉ. Tôi cũng nuôi một con, thực ra là một tháng...",
+          "furigana": [
+            {
+              "word": "犬",
+              "reading": "いぬ"
+            },
+            {
+              "word": "世話",
+              "reading": "せわ"
+            },
+            {
+              "word": "慣れて",
+              "reading": "なれて"
+            },
+            {
+              "word": "僕",
+              "reading": "ぼく"
+            },
+            {
+              "word": "犬",
+              "reading": "いぬ"
+            },
+            {
+              "word": "飼ってる",
+              "reading": "かってる"
+            },
+            {
+              "word": "実は",
+              "reading": "じつは"
+            },
+            {
+              "word": "か月",
+              "reading": "かげつ"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "え？ １か月の子犬ですか。じゃ、かわいいでしょう。",
-          "textVi": "Hả? Cún con một tháng tuổi ạ? Thế thì đáng yêu lắm nhỉ."
+          "textVi": "Hả? Cún con một tháng tuổi ạ? Thế thì đáng yêu lắm nhỉ.",
+          "furigana": [
+            {
+              "word": "か月",
+              "reading": "かげつ"
+            },
+            {
+              "word": "子犬",
+              "reading": "こいぬ"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "いや、1歳なんだけど、来週からちょっと家を留守にしなくちゃならなくなってね。",
-          "textVi": "Không, nó được một tuổi rồi, mà tuần tới tôi có việc phải vắng nhà một thời gian."
+          "textVi": "Không, nó được một tuổi rồi, mà tuần tới tôi có việc phải vắng nhà một thời gian.",
+          "furigana": [
+            {
+              "word": "1歳",
+              "reading": "いっさい"
+            },
+            {
+              "word": "来週",
+              "reading": "らいしゅう"
+            },
+            {
+              "word": "家",
+              "reading": "いえ"
+            },
+            {
+              "word": "留守",
+              "reading": "るす"
+            }
+          ]
         },
         {
           "speaker": "女",
           "text": "あ、１か月海外出張に行かれるんでしたね。",
-          "textVi": "À, anh phải đi công tác nước ngoài một tháng đúng không ạ."
+          "textVi": "À, anh phải đi công tác nước ngoài một tháng đúng không ạ.",
+          "furigana": [
+            {
+              "word": "か月",
+              "reading": "かげつ"
+            },
+            {
+              "word": "海外",
+              "reading": "かいがい"
+            },
+            {
+              "word": "出張",
+              "reading": "しゅっちょう"
+            },
+            {
+              "word": "行かれる",
+              "reading": "いかれる"
+            }
+          ]
         },
         {
           "speaker": "男",
           "text": "そうなんだよ。１か月もペットホテルじゃかわいそうだし、君のうち、家族みんな犬が好きだって言ってたから……。えさや犬のベッドなんかは、僕がちゃんと持っていくから、ご家族にちょっと預かってもらえないかな。",
-          "textVi": "Đúng vậy đấy. Gửi khách sạn thú cưng một tháng thì tội nó lắm, mà nhà cậu thì mọi người ai cũng thích chó... Thức ăn với chuồng chó thì tôi sẽ mang đến đầy đủ, nhờ gia đình cậu trông hộ một chút được không?"
+          "textVi": "Đúng vậy đấy. Gửi khách sạn thú cưng một tháng thì tội nó lắm, mà nhà cậu thì mọi người ai cũng thích chó... Thức ăn với chuồng chó thì tôi sẽ mang đến đầy đủ, nhờ gia đình cậu trông hộ một chút được không?",
+          "furigana": [
+            {
+              "word": "か月",
+              "reading": "かげつ"
+            },
+            {
+              "word": "君",
+              "reading": "きみ"
+            },
+            {
+              "word": "家族",
+              "reading": "かぞく"
+            },
+            {
+              "word": "犬",
+              "reading": "いぬ"
+            },
+            {
+              "word": "好き",
+              "reading": "すき"
+            },
+            {
+              "word": "言ってた",
+              "reading": "いってた"
+            },
+            {
+              "word": "犬",
+              "reading": "いぬ"
+            },
+            {
+              "word": "僕",
+              "reading": "ぼく"
+            },
+            {
+              "word": "持っていく",
+              "reading": "もっていく"
+            },
+            {
+              "word": "家族",
+              "reading": "かぞく"
+            },
+            {
+              "word": "預かって",
+              "reading": "あずかって"
+            }
+          ]
         }
       ],
       "question": "男の人は女の人に何を頼んでいますか。",
@@ -1702,7 +5584,111 @@
         "Muốn đưa con chó đến khách sạn thú cưng"
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng là nhờ người nữ trông hộ con chó trong thời gian người nam đi công tác.",
+      "scenarioFurigana": [
+        {
+          "word": "会社",
+          "reading": "かいしゃ"
+        },
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "来て",
+          "reading": "きて"
+        },
+        {
+          "word": "話して",
+          "reading": "はなして"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "男",
+          "reading": "おとこ"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "女",
+          "reading": "おんな"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "頼んで",
+          "reading": "たのんで"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "犬",
+            "reading": "いぬ"
+          }
+        ],
+        [
+          {
+            "word": "犬",
+            "reading": "いぬ"
+          },
+          {
+            "word": "預かって",
+            "reading": "あずかって"
+          }
+        ],
+        [
+          {
+            "word": "犬",
+            "reading": "いぬ"
+          },
+          {
+            "word": "世話",
+            "reading": "せわ"
+          },
+          {
+            "word": "来て",
+            "reading": "きて"
+          }
+        ],
+        [
+          {
+            "word": "犬",
+            "reading": "いぬ"
+          },
+          {
+            "word": "連れていって",
+            "reading": "つれていって"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Người nam chỉ nhờ trông hộ, không phải cho chó.",
+        "Đây là yêu cầu chính xác của người nam.",
+        "Người nam nhờ trông hộ tại nhà người nữ, không phải đến nhà người nam để chăm sóc.",
+        "Người nam đang muốn tránh việc gửi chó vào khách sạn thú cưng."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-081",
@@ -1726,7 +5712,68 @@
         "Cậu cho tớ chép vở nhé?"
       ],
       "correctIndex": 2,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng là câu thể hiện sự xin phép một cách lịch sự và tự nhiên nhất khi muốn nhờ vả người khác cho mình chép vở.",
+      "scenarioFurigana": [
+        {
+          "word": "友達",
+          "reading": "ともだち"
+        },
+        {
+          "word": "写したい",
+          "reading": "うつしたい"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "友達",
+          "reading": "ともだち"
+        },
+        {
+          "word": "写したい",
+          "reading": "うつしたい"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "写して",
+            "reading": "うつして"
+          }
+        ],
+        [
+          {
+            "word": "写させても",
+            "reading": "うつさせても"
+          }
+        ],
+        [
+          {
+            "word": "写させてもらえる",
+            "reading": "うつさせてもらえる"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Cậu không chép hộ tớ à?', nghe giống như đang yêu cầu người kia làm việc đó cho mình thay vì xin phép để mình tự chép.",
+        "Câu này sai về mặt ngữ pháp và ý nghĩa, không dùng để xin phép mượn vở.",
+        "Đây là cách nói lịch sự để xin phép người khác cho mình được thực hiện hành động chép vở."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-082",
@@ -1750,7 +5797,120 @@
         "Cậu không mang từ điển à?"
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng là câu thông báo trực tiếp và chính xác về việc người bạn đang để quên đồ.",
+      "scenarioFurigana": [
+        {
+          "word": "学校",
+          "reading": "がっこう"
+        },
+        {
+          "word": "友達",
+          "reading": "ともだち"
+        },
+        {
+          "word": "机",
+          "reading": "つくえ"
+        },
+        {
+          "word": "上",
+          "reading": "うえ"
+        },
+        {
+          "word": "辞書",
+          "reading": "じしょ"
+        },
+        {
+          "word": "置いた",
+          "reading": "おいた"
+        },
+        {
+          "word": "帰ろう",
+          "reading": "かえろう"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "学校",
+          "reading": "がっこう"
+        },
+        {
+          "word": "友達",
+          "reading": "ともだち"
+        },
+        {
+          "word": "机",
+          "reading": "つくえ"
+        },
+        {
+          "word": "上",
+          "reading": "うえ"
+        },
+        {
+          "word": "辞書",
+          "reading": "じしょ"
+        },
+        {
+          "word": "置いた",
+          "reading": "おいた"
+        },
+        {
+          "word": "帰ろう",
+          "reading": "かえろう"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "辞書",
+            "reading": "じしょ"
+          },
+          {
+            "word": "持とう",
+            "reading": "もとう"
+          }
+        ],
+        [
+          {
+            "word": "辞書",
+            "reading": "じしょ"
+          },
+          {
+            "word": "忘れてる",
+            "reading": "わすれてる"
+          }
+        ],
+        [
+          {
+            "word": "辞書",
+            "reading": "じしょ"
+          },
+          {
+            "word": "持ってない",
+            "reading": "もってない"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Tớ cầm hộ từ điển nhé', không phù hợp vì người kia chỉ đang để quên chứ không phải cần người khác cầm hộ.",
+        "Đây là cách nói tự nhiên để nhắc nhở bạn mình rằng họ đang để quên từ điển trên bàn.",
+        "Câu này mang nghĩa 'Cậu không mang từ điển à?', không đúng với tình huống người đó đang để quên từ điển trên bàn."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-083",
@@ -1774,7 +5934,92 @@
         "Tôi mặc thử một chút có được không?"
       ],
       "correctIndex": 2,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng là cách hỏi xin phép thử đồ một cách lịch sự và thông dụng nhất tại cửa hàng.",
+      "scenarioFurigana": [
+        {
+          "word": "店",
+          "reading": "みせ"
+        },
+        {
+          "word": "服",
+          "reading": "ふく"
+        },
+        {
+          "word": "試したい",
+          "reading": "ためしたい"
+        },
+        {
+          "word": "店員",
+          "reading": "てんいん"
+        },
+        {
+          "word": "聞きます",
+          "reading": "ききます"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "店",
+          "reading": "みせ"
+        },
+        {
+          "word": "服",
+          "reading": "ふく"
+        },
+        {
+          "word": "試したい",
+          "reading": "ためしたい"
+        },
+        {
+          "word": "店員",
+          "reading": "てんいん"
+        },
+        {
+          "word": "聞きます",
+          "reading": "ききます"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "optionFurigana": [
+        [
+          {
+            "word": "着させてみましょう",
+            "reading": "きさせてみましょう"
+          }
+        ],
+        [
+          {
+            "word": "着させてもらえませんか",
+            "reading": "きさせてもらえませんか"
+          }
+        ],
+        [
+          {
+            "word": "着てみてもいいですか",
+            "reading": "きてみてもいいですか"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Để tôi thử mặc cho xem nhé', không phù hợp với ngữ cảnh khách hàng muốn thử đồ.",
+        "Câu này mang nghĩa 'Anh/chị có thể cho tôi mặc thử không?', tuy lịch sự nhưng cách nói này thường dùng khi nhờ vả người khác làm gì đó cho mình, không tự nhiên bằng cách hỏi xin phép trực tiếp.",
+        "Đây là cách hỏi xin phép chuẩn xác và tự nhiên nhất để hỏi nhân viên xem mình có thể mặc thử quần áo hay không."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-084",
@@ -1798,7 +6043,85 @@
         "Anh/chị ngồi chỗ này thì sao ạ?"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Lựa chọn đúng là cách mời lịch sự nhất khi nhường ghế cho người khác.",
+      "scenarioFurigana": [
+        {
+          "word": "電車",
+          "reading": "でんしゃ"
+        },
+        {
+          "word": "中",
+          "reading": "なか"
+        },
+        {
+          "word": "立って",
+          "reading": "たって"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "席",
+          "reading": "せき"
+        },
+        {
+          "word": "譲ります",
+          "reading": "ゆずります"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "questionFurigana": [
+        {
+          "word": "電車",
+          "reading": "でんしゃ"
+        },
+        {
+          "word": "中",
+          "reading": "なか"
+        },
+        {
+          "word": "立って",
+          "reading": "たって"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "席",
+          "reading": "せき"
+        },
+        {
+          "word": "譲ります",
+          "reading": "ゆずります"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言います",
+          "reading": "いいます"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là cách nói kính ngữ lịch sự nhất để mời người khác ngồi vào chỗ của mình.",
+        "Câu này mang nghĩa 'Tôi ngồi vào đây nhé?', không phải là lời mời nhường ghế.",
+        "Câu này mang nghĩa 'Anh/chị ngồi chỗ này thì sao?', nghe như một lời gợi ý hoặc đề nghị không đủ lịch sự trong tình huống nhường ghế."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-085",
@@ -1812,7 +6135,17 @@
         {
           "speaker": "女",
           "text": "いつもお世話になってるから、今日はごちそうさせてよ。",
-          "textVi": "Anh hay giúp đỡ tôi nên hôm nay để tôi đãi nhé."
+          "textVi": "Anh hay giúp đỡ tôi nên hôm nay để tôi đãi nhé.",
+          "furigana": [
+            {
+              "word": "世話",
+              "reading": "せわ"
+            },
+            {
+              "word": "今日",
+              "reading": "きょう"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1828,7 +6161,37 @@
         "Được chứ. Cứ ăn đi đừng ngại."
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Người nói đề nghị đãi ăn, vì vậy lựa chọn đúng là câu phản hồi chấp nhận lời mời.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [],
+        [
+          {
+            "word": "今日",
+            "reading": "きょう"
+          },
+          {
+            "word": "お金",
+            "reading": "おかね"
+          }
+        ],
+        [
+          {
+            "word": "遠慮",
+            "reading": "えんりょ"
+          },
+          {
+            "word": "食べて",
+            "reading": "たべて"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là câu phản hồi chấp nhận lời mời đãi ăn một cách tự nhiên.",
+        "Câu này từ chối lời mời bằng cách nêu lý do không có tiền, không phù hợp với ngữ cảnh người kia muốn đãi mình.",
+        "Câu này mang nghĩa 'Được chứ, cứ ăn đi đừng ngại', nghe như mình là người đang mời người kia ăn, không khớp với ngữ cảnh người kia đang mời mình."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-086",
@@ -1842,7 +6205,21 @@
         {
           "speaker": "男",
           "text": "ここの字、もう少し大きくしたらどう？",
-          "textVi": "Chữ ở đây, phóng to lên một chút thì sao?"
+          "textVi": "Chữ ở đây, phóng to lên một chút thì sao?",
+          "furigana": [
+            {
+              "word": "字",
+              "reading": "じ"
+            },
+            {
+              "word": "もう少し",
+              "reading": "もうすこし"
+            },
+            {
+              "word": "大きく",
+              "reading": "おおきく"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1858,7 +6235,34 @@
         "Ừ, tớ có thu nhỏ lại đâu."
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Người nói gợi ý phóng to chữ, lựa chọn đúng là câu phản hồi xác nhận lại ý kiến đó.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "大きく",
+            "reading": "おおきく"
+          }
+        ],
+        [
+          {
+            "word": "読みにくい",
+            "reading": "よみにくい"
+          }
+        ],
+        [
+          {
+            "word": "小さく",
+            "reading": "ちいさく"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Vậy không phóng to lên à?', không khớp với ngữ cảnh người kia vừa gợi ý phóng to.",
+        "Đây là câu phản hồi tự nhiên, xác nhận lại xem liệu chữ có khó đọc hay không.",
+        "Câu này mang nghĩa 'Tớ có thu nhỏ lại đâu', không liên quan đến việc phóng to chữ theo gợi ý."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-087",
@@ -1872,7 +6276,17 @@
         {
           "speaker": "女",
           "text": "これ、佐藤さんに返しといてもらえる？",
-          "textVi": "Cái này, bạn trả hộ mình cho anh Sato được không?"
+          "textVi": "Cái này, bạn trả hộ mình cho anh Sato được không?",
+          "furigana": [
+            {
+              "word": "佐藤",
+              "reading": "さとう"
+            },
+            {
+              "word": "返し",
+              "reading": "かえし"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1888,7 +6302,38 @@
         "Ừ, tuần tới lúc gặp nhau có được không?"
       ],
       "correctIndex": 2,
-      "explanation": ""
+      "explanation": "Người nói nhờ trả đồ cho anh Sato, lựa chọn đúng là câu xác nhận thời gian thực hiện việc trả đồ.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "借りて",
+            "reading": "かりて"
+          }
+        ],
+        [
+          {
+            "word": "佐藤",
+            "reading": "さとう"
+          }
+        ],
+        [
+          {
+            "word": "来週",
+            "reading": "らいしゅう"
+          },
+          {
+            "word": "会った",
+            "reading": "あった"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Ngày mai tớ mượn mang về cho', không đúng vì mục đích là trả đồ chứ không phải mượn.",
+        "Câu này mang nghĩa 'Cậu sẽ nhận từ anh Sato đúng không', không khớp với yêu cầu trả đồ.",
+        "Đây là câu trả lời xác nhận thời gian thực hiện việc trả đồ vào tuần tới khi gặp nhau."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-088",
@@ -1902,7 +6347,13 @@
         {
           "speaker": "男",
           "text": "あの、こちら拝見してもよろしいでしょうか。",
-          "textVi": "Xin lỗi, tôi có thể xem qua cái này được không ạ?"
+          "textVi": "Xin lỗi, tôi có thể xem qua cái này được không ạ?",
+          "furigana": [
+            {
+              "word": "拝見",
+              "reading": "はいけん"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1918,7 +6369,33 @@
         "Vâng, xin mời đến."
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Người nói xin phép xem đồ, lựa chọn đúng là câu phản hồi cho phép xem một cách lịch sự.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "召し上がって",
+            "reading": "めしあがって"
+          }
+        ],
+        [
+          {
+            "word": "自由",
+            "reading": "じゆう"
+          },
+          {
+            "word": "ご覧",
+            "reading": "ごらん"
+          }
+        ],
+        []
+      ],
+      "optionExplanations": [
+        "Câu này mang nghĩa 'Xin mời dùng bữa', không liên quan đến việc xem đồ.",
+        "Đây là câu phản hồi lịch sự cho phép người kia tự do xem đồ.",
+        "Câu này mang nghĩa 'Xin mời đến', không phù hợp với ngữ cảnh xin phép xem đồ."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-089",
@@ -1932,7 +6409,17 @@
         {
           "speaker": "女",
           "text": "さっき頼んだ書類、できてる？",
-          "textVi": "Tài liệu tôi nhờ lúc nãy xong chưa?"
+          "textVi": "Tài liệu tôi nhờ lúc nãy xong chưa?",
+          "furigana": [
+            {
+              "word": "頼んだ",
+              "reading": "たのんだ"
+            },
+            {
+              "word": "書類",
+              "reading": "しょるい"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1948,7 +6435,28 @@
         "Chắc là không làm được nữa đâu nhỉ."
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Người nói hỏi về tiến độ tài liệu đã nhờ trước đó. Lựa chọn đúng là câu trả lời phù hợp nhất khi tài liệu chưa hoàn thành và cần thêm thời gian.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "少し",
+            "reading": "すこし"
+          },
+          {
+            "word": "待って",
+            "reading": "まって"
+          }
+        ],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là câu trả lời hợp lý khi tài liệu chưa xong và người nói cần xin thêm thời gian.",
+        "Câu này thể hiện sự ngạc nhiên vì tài liệu đã xong, không phù hợp nếu người nói đang cần thêm thời gian.",
+        "Câu này mang nghĩa phủ định khả năng hoàn thành, không phải là cách trả lời lịch sự khi được hỏi về tiến độ công việc."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-090",
@@ -1962,7 +6470,25 @@
         {
           "speaker": "男",
           "text": "何か切る物、持ってきましょうか。",
-          "textVi": "Tôi mang cho bạn cái gì để cắt nhé?"
+          "textVi": "Tôi mang cho bạn cái gì để cắt nhé?",
+          "furigana": [
+            {
+              "word": "何か",
+              "reading": "なにか"
+            },
+            {
+              "word": "切る",
+              "reading": "きる"
+            },
+            {
+              "word": "物",
+              "reading": "もの"
+            },
+            {
+              "word": "持ってきましょうか",
+              "reading": "もってきましょうか"
+            }
+          ]
         }
       ],
       "question": "",
@@ -1978,7 +6504,29 @@
         "Vâng, nhờ anh/chị nhé."
       ],
       "correctIndex": 2,
-      "explanation": ""
+      "explanation": "Người nói đề nghị giúp đỡ mang dụng cụ cắt. Lựa chọn đúng là câu trả lời chấp nhận sự giúp đỡ đó một cách lịch sự.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "持ってきました",
+            "reading": "もってきました"
+          }
+        ],
+        [],
+        [
+          {
+            "word": "お願いします",
+            "reading": "おねがいします"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này nói rằng đã mang đến rồi, không khớp với ngữ cảnh người kia đang đề nghị đi lấy giúp.",
+        "Câu này hỏi lại về loại dụng cụ, không phải là câu trả lời trực tiếp cho lời đề nghị giúp đỡ.",
+        "Đây là câu trả lời xác nhận chấp nhận lời đề nghị giúp đỡ của đối phương."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-091",
@@ -1992,7 +6540,17 @@
         {
           "speaker": "男",
           "text": "田中先生をご存じですか。",
-          "textVi": "Bạn có biết thầy Tanaka không?"
+          "textVi": "Bạn có biết thầy Tanaka không?",
+          "furigana": [
+            {
+              "word": "田中先生",
+              "reading": "たなかせんせい"
+            },
+            {
+              "word": "ご存じ",
+              "reading": "ごぞんじ"
+            }
+          ]
         }
       ],
       "question": "",
@@ -2008,7 +6566,33 @@
         "Không, tôi không có ạ."
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Câu hỏi hỏi về việc có biết thầy Tanaka không. Lựa chọn đúng là câu trả lời xác nhận đã từng gặp thầy.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "拝見します",
+            "reading": "はいけんします"
+          }
+        ],
+        [
+          {
+            "word": "先日",
+            "reading": "せんじつ"
+          },
+          {
+            "word": "お目にかかりました",
+            "reading": "おめにかかりました"
+          }
+        ],
+        []
+      ],
+      "optionExplanations": [
+        "拝見する là khiêm nhường ngữ của việc xem/nhìn, không dùng để trả lời cho việc quen biết người.",
+        "Đây là cách nói khiêm nhường phù hợp để xác nhận việc đã từng gặp thầy Tanaka.",
+        "Câu này không hoàn chỉnh và không mang nghĩa phủ định phù hợp trong ngữ cảnh này."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-092",
@@ -2022,7 +6606,17 @@
         {
           "speaker": "男",
           "text": "もうちょっと言い方に気をつけないと。",
-          "textVi": "Cậu phải chú ý cách nói năng hơn chút nữa chứ."
+          "textVi": "Cậu phải chú ý cách nói năng hơn chút nữa chứ.",
+          "furigana": [
+            {
+              "word": "言い方",
+              "reading": "いいかた"
+            },
+            {
+              "word": "気",
+              "reading": "き"
+            }
+          ]
         }
       ],
       "question": "",
@@ -2038,7 +6632,38 @@
         "Xin hãy cẩn thận trên đường đi."
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Người nói nhắc nhở về cách nói năng. Lựa chọn đúng là lời xin lỗi vì đã thiếu chú ý.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "申し訳ありません",
+            "reading": "もうしわけありません"
+          }
+        ],
+        [
+          {
+            "word": "本当",
+            "reading": "ほんとう"
+          },
+          {
+            "word": "世話",
+            "reading": "せわ"
+          }
+        ],
+        [
+          {
+            "word": "気",
+            "reading": "き"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Đây là lời xin lỗi phù hợp khi bị nhắc nhở về lỗi sai trong cách nói năng.",
+        "Câu này dùng để cảm ơn sự giúp đỡ, không liên quan đến việc bị nhắc nhở về thái độ.",
+        "Câu này dùng để chúc ai đó cẩn thận, không phải là phản hồi cho lời nhắc nhở."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-093",
@@ -2052,7 +6677,25 @@
         {
           "speaker": "女",
           "text": "昨日の会、楽しかったよ。リーさんも来ればよかったのに……。",
-          "textVi": "Buổi gặp mặt hôm qua vui lắm. Lệ mà đến thì tốt biết mấy..."
+          "textVi": "Buổi gặp mặt hôm qua vui lắm. Lệ mà đến thì tốt biết mấy...",
+          "furigana": [
+            {
+              "word": "昨日",
+              "reading": "きのう"
+            },
+            {
+              "word": "会",
+              "reading": "かい"
+            },
+            {
+              "word": "楽しかった",
+              "reading": "たのしかった"
+            },
+            {
+              "word": "来れば",
+              "reading": "くれば"
+            }
+          ]
         }
       ],
       "question": "",
@@ -2068,7 +6711,38 @@
         "May mà mình cũng đi được."
       ],
       "correctIndex": 1,
-      "explanation": ""
+      "explanation": "Người nói bày tỏ sự tiếc nuối vì đối phương đã không tham gia buổi gặp mặt hôm qua. Lựa chọn đúng thể hiện sự đồng cảm với sự tiếc nuối đó bằng cách nói rằng bản thân cũng muốn đi nhưng không thể.",
+      "scenarioFurigana": [],
+      "questionFurigana": [],
+      "optionFurigana": [
+        [
+          {
+            "word": "行かなくても",
+            "reading": "いかなくても"
+          }
+        ],
+        [
+          {
+            "word": "行きたかった",
+            "reading": "いきたかった"
+          }
+        ],
+        [
+          {
+            "word": "私",
+            "reading": "わたし"
+          },
+          {
+            "word": "行けて",
+            "reading": "いけて"
+          }
+        ]
+      ],
+      "optionExplanations": [
+        "Câu này thể hiện thái độ không cần thiết phải đi, trái ngược với ý tiếc nuối của người nói.",
+        "Câu này thể hiện sự tiếc nuối vì không thể tham gia, phù hợp với ngữ cảnh người nói đang tiếc cho đối phương.",
+        "Câu này khẳng định bản thân đã đi và thấy vui, không phù hợp với ngữ cảnh người nói đang nói về việc đối phương đã vắng mặt."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-041",
@@ -2092,7 +6766,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là câu hỏi chọn đáp án theo thứ tự số. Lựa chọn đúng là đáp án 1.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Đây là đáp án đúng.",
+        "Đây không phải là đáp án đúng.",
+        "Đây không phải là đáp án đúng."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-042",
@@ -2116,7 +6807,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Dữ liệu âm thanh và kịch bản chi tiết không được cung cấp trong yêu cầu, do đó không thể phân tích nội dung cụ thể để xác định lý do lựa chọn đúng.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa đủ dữ liệu để phân tích.",
+        "Chưa đủ dữ liệu để phân tích.",
+        "Chưa đủ dữ liệu để phân tích."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-043",
@@ -2140,7 +6848,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Dữ liệu âm thanh và kịch bản chi tiết không được cung cấp trong yêu cầu, do đó không thể phân tích nội dung cụ thể để xác định lý do lựa chọn đúng.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa đủ dữ liệu để phân tích.",
+        "Chưa đủ dữ liệu để phân tích.",
+        "Chưa đủ dữ liệu để phân tích."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-044",
@@ -2164,7 +6889,60 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là phần hướng dẫn làm bài cho Mondai 5, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "問題",
+          "reading": "もんだい"
+        },
+        {
+          "word": "問題",
+          "reading": "もんだい"
+        },
+        {
+          "word": "用紙",
+          "reading": "ようし"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "文",
+          "reading": "ぶん"
+        },
+        {
+          "word": "聞",
+          "reading": "き"
+        },
+        {
+          "word": "聞",
+          "reading": "き"
+        },
+        {
+          "word": "中",
+          "reading": "な"
+        },
+        {
+          "word": "最",
+          "reading": "もっと"
+        },
+        {
+          "word": "一",
+          "reading": "ひと"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-045",
@@ -2188,7 +6966,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là tiêu đề câu hỏi, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-046",
@@ -2212,7 +7007,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là tiêu đề câu hỏi, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-047",
@@ -2236,7 +7048,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là tiêu đề câu hỏi, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-048",
@@ -2260,7 +7089,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là tiêu đề câu hỏi, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-039",
@@ -2284,7 +7130,60 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là phần hướng dẫn làm bài cho Mondai 4, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "問題",
+          "reading": "もんだい"
+        },
+        {
+          "word": "見",
+          "reading": "み"
+        },
+        {
+          "word": "質問",
+          "reading": "しつもん"
+        },
+        {
+          "word": "聞",
+          "reading": "き"
+        },
+        {
+          "word": "人",
+          "reading": "ひと"
+        },
+        {
+          "word": "何",
+          "reading": "なに"
+        },
+        {
+          "word": "言",
+          "reading": "い"
+        },
+        {
+          "word": "中",
+          "reading": "な"
+        },
+        {
+          "word": "最",
+          "reading": "もっと"
+        },
+        {
+          "word": "一",
+          "reading": "ひと"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-040",
@@ -2308,7 +7207,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là tiêu đề câu hỏi, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-049",
@@ -2332,7 +7248,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Đây là tiêu đề câu hỏi, không có nội dung hội thoại cụ thể để phân tích đáp án.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định.",
+        "Chưa có dữ liệu hội thoại để xác định."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-050",
@@ -2356,7 +7289,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Dữ liệu âm thanh và kịch bản không được cung cấp, do đó không thể phân tích nội dung để xác định lựa chọn đúng.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-051",
@@ -2380,7 +7330,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Dữ liệu âm thanh và kịch bản không được cung cấp, do đó không thể phân tích nội dung để xác định lựa chọn đúng.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-052",
@@ -2404,7 +7371,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Dữ liệu âm thanh và kịch bản không được cung cấp, do đó không thể phân tích nội dung để xác định lựa chọn đúng.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá."
+      ]
     },
     {
       "id": "listening-shinkanzen-n3-053",
@@ -2428,7 +7412,24 @@
         "3"
       ],
       "correctIndex": 0,
-      "explanation": ""
+      "explanation": "Dữ liệu âm thanh và kịch bản không được cung cấp, do đó không thể phân tích nội dung để xác định lựa chọn đúng.",
+      "scenarioFurigana": [],
+      "questionFurigana": [
+        {
+          "word": "番",
+          "reading": "ばん"
+        }
+      ],
+      "optionFurigana": [
+        [],
+        [],
+        []
+      ],
+      "optionExplanations": [
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá.",
+        "Chưa đủ dữ liệu để đánh giá."
+      ]
     }
   ]
 }
