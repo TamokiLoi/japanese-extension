@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react";
-import { isRomaji, toHiragana } from "wanakana";
+import { isRomaji, toHiragana, toKatakana } from "wanakana";
 import { ALL_KANJI } from "../kanjiState.ts";
 import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_BUNPO } from "../bunpoState.ts";
@@ -10,25 +10,26 @@ import { formatHanViet } from "../../hanVietFormat.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 
 const MAX_RESULTS = 40;
+const SEARCH_KIND_ORDER: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
 
 // See src/web/screens/SearchScreen.tsx's copy of this pair for the full
 // rationale -- kept duplicated rather than shared since this popup screen
 // is its own independent implementation of the same feature.
-function romajiVariant(q: string): string | null {
-  if (!q || !isRomaji(q)) return null;
-  const kana = toHiragana(q, { passRomaji: false });
-  return kana !== q ? kana : null;
+function queryVariants(q: string): string[] {
+  if (!q) return [];
+  const options = isRomaji(q) ? { passRomaji: false } : { passRomaji: true };
+  return [...new Set([q, toHiragana(q, options).toLowerCase(), toKatakana(q, options).toLowerCase()])];
 }
 
-function matchesAny(text: string, q: string, qKana: string | null): boolean {
-  return text.includes(q) || (qKana !== null && text.includes(qKana));
+function matchesAny(text: string, variants: string[]): boolean {
+  return variants.some((variant) => text.includes(variant));
 }
 
 // See src/web/screens/SearchScreen.tsx's identical helper -- kun-yomi
 // readings store okurigana markers ("ひと.つ", "ひと-") a search query never
 // contains, so they're stripped before matching.
-function matchesReading(reading: string, q: string, qKana: string | null): boolean {
-  return matchesAny(reading.replace(/[.\-]/g, ""), q, qKana);
+function matchesReading(reading: string, variants: string[]): boolean {
+  return matchesAny(reading.replace(/[.\-]/g, ""), variants);
 }
 
 interface SearchResult {
@@ -40,16 +41,16 @@ interface SearchResult {
   meaning: string;
 }
 
-function searchKanji(q: string, qKana: string | null): SearchResult[] {
+function searchKanji(q: string, variants: string[]): SearchResult[] {
   return ALL_KANJI.filter(
     (k) =>
-      q.includes(k.character) ||
+      variants.some((variant) => variant.includes(k.character)) ||
       k.hanViet.some((h) => h.toLowerCase().includes(q)) ||
       k.meanings.vi.some((m) => m.toLowerCase().includes(q)) ||
       (k.meanings.viDraft ?? []).some((m) => m.toLowerCase().includes(q)) ||
       k.meanings.en.some((m) => m.toLowerCase().includes(q)) ||
-      k.readings.on.some((r) => matchesReading(r, q, qKana)) ||
-      k.readings.kun.some((r) => matchesReading(r, q, qKana)),
+      k.readings.on.some((r) => matchesReading(r, variants)) ||
+      k.readings.kun.some((r) => matchesReading(r, variants)),
   ).map((k) => ({
     kind: "kanji" as const,
     id: k.id,
@@ -63,19 +64,21 @@ function searchKanji(q: string, qKana: string | null): SearchResult[] {
 // See src/web/screens/SearchScreen.tsx's copy for the full rationale --
 // verbs store their dictionary form as `word`, so a conjugated query
 // ("持ち帰ろう") needs to also check the precomputed conjugation table.
-function matchesConjugation(v: (typeof ALL_VOCAB)[number], q: string): boolean {
+function matchesConjugation(v: (typeof ALL_VOCAB)[number], variants: string[]): boolean {
   if (!v.conjugations) return false;
-  return Object.values(v.conjugations).some((form) => typeof form === "string" && form.toLowerCase().includes(q));
+  return Object.values(v.conjugations).some(
+    (form) => typeof form === "string" && matchesAny(form.toLowerCase(), variants),
+  );
 }
 
-function searchVocab(q: string, qKana: string | null): SearchResult[] {
+function searchVocab(q: string, variants: string[]): SearchResult[] {
   return ALL_VOCAB.filter(
     (v) =>
-      v.word.toLowerCase().includes(q) ||
-      matchesAny((v.reading ?? "").toLowerCase(), q, qKana) ||
+      variants.some((variant) => v.word.toLowerCase().includes(variant)) ||
+      matchesAny((v.reading ?? "").toLowerCase(), variants) ||
       v.meaningVi.toLowerCase().includes(q) ||
       v.hanViet.some((h) => h.toLowerCase().includes(q)) ||
-      matchesConjugation(v, q),
+      matchesConjugation(v, variants),
   ).map((v) => ({
     kind: "vocab" as const,
     id: v.id,
@@ -86,8 +89,8 @@ function searchVocab(q: string, qKana: string | null): SearchResult[] {
   }));
 }
 
-function searchBunpo(q: string, qKana: string | null): SearchResult[] {
-  return ALL_BUNPO.filter((g) => matchesAny(g.pattern.toLowerCase(), q, qKana) || g.meaningVi.toLowerCase().includes(q)).map((g) => ({
+function searchBunpo(q: string, variants: string[]): SearchResult[] {
+  return ALL_BUNPO.filter((g) => matchesAny(g.pattern.toLowerCase(), variants) || g.meaningVi.toLowerCase().includes(q)).map((g) => ({
     kind: "bunpo" as const,
     id: g.id,
     level: g.level,
@@ -109,20 +112,23 @@ export function SearchScreen({
   onOpenBunpo: (bunpoId: string) => void;
 }) {
   const [query, setQuery] = useState("");
-  const [activeKinds, setActiveKinds] = useState<SearchResult["kind"][]>(["kanji", "vocab", "bunpo"]);
+  const [activeKinds, setActiveKinds] = useState<SearchResult["kind"][]>(["vocab"]);
   const debouncedQuery = useDebouncedValue(query, 150);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const q = debouncedQuery.trim().toLowerCase();
-  const qKana = useMemo(() => romajiVariant(q), [q]);
+  const variants = useMemo(() => queryVariants(q), [q]);
   const results = useMemo(() => {
     if (!q) return [];
     const all: SearchResult[] = [];
-    if (activeKinds.includes("kanji")) all.push(...searchKanji(q, qKana));
-    if (activeKinds.includes("vocab")) all.push(...searchVocab(q, qKana));
-    if (activeKinds.includes("bunpo")) all.push(...searchBunpo(q, qKana));
+    for (const kind of SEARCH_KIND_ORDER) {
+      if (!activeKinds.includes(kind)) continue;
+      if (kind === "vocab") all.push(...searchVocab(q, variants));
+      else if (kind === "kanji") all.push(...searchKanji(q, variants));
+      else all.push(...searchBunpo(q, variants));
+    }
     return all.slice(0, MAX_RESULTS);
-  }, [q, qKana, activeKinds]);
+  }, [q, variants, activeKinds]);
 
   function toggleKind(kind: SearchResult["kind"]) {
     setActiveKinds((prev) => {
@@ -156,10 +162,11 @@ export function SearchScreen({
       </section>
 
       <section className="search-kind-filter-row">
-        {(Object.keys(KIND_LABELS) as SearchResult["kind"][]).map((kind) => (
+        {SEARCH_KIND_ORDER.map((kind) => (
           <button
             key={kind}
             type="button"
+            aria-pressed={activeKinds.includes(kind)}
             className={`search-kind-chip ${KIND_CLASSES[kind]} ${activeKinds.includes(kind) ? "search-kind-chip-active" : ""}`}
             onClick={() => toggleKind(kind)}
           >

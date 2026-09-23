@@ -329,7 +329,7 @@ export function WebApp() {
     onClick={() => setSearchPopupOpen(false)}
   >
     <div
-      className="relative mx-auto min-h-full max-w-3xl rounded-2xl bg-white pt-10 shadow-2xl md:min-h-0 md:pt-2"
+      className="relative mx-auto min-h-0 max-h-[calc(100dvh-1.5rem)] max-w-3xl overflow-hidden rounded-2xl bg-white pt-10 shadow-2xl md:max-h-none md:pt-2"
       onClick={(event) => event.stopPropagation()}
     >
               <button
@@ -342,6 +342,7 @@ export function WebApp() {
               </button>
               <Suspense fallback={<LoadingScreen />}>
                 <SearchScreen
+                  popup
                   onOpenKanji={(id) => {
                     setSearchPopupOpen(false);
                     go("kanji", id);
