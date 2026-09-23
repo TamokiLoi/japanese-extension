@@ -3,8 +3,8 @@
     "schemaVersion": "1.0",
     "source": "assets/data/de-thi-cac-nam/ (đề thi thật JLPT N3 các kỳ, sưu tầm + đáp án bởi Yuuki Bùi/Tôi Yêu Ngoại Ngữ Group)",
     "level": "N3",
-    "examCount": 13,
-    "notes": "Pilot 1 đề (T12/2020), phần 言語知識・読解 (KHÔNG có 聴解 - phần nghe làm riêng ở tính năng Luyện nghe). Không có barem điểm gốc công khai nên mỗi câu tính đều 1 điểm. Câu 35 (bunpou-dokkai) đáp án nguồn ghi 3 nhưng đối chiếu ngữ nghĩa đoạn văn thấy đáp án 4 hợp lý hơn -- ĐÃ GIỮ NGUYÊN đáp án nguồn (3) theo đúng nguyên tắc không tự sửa đáp án, nghi ngờ lỗi in ấn của nguồn, cần rà soát lại nếu có đáp án chính thức đối chiếu. Đã thêm paper 聴解 (6 câu Mondai 1) dùng 1 file audio liên tục (audioUrl ở paper, audioStartSec tham khảo ở từng câu) thay vì tách clip -- mô phỏng đúng cách thi thật (nghe 1 lần, không phát lại), question chỉ ghi số thứ tự (\"1番\"...) không in sẵn câu hỏi/hội thoại vì đề giấy thật cũng không in, tránh làm mất tính chất luyện nghe. Đã hoàn thiện đủ 28/28 câu 聴解 (Mondai 1-5) cho đề T12/2020 -- Mondai 2 lấy lựa chọn từ đề gốc (in sẵn), Mondai 3/4/5 lấy lựa chọn từ script nghe cộng đồng (đề gốc không in, nhưng script transcribe đầy đủ cả câu hỏi lẫn lựa chọn spoken) -- KHÔNG phải AI suy luận, đối chiếu khớp 100% với đáp án in sẵn (問題2: 3,2,4,4,2,3 / 問題3: 1,4,2 / 問題4: 2,2,3,2 / 問題5: 2,3,2,3,1,2,3,1,2). Audio 1 file duy nhất dài ~36 phút (90s-2255s gốc) bao trọn cả 5 Mondai, verify Gemini xác nhận câu cuối (9番 Mondai5) không bị cắt hụt. Đã merge 11 kỳ thi còn lại (T7/T12 2019,2021-2025) -- phần text (文字語彙・文法・読解) qua Gemini, đối chiếu tay với đáp án gốc từng đề (không tin theo 1 lượt verify tự động duy nhất vì phát hiện verify script tự OCR không ổn định/không nhất quán giữa các lần chạy cho vài đề) và sửa các câu sai thật + lỗi trùng lựa chọn OCR (kanji dễ nhầm). 2 câu còn lại KHÔNG sửa được (N3 7-2021 q12, N3 7-2024 q11) vì bản thân đề gốc in trùng lặp thật (lỗi nhà xuất bản/soạn đề, không phải lỗi convert) -- correctIndex vẫn đúng, chỉ 2 lựa chọn hiển thị giống hệt nhau. Phần 聴解 của cả 11 kỳ này CHƯA làm (chỉ đề T12/2020 có đủ 聴解)."
+    "examCount": 14,
+    "notes": "Đã tích hợp 14 kỳ đề thi thật JLPT N3 từ T7/2019 đến T7/2026, gồm 3 phần thi mỗi kỳ. Đáp án lấy từ file đáp án đi kèm từng đề (một số là đáp án tham khảo cộng đồng); không có barem điểm chính thức công khai nên mỗi câu tính đều 1 điểm. Phần 聴解 dùng một file audio liên tục cho mỗi kỳ."
   },
   "exams": [
     {
@@ -90025,6 +90025,1681 @@
             }
           ],
           "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2025-12-v1/N3-2025-12.mp3"
+        }
+      ]
+    },
+    {
+      "id": "cacnam-n3-2026-07",
+      "examLabel": "N3 T7/2026 (đề thật)",
+      "source": "cac-nam",
+      "papers": [
+        {
+          "id": "moji-goi",
+          "label": "言語知識（文字・語彙）",
+          "timeMinutes": 30,
+          "totalPoints": 35,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 8,
+              "pointsPerQuestion": 1,
+              "totalPoints": 8
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 11,
+              "pointsPerQuestion": 1,
+              "totalPoints": 11
+            },
+            {
+              "label": "問題4",
+              "questionCount": 5,
+              "pointsPerQuestion": 1,
+              "totalPoints": 5
+            },
+            {
+              "label": "問題5",
+              "questionCount": 5,
+              "pointsPerQuestion": 1,
+              "totalPoints": 5
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "コンピューターで計算します。",
+              "options": [
+                "けいざん",
+                "けいさん",
+                "けんさん",
+                "けんざん"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「計算」đọc là「けいさん」nghĩa là tính toán."
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "浅いほうの容器をください。",
+              "options": [
+                "まるい",
+                "ふかい",
+                "かるい",
+                "あさい"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「浅い」đọc là「あさい」nghĩa là nông."
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "兄は車の広告を作る仕事をしている。",
+              "options": [
+                "こうこく",
+                "ごうこく",
+                "こうごく",
+                "ごうごく"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「広告」đọc là「こうこく」nghĩa là quảng cáo."
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "この店のチーズは種類が多い。",
+              "options": [
+                "しゅるい",
+                "しゅれい",
+                "しゅうるい",
+                "しゅうれい"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「種類」đọc là「しゅるい」nghĩa là chủng loại."
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "今日は本田さんが勝ったそうです。",
+              "options": [
+                "たたかった",
+                "かった",
+                "はらった",
+                "くばった"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「勝った」đọc là「かった」nghĩa là thắng."
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "悲しいときは、いつもここに来て海を見ていました。",
+              "options": [
+                "くやしい",
+                "くるしい",
+                "かなしい",
+                "さびしい"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「悲しい」đọc là「かなしい」nghĩa là buồn bã."
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題1",
+              "question": "きちんと整理したほうがいいですよ。",
+              "options": [
+                "しゅり",
+                "しゅうり",
+                "せり",
+                "せいり"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「整理」đọc là「せいり」nghĩa là chỉnh lý, dọn dẹp."
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題1",
+              "question": "3歳の子どもの身長の平均はどのくらいですか。",
+              "options": [
+                "へきん",
+                "へいやく",
+                "へいきん",
+                "へやく"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ「平均」đọc là「へいきん」nghĩa là bình quân."
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "鍋にあぶらをいれてください。",
+              "options": [
+                "貝",
+                "塩",
+                "油",
+                "豆"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Cho dầu vào nồi nên dùng từ 「油」."
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "その話を聞いて、みんな涙をながした。",
+              "options": [
+                "落した",
+                "流した",
+                "泣した",
+                "汚した"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 「流した」 có nghĩa là làm chảy (nước mắt) hợp với ngữ cảnh câu."
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "この二つはよく似ているので、くべつしにくい。",
+              "options": [
+                "区別",
+                "区割",
+                "図別",
+                "図割"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 「区別」 có nghĩa là phân biệt, phù hợp với việc so sánh hai vật."
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "早くつつんでください。",
+              "options": [
+                "運んで",
+                "結んで",
+                "包んで",
+                "選んで"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 「包んで」 có nghĩa là gói lại, hợp với hành động chuẩn bị đồ đạc."
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題2",
+              "question": "これは社長のめいれいです。",
+              "options": [
+                "名例",
+                "命例",
+                "名令",
+                "命令"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 「命令」 có nghĩa là mệnh lệnh từ cấp trên."
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題2",
+              "question": "その交差点をうせつしてください。",
+              "options": [
+                "左折",
+                "右折",
+                "右切",
+                "左切"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 「右折」 có nghĩa là rẽ phải tại ngã tư."
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "手を洗った後は、そこのコップを使って( )をしてください。",
+              "options": [
+                "あくび",
+                "いびき",
+                "うがい",
+                "しゃっくり"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Sau khi rửa tay, người ta thường 「うがい」 (súc miệng) để vệ sinh."
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題3",
+              "question": "昨日友達と行った映画館はとてもすいていて、( )が多かった。",
+              "options": [
+                "不要",
+                "欠席",
+                "不足",
+                "空席"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "Vì rạp chiếu phim vắng khách nên có nhiều 'ghế trống' (空席)."
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題3",
+              "question": "最近洗濯機の( )がよくないので、新しいのを買うつもりです。",
+              "options": [
+                "環境",
+                "調子",
+                "事情",
+                "都合"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Máy giặt hỏng hóc nên 'tình trạng/hoạt động' (調子) không tốt."
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題3",
+              "question": "その映画は、内容はよく覚えているが( )が思い出せない。",
+              "options": [
+                "フィルム",
+                "タイトル",
+                "チケット",
+                "イメージ"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Nhớ nội dung phim nhưng không nhớ được 'tựa đề' (タイトル)."
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題3",
+              "question": "明日のスピーチでメモを見ないで話すために、文章を全部( )した。",
+              "options": [
+                "納得",
+                "学習",
+                "暗記",
+                "観察"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Để không nhìn giấy khi phát biểu, cần 'học thuộc lòng' (暗記) bài văn."
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題3",
+              "question": "暗い所から急に明るい所に出たので、( )目を閉じてしまった。",
+              "options": [
+                "まぶしくて",
+                "きびしくて",
+                "めずらしくて",
+                "あたたかくて"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ chỗ tối ra chỗ sáng đột ngột nên bị 'chói mắt' (まぶしくて)."
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題3",
+              "question": "危ないですから、自転車のハンドルを( )握ってください。",
+              "options": [
+                "ぴったり",
+                "しっかり",
+                "はっきり",
+                "うっかり"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Vì nguy hiểm nên hãy cầm lái xe đạp một cách 'chắc chắn' (しっかり)."
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題3",
+              "question": "祖父は長い間、村のために働いてきたので、村の人たちからとても( )されている。",
+              "options": [
+                "尊敬",
+                "賛成",
+                "愛用",
+                "遠慮"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Ông làm việc cho làng lâu năm nên được mọi người 'tôn trọng' (尊敬)."
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題3",
+              "question": "風邪で熱があるので、ベッドから起きて歩くと、体が( )します。",
+              "options": [
+                "はらはら",
+                "きょろきょろ",
+                "ふらふら",
+                "うろうろ"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Khi bị sốt, đứng dậy đi lại cảm thấy người 'choáng váng' (ふらふら)."
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題3",
+              "question": "この薬は、歯の痛みを( )ことができるそうです。",
+              "options": [
+                "隠す",
+                "壊す",
+                "下ろす",
+                "抑える"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "Thuốc này giúp 'kìm hãm/giảm bớt' (抑える) cơn đau răng."
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題3",
+              "question": "雪のない時期でも、最近の技術では( )雪を降らせることができる。",
+              "options": [
+                "消極的に",
+                "人工的に",
+                "抽象的に",
+                "代表的に"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Kỹ thuật hiện đại có thể tạo ra tuyết một cách 'nhân tạo' (人工的に)."
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題4",
+              "question": "思っていたよりらくなアルバイトだった。",
+              "options": [
+                "自由な",
+                "簡単な",
+                "面白い",
+                "難しい"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 'raku' (らくな) trong ngữ cảnh này đồng nghĩa với 'đơn giản/nhàn hạ' (簡単な)."
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題4",
+              "question": "彼は何かしゃべっているようです。",
+              "options": [
+                "話して",
+                "考えて",
+                "見て",
+                "探して"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 'shabetteiru' đồng nghĩa với 'đang nói chuyện' (話して)."
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題4",
+              "question": "この写真では実際のサイズが分かりません。",
+              "options": [
+                "色",
+                "重さ",
+                "大きさ",
+                "形"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 'saizu' (size) đồng nghĩa với 'kích thước/độ lớn' (大きさ)."
+            },
+            {
+              "number": 29,
+              "problemGroup": "問題4",
+              "question": "来月から多少忙しくなりそうです。",
+              "options": [
+                "ちょっと",
+                "とても",
+                "いろいろ",
+                "もっと"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 'tashou' (多少) đồng nghĩa với 'một chút' (ちょっと)."
+            },
+            {
+              "number": 30,
+              "problemGroup": "問題4",
+              "question": "山下さんが部品を交換してくれました。",
+              "options": [
+                "持ってきて",
+                "組み立てて",
+                "片づけて",
+                "取りかえて"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "Từ 'koukan' (交換) đồng nghĩa với 'thay thế/trao đổi' (取りかえて)."
+            },
+            {
+              "number": 31,
+              "problemGroup": "問題5",
+              "question": "看板",
+              "options": [
+                "私の学校では、先生も生徒も胸に看板をつけています。",
+                "似ている物が多いので、スーツケースに自分の看板をつけた。",
+                "昨日もらった鈴木さんの看板には、課長と書かれていた。",
+                "薬局は、あの赤い大きな看板があるお店です。"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "看板 nghĩa là 'biển hiệu', dùng để chỉ bảng quảng cáo gắn ở cửa hàng."
+            },
+            {
+              "number": 32,
+              "problemGroup": "問題5",
+              "question": "募集",
+              "options": [
+                "父は趣味で古い切手を募集している。",
+                "新しくできたスーパーでアルバイトを募集している。",
+                "この歌手は今、世界中の若者の人気を募集している。",
+                "社員を会議室に募集して、会議を開いた。"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "explanation": "募集 nghĩa là 'tuyển dụng', dùng cho việc tìm kiếm nhân viên hoặc người tham gia."
+            },
+            {
+              "number": 33,
+              "problemGroup": "問題5",
+              "question": "消費",
+              "options": [
+                "明日までに残りの宿題を全部消費しなければならない。",
+                "固い食べ物は胃で消費するのに時間がかかる。",
+                "私たちは毎日、電気やガスなどのエネルギーを消費している。",
+                "この靴は3年前から履いているので、底が消費している。"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "explanation": "消費 nghĩa là 'tiêu thụ', dùng cho việc sử dụng năng lượng, tài nguyên."
+            },
+            {
+              "number": 34,
+              "problemGroup": "問題5",
+              "question": "知り合う",
+              "options": [
+                "帰りの電車で兄と知り合ったので、一緒に帰宅しました。",
+                "このレストランは、雑誌を見て知り合いました。",
+                "今回の実験で知り合った結果をレポートに書こうと思います。",
+                "中村さんとは、2年前に友達の結婚式で知り合いました。"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "explanation": "知り合う nghĩa là 'quen biết', dùng cho việc thiết lập mối quan hệ với người mới."
+            },
+            {
+              "number": 35,
+              "problemGroup": "問題5",
+              "question": "内側",
+              "options": [
+                "部屋の内側から鍵がかかっているので、中に入れません。",
+                "相談の内側は誰にも話しませんから、安心してください。",
+                "このスープの内側にはいろいろな野菜が入っていますね。",
+                "今は外国へ行くよりも、日本の内側を旅行したいです。"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "explanation": "内側 nghĩa là 'phía bên trong', dùng để chỉ vị trí bên trong của một vật hoặc không gian."
+            }
+          ]
+        },
+        {
+          "id": "bunpou-dokkai",
+          "label": "言語知識（文法）・読解",
+          "timeMinutes": 70,
+          "totalPoints": 38,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 13,
+              "pointsPerQuestion": 1,
+              "totalPoints": 13
+            },
+            {
+              "label": "問題2",
+              "questionCount": 5,
+              "pointsPerQuestion": 1,
+              "totalPoints": 5
+            },
+            {
+              "label": "問題3",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題6",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題7",
+              "questionCount": 2,
+              "pointsPerQuestion": 1,
+              "totalPoints": 2
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "私は、子どものための料理教室を開いている。料理の楽しさを子どもたち（ ）知ってほしいと思っているからだ。",
+              "options": [
+                "を",
+                "に",
+                "と",
+                "へ"
+              ],
+              "correctIndex": 1,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～に～てほしい」dùng để diễn tả mong muốn ai đó làm gì cho mình."
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "昨日、花野市で人気バンド「XZ」のコンサートが行われ、会場には10代、20代の若者（ ）中心にたくさんの客が集まった。",
+              "options": [
+                "を",
+                "に",
+                "が",
+                "の"
+              ],
+              "correctIndex": 0,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～を中心に」dùng để nhấn mạnh đối tượng chủ đạo, trọng tâm của một sự việc."
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "兄は、うちから歩いて10分（ ）高校に通っている。",
+              "options": [
+                "ごろで",
+                "ごろの",
+                "ぐらいで",
+                "ぐらいの"
+              ],
+              "correctIndex": 3,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「ぐらいの」dùng để bổ nghĩa cho danh từ chỉ khoảng cách hoặc mức độ ước lượng."
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "3か月前から週に2回、コンビニでアルバイトをしている。覚えることが多くて最初は大変だったが、（ ）仕事に慣れてきた。",
+              "options": [
+                "結局",
+                "さっき",
+                "今にも",
+                "ようやく"
+              ],
+              "correctIndex": 3,
+              "passage": null,
+              "points": 1,
+              "explanation": "Từ「ようやく」dùng để chỉ kết quả đạt được sau một thời gian dài nỗ lực hoặc chờ đợi."
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "うちの近くにあるラーメン屋は、とても人気があって、いつ食べに（ ）込んでいる。",
+              "options": [
+                "行って",
+                "行けば",
+                "行っても",
+                "行くのに"
+              ],
+              "correctIndex": 2,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～ても」diễn tả ý nghĩa mặc dù làm gì đó thì kết quả vẫn không thay đổi (dù có đi ăn thì lúc nào cũng đông)."
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "妹は飛行機が好きだ。飛行機を見る（ ）毎週空港へ通っている。",
+              "options": [
+                "ときだけに",
+                "ためだけに",
+                "ときにしか",
+                "ためにしか"
+              ],
+              "correctIndex": 1,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～ためだけに」dùng để nhấn mạnh mục đích duy nhất của hành động."
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題1",
+              "question": "A「駅前にオープンしたパン屋、今セールしてるって知ってた？」B「うん、パン屋が（ ）知らなかったよ。」",
+              "options": [
+                "できたのも",
+                "できたのは",
+                "できるのか",
+                "できるのを"
+              ],
+              "correctIndex": 0,
+              "passage": null,
+              "points": 1,
+              "explanation": "Cấu trúc danh từ hóa「～のも」dùng để chỉ nguyên nhân hoặc sự kiện làm đối tượng cho trạng thái đằng sau."
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題1",
+              "question": "（パーティーで）田中「山下先生、お久しぶりです。また先生に（ ）うれしいです。」山下「ああ、田中さん、お元気でしたか。」",
+              "options": [
+                "拝見できて",
+                "ご覧になれて",
+                "お目にかかれて",
+                "お会いになれて"
+              ],
+              "correctIndex": 2,
+              "passage": null,
+              "points": 1,
+              "explanation": "Kính ngữ「お目にかかる」là khiêm nhường ngữ của「会う」(gặp gỡ cấp trên)."
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題1",
+              "question": "昨日美容院に行ったのだが、予約した時間に着いたのに、30分以上（ ）。",
+              "options": [
+                "待たれた",
+                "待たされた",
+                "待たせてやった",
+                "待ってくれた"
+              ],
+              "correctIndex": 1,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「させられる」dùng để diễn tả sự bị động mang ý nghĩa bị bắt phải làm gì đó (bị bắt chờ đợi)."
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題1",
+              "question": "木村「山川さん、今日のゼミの発表、とてもよかったよ。」山川「ありがとうございます。木村先輩がいろいろアドバイスしてくださった（ ）。」",
+              "options": [
+                "はずです",
+                "ようです",
+                "そうです",
+                "おかげです"
+              ],
+              "correctIndex": 3,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～のおかげで」dùng để chỉ nguyên nhân tích cực dẫn đến kết quả tốt đẹp."
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題1",
+              "question": "革の靴にこのクリームを塗ると、汚れが（ ）。",
+              "options": [
+                "つかなくする",
+                "つきにくくなる",
+                "つかなくてもいい",
+                "つきにくいほうがいい"
+              ],
+              "correctIndex": 1,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～にくくなる」dùng để diễn tả tình trạng trở nên khó xảy ra hành động/trạng thái nào đó."
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題1",
+              "question": "（会社で）青木「この荷物、私たちだけで倉庫まで運ぶのは大変ですね。山野さんにも（ ）。」川田「はい、そうですね。」",
+              "options": [
+                "手伝ってあげましょうか",
+                "手伝ってあげられませんか",
+                "手伝ってもらいましょうか",
+                "手伝ってもらえませんか"
+              ],
+              "correctIndex": 2,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～てもらいましょうか」dùng để đề nghị, rủ rê người khác cùng nhờ vả một bên thứ ba."
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題1",
+              "question": "私は毎年東山公園で行われる夏祭りに行くのを楽しみにしているのだが、今年はその時期に海外出張の予定があって、（ ）。",
+              "options": [
+                "行けそうにない",
+                "行けるに違いない",
+                "行ってもしかたない",
+                "行ってもかまわない"
+              ],
+              "correctIndex": 0,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「～そうにない」dùng để diễn tả dự đoán sự việc khó có khả năng xảy ra."
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題2",
+              "question": "自分にとってはストレスになる（ことでも ほかの人が 同じように感じる かどうかは）わからない。",
+              "options": [
+                "ことでも",
+                "同じように感じる",
+                "ほかの人が",
+                "かどうかは"
+              ],
+              "correctIndex": 3,
+              "passage": null,
+              "points": 1,
+              "explanation": "Mẫu「かどうか」dùng để diễn tả ý nghĩa 'không biết là có... hay không'."
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題2",
+              "question": "今日行われる予定だったマラソン大会が、昨日（大雪 から の で）中止になってしまった。",
+              "options": [
+                "の",
+                "から",
+                "で",
+                "大雪"
+              ],
+              "correctIndex": 3,
+              "passage": null,
+              "points": 1,
+              "explanation": "Từ「大雪」là danh từ chỉ nguyên nhân, kết hợp với trợ từ「で」để chỉ lý do dẫn đến việc hủy giải đấu."
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題2",
+              "question": "兄は数学が大好きで、（数学 ほど 面白い もの）はないとよく言っている。",
+              "options": [
+                "ほど",
+                "もの",
+                "面白い",
+                "数学"
+              ],
+              "correctIndex": 2,
+              "passage": null,
+              "points": 1,
+              "explanation": "Cấu trúc so sánh「～ほど～はない」dùng để nhấn mạnh rằng không có cái gì thú vị bằng toán học."
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題2",
+              "question": "息子の誕生日に、前から欲しいと言っていたゲームをプレゼントした。包みを開けて、（うれしそうな 顔を している 息子を）見て、私もうれしくなった。",
+              "options": [
+                "息子を",
+                "している",
+                "うれしそうな",
+                "顔を"
+              ],
+              "correctIndex": 1,
+              "passage": null,
+              "points": 1,
+              "explanation": "Cấu trúc「～をしている」dùng để miêu tả trạng thái hoặc vẻ ngoài (khuôn mặt vui vẻ)."
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題2",
+              "question": "私の実家は、電車の駅からもバス停からも遠い（ので 車やバイクがない と 生活する）のに不便だ。",
+              "options": [
+                "と",
+                "ので",
+                "生活する",
+                "車やバイクがない"
+              ],
+              "correctIndex": 0,
+              "passage": null,
+              "points": 1,
+              "explanation": "Trợ từ「と」nối hai mệnh đề điều kiện, ở đây diễn tả việc thiếu xe cộ dẫn đến khó khăn."
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題3",
+              "question": "本以外の商品もたくさん（ ）",
+              "options": [
+                "売られたのです",
+                "売られていたのです",
+                "売られたようです",
+                "売られていたようです"
+              ],
+              "correctIndex": 1,
+              "passage": "好きな店...",
+              "points": 1,
+              "explanation": "Đoạn văn xác nhận các mặt hàng được bán ở quá khứ, nên dùng thể bị động dạng khẳng định quá khứ."
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題3",
+              "question": "（ ）料理の本のコーナーには鍋やお皿が置いてありました。",
+              "options": [
+                "実は",
+                "しかし",
+                "すると",
+                "例えば"
+              ],
+              "correctIndex": 3,
+              "passage": "好きな店...",
+              "points": 1,
+              "explanation": "Từ「例えば」được dùng để đưa ra ví dụ minh họa cho nội dung sách nấu ăn có kèm dụng cụ."
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題3",
+              "question": "いろいろなコーヒーについて紹介している本があったので、私はその本を（ ）",
+              "options": [
+                "買おうとします",
+                "買いたかったです",
+                "買ってみました",
+                "買いそうになりました"
+              ],
+              "correctIndex": 2,
+              "passage": "好きな店...",
+              "points": 1,
+              "explanation": "Mẫu「～てみました」dùng để diễn tả việc thử làm một hành động nào đó (thử mua sách)."
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題3",
+              "question": "それ（ ）楽しくて、私はさくら書店によく行くようになりました。",
+              "options": [
+                "が",
+                "より",
+                "でも",
+                "なら"
+              ],
+              "correctIndex": 0,
+              "passage": "好きな店...",
+              "points": 1,
+              "explanation": "Trợ từ「が」dùng để chỉ chủ thể của tính từ 'vui vẻ', nhấn mạnh sự việc đó tạo cảm giác thú vị."
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題4",
+              "question": "「リサイクル本棚」の利用について、案内の内容と合っているのはどれか。",
+              "options": [
+                "本棚の本が欲しい人が1回に持ち帰ることができる本の数は、決まっている。",
+                "本棚の本が欲しい人は、持ち帰る前に受付に声をかけなければならない。",
+                "本棚の本を持ち帰った人は、不要になった本を持ってこなければならない。",
+                "不要になった本を持ってきた人は、本棚に自由に置いていくことができる。"
+              ],
+              "correctIndex": 0,
+              "passage": "「リサイクル本棚」のご案内...",
+              "points": 1,
+              "explanation": "Đoạn văn quy định rõ '1人5冊まで' (tối đa 5 cuốn mỗi người), tức là số lượng sách được giới hạn."
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題4",
+              "question": "面白いことを教えてもらったとあるが、どんなことを教えてもらったか。",
+              "options": [
+                "店員が遠くにいるときは、「すみませーん」と言ってから「お願いしまーす」と呼ぶといい。",
+                "店員が遠くにいるときは、「お願いしまーす」と言ってから「すみませーん」と呼ぶといい。",
+                "店員が遠くにいるときは、「すみませーん」と呼ぶといい。",
+                "店員が遠くにいるときは、「お願いしまーす」と呼ぶといい。"
+              ],
+              "correctIndex": 3,
+              "passage": "友達とラーメン屋に行ったとき...",
+              "points": 1,
+              "explanation": "Đoạn văn đề cập đến mẹo gọi nhân viên khi họ ở xa bằng cách nói \"お願いしまーす\" để thu hút sự chú ý."
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題4",
+              "question": "エレナさんがこのメールで頼まれていることは何か。",
+              "options": [
+                "卒業生インタビューに協力できるかどうか、返事をすること",
+                "日本の企業で働く卒業生にインタビューをして、記事を書いて送ること",
+                "記事を読んで問題ないかチェックし、どの写真を使いたいか返事をすること",
+                "自分が日本の企業でどのように働いているか書いて、写真と一緒に送ること"
+              ],
+              "correctIndex": 2,
+              "passage": "エレナ・バスケス様...",
+              "points": 1,
+              "explanation": "Đoạn văn yêu cầu Elena kiểm tra nội dung bài báo và chọn ảnh để sử dụng."
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題4",
+              "question": "少し変わっているとあるが、どのような点がかわっているのか。",
+              "options": [
+                "今では残っていない、昔の橋の名前を町名にしたこと",
+                "今も昔も町と同じ名前の橋がないのに、町名に「橋」がついていること",
+                "昔は橋がなかったが、町に名前がついたあとで同じ名前の橋を作ったこと",
+                "橋が欲しいと願う人が多かったので、町名に「橋」をつけたこと"
+              ],
+              "correctIndex": 1,
+              "passage": "私が住んでいる町の名前は「船橋」という...",
+              "points": 1,
+              "explanation": "Đoạn văn giải thích sự kỳ lạ ở chỗ dù không có cây cầu nào cùng tên nhưng thị trấn vẫn đặt tên là 'Cầu'."
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "「最後の一つ」と言わないようにしたとあるが、それはなぜか。",
+              "options": [
+                "「最後の一つ」と聞くと、遠慮して買わない客がいることがわかったから",
+                "「最後の一つ」以外の、客が買いたくなるようなもっといい言葉を思いついたから",
+                "客に「最後の一つ」と言って買ってもらったら、「失敗した。」と言われたから",
+                "客に「最後の一つ」と言ったことで、買わないほうがいいと思わせてしまったから"
+              ],
+              "correctIndex": 3,
+              "passage": "私は今年、デパートの洋服売り場で働き始めました...",
+              "points": 1,
+              "explanation": "Tác giả nhận ra việc nói 'cái cuối cùng' khiến khách hàng lo lắng về chất lượng sản phẩm nên đã ngừng sử dụng."
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "「私」は今、「最後の一つ」は、どんなときに使うよい言葉だと思っているか。",
+              "options": [
+                "客が買いたい商品を見つける前",
+                "客が気に入った商品を見つけたとき",
+                "客が商品を買うかどうか迷っているとき",
+                "客が商品を買ったあと"
+              ],
+              "correctIndex": 3,
+              "passage": "私は今年、デパートの洋服売り場で働き始めました...",
+              "points": 1,
+              "explanation": "Sau khi khách đã mua hàng, việc nói 'đây là cái cuối cùng' giúp họ cảm thấy may mắn vì đã mua được món đồ tốt."
+            },
+            {
+              "number": 29,
+              "problemGroup": "問題5",
+              "question": "（ ）に入れるのに最もよいものはどれか。",
+              "options": [
+                "客に満足感を与える言葉",
+                "客を店に呼ぶための言葉",
+                "客が買い物で失敗しないようにする言葉",
+                "客が自然に買いたくなるようにする言葉"
+              ],
+              "correctIndex": 0,
+              "passage": "私は今年、デパートの洋服売り場で働き始めました...",
+              "points": 1,
+              "explanation": "Câu nói này giúp khách hàng cảm thấy vui vẻ và hài lòng với lựa chọn của mình sau khi đã mua hàng."
+            },
+            {
+              "number": 30,
+              "problemGroup": "問題5",
+              "question": "その時期とあるが、それはどんな時期か。",
+              "options": [
+                "都会の道路に落葉樹を植える時期",
+                "都会の冬の寒さが厳しい時期",
+                "落葉樹が葉を落とす時期",
+                "落葉樹に水や栄養が十分にたまる時期"
+              ],
+              "correctIndex": 2,
+              "passage": "秋から冬にすべての葉を落とす木を落葉樹という...",
+              "points": 1,
+              "explanation": "Đoạn văn định nghĩa cây rụng lá là loại cây rụng hết lá vào mùa thu đến mùa đông, nên 'thời kỳ đó' chính là lúc chúng rụng lá."
+            },
+            {
+              "number": 31,
+              "problemGroup": "問題5",
+              "question": "都会の落葉樹の中に、なかなか葉を落とさないものがあるのはなぜか。",
+              "options": [
+                "都会には、冬でもあまり寒くならない場所があるから",
+                "都会には、夜になっても暗くならない場所があるから",
+                "都会では、十分に日光を浴びることができないから",
+                "都会では、水や栄養があまり不足しないから"
+              ],
+              "correctIndex": 1,
+              "passage": "秋から冬にすべての葉を落とす木を落葉樹という...",
+              "points": 1,
+              "explanation": "Đoạn văn nêu rõ ở thành phố có những nơi không bị tối vào ban đêm do ánh sáng đèn, ảnh hưởng đến chu kỳ rụng lá của cây."
+            },
+            {
+              "number": 32,
+              "problemGroup": "問題5",
+              "question": "この文章全体のテーマは何か。",
+              "options": [
+                "冬になると落葉樹が葉を落とす理由",
+                "都会の道路に落葉樹を植えることの効果",
+                "都会で日が出ている時間の長さの変化",
+                "都会の環境が落葉樹に与える影響"
+              ],
+              "correctIndex": 3,
+              "passage": "秋から冬にすべての葉を落とす木を落葉樹という...",
+              "points": 1,
+              "explanation": "Toàn bài viết phân tích về việc môi trường đô thị (ánh sáng nhân tạo) tác động thay đổi chu kỳ sinh học của cây rụng lá."
+            },
+            {
+              "number": 33,
+              "problemGroup": "問題6",
+              "question": "①それを解決するとあるが、何を解決するか。",
+              "options": [
+                "赤ちゃんがなぜ泣いているのかわからないことによる親の不安",
+                "生まれたばかりの赤ちゃんの泣き声が大きくないという親の心配",
+                "赤ちゃんが泣き続けて眠らないことで、親の体と心に悪い影響が出る問題",
+                "抱いて歩いても、泣いている赤ちゃんがおとなしくならないという親の苦労"
+              ],
+              "correctIndex": 2,
+              "passage": "赤ちゃんは、よく泣くのが普通だ...",
+              "points": 1,
+              "explanation": "Tác giả đề cập đến việc giảm bớt gánh nặng thể chất và tinh thần cho cha mẹ khi trẻ khóc đêm không ngủ."
+            },
+            {
+              "number": 34,
+              "problemGroup": "問題6",
+              "question": "②同じだとあるが、人間の赤ちゃんと動物の子供は、何が同じだと言っているのか。",
+              "options": [
+                "親に運ばれているときに、自然に静かになること",
+                "危険な動物の近くにいるときに、騒がなくなること",
+                "知らない場所に行くと、不安になって騒ぐこと",
+                "親が近くにいると、自然に静かになること"
+              ],
+              "correctIndex": 0,
+              "passage": "赤ちゃんは、よく泣くのが普通だ...",
+              "points": 1,
+              "explanation": "Đoạn văn so sánh bản năng của trẻ sơ sinh người và động vật là đều trở nên im lặng khi được cha mẹ mang đi."
+            },
+            {
+              "number": 35,
+              "problemGroup": "問題6",
+              "question": "③変化とあるが、どのような変化か。",
+              "options": [
+                "泣いている状態から、静かに寝ている状態への変化",
+                "浅く眠っている状態から、深く眠っている状態への変化",
+                "親に抱かれて寝ている状態から、一人で寝ている状態への変化",
+                "親が立って歩いている状態から、いすに座っている状態への変化"
+              ],
+              "correctIndex": 2,
+              "passage": "赤ちゃんは、よく泣くのが普通だ...",
+              "points": 1,
+              "explanation": "Sự thay đổi được nhắc đến là quá trình trẻ từ trạng thái đang được cha mẹ bế chuyển sang nằm một mình trên giường."
+            },
+            {
+              "number": 36,
+              "problemGroup": "問題6",
+              "question": "研究によると、泣いている赤ちゃんを眠らせるために、親はどのようにすればよいか。",
+              "options": [
+                "5分ぐらい抱いて歩き、寝始めたら8分ぐらい座って待ち、ゆっくりベッドに置く。",
+                "5分ぐらい抱いて歩き、寝始めたら8分ぐらい座って待ち、速くベッドに置く。",
+                "5分ぐらい立ったまま抱き、寝始めたら8分ぐらい座って待ち、ゆっくりベッドに置く。",
+                "5分ぐらい立ったまま抱き、寝始めたら8分ぐらいそのまま待ち、速くベッドに置く。"
+              ],
+              "correctIndex": 1,
+              "passage": "赤ちゃんは、よく泣くのが普通だ...",
+              "points": 1,
+              "explanation": "Kết quả nghiên cứu chỉ ra phương pháp: bế đi lại 5 phút, ngồi đợi 8 phút, sau đó đặt nhanh xuống giường để trẻ tiếp tục ngủ."
+            },
+            {
+              "number": 37,
+              "problemGroup": "問題7",
+              "question": "テニス教室への申し込みと支払いのしかたとして、合っているのはどれか。",
+              "options": [
+                "3月31日までに電話で申し込み、4月3日までに窓口で料金を支払う。",
+                "3月31日までにインターネットで申し込み、4月3日までに窓口で料金を支払う。",
+                "3月31日までにインターネットで申し込み、4月10日までに窓口で料金を支払う。",
+                "4月3日までに窓口で申し込み、料金も一緒に支払う。"
+              ],
+              "correctIndex": 1,
+              "passage": "木原市健康センター「テニス教室」募集のお知らせ...",
+              "points": 1,
+              "explanation": "Thông báo quy định đăng ký qua mạng trước 31/3 và nộp tiền trực tiếp tại văn phòng trước 3/4."
+            },
+            {
+              "number": 38,
+              "problemGroup": "問題7",
+              "question": "ベルさんは、水曜以外の19時以降にテニスを習いたいと思っている。ベルさんはテニスの経験がない。できるだけ安いクラスを選びたいが、どのクラスに申し込めばいいか。",
+              "options": [
+                "A",
+                "C",
+                "F",
+                "I"
+              ],
+              "correctIndex": 0,
+              "passage": "木原市健康センター「テニス教室」募集のお知らせ...",
+              "points": 1,
+              "explanation": "Lớp A là lớp cho người mới bắt đầu, học vào thứ Hai (ngoài thứ Tư) và có học phí thấp nhất theo danh sách."
+            }
+          ]
+        },
+        {
+          "id": "choukai",
+          "label": "聴解",
+          "timeMinutes": 37,
+          "totalPoints": 28,
+          "problemGroups": [
+            {
+              "label": "問題1",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題2",
+              "questionCount": 6,
+              "pointsPerQuestion": 1,
+              "totalPoints": 6
+            },
+            {
+              "label": "問題3",
+              "questionCount": 3,
+              "pointsPerQuestion": 1,
+              "totalPoints": 3
+            },
+            {
+              "label": "問題4",
+              "questionCount": 4,
+              "pointsPerQuestion": 1,
+              "totalPoints": 4
+            },
+            {
+              "label": "問題5",
+              "questionCount": 9,
+              "pointsPerQuestion": 1,
+              "totalPoints": 9
+            }
+          ],
+          "questions": [
+            {
+              "number": 1,
+              "problemGroup": "問題1",
+              "question": "1番",
+              "options": [
+                "ア　イ",
+                "ア　ウ",
+                "イ　ウ",
+                "ア　イ　ウ"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "questionImage": "public/images/listening/cacnam-2026-07-listening-p1.jpg",
+              "audioStartSec": 192,
+              "explanation": "Cô giáo nhờ học sinh đóng cửa sổ (ア) và xóa bảng (ウ)."
+            },
+            {
+              "number": 2,
+              "problemGroup": "問題1",
+              "question": "2番",
+              "options": [
+                "テーマに合った問題にかえる",
+                "やさしい問題を作る",
+                "プレゼントを用意する",
+                "かばんを作る"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 265,
+              "explanation": "Người đàn ông góp ý nên thêm những câu hỏi đơn giản cho trẻ em."
+            },
+            {
+              "number": 3,
+              "problemGroup": "問題1",
+              "question": "3番",
+              "options": [
+                "タイトルを大きくする",
+                "ポスターの色をうすくする",
+                "写真のサイズを小さくする",
+                "会場のじょうほうをかえる"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 345,
+              "explanation": "Người đàn ông góp ý rằng tiêu đề triển lãm nên làm to hơn một chút."
+            },
+            {
+              "number": 4,
+              "problemGroup": "問題1",
+              "question": "4番",
+              "options": [
+                "どんな仕事をしたいか決める",
+                "インターネットで大学を調べる",
+                "大学の説明会に行く",
+                "そつぎょうせいに話を聞く"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 427,
+              "explanation": "Người đàn ông gợi ý cô gái đi đến buổi thuyết trình để nghe trực tiếp từ các trường đại học."
+            },
+            {
+              "number": 5,
+              "problemGroup": "問題1",
+              "question": "5番",
+              "options": [
+                "大きいへやをよやくする",
+                "小さいへやをよやくする",
+                "ぶちょうに予定を聞く",
+                "空いているへやをさがす"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 516,
+              "explanation": "Cô gái nhắc rằng trưởng phòng có thể có lịch vào buổi sáng nên người đàn ông phải xác nhận lại với trưởng phòng."
+            },
+            {
+              "number": 6,
+              "problemGroup": "問題1",
+              "question": "6番",
+              "options": [
+                "きょうみを持ったテーマを出し合う",
+                "はっぴょうのテーマを決める",
+                "決めたテーマについて調べる",
+                "だいひょう者を決める"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 608,
+              "explanation": "Cô giáo yêu cầu học sinh thảo luận và đưa ra các chủ đề mà các em cảm thấy hứng thú từ những bài giảng trước."
+            },
+            {
+              "number": 7,
+              "problemGroup": "問題2",
+              "question": "1番",
+              "options": [
+                "うでをよくふること",
+                "かたに力を入れないこと",
+                "足を高く上げること",
+                "前を見ること"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 826,
+              "explanation": "Thầy giáo nhắc nhở rằng vai đã bị gồng lên, nên cần lưu ý không dùng lực vào vai."
+            },
+            {
+              "number": 8,
+              "problemGroup": "問題2",
+              "question": "2番",
+              "options": [
+                "近くに住んでいる人が来なくなった",
+                "きれいで明るくなった",
+                "入りにくい いんしょうになった",
+                "りようきゃくがふえた"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 926,
+              "explanation": "Cô gái nói rằng gần đây suối nước nóng đã trở nên rất sạch sẽ và sáng sủa hơn."
+            },
+            {
+              "number": 9,
+              "problemGroup": "問題2",
+              "question": "3番",
+              "options": [
+                "料金が高いから",
+                "体力的にきついから",
+                "一人で泳ぐのはつまらないから",
+                "場所が遠いから"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1036,
+              "explanation": "Cô gái nói rằng bơi một mình thì không thú vị, cô ấy hợp với các môn thể thao có đối thủ hơn."
+            },
+            {
+              "number": 10,
+              "problemGroup": "問題2",
+              "question": "4番",
+              "options": [
+                "会社のれきしの本を作る",
+                "ホームページを新しくする",
+                "パーティーをする",
+                "Tシャツを作る"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1137,
+              "explanation": "Cô gái đề xuất tổ chức tiệc kỷ niệm để các nhân viên có thể gắn kết với nhau."
+            },
+            {
+              "number": 11,
+              "problemGroup": "問題2",
+              "question": "5番",
+              "options": [
+                "うどんの太さやかたさをかえたから",
+                "ふくろのデザインをくふうしたから",
+                "インターネットでせんでんしたから",
+                "こむぎこのしゅるいをかえたから"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1235,
+              "explanation": "Chủ tịch nói rằng doanh số tăng sau khi thay đổi loại bột mì nguyên liệu."
+            },
+            {
+              "number": 12,
+              "problemGroup": "問題2",
+              "question": "6番",
+              "options": [
+                "めずらしいきのこを見つけたこと",
+                "たくさんのきのこがとれたこと",
+                "自分できのこをとって食べたこと",
+                "見たかったきのこが見られたこと"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1341,
+              "explanation": "Người đàn ông kể rằng anh đã tìm thấy loại nấm có hình dáng khác lạ mà hiếm khi thấy được."
+            },
+            {
+              "number": 13,
+              "problemGroup": "問題3",
+              "question": "1番",
+              "options": [
+                "とても面白かった",
+                "思ったより面白かった",
+                "思ったより面白くなかった",
+                "全く面白くなかった"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1656,
+              "explanation": "Cô gái nói cô đã biết nhiều về nội dung này rồi nên thấy không thú vị như mong đợi."
+            },
+            {
+              "number": 14,
+              "problemGroup": "問題3",
+              "question": "2番",
+              "options": [
+                "日記のおかげでできた友達",
+                "日記を始めてよかったこと",
+                "日記を書くのに良い時間",
+                "日記に書かないようにしていること"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1743,
+              "explanation": "Người phụ nữ chia sẻ về việc viết nhật ký giúp sắp xếp cảm xúc và bắt đầu ngày mới tốt hơn."
+            },
+            {
+              "number": 15,
+              "problemGroup": "問題3",
+              "question": "3番",
+              "options": [
+                "子供の頃の夢",
+                "作家に向いている性格",
+                "引っ越しの思い出",
+                "この小説を書いた理由"
+              ],
+              "correctIndex": 3,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 1822,
+              "explanation": "Tác giả giải thích lý do viết cuốn tiểu thuyết là để ghi lại những ký ức về người bạn thời thơ ấu."
+            },
+            {
+              "number": 16,
+              "problemGroup": "問題4",
+              "question": "1番",
+              "options": [
+                "そこ、通らないで",
+                "あ、ちょっとカバンどけてくれる？",
+                "ね、カバン置いたらどう？"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "questionImage": "public/images/listening/cacnam-2026-07-listening-p2.jpg",
+              "audioStartSec": 1989,
+              "explanation": "Câu này yêu cầu người bạn dọn chiếc cặp chắn đường để có thể đi qua."
+            },
+            {
+              "number": 17,
+              "problemGroup": "問題4",
+              "question": "2番",
+              "options": [
+                "タクシーで伺ってもよろしいですか？",
+                "タクシーをお願いできますか？",
+                "タクシーをお呼びしましょうか？"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "questionImage": "public/images/listening/cacnam-2026-07-listening-p2.jpg",
+              "audioStartSec": 2027,
+              "explanation": "Câu này dùng để hỏi ý kiến khách hàng xem có muốn gọi taxi hay không."
+            },
+            {
+              "number": 18,
+              "problemGroup": "問題4",
+              "question": "3番",
+              "options": [
+                "少し休んだ方がいいんじゃない？",
+                "もうちょっと休んでほしい？",
+                "ちょっと体の調子悪いらしいよ"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "questionImage": "public/images/listening/cacnam-2026-07-listening-p3.jpg",
+              "audioStartSec": 2063,
+              "explanation": "Câu này đưa ra lời khuyên nhẹ nhàng cho người bạn khi thấy họ có vẻ không khỏe."
+            },
+            {
+              "number": 19,
+              "problemGroup": "問題4",
+              "question": "4番",
+              "options": [
+                "あの、席空いていますか？",
+                "あの、席間違えていらっしゃいませんか？",
+                "あの、どちらに座りますか？"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "questionImage": "public/images/listening/cacnam-2026-07-listening-p3.jpg",
+              "audioStartSec": 2096,
+              "explanation": "Câu này dùng để nhắc nhở lịch sự khi có người ngồi nhầm vào chỗ của mình trên máy bay."
+            },
+            {
+              "number": 20,
+              "problemGroup": "問題5",
+              "question": "1番",
+              "options": [
+                "え？出たよ",
+                "難しくなかったけど",
+                "宿題、もう出したんだね"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2216,
+              "explanation": "Khi được hỏi về việc có bài tập không, câu trả lời khẳng định là đã có bài tập."
+            },
+            {
+              "number": 21,
+              "problemGroup": "問題5",
+              "question": "2番",
+              "options": [
+                "はい、たぶんできると思います",
+                "分かりました。急がなくていいんですね",
+                "まだ少しかかりそうです"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2246,
+              "explanation": "Khi được hỏi bao lâu nữa thì xong tài liệu, câu trả lời là cần thêm chút thời gian."
+            },
+            {
+              "number": 22,
+              "problemGroup": "問題5",
+              "question": "3番",
+              "options": [
+                "留学、楽しかった？",
+                "そうなんだ。いつから行くの？",
+                "え？受かったのに行かないの？"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2279,
+              "explanation": "Khi nghe tin bạn đỗ đạt và được đi du học, câu hỏi phản hồi tự nhiên nhất là hỏi về thời gian đi."
+            },
+            {
+              "number": 23,
+              "problemGroup": "問題5",
+              "question": "4番",
+              "options": [
+                "いいですね、見に行きましょう",
+                "まだ見てないです",
+                "たまに見ますよ"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2310,
+              "explanation": "Khi được hỏi có thường xem phim không, câu trả lời là có xem thỉnh thoảng."
+            },
+            {
+              "number": 24,
+              "problemGroup": "問題5",
+              "question": "5番",
+              "options": [
+                "数学の成績いいんだね",
+                "明日は自信あるんだね",
+                "試験、うまくいくといいね"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2337,
+              "explanation": "Khi nghe người kia lo lắng về bài kiểm tra toán, câu chúc thành công là phù hợp nhất."
+            },
+            {
+              "number": 25,
+              "problemGroup": "問題5",
+              "question": "6番",
+              "options": [
+                "お茶しかだめなんだね",
+                "あ、コーヒーお願いしていい？",
+                "どっちもいらないよ"
+              ],
+              "correctIndex": 1,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2369,
+              "explanation": "Khi được hỏi có muốn uống gì không, câu trả lời đồng ý với cà phê là hợp lý."
+            },
+            {
+              "number": 26,
+              "problemGroup": "問題5",
+              "question": "7番",
+              "options": [
+                "その方がいいと思うよ",
+                "もう申し込んだよ",
+                "今月中だよ"
+              ],
+              "correctIndex": 2,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2398,
+              "explanation": "Khi được hỏi thời hạn nộp học bổng, câu trả lời cung cấp thông tin trong tháng này."
+            },
+            {
+              "number": 27,
+              "problemGroup": "問題5",
+              "question": "8番",
+              "options": [
+                "それは大変だったね",
+                "手伝ってくれてよかったね",
+                "手伝いたかったんだね"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2427,
+              "explanation": "Khi nghe kể về việc phải giúp làm vườn vất vả, câu chia sẻ sự cảm thông là phù hợp."
+            },
+            {
+              "number": 28,
+              "problemGroup": "問題5",
+              "question": "9番",
+              "options": [
+                "分かりました。少しずつやります",
+                "何度もやらなくていいんですね",
+                "整理、必要なくなったんですか？"
+              ],
+              "correctIndex": 0,
+              "points": 1,
+              "passage": null,
+              "audioStartSec": 2459,
+              "explanation": "Khi người kia bảo cứ làm từ từ, câu đáp lại đồng ý thực hiện theo cách đó."
+            }
+          ],
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2026-07-v1/N3-2026-07.mp3"
         }
       ]
     }

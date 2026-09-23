@@ -60,6 +60,9 @@ export interface DeThiQuestion {
   // to the options instead of `questionFurigana`. Same toggle/rendering
   // convention as `questionFurigana`.
   optionsFurigana?: ReadingBodySegment[][];
+  // Context or prompt illustration for a listening question whose answer
+  // choices are still text (for example, JLPT Mondai 4 situation pictures).
+  questionImage?: string;
   // Set only on a 聴解 (listening) paper whose options are illustrations
   // rather than text (e.g. real JLPT Mondai1/4 picture choices) -- path
   // resolved via assetUrl(), same convention as ListeningQuestion.optionsImage

@@ -835,6 +835,10 @@ function TakingView({
           <QuestionText text={q.question} underline={q.underline} />
         </div>
 
+        {q.questionImage ? (
+          <img src={assetUrl(q.questionImage)} alt="Hình tình huống của câu nghe" className="mt-4 w-full rounded-lg border border-neutral-200" />
+        ) : null}
+
         {q.optionsImage ? (
           <>
             <img src={assetUrl(q.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-4 w-full rounded-lg border border-neutral-200" />
@@ -1120,6 +1124,9 @@ function ReviewQuestion({
         <QuestionText text={question.question} underline={question.underline} furigana={question.questionFurigana} showFurigana={showFurigana} />
       </div>
       {question.questionVi ? <div className="mt-1 text-sm text-neutral-500 italic">{question.questionVi}</div> : null}
+      {question.questionImage ? (
+        <img src={assetUrl(question.questionImage)} alt="Hình tình huống của câu nghe" className="mt-3 w-full rounded-lg border border-neutral-200" />
+      ) : null}
       {question.optionsImage ? (
         <>
           <img src={assetUrl(question.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-3 w-full rounded-lg border border-neutral-200" />
