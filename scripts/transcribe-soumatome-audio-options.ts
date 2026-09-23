@@ -112,7 +112,10 @@ async function translateBatch(apiKey: string, items: { question: string; options
   return JSON.parse(text);
 }
 
-function guessTaskType(options: string[]): "point" | "gaiyou" | "sokuji" {
+function guessTaskType(item: Pick<RemainingItem, "scenario" | "question">, options: string[]): "point" | "gaiyou" | "hatsugen" | "sokuji" {
+  // 問題4 (発話表現) asks what the learner should say/ask in a situation;
+  // detect it before the short-option heuristic used for 問題5.
+  if (/何と(言|聞)いますか|どう言いますか/.test(`${item.scenario} ${item.question}`)) return "hatsugen";
   if (options.length <= 3) return "sokuji";
   const avgLen = options.reduce((s, o) => s + o.length, 0) / options.length;
   return avgLen > 12 ? "point" : "gaiyou";
@@ -150,7 +153,7 @@ async function main() {
   const final = merged.map((item, i) => ({
     cd: item.cd,
     track: item.track,
-    taskType: guessTaskType(item.options),
+    taskType: guessTaskType(item, item.options),
     audioUrl: `${RELEASE_BASE}/cd${item.cd}-track${String(item.track).padStart(2, "0")}.mp3`,
     scenario: item.scenario,
     turns: item.turns,

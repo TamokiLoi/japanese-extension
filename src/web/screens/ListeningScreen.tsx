@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Headphones, ChevronLeft, ChevronRight, Globe, RotateCcw, Undo2 } from "lucide-react";
+import { Headphones, ChevronLeft, ChevronRight, Globe, Info, RotateCcw, Undo2, X } from "lucide-react";
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
@@ -19,7 +19,7 @@ import {
 } from "../../popup/listeningState.ts";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { pruneToggle } from "../../popup/filterUtils.ts";
-import type { ListeningQuestion } from "../../types/listening.ts";
+import type { ListeningQuestion, ListeningTaskType } from "../../types/listening.ts";
 import {
   recordAnswer as recordSharedAnswer,
   clearProgress as clearSharedProgress,
@@ -40,6 +40,78 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+
+const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; description: string }> = {
+  kadai: {
+    title: "課題理解 · Việc cần làm",
+    description: "Đọc câu hỏi và đáp án (hoặc tranh) trước, nghe hội thoại rồi chọn việc cần làm hoặc sẽ làm tiếp theo.",
+  },
+  point: {
+    title: "ポイント理解 · Trọng điểm",
+    description: "Đọc câu hỏi trước để biết cần chú ý thông tin nào trong đoạn hội thoại.",
+  },
+  gaiyou: {
+    title: "概要理解 · Khái quát",
+    description: "Đề không in câu hỏi và đáp án. Nghe toàn bộ bài, sau đó nghe phần câu hỏi/đáp án trong audio rồi chọn số phù hợp.",
+  },
+  hatsugen: {
+    title: "発話表現 · Biểu hiện lời nói",
+    description: "Xem tình huống hoặc tranh, nghe yêu cầu “nói thế nào?” rồi chọn câu nói phù hợp nhất.",
+  },
+  sokuji: {
+    title: "即時応答 · Phản xạ nhanh",
+    description: "Nghe một câu ngắn và chọn ngay phản hồi phù hợp; câu hỏi và đáp án không in sẵn trên đề.",
+  },
+};
+
+function ListeningTypeInfo({ taskType }: { taskType: ListeningTaskType }) {
+  const [open, setOpen] = useState(false);
+  const note = LISTENING_TYPE_NOTES[taskType];
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        aria-label={`Cách làm dạng ${note.title}`}
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+        className="inline-flex h-6 w-6 items-center justify-center rounded-full text-neutral-400 transition hover:bg-neutral-100 hover:text-neutral-700"
+      >
+        <Info size={15} strokeWidth={2.2} />
+      </button>
+      {open ? (
+        <>
+          <button
+            type="button"
+            aria-label="Đóng ghi chú dạng nghe"
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-30 cursor-default bg-black/10 md:bg-transparent"
+          />
+          <div
+            role="dialog"
+            aria-label={note.title}
+            className="fixed inset-x-3 bottom-4 z-40 rounded-2xl border border-neutral-200 bg-white p-4 text-left shadow-xl md:absolute md:top-9 md:right-0 md:bottom-auto md:left-auto md:w-80"
+          >
+            <div className="flex items-start gap-3">
+              <div className="min-w-0 flex-1">
+                <div className="text-sm font-bold text-neutral-800">{note.title}</div>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-neutral-600">{note.description}</p>
+              </div>
+              <button
+                type="button"
+                aria-label="Đóng"
+                onClick={() => setOpen(false)}
+                className="-mr-1 -mt-1 rounded-full p-1 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-700"
+              >
+                <X size={15} />
+              </button>
+            </div>
+          </div>
+        </>
+      ) : null}
+    </div>
+  );
+}
 
 // A flat list (filterable by book/dạng câu, same layout as Reading/
 // QuizBook) + play/answer/reveal flow. Progress is dual-written: its own
@@ -350,13 +422,13 @@ function QuestionView({
     };
   }, [question.id]);
 
-  // Real 発話表現・即時応答 (sokuji) items print NOTHING on paper -- the test
-  // taker hears a line and picks 1/2/3 from memory alone, no printed
-  // question/options to read along with. Showing the Japanese text upfront
-  // (as we do for kadai/point/gaiyou, which DO print at least the question
-  // or picture options) defeats the point of practicing this format, so
-  // keep it hidden -- blind numbered buttons only -- until answered.
-  const isBlind = question.taskType === "sokuji" && !question.optionsImage;
+  // 問題3/4/5 do not give the learner question/answer text to read before
+  // the audio. 問題4 has a picture/context in the paper, but our converted
+  // books only have a text prompt for some items, so keep that prompt while
+  // hiding the question/options. All three types expose numbered choices;
+  // the Japanese text is revealed after the learner answers for review.
+  const isAudioOnlyOptions = question.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(question.taskType);
+  const isBlind = isAudioOnlyOptions && !question.optionsImage;
 
   function selectAnswer(oi: number) {
     const correct = oi === question.correctIndex;
@@ -383,8 +455,9 @@ function QuestionView({
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(question.level)}>
           {question.level}
         </span>
-        <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-600">
+        <span className="inline-flex items-center rounded-full bg-neutral-100 pl-2.5 text-xs font-semibold text-neutral-600">
           {TASK_TYPE_LABELS[question.taskType]}
+          <ListeningTypeInfo taskType={question.taskType} />
         </span>
       </div>
 
@@ -401,7 +474,15 @@ function QuestionView({
       <Card className="mt-4 gap-3.5 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
           <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
-          <span>{isBlind && !answered ? "Nghe rồi chọn đáp án đúng" : question.scenario || question.question}</span>
+          <span>
+            {isBlind && !answered
+              ? question.taskType === "hatsugen" && question.scenario
+                ? question.scenario
+                : question.taskType === "gaiyou"
+                  ? "Nghe toàn bộ bài rồi chọn đáp án đúng"
+                  : "Nghe rồi chọn đáp án đúng"
+              : question.scenario || question.question}
+          </span>
         </div>
         {answered && showTranslation && question.scenarioVi ? (
           <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div>
@@ -417,12 +498,12 @@ function QuestionView({
         />
       </Card>
 
-      {/* sokuji (即時応答) items with no turns[] at all rely on the toggle
-          above (question.scenarioVi). But many sokuji items in the actual
+      {/* Audio-only response items with no turns[] at all rely on the toggle
+          above (question.scenarioVi). But many gaiyou/hatsugen/sokuji items in the actual
           data (shinkanzen/soumatome N3) store an EMPTY scenario/scenarioVi
           and put the real translation in turns[0].textVi instead -- those
           still need the Transcript card below to have anywhere to show it,
-          so this no longer excludes taskType === "sokuji" once turns exist. */}
+          so this no longer excludes audio-only response types once turns exist. */}
       {answered && question.turns.length > 0 ? (
         <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
           <div className="flex items-center justify-between">

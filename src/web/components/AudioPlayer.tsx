@@ -23,7 +23,7 @@ export function AudioPlayer({
   src: string;
   autoPlay?: boolean;
   onEnded?: () => void;
-  // Only ListeningScreen's no-transcript (sokuji) items pass this -- those
+  // Only ListeningScreen's no-transcript audio-only items pass this -- those
   // have no Transcript card to host the "Hiện bản dịch" toggle, so it rides
   // along in the controls row here instead. Icon-only to fit the row.
   translationToggle?: { active: boolean; onToggle: () => void };

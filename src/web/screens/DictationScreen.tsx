@@ -324,7 +324,7 @@ function PracticeView({
   // One label per line of `reference` (scenario line, if any, then one per
   // turn) -- shown as a hint so it's clear this is "type back everything you
   // just heard, line by line" and not "answer the question below".
-  const isSpokenOptions = question.taskType === "sokuji" && !question.optionsImage;
+  const isSpokenOptions = question.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(question.taskType) && !question.optionsImage;
   const dictationLines = [
     ...(question.scenario ? ["Dẫn truyện"] : []),
     ...question.turns.map((t) => t.speaker),

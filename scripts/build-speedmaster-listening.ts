@@ -25,7 +25,7 @@ function readApiKey(): string {
 interface ScriptItem {
   cd: number;
   track: number;
-  taskType: "kadai" | "point" | "gaiyou" | "sokuji";
+  taskType: "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji";
   scenario: string;
   turns: { speaker: string; text: string }[];
   question: string;

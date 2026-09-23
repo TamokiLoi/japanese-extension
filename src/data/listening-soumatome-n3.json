@@ -3,7 +3,7 @@
     {
       "id": "listening-soumatome-n3-001",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track20.mp3",
       "scenario": "本を読んでいますが、テレビの音がうるさいです。何と言いますか。",
       "turns": [],
@@ -27,7 +27,7 @@
     {
       "id": "listening-soumatome-n3-002",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track21.mp3",
       "scenario": "会社にお客さんが来ました。ここで待ってもらいたい です。何と言いますか。",
       "turns": [],
@@ -290,7 +290,7 @@
     {
       "id": "listening-soumatome-n3-009",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track37.mp3",
       "scenario": "",
       "turns": [
@@ -320,7 +320,7 @@
     {
       "id": "listening-soumatome-n3-010",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track38.mp3",
       "scenario": "",
       "turns": [
@@ -1214,7 +1214,7 @@
     {
       "id": "listening-soumatome-n3-031",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track36.mp3",
       "scenario": "お客さんが帰ります。何と言いますか。",
       "turns": [],
@@ -1238,7 +1238,7 @@
     {
       "id": "listening-soumatome-n3-032",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track37.mp3",
       "scenario": "タクシーで目的地の近くに着きました。何と言いますか。",
       "turns": [],
@@ -1262,7 +1262,7 @@
     {
       "id": "listening-soumatome-n3-033",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track38.mp3",
       "scenario": "全部は食べられません。何と言いますか。",
       "turns": [],
@@ -3173,7 +3173,7 @@
     {
       "id": "listening-soumatome-n3-077",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "point",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track15.mp3",
       "scenario": "女の人が肉屋で物を買っています。このあと、女の人はいくら払いますか。",
       "turns": [
@@ -3426,7 +3426,7 @@
     {
       "id": "listening-soumatome-n3-082",
       "level": "N3",
-      "taskType": "sokuji",
+      "taskType": "point",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track23.mp3",
       "scenario": "男の人と女の人が話しています。男の人は、明日何時ごろ家を出ますか。",
       "turns": [

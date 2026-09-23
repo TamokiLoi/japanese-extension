@@ -1,9 +1,9 @@
 // "Nghe chép chính tả" (listening dictation) -- reuses the exact same
 // ListeningQuestion pool as listeningState.ts (one audioUrl per item, no
 // per-sentence timestamps), so the dictation *unit* is still one whole
-// item's audio, not an individually-playable sentence. kadai/point/gaiyou
-// items are full multi-turn dialogues -- genuinely long to dictate -- while
-// sokuji items are exactly one short utterance by design (see
+// item's audio, not an individually-playable sentence. kadai/point items are
+// usually full multi-turn dialogues -- genuinely long to dictate -- while
+// hatsugen/sokuji items are usually short response items (see
 // ListeningTaskType). defaultViewerState() below defaults the task-type
 // filter to sokuji-only so a first-time user lands on short, dictation-
 // sized content; the same filter UI as Luyện nghe lets them opt into the
@@ -63,17 +63,22 @@ export function getFilteredList(state: DictationViewerState): ListeningQuestion[
   return ALL_LISTENING.filter((q) => state.selectedBooks.includes(q.book) && state.selectedTaskTypes.includes(q.taskType));
 }
 
-// The text a dictation item is graded against -- everything actually
-// spoken in the audio. For kadai/point/gaiyou, options[] are printed on
-// paper (the real test booklet has the test-taker read them, never reads
-// them aloud), so they're excluded here. 発話表現・即時応答 (sokuji) items
-// are the opposite -- nothing is printed at all, so the 3 candidate
-// replies are read out loud as the last part of the same audio track and
-// belong in the dictation target too (see ListeningScreen.tsx's `isBlind`
-// for the same printed-vs-spoken distinction).
+// The text a dictation item is graded against -- everything actually spoken
+// in the audio. For kadai/point, options[] are printed on paper, so they are
+// excluded. 概要理解/発話表現/即時応答 have no text choices printed in the
+// booklet; their question/response choices are spoken in the audio and belong
+// in the dictation target too.
 export function referenceTextFor(q: ListeningQuestion): string {
   const spoken = [q.scenario, ...q.turns.map((t) => t.text)];
-  if (q.taskType === "sokuji" && !q.optionsImage) spoken.push(...q.options);
+  // Kaiwa is a synthetic meaning quiz: its Vietnamese options are not read
+  // in the audio, so keep them out of the dictation target even though the
+  // item uses `gaiyou` for the generic listening bucket.
+  if (q.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(q.taskType) && !q.optionsImage) {
+    // In 問題5 the question field is often the same short utterance already
+    // stored in turns[0]; do not count it twice in the dictation target.
+    if (q.question && q.question !== q.scenario && !q.turns.some((t) => t.text === q.question)) spoken.push(q.question);
+    spoken.push(...q.options);
+  }
   return spoken.filter((s) => s.length > 0).join("\n");
 }
 

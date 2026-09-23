@@ -199,7 +199,7 @@ function buildGroupBars(contentType: StatsContentType): GroupBar[] {
     }));
   }
   // "listening" and "dictation": grouped by dạng câu (kadai/point/gaiyou/
-  // sokuji) -- which format someone struggles with is the actionable signal
+  // hatsugen/sokuji) -- which format someone struggles with is the actionable signal
   // here, same reasoning as Reading's group-by-question-type above.
   const idOf = contentType === "dictation" ? (id: string) => dictationProgressId(id) : (id: string) => id;
   return AVAILABLE_TASK_TYPES.map((t) => ({

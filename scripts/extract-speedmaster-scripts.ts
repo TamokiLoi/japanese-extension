@@ -24,7 +24,7 @@ function readApiKey(): string {
 interface ScriptItem {
   cd: number;
   track: number;
-  taskType: "kadai" | "point" | "gaiyou" | "sokuji";
+  taskType: "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji";
   scenario: string;
   turns: { speaker: string; text: string }[];
   question: string;
@@ -38,7 +38,7 @@ const RESPONSE_SCHEMA = {
     properties: {
       cd: { type: "INTEGER" },
       track: { type: "INTEGER" },
-      taskType: { type: "STRING", enum: ["kadai", "point", "gaiyou", "sokuji"] },
+      taskType: { type: "STRING", enum: ["kadai", "point", "gaiyou", "hatsugen", "sokuji"] },
       scenario: { type: "STRING" },
       turns: {
         type: "ARRAY",
@@ -59,7 +59,7 @@ const PROMPT = `Đây là các trang scan từ phần "スクリプトと答え"
 
 Trích xuất TẤT CẢ câu hỏi thấy được, kể cả khi không thấy 4 phương án chữ (phần đó không cần vì đã có trên trang câu hỏi riêng):
 - cd, track: đọc từ icon tròn.
-- taskType: "kadai" nếu đang ở mục 問題 課題理解, "point" nếu ポイント理解, "gaiyou" nếu 概要理解, "sokuji" nếu 発話表現 hoặc 即時応答. Nếu 1 trang không ghi lại tiêu đề (vì đã ghi ở trang trước), dùng tiêu đề gần nhất phía trên.
+- taskType: "kadai" nếu đang ở mục 問題 課題理解, "point" nếu ポイント理解, "gaiyou" nếu 概要理解, "hatsugen" nếu 発話表現, "sokuji" nếu 即時応答. Nếu 1 trang không ghi lại tiêu đề (vì đã ghi ở trang trước), dùng tiêu đề gần nhất phía trên.
 - scenario: câu mở đầu mô tả bối cảnh (rỗng nếu không có câu riêng, ví dụ dạng 即時応答 chỉ có 1 câu thoại duy nhất).
 - turns: mảng {speaker, text} (speaker "男"/"女", thêm số nếu nhiều người cùng giới như "男1"/"男2"). Không gồm câu bối cảnh hay câu hỏi cuối.
 - question: câu hỏi cuối cùng (với dạng 発話表現/即時応答, question có thể trùng với câu thoại duy nhất -- vẫn điền như nhau).

@@ -36,7 +36,7 @@ function readApiKey(): string {
 interface ExtractedItem {
   cd: 1 | 2;
   track: number;
-  taskTypeGuess: "point" | "gaiyou" | "kadai" | "sokuji";
+  taskTypeGuess: "point" | "gaiyou" | "kadai" | "hatsugen" | "sokuji";
   scenario: string;
   turns: { speaker: string; text: string }[];
   question: string;
@@ -51,7 +51,7 @@ const RESPONSE_SCHEMA = {
     properties: {
       cd: { type: "INTEGER" },
       track: { type: "INTEGER" },
-      taskTypeGuess: { type: "STRING", enum: ["point", "gaiyou", "kadai", "sokuji"] },
+      taskTypeGuess: { type: "STRING", enum: ["point", "gaiyou", "kadai", "hatsugen", "sokuji"] },
       scenario: { type: "STRING" },
       turns: {
         type: "ARRAY",
@@ -76,7 +76,7 @@ CHỈ trích xuất những câu hỏi có ĐẦY ĐỦ 4 phương án trả l�
 Với mỗi câu hợp lệ, trả về:
 - cd: 1 hoặc 2 (đọc từ icon tròn).
 - track: số track (đọc từ icon tròn, phần số bên dưới "CD1"/"CD2").
-- taskTypeGuess: đoán dạng câu hỏi dựa vào tiêu đề chương/mục nếu thấy (課題理解→"kadai", ポイント理解→"point", 概要理解→"gaiyou", 発話表現/即時応答→"sokuji"); nếu không thấy tiêu đề rõ, đoán theo cấu trúc: có 4 phương án dài diễn giải nội dung → "point" hoặc "gaiyou" tuỳ ngữ cảnh.
+- taskTypeGuess: đoán dạng câu hỏi dựa vào tiêu đề chương/mục nếu thấy (課題理解→"kadai", ポイント理解→"point", 概要理解→"gaiyou", 発話表現→"hatsugen", 即時応答→"sokuji"); nếu không thấy tiêu đề rõ, đoán theo cấu trúc: có 4 phương án dài diễn giải nội dung → "point" hoặc "gaiyou" tuỳ ngữ cảnh.
 - scenario: câu mở đầu mô tả bối cảnh (vd "会社の昼休みに、男の人と女の人が話しています。").
 - turns: mảng các lượt thoại {speaker, text} -- speaker là "男"/"女" (thêm số nếu có nhiều hơn 1 người cùng giới như "男1"/"男2"), text là nguyên văn câu nói. KHÔNG bao gồm câu mở đầu bối cảnh hay câu hỏi cuối trong turns.
 - question: câu hỏi cuối cùng (vd "男の学生は、このあとまず何をしますか。").

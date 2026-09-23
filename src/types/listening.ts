@@ -1,8 +1,9 @@
 import type { JlptLevel } from "./kanji.ts";
 
-// Matches the 4 real N3 聴解 task shapes -- see the Gemini research notes
-// from planning this feature. POC only exercises "kadai" so far.
-export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "sokuji";
+// Matches the 5 official N3 聴解 task shapes. `hatsugen` and `sokuji` used to
+// be merged into one bucket; they are kept separate so the app mirrors the
+// actual 問題4/問題5 structure.
+export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji";
 
 export interface ListeningTurn {
   speaker: string;

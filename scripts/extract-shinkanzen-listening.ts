@@ -25,7 +25,7 @@ function readApiKey(): string {
 interface Item {
   cd: number;
   track: number;
-  taskType: "kadai" | "point" | "gaiyou" | "sokuji";
+  taskType: "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji";
   scenario: string;
   turns: { speaker: string; text: string }[];
   question: string;
@@ -41,7 +41,7 @@ const RESPONSE_SCHEMA = {
     properties: {
       cd: { type: "INTEGER" },
       track: { type: "INTEGER" },
-      taskType: { type: "STRING", enum: ["kadai", "point", "gaiyou", "sokuji"] },
+      taskType: { type: "STRING", enum: ["kadai", "point", "gaiyou", "hatsugen", "sokuji"] },
       scenario: { type: "STRING" },
       turns: {
         type: "ARRAY",
@@ -66,7 +66,7 @@ Mỗi câu có 1 icon nhỏ (hình tai nghe/nốt nhạc hoặc số trong vòng
 
 Với MỖI câu hỏi độc lập tìm thấy (bỏ qua phần giải thích lý thuyết đầu mỗi mục "1課題理解"/"2ポイント理解" v.v., chỉ lấy câu hỏi thật -- kể cả 例題 ví dụ mẫu):
 - cd, track: đọc kỹ từ icon.
-- taskType: "kadai" nếu thuộc mục 課題理解, "point" nếu ポイント理解, "gaiyou" nếu 概要理解, "sokuji" nếu 発話表現 hoặc 即時応答.
+- taskType: "kadai" nếu thuộc mục 課題理解, "point" nếu ポイント理解, "gaiyou" nếu 概要理解, "hatsugen" nếu 発話表現, "sokuji" nếu 即時応答.
 - scenario: câu mở đầu mô tả bối cảnh (rỗng nếu không có, ví dụ dạng chỉ có 1 câu thoại ngắn).
 - turns: mảng {speaker, text} (speaker "男"/"女", thêm số nếu nhiều người cùng giới). Không gồm câu bối cảnh/câu hỏi cuối.
 - question: câu hỏi cuối cùng.

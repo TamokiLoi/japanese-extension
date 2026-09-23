@@ -30,20 +30,10 @@ import listeningCacNam202012Raw from "../data/listening-cacnam-2020-12.json";
 // listening-kaiwa-100cau.json: 100 câu hội thoại thường ngày ngắn (KHÔNG
 // phải nội dung 聴解 JLPT thật -- nguồn là 1 infographic tổng hợp câu giao
 // tiếp, TTS bằng Gemini) -- thêm chủ yếu để làm giàu "Nghe chép chính tả"
-// (mỗi câu 1 audio ngắn, hợp dictation) hơn là 1 câu hỏi nghe hiểu thật.
-// taskType cố tình để "gaiyou" (KHÔNG phải "sokuji") dù mỗi câu chỉ có 1
-// audio ngắn giống sokuji về hình thức -- referenceTextFor() (xem
-// dictationState.ts) gộp cả `options` vào nội dung chép chính tả CHỈ với
-// sokuji (giả định đúng của 発話表現・即時応答 thật: cả tình huống lẫn 3 lựa
-// chọn đều được ĐỌC THÀNH TIẾNG trong audio) -- nhưng audio của bộ này chỉ
-// đọc đúng 1 câu, 4 lựa chọn nghĩa tiếng Việt là tự sinh (xem
-// _scratch/build_kaiwa_listening.mjs) chứ không hề được đọc, nên nếu gắn
-// sokuji thì bài chép chính tả sẽ bị chấm sai (nội dung "phải chép" bị cộng
-// thêm cả đáp án trắc nghiệm chưa từng phát ra tiếng). Đánh đổi: mặc định
-// Nghe chép chính tả chỉ hiện sokuji (xem defaultViewerState() ở
-// dictationState.ts) nên bộ này cần người dùng tự mở rộng bộ lọc loại câu
-// sang "gaiyou" mới thấy -- giống các câu kadai/point/gaiyou của những sách
-// khác vốn đã vậy từ trước, không phải hạn chế riêng của bộ này.
+// hơn là 1 câu hỏi nghe hiểu thật. taskType cố tình để "gaiyou" như một
+// bucket nghe tổng quát, nhưng UI và referenceTextFor() phải loại riêng book
+// này khỏi quy tắc audio-only của 問題3/4/5: các lựa chọn nghĩa tiếng Việt là
+// dữ liệu quiz tự sinh, không hề được đọc trong audio.
 import listeningKaiwa100cauRaw from "../data/listening-kaiwa-100cau.json";
 import type { ListeningDataset, ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -75,10 +65,11 @@ export const TASK_TYPE_LABELS: Record<ListeningTaskType, string> = {
   kadai: "課題理解 -- việc cần làm",
   point: "ポイント理解 -- trọng điểm",
   gaiyou: "概要理解 -- khái quát",
-  sokuji: "発話表現・即時応答 -- phản xạ nhanh",
+  hatsugen: "発話表現 -- biểu hiện lời nói",
+  sokuji: "即時応答 -- phản xạ nhanh",
 };
 
-const TASK_TYPE_ORDER: ListeningTaskType[] = ["kadai", "point", "gaiyou", "sokuji"];
+const TASK_TYPE_ORDER: ListeningTaskType[] = ["kadai", "point", "gaiyou", "hatsugen", "sokuji"];
 export const AVAILABLE_TASK_TYPES: ListeningTaskType[] = TASK_TYPE_ORDER.filter((t) =>
   ALL_LISTENING.some((q) => q.taskType === t),
 );
@@ -113,7 +104,14 @@ export async function loadViewerState(): Promise<ListeningViewerState> {
   const saved = await storageGet<Partial<ListeningViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const selectedBooks = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_BOOKS.includes(b));
-  const selectedTaskTypes = (saved?.selectedTaskTypes ?? fallback.selectedTaskTypes).filter((t) =>
+  // Before the five-way split, "all types" was persisted as these four
+  // values. Add the new bucket only for that legacy all-types selection;
+  // preserve a deliberate single-type/custom filter such as sokuji-only.
+  const savedTaskTypes = saved?.selectedTaskTypes;
+  const legacyAllTaskTypes =
+    savedTaskTypes?.length === 4 && ["kadai", "point", "gaiyou", "sokuji"].every((t) => savedTaskTypes.includes(t as ListeningTaskType));
+  const taskTypesToLoad = legacyAllTaskTypes ? [...savedTaskTypes, "hatsugen" as ListeningTaskType] : (savedTaskTypes ?? fallback.selectedTaskTypes);
+  const selectedTaskTypes = taskTypesToLoad.filter((t) =>
     AVAILABLE_TASK_TYPES.includes(t),
   );
   return {
