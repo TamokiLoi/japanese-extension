@@ -90075,6 +90075,7 @@
               "number": 1,
               "problemGroup": "問題1",
               "question": "コンピューターで計算します。",
+              "underline": "計算",
               "options": [
                 "けいざん",
                 "けいさん",
@@ -90090,6 +90091,7 @@
               "number": 2,
               "problemGroup": "問題1",
               "question": "浅いほうの容器をください。",
+              "underline": "浅い",
               "options": [
                 "まるい",
                 "ふかい",
@@ -90105,6 +90107,7 @@
               "number": 3,
               "problemGroup": "問題1",
               "question": "兄は車の広告を作る仕事をしている。",
+              "underline": "広告",
               "options": [
                 "こうこく",
                 "ごうこく",
@@ -90120,6 +90123,7 @@
               "number": 4,
               "problemGroup": "問題1",
               "question": "この店のチーズは種類が多い。",
+              "underline": "種類",
               "options": [
                 "しゅるい",
                 "しゅれい",
@@ -90135,6 +90139,7 @@
               "number": 5,
               "problemGroup": "問題1",
               "question": "今日は本田さんが勝ったそうです。",
+              "underline": "勝った",
               "options": [
                 "たたかった",
                 "かった",
@@ -90150,6 +90155,7 @@
               "number": 6,
               "problemGroup": "問題1",
               "question": "悲しいときは、いつもここに来て海を見ていました。",
+              "underline": "悲しい",
               "options": [
                 "くやしい",
                 "くるしい",
@@ -90165,6 +90171,7 @@
               "number": 7,
               "problemGroup": "問題1",
               "question": "きちんと整理したほうがいいですよ。",
+              "underline": "整理",
               "options": [
                 "しゅり",
                 "しゅうり",
@@ -90180,6 +90187,7 @@
               "number": 8,
               "problemGroup": "問題1",
               "question": "3歳の子どもの身長の平均はどのくらいですか。",
+              "underline": "平均",
               "options": [
                 "へきん",
                 "へいやく",
@@ -90195,6 +90203,7 @@
               "number": 9,
               "problemGroup": "問題2",
               "question": "鍋にあぶらをいれてください。",
+              "underline": "あぶら",
               "options": [
                 "貝",
                 "塩",
@@ -90210,6 +90219,7 @@
               "number": 10,
               "problemGroup": "問題2",
               "question": "その話を聞いて、みんな涙をながした。",
+              "underline": "ながした",
               "options": [
                 "落した",
                 "流した",
@@ -90225,6 +90235,7 @@
               "number": 11,
               "problemGroup": "問題2",
               "question": "この二つはよく似ているので、くべつしにくい。",
+              "underline": "くべつ",
               "options": [
                 "区別",
                 "区割",
@@ -90240,6 +90251,7 @@
               "number": 12,
               "problemGroup": "問題2",
               "question": "早くつつんでください。",
+              "underline": "つつんで",
               "options": [
                 "運んで",
                 "結んで",
@@ -90255,6 +90267,7 @@
               "number": 13,
               "problemGroup": "問題2",
               "question": "これは社長のめいれいです。",
+              "underline": "めいれい",
               "options": [
                 "名例",
                 "命例",
@@ -90270,6 +90283,7 @@
               "number": 14,
               "problemGroup": "問題2",
               "question": "その交差点をうせつしてください。",
+              "underline": "うせつ",
               "options": [
                 "左折",
                 "右折",
@@ -90450,6 +90464,7 @@
               "number": 26,
               "problemGroup": "問題4",
               "question": "思っていたよりらくなアルバイトだった。",
+              "underline": "らくな",
               "options": [
                 "自由な",
                 "簡単な",
@@ -90465,6 +90480,7 @@
               "number": 27,
               "problemGroup": "問題4",
               "question": "彼は何かしゃべっているようです。",
+              "underline": "しゃべって",
               "options": [
                 "話して",
                 "考えて",
@@ -90480,6 +90496,7 @@
               "number": 28,
               "problemGroup": "問題4",
               "question": "この写真では実際のサイズが分かりません。",
+              "underline": "サイズ",
               "options": [
                 "色",
                 "重さ",
@@ -90495,6 +90512,7 @@
               "number": 29,
               "problemGroup": "問題4",
               "question": "来月から多少忙しくなりそうです。",
+              "underline": "多少",
               "options": [
                 "ちょっと",
                 "とても",
@@ -90510,6 +90528,7 @@
               "number": 30,
               "problemGroup": "問題4",
               "question": "山下さんが部品を交換してくれました。",
+              "underline": "交換",
               "options": [
                 "持ってきて",
                 "組み立てて",
@@ -90570,6 +90589,10 @@
               "number": 34,
               "problemGroup": "問題5",
               "question": "知り合う",
+              "underlineForms": [
+                "知り合った",
+                "知り合いました"
+              ],
               "options": [
                 "帰りの電車で兄と知り合ったので、一緒に帰宅しました。",
                 "このレストランは、雑誌を見て知り合いました。",

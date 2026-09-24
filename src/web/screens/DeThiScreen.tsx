@@ -105,7 +105,7 @@ function QuestionText({
             seg.text
           );
           return isUnderlined ? (
-            <span key={i} className="underline decoration-2 underline-offset-2 whitespace-nowrap">
+            <span key={i} className="font-bold underline decoration-2 underline-offset-2 whitespace-nowrap">
               {content}
             </span>
           ) : (
@@ -121,7 +121,7 @@ function QuestionText({
   return (
     <>
       {text.slice(0, i)}
-      <span className="underline decoration-2 underline-offset-2 whitespace-nowrap">{underline}</span>
+      <span className="font-bold underline decoration-2 underline-offset-2 whitespace-nowrap">{underline}</span>
       {text.slice(i + underline.length)}
     </>
   );
