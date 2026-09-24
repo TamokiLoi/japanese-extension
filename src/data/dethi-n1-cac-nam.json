@@ -4,7 +4,7 @@
     "source": "assets/data/de-thi-cac-nam/N1/ (đề thi thật JLPT N1 T7/2026; đáp án và script đi kèm)",
     "level": "N1",
     "examCount": 1,
-    "notes": "Geminiと原典を照合して更新。問65は異なるマーケットの2日間料金2,000円から、割引対象の①に1日出店する学生割引300円を適用し選択肢2。問66は入場時間と抽選会での支払い要件から選択肢4。聴解30問のtranscriptを付属Script PDFと原音声で照合し、PDFの誤植が音声で明確な箇所は発話どおり記載。 Audio chỉ được tải lên GitHub ở release dạng draft; repo không có giấy phép phân phối kèm theo nên chưa xuất bản và chưa đặt audioUrl cho đến khi xác nhận quyền và URL tải công khai hoạt động."
+    "notes": "Geminiと原典を照合して更新。問65は異なるマーケットの2日間料金2,000円から、割引対象の①に1日出店する学生割引300円を適用し選択肢2。問66は入場時間と抽選会での支払い要件から選択肢4。聴解30問のtranscriptを付属Script PDFと原音声で照合し、PDFの誤植が音声で明確な箇所は発話どおり記載。聴解音声はGitHub Releaseのaudio-choukai-cacnam-n1-2026-07-v1で公開。"
   },
   "exams": [
     {
@@ -1105,6 +1105,7 @@
         {
           "id": "choukai",
           "label": "聴解",
+          "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-n1-2026-07-v1/N1-2026-07.mp3",
           "timeMinutes": 60,
           "totalPoints": 30,
           "problemGroups": [
