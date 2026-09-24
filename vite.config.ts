@@ -44,6 +44,9 @@ const pagesBase = "/japanese-extension/";
 
 const pwa = VitePWA({
   registerType: "prompt",
+  // The web app registers through virtual:pwa-register/react so it can show
+  // a visible update action instead of leaving a new worker waiting silently.
+  injectRegister: null,
   manifest: {
     id: pagesBase,
     name: "Nihongo Nin - Học Tiếng Nhật",
@@ -87,7 +90,6 @@ const pwa = VitePWA({
     // make first install unnecessarily large.
     globPatterns: [
       "index.html",
-      "registerSW.js",
       "assets/index-*.{js,css}",
       "assets/WebApp-*.{js,css}",
       "assets/storage-*.js",
