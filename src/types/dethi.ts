@@ -78,6 +78,10 @@ export interface DeThiQuestion {
   // straight through; this does NOT pause/split playback per question, it's
   // just an optional "jump here" convenience while practicing.
   audioStartSec?: number;
+  // Script for post-submit listening review. Unverified spans are called out
+  // separately rather than silently reconstructed.
+  transcript?: string;
+  transcriptUncertainty?: string[];
 }
 
 export interface DeThiPaper {
@@ -97,6 +101,10 @@ export interface DeThiPaper {
 export interface DeThiExam {
   id: string;
   examLabel: string;
+  // Filled from the containing dataset's `meta.level` when datasets are
+  // registered in dethiState.ts, so one exam list can contain multiple JLPT
+  // levels while keeping each exam's level available to the UI.
+  level: JlptLevel;
   // Which real-world source this exam came from -- drives grouping/labels in
   // ExamListView (see SOURCE_LABELS/SOURCE_ORDER in dethiState.ts) so the
   // IMO 26-đề set and the per-kỳ "de-thi-cac-nam" exams don't render as one

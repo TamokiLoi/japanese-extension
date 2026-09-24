@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
+import type { JlptLevel } from "../../types/kanji.ts";
 import {
   ALL_EXAMS,
   SOURCE_LABELS,
-  AVAILABLE_SOURCES,
+  AVAILABLE_LEVELS,
+  getAvailableSources,
   findExamById,
   findPaper,
   loadDeThiSession,
@@ -284,6 +286,7 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
   const [history, setHistory] = useState<DeThiHistoryEntry[]>([]);
   const [expandedSources, setExpandedSources] = useState<string[]>([]);
   const [sortMode, setSortMode] = useState<"newest" | "oldest" | "started" | "unstarted">("newest");
+  const [selectedLevel, setSelectedLevel] = useState<JlptLevel>("N3");
 
   useEffect(() => {
     let cancelled = false;
@@ -303,8 +306,13 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
     };
   }, []);
 
-  const startedExamCount = ALL_EXAMS.filter((exam) => summary(exam, summaries[exam.id]).some((paper) => paper.attempts > 0)).length;
-  const bestResult = history.length > 0 ? Math.max(...history.map((entry) => entry.percent)) : null;
+  const levelExams = ALL_EXAMS.filter((exam) => exam.level === selectedLevel);
+  const levelExamIds = new Set(levelExams.map((exam) => exam.id));
+  const levelHistory = history.filter((entry) => levelExamIds.has(entry.examId));
+  const startedExamCount = levelExams.filter((exam) => summary(exam, summaries[exam.id]).some((paper) => paper.attempts > 0)).length;
+  const bestResult = levelHistory.length > 0 ? Math.max(...levelHistory.map((entry) => entry.percent)) : null;
+  const lockedLevels = (["N5", "N4", "N3", "N2", "N1"] as const).filter((level) => !AVAILABLE_LEVELS.includes(level));
+  const availableSources = getAvailableSources(selectedLevel);
 
   function toggleSource(source: string) {
     setExpandedSources((current) =>
@@ -319,14 +327,16 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
 
       <div className="mt-4 flex gap-2 overflow-x-auto">
         {(["N5", "N4", "N3", "N2", "N1"] as const).map((level) =>
-          level === "N3" ? (
-            <span
+          AVAILABLE_LEVELS.includes(level) ? (
+            <button
               key={level}
-              style={levelBadgeStyle("N3")}
-              className="shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold"
+              onClick={() => setSelectedLevel(level)}
+              aria-pressed={selectedLevel === level}
+              style={levelBadgeStyle(level)}
+              className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold transition-opacity ${selectedLevel === level ? "opacity-100" : "opacity-55 hover:opacity-100"}`}
             >
-              N3
-            </span>
+              {level}
+            </button>
           ) : (
             <span
               key={level}
@@ -338,7 +348,7 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
           ),
         )}
       </div>
-      <div className="mt-1.5 text-[11px] text-neutral-400">🔒 N2/N1 khoá -- chưa có bộ đề, sẽ mở khi cập nhật dữ liệu.</div>
+      {lockedLevels.length > 0 ? <div className="mt-1.5 text-[11px] text-neutral-400">🔒 {lockedLevels.join("/")} khoá -- chưa có bộ đề cho level này.</div> : null}
 
       <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
         <div className="rounded-2xl border border-sky-100 bg-sky-50 p-3 sm:p-4">
@@ -346,7 +356,7 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
           <div className="mt-0.5 text-[11px] font-medium text-sky-700/70 sm:text-xs">Đề đã bắt đầu</div>
         </div>
         <div className="rounded-2xl border border-violet-100 bg-violet-50 p-3 sm:p-4">
-          <div className="text-xl font-bold text-violet-700 sm:text-2xl">{history.length}</div>
+          <div className="text-xl font-bold text-violet-700 sm:text-2xl">{levelHistory.length}</div>
           <div className="mt-0.5 text-[11px] font-medium text-violet-700/70 sm:text-xs">Lượt làm</div>
         </div>
         <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-3 sm:p-4">
@@ -382,8 +392,8 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
         </Select>
       </div>
 
-      {AVAILABLE_SOURCES.map((source) => {
-        const sourceExams = ALL_EXAMS.filter((exam) => exam.source === source);
+      {availableSources.map((source) => {
+        const sourceExams = levelExams.filter((exam) => exam.source === source);
         const orderedExams = [...sourceExams].sort((a, b) => {
           const aStarted = summary(a, summaries[a.id]).some((paper) => paper.attempts > 0);
           const bStarted = summary(b, summaries[b.id]).some((paper) => paper.attempts > 0);
@@ -436,7 +446,7 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
                           {source === "cac-nam" ? "Đề thật" : "Mô phỏng"}
                         </span>
                       </div>
-                      <div className="mt-1 text-xs text-neutral-400">N3 · {exam.papers.length} phần thi</div>
+                      <div className="mt-1 text-xs text-neutral-400">{exam.level} · {exam.papers.length} phần thi</div>
                     </div>
                     <span className="flex shrink-0 items-center gap-1 text-xs font-bold text-rose-600">
                       {isStarted ? "Luyện tiếp" : "Bắt đầu"} <ChevronRight size={14} className="transition group-hover:translate-x-0.5" />
@@ -820,8 +830,8 @@ function TakingView({
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-xs font-semibold text-neutral-400 uppercase">
-            <span style={levelBadgeStyle("N3")} className="rounded-full px-2 py-0.5 text-[10px] font-bold normal-case">
-              N3
+            <span style={levelBadgeStyle(exam.level)} className="rounded-full px-2 py-0.5 text-[10px] font-bold normal-case">
+              {exam.level}
             </span>
             {q.problemGroup}
           </div>
@@ -1169,6 +1179,17 @@ function ReviewQuestion({
         </div>
       )}
       {question.explanation ? <div className="mt-3 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">{question.explanation}</div> : null}
+      {question.transcript ? (
+        <details className="mt-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-left">
+          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Transcript nghe</summary>
+          <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-neutral-700">{question.transcript}</div>
+          {question.transcriptUncertainty?.length ? (
+            <div className="mt-2 text-xs text-amber-700">
+              Chưa xác minh: {question.transcriptUncertainty.join(" ")}
+            </div>
+          ) : null}
+        </details>
+      ) : null}
       {chosenIndex === null ? <p className="mt-3 text-xs font-medium text-neutral-400">Bạn chưa trả lời câu này.</p> : null}
     </Card>
   );
