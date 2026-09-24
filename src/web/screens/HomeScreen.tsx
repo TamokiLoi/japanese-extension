@@ -231,13 +231,12 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
     (item) => map[item.id] !== undefined,
   ).length;
   const [streak, weekDays, dethiHistory] = await Promise.all([getStudyStreak(), getWeekStudyDays(), dethi.loadDeThiHistory()]);
-  // "Phần đã làm" counts distinct papers with at least one finished attempt,
-  // against every paper across every exam -- a real completion ratio, same
-  // shape as the other progress cards, not a fabricated number. This counts
-  // PAPERS ("phần"), not exams ("đề") -- ALL_EXAMS currently has 25 exams x
-  // 2 papers each (moji-goi, bunpou-dokkai; no timed listening paper yet),
-  // so totalPapers is 50 even though there are only 25 đề.
-  const attemptedPapers = new Set(dethiHistory.map((h) => `${h.examId}:${h.paperId}`)).size;
+  // Count finished papers only for exams currently available in the app. Old
+  // history from temporarily hidden exam sets stays stored but is not counted.
+  const visibleExamIds = new Set(dethi.ALL_EXAMS.map((exam) => exam.id));
+  const attemptedPapers = new Set(
+    dethiHistory.filter((h) => visibleExamIds.has(h.examId)).map((h) => `${h.examId}:${h.paperId}`),
+  ).size;
   const totalPapers = dethi.ALL_EXAMS.reduce((n, exam) => n + exam.papers.length, 0);
   return {
     stats: {

@@ -113,7 +113,10 @@ interface DethiSummary {
 
 async function loadDethiSummary(): Promise<DethiSummary> {
   const history = await loadDeThiHistory();
-  const attemptedPapers = new Set(history.map((h) => `${h.examId}:${h.paperId}`)).size;
+  const visibleExamIds = new Set(ALL_EXAMS.map((exam) => exam.id));
+  const attemptedPapers = new Set(
+    history.filter((h) => visibleExamIds.has(h.examId)).map((h) => `${h.examId}:${h.paperId}`),
+  ).size;
   const totalPapers = ALL_EXAMS.reduce((n, e) => n + e.papers.length, 0);
   return { attemptedPapers, totalPapers };
 }
@@ -424,7 +427,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
               <PlanRow
                 icon={ClipboardCheck}
                 title="Thi thử"
-                subtitle={`Đã làm ${dethiSummary.attemptedPapers}/${dethiSummary.totalPapers} phần (25 đề × 2/3 mục -- chưa có mục nghe)`}
+                subtitle={`Đã làm ${dethiSummary.attemptedPapers}/${dethiSummary.totalPapers} phần`}
                 onClick={() => onNavigate("exams")}
                 accent="#2563eb"
               />
@@ -564,7 +567,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                 }}
                 className="flex w-full items-center gap-2.5 rounded-xl border border-neutral-200 bg-white px-3 py-2 text-left text-sm hover:bg-neutral-50"
               >
-                <span className="min-w-0 flex-1 truncate text-neutral-600">Thi thử (25 đề IMO + 13 đề thật từng kỳ)</span>
+                <span className="min-w-0 flex-1 truncate text-neutral-600">Thi thử đề thật từng kỳ</span>
                 <span className="shrink-0 text-xs text-neutral-400">
                   {dethiSummary ? `${dethiSummary.attemptedPapers}/${dethiSummary.totalPapers} phần` : "Đang tải..."}
                 </span>

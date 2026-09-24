@@ -1,4 +1,3 @@
-import dethiImoRaw from "../data/dethi-n3-imo-26bo.json";
 import dethiCacNamRaw from "../data/dethi-n3-cac-nam.json";
 import dethiN1CacNamRaw from "../data/dethi-n1-cac-nam.json";
 import type { DeThiDataset, DeThiExam, DeThiPaper } from "../types/dethi.ts";
@@ -7,7 +6,6 @@ import { storageGet, storageSet, storageRemove } from "../platform/storage";
 import { findBunpoForText } from "./bunpoLinks.ts";
 import { setFlagged } from "./progressState.ts";
 
-const imoDataset = dethiImoRaw as unknown as DeThiDataset;
 const cacNamDataset = dethiCacNamRaw as unknown as DeThiDataset;
 const n1CacNamDataset = dethiN1CacNamRaw as unknown as DeThiDataset;
 
@@ -20,20 +18,18 @@ function examsWithLevel(dataset: DeThiDataset): DeThiExam[] {
 const cacNamExamsNewestFirst = examsWithLevel(cacNamDataset).sort((a, b) => b.id.localeCompare(a.id));
 const n1CacNamExamsNewestFirst = examsWithLevel(n1CacNamDataset).sort((a, b) => b.id.localeCompare(a.id));
 
-export const ALL_EXAMS: DeThiExam[] = [...cacNamExamsNewestFirst, ...n1CacNamExamsNewestFirst, ...examsWithLevel(imoDataset)];
+// The IMO source data stays in src/data, but the incomplete set is temporarily
+// hidden from exam selection until it has listening content.
+export const ALL_EXAMS: DeThiExam[] = [...cacNamExamsNewestFirst, ...n1CacNamExamsNewestFirst];
 export const AVAILABLE_LEVELS: JlptLevel[] = (["N5", "N4", "N3", "N2", "N1"] as const).filter((level) =>
   ALL_EXAMS.some((exam) => exam.level === level),
 );
 
-// Groups ExamListView's grid by DeThiExam.source instead of one flat list --
-// "cac-nam" (mỗi kỳ thi thật riêng, có cả 聴解 thật) và "imo" (bộ 26 đề mô
-// phỏng, không có 聴解) trông rất giống nhau (đều ghi "N3-..." + "đề thật")
-// nên gộp chung dễ nhầm là cùng 1 bộ.
+// Groups ExamListView's grid by DeThiExam.source instead of one flat list.
 export const SOURCE_LABELS: Record<string, string> = {
   "cac-nam": "Đề thi thật từng kỳ",
-  imo: "Bộ 26 đề mô phỏng (IMO)",
 };
-const SOURCE_ORDER: string[] = ["cac-nam", "imo"];
+const SOURCE_ORDER: string[] = ["cac-nam"];
 export function getAvailableSources(level: JlptLevel): string[] {
   return SOURCE_ORDER.filter((source) => ALL_EXAMS.some((exam) => exam.level === level && exam.source === source));
 }
