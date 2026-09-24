@@ -25,6 +25,7 @@ import {
   filterByProgress,
   bucketFor,
   defaultProgress,
+  isFlagged,
   type ItemProgress,
   type ProgressFilter,
   type ProgressMap,
@@ -443,13 +444,13 @@ function DetailView({
 
         <div className="reading-toolbar-row">
           <button
-            className={`secondary-action-btn reading-toggle-btn ${progress.flagged ? "reading-toggle-on" : ""}`}
+            className={`secondary-action-btn reading-toggle-btn ${isFlagged(progress) ? "reading-toggle-on" : ""}`}
             onClick={async () => {
               await toggleFlag(g.id);
               await refreshProgress();
             }}
           >
-            {progress.flagged ? "🚩 Bỏ đánh dấu khó" : "🚩 Đánh dấu khó"}
+            {isFlagged(progress) ? "🚩 Bỏ đánh dấu khó" : "🚩 Đánh dấu khó"}
           </button>
           <button
             className={`secondary-action-btn reading-toggle-btn ${progress.mastered ? "reading-toggle-on" : ""}`}

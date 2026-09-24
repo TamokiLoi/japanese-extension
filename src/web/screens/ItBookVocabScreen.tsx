@@ -20,6 +20,7 @@ import {
   bucketFor,
   countBuckets,
   isDueForReview,
+  isFlagged,
   type ItemProgress,
   type ProgressMap,
   type ProgressBucket,
@@ -366,16 +367,16 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
             </div>
             <div className="flex shrink-0 items-center gap-1.5">
               <button
-                title={progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
+                title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
                 onClick={async () => {
                   await toggleFlag(v.id);
                   await refreshProgress();
                 }}
                 className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
-                  progress?.flagged ? "text-rose-500" : "text-neutral-300 hover:text-neutral-400"
+                  isFlagged(progress) ? "text-rose-500" : "text-neutral-300 hover:text-neutral-400"
                 }`}
               >
-                <Flag size={17} fill={progress?.flagged ? "currentColor" : "none"} />
+                <Flag size={17} fill={isFlagged(progress) ? "currentColor" : "none"} />
               </button>
               <button
                 title={progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}

@@ -19,6 +19,7 @@ import {
   bucketFor,
   countBuckets,
   isDueForReview,
+  isFlagged,
   BUCKET_TILE_CLASS,
   BUCKET_LABEL,
   type ItemProgress,
@@ -289,8 +290,8 @@ export function KanjiScreen({
             {k.level}
           </div>
           <button
-            className={`flag-btn ${progress?.flagged ? "flagged" : ""}`}
-            title={progress?.flagged ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
+            className={`flag-btn ${isFlagged(progress) ? "flagged" : ""}`}
+            title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
             onClick={async () => {
               await toggleFlag(k.id);
               await refreshProgress();

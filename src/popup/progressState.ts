@@ -11,10 +11,8 @@ export interface ItemProgress {
   correctStreak: number;
   correctCount: number;
   wrongCount: number;
-  // Consecutive wrong answers since the last correct one (any direction) --
-  // separate from the lifetime wrongCount so a card that's mostly right with
-  // the odd slip doesn't get auto-flagged just for having failed 3 times
-  // total months apart. Drives the auto-flag in recordAnswer below.
+  // Legacy aggregate streak retained for compatibility with saved progress.
+  // Review flags are now driven by directionWrongStreaks instead.
   wrongStreak: number;
   mastered: boolean;
   flagged: boolean;
@@ -25,6 +23,12 @@ export interface ItemProgress {
   // threshold, so drilling only one direction 3x isn't enough on its own
   // for content types with more than one quiz direction.
   directionStreaks: Record<string, number>;
+  // Consecutive wrong answers for each quiz direction. An answer in one mode
+  // cannot increase or reset the review streak of another mode.
+  directionWrongStreaks: Record<string, number>;
+  // Automatic review flags scoped to a quiz direction. `flagged` remains a
+  // global/manual flag until the next quiz answer scopes it to that direction.
+  directionFlags: Record<string, boolean>;
   // Epoch ms of the next scheduled review, set once a card first becomes
   // mastered (and refreshed each time a due review is answered correctly
   // again) -- a fixed-interval reminder, not a full Anki-style growing
@@ -39,12 +43,9 @@ const STORAGE_KEY = "itemProgress";
 // Consecutive correct answers (per direction) needed to mark a card "mastered".
 export const MASTERY_STREAK_THRESHOLD = 3;
 
-// Consecutive wrong answers before a card is auto-flagged "cần ôn lại" --
-// same idea as MASTERY_STREAK_THRESHOLD but in the other direction, so a
-// card the user keeps missing surfaces there without needing a manual flag.
-// The cycle closes itself: recordAnswer clears the flag again once every
-// required direction re-crosses MASTERY_STREAK_THRESHOLD, so a manual
-// unflag is only needed to dismiss one early, not as the normal exit.
+// Consecutive wrong answers in the same direction before that direction is
+// auto-flagged "cần ôn lại". Three consecutive correct answers in that
+// direction clear its flag, independently of all other modes.
 export const AUTO_FLAG_WRONG_STREAK = 3;
 
 // Fixed interval before a mastered card is surfaced for review again.
@@ -60,11 +61,27 @@ export function defaultProgress(): ItemProgress {
     flagged: false,
     lastSeenAt: 0,
     directionStreaks: {},
+    directionWrongStreaks: {},
+    directionFlags: {},
   };
 }
 
 export async function loadProgressMap(): Promise<ProgressMap> {
-  return (await storageGet<ProgressMap>(STORAGE_KEY)) ?? {};
+  const map = (await storageGet<ProgressMap>(STORAGE_KEY)) ?? {};
+  let normalized = false;
+  for (const [id, progress] of Object.entries(map)) {
+    if (progress.directionStreaks && progress.directionWrongStreaks && progress.directionFlags) continue;
+    map[id] = {
+      ...defaultProgress(),
+      ...progress,
+      directionStreaks: progress.directionStreaks ?? {},
+      directionWrongStreaks: progress.directionWrongStreaks ?? {},
+      directionFlags: progress.directionFlags ?? {},
+    };
+    normalized = true;
+  }
+  if (normalized) await saveProgressMap(map);
+  return map;
 }
 
 async function saveProgressMap(map: ProgressMap): Promise<void> {
@@ -85,26 +102,21 @@ export async function clearProgress(ids: string[]): Promise<void> {
 }
 
 // Count of a given id list that are currently mastered -- used for the
-// menu screen's "X/Y đã thuộc" summary under Kanji/Từ vựng. Excludes a card
-// that's also flagged (same flagged-wins precedence as bucketFor) -- toggling
-// either now keeps the two exclusive going forward, but this guards against
-// any record saved with both still true from before that fix.
+// menu screen's "X/Y đã thuộc" summary under Kanji/Từ vựng. Excludes any card
+// with an active review flag, including one scoped to a quiz direction.
 export async function countMastered(ids: string[]): Promise<number> {
   const map = await loadProgressMap();
-  return ids.filter((id) => map[id]?.mastered && !map[id]?.flagged).length;
+  return ids.filter((id) => map[id]?.mastered && !isFlagged(map[id])).length;
 }
 
 // Called once per Quiz answer. `direction` is the quiz mode just drilled
 // (e.g. "meaning"/"character" for Kanji); `requiredDirections` is the full
 // set of directions that content kind must pass before the card counts as
 // mastered (e.g. both Kanji directions, all 4 Vocab directions) -- callers
-// with only one meaningful direction (Bunpo) just pass `[direction]` so the
-// threshold is reached immediately, same as the old single-direction
-// behavior. Correct: that direction's streak goes up, mastered flips once
-// every required direction has independently crossed the threshold. Wrong:
-// only the just-drilled direction's streak resets (progress in other
-// directions is kept), and mastered is cleared (a card that regresses needs
-// review again, even if it hit the streak once).
+// with only one meaningful direction (Bunpo) just pass `[direction]`. Correct
+// and wrong streaks, and automatic review flags, are scoped to `direction`;
+// three correct answers clear only that direction's flag. `mastered` remains
+// an aggregate summary across required directions.
 export async function recordAnswer(
   id: string,
   correct: boolean,
@@ -114,23 +126,35 @@ export async function recordAnswer(
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.directionStreaks = { ...cur.directionStreaks };
+  cur.directionWrongStreaks = { ...(cur.directionWrongStreaks ?? {}) };
+  cur.directionFlags = { ...(cur.directionFlags ?? {}) };
   const wasMastered = cur.mastered;
   const wasDue = isDueForReview(cur);
+
+  // Older app versions stored every review flag globally. Scope a legacy or
+  // manual global flag to the direction now being practiced so it can leave
+  // this direction after a clean streak without blocking the other modes.
+  if (cur.flagged) {
+    cur.flagged = false;
+    cur.directionFlags[direction] = true;
+  }
+
   if (correct) {
     cur.correctStreak += 1;
     cur.correctCount += 1;
     cur.wrongStreak = 0;
     cur.directionStreaks[direction] = (cur.directionStreaks[direction] ?? 0) + 1;
+    cur.directionWrongStreaks[direction] = 0;
+    if (cur.directionStreaks[direction] >= MASTERY_STREAK_THRESHOLD) {
+      delete cur.directionFlags[direction];
+    }
     const allDirectionsMastered = requiredDirections.every(
       (d) => (cur.directionStreaks[d] ?? 0) >= MASTERY_STREAK_THRESHOLD,
     );
     if (allDirectionsMastered) {
       cur.mastered = true;
-      // Re-proving mastery (every required direction, e.g. both Kanji quiz
-      // modes) clears "cần ôn lại" too, whether the flag was auto-set by the
-      // wrong-streak below or set by hand -- otherwise a card the user just
-      // demonstrated they know would stay stuck in that bucket forever,
-      // undoable only by manually unflagging it.
+      // This is an aggregate summary only. Direction flags were cleared
+      // independently above as each mode reaches its own correct streak.
       cur.flagged = false;
     }
     // Schedule (or reschedule, if this was a due review answered correctly
@@ -143,11 +167,14 @@ export async function recordAnswer(
   } else {
     cur.correctStreak = 0;
     cur.directionStreaks[direction] = 0;
+    cur.directionWrongStreaks[direction] = (cur.directionWrongStreaks[direction] ?? 0) + 1;
     cur.wrongCount += 1;
     cur.wrongStreak = (cur.wrongStreak ?? 0) + 1;
     cur.mastered = false;
     cur.dueAt = undefined;
-    if (cur.wrongStreak >= AUTO_FLAG_WRONG_STREAK) cur.flagged = true;
+    if (cur.directionWrongStreaks[direction] >= AUTO_FLAG_WRONG_STREAK) {
+      cur.directionFlags[direction] = true;
+    }
   }
   cur.lastSeenAt = Date.now();
   map[id] = cur;
@@ -176,7 +203,7 @@ export async function markViewed(id: string): Promise<void> {
 export async function toggleFlag(id: string): Promise<ItemProgress> {
   const map = await loadProgressMap();
   const cur = { ...(map[id] ?? defaultProgress()) };
-  return setFlaggedOn(map, id, cur, !cur.flagged);
+  return setFlaggedOn(map, id, cur, !isFlagged(cur));
 }
 
 // Unconditional version of toggleFlag for callers that know which way they
@@ -191,9 +218,13 @@ export async function setFlagged(id: string, flagged: boolean): Promise<ItemProg
 
 async function setFlaggedOn(map: ProgressMap, id: string, cur: ItemProgress, flagged: boolean): Promise<ItemProgress> {
   cur.flagged = flagged;
+  cur.directionFlags = { ...(cur.directionFlags ?? {}) };
   if (cur.flagged) {
+    cur.directionFlags = {};
     cur.mastered = false;
     cur.dueAt = undefined;
+  } else {
+    cur.directionFlags = {};
   }
   // Manually touching a card is itself a "seen" event -- without this, a
   // card only ever flagged/mastered by hand (never quizzed) keeps
@@ -214,7 +245,10 @@ export async function toggleMastered(id: string): Promise<ItemProgress> {
   const cur = { ...(map[id] ?? defaultProgress()) };
   cur.mastered = !cur.mastered;
   cur.dueAt = cur.mastered ? Date.now() + REVIEW_INTERVAL_MS : undefined;
-  if (cur.mastered) cur.flagged = false;
+  if (cur.mastered) {
+    cur.flagged = false;
+    cur.directionFlags = {};
+  }
   cur.lastSeenAt = Date.now();
   map[id] = cur;
   await saveProgressMap(map);
@@ -241,7 +275,7 @@ export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {
   // Checked ahead of the lastSeenAt gate so a card already saved with
   // lastSeenAt still 0 (flagged/mastered by hand before that bug fix) reads
   // correctly without needing to be re-toggled.
-  if (progress.flagged) return "flagged";
+  if (isFlagged(progress)) return "flagged";
   if (progress.mastered) return "mastered";
   if (progress.lastSeenAt === 0) return "new";
   return "learning";
@@ -256,11 +290,10 @@ export function bucketFor(progress: ItemProgress | undefined): ProgressBucket {
 // proven -- see recordAnswer). Used by Quiz's setup screen (pool counts +
 // question-target filtering) so switching "Dạng câu hỏi" actually changes
 // which cards count as done, instead of showing the same aggregate number
-// for every direction. "flagged" stays a global signal (the auto-flag wrong
-// streak isn't tracked per direction) -- same as bucketFor.
+// for every direction. Automatic flags are also scoped to this direction.
 export function bucketForDirection(progress: ItemProgress | undefined, direction: string): ProgressBucket {
   if (!progress) return "new";
-  if (progress.flagged) return "flagged";
+  if (progress.flagged || progress.directionFlags?.[direction]) return "flagged";
   // Optional chaining: a progress record saved before this field existed
   // (older app version) has `directionStreaks` missing entirely, not just
   // the one key -- indexing straight into it would throw and silently break
@@ -269,6 +302,16 @@ export function bucketForDirection(progress: ItemProgress | undefined, direction
   if ((streak ?? 0) >= MASTERY_STREAK_THRESHOLD) return "mastered";
   if (streak === undefined) return "new"; // never answered in this specific direction yet
   return "learning";
+}
+
+// Whether a card is marked for review at all, or specifically in one mode.
+// The no-direction form is for overview cards/counts; Quiz filters must pass
+// their active mode so another direction's automatic flag cannot leak in.
+export function isFlagged(progress: ItemProgress | undefined | null, direction?: string): boolean {
+  if (!progress) return false;
+  if (progress.flagged) return true;
+  if (direction !== undefined) return !!progress.directionFlags?.[direction];
+  return Object.values(progress.directionFlags ?? {}).some(Boolean);
 }
 
 // Shared tile styling for any "overview grid" screen (Kanji, Vocab) --
@@ -327,7 +370,7 @@ export function countBuckets<T extends { id: string }>(
 
 // "all": no filtering. "unmastered": hide cards already mastered (keeps
 // flagged-but-mastered cards out too -- mastered wins once set). "flagged":
-// only cards the user manually marked as difficult. "due": only mastered
+// only cards currently marked for review. "due": only mastered
 // cards whose fixed-interval review time has passed.
 export type ProgressFilter = "all" | "unmastered" | "flagged" | "due";
 
@@ -337,22 +380,22 @@ export function filterByProgress<T extends { id: string }>(
   filter: ProgressFilter,
 ): T[] {
   if (filter === "all") return items;
-  if (filter === "flagged") return items.filter((item) => map[item.id]?.flagged);
+  if (filter === "flagged") return items.filter((item) => isFlagged(map[item.id]));
   if (filter === "due") return items.filter((item) => isDueForReview(map[item.id]));
-  return items.filter((item) => !map[item.id]?.mastered || map[item.id]?.flagged);
+  return items.filter((item) => !map[item.id]?.mastered || isFlagged(map[item.id]));
 }
 
 // Quiz question targets are picked with a weight favoring cards that still
 // need work *in the exact direction/mode being drilled*, so struggling
-// cards resurface more often without a full SRS scheduler: flagged cards
-// weigh the most (a global signal), then due-for-review, then cards whose
+// cards resurface more often without a full SRS scheduler: flags in this
+// direction weigh the most, then due-for-review, then cards whose
 // streak in this direction hasn't hit the mastery threshold yet -- a card
 // already proven in this direction still appears occasionally (weight 1) to
 // catch regressions, even while its overall `mastered` flag (which needs
 // every direction proven) is still false.
 export function weightFor(progress: ItemProgress | undefined, direction: string): number {
   if (!progress) return 3; // never seen -- treat like an unmastered card
-  if (progress.flagged) return 5;
+  if (isFlagged(progress, direction)) return 5;
   if (isDueForReview(progress)) return 4; // due for its scheduled review -- resurface it
   if ((progress.directionStreaks?.[direction] ?? 0) < MASTERY_STREAK_THRESHOLD) return 3;
   return 1;

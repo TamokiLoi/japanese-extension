@@ -27,6 +27,7 @@ import {
   recordAnswer as recordGlobalAnswer,
   clearProgress as clearGlobalProgress,
   loadProgressMap,
+  isFlagged as isProgressFlagged,
   type ProgressMap,
 } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
@@ -131,10 +132,8 @@ function ListView({
   const [filterOpen, setFilterOpen] = useState(false);
   const filtered = ALL_QUIZBOOK.filter((q) => matchesFilters(q, state));
   const progressOf = (q: QuizBookQuestion) => getQuestionProgress(q.id, state.answers, state.correctStreaks);
-  // "Cần ôn lại" reuses the same wrong-streak auto-flag Kanji/Vocab/Bunpo
-  // show (progressState.ts) -- recordGlobalAnswer already writes it on every
-  // answer here, this just reads it back.
-  const isFlagged = (q: QuizBookQuestion) => progressMap[q.id]?.flagged ?? false;
+  // Quiz-book answers use their own single `answer` direction for review.
+  const isFlagged = (q: QuizBookQuestion) => isProgressFlagged(progressMap[q.id], "answer");
   const doneCount = filtered.filter((q) => progressOf(q).status !== "not-started").length;
   const correctCount = filtered.filter((q) => progressOf(q).correct).length;
   const needsReviewCount = filtered.filter(isFlagged).length;
