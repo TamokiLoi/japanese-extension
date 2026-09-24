@@ -4,6 +4,7 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import { crx } from "@crxjs/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
+import { VitePWA } from "vite-plugin-pwa";
 import manifest from "./manifest.config.ts";
 
 // public/images/it-book/ (~26MB of scanned page images, see
@@ -39,10 +40,76 @@ function pruneItBookImagesFromExtensionBuild(): Plugin {
 // Tailwind-processed CSS chunk. Keeping the plugin out of that build entirely
 // avoids scanning src/popup/** for Tailwind classes it doesn't use.
 const isPages = process.env.GH_PAGES === "true";
+const pagesBase = "/japanese-extension/";
+
+const pwa = VitePWA({
+  registerType: "prompt",
+  manifest: {
+    id: pagesBase,
+    name: "Nihongo Nin - Học Tiếng Nhật",
+    short_name: "Nihongo Nin",
+    description: "Ứng dụng học tiếng Nhật và luyện thi JLPT.",
+    lang: "vi",
+    start_url: pagesBase,
+    scope: pagesBase,
+    display: "standalone",
+    launch_handler: { client_mode: "focus-existing" },
+    background_color: "#fafafa",
+    theme_color: "#fafafa",
+    icons: [
+      {
+        src: "icons/pwa-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "icons/pwa-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        src: "icons/maskable-icon-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+    ],
+  },
+  includeAssets: [
+    "icons/favicon.ico",
+    "icons/apple-touch-icon-180x180.png",
+    "icons/icon48.png",
+    "icons/icon128.png",
+  ],
+  workbox: {
+    // Precache only the app shell and its startup dependencies. The app has
+    // large, lazy-loaded learning datasets; caching every built chunk would
+    // make first install unnecessarily large.
+    globPatterns: [
+      "index.html",
+      "registerSW.js",
+      "assets/index-*.{js,css}",
+      "assets/WebApp-*.{js,css}",
+      "assets/storage-*.js",
+      "assets/*.woff2",
+    ],
+    runtimeCaching: [
+      {
+        urlPattern: /\/japanese-extension\/assets\/.*\.(?:js|css|woff2?)$/,
+        handler: "StaleWhileRevalidate",
+        options: {
+          cacheName: "app-resources",
+          expiration: { maxEntries: 1000, maxAgeSeconds: 30 * 24 * 60 * 60 },
+        },
+      },
+    ],
+    cleanupOutdatedCaches: true,
+  },
+});
 
 export default defineConfig({
-  base: isPages ? "/japanese-extension/" : "/",
-  plugins: isPages ? [react(), tailwindcss()] : [react(), crx({ manifest }), pruneItBookImagesFromExtensionBuild()],
+  base: isPages ? pagesBase : "/",
+  plugins: isPages ? [react(), tailwindcss(), pwa] : [react(), crx({ manifest }), pruneItBookImagesFromExtensionBuild()],
   // "@/*" -> src/web/* -- see the tsconfig.json comment; shadcn/ui's
   // generated components (src/web/components/ui/**) import each other and
   // ./lib/utils this way. Harmless for the extension build: it's just an

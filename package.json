@@ -14,6 +14,7 @@
     "podcast:categorize": "node --experimental-strip-types scripts/categorize-podcast-episodes.ts",
     "podcast:transcript:level": "node --experimental-strip-types scripts/classify-podcast-level.ts",
     "icons:generate": "node --experimental-strip-types scripts/generate-icons.ts",
+    "pwa:assets": "pwa-assets-generator",
     "dev": "cross-env GH_PAGES=true vite",
     "dev:web": "cross-env GH_PAGES=true vite",
     "dev:extension": "vite",
@@ -29,11 +30,13 @@
     "@types/node": "^26.4.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
+    "@vite-pwa/assets-generator": "^1.0.4",
     "@vitejs/plugin-react": "^4.7.0",
     "cross-env": "^10.1.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.6.0",
-    "vite": "^5.4.0"
+    "vite": "^5.4.0",
+    "vite-plugin-pwa": "^1.3.0"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

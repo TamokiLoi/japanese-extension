@@ -9,7 +9,11 @@
          `color-scheme: light` on :root is a redundant second signal for
          everything that arrives after this. -->
     <meta name="color-scheme" content="light" />
-    <link rel="icon" type="image/png" href="/icons/icon48.png" />
+    <meta name="theme-color" content="#fafafa" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="icon" type="image/png" href="%BASE_URL%icons/icon48.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-icon-180x180.png" />
     <title>Nihongo Nin</title>
     <link rel="stylesheet" href="/src/popup/style.css" />
     <style>
@@ -123,7 +127,7 @@
   <body>
     <div id="splash">
       <div class="spinner-ring">
-        <span class="logo-clip"><img src="/icons/icon128.png" alt="" /></span>
+        <span class="logo-clip"><img src="%BASE_URL%icons/icon128.png" alt="" /></span>
       </div>
     </div>
     <div id="app"></div>
