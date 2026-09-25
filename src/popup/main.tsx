@@ -22,6 +22,11 @@ if (params.get("tab") === "1" || !isExtensionRuntime()) {
 // isExtensionRuntime() in src/platform/runtime.ts for why a stub
 // `window.chrome` in plain Chromium doesn't false-trigger this branch.
 if (__IS_PAGES_BUILD__ && !isExtensionRuntime()) {
+  // Keep local development and extension usage out of the production GA4 reports.
+  if (import.meta.env.PROD && location.hostname === "tamokiloi.github.io") {
+    void import("../web/analytics.ts").then(({ initializeAnalytics }) => initializeAnalytics());
+  }
+
   import("../web/WebApp.tsx").then(({ WebApp }) => {
     createRoot(document.getElementById("app")!).render(<WebApp />);
   });
