@@ -265,7 +265,7 @@ export function SearchScreen({
         open={newVocabOpen}
         initialWord={query.trim()}
         onClose={() => setNewVocabOpen(false)}
-        onSaved={(saved) => setSavedWord(saved.snapshot.word)}
+        onSaved={(saved) => setSavedWord(saved.entityType === "vocab" ? saved.snapshot.word : null)}
       />
     </div>
   );

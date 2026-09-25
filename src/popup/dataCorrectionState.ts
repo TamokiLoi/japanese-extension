@@ -89,12 +89,10 @@ export async function saveDataCorrection(input: SaveCorrectionInput): Promise<Da
   const entries = await loadDataCorrections();
   const existing = input.id ? entries.find((entry) => entry.id === input.id) : undefined;
   const now = new Date().toISOString();
-  const entityType = input.entityType ?? existing?.entityType ?? "vocab";
-  const next: DataCorrectionEntry = {
+  const entityType = input.entityType ?? existing?.entityType ?? ("word" in input.snapshot ? "vocab" : "grammar");
+  const base = {
     id: existing?.id ?? createId(),
-    entityType,
     entityId: input.entityId,
-    snapshot: input.snapshot,
     issueType: input.issueType,
     suggestedValue: input.suggestedValue.trim(),
     note: input.note.trim(),
@@ -102,6 +100,14 @@ export async function saveDataCorrection(input: SaveCorrectionInput): Promise<Da
     createdAt: existing?.createdAt ?? now,
     updatedAt: now,
   };
+  let next: DataCorrectionEntry;
+  if (entityType === "vocab" && "word" in input.snapshot) {
+    next = { ...base, entityType, snapshot: input.snapshot };
+  } else if (entityType === "grammar" && "pattern" in input.snapshot) {
+    next = { ...base, entityType, snapshot: input.snapshot };
+  } else {
+    throw new Error("Correction entity type does not match its snapshot");
+  }
   const updated = existing ? entries.map((entry) => (entry.id === existing.id ? next : entry)) : [next, ...entries];
   await writeDataCorrections(updated);
   return next;
