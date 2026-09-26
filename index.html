@@ -102,6 +102,134 @@
       }
     </style>
     <script>
+      // A service worker can keep an older app shell after a Pages deploy,
+      // while the deploy has already removed that shell's lazy-loaded chunks.
+      // Vite emits this event when one of those dynamic imports fails. Recover
+      // only on that hard failure (never during a healthy study session): ask
+      // the waiting worker to activate and reload once. Learning data lives in
+      // localStorage/IndexedDB and is intentionally left untouched.
+      (function () {
+        var recoveryKey = "nihongo-chunk-recovery-attempt";
+        var recovering = false;
+
+        function showRecoveryMessage() {
+          var panel = document.createElement("main");
+          panel.setAttribute("role", "alert");
+          panel.style.cssText =
+            "position:fixed;inset:0;z-index:10000;display:grid;place-content:center;gap:12px;padding:24px;background:#fafafa;color:#262626;text-align:center;font:16px/1.5 system-ui,sans-serif";
+          panel.innerHTML =
+            '<strong style="font-size:22px">Không tải được phiên bản mới</strong>' +
+            '<span>Ứng dụng sẽ giữ nguyên dữ liệu học. Hãy thử tải lại để đồng bộ bản cập nhật.</span>' +
+            '<button type="button" style="justify-self:center;border:0;border-radius:10px;background:#e11d48;color:white;padding:11px 20px;font:600 15px system-ui,sans-serif;cursor:pointer">Tải lại</button>';
+          panel.querySelector("button").addEventListener("click", function () {
+            try {
+              sessionStorage.removeItem(recoveryKey);
+            } catch (_) {}
+            window.location.reload();
+          });
+          document.body.appendChild(panel);
+        }
+
+        function waitForWorker(registration) {
+          return new Promise(function (resolve) {
+            var settled = false;
+            var timeout = window.setTimeout(function () {
+              finish(null);
+            }, 15000);
+
+            function finish(worker) {
+              if (settled) return;
+              settled = true;
+              window.clearTimeout(timeout);
+              registration.removeEventListener("updatefound", onUpdateFound);
+              resolve(worker);
+            }
+
+            function onUpdateFound() {
+              var worker = registration.installing;
+              if (!worker) return;
+              if (worker.state === "installed") {
+                finish(registration.waiting || worker);
+                return;
+              }
+              worker.addEventListener("statechange", function () {
+                if (worker.state === "installed" || worker.state === "activated") {
+                  finish(registration.waiting || worker);
+                }
+              });
+            }
+
+            registration.addEventListener("updatefound", onUpdateFound);
+            if (registration.waiting) finish(registration.waiting);
+          });
+        }
+
+        async function recover() {
+          if (recovering) return;
+          recovering = true;
+
+          var previousAttempt = false;
+          try {
+            previousAttempt = sessionStorage.getItem(recoveryKey) === "1";
+            if (!previousAttempt) sessionStorage.setItem(recoveryKey, "1");
+          } catch (_) {}
+
+          if (previousAttempt) {
+            showRecoveryMessage();
+            return;
+          }
+
+          var controller = navigator.serviceWorker && navigator.serviceWorker.controller;
+          var controllerChanged = new Promise(function (resolve) {
+            if (!navigator.serviceWorker || !controller) {
+              resolve(false);
+              return;
+            }
+            var timeout = window.setTimeout(function () {
+              navigator.serviceWorker.removeEventListener("controllerchange", onChange);
+              resolve(false);
+            }, 15000);
+            function onChange() {
+              if (navigator.serviceWorker.controller === controller) return;
+              window.clearTimeout(timeout);
+              navigator.serviceWorker.removeEventListener("controllerchange", onChange);
+              resolve(true);
+            }
+            navigator.serviceWorker.addEventListener("controllerchange", onChange);
+          });
+
+          try {
+            if (navigator.serviceWorker) {
+              var registration = await navigator.serviceWorker.getRegistration();
+              if (registration) {
+                var workerPromise = waitForWorker(registration);
+                await registration.update().catch(function () {});
+                var worker = registration.waiting || (await workerPromise);
+                if (worker) {
+                  worker.postMessage({ type: "SKIP_WAITING" });
+                  worker.addEventListener("statechange", function () {
+                    if (worker.state === "activated") window.location.reload();
+                  });
+                  if ((await controllerChanged) || worker.state === "activated") {
+                    window.location.reload();
+                    return;
+                  }
+                }
+              }
+            }
+          } catch (_) {
+            // Fall through to a visible retry message if update checks fail.
+          }
+
+          showRecoveryMessage();
+        }
+
+        window.addEventListener("vite:preloadError", function (event) {
+          event.preventDefault();
+          void recover();
+        });
+      })();
+
       // Undoes public/404.html's redirect trick: GitHub Pages has no
       // server-side SPA rewrite, so a direct link/reload on a non-root path
       // (e.g. /japanese-extension/bunpo) 404s there first, and 404.html
@@ -146,6 +274,13 @@
           setTimeout(function () {
             splash.remove();
           }, 200);
+          // If the app stays healthy after a recovery reload, allow a future
+          // independent chunk failure to use the same one-time recovery.
+          setTimeout(function () {
+            try {
+              sessionStorage.removeItem("nihongo-chunk-recovery-attempt");
+            } catch (_) {}
+          }, 30000);
         }
         if (appEl.childNodes.length > 0) {
           hide();
