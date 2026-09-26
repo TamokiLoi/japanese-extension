@@ -4,24 +4,14 @@ import { ShieldAlert } from "lucide-react";
 // Deters casual users from opening DevTools to view source / copy quiz
 // questions. Modern Chrome does NOT let JS preventDefault() the F12 keydown
 // itself (that's handled natively before scripts see it), so this can't
-// literally "block the key" -- instead it detects that DevTools is open by
-// two independent signals and shows a warning screen while it stays open.
+// literally "block the key" -- instead it detects an attached DevTools
+// debugger and shows a warning screen while it stays open.
 // This is a speed bump for non-technical users, not a real security
 // boundary.
-//
-// Plain window resizing (dragging the edge, snapping to half-screen) does
-// NOT trip the size check: outerWidth/innerWidth shrink together since the
-// browser chrome they straddle stays a near-constant pixel width, so the
-// diff stays flat regardless of window size -- only DevTools actually
-// carving out part of the window moves it past the threshold.
-const SIZE_THRESHOLD_PX = 160;
+
 const DEBUGGER_PAUSE_THRESHOLD_MS = 100;
 const POLL_MS = 500;
-const REQUIRED_HITS = 2; // guards the resize check against a single mid-drag animation frame misreporting the diff
-
-function isDevToolsOpenBySize(): boolean {
-  return window.outerWidth - window.innerWidth > SIZE_THRESHOLD_PX || window.outerHeight - window.innerHeight > SIZE_THRESHOLD_PX;
-}
+const REQUIRED_HITS = 2;
 
 // Catches DevTools undocked into its own separate window, where the size
 // check above sees nothing (the page's own window never changes shape).
@@ -50,7 +40,7 @@ export function DevToolsGuard({ children }: { children: ReactNode }) {
     // whoever's testing a change over the LAN, not for casual site visitors.
     if (import.meta.env.DEV || import.meta.env.VITE_LAN_TEST === "true") return;
     const check = () => {
-      if (isDevToolsOpenBySize() || isDevToolsOpenByPause()) {
+      if (isDevToolsOpenByPause()) {
         consecutiveHits.current += 1;
         if (consecutiveHits.current >= REQUIRED_HITS) setBlocked(true);
       } else {
@@ -60,10 +50,8 @@ export function DevToolsGuard({ children }: { children: ReactNode }) {
     };
     check();
     const interval = setInterval(check, POLL_MS);
-    window.addEventListener("resize", check);
     return () => {
       clearInterval(interval);
-      window.removeEventListener("resize", check);
     };
   }, []);
 
