@@ -43,10 +43,11 @@ const isPages = process.env.GH_PAGES === "true";
 const pagesBase = "/japanese-extension/";
 
 const pwa = VitePWA({
-  registerType: "prompt",
-  // The web app registers through virtual:pwa-register/react so it can show
-  // a visible update action instead of leaving a new worker waiting silently.
-  injectRegister: null,
+  registerType: "autoUpdate",
+  // Register from the HTML shell before the app's dynamically imported
+  // screens load. If an older app shell is missing one of its lazy chunks,
+  // PWA registration must still run so the replacement worker can take over.
+  injectRegister: "script",
   manifest: {
     id: pagesBase,
     name: "Nihongo Nin - Học Tiếng Nhật",
@@ -85,6 +86,11 @@ const pwa = VitePWA({
     "icons/icon128.png",
   ],
   workbox: {
+    // Auto-activate and claim clients so an old page cannot stay pinned to a
+    // worker whose deploy-time hashed chunks have already disappeared.
+    skipWaiting: true,
+    clientsClaim: true,
+    importScripts: ["pwa-update-migration.js"],
     // Precache only the app shell and its startup dependencies. The app has
     // large, lazy-loaded learning datasets; caching every built chunk would
     // make first install unnecessarily large.

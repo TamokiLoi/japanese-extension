@@ -6,7 +6,7 @@ import { WebAppShell } from "./WebAppShell.tsx";
 import { ConfirmProvider } from "./components/ConfirmDialog.tsx";
 import { DevToolsGuard } from "./components/DevToolsGuard.tsx";
 import { LoadingScreen } from "./components/LoadingScreen.tsx";
-import { PwaUpdatePrompt } from "./components/PwaUpdatePrompt.tsx";
+import { PwaUpdateManager } from "./components/PwaUpdateManager.tsx";
 import {
   DEFAULT_BOTTOM_NAV_SHORTCUTS,
   loadBottomNavShortcuts,
@@ -311,7 +311,7 @@ export function WebApp() {
   return (
     <DevToolsGuard>
       <ConfirmProvider>
-        <PwaUpdatePrompt />
+        <PwaUpdateManager />
         <WebAppShell
           active={screen}
           onNavigate={navigate}
