@@ -45,10 +45,20 @@ const dethi202512Dataset = listeningDethi202512Raw as unknown as ListeningDatase
 const cacNam202012Dataset = listeningCacNam202012Raw as unknown as ListeningDataset;
 const kaiwa100cauDataset = listeningKaiwa100cauRaw as unknown as ListeningDataset;
 
+// Shinkanzen 039-053 are unfinished source-book placeholders: they have no
+// real choices/audio-derived answers yet (only numbered labels/instructions),
+// so keep them in the source JSON but out of practice and dictation pools.
+const incompleteShinkanzenQuestionIds = new Set(
+  Array.from({ length: 15 }, (_, index) => `listening-shinkanzen-n3-${String(index + 39).padStart(3, "0")}`),
+);
+const completeShinkanzenQuestions = shinkanzenDataset.questions.filter(
+  (question) => !incompleteShinkanzenQuestionIds.has(question.id),
+);
+
 export const ALL_LISTENING: ListeningQuestion[] = [
   ...soumatomeDataset.questions,
   ...speedmasterDataset.questions,
-  ...shinkanzenDataset.questions,
+  ...completeShinkanzenQuestions,
   // dethi202512Dataset and cacNam202012Dataset deliberately left out of the
   // pool -- both are partial extractions (16/28 and 6/28 câu) that clutter
   // the Sách filter with confusing low counts. Re-add once each exam's

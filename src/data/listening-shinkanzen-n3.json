@@ -783,51 +783,7 @@
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track04.mp3",
       "scenario": "大学で事務の人に書類の書き方を聞きます。何と言いますか。",
       "scenarioVi": "Bạn muốn hỏi nhân viên hành chính ở trường đại học về cách viết tài liệu. Bạn sẽ nói thế nào?",
-      "turns": [
-        {
-          "speaker": "男",
-          "text": "1 あの、この書類の書き方、教えてもよろしいでしょうか。\n2 あの、この書類の書き方、教えていただきたいんですがけど。\n3 あの、この書類の書き方、教えていただきましょうか。",
-          "textVi": "Xin lỗi, anh/chị có thể chỉ cho tôi cách điền vào tờ giấy này được không ạ?",
-          "furigana": [
-            {
-              "word": "書類",
-              "reading": "しょるい"
-            },
-            {
-              "word": "書き方",
-              "reading": "かきかた"
-            },
-            {
-              "word": "教えて",
-              "reading": "おしえて"
-            },
-            {
-              "word": "書類",
-              "reading": "しょるい"
-            },
-            {
-              "word": "書き方",
-              "reading": "かきかた"
-            },
-            {
-              "word": "教えて",
-              "reading": "おしえて"
-            },
-            {
-              "word": "書類",
-              "reading": "しょるい"
-            },
-            {
-              "word": "書き方",
-              "reading": "かきかた"
-            },
-            {
-              "word": "教えて",
-              "reading": "おしえて"
-            }
-          ]
-        }
-      ],
+      "turns": [],
       "question": "何と言いますか。",
       "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
@@ -838,8 +794,7 @@
       "optionsVi": [
         "Xin lỗi, anh/chị có thể chỉ cho tôi cách viết tài liệu này được không ạ?",
         "Xin lỗi, tôi rất muốn anh/chị chỉ giùm tôi cách viết tài liệu này ạ.",
-        "Xin lỗi, tôi nhờ anh/chị chỉ giùm cách viết tài liệu này nhé?",
-        "Xin lỗi, tôi có thể nhờ anh/chị..."
+        "Xin lỗi, tôi nhờ anh/chị chỉ giùm cách viết tài liệu này nhé?"
       ],
       "correctIndex": 1,
       "explanation": "Lựa chọn đúng là cách diễn đạt thể hiện mong muốn của bản thân một cách lịch sự khi nhờ vả người khác trong môi trường đại học.",
@@ -2258,57 +2213,11 @@
       "book": "shinkanzen",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track19.mp3",
-      "scenario": "",
-      "scenarioVi": "",
-      "turns": [
-        {
-          "speaker": "女",
-          "text": "推薦状を書いてもいいですか。",
-          "textVi": "Tôi viết thư giới thiệu nhé?",
-          "furigana": [
-            {
-              "word": "推薦状",
-              "reading": "すいせんじょう"
-            },
-            {
-              "word": "書",
-              "reading": "か"
-            }
-          ]
-        },
-        {
-          "speaker": "女",
-          "text": "推薦状を書いていただけませんか。",
-          "textVi": "Bạn có thể viết thư giới thiệu cho tôi được không?",
-          "furigana": [
-            {
-              "word": "推薦状",
-              "reading": "すいせんじょう"
-            },
-            {
-              "word": "書",
-              "reading": "か"
-            }
-          ]
-        },
-        {
-          "speaker": "女",
-          "text": "推薦状をお書きしましょうか。",
-          "textVi": "Tôi viết thư giới thiệu cho bạn nhé?",
-          "furigana": [
-            {
-              "word": "推薦状",
-              "reading": "すいせんじょう"
-            },
-            {
-              "word": "書",
-              "reading": "か"
-            }
-          ]
-        }
-      ],
-      "question": "先生に推薦状を書いてもらいたいです。何と言いますか。",
-      "questionVi": "Bạn muốn thầy/cô viết thư giới thiệu giúp. Bạn sẽ nói thế nào?",
+      "scenario": "先生に推薦状を書いてもらいたいです。",
+      "scenarioVi": "Bạn muốn thầy/cô viết thư giới thiệu giúp.",
+      "turns": [],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "推薦状を書いてもいいですか。",
         "推薦状を書いていただけませんか。",
@@ -2322,8 +2231,7 @@
       "correctIndex": 1,
       "explanation": "Khi muốn nhờ vả cấp trên hoặc thầy cô, cần sử dụng cấu trúc lịch sự '～ていただけませんか'.",
       "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
-      "scenarioFurigana": [],
-      "questionFurigana": [
+      "scenarioFurigana": [
         {
           "word": "先生",
           "reading": "せんせい"
@@ -2335,7 +2243,9 @@
         {
           "word": "書",
           "reading": "か"
-        },
+        }
+      ],
+      "questionFurigana": [
         {
           "word": "何",
           "reading": "なに"
@@ -2389,45 +2299,11 @@
       "book": "shinkanzen",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd1-track19.mp3",
-      "scenario": "",
-      "scenarioVi": "",
-      "turns": [
-        {
-          "speaker": "女",
-          "text": "かさ、借りてくれない？",
-          "textVi": "Cậu không mượn dù à?",
-          "furigana": [
-            {
-              "word": "借",
-              "reading": "か"
-            }
-          ]
-        },
-        {
-          "speaker": "女",
-          "text": "かさ、貸したらどう？",
-          "textVi": "Cậu cho mượn dù thì sao?",
-          "furigana": [
-            {
-              "word": "貸",
-              "reading": "か"
-            }
-          ]
-        },
-        {
-          "speaker": "女",
-          "text": "かさ、貸そうか。",
-          "textVi": "Tôi cho mượn dù nhé?",
-          "furigana": [
-            {
-              "word": "貸",
-              "reading": "か"
-            }
-          ]
-        }
-      ],
-      "question": "友達がかさがなくて困っているようです。何と言いますか。",
-      "questionVi": "Bạn thấy người bạn có vẻ đang gặp rắc rối vì không có ô. Bạn sẽ nói gì?",
+      "scenario": "友達がかさがなくて困っているようです。",
+      "scenarioVi": "Bạn thấy người bạn có vẻ đang gặp rắc rối vì không có ô.",
+      "turns": [],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "かさ、借りてくれない？",
         "かさ、貸したらどう？",
@@ -2441,8 +2317,7 @@
       "correctIndex": 2,
       "explanation": "Khi thấy bạn gặp khó khăn và muốn đề nghị giúp đỡ, sử dụng cấu trúc '～ましょうか'.",
       "notes": "⚠️ Track audio này chứa nhiều đoạn hội thoại ngắn gộp chung (dạng bài tập khởi động) -- đoạn liên quan tới câu này có xuất hiện trong track, nhưng có thể không phải đoạn đầu tiên nghe được.",
-      "scenarioFurigana": [],
-      "questionFurigana": [
+      "scenarioFurigana": [
         {
           "word": "友達",
           "reading": "ともだち"
@@ -2450,7 +2325,9 @@
         {
           "word": "困",
           "reading": "こま"
-        },
+        }
+      ],
+      "questionFurigana": [
         {
           "word": "何",
           "reading": "なに"
@@ -5696,11 +5573,11 @@
       "book": "shinkanzen",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track67.mp3",
-      "scenario": "友達のノートを写したいです。何と言いますか。",
-      "scenarioVi": "Bạn muốn chép vở của bạn bè. Bạn sẽ nói thế nào?",
+      "scenario": "友達のノートを写したいです。",
+      "scenarioVi": "Bạn muốn chép vở của bạn bè.",
       "turns": [],
-      "question": "友達のノートを写したいです。何と言いますか。",
-      "questionVi": "Bạn muốn chép vở của bạn bè. Bạn sẽ nói thế nào?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "ノート、写してくれない？",
         "ノート、写させてもいい？",
@@ -5721,25 +5598,9 @@
         {
           "word": "写したい",
           "reading": "うつしたい"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
-        {
-          "word": "写したい",
-          "reading": "うつしたい"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -5781,11 +5642,11 @@
       "book": "shinkanzen",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track68.mp3",
-      "scenario": "学校で友達が机の上に辞書を置いたまま帰ろうとしています。何と言いますか。",
-      "scenarioVi": "Ở trường, bạn thấy bạn mình định về mà để quên từ điển trên bàn. Bạn sẽ nói thế nào?",
+      "scenario": "学校で友達が机の上に辞書を置いたまま帰ろうとしています。",
+      "scenarioVi": "Ở trường, bạn thấy bạn mình định về mà để quên từ điển trên bàn.",
       "turns": [],
-      "question": "学校で友達が机の上に辞書を置いたまま帰ろうとしています。何と言いますか。",
-      "questionVi": "Ở trường, bạn thấy bạn mình định về mà để quên từ điển trên bàn. Bạn sẽ nói thế nào?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "辞書、持とうか。",
         "辞書、忘れてるよ。",
@@ -5826,45 +5687,9 @@
         {
           "word": "帰ろう",
           "reading": "かえろう"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "学校",
-          "reading": "がっこう"
-        },
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
-        {
-          "word": "机",
-          "reading": "つくえ"
-        },
-        {
-          "word": "上",
-          "reading": "うえ"
-        },
-        {
-          "word": "辞書",
-          "reading": "じしょ"
-        },
-        {
-          "word": "置いた",
-          "reading": "おいた"
-        },
-        {
-          "word": "帰ろう",
-          "reading": "かえろう"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -5918,11 +5743,11 @@
       "book": "shinkanzen",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track69.mp3",
-      "scenario": "店で服を試したいので店員に聞きます。何と言いますか。",
-      "scenarioVi": "Bạn muốn thử quần áo ở cửa hàng nên hỏi nhân viên. Bạn sẽ nói thế nào?",
+      "scenario": "店で服を試したいので店員に聞きます。",
+      "scenarioVi": "Bạn muốn thử quần áo ở cửa hàng nên hỏi nhân viên.",
       "turns": [],
-      "question": "店で服を試したいので店員に聞きます。何と言いますか。",
-      "questionVi": "Bạn muốn thử quần áo ở cửa hàng nên hỏi nhân viên. Bạn sẽ nói thế nào?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "ちょっと着させてみましょうか。",
         "ちょっと着させてもらえませんか。",
@@ -5955,37 +5780,9 @@
         {
           "word": "聞きます",
           "reading": "ききます"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "店",
-          "reading": "みせ"
-        },
-        {
-          "word": "服",
-          "reading": "ふく"
-        },
-        {
-          "word": "試したい",
-          "reading": "ためしたい"
-        },
-        {
-          "word": "店員",
-          "reading": "てんいん"
-        },
-        {
-          "word": "聞きます",
-          "reading": "ききます"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -6027,11 +5824,11 @@
       "book": "shinkanzen",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-shinkanzen-v1/cd2-track70.mp3",
-      "scenario": "電車の中で立っている人に席を譲ります。何と言いますか。",
-      "scenarioVi": "Bạn nhường ghế cho người đang đứng trên tàu điện. Bạn sẽ nói thế nào?",
+      "scenario": "電車の中で立っている人に席を譲ります。",
+      "scenarioVi": "Bạn nhường ghế cho người đang đứng trên tàu điện.",
       "turns": [],
-      "question": "電車の中で立っている人に席を譲ります。何と言いますか。",
-      "questionVi": "Bạn nhường ghế cho người đang đứng trên tàu điện. Bạn sẽ nói thế nào?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "ここ、おかけになりませんか。",
         "ここ、おかけしましょうか。",
@@ -6068,41 +5865,9 @@
         {
           "word": "譲ります",
           "reading": "ゆずります"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "電車",
-          "reading": "でんしゃ"
-        },
-        {
-          "word": "中",
-          "reading": "なか"
-        },
-        {
-          "word": "立って",
-          "reading": "たって"
-        },
-        {
-          "word": "人",
-          "reading": "ひと"
-        },
-        {
-          "word": "席",
-          "reading": "せき"
-        },
-        {
-          "word": "譲ります",
-          "reading": "ゆずります"
-        },
         {
           "word": "何",
           "reading": "なに"

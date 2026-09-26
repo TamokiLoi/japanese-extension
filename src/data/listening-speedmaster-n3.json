@@ -15418,11 +15418,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track51.mp3",
-      "scenario": "このスカートが気に入りましたが、買う前にはきたいです。店員に何と言いますか。",
-      "scenarioVi": "Bạn thích chiếc váy này nhưng muốn thử trước khi mua. Bạn sẽ nói gì với nhân viên?",
+      "scenario": "このスカートが気に入りましたが、買う前にはきたいです。店員に",
+      "scenarioVi": "Bạn thích chiếc váy này nhưng muốn thử trước khi mua và định hỏi nhân viên.",
       "turns": [],
-      "question": "このスカートが気に入りましたが、買う前にはきたいです。店員に何と言いますか。",
-      "questionVi": "Bạn thích chiếc váy này nhưng muốn thử trước khi mua. Bạn sẽ nói gì với nhân viên?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "あのう、これ穿いたらいいですか？",
         "あのう、これ穿いてみてもいいですか？",
@@ -15452,33 +15452,9 @@
         {
           "word": "店員",
           "reading": "てんいん"
-        },
-        {
-          "word": "何",
-          "reading": "なん"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "気に入りました",
-          "reading": "きにいりました"
-        },
-        {
-          "word": "買う",
-          "reading": "かう"
-        },
-        {
-          "word": "前",
-          "reading": "まえ"
-        },
-        {
-          "word": "店員",
-          "reading": "てんいん"
-        },
         {
           "word": "何",
           "reading": "なん"
@@ -15520,11 +15496,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track52.mp3",
-      "scenario": "宿題のレポートを忘れました。先生に何と言いますか。",
-      "scenarioVi": "Bạn quên nộp báo cáo bài tập. Bạn sẽ nói gì với giáo viên?",
+      "scenario": "宿題のレポートを忘れました。先生に",
+      "scenarioVi": "Bạn quên nộp báo cáo bài tập và đang nói với giáo viên.",
       "turns": [],
-      "question": "宿題のレポートを忘れました。先生に何と言いますか。",
-      "questionVi": "Bạn quên nộp báo cáo bài tập. Bạn sẽ nói gì với giáo viên?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、レポートを明日出しましょうか？",
         "すみません、レポートを明日出すことにしました。",
@@ -15550,29 +15526,9 @@
         {
           "word": "先生",
           "reading": "せんせい"
-        },
-        {
-          "word": "何",
-          "reading": "なん"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "宿題",
-          "reading": "しゅくだい"
-        },
-        {
-          "word": "忘",
-          "reading": "わす"
-        },
-        {
-          "word": "先生",
-          "reading": "せんせい"
-        },
         {
           "word": "何",
           "reading": "なん"
@@ -15626,11 +15582,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track53.mp3",
-      "scenario": "学校で、友だちに明日のことについて聞いています。何と聞きますか。",
-      "scenarioVi": "Ở trường, bạn đang hỏi bạn bè về ngày mai. Bạn sẽ hỏi thế nào?",
+      "scenario": "学校で、友だちに明日のことについて聞いています。",
+      "scenarioVi": "Ở trường, bạn đang hỏi bạn bè về ngày mai.",
       "turns": [],
-      "question": "学校で、友だちに明日のことについて聞いています。何と聞きますか。",
-      "questionVi": "Ở trường, bạn đang hỏi bạn bè về ngày mai. Bạn sẽ hỏi thế nào?",
+      "question": "何と聞きますか。",
+      "questionVi": "Bạn sẽ hỏi thế nào?",
       "options": [
         "明日も学校へ行く？",
         "明日も学校に来る？",
@@ -15660,36 +15616,12 @@
         {
           "word": "聞い",
           "reading": "きい"
-        },
-        {
-          "word": "何",
-          "reading": "なん"
-        },
-        {
-          "word": "聞きます",
-          "reading": "ききます"
         }
       ],
       "questionFurigana": [
         {
-          "word": "学校",
-          "reading": "がっこう"
-        },
-        {
-          "word": "友だち",
-          "reading": "ともだち"
-        },
-        {
-          "word": "明日",
-          "reading": "あした"
-        },
-        {
-          "word": "聞い",
-          "reading": "きい"
-        },
-        {
           "word": "何",
-          "reading": "なん"
+          "reading": "なに"
         },
         {
           "word": "聞きます",
@@ -15752,11 +15684,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track54.mp3",
-      "scenario": "「ふじ美術館」に行きたいです。バスの運転手に何と言いますか。",
-      "scenarioVi": "Bạn muốn đến \"Bảo tàng mỹ thuật Fuji\". Bạn sẽ nói gì với tài xế xe buýt?",
+      "scenario": "「ふじ美術館」に行きたいです。バスの運転手に",
+      "scenarioVi": "Bạn muốn đến \"Bảo tàng mỹ thuật Fuji\" và định hỏi tài xế xe buýt.",
       "turns": [],
-      "question": "「ふじ美術館」に行きたいです。バスの運転手に何と言いますか。",
-      "questionVi": "Bạn muốn đến \"Bảo tàng mỹ thuật Fuji\". Bạn sẽ nói gì với tài xế xe buýt?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、このバスはフジ美術館で止めますか？",
         "すみません、このバスはフジ美術館に止まりますか？",
@@ -15782,29 +15714,9 @@
         {
           "word": "運転手",
           "reading": "うんてんしゅ"
-        },
-        {
-          "word": "何",
-          "reading": "なん"
-        },
-        {
-          "word": "言い",
-          "reading": "いい"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "美術館",
-          "reading": "びじゅつかん"
-        },
-        {
-          "word": "行き",
-          "reading": "いき"
-        },
-        {
-          "word": "運転手",
-          "reading": "うんてんしゅ"
-        },
         {
           "word": "何",
           "reading": "なん"
@@ -15858,11 +15770,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track55.mp3",
-      "scenario": "今、体の具合が悪いです。午後から帰りたいと思っています。上司に何と言いますか。",
-      "scenarioVi": "Bây giờ cơ thể cảm thấy không khỏe. Bạn muốn xin phép về nhà từ buổi chiều. Bạn sẽ nói gì với cấp trên?",
+      "scenario": "今、体の具合が悪いです。午後から帰りたいと思っています。上司に",
+      "scenarioVi": "Bây giờ cơ thể cảm thấy không khỏe. Bạn muốn xin phép cấp trên về nhà từ buổi chiều.",
       "turns": [],
-      "question": "今、体の具合が悪いです。午後から帰りたいと思っています。上司に何と言いますか。",
-      "questionVi": "Bây giờ cơ thể cảm thấy không khỏe. Bạn muốn xin phép về nhà từ buổi chiều. Bạn sẽ nói gì với cấp trên?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、体調が悪いので午後を帰らせたいんですが。",
         "すみません、体調が悪いので午後を帰らせてもよろしいですか？",
@@ -15908,49 +15820,9 @@
         {
           "word": "上司",
           "reading": "じょうし"
-        },
-        {
-          "word": "何",
-          "reading": "なん"
-        },
-        {
-          "word": "言い",
-          "reading": "いい"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "今",
-          "reading": "いま"
-        },
-        {
-          "word": "体",
-          "reading": "からだ"
-        },
-        {
-          "word": "具合",
-          "reading": "ぐあい"
-        },
-        {
-          "word": "悪い",
-          "reading": "わるい"
-        },
-        {
-          "word": "午後",
-          "reading": "ごご"
-        },
-        {
-          "word": "帰り",
-          "reading": "かえり"
-        },
-        {
-          "word": "思っ",
-          "reading": "おもっ"
-        },
-        {
-          "word": "上司",
-          "reading": "じょうし"
-        },
         {
           "word": "何",
           "reading": "なん"
@@ -16028,11 +15900,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track56.mp3",
-      "scenario": "友だちに30分くらい辞書を貸してほしいと思っています。何と言いますか。",
-      "scenarioVi": "Bạn muốn mượn từ điển của bạn khoảng 30 phút. Bạn sẽ nói gì?",
+      "scenario": "友だちに30分くらい辞書を貸してほしいと思っています。",
+      "scenarioVi": "Bạn muốn mượn từ điển của bạn khoảng 30 phút.",
       "turns": [],
-      "question": "友だちに30分くらい辞書を貸してほしいと思っています。何と言いますか。",
-      "questionVi": "Bạn muốn mượn từ điển của bạn khoảng 30 phút. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "ねえ、ちょっとの間、それ貸されない？",
         "ねえ、ちょっとの間、それ借りられない？",
@@ -16066,37 +15938,9 @@
         {
           "word": "思って",
           "reading": "おもって"
-        },
-        {
-          "word": "何",
-          "reading": "なん"
-        },
-        {
-          "word": "言い",
-          "reading": "いい"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "友だち",
-          "reading": "ともだち"
-        },
-        {
-          "word": "30分",
-          "reading": "さんじゅっぷん"
-        },
-        {
-          "word": "辞書",
-          "reading": "じしょ"
-        },
-        {
-          "word": "貸し",
-          "reading": "かし"
-        },
-        {
-          "word": "思って",
-          "reading": "おもって"
-        },
         {
           "word": "何",
           "reading": "なん"
@@ -16150,11 +15994,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track57.mp3",
-      "scenario": "課長に書類のチェックをお願いしたいです。何と言いますか。",
-      "scenarioVi": "Bạn muốn nhờ Trưởng phòng kiểm tra tài liệu giúp. Bạn sẽ nói gì?",
+      "scenario": "課長に書類のチェックをお願いしたいです。",
+      "scenarioVi": "Bạn muốn nhờ Trưởng phòng kiểm tra tài liệu giúp.",
       "turns": [],
-      "question": "課長に書類のチェックをお願いしたいです。何と言いますか。",
-      "questionVi": "Bạn muốn nhờ Trưởng phòng kiểm tra tài liệu giúp. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "課長、すみませんが、これを御チェックしてください。",
         "課長、すみませんが、これチェックしていただけますか？",
@@ -16180,29 +16024,9 @@
         {
           "word": "お願い",
           "reading": "おねがい"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "課長",
-          "reading": "かちょう"
-        },
-        {
-          "word": "書類",
-          "reading": "しょるい"
-        },
-        {
-          "word": "お願い",
-          "reading": "おねがい"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16248,11 +16072,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track58.mp3",
-      "scenario": "図書館で辞書を借りたいです。何と言いますか。",
-      "scenarioVi": "Bạn muốn mượn từ điển ở thư viện. Bạn sẽ nói gì?",
+      "scenario": "図書館で辞書を借りたいです。",
+      "scenarioVi": "Bạn muốn mượn từ điển ở thư viện.",
       "turns": [],
-      "question": "図書館で辞書を借りたいです。何と言いますか。",
-      "questionVi": "Bạn muốn mượn từ điển ở thư viện. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、この辞書は貸し出しできますか",
         "すみません、この辞書を貸し出してもいいですか",
@@ -16278,29 +16102,9 @@
         {
           "word": "借り",
           "reading": "かり"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "図書館",
-          "reading": "としょかん"
-        },
-        {
-          "word": "辞書",
-          "reading": "じしょ"
-        },
-        {
-          "word": "借り",
-          "reading": "かり"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16354,11 +16158,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track59.mp3",
-      "scenario": "電車に乗る場所を確かめます。駅員に何と言いますか。",
-      "scenarioVi": "Bạn xác nhận vị trí lên tàu điện. Bạn sẽ nói gì với nhân viên nhà ga?",
+      "scenario": "電車に乗る場所を確かめます。駅員に",
+      "scenarioVi": "Bạn muốn xác nhận vị trí lên tàu điện bằng cách hỏi nhân viên nhà ga.",
       "turns": [],
-      "question": "電車に乗る場所を確かめます。駅員に何と言いますか。",
-      "questionVi": "Bạn xác nhận vị trí lên tàu điện. Bạn sẽ nói gì với nhân viên nhà ga?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、大阪行きは5番ホームでいいでしょうか",
         "すみません、5番のホームは大阪行きでいいでしょうか",
@@ -16371,7 +16175,6 @@
       ],
       "correctIndex": 0,
       "explanation": "Lựa chọn đúng xác nhận vị trí sân ga cho một chuyến tàu cụ thể một cách rõ ràng và lịch sự.",
-      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ.",
       "scenarioFurigana": [
         {
           "word": "電車",
@@ -16392,37 +16195,9 @@
         {
           "word": "駅員",
           "reading": "えきいん"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "電車",
-          "reading": "でんしゃ"
-        },
-        {
-          "word": "乗る",
-          "reading": "のる"
-        },
-        {
-          "word": "場所",
-          "reading": "ばしょ"
-        },
-        {
-          "word": "確かめ",
-          "reading": "たしかめ"
-        },
-        {
-          "word": "駅員",
-          "reading": "えきいん"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16476,11 +16251,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track60.mp3",
-      "scenario": "上司に、レポートの締め切りを1日延ばしてほしいと頼みます。何と言いますか。",
-      "scenarioVi": "Bạn nhờ cấp trên gia hạn thời hạn nộp báo cáo thêm 1 ngày. Bạn sẽ nói gì?",
+      "scenario": "上司に、レポートの締め切りを1日延ばしてほしいと頼みます。",
+      "scenarioVi": "Bạn nhờ cấp trên gia hạn thời hạn nộp báo cáo thêm 1 ngày.",
       "turns": [],
-      "question": "上司に、レポートの締め切りを1日延ばしてほしいと頼みます。何と言いますか。",
-      "questionVi": "Bạn nhờ cấp trên gia hạn thời hạn nộp báo cáo thêm 1 ngày. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "締め切りを1日伸ばしてもよろしいでしょうか",
         "締め切りを1日伸ばしていただけないでしょうか",
@@ -16514,37 +16289,9 @@
         {
           "word": "頼み",
           "reading": "たのみ"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "上司",
-          "reading": "じょうし"
-        },
-        {
-          "word": "締め切り",
-          "reading": "しめきり"
-        },
-        {
-          "word": "1日",
-          "reading": "いちにち"
-        },
-        {
-          "word": "延ばし",
-          "reading": "のばし"
-        },
-        {
-          "word": "頼み",
-          "reading": "たのみ"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16614,24 +16361,23 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track61.mp3",
-      "scenario": "同僚が、会議が終わる時間を心配しています。何と言いますか。",
-      "scenarioVi": "Đồng nghiệp của bạn đang lo lắng về thời gian kết thúc cuộc họp. Bạn sẽ nói gì?",
+      "scenario": "同僚が、会議が終わる時間を心配しています。",
+      "scenarioVi": "Đồng nghiệp của bạn đang lo lắng về thời gian kết thúc cuộc họp.",
       "turns": [],
-      "question": "同僚が、会議が終わる時間を心配しています。何と言いますか。",
-      "questionVi": "Đồng nghiệp của bạn đang lo lắng về thời gian kết thúc cuộc họp. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
-        "大丈夫、2時には終わるよ",
+        "大丈夫、2時では終わるよ",
         "大丈夫、2時まで終わるよ",
         "大丈夫、2時には終わるよ"
       ],
       "optionsVi": [
-        "Không sao đâu, 2 giờ là xong thôi.",
-        "Không sao đâu, kết thúc đến 2 giờ.",
+        "Không sao đâu, cuộc họp thì kết thúc lúc 2 giờ.",
+        "Không sao đâu, cuộc họp sẽ kéo dài đến 2 giờ.",
         "Không sao đâu, 2 giờ là xong thôi."
       ],
       "correctIndex": 2,
-      "explanation": "Lựa chọn đúng sử dụng trợ từ 'に' để chỉ thời điểm kết thúc chính xác, giúp đồng nghiệp yên tâm.",
-      "notes": "⚠️ Đề gốc không in phương án bằng chữ -- đáp án đúng lấy từ sách (chắc chắn), nhưng nội dung 4 phương án do Gemini nghe audio rồi gõ lại, có thể không khớp 100% từng chữ.",
+      "explanation": "Câu trả lời trấn an đồng nghiệp bằng cách nêu thời điểm cuộc họp sẽ kết thúc. 「2時には終わる」dùng 「に」để đánh dấu thời điểm kết thúc và 「は」để nhấn mạnh mốc đó.",
       "scenarioFurigana": [
         {
           "word": "同僚",
@@ -16652,37 +16398,9 @@
         {
           "word": "心配",
           "reading": "しんぱい"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "同僚",
-          "reading": "どうりょう"
-        },
-        {
-          "word": "会議",
-          "reading": "かいぎ"
-        },
-        {
-          "word": "終わる",
-          "reading": "おわる"
-        },
-        {
-          "word": "時間",
-          "reading": "じかん"
-        },
-        {
-          "word": "心配",
-          "reading": "しんぱい"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16737,9 +16455,9 @@
         ]
       ],
       "optionExplanations": [
-        "Cách nói này đúng về mặt ngữ pháp và ngữ nghĩa, dùng để trấn an đồng nghiệp.",
-        "Trợ từ 'まで' chỉ khoảng thời gian kéo dài, không phù hợp để nói về thời điểm kết thúc cụ thể.",
-        "Đây là lựa chọn lặp lại của lựa chọn đầu tiên, cũng là cách diễn đạt đúng và tự nhiên."
+        "「2時では」mang sắc thái đối chiếu/điều kiện, nên không tự nhiên khi chỉ muốn trấn an về giờ kết thúc; trong ngữ cảnh này dùng 「2時には」.",
+        "「まで」đặt mốc kết thúc của một khoảng thời gian. Nếu muốn nói cuộc họp phải xong trước hạn 2 giờ, thường dùng 「2時までに終わる」; trong câu trấn an này, 「2時には終わる」tự nhiên hơn.",
+        "「に」đánh dấu thời điểm kết thúc; 「は」nhấn mạnh rằng đến/lúc 2 giờ thì cuộc họp sẽ xong, đúng với ý trấn an đồng nghiệp."
       ]
     },
     {
@@ -16748,11 +16466,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track62.mp3",
-      "scenario": "病院に来ました。初めてのところです。何と言いますか。",
-      "scenarioVi": "Bạn đến bệnh viện. Đây là lần đầu tiên bạn đến đây. Bạn sẽ nói gì?",
+      "scenario": "病院に来ました。初めてのところです。",
+      "scenarioVi": "Bạn đến bệnh viện. Đây là lần đầu tiên bạn đến đây.",
       "turns": [],
-      "question": "病院に来ました。初めてのところです。何と言いますか。",
-      "questionVi": "Bạn đến bệnh viện. Đây là lần đầu tiên bạn đến đây. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、初めてなんですがどこに伺いますか",
         "すみません、初めてなんですがどこに行けばいいですか",
@@ -16778,29 +16496,9 @@
         {
           "word": "初めて",
           "reading": "はじめて"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "病院",
-          "reading": "びょういん"
-        },
-        {
-          "word": "来",
-          "reading": "き"
-        },
-        {
-          "word": "初めて",
-          "reading": "はじめて"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16854,11 +16552,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track63.mp3",
-      "scenario": "読めない漢字があったとき、先生に何と言いますか。",
-      "scenarioVi": "Khi gặp chữ Hán không đọc được, bạn sẽ nói gì với giáo viên?",
+      "scenario": "読めない漢字があったとき、先生に",
+      "scenarioVi": "Khi gặp chữ Hán không đọc được,",
       "turns": [],
-      "question": "読めない漢字があったとき、先生に何と言いますか。",
-      "questionVi": "Khi gặp chữ Hán không đọc được, bạn sẽ nói gì với giáo viên?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、この字は何と読むんでしょうか",
         "よろしかったらこの字の読み方を私にお教えになりませんか",
@@ -16884,29 +16582,9 @@
         {
           "word": "先生",
           "reading": "せんせい"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "読め",
-          "reading": "よめ"
-        },
-        {
-          "word": "漢字",
-          "reading": "かんじ"
-        },
-        {
-          "word": "先生",
-          "reading": "せんせい"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -16980,11 +16658,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track64.mp3",
-      "scenario": "別のサイズがないか、店員に尋ねます。何と言いますか。",
-      "scenarioVi": "Bạn hỏi nhân viên cửa hàng xem có kích cỡ khác không. Bạn sẽ nói gì?",
+      "scenario": "別のサイズがないか、店員に尋ねます。",
+      "scenarioVi": "Bạn hỏi nhân viên cửa hàng xem có kích cỡ khác không.",
       "turns": [],
-      "question": "別のサイズがないか、店員に尋ねます。何と言いますか。",
-      "questionVi": "Bạn hỏi nhân viên cửa hàng xem có kích cỡ khác không. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、これのMサイズはありませんか",
         "すみません、これのMサイズが欲しいです",
@@ -17010,29 +16688,9 @@
         {
           "word": "尋ね",
           "reading": "たずね"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "別",
-          "reading": "べつ"
-        },
-        {
-          "word": "店員",
-          "reading": "てんいん"
-        },
-        {
-          "word": "尋ね",
-          "reading": "たずね"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -17069,11 +16727,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track65.mp3",
-      "scenario": "先生に、荷物を持つことを申し出ます。何と言いますか。",
-      "scenarioVi": "Bạn đề nghị xách hành lý giúp giáo viên. Bạn sẽ nói gì?",
+      "scenario": "先生に、荷物を持つことを申し出ます。",
+      "scenarioVi": "Bạn đề nghị xách hành lý giúp giáo viên.",
       "turns": [],
-      "question": "先生に、荷物を持つことを申し出ます。何と言いますか。",
-      "questionVi": "Bạn đề nghị xách hành lý giúp giáo viên. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "先生、それお持ちしましょう",
         "先生、それ持ってあげましょうか",
@@ -17103,33 +16761,9 @@
         {
           "word": "申し出ます",
           "reading": "もうしでます"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "先生",
-          "reading": "せんせい"
-        },
-        {
-          "word": "荷物",
-          "reading": "にもつ"
-        },
-        {
-          "word": "持つ",
-          "reading": "もつ"
-        },
-        {
-          "word": "申し出ます",
-          "reading": "もうしでます"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -17183,11 +16817,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track66.mp3",
-      "scenario": "友だちが気分が悪そうです。何と言いますか。",
-      "scenarioVi": "Bạn thấy bạn bè có vẻ không khỏe. Bạn sẽ nói gì?",
+      "scenario": "友だちが気分が悪そうです。",
+      "scenarioVi": "Bạn thấy bạn bè có vẻ không khỏe.",
       "turns": [],
-      "question": "友だ치가気分が悪そうです。何と言いますか。",
-      "questionVi": "Bạn thấy bạn bè có vẻ không khỏe. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "なんだか辛そうだね。大丈夫？",
         "顔色が白いね。病気じゃないの？",
@@ -17213,29 +16847,9 @@
         {
           "word": "悪そう",
           "reading": "わるそう"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "友",
-          "reading": "とも"
-        },
-        {
-          "word": "気分",
-          "reading": "きぶん"
-        },
-        {
-          "word": "悪そう",
-          "reading": "わるそう"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -17301,11 +16915,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track67.mp3",
-      "scenario": "コンサート会場で、あなたの前に大きな帽子をかぶっている人が座っています。何と言いますか。",
-      "scenarioVi": "Ở buổi hòa nhạc, có một người đội chiếc mũ lớn đang ngồi trước mặt bạn. Bạn sẽ nói gì?",
+      "scenario": "コンサート会場で、あなたの前に大きな帽子をかぶっている人が座っています。",
+      "scenarioVi": "Ở buổi hòa nhạc, có một người đội chiếc mũ lớn đang ngồi trước mặt bạn.",
       "turns": [],
-      "question": "コンサート会場で、あなたの前に大きな帽子をかぶっている人が座っています。何と言いますか。",
-      "questionVi": "Ở buổi hòa nhạc, có một người đội chiếc mũ lớn đang ngồi trước mặt bạn. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "すみません、帽子で前がよく見えないんですが",
         "あの、よろしかったら帽子をお脱ぎになりませんか？",
@@ -17343,41 +16957,9 @@
         {
           "word": "座って",
           "reading": "すわって"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "会場",
-          "reading": "かいじょう"
-        },
-        {
-          "word": "前",
-          "reading": "まえ"
-        },
-        {
-          "word": "大きな",
-          "reading": "おおきな"
-        },
-        {
-          "word": "帽子",
-          "reading": "ぼうし"
-        },
-        {
-          "word": "人",
-          "reading": "ひと"
-        },
-        {
-          "word": "座って",
-          "reading": "すわって"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -17431,11 +17013,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd1-track68.mp3",
-      "scenario": "課長にお願いしたいことがあります。どう言いますか。",
-      "scenarioVi": "Bạn có điều muốn nhờ Trưởng phòng. Bạn sẽ nói thế nào?",
+      "scenario": "課長にお願いしたいことがあります。",
+      "scenarioVi": "Bạn có điều muốn nhờ Trưởng phòng.",
       "turns": [],
-      "question": "課長にお願いしたいことがあります。どう言いますか。",
-      "questionVi": "Bạn có điều muốn nhờ Trưởng phòng. Bạn sẽ nói thế nào?",
+      "question": "どう言いますか。",
+      "questionVi": "Bạn sẽ nói thế nào?",
       "options": [
         "すみません、今日はもう帰らなければなりません。実は、急に祖父が入院することになったんです。",
         "申し訳ありませんが、急に祖父が入院することになりましたから、今日は帰らせていただきます。",
@@ -17457,21 +17039,9 @@
         {
           "word": "お願い",
           "reading": "おねがい"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "課長",
-          "reading": "かちょう"
-        },
-        {
-          "word": "お願い",
-          "reading": "おねがい"
-        },
         {
           "word": "言",
           "reading": "い"
@@ -17593,7 +17163,7 @@
         }
       ],
       "question": "お支払いはカードなさいますか、それとも現金なさいますか。",
-      "questionVi": "お支払いはカードなさいますか、それとも現金なさいますか。",
+      "questionVi": "Anh/chị thanh toán bằng thẻ hay tiền mặt ạ?",
       "options": [
         "お支払いはカードになさいますか？それとも現金になさいますか？",
         "現金にします。",
@@ -17687,7 +17257,7 @@
         }
       ],
       "question": "じゃ、すみません、お先に失礼します。",
-      "questionVi": "Vậy, xin lỗi nhé, tôi về trước đây.",
+      "questionVi": "Thôi, xin lỗi, tôi xin phép về trước nhé.",
       "options": [
         "お疲れさまでした。",
         "どうそ失礼してください。",
@@ -17849,7 +17419,7 @@
         }
       ],
       "question": "昨日から熱があって……。体もだるいし。",
-      "questionVi": "Từ hôm qua tôi đã bị sốt... Người lại thấy mệt mỏi nữa.",
+      "questionVi": "Tôi bị sốt từ hôm qua... Người cũng mệt mỏi nữa.",
       "options": [
         "それは無理だよ。",
         "無理しちゃダメだよ。",
@@ -17930,7 +17500,7 @@
         }
       ],
       "question": "あのう、今ちょっとよろしいでしょうか。",
-      "questionVi": "Ừm, bây giờ bạn có chút thời gian không?",
+      "questionVi": "À, bây giờ anh/chị có chút thời gian không?",
       "options": [
         "はい、何でしょうか？",
         "それはよろしいですね。",
@@ -17998,7 +17568,7 @@
         }
       ],
       "question": "あっ、すみません！　足、大丈夫ですか。",
-      "questionVi": "Á, xin lỗi bạn! Chân bạn không sao chứ?",
+      "questionVi": "Á, xin lỗi! Chân bạn không sao chứ?",
       "options": [
         "いいえ、どういたしまして。",
         "ええ、大したことありません。",
@@ -18070,7 +17640,7 @@
         }
       ],
       "question": "悪いけど、このファイルも持ってって。",
-      "questionVi": "Xin lỗi nhé, cầm giúp tôi cả tập tài liệu này nữa.",
+      "questionVi": "Xin lỗi nhé, mang hộ tôi cả file này đi nữa.",
       "options": [
         "分かった。どこへ？",
         "いいよ。持ってあげる。",
@@ -18147,7 +17717,7 @@
         }
       ],
       "question": "今日はどうもありがとうございました。",
-      "questionVi": "Hôm nay cảm ơn anh/chị rất nhiều.",
+      "questionVi": "Cảm ơn anh/chị rất nhiều vì ngày hôm nay.",
       "options": [
         "いや、結構です。",
         "いいえ、いいえ。こちらこそ。",
@@ -18219,7 +17789,7 @@
         }
       ],
       "question": "会社、ふじ自動車に決まったの？よかったね。",
-      "questionVi": "Công ty đã quyết định vào hãng Fuji Jidōsha rồi à? Tốt quá nhỉ.",
+      "questionVi": "Công ty quyết định nhận vào Fuji Jidousha rồi à? Chúc mừng nhé.",
       "options": [
         "うん、ありがとう。",
         "うん、よかったね。",
@@ -18281,7 +17851,7 @@
         }
       ],
       "question": "どうぞお入りください。",
-      "questionVi": "Mời anh/chị vào trong.",
+      "questionVi": "Xin mời vào trong.",
       "options": [
         "すみません。お邪魔します。",
         "すみません。いただきます。",
@@ -18340,7 +17910,7 @@
         }
       ],
       "question": "あれっ、こんなところでどうしたの？",
-      "questionVi": "Ồ, sao bạn lại ở đây thế này?",
+      "questionVi": "Ơ, sao lại ở đây thế này?",
       "options": [
         "ううん、大丈夫。",
         "道に迷っちゃって。",
@@ -18501,7 +18071,7 @@
         }
       ],
       "question": "では、そろそろ失礼します。今日はごちそうさまでした。",
-      "questionVi": "Thôi, tôi xin phép về đây. Cảm ơn vì bữa ăn hôm nay nhé.",
+      "questionVi": "Thôi, tôi chuẩn bị xin phép về đây. Cảm ơn bữa ăn hôm nay của anh/chị.",
       "options": [
         "いいえ、お疲れ様でした。",
         "いいえ、また遊びに来てください。",
@@ -18573,7 +18143,7 @@
         }
       ],
       "question": "これ、今日までにやっといたほうがいい？",
-      "questionVi": "Cái này, có nên làm xong trước hôm nay không nhỉ?",
+      "questionVi": "Cái này có nên làm xong trước hôm nay không?",
       "options": [
         "そうね、あしたにしましょうか",
         "そうね、はやいほうがいいけど",
@@ -19622,11 +19192,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track18.mp3",
-      "scenario": "友達の荷物が重そうです。友達に何と言いますか。",
-      "scenarioVi": "Hành lý của bạn trông có vẻ nặng. Bạn sẽ nói gì với bạn của mình?",
+      "scenario": "友達の荷物が重そうです。",
+      "scenarioVi": "Hành lý của bạn trông có vẻ nặng.",
       "turns": [],
-      "question": "友達の荷物が重そうです。友達に何と言いますか。",
-      "questionVi": "Hành lý của bạn trông có vẻ nặng. Bạn sẽ nói gì với bạn của mình?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "それ、持ってあげる",
         "それ、持って貰う",
@@ -19652,37 +19222,9 @@
         {
           "word": "重",
           "reading": "おも"
-        },
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
-        {
-          "word": "荷物",
-          "reading": "にもつ"
-        },
-        {
-          "word": "重",
-          "reading": "おも"
-        },
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -19728,11 +19270,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track19.mp3",
-      "scenario": "友達との待ち合わせに遅れました。友達に何と言いますか。",
-      "scenarioVi": "Bạn đã đến muộn trong cuộc hẹn với bạn bè. Bạn sẽ nói gì với bạn?",
+      "scenario": "友達との待ち合わせに遅れました。",
+      "scenarioVi": "Bạn đã đến muộn trong cuộc hẹn với bạn bè.",
       "turns": [],
-      "question": "友達との待ち合わせに遅れました。友達に何と言いますか。",
-      "questionVi": "Bạn đã đến muộn trong cuộc hẹn với bạn bè. Bạn sẽ nói gì với bạn?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "待って、悪いね",
         "待たせて、ごめんね",
@@ -19762,41 +19304,9 @@
         {
           "word": "遅れました",
           "reading": "おくれました"
-        },
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
-        {
-          "word": "待",
-          "reading": "ま"
-        },
-        {
-          "word": "合",
-          "reading": "あ"
-        },
-        {
-          "word": "遅れました",
-          "reading": "おくれました"
-        },
-        {
-          "word": "友達",
-          "reading": "ともだち"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -19842,11 +19352,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track20.mp3",
-      "scenario": "階段の下に、赤ちゃんを抱いて、ベビーカーを持ったお母さんがいます。あなたは手伝いたいです。何と言いますか。",
-      "scenarioVi": "Dưới chân cầu thang có một người mẹ đang bế em bé và cầm xe đẩy. Bạn muốn giúp đỡ. Bạn sẽ nói gì?",
+      "scenario": "階段の下に、赤ちゃんを抱いて、ベビーカーを持ったお母さんがいます。あなたは手伝いたいです。",
+      "scenarioVi": "Dưới chân cầu thang có một người mẹ đang bế em bé và cầm xe đẩy. Bạn muốn giúp đỡ.",
       "turns": [],
-      "question": "階段の下に、赤ちゃんを抱いて、ベビーカーを持ったお母さんがいます。あなたは手伝いたいです。何と言いますか。",
-      "questionVi": "Dưới chân cầu thang có một người mẹ đang bế em bé và cầm xe đẩy. Bạn muốn giúp đỡ. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "お手伝いしませんか",
         "お手伝いしましょうか",
@@ -19888,45 +19398,9 @@
         {
           "word": "手伝いたい",
           "reading": "てつだいたい"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "階段",
-          "reading": "かいだん"
-        },
-        {
-          "word": "下",
-          "reading": "した"
-        },
-        {
-          "word": "赤ちゃん",
-          "reading": "あかちゃん"
-        },
-        {
-          "word": "抱",
-          "reading": "だ"
-        },
-        {
-          "word": "持",
-          "reading": "も"
-        },
-        {
-          "word": "母",
-          "reading": "はは"
-        },
-        {
-          "word": "手伝いたい",
-          "reading": "てつだいたい"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -19968,11 +19442,11 @@
       "book": "speedmaster",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-speedmaster-v1/cd2-track21.mp3",
-      "scenario": "あなたは先生に本を借りています。あと1週 間借りたいです。先生に何と言いますか。",
-      "scenarioVi": "Bạn đang mượn sách của thầy cô giáo. Bạn muốn mượn thêm một tuần nữa. Bạn sẽ nói gì với thầy cô?",
+      "scenario": "あなたは先生に本を借りています。あと1週 間借りたいです。",
+      "scenarioVi": "Bạn đang mượn sách của thầy cô giáo. Bạn muốn mượn thêm một tuần nữa.",
       "turns": [],
-      "question": "あなたは先生に本を借りています。あと1週 間借りたいです。先生に何と言いますか。",
-      "questionVi": "Bạn đang mượn sách của thầy cô giáo. Bạn muốn mượn thêm một tuần nữa. Bạn sẽ nói gì với thầy cô?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "あと一週間貸してもよろしいですか",
         "あと一週間お貸ししてもよろしいですか",
@@ -20014,45 +19488,9 @@
         {
           "word": "先生",
           "reading": "せんせい"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "先生",
-          "reading": "せんせい"
-        },
-        {
-          "word": "本",
-          "reading": "ほん"
-        },
-        {
-          "word": "借りて",
-          "reading": "かりて"
-        },
-        {
-          "word": "週",
-          "reading": "しゅう"
-        },
-        {
-          "word": "間",
-          "reading": "かん"
-        },
-        {
-          "word": "借り",
-          "reading": "かり"
-        },
-        {
-          "word": "先生",
-          "reading": "せんせい"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -20126,7 +19564,7 @@
         }
       ],
       "question": "ねえ、見て、このブーツ。安いんじゃない？",
-      "questionVi": "Này, nhìn đôi bốt này xem. Rẻ quá đúng không?",
+      "questionVi": "Này, nhìn xem, đôi bốt này. Rẻ phết phải không?",
       "options": [
         "ほんと、安いね",
         "ほんと、高いね",
@@ -20211,7 +19649,7 @@
         }
       ],
       "question": "あのう、すいません、今日はちょっと早く帰りたいんですが。熱があるみたいで。",
-      "questionVi": "À xin lỗi, hôm nay tôi muốn về sớm một chút. Hình như tôi bị sốt rồi.",
+      "questionVi": "Xin lỗi, hôm nay tôi muốn về sớm một chút. Hình như tôi bị sốt rồi.",
       "options": [
         "それはいけないね。元気でね",
         "それはいけないね。大丈夫",
@@ -20300,7 +19738,7 @@
         }
       ],
       "question": "ねえ、京都で泊まるところ、桜ホテルでいい？",
-      "questionVi": "Này, chỗ trọ ở Kyoto, mình ở khách sạn Sakura được chứ?",
+      "questionVi": "Này, chỗ ở ở Kyoto, mình ở khách sạn Sakura được không?",
       "options": [
         "ええ、桜ホテルでいい",
         "うーん、桜ホテルがいい",
@@ -20389,7 +19827,7 @@
         }
       ],
       "question": "お昼どうする？ 今日は食堂閉まってるけど。",
-      "questionVi": "Trưa nay ăn gì đây? Hôm nay nhà ăn đóng cửa mất rồi.",
+      "questionVi": "Trưa nay ăn gì đây? Hôm nay nhà ăn đóng cửa rồi đấy.",
       "options": [
         "それでもいいよ",
         "じゃあ、お弁当かな",
@@ -20468,7 +19906,7 @@
         }
       ],
       "question": "教室の窓、閉めてきましたか。",
-      "questionVi": "Cậu đã đóng cửa sổ phòng học chưa đấy?",
+      "questionVi": "Cậu đã đóng cửa sổ phòng học chưa?",
       "options": [
         "そうですね。開けておきます",
         "いいえ、まだ閉まってますよ",
@@ -20549,7 +19987,7 @@
         }
       ],
       "question": "ここ、前にも来たことがあるんじゃない？",
-      "questionVi": "Chẳng phải chúng ta đã từng đến đây rồi à?",
+      "questionVi": "Chẳng phải chúng ta đã từng đến đây rồi sao?",
       "options": [
         "そうだね。初めてだよ",
         "そう？初めてじゃないよ",
@@ -20630,7 +20068,7 @@
         }
       ],
       "question": "急がなきゃ。あと5分で始まるよ。",
-      "questionVi": "Phải nhanh lên thôi. 5 phút nữa là bắt đầu rồi đấy.",
+      "questionVi": "Phải nhanh lên thôi. 5 phút nữa bắt đầu rồi kìa.",
       "options": [
         "走れば間に合うよ",
         "走らなきゃ間に合うよ",
@@ -20719,7 +20157,7 @@
         }
       ],
       "question": "あのう、すみませんが、郵便局はどちらでしょうか。",
-      "questionVi": "À xin lỗi, bưu điện ở đâu vậy bạn?",
+      "questionVi": "Xin lỗi, cho tôi hỏi bưu điện ở đâu vậy ạ?",
       "options": [
         "いいえ、よくわからないんです",
         "はい、郵便局ならこの近くにありますよ",
@@ -20795,7 +20233,7 @@
         }
       ],
       "question": "妹さんはどんな人ですか。",
-      "questionVi": "Em gái bạn là người như thế nào?",
+      "questionVi": "Em gái bạn là người thế nào?",
       "options": [
         "明るくてスポーツが大好きです",
         "今年大学生になりました",

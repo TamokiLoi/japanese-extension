@@ -1091,38 +1091,10 @@
       "level": "N3",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track37.mp3",
-      "scenario": "",
-      "turns": [
-        {
-          "speaker": "男",
-          "text": "久しぶりに、知り合いに会いました。何と言いますか。",
-          "textVi": "Lâu lắm rồi mới gặp lại người quen. Bạn sẽ nói gì?",
-          "furigana": [
-            {
-              "word": "久しぶり",
-              "reading": "ひさしぶり"
-            },
-            {
-              "word": "知り合い",
-              "reading": "しりあい"
-            },
-            {
-              "word": "会いました",
-              "reading": "あいました"
-            },
-            {
-              "word": "何",
-              "reading": "なに"
-            },
-            {
-              "word": "言います",
-              "reading": "いいます"
-            }
-          ]
-        }
-      ],
-      "question": "久しぶりに、知り合いに会いました。何と言いますか。",
-      "questionVi": "Lâu lắm mới gặp lại người quen. Bạn sẽ nói gì?",
+      "scenario": "久しぶりに、知り合いに会いました。",
+      "turns": [],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "ご無沙汰になっております。",
         "ご無沙汰しておりました。",
@@ -1135,10 +1107,9 @@
       ],
       "correctIndex": 1,
       "explanation": "Lựa chọn đúng là cách nói chào hỏi trang trọng khi gặp lại người quen sau một thời gian dài không liên lạc.",
-      "scenarioVi": "",
+      "scenarioVi": "Lâu lắm rồi mới gặp lại người quen.",
       "book": "soumatome",
-      "scenarioFurigana": [],
-      "questionFurigana": [
+      "scenarioFurigana": [
         {
           "word": "久しぶり",
           "reading": "ひさしぶり"
@@ -1150,7 +1121,9 @@
         {
           "word": "会いました",
           "reading": "あいました"
-        },
+        }
+      ],
+      "questionFurigana": [
         {
           "word": "何",
           "reading": "なに"
@@ -1191,34 +1164,10 @@
       "level": "N3",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd1-track38.mp3",
-      "scenario": "",
-      "turns": [
-        {
-          "speaker": "男",
-          "text": "教科書を忘れてしまいました。何と言いますか。",
-          "textVi": "Tôi lỡ quên mang sách giáo khoa rồi. Bạn sẽ nói gì?",
-          "furigana": [
-            {
-              "word": "教科書",
-              "reading": "きょうかしょ"
-            },
-            {
-              "word": "忘れて",
-              "reading": "わすれて"
-            },
-            {
-              "word": "何",
-              "reading": "なに"
-            },
-            {
-              "word": "言います",
-              "reading": "いいます"
-            }
-          ]
-        }
-      ],
-      "question": "教科書を忘れてしまいました。何と言いますか。",
-      "questionVi": "Tôi quên mang sách giáo khoa mất rồi. Bạn sẽ nói gì?",
+      "scenario": "教科書を忘れてしまいました。",
+      "turns": [],
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "教科書、忘れちゃったの。見てもらえない？",
         "教科書、忘れちゃったの。見せてくれていい？",
@@ -1230,11 +1179,10 @@
         "Tớ quên sách mất tiêu. Cho tớ xem nhờ được không?"
       ],
       "correctIndex": 2,
-      "explanation": "Lựa chọn đúng sử dụng cấu trúc nhờ vả lịch sự '見せてもらえない' để xin xem nhờ sách.",
-      "scenarioVi": "",
+      "explanation": "Đáp án C là cách nhờ tự nhiên nhất trong tình huống này. 「見せる」nghĩa là “cho xem”; đổi sang thể て「見せて」rồi kết hợp với 「もらう」để diễn đạt việc nhờ người khác làm giúp mình. Dạng khả năng phủ định 「もらえない？」 tạo thành lời nhờ mềm: “Bạn cho mình xem nhờ được không?”. Vì người nói quên giáo trình nên cần nhìn sách của bạn, không phải nhờ bạn xem giúp. 「忘れちゃった」là cách nói thân mật của 「忘れてしまった」.",
+      "scenarioVi": "Tôi lỡ quên mang sách giáo khoa rồi.",
       "book": "soumatome",
-      "scenarioFurigana": [],
-      "questionFurigana": [
+      "scenarioFurigana": [
         {
           "word": "教科書",
           "reading": "きょうかしょ"
@@ -1242,7 +1190,9 @@
         {
           "word": "忘れて",
           "reading": "わすれて"
-        },
+        }
+      ],
+      "questionFurigana": [
         {
           "word": "何",
           "reading": "なに"
@@ -1297,9 +1247,9 @@
         ]
       ],
       "optionExplanations": [
-        "Cách nói này không rõ ràng về việc muốn xem nhờ sách.",
-        "Cấu trúc này không phù hợp để nhờ vả người khác cho xem sách.",
-        "Đây là cách nói nhờ vả lịch sự và đúng ngữ pháp để xin xem nhờ sách."
+        "「見てもらえない？」dùng động từ 「見る」, nên mang ý “Bạn xem giúp mình được không?”. Người nghe là người nhìn/xem; nó không nói rõ ý người nói muốn nhìn sách của bạn.",
+        "「見せてくれていい？」có thể hiểu được là hỏi bạn có thể cho xem không, nhưng kém tự nhiên hơn trong lời nhờ này. Với 「くれる」, cách nhờ quen thuộc hơn là 「見せてくれない？」; 「見せてもらえない？」là mẫu trực tiếp, tự nhiên ở đây.",
+        "「見せる」là “cho người khác xem”. 「見せて」+「もらえない？」diễn đạt lời nhờ mềm “Bạn cho mình xem nhờ được không?”, đúng với việc người nói quên sách và muốn xem sách của bạn."
       ]
     },
     {
@@ -5362,10 +5312,10 @@
       "level": "N3",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track36.mp3",
-      "scenario": "お客さんが帰ります。何と言いますか。",
+      "scenario": "お客さんが帰ります。",
       "turns": [],
-      "question": "お客さんが帰ります。何と言いますか。",
-      "questionVi": "Khách đang về. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "いらっしゃいませ。",
         "どうぞご遠慮なく。",
@@ -5378,7 +5328,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Khi khách ra về, câu nói lịch sự để chào tạm biệt và mong muốn họ quay lại là cách ứng xử phù hợp.",
-      "scenarioVi": "",
+      "scenarioVi": "Khách đang ra về.",
       "book": "soumatome",
       "scenarioFurigana": [
         {
@@ -5388,25 +5338,9 @@
         {
           "word": "帰",
           "reading": "かえ"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "客",
-          "reading": "きゃく"
-        },
-        {
-          "word": "帰",
-          "reading": "かえ"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -5442,10 +5376,10 @@
       "level": "N3",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track37.mp3",
-      "scenario": "タクシーで目的地の近くに着きました。何と言いますか。",
+      "scenario": "タクシーで目的地の近くに着きました。",
       "turns": [],
-      "question": "タクシーで目的地の近くに着きました。何と言いますか。",
-      "questionVi": "Đã đến gần điểm đến trên taxi. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "その先の角で止めさせてください。",
         "その先の角で降ろしてください。",
@@ -5458,7 +5392,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Khi đi taxi và muốn xuống xe ở một địa điểm cụ thể, cách nói yêu cầu tài xế cho xuống xe lịch sự và tự nhiên nhất là sử dụng cấu trúc '降ろしてください'.",
-      "scenarioVi": "",
+      "scenarioVi": "Đã đến gần điểm đến trên taxi.",
       "book": "soumatome",
       "scenarioFurigana": [
         {
@@ -5472,29 +5406,9 @@
         {
           "word": "着",
           "reading": "つ"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言",
-          "reading": "い"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "目的地",
-          "reading": "もくてきち"
-        },
-        {
-          "word": "近",
-          "reading": "ちか"
-        },
-        {
-          "word": "着",
-          "reading": "つ"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -5559,10 +5473,10 @@
       "level": "N3",
       "taskType": "hatsugen",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track38.mp3",
-      "scenario": "全部は食べられません。何と言いますか。",
+      "scenario": "全部は食べられません。",
       "turns": [],
-      "question": "全部は食べられません。何と言いますか。",
-      "questionVi": "Bạn không thể ăn hết toàn bộ. Bạn sẽ nói gì?",
+      "question": "何と言いますか。",
+      "questionVi": "Bạn sẽ nói gì?",
       "options": [
         "残ればよろしいですか。",
         "残してもかまわないですか。",
@@ -5575,7 +5489,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Lựa chọn đúng là cách diễn đạt lịch sự để xin phép để lại phần thức ăn không dùng hết.",
-      "scenarioVi": "",
+      "scenarioVi": "Tôi không thể ăn hết toàn bộ.",
       "book": "soumatome",
       "scenarioFurigana": [
         {
@@ -5585,25 +5499,9 @@
         {
           "word": "食べられません",
           "reading": "たべられません"
-        },
-        {
-          "word": "何",
-          "reading": "なに"
-        },
-        {
-          "word": "言います",
-          "reading": "いいます"
         }
       ],
       "questionFurigana": [
-        {
-          "word": "全部",
-          "reading": "ぜんぶ"
-        },
-        {
-          "word": "食べられません",
-          "reading": "たべられません"
-        },
         {
           "word": "何",
           "reading": "なに"
@@ -5644,7 +5542,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track39.mp3",
-      "scenario": "早くしないと、遅れちゃうよ。",
+      "scenario": "",
       "turns": [],
       "question": "早くしないと、遅れちゃうよ。",
       "questionVi": "Không nhanh lên là muộn đấy.",
@@ -5662,16 +5560,7 @@
       "explanation": "Lựa chọn đúng là câu phản hồi đồng tình với lời nhắc nhở và thể hiện ý định hành động ngay.",
       "scenarioVi": "",
       "book": "soumatome",
-      "scenarioFurigana": [
-        {
-          "word": "早く",
-          "reading": "はやく"
-        },
-        {
-          "word": "遅れちゃう",
-          "reading": "おくれちゃう"
-        }
-      ],
+      "scenarioFurigana": [],
       "questionFurigana": [
         {
           "word": "早く",
@@ -5721,7 +5610,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track40.mp3",
-      "scenario": "ご連絡先、お伺いしてもよろしいですか。",
+      "scenario": "",
       "turns": [],
       "question": "ご連絡先、お伺いしてもよろしいですか。",
       "questionVi": "Tôi xin phép hỏi thông tin liên lạc của bạn được chứ?",
@@ -5739,16 +5628,7 @@
       "explanation": "Lựa chọn đúng là câu trả lời cung cấp thông tin liên lạc theo cách lịch sự.",
       "scenarioVi": "",
       "book": "soumatome",
-      "scenarioFurigana": [
-        {
-          "word": "ご連絡先",
-          "reading": "ごれんらくさき"
-        },
-        {
-          "word": "お伺い",
-          "reading": "おうかがい"
-        }
-      ],
+      "scenarioFurigana": [],
       "questionFurigana": [
         {
           "word": "ご連絡先",
@@ -5806,7 +5686,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track41.mp3",
-      "scenario": "お母さん、お元気？",
+      "scenario": "",
       "turns": [],
       "question": "お母さん、お元気？",
       "questionVi": "Mẹ có khỏe không?",
@@ -5824,16 +5704,7 @@
       "explanation": "Lựa chọn đúng là cách đáp lại lời hỏi thăm sức khỏe một cách tự nhiên và lịch sự.",
       "scenarioVi": "",
       "book": "soumatome",
-      "scenarioFurigana": [
-        {
-          "word": "お母さん",
-          "reading": "おかあさん"
-        },
-        {
-          "word": "お元気",
-          "reading": "おげんき"
-        }
-      ],
+      "scenarioFurigana": [],
       "questionFurigana": [
         {
           "word": "お母さん",
@@ -5860,7 +5731,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track42.mp3",
-      "scenario": "雨、降ってきたから、タクシーで行こうよ。",
+      "scenario": "",
       "turns": [],
       "question": "雨、降ってきたから、タクシーで行こうよ。",
       "questionVi": "Trời mưa rồi, đi taxi thôi.",
@@ -5878,20 +5749,7 @@
       "explanation": "Lựa chọn đúng là câu đồng tình với đề nghị đi taxi do trời mưa.",
       "scenarioVi": "",
       "book": "soumatome",
-      "scenarioFurigana": [
-        {
-          "word": "雨",
-          "reading": "あめ"
-        },
-        {
-          "word": "降って",
-          "reading": "ふって"
-        },
-        {
-          "word": "行こう",
-          "reading": "いこう"
-        }
-      ],
+      "scenarioFurigana": [],
       "questionFurigana": [
         {
           "word": "雨",
@@ -5941,7 +5799,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track43.mp3",
-      "scenario": "ごはん、できましたよー。",
+      "scenario": "",
       "turns": [],
       "question": "ごはん、できましたよー。",
       "questionVi": "Cơm chín rồi nhé.",
@@ -5986,7 +5844,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track44.mp3",
-      "scenario": "この書類、明日までに仕上げないといけませんか。",
+      "scenario": "",
       "turns": [],
       "question": "この書類、明日までに仕上げないといけませんか。",
       "questionVi": "Tài liệu này phải hoàn thành trước ngày mai sao?",
@@ -6004,20 +5862,7 @@
       "explanation": "Lựa chọn đúng là câu giải thích lý do tại sao tài liệu cần phải hoàn thành trước ngày mai.",
       "scenarioVi": "",
       "book": "soumatome",
-      "scenarioFurigana": [
-        {
-          "word": "書類",
-          "reading": "しょるい"
-        },
-        {
-          "word": "明日",
-          "reading": "あした"
-        },
-        {
-          "word": "仕上げない",
-          "reading": "しあげない"
-        }
-      ],
+      "scenarioFurigana": [],
       "questionFurigana": [
         {
           "word": "書類",
@@ -6075,7 +5920,7 @@
       "level": "N3",
       "taskType": "sokuji",
       "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-soumatome-v1/cd2-track45.mp3",
-      "scenario": "遅くなってすみません。途中、事故にあって…。",
+      "scenario": "",
       "turns": [],
       "question": "遅くなってすみません。途中、事故にあって…。",
       "questionVi": "Xin lỗi vì đến muộn. Giữa đường tôi gặp tai nạn...",
@@ -6093,20 +5938,7 @@
       "explanation": "Lựa chọn đúng là câu thể hiện sự nhẹ nhõm khi người kia đã đến nơi an toàn dù gặp tai nạn.",
       "scenarioVi": "",
       "book": "soumatome",
-      "scenarioFurigana": [
-        {
-          "word": "遅くなって",
-          "reading": "おそくなって"
-        },
-        {
-          "word": "途中",
-          "reading": "とちゅう"
-        },
-        {
-          "word": "事故",
-          "reading": "じこ"
-        }
-      ],
+      "scenarioFurigana": [],
       "questionFurigana": [
         {
           "word": "遅くなって",

@@ -453,6 +453,10 @@ function QuestionView({
         ? "Nghe toàn bộ bài rồi chọn đáp án đúng"
         : "Nghe rồi chọn đáp án đúng"
     : question.scenario || question.question;
+  // Immediate-response items have no separate situation card. After answering,
+  // the question/answer card below already shows the spoken prompt, so hide it
+  // here rather than rendering the exact same Japanese sentence twice.
+  const showAudioPrompt = !(answered && question.taskType === "sokuji");
   const optionExplanations = question.optionExplanations ?? [];
   const hasOptionExplanations = optionExplanations.some((explanation) => explanation.trim());
   const audioPromptFurigana = question.scenario ? question.scenarioFurigana : question.questionFurigana;
@@ -499,14 +503,18 @@ function QuestionView({
       />
 
       <Card className="mt-4 gap-3.5 rounded-2xl border-neutral-200 p-5 ring-0">
-        <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
-          <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
-          <span>
-            {showFurigana && answered ? <FuriganaText annotations={audioPromptFurigana} text={audioPrompt} /> : audioPrompt}
-          </span>
-        </div>
-        {answered && showTranslation && question.scenarioVi ? (
-          <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div>
+        {showAudioPrompt ? (
+          <>
+            <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
+              <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
+              <span>
+                {showFurigana && answered ? <FuriganaText annotations={audioPromptFurigana} text={audioPrompt} /> : audioPrompt}
+              </span>
+            </div>
+            {answered && showTranslation && question.scenarioVi ? (
+              <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div>
+            ) : null}
+          </>
         ) : null}
         <AudioPlayer
           key={question.id}
