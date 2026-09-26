@@ -21,14 +21,13 @@ export interface DeThiQuestion {
   // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,
   // trích ý đoạn văn cho câu đọc hiểu).
   explanation?: string;
-  // Set only on 文字・語彙 問題1/2/4 (kanji reading, kanji writing, or
-  // paraphrase) -- the exact substring of `question` that the real paper
-  // prints underlined (the word being tested). UI renders it bold+underlined
-  // instead of plain. Not used for 問題5 (usage): there `question` itself IS
-  // the tested word, underlined wherever it occurs inside each of the 4
-  // option sentences -- see `underlineForms` below for its inflected variants.
+  // Exact substring of `question` emphasized in the source booklet (usually
+  // a vocabulary reading/context/paraphrase target). Not for grammar-ordering
+  // blanks: their ★ and slots are already part of the question text.
+  // Vocabulary-usage questions instead emphasize the prompt word in options.
   underline?: string;
-  // 問題5 only. `question` holds the tested word in dictionary/citation form,
+  // Vocabulary usage: 問題4 in N1, 問題5 in some other levels. `question` holds
+  // the tested word in dictionary/citation form,
   // but each option sentence uses it inflected (e.g. question "にぎる" appears
   // as "にぎった"/"にぎって" in the options) -- plain substring match on
   // `question` alone misses those. Lists the inflected surface forms actually
@@ -39,8 +38,8 @@ export interface DeThiQuestion {
   underlineForms?: string[];
   // Vietnamese translation of `question`, shown only in the post-submit
   // review view (not while taking the paper -- would give the answer away).
-  // Populated for 問題1-4, where `question` is a full sentence. Not used for
-  // 問題5, where `question` is just the bare tested word -- see `optionsVi`.
+  // Populated when `question` is a full sentence. Usage questions instead
+  // have the bare tested word as their prompt -- see `optionsVi`.
   questionVi?: string;
   // `question` split into segments with furigana, same shape/convention as
   // ReadingPassage.body (types/reading.ts) -- toggled on only in the

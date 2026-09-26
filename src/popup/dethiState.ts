@@ -222,7 +222,7 @@ export async function submitPaper(session: DeThiSession): Promise<DeThiHistoryEn
   };
 
   if (!session.practiceMode) await appendHistory(entry);
-  if (session.paperId === "bunpou-dokkai") await flagWrongGrammar(paper, session.answers);
+  if (found.exam.level === "N3" && session.paperId === "bunpou-dokkai") await flagWrongGrammar(paper, session.answers);
   await clearDeThiSession();
   return entry;
 }

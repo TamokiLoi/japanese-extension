@@ -51,18 +51,31 @@ type Step =
   | { name: "result"; entry: DeThiHistoryEntry; answers: (number | null)[]; backTo: "examDetail" | "history"; practiceMode?: boolean }
   | { name: "history"; examId: string; paperId: string };
 
-// Real JLPT 文字・語彙 papers underline the exact word being tested: the
-// kanji/word in `question` for 問題1/2/4 (via the `underline` field), or --
-// for 問題5, where `question` IS the tested word itself -- that same word
-// wherever it occurs inside each of the 4 option sentences. Mirrors that by
-// wrapping the first occurrence of `underline` in the given text.
-// 問題5: `question` is the dictionary-form word being tested, but each
-// option sentence uses it inflected -- picks whichever candidate (the
-// dictionary form itself, or one of its listed inflected forms) actually
-// occurs in this particular option.
-function p5Underline(question: string, forms: string[] | undefined, opt: string): string | undefined {
+// The vocabulary-usage question is 問題4 in N1, but 問題5 in N3. Its prompt is
+// the tested word, which should also be emphasized in every option sentence.
+// Inflected variants can be supplied by the conversion data.
+function usageWordInOption(question: string, forms: string[] | undefined, opt: string): string | undefined {
   if (opt.includes(question)) return question;
   return forms?.find((f) => opt.includes(f));
+}
+
+function optionUnderline(group: string, question: string, forms: string[] | undefined, opt: string): string | undefined {
+  return group === "問題4" || group === "問題5" ? usageWordInOption(question, forms, opt) : undefined;
+}
+
+// Some converted reading questions share one passage and store a shorthand
+// instead of repeating it. Resolve that shorthand in both taking and review;
+// otherwise later questions show only "（上記と同じ）" and are not answerable.
+function passageForQuestion(paper: DeThiPaper, index: number): string | null {
+  const current = paper.questions[index];
+  if (!current?.passage) return null;
+  if (current.passage !== "（上記と同じ）") return current.passage;
+  for (let i = index - 1; i >= 0; i--) {
+    const earlier = paper.questions[i];
+    if (earlier.problemGroup !== current.problemGroup) break;
+    if (earlier.passage && earlier.passage !== "（上記と同じ）") return earlier.passage;
+  }
+  return current.passage;
 }
 
 // `furigana`/`showFurigana` are optional -- when a segment list is present
@@ -105,7 +118,7 @@ function QuestionText({
             seg.text
           );
           return isUnderlined ? (
-            <span key={i} className="font-bold underline decoration-2 underline-offset-2 whitespace-nowrap">
+            <span key={i} className="font-bold underline decoration-2 underline-offset-2">
               {content}
             </span>
           ) : (
@@ -121,7 +134,7 @@ function QuestionText({
   return (
     <>
       {text.slice(0, i)}
-      <span className="font-bold underline decoration-2 underline-offset-2 whitespace-nowrap">{underline}</span>
+      <span className="font-bold underline decoration-2 underline-offset-2">{underline}</span>
       {text.slice(i + underline.length)}
     </>
   );
@@ -150,30 +163,39 @@ function ExamAudioTimeline({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [needsPlay, setNeedsPlay] = useState(false);
+
+  const play = () => {
+    audioRef.current?.play().then(() => setNeedsPlay(false)).catch(() => setNeedsPlay(true));
+  };
 
   useEffect(() => {
-    audioRef.current?.play().catch(() => {
-      // Trình duyệt chặn autoplay (hiếm khi xảy ra vì "Bắt đầu" vừa là 1 cú
-      // click của người dùng) -- không có gì để làm thêm, người học vẫn thấy
-      // timeline đứng yên ở 0:00 và biết cần tương tác lại.
-    });
+    play();
   }, []);
 
   const pct = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="space-y-2">
       <audio
         ref={audioRef}
         src={src}
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
         onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+        onError={() => setNeedsPlay(true)}
       />
-      <span className="w-9 text-right text-xs tabular-nums text-neutral-400">{formatAudioTime(currentTime)}</span>
-      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-neutral-200">
-        <div className="h-full rounded-full bg-rose-600 transition-[width]" style={{ width: `${pct}%` }} />
+      <div className="flex items-center gap-3">
+        <span className="w-9 text-right text-xs tabular-nums text-neutral-400">{formatAudioTime(currentTime)}</span>
+        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-neutral-200">
+          <div className="h-full rounded-full bg-rose-600 transition-[width]" style={{ width: `${pct}%` }} />
+        </div>
+        <span className="w-9 text-xs tabular-nums text-neutral-400">{formatAudioTime(duration)}</span>
       </div>
-      <span className="w-9 text-xs tabular-nums text-neutral-400">{formatAudioTime(duration)}</span>
+      {needsPlay ? (
+        <button type="button" onClick={play} className="inline-flex items-center gap-1.5 rounded-lg border border-rose-200 px-3 py-1.5 text-xs font-medium text-rose-700">
+          <Play size={13} /> Âm thanh chưa phát — bấm để thử lại
+        </button>
+      ) : null}
     </div>
   );
 }
@@ -503,15 +525,15 @@ function ExamDetailView({
   const confirm = useConfirm();
   const [summaries, setSummaries] = useState<Record<string, DeThiPaperSummary> | null>(null);
 
-  // Native audio paper (e.g. "choukai") already renders in the normal
-  // papers.map grid below like any other paper -- the "link out to Luyện
-  // nghe" fallback card only makes sense when the exam has NO native 聴解
-  // paper of its own, only a separately-converted Luyện nghe book.
-  const hasNativeAudioPaper = exam.papers.some((p) => p.audioUrl);
+  // A native 聴解 paper already renders in the normal papers.map grid below,
+  // even when its audio has not been published/attached yet. Only show the
+  // separate Luyện nghe fallback when the exam has no native listening paper.
+  const hasNativeListeningPaper = exam.papers.some((p) => p.id === "choukai" || p.audioUrl);
   const firstListeningQuestion =
-    !hasNativeAudioPaper && exam.listeningBook ? ALL_LISTENING.find((q) => q.book === exam.listeningBook) : undefined;
+    !hasNativeListeningPaper && exam.listeningBook ? ALL_LISTENING.find((q) => q.book === exam.listeningBook) : undefined;
   const listeningCount =
-    !hasNativeAudioPaper && exam.listeningBook ? ALL_LISTENING.filter((q) => q.book === exam.listeningBook).length : 0;
+    !hasNativeListeningPaper && exam.listeningBook ? ALL_LISTENING.filter((q) => q.book === exam.listeningBook).length : 0;
+  const sectionCardCount = exam.papers.length + Number(!hasNativeListeningPaper);
 
   useEffect(() => {
     let cancelled = false;
@@ -556,7 +578,7 @@ function ExamDetailView({
         </span>
       </div>
 
-      <div className="mt-5 grid gap-3 xl:grid-cols-3">
+      <div className={`mt-5 grid gap-3 ${sectionCardCount <= 2 ? "xl:grid-cols-2" : "xl:grid-cols-3"}`}>
         {exam.papers.map((paper) => {
           const Icon = paperIcon(paper.id);
           const s = summaries?.[paper.id];
@@ -626,7 +648,7 @@ function ExamDetailView({
           );
         })}
 
-        {hasNativeAudioPaper ? null : firstListeningQuestion ? (
+        {hasNativeListeningPaper ? null : firstListeningQuestion ? (
           <Card className="gap-3 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm ring-0">
             <div className="flex items-center justify-between">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100">
@@ -837,8 +859,8 @@ function TakingView({
           </div>
         </div>
 
-        {q.passage ? (
-          <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{q.passage}</div>
+        {passageForQuestion(paper, idx) ? (
+          <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passageForQuestion(paper, idx)}</div>
         ) : null}
 
         <div className="mt-4 text-lg leading-relaxed font-semibold text-neutral-800">
@@ -885,7 +907,7 @@ function TakingView({
                 </span>
                 <QuestionText
                   text={opt}
-                  underline={q.problemGroup === "問題5" ? p5Underline(q.question, q.underlineForms, opt) : undefined}
+                  underline={optionUnderline(q.problemGroup, q.question, q.underlineForms, opt)}
                 />
               </button>
             ))}
@@ -1009,7 +1031,7 @@ function ResultView({
           </div>
           <p className="mt-1 text-xs text-neutral-500">Đáp án đúng màu xanh, câu trả lời sai màu đỏ.</p>
           {found.paper.questions.map((question, i) => (
-            <ReviewQuestion key={i} question={question} chosenIndex={answers[i]} showFurigana={showFurigana} />
+            <ReviewQuestion key={i} question={question} passage={passageForQuestion(found.paper, i)} chosenIndex={answers[i]} showFurigana={showFurigana} />
           ))}
         </div>
       ) : found && hasAnswers ? (
@@ -1036,7 +1058,7 @@ function ResultView({
               >
                 {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
               </button>
-              <ReviewQuestion question={found.paper.questions[reviewIndex]} chosenIndex={answers[reviewIndex]} showFurigana={showFurigana} />
+              <ReviewQuestion question={found.paper.questions[reviewIndex]} passage={passageForQuestion(found.paper, reviewIndex)} chosenIndex={answers[reviewIndex]} showFurigana={showFurigana} />
             </>
           ) : null}
         </div>
@@ -1115,10 +1137,12 @@ function HistoryListView({
 
 function ReviewQuestion({
   question,
+  passage,
   chosenIndex,
   showFurigana,
 }: {
   question: DeThiPaper["questions"][number];
+  passage: string | null;
   chosenIndex: number | null;
   showFurigana?: boolean;
 }) {
@@ -1127,8 +1151,8 @@ function ReviewQuestion({
       <div className="text-xs font-semibold text-neutral-400 uppercase">
         Câu {question.number} · {question.problemGroup}
       </div>
-      {question.passage ? (
-        <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{question.passage}</div>
+      {passage ? (
+        <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passage}</div>
       ) : null}
       <div className="mt-3 text-base font-semibold text-neutral-800 leading-loose">
         <QuestionText text={question.question} underline={question.underline} furigana={question.questionFurigana} showFurigana={showFurigana} />
@@ -1167,7 +1191,7 @@ function ReviewQuestion({
                 <div className="leading-loose">
                   <QuestionText
                     text={opt}
-                    underline={question.problemGroup === "問題5" ? p5Underline(question.question, question.underlineForms, opt) : undefined}
+                    underline={optionUnderline(question.problemGroup, question.question, question.underlineForms, opt)}
                     furigana={question.optionsFurigana?.[oi]}
                     showFurigana={showFurigana}
                   />
