@@ -523,7 +523,7 @@ function QuestionView({
         {q.passage ? (
           <div className="mb-4 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{q.passage}</div>
         ) : null}
-        <div className={`font-semibold ${q.question ? "text-neutral-800" : "text-neutral-400 italic"}`}>
+        <div className={`whitespace-pre-line font-semibold ${q.question ? "text-neutral-800" : "text-neutral-400 italic"}`}>
           {q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc — vẫn có thể chọn đáp án bên dưới)"}
         </div>
         <div

@@ -63,6 +63,39 @@ function optionUnderline(group: string, question: string, forms: string[] | unde
   return group === "問題4" || group === "問題5" ? usageWordInOption(question, forms, opt) : undefined;
 }
 
+// Grammar-ordering dialogue items sometimes have the next speaker attached
+// directly after the previous closing quote. Insert a real line break at that
+// boundary so separate turns remain readable even when source conversion
+// omitted one. The ★ marker keeps this limited to sentence-ordering prompts.
+const ORDERING_SPEAKER_LABEL = String.raw`(?:[一-龯々〆ヶヵぁ-んァ-ン]{1,8}(?:さん|くん|ちゃん|先生|氏)?|[A-ZＡ-Ｚ]|男性|女性|男|女|店員|客|母|父|兄|姉)`;
+
+function formatExamQuestion(text: string, problemGroup: string): string {
+  const isOrderingGroup = ["問題2", "問題6", "問題Ⅱ"].includes(problemGroup);
+  if (!isOrderingGroup || !text.includes("★")) return text;
+  return text.replace(new RegExp(`」[\\t 　]*(${ORDERING_SPEAKER_LABEL}「)`, "gu"), "」\n$1");
+}
+
+function formatExamFurigana(
+  segments: ({ text: string; furigana: string | null } | null)[] | undefined,
+  problemGroup: string,
+): { text: string; furigana: string | null }[] | undefined {
+  if (!segments) return undefined;
+  const isOrderingGroup = ["問題2", "問題6", "問題Ⅱ"].includes(problemGroup);
+  let previousText = "";
+  return segments.flatMap((segment) => {
+    if (!segment) return [];
+    let text = segment.text;
+    if (isOrderingGroup) {
+      text = text.replace(new RegExp(`」[\\t 　]*(${ORDERING_SPEAKER_LABEL}「)`, "gu"), "」\n$1");
+      if (/」[\\t 　]*$/.test(previousText) && new RegExp(`^${ORDERING_SPEAKER_LABEL}「`, "u").test(text)) {
+        text = `\n${text}`;
+      }
+    }
+    previousText += segment.text;
+    return [{ ...segment, text }];
+  });
+}
+
 // Some converted reading questions share one passage and store a shorthand
 // instead of repeating it. Resolve that shorthand in both taking and review;
 // otherwise later questions show only "（上記と同じ）" and are not answerable.
@@ -863,8 +896,8 @@ function TakingView({
           <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passageForQuestion(paper, idx)}</div>
         ) : null}
 
-        <div className="mt-4 text-lg leading-relaxed font-semibold text-neutral-800">
-          <QuestionText text={q.question} underline={q.underline} />
+        <div className="mt-4 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">
+          <QuestionText text={formatExamQuestion(q.question, q.problemGroup)} underline={q.underline} />
         </div>
 
         {q.questionImage ? (
@@ -1154,8 +1187,8 @@ function ReviewQuestion({
       {passage ? (
         <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passage}</div>
       ) : null}
-      <div className="mt-3 text-base font-semibold text-neutral-800 leading-loose">
-        <QuestionText text={question.question} underline={question.underline} furigana={question.questionFurigana} showFurigana={showFurigana} />
+      <div className="mt-3 whitespace-pre-line text-base font-semibold text-neutral-800 leading-loose">
+        <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
       </div>
       {question.questionVi ? <div className="mt-1 text-sm text-neutral-500 italic">{question.questionVi}</div> : null}
       {question.questionImage ? (
@@ -1203,6 +1236,28 @@ function ReviewQuestion({
         </div>
       )}
       {question.explanation ? <div className="mt-3 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">{question.explanation}</div> : null}
+      {question.optionExplanations?.length === question.options.length ? (
+        <details className="mt-3 rounded-lg border border-neutral-200 bg-white p-3 text-left">
+          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Giải thích từng đáp án ngữ pháp</summary>
+          <div className="mt-3 space-y-3">
+            {question.optionExplanations.map((explanation, oi) => (
+              <div key={oi} className="flex gap-2.5 text-sm leading-relaxed text-neutral-700">
+                <span
+                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                    oi === question.correctIndex ? "bg-emerald-100 text-emerald-700" : "bg-neutral-100 text-neutral-500"
+                  }`}
+                >
+                  {String.fromCharCode(65 + oi)}
+                </span>
+                <div>
+                  <div className="font-semibold text-neutral-800">{question.options[oi]}</div>
+                  <p>{explanation}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </details>
+      ) : null}
       {question.transcript ? (
         <details className="mt-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-left">
           <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Transcript nghe</summary>

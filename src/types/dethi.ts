@@ -81,6 +81,10 @@ export interface DeThiQuestion {
   // separately rather than silently reconstructed.
   transcript?: string;
   transcriptUncertainty?: string[];
+  // Vietnamese reasoning for each answer choice, parallel to `options`.
+  // Used on the submitted review screen for grammar distractors so learners
+  // can see why each pattern does or doesn't fit the sentence.
+  optionExplanations?: string[];
 }
 
 export interface DeThiPaper {
