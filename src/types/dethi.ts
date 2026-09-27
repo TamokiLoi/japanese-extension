@@ -16,6 +16,10 @@ export interface DeThiQuestion {
   correctIndex: number;
   points: number;
   passage: string | null;
+  // Optional Vietnamese translation for the shared reading passage shown in
+  // post-submit review. Store it on one question in the passage group; the
+  // review screen resolves it for the group's other questions.
+  passageVi?: string;
   // Optional -- most papers don't have this yet (see _scratch/build_dethi_
   // explanation.py). 1 câu tiếng Việt ngắn gọn giải thích vì sao đáp án đúng
   // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,
@@ -50,8 +54,9 @@ export interface DeThiQuestion {
   // Optional: most questions don't have this yet, plain `question` text is
   // shown when absent regardless of the furigana toggle state.
   questionFurigana?: ReadingBodySegment[];
-  // 問題5 only: Vietnamese translation of each of the 4 example-usage
-  // sentences in `options` (parallel array, same order/length as `options`).
+  // Vietnamese translation for each answer choice in `options` (parallel
+  // array, same order/length). Used in post-submit review for reading and
+  // vocabulary-usage questions when available.
   optionsVi?: string[];
   // 問題5 only: furigana segments for each of the 4 example-usage sentences
   // in `options` (parallel array/shape to `optionsVi`) -- `question` itself

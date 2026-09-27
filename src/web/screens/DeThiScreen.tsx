@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown } from "lucide-react";
+import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown, Languages } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -99,16 +99,43 @@ function formatExamFurigana(
 // Some converted reading questions share one passage and store a shorthand
 // instead of repeating it. Resolve that shorthand in both taking and review;
 // otherwise later questions show only "（上記と同じ）" and are not answerable.
+const SAME_PASSAGE_MARKERS = new Set(["（上記と同じ）", "（同上）"]);
+
+function isSamePassageMarker(passage: string | null | undefined): boolean {
+  return !!passage && SAME_PASSAGE_MARKERS.has(passage);
+}
+
 function passageForQuestion(paper: DeThiPaper, index: number): string | null {
   const current = paper.questions[index];
   if (!current?.passage) return null;
-  if (current.passage !== "（上記と同じ）") return current.passage;
+  if (!isSamePassageMarker(current.passage)) return current.passage;
   for (let i = index - 1; i >= 0; i--) {
     const earlier = paper.questions[i];
     if (earlier.problemGroup !== current.problemGroup) break;
-    if (earlier.passage && earlier.passage !== "（上記と同じ）") return earlier.passage;
+    if (earlier.passage && !isSamePassageMarker(earlier.passage)) return earlier.passage;
   }
   return current.passage;
+}
+
+function passageTranslationForQuestion(paper: DeThiPaper, index: number): string | null {
+  const current = paper.questions[index];
+  const passage = passageForQuestion(paper, index);
+  if (!current || !passage || isSamePassageMarker(passage)) return null;
+
+  for (let i = 0; i < paper.questions.length; i++) {
+    const candidate = paper.questions[i];
+    if (candidate.problemGroup !== current.problemGroup) continue;
+    if (passageForQuestion(paper, i) !== passage) continue;
+    const translation = candidate.passageVi;
+    if (translation) return translation;
+  }
+  return null;
+}
+
+function questionTranslationForQuestion(paper: DeThiPaper, index: number): string | null {
+  const question = paper.questions[index];
+  if (!question) return null;
+  return question.questionVi ?? null;
 }
 
 // `furigana`/`showFurigana` are optional -- when a segment list is present
@@ -1064,7 +1091,7 @@ function ResultView({
           </div>
           <p className="mt-1 text-xs text-neutral-500">Đáp án đúng màu xanh, câu trả lời sai màu đỏ.</p>
           {found.paper.questions.map((question, i) => (
-            <ReviewQuestion key={i} question={question} passage={passageForQuestion(found.paper, i)} chosenIndex={answers[i]} showFurigana={showFurigana} />
+            <ReviewQuestion key={i} question={question} passage={passageForQuestion(found.paper, i)} passageVi={passageTranslationForQuestion(found.paper, i)} questionVi={questionTranslationForQuestion(found.paper, i)} chosenIndex={answers[i]} showFurigana={showFurigana} />
           ))}
         </div>
       ) : found && hasAnswers ? (
@@ -1091,7 +1118,7 @@ function ResultView({
               >
                 {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
               </button>
-              <ReviewQuestion question={found.paper.questions[reviewIndex]} passage={passageForQuestion(found.paper, reviewIndex)} chosenIndex={answers[reviewIndex]} showFurigana={showFurigana} />
+              <ReviewQuestion key={found.paper.questions[reviewIndex].number} question={found.paper.questions[reviewIndex]} passage={passageForQuestion(found.paper, reviewIndex)} passageVi={passageTranslationForQuestion(found.paper, reviewIndex)} questionVi={questionTranslationForQuestion(found.paper, reviewIndex)} chosenIndex={answers[reviewIndex]} showFurigana={showFurigana} />
             </>
           ) : null}
         </div>
@@ -1171,26 +1198,68 @@ function HistoryListView({
 function ReviewQuestion({
   question,
   passage,
+  passageVi,
+  questionVi,
   chosenIndex,
   showFurigana,
 }: {
   question: DeThiPaper["questions"][number];
   passage: string | null;
+  passageVi: string | null;
+  questionVi: string | null;
   chosenIndex: number | null;
   showFurigana?: boolean;
 }) {
+  const [showPassageTranslation, setShowPassageTranslation] = useState(false);
+  const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
+
   return (
     <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
       <div className="text-xs font-semibold text-neutral-400 uppercase">
         Câu {question.number} · {question.problemGroup}
       </div>
       {passage ? (
-        <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passage}</div>
+        <>
+          <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passage}</div>
+          {passageVi ? (
+            <div className="mt-2">
+              <button
+                type="button"
+                onClick={() => setShowPassageTranslation((visible) => !visible)}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+                  showPassageTranslation
+                    ? "border-sky-200 bg-sky-50 text-sky-700"
+                    : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+                }`}
+              >
+                <Languages size={13} /> {showPassageTranslation ? "Ẩn dịch bài" : "Xem dịch bài"}
+              </button>
+              {showPassageTranslation ? (
+                <div className="mt-2 whitespace-pre-line rounded-lg bg-sky-50 px-3 py-2 text-sm leading-relaxed text-sky-800">{passageVi}</div>
+              ) : null}
+            </div>
+          ) : null}
+        </>
       ) : null}
       <div className="mt-3 whitespace-pre-line text-base font-semibold text-neutral-800 leading-loose">
         <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
       </div>
-      {question.questionVi ? <div className="mt-1 text-sm text-neutral-500 italic">{question.questionVi}</div> : null}
+      {questionVi ? (
+        <div className="mt-2">
+          <button
+            type="button"
+            onClick={() => setShowQuestionTranslation((visible) => !visible)}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+              showQuestionTranslation
+                ? "border-sky-200 bg-sky-50 text-sky-700"
+                : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+            }`}
+          >
+            <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
+          </button>
+          {showQuestionTranslation ? <div className="mt-2 whitespace-pre-line rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{questionVi}</div> : null}
+        </div>
+      ) : null}
       {question.questionImage ? (
         <img src={assetUrl(question.questionImage)} alt="Hình tình huống của câu nghe" className="mt-3 w-full rounded-lg border border-neutral-200" />
       ) : null}
