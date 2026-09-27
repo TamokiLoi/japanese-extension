@@ -277,7 +277,7 @@ export function WebApp() {
   } else if (screen === "dictation") {
     content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "exams") {
-    content = <DeThiScreen targetId={targetId} onNavigate={go} />;
+    content = <DeThiScreen targetId={targetId} onNavigate={go} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "itBookVocab") {
     content = <ItBookVocabScreen jumpToLesson={targetId ? Number(targetId) : undefined} />;
   } else if (screen === "itBookLessons") {

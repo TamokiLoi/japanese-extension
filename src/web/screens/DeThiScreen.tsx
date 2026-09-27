@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown, Languages } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown, Languages, Library } from "lucide-react";
 import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -24,7 +24,6 @@ import {
   type DeThiPaperSummary,
 } from "../../popup/dethiState.ts";
 import { ALL_LISTENING } from "../../popup/listeningState.ts";
-import type { Screen } from "../../popup/App.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select.tsx";
@@ -38,6 +37,7 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
+import type { Screen } from "../../popup/screens.ts";
 
 type Step =
   | { name: "examList" }
@@ -48,8 +48,11 @@ type Step =
   // and reopened from Lịch sử (a past DeThiHistoryEntry.answers, loaded from
   // storage) -- neither needs the rest of DeThiSession (deadlineAt etc).
   // backTo picks where the top-left back arrow and "về..." button return to.
-  | { name: "result"; entry: DeThiHistoryEntry; answers: (number | null)[]; backTo: "examDetail" | "history"; practiceMode?: boolean }
+  | { name: "result"; entry: DeThiHistoryEntry; answers: (number | null)[]; backTo: "examDetail" | "history"; practiceMode?: boolean; reviewIndex?: number | null }
   | { name: "history"; examId: string; paperId: string };
+
+const REVIEW_RETURN_TARGET = "__dethi-review-return__";
+const REVIEW_RETURN_STORAGE_KEY = "jlpt-dethi-review-return";
 
 // The vocabulary-usage question is 問題4 in N1, but 問題5 in N3. Its prompt is
 // the tested word, which should also be emphasized in every option sentence.
@@ -132,10 +135,129 @@ function passageTranslationForQuestion(paper: DeThiPaper, index: number): string
   return null;
 }
 
+function passageSentenceTranslationsForQuestion(paper: DeThiPaper, index: number): string[] | null {
+  const current = paper.questions[index];
+  const passage = passageForQuestion(paper, index);
+  if (!current || !passage || isSamePassageMarker(passage)) return null;
+  for (let i = 0; i < paper.questions.length; i++) {
+    const candidate = paper.questions[i];
+    if (candidate.problemGroup === current.problemGroup && passageForQuestion(paper, i) === passage && candidate.passageSentencesVi?.length) {
+      return candidate.passageSentencesVi;
+    }
+  }
+  return null;
+}
+
 function questionTranslationForQuestion(paper: DeThiPaper, index: number): string | null {
   const question = paper.questions[index];
   if (!question) return null;
   return question.questionVi ?? null;
+}
+
+function PassageText({ text, questionNumber }: { text: string; questionNumber: number }) {
+  const marker = new RegExp(`([（(]\\s*${questionNumber}\\s*[）)])`, "gu");
+  return text.split(marker).map((part, index) =>
+    index % 2 === 1 ? (
+      <strong key={index} className="rounded bg-rose-100 px-1 font-extrabold text-rose-700">{part}</strong>
+    ) : part,
+  );
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function examGrammarChunks(pattern: string): string[] {
+  return pattern.replace(/（[^）]*）/gu, "").split("〜").map((part) => part.trim()).filter((part) => part.length >= 3);
+}
+
+function PassageTextWithReferences({
+  text,
+  questionNumber,
+  referenceTerms,
+  highlightReferences,
+}: {
+  text: string;
+  questionNumber: number;
+  referenceTerms: string[];
+  highlightReferences: boolean;
+}) {
+  const terms = highlightReferences
+    ? [...new Set(referenceTerms.filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length)
+    : [];
+  const pattern = terms.length > 0 ? new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gu") : null;
+  const paragraphs = text.split(/\r?\n[\t ]*\r?\n/u).map((paragraph) => paragraph.trim()).filter(Boolean);
+
+  return (
+    <div className="space-y-3">
+      {paragraphs.map((paragraph, paragraphIndex) => (
+        <p key={paragraphIndex} className="whitespace-pre-line">
+          {pattern ? paragraph.split(pattern).map((part, index) =>
+            terms.includes(part) ? (
+              <strong key={index} className="font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2">
+                <PassageText text={part} questionNumber={questionNumber} />
+              </strong>
+            ) : (
+              <PassageText key={index} text={part} questionNumber={questionNumber} />
+            ),
+          ) : <PassageText text={paragraph} questionNumber={questionNumber} />}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function splitTextIntoSentenceUnits(text: string, japanese: boolean): string[] {
+  const units: string[] = [];
+  let buffer = "";
+  const endings = japanese ? new Set(["。", "！", "？"]) : new Set([".", "!", "?"]);
+  const closing = new Set(["」", "』", "）", ")", "\"", "’", "”"]);
+  const push = () => {
+    const value = buffer.trim();
+    if (value) units.push(value);
+    buffer = "";
+  };
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    if (char === "\n") {
+      push();
+      continue;
+    }
+    buffer += char;
+    if (endings.has(char)) {
+      while (i + 1 < text.length && closing.has(text[i + 1])) buffer += text[++i];
+      push();
+    }
+  }
+  push();
+  return units;
+}
+
+function translatedPassageUnits(passage: string, translation: string, explicitSentences?: string[]): { japanese: string; vietnamese: string }[] {
+  const japaneseUnits = splitTextIntoSentenceUnits(passage, true);
+  if (explicitSentences?.length === japaneseUnits.length) {
+    return japaneseUnits.map((japanese, index) => ({ japanese, vietnamese: explicitSentences[index] }));
+  }
+
+  const japaneseParagraphs = passage.split(/\n\s*\n/u).map((part) => part.trim()).filter(Boolean);
+  const vietnameseParagraphs = translation.split(/\n\s*\n/u).map((part) => part.trim()).filter(Boolean);
+  if (japaneseParagraphs.length === vietnameseParagraphs.length && japaneseParagraphs.length > 0) {
+    return japaneseParagraphs.flatMap((japaneseParagraph, paragraphIndex) => {
+      const japaneseParts = splitTextIntoSentenceUnits(japaneseParagraph, true);
+      const vietnameseParts = splitTextIntoSentenceUnits(vietnameseParagraphs[paragraphIndex], false);
+      if (japaneseParts.length === vietnameseParts.length) {
+        return japaneseParts.map((japanese, sentenceIndex) => ({ japanese, vietnamese: vietnameseParts[sentenceIndex] }));
+      }
+      return [{ japanese: japaneseParagraph, vietnamese: vietnameseParagraphs[paragraphIndex] }];
+    });
+  }
+
+  const vietnameseUnits = splitTextIntoSentenceUnits(translation, false);
+  if (japaneseUnits.length === vietnameseUnits.length && japaneseUnits.length > 1) {
+    return japaneseUnits.map((japanese, index) => ({ japanese, vietnamese: vietnameseUnits[index] }));
+  }
+  return [{ japanese: passage, vietnamese: translation }];
 }
 
 // `furigana`/`showFurigana` are optional -- when a segment list is present
@@ -269,12 +391,40 @@ function formatDuration(sec: number): string {
 export function DeThiScreen({
   targetId,
   onNavigate,
-}: { targetId?: string; onNavigate?: (screen: Screen, id?: string) => void } = {}) {
+  onCurrentItemChange,
+}: { targetId?: string; onNavigate?: (screen: Screen, id?: string) => void; onCurrentItemChange?: (id?: string) => void } = {}) {
   const [step, setStep] = useState<Step | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      if (targetId === REVIEW_RETURN_TARGET && typeof window !== "undefined") {
+        try {
+          const saved = window.sessionStorage.getItem(REVIEW_RETURN_STORAGE_KEY);
+          if (saved) {
+            const review = JSON.parse(saved) as {
+              entry?: DeThiHistoryEntry;
+              answers?: (number | null)[];
+              backTo?: "examDetail" | "history";
+              practiceMode?: boolean;
+              reviewIndex?: number | null;
+            };
+            if (review.entry && Array.isArray(review.answers) && review.backTo) {
+              if (!cancelled) setStep({
+                name: "result",
+                entry: review.entry,
+                answers: review.answers,
+                backTo: review.backTo,
+                practiceMode: review.practiceMode,
+                reviewIndex: review.reviewIndex,
+              });
+              return;
+            }
+          }
+        } catch {
+          // Fall back to the exam list if a temporary review snapshot is invalid.
+        }
+      }
       const session = await loadDeThiSession();
       if (session) {
         const found = findPaper(session.examId, session.paperId);
@@ -345,6 +495,10 @@ export function DeThiScreen({
       entry={step.entry}
       answers={step.answers}
       practiceMode={step.practiceMode}
+      backTo={step.backTo}
+      initialReviewIndex={step.reviewIndex}
+      onNavigate={onNavigate}
+      onCurrentItemChange={onCurrentItemChange}
       onBack={() =>
         step.backTo === "history"
           ? setStep({ name: "history", examId: step.entry.examId, paperId: step.entry.paperId })
@@ -807,6 +961,7 @@ function TakingView({
 
   const idx = session.currentIndex;
   const q = paper.questions[idx];
+  const passage = passageForQuestion(paper, idx);
   const answered = session.answers[idx];
   const allAnswered = session.answers.every((a) => a !== null);
   const isLast = idx === paper.questions.length - 1;
@@ -919,12 +1074,15 @@ function TakingView({
           </div>
         </div>
 
-        {passageForQuestion(paper, idx) ? (
-          <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passageForQuestion(paper, idx)}</div>
+        {passage ? (
+          <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700"><PassageText text={passage} questionNumber={q.number} /></div>
         ) : null}
 
-        <div className="mt-4 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">
-          <QuestionText text={formatExamQuestion(q.question, q.problemGroup)} underline={q.underline} />
+        <div className="mt-4 flex items-start gap-2 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">
+          <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-sm font-bold text-neutral-600">{q.number}.</span>
+          <div className="min-w-0 flex-1">
+            <QuestionText text={formatExamQuestion(q.question, q.problemGroup)} underline={q.underline} />
+          </div>
         </div>
 
         {q.questionImage ? (
@@ -1026,6 +1184,10 @@ function ResultView({
   entry,
   answers,
   practiceMode = false,
+  backTo,
+  initialReviewIndex,
+  onNavigate,
+  onCurrentItemChange,
   onBack,
   backLabel,
   onRetry,
@@ -1033,12 +1195,16 @@ function ResultView({
   entry: DeThiHistoryEntry;
   answers: (number | null)[];
   practiceMode?: boolean;
+  backTo: "examDetail" | "history";
+  initialReviewIndex?: number | null;
+  onNavigate?: (screen: Screen, id?: string) => void;
+  onCurrentItemChange?: (id?: string) => void;
   onBack: () => void;
   backLabel: string;
   onRetry: () => void;
 }) {
   const found = findPaper(entry.examId, entry.paperId);
-  const [reviewIndex, setReviewIndex] = useState<number | null>(null);
+  const [reviewIndex, setReviewIndex] = useState<number | null>(initialReviewIndex ?? null);
   const [showFurigana, setShowFurigana] = useState(false);
   // Entries saved before DeThiHistoryEntry.answers existed have none -- the
   // score summary above still renders fine, just skip the per-question
@@ -1054,6 +1220,23 @@ function ResultView({
       </Button>
     </div>
   );
+
+  function openReference(screen: Screen, id: string | undefined, questionIndex: number) {
+    if (!onNavigate || !id) return;
+    try {
+      window.sessionStorage.setItem(REVIEW_RETURN_STORAGE_KEY, JSON.stringify({
+        entry,
+        answers,
+        backTo,
+        practiceMode,
+        reviewIndex: practiceMode ? null : questionIndex,
+      }));
+    } catch {
+      // Vocabulary/grammar navigation still works if session storage is unavailable.
+    }
+    onCurrentItemChange?.(REVIEW_RETURN_TARGET);
+    onNavigate(screen, id);
+  }
 
   return (
     <div className={`mx-auto px-2.5 py-2 text-center md:px-8 md:py-6 ${practiceMode ? "max-w-3xl" : "max-w-2xl"}`}>
@@ -1078,20 +1261,22 @@ function ResultView({
 
       {practiceMode && found && hasAnswers ? (
         <div className="mt-8 text-left">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h2 className="text-lg font-bold text-neutral-800">Đáp án và giải thích</h2>
-            <button
-              onClick={() => setShowFurigana(!showFurigana)}
-              className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
-                showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
-              }`}
-            >
-              {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
-            </button>
-          </div>
+          <h2 className="text-lg font-bold text-neutral-800">Đáp án và giải thích</h2>
           <p className="mt-1 text-xs text-neutral-500">Đáp án đúng màu xanh, câu trả lời sai màu đỏ.</p>
           {found.paper.questions.map((question, i) => (
-            <ReviewQuestion key={i} question={question} passage={passageForQuestion(found.paper, i)} passageVi={passageTranslationForQuestion(found.paper, i)} questionVi={questionTranslationForQuestion(found.paper, i)} chosenIndex={answers[i]} showFurigana={showFurigana} />
+            <ReviewQuestion
+              key={i}
+              question={question}
+              level={found.exam.level}
+              passage={passageForQuestion(found.paper, i)}
+              passageVi={passageTranslationForQuestion(found.paper, i)}
+              passageSentencesVi={passageSentenceTranslationsForQuestion(found.paper, i)}
+              questionVi={questionTranslationForQuestion(found.paper, i)}
+              chosenIndex={answers[i]}
+              showFurigana={showFurigana}
+              onToggleFurigana={() => setShowFurigana((visible) => !visible)}
+              onNavigate={(screen, id) => openReference(screen, id, i)}
+            />
           ))}
         </div>
       ) : found && hasAnswers ? (
@@ -1110,15 +1295,42 @@ function ResultView({
           />
           {reviewIndex !== null ? (
             <>
-              <button
-                onClick={() => setShowFurigana(!showFurigana)}
-                className={`mt-3 rounded-full border px-3 py-1.5 text-xs font-semibold ${
-                  showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
-                }`}
-              >
-                {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
-              </button>
-              <ReviewQuestion key={found.paper.questions[reviewIndex].number} question={found.paper.questions[reviewIndex]} passage={passageForQuestion(found.paper, reviewIndex)} passageVi={passageTranslationForQuestion(found.paper, reviewIndex)} questionVi={questionTranslationForQuestion(found.paper, reviewIndex)} chosenIndex={answers[reviewIndex]} showFurigana={showFurigana} />
+              <ReviewQuestion
+                key={found.paper.questions[reviewIndex].number}
+                question={found.paper.questions[reviewIndex]}
+                level={found.exam.level}
+                passage={passageForQuestion(found.paper, reviewIndex)}
+                passageVi={passageTranslationForQuestion(found.paper, reviewIndex)}
+                passageSentencesVi={passageSentenceTranslationsForQuestion(found.paper, reviewIndex)}
+                questionVi={questionTranslationForQuestion(found.paper, reviewIndex)}
+                chosenIndex={answers[reviewIndex]}
+                showFurigana={showFurigana}
+                onToggleFurigana={() => setShowFurigana((visible) => !visible)}
+                onNavigate={(screen, id) => openReference(screen, id, reviewIndex)}
+              />
+              <div className="mt-3 flex items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={() => setReviewIndex((current) => Math.max(0, (current ?? 0) - 1))}
+                  disabled={reviewIndex === 0}
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  aria-label="Câu trước"
+                >
+                  <ChevronLeft size={16} /> Câu trước
+                </button>
+                <span className="shrink-0 text-xs font-medium text-neutral-400">
+                  Câu {found.paper.questions[reviewIndex].number}/{found.paper.questions.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setReviewIndex((current) => Math.min(found.paper.questions.length - 1, (current ?? -1) + 1))}
+                  disabled={reviewIndex === found.paper.questions.length - 1}
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  aria-label="Câu sau"
+                >
+                  Câu sau <ChevronRight size={16} />
+                </button>
+              </div>
             </>
           ) : null}
         </div>
@@ -1197,52 +1409,216 @@ function HistoryListView({
 
 function ReviewQuestion({
   question,
+  level,
   passage,
   passageVi,
+  passageSentencesVi,
   questionVi,
   chosenIndex,
   showFurigana,
+  onToggleFurigana,
+  onNavigate,
 }: {
   question: DeThiPaper["questions"][number];
+  level: JlptLevel;
   passage: string | null;
   passageVi: string | null;
+  passageSentencesVi: string[] | null;
   questionVi: string | null;
   chosenIndex: number | null;
   showFurigana?: boolean;
+  onToggleFurigana: () => void;
+  onNavigate?: (screen: Screen, id?: string) => void;
 }) {
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
+  const [highlightReferences, setHighlightReferences] = useState(false);
+  const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
+  const [referenceMatches, setReferenceMatches] = useState<{
+    vocab: { id: string; word: string }[];
+    bunpo: { id: string; pattern: string }[];
+  }>({ vocab: [], bunpo: [] });
+  useEffect(() => {
+    let cancelled = false;
+    setReferenceMatches({ vocab: [], bunpo: [] });
+    if (!passage) {
+      return () => {
+        cancelled = true;
+      };
+    }
+    // Load the reading/vocabulary catalogs only when answer review is opened;
+    // do not add that bundle or work to the active exam-taking screen.
+    import("../../popup/readingLinks.ts").then(({ findVocabInPassage, findBunpoInPassage }) => {
+      if (cancelled) return;
+      const source = { level, body: [{ text: passage, furigana: null }] };
+      setReferenceMatches({
+        vocab: findVocabInPassage(source),
+        bunpo: findBunpoInPassage(source),
+      });
+    }).catch(() => {
+      if (!cancelled) setReferenceMatches({ vocab: [], bunpo: [] });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [level, passage]);
+  const { vocab: vocabMatches, bunpo: bunpoMatches } = referenceMatches;
+  const hasReferences = !!passage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
+  const referenceTerms = useMemo(
+    () => [
+      ...vocabMatches.map((vocab) => vocab.word),
+      ...bunpoMatches.flatMap((grammar) => examGrammarChunks(grammar.pattern)),
+    ],
+    [bunpoMatches, vocabMatches],
+  );
+
+  const translatedUnits = useMemo(
+    () => passage && passageVi ? translatedPassageUnits(passage, passageVi, passageSentencesVi ?? undefined) : [],
+    [passage, passageSentencesVi, passageVi],
+  );
 
   return (
     <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
       <div className="text-xs font-semibold text-neutral-400 uppercase">
         Câu {question.number} · {question.problemGroup}
       </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={onToggleFurigana}
+          className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+            showFurigana
+              ? "border-rose-200 bg-rose-50 text-rose-700"
+              : "border-neutral-200 text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
+          }`}
+        >
+          <BookOpenText size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+        </button>
+        {passage && passageVi ? (
+          <button
+            type="button"
+            onClick={() => setShowPassageTranslation((visible) => !visible)}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+              showPassageTranslation
+                ? "border-sky-200 bg-sky-50 text-sky-700"
+                : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+            }`}
+          >
+            <Languages size={13} /> {showPassageTranslation ? "Ẩn bản dịch" : "Xem bản dịch"}
+          </button>
+        ) : null}
+      </div>
       {passage ? (
-        <>
-          <div className="mt-2 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{passage}</div>
-          {passageVi ? (
-            <div className="mt-2">
-              <button
-                type="button"
-                onClick={() => setShowPassageTranslation((visible) => !visible)}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
-                  showPassageTranslation
-                    ? "border-sky-200 bg-sky-50 text-sky-700"
-                    : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
-                }`}
-              >
-                <Languages size={13} /> {showPassageTranslation ? "Ẩn dịch bài" : "Xem dịch bài"}
-              </button>
-              {showPassageTranslation ? (
-                <div className="mt-2 whitespace-pre-line rounded-lg bg-sky-50 px-3 py-2 text-sm leading-relaxed text-sky-800">{passageVi}</div>
-              ) : null}
+        <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
+          {showPassageTranslation && passageVi ? (
+            <div className="flex flex-col gap-3">
+              {translatedUnits.map((unit, index) => (
+                <div key={index}>
+                  <div className="whitespace-pre-line">
+                    <PassageTextWithReferences text={unit.japanese} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} />
+                  </div>
+                  {unit.vietnamese ? (
+                    <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic whitespace-pre-line">
+                      {unit.vietnamese}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} />
+          )}
+        </div>
+      ) : null}
+      {hasReferences ? (
+        <div className="mt-5 flex rounded-xl border border-neutral-200 bg-neutral-50 p-1" role="tablist" aria-label={`Nội dung câu ${question.number}`}>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={referenceTab === "questions"}
+            aria-controls={`review-question-panel-${question.number}`}
+            id={`review-question-tab-${question.number}`}
+            onClick={() => setReferenceTab("questions")}
+            className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+              referenceTab === "questions" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+            }`}
+          >
+            Câu hỏi (1)
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={referenceTab === "references"}
+            aria-controls={`review-reference-panel-${question.number}`}
+            id={`review-reference-tab-${question.number}`}
+            onClick={() => setReferenceTab("references")}
+            className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+              referenceTab === "references" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+            }`}
+          >
+            Tham khảo ({vocabMatches.length + bunpoMatches.length})
+          </button>
+        </div>
+      ) : null}
+      {hasReferences && referenceTab === "references" ? (
+        <div
+          className="mt-4 rounded-xl border border-neutral-200 bg-white p-4"
+          role="tabpanel"
+          id={`review-reference-panel-${question.number}`}
+          aria-labelledby={`review-reference-tab-${question.number}`}
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 className="text-sm font-bold text-neutral-800">Từ vựng và ngữ pháp trong bài</h3>
+              <p className="mt-0.5 text-xs text-neutral-500">Các mục trọng tâm được tìm thấy trong đoạn đọc.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setHighlightReferences((enabled) => !enabled)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
+                highlightReferences ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
+              }`}
+            >
+              {highlightReferences ? "Tắt bôi đậm trong bài" : "Bôi đậm trong bài"}
+            </button>
+          </div>
+          {vocabMatches.length > 0 ? (
+            <div className="mt-3">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><Library size={14} /> Từ vựng trọng tâm</div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {vocabMatches.map((vocab) => (
+                  <button key={vocab.id} type="button" onClick={() => onNavigate?.("vocab", vocab.id)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">
+                    {vocab.word}
+                  </button>
+                ))}
+              </div>
             </div>
           ) : null}
-        </>
+          {bunpoMatches.length > 0 ? (
+            <div className="mt-3">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><PenSquare size={14} /> Ngữ pháp trong bài</div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {bunpoMatches.map((grammar) => (
+                  <button key={grammar.id} type="button" onClick={() => onNavigate?.("bunpo", grammar.id)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">
+                    {grammar.pattern}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
       ) : null}
-      <div className="mt-3 whitespace-pre-line text-base font-semibold text-neutral-800 leading-loose">
-        <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
+      {(!hasReferences || referenceTab === "questions") ? (
+      <div
+        role={hasReferences ? "tabpanel" : undefined}
+        id={hasReferences ? `review-question-panel-${question.number}` : undefined}
+        aria-labelledby={hasReferences ? `review-question-tab-${question.number}` : undefined}
+      >
+      <div className="mt-3 flex items-start gap-2 whitespace-pre-line text-base font-semibold leading-loose text-neutral-800">
+        <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-bold text-neutral-600">{question.number}.</span>
+        <div className="min-w-0 flex-1">
+          <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
+        </div>
       </div>
       {questionVi ? (
         <div className="mt-2">
@@ -1339,6 +1715,8 @@ function ReviewQuestion({
         </details>
       ) : null}
       {chosenIndex === null ? <p className="mt-3 text-xs font-medium text-neutral-400">Bạn chưa trả lời câu này.</p> : null}
+      </div>
+      ) : null}
     </Card>
   );
 }

@@ -20,6 +20,11 @@ export interface DeThiQuestion {
   // post-submit review. Store it on one question in the passage group; the
   // review screen resolves it for the group's other questions.
   passageVi?: string;
+  // Optional Vietnamese passage translation aligned 1:1 with the Japanese
+  // passage sentences (including standalone heading/list lines). When absent,
+  // review attempts a conservative sentence alignment from passageVi and
+  // falls back to a whole-paragraph translation if the counts do not match.
+  passageSentencesVi?: string[];
   // Optional -- most papers don't have this yet (see _scratch/build_dethi_
   // explanation.py). 1 câu tiếng Việt ngắn gọn giải thích vì sao đáp án đúng
   // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,

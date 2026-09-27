@@ -15,9 +15,9 @@ import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi
 
 const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-3.1-flash-lite";
-const CACHE_VERSION = 2;
+const CACHE_VERSION = 3;
 const DATASETS: { path: string; paperId: string; readingGroups: string[] }[] = [
-  { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題5", "問題6", "問題7"] },
+  { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
   { path: "src/data/dethi-n1-cac-nam.json", paperId: "language-reading", readingGroups: ["問題7", "問題8", "問題9", "問題10", "問題11", "問題12", "問題13"] },
 ];
 const CACHE_PATH = join(ROOT, `_scratch/dethi-reading-translations-cache-${MODEL}.json`);
@@ -111,11 +111,11 @@ function loadCache(): Cache {
 function resolvePassage(paper: DeThiPaper, index: number): string | null {
   const current = paper.questions[index];
   if (!current?.passage) return null;
-  if (current.passage !== "（上記と同じ）") return current.passage;
+  if (current.passage !== "（上記と同じ）" && current.passage !== "（同上）") return current.passage;
   for (let i = index - 1; i >= 0; i--) {
     const earlier = paper.questions[i];
     if (earlier.problemGroup !== current.problemGroup) break;
-    if (earlier.passage && earlier.passage !== "（上記と同じ）") return earlier.passage;
+    if (earlier.passage && earlier.passage !== "（上記と同じ）" && earlier.passage !== "（同上）") return earlier.passage;
   }
   return current.passage;
 }

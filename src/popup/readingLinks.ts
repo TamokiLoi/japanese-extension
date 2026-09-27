@@ -74,7 +74,7 @@ function grammarReferenceScore(g: BunpoGrammarPoint, passageLevel: JlptLevel, ch
   return difficulty + Math.min(matchedLength, 12) * 4 + Math.min(g.pattern.length, 12);
 }
 
-function passageText(passage: ReadingPassage): string {
+function passageText(passage: Pick<ReadingPassage, "body">): string {
   return passage.body.map((seg) => seg.text).join("");
 }
 
@@ -82,7 +82,7 @@ function passageText(passage: ReadingPassage): string {
 // -- under-matches verbs/adjectives that appear conjugated in running text,
 // but every match found is a real one, which is what matters for "here's a
 // word from this passage worth reviewing."
-export function findVocabInPassage(passage: ReadingPassage, limit = MAX_VOCAB_MATCHES): VocabCard[] {
+export function findVocabInPassage(passage: Pick<ReadingPassage, "body" | "level">, limit = MAX_VOCAB_MATCHES): VocabCard[] {
   const text = passageText(passage);
   const candidates = ALL_VOCAB.filter((v) => isUsefulVocabReference(v) && text.includes(v.word));
   const difficultCandidates = candidates.filter((v) => LEVEL_RANK[v.level] >= LEVEL_RANK[passage.level]);
@@ -92,7 +92,7 @@ export function findVocabInPassage(passage: ReadingPassage, limit = MAX_VOCAB_MA
     .slice(0, limit);
 }
 
-export function findBunpoInPassage(passage: ReadingPassage, limit = MAX_BUNPO_MATCHES): BunpoGrammarPoint[] {
+export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level">, limit = MAX_BUNPO_MATCHES): BunpoGrammarPoint[] {
   const text = passageText(passage);
   const bestByPattern = new Map<string, { grammar: BunpoGrammarPoint; score: number }>();
   for (const g of ALL_BUNPO) {
