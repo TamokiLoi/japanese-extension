@@ -13,7 +13,6 @@ import type { JlptLevel } from "../types/kanji.ts";
 // Keep non-verb references compact; every relevant verb is included because
 // conjugated verbs carry much of a reading passage's meaning.
 const MAX_VOCAB_MATCHES = 12;
-const MAX_BUNPO_MATCHES = 10;
 
 const LEVEL_RANK: Record<JlptLevel, number> = { N5: 0, N4: 1, N3: 2, N2: 3, N1: 4 };
 
@@ -87,24 +86,22 @@ function isContentWordReference(v: VocabCard): boolean {
 }
 
 function vocabReferenceScore(v: VocabCard, passageLevel: JlptLevel, text: string, forms: Set<string>): number {
-  const level = LEVEL_RANK[v.level];
-  const target = LEVEL_RANK[passageLevel];
-  const difficulty = level >= target ? 100 + level * 18 : level * 18 - 80;
-  const kanjiBonus = [...v.word].filter((char) => /[一-龯々]/u.test(char)).length * 12;
-  const lengthBonus = Math.min(v.word.length, 8) * 3;
-  const contentPosBonus = v.partOfSpeech === "Danh từ" ? 12 : v.partOfSpeech === "Trạng từ" ? 8 : 0;
+  const levelBonus = (LEVEL_RANK[v.level] - LEVEL_RANK[passageLevel]) * 6;
+  const kanjiBonus = [...v.word].filter((char) => /[一-龯々]/u.test(char)).length * 6;
+  const lengthBonus = Math.min(v.word.length, 8) * 2;
+  const contentPosBonus = v.partOfSpeech === "Danh từ" ? 8 : v.partOfSpeech === "Trạng từ" ? 6 : 0;
+  // Repetition in the passage is a stronger clue to topical importance than
+  // JLPT difficulty alone; still use specificity and level to break ties.
   const occurrenceBonus = Math.min(
     [...forms].reduce((count, form) => count + countOccurrences(text, form), 0),
-    3,
-  ) * 5;
-  // Mimikara/Tango and the JLPT exam set are generally useful study
-  // references; favor them when two candidates are otherwise comparable.
+    5,
+  ) * 14;
   const sourceBonus = v.sources.some((source) =>
     ["mimikara-n3", "tango-n1", "tango-n2", "tango-n3", "jlpt-n3-dethi"].includes(source),
   )
-    ? 5
+    ? 3
     : 0;
-  return difficulty + kanjiBonus + lengthBonus + contentPosBonus + occurrenceBonus + sourceBonus;
+  return levelBonus + kanjiBonus + lengthBonus + contentPosBonus + occurrenceBonus + sourceBonus;
 }
 
 function countOccurrences(text: string, form: string): number {
@@ -316,7 +313,7 @@ export function findVocabInPassage(passage: Pick<ReadingPassage, "body" | "level
   ].map(([entry]) => entry.vocab);
 }
 
-export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level">, limit = MAX_BUNPO_MATCHES): BunpoGrammarPoint[] {
+export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level">): BunpoGrammarPoint[] {
   const text = passageText(passage);
   const bestByPattern = new Map<string, { grammar: BunpoGrammarPoint; score: number }>();
   for (const g of ALL_BUNPO) {
@@ -330,6 +327,5 @@ export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level
   }
   return [...bestByPattern.values()]
     .sort((a, b) => b.score - a.score || b.grammar.pattern.length - a.grammar.pattern.length)
-    .slice(0, limit)
     .map(({ grammar }) => grammar);
 }
