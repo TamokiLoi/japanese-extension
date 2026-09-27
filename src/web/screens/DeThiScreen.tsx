@@ -66,15 +66,15 @@ function optionUnderline(group: string, question: string, forms: string[] | unde
   return group === "問題4" || group === "問題5" ? usageWordInOption(question, forms, opt) : undefined;
 }
 
-// Grammar-ordering dialogue items sometimes have the next speaker attached
-// directly after the previous closing quote. Insert a real line break at that
-// boundary so separate turns remain readable even when source conversion
-// omitted one. The ★ marker keeps this limited to sentence-ordering prompts.
+// Dialogue items sometimes have the next speaker attached directly after the
+// previous closing quote. Insert a real line break at that boundary so turns
+// remain readable even when source conversion omitted one. This is independent
+// of ★: several older ordering prompts are missing the marker in source data.
 const ORDERING_SPEAKER_LABEL = String.raw`(?:[一-龯々〆ヶヵぁ-んァ-ン]{1,8}(?:さん|くん|ちゃん|先生|氏)?|[A-ZＡ-Ｚ]|男性|女性|男|女|店員|客|母|父|兄|姉)`;
 
 function formatExamQuestion(text: string, problemGroup: string): string {
   const isOrderingGroup = ["問題2", "問題6", "問題Ⅱ"].includes(problemGroup);
-  if (!isOrderingGroup || !text.includes("★")) return text;
+  if (!isOrderingGroup) return text;
   return text.replace(new RegExp(`」[\\t 　]*(${ORDERING_SPEAKER_LABEL}「)`, "gu"), "」\n$1");
 }
 
@@ -148,6 +148,19 @@ function passageSentenceTranslationsForQuestion(paper: DeThiPaper, index: number
   return null;
 }
 
+function passageFuriganaForQuestion(paper: DeThiPaper, index: number) {
+  const current = paper.questions[index];
+  const passage = passageForQuestion(paper, index);
+  if (!current || !passage || isSamePassageMarker(passage)) return null;
+  for (let i = 0; i < paper.questions.length; i++) {
+    const candidate = paper.questions[i];
+    if (candidate.problemGroup === current.problemGroup && passageForQuestion(paper, i) === passage && candidate.passageFurigana?.length) {
+      return candidate.passageFurigana;
+    }
+  }
+  return null;
+}
+
 function questionTranslationForQuestion(paper: DeThiPaper, index: number): string | null {
   const question = paper.questions[index];
   if (!question) return null;
@@ -163,6 +176,33 @@ function PassageText({ text, questionNumber }: { text: string; questionNumber: n
   );
 }
 
+function sliceFuriganaForText(
+  source: string,
+  segments: { text: string; furigana: string | null }[] | null,
+  text: string,
+  searchFrom = 0,
+): { text: string; furigana: string | null }[] | null {
+  if (!segments?.length || !text) return null;
+  const start = source.indexOf(text, searchFrom);
+  if (start < 0) return null;
+  const end = start + text.length;
+  let offset = 0;
+  const sliced: { text: string; furigana: string | null }[] = [];
+  for (const segment of segments) {
+    const segmentStart = offset;
+    const segmentEnd = offset + segment.text.length;
+    offset = segmentEnd;
+    const overlapStart = Math.max(start, segmentStart);
+    const overlapEnd = Math.min(end, segmentEnd);
+    if (overlapStart >= overlapEnd) continue;
+    sliced.push({
+      text: segment.text.slice(overlapStart - segmentStart, overlapEnd - segmentStart),
+      furigana: overlapStart === segmentStart && overlapEnd === segmentEnd ? segment.furigana : null,
+    });
+  }
+  return sliced.map((segment) => segment.text).join("") === text ? sliced : null;
+}
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -176,33 +216,126 @@ function PassageTextWithReferences({
   questionNumber,
   referenceTerms,
   highlightReferences,
+  furigana,
+  showFurigana,
 }: {
   text: string;
   questionNumber: number;
   referenceTerms: string[];
   highlightReferences: boolean;
+  furigana?: { text: string; furigana: string | null }[] | null;
+  showFurigana?: boolean;
 }) {
   const terms = highlightReferences
     ? [...new Set(referenceTerms.filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length)
     : [];
   const pattern = terms.length > 0 ? new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gu") : null;
-  const paragraphs = text.split(/\r?\n[\t ]*\r?\n/u).map((paragraph) => paragraph.trim()).filter(Boolean);
+  const paragraphRanges: { text: string; start: number; end: number }[] = [];
+  const separator = /\r?\n[\t ]*\r?\n/gu;
+  let cursor = 0;
+  for (const match of text.matchAll(separator)) {
+    const start = match.index ?? cursor;
+    const raw = text.slice(cursor, start);
+    const leading = raw.length - raw.trimStart().length;
+    const trailing = raw.length - raw.trimEnd().length;
+    if (raw.trim()) paragraphRanges.push({ text: raw.trim(), start: cursor + leading, end: start - trailing });
+    cursor = start + match[0].length;
+  }
+  const tail = text.slice(cursor);
+  const tailLeading = tail.length - tail.trimStart().length;
+  const tailTrailing = tail.length - tail.trimEnd().length;
+  if (tail.trim()) paragraphRanges.push({ text: tail.trim(), start: cursor + tailLeading, end: text.length - tailTrailing });
+
+  const renderHighlightedText = (value: string) => pattern
+    ? value.split(pattern).map((part, index) => terms.includes(part) ? (
+        <strong key={index} className="font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2">
+          <PassageText text={part} questionNumber={questionNumber} />
+        </strong>
+      ) : (
+        <PassageText key={index} text={part} questionNumber={questionNumber} />
+      ))
+    : <PassageText text={value} questionNumber={questionNumber} />;
+
+  const furiganaMatchesText = furigana?.map((segment) => segment.text).join("") === text;
+  const renderFuriganaRange = (start: number, end: number) => {
+    if (!showFurigana || !furiganaMatchesText || !furigana?.length) return renderHighlightedText(text.slice(start, end));
+    let offset = 0;
+    const rendered: React.ReactNode[] = [];
+    for (const [index, segment] of furigana.entries()) {
+      const segmentStart = offset;
+      const segmentEnd = offset + segment.text.length;
+      offset = segmentEnd;
+      const overlapStart = Math.max(start, segmentStart);
+      const overlapEnd = Math.min(end, segmentEnd);
+      if (overlapStart >= overlapEnd) continue;
+      const segmentText = segment.text.slice(overlapStart - segmentStart, overlapEnd - segmentStart);
+      // Annotation segments are word-sized; if a review slice ever cuts one,
+      // keep the text rather than applying a reading to a partial word.
+      const reading = overlapStart === segmentStart && overlapEnd === segmentEnd ? segment.furigana : null;
+      const content = renderHighlightedText(segmentText);
+      rendered.push(reading ? (
+        <ruby key={index}>{content}<rt className="text-[10px] text-neutral-400">{reading}</rt></ruby>
+      ) : <span key={index}>{content}</span>);
+    }
+    return rendered;
+  };
+
+  const tableRowsForParagraph = (paragraph: { text: string; start: number }) => {
+    const rows: { cells: { text: string; start: number; end: number }[]; header: boolean }[] = [];
+    let lineOffset = 0;
+    let hasSeparator = false;
+    for (const line of paragraph.text.split("\n")) {
+      if (!/^\s*\|.*\|\s*$/u.test(line)) { lineOffset += line.length + 1; continue; }
+      const rawCells: { text: string; start: number; end: number }[] = [];
+      const firstBar = line.indexOf("|");
+      const lastBar = line.lastIndexOf("|");
+      let cellStart = firstBar + 1;
+      while (cellStart <= lastBar) {
+        const nextBar = line.indexOf("|", cellStart);
+        if (nextBar < 0 || nextBar > lastBar) break;
+        const rawCell = line.slice(cellStart, nextBar);
+        const leading = rawCell.length - rawCell.trimStart().length;
+        const trailing = rawCell.length - rawCell.trimEnd().length;
+        if (rawCell.trim()) rawCells.push({
+          text: rawCell.trim(),
+          start: paragraph.start + lineOffset + cellStart + leading,
+          end: paragraph.start + lineOffset + nextBar - trailing,
+        });
+        cellStart = nextBar + 1;
+      }
+      const isSeparator = rawCells.length > 0 && rawCells.every(({ text: cell }) => /^:?-{3,}:?$/u.test(cell));
+      if (isSeparator) hasSeparator = true;
+      else if (rawCells.length > 1) rows.push({ cells: rawCells, header: rows.length === 0 });
+      lineOffset += line.length + 1;
+    }
+    return hasSeparator && rows.length > 1 ? rows : null;
+  };
 
   return (
     <div className="space-y-3">
-      {paragraphs.map((paragraph, paragraphIndex) => (
-        <p key={paragraphIndex} className="whitespace-pre-line">
-          {pattern ? paragraph.split(pattern).map((part, index) =>
-            terms.includes(part) ? (
-              <strong key={index} className="font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2">
-                <PassageText text={part} questionNumber={questionNumber} />
-              </strong>
-            ) : (
-              <PassageText key={index} text={part} questionNumber={questionNumber} />
-            ),
-          ) : <PassageText text={paragraph} questionNumber={questionNumber} />}
-        </p>
-      ))}
+      {paragraphRanges.map((paragraph, paragraphIndex) => {
+        const tableRows = tableRowsForParagraph(paragraph);
+        return tableRows ? (
+          <div key={paragraphIndex} className="overflow-x-auto rounded-lg border border-neutral-200">
+            <table className="w-full border-collapse text-left text-sm">
+              <tbody>
+                {tableRows.map((row, rowIndex) => (
+                  <tr key={rowIndex} className={row.header ? "bg-neutral-100" : ""}>
+                    {row.cells.map((cell, cellIndex) => {
+                      const Cell = row.header ? "th" : "td";
+                      return <Cell key={cellIndex} className="border-b border-r border-neutral-200 px-3 py-2 align-top last:border-r-0">{renderFuriganaRange(cell.start, cell.end)}</Cell>;
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p key={paragraphIndex} className="whitespace-pre-line">
+            {renderFuriganaRange(paragraph.start, paragraph.end)}
+          </p>
+        );
+      })}
     </div>
   );
 }
@@ -1269,6 +1402,7 @@ function ResultView({
               question={question}
               level={found.exam.level}
               passage={passageForQuestion(found.paper, i)}
+              passageFurigana={passageFuriganaForQuestion(found.paper, i)}
               passageVi={passageTranslationForQuestion(found.paper, i)}
               passageSentencesVi={passageSentenceTranslationsForQuestion(found.paper, i)}
               questionVi={questionTranslationForQuestion(found.paper, i)}
@@ -1300,6 +1434,7 @@ function ResultView({
                 question={found.paper.questions[reviewIndex]}
                 level={found.exam.level}
                 passage={passageForQuestion(found.paper, reviewIndex)}
+                passageFurigana={passageFuriganaForQuestion(found.paper, reviewIndex)}
                 passageVi={passageTranslationForQuestion(found.paper, reviewIndex)}
                 passageSentencesVi={passageSentenceTranslationsForQuestion(found.paper, reviewIndex)}
                 questionVi={questionTranslationForQuestion(found.paper, reviewIndex)}
@@ -1411,6 +1546,7 @@ function ReviewQuestion({
   question,
   level,
   passage,
+  passageFurigana,
   passageVi,
   passageSentencesVi,
   questionVi,
@@ -1422,6 +1558,7 @@ function ReviewQuestion({
   question: DeThiPaper["questions"][number];
   level: JlptLevel;
   passage: string | null;
+  passageFurigana: { text: string; furigana: string | null }[] | null;
   passageVi: string | null;
   passageSentencesVi: string[] | null;
   questionVi: string | null;
@@ -1476,6 +1613,16 @@ function ReviewQuestion({
     () => passage && passageVi ? translatedPassageUnits(passage, passageVi, passageSentencesVi ?? undefined) : [],
     [passage, passageSentencesVi, passageVi],
   );
+  const translatedUnitsWithFurigana = useMemo(() => {
+    if (!passage || !passageFurigana) return translatedUnits.map((unit) => ({ ...unit, furigana: null }));
+    let searchFrom = 0;
+    return translatedUnits.map((unit) => {
+      const furigana = sliceFuriganaForText(passage, passageFurigana, unit.japanese, searchFrom);
+      const matchedAt = passage.indexOf(unit.japanese, searchFrom);
+      if (matchedAt >= 0) searchFrom = matchedAt + unit.japanese.length;
+      return { ...unit, furigana };
+    });
+  }, [passage, passageFurigana, translatedUnits]);
 
   return (
     <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
@@ -1512,21 +1659,21 @@ function ReviewQuestion({
         <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
           {showPassageTranslation && passageVi ? (
             <div className="flex flex-col gap-3">
-              {translatedUnits.map((unit, index) => (
+              {translatedUnitsWithFurigana.map((unit, index) => (
                 <div key={index}>
                   <div className="whitespace-pre-line">
-                    <PassageTextWithReferences text={unit.japanese} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} />
+                    <PassageTextWithReferences text={unit.japanese} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={unit.furigana} showFurigana={showFurigana} />
                   </div>
                   {unit.vietnamese ? (
                     <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic whitespace-pre-line">
-                      {unit.vietnamese}
+                      <PassageText text={unit.vietnamese} questionNumber={question.number} />
                     </div>
                   ) : null}
                 </div>
               ))}
             </div>
           ) : (
-            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} />
+            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={passageFurigana} showFurigana={showFurigana} />
           )}
         </div>
       ) : null}

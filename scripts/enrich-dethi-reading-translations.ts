@@ -6,6 +6,7 @@
 //   node --experimental-strip-types scripts/enrich-dethi-reading-translations.ts --dry-run
 //   node --experimental-strip-types scripts/enrich-dethi-reading-translations.ts --dry-run --force
 //   node --experimental-strip-types scripts/enrich-dethi-reading-translations.ts --preview --id cacnam-n3-2025-07/bunpou-dokkai/問題7/q38
+//   node --experimental-strip-types scripts/enrich-dethi-reading-translations.ts --force --ids id1,id2
 //   node --experimental-strip-types scripts/enrich-dethi-reading-translations.ts --force
 //   node --experimental-strip-types scripts/enrich-dethi-reading-translations.ts
 
@@ -82,15 +83,17 @@ function parseArgs() {
   const force = args.includes("--force");
   const limitIndex = args.indexOf("--limit");
   const idIndex = args.indexOf("--id");
+  const idsIndex = args.indexOf("--ids");
   const limit = limitIndex >= 0 ? Number(args[limitIndex + 1]) : undefined;
-  const id = idIndex >= 0 ? args[idIndex + 1] : undefined;
+  const idsValue = idsIndex >= 0 ? args[idsIndex + 1] : idIndex >= 0 ? args[idIndex + 1] : undefined;
+  const ids = idsValue?.split(",").filter(Boolean);
   if (limitIndex >= 0 && (!Number.isInteger(limit) || (limit ?? 0) < 1)) {
     throw new Error("--limit must be a positive number of passage groups");
   }
-  if (idIndex >= 0 && (!id || id.startsWith("--"))) throw new Error("--id must be followed by a stable passage-group id");
+  if ((idIndex >= 0 || idsIndex >= 0) && (!ids?.length || ids.some((id) => id.startsWith("--")))) throw new Error("--id/--ids must be followed by stable passage-group id(s)");
   if (dryRun && preview) throw new Error("Use either --dry-run or --preview, not both");
-  if (preview && !limit && !id) throw new Error("--preview requires --limit N or --id so it only translates a small sample");
-  return { dryRun, preview, force, limit, id };
+  if (preview && !limit && !ids) throw new Error("--preview requires --limit N or --id so it only translates a small sample");
+  return { dryRun, preview, force, limit, ids };
 }
 
 function sleep(ms: number): Promise<void> {
@@ -312,10 +315,11 @@ async function generateBatch(apiKey: string, targets: Target[]): Promise<Enrichm
 }
 
 async function main() {
-  const { dryRun, preview, force, limit, id } = parseArgs();
+  const { dryRun, preview, force, limit, ids } = parseArgs();
   const { sources, targets: allTargets } = collectTargets(force);
-  const targets = id ? allTargets.filter((target) => target.id === id) : allTargets;
-  if (id && targets.length === 0) throw new Error(`No eligible passage group found for id: ${id}`);
+  const targets = ids ? allTargets.filter((target) => ids.includes(target.id)) : allTargets;
+  const missingIds = ids?.filter((id) => !targets.some((target) => target.id === id));
+  if (missingIds?.length) throw new Error(`No eligible passage group found for id(s): ${missingIds.join(", ")}`);
   const questionCount = targets.reduce((sum, target) => sum + target.questions.length, 0);
   const cache = loadCache();
   console.log(`Model: ${MODEL}`);
@@ -325,7 +329,7 @@ async function main() {
 
   const runTargets = limit ? targets.slice(0, limit) : targets;
   const apiKey = readApiKey();
-  const pending = runTargets.filter((target) => cache[target.id]?.version !== CACHE_VERSION);
+  const pending = runTargets.filter((target) => force || cache[target.id]?.version !== CACHE_VERSION);
   console.log(`To generate in this run: ${pending.length}${preview ? " (preview; source files will not be changed)" : ""}`);
 
   for (let start = 0; start < pending.length; start += BATCH_SIZE) {

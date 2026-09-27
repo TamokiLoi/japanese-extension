@@ -25,6 +25,10 @@ export interface DeThiQuestion {
   // review attempts a conservative sentence alignment from passageVi and
   // falls back to a whole-paragraph translation if the counts do not match.
   passageSentencesVi?: string[];
+  // Furigana for the shared reading passage, stored on one question in its
+  // problem group and reused by the other questions in that passage. Only
+  // shown in submitted-answer/history review, never during the exam attempt.
+  passageFurigana?: ReadingBodySegment[];
   // Optional -- most papers don't have this yet (see _scratch/build_dethi_
   // explanation.py). 1 câu tiếng Việt ngắn gọn giải thích vì sao đáp án đúng
   // là đúng (đọc/nghĩa cho câu chữ-từ vựng, mẫu ngữ pháp cho câu văn phạm,
