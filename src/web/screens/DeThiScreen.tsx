@@ -207,6 +207,55 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function splitPassageParagraphs(text: string): { text: string; start: number; end: number }[] {
+  const ranges: { text: string; start: number; end: number }[] = [];
+  const separator = /\r?\n[\t ]*\r?\n/gu;
+  let cursor = 0;
+  for (const match of text.matchAll(separator)) {
+    const start = match.index ?? cursor;
+    const raw = text.slice(cursor, start);
+    const leading = raw.length - raw.trimStart().length;
+    const trailing = raw.length - raw.trimEnd().length;
+    if (raw.trim()) ranges.push({ text: raw.trim(), start: cursor + leading, end: start - trailing });
+    cursor = start + match[0].length;
+  }
+  const tail = text.slice(cursor);
+  const tailLeading = tail.length - tail.trimStart().length;
+  const tailTrailing = tail.length - tail.trimEnd().length;
+  if (tail.trim()) ranges.push({ text: tail.trim(), start: cursor + tailLeading, end: text.length - tailTrailing });
+
+  return ranges.flatMap((paragraph) => {
+    const lines = [...paragraph.text.matchAll(/[^\r\n]+/gu)].map((match) => ({
+      text: match[0],
+      start: match.index ?? 0,
+    }));
+    if (lines.length < 2 || lines.length > 12 || paragraph.text.includes("|")) return [paragraph];
+
+    const isStructuredLine = (line: string) =>
+      /^\s*(?:[-*•・※]|\(?\d+\)?[.)、]|(?:日時|日\s*時|場所|料金|電話|営業時間|開室時間|連絡先|参加方法|持ち物|対象|申込)[：:])/u.test(line);
+    if (lines.some(({ text: line }) => isStructuredLine(line))) return [paragraph];
+
+    const longLines = lines.filter(({ text: line }) => line.trim().length >= 50).length;
+    const hasShortTitle = lines[0].text.trim().length <= 40 && !/[。！？!?」』）)]\s*$/u.test(lines[0].text.trim());
+    const candidateBreakLines = lines.slice(hasShortTitle ? 1 : 0, -1);
+    const sentenceEndedLines = candidateBreakLines.filter(({ text: line }) => /[。！？!?」』）)]\s*$/u.test(line.trim())).length;
+    const hasParagraphLikeBreaks = candidateBreakLines.length === 0
+      ? hasShortTitle
+      : sentenceEndedLines === candidateBreakLines.length;
+    if (!hasParagraphLikeBreaks || longLines < Math.ceil(lines.length / 2)) return [paragraph];
+
+    return lines.map(({ text: line, start }) => {
+      const leading = line.length - line.trimStart().length;
+      const trailing = line.length - line.trimEnd().length;
+      return {
+        text: line.trim(),
+        start: paragraph.start + start + leading,
+        end: paragraph.start + start + line.length - trailing,
+      };
+    });
+  });
+}
+
 function examGrammarChunks(pattern: string): string[] {
   return pattern.replace(/（[^）]*）/gu, "").split("〜").map((part) => part.trim()).filter((part) => part.length >= 3);
 }
@@ -230,21 +279,7 @@ function PassageTextWithReferences({
     ? [...new Set(referenceTerms.filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length)
     : [];
   const pattern = terms.length > 0 ? new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gu") : null;
-  const paragraphRanges: { text: string; start: number; end: number }[] = [];
-  const separator = /\r?\n[\t ]*\r?\n/gu;
-  let cursor = 0;
-  for (const match of text.matchAll(separator)) {
-    const start = match.index ?? cursor;
-    const raw = text.slice(cursor, start);
-    const leading = raw.length - raw.trimStart().length;
-    const trailing = raw.length - raw.trimEnd().length;
-    if (raw.trim()) paragraphRanges.push({ text: raw.trim(), start: cursor + leading, end: start - trailing });
-    cursor = start + match[0].length;
-  }
-  const tail = text.slice(cursor);
-  const tailLeading = tail.length - tail.trimStart().length;
-  const tailTrailing = tail.length - tail.trimEnd().length;
-  if (tail.trim()) paragraphRanges.push({ text: tail.trim(), start: cursor + tailLeading, end: text.length - tailTrailing });
+  const paragraphRanges = splitPassageParagraphs(text);
 
   const renderHighlightedText = (value: string) => pattern
     ? value.split(pattern).map((part, index) => terms.includes(part) ? (
@@ -312,7 +347,7 @@ function PassageTextWithReferences({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {paragraphRanges.map((paragraph, paragraphIndex) => {
         const tableRows = tableRowsForParagraph(paragraph);
         return tableRows ? (
@@ -1208,7 +1243,9 @@ function TakingView({
         </div>
 
         {passage ? (
-          <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700"><PassageText text={passage} questionNumber={q.number} /></div>
+          <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
+            <PassageTextWithReferences text={passage} questionNumber={q.number} referenceTerms={[]} highlightReferences={false} />
+          </div>
         ) : null}
 
         <div className="mt-4 flex items-start gap-2 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">

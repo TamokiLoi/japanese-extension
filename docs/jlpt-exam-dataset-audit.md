@@ -20,6 +20,14 @@ Kiểm tra từng phần và từng câu theo thứ tự trang, không lấy m�
 - Kiểm tra mọi trang thuộc câu hỏi, kể cả trang bảng, tờ rơi, hình minh họa, lựa chọn bằng hình và trang tiếp nối. Gộp trang bổ sung vào đúng passage/câu; ghi rõ mọi trang nguồn chưa đưa vào dữ liệu hoặc hình ảnh chưa có asset.
 - Kiểm tra câu prompt được đánh số theo số in trên đề (`number`), không dùng vị trí phần tử của mảng làm số hiển thị. Số cần nhất quán giữa câu, thanh điều hướng, kết quả và lịch sử.
 
+### Bằng chứng bắt buộc khi rà toàn bộ 読解
+
+Lập danh sách **bài đọc gốc trước**, từ PDF, rồi ánh xạ tất cả câu hỏi dùng mỗi bài sang JSON. Mỗi hàng báo cáo cần có: ID đề; `problemGroup` và số câu; trang PDF vật lý (và số trang in nếu có); câu/dòng đầu và cuối của bài gốc; câu/dòng đầu và cuối của passage app; phần tiêu đề, lời dẫn, đoạn văn, bảng/danh sách, chú thích hoặc trang nối bị thiếu/sai; và đường dẫn JSON/câu liên quan. Với bảng, lịch, quảng cáo và email, kiểm tra cả điều kiện, mức phí, thời gian, chữ ký và thông tin liên hệ nếu chúng có trong nguồn.
+
+Đánh giá riêng hai cột: `đủ toàn văn nguồn?` và `đủ dữ kiện để trả lời?`. Cột thứ hai phải có kết luận theo **từng số câu**, dựa trên đúng passage, prompt và lựa chọn hiện ra khi làm bài; ghi dữ kiện cần dùng và vị trí của nó trong app. Một đoạn trích có thể đủ để chọn đáp án nhưng vẫn thiếu toàn văn nguồn. Ngược lại, đủ chữ nhưng thiếu bảng/hình hoặc đánh dấu câu hỏi vẫn có thể làm câu không giải được. Câu không tìm được trong PDF hoặc trang mờ phải để `chưa xác minh`.
+
+Đối chiếu cả số **nhóm bài gốc** và toàn bộ số câu, không chỉ số câu trong JSON: model có thể gộp nhầm hai nhóm hoặc bỏ một nhóm mà vẫn bao phủ đủ số câu. Kết luận tự động kiểu “mọi bài đều đầy đủ” không phải bằng chứng; kiểm tra các anchor đầu/cuối và ít nhất các phần bị nghi thiếu trên ảnh trang PDF. Nếu kiểm tra giao diện bằng Playwright, ảnh chụp giúp xác nhận phần app hiển thị đúng dữ liệu sau khi resolver bài chung chạy, nhưng PDF vẫn là chuẩn nội dung và cấu trúc.
+
 ## 3. Bản dịch, lời giải và định dạng học
 
 - Với câu đọc hiểu, cung cấp bản dịch đầy đủ của passage, prompt từng câu và từng lựa chọn. `optionsVi` phải cùng số phần tử, cùng thứ tự với `options`; không bỏ lựa chọn, nhập hai lựa chọn thành một hoặc làm phương án sai thành đúng. Dịch giữ tên riêng, số liệu, ngày giờ, đơn vị, tiêu đề và xuống dòng có ý nghĩa.
