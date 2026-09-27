@@ -18,6 +18,7 @@ import {
   resetPassageAnswers,
   matchesFilters,
   splitBodyIntoSentences,
+  type ReadingPassageViewOptions,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
 import { findVocabInPassage, findBunpoInPassage } from "../../popup/readingLinks.ts";
@@ -173,9 +174,15 @@ export function ReadingScreen({
           showFurigana: false,
           showTranslation: false,
           showStudyNote: false,
-          resultsRevealed: false,
+          resultsRevealed: getPassageProgress(passage, s.answers).status === "done",
         };
         await saveViewerState(s);
+      } else if (s.currentPassageId) {
+        const currentPassage = findReadingById(s.currentPassageId);
+        if (currentPassage && getPassageProgress(currentPassage, s.answers).status === "done" && !s.resultsRevealed) {
+          s = { ...s, resultsRevealed: true };
+          await saveViewerState(s);
+        }
       }
       if (cancelled) return;
       setState(s);
@@ -217,14 +224,12 @@ export function ReadingScreen({
     await mutate({
       currentPassageId: passage.id,
       answers: { ...state!.answers, [passage.id]: state!.answers[passage.id] ?? passage.questions.map(() => null) },
-      // Furigana/translation/study-note visibility is a per-reading-session
-      // toggle, not a lasting preference -- reset to the default (hidden)
-      // each time a (possibly unrelated) new passage is opened, so a choice
-      // made on one passage doesn't silently carry over to the next.
+      // Reset the session-level fallback when switching passages; per-passage
+      // display choices are retained separately in passageViewOptions.
       showFurigana: false,
       showTranslation: false,
       showStudyNote: false,
-      resultsRevealed: false,
+      resultsRevealed: getPassageProgress(passage, state!.answers).status === "done",
     });
   }
 
@@ -234,7 +239,6 @@ export function ReadingScreen({
         passage={passage}
         state={state}
         mutate={mutate}
-        setError={setError}
         onOpenVocab={onOpenVocab}
         onOpenBunpo={onOpenBunpo}
         visiblePassages={visiblePassages}
@@ -543,7 +547,6 @@ function PassageView({
   passage,
   state,
   mutate,
-  setError,
   onOpenVocab,
   onOpenBunpo,
   visiblePassages,
@@ -552,7 +555,6 @@ function PassageView({
   passage: ReadingPassage;
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
-  setError: (e?: string) => void;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string) => void;
   visiblePassages: ReadingPassage[];
@@ -571,14 +573,25 @@ function PassageView({
     ...bunpoMatches.flatMap((g) => extractMatchChunks(g.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
   ];
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
-  const [highlightReferences, setHighlightReferences] = useState(false);
-  const [visibleQuestionTranslations, setVisibleQuestionTranslations] = useState<Record<number, boolean>>({});
+  const viewOptions = state.passageViewOptions[passage.id] ?? {};
+  const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
+  const showTranslation = viewOptions.showTranslation ?? state.showTranslation;
+  const showStudyNote = viewOptions.showStudyNote ?? state.showStudyNote;
+  const highlightReferences = viewOptions.highlightReferences ?? (allAnswered && state.resultsRevealed);
+  const visibleQuestionTranslations = viewOptions.visibleQuestionTranslations ?? {};
 
   useEffect(() => {
     setReferenceTab("questions");
-    setHighlightReferences(false);
-    setVisibleQuestionTranslations({});
   }, [passage.id]);
+
+  function updateViewOptions(partial: Partial<ReadingPassageViewOptions>) {
+    void mutate({
+      passageViewOptions: {
+        ...state.passageViewOptions,
+        [passage.id]: { ...viewOptions, ...partial },
+      },
+    });
+  }
 
   const currentIndex = visiblePassages.findIndex((p) => p.id === passage.id);
   const prevPassage = currentIndex > 0 ? visiblePassages[currentIndex - 1] : null;
@@ -588,24 +601,7 @@ function PassageView({
 
   async function handleReset() {
     if (!(await confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`))) return;
-    await mutate(resetPassageAnswers(state, passage.id));
-  }
-
-  async function handleAnother() {
-    const next = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, passage.id);
-    if (!next) {
-      setError("Không có bài đọc nào khớp bộ lọc này.");
-      await mutate({ currentPassageId: null });
-      return;
-    }
-    await mutate({
-      currentPassageId: next.id,
-      answers: { ...state.answers, [next.id]: state.answers[next.id] ?? next.questions.map(() => null) },
-      showFurigana: false,
-      showTranslation: false,
-      showStudyNote: false,
-      resultsRevealed: false,
-    });
+    await mutate({ ...resetPassageAnswers(state, passage.id), resultsRevealed: false });
   }
 
   return (
@@ -644,40 +640,40 @@ function PassageView({
 
       <div className="mt-4 flex flex-wrap gap-2">
         <button
-          onClick={() => mutate({ showFurigana: !state.showFurigana })}
-          className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${state.showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
+          onClick={() => updateViewOptions({ showFurigana: !showFurigana })}
+          className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
         >
-          {state.showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+          {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
         </button>
         <button
-          onClick={() => mutate({ showTranslation: !state.showTranslation })}
-          className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${state.showTranslation ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
+          onClick={() => updateViewOptions({ showTranslation: !showTranslation })}
+          className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${showTranslation ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
         >
-          {state.showTranslation ? "Ẩn bản dịch" : "Xem bản dịch"}
+          {showTranslation ? "Ẩn bản dịch" : "Xem bản dịch"}
         </button>
         {passage.studyNote ? (
           <button
-            onClick={() => mutate({ showStudyNote: !state.showStudyNote })}
-            className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${state.showStudyNote ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
+            onClick={() => updateViewOptions({ showStudyNote: !showStudyNote })}
+            className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${showStudyNote ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
           >
-            {state.showStudyNote ? "Ẩn ghi chú" : "Xem ghi chú"}
+            {showStudyNote ? "Ẩn ghi chú" : "Xem ghi chú"}
           </button>
         ) : null}
       </div>
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="text-lg leading-loose text-neutral-800">
-          {state.showTranslation && passage.sentencesVi ? (
+          {showTranslation && passage.sentencesVi ? (
             <ReadingBodyInterleaved
               passage={passage}
-              showFurigana={state.showFurigana}
+              showFurigana={showFurigana}
               referenceTerms={referenceTerms}
               highlightReferences={highlightReferences}
             />
           ) : (
             <ReadingBody
               passage={passage}
-              showFurigana={state.showFurigana}
+              showFurigana={showFurigana}
               referenceTerms={referenceTerms}
               highlightReferences={highlightReferences}
             />
@@ -685,7 +681,7 @@ function PassageView({
         </div>
       </Card>
 
-      {state.showTranslation && !passage.sentencesVi ? (
+      {showTranslation && !passage.sentencesVi ? (
         <div className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-relaxed text-amber-800">
           {passage.translationVi.split("\n").map((line, i, arr) => (
             <span key={i}>
@@ -696,7 +692,7 @@ function PassageView({
         </div>
       ) : null}
 
-      {state.showStudyNote && passage.studyNote ? (
+      {showStudyNote && passage.studyNote ? (
         <div className="mt-3 rounded-xl bg-sky-50 p-4 text-sm leading-relaxed text-sky-800">
           {passage.studyNote.split("\n").map((line, i, arr) => (
             <span key={i}>
@@ -740,7 +736,7 @@ function PassageView({
               <p className="mt-0.5 text-xs text-neutral-500">Ưu tiên các từ khó và mẫu ngữ pháp đáng chú ý trong bài đọc.</p>
             </div>
             <button
-              onClick={() => setHighlightReferences(!highlightReferences)}
+              onClick={() => updateViewOptions({ highlightReferences: !highlightReferences })}
               className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
                 highlightReferences ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"
               }`}
@@ -801,10 +797,12 @@ function PassageView({
                 <button
                   type="button"
                   onClick={() =>
-                    setVisibleQuestionTranslations((current) => ({
-                      ...current,
-                      [qi]: !current[qi],
-                    }))
+                    updateViewOptions({
+                      visibleQuestionTranslations: {
+                        ...visibleQuestionTranslations,
+                        [qi]: !showQuestionTranslation,
+                      },
+                    })
                   }
                   className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
                     showQuestionTranslation
@@ -862,22 +860,29 @@ function PassageView({
       </div>
 
       <div className="mt-6 flex flex-col gap-2">
-        <Button
-          className="w-full"
-          onClick={() => mutate({ resultsRevealed: !state.resultsRevealed })}
-          disabled={answeredCount === 0}
-          title={answeredCount === 0 ? "Chọn ít nhất 1 câu trả lời trước" : undefined}
-        >
-          <CheckCircle2 size={16} /> {state.resultsRevealed ? "Ẩn kết quả" : "Kiểm tra kết quả"}
-        </Button>
+        {!allAnswered || !state.resultsRevealed ? (
+          <Button
+            className="w-full"
+            onClick={() => mutate({ resultsRevealed: !state.resultsRevealed })}
+            disabled={answeredCount === 0}
+            title={answeredCount === 0 ? "Chọn ít nhất 1 câu trả lời trước" : undefined}
+          >
+            <CheckCircle2 size={16} /> {state.resultsRevealed ? "Ẩn kết quả" : "Kiểm tra kết quả"}
+          </Button>
+        ) : null}
         <div className="flex gap-2">
           {answeredCount > 0 ? (
             <Button variant="outline" className="flex-1" onClick={handleReset}>
               <Undo2 size={16} /> Làm lại cả bài
             </Button>
           ) : null}
-          <Button variant="outline" className="flex-1" onClick={handleAnother}>
-            <Shuffle size={16} /> Bài khác
+          <Button
+            variant="outline"
+            className="flex-1"
+            onClick={() => nextPassage && openPassage(nextPassage)}
+            disabled={!nextPassage}
+          >
+            <ChevronRight size={16} /> Bài tiếp theo
           </Button>
         </div>
       </div>

@@ -226,6 +226,14 @@ export function getPassageProgress(
 // pattern as KanjiViewerState/VocabViewerState) so a long passage isn't
 // lost -- reopening the screen picks up the same passage, toggle states,
 // and answers already given, instead of re-rolling a random one.
+export interface ReadingPassageViewOptions {
+  showFurigana?: boolean;
+  showTranslation?: boolean;
+  showStudyNote?: boolean;
+  highlightReferences?: boolean;
+  visibleQuestionTranslations?: Record<number, boolean>;
+}
+
 export interface ReadingViewerState {
   selectedLevels: JlptLevel[];
   selectedLengths: ReadingLength[];
@@ -235,12 +243,13 @@ export interface ReadingViewerState {
   showTranslation: boolean;
   showStudyNote: boolean;
   // Whether correctness + explanations are revealed for the current
-  // passage's questions -- selecting an answer just records the choice;
-  // nothing about right/wrong shows until this flips true (see the
-  // "Kiểm tra kết quả" toggle), so a whole passage can be answered
-  // exam-style before checking anything.
+  // passage's questions. New answers can be completed exam-style before
+  // checking; completed passages restore their results automatically on review.
   resultsRevealed: boolean;
   answers: Record<string, (number | null)[]>;
+  // Web reading view options are kept per passage so review resumes with the
+  // same furigana, translations, and emphasis the learner enabled previously.
+  passageViewOptions: Record<string, ReadingPassageViewOptions>;
   // "needs-review" is done passages with at least 1 wrong answer -- a
   // subset of "done", not mutually exclusive with it at the data level, but
   // treated as its own distinct filter value here (see ReadingScreen.tsx's
@@ -263,6 +272,7 @@ export function defaultViewerState(): ReadingViewerState {
     showStudyNote: false,
     resultsRevealed: false,
     answers: {},
+    passageViewOptions: {},
     listStatusFilter: "all",
   };
 }
@@ -286,6 +296,7 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     showStudyNote: saved?.showStudyNote ?? fallback.showStudyNote,
     resultsRevealed: saved?.resultsRevealed ?? fallback.resultsRevealed,
     answers: saved?.answers ?? fallback.answers,
+    passageViewOptions: saved?.passageViewOptions ?? fallback.passageViewOptions,
     listStatusFilter: saved?.listStatusFilter ?? fallback.listStatusFilter,
   };
 }

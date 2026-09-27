@@ -106,7 +106,7 @@ export function ReadingScreen({ onBack }: { onBack: () => void }) {
   const passage = state.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
 
   if (passage) {
-    return <PassageView passage={passage} state={state} onBack={onBack} mutate={mutate} setError={setError} />;
+    return <PassageView passage={passage} state={state} onBack={onBack} mutate={mutate} />;
   }
 
   return (
@@ -356,36 +356,31 @@ function PassageView({
   state,
   onBack,
   mutate,
-  setError,
 }: {
   passage: ReadingPassage;
   state: ReadingViewerState;
   onBack: () => void;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
-  setError: (e?: string) => void;
 }) {
   const answers = state.answers[passage.id] ?? passage.questions.map(() => null);
   const answeredCount = answers.filter((a) => a !== null).length;
   const total = passage.questions.length;
   const allAnswered = answeredCount >= total;
   const correctCount = passage.questions.filter((q, qi) => answers[qi] === q.correctIndex).length;
+  const passagePool = ALL_READING.filter((p) => matchesFilters(p, state)).filter((p) => {
+    const progress = getPassageProgress(p, state.answers);
+    if (state.listStatusFilter === "all") return true;
+    if (state.listStatusFilter === "done") return progress.status === "done";
+    if (state.listStatusFilter === "needs-review") return progress.status === "done" && progress.correct < progress.total;
+    if (state.listStatusFilter === "in-progress") return progress.status === "in-progress";
+    return progress.status !== "done";
+  });
+  const passageIndex = passagePool.findIndex((p) => p.id === passage.id);
+  const nextPassage = passageIndex >= 0 ? passagePool[passageIndex + 1] : undefined;
 
   async function handleReset() {
     if (!confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`)) return;
     await mutate(resetPassageAnswers(state, passage.id));
-  }
-
-  async function handleAnother() {
-    const next = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, passage.id);
-    if (!next) {
-      setError("Không có bài đọc nào khớp bộ lọc này.");
-      await mutate({ currentPassageId: null });
-      return;
-    }
-    await mutate({
-      currentPassageId: next.id,
-      answers: { ...state.answers, [next.id]: state.answers[next.id] ?? next.questions.map(() => null) },
-    });
   }
 
   return (
@@ -522,8 +517,15 @@ function PassageView({
           })}
         </div>
 
-        <button className="primary-action-btn reading-another-btn" onClick={handleAnother}>
-          🎲 Bài khác
+        <button
+          className="primary-action-btn reading-another-btn"
+          onClick={() => nextPassage && mutate({
+            currentPassageId: nextPassage.id,
+            answers: { ...state.answers, [nextPassage.id]: state.answers[nextPassage.id] ?? nextPassage.questions.map(() => null) },
+          })}
+          disabled={!nextPassage}
+        >
+          → Bài tiếp theo
         </button>
       </main>
     </>
