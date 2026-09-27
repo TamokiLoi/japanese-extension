@@ -1611,10 +1611,11 @@ function ReviewQuestion({
   const [referenceMatches, setReferenceMatches] = useState<{
     vocab: { id: string; word: string }[];
     bunpo: { id: string; pattern: string }[];
-  }>({ vocab: [], bunpo: [] });
+    vocabTerms: string[];
+  }>({ vocab: [], bunpo: [], vocabTerms: [] });
   useEffect(() => {
     let cancelled = false;
-    setReferenceMatches({ vocab: [], bunpo: [] });
+    setReferenceMatches({ vocab: [], bunpo: [], vocabTerms: [] });
     if (!passage) {
       return () => {
         cancelled = true;
@@ -1622,28 +1623,31 @@ function ReviewQuestion({
     }
     // Load the reading/vocabulary catalogs only when answer review is opened;
     // do not add that bundle or work to the active exam-taking screen.
-    import("../../popup/readingLinks.ts").then(({ findVocabInPassage, findBunpoInPassage }) => {
+    import("../../popup/readingLinks.ts").then(({ findVocabInPassage, findBunpoInPassage, getVocabReferenceTerms }) => {
       if (cancelled) return;
       const source = { level, body: [{ text: passage, furigana: null }] };
+      const vocab = findVocabInPassage(source);
+      const bunpo = findBunpoInPassage(source);
       setReferenceMatches({
-        vocab: findVocabInPassage(source),
-        bunpo: findBunpoInPassage(source),
+        vocab,
+        bunpo,
+        vocabTerms: vocab.flatMap((vocab) => getVocabReferenceTerms(vocab)),
       });
     }).catch(() => {
-      if (!cancelled) setReferenceMatches({ vocab: [], bunpo: [] });
+      if (!cancelled) setReferenceMatches({ vocab: [], bunpo: [], vocabTerms: [] });
     });
     return () => {
       cancelled = true;
     };
   }, [level, passage]);
-  const { vocab: vocabMatches, bunpo: bunpoMatches } = referenceMatches;
+  const { vocab: vocabMatches, bunpo: bunpoMatches, vocabTerms } = referenceMatches;
   const hasReferences = !!passage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
   const referenceTerms = useMemo(
     () => [
-      ...vocabMatches.map((vocab) => vocab.word),
+      ...vocabTerms,
       ...bunpoMatches.flatMap((grammar) => examGrammarChunks(grammar.pattern)),
     ],
-    [bunpoMatches, vocabMatches],
+    [bunpoMatches, vocabTerms],
   );
 
   const translatedUnits = useMemo(

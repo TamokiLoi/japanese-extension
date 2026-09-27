@@ -23,6 +23,7 @@ import type {
   TanoshiiSynonymDataset,
   TransitivityPairDataset,
   VerbConjugations,
+  VocabPos,
 } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
@@ -51,6 +52,7 @@ export interface VocabCard {
   word: string;
   reading: string | null;
   level: JlptLevel;
+  partOfSpeech?: VocabPos;
   // Cùng 1 từ có thể xuất hiện ở nhiều bộ (vd vừa có trong Mimikara vừa có
   // trong Tango bổ sung) -- khi đó mergeDuplicateVocab() gộp lại thành 1
   // thẻ duy nhất, liệt kê đủ các nguồn ở đây thay vì tạo thẻ trùng lặp cho
@@ -186,6 +188,7 @@ function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): 
     word: w.word,
     reading: w.reading,
     level: w.level,
+    partOfSpeech: w.partOfSpeech,
     sources: [source],
     hanViet: w.hanViet,
     meaningVi: w.meaningVi,
@@ -248,6 +251,7 @@ function fromTransitivityPairs(dataset: TransitivityPairDataset): VocabCard[] {
       word: p.jidoushi,
       reading: p.jidoushiReading,
       level: p.level,
+      partOfSpeech: "Động từ",
       sources: ["doicap-tudongtu"],
       hanViet: [],
       meaningVi: p.meaningVi,
@@ -263,6 +267,7 @@ function fromTransitivityPairs(dataset: TransitivityPairDataset): VocabCard[] {
       word: p.tadoushi,
       reading: p.tadoushiReading,
       level: p.level,
+      partOfSpeech: "Động từ",
       sources: ["doicap-tudongtu"],
       hanViet: [],
       meaningVi: p.meaningVi,
@@ -318,6 +323,7 @@ function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
       example: pick((c) => c.example, (v: string | null) => !v) ?? null,
       exampleVi: pick((c) => c.exampleVi, (v: string | null) => !v) ?? null,
       pairVerb: pick((c) => c.pairVerb, (v: { word: string; reading: string | null }) => !v) ?? null,
+      partOfSpeech: pick((c) => c.partOfSpeech, (v: VocabPos) => !v || v === "Khác"),
       verbGroup: pick((c) => c.verbGroup, (v: string) => !v),
       transitivity: pick((c) => c.transitivity, (v: string) => !v),
       conjugations: pick((c) => c.conjugations, (v: VerbConjugations) => !v || Object.keys(v).length === 0),

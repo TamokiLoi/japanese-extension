@@ -21,7 +21,7 @@ import {
   type ReadingPassageViewOptions,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
-import { findVocabInPassage, findBunpoInPassage } from "../../popup/readingLinks.ts";
+import { findVocabInPassage, findBunpoInPassage, getVocabReferenceTerms } from "../../popup/readingLinks.ts";
 import { extractMatchChunks } from "../../popup/bunpoLinks.ts";
 import { recordAnswer } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
@@ -569,7 +569,7 @@ function PassageView({
   const vocabMatches = findVocabInPassage(passage);
   const bunpoMatches = findBunpoInPassage(passage);
   const referenceTerms: ReferenceTerm[] = [
-    ...vocabMatches.map((v) => ({ text: v.word, kind: "vocab" as const })),
+    ...vocabMatches.flatMap((v) => getVocabReferenceTerms(v).map((text) => ({ text, kind: "vocab" as const }))),
     ...bunpoMatches.flatMap((g) => extractMatchChunks(g.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
   ];
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
