@@ -924,18 +924,18 @@
       "level": "N3",
       "book": "dethi-n3-2023-12",
       "category": "bunpou",
-      "question": "私は歌手の石川あかりが大好きだ。彼女★＿＿＿ースの声がきれいな歌いと思う。",
+      "question": "私は歌手の石川あかりが大好きだ。彼女 [ ★ ] [　　] [　　] [　　] いないと思う。",
       "options": [
         "声がきれいな",
         "は",
         "歌手",
         "ほど"
       ],
-      "correctIndex": 2,
-      "explanation": "Thứ tự sắp xếp đúng: 彼女は歌手ほど声がきれいではないと思う (hoặc tùy biến theo ngữ cảnh ca sĩ): [彼女は (2) 歌手 (3) ほど (4) 声がきれいな (1)].",
+      "correctIndex": 3,
+      "explanation": "Thứ tự đúng là 4 → 1 → 3 → 2:「彼女ほど声が綺麗な歌手はいないと思う」(Tôi nghĩ không có ca sĩ nào có giọng hát hay như cô ấy). Ô ★ là vị trí đầu tiên nên chọn 「ほど」 (đáp án 4).",
       "explanationEn": "",
       "notes": [
-        "⚠️ Đề thi thật không kèm đáp án gốc — đáp án do Gemini suy luận (độ tin cậy trung bình, nên tự kiểm tra lại)."
+        "Đã đối chiếu với PDF đáp án N3 T12/2023, trang 4."
       ]
     },
     {
@@ -943,18 +943,18 @@
       "level": "N3",
       "book": "dethi-n3-2023-12",
       "category": "bunpou",
-      "question": "最近は野菜や魚などの食料品も★＿＿＿ースで知った。",
+      "question": "最近は野菜や魚などの食料品も [　　] [　　] [ ★ ] [　　] ニュースで知った。",
       "options": [
         "人が",
         "増えてきている",
         "インターネットで買う",
         "ということを"
       ],
-      "correctIndex": 3,
-      "explanation": "Sắp xếp đúng ngữ pháp mệnh đề bổ nghĩa: [インターネットで買う (3) 人が (1) 増えてきている (2) ということを (4) ニュースで知った].",
+      "correctIndex": 1,
+      "explanation": "Thứ tự đúng là 3 → 1 → 2 → 4:「食料品もインターネットで買う人が増えてきているということをニュースで知った」(Tôi biết qua tin tức rằng ngày càng có nhiều người mua thực phẩm như rau và cá qua Internet). Ô ★ là vị trí thứ ba, chọn 「増えてきている」 (đáp án 2).",
       "explanationEn": "",
       "notes": [
-        "⚠️ Đề thi thật không kèm đáp án gốc — đáp án do Gemini suy luận (độ tin cậy trung bình, nên tự kiểm tra lại)."
+        "Đã đối chiếu với PDF đáp án N3 T12/2023, trang 4."
       ]
     },
     {
@@ -962,7 +962,7 @@
       "level": "N3",
       "book": "dethi-n3-2023-12",
       "category": "bunpou",
-      "question": "中山「林先輩、ゼミの発表で使う資料を作ったんですが、★＿＿＿ででしょうか。」\n林「いいですよ。」",
+      "question": "中山「林先輩、ゼミの発表で使う資料を作ったんですが、[　　] [　　] [ ★ ] [　　] でしょうか。」\n林「いいですよ。」",
       "options": [
         "もらえない",
         "ところがあるので",
@@ -970,10 +970,10 @@
         "自信がない"
       ],
       "correctIndex": 2,
-      "explanation": "Sắp xếp câu nhờ vả: [一度チェックして (3) もらえない (1) だろうか].",
+      "explanation": "Thứ tự đúng là 4 → 2 → 3 → 1:「自信がないところがあるので、一度チェックしてもらえないでしょうか」(Em có vài chỗ chưa yên tâm, anh/chị kiểm tra giúp em một lần được không?). Ô ★ là vị trí thứ ba, chọn 「一度チェックして」 (đáp án 3).",
       "explanationEn": "",
       "notes": [
-        "⚠️ Đề thi thật không kèm đáp án gốc — đáp án do Gemini suy luận (độ tin cậy trung bình, nên tự kiểm tra lại)."
+        "Đã đối chiếu với PDF đáp án N3 T12/2023, trang 4."
       ]
     },
     {
@@ -981,18 +981,18 @@
       "level": "N3",
       "book": "dethi-n3-2023-12",
       "category": "bunpou",
-      "question": "今朝は急いでいたから、★＿＿＿しまった。",
+      "question": "今朝は急いでいたから、[　　] [　　] [ ★ ] [　　] しまった。",
       "options": [
         "玄関の電気を消すのを",
         "きて",
         "家を出て",
         "忘れて"
       ],
-      "correctIndex": 0,
-      "explanation": "Sắp xếp mẫu quên làm gì: [玄関の電気を消すのを (1) 忘れて (4) しまった].",
+      "correctIndex": 2,
+      "explanation": "Thứ tự đúng là 1 → 4 → 3 → 2:「玄関の電気を消すのを忘れて家を出てきてしまった」(Sáng nay vì vội nên tôi đã ra khỏi nhà mà quên tắt đèn ở lối vào). Ô ★ là vị trí thứ ba, chọn 「家を出て」 (đáp án 3).",
       "explanationEn": "",
       "notes": [
-        "⚠️ Đề thi thật không kèm đáp án gốc — đáp án do Gemini suy luận (độ tin cậy cao, câu khách quan)."
+        "Đã đối chiếu với PDF đáp án N3 T12/2023, trang 4."
       ]
     },
     {
@@ -1000,18 +1000,18 @@
       "level": "N3",
       "book": "dethi-n3-2023-12",
       "category": "bunpou",
-      "question": "読書が趣味の友人は、いつどんな本を読んだかを★＿＿＿そうだ。",
+      "question": "読書が趣味の友人は、いつどんな本を読んだかを [　　] [　　] [ ★ ] [　　] そうだ。",
       "options": [
         "必ずノートに記録する",
         "忘れない",
         "ように",
         "ことにしている"
       ],
-      "correctIndex": 2,
-      "explanation": "Mẫu câu chỉ mục tiêu/thói quen: [必ずノートに記録する (1) ように (3) している (4)].",
+      "correctIndex": 0,
+      "explanation": "Thứ tự đúng là 2 → 3 → 1 → 4:「忘れないように必ずノートに記録することにしているそうだ」(Nghe nói người bạn thích đọc sách luôn ghi vào sổ để không quên mình đã đọc sách nào và khi nào). Ô ★ là vị trí thứ ba, chọn 「必ずノートに記録する」 (đáp án 1).",
       "explanationEn": "",
       "notes": [
-        "⚠️ Đề thi thật không kèm đáp án gốc — đáp án do Gemini suy luận (độ tin cậy trung bình, nên tự kiểm tra lại)."
+        "Đã đối chiếu với PDF đáp án N3 T12/2023, trang 4."
       ]
     }
   ]
