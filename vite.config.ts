@@ -114,6 +114,10 @@ const pwa = VitePWA({
       "assets/storage-*.js",
       "assets/*.woff2",
     ],
+    // These are standalone static preview pages in `public/`, not SPA routes.
+    // Without the denylist, a PWA-controlled navigation serves the cached
+    // app shell for the preview URL, whose hashed app chunks may then 404.
+    navigateFallbackDenylist: [/^\/japanese-extension\/audio-preview(?:\/|$)/],
     runtimeCaching: [
       {
         urlPattern: /\/japanese-extension\/assets\/.*\.(?:js|css|woff2?)$/,
