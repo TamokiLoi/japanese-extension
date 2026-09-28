@@ -11,7 +11,7 @@ import { join } from "node:path";
 import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi.ts";
 
 const ROOT = join(import.meta.dirname, "..");
-const MODEL = "gemini-3.1-flash-lite";
+const MODEL = "gemini-3.5-flash-lite";
 const CACHE_VERSION = 3;
 const DATASETS: { path: string; paperId: string; readingGroups: string[] }[] = [
   { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
@@ -61,12 +61,18 @@ function parseArgs() {
   return { dryRun, preview, force, limit, id };
 }
 
-function readApiKey(): string {
+function readApiKeys(): string[] {
   const path = join(ROOT, "_scratch/.env.gemini");
   const text = readFileSync(path, "utf8");
-  const match = text.match(/^GEMINI_API_KEY=(\S+)/m);
-  if (!match) throw new Error("No GEMINI_API_KEY found in _scratch/.env.gemini");
-  return match[1];
+  const keys = text.split(/\r?\n/u).flatMap((line) => {
+    const match = line.trim().match(/^GEMINI_API_KEY(?:_[A-Z0-9_]+)?=(.*)$/u);
+    if (!match) return [];
+    let value = match[1].trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+    return value ? [value] : [];
+  });
+  if (!keys.length) throw new Error("No Gemini API keys found in _scratch/.env.gemini");
+  return keys;
 }
 
 function sleep(ms: number): Promise<void> { return new Promise((resolve) => setTimeout(resolve, ms)); }
@@ -227,10 +233,11 @@ function responseSchema() {
   };
 }
 
-async function sendGeminiJson(apiKey: string, prompt: string, schema = responseSchema()): Promise<unknown> {
+async function sendGeminiJson(apiKeys: string[], prompt: string, schema = responseSchema()): Promise<unknown> {
   const waitMs = DELAY_MS - (Date.now() - lastGeminiRequestAt);
   if (waitMs > 0) await sleep(waitMs);
   lastGeminiRequestAt = Date.now();
+  const apiKey = apiKeys[apiCallCount % apiKeys.length];
   apiCallCount++;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
     method: "POST",
@@ -298,6 +305,7 @@ function missingKanjiPositions(passage: string, annotations: Annotation[], label
   const covered = new Array<boolean>(passage.length).fill(false);
   let cursor = 0;
   for (const annotation of annotations) {
+    if (!annotation || typeof annotation.word !== "string" || typeof annotation.reading !== "string" || !annotation.word || !HAS_KANJI.test(annotation.word) || !KANA_ONLY.test(annotation.reading)) continue;
     const start = passage.indexOf(annotation.word, cursor);
     if (start < 0) continue;
     for (let i = start; i < start + annotation.word.length; i++) covered[i] = true;
@@ -326,7 +334,7 @@ function repairResponseSchema() {
   };
 }
 
-async function repairMissingReadings(apiKey: string, targets: ChunkTarget[], results: Enrichment[]): Promise<Enrichment[]> {
+async function repairMissingReadings(apiKeys: string[], targets: ChunkTarget[], results: Enrichment[]): Promise<Enrichment[]> {
   const missing = targets.flatMap((target, index) => {
     const positions = missingKanjiPositions(target.passage, results[index].annotations, target.id);
     return positions.length ? [{ id: target.id, source: target.passage, positions }] : [];
@@ -339,7 +347,7 @@ async function repairMissingReadings(apiKey: string, targets: ChunkTarget[], res
     "Không được bỏ sót vị trí nào, không thêm vị trí ngoài danh sách. Dùng context quanh chữ Hán và câu nguồn để chọn cách đọc, kể cả âm biến đổi trong từ ghép; ví dụ 買い物 có 買=か、物=もの; 気に入った có 入=い.",
     JSON.stringify(missing),
   ].join("\n\n");
-  const response = await sendGeminiJson(apiKey, prompt, repairResponseSchema());
+  const response = await sendGeminiJson(apiKeys, prompt, repairResponseSchema());
   if (!Array.isArray(response) || response.length !== missing.length) throw new Error(`Furigana repair expected ${missing.length} items`);
   const responseById = new Map<string, { id?: string; annotations?: { position?: number; word?: string; reading?: string }[] }>();
   for (const item of response as { id?: string; annotations?: { position?: number; word?: string; reading?: string }[] }[]) {
@@ -367,6 +375,7 @@ async function repairMissingReadings(apiKey: string, targets: ChunkTarget[], res
     const existing: { start: number; end: number; annotation: Annotation }[] = [];
     let cursor = 0;
     for (const annotation of results[index].annotations) {
+      if (!annotation || typeof annotation.word !== "string" || typeof annotation.reading !== "string" || !annotation.word || !HAS_KANJI.test(annotation.word) || !KANA_ONLY.test(annotation.reading)) continue;
       const start = target.passage.indexOf(annotation.word, cursor);
       if (start < 0) continue;
       existing.push({ start, end: start + annotation.word.length, annotation });
@@ -390,13 +399,13 @@ function flattenChunks(targets: Target[]): ChunkTarget[] {
   return targets.flatMap(({ chunks, ...target }) => chunks.map((passage, chunkIndex) => ({ ...target, passage, chunkIndex, id: `${target.id}::${chunkIndex + 1}` })));
 }
 
-async function generateBatch(apiKey: string, targets: Target[]): Promise<PassageEnrichment[]> {
+async function generateBatch(apiKeys: string[], targets: Target[]): Promise<PassageEnrichment[]> {
   const chunkTargets = flattenChunks(targets);
   let correction: string | undefined;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const initialResults = validateBatch(await sendGeminiJson(apiKey, makePrompt(chunkTargets, correction)), chunkTargets, false);
-      const chunkResults = await repairMissingReadings(apiKey, chunkTargets, initialResults);
+      const initialResults = validateBatch(await sendGeminiJson(apiKeys, makePrompt(chunkTargets, correction)), chunkTargets, false);
+      const chunkResults = await repairMissingReadings(apiKeys, chunkTargets, initialResults);
       const chunkResultsById = new Map(chunkResults.map((result) => [result.id, result]));
       return targets.map((target) => {
         const segments = target.chunks.flatMap((chunk, chunkIndex) => {
@@ -441,7 +450,7 @@ async function main() {
   if (dryRun) return;
 
   const runTargets = limit ? targets.slice(0, limit) : targets;
-  const apiKey = readApiKey();
+  const apiKeys = readApiKeys();
   const pending = runTargets.filter((target) => !cachedResultMatchesTarget(target, cache[target.id]));
   console.log(`To generate in this run: ${pending.length}${preview ? " (preview; source files unchanged)" : ""}`);
   for (let start = 0; start < pending.length;) {
@@ -454,7 +463,7 @@ async function main() {
       chunkCount += next.chunks.length;
       if (chunkCount >= MAX_CHUNKS_PER_REQUEST) break;
     }
-    const results = await generateBatch(apiKey, batch);
+    const results = await generateBatch(apiKeys, batch);
     for (let i = 0; i < batch.length; i++) cache[batch[i].id] = { version: CACHE_VERSION, result: results[i] };
     writeJsonAtomic(CACHE_PATH, cache);
     start += batch.length;

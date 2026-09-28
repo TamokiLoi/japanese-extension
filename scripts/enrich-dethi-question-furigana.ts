@@ -12,7 +12,7 @@ import { join } from "node:path";
 import type { DeThiDataset, DeThiQuestion } from "../src/types/dethi.ts";
 
 const ROOT = join(import.meta.dirname, "..");
-const MODEL = "gemini-3.1-flash-lite";
+const MODEL = "gemini-3.5-flash-lite";
 const CACHE_VERSION = 1;
 const DATA_FILES = ["src/data/dethi-n1-cac-nam.json", "src/data/dethi-n3-cac-nam.json"];
 const CACHE_PATH = join(ROOT, `_scratch/dethi-question-furigana-cache-${MODEL}.json`);
@@ -31,11 +31,17 @@ type Cache = Record<string, CacheEntry>;
 let lastGeminiRequestAt = 0;
 let apiCallCount = 0;
 
-function readApiKey(): string {
+function readApiKeys(): string[] {
   const text = readFileSync(join(ROOT, "_scratch/.env.gemini"), "utf8");
-  const match = text.match(/^GEMINI_API_KEY=(\S+)/m);
-  if (!match) throw new Error("No GEMINI_API_KEY found in _scratch/.env.gemini");
-  return match[1];
+  const keys = text.split(/\r?\n/u).flatMap((line) => {
+    const match = line.trim().match(/^GEMINI_API_KEY(?:_[A-Z0-9_]+)?=(.*)$/u);
+    if (!match) return [];
+    let value = match[1].trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+    return value ? [value] : [];
+  });
+  if (!keys.length) throw new Error("No Gemini API keys found in _scratch/.env.gemini");
+  return keys;
 }
 
 function writeJsonAtomic(path: string, data: unknown): void {
@@ -56,7 +62,7 @@ function collectTargets(sources: SourceFile[]): Target[] {
       for (const paper of exam.papers) {
         for (const question of paper.questions) {
           const joined = question.questionFurigana?.map(({ text }) => text).join("");
-          if (joined === question.question || !question.questionFurigana?.length) continue;
+          if (joined === question.question) continue;
           targets.push({
             id: `${exam.id}/${paper.id}/q${question.number}`,
             file: source.path,
@@ -74,7 +80,7 @@ function makePrompt(targets: Target[], correction?: string): string {
   return [
     "Bạn là biên tập viên tiếng Nhật tạo dữ liệu furigana cho đề JLPT.",
     "Trả về DUY NHẤT một JSON array đủ phần tử, đúng thứ tự và giữ nguyên id.",
-    "Với từng source question, chỉ liệt kê các từ/cụm từ có kanji xuất hiện nguyên văn trong chính chuỗi đó theo đúng thứ tự; không chép lại, sửa, hoàn thiện hay đoán nội dung câu.",
+    "Với từng source question, chỉ liệt kê các từ/cụm từ có kanji xuất hiện nguyên văn trong chính chuỗi đó theo đúng thứ tự; không chép lại, sửa, hoàn thiện hay đoán nội dung câu. Không biến kana như ほか thành kanji 他.",
     "Tuyệt đối không điền đáp án vào chỗ trống. Giữ nguyên mọi （ ）, ( ), ★, số thứ tự, dấu câu, ký hiệu và xuống dòng bằng cách KHÔNG đưa chúng vào annotations.",
     "Mỗi annotation phải có word là chuỗi con nguyên văn trong source question và reading chỉ gồm hiragana/katakana. Bao gồm okurigana trong word khi cần, ví dụ 食べて -> たべて; 鈴木さん -> すずきさん. Mọi chữ kanji thực sự có trong source đều phải được phủ bởi một annotation.",
     "Mỗi phần tử có đúng dạng {id, annotations:[{word,reading}]}.",
@@ -104,10 +110,11 @@ function responseSchema() {
   };
 }
 
-async function sendGeminiJson(apiKey: string, prompt: string): Promise<unknown> {
+async function sendGeminiJson(apiKeys: string[], prompt: string): Promise<unknown> {
   const waitMs = DELAY_MS - (Date.now() - lastGeminiRequestAt);
   if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
   lastGeminiRequestAt = Date.now();
+  const apiKey = apiKeys[apiCallCount % apiKeys.length];
   apiCallCount++;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
     method: "POST",
@@ -134,7 +141,9 @@ function buildSegments(target: Target, annotations: Annotation[]): { text: strin
     }
     if (!HAS_KANJI.test(annotation.word)) throw new Error(`${target.id}: annotation does not contain kanji: ${annotation.word}`);
     const start = target.source.indexOf(annotation.word, cursor);
-    if (start < 0) throw new Error(`${target.id}: annotation is not in exact source order: ${JSON.stringify(annotation.word)}`);
+    // Discard hallucinated or duplicate annotations; the strict coverage check
+    // below still rejects any source kanji that the remaining entries miss.
+    if (start < 0) continue;
     const end = start + annotation.word.length;
     ranges.push({ start, end, reading: annotation.reading });
     cursor = end;
@@ -172,11 +181,11 @@ function validateBatch(result: unknown, targets: Target[]): Enrichment[] {
   });
 }
 
-async function generateBatch(apiKey: string, targets: Target[]): Promise<Enrichment[]> {
+async function generateBatch(apiKeys: string[], targets: Target[]): Promise<Enrichment[]> {
   let correction: string | undefined;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      return validateBatch(await sendGeminiJson(apiKey, makePrompt(targets, correction)), targets);
+      return validateBatch(await sendGeminiJson(apiKeys, makePrompt(targets, correction)), targets);
     } catch (error) {
       correction = (error as Error).message;
       if (attempt === 3) throw error;
@@ -187,20 +196,27 @@ async function generateBatch(apiKey: string, targets: Target[]): Promise<Enrichm
 }
 
 async function main() {
-  const dryRun = process.argv.includes("--dry-run");
-  const force = process.argv.includes("--force");
+  const args = process.argv.slice(2);
+  const dryRun = args.includes("--dry-run");
+  const force = args.includes("--force");
+  const idsIndex = args.indexOf("--ids");
+  const ids = idsIndex >= 0 ? args[idsIndex + 1]?.split(",").filter(Boolean) : undefined;
+  if (idsIndex >= 0 && (!ids?.length || ids.some((id) => id.startsWith("--")))) throw new Error("--ids must be followed by comma-separated stable question IDs");
   const sources = DATA_FILES.map((path) => ({ path, data: JSON.parse(readFileSync(join(ROOT, path), "utf8")) as DeThiDataset }));
-  const targets = collectTargets(sources);
+  const allTargets = collectTargets(sources);
+  const targets = ids ? allTargets.filter((target) => ids.includes(target.id)) : allTargets;
+  const missingIds = ids?.filter((id) => !targets.some((target) => target.id === id));
+  if (missingIds?.length) throw new Error(`No question-furigana target found for ID(s): ${missingIds.join(", ")}`);
   const cache = existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, "utf8")) as Cache : {};
   const pending = targets.filter((target) => force || cache[target.id]?.version !== CACHE_VERSION || cache[target.id]?.source !== target.source);
   console.log(`Mismatched question-furigana prompts: ${targets.length}; pending Gemini repairs: ${pending.length}`);
   if (dryRun) return;
 
-  const apiKey = readApiKey();
+  const apiKeys = readApiKeys();
   const generated = new Map<string, Enrichment>();
   for (let start = 0; start < pending.length; start += BATCH_SIZE) {
     const batch = pending.slice(start, start + BATCH_SIZE);
-    const results = await generateBatch(apiKey, batch);
+    const results = await generateBatch(apiKeys, batch);
     results.forEach((result, index) => {
       const target = batch[index];
       cache[target.id] = { version: CACHE_VERSION, source: target.source, annotations: result.annotations };

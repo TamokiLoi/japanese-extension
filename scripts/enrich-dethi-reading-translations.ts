@@ -15,7 +15,7 @@ import { join } from "node:path";
 import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi.ts";
 
 const ROOT = join(import.meta.dirname, "..");
-const MODEL = "gemini-3.1-flash-lite";
+const MODEL = "gemini-3.5-flash-lite";
 const CACHE_VERSION = 3;
 const DATASETS: { path: string; paperId: string; readingGroups: string[] }[] = [
   { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
@@ -68,12 +68,18 @@ type Cache = Record<string, CachedEnrichment>;
 let lastGeminiRequestAt = 0;
 let apiCallCount = 0;
 
-function readApiKey(): string {
+function readApiKeys(): string[] {
   const path = join(ROOT, "_scratch/.env.gemini");
   const text = readFileSync(path, "utf8");
-  const match = text.match(/^GEMINI_API_KEY=(\S+)/m);
-  if (!match) throw new Error("No GEMINI_API_KEY found in _scratch/.env.gemini");
-  return match[1];
+  const keys = text.split(/\r?\n/u).flatMap((line) => {
+    const match = line.trim().match(/^GEMINI_API_KEY(?:_[A-Z0-9_]+)?=(.*)$/u);
+    if (!match) return [];
+    let value = match[1].trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+    return value ? [value] : [];
+  });
+  if (!keys.length) throw new Error("No Gemini API keys found in _scratch/.env.gemini");
+  return keys;
 }
 
 function parseArgs() {
@@ -235,10 +241,11 @@ function responseSchema() {
   };
 }
 
-async function sendGeminiJson(apiKey: string, prompt: string): Promise<unknown> {
+async function sendGeminiJson(apiKeys: string[], prompt: string): Promise<unknown> {
   const waitMs = DELAY_MS - (Date.now() - lastGeminiRequestAt);
   if (waitMs > 0) await sleep(waitMs);
   lastGeminiRequestAt = Date.now();
+  const apiKey = apiKeys[apiCallCount % apiKeys.length];
   apiCallCount++;
 
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
@@ -299,11 +306,11 @@ function validateBatch(result: unknown, targets: Target[]): Enrichment[] {
   });
 }
 
-async function generateBatch(apiKey: string, targets: Target[]): Promise<Enrichment[]> {
+async function generateBatch(apiKeys: string[], targets: Target[]): Promise<Enrichment[]> {
   let correction: string | undefined;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      return validateBatch(await sendGeminiJson(apiKey, makePrompt(targets, correction)), targets);
+      return validateBatch(await sendGeminiJson(apiKeys, makePrompt(targets, correction)), targets);
     } catch (error) {
       correction = (error as Error).message;
       if (attempt === 3) throw error;
@@ -328,13 +335,13 @@ async function main() {
   if (dryRun) return;
 
   const runTargets = limit ? targets.slice(0, limit) : targets;
-  const apiKey = readApiKey();
+  const apiKeys = readApiKeys();
   const pending = runTargets.filter((target) => force || cache[target.id]?.version !== CACHE_VERSION);
   console.log(`To generate in this run: ${pending.length}${preview ? " (preview; source files will not be changed)" : ""}`);
 
   for (let start = 0; start < pending.length; start += BATCH_SIZE) {
     const batch = pending.slice(start, start + BATCH_SIZE);
-    const results = await generateBatch(apiKey, batch);
+    const results = await generateBatch(apiKeys, batch);
     for (let i = 0; i < batch.length; i++) cache[batch[i].id] = { version: CACHE_VERSION, result: results[i] };
     writeJsonAtomic(CACHE_PATH, cache);
     console.log(`Cached ${Math.min(start + batch.length, pending.length)}/${pending.length} new passage groups (${apiCallCount} Gemini requests)`);
