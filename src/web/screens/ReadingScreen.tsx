@@ -573,6 +573,7 @@ function PassageView({
     ...bunpoMatches.flatMap((g) => extractMatchChunks(g.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
   ];
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
+  const [floatingNavVisible, setFloatingNavVisible] = useState(false);
   const viewOptions = state.passageViewOptions[passage.id] ?? {};
   const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
   const showTranslation = viewOptions.showTranslation ?? state.showTranslation;
@@ -583,6 +584,21 @@ function PassageView({
   useEffect(() => {
     setReferenceTab("questions");
   }, [passage.id]);
+
+  useEffect(() => {
+    let hideTimer: number | undefined;
+    function handleScroll() {
+      setFloatingNavVisible(true);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => setFloatingNavVisible(false), 1000);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+    };
+  }, []);
 
   function updateViewOptions(partial: Partial<ReadingPassageViewOptions>) {
     void mutate({
@@ -893,7 +909,9 @@ function PassageView({
         <button
           onClick={() => openPassage(prevPassage)}
           aria-label="Bài trước"
-          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+          aria-hidden={!floatingNavVisible}
+          tabIndex={floatingNavVisible ? 0 : -1}
+          className={`fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -902,7 +920,9 @@ function PassageView({
         <button
           onClick={() => openPassage(nextPassage)}
           aria-label="Bài sau"
-          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+          aria-hidden={!floatingNavVisible}
+          tabIndex={floatingNavVisible ? 0 : -1}
+          className={`fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronRight size={18} />
         </button>
