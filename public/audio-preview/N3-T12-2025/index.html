@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nghe từng câu — N3 T12/2025</title>
+    <style>
+      body { max-width: 760px; margin: 32px auto; padding: 0 16px; color: #222; font: 16px/1.5 system-ui, sans-serif; }
+      h1 { font-size: 24px; }
+      section { margin: 18px 0; padding: 14px; border: 1px solid #ddd; border-radius: 14px; }
+      h2 { margin: 0 0 8px; font-size: 16px; }
+      audio { width: 100%; }
+      .note { color: #666; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <h1>N3 T12/2025 — nghe theo từng câu (bản thử)</h1>
+    <p class="note">Tách trực tiếp (không mã hoá lại) từ MP3 gốc theo mốc audioStartSec. Clip dừng sau phần thoại/đáp án của câu; các chỉ dẫn chung giữa nhóm và lời kết thúc bài được lược khỏi bản thử.</p>
+    <main id="clips"></main>
+    <script>
+      const starts = [202, 294, 368, 457, 544, 635, 869, 981, 1103, 1227, 1315, 1416, 1724, 1819, 1908, 2089, 2128, 2169, 2208, 2338, 2371, 2405, 2441, 2478, 2511, 2551, 2588, 2626, 2670.6];
+      const ends = [294, 368, 457, 544, 635, 706.2, 981, 1103, 1227, 1315, 1416, 1510, 1819, 1908, 1993.6, 2128, 2169, 2208, 2237, 2371, 2405, 2441, 2478, 2511, 2551, 2588, 2626, 2654.2];
+      const groupFor = (number) => number <= 6 ? 1 : number <= 12 ? 2 : number <= 15 ? 3 : number <= 19 ? 4 : 5;
+      const clock = (seconds) => {
+        const remainder = seconds % 60;
+        const displaySeconds = Number.isInteger(remainder) ? String(remainder).padStart(2, "0") : remainder.toFixed(1).padStart(4, "0");
+        return `${Math.floor(seconds / 60)}:${displaySeconds}`;
+      };
+      const root = document.querySelector("#clips");
+      for (let index = 0; index < ends.length; index++) {
+        const number = index + 1;
+        const clip = document.createElement("section");
+        const title = document.createElement("h2");
+        title.textContent = `Câu ${number} · 問題${groupFor(number)} · ${clock(starts[index])}–${clock(ends[index])} (${clock(ends[index] - starts[index])})`;
+        const audio = document.createElement("audio");
+        audio.controls = true;
+        audio.preload = "none";
+        audio.src = `./Q${String(number).padStart(2, "0")}.mp3`;
+        clip.append(title, audio);
+        root.append(clip);
+      }
+    </script>
+  </body>
+</html>

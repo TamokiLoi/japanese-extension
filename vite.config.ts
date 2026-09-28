@@ -25,6 +25,19 @@ function pruneItBookImagesFromExtensionBuild(): Plugin {
   };
 }
 
+// The per-question JLPT listening preview is a web-only QA page. Keep its
+// audio available in the GitHub Pages build without bundling 25MB of clips
+// into the browser extension package.
+function pruneListeningPreviewFromExtensionBuild(): Plugin {
+  return {
+    name: "prune-listening-preview",
+    apply: "build",
+    closeBundle: async () => {
+      await rm("dist/audio-preview", { recursive: true, force: true });
+    },
+  };
+}
+
 // GH_PAGES=true switches to the static-site build for GitHub Pages: no
 // crx() (that plugin assumes a manifest.json + service worker + chrome.*
 // APIs, none of which exist on a plain web page -- src/platform/ is what
@@ -117,7 +130,9 @@ const pwa = VitePWA({
 
 export default defineConfig({
   base: isPages ? pagesBase : "/",
-  plugins: isPages ? [react(), tailwindcss(), pwa] : [react(), crx({ manifest }), pruneItBookImagesFromExtensionBuild()],
+  plugins: isPages
+    ? [react(), tailwindcss(), pwa]
+    : [react(), crx({ manifest }), pruneItBookImagesFromExtensionBuild(), pruneListeningPreviewFromExtensionBuild()],
   // "@/*" -> src/web/* -- see the tsconfig.json comment; shadcn/ui's
   // generated components (src/web/components/ui/**) import each other and
   // ./lib/utils this way. Harmless for the extension build: it's just an
