@@ -421,7 +421,7 @@ function QuestionView({
   const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
   const nextQuestion = currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
 
-  useFloatingNav(true);
+  const floatingNavBottom = useFloatingNav(true);
 
   // Reopening a question you already answered (from the color-coded list)
   // should show that same answered state right away -- your pick, right/
@@ -704,7 +704,7 @@ function QuestionView({
         <button
           onClick={() => onOpen(prevQuestion.id)}
           aria-label="Câu trước"
-          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -713,7 +713,7 @@ function QuestionView({
         <button
           onClick={() => onOpen(nextQuestion.id)}
           aria-label="Câu sau"
-          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
           <ChevronRight size={18} />
         </button>

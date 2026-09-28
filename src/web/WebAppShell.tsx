@@ -1,19 +1,34 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Menu, X, ArrowUp, ArrowLeft, ChevronDown, Search } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS } from "./navItems.ts";
 
-// Screens with their own fixed bottom-36 prev/next buttons (Reading,
-// Listening, Dictation, Quiz, DeThi) register here so ScrollToTopButton can
-// move up to bottom-[150px] and avoid overlapping them.
-const FloatingNavContext = createContext<(present: boolean) => void>(() => {});
+const FLOATING_BUTTON_BOTTOMS = ["bottom-36", "bottom-48", "bottom-60"] as const;
+type FloatingButtonBottom = (typeof FLOATING_BUTTON_BOTTOMS)[number];
+function getFloatingButtonBottom(index: number): FloatingButtonBottom {
+  return FLOATING_BUTTON_BOTTOMS[Math.min(Math.max(index, 0), FLOATING_BUTTON_BOTTOMS.length - 1)]!;
+}
+type FloatingNavState = { present: boolean; visible: boolean };
+type FloatingNavContextValue = {
+  setState: Dispatch<SetStateAction<FloatingNavState>>;
+  scrollToTopVisible: boolean;
+};
 
-export function useFloatingNav(present: boolean) {
-  const setFloatingNavPresent = useContext(FloatingNavContext);
+const FloatingNavContext = createContext<FloatingNavContextValue>({
+  setState: () => {},
+  scrollToTopVisible: false,
+});
+
+export function useFloatingNav(present: boolean, visible = present): FloatingButtonBottom {
+  const { setState, scrollToTopVisible } = useContext(FloatingNavContext);
   useEffect(() => {
-    setFloatingNavPresent(present);
-    return () => setFloatingNavPresent(false);
-  }, [present, setFloatingNavPresent]);
+    setState((current) => ({ ...current, present }));
+    return () => setState((current) => ({ ...current, present: false, visible: false }));
+  }, [present, setState]);
+  useEffect(() => {
+    setState((current) => ({ ...current, visible: present && visible }));
+  }, [present, visible, setState]);
+  return getFloatingButtonBottom(Number(scrollToTopVisible));
 }
 
 function SidebarFooter() {
@@ -112,32 +127,32 @@ function GroupedNav({ active, onNavigate }: { active: Screen; onNavigate: (scree
   );
 }
 
-function FloatingSearchButton({ floatingNavPresent, onClick }: { floatingNavPresent: boolean; onClick: () => void }) {
+function FloatingSearchButton({ mobileBottom, onClick }: { mobileBottom: FloatingButtonBottom; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
       aria-label="Mở Tra cứu nhanh"
       title="Mở Tra cứu nhanh"
-      className={`fixed right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 ${
-        floatingNavPresent ? "bottom-50" : "bottom-20"
-      }`}
+      className={`fixed right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 md:h-10 md:w-10 ${mobileBottom}`}
     >
-      <Search size={18} />
+      <Search size={18} className="h-4 w-4 md:h-[18px] md:w-[18px]" />
     </button>
   );
 }
 
-function ScrollToTopButton({ floatingNavPresent, searchPopupEnabled }: { floatingNavPresent: boolean; searchPopupEnabled: boolean }) {
+function ScrollToTopButton({ searchPopupEnabled, onVisibilityChange }: { searchPopupEnabled: boolean; onVisibilityChange: (visible: boolean) => void }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     function onScroll() {
-      setVisible(window.scrollY > 400);
+      const nextVisible = window.scrollY > 400;
+      setVisible(nextVisible);
+      onVisibilityChange(nextVisible);
     }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [onVisibilityChange]);
 
   if (!visible) return null;
   return (
@@ -145,37 +160,24 @@ function ScrollToTopButton({ floatingNavPresent, searchPopupEnabled }: { floatin
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Lên đầu trang"
       title="Lên đầu trang"
-      className={`fixed right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 ${
-        searchPopupEnabled ? "md:bottom-20" : "md:bottom-6"
-      } ${
-        floatingNavPresent
-          ? searchPopupEnabled
-            ? "bottom-[17rem]"
-            : "bottom-50"
-          : searchPopupEnabled
-            ? "bottom-32"
-            : "bottom-20"
-      }`}
+      className={`fixed right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:h-10 md:w-10 ${searchPopupEnabled ? "md:bottom-20" : "md:bottom-6"} bottom-36`}
     >
-      <ArrowUp size={18} />
+      <ArrowUp size={18} className="h-4 w-4 md:h-[18px] md:w-[18px]" />
     </button>
   );
 }
 
-// Sits directly above the screen's own floating "Trước" button (fixed
-// left-4 bottom-36 -- 144px, 40px tall) with a small gap: 144+40+8=192px,
-// exactly bottom-48. Only rendered alongside that prev/next pair (see
-// floatingNavPresent below) -- on screens without one, the bottom nav and
-// each screen's own in-page breadcrumb are already enough to not get lost.
-function FloatingBackButton({ label, onClick }: { label: string; onClick: () => void }) {
+// Sits one mobile stack slot above the screen's own floating "Trước" button.
+// Only rendered alongside that prev/next pair; other screens use breadcrumbs.
+function FloatingBackButton({ label, onClick, mobileBottom }: { label: string; onClick: () => void; mobileBottom: FloatingButtonBottom }) {
   return (
     <button
       onClick={onClick}
       aria-label={`Quay lại ${label}`}
       title={`Quay lại ${label}`}
-      className="fixed bottom-48 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+      className={`fixed ${mobileBottom} left-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
     >
-      <ArrowLeft size={18} />
+      <ArrowLeft size={16} />
     </button>
   );
 }
@@ -198,7 +200,10 @@ export function WebAppShell({
   children: React.ReactNode;
 }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [floatingNavPresent, setFloatingNavPresent] = useState(false);
+  const [floatingNavState, setFloatingNavState] = useState<FloatingNavState>({ present: false, visible: false });
+  const [scrollToTopVisible, setScrollToTopVisible] = useState(false);
+  const searchBottom = getFloatingButtonBottom(Number(scrollToTopVisible) + Number(floatingNavState.visible));
+  const backBottom = getFloatingButtonBottom(1 + Number(scrollToTopVisible));
 
   function go(screen: Screen) {
     onNavigate(screen);
@@ -206,7 +211,7 @@ export function WebAppShell({
   }
 
   return (
-    <FloatingNavContext.Provider value={setFloatingNavPresent}>
+    <FloatingNavContext.Provider value={{ setState: setFloatingNavState, scrollToTopVisible }}>
       <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
         {/* Desktop sidebar */}
         <aside className="hidden w-60 shrink-0 border-r border-neutral-200 bg-white p-4 pt-6 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:overflow-y-auto">
@@ -287,16 +292,17 @@ export function WebAppShell({
             })}
           </nav>
 
-          {returnTo && floatingNavPresent ? (
+          {returnTo && floatingNavState.present ? (
             <FloatingBackButton
+              mobileBottom={backBottom}
               label={NAV_ITEMS.find((i) => i.screen === returnTo.screen)?.label ?? returnTo.screen}
               onClick={onGoBack}
             />
           ) : null}
           {searchPopupEnabled && active !== "search" ? (
-            <FloatingSearchButton floatingNavPresent={floatingNavPresent} onClick={() => go("search")} />
+            <FloatingSearchButton mobileBottom={searchBottom} onClick={() => go("search")} />
           ) : null}
-          <ScrollToTopButton floatingNavPresent={floatingNavPresent} searchPopupEnabled={searchPopupEnabled} />
+          <ScrollToTopButton searchPopupEnabled={searchPopupEnabled} onVisibilityChange={setScrollToTopVisible} />
         </div>
       </div>
     </FloatingNavContext.Provider>

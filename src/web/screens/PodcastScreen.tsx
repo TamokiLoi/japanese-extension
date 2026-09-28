@@ -509,7 +509,7 @@ function EpisodeView({
   onOpenVocab?: (vocabId: string) => void;
   onOpenBunpo?: (bunpoId: string) => void;
 }) {
-  useFloatingNav(true);
+  const floatingNavBottom = useFloatingNav(true);
   // Memoized -- EpisodeView re-renders every 500ms from the currentTime
   // poll while a video plays, and `filtered`/episode.id rarely change
   // between ticks, so an unmemoized findIndex would rescan the whole
@@ -887,7 +887,7 @@ function EpisodeView({
         <button
           onClick={() => onOpen(prevEpisode.id)}
           aria-label="Tập trước"
-          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -896,7 +896,7 @@ function EpisodeView({
         <button
           onClick={() => onOpen(nextEpisode.id)}
           aria-label="Tập sau"
-          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
           <ChevronRight size={18} />
         </button>

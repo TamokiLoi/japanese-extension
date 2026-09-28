@@ -613,7 +613,7 @@ function PassageView({
   const prevPassage = currentIndex > 0 ? visiblePassages[currentIndex - 1] : null;
   const nextPassage = currentIndex >= 0 && currentIndex < visiblePassages.length - 1 ? visiblePassages[currentIndex + 1] : null;
 
-  useFloatingNav(true);
+  const floatingNavBottom = useFloatingNav(true, (!!prevPassage || !!nextPassage) && floatingNavVisible);
 
   async function handleReset() {
     if (!(await confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`))) return;
@@ -911,9 +911,9 @@ function PassageView({
           aria-label="Bài trước"
           aria-hidden={!floatingNavVisible}
           tabIndex={floatingNavVisible ? 0 : -1}
-          className={`fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
-          <ChevronLeft size={18} />
+          <ChevronLeft size={16} />
         </button>
       ) : null}
       {nextPassage ? (
@@ -922,9 +922,9 @@ function PassageView({
           aria-label="Bài sau"
           aria-hidden={!floatingNavVisible}
           tabIndex={floatingNavVisible ? 0 : -1}
-          className={`fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-9 w-9 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
-          <ChevronRight size={18} />
+          <ChevronRight size={16} />
         </button>
       ) : null}
     </div>

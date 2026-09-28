@@ -216,7 +216,7 @@ export function KanjiScreen({
     setProgress(p);
   }
 
-  useFloatingNav(!!state && state.viewMode !== "grid");
+  const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid");
 
   const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
   useEffect(() => {
@@ -333,7 +333,7 @@ export function KanjiScreen({
         <button
           onClick={() => mutate({ index: state.index - 1 }, false)}
           aria-label="Trước"
-          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -342,7 +342,7 @@ export function KanjiScreen({
         <button
           onClick={() => mutate({ index: state.index + 1 }, false)}
           aria-label="Tiếp"
-          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
           <ChevronRight size={18} />
         </button>

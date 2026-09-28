@@ -443,7 +443,7 @@ function QuestionView({
   onAnswered: () => Promise<void>;
 }) {
   const confirm = useConfirm();
-  useFloatingNav(true);
+  const floatingNavBottom = useFloatingNav(true);
   const answered = state.answers[q.id] ?? null;
   const session = state.sessionIds;
   const sessionPos = session ? session.indexOf(q.id) : -1;
@@ -583,7 +583,7 @@ function QuestionView({
         <button
           onClick={() => mutate({ currentQuestionId: prevId, sessionIndex: sessionPos - 1 })}
           aria-label="Câu trước"
-          className="fixed bottom-36 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden"
+          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -592,7 +592,7 @@ function QuestionView({
         <button
           onClick={() => mutate({ currentQuestionId: nextId, sessionIndex: sessionPos + 1 })}
           aria-label="Câu sau"
-          className="fixed right-4 bottom-36 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden"
+          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
           <ChevronRight size={18} />
         </button>
