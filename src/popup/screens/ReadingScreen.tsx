@@ -5,6 +5,7 @@ import {
   AVAILABLE_LEVELS,
   AVAILABLE_LENGTHS,
   AVAILABLE_BOOKS,
+  AVAILABLE_TOPICS,
   LENGTH_LABELS,
   BOOK_LABELS,
   BOOK_DIFFICULTY_NOTE,
@@ -14,16 +15,13 @@ import {
   saveViewerState,
   getPassageProgress,
   resetPassageAnswers,
+  matchesFilters,
   type ReadingViewerState,
 } from "../readingState.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../LevelDot.tsx";
 import { ExpandTabButton } from "../TabMode.tsx";
 import { CollapsibleSection } from "../CollapsibleSection.tsx";
-
-function matchesFilters(p: ReadingPassage, state: ReadingViewerState): boolean {
-  return state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && state.selectedBooks.includes(p.book);
-}
 
 function StatusIcon({ status, correct, total }: { status: "not-started" | "in-progress" | "done"; correct: number; total: number }) {
   if (status === "done") {
@@ -155,7 +153,7 @@ function ListView({
   }
 
   async function handleStart() {
-    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks);
+    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics);
     if (!passage) {
       setError("Không có bài đọc nào khớp bộ lọc này.");
       return;
@@ -185,7 +183,7 @@ function ListView({
         className="quiz-setup"
         title="Bộ lọc"
         defaultOpen
-        summary={`${state.selectedBooks.length}/${AVAILABLE_BOOKS.length} sách`}
+        summary={`${state.selectedBooks.length}/${AVAILABLE_BOOKS.length} sách${state.selectedBooks.includes("jlpt-exam") ? ` · ${state.selectedTopics.length}/${AVAILABLE_TOPICS.length} dạng JLPT` : ""}`}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <div className="quiz-setup-group">
@@ -251,6 +249,36 @@ function ListView({
           </div>
         </div>
 
+        {state.selectedBooks.includes("jlpt-exam") ? (
+          <div className="quiz-setup-group">
+            <div className="quiz-setup-label">Phần đề JLPT</div>
+            <div className="quiz-radio-row">
+              {AVAILABLE_TOPICS.map((topic) => {
+                const checked = state.selectedTopics.includes(topic);
+                const count = ALL_READING.filter(
+                  (p) => p.book === "jlpt-exam" && p.topic === topic && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
+                ).length;
+                return (
+                  <label key={topic} className="quiz-radio">
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={(e) => {
+                        const next = e.target.checked
+                          ? [...new Set([...state.selectedTopics, topic])]
+                          : state.selectedTopics.filter((item) => item !== topic);
+                        if (next.length === 0) return;
+                        mutate({ selectedTopics: next });
+                      }}
+                    />
+                    {topic} <span className="muted">({count})</span>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
+
         <div className="quiz-setup-group">
           <div className="quiz-setup-label">Độ dài bài đọc</div>
           <div className="quiz-radio-row">
@@ -311,6 +339,7 @@ function ListView({
               <div className="reading-detail-title">{detailPassage.title}</div>
               <div className="reading-detail-meta">
                 {BOOK_LABELS[detailPassage.book]} · {LENGTH_LABELS[detailPassage.length]}
+                {detailPassage.topic ? ` · ${detailPassage.topic}` : ""}
                 {AVAILABLE_LEVELS.length > 1 ? ` · ${detailPassage.level}` : ""} · {timelineLabel(detailPassage)}
               </div>
               <div className="reading-detail-footer">
@@ -402,6 +431,7 @@ function PassageView({
             {passage.level}
           </span>
           <span className="reading-book-badge">{BOOK_LABELS[passage.book]}</span>
+          {passage.topic ? <span className="reading-book-badge">{passage.topic}</span> : null}
           <span className="reading-timeline">{timelineLabel(passage)}</span>
         </div>
         <h2 className="reading-title">{passage.title}</h2>
@@ -481,7 +511,7 @@ function PassageView({
             return (
               <div key={qi} className="reading-question">
                 <div className="reading-question-prompt">
-                  Câu {qi + 1}: {q.question}
+                  Câu {q.sourceNumber ?? qi + 1}: {q.question}
                 </div>
                 <div className="quiz-choices">
                   {q.options.map((opt, oi) => {

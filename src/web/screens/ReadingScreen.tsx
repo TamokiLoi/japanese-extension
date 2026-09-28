@@ -6,6 +6,7 @@ import {
   AVAILABLE_LEVELS,
   AVAILABLE_LENGTHS,
   AVAILABLE_BOOKS,
+  AVAILABLE_TOPICS,
   LENGTH_LABELS,
   BOOK_LABELS,
   BOOK_DIFFICULTY_NOTE,
@@ -294,13 +295,15 @@ function ListView({
   const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
   const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
   const allLengthsChecked = state.selectedLengths.length === AVAILABLE_LENGTHS.length;
+  const allTopicsChecked = state.selectedTopics.length === AVAILABLE_TOPICS.length;
   const filterCount =
     (allLevelsChecked ? 0 : state.selectedLevels.length) +
     (allBooksChecked ? 0 : state.selectedBooks.length) +
-    (allLengthsChecked ? 0 : state.selectedLengths.length);
+    (allLengthsChecked ? 0 : state.selectedLengths.length) +
+    (state.selectedBooks.includes("jlpt-exam") && !allTopicsChecked ? state.selectedTopics.length : 0);
 
   async function handleStart() {
-    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks);
+    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics);
     if (!passage) {
       setError("Không có bài đọc nào khớp bộ lọc này.");
       return;
@@ -389,6 +392,17 @@ function ListView({
                   mutate({ selectedLengths: next });
                 },
               }))),
+          ...(allTopicsChecked || !state.selectedBooks.includes("jlpt-exam")
+            ? []
+            : state.selectedTopics.map((topic) => ({
+                key: `topic-${topic}`,
+                label: topic,
+                onRemove: () => {
+                  const next = state.selectedTopics.filter((item) => item !== topic);
+                  if (next.length === 0) return;
+                  mutate({ selectedTopics: next });
+                },
+              }))),
         ]}
       />
 
@@ -398,7 +412,7 @@ function ListView({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc luyện đọc"
-        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], selectedBooks: [...AVAILABLE_BOOKS], selectedLengths: [...AVAILABLE_LENGTHS] })}
+        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], selectedBooks: [...AVAILABLE_BOOKS], selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <FilterGroup title="Cấp độ">
@@ -456,6 +470,29 @@ function ListView({
           })}
         </FilterGroup>
 
+        {state.selectedBooks.includes("jlpt-exam") ? (
+          <FilterGroup title="Phần đề JLPT">
+            {AVAILABLE_TOPICS.map((topic) => {
+              const checked = state.selectedTopics.includes(topic);
+              const count = ALL_READING.filter(
+                (p) => p.book === "jlpt-exam" && p.topic === topic && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
+              ).length;
+              return (
+                <FilterChipOption
+                  key={topic}
+                  label={`${topic} (${count})`}
+                  active={checked}
+                  onClick={() => {
+                    const next = checked ? state.selectedTopics.filter((item) => item !== topic) : [...new Set([...state.selectedTopics, topic])];
+                    if (next.length === 0) return;
+                    mutate({ selectedTopics: next });
+                  }}
+                />
+              );
+            })}
+          </FilterGroup>
+        ) : null}
+
         <FilterGroup title="Độ dài bài đọc">
           {AVAILABLE_LENGTHS.map((length) => {
             const checked = state.selectedLengths.includes(length);
@@ -509,6 +546,7 @@ function ListView({
                   <div className="truncate font-semibold text-neutral-800">{p.title}</div>
                   <div className="truncate text-xs text-neutral-500">
                     {BOOK_LABELS[p.book]}
+                    {p.topic ? ` · ${p.topic}` : ""}
                     {AVAILABLE_LEVELS.length > 1 ? ` · ${p.level}` : ""} · {timelineLabel(p)}
                   </div>
                 </div>
@@ -633,6 +671,7 @@ function PassageView({
           {passage.level}
         </span>
         <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-500">{BOOK_LABELS[passage.book]}</span>
+        {passage.topic ? <span className="rounded-full bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-600">{passage.topic}</span> : null}
         <span className="text-xs text-neutral-400">{timelineLabel(passage)}</span>
       </div>
 
@@ -808,7 +847,7 @@ function PassageView({
             <Card key={qi} className="gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
               <div className="flex flex-col items-start gap-2">
                 <div className="font-semibold text-neutral-800">
-                  Câu {qi + 1}: {q.question}
+                  Câu {q.sourceNumber ?? qi + 1}: {q.question}
                 </div>
                 <button
                   type="button"

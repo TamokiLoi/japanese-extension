@@ -27,6 +27,9 @@ export interface ReadingQuestionOption {
 export type ReadingQuestionType = "detail" | "main-idea" | "inference" | "reference-vocab" | "info-search";
 
 export interface ReadingQuestion {
+  // Original number printed in the source exam. Ordinary reading-book items
+  // omit it and keep the local per-passage numbering in the UI.
+  sourceNumber?: number;
   question: string;
   questionVi: string;
   options: string[];
@@ -39,13 +42,16 @@ export interface ReadingQuestion {
 // Which source book a passage came from -- lets the Reading screen filter/
 // label by book (e.g. Speed Master is noticeably easier than Shin Kanzen
 // Master even at the same JLPT level) instead of only by level/length.
-export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115";
+export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115" | "jlpt-exam";
 
 export interface ReadingPassage {
   id: string;
   level: JlptLevel;
   length: ReadingLength;
   book: ReadingBook;
+  // Source problem-group topic, e.g. "N3 · 問題3", used to practice one
+  // JLPT reading part at a time. Other books may omit it.
+  topic?: string;
   estimatedMinutes: number;
   title: string;
   // Which book/section this was adapted from -- kept for personal reference,

@@ -29,6 +29,7 @@ import {
   AVAILABLE_BOOKS as READING_AVAILABLE_BOOKS,
   AVAILABLE_LEVELS as READING_AVAILABLE_LEVELS,
   AVAILABLE_LENGTHS as READING_AVAILABLE_LENGTHS,
+  AVAILABLE_TOPICS as READING_AVAILABLE_TOPICS,
   BOOK_LABELS as READING_BOOK_LABELS,
   BOOK_DIFFICULTY_NOTE,
   loadViewerState as loadReadingViewerState,
@@ -312,6 +313,7 @@ export async function jumpToReadingStop(book: ReadingBook): Promise<void> {
     selectedBooks: [book],
     selectedLevels: [...READING_AVAILABLE_LEVELS],
     selectedLengths: [...READING_AVAILABLE_LENGTHS],
+    selectedTopics: [...READING_AVAILABLE_TOPICS],
   });
 }
 
