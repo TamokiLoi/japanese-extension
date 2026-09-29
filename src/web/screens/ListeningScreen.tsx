@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Headphones, ChevronLeft, ChevronRight, Globe, Info, BookOpenText, RotateCcw, Undo2, X } from "lucide-react";
+import { Headphones, ChevronLeft, ChevronRight, Info, BookOpenText, RotateCcw, Undo2, X } from "lucide-react";
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
@@ -41,6 +41,7 @@ import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FuriganaText } from "../components/FuriganaText.tsx";
+import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
 
 const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; description: string }> = {
   kadai: {
@@ -534,36 +535,13 @@ function QuestionView({
           still need the Transcript card below to have anywhere to show it,
           so this no longer excludes audio-only response types once turns exist. */}
       {answered && question.turns.length > 0 ? (
-        <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
-            <div className="flex flex-wrap justify-end gap-2">
-              <FuriganaToggle active={showFurigana} onToggle={() => setShowFurigana((v) => !v)} />
-              <button
-                type="button"
-                onClick={() => setShowTranslation((v) => !v)}
-                className="flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
-              >
-                <Globe size={13} /> {showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
-              </button>
-            </div>
-          </div>
-          <div className="mt-3 flex flex-col gap-3.5">
-            {question.turns.map((t, i) => (
-              <div key={i}>
-                <div className="text-[14.5px] leading-relaxed text-neutral-800">
-                  <b className="font-bold text-neutral-400">
-                    {t.speaker}：
-                  </b>
-                  {showFurigana ? <FuriganaText annotations={t.furigana} text={t.text} /> : t.text}
-                </div>
-                {showTranslation && t.textVi ? (
-                  <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-[13px] leading-snug text-neutral-500 italic">{t.textVi}</div>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </Card>
+        <ListeningTranscriptCard
+          turns={question.turns}
+          showFurigana={showFurigana}
+          onToggleFurigana={() => setShowFurigana((v) => !v)}
+          showTranslation={showTranslation}
+          onToggleTranslation={() => setShowTranslation((v) => !v)}
+        />
       ) : null}
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">

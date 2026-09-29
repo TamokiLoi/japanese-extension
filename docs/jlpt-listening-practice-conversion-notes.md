@@ -65,6 +65,14 @@ Enrichment nghe JLPT phải áp dụng và được kiểm tra riêng ở cả h
 
 Với mỗi câu, chuẩn bị và đối chiếu đủ các nội dung sau ở cả hai luồng: transcript tiếng Nhật; transcript tiếng Việt; bản dịch tiếng Việt của câu hỏi và từng lựa chọn; phân tích vì sao đáp án đúng và từng lựa chọn sai; nguồn đáp án và xuất xứ transcript/bản dịch (đề, đáp án/script chính thức, audio hoặc nguồn khác, kèm mức độ kiểm chứng nếu cần). Nếu hai luồng dùng chung nguồn dữ liệu, xác nhận mapping và hiển thị đúng; nếu lưu riêng, đối chiếu để tránh lệch nội dung.
 
+### Chuẩn layout và tương tác bản dịch
+
+- Lấy `src/web/screens/ListeningScreen.tsx` làm chuẩn hiển thị. Transcript dùng component dùng chung `src/web/components/ListeningTranscriptCard.tsx` ở cả Luyện nghe và phần xem lại đề JLPT để không tạo hai kiểu giao diện lệch nhau.
+- Với hội thoại/độc thoại có `turns`, hiển thị audio theo từng câu, sau đó một thẻ **Transcript** riêng. Mỗi lượt thoại giữ nhãn người nói; khi bật dịch, đặt bản dịch tiếng Việt ngay dưới đúng câu tiếng Nhật tương ứng, không dồn toàn bộ thành một đoạn dịch dài hay giấu trong accordion.
+- Với dạng không có `turns` mà chỉ có `scenario`, trình bày tình huống kèm audio; nút dịch trên player bật bản dịch tình huống. Câu hỏi và bản dịch từng lựa chọn dùng cùng trạng thái dịch để người học có thể đối chiếu đồng bộ.
+- Sau khi trả lời/xem lại, hiển thị trạng thái đúng-sai, giải thích chung và phần giải thích từng lựa chọn mở sẵn với số lựa chọn; giữ cùng thứ tự card như Luyện nghe. Trong đề JLPT, audio/transcript/bản dịch/giải thích chỉ được thêm ở màn hình xem lại sau khi nộp hoặc lịch sử, tuyệt đối không render vào màn đang thi.
+- Sau khi chỉnh UI, kiểm tra local tối thiểu một câu có `turns` và bản dịch theo dòng, một câu chỉ có `scenario`, cùng câu có lựa chọn hình; so sánh trực tiếp với một bài nghe thường để xác nhận nhãn, khoảng cách, nút dịch và bố cục đáp án tương ứng.
+
 Trong đề thi đang làm, transcript, bản dịch và phân tích chi tiết chỉ được mở sau khi nộp bài, tại phần xem lại/lịch sử. Trước khi nộp, kiểm tra các nội dung này không xuất hiện trong câu hỏi đang làm, không bị lặp ở nhiều vị trí và không thể lộ qua đáp án/giải thích, DOM hoặc trạng thái tải sẵn hiển thị được. Sau khi nộp, xác nhận chúng hiện đúng trong xem lại và lịch sử.
 
 - [ ] Dataset Luyện nghe theo câu đã có đủ nội dung enrichment và UI hiển thị đúng.

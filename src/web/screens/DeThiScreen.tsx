@@ -32,6 +32,8 @@ import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { AudioPlayer } from "../components/AudioPlayer.tsx";
+import { FuriganaText } from "../components/FuriganaText.tsx";
+import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
 import { assetUrl } from "../../platform/assetUrl";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
@@ -174,22 +176,35 @@ const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
 function withListeningReviewContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
   const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
   if (paperId !== "choukai" || !book) return question;
+
   const source = ALL_LISTENING.filter((item) => item.book === book)[question.number - 1];
-  const audioFile = "Q" + String(question.number).padStart(2, "0") + ".mp3";
-  if (!source || !source.audioUrl.includes(audioFile)) return question;
+  if (!source || !source.audioUrl.includes(`Q${String(question.number).padStart(2, "0")}.mp3`)) return question;
+
   const expectedOptionCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   if (source.correctIndex !== question.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return question;
   if (source.options.length !== question.options.length) return question;
   const normalizeChoice = (choice: string) => choice.trim().replace(/[。！？!?…]+$/u, "");
   if (source.options.some((option, index) => normalizeChoice(option) !== normalizeChoice(question.options[index] ?? ""))) return question;
-  const transcript = [source.scenario.trim(), ...source.turns.map((turn) => turn.speaker + "：" + turn.text)].filter(Boolean).join("\n");
-  const transcriptVi = [source.scenarioVi.trim(), ...source.turns.map((turn) => turn.textVi ? turn.speaker + "：" + turn.textVi : "")].filter(Boolean).join("\n");
+
+  const transcriptTurns = source.turns.map((turn) => ({ ...turn }));
+  const transcript = transcriptTurns.map((turn) => `${turn.speaker}：${turn.text}`).join("\n");
+  const transcriptVi = transcriptTurns.map((turn) => turn.textVi ? `${turn.speaker}：${turn.textVi}` : "").filter(Boolean).join("\n");
   const hasQuestionSentence = source.question.trim() && !/^\d+番$/u.test(source.question.trim());
+  const listeningPrompt = source.scenario.trim();
+
   return {
     ...question,
+    question: source.question.trim()
+      ? hasQuestionSentence ? source.question.trim() : question.question
+      : source.taskType === "sokuji" ? "" : question.question,
     questionVi: hasQuestionSentence ? source.questionVi || question.questionVi : question.questionVi,
     optionsVi: source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
     optionExplanations: source.optionExplanations?.length === expectedOptionCount ? source.optionExplanations : question.optionExplanations,
+    listeningAudioUrl: source.audioUrl,
+    listeningPrompt: listeningPrompt || question.listeningPrompt,
+    listeningPromptVi: listeningPrompt ? source.scenarioVi : question.listeningPromptVi,
+    listeningPromptFurigana: source.scenarioFurigana,
+    transcriptTurns: transcriptTurns.length ? transcriptTurns : question.transcriptTurns,
     transcript: transcript || question.transcript,
     transcriptVi: transcriptVi || question.transcriptVi,
     answerSourceNote: source.notes || question.answerSourceNote,
@@ -1474,6 +1489,7 @@ function ResultView({
               questionVi={questionTranslationForQuestion(found.paper, i)}
               chosenIndex={answers[i]}
               showFurigana={showFurigana}
+              showListeningAudio={false}
               onToggleFurigana={() => setShowFurigana((visible) => !visible)}
               onNavigate={(screen, id) => openReference(screen, id, i)}
             />
@@ -1620,6 +1636,7 @@ function ReviewQuestion({
   showFurigana,
   onToggleFurigana,
   onNavigate,
+  showListeningAudio = true,
 }: {
   question: DeThiPaper["questions"][number];
   level: JlptLevel;
@@ -1632,10 +1649,11 @@ function ReviewQuestion({
   showFurigana?: boolean;
   onToggleFurigana: () => void;
   onNavigate?: (screen: Screen, id?: string) => void;
+  showListeningAudio?: boolean;
 }) {
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
-  const [showTranscriptTranslation, setShowTranscriptTranslation] = useState(false);
+  const [showListeningTranslation, setShowListeningTranslation] = useState(false);
   const [highlightReferences, setHighlightReferences] = useState(false);
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
   const [referenceMatches, setReferenceMatches] = useState<{
@@ -1673,6 +1691,8 @@ function ReviewQuestion({
   const { vocab: vocabMatches, bunpo: bunpoMatches, vocabTerms } = referenceMatches;
   const displayedQuestionTranslation = questionVi ?? question.questionVi ?? null;
   const optionExplanationCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
+  const isListeningReview = Boolean(question.listeningAudioUrl || question.listeningPrompt || question.transcriptTurns?.length);
+  const hasListeningTranscript = Boolean(question.transcriptTurns?.length);
   const hasReferences = !!passage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
   const referenceTerms = useMemo(
     () => [
@@ -1698,12 +1718,85 @@ function ReviewQuestion({
   }, [passage, passageFurigana, translatedUnits]);
 
   return (
-    <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
+    <>
+      {showListeningAudio && question.listeningAudioUrl ? (
+        <Card className="mt-3 gap-3.5 rounded-2xl border-neutral-200 p-5 ring-0">
+          {question.listeningPrompt ? (
+            <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
+              <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
+              <div>
+                {showFurigana ? <FuriganaText annotations={question.listeningPromptFurigana} text={question.listeningPrompt} /> : question.listeningPrompt}
+                {showListeningTranslation && question.listeningPromptVi ? (
+                  <div className="mt-1 text-sm font-normal text-neutral-500">{question.listeningPromptVi}</div>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
+          <AudioPlayer
+            src={assetUrl(question.listeningAudioUrl)}
+            translationToggle={question.listeningPromptVi && !hasListeningTranscript
+              ? { active: showListeningTranslation, onToggle: () => setShowListeningTranslation((visible) => !visible) }
+              : undefined}
+          />
+        </Card>
+      ) : null}
+      {!showListeningAudio && question.listeningPrompt ? (
+        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
+          <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
+            <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
+            <div>
+              {showFurigana ? <FuriganaText annotations={question.listeningPromptFurigana} text={question.listeningPrompt} /> : question.listeningPrompt}
+              {showListeningTranslation && question.listeningPromptVi ? (
+                <div className="mt-1 text-sm font-normal text-neutral-500">{question.listeningPromptVi}</div>
+              ) : null}
+            </div>
+          </div>
+          {question.listeningPromptVi ? (
+            <button
+              type="button"
+              onClick={() => setShowListeningTranslation((visible) => !visible)}
+              className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+            >
+              <Languages size={13} /> {showListeningTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+            </button>
+          ) : null}
+        </Card>
+      ) : null}
+      {hasListeningTranscript ? (
+        <ListeningTranscriptCard
+          turns={question.transcriptTurns!}
+          showFurigana={!!showFurigana}
+          onToggleFurigana={onToggleFurigana}
+          showTranslation={showListeningTranslation}
+          onToggleTranslation={() => setShowListeningTranslation((visible) => !visible)}
+          className="mt-3"
+        />
+      ) : question.transcript && !question.listeningPrompt ? (
+        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
+          <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
+          <div className="mt-3 whitespace-pre-line text-sm leading-relaxed text-neutral-700">{question.transcript}</div>
+          {question.transcriptVi ? (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => setShowListeningTranslation((visible) => !visible)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+              >
+                <Languages size={13} /> {showListeningTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+              </button>
+              {showListeningTranslation ? (
+                <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-neutral-600 italic">{question.transcriptVi}</div>
+              ) : null}
+            </div>
+          ) : null}
+        </Card>
+      ) : null}
+      <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
       <div className="text-xs font-semibold text-neutral-400 uppercase">
         Câu {question.number} · {question.problemGroup}
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
-        <button
+        {!isListeningReview || !hasListeningTranscript ? <button
           type="button"
           onClick={onToggleFurigana}
           className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
@@ -1713,7 +1806,7 @@ function ReviewQuestion({
           }`}
         >
           <BookOpenText size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
-        </button>
+        </button> : null}
         {passage && passageVi ? (
           <button
             type="button"
@@ -1834,13 +1927,19 @@ function ReviewQuestion({
         id={hasReferences ? `review-question-panel-${question.number}` : undefined}
         aria-labelledby={hasReferences ? `review-question-tab-${question.number}` : undefined}
       >
-      <div className="mt-3 flex items-start gap-2 whitespace-pre-line text-base font-semibold leading-loose text-neutral-800">
-        <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-bold text-neutral-600">{question.number}.</span>
-        <div className="min-w-0 flex-1">
-          <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
+      {question.question ? (
+        <div className="mt-3 flex items-start gap-2 whitespace-pre-line text-base font-semibold leading-loose text-neutral-800">
+          <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-bold text-neutral-600">{question.number}.</span>
+          <div className="min-w-0 flex-1">
+            <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
+          </div>
         </div>
-      </div>
-      {displayedQuestionTranslation ? (
+      ) : null}
+      {isListeningReview ? (
+        showListeningTranslation && displayedQuestionTranslation ? (
+          <div className="mt-1 text-sm text-neutral-500">{displayedQuestionTranslation}</div>
+        ) : null
+      ) : displayedQuestionTranslation ? (
         <div className="mt-2">
           <button
             type="button"
@@ -1893,7 +1992,7 @@ function ReviewQuestion({
                     furigana={question.optionsFurigana?.[oi]}
                     showFurigana={showFurigana}
                   />
-                  {question.optionsVi?.[oi] ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}
+                  {question.optionsVi?.[oi] && (!isListeningReview || showListeningTranslation) ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}
                 </div>
               </div>
             );
@@ -1923,35 +2022,14 @@ function ReviewQuestion({
           </div>
         </details>
       ) : null}
-      {question.transcript ? (
-        <details className="mt-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-left">
-          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Transcript nghe</summary>
-          <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-neutral-700">{question.transcript}</div>
-          {question.transcriptVi ? (
-            <div className="mt-3">
-              <button
-                type="button"
-                onClick={() => setShowTranscriptTranslation((visible) => !visible)}
-                className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-semibold text-neutral-600 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
-              >
-                <Languages size={13} /> {showTranscriptTranslation ? "Ẩn bản dịch transcript" : "Xem bản dịch transcript"}
-              </button>
-              {showTranscriptTranslation ? (
-                <div className="mt-2 whitespace-pre-line rounded-lg bg-white p-3 text-sm leading-relaxed text-neutral-600 italic">{question.transcriptVi}</div>
-              ) : null}
-            </div>
-          ) : null}
-          {question.answerSourceNote ? <div className="mt-3 rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.answerSourceNote}</div> : null}
-          {question.transcriptUncertainty?.length ? (
-            <div className="mt-2 text-xs text-amber-700">
-              Chưa xác minh: {question.transcriptUncertainty.join(" ")}
-            </div>
-          ) : null}
-        </details>
+      {question.answerSourceNote ? <div className="mt-3 rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.answerSourceNote}</div> : null}
+      {question.transcriptUncertainty?.length ? (
+        <div className="mt-2 text-xs text-amber-700">Chưa xác minh: {question.transcriptUncertainty.join(" ")}</div>
       ) : null}
       {chosenIndex === null ? <p className="mt-3 text-xs font-medium text-neutral-400">Bạn chưa trả lời câu này.</p> : null}
       </div>
       ) : null}
     </Card>
+    </>
   );
 }
