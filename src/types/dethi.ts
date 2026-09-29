@@ -94,10 +94,14 @@ export interface DeThiQuestion {
   // Script for post-submit listening review. Unverified spans are called out
   // separately rather than silently reconstructed.
   transcript?: string;
+  // Vietnamese translation of the listening transcript, shown only alongside
+  // the transcript in post-submit review/history.
+  transcriptVi?: string;
   transcriptUncertainty?: string[];
-  // Vietnamese reasoning for each answer choice, parallel to `options`.
-  // Used on the submitted review screen for grammar distractors so learners
-  // can see why each pattern does or doesn't fit the sentence.
+  // Provenance note for generated/enriched listening review content.
+  answerSourceNote?: string;
+  // Vietnamese reasoning for each answer choice, parallel to `options` (or
+  // `optionCount` when choices are images). Shown only in submitted review.
   optionExplanations?: string[];
 }
 

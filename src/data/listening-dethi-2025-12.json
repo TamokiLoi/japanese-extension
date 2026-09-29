@@ -8,14 +8,25 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q01.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "電話で男の人と歯医者の受付の人が話しています。男の人はいつ、歯医者に行きますか。", "textVi": "Một người đàn ông đang nói chuyện qua điện thoại với nhân viên tiếp tân của nha sĩ. Người đàn ông sẽ đến nha sĩ khi nào?" },
+        { "speaker": "男", "text": "もしもし、いつもお世話になっている山本ですが・・・。", "textVi": "Alo, tôi là Yamamoto, bệnh nhân quen thường đến chỗ mình đây ạ…" },
+        { "speaker": "女", "text": "山本さん。どうされましたか？", "textVi": "Anh Yamamoto, có chuyện gì vậy ạ?" },
+        { "speaker": "男", "text": "先月診ていただいた歯、また痛くなってきちゃって。明日の午前中、１０時とか空いてませんか？", "textVi": "Cái răng chị khám cho tôi tháng trước lại bắt đầu đau rồi. Sáng mai, khoảng 10 giờ, bên chị còn lịch trống không?" },
+        { "speaker": "女", "text": "少々お待ちください。えっと、山本さんの次の予約は明後日の午後６時ですね。", "textVi": "Xin anh chờ một chút ạ. À, lịch hẹn tiếp theo của anh là 6 giờ chiều ngày kia ạ." },
+        { "speaker": "男", "text": "はい。", "textVi": "Vâng." },
+        { "speaker": "女", "text": "それより前がよろしいんですね？すみません、明日は空いていないですね。今日いらっしゃることはできますか？午後６時はいかがですか？待っていただくことになるかもしれませんが・・・。", "textVi": "Anh muốn đến sớm hơn lịch đó phải không ạ? Xin lỗi, ngày mai bên em không còn chỗ. Hôm nay anh đến được không ạ? 6 giờ chiều thì sao ạ? Có thể anh sẽ phải chờ một chút…" },
+        { "speaker": "男", "text": "あー、予定が入ってるんですが、でもすごく痛いのでお願いします。", "textVi": "À, tôi có việc rồi, nhưng đau lắm nên nhờ chị sắp xếp giúp nhé." },
+        { "speaker": "ナレーション", "text": "男の人はいつ、歯医者に行きますか。", "textVi": "Người đàn ông sẽ đến nha sĩ khi nào?" }
+      ],
       "question": "1番",
       "questionVi": "Câu 1",
       "options": ["今日の午前10時", "今日の午後6時", "あしたの午前10時", "あさっての午後6時"],
       "optionsVi": ["10 giờ sáng hôm nay", "6 giờ chiều hôm nay", "10 giờ sáng ngày mai", "6 giờ chiều ngày kia"],
       "correctIndex": 1,
       "explanation": "Nhân viên nữ gợi ý cho người nam đến vào hôm nay lúc 6 giờ chiều, và người nam đã đồng ý.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["10 giờ sáng hôm nay không phải lịch được chốt; người nam đề nghị giờ này cho ngày mai.","Đúng: nữ nhân viên đề nghị hôm nay lúc 6 giờ và người nam đồng ý vì răng đau nhiều.","Ngày mai lúc 10 giờ không còn lịch trống.","Đây là lịch hẹn kế tiếp đã có sẵn, nhưng người nam chọn đến sớm hơn vì đau răng."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q02",
@@ -25,14 +36,25 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q02.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "靴屋で店員の女の人と店長が話しています。女の人はこれからまず、何をしますか。", "textVi": "Một nhân viên nữ và cửa hàng trưởng đang nói chuyện tại cửa hàng giày. Từ giờ, trước tiên người nữ sẽ làm gì?" },
+        { "speaker": "女", "text": "店長。昨日届いた新商品のチェック、終わったんですけど、他に何かやっておくことはありますか？", "textVi": "Cửa hàng trưởng, em đã kiểm tra xong sản phẩm mới giao đến hôm qua rồi. Còn việc gì khác em nên làm trước không ạ?" },
+        { "speaker": "男", "text": "うーん、いろいろあるけど、倉庫の整理とか、棚の掃除とか・・・あ、セールのお知らせのはがき、準備できてるからあれも送らないといけないな。", "textVi": "Ừm, còn nhiều việc như sắp xếp nhà kho, lau dọn kệ… À, bưu thiếp thông báo đợt giảm giá đã chuẩn bị xong rồi, cũng phải gửi đi nữa." },
+        { "speaker": "女", "text": "そうですね。", "textVi": "Đúng vậy ạ." },
+        { "speaker": "男", "text": "セール近いからまずそれを出してきてもらえる？", "textVi": "Sắp đến đợt giảm giá rồi, trước tiên em mang số bưu thiếp đó đi gửi giúp anh nhé?" },
+        { "speaker": "女", "text": "わかりました。倉庫の整理や棚の掃除はどうしましょうか？", "textVi": "Em hiểu rồi. Còn việc sắp xếp nhà kho và lau dọn kệ thì sao ạ?" },
+        { "speaker": "男", "text": "それは戻ってから一緒にやろう。", "textVi": "Những việc đó đợi em quay lại rồi chúng ta cùng làm." },
+        { "speaker": "女", "text": "はい。", "textVi": "Vâng ạ." },
+        { "speaker": "ナレーション", "text": "女の人はこれからまず、何をしますか。", "textVi": "Từ giờ, trước tiên người nữ sẽ làm gì?" }
+      ],
       "question": "2番",
       "questionVi": "Câu 2",
       "options": ["しんしょうひんをチェックする", "そうこをせいりする", "たなをそうじする", "はがきをだしに行く"],
       "optionsVi": ["Kiểm tra sản phẩm mới", "Sắp xếp nhà kho", "Dọn vệ sinh kệ", "Đi gửi bưu thiếp"],
       "correctIndex": 3,
       "explanation": "Người đàn ông yêu cầu người nữ đi gửi thông báo về đợt giảm giá (セールのお知らせのハガキ) trước.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Người nữ đã kiểm tra sản phẩm mới hôm qua; việc này đã xong.","Sắp xếp kho sẽ làm cùng nhau sau khi cô ấy quay lại.","Lau kệ cũng để sau; người quản lý bảo làm cùng sau khi gửi bưu thiếp.","Đúng: quản lý giao việc gửi bưu thiếp khuyến mãi trước vì đợt giảm giá sắp đến."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q03",
@@ -42,7 +64,17 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q03.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "印刷会社で女の人と男の人が商品の配達について話しています。男の人はどの順番で配達に行きますか。", "textVi": "Một người phụ nữ và một người đàn ông đang trao đổi về việc giao hàng tại công ty in ấn. Người đàn ông sẽ đi giao hàng theo thứ tự nào?" },
+        { "speaker": "女", "text": "おはようございます。今日の午前の配達は３軒ですね。", "textVi": "Chào buổi sáng. Sáng nay có ba địa điểm cần giao hàng nhỉ." },
+        { "speaker": "男", "text": "初めて行くところばかりなんですが、どの順番で回ったらいいでしょうか？", "textVi": "Tôi chưa từng đến những nơi này. Tôi nên đi theo thứ tự nào ạ?" },
+        { "speaker": "女", "text": "会社に近いところから行くなら、あおぞらきかい、ひかり書店、みなとホテルの順番がいいですが、うーん、みなとホテルの辺りは昼頃になると混んでくるから逆の順番で回った方がいいですね。", "textVi": "Nếu đi từ nơi gần công ty thì thứ tự Aozora Kikai, hiệu sách Hikari, khách sạn Minato sẽ hợp lý. Nhưng khu vực khách sạn Minato sẽ đông vào khoảng trưa, nên đi theo thứ tự ngược lại thì tốt hơn." },
+        { "speaker": "男", "text": "じゃ、みなとホテルが１番ですね。", "textVi": "Vậy khách sạn Minato là điểm đến đầu tiên nhỉ." },
+        { "speaker": "女", "text": "昨日、ひかり書店から朝一番に届けてほしいって連絡がありませんでしたか？", "textVi": "Hôm qua chẳng phải hiệu sách Hikari đã liên lạc, nhờ giao hàng ngay đầu buổi sáng sao?" },
+        { "speaker": "男", "text": "あ、すみません。みなとホテルの前にそっちですね。", "textVi": "À, xin lỗi. Vậy phải đến đó trước khách sạn Minato nhỉ." },
+        { "speaker": "女", "text": "お願いします。じゃ、運転気を付けてくださいね。", "textVi": "Nhờ anh nhé. Vậy anh lái xe cẩn thận." },
+        { "speaker": "ナレーション", "text": "男の人はどの順番で配達に行きますか。", "textVi": "Người đàn ông sẽ đi giao hàng theo thứ tự nào?" }
+      ],
       "question": "3番",
       "questionVi": "Câu 3",
       "options": [],
@@ -51,7 +83,8 @@
       "optionCount": 4,
       "correctIndex": 2,
       "explanation": "Người nữ nhắc về việc cửa hàng sách Hikari đã liên hệ muốn nhận hàng sớm nhất, nên người nam phải đi đến đó trước.",
-      "notes": "Lựa chọn là hình minh họa in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Bắt đầu từ Aozora theo thứ tự gần công ty ban đầu, không làm theo điều chỉnh tránh khu Minato đông buổi trưa.","Bắt đầu ở Minato nhưng Hikari đã yêu cầu nhận hàng đầu buổi sáng.","Đúng: Hikari nhận trước theo yêu cầu, sau đó Minato rồi Aozora; vừa ưu tiên giao sớm vừa đi ngược thứ tự ban đầu.","Sau Hikari lại đi Aozora rồi Minato, không đảo thứ tự còn lại như hướng dẫn."],
+      "notes": "Lựa chọn là hình minh họa in trên đề. Đáp án tham khảo đã được đối chiếu với script và hình; PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q04",
@@ -61,14 +94,26 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q04.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "大学で女の学生と男の学生が話しています。女の学生はこれから何をしなければなりませんか。", "textVi": "Hai sinh viên đang nói chuyện ở trường đại học. Từ giờ, nữ sinh viên cần phải làm gì?" },
+        { "speaker": "女", "text": "あ、中山さん。天気予報見た？台風が来るみたいだね。今週末、みんなで行く旅行、どうする？", "textVi": "À, Nakayama, bạn xem dự báo thời tiết chưa? Hình như bão sắp đến. Chuyến đi cuối tuần này với mọi người tính sao đây?" },
+        { "speaker": "男", "text": "うん、さっき他のみんなと話してたんだけど、今回は海で遊ぶのが目的だから行くのやめた方がよさそうじゃない？", "textVi": "Ừ, lúc nãy mình nói chuyện với những người khác rồi. Mục đích lần này là vui chơi ở biển, nên có lẽ chúng ta không đi nữa thì hơn nhỉ?" },
+        { "speaker": "女", "text": "うん、そうだよね。", "textVi": "Ừ, đúng vậy nhỉ." },
+        { "speaker": "男", "text": "ホテル予約してくれたのに悪いんだけど、キャンセルの連絡しておいてくれない？", "textVi": "Xin lỗi vì bạn đã đặt khách sạn rồi, nhưng bạn liên hệ để hủy giúp mình được không?" },
+        { "speaker": "女", "text": "わかった。メールしとくね。", "textVi": "Được, mình sẽ gửi email nhé." },
+        { "speaker": "男", "text": "今週末のことだし、電話の方がいいんじゃない？今日連絡すればキャンセル料はかからないはずだよね？", "textVi": "Chuyện cuối tuần này gấp mà, gọi điện có lẽ tốt hơn nhỉ? Nếu liên hệ hôm nay thì chắc không mất phí hủy đâu nhỉ?" },
+        { "speaker": "女", "text": "あ、そうだね。メールだとすぐ確認してもらえないかもしれないからね。", "textVi": "À, đúng rồi. Nếu gửi email thì có khi họ không kiểm tra ngay được." },
+        { "speaker": "男", "text": "ありがとう。みんなには僕から連絡しとくよ。", "textVi": "Cảm ơn nhé. Còn mọi người thì mình sẽ báo." },
+        { "speaker": "ナレーション", "text": "女の学生はこれから何をしなければなりませんか。", "textVi": "Từ giờ, nữ sinh viên cần phải làm gì?" }
+      ],
       "question": "4番",
       "questionVi": "Câu 4",
       "options": ["ホテルにメールする", "ホテルに電話する", "キャンセル料をふりこむ", "みんなにれんらくする"],
       "optionsVi": ["Gửi email cho khách sạn", "Gọi điện cho khách sạn", "Chuyển khoản phí hủy", "Liên lạc với mọi người"],
       "correctIndex": 1,
       "explanation": "Người nam khuyên người nữ nên gọi điện thoại (電話) để hủy lịch sớm thì sẽ không bị mất phí hủy.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Gửi email không đủ nhanh cho việc hủy cuối tuần này; hai người thống nhất gọi điện.","Đúng: người nam yêu cầu gọi khách sạn ngay hôm nay để kịp hủy mà không mất phí.","Không cần chuyển phí hủy; liên hệ hôm nay thì dự kiến không phát sinh phí.","Người nam nói anh ấy sẽ tự liên lạc với mọi người; người nữ xử lý khách sạn."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q05",
@@ -78,14 +123,27 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q05.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "大学で女の学生と男の先生が話しています。女の学生はこの後まず何をしなければなりませんか。", "textVi": "Một nữ sinh viên và một thầy giáo đang nói chuyện ở trường đại học. Sau đây, trước tiên nữ sinh viên cần làm gì?" },
+        { "speaker": "女", "text": "先生、今度の研究会で発表する研究の発表資料を見ていただきたいんですが、今週中に少しお時間いただけますか？", "textVi": "Thưa thầy, em muốn nhờ thầy xem tài liệu thuyết trình cho buổi nghiên cứu sắp tới. Trong tuần này thầy có thể dành cho em chút thời gian không ạ?" },
+        { "speaker": "男", "text": "あぁ、明日の午後４時に私の研究室でいいですか？資料は今日中にメールで送っておいてください。", "textVi": "À, ngày mai lúc 4 giờ chiều tại phòng nghiên cứu của tôi được chứ? Em gửi tài liệu qua email trong hôm nay nhé." },
+        { "speaker": "女", "text": "はい、ありがとうございます。印刷したものも明日、持ってきた方がいいですか？", "textVi": "Vâng, em cảm ơn thầy. Ngày mai em có nên mang theo cả bản in không ạ?" },
+        { "speaker": "男", "text": "パソコンで見るからいいですよ。", "textVi": "Tôi sẽ xem trên máy tính nên không cần đâu." },
+        { "speaker": "女", "text": "わかりました。私もパソコンを持ってきます。", "textVi": "Em hiểu rồi. Em cũng sẽ mang máy tính đến." },
+        { "speaker": "男", "text": "以前紹介した本、今回使いましたか？", "textVi": "Cuốn sách tôi giới thiệu trước đây, lần này em có dùng không?" },
+        { "speaker": "女", "text": "はい、図書館で借りました。今、家にありますが・・・。", "textVi": "Vâng, em mượn ở thư viện. Bây giờ sách đang ở nhà ạ…" },
+        { "speaker": "男", "text": "じゃ、明日、それも持ってきてください。一応ちょっと確認したいから。", "textVi": "Vậy ngày mai em mang cả cuốn đó đến nhé. Tôi muốn xem qua một chút." },
+        { "speaker": "女", "text": "わかりました。", "textVi": "Vâng ạ." },
+        { "speaker": "ナレーション", "text": "女の学生はこの後まず何をしなければなりませんか。", "textVi": "Sau đây, trước tiên nữ sinh viên cần làm gì?" }
+      ],
       "question": "5番",
       "questionVi": "Câu 5",
       "options": ["しりょうをメールで先生に送る", "しりょうをいんさつする", "本をとしょかんでかりる", "本を持ってくる"],
       "optionsVi": ["Gửi tài liệu cho giáo viên qua email", "In tài liệu", "Mượn sách ở thư viện", "Mang sách đến"],
       "correctIndex": 0,
       "explanation": "Người thầy yêu cầu người nữ gửi tài liệu qua email (メールで送って) ngay trong ngày hôm nay.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Đúng: việc cần làm đầu tiên trong hôm nay là gửi tài liệu cho thầy qua email.","Thầy nói sẽ xem trên máy tính nên không cần in bản giấy.","Người nữ đã mượn sách ở thư viện rồi; đây không phải việc kế tiếp.","Mang sách đến vào ngày mai là việc sau đó, còn trước tiên phải gửi tài liệu hôm nay."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q06",
@@ -95,14 +153,19 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q06.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "ケーキ屋で店長が新しいアルバイトの人たちに話しています。アルバイトの人はこの後まず何をしなければなりませんか。", "textVi": "Cửa hàng trưởng đang nói chuyện với các nhân viên làm thêm mới tại tiệm bánh. Sau đây, trước tiên các nhân viên cần làm gì?" },
+        { "speaker": "女", "text": "おはようございます。今日からよろしくお願いします。早速制服に着替えていただきましたが、皆さんにはこれから店の前で新商品のりんごのパイのちらしを配ってもらいます。その前にここにあるりんごのパイを試食してください。味がわからないとお客様にもご紹介できないと思うので。もうすぐ今日２回目のパイが焼けます。声をかけるので、出来上がった商品を箱に詰めるのを手伝ってください。それまでちらしの方、お願いします。", "textVi": "Chào buổi sáng. Mong mọi người giúp đỡ từ hôm nay. Mọi người đã thay đồng phục rồi; từ giờ mọi người sẽ phát tờ rơi về bánh táo mới ở trước cửa hàng. Trước đó, hãy nếm thử bánh táo ở đây. Nếu không biết vị thế nào thì sẽ khó giới thiệu cho khách. Lát nữa mẻ bánh thứ hai hôm nay sẽ ra lò. Tôi sẽ gọi, lúc đó hãy giúp đóng bánh đã hoàn thành vào hộp. Từ giờ đến lúc đó, nhờ mọi người phát tờ rơi." },
+        { "speaker": "ナレーション", "text": "アルバイトの人はこの後まず何をしなければなりませんか。", "textVi": "Sau đây, trước tiên các nhân viên làm thêm cần làm gì?" }
+      ],
       "question": "6番",
       "questionVi": "Câu 6",
       "options": ["せいふくにきがえる", "ちらしをくばる", "りんごのパイを試食する", "しょうひんをはこにつめる"],
       "optionsVi": ["Thay đồng phục", "Phát tờ rơi", "Nếm thử bánh táo", "Đóng hàng vào thùng"],
       "correctIndex": 2,
       "explanation": "Người quản lý yêu cầu người mới phải nếm thử bánh táo trước (その前にここに) để biết vị rồi mới đi phát tờ rơi.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Mọi người đã thay đồng phục xong trước khi được giao việc.","Phát tờ rơi sẽ làm sau khi nếm thử bánh để biết vị sản phẩm.","Đúng: cửa hàng trưởng yêu cầu nếm thử bánh táo trước.","Đóng bánh vào hộp phải đợi mẻ bánh thứ hai ra lò."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q07",
@@ -112,14 +175,23 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q07.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "会社で男の人と女の人が話しています。男の人はどんなプレゼントを買うことにしましたか。", "textVi": "Một người đàn ông và một người phụ nữ đang nói chuyện ở công ty. Người đàn ông quyết định mua món quà nào?" },
+        { "speaker": "男", "text": "佐藤さん。佐藤さんって小さいお子さんがいるよね？友達の家に赤ちゃんが生まれたから何かプレゼントをあげたいんだけど、どんなものがいいかわからなくて・・・。佐藤さんはどんなものがうれしかった？", "textVi": "Chị Sato, chị có con nhỏ đúng không? Bạn tôi mới có em bé nên tôi muốn tặng gì đó, mà không biết chọn gì. Chị từng thấy món nào vui nhất?" },
+        { "speaker": "女", "text": "私は普段使うタオルのようなものより、自分では買わないちょっといい子供服がうれしかった。", "textVi": "So với những thứ như khăn thường dùng, tôi vui hơn khi được tặng quần áo trẻ em đẹp một chút, thứ mà mình không tự mua." },
+        { "speaker": "男", "text": "服はすぐ小さくなっちゃうよね？僕は大きくなってから読めるような絵本もいいと思ったんだけど・・・。", "textVi": "Quần áo thì bé sẽ nhanh lớn không mặc vừa nữa nhỉ? Tôi nghĩ sách tranh lớn lên vẫn đọc được cũng hay…" },
+        { "speaker": "女", "text": "あー、絵本はよくもらうから同じの持ってるかもしれないよ。あ、家族みんなで食べられるおいしいお菓子や果物はどう？赤ちゃんのお世話で疲れているだろうから。", "textVi": "À, sách tranh thì nhà đó thường được tặng nên có khi đã có cuốn giống vậy rồi. Hay là bánh kẹo ngon hoặc hoa quả để cả nhà cùng ăn? Chăm em bé chắc họ mệt lắm." },
+        { "speaker": "男", "text": "いいね。赤ちゃんのものを選ぶの難しいからそうする。ありがとう。", "textVi": "Hay đấy. Chọn đồ cho em bé khó quá nên tôi sẽ chọn món đó. Cảm ơn chị." },
+        { "speaker": "ナレーション", "text": "男の人はどんなプレゼントを買うことにしましたか。", "textVi": "Người đàn ông quyết định mua món quà nào?" }
+      ],
       "question": "1番",
       "questionVi": "Câu 7 (Mondai 2)",
       "options": ["ふだん使えるタオル", "いい子どもふく", "大きくなっても読めるえほん", "かぞくがよろこぶ食べ物"],
       "optionsVi": ["Khăn có thể dùng thường ngày", "Quần áo trẻ em đẹp", "Sách tranh lớn lên vẫn đọc được", "Thức ăn khiến cả gia đình vui"],
       "correctIndex": 3,
       "explanation": "Người nữ gợi ý chọn quà là bánh kẹo hoặc trái cây (美味しいお菓子や果物) để cả gia đình cùng ăn.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Người nữ nói khăn dùng thường ngày không phải món khiến cô vui nhất.","Quần áo trẻ em là món cô từng thích, nhưng người đàn ông cuối cùng chọn đồ ăn cho cả nhà.","Sách tranh thường được tặng nên gia đình có thể đã có cuốn tương tự.","Đúng: cô ấy gợi ý bánh kẹo ngon hoặc trái cây để cả nhà cùng ăn."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q08",
@@ -129,14 +201,27 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q08.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "女の人と男の人が話しています。男の人は女の人が最近よく眠れない原因は何だと言っていますか。", "textVi": "Một người phụ nữ và một người đàn ông đang trò chuyện. Theo người đàn ông, nguyên nhân khiến người phụ nữ gần đây ngủ không ngon là gì?" },
+        { "speaker": "女", "text": "最近、あんまりよく眠れないんだ。", "textVi": "Dạo này tôi ngủ không ngon lắm." },
+        { "speaker": "男", "text": "え、そうなの？この前、インターネットで読んだんだけど、眠れないのは部屋の温度と関係があるんだって。", "textVi": "Thế à? Hôm trước tôi đọc trên Internet, nghe nói việc khó ngủ có liên quan đến nhiệt độ phòng." },
+        { "speaker": "女", "text": "え、知らなかった。最近寒いから暖房付けて寝てるんだけど・・・。", "textVi": "Vậy à, tôi không biết. Dạo này trời lạnh nên tôi bật máy sưởi khi ngủ…" },
+        { "speaker": "男", "text": "寒すぎても眠れないけど、部屋の温度を上げすぎてもよく眠れないことがあるんだって。それから寝る前にパソコンや携帯を使うのもよくないらしいよ。", "textVi": "Trời lạnh quá cũng khó ngủ, nhưng nghe nói nhiệt độ phòng quá cao đôi khi cũng khiến người ta ngủ không ngon. Ngoài ra, hình như dùng máy tính hay điện thoại trước khi ngủ cũng không tốt." },
+        { "speaker": "女", "text": "それは知ってる。だからやめたんだ。", "textVi": "Cái đó tôi biết rồi. Vì vậy tôi bỏ rồi." },
+        { "speaker": "男", "text": "他にも部屋は暗い方がいいし、枕の高さも大切みたい。", "textVi": "Ngoài ra, phòng tối thì tốt hơn, chiều cao gối cũng có vẻ quan trọng." },
+        { "speaker": "女", "text": "うん。寝る時は電気を全部消してるし、枕は替えたんだ。前のは高すぎたから首が痛くて。", "textVi": "Ừ. Khi ngủ tôi tắt hết đèn rồi, gối cũng đã đổi. Cái trước cao quá làm tôi đau cổ." },
+        { "speaker": "男", "text": "じゃ、やっぱり部屋の温度じゃない？消して寝てみたら？", "textVi": "Vậy có lẽ đúng là nhiệt độ phòng nhỉ? Thử tắt máy sưởi rồi ngủ xem?" },
+        { "speaker": "女", "text": "そうだね。", "textVi": "Ừ, tôi thử vậy." },
+        { "speaker": "ナレーション", "text": "男の人は女の人が最近よく眠れない原因は何だと言っていますか。", "textVi": "Theo người đàn ông, nguyên nhân khiến người phụ nữ gần đây ngủ không ngon là gì?" }
+      ],
       "question": "2番",
       "questionVi": "Câu 8 (Mondai 2)",
       "options": ["へやが あたたかすぎること", "ねる前にパソコンを使っていること", "へやが明るいこと", "まくらが高すぎること"],
       "optionsVi": ["Phòng quá ấm", "Dùng máy tính trước khi ngủ", "Phòng sáng", "Gối quá cao"],
       "correctIndex": 0,
       "explanation": "Người nam giải thích rằng nhiệt độ phòng quá cao (部屋の温度を上げすぎて) có thể là nguyên nhân khiến người nữ khó ngủ.",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Đúng: người nam nói phòng quá ấm cũng khiến ngủ không ngon; cô ấy đang bật máy sưởi.","Cô ấy đã biết điều này và đã ngừng dùng máy tính/điện thoại trước khi ngủ.","Cô ấy nói đã tắt hết đèn khi ngủ.","Cô ấy đã đổi gối vì chiếc cũ quá cao; đây không còn là nguyên nhân hiện tại."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q09",
@@ -146,14 +231,26 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q09.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "女の学生と男の留学生が話しています。女の学生の出身地では温泉は何に利用されていると言っていますか。", "textVi": "Một nữ sinh viên và một nam du học sinh đang trò chuyện. Cô sinh viên nói quê mình sử dụng suối nước nóng vào việc gì?" },
+        { "speaker": "女", "text": "ジョンさん。先週、「温泉に行く」って言ってたけど、どうだった？", "textVi": "John, tuần trước bạn nói sẽ đi suối nước nóng, thế nào rồi?" },
+        { "speaker": "男", "text": "よかったよ。今週は違う温泉に行くんだ。", "textVi": "Hay lắm. Tuần này tôi sẽ đi suối nước nóng khác." },
+        { "speaker": "女", "text": "いいね。あ、ね。温泉の利用方法はお風呂だけじゃないって知ってた？", "textVi": "Tốt nhỉ. À, bạn biết suối nước nóng không chỉ dùng để tắm không?" },
+        { "speaker": "男", "text": "温泉の水で作った化粧品なら売ってるの見たよ。", "textVi": "Tôi từng thấy mỹ phẩm làm từ nước suối nóng được bán." },
+        { "speaker": "女", "text": "そういうのもあるね。私の出身地も温泉が有名なんだけど、温泉の水を利用して育てた魚を売ってるんだよ。海から遠くても海の水の代わりに温泉の水を使って育てられるんだって。", "textVi": "Cũng có loại như vậy. Quê tôi cũng nổi tiếng về suối nước nóng; người ta bán cá nuôi bằng nước suối nóng. Dù xa biển, họ vẫn dùng nước suối nóng thay nước biển để nuôi cá." },
+        { "speaker": "男", "text": "へぇー、すごい。", "textVi": "Ồ, tuyệt thật." },
+        { "speaker": "女", "text": "前にテレビで見たけど、他の町では温泉を利用して作った電気を近くの病院で使ったりしてるんだって。温泉の熱を利用して家の中を暖めている町もあるらしいよ。", "textVi": "Trước đây tôi xem trên TV, ở thị trấn khác người ta tận dụng suối nóng để sản xuất điện dùng ở bệnh viện gần đó. Nghe nói có thị trấn dùng nhiệt từ suối nóng để sưởi ấm trong nhà." },
+        { "speaker": "男", "text": "そうなんだ。", "textVi": "Vậy à." },
+        { "speaker": "ナレーション", "text": "女の学生の出身地では温泉は何に利用されていると言っていますか。", "textVi": "Cô sinh viên nói quê mình sử dụng suối nước nóng vào việc gì?" }
+      ],
       "question": "3番",
       "questionVi": "Câu 9 (Mondai 2)",
       "options": ["けしょうひんを作ること", "魚をそだてること", "電気を作ること", "家をあたためること"],
       "optionsVi": ["Làm mỹ phẩm", "Nuôi cá", "Tạo ra điện", "Sưởi ấm nhà"],
       "correctIndex": 1,
       "explanation": "Người nữ nói quê mình tận dụng nước suối nóng để nuôi cá (温泉の水を利用して育てた魚).",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Mỹ phẩm được người nam nhắc như một ví dụ ở nơi khác, không phải cách quê cô dùng suối nóng.","Đúng: cô ấy nói quê mình nuôi cá bằng nước suối nóng.","Sản xuất điện được nhắc là việc một thị trấn khác làm.","Sưởi ấm nhà cũng là ví dụ ở thị trấn khác, không phải quê cô."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q10",
@@ -163,14 +260,19 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q10.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "ラジオで女の人が天気予報を伝えています。明日の天気はどうなると言っていますか。", "textVi": "Một phụ nữ đang thông báo dự báo thời tiết trên radio. Cô ấy nói thời tiết ngày mai sẽ thế nào?" },
+        { "speaker": "女", "text": "今週はよく晴れて、暖かな日が続きましたが、週末は寒くなりそうです。明日６日土曜日は朝から冷たい雨が降り、夜まで続くでしょう。雨は日曜日には止みますが、寒さは続きます。１０日月曜日は暖かくなりそうですが、降ったり止んだりのお天気になるでしょう。", "textVi": "Tuần này trời trong và ấm liên tục, nhưng cuối tuần có vẻ sẽ lạnh. Ngày mai, thứ Bảy ngày 6, mưa lạnh sẽ bắt đầu từ sáng và kéo dài đến tối. Mưa sẽ tạnh vào Chủ nhật nhưng trời vẫn lạnh. Thứ Hai ngày 10 có vẻ ấm lên, nhưng trời sẽ lúc mưa lúc tạnh." },
+        { "speaker": "ナレーション", "text": "明日の天気はどうなると言っていますか。", "textVi": "Cô ấy nói thời tiết ngày mai sẽ thế nào?" }
+      ],
       "question": "4番",
       "questionVi": "Câu 10 (Mondai 2)",
       "options": ["よく晴れてあたたかい", "雨がふって寒い", "雨がふるがあたたかい", "よく晴れるが寒い"],
       "optionsVi": ["Trời nắng đẹp và ấm", "Trời mưa và lạnh", "Trời mưa nhưng ấm", "Trời nắng đẹp nhưng lạnh"],
       "correctIndex": 1,
       "explanation": "Dự báo thời tiết nói ngày mai thứ Bảy sẽ có mưa lạnh (冷たい雨が降り).",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Dự báo ngày mai không nắng ấm; sẽ có mưa lạnh.","Đúng: thứ Bảy có mưa lạnh từ sáng đến tối.","Dự báo thứ Bảy không phải mưa ấm; nội dung này không được nói.","Ngày mai không trời quang; dự báo nói mưa lạnh."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q11",
@@ -180,14 +282,19 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q11.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "テレビで花の専門家が話しています。専門家はどんなバラを選んだ方がいいと言っていますか。", "textVi": "Một chuyên gia về hoa đang nói trên TV. Chuyên gia khuyên nên chọn hoa hồng như thế nào?" },
+        { "speaker": "男", "text": "バラの花、きれいですよね？皆さんはご自分でバラの花を育てたいと思った時、どんなバラを選んでいますか？やはり、好きな色や形のバラでしょうか？香りで選ぶ方もいるかもしれませんね。いろいろな選び方がありますが、日がよく当たるかなど植える場所をよく見て、その場所に合ったバラを選ぶのがいいです。その方が花がきれいにたくさん咲きます。バラは虫が付きやすく、世話に時間がかかりますが、それも一緒に楽しんでください。", "textVi": "Hoa hồng đẹp nhỉ? Khi muốn tự trồng hoa hồng, mọi người chọn loại nào? Có lẽ theo màu sắc hoặc hình dáng yêu thích? Cũng có thể chọn theo hương thơm. Có nhiều cách chọn, nhưng hãy xem kỹ nơi trồng, chẳng hạn nơi đó có nhiều nắng không, rồi chọn loại phù hợp với nơi ấy. Như vậy hoa sẽ nở đẹp và nhiều hơn. Hoa hồng dễ bị sâu và tốn thời gian chăm sóc, nhưng hãy tận hưởng cả việc đó nhé." },
+        { "speaker": "ナレーション", "text": "専門家はどんなバラを選んだ方がいいと言っていますか。", "textVi": "Chuyên gia khuyên nên chọn hoa hồng như thế nào?" }
+      ],
       "question": "5番",
       "questionVi": "Câu 11 (Mondai 2)",
       "options": ["色やかたちが好きなばら", "かおりが好きなばら", "そだてるかんきょうに合うばら", "世話に時間がかからないばら"],
       "optionsVi": ["Hoa hồng có màu sắc, hình dáng mình thích", "Hoa hồng có hương thơm mình thích", "Hoa hồng phù hợp với môi trường trồng", "Hoa hồng không tốn nhiều thời gian chăm sóc"],
       "correctIndex": 2,
       "explanation": "Chuyên gia khuyên nên chọn loại hoa hồng phù hợp với nơi trồng (その場所に合ったバラを選ぶ).",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Màu sắc hoặc hình dáng yêu thích được nêu như cách người ta thường chọn, không phải lời khuyên của chuyên gia.","Hương thơm cũng là một tiêu chí có thể chọn, nhưng chuyên gia khuyên xét nơi trồng.","Đúng: hãy xem điều kiện nơi trồng, như lượng nắng, rồi chọn giống phù hợp.","Chuyên gia thừa nhận hoa hồng tốn công chăm sóc và vẫn khuyên tận hưởng việc đó, không chọn theo tiêu chí ít tốn công."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-q12",
@@ -197,14 +304,23 @@
       "audioUrl": "https://tamokiloi.github.io/japanese-extension/audio-preview/N3-T12-2025/Q12.mp3",
       "scenario": "",
       "scenarioVi": "",
-      "turns": [],
+      "turns": [
+        { "speaker": "ナレーション", "text": "アイスクリーム屋で店員の男の人と女の人が話しています。男の人はどうして新商品のアイスがあまり売れなかったと言っていますか。男の人です。", "textVi": "Một nhân viên nam và một phụ nữ đang trò chuyện ở cửa hàng kem. Theo người đàn ông, vì sao kem mới bán không chạy? Hãy trả lời theo ý của người đàn ông." },
+        { "speaker": "男", "text": "新商品のいちごアイス、結構売れ残っちゃったね。やっぱり、価格がちょっと高いと思うんだよね。", "textVi": "Kem dâu mới còn tồn lại khá nhiều nhỉ. Tôi nghĩ có lẽ vì giá hơi cao." },
+        { "speaker": "女", "text": "今日はそんなに暑くならなかったことも影響してるんじゃない？", "textVi": "Có lẽ việc hôm nay trời không nóng lắm cũng ảnh hưởng chăng?" },
+        { "speaker": "男", "text": "でも他のアイスは結構売れてたから気温は関係ないと思うんだ。", "textVi": "Nhưng các loại kem khác bán khá chạy, nên tôi nghĩ nhiệt độ không liên quan." },
+        { "speaker": "女", "text": "そっか。うーん、私はそんなに高いとは思わないけど、昨日買って食べたけど、いちごの味がしっかりしておいしかったよ。", "textVi": "Vậy à. Ừm, tôi không nghĩ nó đắt lắm. Hôm qua tôi mua ăn rồi; vị dâu rõ và ngon lắm." },
+        { "speaker": "男", "text": "うん。味もいいんだから他に売れない理由がないなと思って。宣伝も結構されてるし・・・。", "textVi": "Ừ. Vị cũng ngon nên tôi nghĩ không còn lý do nào khác khiến nó bán chậm. Quảng cáo cũng khá nhiều mà…" },
+        { "speaker": "ナレーション", "text": "男の人はどうして新商品のアイスがあまり売れなかったと言っていますか。", "textVi": "Theo người đàn ông, vì sao kem mới bán không chạy?" }
+      ],
       "question": "6番",
       "questionVi": "Câu 12 (Mondai 2)",
       "options": ["ねだんが高いから", "きおんが ひくかったから", "いちごがあまり入っていないから", "せんでんが足りなかったから"],
       "optionsVi": ["Vì giá cao", "Vì nhiệt độ thấp", "Vì không có nhiều dâu tây", "Vì quảng cáo chưa đủ"],
       "correctIndex": 0,
       "explanation": "Người nam cho rằng lý do kem mới bán chậm là do giá thành hơi cao (価格がちょっと高い).",
-      "notes": "Lựa chọn được in trên đề giấy; đáp án lấy từ key của đề JLPT N3 T12/2025."
+      "optionExplanations": ["Đúng: người đàn ông cho rằng giá kem mới hơi cao.","Anh ấy loại trừ thời tiết vì các loại kem khác vẫn bán khá chạy.","Người nữ khen vị dâu rõ và ngon; đây không phải nguyên nhân bán chậm theo người nam.","Người nam nói quảng cáo đã được thực hiện khá nhiều nên không cho là thiếu quảng bá."],
+      "notes": "Đáp án tham khảo đã được đối chiếu với script và lựa chọn trên đề. PDF đáp án trong assets/data không có mục 聴解 để xác nhận bằng key."
     },
     {
       "id": "listening-dethi-2025-12-m3-1",
@@ -228,7 +344,8 @@
       "optionsVi": ["Dễ hơn tưởng tượng nên rất tốt.", "Vất vả nhưng thấy hài lòng.", "Công việc đơn giản nên chán.", "Mệt nên không muốn đi nữa."],
       "correctIndex": 1,
       "explanation": "Người đàn ông nói tuy vất vả hơn tưởng tượng nhưng được vận động ngoài thiên nhiên, ăn ngon và có trải nghiệm đặc biệt -- tổng thể là vất vả nhưng hài lòng.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công bằng cách đọc transcript -- không phải đáp án in sẵn thật như các bộ Luyện nghe khác."
+      "optionExplanations": ["Anh ấy nói công việc vất vả hơn tưởng tượng, không phải dễ.","Đúng: dù vất vả, anh ấy vui vì được vận động giữa thiên nhiên, ăn ngon và có trải nghiệm hiếm có.","Anh ấy không nói công việc dễ hay nhàm chán; ngược lại nói nhiều việc nặng.","Anh ấy không nói sẽ không đi nữa; anh ấy nhấn mạnh trải nghiệm có giá trị."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m3-2",
@@ -247,7 +364,8 @@
       "optionsVi": ["Lễ hội ở núi Midoriyama", "Môi trường dễ ra hoa của hoa anh đào", "Hoa anh đào nở vào mùa lạnh", "Quy tắc khi đi ngắm hoa"],
       "correctIndex": 2,
       "explanation": "Người phụ nữ giới thiệu về loại hoa anh đào đặc biệt, nở vào mùa thu-đông (thời tiết lạnh) thay vì mùa xuân ấm áp như thường thấy.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Bài tường thuật không nhắc lễ hội ở Midoriyama.","Không tập trung giải thích điều kiện trồng/nở; trọng tâm là giống anh đào nở vào mùa lạnh.","Đúng: người dẫn giới thiệu hoa anh đào nở từ thu sang đông khi trời lạnh.","Không nói về quy tắc ứng xử khi ngắm hoa."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m3-3",
@@ -266,7 +384,8 @@
       "optionsVi": ["Ý kiến của học sinh về đồng phục", "Điểm tốt của việc mặc đồng phục", "Kiểu đồng phục đang được ưa chuộng", "Sự thay đổi trong cách nhìn về đồng phục"],
       "correctIndex": 3,
       "explanation": "Người đàn ông kể lại sự thay đổi theo thời gian (trước đây học sinh không được chọn, gần đây quan điểm đã đổi khác, ý kiến học sinh được coi trọng hơn) -- tức là nói về sự thay đổi cách nhìn nhận đối với đồng phục.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Ý kiến học sinh là một chi tiết trong câu chuyện, nhưng chủ đề bao quát là sự thay đổi quan niệm theo thời gian.","Bài không liệt kê lợi ích chung của việc mặc đồng phục.","Không mô tả mẫu thiết kế cụ thể nào đang thịnh hành.","Đúng: trước đây học sinh ít được chọn, còn gần đây tiếng nói của học sinh được coi trọng hơn."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m4-1",
@@ -283,7 +402,8 @@
       "optionsVi": ["Xin phép đi trước.", "Nhờ bạn làm sau nhé.", "Mời bạn dùng trước."],
       "correctIndex": 2,
       "explanation": "Vì mình quyết định photo sau để nhường người đang đợi, nên câu phù hợp là mời họ dùng trước: \"どうぞ、お先に\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe) rồi được người kiểm tra lại thủ công -- lần soát đầu Gemini từng chọn nhầm \"あとでお願いします\", đã sửa lại sau khi đọc kỹ transcript."
+      "optionExplanations": ["Câu này không phải xin phép rời đi trước.","Không yêu cầu người đang đợi photocopy sau; người nói tự quyết định sẽ photocopy sau.","Đúng: nhường người đang đợi dùng máy trước bằng câu mời họ làm trước."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m4-2",
@@ -300,7 +420,8 @@
       "optionsVi": ["Để tôi biếu quý khách cái này nhé?", "Tôi xin cái này được không?", "Tôi sẽ lấy catalogue này cho quý khách nhé."],
       "correctIndex": 1,
       "explanation": "Người nói là khách hàng muốn xin catalogue nên dùng câu xin phép: \"これ、いただいてもいいですか\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Đây là lời đề nghị từ phía cửa hàng với khách, không phải lời khách xin catalogue.","Đúng: người mua xin phép nhận catalogue bằng cách nói lịch sự.","Đây là lời nhân viên nói sẽ lấy catalogue cho khách, sai vai người nói."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m4-3",
@@ -317,7 +438,8 @@
       "optionsVi": ["Nhích vào một chút.", "Ngồi cạnh mình được không?", "Nếu chật thì cứ nói nhé."],
       "correctIndex": 0,
       "explanation": "Muốn xin thêm chỗ ngồi thì nói \"ちょっと詰めて\" (nhích vào một chút) là phù hợp nhất.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Đúng: yêu cầu người bên cạnh nhích vào để chừa chỗ.","Câu này mời người khác ngồi cạnh mình, không yêu cầu nhường thêm chỗ.","Câu này nói sẽ phản hồi nếu chật, không xin nhường chỗ ngay lúc đó."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m4-4",
@@ -334,7 +456,8 @@
       "optionsVi": ["Tôi muốn được gặp trưởng phòng Yamada ạ.", "Anh/chị có thấy trưởng phòng Yamada không ạ?", "Anh/chị có định gặp trưởng phòng Yamada không ạ?"],
       "correctIndex": 0,
       "explanation": "Dùng thể khiêm nhường \"お目にかかりたい\" để bày tỏ mong muốn của chính mình được gặp cấp trên.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Đúng: dùng cách nói khiêm nhường để xin được gặp trưởng phòng.","Hỏi người nghe đã nhìn thấy trưởng phòng chưa; không phải nhờ gọi ông ấy.","Hỏi người nghe có định gặp trưởng phòng không, sai người thực hiện hành động."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-1",
@@ -351,7 +474,8 @@
       "optionsVi": ["Xem phim xong rồi mới đi làm thêm à?", "May quá, hết ca làm thêm rồi nhỉ.", "Vậy thì hôm khác mình đi nhé."],
       "correctIndex": 2,
       "explanation": "Vì đối phương không đi được do trùng lịch làm thêm, phản hồi tự nhiên là đề nghị đổi sang hôm khác.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Hỏi liệu còn đi xem phim sau ca làm, trong khi người nói bảo chắc không đi được.","Người nói không hề báo rằng ca làm bị hủy; câu này hiểu ngược thông tin.","Đúng: người nói không thể đi nên đề nghị chuyển sang ngày khác là phản hồi tự nhiên."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-2",
@@ -368,7 +492,8 @@
       "optionsVi": ["Ngon đến vậy cơ à?", "Vậy là cậu không thích vị đó lắm nhỉ.", "Ơ, khó ăn vậy à?"],
       "correctIndex": 0,
       "explanation": "Ăn một cái là không ngừng được thể hiện món đó rất ngon, nên phản hồi tự nhiên là hỏi lại có ngon đến vậy không.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Đúng: ăn một cái rồi không dừng được gợi ý bánh rất ngon.","Hiểu ngược ý; người nói thích đến mức ăn liên tục.","Không có dấu hiệu bánh khó ăn; vấn đề là ăn ngon nên không dừng lại."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-3",
@@ -385,7 +510,8 @@
       "optionsVi": ["Được. Em tham gia đi.", "Tôi sẽ tham gia.", "Cho tôi biết em có tham gia không nhé."],
       "correctIndex": 0,
       "explanation": "Đây là lời xin phép tham gia gửi đến tiền bối (Suzuki), nên phản hồi hợp lý là lời đồng ý cho phép tham gia.",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Đúng: đây là câu trả lời chấp thuận lời xin tham gia của hậu bối.","Chỉ nói người trả lời sẽ tham gia, không đáp lại lời xin phép của người nói.","Yêu cầu báo có tham gia hay không, trong khi người nói vừa xin được tham gia."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-4",
@@ -402,7 +528,8 @@
       "optionsVi": ["Có nên bật điều hòa lên không ạ?", "Vậy tôi để cái này ở đây nhé.", "À, vậy là không cần tắt phải không ạ."],
       "correctIndex": 2,
       "explanation": "Người nghe cần xác nhận lại chỉ thị \"không cần tắt điều hòa\", nên phản hồi hợp lý là \"あ、消さなくていいんですね\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Người nói bảo cứ để điều hòa bật, không yêu cầu bật thêm.","Nói sẽ để một vật ở đây không liên quan đến chỉ dẫn về điều hòa.","Đúng: xác nhận lại rằng không cần tắt điều hòa."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-5",
@@ -419,7 +546,8 @@
       "optionsVi": ["Lần sau cố lên nhé.", "Chắc chắn sẽ ổn thôi.", "Cậu đã làm tốt đấy."],
       "correctIndex": 1,
       "explanation": "Đây là lời chia sẻ trước khi thuyết trình (chưa diễn ra), nên phản hồi phù hợp là câu động viên \"きっと大丈夫だよ\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Nói lần sau cố lên hàm ý lần này đã qua/chưa thành công; bài thuyết trình còn chưa diễn ra.","Đúng: động viên trước một việc sắp diễn ra bằng câu chắc chắn sẽ ổn.","Khen đã làm tốt là nói về việc đã hoàn thành, trái với mốc thời gian."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-6",
@@ -436,7 +564,8 @@
       "optionsVi": ["Tôi xin lỗi. Là chuyện gì vậy ạ?", "Vậy là không có chuyện gì, tốt quá.", "Nhờ có anh/chị mà không có vấn đề gì ạ."],
       "correctIndex": 2,
       "explanation": "Kato (người được hỏi) được hỏi có gặp khó khăn không, nên câu trả lời lịch sự phù hợp là \"おかげさまで特に問題ありませんでした\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Xin lỗi và hỏi chuyện gì không phù hợp với câu hỏi thăm chuyến công tác.","Người được hỏi không nên tự kết luận thay người hỏi rằng không có vấn đề.","Đúng: trả lời lịch sự rằng chuyến công tác không gặp vấn đề gì."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-7",
@@ -453,7 +582,8 @@
       "optionsVi": ["Vậy là không cần di chuyển phải không ạ.", "Anh/chị đã di chuyển giúp rồi à? Cảm ơn nhé.", "Tôi sẽ di chuyển ngay. Xin lỗi."],
       "correctIndex": 2,
       "explanation": "Khách được nhân viên yêu cầu di chuyển xe đạp, nên phản hồi hợp lý là đồng ý và xin lỗi: \"すぐ移動します。すみません\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Hiểu ngược yêu cầu; khách cần di chuyển xe đạp khỏi lối vào.","Cảm ơn vì việc đã làm rồi, nhưng nhân viên đang yêu cầu khách tự di chuyển ngay.","Đúng: đồng ý di chuyển và xin lỗi vì chắn lối vào."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-8",
@@ -470,7 +600,8 @@
       "optionsVi": ["Vậy là anh/chị Ito không rành nhỉ.", "Anh/chị Ito phải không ạ, em hiểu rồi.", "Em nên hướng dẫn cho anh/chị Ito à?"],
       "correctIndex": 1,
       "explanation": "Được hướng dẫn hỏi Ito khi không hiểu, nên phản hồi hợp lý là xác nhận đã hiểu: \"伊藤さんですね、わかりました\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Trái với lời dặn: Ito được nêu là người cần hỏi vì hiểu cách dùng máy.","Đúng: xác nhận đã hiểu sẽ hỏi Ito khi cần.","Đảo vai hành động; người nói cần hỏi Ito, không phải dạy Ito."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     },
     {
       "id": "listening-dethi-2025-12-m5-9",
@@ -487,7 +618,8 @@
       "optionsVi": ["Đúng vậy. Mong là tàu không dừng.", "Ga này tàu không dừng à?", "Không biết sao tàu lại dừng nhỉ?"],
       "correctIndex": 0,
       "explanation": "Đây là nhận định về khả năng tàu dừng trong tương lai, nên phản hồi tự nhiên là đồng tình và hy vọng: \"そうだね。止まらないといいね\".",
-      "notes": "correctIndex do Gemini nghe audio suy luận (nguồn gốc không có đáp án phần nghe), đã được người kiểm tra lại thủ công."
+      "optionExplanations": ["Đúng: đồng tình với khả năng tàu dừng và hy vọng điều đó không xảy ra.","Câu này hỏi về việc tàu có dừng ở ga hay không, không đáp lại nhận định gió mạnh có thể khiến tàu dừng.","Hỏi lý do tàu đã dừng nhưng lời thoại mới nói đây là khả năng trong tương lai."],
+      "notes": "Đáp án tham khảo đã được đối chiếu thủ công với nội dung audio, script và lựa chọn trên đề. Tài liệu trong assets/data không kèm key chính thức cho phần nghe."
     }
   ]
 }

@@ -453,10 +453,10 @@ function QuestionView({
         ? "Nghe toàn bộ bài rồi chọn đáp án đúng"
         : "Nghe rồi chọn đáp án đúng"
     : question.scenario || question.question;
-  // Immediate-response items have no separate situation card. After answering,
-  // the question/answer card below already shows the spoken prompt, so hide it
-  // here rather than rendering the exact same Japanese sentence twice.
-  const showAudioPrompt = !(answered && question.taskType === "sokuji");
+  // Immediate-response items store the spoken line in `scenario` and leave
+  // `question` empty. Keep the prompt visible after answering so the learner
+  // can review the Japanese line and its translation here.
+  const showAudioPrompt = !(answered && question.taskType === "sokuji" && Boolean(question.question));
   const optionExplanations = question.optionExplanations ?? [];
   const hasOptionExplanations = optionExplanations.some((explanation) => explanation.trim());
   const audioPromptFurigana = question.scenario ? question.scenarioFurigana : question.questionFurigana;
@@ -662,10 +662,10 @@ function QuestionView({
                           className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
                             oi === question.correctIndex
                               ? "bg-emerald-100 text-emerald-700"
-                              : "bg-neutral-100 text-neutral-500"
+                              : "bg-rose-50 text-rose-600"
                           }`}
                         >
-                          {String.fromCharCode(65 + oi)}
+                          {oi + 1}
                         </span>
                         <span>{explanation}</span>
                       </div>

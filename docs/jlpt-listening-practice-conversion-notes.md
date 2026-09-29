@@ -56,6 +56,22 @@ Trong `src/popup/listeningState.ts`:
 - Build: chạy `npm run build:pages`; ghi lại lỗi còn tồn tại độc lập với thay đổi. Build thành công chỉ chứng minh đóng gói, không chứng minh nội dung hay audio khớp đề.
 - Deploy/PWA: sau khi publish, mở lại **Luyện nghe** trên web và PWA nếu cả hai được hỗ trợ; kiểm tra request audio và cache/version mới. Không kết luận tích hợp thành công chỉ vì URL preview mở được.
 
+## Bổ sung nội dung nghe cho cả hai luồng
+
+Enrichment nghe JLPT phải áp dụng và được kiểm tra riêng ở cả hai nơi sau:
+
+1. **Luyện nghe theo từng câu**: dataset từng câu độc lập, được đăng ký vào bộ lọc và hiển thị qua luồng Luyện nghe như mô tả ở trên.
+2. **Đề JLPT gốc**: giấy/phần 聴解 trong luồng làm đề, cùng lịch sử xem lại bài đã nộp. Đây là dataset và đường render khác với Luyện nghe; thêm nội dung vào một nơi không tự làm nơi kia đầy đủ.
+
+Với mỗi câu, chuẩn bị và đối chiếu đủ các nội dung sau ở cả hai luồng: transcript tiếng Nhật; transcript tiếng Việt; bản dịch tiếng Việt của câu hỏi và từng lựa chọn; phân tích vì sao đáp án đúng và từng lựa chọn sai; nguồn đáp án và xuất xứ transcript/bản dịch (đề, đáp án/script chính thức, audio hoặc nguồn khác, kèm mức độ kiểm chứng nếu cần). Nếu hai luồng dùng chung nguồn dữ liệu, xác nhận mapping và hiển thị đúng; nếu lưu riêng, đối chiếu để tránh lệch nội dung.
+
+Trong đề thi đang làm, transcript, bản dịch và phân tích chi tiết chỉ được mở sau khi nộp bài, tại phần xem lại/lịch sử. Trước khi nộp, kiểm tra các nội dung này không xuất hiện trong câu hỏi đang làm, không bị lặp ở nhiều vị trí và không thể lộ qua đáp án/giải thích, DOM hoặc trạng thái tải sẵn hiển thị được. Sau khi nộp, xác nhận chúng hiện đúng trong xem lại và lịch sử.
+
+- [ ] Dataset Luyện nghe theo câu đã có đủ nội dung enrichment và UI hiển thị đúng.
+- [ ] Luồng đề JLPT gốc và xem lại/lịch sử sau nộp đã được populate, kiểm tra riêng.
+- [ ] Trước nộp không lộ transcript, bản dịch hay phân tích; không có nội dung trùng lặp trong giao diện làm bài.
+- [ ] Sau nộp, xem lại/lịch sử có transcript Nhật và Việt, bản dịch câu hỏi/lựa chọn, phân tích đúng/sai và nguồn provenance.
+
 ## Checklist nhanh
 
 - [ ] Đã kiểm kê đủ số câu và từng 問題 từ đúng đề gốc.

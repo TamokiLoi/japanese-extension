@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown, Languages, Library } from "lucide-react";
-import type { DeThiExam, DeThiPaper } from "../../types/dethi.ts";
+import type { DeThiExam, DeThiPaper, DeThiQuestion } from "../../types/dethi.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
   ALL_EXAMS,
@@ -165,6 +165,35 @@ function questionTranslationForQuestion(paper: DeThiPaper, index: number): strin
   const question = paper.questions[index];
   if (!question) return null;
   return question.questionVi ?? null;
+}
+
+const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
+  "cacnam-n3-2025-12": "dethi-2025-12",
+};
+
+function withListeningReviewContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
+  const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
+  if (paperId !== "choukai" || !book) return question;
+  const source = ALL_LISTENING.filter((item) => item.book === book)[question.number - 1];
+  const audioFile = "Q" + String(question.number).padStart(2, "0") + ".mp3";
+  if (!source || !source.audioUrl.includes(audioFile)) return question;
+  const expectedOptionCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
+  if (source.correctIndex !== question.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return question;
+  if (source.options.length !== question.options.length) return question;
+  const normalizeChoice = (choice: string) => choice.trim().replace(/[。！？!?…]+$/u, "");
+  if (source.options.some((option, index) => normalizeChoice(option) !== normalizeChoice(question.options[index] ?? ""))) return question;
+  const transcript = [source.scenario.trim(), ...source.turns.map((turn) => turn.speaker + "：" + turn.text)].filter(Boolean).join("\n");
+  const transcriptVi = [source.scenarioVi.trim(), ...source.turns.map((turn) => turn.textVi ? turn.speaker + "：" + turn.textVi : "")].filter(Boolean).join("\n");
+  const hasQuestionSentence = source.question.trim() && !/^\d+番$/u.test(source.question.trim());
+  return {
+    ...question,
+    questionVi: hasQuestionSentence ? source.questionVi || question.questionVi : question.questionVi,
+    optionsVi: source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
+    optionExplanations: source.optionExplanations?.length === expectedOptionCount ? source.optionExplanations : question.optionExplanations,
+    transcript: transcript || question.transcript,
+    transcriptVi: transcriptVi || question.transcriptVi,
+    answerSourceNote: source.notes || question.answerSourceNote,
+  };
 }
 
 function PassageText({ text, questionNumber }: { text: string; questionNumber: number }) {
@@ -1436,7 +1465,7 @@ function ResultView({
           {found.paper.questions.map((question, i) => (
             <ReviewQuestion
               key={i}
-              question={question}
+              question={withListeningReviewContent(found.exam.id, found.paper.id, question)}
               level={found.exam.level}
               passage={passageForQuestion(found.paper, i)}
               passageFurigana={passageFuriganaForQuestion(found.paper, i)}
@@ -1468,7 +1497,7 @@ function ResultView({
             <>
               <ReviewQuestion
                 key={found.paper.questions[reviewIndex].number}
-                question={found.paper.questions[reviewIndex]}
+                question={withListeningReviewContent(found.exam.id, found.paper.id, found.paper.questions[reviewIndex])}
                 level={found.exam.level}
                 passage={passageForQuestion(found.paper, reviewIndex)}
                 passageFurigana={passageFuriganaForQuestion(found.paper, reviewIndex)}
@@ -1606,6 +1635,7 @@ function ReviewQuestion({
 }) {
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
+  const [showTranscriptTranslation, setShowTranscriptTranslation] = useState(false);
   const [highlightReferences, setHighlightReferences] = useState(false);
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
   const [referenceMatches, setReferenceMatches] = useState<{
@@ -1641,6 +1671,8 @@ function ReviewQuestion({
     };
   }, [level, passage]);
   const { vocab: vocabMatches, bunpo: bunpoMatches, vocabTerms } = referenceMatches;
+  const displayedQuestionTranslation = questionVi ?? question.questionVi ?? null;
+  const optionExplanationCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   const hasReferences = !!passage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
   const referenceTerms = useMemo(
     () => [
@@ -1808,7 +1840,7 @@ function ReviewQuestion({
           <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
         </div>
       </div>
-      {questionVi ? (
+      {displayedQuestionTranslation ? (
         <div className="mt-2">
           <button
             type="button"
@@ -1821,7 +1853,7 @@ function ReviewQuestion({
           >
             <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
           </button>
-          {showQuestionTranslation ? <div className="mt-2 whitespace-pre-line rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{questionVi}</div> : null}
+          {showQuestionTranslation ? <div className="mt-2 whitespace-pre-line rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{displayedQuestionTranslation}</div> : null}
         </div>
       ) : null}
       {question.questionImage ? (
@@ -1869,21 +1901,21 @@ function ReviewQuestion({
         </div>
       )}
       {question.explanation ? <div className="mt-3 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">{question.explanation}</div> : null}
-      {question.optionExplanations?.length === question.options.length ? (
+      {question.optionExplanations?.length === optionExplanationCount ? (
         <details className="mt-3 rounded-lg border border-neutral-200 bg-white p-3 text-left">
-          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Giải thích từng đáp án ngữ pháp</summary>
+          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Giải thích từng đáp án</summary>
           <div className="mt-3 space-y-3">
             {question.optionExplanations.map((explanation, oi) => (
               <div key={oi} className="flex gap-2.5 text-sm leading-relaxed text-neutral-700">
                 <span
                   className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                    oi === question.correctIndex ? "bg-emerald-100 text-emerald-700" : "bg-neutral-100 text-neutral-500"
+                    oi === question.correctIndex ? "bg-emerald-100 text-emerald-700" : "bg-rose-50 text-rose-600"
                   }`}
                 >
-                  {String.fromCharCode(65 + oi)}
+                  {oi + 1}
                 </span>
                 <div>
-                  <div className="font-semibold text-neutral-800">{question.options[oi]}</div>
+                  <div className="font-semibold text-neutral-800">{question.options[oi] ?? (question.optionsImage ? `Hình lựa chọn ${oi + 1}` : `Lựa chọn ${oi + 1}`)}</div>
                   <p>{explanation}</p>
                 </div>
               </div>
@@ -1895,6 +1927,21 @@ function ReviewQuestion({
         <details className="mt-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3 text-left">
           <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Transcript nghe</summary>
           <div className="mt-2 whitespace-pre-line text-sm leading-relaxed text-neutral-700">{question.transcript}</div>
+          {question.transcriptVi ? (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => setShowTranscriptTranslation((visible) => !visible)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-2.5 py-1 text-xs font-semibold text-neutral-600 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+              >
+                <Languages size={13} /> {showTranscriptTranslation ? "Ẩn bản dịch transcript" : "Xem bản dịch transcript"}
+              </button>
+              {showTranscriptTranslation ? (
+                <div className="mt-2 whitespace-pre-line rounded-lg bg-white p-3 text-sm leading-relaxed text-neutral-600 italic">{question.transcriptVi}</div>
+              ) : null}
+            </div>
+          ) : null}
+          {question.answerSourceNote ? <div className="mt-3 rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.answerSourceNote}</div> : null}
           {question.transcriptUncertainty?.length ? (
             <div className="mt-2 text-xs text-amber-700">
               Chưa xác minh: {question.transcriptUncertainty.join(" ")}
