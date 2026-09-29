@@ -11,14 +11,9 @@
 import listeningSoumatomeRaw from "../data/listening-soumatome-n3.json";
 import listeningSpeedmasterRaw from "../data/listening-speedmaster-n3.json";
 import listeningShinkanzenRaw from "../data/listening-shinkanzen-n3.json";
-// listening-dethi-2025-12.json: Mondai 3/4/5 (16 câu) của phần 聴解 đề thi
-// thật N3 tháng 12/2025 -- khác các bộ trên, sách nguồn (script + audio do
-// người dùng bổ sung) KHÔNG có đáp án in sẵn cho phần nghe, nên correctIndex
-// ở đây là Gemini nghe audio suy luận rồi được kiểm tra lại thủ công từng
-// câu (xem field `notes` của từng câu) -- không đáng tin bằng đáp án in sẵn
-// thật như soumatome/speedmaster/shinkanzen. Mondai 1/2 (12 câu đầu) bị bỏ
-// qua vì 4 lựa chọn của 2 mondai đó chỉ in trên đề giấy (問題用紙), không đọc
-// thành tiếng trong audio nên không có nguồn thật để trích xuất.
+// listening-dethi-2025-12.json: đủ 28 câu nghe N3 T12/2025. Mondai 1/2 có
+// lựa chọn in trên đề giấy; Mondai 3/4/5 có transcript/đáp án do Gemini nghe
+// audio suy luận và đã được kiểm tra thủ công (xem field `notes` từng câu).
 import listeningDethi202512Raw from "../data/listening-dethi-2025-12.json";
 // listening-cacnam-2020-12.json: Mondai 1 (6 cau) cua phan 聴解 de thi that
 // N3 T12/2020, tu assets/data/de-thi-cac-nam/ -- KHAC listening-dethi-2025-12
@@ -55,14 +50,15 @@ const completeShinkanzenQuestions = shinkanzenDataset.questions.filter(
   (question) => !incompleteShinkanzenQuestionIds.has(question.id),
 );
 
+const completeDethi202512Questions = dethi202512Dataset.questions;
+
 export const ALL_LISTENING: ListeningQuestion[] = [
   ...soumatomeDataset.questions,
   ...speedmasterDataset.questions,
   ...completeShinkanzenQuestions,
-  // dethi202512Dataset and cacNam202012Dataset deliberately left out of the
-  // pool -- both are partial extractions (16/28 and 6/28 câu) that clutter
-  // the Sách filter with confusing low counts. Re-add once each exam's
-  // 聴解 section is fully converted.
+  ...completeDethi202512Questions,
+  // N3 T12/2020 remains a 6/28 pilot and stays out of the book filter until
+  // its complete listening section has been converted.
   ...kaiwa100cauDataset.questions,
 ];
 
@@ -88,12 +84,12 @@ export const BOOK_LABELS: Record<string, string> = {
   soumatome: "Nihongo Sou Matome N3 Choukai",
   speedmaster: "Speed Master N3 Choukai",
   shinkanzen: "Shin Kanzen Master N3 Choukai",
-  "dethi-2025-12": "Đề thi thật N3 T12/2025 (聴解, 16/28 câu)",
+  "dethi-2025-12": "Đề thi thật N3 T12/2025 (28 câu nghe)",
   "cacnam-2020-12": "Đề thi thật N3 T12/2020 (聴解, 6/28 câu -- Mondai 1)",
   "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "kaiwa-100cau"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12", "kaiwa-100cau"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {
