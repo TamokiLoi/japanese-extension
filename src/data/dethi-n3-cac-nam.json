@@ -14520,11 +14520,11 @@
             {
               "number": 18,
               "problemGroup": "問題2",
-              "question": "田中「山下さんって、パソコンにすごく詳しいよね。」木村「うん、大学生の（ ）（ ）（ ★ ）（ ）のよ。」",
+              "question": "田中「山下さんって、パソコンにすごく詳しいよね。」\n木村「うん、大学生の（ ）（ ）（ ★ ）（ ）のよ。」",
               "options": [
                 "とき",
                 "アルバイトしていた",
-                "みたいだ",
+                "みたいな",
                 "コンピューター会社で"
               ],
               "correctIndex": 1,
@@ -14555,6 +14555,10 @@
                 },
                 {
                   "text": "よね。」",
+                  "furigana": null
+                },
+                {
+                  "text": "\n",
                   "furigana": null
                 },
                 {
@@ -36026,7 +36030,7 @@
               "problemGroup": "問題2",
               "question": "私は料理が（ ）（ ）（ ★ ）（ ）ほとんどない。",
               "options": [
-                "苦手",
+                "苦手で",
                 "料理は",
                 "作れる",
                 "レシピを見ずに"
@@ -46270,7 +46274,7 @@
             {
               "number": 18,
               "problemGroup": "問題2",
-              "question": "患者「先生、おふろには入ってもいいんでしょうか。」\n医者「（ ）（ ）（ ★ ）（ ）いいだよ」",
+              "question": "患者「先生、おふろには入ってもいいんでしょうか。」\n医者「（ ）（ ）（ ★ ）（ ）いいですよ」",
               "options": [
                 "なって",
                 "いたら",
@@ -46312,7 +46316,7 @@
                   "furigana": "いしゃ"
                 },
                 {
-                  "text": "「（ ）（ ）（ ★ ）（ ）いいだよ」",
+                  "text": "「（ ）（ ）（ ★ ）（ ）いいですよ」",
                   "furigana": null
                 }
               ]
@@ -57888,10 +57892,10 @@
                 "あの",
                 "わかりやすく教えてくれる"
               ],
-              "correctIndex": 1,
+              "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "Mẫu「～ほど」dùng để so sánh mức độ, nhấn mạnh không ai bằng thầy ấy trong việc giảng dạy dễ hiểu.",
+              "explanation": "Thứ tự đúng là ③「あの」→②「先生ほど」→④「わかりやすく教えてくれる」→①「先生は」; vị trí ★ là lựa chọn ④. Cấu trúc 「～ほど～ない」nhấn mạnh rằng không có giáo viên nào dạy dễ hiểu bằng thầy ấy.",
               "questionVi": "Từ sau khi học lớp của thầy Mori, tôi đã bắt đầu thích môn Toán. Tôi nghĩ không có ai（　）（　）★（　）khiến tôi yêu thích môn học này như thầy ấy.",
               "questionFurigana": [
                 {
@@ -78775,10 +78779,10 @@
                 "見すぎ",
                 "目の疲れ"
               ],
-              "correctIndex": 1,
+              "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "Mẫu 「N1によるN2」 dùng để chỉ nguyên nhân hoặc lý do dẫn đến kết quả N2.",
+              "explanation": "Thứ tự đúng là ③「見すぎ」→②「による」→④「目の疲れ」→①「が」; vị trí ★ là lựa chọn ④. Cụm 「N1によるN2」nối nguyên nhân với danh từ chỉ kết quả: mỏi mắt do nhìn màn hình quá nhiều.",
               "questionVi": "Nghe nói cũng có lúc bị đau đầu do nguyên nhân（ ）（ ）★（ ）của máy tính hay điện thoại di động.",
               "questionFurigana": [
                 {
@@ -89833,7 +89837,7 @@
             {
               "number": 16,
               "problemGroup": "問題2",
-              "question": "中山「林先輩、ゼミの発表で使う資料を作ったんですが、（ ）（ ）（ ★ ）（ ）でしょうか。」",
+              "question": "（大学で）\n中山「林先輩、ゼミの発表で使う資料を作ったんですが、（ ）（ ）（ ★ ）（ ）でしょうか。」\n林「いいですよ。」",
               "options": [
                 "もらえない",
                 "ところがあるので",
@@ -89843,9 +89847,25 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Mẫu nhờ vả lịch sự「～ていただけないでしょうか」để xin kiểm tra tài liệu.",
-              "questionVi": "Nakayama「Tiền bối Hayashi, em đã làm tài liệu dùng cho buổi thuyết trình ở hội thảo rồi, liệu （ ）（ ）（ ★ ）（ ） không ạ?」",
+              "explanation": "Mẫu「～てもらえないでしょうか」dùng để nhờ vả lịch sự; ở đây Nakayama xin Hayashi kiểm tra tài liệu thuyết trình giúp mình.",
+              "questionVi": "（Ở trường đại học）\nNakayama「Tiền bối Hayashi, em đã làm tài liệu dùng cho buổi thuyết trình ở seminar rồi, có vài chỗ em chưa chắc; anh/chị kiểm tra giúp em một lần được không ạ?」\nHayashi「Được chứ.」",
               "questionFurigana": [
+                {
+                  "text": "（",
+                  "furigana": null
+                },
+                {
+                  "text": "大学",
+                  "furigana": "だいがく"
+                },
+                {
+                  "text": "で）",
+                  "furigana": null
+                },
+                {
+                  "text": "\n",
+                  "furigana": null
+                },
                 {
                   "text": "中山",
                   "furigana": "なかやま"
@@ -89892,6 +89912,18 @@
                 },
                 {
                   "text": "たんですが、（ ）（ ）（ ★ ）（ ）でしょうか。」",
+                  "furigana": null
+                },
+                {
+                  "text": "\n",
+                  "furigana": null
+                },
+                {
+                  "text": "林",
+                  "furigana": "はやし"
+                },
+                {
+                  "text": "「いいですよ。」",
                   "furigana": null
                 }
               ]
@@ -112558,10 +112590,10 @@
                 "だけでなく",
                 "読書ができるのも"
               ],
-              "correctIndex": 2,
+              "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Mẫu「～だけでなく」dùng để nối hai đặc điểm tích cực của thư viện: không chỉ rộng mà còn có thể ngắm cảnh.",
+              "explanation": "Thứ tự đúng là ③「だけでなく」→②「大きな窓から海が見えて」→①「景色を楽しみながら」→④「読書ができるのも」; vị trí ★ là lựa chọn ①. 「景色を楽しみながら」diễn tả vừa ngắm cảnh vừa đọc sách, nối tự nhiên với 「読書ができる」.",
               "questionVi": "Tôi thích thư viện này. Thật tốt vì nó rộng, số lượng sách nhiều （ ）（ ）（ ★ ）（ ）.",
               "questionFurigana": [
                 {
@@ -144462,14 +144494,14 @@
               "question": "（道で）\nA「あの喫茶店、（ ）（ ）（ ★ ）（ ）があるよ。入ってみない？」\nB「いいね。」",
               "options": [
                 "で",
-                "何か",
+                "か何か",
                 "テレビ",
                 "見たこと"
               ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Trợ từ「で」chỉ địa điểm nơi sự vật, sự việc tồn tại hoặc xảy ra.",
+              "explanation": "Trợ từ「で」ở đây chỉ phương tiện/kênh đã xem thấy quán: 「テレビか何かで見たことがある」 (đã từng thấy trên TV hay phương tiện nào đó).",
               "questionVi": "(Trên đường)\nA「Quán cà phê kia, có （ ） （ ） （ ★ ） （ ） đấy. Có muốn vào thử không?」\nB「Được đấy.」",
               "questionFurigana": [
                 {
@@ -144505,7 +144537,7 @@
             {
               "number": 16,
               "problemGroup": "問題2",
-              "question": "半年前にギターを習い始めてから、毎日練習している。弾けは（ ）（ ）（ ★ ）（ ）自分でもわかり、とても楽しい。",
+              "question": "半年前にギターを習い始めてから、毎日練習している。弾けば（ ）（ ）（ ★ ）（ ）自分でもわかり、とても楽しい。",
               "options": [
                 "上手に",
                 "弾くほど",
@@ -144559,7 +144591,7 @@
                   "furigana": "ひけ"
                 },
                 {
-                  "text": "は（ ）（ ）（ ★ ）（ ）",
+                  "text": "ば（ ）（ ）（ ★ ）（ ）",
                   "furigana": null
                 },
                 {
