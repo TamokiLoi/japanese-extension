@@ -1,4 +1,5 @@
-import type { BunpoGrammarPoint } from "../types/bunpo.ts";
+import bunpoN3RelatedRaw from "../data/bunpo-n3-related.json";
+import type { BunpoGrammarPoint, BunpoRelatedKind, BunpoRelatedGrammar } from "../types/bunpo.ts";
 import type { ReadingPassage } from "../types/reading.ts";
 import type { QuizBookQuestion } from "../types/quizBook.ts";
 import { ALL_READING } from "./readingState.ts";
@@ -12,6 +13,37 @@ import { ALL_BUNPO } from "./bunpoState.ts";
 // string happens to repeat across levels.
 export function findBunpoByPattern(pattern: string, level: BunpoGrammarPoint["level"]): BunpoGrammarPoint | undefined {
   return ALL_BUNPO.find((g) => g.pattern === pattern && g.level === level);
+}
+
+interface RelatedGrammarIndex {
+  grammarPatterns: Array<{ pattern: string; related: BunpoRelatedGrammar[] }>;
+}
+
+const N3_RELATED_BY_PATTERN = new Map(
+  (bunpoN3RelatedRaw as RelatedGrammarIndex).grammarPatterns.map((entry) => [entry.pattern, entry.related]),
+);
+
+export interface ResolvedBunpoReference {
+  target: BunpoGrammarPoint;
+  relation: BunpoRelatedKind;
+  note: string;
+}
+
+export function findRelatedBunpo(g: BunpoGrammarPoint): ResolvedBunpoReference[] {
+  if (g.level !== "N3") return [];
+
+  const byId = new Map<string, ResolvedBunpoReference>();
+  for (const reference of N3_RELATED_BY_PATTERN.get(g.pattern) ?? []) {
+    const target = findBunpoByPattern(reference.pattern, "N3");
+    if (!target || target.id === g.id) continue;
+    byId.set(target.id, { target, relation: reference.relation, note: reference.note });
+  }
+  for (const reference of g.compareWith ?? []) {
+    const target = findBunpoByPattern(reference.pattern, "N3");
+    if (!target || target.id === g.id) continue;
+    byId.set(target.id, { target, relation: "confusable", note: reference.note });
+  }
+  return [...byId.values()];
 }
 
 // Same fuzzy chunk-substring test as findMatchingReadingPassages/

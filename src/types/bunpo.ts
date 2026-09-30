@@ -18,6 +18,14 @@ export type BunpoSource =
   | "kinh-ngu"
   | "kaiwa";
 
+export type BunpoRelatedKind = "form" | "meaning" | "both" | "confusable";
+
+export interface BunpoRelatedGrammar {
+  pattern: string;
+  relation: Exclude<BunpoRelatedKind, "confusable">;
+  note: string;
+}
+
 export interface BunpoGrammarPoint {
   id: string;
   level: JlptLevel;

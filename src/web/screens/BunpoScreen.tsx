@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus } from "lucide-react";
-import type { BunpoGrammarPoint, BunpoSource } from "../../types/bunpo.ts";
+import type { BunpoGrammarPoint, BunpoRelatedKind, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
   ALL_BUNPO,
@@ -34,7 +34,7 @@ import {
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, findRelatedBunpo, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
@@ -50,6 +50,12 @@ import { CorrectionEditorSheet, CORRECTION_ISSUE_LABELS } from "../components/Co
 import { loadCorrectionsForEntity, type DataCorrectionEntry } from "../../popup/dataCorrectionState.ts";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
+const RELATED_LABEL: Record<BunpoRelatedKind, string> = {
+  form: "Cùng cấu trúc",
+  meaning: "Nghĩa gần",
+  both: "Cấu trúc & nghĩa",
+  confusable: "Dễ nhầm",
+};
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
   mastered: "Đã thuộc",
   learning: "Đang học",
@@ -525,6 +531,7 @@ function DetailView({
 
   const readingMatches = findMatchingReadingPassages(g);
   const quizBookMatches = findMatchingQuizBookQuestions(g);
+  const relatedBunpo = g.level === "N3" ? findRelatedBunpo(g) : [];
   const parsedUsage = g.usage ? parseUsage(g.usage) : null;
 
   const currentIndex = visibleList.findIndex((item) => item.id === g.id);
@@ -747,7 +754,31 @@ function DetailView({
           ))}
         </div>
 
-        {g.compareWith && g.compareWith.length > 0 ? (
+        {relatedBunpo.length > 0 ? (
+          <div className="mt-4">
+            <div className="text-xs font-semibold text-neutral-400">Tham khảo</div>
+            <div className="mt-2 space-y-2.5">
+              {relatedBunpo.map(({ target, relation, note }) => (
+                <div key={target.id}>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      onClick={() => mutate({ currentGrammarId: target.id })}
+                      className="font-semibold text-rose-700 underline decoration-rose-200 underline-offset-2"
+                    >
+                      {target.pattern}
+                    </button>
+                    <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-medium text-neutral-500">
+                      {RELATED_LABEL[relation]}
+                    </span>
+                  </div>
+                  <div className="mt-0.5 text-sm text-neutral-700">{note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {g.level !== "N3" && g.compareWith && g.compareWith.length > 0 ? (
           <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm">
             <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-700">Dễ nhầm với</div>
             <div className="mt-2 space-y-2.5">

@@ -1,0 +1,2544 @@
+{
+  "grammarPatterns": [
+    {
+      "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+      "related": [
+        {
+          "pattern": "〜のようだ / 〜みたいだ",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để so sánh, nhưng mẫu này trang trọng hơn và có thể dùng với 'かの' để nhấn mạnh sự giả định."
+        },
+        {
+          "pattern": "～かのようだ / ～かのように / ～かのような",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự so sánh nhưng mẫu này nhấn mạnh việc thực tế không phải như vậy."
+        }
+      ]
+    },
+    {
+      "pattern": "〜（の）なら…",
+      "related": [
+        {
+          "pattern": "〜なら",
+          "relation": "both",
+          "note": "Đều dùng để đưa ra giả định hoặc điều kiện."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Nくらい（ぐらい／ほど）…はない",
+      "related": [
+        {
+          "pattern": "～ほど…はない",
+          "relation": "meaning",
+          "note": "Cách diễn đạt tương đương để nhấn mạnh mức độ cao nhất."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vかける・〜Vかけだ・〜Vかけの N。",
+      "related": [
+        {
+          "pattern": "〜かける / 〜かけだ",
+          "relation": "both",
+          "note": "Cùng diễn tả hành động đang thực hiện dở dang."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vきる・Vきれない。",
+      "related": [
+        {
+          "pattern": "〜きる",
+          "relation": "form",
+          "note": "Cùng là hậu tố diễn tả sự hoàn tất của hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vさせてもらいたい（いただきたい／ほしい）",
+      "related": [
+        {
+          "pattern": "～（さ）せてもらいたい・～（さ）せていただきたい・～（さ）せてほしい",
+          "relation": "both",
+          "note": "Cùng diễn tả mong muốn được người khác cho phép làm gì."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vづらい。",
+      "related": [
+        {
+          "pattern": "〜Vにくい。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự khó khăn, nhưng mẫu này thiên về năng lực hoặc tính chất khách quan."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vてもらいたい（ていただきたい／ほしい）",
+      "related": [
+        {
+          "pattern": "～てもらいたい・～ていただきたい・～てほしい",
+          "relation": "both",
+          "note": "Cùng diễn tả mong muốn người khác thực hiện hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vで以来。",
+      "related": [
+        {
+          "pattern": "〜て以来",
+          "relation": "both",
+          "note": "Cùng diễn tả mốc thời gian kể từ khi hành động xảy ra."
+        }
+      ]
+    },
+    {
+      "pattern": "〜Vにくい。",
+      "related": [
+        {
+          "pattern": "〜Vづらい。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự khó khăn, nhưng mẫu này thiên về cảm giác chủ quan, tâm lý."
+        }
+      ]
+    },
+    {
+      "pattern": "〜V意向形＋とする。",
+      "related": [
+        {
+          "pattern": "〜ようとする",
+          "relation": "both",
+          "note": "Cùng diễn tả ý định thực hiện hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜V続ける。",
+      "related": [
+        {
+          "pattern": "〜つづける",
+          "relation": "both",
+          "note": "Cùng diễn tả sự tiếp tục của hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜あいだに",
+      "related": [
+        {
+          "pattern": "〜間…",
+          "relation": "both",
+          "note": "Cùng diễn tả khoảng thời gian trong khi hành động diễn ra."
+        }
+      ]
+    },
+    {
+      "pattern": "〜あまり",
+      "related": [
+        {
+          "pattern": "〜せいで",
+          "relation": "meaning",
+          "note": "Cả hai đều chỉ nguyên nhân, nhưng 'amari' nhấn mạnh mức độ quá mức dẫn đến kết quả không mong muốn, còn 'seide' dùng cho nguyên nhân gây ra kết quả xấu nói chung."
+        }
+      ]
+    },
+    {
+      "pattern": "〜うえに",
+      "related": [
+        {
+          "pattern": "〜ばかりか",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để bổ sung thông tin, nhưng 'ue ni' mang tính liệt kê thêm, còn 'bakari ka' nhấn mạnh sự bất ngờ hoặc mức độ cao hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜うちに",
+      "related": [
+        {
+          "pattern": "〜あいだに",
+          "relation": "meaning",
+          "note": "Khác với 'aidani' (trong suốt khoảng thời gian), 'uchini' nhấn mạnh việc tranh thủ làm trước khi có sự thay đổi."
+        }
+      ]
+    },
+    {
+      "pattern": "〜おかげで",
+      "related": [
+        {
+          "pattern": "〜せいで",
+          "relation": "meaning",
+          "note": "Cặp đối lập: 'okagede' dùng cho kết quả tốt, 'seide' dùng cho kết quả xấu."
+        }
+      ]
+    },
+    {
+      "pattern": "〜からには",
+      "related": [
+        {
+          "pattern": "〜以上",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả ý nghĩa 'một khi đã... thì phải...' với sắc thái quyết tâm thực hiện hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜くらい…／〜ぐらい…／〜ほど…",
+      "related": [
+        {
+          "pattern": "〜くらい…はない・〜ぐらい…はない・〜ほど…はない",
+          "relation": "form",
+          "note": "Cả hai đều sử dụng ほど để so sánh mức độ cao nhất."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことができます",
+      "related": [
+        {
+          "pattern": "〜ことができます（受身）",
+          "relation": "form",
+          "note": "Cùng cấu trúc nhưng khác biệt về sắc thái chủ động và bị động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことができます（受身）",
+      "related": [
+        {
+          "pattern": "〜ことができます",
+          "relation": "form",
+          "note": "Cùng cấu trúc nhưng khác biệt về sắc thái chủ động và bị động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことから",
+      "related": [
+        {
+          "pattern": "〜から…・〜ことから…",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để chỉ căn cứ hoặc nguyên nhân dẫn đến kết quả."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことなく",
+      "related": [
+        {
+          "pattern": "〜ずに",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả trạng thái không thực hiện hành động, nhưng 〜ことなく mang sắc thái trang trọng hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことにする",
+      "related": [
+        {
+          "pattern": "〜ことになっている",
+          "relation": "meaning",
+          "note": "Phân biệt: ～ことにする là tự quyết định, còn ～ことになっている là quy định hoặc sự sắp xếp khách quan."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことになっている",
+      "related": [
+        {
+          "pattern": "〜ことになる",
+          "relation": "meaning",
+          "note": "Phân biệt: ～ことになっている là quy định sẵn, còn ～ことになる là kết quả khách quan dẫn đến."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことになる",
+      "related": [
+        {
+          "pattern": "〜ことになっている",
+          "relation": "meaning",
+          "note": "Phân biệt: ～ことになる là kết quả khách quan dẫn đến, còn ～ことになっている là quy định sẵn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことによって（／で）",
+      "related": [
+        {
+          "pattern": "〜によって…・〜による",
+          "relation": "form",
+          "note": "Cả hai đều sử dụng trợ từ によって để chỉ phương tiện hoặc nguyên nhân."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ことはない。",
+      "related": [
+        {
+          "pattern": "～することはない",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả sự không cần thiết phải thực hiện hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜させる／〜させられる",
+      "related": [
+        {
+          "pattern": "使役",
+          "relation": "form",
+          "note": "Cả hai đều liên quan đến cấu trúc thể sai khiến (使役)."
+        }
+      ]
+    },
+    {
+      "pattern": "〜しかない",
+      "related": [
+        {
+          "pattern": "～ほか（は）ない",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả việc không còn lựa chọn nào khác ngoài hành động đó."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ずに",
+      "related": [
+        {
+          "pattern": "〜ことなく",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả không thực hiện hành động; 〜ことなく thường trang trọng, thiên về văn viết hơn 〜ずに."
+        }
+      ]
+    },
+    {
+      "pattern": "〜せいか",
+      "related": [
+        {
+          "pattern": "〜せいで",
+          "relation": "meaning",
+          "note": "Phân biệt: ～せいか dùng khi nguyên nhân không rõ ràng, còn ～せいで dùng khi nguyên nhân rõ ràng và gây kết quả xấu."
+        }
+      ]
+    },
+    {
+      "pattern": "〜せいで",
+      "related": [
+        {
+          "pattern": "〜せいか",
+          "relation": "meaning",
+          "note": "Phân biệt: ～せいで dùng khi nguyên nhân rõ ràng và gây kết quả xấu, còn ～せいか dùng khi nguyên nhân không rõ ràng."
+        }
+      ]
+    },
+    {
+      "pattern": "〜せる／〜させる（使役）",
+      "related": [
+        {
+          "pattern": "〜させる／〜させられる",
+          "relation": "both",
+          "note": "Cả hai đều là các biến thể của thể sai khiến, dùng để diễn tả việc bắt buộc hoặc khiến ai đó làm gì."
+        },
+        {
+          "pattern": "使役",
+          "relation": "form",
+          "note": "Cả hai đều thuộc phạm trù ngữ pháp thể sai khiến."
+        }
+      ]
+    },
+    {
+      "pattern": "〜そうだ（伝聞）",
+      "related": [
+        {
+          "pattern": "〜そうだ（様態）",
+          "relation": "form",
+          "note": "Cùng cấu trúc ～そうだ nhưng khác biệt về nghĩa: truyền đạt thông tin (nghe nói) và phán đoán dựa trên vẻ ngoài (có vẻ)."
+        },
+        {
+          "pattern": "～という",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt thông tin nghe được từ nguồn khác."
+        }
+      ]
+    },
+    {
+      "pattern": "〜そうだ（様態）",
+      "related": [
+        {
+          "pattern": "〜そうだ（伝聞）",
+          "relation": "form",
+          "note": "Cùng cấu trúc ～そうだ nhưng khác biệt về nghĩa: phán đoán dựa trên vẻ ngoài (có vẻ) và truyền đạt thông tin (nghe nói)."
+        },
+        {
+          "pattern": "〜ように見える",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt phán đoán dựa trên quan sát vẻ ngoài."
+        }
+      ]
+    },
+    {
+      "pattern": "〜たところだ",
+      "related": [
+        {
+          "pattern": "〜たばかり",
+          "relation": "meaning",
+          "note": "Cùng diễn tả hành động vừa kết thúc, nhưng たところだ nhấn mạnh thời điểm vừa xong, còn たばかり nhấn mạnh khoảng thời gian ngắn trôi qua."
+        }
+      ]
+    },
+    {
+      "pattern": "〜たばかり",
+      "related": [
+        {
+          "pattern": "〜たところだ",
+          "relation": "meaning",
+          "note": "Cùng diễn tả hành động vừa kết thúc, nhưng たばかり nhấn mạnh khoảng thời gian ngắn trôi qua, còn たところだ nhấn mạnh thời điểm vừa xong."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ために（原因）",
+      "related": [
+        {
+          "pattern": "〜せいで",
+          "relation": "meaning",
+          "note": "Cả hai đều chỉ nguyên nhân, nhưng 〜せいで nhấn mạnh kết quả tiêu cực."
+        }
+      ]
+    },
+    {
+      "pattern": "〜たら",
+      "related": [
+        {
+          "pattern": "〜と",
+          "relation": "meaning",
+          "note": "Cùng diễn tả điều kiện, nhưng 〜と thường dùng cho kết quả tất yếu hoặc sự thật hiển nhiên."
+        }
+      ]
+    },
+    {
+      "pattern": "〜たらいいです",
+      "related": [
+        {
+          "pattern": "～といい・～ばいい・～たらいい",
+          "relation": "both",
+          "note": "Cùng nhóm các mẫu câu dùng để đưa ra lời khuyên hoặc bày tỏ mong muốn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜つづける",
+      "related": [
+        {
+          "pattern": "〜終わる",
+          "relation": "form",
+          "note": "Cả hai đều là hậu tố động từ chỉ sự tiếp diễn hoặc kết thúc của hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜って。（chủ đề）",
+      "related": [
+        {
+          "pattern": "〜って。（trích dẫn）",
+          "relation": "form",
+          "note": "Cùng sử dụng trợ từ trích dẫn 'って', nhưng khác nhau về chức năng ngữ pháp: một dùng để định nghĩa/gọi tên, một dùng để trích dẫn lời nói."
+        }
+      ]
+    },
+    {
+      "pattern": "〜って。（trích dẫn）",
+      "related": [
+        {
+          "pattern": "〜って。（chủ đề）",
+          "relation": "form",
+          "note": "Cùng sử dụng trợ từ trích dẫn 'って', nhưng khác nhau về chức năng ngữ pháp: một dùng để trích dẫn lời nói, một dùng để định nghĩa/gọi tên."
+        }
+      ]
+    },
+    {
+      "pattern": "〜つもりだ",
+      "related": [
+        {
+          "pattern": "〜つもりだ。",
+          "relation": "meaning",
+          "note": "Cùng cấu trúc nhưng khác biệt hoàn toàn về nghĩa: một chỉ dự định tương lai, một chỉ sự hiểu lầm trái với thực tế."
+        }
+      ]
+    },
+    {
+      "pattern": "〜つもりだ。",
+      "related": [
+        {
+          "pattern": "〜つもりだ",
+          "relation": "meaning",
+          "note": "Cùng cấu trúc nhưng khác biệt hoàn toàn về nghĩa: một chỉ sự hiểu lầm trái với thực tế, một chỉ dự định tương lai."
+        }
+      ]
+    },
+    {
+      "pattern": "〜づらい",
+      "related": [
+        {
+          "pattern": "〜Vにくい。",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả sự khó khăn, nhưng 'にくい' nhấn mạnh tính chất khách quan hoặc khó khăn về kỹ thuật, còn 'づらい' nhấn mạnh cảm giác khó chịu về mặt tâm lý."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ていく",
+      "related": [
+        {
+          "pattern": "〜てくる",
+          "relation": "meaning",
+          "note": "Cặp đối lập về hướng hành động: 'ていく' diễn tả sự thay đổi hướng ra xa hoặc tiếp diễn trong tương lai, 'てくる' diễn tả sự thay đổi hướng về phía người nói hoặc bắt đầu từ quá khứ đến hiện tại."
+        }
+      ]
+    },
+    {
+      "pattern": "〜てくる",
+      "related": [
+        {
+          "pattern": "〜ていく",
+          "relation": "meaning",
+          "note": "Cặp đối lập về hướng hành động: 'てくる' diễn tả sự thay đổi hướng về phía người nói hoặc bắt đầu từ quá khứ đến hiện tại, 'ていく' diễn tả sự thay đổi hướng ra xa hoặc tiếp diễn trong tương lai."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ても",
+      "related": [
+        {
+          "pattern": "〜でも",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả sự nhượng bộ, nhưng mẫu này dùng với động từ, còn mẫu kia dùng với danh từ hoặc các từ khác."
+        }
+      ]
+    },
+    {
+      "pattern": "〜でも",
+      "related": [
+        {
+          "pattern": "〜ても",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả sự nhượng bộ, nhưng mẫu này dùng với danh từ hoặc các từ khác, còn mẫu kia dùng với động từ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜と…〜た・〜たら…〜た。（điều bất ngờ）",
+      "related": [
+        {
+          "pattern": "〜と…〜た・〜たら…〜た。（ngẫu nhiên）",
+          "relation": "form",
+          "note": "Cùng cấu trúc V-た, nhưng khác biệt về sắc thái: mẫu này nhấn mạnh kết quả bất ngờ, mẫu kia nhấn mạnh sự ngẫu nhiên."
+        },
+        {
+          "pattern": "〜と…〜た・〜たら…〜た。（nhận thức）",
+          "relation": "form",
+          "note": "Cùng cấu trúc V-た, nhưng mẫu này nhấn mạnh vào kết quả bất ngờ, mẫu kia nhấn mạnh vào sự nhận thức hoặc phát hiện."
+        }
+      ]
+    },
+    {
+      "pattern": "〜と…〜た・〜たら…〜た。（ngẫu nhiên）",
+      "related": [
+        {
+          "pattern": "〜と…〜た・〜たら…〜た。（điều bất ngờ）",
+          "relation": "form",
+          "note": "Cùng cấu trúc V-た, nhưng mẫu này nhấn mạnh sự ngẫu nhiên, mẫu kia nhấn mạnh kết quả bất ngờ."
+        },
+        {
+          "pattern": "〜と…〜た・〜たら…〜た。（nhận thức）",
+          "relation": "form",
+          "note": "Cùng cấu trúc V-た, nhưng mẫu này nhấn mạnh sự ngẫu nhiên, mẫu kia nhấn mạnh sự nhận thức."
+        }
+      ]
+    },
+    {
+      "pattern": "〜と…〜た・〜たら…〜た。（nhận thức）",
+      "related": [
+        {
+          "pattern": "〜と…〜た・〜たら…〜た。（điều bất ngờ）",
+          "relation": "form",
+          "note": "Cùng cấu trúc V-た, nhưng mẫu này nhấn mạnh sự nhận thức, mẫu kia nhấn mạnh kết quả bất ngờ."
+        },
+        {
+          "pattern": "〜と…〜た・〜たら…〜た。（ngẫu nhiên）",
+          "relation": "form",
+          "note": "Cùng cấu trúc V-た, nhưng mẫu này nhấn mạnh sự nhận thức, mẫu kia nhấn mạnh sự ngẫu nhiên."
+        }
+      ]
+    },
+    {
+      "pattern": "〜と…〜た。",
+      "related": [
+        {
+          "pattern": "〜たとたん",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả hành động nối tiếp, nhưng mẫu này nhấn mạnh vào trình tự, còn mẫu kia nhấn mạnh vào thời điểm chính xác."
+        }
+      ]
+    },
+    {
+      "pattern": "〜といい、〜たらいい、〜ばいい。（khuyên）",
+      "related": [
+        {
+          "pattern": "〜といい、〜たらいい、〜ばいい。（ước）",
+          "relation": "form",
+          "note": "Cùng cấu trúc nhưng khác mục đích: mẫu này dùng để khuyên bảo, mẫu kia dùng để bày tỏ mong ước."
+        }
+      ]
+    },
+    {
+      "pattern": "〜といい、〜たらいい、〜ばいい。（ước）",
+      "related": [
+        {
+          "pattern": "〜といい、〜たらいい、〜ばいい。（khuyên）",
+          "relation": "form",
+          "note": "Cùng cấu trúc nhưng khác mục đích: mẫu này dùng để bày tỏ mong ước, mẫu kia dùng để khuyên bảo."
+        }
+      ]
+    },
+    {
+      "pattern": "〜という（内容）",
+      "related": [
+        {
+          "pattern": "〜という（名前）",
+          "relation": "form",
+          "note": "Cả hai đều sử dụng trợ từ という để bổ nghĩa cho danh từ, nhưng một bên dùng để truyền đạt nội dung, một bên dùng để giới thiệu tên."
+        }
+      ]
+    },
+    {
+      "pattern": "〜という（名前）",
+      "related": [
+        {
+          "pattern": "〜という（内容）",
+          "relation": "form",
+          "note": "Cả hai đều sử dụng trợ từ という để bổ nghĩa cho danh từ, nhưng một bên dùng để giới thiệu tên, một bên dùng để truyền đạt nội dung."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ということ",
+      "related": [
+        {
+          "pattern": "〜ということだ",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để giải thích hoặc trình bày nội dung, nhưng mẫu này mang tính khách quan hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ということだ",
+      "related": [
+        {
+          "pattern": "～ということだ／～とのことだ",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để truyền đạt lại thông tin đã nghe."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ということだ。",
+      "related": [
+        {
+          "pattern": "～ということだ／～とのことだ",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để truyền đạt lại thông tin đã nghe."
+        }
+      ]
+    },
+    {
+      "pattern": "〜というの",
+      "related": [
+        {
+          "pattern": "〜というのは…だ。",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để giải thích ý nghĩa của một từ hoặc thuật ngữ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜というのは…だ。",
+      "related": [
+        {
+          "pattern": "〜というの",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để giải thích ý nghĩa của một từ hoặc thuật ngữ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜とか。（liệt kê）",
+      "related": [
+        {
+          "pattern": "〜といった。",
+          "relation": "meaning",
+          "note": "Cùng dùng để liệt kê ví dụ, nhưng '〜といった' mang sắc thái trang trọng hơn."
+        },
+        {
+          "pattern": "〜をはじめ。",
+          "relation": "meaning",
+          "note": "Cùng dùng để liệt kê ví dụ tiêu biểu, trong đó '〜をはじめ' nhấn mạnh vào ví dụ nổi bật nhất."
+        }
+      ]
+    },
+    {
+      "pattern": "〜とか。（nghe nói）",
+      "related": [
+        {
+          "pattern": "〜そうだ（伝聞）",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt thông tin nghe được từ người khác."
+        },
+        {
+          "pattern": "〜ということだ。",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt thông tin nghe được, nhưng '〜ということだ' thường dùng để giải thích hoặc kết luận lại vấn đề."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ところだ",
+      "related": [
+        {
+          "pattern": "〜たところだ",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt trạng thái vừa mới hoàn thành hành động."
+        },
+        {
+          "pattern": "辞書形＋ところ",
+          "relation": "form",
+          "note": "Cùng kết hợp với động từ để chỉ các thời điểm khác nhau của hành động (sắp làm/vừa làm xong)."
+        }
+      ]
+    },
+    {
+      "pattern": "〜と思う（suy đoán theo ý kiến）",
+      "related": [
+        {
+          "pattern": "～かと思う",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt suy nghĩ cá nhân, trong đó '〜かと思う' mang sắc thái phỏng đoán nhẹ nhàng hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ないことには",
+      "related": [
+        {
+          "pattern": "〜てからでないと、〜てからでなければ…",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt điều kiện cần (phải làm xong việc A mới làm được việc B)."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ないわけにはいかない",
+      "related": [
+        {
+          "pattern": "～ずにはいられない",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt sự bắt buộc, nhưng '〜ずにはいられない' nhấn mạnh vào cảm xúc không thể kiềm chế của bản thân."
+        }
+      ]
+    },
+    {
+      "pattern": "〜なら",
+      "related": [
+        {
+          "pattern": "〜（の）なら…",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt điều kiện giả định dựa trên một thông tin đã biết."
+        }
+      ]
+    },
+    {
+      "pattern": "〜にくい",
+      "related": [
+        {
+          "pattern": "〜Vづらい。",
+          "relation": "meaning",
+          "note": "Cùng chỉ sự khó khăn, nhưng '〜づらい' nhấn mạnh cảm giác khó chịu về tâm lý, còn '〜にくい' nhấn mạnh tính chất khách quan."
+        }
+      ]
+    },
+    {
+      "pattern": "〜にしたがって",
+      "related": [
+        {
+          "pattern": "〜につれて",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự thay đổi song hành, nhưng '〜にしたがって' mang tính trang trọng hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜について",
+      "related": [
+        {
+          "pattern": "〜に関して…",
+          "relation": "meaning",
+          "note": "Cả hai đều chỉ đối tượng liên quan, nhưng に関して mang sắc thái trang trọng hơn, thường dùng trong văn viết hoặc công việc."
+        }
+      ]
+    },
+    {
+      "pattern": "〜につれて",
+      "related": [
+        {
+          "pattern": "〜にしたがって",
+          "relation": "meaning",
+          "note": "Cả hai diễn tả sự thay đổi đồng thời, nhưng にしたがって mang tính trang trọng và khách quan hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜によって…・〜によっては…",
+      "related": [
+        {
+          "pattern": "〜によっては",
+          "relation": "meaning",
+          "note": "Cả hai diễn tả sự phụ thuộc vào điều kiện, nhưng にによっては nhấn mạnh vào sự khác biệt kết quả tùy theo từng trường hợp cụ thể."
+        }
+      ]
+    },
+    {
+      "pattern": "〜によって…・〜による",
+      "related": [
+        {
+          "pattern": "〜によって…、〜による…（nguyên nhân）",
+          "relation": "meaning",
+          "note": "Phân biệt cách dùng chỉ nguyên nhân, lý do dẫn đến kết quả."
+        },
+        {
+          "pattern": "〜によって…、〜による…（phương pháp）",
+          "relation": "meaning",
+          "note": "Phân biệt cách dùng chỉ phương pháp, cách thức thực hiện."
+        }
+      ]
+    },
+    {
+      "pattern": "〜によって…、〜による…（nguyên nhân）",
+      "related": [
+        {
+          "pattern": "〜によって…・〜による",
+          "relation": "meaning",
+          "note": "Giúp phân biệt rõ mẫu câu dùng để chỉ nguyên nhân."
+        }
+      ]
+    },
+    {
+      "pattern": "〜によって…、〜による…（phương pháp）",
+      "related": [
+        {
+          "pattern": "〜によって…・〜による",
+          "relation": "meaning",
+          "note": "Giúp phân biệt rõ mẫu câu dùng để chỉ phương pháp."
+        }
+      ]
+    },
+    {
+      "pattern": "〜によっては",
+      "related": [
+        {
+          "pattern": "〜によって…・〜によっては…",
+          "relation": "meaning",
+          "note": "Nhấn mạnh vào sự khác biệt kết quả tùy theo từng trường hợp."
+        }
+      ]
+    },
+    {
+      "pattern": "〜によると",
+      "related": [
+        {
+          "pattern": "～によれば／～によると",
+          "relation": "both",
+          "note": "Cùng cách dùng để trích dẫn nguồn tin, thường đi kèm với các mẫu câu truyền đạt thông tin như ～そうだ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に違いない",
+      "related": [
+        {
+          "pattern": "〜に決まっている",
+          "relation": "meaning",
+          "note": "Cả hai đều chỉ sự chắc chắn, nhưng に決まっている mang sắc thái khẳng định chủ quan và mạnh mẽ hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に違いない。",
+      "related": [
+        {
+          "pattern": "〜に決まっている。",
+          "relation": "meaning",
+          "note": "Cả hai diễn tả sự phỏng đoán chắc chắn, nhưng に決まっている mang tính khẳng định mạnh mẽ và suồng sã hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に決まっている",
+      "related": [
+        {
+          "pattern": "〜に違いない。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự phỏng đoán chắc chắn, nhưng に違いない mang sắc thái khách quan hơn so với に決まっている."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に決まっている。",
+      "related": [
+        {
+          "pattern": "〜に違いない。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự phỏng đoán chắc chắn, nhưng に決まっている thường dùng trong văn nói suồng sã."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に従って。",
+      "related": [
+        {
+          "pattern": "〜につれて",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự thay đổi đồng thời, nhưng にしたがって mang tính trang trọng hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に対して",
+      "related": [
+        {
+          "pattern": "〜に対して…",
+          "relation": "meaning",
+          "note": "Phân biệt giữa việc chỉ đối tượng hướng tới và việc chỉ sự đối lập, trái ngược."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に対して…",
+      "related": [
+        {
+          "pattern": "〜に対して",
+          "relation": "meaning",
+          "note": "Phân biệt giữa việc chỉ sự đối lập và việc chỉ đối tượng hướng tới."
+        }
+      ]
+    },
+    {
+      "pattern": "〜に比べて（〜に比べると）。",
+      "related": [
+        {
+          "pattern": "〜に比べて",
+          "relation": "both",
+          "note": "Cùng ý nghĩa so sánh, 〜に比べて là dạng rút gọn phổ biến hơn của 〜に比べると."
+        }
+      ]
+    },
+    {
+      "pattern": "〜のようだ / 〜みたいだ",
+      "related": [
+        {
+          "pattern": "〜みたいだ",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự so sánh, 〜みたいだ mang sắc thái suồng sã, dùng trong văn nói."
+        },
+        {
+          "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự so sánh, các mẫu này mang sắc thái trang trọng hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ば",
+      "related": [
+        {
+          "pattern": "〜ば…。〜たら…。〜なら…。",
+          "relation": "meaning",
+          "note": "Cùng là điều kiện giả định, nhưng nhóm này nhấn mạnh vào cảm xúc tiếc nuối hoặc mong ước."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ばかり。",
+      "related": [
+        {
+          "pattern": "〜ばかりいる",
+          "relation": "both",
+          "note": "Cùng diễn tả việc lặp lại, 〜ばかりいる nhấn mạnh vào trạng thái duy trì hành động suốt thời gian dài."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ばかりいる",
+      "related": [
+        {
+          "pattern": "〜ばかり。",
+          "relation": "both",
+          "note": "Cùng diễn tả việc lặp lại, giúp phân biệt giữa danh từ/động từ và trạng thái hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ばかりだ",
+      "related": [
+        {
+          "pattern": "〜ばかりだ。（xấu đi）",
+          "relation": "meaning",
+          "note": "Cùng diễn tả xu hướng biến đổi, giúp phân biệt sắc thái tiêu cực."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ばかりだ。（vừa mới）",
+      "related": [
+        {
+          "pattern": "〜たばかり",
+          "relation": "meaning",
+          "note": "Cùng diễn tả hành động vừa mới xảy ra, giúp so sánh cách kết hợp với động từ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ばかりだ。（xấu đi）",
+      "related": [
+        {
+          "pattern": "〜ばかりだ",
+          "relation": "meaning",
+          "note": "Cùng diễn tả xu hướng biến đổi, giúp phân biệt sắc thái tiêu cực."
+        }
+      ]
+    },
+    {
+      "pattern": "〜はずがない",
+      "related": [
+        {
+          "pattern": "〜わけがない。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự không thể xảy ra, giúp phân biệt sắc thái phủ định."
+        }
+      ]
+    },
+    {
+      "pattern": "〜はずがない。",
+      "related": [
+        {
+          "pattern": "～わけがない",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự không thể xảy ra, giúp phân biệt sắc thái phủ định."
+        }
+      ]
+    },
+    {
+      "pattern": "〜はもちろん…も",
+      "related": [
+        {
+          "pattern": "～はもちろん",
+          "relation": "meaning",
+          "note": "Cùng diễn tả ý nghĩa nhấn mạnh sự đương nhiên của vế trước và mở rộng thêm vế sau."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ばよかった",
+      "related": [
+        {
+          "pattern": "〜ば…。〜たら…。〜なら…。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự tiếc nuối về một việc không xảy ra trong quá khứ."
+        },
+        {
+          "pattern": "～ばいいのに",
+          "relation": "meaning",
+          "note": "Cùng diễn tả mong ước trái với thực tế, mang sắc thái tiếc nuối."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ほど",
+      "related": [
+        {
+          "pattern": "〜ほど〜ない",
+          "relation": "both",
+          "note": "Cùng cấu trúc so sánh, nhưng dùng trong câu phủ định để nhấn mạnh sự vượt trội."
+        },
+        {
+          "pattern": "（〜ば）〜ほど…・（〜なら）〜ほど…・〜ほど…",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự thay đổi tương ứng của hai vế."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ほど〜ない",
+      "related": [
+        {
+          "pattern": "〜ほど",
+          "relation": "both",
+          "note": "Cùng cấu trúc so sánh, đây là dạng phủ định để nhấn mạnh không gì bằng."
+        }
+      ]
+    },
+    {
+      "pattern": "〜みたいだ",
+      "related": [
+        {
+          "pattern": "〜みたいに",
+          "relation": "form",
+          "note": "Cùng gốc từ, đây là dạng phó từ dùng để bổ nghĩa cho động từ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜みたいだ。",
+      "related": [
+        {
+          "pattern": "〜みたいに",
+          "relation": "form",
+          "note": "Cùng gốc từ, đây là dạng phó từ dùng để bổ nghĩa cho động từ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜みたいに",
+      "related": [
+        {
+          "pattern": "〜みたいだ",
+          "relation": "form",
+          "note": "Cùng gốc từ, đây là dạng tính từ đuôi na."
+        },
+        {
+          "pattern": "〜みたいだ。",
+          "relation": "form",
+          "note": "Cùng gốc từ, đây là dạng tính từ đuôi na."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ようだ",
+      "related": [
+        {
+          "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự suy đoán dựa trên quan sát hoặc cảm nhận."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ようとする",
+      "related": [
+        {
+          "pattern": "〜V意向形＋とする。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả ý định thực hiện một hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ように",
+      "related": [
+        {
+          "pattern": "〜ように、〜ようにと、〜よう",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, thường dùng trong các cấu trúc trích dẫn yêu cầu hoặc mong muốn."
+        },
+        {
+          "pattern": "〜ように。",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, dùng để liệt kê ví dụ."
+        },
+        {
+          "pattern": "～ように…（ kỳ vọng ）",
+          "relation": "meaning",
+          "note": "Cùng diễn tả mục đích hoặc trạng thái mong muốn đạt được."
+        },
+        {
+          "pattern": "〜ために",
+          "relation": "meaning",
+          "note": "Đều có thể diễn tả mục đích; 〜ように thường hướng tới một trạng thái/kết quả, còn 〜ために thường nêu hành động có chủ đích."
+        },
+        {
+          "pattern": "〜ようにする",
+          "relation": "form",
+          "note": "Cùng cấu trúc ように; 〜ようにする nhấn mạnh sự chủ động cố gắng hoặc tạo thói quen."
+        },
+        {
+          "pattern": "〜ようになる",
+          "relation": "form",
+          "note": "Cùng cấu trúc ように; 〜ようになる diễn tả sự thay đổi dẫn tới một trạng thái mới."
+        },
+        {
+          "pattern": "～のような／～のように",
+          "relation": "meaning",
+          "note": "Khi mang nghĩa so sánh, ように gần với のように; mẫu có の dùng để ví von hoặc nêu ví dụ."
+        },
+        {
+          "pattern": "〜ように言う",
+          "relation": "form",
+          "note": "ように cũng xuất hiện trong lời nhắn/yêu cầu gián tiếp như ～ように言う."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ように、〜ようにと、〜よう",
+      "related": [
+        {
+          "pattern": "〜ように",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, liên quan đến việc truyền đạt yêu cầu."
+        },
+        {
+          "pattern": "〜ように。",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, dùng trong các cấu trúc trích dẫn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ように。",
+      "related": [
+        {
+          "pattern": "〜ように",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, dùng để đưa ra ví dụ minh họa."
+        },
+        {
+          "pattern": "〜ように、〜ようにと、〜よう",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, dùng trong các cấu trúc trích dẫn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ようにする",
+      "related": [
+        {
+          "pattern": "〜ようにする・〜ようにしている。",
+          "relation": "both",
+          "note": "Cùng nghĩa, nhấn mạnh vào việc nỗ lực duy trì thói quen."
+        },
+        {
+          "pattern": "〜ようになる",
+          "relation": "form",
+          "note": "Cùng chứa hậu tố よう, nhưng diễn tả sự thay đổi trạng thái tự nhiên thay vì nỗ lực chủ quan."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ようにする・〜ようにしている。",
+      "related": [
+        {
+          "pattern": "〜ようにする",
+          "relation": "both",
+          "note": "Cùng nghĩa, nhấn mạnh vào việc nỗ lực duy trì thói quen."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ようになる",
+      "related": [
+        {
+          "pattern": "〜ようにする",
+          "relation": "form",
+          "note": "Cả hai đều chứa hậu tố よう, nhưng 〜ようになる chỉ sự thay đổi trạng thái, còn 〜ようにする chỉ sự cố gắng chủ quan."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ように見える",
+      "related": [
+        {
+          "pattern": "〜そうだ（様態）",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả phán đoán dựa trên vẻ ngoài, nhưng 〜ように見える nhấn mạnh vào cảm nhận thị giác."
+        }
+      ]
+    },
+    {
+      "pattern": "〜ように言う",
+      "related": [
+        {
+          "pattern": "［辞書形・ない形］＋ように（＋と）／［て形・ない形＋で］＋ほしいと／命令形・禁止形＋と",
+          "relation": "form",
+          "note": "Cả hai đều là cấu trúc trích dẫn gián tiếp dùng để truyền đạt yêu cầu hoặc lời khuyên."
+        }
+      ]
+    },
+    {
+      "pattern": "〜らしい",
+      "related": [
+        {
+          "pattern": "〜らしい。",
+          "relation": "form",
+          "note": "Cùng từ vựng nhưng khác chức năng: 〜らしい dùng để suy đoán, còn 〜らしい dùng để đánh giá tính chất đặc trưng."
+        }
+      ]
+    },
+    {
+      "pattern": "〜らしい。",
+      "related": [
+        {
+          "pattern": "〜らしい",
+          "relation": "form",
+          "note": "Cùng từ vựng nhưng khác chức năng: 〜らしい nhấn mạnh tính chất điển hình, còn 〜らしい dùng để suy đoán."
+        }
+      ]
+    },
+    {
+      "pattern": "〜わけがない。",
+      "related": [
+        {
+          "pattern": "〜はずがない",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả sự không thể xảy ra, nhưng 〜わけがない mang sắc thái phủ định mạnh mẽ hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜を中心に",
+      "related": [
+        {
+          "pattern": "〜を…として・〜をに。",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để chỉ việc lấy một đối tượng làm trọng tâm hoặc căn cứ."
+        }
+      ]
+    },
+    {
+      "pattern": "〜んだから。〜のだから。",
+      "related": [
+        {
+          "pattern": "〜から",
+          "relation": "meaning",
+          "note": "Đều chỉ nguyên nhân, nhưng 〜のだから nhấn mạnh tính đương nhiên của lý do."
+        }
+      ]
+    },
+    {
+      "pattern": "〜以上",
+      "related": [
+        {
+          "pattern": "〜からには",
+          "relation": "meaning",
+          "note": "Cả hai đều diễn tả quyết tâm hoặc trách nhiệm sau khi một sự việc đã xảy ra."
+        }
+      ]
+    },
+    {
+      "pattern": "〜一方（で）",
+      "related": [
+        {
+          "pattern": "〜反面…",
+          "relation": "meaning",
+          "note": "Cùng diễn tả hai mặt trái ngược, nhưng 〜反面 nhấn mạnh sự tương phản rõ rệt hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "〜間…",
+      "related": [
+        {
+          "pattern": "〜間に",
+          "relation": "meaning",
+          "note": "Cả hai đều chỉ khoảng thời gian, nhưng '間に' nhấn mạnh vào một hành động xảy ra trong khoảng thời gian đó."
+        }
+      ]
+    },
+    {
+      "pattern": "〜間に",
+      "related": [
+        {
+          "pattern": "〜うちに",
+          "relation": "meaning",
+          "note": "'うちに' nhấn mạnh việc thực hiện hành động trước khi trạng thái thay đổi, còn '間に' chỉ đơn thuần là khoảng thời gian."
+        },
+        {
+          "pattern": "〜間…",
+          "relation": "meaning",
+          "note": "Cả hai đều chỉ khoảng thời gian, nhưng '間に' nhấn mạnh vào một hành động xảy ra trong khoảng thời gian đó."
+        }
+      ]
+    },
+    {
+      "pattern": "〜気味",
+      "related": [
+        {
+          "pattern": "〜がち",
+          "relation": "meaning",
+          "note": "'気味' chỉ cảm giác hơi có xu hướng, còn 'がち' chỉ khuynh hướng thường xuyên xảy ra một cách tiêu cực."
+        }
+      ]
+    },
+    {
+      "pattern": "〜終わる",
+      "related": [
+        {
+          "pattern": "〜Vきる・Vきれない。",
+          "relation": "meaning",
+          "note": "'終わる' chỉ kết thúc, còn 'きる' nhấn mạnh việc hoàn thành triệt để hoặc không thể làm hết."
+        },
+        {
+          "pattern": "〜V通す。",
+          "relation": "meaning",
+          "note": "'終わる' chỉ kết thúc, còn '通す' nhấn mạnh việc kiên trì thực hiện đến cùng."
+        }
+      ]
+    },
+    {
+      "pattern": "〜出す",
+      "related": [
+        {
+          "pattern": "〜V始める。",
+          "relation": "meaning",
+          "note": "'始める' dùng cho hành động có ý chí, còn '出す' thường dùng cho sự việc xảy ra bất ngờ hoặc tự nhiên."
+        }
+      ]
+    },
+    {
+      "pattern": "〜反対に／〜逆に",
+      "related": [
+        {
+          "pattern": "〜反面…",
+          "relation": "meaning",
+          "note": "'反対に' chỉ sự đối lập hoàn toàn, còn '反面' dùng để so sánh hai mặt trái ngược của cùng một vấn đề."
+        }
+      ]
+    },
+    {
+      "pattern": "〜反面…",
+      "related": [
+        {
+          "pattern": "〜反対に／〜逆に",
+          "relation": "meaning",
+          "note": "'反面' dùng để so sánh hai mặt trái ngược của cùng một vấn đề, còn '反対に' chỉ sự đối lập hoàn toàn."
+        }
+      ]
+    },
+    {
+      "pattern": "［助詞］＋の＋名",
+      "related": [
+        {
+          "pattern": "［助詞のような働きをする言葉］＋の＋名",
+          "relation": "form",
+          "note": "Cả hai đều là các cấu trúc bổ nghĩa cho danh từ thông qua trợ từ hoặc cụm từ có chức năng tương đương."
+        }
+      ]
+    },
+    {
+      "pattern": "［助詞のような働きをする言葉］＋の＋名",
+      "related": [
+        {
+          "pattern": "［助詞］＋の＋名",
+          "relation": "form",
+          "note": "Cả hai đều là các cấu trúc bổ nghĩa cho danh từ thông qua trợ từ hoặc cụm từ có chức năng tương đương."
+        }
+      ]
+    },
+    {
+      "pattern": "「物」と「こと」",
+      "related": [
+        {
+          "pattern": "こと",
+          "relation": "meaning",
+          "note": "Giúp người học hiểu rõ hơn về cách dùng của danh từ trừu tượng 'こと'."
+        },
+        {
+          "pattern": "物（もの）",
+          "relation": "meaning",
+          "note": "Giúp người học phân biệt rõ hơn với thực thể hữu hình 'もの'."
+        }
+      ]
+    },
+    {
+      "pattern": "【ば】ほど、【ければ】ほど、【なら】ほど",
+      "related": [
+        {
+          "pattern": "〜ば〜ほど",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa diễn tả sự thay đổi tương ứng của hai vế."
+        }
+      ]
+    },
+    {
+      "pattern": "～（さ）せてもらいたい・～（さ）せていただきたい・～（さ）せてほしい",
+      "related": [
+        {
+          "pattern": "〜Vさせてもらいたい（いただきたい／ほしい）",
+          "relation": "meaning",
+          "note": "Cùng diễn tả mong muốn được người khác cho phép thực hiện hành động."
+        },
+        {
+          "pattern": "～せていただく / ～せてくださる",
+          "relation": "form",
+          "note": "Cùng sử dụng cấu trúc sai khiến kết hợp với nhận hành động để thể hiện sự lịch sự."
+        }
+      ]
+    },
+    {
+      "pattern": "～(よ)うとする",
+      "related": [
+        {
+          "pattern": "〜V意向形＋とする。",
+          "relation": "both",
+          "note": "Cùng diễn tả ý định thực hiện hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "～おかげだ・～おかげで…／～せいだ・～せい…",
+      "related": [
+        {
+          "pattern": "〜おかげで",
+          "relation": "meaning",
+          "note": "Cùng diễn tả nguyên nhân dẫn đến kết quả tốt."
+        },
+        {
+          "pattern": "〜せいで",
+          "relation": "meaning",
+          "note": "Cùng diễn tả nguyên nhân dẫn đến kết quả xấu."
+        }
+      ]
+    },
+    {
+      "pattern": "～かけだ / ～かけの / ～かける",
+      "related": [
+        {
+          "pattern": "〜Vかける・〜Vかけだ・〜Vかけの N。",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa diễn tả hành động đang dở dang."
+        }
+      ]
+    },
+    {
+      "pattern": "～かと思う",
+      "related": [
+        {
+          "pattern": "〜と思う（suy đoán theo ý kiến）",
+          "relation": "meaning",
+          "note": "Cùng diễn tả suy nghĩ hoặc ý kiến cá nhân."
+        }
+      ]
+    },
+    {
+      "pattern": "～かと思った",
+      "related": [
+        {
+          "pattern": "〜つもりだ。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự khác biệt giữa suy nghĩ chủ quan và thực tế."
+        }
+      ]
+    },
+    {
+      "pattern": "～かのようだ / ～かのように / ～かのような",
+      "related": [
+        {
+          "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa so sánh ví von."
+        }
+      ]
+    },
+    {
+      "pattern": "～こと",
+      "related": [
+        {
+          "pattern": "Vること．Vないこと．",
+          "relation": "meaning",
+          "note": "Cùng diễn tả yêu cầu hoặc mệnh lệnh."
+        },
+        {
+          "pattern": "Vるな。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự cấm đoán."
+        }
+      ]
+    },
+    {
+      "pattern": "～さえ～ば・・・・～さえ～なら・・・",
+      "related": [
+        {
+          "pattern": "〜さえ〜ば…",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa chỉ cần một điều kiện là đủ."
+        }
+      ]
+    },
+    {
+      "pattern": "～じゃない",
+      "related": [
+        {
+          "pattern": "〜のではないか。〜のではないだろうか。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự xác nhận hoặc nghi vấn."
+        },
+        {
+          "pattern": "～ませんか / ～ないですか / ～ありませんか",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự xác nhận hoặc nghi vấn."
+        }
+      ]
+    },
+    {
+      "pattern": "～ずにはいられない",
+      "related": [
+        {
+          "pattern": "～ないではいられない",
+          "relation": "both",
+          "note": "Đây là biến thể cấu trúc tương đương, cùng diễn tả việc không thể ngăn bản thân làm gì đó."
+        }
+      ]
+    },
+    {
+      "pattern": "～することはない",
+      "related": [
+        {
+          "pattern": "〜ことはない。",
+          "relation": "both",
+          "note": "Cùng một cấu trúc và ý nghĩa, dùng để phủ định sự cần thiết của hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "～せいで / ～せいか",
+      "related": [
+        {
+          "pattern": "〜せいで",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa chỉ nguyên nhân dẫn đến kết quả tiêu cực."
+        },
+        {
+          "pattern": "〜せいか",
+          "relation": "meaning",
+          "note": "Cùng chỉ nguyên nhân nhưng sắc thái khác nhau: một bên khẳng định nguyên nhân, một bên suy đoán mơ hồ."
+        }
+      ]
+    },
+    {
+      "pattern": "～たって",
+      "related": [
+        {
+          "pattern": "〜ても",
+          "relation": "meaning",
+          "note": "Cùng nghĩa là dù cho, nhưng 'tって' là dạng văn nói suồng sã của 'ても'."
+        }
+      ]
+    },
+    {
+      "pattern": "～たばかりだ",
+      "related": [
+        {
+          "pattern": "〜たばかり",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa diễn tả hành động vừa mới kết thúc."
+        }
+      ]
+    },
+    {
+      "pattern": "～だらけ",
+      "related": [
+        {
+          "pattern": "〜だらけだ",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa diễn tả trạng thái đầy rẫy những thứ không tốt."
+        }
+      ]
+    },
+    {
+      "pattern": "～だろうと思う",
+      "related": [
+        {
+          "pattern": "〜だろう（có vẻ/suy đoán）",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự phỏng đoán, trong đó 'だろうと思う' thể hiện rõ hơn ý kiến chủ quan của người nói."
+        }
+      ]
+    },
+    {
+      "pattern": "～っこない",
+      "related": [
+        {
+          "pattern": "〜わけがない。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự phủ định mạnh mẽ về khả năng xảy ra của sự việc."
+        }
+      ]
+    },
+    {
+      "pattern": "～って",
+      "related": [
+        {
+          "pattern": "〜って。（trích dẫn）",
+          "relation": "meaning",
+          "note": "Cùng chức năng trích dẫn, trong đó 'って' là dạng văn nói phổ biến."
+        }
+      ]
+    },
+    {
+      "pattern": "～ていらっしゃる / ～でいらっしゃる",
+      "related": [
+        {
+          "pattern": "Tôn kính ngữ của động từ thông thường nhóm 1・2 (尊敬語)",
+          "relation": "meaning",
+          "note": "Cùng thuộc hệ thống tôn kính ngữ để thể hiện sự tôn trọng đối với hành động của người khác."
+        }
+      ]
+    },
+    {
+      "pattern": "～てからでなければ / ～てからでないと",
+      "related": [
+        {
+          "pattern": "〜てからでないと、〜てからでなければ…",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa diễn tả điều kiện cần để thực hiện hành động tiếp theo."
+        }
+      ]
+    },
+    {
+      "pattern": "～ではないか・～ではないだろうか",
+      "related": [
+        {
+          "pattern": "〜のではないか。〜のではないだろうか。",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa dùng để xác nhận hoặc đưa ra ý kiến cá nhân."
+        }
+      ]
+    },
+    {
+      "pattern": "～てます・～ときます・～ちゃいます",
+      "related": [
+        {
+          "pattern": "～ている -> ～てる／～ておく -> ～とく",
+          "relation": "form",
+          "note": "Cùng là các dạng rút gọn của động từ trong văn nói."
+        }
+      ]
+    },
+    {
+      "pattern": "～てもらいたい・～ていただきたい・～てほしい",
+      "related": [
+        {
+          "pattern": "〜Vてもらいたい（ていただきたい／ほしい）",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa diễn tả mong muốn người khác làm gì cho mình."
+        }
+      ]
+    },
+    {
+      "pattern": "～てもらってもいいですか",
+      "related": [
+        {
+          "pattern": "〜てあげる・〜てもらう・〜てくれる",
+          "relation": "meaning",
+          "note": "Cùng diễn tả các hành vi cho và nhận, giúp người học phân biệt rõ vai trò chủ thể trong hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "～という",
+      "related": [
+        {
+          "pattern": "〜そうだ（伝聞）",
+          "relation": "meaning",
+          "note": "Cùng dùng để truyền đạt lại thông tin nghe được, giúp người học nắm vững các cách nói gián tiếp."
+        }
+      ]
+    },
+    {
+      "pattern": "～ないではいられない",
+      "related": [
+        {
+          "pattern": "～ずにはいられない",
+          "relation": "meaning",
+          "note": "Cùng diễn tả cảm xúc không thể kiềm chế, giúp người học mở rộng vốn từ đồng nghĩa."
+        }
+      ]
+    },
+    {
+      "pattern": "～なきゃ",
+      "related": [
+        {
+          "pattern": "〜Vないわけにはいかない。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả nghĩa vụ, nhưng khác nhau về sắc thái văn phong (văn nói vs văn viết)."
+        }
+      ]
+    },
+    {
+      "pattern": "～なさそうだ",
+      "related": [
+        {
+          "pattern": "〜そうだ（様態）",
+          "relation": "form",
+          "note": "Cùng dựa trên cấu trúc phỏng đoán, giúp người học hiểu cách biến đổi phủ định của mẫu này."
+        }
+      ]
+    },
+    {
+      "pattern": "～なんか",
+      "related": [
+        {
+          "pattern": "など・なんか",
+          "relation": "meaning",
+          "note": "Cùng dùng để liệt kê hoặc thể hiện thái độ coi nhẹ, giúp người học nhận diện các cách nói tương đương."
+        }
+      ]
+    },
+    {
+      "pattern": "～にする・～くする",
+      "related": [
+        {
+          "pattern": "～になる・～くなる",
+          "relation": "meaning",
+          "note": "Cặp đối lập chủ động và tự động, giúp người học hiểu rõ sự thay đổi trạng thái."
+        }
+      ]
+    },
+    {
+      "pattern": "～にとつて…",
+      "related": [
+        {
+          "pattern": "〜にとって",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt lập trường hoặc đối tượng được nhắc đến, giúp người học nắm vững cách dùng trợ từ."
+        }
+      ]
+    },
+    {
+      "pattern": "～になる・～くなる",
+      "related": [
+        {
+          "pattern": "～にする・～くする",
+          "relation": "meaning",
+          "note": "Cặp đối lập tự động và chủ động, giúp người học hiểu rõ sự thay đổi trạng thái."
+        }
+      ]
+    },
+    {
+      "pattern": "～によって / ～による",
+      "related": [
+        {
+          "pattern": "〜によって…・〜によっては…",
+          "relation": "both",
+          "note": "Cùng cấu trúc và cách dùng để diễn đạt sự thay đổi tùy theo đối tượng."
+        }
+      ]
+    },
+    {
+      "pattern": "～による / ～によって",
+      "related": [
+        {
+          "pattern": "〜ために…、〜ためだ（nguyên nhân）",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt nguyên nhân, lý do dẫn đến kết quả."
+        }
+      ]
+    },
+    {
+      "pattern": "～による／～によって",
+      "related": [
+        {
+          "pattern": "〜によって…、〜による…（phương pháp）",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa chỉ phương pháp, cách thức thực hiện."
+        }
+      ]
+    },
+    {
+      "pattern": "～によれば／～によると",
+      "related": [
+        {
+          "pattern": "〜によると",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt nguồn tin hoặc căn cứ thông tin."
+        }
+      ]
+    },
+    {
+      "pattern": "～のだから…",
+      "related": [
+        {
+          "pattern": "〜んだから。〜のだから。",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt nguyên nhân, lý do mang tính đương nhiên."
+        }
+      ]
+    },
+    {
+      "pattern": "～のような／～のように",
+      "related": [
+        {
+          "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+          "relation": "meaning",
+          "note": "Cùng dùng để đưa ra ví dụ điển hình hoặc so sánh."
+        }
+      ]
+    },
+    {
+      "pattern": "～ばいいのに",
+      "related": [
+        {
+          "pattern": "〜といい、〜たらいい、〜ばいい。（ước）",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt mong muốn, ước muốn về một điều gì đó."
+        }
+      ]
+    },
+    {
+      "pattern": "～ばかり",
+      "related": [
+        {
+          "pattern": "〜てばかりいる。",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt việc lặp đi lặp lại một hành động hoặc trạng thái."
+        }
+      ]
+    },
+    {
+      "pattern": "～ばかりでなく",
+      "related": [
+        {
+          "pattern": "〜ばかりか",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa không chỉ... mà còn..."
+        }
+      ]
+    },
+    {
+      "pattern": "～ばかりでなく～も",
+      "related": [
+        {
+          "pattern": "〜ばかりか",
+          "relation": "meaning",
+          "note": "Cùng nghĩa là không chỉ A mà còn B."
+        },
+        {
+          "pattern": "～はもちろん",
+          "relation": "meaning",
+          "note": "Cùng nghĩa, nhưng mẫu này nhấn mạnh hơn vào việc A là đương nhiên."
+        }
+      ]
+    },
+    {
+      "pattern": "～はず",
+      "related": [
+        {
+          "pattern": "〜はずだ",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa suy đoán dựa trên logic."
+        }
+      ]
+    },
+    {
+      "pattern": "～はもちろん",
+      "related": [
+        {
+          "pattern": "〜はもちろん…も",
+          "relation": "meaning",
+          "note": "Cùng nghĩa, nhấn mạnh A là điều hiển nhiên."
+        },
+        {
+          "pattern": "～ばかりでなく～も",
+          "relation": "meaning",
+          "note": "Cùng nghĩa không chỉ A mà còn B."
+        }
+      ]
+    },
+    {
+      "pattern": "～べきだ / ～べきではない",
+      "related": [
+        {
+          "pattern": "〜べきだ・〜べき・〜べきではない。",
+          "relation": "both",
+          "note": "Cùng cấu trúc và ý nghĩa khuyên bảo, cần làm."
+        }
+      ]
+    },
+    {
+      "pattern": "～ほか（は）ない",
+      "related": [
+        {
+          "pattern": "〜しかない",
+          "relation": "meaning",
+          "note": "Cùng nghĩa là chỉ còn cách làm V."
+        }
+      ]
+    },
+    {
+      "pattern": "～ほど…はない",
+      "related": [
+        {
+          "pattern": "〜Nくらい（ぐらい／ほど）…はない",
+          "relation": "meaning",
+          "note": "Cùng nghĩa là không gì bằng N."
+        }
+      ]
+    },
+    {
+      "pattern": "～ませんか / ～ないですか / ～ありませんか",
+      "related": [
+        {
+          "pattern": "〜のではないか。〜のではないだろうか。",
+          "relation": "meaning",
+          "note": "Cùng dùng để xác nhận hoặc hỏi lại."
+        }
+      ]
+    },
+    {
+      "pattern": "～もので／～ものですから",
+      "related": [
+        {
+          "pattern": "〜おかげで",
+          "relation": "meaning",
+          "note": "Cùng chỉ nguyên nhân, nhưng mẫu này dùng để giải thích lý do khách quan hoặc biện minh."
+        },
+        {
+          "pattern": "〜せいで",
+          "relation": "meaning",
+          "note": "Cùng chỉ nguyên nhân, nhưng mẫu này nhấn mạnh vào kết quả tiêu cực."
+        }
+      ]
+    },
+    {
+      "pattern": "～ようなら／～ようだったら",
+      "related": [
+        {
+          "pattern": "〜（の）なら…",
+          "relation": "meaning",
+          "note": "Cùng dùng để đưa ra điều kiện giả định dựa trên tình huống."
+        }
+      ]
+    },
+    {
+      "pattern": "～ように…（ tương đồng ）",
+      "related": [
+        {
+          "pattern": "〜（かの）ようだ・〜のようだ・〜（かの）ように・〜のように",
+          "relation": "meaning",
+          "note": "Cùng diễn tả ý nghĩa so sánh tương đồng."
+        }
+      ]
+    },
+    {
+      "pattern": "～ように…（ ví dụ ）",
+      "related": [
+        {
+          "pattern": "〜ように。",
+          "relation": "meaning",
+          "note": "Cùng dùng để liệt kê ví dụ minh họa."
+        }
+      ]
+    },
+    {
+      "pattern": "～ようになっている",
+      "related": [
+        {
+          "pattern": "〜ようになる",
+          "relation": "form",
+          "note": "Cùng cấu trúc ようになる: ～ようになる diễn tả sự thay đổi, còn ～ようになっている nói về trạng thái/cơ chế đã được thiết lập."
+        }
+      ]
+    },
+    {
+      "pattern": "～わけがない",
+      "related": [
+        {
+          "pattern": "〜はずがない",
+          "relation": "meaning",
+          "note": "Cùng dùng để phủ định mạnh mẽ, nhưng mẫu này nhấn mạnh vào tính phi lý của sự việc."
+        },
+        {
+          "pattern": "できるわけがない",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự không thể thực hiện được do tính chất khách quan."
+        }
+      ]
+    },
+    {
+      "pattern": "～わけにはいかない",
+      "related": [
+        {
+          "pattern": "〜Vないわけにはいかない。",
+          "relation": "meaning",
+          "note": "Cùng diễn tả sự bắt buộc phải làm, nhưng mẫu này nhấn mạnh vào nghĩa vụ."
+        }
+      ]
+    },
+    {
+      "pattern": "～を通して／～を通じて",
+      "related": [
+        {
+          "pattern": "〜を通じて（を通して）",
+          "relation": "both",
+          "note": "Cùng diễn đạt ý nghĩa thông qua hoặc trong suốt khoảng thời gian."
+        }
+      ]
+    },
+    {
+      "pattern": "～最中に / ～最中だ",
+      "related": [
+        {
+          "pattern": "〜最中に",
+          "relation": "both",
+          "note": "Cùng diễn tả hành động bất ngờ xảy ra trong lúc đang làm việc khác."
+        }
+      ]
+    },
+    {
+      "pattern": "Bảng mở rộng động từ thông thường và kính ngữ",
+      "related": [
+        {
+          "pattern": "Bảng tổng hợp 20 động từ kính ngữ bắt buộc thuộc (N3)",
+          "relation": "meaning",
+          "note": "Cùng thuộc nhóm kiến thức về kính ngữ, hỗ trợ tra cứu động từ."
+        }
+      ]
+    },
+    {
+      "pattern": "Bảng tổng hợp 20 động từ kính ngữ bắt buộc thuộc (N3)",
+      "related": [
+        {
+          "pattern": "Bảng mở rộng động từ thông thường và kính ngữ",
+          "relation": "meaning",
+          "note": "Cùng thuộc nhóm kiến thức về kính ngữ, hỗ trợ tra cứu động từ."
+        },
+        {
+          "pattern": "Phân biệt cách dùng Tôn kính ngữ và Khiêm nhường ngữ (敬語の使い分け)",
+          "relation": "meaning",
+          "note": "Hỗ trợ phân biệt cách dùng các động từ trong bảng."
+        }
+      ]
+    },
+    {
+      "pattern": "Khiêm nhường ngữ của động từ nhóm 3 - ~する (謙譲語)",
+      "related": [
+        {
+          "pattern": "Tôn kính ngữ của động từ nhóm 3 - ~する (尊敬語)",
+          "relation": "form",
+          "note": "Cùng áp dụng cho động từ nhóm 3, giúp đối chiếu giữa khiêm nhường và tôn kính."
+        }
+      ]
+    },
+    {
+      "pattern": "Khiêm nhường ngữ của động từ thông thường nhóm 1・2 (謙譲語)",
+      "related": [
+        {
+          "pattern": "Tôn kính ngữ của động từ thông thường nhóm 1・2 (尊敬語)",
+          "relation": "form",
+          "note": "Cùng áp dụng cho động từ nhóm 1 và 2, giúp đối chiếu giữa khiêm nhường và tôn kính."
+        }
+      ]
+    },
+    {
+      "pattern": "Kính ngữ của động từ đặc biệt - bổ sung (特別な動詞の敬語 - 追加)",
+      "related": [
+        {
+          "pattern": "Kính ngữ của động từ đặc biệt (特別な動詞の敬語)",
+          "relation": "meaning",
+          "note": "Cùng liệt kê các động từ đặc biệt không theo quy tắc chia thông thường."
+        }
+      ]
+    },
+    {
+      "pattern": "Kính ngữ của động từ đặc biệt (特別な動詞の敬語)",
+      "related": [
+        {
+          "pattern": "Kính ngữ của động từ đặc biệt - bổ sung (特別な動詞の敬語 - 追加)",
+          "relation": "meaning",
+          "note": "Cùng liệt kê các động từ đặc biệt không theo quy tắc chia thông thường."
+        }
+      ]
+    },
+    {
+      "pattern": "Phân biệt cách dùng Tôn kính ngữ và Khiêm nhường ngữ (敬語の使い分け)",
+      "related": [
+        {
+          "pattern": "Bảng tổng hợp 20 động từ kính ngữ bắt buộc thuộc (N3)",
+          "relation": "meaning",
+          "note": "Cung cấp danh sách động từ cụ thể để thực hành phân biệt kính ngữ và khiêm nhường ngữ."
+        }
+      ]
+    },
+    {
+      "pattern": "Tôn kính ngữ của động từ nhóm 3 - ~する (尊敬語)",
+      "related": [
+        {
+          "pattern": "Khiêm nhường ngữ của động từ nhóm 3 - ~する (謙譲語)",
+          "relation": "form",
+          "note": "Cặp đối ứng về cách chia động từ nhóm 3 (danh từ + する) trong tôn kính ngữ và khiêm nhường ngữ."
+        }
+      ]
+    },
+    {
+      "pattern": "Tôn kính ngữ của động từ thông thường nhóm 1・2 (尊敬語)",
+      "related": [
+        {
+          "pattern": "Khiêm nhường ngữ của động từ thông thường nhóm 1・2 (謙譲語)",
+          "relation": "form",
+          "note": "Cặp đối ứng về cách chia động từ nhóm 1 và 2 trong tôn kính ngữ và khiêm nhường ngữ."
+        }
+      ]
+    },
+    {
+      "pattern": "V-させられる",
+      "related": [
+        {
+          "pattern": "〜させる／〜させられる",
+          "relation": "both",
+          "note": "Giúp hiểu rõ mối quan hệ giữa thể sai khiến và thể bị động sai khiến."
+        }
+      ]
+    },
+    {
+      "pattern": "V-させる + て + [もらう / くれる]",
+      "related": [
+        {
+          "pattern": "〜Vさせてもらいたい（いただきたい／ほしい）",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt mong muốn được người khác cho phép thực hiện hành động."
+        }
+      ]
+    },
+    {
+      "pattern": "V-させる + て + おく",
+      "related": [
+        {
+          "pattern": "〜ておく",
+          "relation": "meaning",
+          "note": "Giải thích rõ hơn về chức năng chuẩn bị trước của cấu trúc này."
+        }
+      ]
+    },
+    {
+      "pattern": "Vること．Vないこと．",
+      "related": [
+        {
+          "pattern": "～こと",
+          "relation": "meaning",
+          "note": "Cùng dùng để diễn đạt các quy định hoặc yêu cầu mang tính bắt buộc."
+        }
+      ]
+    },
+    {
+      "pattern": "お／ご + Danh từ・Tính từ・Phó từ",
+      "related": [
+        {
+          "pattern": "お／ご～いただく、お／ご～くださる",
+          "relation": "form",
+          "note": "Cùng sử dụng tiền tố kính ngữ お/ご để tạo sự trang trọng trong câu."
+        }
+      ]
+    },
+    {
+      "pattern": "お／ご～いただく、お／ご～くださる",
+      "related": [
+        {
+          "pattern": "お／ご + Danh từ・Tính từ・Phó từ",
+          "relation": "form",
+          "note": "Cùng sử dụng tiền tố kính ngữ お/ご để tạo sự trang trọng trong câu."
+        }
+      ]
+    },
+    {
+      "pattern": "お／ご～です",
+      "related": [
+        {
+          "pattern": "お／ご + Danh từ・Tính từ・Phó từ",
+          "relation": "form",
+          "note": "Cả hai đều sử dụng tiền tố kính ngữ お/ご để tạo sắc thái lịch sự."
+        }
+      ]
+    },
+    {
+      "pattern": "こと",
+      "related": [
+        {
+          "pattern": "「物」と「こと」",
+          "relation": "meaning",
+          "note": "Giúp người học phân biệt rõ ràng giữa danh từ chỉ sự vật và danh từ chỉ sự việc."
+        }
+      ]
+    },
+    {
+      "pattern": "しょっちゅう／よく",
+      "related": [
+        {
+          "pattern": "たまに／ときどき",
+          "relation": "meaning",
+          "note": "Cần so sánh để thấy sự đối lập về tần suất giữa nhóm thường xuyên và nhóm thỉnh thoảng."
+        }
+      ]
+    },
+    {
+      "pattern": "そのため・したがって・そこで・すると",
+      "related": [
+        {
+          "pattern": "〜ために…、〜ためだ（nguyên nhân）",
+          "relation": "meaning",
+          "note": "Giúp phân biệt cách dùng liên từ nối câu với cấu trúc ngữ pháp chỉ nguyên nhân trong câu."
+        }
+      ]
+    },
+    {
+      "pattern": "たまに／ときどき",
+      "related": [
+        {
+          "pattern": "〜ことがある。",
+          "relation": "meaning",
+          "note": "So sánh phó từ chỉ tần suất với cấu trúc ngữ pháp diễn đạt cùng ý nghĩa."
+        }
+      ]
+    },
+    {
+      "pattern": "できるわけがない",
+      "related": [
+        {
+          "pattern": "〜はずがない",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để phủ định mạnh mẽ một khả năng, nhưng sắc thái khác nhau."
+        },
+        {
+          "pattern": "～っこない",
+          "relation": "meaning",
+          "note": "Cùng diễn đạt sự tuyệt đối không thể xảy ra với sắc thái văn nói mạnh mẽ."
+        }
+      ]
+    },
+    {
+      "pattern": "でも。（đến cả）",
+      "related": [
+        {
+          "pattern": "も。",
+          "relation": "meaning",
+          "note": "Cùng chức năng nhấn mạnh sự việc đến mức không ngờ tới."
+        }
+      ]
+    },
+    {
+      "pattern": "ところで",
+      "related": [
+        {
+          "pattern": "ところで…",
+          "relation": "meaning",
+          "note": "Phân biệt cách dùng để chuyển chủ đề và cách dùng để nói thêm thông tin."
+        }
+      ]
+    },
+    {
+      "pattern": "ところで…",
+      "related": [
+        {
+          "pattern": "ところで",
+          "relation": "meaning",
+          "note": "Phân biệt cách dùng để chuyển chủ đề và cách dùng để nói thêm thông tin."
+        }
+      ]
+    },
+    {
+      "pattern": "また・さらに・そのうえ・しかも・それも",
+      "related": [
+        {
+          "pattern": "〜うえに",
+          "relation": "meaning",
+          "note": "Cùng dùng để bổ sung thông tin, nhưng 'うえに' thường mang sắc thái cộng dồn các tính chất (tốt hoặc xấu) cho cùng một đối tượng."
+        }
+      ]
+    },
+    {
+      "pattern": "も",
+      "related": [
+        {
+          "pattern": "も…（phủ định）",
+          "relation": "meaning",
+          "note": "Cùng là trợ từ 'も', nhưng mẫu này tập trung vào cách dùng trong câu phủ định để nhấn mạnh sự hoàn toàn không."
+        },
+        {
+          "pattern": "も。",
+          "relation": "meaning",
+          "note": "Cùng là trợ từ 'も', nhưng mẫu này nhấn mạnh sắc thái ngạc nhiên khi đưa ra ví dụ cực đoan."
+        }
+      ]
+    },
+    {
+      "pattern": "も…（phủ định）",
+      "related": [
+        {
+          "pattern": "も",
+          "relation": "meaning",
+          "note": "Mẫu này giải thích rõ hơn về cách dùng 'も' trong câu phủ định để nhấn mạnh sự hoàn toàn không."
+        }
+      ]
+    },
+    {
+      "pattern": "も。",
+      "related": [
+        {
+          "pattern": "も",
+          "relation": "meaning",
+          "note": "Mẫu này giải thích rõ hơn về cách dùng 'も' để nhấn mạnh sự ngạc nhiên khi đưa ra ví dụ cực đoan."
+        }
+      ]
+    },
+    {
+      "pattern": "使役",
+      "related": [
+        {
+          "pattern": "〜せる／〜させる（使役）",
+          "relation": "both",
+          "note": "Đây là cấu trúc cơ bản của thể sai khiến, cần nắm vững trước khi học các dạng biến thể."
+        },
+        {
+          "pattern": "使役受身",
+          "relation": "form",
+          "note": "Mẫu này là dạng phát triển từ thể sai khiến cơ bản sang bị động sai khiến."
+        }
+      ]
+    },
+    {
+      "pattern": "使役受身",
+      "related": [
+        {
+          "pattern": "使役",
+          "relation": "form",
+          "note": "Mẫu này là dạng cơ bản của bị động sai khiến, cần hiểu rõ cấu trúc sai khiến trước đó."
+        },
+        {
+          "pattern": "使役受身形・Vさせられる",
+          "relation": "both",
+          "note": "Cùng là thể bị động sai khiến, giúp người học nhận diện các dạng chia khác nhau."
+        }
+      ]
+    },
+    {
+      "pattern": "使役受身形・Vさせられる",
+      "related": [
+        {
+          "pattern": "使役受身",
+          "relation": "both",
+          "note": "Cùng là thể bị động sai khiến, giúp người học nhận diện các dạng chia khác nhau."
+        },
+        {
+          "pattern": "V-させられる",
+          "relation": "both",
+          "note": "Cùng là thể bị động sai khiến, tập trung vào ý nghĩa bị bắt buộc phải làm gì đó."
+        }
+      ]
+    },
+    {
+      "pattern": "辞書形＋ところ",
+      "related": [
+        {
+          "pattern": "〜ところだ",
+          "relation": "meaning",
+          "note": "Cùng diễn tả trạng thái sắp sửa làm gì, giúp phân biệt các sắc thái thời điểm khác nhau của 'ところ'."
+        }
+      ]
+    },
+    {
+      "pattern": "受身",
+      "related": [
+        {
+          "pattern": "〜れる／〜られる（受身）",
+          "relation": "both",
+          "note": "Đây là cấu trúc cơ bản của thể bị động, cần nắm vững để hiểu các dạng bị động phức tạp hơn."
+        }
+      ]
+    },
+    {
+      "pattern": "存じ上げる / お目にかかる / お目にかける / ちょうだいする",
+      "related": [
+        {
+          "pattern": "Bảng tổng hợp 20 động từ kính ngữ bắt buộc thuộc (N3)",
+          "relation": "meaning",
+          "note": "Cùng là các động từ kính ngữ đặc biệt, giúp người học tra cứu nhanh bảng tổng hợp."
+        },
+        {
+          "pattern": "Kính ngữ của động từ đặc biệt (特別な動詞の敬語)",
+          "relation": "meaning",
+          "note": "Cùng là các động từ kính ngữ đặc biệt, giúp người học tra cứu nhanh bảng tổng hợp."
+        }
+      ]
+    },
+    {
+      "pattern": "普通形＋かどうか / 疑問詞＋〜か",
+      "related": [
+        {
+          "pattern": "普通形＋と",
+          "relation": "form",
+          "note": "Cả hai đều là cách nối câu với động từ, giúp phân biệt cách dùng 'と' (trích dẫn) và 'かどうか' (nghi vấn)."
+        }
+      ]
+    },
+    {
+      "pattern": "普通形＋と",
+      "related": [
+        {
+          "pattern": "普通形＋かどうか / 疑問詞＋〜か",
+          "relation": "form",
+          "note": "Cả hai đều là cách nối câu với động từ, giúp phân biệt cách dùng 'と' (trích dẫn) và 'かどうか' (nghi vấn)."
+        }
+      ]
+    },
+    {
+      "pattern": "物（もの）",
+      "related": [
+        {
+          "pattern": "「物」と「こと」",
+          "relation": "meaning",
+          "note": "Giúp phân biệt rõ ràng giữa thực thể hữu hình (vật) và khái niệm trừu tượng (việc) để tránh nhầm lẫn."
+        }
+      ]
+    },
+    {
+      "pattern": "文の始めと終わりの対応",
+      "related": [
+        {
+          "pattern": "文章の雰囲気の統一（普通体／硬い表現）",
+          "relation": "both",
+          "note": "Cả hai đều là kỹ năng quan trọng để viết văn bản tiếng Nhật chuẩn xác và thống nhất về phong cách."
+        }
+      ]
+    },
+    {
+      "pattern": "文章の雰囲気の統一（普通体／硬い表現）",
+      "related": [
+        {
+          "pattern": "文の始めと終わりの対応",
+          "relation": "both",
+          "note": "Cả hai đều là kỹ năng quan trọng để viết văn bản tiếng Nhật chuẩn xác và thống nhất về phong cách."
+        }
+      ]
+    },
+    {
+      "pattern": "命令（しろ）／禁止（～な）",
+      "related": [
+        {
+          "pattern": "Vること．Vないこと．",
+          "relation": "meaning",
+          "note": "Cả hai đều dùng để ra lệnh hoặc cấm đoán, nhưng mẫu này thường dùng trong văn bản quy định, nội quy thay vì khẩu ngữ trực tiếp."
+        },
+        {
+          "pattern": "Vるな。",
+          "relation": "form",
+          "note": "Đây là hình thức cụ thể của mệnh lệnh cấm chỉ, giúp người học nắm vững cách chia động từ trong văn nói."
+        },
+        {
+          "pattern": "Vれ、Vろ、Vしろ",
+          "relation": "form",
+          "note": "Đây là các hình thức chia động từ mệnh lệnh cơ bản, là nền tảng để tạo nên mẫu câu mệnh lệnh."
+        }
+      ]
+    }
+  ]
+}
