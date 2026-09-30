@@ -15,6 +15,8 @@ import listeningShinkanzenRaw from "../data/listening-shinkanzen-n3.json";
 // lựa chọn in trên đề giấy; Mondai 3/4/5 có transcript/đáp án do Gemini nghe
 // audio suy luận và đã được kiểm tra thủ công (xem field `notes` từng câu).
 import listeningDethi202512Raw from "../data/listening-dethi-2025-12.json";
+import listeningDethiN1July2026Raw from "../data/listening-dethi-n1-2026-07.json";
+import listeningDethiN3July2026Raw from "../data/listening-dethi-n3-2026-07.json";
 // listening-cacnam-2020-12.json: Mondai 1 (6 cau) cua phan 聴解 de thi that
 // N3 T12/2020, tu assets/data/de-thi-cac-nam/ -- KHAC listening-dethi-2025-12
 // o cho nguon nay CO dap an in san that cho ca phan nghe (khong phai AI suy
@@ -37,6 +39,8 @@ const soumatomeDataset = listeningSoumatomeRaw as unknown as ListeningDataset;
 const speedmasterDataset = listeningSpeedmasterRaw as unknown as ListeningDataset;
 const shinkanzenDataset = listeningShinkanzenRaw as unknown as ListeningDataset;
 const dethi202512Dataset = listeningDethi202512Raw as unknown as ListeningDataset;
+const dethiN1July2026Dataset = listeningDethiN1July2026Raw as unknown as ListeningDataset;
+const dethiN3July2026Dataset = listeningDethiN3July2026Raw as unknown as ListeningDataset;
 const cacNam202012Dataset = listeningCacNam202012Raw as unknown as ListeningDataset;
 const kaiwa100cauDataset = listeningKaiwa100cauRaw as unknown as ListeningDataset;
 
@@ -57,6 +61,8 @@ export const ALL_LISTENING: ListeningQuestion[] = [
   ...speedmasterDataset.questions,
   ...completeShinkanzenQuestions,
   ...completeDethi202512Questions,
+  ...dethiN1July2026Dataset.questions,
+  ...dethiN3July2026Dataset.questions,
   // N3 T12/2020 remains a 6/28 pilot and stays out of the book filter until
   // its complete listening section has been converted.
   ...kaiwa100cauDataset.questions,
@@ -73,9 +79,10 @@ export const TASK_TYPE_LABELS: Record<ListeningTaskType, string> = {
   gaiyou: "概要理解 -- khái quát",
   hatsugen: "発話表現 -- biểu hiện lời nói",
   sokuji: "即時応答 -- phản xạ nhanh",
+  sougou: "統合理解 -- hiểu tổng hợp",
 };
 
-const TASK_TYPE_ORDER: ListeningTaskType[] = ["kadai", "point", "gaiyou", "hatsugen", "sokuji"];
+const TASK_TYPE_ORDER: ListeningTaskType[] = ["kadai", "point", "gaiyou", "hatsugen", "sokuji", "sougou"];
 export const AVAILABLE_TASK_TYPES: ListeningTaskType[] = TASK_TYPE_ORDER.filter((t) =>
   ALL_LISTENING.some((q) => q.taskType === t),
 );
@@ -85,11 +92,13 @@ export const BOOK_LABELS: Record<string, string> = {
   speedmaster: "Speed Master N3 Choukai",
   shinkanzen: "Shin Kanzen Master N3 Choukai",
   "dethi-2025-12": "Đề thi thật N3 T12/2025 (28 câu nghe)",
+  "dethi-n1-2026-07": "Đề thi thật N1 T7/2026 (30 câu nghe)",
+  "dethi-n3-2026-07": "Đề thi thật N3 T7/2026 (28 câu nghe)",
   "cacnam-2020-12": "Đề thi thật N3 T12/2020 (聴解, 6/28 câu -- Mondai 1)",
   "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12", "kaiwa-100cau"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12", "dethi-n1-2026-07", "dethi-n3-2026-07", "kaiwa-100cau"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {
@@ -116,7 +125,13 @@ export async function loadViewerState(): Promise<ListeningViewerState> {
   const savedTaskTypes = saved?.selectedTaskTypes;
   const legacyAllTaskTypes =
     savedTaskTypes?.length === 4 && ["kadai", "point", "gaiyou", "sokuji"].every((t) => savedTaskTypes.includes(t as ListeningTaskType));
-  const taskTypesToLoad = legacyAllTaskTypes ? [...savedTaskTypes, "hatsugen" as ListeningTaskType] : (savedTaskTypes ?? fallback.selectedTaskTypes);
+  const legacyFiveTypeAll =
+    savedTaskTypes?.length === 5 && ["kadai", "point", "gaiyou", "hatsugen", "sokuji"].every((t) => savedTaskTypes.includes(t as ListeningTaskType));
+  const taskTypesToLoad = legacyAllTaskTypes
+    ? [...savedTaskTypes, "hatsugen" as ListeningTaskType]
+    : legacyFiveTypeAll
+      ? [...savedTaskTypes, "sougou" as ListeningTaskType]
+      : (savedTaskTypes ?? fallback.selectedTaskTypes);
   const selectedTaskTypes = taskTypesToLoad.filter((t) =>
     AVAILABLE_TASK_TYPES.includes(t),
   );

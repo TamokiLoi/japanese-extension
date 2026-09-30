@@ -324,11 +324,11 @@ function PracticeView({
   // One label per line of `reference` (scenario line, if any, then one per
   // turn) -- shown as a hint so it's clear this is "type back everything you
   // just heard, line by line" and not "answer the question below".
-  const isSpokenOptions = question.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(question.taskType) && !question.optionsImage;
+  const isSpokenOptions = question.book !== "kaiwa-100cau" && (["gaiyou", "hatsugen", "sokuji"].includes(question.taskType) || question.optionsInAudio) && !question.optionsImage;
   const dictationLines = [
     ...(question.scenario ? ["Dẫn truyện"] : []),
     ...question.turns.map((t) => t.speaker),
-    ...(isSpokenOptions ? question.options.map((_, i) => `Lựa chọn ${i + 1}`) : []),
+    ...(isSpokenOptions && !question.optionsInTurns ? question.options.map((_, i) => `Lựa chọn ${i + 1}`) : []),
   ];
   // Same lines as `reference`/dictationLines above, paired with their
   // translation -- one JP line then its VN line right under it (matching
@@ -337,7 +337,7 @@ function PracticeView({
   const revealPairs = [
     ...(question.scenario ? [{ jp: question.scenario, vi: question.scenarioVi }] : []),
     ...question.turns.map((t) => ({ jp: t.text, vi: t.textVi })),
-    ...(isSpokenOptions ? question.options.map((opt, i) => ({ jp: opt, vi: question.optionsVi[i] })) : []),
+    ...(isSpokenOptions && !question.optionsInTurns ? question.options.map((opt, i) => ({ jp: opt, vi: question.optionsVi[i] })) : []),
   ];
 
   useEffect(() => {
@@ -396,7 +396,13 @@ function PracticeView({
       </div>
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-        <AudioPlayer key={question.id} src={assetUrl(question.audioUrl)} autoPlay={autoAdvance} />
+        <AudioPlayer
+          key={question.id}
+          src={assetUrl(question.audioUrl)}
+          startAtSeconds={question.audioStartSec}
+          endAtSeconds={question.audioEndSec}
+          autoPlay={autoAdvance}
+        />
         <label className="mt-3.5 flex items-center gap-2 text-xs font-medium text-neutral-600">
           <input
             type="checkbox"

@@ -171,14 +171,16 @@ function questionTranslationForQuestion(paper: DeThiPaper, index: number): strin
 
 const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
   "cacnam-n3-2025-12": "dethi-2025-12",
+  "cacnam-n1-2026-07": "dethi-n1-2026-07",
+  "cacnam-n3-2026-07": "dethi-n3-2026-07",
 };
 
 function withListeningReviewContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
   const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
   if (paperId !== "choukai" || !book) return question;
 
-  const source = ALL_LISTENING.filter((item) => item.book === book)[question.number - 1];
-  if (!source || !source.audioUrl.includes(`Q${String(question.number).padStart(2, "0")}.mp3`)) return question;
+  const source = ALL_LISTENING.find((item) => item.book === book && item.id.endsWith(`q${String(question.number).padStart(2, "0")}`));
+  if (!source) return question;
 
   const expectedOptionCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   if (source.correctIndex !== question.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return question;
@@ -201,6 +203,8 @@ function withListeningReviewContent(examId: string, paperId: string, question: D
     optionsVi: source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
     optionExplanations: source.optionExplanations?.length === expectedOptionCount ? source.optionExplanations : question.optionExplanations,
     listeningAudioUrl: source.audioUrl,
+    audioStartSec: source.audioStartSec ?? question.audioStartSec,
+    audioEndSec: source.audioEndSec ?? question.audioEndSec,
     listeningPrompt: listeningPrompt || question.listeningPrompt,
     listeningPromptVi: listeningPrompt ? source.scenarioVi : question.listeningPromptVi,
     listeningPromptFurigana: source.scenarioFurigana,
@@ -1734,6 +1738,8 @@ function ReviewQuestion({
           ) : null}
           <AudioPlayer
             src={assetUrl(question.listeningAudioUrl)}
+            startAtSeconds={question.audioStartSec}
+            endAtSeconds={question.audioEndSec}
             translationToggle={question.listeningPromptVi && !hasListeningTranscript
               ? { active: showListeningTranslation, onToggle: () => setShowListeningTranslation((visible) => !visible) }
               : undefined}

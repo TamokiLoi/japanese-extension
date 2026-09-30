@@ -1,7 +1,7 @@
 // "Nghe chép chính tả" (listening dictation) -- reuses the exact same
-// ListeningQuestion pool as listeningState.ts (one audioUrl per item, no
-// per-sentence timestamps), so the dictation *unit* is still one whole
-// item's audio, not an individually-playable sentence. kadai/point items are
+// ListeningQuestion pool as listeningState.ts. Some JLPT books reuse one
+// full-paper audio URL with a verified start/end segment for each item. The
+// dictation *unit* remains one question's audio. kadai/point items are
 // usually full multi-turn dialogues -- genuinely long to dictate -- while
 // hatsugen/sokuji items are usually short response items (see
 // ListeningTaskType). defaultViewerState() below defaults the task-type
@@ -73,11 +73,13 @@ export function referenceTextFor(q: ListeningQuestion): string {
   // Kaiwa is a synthetic meaning quiz: its Vietnamese options are not read
   // in the audio, so keep them out of the dictation target even though the
   // item uses `gaiyou` for the generic listening bucket.
-  if (q.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(q.taskType) && !q.optionsImage) {
+  if (q.book !== "kaiwa-100cau" && (["gaiyou", "hatsugen", "sokuji"].includes(q.taskType) || q.optionsInAudio) && !q.optionsImage) {
     // In 問題5 the question field is often the same short utterance already
     // stored in turns[0]; do not count it twice in the dictation target.
-    if (q.question && q.question !== q.scenario && !q.turns.some((t) => t.text === q.question)) spoken.push(q.question);
-    spoken.push(...q.options);
+    if (q.question && !/^\d+番(?:（質問\d+）)?$/u.test(q.question.trim()) && q.question !== q.scenario && !q.turns.some((t) => t.text === q.question)) {
+      spoken.push(q.question);
+    }
+    if (!q.optionsInTurns) spoken.push(...q.options);
   }
   return spoken.filter((s) => s.length > 0).join("\n");
 }

@@ -92,6 +92,9 @@ export interface DeThiQuestion {
   // straight through; this does NOT pause/split playback per question, it's
   // just an optional "jump here" convenience while practicing.
   audioStartSec?: number;
+  // End offset for a converted per-question listening segment. Used only in
+  // study/review; the live exam still plays the shared paper audio normally.
+  audioEndSec?: number;
   // Per-question audio and prompt/transcript mapped from a converted listening
   // dataset. These are only populated for post-submit review/history.
   listeningAudioUrl?: string;

@@ -1,9 +1,10 @@
 import type { JlptLevel } from "./kanji.ts";
 
-// Matches the 5 official N3 聴解 task shapes. `hatsugen` and `sokuji` used to
+// Matches official 聴解 task shapes across levels. `sougou` is N1's integrated
+// comprehension section; `hatsugen` and `sokuji` used to
 // be merged into one bucket; they are kept separate so the app mirrors the
 // actual 問題4/問題5 structure.
-export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji";
+export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji" | "sougou";
 
 export interface ListeningTurn {
   speaker: string;
@@ -24,6 +25,11 @@ export interface ListeningQuestion {
   taskType: ListeningTaskType;
   // Path resolved via assetUrl() -- see platform/assetUrl.ts.
   audioUrl: string;
+  // Optional segment within a shared full-paper recording. In an exam attempt
+  // the paper still plays continuously; these offsets are only consumed by
+  // per-question practice and post-submit review players.
+  audioStartSec?: number;
+  audioEndSec?: number;
   scenario: string;
   scenarioFurigana?: { word: string; reading: string }[];
   scenarioVi: string;
@@ -46,7 +52,16 @@ export interface ListeningQuestion {
   // look similar but only one is a natural response to the audio.
   optionExplanations?: string[];
   optionsImage?: string;
+  // Supporting picture/context printed on the listening question page (not
+  // necessarily the answer choices themselves).
+  questionImage?: string;
   optionCount?: number;
+  // True when the choices are spoken in the audio and must remain hidden
+  // until the learner answers, even if the question type normally shows them.
+  optionsInAudio?: boolean;
+  // True when the spoken choices are already included in `turns`. Dictation
+  // must not append `options` a second time to its reference transcript.
+  optionsInTurns?: boolean;
   correctIndex: number;
   explanation: string;
   // Set when options[] was transcribed by Gemini listening to the audio

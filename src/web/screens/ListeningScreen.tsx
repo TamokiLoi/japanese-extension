@@ -64,6 +64,10 @@ const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; descripti
     title: "即時応答 · Phản xạ nhanh",
     description: "Nghe một câu ngắn và chọn ngay phản hồi phù hợp; câu hỏi và đáp án không in sẵn trên đề.",
   },
+  sougou: {
+    title: "統合理解 · Nghe hiểu tổng hợp",
+    description: "Nghe hội thoại/bài nói dài, kết hợp nhiều thông tin để trả lời câu hỏi.",
+  },
 };
 
 function ListeningTypeInfo({ taskType }: { taskType: ListeningTaskType }) {
@@ -446,7 +450,7 @@ function QuestionView({
   // hiding the question/options. All three types expose numbered choices;
   // the Japanese text is revealed after the learner answers for review.
   const isAudioOnlyOptions = question.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(question.taskType);
-  const isBlind = isAudioOnlyOptions && !question.optionsImage;
+  const isBlind = (isAudioOnlyOptions || question.optionsInAudio) && !question.optionsImage;
   const audioPrompt = isBlind && !answered
     ? question.taskType === "hatsugen" && question.scenario
       ? question.scenario
@@ -520,6 +524,8 @@ function QuestionView({
         <AudioPlayer
           key={question.id}
           src={assetUrl(question.audioUrl)}
+          startAtSeconds={question.audioStartSec}
+          endAtSeconds={question.audioEndSec}
           translationToggle={
             answered && question.turns.length === 0
               ? { active: showTranslation, onToggle: () => setShowTranslation((v) => !v) }
@@ -527,6 +533,12 @@ function QuestionView({
           }
         />
       </Card>
+
+      {question.questionImage ? (
+        <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-3 ring-0">
+          <img src={assetUrl(question.questionImage)} alt="Hình minh họa câu nghe" className="w-full rounded-lg" />
+        </Card>
+      ) : null}
 
       {/* Audio-only response items with no turns[] at all rely on the toggle
           above (question.scenarioVi). But many gaiyou/hatsugen/sokuji items in the actual

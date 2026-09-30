@@ -16,11 +16,15 @@ function formatTime(s: number): string {
 // ListeningScreen and DictationScreen so both get the exact same controls.
 export function AudioPlayer({
   src,
+  startAtSeconds = 0,
+  endAtSeconds,
   autoPlay = false,
   onEnded,
   translationToggle,
 }: {
   src: string;
+  startAtSeconds?: number;
+  endAtSeconds?: number;
   autoPlay?: boolean;
   onEnded?: () => void;
   // Only ListeningScreen's no-transcript audio-only items pass this -- those
@@ -29,6 +33,7 @@ export function AudioPlayer({
   translationToggle?: { active: boolean; onToggle: () => void };
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const segmentEndedRef = useRef(false);
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -36,6 +41,10 @@ export function AudioPlayer({
   const [loop, setLoop] = useState(false);
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
+  const segmentStart = Math.max(0, startAtSeconds);
+  const segmentEnd = endAtSeconds !== undefined ? Math.max(segmentStart, endAtSeconds) : duration;
+  const segmentDuration = Math.max(0, Math.min(segmentEnd, duration || segmentEnd) - segmentStart);
+  const hasSegment = startAtSeconds > 0 || endAtSeconds !== undefined;
 
   // A new question/câu means a new audio source -- reset playback state and
   // (for Dictation's "tự phát khi sang câu mới") optionally start playing it
@@ -44,16 +53,12 @@ export function AudioPlayer({
     setPlaying(false);
     setCurrentTime(0);
     setDuration(0);
+    segmentEndedRef.current = false;
     const el = audioRef.current;
     if (!el) return;
     el.load();
-    if (autoPlay) {
-      el.play()
-        .then(() => setPlaying(true))
-        .catch(() => {});
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src]);
+  }, [src, startAtSeconds, endAtSeconds]);
 
   useEffect(() => {
     const el = audioRef.current;
@@ -71,6 +76,11 @@ export function AudioPlayer({
     if (playing) {
       el.pause();
     } else {
+      if (hasSegment && (el.currentTime < segmentStart || el.currentTime >= segmentEnd)) {
+        el.currentTime = segmentStart;
+        setCurrentTime(0);
+        segmentEndedRef.current = false;
+      }
       el.play().catch(() => {});
     }
   }
@@ -80,13 +90,41 @@ export function AudioPlayer({
       <audio
         ref={audioRef}
         src={src}
-        loop={loop}
+        loop={loop && !hasSegment}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+        onLoadedMetadata={(e) => {
+          const el = e.currentTarget;
+          setDuration(el.duration);
+          if (segmentStart > 0) el.currentTime = segmentStart;
+          setCurrentTime(0);
+          if (autoPlay) el.play().catch(() => {});
+        }}
+        onTimeUpdate={(e) => {
+          const el = e.currentTarget;
+          const relative = Math.max(0, el.currentTime - segmentStart);
+          if (hasSegment && el.currentTime >= segmentEnd && !segmentEndedRef.current) {
+            if (loop) {
+              el.currentTime = segmentStart;
+              setCurrentTime(0);
+              return;
+            }
+            segmentEndedRef.current = true;
+            el.pause();
+            setCurrentTime(segmentDuration);
+            onEnded?.();
+            return;
+          }
+          setCurrentTime(hasSegment ? Math.min(relative, segmentDuration) : el.currentTime);
+        }}
         onEnded={() => {
           setPlaying(false);
+          if (hasSegment && loop && audioRef.current) {
+            audioRef.current.currentTime = segmentStart;
+            segmentEndedRef.current = false;
+            audioRef.current.play().catch(() => {});
+            return;
+          }
           onEnded?.();
         }}
       />
@@ -97,17 +135,18 @@ export function AudioPlayer({
         <input
           type="range"
           min={0}
-          max={duration || 0}
+          max={segmentDuration || 0}
           step={0.1}
-          value={currentTime}
+          value={Math.min(currentTime, segmentDuration)}
           onChange={(e) => {
             const t = Number(e.target.value);
             setCurrentTime(t);
-            if (audioRef.current) audioRef.current.currentTime = t;
+            segmentEndedRef.current = false;
+            if (audioRef.current) audioRef.current.currentTime = segmentStart + t;
           }}
           className="h-1.5 flex-1 accent-rose-600"
         />
-        <span className="w-9 text-xs tabular-nums text-neutral-400">{formatTime(duration)}</span>
+        <span className="w-9 text-xs tabular-nums text-neutral-400">{formatTime(segmentDuration)}</span>
       </div>
 
       {/* controls row -- single line, compact: 32px play, 28px icon-only
