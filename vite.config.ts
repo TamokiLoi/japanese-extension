@@ -132,10 +132,33 @@ const pwa = VitePWA({
   },
 });
 
+// Vite injects the Pages app's extracted entry stylesheet in <head>. A
+// render-blocking CSS request there prevents the browser from painting even
+// index.html's self-contained splash until the stylesheet has downloaded.
+// Make that stylesheet load asynchronously, then keep the splash up until
+// both the app and its styles are ready (see index.html's splash observer).
+function deferPagesStylesheet(): Plugin {
+  return {
+    name: "defer-pages-stylesheet",
+    enforce: "post",
+    transformIndexHtml(html) {
+      return html.replace(/<link\b[^>]*>/g, (tag) => {
+        if (!tag.includes('rel="stylesheet"') || tag.includes("data-app-stylesheet")) return tag;
+        return tag
+          .replace('rel="stylesheet"', 'rel="stylesheet" media="print" data-app-stylesheet')
+          .replace(
+            />$/,
+            " onload=\"this.media='all';this.dataset.ready='true';window.dispatchEvent(new Event('nihongo:app-styles-loaded'))\" onerror=\"window.dispatchEvent(new Event('nihongo:app-styles-error'))\">",
+          );
+      });
+    },
+  };
+}
+
 export default defineConfig({
   base: isPages ? pagesBase : "/",
   plugins: isPages
-    ? [react(), tailwindcss(), pwa]
+    ? [react(), tailwindcss(), pwa, deferPagesStylesheet()]
     : [react(), crx({ manifest }), pruneItBookImagesFromExtensionBuild(), pruneListeningPreviewFromExtensionBuild()],
   // "@/*" -> src/web/* -- see the tsconfig.json comment; shadcn/ui's
   // generated components (src/web/components/ui/**) import each other and

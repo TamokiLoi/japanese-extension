@@ -59,6 +59,17 @@
         align-items: center;
         justify-content: center;
       }
+      #splash .splash-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      #splash .splash-caption {
+        margin: 0;
+        color: #737373;
+        font: 14px/1.4 system-ui, sans-serif;
+      }
       #splash .spinner-ring::before {
         content: "";
         position: absolute;
@@ -129,6 +140,69 @@
           });
           document.body.appendChild(panel);
         }
+
+        function showAppLoadError() {
+          var render = function () {
+            if (document.getElementById("app-load-error")) return;
+            var splash = document.getElementById("splash");
+            if (splash) splash.setAttribute("data-hide", "");
+
+            var panel = document.createElement("main");
+            panel.id = "app-load-error";
+            panel.setAttribute("role", "alert");
+            panel.style.cssText =
+              "position:fixed;inset:0;z-index:10001;display:grid;place-content:center;justify-items:center;gap:12px;padding:24px;background:#fafafa;color:#262626;text-align:center;font:16px/1.5 system-ui,sans-serif";
+
+            var title = document.createElement("strong");
+            title.style.fontSize = "22px";
+            title.textContent = "Không thể tải ứng dụng";
+            var message = document.createElement("span");
+            message.textContent = "Có lỗi khi tải trang hoặc nội dung cần thiết. Hãy kiểm tra kết nối mạng rồi thử tải lại.";
+            var reassurance = document.createElement("span");
+            reassurance.style.color = "#737373";
+            reassurance.textContent = "Dữ liệu học của bạn vẫn được giữ nguyên.";
+            var button = document.createElement("button");
+            button.type = "button";
+            button.style.cssText =
+              "margin-top:8px;border:0;border-radius:10px;background:#e11d48;color:white;padding:11px 20px;font:600 15px system-ui,sans-serif;cursor:pointer";
+            button.textContent = "Tải lại trang";
+            button.addEventListener("click", function () {
+              try {
+                sessionStorage.removeItem(recoveryKey);
+              } catch (_) {}
+              window.location.reload();
+            });
+
+            panel.appendChild(title);
+            panel.appendChild(message);
+            panel.appendChild(reassurance);
+            panel.appendChild(button);
+            document.body.appendChild(panel);
+          };
+
+          if (document.body) render();
+          else document.addEventListener("DOMContentLoaded", render, { once: true });
+        }
+
+        window.addEventListener("nihongo:app-load-error", function () {
+          // A Vite chunk failure is already being handled by the existing
+          // stale-PWA recovery flow; don't race it with the generic fallback.
+          if (!recovering) showAppLoadError();
+        });
+        window.addEventListener("nihongo:app-styles-error", showAppLoadError);
+        window.addEventListener(
+          "error",
+          function (event) {
+            var target = event.target;
+            var failedModuleScript = target && target.tagName === "SCRIPT" && target.type === "module";
+            var sameOriginRuntimeError =
+              target === window && event.filename && event.filename.indexOf(window.location.origin) === 0;
+            if ((failedModuleScript || sameOriginRuntimeError) && !recovering) {
+              showAppLoadError();
+            }
+          },
+          true,
+        );
 
         function waitForWorker(registration) {
           return new Promise(function (resolve) {
@@ -253,9 +327,12 @@
     </script>
   </head>
   <body>
-    <div id="splash">
-      <div class="spinner-ring">
-        <span class="logo-clip"><img src="%BASE_URL%icons/icon128.png" alt="" /></span>
+    <div id="splash" role="status" aria-live="polite">
+      <div class="splash-content">
+        <div class="spinner-ring">
+          <span class="logo-clip"><img src="%BASE_URL%icons/icon128.png" alt="" /></span>
+        </div>
+        <p class="splash-caption">Đang tải...</p>
       </div>
     </div>
     <div id="app"></div>
@@ -269,7 +346,23 @@
         var splash = document.getElementById("splash");
         var appEl = document.getElementById("app");
         if (!splash || !appEl) return;
+        var appMounted = appEl.childNodes.length > 0;
+        function areStylesReady() {
+          var cssLinks = document.querySelectorAll("link[data-app-stylesheet]");
+          for (var i = 0; i < cssLinks.length; i++) {
+            if (cssLinks[i].dataset.ready !== "true") return false;
+          }
+          return true;
+        }
+        var stylesReady = areStylesReady();
+        var startupTimer = window.setTimeout(function () {
+          if (!appMounted || !stylesReady) {
+            window.dispatchEvent(new Event("nihongo:app-load-error"));
+          }
+        }, 30000);
+
         function hide() {
+          window.clearTimeout(startupTimer);
           splash.setAttribute("data-hide", "");
           setTimeout(function () {
             splash.remove();
@@ -282,14 +375,32 @@
             } catch (_) {}
           }, 30000);
         }
-        if (appEl.childNodes.length > 0) {
-          hide();
+
+        function hideWhenReady() {
+          if (appMounted && stylesReady && !document.getElementById("app-load-error")) hide();
+        }
+
+        window.addEventListener(
+          "nihongo:app-styles-loaded",
+          function () {
+            stylesReady = areStylesReady();
+            hideWhenReady();
+          },
+          { once: true },
+        );
+        window.addEventListener("nihongo:app-styles-error", function () {
+          window.dispatchEvent(new Event("nihongo:app-load-error"));
+        });
+
+        if (appMounted) {
+          hideWhenReady();
           return;
         }
         var observer = new MutationObserver(function () {
           if (appEl.childNodes.length > 0) {
+            appMounted = true;
             observer.disconnect();
-            hide();
+            hideWhenReady();
           }
         });
         observer.observe(appEl, { childList: true });

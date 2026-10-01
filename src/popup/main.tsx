@@ -27,9 +27,21 @@ if (__IS_PAGES_BUILD__ && !isExtensionRuntime()) {
     void import("../web/analytics.ts").then(({ initializeAnalytics }) => initializeAnalytics());
   }
 
-  import("../web/WebApp.tsx").then(({ WebApp }) => {
-    createRoot(document.getElementById("app")!).render(<WebApp />);
-  });
+  const appRoot = document.getElementById("app");
+  if (appRoot) {
+    const reportWebAppError = (error: unknown, componentStack?: string) => {
+      console.error("Nihongo Nin web app failed to load", error, componentStack ?? "");
+      window.dispatchEvent(new Event("nihongo:app-load-error"));
+    };
+
+    import("../web/WebApp.tsx")
+      .then(({ WebApp }) => {
+        createRoot(appRoot, {
+          onUncaughtError: (error, errorInfo) => reportWebAppError(error, errorInfo.componentStack),
+        }).render(<WebApp />);
+      })
+      .catch((error: unknown) => reportWebAppError(error));
+  }
 } else {
   import("./App.tsx").then(({ App }) => {
     createRoot(document.getElementById("app")!).render(<App />);

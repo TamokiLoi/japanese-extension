@@ -49,3 +49,7 @@ Trong lúc học, người dùng có thể ghi lại nghĩa sai, nghĩa bổ sun
 cho Kanji, từ vựng và ngữ pháp. Các thay đổi được lưu riêng trong local
 storage, không sửa trực tiếp dataset đóng gói. Có màn hình tập trung để xem,
 sửa, xoá và xuất JSON phục vụ cập nhật lại `src/data`.
+
+## Tạm hoãn: rà soát và cải thiện dữ liệu đề JLPT
+
+- Công việc này đang tạm hoãn; sẽ cập nhật ghi chú và phạm vi khi tiếp tục. Xem [hướng dẫn rà soát đề JLPT](jlpt-exam-dataset-audit.md).
