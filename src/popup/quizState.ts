@@ -221,6 +221,87 @@ function pickQuestionTargets<T extends { id: string }>(pool: T[], progressMap: P
   return targets;
 }
 
+const SMALL_KANA_RE = /^[ぁぃぅぇぉゃゅょゎゕゖ]$/u;
+
+function readingMora(reading: string): string[] {
+  const hiragana = Array.from(reading, (character) => {
+    const codePoint = character.codePointAt(0)!;
+    return codePoint >= 0x30a1 && codePoint <= 0x30f6 ? String.fromCodePoint(codePoint - 0x60) : character;
+  }).join("");
+  const mora: string[] = [];
+  for (const character of Array.from(hiragana)) {
+    if (SMALL_KANA_RE.test(character) && mora.length > 0) mora[mora.length - 1] += character;
+    else mora.push(character);
+  }
+  return mora;
+}
+
+function moraEditDistance(left: string[], right: string[]): number {
+  let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+  for (let i = 1; i <= left.length; i++) {
+    const current = [i];
+    for (let j = 1; j <= right.length; j++) {
+      current[j] = Math.min(
+        current[j - 1] + 1,
+        previous[j] + 1,
+        previous[j - 1] + (left[i - 1] === right[j - 1] ? 0 : 1),
+      );
+    }
+    previous = current;
+  }
+  return previous[right.length];
+}
+
+function readingSimilarityScore(target: VocabCard, candidate: VocabCard, targetMora: string[]): number {
+  const candidateMora = readingMora(candidate.reading ?? "");
+  const sameEnding = targetMora[targetMora.length - 1] === candidateMora[candidateMora.length - 1];
+  const posPenalty = !target.partOfSpeech || !candidate.partOfSpeech
+    ? (target.partOfSpeech === candidate.partOfSpeech ? 0 : 1)
+    : (target.partOfSpeech === candidate.partOfSpeech ? 0 : 2);
+  return moraEditDistance(targetMora, candidateMora)
+    + Math.abs(targetMora.length - candidateMora.length)
+    + (sameEnding ? 0 : 1)
+    + (candidate.level === target.level ? 0 : 4)
+    + posPenalty;
+}
+
+// Reading-mode distractors should resemble the target's pronunciation, not
+// be random answers whose kana/script make the correct choice obvious. Favor
+// the same JLPT level, part of speech, mora length, and ending; relax those
+// preferences only when the selected vocab pool has too few close readings.
+export function sampleSimilarVocabReadingTexts(pool: VocabCard[], target: VocabCard, count: number): string[] {
+  const targetMora = readingMora(target.reading ?? "");
+  if (targetMora.length === 0 || count <= 0) return [];
+  const targetPronunciation = targetMora.join("");
+  const seenTexts = new Set<string>([target.reading ?? ""]);
+  const ranked: { text: string; score: number }[] = [];
+  for (const candidate of pool) {
+    if (candidate === target || candidate.word === target.word || !candidate.reading) continue;
+    const candidateMora = readingMora(candidate.reading);
+    const pronunciation = candidateMora.join("");
+    if (!pronunciation || pronunciation === targetPronunciation || seenTexts.has(candidate.reading)) continue;
+    seenTexts.add(candidate.reading);
+    ranked.push({ text: candidate.reading, score: readingSimilarityScore(target, candidate, targetMora) });
+  }
+  ranked.sort((a, b) => a.score - b.score);
+  if (ranked.length === 0) return [];
+
+  // Vary the distractors among near-tied readings, then fill any remaining
+  // slots with the closest available choices so every question stays usable.
+  const nearTies = shuffle(ranked.filter((item) => item.score <= ranked[0].score + 1));
+  const selected = nearTies.slice(0, count);
+  const selectedTexts = new Set(selected.map((item) => item.text));
+  for (const item of ranked) {
+    if (selected.length >= count) break;
+    if (selectedTexts.has(item.text)) continue;
+    selected.push(item);
+    selectedTexts.add(item.text);
+  }
+  return selected.map((item) => item.text);
+}
+
+type DistractorPicker<T> = (pool: T[], target: T, answerOf: (item: T) => string, count: number) => string[];
+
 function buildQuestion<T extends { id: string; level?: JlptLevel }>(
   pool: T[],
   target: T,
@@ -229,9 +310,10 @@ function buildQuestion<T extends { id: string; level?: JlptLevel }>(
   answerOf: (item: T) => string,
   promptLabel: string,
   promptOf: (item: T) => string,
+  pickDistractors: DistractorPicker<T> = sampleDistractorTexts,
 ): QuizQuestion | null {
   const correctText = answerOf(target);
-  const distractorTexts = sampleDistractorTexts(pool, target, answerOf, CHOICE_COUNT - 1);
+  const distractorTexts = pickDistractors(pool, target, answerOf, CHOICE_COUNT - 1);
   if (distractorTexts.length === 0) return null; // pool too small/uniform to quiz meaningfully
   const choices = shuffle([
     { text: correctText, correct: true },
@@ -344,7 +426,19 @@ export async function buildVocabQuiz(
   const { answerOf, promptLabel, promptOf } = config[mode];
 
   return targets
-    .map((v) => buildQuestion(pool, v, "vocab", mode, answerOf, promptLabel, promptOf))
+    .map((v) => buildQuestion(
+      pool,
+      v,
+      "vocab",
+      mode,
+      answerOf,
+      promptLabel,
+      promptOf,
+      mode === "reading"
+        ? (items: VocabCard[], target: VocabCard, _answerOf: (item: VocabCard) => string, count: number) =>
+            sampleSimilarVocabReadingTexts(items, target, count)
+        : sampleDistractorTexts,
+    ))
     .filter((q): q is QuizQuestion => q !== null);
 }
 
