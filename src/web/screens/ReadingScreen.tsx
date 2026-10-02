@@ -621,6 +621,7 @@ function PassageView({
 
   useEffect(() => {
     setReferenceTab("questions");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [passage.id]);
 
   useEffect(() => {
