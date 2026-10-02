@@ -52,7 +52,12 @@ function stableHash(text: string): string {
   return (hash >>> 0).toString(36);
 }
 
-function inferLength(passage: string): ReadingLength {
+function inferLength(passage: string, level: string, problemGroup: string): ReadingLength {
+  // In official N3 reading, 問題6 is the long-text task and 問題7 is information search.
+  // Apply the exam's task type before length/keyword heuristics, which misclassify some of these passages.
+  if (level === "N3" && problemGroup === "問題6") return "long";
+  if (level === "N3" && problemGroup === "問題7") return "info-search";
+
   const compactLength = passage.replace(/\s/gu, "").length;
   const lines = passage.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
   const infoSignals = lines.filter((line) =>
@@ -123,7 +128,7 @@ function collectPassages(): ReadingPassage[] {
           passages.push({
             id,
             level: dataset.meta.level,
-            length: inferLength(group.passage),
+            length: inferLength(group.passage, dataset.meta.level, group.problemGroup),
             book: "jlpt-exam",
             topic,
             estimatedMinutes: Math.max(2, Math.ceil(group.passage.replace(/\s/gu, "").length / 400) + questionCount),
