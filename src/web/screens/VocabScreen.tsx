@@ -591,7 +591,7 @@ export function VocabScreen({
       ) : !v ? (
         <p className="mt-6 text-neutral-400">Không có từ vựng nào ở bộ lọc này.</p>
       ) : (
-        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-6 ring-0 md:mx-auto md:max-w-2xl">
+        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-2">
               <Badge style={levelBadgeStyle(v.level)}>{v.level}</Badge>
