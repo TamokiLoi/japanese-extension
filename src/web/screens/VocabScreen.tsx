@@ -671,10 +671,18 @@ export function VocabScreen({
           {((v.partOfSpeech && v.partOfSpeech !== "Khác") || v.verbGroup || v.transitivity || (v.verbForms?.length ?? 0) > 0) ? (
             <section className="mt-2 rounded-xl border-l-4 border-[#8b43b0] bg-[#fbf6ff] px-3 py-2.5 text-sm">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="font-semibold text-[#8238a7]">Phân loại:</span>
-                {v.partOfSpeech && v.partOfSpeech !== "Khác" ? <VocabPartOfSpeechTag partOfSpeech={v.partOfSpeech} /> : null}
+                <span className="inline-flex items-center gap-1.5 font-semibold text-[#8238a7]">
+                  <span aria-hidden="true" className="text-[#359fe5]">▣</span>
+                  Từ loại:
+                </span>
+                <VocabPartOfSpeechTag
+                  word={v.word}
+                  partOfSpeech={v.partOfSpeech}
+                  verbGroup={v.verbGroup}
+                  transitivity={v.transitivity}
+                />
               </div>
-              <VocabVerbMetadata verbGroup={v.verbGroup} transitivity={v.transitivity} forms={v.verbForms} />
+              <VocabVerbMetadata forms={v.verbForms} />
             </section>
           ) : null}
 

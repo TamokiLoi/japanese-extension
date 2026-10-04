@@ -2,7 +2,21 @@
 // sync manually -- duplicated here so this repo builds standalone.
 import type { JlptLevel } from "./kanji.ts";
 
-export type VocabPos = "Danh từ" | "Động từ" | "Tính từ" | "Trạng từ" | "Trợ từ" | "Khác";
+export type VocabPos =
+  | "Danh từ"
+  | "Động từ"
+  | "Tính từ"
+  | "Tính từ đuôi い"
+  | "Tính từ đuôi な"
+  | "Trạng từ"
+  | "Trợ từ"
+  | "Liên từ"
+  | "Đại từ"
+  | "Thán từ"
+  | "Tiếp đầu ngữ"
+  | "Hậu tố"
+  | "Cụm từ"
+  | "Khác";
 
 interface DatasetMeta {
   schemaVersion: string;
