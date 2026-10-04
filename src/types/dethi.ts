@@ -26,6 +26,14 @@ export interface DeThiQuestion {
   // review attempts a conservative sentence alignment from passageVi and
   // falls back to a whole-paragraph translation if the counts do not match.
   passageSentencesVi?: string[];
+  // Presentation-only translations for the existing Reading sentence groups.
+  // Stored with the source passage, not in a second practice content database.
+  // bodySignature fingerprints the body so edits cannot silently misalign these.
+  readingPresentation?: {
+    bodySignature: string;
+    sentencesVi: string[];
+    translationVi?: string;
+  };
   // Furigana for the shared reading passage, stored on one question in its
   // problem group and reused by the other questions in that passage. Only
   // shown in submitted-answer/history review, never during the exam attempt.

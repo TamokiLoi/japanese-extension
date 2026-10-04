@@ -1,26 +1,11 @@
-import dethiCacNamRaw from "../data/dethi-n3-cac-nam.json";
-import dethiN1CacNamRaw from "../data/dethi-n1-cac-nam.json";
-import type { DeThiDataset, DeThiExam, DeThiPaper } from "../types/dethi.ts";
+import { ALL_EXAMS } from "./dethiCatalog.ts";
+export { ALL_EXAMS } from "./dethiCatalog.ts";
+import type { DeThiExam, DeThiPaper } from "../types/dethi.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
 import { findBunpoForText } from "./bunpoLinks.ts";
 import { setFlagged } from "./progressState.ts";
 
-const cacNamDataset = dethiCacNamRaw as unknown as DeThiDataset;
-const n1CacNamDataset = dethiN1CacNamRaw as unknown as DeThiDataset;
-
-function examsWithLevel(dataset: DeThiDataset): DeThiExam[] {
-  return dataset.exams.map((exam) => ({ ...exam, level: dataset.meta.level }));
-}
-
-// "cac-nam" exam ids end in "YYYY-MM" (zero-padded), so a plain string
-// compare sorts them newest-first without needing to parse dates.
-const cacNamExamsNewestFirst = examsWithLevel(cacNamDataset).sort((a, b) => b.id.localeCompare(a.id));
-const n1CacNamExamsNewestFirst = examsWithLevel(n1CacNamDataset).sort((a, b) => b.id.localeCompare(a.id));
-
-// The IMO source data stays in src/data, but the incomplete set is temporarily
-// hidden from exam selection until it has listening content.
-export const ALL_EXAMS: DeThiExam[] = [...cacNamExamsNewestFirst, ...n1CacNamExamsNewestFirst];
 export const AVAILABLE_LEVELS: JlptLevel[] = (["N5", "N4", "N3", "N2", "N1"] as const).filter((level) =>
   ALL_EXAMS.some((exam) => exam.level === level),
 );

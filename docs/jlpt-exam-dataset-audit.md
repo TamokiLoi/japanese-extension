@@ -1,8 +1,16 @@
 # Hướng dẫn rà soát đề JLPT
 
-Dùng tài liệu này khi rà soát hoặc bổ sung mọi đề JLPT đang có trong repo. Dataset đề thi chính hiện được đăng ký ở `src/popup/dethiState.ts`; các bộ dữ liệu liên quan còn có quizbook và đề nghe, được đăng ký trong `src/popup/quizBookState.ts` và `src/popup/listeningState.ts`. Hãy kiểm tra các file đăng ký hiện tại trước khi lập phạm vi, vì dữ liệu trong `src/data` có thể chưa được đưa vào giao diện.
+Dùng tài liệu này khi rà soát hoặc bổ sung mọi đề JLPT đang có trong repo. Dataset đề thi chính hiện được đăng ký ở `src/popup/dethiCatalog.ts`; các bộ dữ liệu liên quan còn có quizbook và đề nghe, được đăng ký trong `src/popup/quizBookState.ts` và `src/popup/listeningState.ts`. Luyện đọc JLPT dùng adapter `src/lib/jlptReading.ts` từ chính dữ liệu đề, không có bản sao JSON riêng. Hãy kiểm tra các file đăng ký hiện tại trước khi lập phạm vi, vì dữ liệu trong `src/data` có thể chưa được đưa vào giao diện.
 
 ## 1. Lập danh sách và xác định nguồn
+
+### Nguồn chung cho Đọc hiểu đề thi và Luyện đọc JLPT
+
+- Sửa nội dung ở `src/data/dethi-n{level}-cac-nam.json`; đăng ký dataset mới trong `src/popup/dethiCatalog.ts`. Bộ chuyển đổi `src/lib/jlptReading.ts` tự lấy bài và các câu hỏi liên quan cho Luyện đọc, không sinh bản sao JSON.
+- Giữ nguyên số câu, thứ tự lựa chọn và đáp án. Giữ layout hai màn hình; bản dịch/furigana/tham khảo trong đề thi vẫn chỉ hiện khi xem lại.
+- Nếu bài có `readingPresentation`, kiểm tra bản dịch theo nhóm câu của Luyện đọc sau mỗi lần đổi bài hoặc furigana. Không cập nhật `bodySignature` để bỏ qua lỗi nếu chưa kiểm tra nghĩa và thứ tự. Bản dịch trong đề dùng `passageSentencesVi`, với ranh giới đơn vị riêng của màn hình đề.
+- Chạy `npm run reading:extract-jlpt`, `npm run reading:test-jlpt` và build. Mở cùng bài ở Luyện đọc và lịch sử đề: kiểm tra đoạn/câu, dịch, furigana, tab tham khảo và nút trước/sau; lúc làm đề không được lộ hỗ trợ.
+- Lần chuyển nguồn hiện tại đã đối chiếu 155 bài / 334 câu và giữ nguyên ID. ID cũ phụ thuộc hash của đoạn văn: nếu sửa tiếng Nhật làm đổi ID ở lần sau, phải cân nhắc chuyển tiến độ/bookmark; không coi test adapter là xác nhận nội dung đầy đủ theo PDF.
 
 - Lập inventory từ các import/registry ở ba file state trên và mọi nơi khác đang nạp dataset JLPT. Ghi đường dẫn JSON, ID đề, cấp độ, kỳ thi, phần thi và trạng thái (đang hiển thị, ẩn tạm, hoặc chỉ là dữ liệu trích xuất).
 - Phạm vi khởi đầu đã thấy trong repo: `src/data/dethi-n1-cac-nam.json`, `dethi-n3-cac-nam.json`, `dethi-n3-imo-26bo.json`, `quizbook-dethi-n3-2023-12.json`, `quizbook-dethi-n3-2025-12.json` và `listening-dethi-2025-12.json`. Xác nhận lại danh sách bằng registry trước mỗi đợt audit; không kết luận một file là “đã dùng” chỉ vì nó tồn tại.
