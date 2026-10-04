@@ -30,6 +30,7 @@ import { LevelDot } from "../LevelDot.tsx";
 import { CollapsibleSection } from "../CollapsibleSection.tsx";
 import { vocabForKanjiChar } from "../kanjiVocabLinks.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
+import "../../kanji-card-layout.css";
 
 const PROGRESS_FILTER_LABELS: Record<KanjiViewerState["progressFilter"], string> = {
   all: "Tất cả thẻ",
@@ -285,83 +286,74 @@ export function KanjiScreen({
       ) : !k ? (
         <p className="empty">Không có Kanji nào ở bộ lọc này.</p>
       ) : (
-        <main className={`card card-${bucketFor(progress ?? undefined)}`}>
-          <div className="level-badge" data-level={k.level}>
-            {k.level}
+        <main className={`card kanji-redesign card-${bucketFor(progress ?? undefined)}`}>
+          <div className="kanji-card-top">
+              <div className="kanji-hero-badges">
+                <div className="level-badge" data-level={k.level}>{k.level}</div>
+                {isDueForReview(progress ?? undefined) ? <span className="due-review-badge">⏰ Đến hạn ôn lại</span> : null}
+              </div>
+              <div className="kanji-popup-actions">
+                <button
+                  className={`flag-btn ${isFlagged(progress) ? "flagged" : ""}`}
+                  title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
+                  onClick={async () => {
+                    await toggleFlag(k.id);
+                    await refreshProgress();
+                  }}
+                >
+                  🚩
+                </button>
+                <button
+                  className={`mastered-badge ${progress?.mastered ? "mastered-on" : ""}`}
+                  title={progress?.mastered ? "Bỏ đánh dấu đã thuộc" : "Đánh dấu đã thuộc"}
+                  onClick={async () => {
+                    await toggleMastered(k.id);
+                    await refreshProgress();
+                  }}
+                >
+                  {progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
+                </button>
+              </div>
           </div>
-          <button
-            className={`flag-btn ${isFlagged(progress) ? "flagged" : ""}`}
-            title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
-            onClick={async () => {
-              await toggleFlag(k.id);
-              await refreshProgress();
-            }}
-          >
-            🚩
-          </button>
-          <button
-            className={`mastered-badge ${progress?.mastered ? "mastered-on" : ""}`}
-            title={progress?.mastered ? "Bỏ đánh dấu đã thuộc" : "Đánh dấu đã thuộc"}
-            onClick={async () => {
-              await toggleMastered(k.id);
-              await refreshProgress();
-            }}
-          >
-            {progress?.mastered ? "✓ Đã thuộc" : "Đánh dấu đã thuộc"}
-          </button>
-          {isDueForReview(progress ?? undefined) ? <span className="due-review-badge">⏰ Đến hạn ôn lại</span> : null}
-          <div className="character">{k.character}</div>
-
-          <dl className="details">
-            <dt>Hán Việt</dt>
-            <dd className="hanviet">{formatHanViet(k.hanViet)}</dd>
-
-            <dt>Âm On</dt>
-            <dd>{k.readings.on.length > 0 ? k.readings.on.join("、") : "—"}</dd>
-
-            <dt>Âm Kun</dt>
-            <dd>{k.readings.kun.length > 0 ? k.readings.kun.join("、") : "—"}</dd>
-
-            <dt>Nghĩa</dt>
-            <dd>
+          <section className="kanji-hero">
+            <div className="kanji-character">{k.character}</div>
+            <div className="kanji-hero-divider" />
+            <p className="kanji-meaning">
               {meaningLine(k).text}
-              {meaningLine(k).isDraft ? (
-                <span className="draft-tag" title="Dịch bằng AI, chưa được kiểm duyệt">
-                  nháp AI
-                </span>
-              ) : null}
-            </dd>
-
-            <dt>English</dt>
-            <dd className="muted">{k.meanings.en.join(", ") || "—"}</dd>
-
-            <dt>Bộ thủ</dt>
-            <dd>{k.radical?.character ? `${k.radical.character}${k.radical.raw ? ` (bộ ${k.radical.raw})` : ""}` : "—"}</dd>
-
-            <dt>Số nét</dt>
-            <dd>{k.strokeCount ?? "—"}</dd>
-          </dl>
-
-          {k.mnemonic ? (
-            <p className="mnemonic">
-              <span className="mnemonic-label">Mẹo nhớ:</span> {k.mnemonic}
+              {meaningLine(k).isDraft ? <span className="kanji-draft-tag" title="Dịch bằng AI, chưa được kiểm duyệt">nháp AI</span> : null}
             </p>
-          ) : null}
-
-          {related && related.shown.length > 0 ? (
-            <div className="related-vocab">
-              <div className="related-vocab-label">
-                Từ vựng chứa chữ này{related.total > related.shown.length ? ` (${related.total})` : ""}
-              </div>
-              <div className="related-vocab-list">
-                {related.shown.map((v) => (
-                  <button key={v.id} className="related-vocab-item" onClick={() => onOpenVocab(v.id)}>
-                    {v.word}
-                    {v.reading ? <span className="muted"> {v.reading}</span> : null}
-                  </button>
-                ))}
-              </div>
+            <div className="kanji-reading-row">
+              <span className="kanji-reading-chip"><strong>On</strong> {k.readings.on.length > 0 ? k.readings.on.join("、") : "—"}</span>
+              <span className="kanji-reading-chip"><strong>Kun</strong> {k.readings.kun.length > 0 ? k.readings.kun.join("、") : "—"}</span>
             </div>
+          </section>
+          <div className="kanji-info-sections">
+            <section className="kanji-info-block kanji-hanviet"><h3>Hán Việt:</h3><p>{formatHanViet(k.hanViet)}</p></section>
+            <section className="kanji-info-block kanji-structure">
+              <h3>Cấu tạo chữ</h3>
+              <div className="kanji-meta-row">
+                <span><small>Bộ thủ</small><strong>{k.radical?.character ? `${k.radical.character}${k.radical.raw ? ` (bộ ${k.radical.raw})` : ""}` : "—"}</strong></span>
+                {k.strokeCount != null ? <span><small>Số nét</small><strong>{k.strokeCount}</strong></span> : null}
+                {k.frequency != null ? <span><small>Tần suất</small><strong>{k.frequency}</strong></span> : null}
+              </div>
+            </section>
+            {k.mnemonic ? <section className="kanji-info-block kanji-mnemonic"><h3>Mẹo nhớ</h3><p>{k.mnemonic}</p></section> : null}
+            {k.meanings.en.length > 0 ? (
+              <section className="kanji-info-block kanji-extra"><h3>English:</h3><p>{k.meanings.en.join(", ")}</p></section>
+            ) : null}
+          </div>
+          {related && related.shown.length > 0 ? (
+            <details className="kanji-more-details">
+              <summary>Xuất hiện trong các tài liệu <span>{related.total} từ vựng chứa chữ</span></summary>
+              <div className="kanji-info-sections">
+              <section className="kanji-info-block kanji-related">
+                <h3>Từ vựng chứa chữ này{related.total > related.shown.length ? ` (${related.total})` : ""}</h3>
+                <div className="kanji-vocab-list">
+                  {related.shown.map((v) => <button key={v.id} onClick={() => onOpenVocab(v.id)}>{v.word}{v.reading ? <span>{v.reading}</span> : null}</button>)}
+                </div>
+              </section>
+              </div>
+            </details>
           ) : null}
         </main>
       )}

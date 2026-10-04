@@ -1,0 +1,197 @@
+.vocab-layout {
+  text-align: left;
+}
+
+.vocab-layout .vocab-voice-btn {
+  position: absolute;
+  top: 40px;
+  right: 44px;
+  display: flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.vocab-layout .vocab-voice-btn:hover {
+  background: #f5f5f5;
+  color: #e11d48;
+}
+
+.vocab-layout .vocab-hero {
+  margin-top: 84px;
+  padding: 17px 13px 18px;
+  border: 1px solid #e8b96e;
+  border-radius: 13px;
+  background: #fff5dc;
+  text-align: center;
+}
+
+.vocab-layout .vocab-word {
+  margin: 3px 0 0;
+  color: #194e75;
+  font-family: Georgia, "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.vocab-layout .vocab-reading {
+  margin: 0;
+  color: #675d51;
+}
+
+.vocab-layout .vocab-hero-divider {
+  width: min(75%, 260px);
+  height: 1px;
+  margin: 12px auto;
+  background: #dfc796;
+}
+
+.vocab-layout .vocab-hero-meaning {
+  color: #125b86;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.vocab-layout .vocab-info {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-left: 4px solid;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.vocab-layout .vocab-info-hanviet {
+  border-color: #e86916;
+  background: #fff0e5;
+  color: #ad470e;
+}
+
+.vocab-layout .vocab-info-pos {
+  border-color: #8b43b0;
+  background: #fbf6ff;
+}
+
+.vocab-layout .vocab-pos-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  color: #8238a7;
+}
+
+.vocab-layout .vocab-info-example {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-color: #0284c7;
+  background: #f0f9ff;
+  color: #155e75;
+}
+
+.vocab-layout .vocab-info-example .example-jp {
+  color: #1f2937;
+}
+
+.vocab-layout .vocab-info-example .example-vi {
+  color: #075985;
+}
+
+.vocab-layout .vocab-info-mnemonic {
+  border-color: #d89616;
+  background: #fffbeb;
+  color: #92400e;
+}
+
+.vocab-layout .vocab-info-english {
+  border-color: #8a786b;
+  background: #f7f5f3;
+  color: #756558;
+}
+
+.vocab-layout .vocab-info-english span {
+  color: #404040;
+  font-style: italic;
+}
+
+.vocab-layout .vocab-info-related {
+  border-color: #38856b;
+  background: #eff9f4;
+}
+
+.vocab-layout .related-vocab {
+  margin-top: 10px;
+  padding: 9px 10px;
+  border: 1px solid;
+  border-radius: 9px;
+  text-align: left;
+}
+
+.vocab-layout .related-vocab--reading {
+  border-color: #bae6fd;
+  background: #f0f9ff;
+}
+
+.vocab-layout .related-vocab--reading .related-vocab-label {
+  color: #0369a1;
+}
+
+.vocab-layout .related-vocab--reading .related-vocab-item {
+  border-color: #bae6fd;
+  color: #075985;
+}
+
+.vocab-layout .related-vocab--reading .related-vocab-item:hover {
+  background: #e0f2fe;
+}
+
+.vocab-layout .related-vocab--quiz {
+  border-color: #ddd6fe;
+  background: #f5f3ff;
+}
+
+.vocab-layout .related-vocab--quiz .related-vocab-label {
+  color: #6d28d9;
+}
+
+.vocab-layout .related-vocab--quiz .related-vocab-item {
+  border-color: #ddd6fe;
+  color: #5b21b6;
+}
+
+.vocab-layout .related-vocab--quiz .related-vocab-item:hover {
+  background: #ede9fe;
+}
+
+.vocab-layout .vocab-more-details {
+  margin-top: 10px;
+  border: 1px solid #e6e5e8;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.vocab-layout .vocab-more-details summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  color: #66616a;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.vocab-layout .vocab-more-details summary span {
+  margin-left: 6px;
+  color: #98929a;
+  font-weight: 500;
+}
+
+.vocab-layout .vocab-more-body {
+  border-top: 1px solid #f5f5f5;
+  padding: 0 10px 10px;
+}

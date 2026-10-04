@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { VocabPartOfSpeechTag } from "../../components/vocabpartofspeechtag.tsx";
+import { VocabVerbMetadata } from "../../components/vocabverbmetadata.tsx";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus } from "lucide-react";
-import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "../lib/speak.ts";
+import { speakJapanese } from "../lib/speak.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { VerbConjugations } from "../../types/vocab.ts";
-import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS, loadQuizSettings, saveQuizSettings } from "../../popup/quizState.ts";
+import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS } from "../../popup/quizState.ts";
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
@@ -157,7 +159,6 @@ export function VocabScreen({
   onOpenKanji,
   onOpenReading,
   onOpenQuizBook,
-  onOpenQuiz,
   onOpenVocab,
   jumpToId,
   onCurrentItemChange,
@@ -184,11 +185,6 @@ export function VocabScreen({
   // asynchronously on some browsers, or the device finishes downloading a
   // Japanese TTS voice pack while this screen is still open), so keep
   // listening instead of only checking once.
-  const [canSpeak, setCanSpeak] = useState(false);
-  useEffect(() => {
-    setCanSpeak(hasJapaneseVoice());
-    return onVoicesChanged(() => setCanSpeak(hasJapaneseVoice()));
-  }, []);
 
   // While a jump view is open, holds the selectedSources/selectedLevels/
   // progressFilter/viewMode that were actually persisted BEFORE
@@ -607,16 +603,14 @@ export function VocabScreen({
               ) : null}
             </div>
             <div className="flex shrink-0 items-center gap-1.5">
-              {canSpeak ? (
-                <button
-                  onClick={() => speakJapanese(v.reading || v.word)}
-                  aria-label="Phát âm"
-                  title="Phát âm"
-                  className="flex h-7.5 w-7.5 items-center justify-center rounded-full text-neutral-300 hover:bg-neutral-100 hover:text-rose-500"
-                >
-                  <Volume2 size={17} />
-                </button>
-              ) : null}
+              <button
+                onClick={() => speakJapanese(v.reading || v.word)}
+                aria-label="Phát âm"
+                title="Phát âm tiếng Nhật"
+                className="flex h-7.5 w-7.5 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-100 hover:text-rose-500"
+              >
+                <Volume2 size={17} />
+              </button>
               <button
                 onClick={() => setCorrectionOpen(true)}
                 aria-label="Góp ý dữ liệu"
@@ -659,71 +653,136 @@ export function VocabScreen({
             </div>
           </div>
 
-          <div className="mt-6 text-center text-4xl font-bold text-neutral-800">
-            <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
+          <div className="mt-5 rounded-2xl border border-[#e8b96e] bg-[#fff5dc] px-4 py-5 text-center">
+            {v.reading ? <div className="text-sm text-[#675d51]">{v.reading}</div> : null}
+            <div className="mt-1 break-words font-serif text-4xl font-bold text-[#194e75] sm:text-5xl">
+              <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
+            </div>
+            <div className="mx-auto mt-3 h-px max-w-[280px] bg-[#dfc796]" />
+            <div className="mt-3 text-base font-semibold text-[#125b86] italic">{v.meaningVi || "—"}</div>
           </div>
-          {v.reading ? <div className="mt-1 text-center text-neutral-500">{v.reading}</div> : null}
-          {v.verbGroup || v.transitivity ? (
-            <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
-              {v.verbGroup ? <Badge variant="secondary">{v.verbGroup}</Badge> : null}
-              {v.transitivity ? <Badge variant="secondary">{v.transitivity}</Badge> : null}
-            </div>
+
+          {v.hanViet.length > 0 ? (
+            <section className="mt-3 rounded-xl border-l-4 border-[#e86916] bg-[#fff0e5] px-3 py-2.5 text-sm">
+              <span className="font-semibold text-[#bd4a0c]">Hán Việt:</span>{" "}
+              <span className="font-bold text-[#ad470e]">{formatHanViet(v.hanViet)}</span>
+            </section>
+          ) : null}
+          {((v.partOfSpeech && v.partOfSpeech !== "Khác") || v.verbGroup || v.transitivity || (v.verbForms?.length ?? 0) > 0) ? (
+            <section className="mt-2 rounded-xl border-l-4 border-[#8b43b0] bg-[#fbf6ff] px-3 py-2.5 text-sm">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-semibold text-[#8238a7]">Phân loại:</span>
+                {v.partOfSpeech && v.partOfSpeech !== "Khác" ? <VocabPartOfSpeechTag partOfSpeech={v.partOfSpeech} /> : null}
+              </div>
+              <VocabVerbMetadata verbGroup={v.verbGroup} transitivity={v.transitivity} forms={v.verbForms} />
+            </section>
           ) : null}
 
-          {progress ? (
-            <div className="mt-3.5 flex gap-1 overflow-x-auto px-1 pb-1">
-              {VOCAB_MASTERY_DIRECTIONS.map((dir) => {
-                const streak = progress.directionStreaks?.[dir] ?? 0;
-                const done = streak >= MASTERY_STREAK_THRESHOLD;
-                return (
-                  <span
-                    key={dir}
-                    title={VOCAB_MODE_LABELS[dir]}
-                    className={`shrink-0 rounded-full border px-1.5 py-0.5 text-[10px] font-medium whitespace-nowrap ${
-                      done ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-amber-200 bg-amber-50 text-amber-600"
-                    }`}
-                  >
-                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {VOCAB_MODE_SHORT_LABELS[dir]}
-                  </span>
-                );
-              })}
-            </div>
+          {v.english ? (
+            <section className="mt-3 rounded-xl border-l-4 border-[#8a786b] bg-[#f7f5f3] px-3 py-2.5 text-sm">
+              <span className="font-semibold text-[#756558]">English:</span>{" "}
+              <span className="italic text-neutral-700">{v.english}</span>
+            </section>
           ) : null}
 
-          {progress
-            ? (() => {
-                const missing = VOCAB_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks?.[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
-                if (!missing) return null;
-                return (
+          <CorrectionEditorSheet
+            open={correctionOpen}
+            onClose={() => setCorrectionOpen(false)}
+            entityId={v.id}
+            snapshot={{
+              word: v.word,
+              reading: v.reading,
+              meaningVi: v.meaningVi,
+              sources: v.sources.map((source) => SOURCE_LABELS[source]),
+            }}
+            onSaved={(saved) => setCorrections((current) => [saved, ...current.filter((entry) => entry.id !== saved.id)])}
+          />
+
+          {readingMatches.length > 0 || quizBookMatches.length > 0 ? (
+            <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
+              <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
+                Xuất hiện trong tài liệu <span className="ml-2 font-normal text-neutral-400">{readingMatches.length} bài đọc · {quizBookMatches.length} đề thi</span>
+              </summary>
+              <div className="border-t border-neutral-100 px-3 pb-3">
+          {readingMatches.length > 0 ? (
+            <div className="mt-3 rounded-xl border border-sky-200 bg-sky-50 px-3 py-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-800">
+                <BookOpenText size={14} /> Xuất hiện trong bài đọc
+              </div>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {readingMatches.map((p) => (
                   <button
-                    onClick={async () => {
-                      const qs = await loadQuizSettings();
-                      await saveQuizSettings({ ...qs, contentType: "vocab", vocabMode: missing });
-                      onOpenQuiz();
-                    }}
-                    className="mx-auto mt-2 block text-xs font-semibold text-rose-600 hover:underline"
+                    key={p.id}
+                    onClick={() => onOpenReading(p.id)}
+                    className="rounded-lg border border-sky-200 bg-white px-2.5 py-1 text-xs text-sky-800 hover:bg-sky-100"
                   >
-                    Luyện ngay dạng còn thiếu: {VOCAB_MODE_LABELS[missing]}
+                    {p.title}
                   </button>
-                );
-              })()
-            : null}
+                ))}
+              </div>
+            </div>
+          ) : null}
 
-          <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
-            {v.hanViet.length > 0 ? (
-              <>
-                <dt className="text-neutral-400">Hán Việt</dt>
-                <dd className="font-semibold text-rose-600">{formatHanViet(v.hanViet)}</dd>
-              </>
-            ) : null}
-            <dt className="text-neutral-400">Nghĩa</dt>
-            <dd className="text-neutral-800">{v.meaningVi || "—"}</dd>
-            {v.english ? (
-              <>
-                <dt className="text-neutral-400">Tiếng Anh</dt>
-                <dd className="text-neutral-500 italic">{v.english}</dd>
-              </>
-            ) : null}
+          {quizBookMatches.length > 0 ? (
+            <div className="mt-3 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2.5">
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-violet-800">
+                <GraduationCap size={14} /> Xuất hiện trong luyện đề
+              </div>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {quizBookMatches.map((qq) => (
+                  <button
+                    key={qq.id}
+                    onClick={() => onOpenQuizBook(qq.id)}
+                    className="rounded-lg border border-violet-200 bg-white px-2.5 py-1 text-xs text-violet-800 hover:bg-violet-100"
+                  >
+                    {qq.question.slice(0, 24)}
+                    {qq.question.length > 24 ? "…" : ""}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+              </div>
+            </details>
+          ) : null}
+          {progress ? (
+            <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
+              <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
+                Tiến độ học <span className="ml-2 font-normal text-neutral-400">{VOCAB_MASTERY_DIRECTIONS.length} dạng</span>
+              </summary>
+              <div className="flex flex-wrap gap-1.5 border-t border-neutral-100 px-3 py-2.5">
+                {VOCAB_MASTERY_DIRECTIONS.map((dir) => {
+                  const streak = progress.directionStreaks?.[dir] ?? 0;
+                  const done = streak >= MASTERY_STREAK_THRESHOLD;
+                  return (
+                    <span
+                      key={dir}
+                      title={VOCAB_MODE_LABELS[dir]}
+                      className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                        done ? "border-emerald-300 bg-emerald-50 text-emerald-700" : "border-amber-200 bg-amber-50 text-amber-700"
+                      }`}
+                    >
+                      {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {VOCAB_MODE_SHORT_LABELS[dir]}
+                    </span>
+                  );
+                })}
+              </div>
+            </details>
+          ) : null}
+          {(v.synonym || v.pairVerb || corrections.length > 0 || v.mnemonic.length > 0 || v.example || v.conjugations) ? (
+            <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
+              <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
+                Thông tin bổ sung <span className="ml-2 font-normal text-neutral-400">{[
+                  v.example && "Ví dụ",
+                  v.mnemonic.length > 0 && "Ghi nhớ",
+                  (v.synonym || v.pairVerb) && "Từ liên quan",
+                  v.conjugations && "Chia thể",
+                  corrections.length > 0 && `${corrections.length} góp ý`,
+                ].filter(Boolean).join(" · ")}</span>
+              </summary>
+              <div className="border-t border-neutral-100 px-3 pb-3">
+
+          {v.synonym || v.pairVerb ? <dl className="mt-3 grid grid-cols-[100px_1fr] gap-y-2 rounded-xl border-l-4 border-[#38856b] bg-[#eff9f4] px-3 py-2.5 text-sm">
             {v.synonym ? (
               <>
                 <dt className="text-neutral-400">Đồng nghĩa</dt>
@@ -738,7 +797,9 @@ export function VocabScreen({
                   const target = findVocabByWordReading(v.pairVerb.word, v.pairVerb.reading);
                   return (
                     <>
-                      <dt className="text-neutral-400">{v.transitivity === "Tự động từ" ? "Tha động từ" : "Tự động từ"}</dt>
+                      <dt className="text-neutral-400">
+                        {v.transitivity === "Tự động từ" ? "Tha động từ" : v.transitivity === "Tha động từ" ? "Tự động từ" : "Cặp tự/tha động từ"}
+                      </dt>
                       <dd className="text-neutral-800">
                         {target ? (
                           <button
@@ -759,7 +820,7 @@ export function VocabScreen({
                   );
                 })()
               : null}
-          </dl>
+          </dl> : null}
 
           {corrections.length > 0 ? (
             <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-left text-sm text-amber-900">
@@ -782,82 +843,33 @@ export function VocabScreen({
           ) : null}
 
           {v.mnemonic.length > 0 ? (
-            <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-800">
+            <div className="mt-3 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-3 text-sm text-amber-900">
               <span className="font-semibold">Mẹo nhớ:</span> {v.mnemonic.join(" / ")}
             </div>
           ) : null}
 
           {v.example ? (
-            <div className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm">
+            <div className="mt-3 rounded-xl border-l-4 border-sky-600 bg-sky-50 p-3 text-sm">
+              <div className="mb-1 font-semibold text-sky-700">Mẫu câu</div>
               <div className="flex items-start justify-between gap-2">
                 <div className="text-neutral-800">{v.example}</div>
-                {canSpeak ? (
-                  <button
-                    onClick={() => speakJapanese(v.example!)}
-                    aria-label="Phát âm ví dụ"
-                    className="shrink-0 text-emerald-600 hover:text-emerald-800"
-                  >
-                    <Volume2 size={16} />
-                  </button>
-                ) : null}
+                <button
+                  onClick={() => speakJapanese(v.example!)}
+                  aria-label="Phát âm ví dụ"
+                  className="shrink-0 text-sky-600 hover:text-sky-800"
+                >
+                  <Volume2 size={16} />
+                </button>
               </div>
-              {v.exampleVi ? <div className="mt-1 text-emerald-700">{v.exampleVi}</div> : null}
+              {v.exampleVi ? <div className="mt-1 text-sky-800">{v.exampleVi}</div> : null}
             </div>
           ) : null}
-
-          <CorrectionEditorSheet
-            open={correctionOpen}
-            onClose={() => setCorrectionOpen(false)}
-            entityId={v.id}
-            snapshot={{
-              word: v.word,
-              reading: v.reading,
-              meaningVi: v.meaningVi,
-              sources: v.sources.map((source) => SOURCE_LABELS[source]),
-            }}
-            onSaved={(saved) => setCorrections((current) => [saved, ...current.filter((entry) => entry.id !== saved.id)])}
-          />
 
           {v.conjugations ? <VerbConjugationTable conjugations={v.conjugations} /> : null}
-
-          {readingMatches.length > 0 ? (
-            <div className="mt-4">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
-                <BookOpenText size={14} /> Xuất hiện trong bài đọc
               </div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {readingMatches.map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => onOpenReading(p.id)}
-                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
-                  >
-                    {p.title}
-                  </button>
-                ))}
-              </div>
-            </div>
+            </details>
           ) : null}
 
-          {quizBookMatches.length > 0 ? (
-            <div className="mt-4">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
-                <GraduationCap size={14} /> Xuất hiện trong luyện đề
-              </div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {quizBookMatches.map((qq) => (
-                  <button
-                    key={qq.id}
-                    onClick={() => onOpenQuizBook(qq.id)}
-                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
-                  >
-                    {qq.question.slice(0, 24)}
-                    {qq.question.length > 24 ? "…" : ""}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : null}
         </Card>
       )}
     </div>

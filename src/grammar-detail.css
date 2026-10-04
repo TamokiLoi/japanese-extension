@@ -1,0 +1,49 @@
+.grammar-detail-card { display: block; }
+.grammar-detail-card .grammar-hero { margin: 14px 0; border: 1px solid #b99cdb; border-radius: 14px; background: #f3eeff; padding: 20px; text-align: center; }
+.grammar-detail-card .grammar-pattern { margin: 0; color: #3d3150; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: clamp(30px, 5vw, 42px); font-weight: 750; line-height: 1.2; overflow-wrap: anywhere; }
+.grammar-detail-card .grammar-pattern-line + .grammar-pattern-line { margin-top: 3px; }
+.grammar-detail-card .grammar-hero-divider { width: min(310px, 75%); height: 1px; margin: 12px auto; background: #cbb8e3; }
+.grammar-detail-card .grammar-meaning { margin: 0; color: #67468d; font-size: 17px; font-style: italic; font-weight: 650; line-height: 1.45; }
+.grammar-detail-card .grammar-chapter-tag { display: inline-flex; max-width: 100%; margin: 0; border: 1px solid #dfd2ee; border-radius: 999px; background: #faf7ff; padding: 4px 9px; color: #73558f; font-size: 11px; font-weight: 650; line-height: 1.35; }
+.grammar-detail-card .grammar-usage-formula { color: #345b91; font-weight: 800; }
+.grammar-detail-card .grammar-formula-line { color: #345b91; font-weight: 800; overflow-wrap: anywhere; }
+.grammar-detail-card .grammar-formula-line + .grammar-formula-line { margin-top: 4px; border-top: 1px solid #d8e4f2; padding-top: 4px; }
+.grammar-detail-card .grammar-sections { display: grid; gap: 10px; margin-top: 14px; }
+.grammar-detail-card .grammar-section { --grammar-accent: #8b43b0; --grammar-ink: #8238a7; --grammar-bg: #fbf6ff; border-left: 5px solid var(--grammar-accent); border-radius: 10px; background: var(--grammar-bg); padding: 11px 13px; }
+.grammar-detail-card .grammar-section-title { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0; color: var(--grammar-ink); font-size: 13px; font-weight: 800; }
+.grammar-detail-card .grammar-section-body { margin: 6px 0 0; color: #364956; font-size: 13px; line-height: 1.55; white-space: pre-line; }
+.grammar-detail-card .grammar-section-body + .grammar-section-body { margin-top: 4px; }
+.grammar-detail-card .grammar-section--formula { --grammar-accent: #4d79b7; --grammar-ink: #345b91; --grammar-bg: #eff5fc; }
+.grammar-detail-card .grammar-section--usage { --grammar-accent: #39907e; --grammar-ink: #286b5d; --grammar-bg: #eef8f4; }
+.grammar-detail-card .grammar-section--tip { --grammar-accent: #dc9e29; --grammar-ink: #9b6810; --grammar-bg: #fff8e7; }
+.grammar-detail-card .grammar-section--example { --grammar-accent: #1786c3; --grammar-ink: #0966ab; --grammar-bg: #eaf5fd; }
+.grammar-detail-card .grammar-section--related { --grammar-accent: #38856b; --grammar-ink: #247055; --grammar-bg: #eff9f4; }
+.grammar-detail-card .grammar-section--notes { --grammar-accent: #d48a27; --grammar-ink: #9a6412; --grammar-bg: #fff8e9; }
+.grammar-detail-card .grammar-section--study { --grammar-accent: #6875a4; --grammar-ink: #485783; --grammar-bg: #f2f4fc; }
+.grammar-detail-card .grammar-tag { display: inline-block; border-radius: 6px; background: white; padding: 3px 7px; color: #344c5c; font-size: 11px; font-weight: 700; }
+.grammar-detail-card .grammar-entry + .grammar-entry { margin-top: 9px; border-top: 1px solid #ffffffa8; padding-top: 9px; }
+.grammar-detail-card .grammar-example-jp { color: #263e50; font-size: 15px; line-height: 1.6; }
+.grammar-detail-card .grammar-example-vi { margin-top: 3px; color: #26718d; font-size: 13px; line-height: 1.5; }
+.grammar-detail-card .grammar-example-jp mark { border-radius: 3px; background: #b9e8ce; padding: 0 2px; color: inherit; }
+.grammar-detail-card .grammar-link-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+.grammar-detail-card .grammar-link-list button { border: 1px solid #dce8e1; border-radius: 8px; background: white; padding: 5px 9px; color: #276448; font-size: 12px; }
+.grammar-detail-card .grammar-link-list button:hover { background: #f5fbf7; }
+.grammar-detail-card .grammar-document-group { margin-top: 10px; border-left: 4px solid var(--doc-accent); border-radius: 9px; background: var(--doc-bg); padding: 9px 10px; color: var(--doc-ink); }
+.grammar-detail-card .grammar-document-group--reading { --doc-accent: #2186bd; --doc-bg: #edf7fd; --doc-ink: #176b9b; }
+.grammar-detail-card .grammar-document-group--quiz { --doc-accent: #8b43b0; --doc-bg: #fbf6ff; --doc-ink: #754392; }
+.grammar-detail-card .grammar-document-group .grammar-section-title { color: var(--doc-ink); }
+.grammar-detail-card .grammar-document-group .grammar-link-list button { border-color: color-mix(in srgb, var(--doc-accent) 20%, white); color: var(--doc-ink); }
+.grammar-detail-card .grammar-link-entry + .grammar-link-entry { margin-top: 8px; }
+.grammar-detail-card .grammar-link-pattern { border: 0 !important; background: transparent !important; padding: 0 !important; color: #26724f !important; font-weight: 750; text-decoration: underline; text-underline-offset: 2px; }
+.grammar-detail-card .grammar-source-line { color: #82778d; font-size: 11px; line-height: 1.5; }
+.grammar-detail-card .grammar-study-status { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; color: #485783; font-size: 12px; }
+.grammar-detail-card .grammar-study-status strong { font-size: 13px; }
+.grammar-detail-card .grammar-popup-actions { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0; }
+.grammar-detail-card .grammar-popup-action { border: 1px solid #d9d6e3; border-radius: 999px; background: white; padding: 6px 10px; color: #625777; font-size: 12px; font-weight: 700; }
+.grammar-detail-card .grammar-popup-action.active { border-color: #b99cdb; background: #f3eeff; color: #67468d; }
+.grammar-detail-card .grammar-popup-title { margin: 5px 0 0; text-align: center; color: #3d3150; font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: clamp(29px, 6vw, 37px); font-weight: 750; line-height: 1.2; overflow-wrap: anywhere; }
+.grammar-detail-card .grammar-popup-sources { margin: 4px auto 0; color: #82778d; font-size: 11px; text-align: center; }
+.grammar-detail-card .grammar-correction-trigger { display: flex; align-items: center; margin: 8px 0 0 auto; border: 0; background: transparent; color: #a3783f; cursor: pointer; }
+.grammar-detail-card .grammar-correction-list { margin-top: 7px; font-size: 12px; }
+.grammar-detail-card .grammar-correction-entry + .grammar-correction-entry { margin-top: 6px; }
+@media (max-width: 520px) { .grammar-detail-card .grammar-hero { padding: 16px 12px; } .grammar-detail-card .grammar-section { padding: 10px 11px; } }

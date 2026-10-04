@@ -23,6 +23,7 @@ import type {
   TanoshiiSynonymDataset,
   TransitivityPairDataset,
   VerbConjugations,
+  VerbFormDetail,
   VocabPos,
 } from "../types/vocab.ts";
 import type { JlptLevel } from "../types/kanji.ts";
@@ -68,8 +69,9 @@ export interface VocabCard {
   // này nằm trong bộ "100 cặp tự-tha động từ" (xem fromTransitivityPairs).
   pairVerb: { word: string; reading: string | null } | null;
   // Chỉ áp dụng cho các nguồn động từ (tra cứu từ mazii.net / suy ra lúc convert).
-  verbGroup?: string;
-  transitivity?: string;
+  verbGroup?: string | null;
+  transitivity?: string | null;
+  verbForms?: VerbFormDetail[];
   conjugations?: VerbConjugations;
   // Nghĩa tiếng Anh -- có ở nguồn nào giữ lại field này trong dữ liệu gốc
   // (tango-new: từ mượn katakana, xem fromTanoshiiVocab; mimikara-n3: nghĩa
@@ -199,6 +201,7 @@ function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): 
     pairVerb: null,
     verbGroup: w.verbGroup,
     transitivity: w.transitivity,
+    verbForms: w.verbForms,
     conjugations: w.conjugations,
     english: w.english,
   }));
@@ -218,6 +221,10 @@ function fromMimikara(dataset: MimikaraDataset): VocabCard[] {
     exampleVi: w.exampleVi,
     synonym: null,
     pairVerb: null,
+    partOfSpeech: w.partOfSpeech,
+    verbGroup: w.verbGroup,
+    transitivity: w.transitivity,
+    verbForms: w.verbForms,
     english: w.english,
   }));
 }
@@ -324,8 +331,9 @@ function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
       exampleVi: pick((c) => c.exampleVi, (v: string | null) => !v) ?? null,
       pairVerb: pick((c) => c.pairVerb, (v: { word: string; reading: string | null }) => !v) ?? null,
       partOfSpeech: pick((c) => c.partOfSpeech, (v: VocabPos) => !v || v === "Khác"),
-      verbGroup: pick((c) => c.verbGroup, (v: string) => !v),
-      transitivity: pick((c) => c.transitivity, (v: string) => !v),
+      verbGroup: pick((c) => c.verbGroup, (v: string | null) => !v),
+      transitivity: pick((c) => c.transitivity, (v: string | null) => !v),
+      verbForms: pick((c) => c.verbForms, (v: VerbFormDetail[]) => !v || v.length === 0),
       conjugations: pick((c) => c.conjugations, (v: VerbConjugations) => !v || Object.keys(v).length === 0),
       english: pick((c) => c.english, (v: string) => !v),
     });

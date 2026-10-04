@@ -10,7 +10,8 @@
       "meaningVi": "Dùng để giải thích, nhấn mạnh lý do hoặc hoàn cảnh.",
       "example": "日本へ行きたいんです。",
       "exampleVi": "Tôi muốn đi Nhật đó / vì tôi muốn đi Nhật.",
-      "usage": "V-thể thường/Adj-i/Adj-na(bỏ na)+な/N+な + んです. Dùng khi muốn giải thích lý do, hoàn cảnh hoặc khơi gợi sự đồng cảm từ người nghe.",
+      "formula": "V-thể thường/Adj-i/Adj-na(bỏ na)+な/N+な + んです",
+      "usage": "Dùng khi muốn giải thích lý do, hoàn cảnh hoặc khơi gợi sự đồng cảm từ người nghe.",
       "moreExamples": [
         {
           "jp": "遅れたんですが、電車が遅れました。",
@@ -38,7 +39,8 @@
           "note": "「~ていただけませんか」 lịch sự hơn, dùng với cấp trên hoặc người ít thân thiết hơn so với 「~Vてくれませんか」."
         }
       ],
-      "usage": "V-て + いただけませんか. Cách nhờ vả lịch sự hơn hẳn \"V-て ください\", thường dùng với người lạ hoặc cấp trên.",
+      "formula": "V-て + いただけませんか",
+      "usage": "Cách nhờ vả lịch sự hơn hẳn \"V-て ください\", thường dùng với người lạ hoặc cấp trên.",
       "moreExamples": [
         {
           "jp": "明日、荷物を運ぶのを手伝っていただけませんか。",
@@ -66,7 +68,8 @@
           "note": "Cả hai đều dùng để đưa ra lời khuyên hoặc hướng giải quyết, có thể thay thế cho nhau trong nhiều ngữ cảnh."
         }
       ],
-      "usage": "V-た + らいいです. Dùng để gợi ý hoặc đưa ra lời khuyên một cách nhẹ nhàng cho người nghe.",
+      "formula": "V-た + らいいです",
+      "usage": "Dùng để gợi ý hoặc đưa ra lời khuyên một cách nhẹ nhàng cho người nghe.",
       "moreExamples": [
         {
           "jp": "道が混んでいるから、電車で行ったらいいですよ。",
@@ -114,7 +117,8 @@
           "note": "「Động từ thể Khả năng」 là khái niệm chung, còn 「~V可能形」 là thể chia động từ cụ thể."
         }
       ],
-      "usage": "Cách dùng: V-thể khả năng + ます. Diễn tả năng lực cá nhân hoặc hoàn cảnh cho phép thực hiện hành động.",
+      "formula": "V-thể khả năng + ます",
+      "usage": "Diễn tả năng lực cá nhân hoặc hoàn cảnh cho phép thực hiện hành động.",
       "moreExamples": [
         {
           "jp": "この漢字は難しいので、私には読めません。",
@@ -162,7 +166,8 @@
           "note": "「~が みえます・きこえます」 chỉ khả năng tự nhiên đến với giác quan, không dùng thể khả năng của động từ nhìn/nghe."
         }
       ],
-      "usage": "N + が + 見えます/聞こえます. Diễn tả những âm thanh hoặc hình ảnh tự nhiên lọt vào mắt/tai, không phải do chủ ý tìm kiếm.",
+      "formula": "N + が + 見えます/聞こえます",
+      "usage": "Diễn tả những âm thanh hoặc hình ảnh tự nhiên lọt vào mắt/tai, không phải do chủ ý tìm kiếm.",
       "moreExamples": [
         {
           "jp": "窓から公園で遊んでいる子供たちの声が聞こえます。",
@@ -186,7 +191,8 @@
           "note": "「~が できます」 diễn tả việc hoàn thành hoặc có khả năng làm một việc gì đó (danh từ + ができます)."
         }
       ],
-      "usage": "N + が + できます. Dùng để diễn tả sự hình thành, hoàn thiện của một sự vật hoặc công trình mới xuất hiện.",
+      "formula": "N + が + できます",
+      "usage": "Dùng để diễn tả sự hình thành, hoàn thiện của một sự vật hoặc công trình mới xuất hiện.",
       "moreExamples": [
         {
           "jp": "町の中心に新しい図書館ができました。",
@@ -204,7 +210,8 @@
       "meaningVi": "đối sánh Đối sánh hai vế",
       "example": "日本語は話せますが、漢字は書けません。",
       "exampleVi": "Tôi nói được tiếng Nhật nhưng không viết được Kanji.",
-      "usage": "N1 + は + N2 + が、N3 + は + N4 + が. Sử dụng trợ từ 'wa' để nhấn mạnh sự đối lập hoặc so sánh giữa các vế trong câu.",
+      "formula": "N1 + は + N2 + が、N3 + は + N4 + が",
+      "usage": "Sử dụng trợ từ 'wa' để nhấn mạnh sự đối lập hoặc so sánh giữa các vế trong câu.",
       "moreExamples": [
         {
           "jp": "料理は好きですが、片付けは嫌いです。",
@@ -222,7 +229,8 @@
       "meaningVi": "chỉ, chỉ có ~ Chỉ có ~ thôi, ngoài ra không có",
       "example": "水しか飲みません。",
       "exampleVi": "Tôi chỉ uống nước thôi.",
-      "usage": "N + しか + V(phủ định). Nhấn mạnh sự ít ỏi hoặc giới hạn của đối tượng, đi kèm động từ bắt buộc chia ở thể phủ định.",
+      "formula": "N + しか + V(phủ định)",
+      "usage": "Nhấn mạnh sự ít ỏi hoặc giới hạn của đối tượng, đi kèm động từ bắt buộc chia ở thể phủ định.",
       "moreExamples": [
         {
           "jp": "部屋には机しかありません。",
@@ -240,7 +248,8 @@
       "meaningVi": "Vừa ~ vừa ~",
       "example": "音楽を聞きながら勉強します。",
       "exampleVi": "Vừa nghe nhạc vừa học bài.",
-      "usage": "Vます(bỏ ます) + ながら. Dùng để nối hai hành động xảy ra cùng lúc, hành động chính thường nằm ở vế sau.",
+      "formula": "Vます(bỏ ます) + ながら",
+      "usage": "Dùng để nối hai hành động xảy ra cùng lúc, hành động chính thường nằm ở vế sau.",
       "moreExamples": [
         {
           "jp": "歩きながら電話をしてはいけません。",
@@ -264,7 +273,8 @@
           "note": "「~Vている」 diễn tả thói quen hoặc hành động đang lặp lại, còn 「~Vて(tự)いる」 nhấn mạnh trạng thái kết quả."
         }
       ],
-      "usage": "Vて form + いる. Diễn tả các thói quen, hành động lặp đi lặp lại hoặc các trạng thái đang duy trì trong hiện tại.",
+      "formula": "Vて form + いる",
+      "usage": "Diễn tả các thói quen, hành động lặp đi lặp lại hoặc các trạng thái đang duy trì trong hiện tại.",
       "moreExamples": [
         {
           "jp": "窓が開けられている。",
@@ -286,7 +296,8 @@
       "meaningVi": "Không những ~ mà còn ~",
       "example": "この店は安いし、おいしいし、有名です。",
       "exampleVi": "Quán này vừa rẻ vừa ngon lại còn nổi tiếng.",
-      "usage": "Thể thông thường + し, Thể thông thường + し. Dùng để liệt kê nhiều lý do hoặc tính chất, thường kết thúc bằng một kết luận hoặc đánh giá.",
+      "formula": "Thể thông thường + し, Thể thông thường + し",
+      "usage": "Dùng để liệt kê nhiều lý do hoặc tính chất, thường kết thúc bằng một kết luận hoặc đánh giá.",
       "moreExamples": [
         {
           "jp": "今日は雨も降っているし、風も強いので出かけません。",
@@ -352,7 +363,8 @@
           "note": "Vて(tự)いる chỉ trạng thái tự nhiên của tự động từ, còn Vてある chỉ kết quả do có tác động của con người."
         }
       ],
-      "usage": "Tự động từ (Vて form) + いる. Mô tả trạng thái hiện tại của sự vật như một kết quả tự nhiên, không quan tâm đến tác nhân gây ra.",
+      "formula": "Tự động từ (Vて form) + いる",
+      "usage": "Mô tả trạng thái hiện tại của sự vật như một kết quả tự nhiên, không quan tâm đến tác nhân gây ra.",
       "moreExamples": [
         {
           "jp": "窓が開けられている。",
@@ -374,7 +386,8 @@
       "meaningVi": "Lỡ ~ / hoàn thành hết ~",
       "example": "宿題を忘れてしまいました。",
       "exampleVi": "Tôi lỡ quên bài tập rồi.",
-      "usage": "Vて form + しまう. Dùng để diễn tả sự tiếc nuối khi lỡ làm gì đó hoặc nhấn mạnh việc đã hoàn thành trọn vẹn một hành động.",
+      "formula": "Vて form + しまう",
+      "usage": "Dùng để diễn tả sự tiếc nuối khi lỡ làm gì đó hoặc nhấn mạnh việc đã hoàn thành trọn vẹn một hành động.",
       "moreExamples": [
         {
           "jp": "大好きなケーキを全部食べてしまいました。",
@@ -392,7 +405,8 @@
       "meaningVi": "Đi / đến / về / công tác ở địa điểm nào đó",
       "example": "日本に行きます。 / 家に帰ります。 / 実家に来ます。 / 東京に出張します。",
       "exampleVi": "Tôi đi Nhật. / Tôi về nhà. / Tôi đến nhà bố mẹ. / Tôi đi công tác ở Tokyo.",
-      "usage": "Địa điểm + に + V(chuyển động). Dùng với các động từ di chuyển để chỉ hướng đích hoặc địa điểm đến của hành động.",
+      "formula": "Địa điểm + に + V(chuyển động)",
+      "usage": "Dùng với các động từ di chuyển để chỉ hướng đích hoặc địa điểm đến của hành động.",
       "moreExamples": [
         {
           "jp": "来週、大阪に旅行に行きます。",
@@ -434,7 +448,8 @@
           "note": "V他てある nhấn mạnh hành động chuẩn bị có chủ ý, khác với trạng thái tự nhiên."
         }
       ],
-      "usage": "Tha động từ (Vて form) + ある. Nhấn mạnh trạng thái có sẵn của sự vật do ai đó đã chủ ý thực hiện trước đó.",
+      "formula": "Tha động từ (Vて form) + ある",
+      "usage": "Nhấn mạnh trạng thái có sẵn của sự vật do ai đó đã chủ ý thực hiện trước đó.",
       "moreExamples": [
         {
           "jp": "壁にカレンダーが掛けてあります。",
@@ -482,7 +497,8 @@
           "note": "Vておく là hành động chuẩn bị trước cho tương lai, còn Vてある là trạng thái kết quả còn lại sau khi làm."
         }
       ],
-      "usage": "Vて form + おく. Dùng để diễn tả hành động chuẩn bị sẵn sàng cho một thời điểm trong tương lai hoặc giải quyết xong vấn đề để giữ nguyên trạng thái đó.",
+      "formula": "Vて form + おく",
+      "usage": "Dùng để diễn tả hành động chuẩn bị sẵn sàng cho một thời điểm trong tương lai hoặc giải quyết xong vấn đề để giữ nguyên trạng thái đó.",
       "moreExamples": [
         {
           "jp": "明日の会議のために、資料をコピーしておきます。",
@@ -524,7 +540,8 @@
           "note": "Thể ý định dùng khi quyết định ngay lúc nói hoặc thể hiện ý chí ngắn gọn, còn と思っています diễn tả dự định đã suy nghĩ từ trước."
         }
       ],
-      "usage": "V (thể ý định). Dùng để thể hiện quyết tâm thực hiện hành động của bản thân hoặc lời rủ rê, đề nghị đối phương.",
+      "formula": "V (thể ý định)",
+      "usage": "Dùng để thể hiện quyết tâm thực hiện hành động của bản thân hoặc lời rủ rê, đề nghị đối phương.",
       "moreExamples": [
         {
           "jp": "この問題は自分で考えよう。",
@@ -548,7 +565,8 @@
           "note": "Diễn tả ý chí rủ rê (cùng làm gì) khác với việc thể hiện suy nghĩ dự định cá nhân."
         }
       ],
-      "usage": "V (thể ý định). Dùng khi muốn đưa ra lời mời hoặc đề nghị người nghe cùng thực hiện hành động với mình.",
+      "formula": "V (thể ý định)",
+      "usage": "Dùng khi muốn đưa ra lời mời hoặc đề nghị người nghe cùng thực hiện hành động với mình.",
       "moreExamples": [
         {
           "jp": "今度の週末、映画を見に行こう。",
@@ -576,7 +594,8 @@
           "note": "~予定 dùng cho kế hoạch đã được ấn định, còn V意向形と思っています là ý định chủ quan."
         }
       ],
-      "usage": "V (thể ý định) + と思っています. Dùng để nói về dự định cá nhân đã cân nhắc từ trước, thể hiện ý chí sẽ thực hiện hành động đó.",
+      "formula": "V (thể ý định) + と思っています",
+      "usage": "Dùng để nói về dự định cá nhân đã cân nhắc từ trước, thể hiện ý chí sẽ thực hiện hành động đó.",
       "moreExamples": [
         {
           "jp": "来月から新しい仕事を始めようと思っています。",
@@ -604,7 +623,8 @@
           "note": "V意向形と思っています là suy nghĩ về dự định, còn ~つもり là dự định đã hình thành rõ ràng hơn."
         }
       ],
-      "usage": "V辞書形/Vない + つもりです. Dùng để thể hiện ý chí hoặc dự định chắc chắn của bản thân, thường đã có suy nghĩ kỹ lưỡng.",
+      "formula": "V辞書形/Vない + つもりです",
+      "usage": "Dùng để thể hiện ý chí hoặc dự định chắc chắn của bản thân, thường đã có suy nghĩ kỹ lưỡng.",
       "moreExamples": [
         {
           "jp": "卒業後は大学院に進むつもりです。",
@@ -628,7 +648,8 @@
           "note": "~予定 là kế hoạch mang tính khách quan (lịch trình), còn ~つもり là dự định chủ quan của bản thân."
         }
       ],
-      "usage": "V辞書形/N + の + 予定です. Diễn tả kế hoạch đã được định sẵn hoặc lịch trình cụ thể, khách quan.",
+      "formula": "V辞書形/N + の + 予定です",
+      "usage": "Diễn tả kế hoạch đã được định sẵn hoặc lịch trình cụ thể, khách quan.",
       "moreExamples": [
         {
           "jp": "午後から会議の予定が入っています。",
@@ -646,7 +667,8 @@
       "meaningVi": "Chuyển động từ thành danh từ",
       "example": "泳ぎが好きです。",
       "exampleVi": "Tôi thích bơi lội.",
-      "usage": "Vます (bỏ ます). Biến đổi động từ thành danh từ để có thể kết hợp với các trợ từ hoặc các từ chỉ tính chất như 好き, 上手.",
+      "formula": "Vます (bỏ ます)",
+      "usage": "Biến đổi động từ thành danh từ để có thể kết hợp với các trợ từ hoặc các từ chỉ tính chất như 好き, 上手.",
       "moreExamples": [
         {
           "jp": "私の趣味は料理作りです。",
@@ -664,7 +686,8 @@
       "meaningVi": "Nên / Không nên ~",
       "example": "早く寝たほうがいいです。",
       "exampleVi": "Bạn nên ngủ sớm.",
-      "usage": "Vた/Vない + ほうがいいです. Dùng để đưa ra lời khuyên hoặc gợi ý một hành động tốt hơn, nên làm trong một tình huống cụ thể.",
+      "formula": "Vた/Vない + ほうがいいです",
+      "usage": "Dùng để đưa ra lời khuyên hoặc gợi ý một hành động tốt hơn, nên làm trong một tình huống cụ thể.",
       "moreExamples": [
         {
           "jp": "体調が悪いときは無理をしないほうがいいです。",
@@ -688,7 +711,8 @@
           "note": "~でしょう thể hiện mức độ phỏng đoán chắc chắn cao hơn, còn ~かもしれません diễn tả khả năng xảy ra thấp hơn (khoảng 50%)."
         }
       ],
-      "usage": "V/Adj/N + でしょう. Dùng để đưa ra phán đoán hoặc suy đoán dựa trên căn cứ, xác suất đúng cao hơn hoặc mang tính trang trọng hơn dùng 'kamoshirenai'.",
+      "formula": "V/Adj/N + でしょう",
+      "usage": "Dùng để đưa ra phán đoán hoặc suy đoán dựa trên căn cứ, xác suất đúng cao hơn hoặc mang tính trang trọng hơn dùng 'kamoshirenai'.",
       "moreExamples": [
         {
           "jp": "明日は晴れでしょう。",
@@ -716,7 +740,8 @@
           "note": "~かもしれません dùng khi không chắc chắn (có thể), còn ~でしょう dùng khi người nói tự tin hơn vào phỏng đoán của mình."
         }
       ],
-      "usage": "V/Adj/N + かもしれません. Dùng để phỏng đoán khả năng xảy ra sự việc, mức độ chắc chắn thấp (khoảng 50%).",
+      "formula": "V/Adj/N + かもしれません",
+      "usage": "Dùng để phỏng đoán khả năng xảy ra sự việc, mức độ chắc chắn thấp (khoảng 50%).",
       "moreExamples": [
         {
           "jp": "明日は雪が降るかもしれません。",
@@ -734,7 +759,8 @@
       "meaningVi": "Tầm, trong vòng ~",
       "example": "1000円で買いました。",
       "exampleVi": "Tôi mua với giá 1000 yên.",
-      "usage": "Lượng từ (thời gian, tiền bạc, số lượng) + で. Dùng để chỉ giới hạn, phạm vi tối đa hoặc mức chi phí cần thiết để hoàn thành hành động.",
+      "formula": "Lượng từ (thời gian, tiền bạc, số lượng) + で",
+      "usage": "Dùng để chỉ giới hạn, phạm vi tối đa hoặc mức chi phí cần thiết để hoàn thành hành động.",
       "moreExamples": [
         {
           "jp": "このタクシーは3000円で駅まで行けますか。",
@@ -762,7 +788,8 @@
           "note": "Thể Mệnh lệnh chỉ là cách chia cụ thể, còn Cách dùng Thể Mệnh lệnh và Thể Cấm chỉ giải thích ngữ cảnh sử dụng."
         }
       ],
-      "usage": "V (chuyển đổi sang thể Mệnh lệnh). Dùng khi ra lệnh dứt khoát, thường là người trên nói với người dưới, hoặc trong tình huống khẩn cấp.",
+      "formula": "V (chuyển đổi sang thể Mệnh lệnh)",
+      "usage": "Dùng khi ra lệnh dứt khoát, thường là người trên nói với người dưới, hoặc trong tình huống khẩn cấp.",
       "moreExamples": [
         {
           "jp": "もっと大きな声で話しなさい…いや、話せ！",
@@ -786,7 +813,8 @@
           "note": "Thể Cấm chỉ dùng để cấm đoán (không được làm), còn Thể Mệnh lệnh dùng để thúc giục làm."
         }
       ],
-      "usage": "V từ điển + な. Dùng để cấm đoán quyết liệt, giọng điệu mạnh và cứng nhắc.",
+      "formula": "V từ điển + な",
+      "usage": "Dùng để cấm đoán quyết liệt, giọng điệu mạnh và cứng nhắc.",
       "moreExamples": [
         {
           "jp": "芝生の中に入るな。",
@@ -814,7 +842,8 @@
           "note": "Cách dùng bao quát cả hai thể mệnh lệnh và cấm chỉ trong văn cảnh cụ thể."
         }
       ],
-      "usage": "V mệnh lệnh/cấm chỉ. Dùng trong biển báo cấm, khẩu lệnh quân đội, hoặc khi cổ vũ thể thao; hạn chế dùng với người trên.",
+      "formula": "V mệnh lệnh/cấm chỉ",
+      "usage": "Dùng trong biển báo cấm, khẩu lệnh quân đội, hoặc khi cổ vũ thể thao; hạn chế dùng với người trên.",
       "moreExamples": [
         {
           "jp": "工事現場の近くで「危ない、通るな！」と書いてあります。",
@@ -838,7 +867,8 @@
           "note": "«~Vなさい» mang tính nhắc nhở nhẹ nhàng (thường bề trên nói bề dưới), trong khi Thể Mệnh lệnh mang tính ra lệnh mạnh mẽ hơn."
         }
       ],
-      "usage": "V-ます bỏ ます + なさい. Cách ra lệnh nhẹ nhàng, lịch sự hơn, thường dùng khi cha mẹ nhắc nhở con cái hoặc giáo viên với học sinh.",
+      "formula": "V-ます bỏ ます + なさい",
+      "usage": "Cách ra lệnh nhẹ nhàng, lịch sự hơn, thường dùng khi cha mẹ nhắc nhở con cái hoặc giáo viên với học sinh.",
       "moreExamples": [
         {
           "jp": "宿題を全部終わらせなさい。",
@@ -862,7 +892,8 @@
           "note": "«~と読みます ~と書いてあります» dùng để đọc hoặc trích dẫn nội dung chữ viết, còn «~という意味です» dùng để giải thích ý nghĩa."
         }
       ],
-      "usage": "Danh từ/Câu + と. Dùng để tường thuật lại cách đọc hoặc nội dung được ghi chép trên văn bản, biển báo.",
+      "formula": "Danh từ/Câu + と",
+      "usage": "Dùng để tường thuật lại cách đọc hoặc nội dung được ghi chép trên văn bản, biển báo.",
       "moreExamples": [
         {
           "jp": "この看板には「立入禁止」と書いてあります。",
@@ -886,7 +917,8 @@
           "note": "«~という意味です» giải thích ý nghĩa của từ/câu, còn «~と読みます ~と書いてあります» chỉ cách đọc hoặc nội dung được viết."
         }
       ],
-      "usage": "Danh từ/Câu + という. Dùng để giải thích ý nghĩa, định nghĩa của một từ ngữ hoặc nội dung cụ thể.",
+      "formula": "Danh từ/Câu + という",
+      "usage": "Dùng để giải thích ý nghĩa, định nghĩa của một từ ngữ hoặc nội dung cụ thể.",
       "moreExamples": [
         {
           "jp": "「お疲れ様」は、相手をねぎらうという意味です。",
@@ -910,7 +942,8 @@
           "note": "«~と言っていました» dùng để thuật lại lời người khác đã nói, còn «~と伝えていただけませんか» dùng để nhờ ai đó chuyển lời giúp."
         }
       ],
-      "usage": "Câu (thể thông thường) + と. Dùng để truyền đạt lại lời nhắn hoặc thông tin từ một người thứ ba.",
+      "formula": "Câu (thể thông thường) + と",
+      "usage": "Dùng để truyền đạt lại lời nhắn hoặc thông tin từ một người thứ ba.",
       "moreExamples": [
         {
           "jp": "田中さんは、来週旅行に行くと行っていました。",
@@ -934,7 +967,8 @@
           "note": "«~と伝えていただけませんか» dùng để nhờ nhắn lại lời nhắn, còn «~と言っていました» dùng để tường thuật lại lời ai đó."
         }
       ],
-      "usage": "Câu (thể thông thường) + と. Mẫu câu lịch sự để nhờ người khác truyền đạt lại nội dung cho đối tượng thứ ba.",
+      "formula": "Câu (thể thông thường) + と",
+      "usage": "Mẫu câu lịch sự để nhờ người khác truyền đạt lại nội dung cho đối tượng thứ ba.",
       "moreExamples": [
         {
           "jp": "母に、今夜遅く帰ると伝えていただけませんか。",
@@ -952,7 +986,8 @@
       "meaningVi": "Làm theo như ~",
       "example": "説明のとおりにしてください。",
       "exampleVi": "Hãy làm theo như hướng dẫn.",
-      "usage": "V-る/V-た + とおりに hoặc N + のとおりに. Dùng để diễn tả hành động thực hiện chính xác theo một tiêu chuẩn hoặc hướng dẫn đã có.",
+      "formula": "V-る/V-た + とおりに hoặc N + のとおりに",
+      "usage": "Dùng để diễn tả hành động thực hiện chính xác theo một tiêu chuẩn hoặc hướng dẫn đã có.",
       "moreExamples": [
         {
           "jp": "見たとおりに絵を描いてください。",
@@ -970,7 +1005,8 @@
       "meaningVi": "Sau khi ~",
       "example": "ご飯を食べたあとで勉強します。",
       "exampleVi": "Sau khi ăn cơm thì học bài.",
-      "usage": "V-た + あとで. Dùng để diễn tả trình tự thời gian, hành động phía sau xảy ra sau khi hành động trước đã hoàn thành.",
+      "formula": "V-た + あとで",
+      "usage": "Dùng để diễn tả trình tự thời gian, hành động phía sau xảy ra sau khi hành động trước đã hoàn thành.",
       "moreExamples": [
         {
           "jp": "仕事が終わったあとで、友達と飲みに行きます。",
@@ -988,7 +1024,8 @@
       "meaningVi": "Chỉ cách thức / phương tiện",
       "example": "バスで行きます。",
       "exampleVi": "Đi bằng xe buýt.",
-      "usage": "V-て. Cách thức thực hiện hành động; thường dùng để chỉ phương tiện giao thông hoặc công cụ hỗ trợ cho hành động chính.",
+      "formula": "V-て",
+      "usage": "Cách thức thực hiện hành động; thường dùng để chỉ phương tiện giao thông hoặc công cụ hỗ trợ cho hành động chính.",
       "moreExamples": [
         {
           "jp": "手を使って食べます。",
@@ -1006,7 +1043,8 @@
       "meaningVi": "Không làm V1 mà làm V2",
       "example": "朝ご飯を食べないで学校へ行きました。",
       "exampleVi": "Tôi không ăn sáng mà đi học.",
-      "usage": "V-ない (bỏ ない) + ないで. Diễn tả hành động thực hiện mà không kèm theo hoặc bỏ qua một hành động khác thường lệ.",
+      "formula": "V-ない (bỏ ない) + ないで",
+      "usage": "Diễn tả hành động thực hiện mà không kèm theo hoặc bỏ qua một hành động khác thường lệ.",
       "moreExamples": [
         {
           "jp": "会わないでその電話をかけました。",
@@ -1058,7 +1096,8 @@
           "note": "«Thể điều kiện» dùng chung cho mọi động từ/tính từ theo quy tắc «~ba + ば», còn «~Nなら» dùng đặc thù để giả định hoặc nêu chủ đề với danh từ."
         }
       ],
-      "usage": "Vば / A-い(kê) + ければ / A-な(kê) + なら / N + なら. Dùng để nêu điều kiện giả định; lưu ý vế sau không dùng ý chí chủ quan mạnh như dự định hay yêu cầu.",
+      "formula": "Vば / A-い(kê) + ければ / A-な(kê) + なら / N + なら",
+      "usage": "Dùng để nêu điều kiện giả định; lưu ý vế sau không dùng ý chí chủ quan mạnh như dự định hay yêu cầu.",
       "moreExamples": [
         {
           "jp": "天気が良ければ、公園へ散歩に行きます。",
@@ -1082,7 +1121,8 @@
           "note": "«~Nなら» chuyên dùng với danh từ để bắt đầu chủ đề hoặc đưa ra lời khuyên dựa trên ý của đối phương, khác với «Thể điều kiện» dùng rộng rãi cho các vế giả định."
         }
       ],
-      "usage": "N + なら. Dùng để giới hạn phạm vi, chủ đề khi muốn đưa ra ý kiến, phán đoán hoặc lời khuyên về N đó.",
+      "formula": "N + なら",
+      "usage": "Dùng để giới hạn phạm vi, chủ đề khi muốn đưa ra ý kiến, phán đoán hoặc lời khuyên về N đó.",
       "moreExamples": [
         {
           "jp": "車なら、タクシーを使った方がいいですよ。",
@@ -1100,7 +1140,8 @@
       "meaningVi": "Nên V ~",
       "example": "早く寝ればいいです。",
       "exampleVi": "Bạn nên ngủ sớm.",
-      "usage": "Vば + いいです / Vたら + いいです. Dùng để đưa ra gợi ý, lời khuyên về một hành động nên làm; mang sắc thái nhẹ nhàng, tích cực.",
+      "formula": "Vば + いいです / Vたら + いいです",
+      "usage": "Dùng để đưa ra gợi ý, lời khuyên về một hành động nên làm; mang sắc thái nhẹ nhàng, tích cực.",
       "moreExamples": [
         {
           "jp": "迷ったら、地図を見ればいいですよ。",
@@ -1118,7 +1159,8 @@
       "meaningVi": "Để sao cho ~",
       "example": "忘れないようにメモします。",
       "exampleVi": "Tôi ghi chú để không quên.",
-      "usage": "V(辞書形/ない形) + ように. Dùng để chỉ mục đích, mục tiêu của hành động phía sau; thường diễn đạt sự nỗ lực hướng tới kết quả đó.",
+      "formula": "V(辞書形/ない形) + ように",
+      "usage": "Dùng để chỉ mục đích, mục tiêu của hành động phía sau; thường diễn đạt sự nỗ lực hướng tới kết quả đó.",
       "moreExamples": [
         {
           "jp": "早く家に帰るように、仕事を急いで終わらせました。",
@@ -1140,7 +1182,8 @@
       "meaningVi": "Cố gắng sao cho ~",
       "example": "毎日運動するようにしています。",
       "exampleVi": "Tôi cố gắng tập thể dục mỗi ngày.",
-      "usage": "V(辞書形/ない形) + ようにする. Chỉ hành động được thực hiện lặp đi lặp lại hoặc cố gắng duy trì thói quen để đạt được mục tiêu.",
+      "formula": "V(辞書形/ない形) + ようにする",
+      "usage": "Chỉ hành động được thực hiện lặp đi lặp lại hoặc cố gắng duy trì thói quen để đạt được mục tiêu.",
       "moreExamples": [
         {
           "jp": "健康のために、野菜をたくさん食べるようにしています。",
@@ -1158,7 +1201,8 @@
       "meaningVi": "Xin hãy cố gắng ~",
       "example": "遅れないようにしてください。",
       "exampleVi": "Xin hãy đừng đến muộn.",
-      "usage": "V(辞書形/ない形) + ようにしてください. Dùng để nhờ vả, yêu cầu người khác nỗ lực thực hiện một việc gì đó; mang sắc thái lịch sự.",
+      "formula": "V(辞書形/ない形) + ようにしてください",
+      "usage": "Dùng để nhờ vả, yêu cầu người khác nỗ lực thực hiện một việc gì đó; mang sắc thái lịch sự.",
       "moreExamples": [
         {
           "jp": "忘れないようにメモしてください。",
@@ -1176,7 +1220,8 @@
       "meaningVi": "Đã trở nên ~",
       "example": "日本語が話せるようになりました。",
       "exampleVi": "Tôi đã nói được tiếng Nhật.",
-      "usage": "V(辞書形/ない形) + ようになりました. Chỉ sự thay đổi trạng thái từ không thành có (hoặc ngược lại) do rèn luyện hoặc thay đổi hoàn cảnh.",
+      "formula": "V(辞書形/ない形) + ようになりました",
+      "usage": "Chỉ sự thay đổi trạng thái từ không thành có (hoặc ngược lại) do rèn luyện hoặc thay đổi hoàn cảnh.",
       "moreExamples": [
         {
           "jp": "最近、自炊をするようになりました。",
@@ -1194,7 +1239,8 @@
       "meaningVi": "Đã có thể ~",
       "example": "漢字が読めるようになりました。",
       "exampleVi": "Tôi đã đọc được Kanji.",
-      "usage": "V(可能形) + ようになりました. Nhấn mạnh vào việc năng lực đã được hình thành hoặc thói quen đã được thiết lập sau một quá trình.",
+      "formula": "V(可能形) + ようになりました",
+      "usage": "Nhấn mạnh vào việc năng lực đã được hình thành hoặc thói quen đã được thiết lập sau một quá trình.",
       "moreExamples": [
         {
           "jp": "練習して、ピアノが弾けるようになりました。",
@@ -1212,7 +1258,8 @@
       "meaningVi": "Đã không thể ~",
       "example": "長く走れなくなりました。",
       "exampleVi": "Tôi đã không thể chạy lâu nữa.",
-      "usage": "V(可能形) + なくなりました. Chỉ trạng thái trước đây có thể làm nhưng hiện tại thì không thể; diễn tả sự thay đổi đáng tiếc hoặc do yếu tố khách quan.",
+      "formula": "V(可能形) + なくなりました",
+      "usage": "Chỉ trạng thái trước đây có thể làm nhưng hiện tại thì không thể; diễn tả sự thay đổi đáng tiếc hoặc do yếu tố khách quan.",
       "moreExamples": [
         {
           "jp": "最近忙しくて、料理を作れなくなりました。",
@@ -1230,7 +1277,8 @@
       "meaningVi": "Chuyển tính từ thành trạng từ",
       "example": "早い → 早く / 静かだ → 静かに / 丁寧だ → 丁寧に",
       "exampleVi": "Nhanh → một cách nhanh chóng / Yên tĩnh → một cách yên tĩnh / Lịch sự → một cách lịch sự",
-      "usage": "A-い → く / A-な → に. Dùng để bổ nghĩa cho động từ nhằm mô tả tính chất hoặc phương thức của hành động đó.",
+      "formula": "A-い → く / A-な → に",
+      "usage": "Dùng để bổ nghĩa cho động từ nhằm mô tả tính chất hoặc phương thức của hành động đó.",
       "moreExamples": [
         {
           "jp": "美味しい → 美味しく / 元気だ → 元気に",
@@ -1266,7 +1314,8 @@
       "meaningVi": "N1 bị N2 làm gì đó",
       "example": "私は先生にほめられました。",
       "exampleVi": "Tôi được giáo viên khen.",
-      "usage": "N1(người bị hại) + は + N2(người gây ra) + に + V(bị động). Dùng để diễn tả sự việc xảy ra khiến người nói cảm thấy phiền toái hoặc bị ảnh hưởng trực tiếp.",
+      "formula": "N1(người bị hại) + は + N2(người gây ra) + に + V(bị động)",
+      "usage": "Dùng để diễn tả sự việc xảy ra khiến người nói cảm thấy phiền toái hoặc bị ảnh hưởng trực tiếp.",
       "moreExamples": [
         {
           "jp": "私は弟にケーキを食べられました。",
@@ -1284,7 +1333,8 @@
       "meaningVi": "Bị ai đó làm ảnh hưởng đến mình",
       "example": "私は弟にケーキを食べられました。",
       "exampleVi": "Tôi bị em trai ăn mất bánh.",
-      "usage": "N1(người bị hại) + は + N2(người gây ra) + に + N3(vật bị hại) + を + V(bị động). Dùng khi một vật sở hữu của mình bị người khác làm ảnh hưởng hoặc lấy mất, gây cảm giác khó chịu.",
+      "formula": "N1(người bị hại) + は + N2(người gây ra) + に + N3(vật bị hại) + を + V(bị động)",
+      "usage": "Dùng khi một vật sở hữu của mình bị người khác làm ảnh hưởng hoặc lấy mất, gây cảm giác khó chịu.",
       "moreExamples": [
         {
           "jp": "私は母に掃除機をかけられました。",
@@ -1302,7 +1352,8 @@
       "meaningVi": "Diễn tả sự việc / thông báo khách quan",
       "example": "この本は世界中で読まれています。",
       "exampleVi": "Quyển sách này được đọc trên toàn thế giới.",
-      "usage": "N + が/は + V-passive (bị động). Tập trung vào đối tượng chịu tác động thay vì chủ thể thực hiện hành động.",
+      "formula": "N + が/は + V-passive (bị động)",
+      "usage": "Tập trung vào đối tượng chịu tác động thay vì chủ thể thực hiện hành động.",
       "moreExamples": [
         {
           "jp": "明日の会議は中止にされました。",
@@ -1320,7 +1371,8 @@
       "meaningVi": "Bằng / từ ~",
       "example": "ワインはぶどうから作られます。",
       "exampleVi": "Rượu vang được làm từ nho.",
-      "usage": "N1 + から/で + V (bị động). 'から' dùng khi nguyên liệu bị biến đổi hoàn toàn, 'で' dùng khi nguyên liệu vẫn giữ nguyên trạng thái cũ.",
+      "formula": "N1 + から/で + V (bị động)",
+      "usage": "'から' dùng khi nguyên liệu bị biến đổi hoàn toàn, 'で' dùng khi nguyên liệu vẫn giữ nguyên trạng thái cũ.",
       "moreExamples": [
         {
           "jp": "寒いからです。コートを着ています。",
@@ -1342,7 +1394,8 @@
       "meaningVi": "N2 của N1",
       "example": "日本の車",
       "exampleVi": "Xe của Nhật / xe Nhật.",
-      "usage": "N1 + の + N2. Dùng để chỉ sự sở hữu hoặc mối quan hệ giữa hai danh từ.",
+      "formula": "N1 + の + N2",
+      "usage": "Dùng để chỉ sự sở hữu hoặc mối quan hệ giữa hai danh từ.",
       "moreExamples": [
         {
           "jp": "私の友達の家",
@@ -1360,7 +1413,8 @@
       "meaningVi": "Danh từ hóa động từ / câu. V (辞書形) + の",
       "example": "日本語を勉強するのは楽しいです。",
       "exampleVi": "Việc học tiếng Nhật rất vui.",
-      "usage": "V (辞書形) + の. Chuyển động từ thành danh từ để có thể làm chủ ngữ hoặc tân ngữ trong câu.",
+      "formula": "V (辞書形) + の",
+      "usage": "Chuyển động từ thành danh từ để có thể làm chủ ngữ hoặc tân ngữ trong câu.",
       "moreExamples": [
         {
           "jp": "ここでタバコを吸うのは禁止です。",
@@ -1378,7 +1432,8 @@
       "meaningVi": "Việc V thì A.",
       "example": "本を読むのは好きです。",
       "exampleVi": "Tôi thích việc đọc sách.",
-      "usage": "V (辞書形) + の + は + A (tính từ). Dùng để nhận xét, đánh giá về một hành động cụ thể.",
+      "formula": "V (辞書形) + の + は + A (tính từ)",
+      "usage": "Dùng để nhận xét, đánh giá về một hành động cụ thể.",
       "moreExamples": [
         {
           "jp": "外国語を習うのは難しいです。",
@@ -1396,7 +1451,8 @@
       "meaningVi": "Giỏi / thích / ghét việc V.",
       "example": "歌うのが上手です。",
       "exampleVi": "Hát rất giỏi.",
-      "usage": "V (辞書形) + の + が + A (tính từ chỉ năng lực/cảm xúc). Dùng với các từ như 上手, 下手, 好き, 嫌い để diễn tả trình độ hoặc sở thích.",
+      "formula": "V (辞書形) + の + が + A (tính từ chỉ năng lực/cảm xúc)",
+      "usage": "Dùng với các từ như 上手, 下手, 好き, 嫌い để diễn tả trình độ hoặc sở thích.",
       "moreExamples": [
         {
           "jp": "料理を作るのが苦手です。",
@@ -1414,7 +1470,8 @@
       "meaningVi": "V.",
       "example": "宿題をするのを忘れました。",
       "exampleVi": "Tôi đã quên làm bài tập.",
-      "usage": "V (辞書形) + の + を + 忘れました. Biến hành động thành danh từ để bổ trợ cho động từ 'quên'.",
+      "formula": "V (辞書形) + の + を + 忘れました",
+      "usage": "Biến hành động thành danh từ để bổ trợ cho động từ 'quên'.",
       "moreExamples": [
         {
           "jp": "電気を消すのを忘れました。",
@@ -1432,7 +1489,8 @@
       "meaningVi": "Có biết V không?",
       "example": "山田さんが結婚したのを知っていますか。",
       "exampleVi": "Bạn có biết anh Yamada đã kết hôn không?",
-      "usage": "V (thông thường/thể ngắn) + の + を + 知っていますか. Dùng để xác nhận thông tin về một sự việc đã/đang xảy ra.",
+      "formula": "V (thông thường/thể ngắn) + の + を + 知っていますか",
+      "usage": "Dùng để xác nhận thông tin về một sự việc đã/đang xảy ra.",
       "moreExamples": [
         {
           "jp": "佐藤さんが会社を辞めたのを知っていますか。",
@@ -1450,7 +1508,8 @@
       "meaningVi": "Người / vật làm V là N.",
       "example": "ギターを弾くのは田中さんです。",
       "exampleVi": "Người chơi guitar là anh Tanaka.",
-      "usage": "V (辞書形) + の + は + N + です. Dùng để nhấn mạnh người hoặc vật thực hiện hành động đó là ai/cái gì.",
+      "formula": "V (辞書形) + の + は + N + です",
+      "usage": "Dùng để nhấn mạnh người hoặc vật thực hiện hành động đó là ai/cái gì.",
       "moreExamples": [
         {
           "jp": "昨日電話をくれたのは母です。",
@@ -1468,7 +1527,8 @@
       "meaningVi": "Chỉ nguyên nhân / lý do",
       "example": "熱があって、学校を休みました。",
       "exampleVi": "Vì bị sốt nên tôi nghỉ học.",
-      "usage": "V-te / A-i (bỏ い + くて) / A-na (bỏ な + で) / N + で. Diễn tả nguyên nhân dẫn đến kết quả, thường là tình huống ngoài ý muốn.",
+      "formula": "V-te / A-i (bỏ い + くて) / A-na (bỏ な + で) / N + で",
+      "usage": "Diễn tả nguyên nhân dẫn đến kết quả, thường là tình huống ngoài ý muốn.",
       "moreExamples": [
         {
           "jp": "用事があって、パーティーに行けません。",
@@ -1486,7 +1546,8 @@
       "meaningVi": "Vì ~ / do ~",
       "example": "雨なので、出かけません。",
       "exampleVi": "Vì trời mưa nên không ra ngoài.",
-      "usage": "V/A-i (thông thường) + ので, A-na/N + なので. Diễn tả lý do khách quan, mang sắc thái lịch sự và nhẹ nhàng hơn 'から'.",
+      "formula": "V/A-i (thông thường) + ので, A-na/N + なので",
+      "usage": "Diễn tả lý do khách quan, mang sắc thái lịch sự và nhẹ nhàng hơn 'から'.",
       "moreExamples": [
         {
           "jp": "明日試験があるので、今晩勉強します。",
@@ -1508,7 +1569,8 @@
       "meaningVi": "Trên đường / giữa lúc ~",
       "example": "学校へ行く途中で友だちに会いました。",
       "exampleVi": "Trên đường đi học tôi đã gặp bạn.",
-      "usage": "V (辞書形) + 途中で / N + の + 途中で. Diễn tả hành động xảy ra trong khoảng thời gian đang làm việc gì đó.",
+      "formula": "V (辞書形) + 途中で / N + の + 途中で",
+      "usage": "Diễn tả hành động xảy ra trong khoảng thời gian đang làm việc gì đó.",
       "moreExamples": [
         {
           "jp": "仕事の途中で電話がかかってきました。",
@@ -1526,7 +1588,8 @@
       "meaningVi": "Hay là ~ / hoặc ~",
       "example": "コーヒーかお茶を飲みます。",
       "exampleVi": "Tôi uống cà phê hoặc trà.",
-      "usage": "N/V/Adj + か. Dùng để liệt kê hai hoặc nhiều lựa chọn, mang tính chất phân vân hoặc đưa ra phương án thay thế.",
+      "formula": "N/V/Adj + か",
+      "usage": "Dùng để liệt kê hai hoặc nhiều lựa chọn, mang tính chất phân vân hoặc đưa ra phương án thay thế.",
       "moreExamples": [
         {
           "jp": "休みの日には映画を見るか、本を読みます。",
@@ -1544,7 +1607,8 @@
       "meaningVi": "Có ~ hay không",
       "example": "行くかどうかわりません。",
       "exampleVi": "Tôi không biết có đi hay không.",
-      "usage": "V/Adj-casual + かどうか, N/Na-adj + (だ)かどうか. Dùng trong câu hỏi gián tiếp để diễn tả sự không chắc chắn, phân vân về một vấn đề nào đó.",
+      "formula": "V/Adj-casual + かどうか, N/Na-adj + (だ)かどうか",
+      "usage": "Dùng trong câu hỏi gián tiếp để diễn tả sự không chắc chắn, phân vân về một vấn đề nào đó.",
       "moreExamples": [
         {
           "jp": "彼が来るかどうか知りません。",
@@ -1566,7 +1630,8 @@
       "meaningVi": "Thử làm ~",
       "example": "食べてみます。",
       "exampleVi": "Tôi thử ăn xem sao.",
-      "usage": "Vて形 + みます. Diễn tả hành động trải nghiệm hoặc thực hiện một việc gì đó để xem kết quả thế nào.",
+      "formula": "Vて形 + みます",
+      "usage": "Diễn tả hành động trải nghiệm hoặc thực hiện một việc gì đó để xem kết quả thế nào.",
       "moreExamples": [
         {
           "jp": "この服は似合うかどうか、一度着てみます。",
@@ -1584,7 +1649,8 @@
       "meaningVi": "Danh từ hóa tính từ",
       "example": "この山は高さが2,000mです。",
       "exampleVi": "Núi này có độ cao 2,000m.",
-      "usage": "Tính từ đuôi い (bỏ い) + さ. Chuyển đổi tính từ thành danh từ chỉ mức độ hoặc tính chất của sự vật, sự việc.",
+      "formula": "Tính từ đuôi い (bỏ い) + さ",
+      "usage": "Chuyển đổi tính từ thành danh từ chỉ mức độ hoặc tính chất của sự vật, sự việc.",
       "moreExamples": [
         {
           "jp": "みんなに優しさを伝えるために、手紙を書きました。",

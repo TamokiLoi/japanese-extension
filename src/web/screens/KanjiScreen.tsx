@@ -33,8 +33,6 @@ import {
   KANJI_MASTERY_DIRECTIONS,
   KANJI_MODE_LABELS,
   KANJI_MODE_SHORT_LABELS,
-  saveQuizSettings,
-  loadQuizSettings,
 } from "../../popup/quizState.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
@@ -46,6 +44,7 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import "../../kanji-card-layout.css";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -89,7 +88,6 @@ async function getFilteredList(state: KanjiViewerState): Promise<Kanji[]> {
 
 export function KanjiScreen({
   onOpenVocab,
-  onOpenQuiz,
   jumpToId,
   onCurrentItemChange,
 }: {
@@ -392,145 +390,119 @@ export function KanjiScreen({
       ) : !k ? (
         <p className="mt-6 text-neutral-400">Không có Kanji nào ở bộ lọc này.</p>
       ) : (
-        <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <div className="flex min-w-0 flex-wrap items-center gap-2">
-              <Badge style={levelBadgeStyle(k.level)}>{k.level}</Badge>
-              {isDueForReview(progress ?? undefined) ? (
-                <span className="flex items-center gap-1 text-xs font-semibold text-amber-600">
-                  <Clock size={13} /> Đến hạn ôn lại
-                </span>
-              ) : null}
-            </div>
-            <div className="flex shrink-0 items-center gap-1.5">
-              <button
-                title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
-                onClick={async () => {
-                  await toggleFlag(k.id);
-                  await refreshProgress();
-                }}
-                className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
-                  isFlagged(progress) ? "text-rose-500" : "text-neutral-300 hover:text-neutral-400"
-                }`}
-              >
-                <Flag size={17} fill={isFlagged(progress) ? "currentColor" : "none"} />
-              </button>
-              <button
-                title={progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
-                onClick={async () => {
-                  await toggleMastered(k.id);
-                  await refreshProgress();
-                }}
-                className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
-                  progress?.mastered ? "bg-emerald-50 text-emerald-600" : "text-neutral-300 hover:text-neutral-400"
-                }`}
-              >
-                <CheckCircle2 size={17} />
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-6 text-center text-6xl font-bold text-neutral-800">{k.character}</div>
-
-          {progress ? (
-            <div className="mt-3.5 flex justify-center gap-1 overflow-x-auto px-1 pb-1">
-              {KANJI_MASTERY_DIRECTIONS.map((dir) => {
-                const streak = progress.directionStreaks?.[dir] ?? 0;
-                const done = streak >= MASTERY_STREAK_THRESHOLD;
-                return (
-                  <span
-                    key={dir}
-                    title={KANJI_MODE_LABELS[dir]}
-                    className={`shrink-0 rounded-full border px-1.5 py-0.5 text-[10px] font-medium whitespace-nowrap ${
-                      done ? "border-emerald-300 bg-emerald-50 text-emerald-600" : "border-amber-200 bg-amber-50 text-amber-600"
-                    }`}
-                  >
-                    {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {KANJI_MODE_SHORT_LABELS[dir]}
+        <Card className="kanji-redesign mt-3 gap-0 rounded-2xl border-neutral-200 p-4 ring-0 sm:p-6">
+          <div className="kanji-card-top flex flex-wrap items-center justify-between gap-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
+                <Badge style={levelBadgeStyle(k.level)}>{k.level}</Badge>
+                {isDueForReview(progress ?? undefined) ? (
+                  <span className="flex items-center gap-1 text-xs font-semibold text-amber-700">
+                    <Clock size={13} /> Đến hạn ôn lại
                   </span>
-                );
-              })}
-            </div>
-          ) : null}
-
-          {progress
-            ? (() => {
-                const missing = KANJI_MASTERY_DIRECTIONS.find((dir) => (progress.directionStreaks?.[dir] ?? 0) < MASTERY_STREAK_THRESHOLD);
-                if (!missing) return null;
-                return (
-                  <button
-                    onClick={async () => {
-                      const qs = await loadQuizSettings();
-                      await saveQuizSettings({ ...qs, contentType: "kanji", kanjiMode: missing });
-                      onOpenQuiz();
-                    }}
-                    className="mx-auto mt-2 block text-xs font-semibold text-rose-600 hover:underline"
-                  >
-                    Luyện ngay dạng còn thiếu: {KANJI_MODE_LABELS[missing]}
-                  </button>
-                );
-              })()
-            : null}
-
-          <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
-            <dt className="text-neutral-400">Hán Việt</dt>
-            <dd className="font-semibold text-rose-600">{formatHanViet(k.hanViet)}</dd>
-
-            <dt className="text-neutral-400">Âm On</dt>
-            <dd className="text-neutral-800">{k.readings.on.length > 0 ? k.readings.on.join("、") : "—"}</dd>
-
-            <dt className="text-neutral-400">Âm Kun</dt>
-            <dd className="text-neutral-800">{k.readings.kun.length > 0 ? k.readings.kun.join("、") : "—"}</dd>
-
-            <dt className="text-neutral-400">Nghĩa</dt>
-            <dd className="text-neutral-800">
+                ) : null}
+              </div>
+              <div className="flex shrink-0 items-center gap-1.5">
+                <button
+                  title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
+                  onClick={async () => {
+                    await toggleFlag(k.id);
+                    await refreshProgress();
+                  }}
+                  className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                    isFlagged(progress) ? "text-rose-500" : "text-slate-400 hover:bg-white/70 hover:text-slate-600"
+                  }`}
+                >
+                  <Flag size={17} fill={isFlagged(progress) ? "currentColor" : "none"} />
+                </button>
+                <button
+                  title={progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
+                  onClick={async () => {
+                    await toggleMastered(k.id);
+                    await refreshProgress();
+                  }}
+                  className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
+                    progress?.mastered ? "bg-emerald-50 text-emerald-600" : "text-slate-400 hover:bg-white/70 hover:text-slate-600"
+                  }`}
+                >
+                  <CheckCircle2 size={17} />
+                </button>
+              </div>
+          </div>
+          <section className="kanji-hero">
+            <div className="kanji-character">{k.character}</div>
+            <div className="kanji-hero-divider" />
+            <p className="kanji-meaning">
               {meaningLine(k).text}
               {meaningLine(k).isDraft ? (
-                <span
-                  title="Dịch bằng AI, chưa được kiểm duyệt"
-                  className="ml-1.5 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700"
-                >
-                  nháp AI
-                </span>
+                <span title="Dịch bằng AI, chưa được kiểm duyệt" className="ml-2 inline-flex rounded bg-amber-100 px-1.5 py-0.5 align-middle text-[10px] font-semibold text-amber-700">nháp AI</span>
               ) : null}
-            </dd>
-
-            <dt className="text-neutral-400">English</dt>
-            <dd className="text-neutral-500">{k.meanings.en.join(", ") || "—"}</dd>
-
-            <dt className="text-neutral-400">Bộ thủ</dt>
-            <dd className="text-neutral-800">
-              {k.radical?.character ? `${k.radical.character}${k.radical.raw ? ` (bộ ${k.radical.raw})` : ""}` : "—"}
-            </dd>
-
-            <dt className="text-neutral-400">Số nét</dt>
-            <dd className="text-neutral-800">{k.strokeCount ?? "—"}</dd>
-          </dl>
-
-          {k.mnemonic ? (
-            <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm text-amber-800">
-              <span className="font-semibold">Mẹo nhớ:</span> {k.mnemonic}
+            </p>
+            <div className="kanji-reading-row">
+              <span className="kanji-reading-chip"><strong>On</strong> {k.readings.on.length > 0 ? k.readings.on.join("、") : "—"}</span>
+              <span className="kanji-reading-chip"><strong>Kun</strong> {k.readings.kun.length > 0 ? k.readings.kun.join("、") : "—"}</span>
             </div>
-          ) : null}
+          </section>
+
+          <div className="kanji-info-sections">
+            <section className="kanji-info-block kanji-hanviet">
+              <h3>Hán Việt:</h3><p>{formatHanViet(k.hanViet)}</p>
+            </section>
+            <section className="kanji-info-block kanji-structure">
+              <h3>Cấu tạo chữ</h3>
+              <div className="kanji-meta-row">
+                <span><small>Bộ thủ</small><strong>{k.radical?.character ? `${k.radical.character}${k.radical.raw ? ` (bộ ${k.radical.raw})` : ""}` : "—"}</strong></span>
+                {k.strokeCount != null ? <span><small>Số nét</small><strong>{k.strokeCount}</strong></span> : null}
+                {k.frequency != null ? <span><small>Tần suất</small><strong>{k.frequency}</strong></span> : null}
+              </div>
+            </section>
+            {k.mnemonic ? <section className="kanji-info-block kanji-mnemonic"><h3>Mẹo nhớ</h3><p>{k.mnemonic}</p></section> : null}
+            {k.meanings.en.length > 0 ? (
+              <section className="kanji-info-block kanji-extra">
+                <h3>English:</h3><p>{k.meanings.en.join(", ")}</p>
+              </section>
+            ) : null}
+          </div>
 
           {related && related.shown.length > 0 ? (
-            <div className="mt-4">
-              <div className="text-xs font-semibold text-neutral-400">
-                Từ vựng chứa chữ này{related.total > related.shown.length ? ` (${related.total})` : ""}
+            <details className="kanji-more-details">
+              <summary>
+                Xuất hiện trong các tài liệu <span className="ml-2 font-normal text-neutral-400">{related.total} từ vựng chứa chữ</span>
+              </summary>
+              <div className="kanji-info-sections">
+              <section className="kanji-info-block kanji-related">
+                <h3>Từ vựng chứa chữ này{related.total > related.shown.length ? ` (${related.total})` : ""}</h3>
+                <div className="kanji-vocab-list">
+                  {related.shown.map((v) => <button key={v.id} onClick={() => onOpenVocab(v.id)}>{v.word}{v.reading ? <span>{v.reading}</span> : null}</button>)}
+                </div>
+              </section>
               </div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {related.shown.map((v) => (
-                  <button
-                    key={v.id}
-                    onClick={() => onOpenVocab(v.id)}
-                    className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
-                  >
-                    {v.word}
-                    {v.reading ? <span className="text-neutral-400"> {v.reading}</span> : null}
-                  </button>
-                ))}
-              </div>
-            </div>
+            </details>
           ) : null}
+
+          {progress ? (
+            <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
+              <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
+                Tiến độ học <span className="ml-2 font-normal text-neutral-400">{KANJI_MASTERY_DIRECTIONS.length} dạng</span>
+              </summary>
+              <div className="flex flex-wrap gap-1.5 border-t border-neutral-100 px-3 py-2.5">
+                {KANJI_MASTERY_DIRECTIONS.map((dir) => {
+                  const streak = progress.directionStreaks?.[dir] ?? 0;
+                  const done = streak >= MASTERY_STREAK_THRESHOLD;
+                  return (
+                    <span
+                      key={dir}
+                      title={KANJI_MODE_LABELS[dir]}
+                      className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                        done ? "border-emerald-300 bg-emerald-50 text-emerald-700" : "border-amber-200 bg-amber-50 text-amber-700"
+                      }`}
+                    >
+                      {done ? "✓" : `${streak}/${MASTERY_STREAK_THRESHOLD}`} {KANJI_MODE_SHORT_LABELS[dir]}
+                    </span>
+                  );
+                })}
+              </div>
+            </details>
+          ) : null}
+
         </Card>
       )}
     </div>

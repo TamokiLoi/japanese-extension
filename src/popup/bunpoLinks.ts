@@ -138,6 +138,67 @@ export function parseUsage(usage: string): ParsedUsage | null {
   return { source: m[1], jp: m[2], vi: m[3] };
 }
 
+// Some older grammar records still store a compact form in `usage`. Keep
+// those visible under Công thức, while requiring a notation token at the
+// start so Vietnamese explanations beginning with V/N/A aren't misclassified.
+export function isGrammarFormula(usage: string): boolean {
+  const value = usage.trim();
+  if (!value || value.includes("\n") || /[。.!?！？]/u.test(value) || /^\[[^\]]+\]/u.test(value)) return false;
+  const notationPrefixes = [
+    "V辞書形", "Vます形", "Vて形", "Vた形", "Vない形", "V意向形", "V普通形", "V可能形",
+    "V命令形", "V禁止形", "V受身形", "V使役形", "V仮定形", "Vて", "Vた", "Vる", "Vない", "Vます",
+    "V-", "V/", "V／", "V +", "V＋", "V (", "V(", "V thể", "V từ", "V thường", "V ý", "V mệnh",
+    "V/A", "V/N", "V/A/N", "V/Adj", "N +", "N＋", "N /", "N/", "N／", "N-", "N1", "N2", "N3",
+    "Nの", "Nに", "Nが", "Nは", "Nを", "Nで", "A-", "Aい", "Aな", "A +", "A＋", "いA", "なA",
+    "普通形", "普通体", "名詞", "動詞", "形容詞", "辞書形", "て形", "た形", "ない形",
+  ];
+  return notationPrefixes.some((prefix) => value.startsWith(prefix));
+}
+
+// Put slash-separated grammar-title alternatives on separate lines. Keep the slash
+// at the end of the preceding alternative so it doesn't look like a stray mark.
+// Preserve compact pairs such as お／ご, Vれる／られる, and やすい／にくい.
+export function splitGrammarFormula(formula: string): string[] {
+  const trimmedFormula = formula.trim();
+  const slashCount = (trimmedFormula.match(/[\/／]/gu) ?? []).length;
+  if (slashCount === 1 && trimmedFormula.length <= 32) return [trimmedFormula];
+
+  const parts = formula.split(/([/／])/u);
+  const lines: string[] = [];
+  let current = "";
+  for (let i = 0; i < parts.length; i += 1) {
+    const part = parts[i]!;
+    if (part === "/" || part === "／") {
+      const left = current.trim();
+      const right = (parts[i + 1] ?? "").trim();
+      const compactPair =
+        (/^お$/u.test(left) && /^ご(?:[＋+\s]|$)/u.test(right)) ||
+        (/(?:V)?れる$/u.test(left) && /^られる(?:[＋+\s]|$)/u.test(right)) ||
+        (/やすい$/u.test(left) && /^にくい(?:[＋+\s]|$)/u.test(right));
+      if (compactPair) {
+        current += "／";
+        continue;
+      }
+      if (current.trim()) lines.push(`${current.trim()} ／`);
+      current = "";
+      continue;
+    }
+    current += part;
+  }
+  if (current.trim()) lines.push(current.trim());
+  return lines.length > 0 ? lines : [trimmedFormula];
+}
+
+// Formula cards keep slash-separated alternatives inline. Normalize source
+// whitespace so legacy line breaks don't split a short formula unexpectedly.
+export function formatGrammarFormulaInline(formula: string): string {
+  return formula
+    .replace(/[\r\n]+/gu, " ")
+    .replace(/\s*([/／])\s*/gu, " ／ ")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
 export interface ExampleFragment {
   text: string;
   highlighted: boolean;

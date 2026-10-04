@@ -34,7 +34,7 @@ import {
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, findRelatedBunpo, highlightPatternInExample, parseUsage } from "../../popup/bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, findRelatedBunpo, highlightPatternInExample, parseUsage, isGrammarFormula, splitGrammarFormula, formatGrammarFormulaInline } from "../../popup/bunpoLinks.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
@@ -48,6 +48,7 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { CorrectionEditorSheet, CORRECTION_ISSUE_LABELS } from "../components/CorrectionEditorSheet.tsx";
 import { loadCorrectionsForEntity, type DataCorrectionEntry } from "../../popup/dataCorrectionState.ts";
+import "../../grammar-detail.css";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const RELATED_LABEL: Record<BunpoRelatedKind, string> = {
@@ -533,6 +534,11 @@ function DetailView({
   const quizBookMatches = findMatchingQuizBookQuestions(g);
   const relatedBunpo = g.level === "N3" ? findRelatedBunpo(g) : [];
   const parsedUsage = g.usage ? parseUsage(g.usage) : null;
+  const usageIsFormula = g.usage ? isGrammarFormula(g.usage) : false;
+  const formulaLines = [
+    ...(g.formula ? [formatGrammarFormulaInline(g.formula)] : []),
+    ...(usageIsFormula && g.usage !== g.formula ? [formatGrammarFormulaInline(g.usage!)] : []),
+  ];
 
   const currentIndex = visibleList.findIndex((item) => item.id === g.id);
   const prevItem = currentIndex > 0 ? visibleList[currentIndex - 1] : null;
@@ -586,7 +592,7 @@ function DetailView({
         <button
           onClick={() => mutate({ currentGrammarId: prevItem.id })}
           aria-label="Mẫu trước"
-          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
+          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -595,16 +601,17 @@ function DetailView({
         <button
           onClick={() => mutate({ currentGrammarId: nextItem.id })}
           aria-label="Mẫu sau"
-          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
+          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-9 w-9 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
           <ChevronRight size={18} />
         </button>
       ) : null}
 
-      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
+      <Card className="grammar-detail-card mt-4 gap-0 rounded-2xl border-neutral-200 p-4 sm:p-6 ring-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex min-w-0 flex-wrap items-center gap-2">
             <Badge style={levelBadgeStyle(g.level)}>{g.level}</Badge>
+            {g.chapterTitle ? <span className="grammar-chapter-tag">{g.chapterTitle}</span> : null}
           </div>
           <div className="flex shrink-0 items-center gap-1.5">
             <button
@@ -642,69 +649,40 @@ function DetailView({
             </button>
           </div>
         </div>
-        {g.chapterTitle ? <div className="mt-1 text-sm text-neutral-400">{g.chapterTitle}</div> : null}
+        <div className="grammar-hero">
+          <div className="grammar-pattern">
+            {splitGrammarFormula(g.pattern).map((line, index) => <div key={index} className="grammar-pattern-line">{line}</div>)}
+          </div>
+          <div className="grammar-hero-divider" />
+          <p className="grammar-meaning">{g.meaningVi}</p>
+        </div>
 
-        <div className="mt-6 text-center text-3xl font-bold text-neutral-800">{g.pattern}</div>
-
-        <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-3 text-sm">
-          {g.formula ? (
-            <>
-              <dt className="text-neutral-400">Công thức</dt>
-              <dd className="text-neutral-800">{g.formula}</dd>
-            </>
+        <div className="grammar-sections">
+          {formulaLines.length > 0 ? (
+            <section className="grammar-section grammar-section--formula">
+              <h3 className="grammar-section-title">▣ Công thức
+                {usageIsFormula ? <button title="Giải thích ký hiệu thể" onClick={() => setShowUsageGlossary(true)} className="ml-1 text-neutral-400 hover:text-neutral-700"><Info size={13} /></button> : null}
+              </h3>
+              <div className="grammar-section-body grammar-formula-lines">
+                {formulaLines.map((line, index) => <div key={index} className="grammar-formula-line">{line}</div>)}
+              </div>
+            </section>
           ) : null}
-          <dt className="text-neutral-400">Nghĩa</dt>
-          <dd className="text-neutral-800">{g.meaningVi}</dd>
-          {g.usage ? (
-            <>
-              <dt className="flex items-center gap-1 text-neutral-400">
-                Cách dùng
-                <button title="Giải thích ký hiệu thể" onClick={() => setShowUsageGlossary(true)} className="text-neutral-300 hover:text-neutral-500">
-                  <Info size={13} />
-                </button>
-              </dt>
-              <dd className="whitespace-pre-line text-neutral-800">
-                {parsedUsage ? (
-                  <div>
-                    <div className="text-[10px] font-semibold uppercase tracking-wide text-neutral-400">Nguồn: {parsedUsage.source}</div>
-                    <div className="mt-1 border-l-2 border-neutral-200 pl-2 text-xs leading-relaxed text-neutral-500 italic">{parsedUsage.jp}</div>
-                    <div className="mt-1.5 leading-relaxed text-neutral-800">{parsedUsage.vi}</div>
-                  </div>
-                ) : (
-                  g.usage
-                )}
-              </dd>
-            </>
+          {g.usage && !usageIsFormula ? (
+            <section className="grammar-section grammar-section--usage">
+              <h3 className="grammar-section-title">Cách dùng
+                <button title="Giải thích ký hiệu thể" onClick={() => setShowUsageGlossary(true)} className="ml-1 text-neutral-400 hover:text-neutral-700"><Info size={13} /></button>
+              </h3>
+              <div className="grammar-section-body">
+                {parsedUsage ? <>
+                  <div className="grammar-source-line">Nguồn: {parsedUsage.source}</div>
+                  <div className="mt-1 border-l-2 border-purple-200 pl-2 text-xs italic text-neutral-600">{parsedUsage.jp}</div>
+                  <div className="mt-1.5">{parsedUsage.vi}</div>
+                </> : <div>{g.usage}</div>}
+              </div>
+            </section>
           ) : null}
-          {g.examTip ? (
-            <>
-              <dt className="text-neutral-400">Key JLPT</dt>
-              <dd className="text-neutral-800">{g.examTip}</dd>
-            </>
-          ) : null}
-        </dl>
-
-        <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50/70 p-3 text-sm">
-          <button onClick={() => setCorrectionOpen(true)} className="flex w-full items-center justify-between gap-2 text-left">
-            <span className="flex items-center gap-2 font-semibold text-amber-800">
-              <MessageSquarePlus size={15} />
-              {corrections.length > 0 ? `Ghi chú / góp ý của bạn (${corrections.length})` : "Thêm ghi chú hoặc góp ý"}
-            </span>
-            <span className="text-xs font-semibold text-amber-700">Mở</span>
-          </button>
-          {corrections.length > 0 ? (
-            <div className="mt-2 space-y-1.5">
-              {corrections.slice(0, 2).map((entry) => (
-                <div key={entry.id} className="rounded-lg bg-white/70 px-2.5 py-1.5 text-xs">
-                  <div className="font-semibold text-amber-700">{CORRECTION_ISSUE_LABELS[entry.issueType]}</div>
-                  <div className="mt-0.5 whitespace-pre-wrap text-neutral-700">{entry.suggestedValue}</div>
-                </div>
-              ))}
-              {corrections.length > 2 ? <div className="text-xs text-amber-700">Còn {corrections.length - 2} ghi chú trong Cài đặt.</div> : null}
-            </div>
-          ) : (
-            <div className="mt-1 text-xs text-amber-700/70">Lưu trên trình duyệt và có thể xuất thành JSON để cập nhật dữ liệu sau.</div>
-          )}
+          {g.examTip ? <section className="grammar-section grammar-section--tip"><h3 className="grammar-section-title">✦ Mẹo làm JLPT</h3><p className="grammar-section-body">{g.examTip}</p></section> : null}
         </div>
 
         <CorrectionEditorSheet
@@ -723,8 +701,11 @@ function DetailView({
           onSaved={(saved) => setCorrections((current) => [saved, ...current.filter((entry) => entry.id !== saved.id)])}
         />
 
-        <div className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm">
-          <div className="text-neutral-800">
+        {g.example.trim() || g.moreExamples?.length ? <div className="grammar-sections">
+        <section className="grammar-section grammar-section--example">
+          <h3 className="grammar-section-title">☏ Ví dụ</h3>
+          <div className="grammar-entry">
+          <div className="grammar-example-jp">
             {highlightPatternInExample(g.example, g.pattern).map((frag, i) =>
               frag.highlighted ? (
                 <mark key={i} className="rounded bg-emerald-200 px-0.5">
@@ -735,10 +716,11 @@ function DetailView({
               ),
             )}
           </div>
-          <div className="mt-1 text-emerald-700">{g.exampleVi}</div>
+          <div className="grammar-example-vi">{g.exampleVi}</div>
+          </div>
           {g.moreExamples?.map((ex, i) => (
-            <div key={i} className="mt-2 border-t border-emerald-100 pt-2">
-              <div className="text-neutral-800">
+            <div key={i} className="grammar-entry">
+              <div className="grammar-example-jp">
                 {highlightPatternInExample(ex.jp, g.pattern).map((frag, j) =>
                   frag.highlighted ? (
                     <mark key={j} className="rounded bg-emerald-200 px-0.5">
@@ -749,94 +731,114 @@ function DetailView({
                   ),
                 )}
               </div>
-              <div className="mt-1 text-emerald-700">{ex.vi}</div>
+              <div className="grammar-example-vi">{ex.vi}</div>
             </div>
           ))}
-        </div>
+        </section>
+        </div> : null}
 
         {relatedBunpo.length > 0 ? (
-          <div className="mt-4">
-            <div className="text-xs font-semibold text-neutral-400">Tham khảo</div>
+          <div className="grammar-sections">
+            <section className="grammar-section grammar-section--related">
+            <h3 className="grammar-section-title">↗ Mẫu liên quan</h3>
             <div className="mt-2 space-y-2.5">
               {relatedBunpo.map(({ target, relation, note }) => (
                 <div key={target.id}>
                   <div className="flex flex-wrap items-center gap-2">
                     <button
                       onClick={() => mutate({ currentGrammarId: target.id })}
-                      className="font-semibold text-rose-700 underline decoration-rose-200 underline-offset-2"
+                      className="grammar-link-pattern"
                     >
                       {target.pattern}
                     </button>
-                    <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-[10px] font-medium text-neutral-500">
+                    <span className="grammar-tag">
                       {RELATED_LABEL[relation]}
                     </span>
                   </div>
-                  <div className="mt-0.5 text-sm text-neutral-700">{note}</div>
+                  <div className="grammar-section-body">{note}</div>
                 </div>
               ))}
-            </div>
+            </div></section>
           </div>
         ) : null}
 
         {g.level !== "N3" && g.compareWith && g.compareWith.length > 0 ? (
-          <div className="mt-4 rounded-xl bg-amber-50 p-3 text-sm">
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-amber-700">Dễ nhầm với</div>
+          <div className="grammar-sections">
+            <section className="grammar-section grammar-section--related">
+            <h3 className="grammar-section-title">Dễ nhầm với</h3>
             <div className="mt-2 space-y-2.5">
               {g.compareWith.map((c, i) => {
                 const target = findBunpoByPattern(c.pattern, g.level);
                 return (
                   <div key={i}>
                     {target ? (
-                      <button onClick={() => mutate({ currentGrammarId: target.id })} className="font-semibold text-amber-800 underline decoration-amber-300 underline-offset-2">
+                        <button onClick={() => mutate({ currentGrammarId: target.id })} className="grammar-link-pattern">
                         {c.pattern}
                       </button>
                     ) : (
-                      <span className="font-semibold text-amber-800">{c.pattern}</span>
+                      <span className="grammar-link-pattern">{c.pattern}</span>
                     )}
-                    <div className="mt-0.5 text-neutral-700">{c.note}</div>
+                    <div className="grammar-section-body">{c.note}</div>
                   </div>
                 );
               })}
             </div>
+            </section>
           </div>
         ) : null}
 
-        {readingMatches.length > 0 ? (
-          <div className="mt-4">
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
-              <BookOpenText size={14} /> Xuất hiện trong bài đọc
+        {progress.dueAt ? <div className="grammar-sections">
+          <section className="grammar-section grammar-section--study">
+            <div className="grammar-study-status"><strong>Ôn tập</strong><span>{progress.dueAt <= Date.now() ? "Đến hạn" : `Đến hạn ${new Date(progress.dueAt).toLocaleDateString("vi-VN")}`}</span></div>
+          </section>
+        </div> : null}
+
+        {readingMatches.length > 0 || quizBookMatches.length > 0 ? (
+          <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
+            <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
+              Xuất hiện trong các tài liệu <span className="ml-2 font-normal text-neutral-400">{readingMatches.length} bài đọc · {quizBookMatches.length} đề thi</span>
+            </summary>
+            <div className="border-t border-neutral-100 px-3 pb-3">
+              {readingMatches.length > 0 ? (
+                <section className="mt-3 grammar-document-group grammar-document-group--reading">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><BookOpenText size={14} /> Bài đọc</div>
+                  <div className="grammar-link-list">
+                    {readingMatches.map((p) => <button key={p.id} onClick={() => onOpenReading(p.id)}>{p.title}</button>)}
+                  </div>
+                </section>
+              ) : null}
+              {quizBookMatches.length > 0 ? (
+                <section className="mt-3 grammar-document-group grammar-document-group--quiz">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><GraduationCap size={14} /> Luyện đề</div>
+                  <div className="grammar-link-list">
+                    {quizBookMatches.map((qq) => (
+                      <button key={qq.id} onClick={() => onOpenQuizBook(qq.id)}>
+                        {qq.question.slice(0, 24)}{qq.question.length > 24 ? "…" : ""}
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
             </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {readingMatches.map((p) => (
-                <button
-                  key={p.id}
-                  onClick={() => onOpenReading(p.id)}
-                  className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
-                >
-                  {p.title}
-                </button>
-              ))}
-            </div>
-          </div>
+          </details>
         ) : null}
 
-        {quizBookMatches.length > 0 ? (
-          <div className="mt-4">
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-400">
-              <GraduationCap size={14} /> Xuất hiện trong luyện đề
-            </div>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {quizBookMatches.map((qq) => (
-                <button
-                  key={qq.id}
-                  onClick={() => onOpenQuizBook(qq.id)}
-                  className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
-                >
-                  {qq.question.slice(0, 24)}
-                  {qq.question.length > 24 ? "…" : ""}
-                </button>
-              ))}
-            </div>
+        {g.sources.length > 0 || corrections.length > 0 || g.chapterTitle ? (
+          <div className="grammar-sections">
+            <section className="grammar-section grammar-section--notes">
+              <h3 className="grammar-section-title">Ghi chú & nguồn</h3>
+              <div className="grammar-source-line">{g.sources.map((source) => SOURCE_LABELS[source]).join(" · ")}{g.chapter !== undefined ? ` · Chương ${g.chapter}` : ""}</div>
+              {g.chapterTitle ? <div className="grammar-section-body">{g.chapterTitle}</div> : null}
+              {corrections.length > 0 ? <div className="grammar-correction-list">
+                {corrections.slice(0, 2).map((entry) => (
+                  <div key={entry.id} className="grammar-correction-entry">
+                    <div className="font-semibold text-amber-700">{CORRECTION_ISSUE_LABELS[entry.issueType]}</div>
+                    <div className="whitespace-pre-wrap text-neutral-700">{entry.suggestedValue}</div>
+                  </div>
+                ))}
+                {corrections.length > 2 ? <div className="mt-1 text-amber-700">Còn {corrections.length - 2} ghi chú trong Cài đặt.</div> : null}
+              </div> : null}
+            </section>
           </div>
         ) : null}
       </Card>

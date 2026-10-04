@@ -1,8 +1,7 @@
 // Speaks Japanese text using the browser's built-in Web Speech API
 // (SpeechSynthesis) -- no audio files, no API cost, works for any word
 // instantly. Quality/availability depends on the device's installed voices
-// (Google TTS on Android Chrome, Siri voices on iOS Safari, etc.), so
-// callers should check hasJapaneseVoice() before showing a speak button.
+// (Google TTS on Android Chrome, Siri voices on iOS Safari, etc.).
 let cachedVoices: SpeechSynthesisVoice[] | null = null;
 
 function loadVoices(): SpeechSynthesisVoice[] {

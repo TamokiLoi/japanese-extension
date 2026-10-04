@@ -38,8 +38,8 @@ export interface BunpoGrammarPoint {
   chapterTitle?: string; // vd "Biểu hiện mục đích / thay đổi"
   pattern: string; // vd "〜ようになる"
   meaningVi: string; // Nghĩa / Ý nghĩa
-  usage?: string; // Cách dùng, vd "V辞書形" (chỉ "theo-chuong")
-  formula?: string; // Công thức, vd "お/ご + Vます + します" (chỉ "n4-infographic")
+  usage?: string; // Giải thích cách dùng, sắc thái hoặc lưu ý
+  formula?: string; // Công thức/các dạng kết hợp của mẫu ngữ pháp
   examTip?: string; // Key JLPT (chỉ "theo-chuong")
   example: string; // Ví dụ (JP)
   exampleVi: string; // Nghĩa tiếng Việt của ví dụ

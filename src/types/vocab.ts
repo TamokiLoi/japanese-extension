@@ -31,6 +31,14 @@ export interface VerbConjugations {
   prohibitive?: string;
 }
 
+export interface VerbFormDetail {
+  form: string;
+  reading: string;
+  verbGroup: string;
+  transitivity: string;
+  entSeq: string;
+}
+
 export interface TanoshiiVocabWord {
   id: string;
   word: string;
@@ -42,8 +50,9 @@ export interface TanoshiiVocabWord {
   mnemonic: string[];
   example: string | null;
   exampleVi: string | null;
-  verbGroup?: string;
-  transitivity?: string;
+  verbGroup?: string | null;
+  transitivity?: string | null;
+  verbForms?: VerbFormDetail[];
   conjugations?: VerbConjugations;
   // Nghĩa tiếng Anh gốc -- chủ yếu có ích với từ katakana (mượn từ tiếng
   // Anh) để người học thấy rõ từ gốc. Optional vì hầu hết nguồn dữ liệu
@@ -83,6 +92,10 @@ export interface MimikaraWord {
   mnemonic: string[];
   example: string | null;
   exampleVi: string | null;
+  partOfSpeech?: VocabPos;
+  verbGroup?: string | null;
+  transitivity?: string | null;
+  verbForms?: VerbFormDetail[];
   // Nghĩa tiếng Anh từ jisho.org -- fetch + merge cho 874/880 từ trong đợt
   // kiểm tra chất lượng nghĩa 2026-09-19/20 (xem
   // _scratch/mimikara_mazii_jisho_diffs.json; 6 từ không có do jisho không

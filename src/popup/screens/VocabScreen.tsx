@@ -1,4 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { Volume2 } from "lucide-react";
+import { VocabPartOfSpeechTag } from "../../components/vocabpartofspeechtag.tsx";
+import { VocabVerbMetadata } from "../../components/vocabverbmetadata.tsx";
 import {
   ALL_VOCAB,
   AVAILABLE_SOURCES,
@@ -41,6 +44,8 @@ import { findMatchingReadingPassages, findMatchingQuizBookQuestions } from "../v
 import { saveViewerState as saveReadingViewerState, loadViewerState as loadReadingViewerState } from "../readingState.ts";
 import { saveViewerState as saveQuizBookViewerState, loadViewerState as loadQuizBookViewerState } from "../quizBookState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
+import { speakJapanese } from "../../web/lib/speak.ts";
+import "./VocabScreen.card.css";
 
 const PROGRESS_FILTER_LABELS: Record<VocabViewerState["progressFilter"], string> = {
   all: "Tất cả thẻ",
@@ -379,10 +384,13 @@ export function VocabScreen({
       ) : !v ? (
         <p className="empty">Không có từ vựng nào ở bộ lọc này.</p>
       ) : (
-        <main className={`card card-${bucketFor(progress ?? undefined)}`}>
+        <main className={`card vocab-layout card-${bucketFor(progress ?? undefined)}`}>
           <div className="level-badge" data-level={v.level}>
             {v.level}
           </div>
+          <button className="vocab-voice-btn" title="Phát âm tiếng Nhật" aria-label="Phát âm" onClick={() => speakJapanese(v.reading || v.word)}>
+            <Volume2 size={17} />
+          </button>
           <button
             className={`flag-btn ${isFlagged(progress) ? "flagged" : ""}`}
             title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
@@ -405,29 +413,90 @@ export function VocabScreen({
           </button>
           {isDueForReview(progress ?? undefined) ? <span className="due-review-badge">⏰ Đến hạn ôn lại</span> : null}
           <div className="vocab-source-tag">{v.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}</div>
-          <div className="vocab-word">
-            <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
+          <div className="vocab-hero">
+            {v.reading ? <div className="vocab-reading">{v.reading}</div> : null}
+            <div className="vocab-word">
+              <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
+            </div>
+            <div className="vocab-hero-divider" />
+            <div className="vocab-hero-meaning">{v.meaningVi || "—"}</div>
           </div>
-          {v.reading ? <div className="vocab-reading">{v.reading}</div> : null}
 
-          <dl className="details">
-            {v.hanViet.length > 0 ? (
-              <>
-                <dt>Hán Việt</dt>
-                <dd className="hanviet">{formatHanViet(v.hanViet)}</dd>
-              </>
-            ) : null}
+          {v.hanViet.length > 0 ? (
+            <section className="vocab-info vocab-info-hanviet">
+              <strong>Hán Việt:</strong> {formatHanViet(v.hanViet)}
+            </section>
+          ) : null}
+          {((v.partOfSpeech && v.partOfSpeech !== "Khác") || v.verbGroup || v.transitivity || (v.verbForms?.length ?? 0) > 0) ? (
+            <section className="vocab-info vocab-info-pos">
+              <div className="vocab-pos-line">
+                <strong>Phân loại:</strong>
+                {v.partOfSpeech && v.partOfSpeech !== "Khác" ? <VocabPartOfSpeechTag partOfSpeech={v.partOfSpeech} /> : null}
+              </div>
+              <VocabVerbMetadata verbGroup={v.verbGroup} transitivity={v.transitivity} forms={v.verbForms} />
+            </section>
+          ) : null}
+          {v.english ? (
+            <section className="vocab-info vocab-info-english">
+              <strong>English:</strong> <span>{v.english}</span>
+            </section>
+          ) : null}
 
-            <dt>Nghĩa</dt>
-            <dd>{v.meaningVi || "—"}</dd>
+          {readingMatches.length > 0 || quizBookMatches.length > 0 ? (
+            <details className="vocab-more-details">
+              <summary>Xuất hiện trong tài liệu <span>{readingMatches.length} bài đọc · {quizBookMatches.length} đề thi</span></summary>
+              <div className="vocab-more-body">
+          {readingMatches.length > 0 ? (
+            <div className="related-vocab related-vocab--reading">
+              <div className="related-vocab-label">📖 Xuất hiện trong bài đọc</div>
+              <div className="related-vocab-list">
+                {readingMatches.map((p) => (
+                  <button key={p.id} className="related-vocab-item" onClick={() => handleOpenReading(p.id)}>
+                    {p.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
 
-            {v.english ? (
-              <>
-                <dt>Tiếng Anh</dt>
-                <dd className="english-gloss">{v.english}</dd>
-              </>
-            ) : null}
+          {quizBookMatches.length > 0 ? (
+            <div className="related-vocab related-vocab--quiz">
+              <div className="related-vocab-label">📝 Xuất hiện trong luyện đề</div>
+              <div className="related-vocab-list">
+                {quizBookMatches.map((qq) => (
+                  <button key={qq.id} className="related-vocab-item" onClick={() => handleOpenQuizBook(qq.id)}>
+                    {qq.question.slice(0, 24)}
+                    {qq.question.length > 24 ? "…" : ""}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+              </div>
+            </details>
+          ) : null}
+          {v.example || v.mnemonic.length > 0 || v.synonym || v.pairVerb ? (
+            <details className="vocab-more-details">
+              <summary>Thông tin bổ sung <span>{[
+                v.example && "Ví dụ",
+                v.mnemonic.length > 0 && "Ghi nhớ",
+                (v.synonym || v.pairVerb) && "Từ liên quan",
+              ].filter(Boolean).join(" · ")}</span></summary>
+              <div className="vocab-more-body">
+          {v.example ? (
+            <section className="vocab-info vocab-info-example">
+              <strong>Mẫu câu</strong>
+              <span className="example-jp">{v.example}</span>
+              {v.exampleVi ? <span className="example-vi">{v.exampleVi}</span> : null}
+            </section>
+          ) : null}
+          {v.mnemonic.length > 0 ? (
+            <section className="vocab-info vocab-info-mnemonic">
+              <strong>Mẹo nhớ:</strong> {v.mnemonic.join(" / ")}
+            </section>
+          ) : null}
 
+          {v.synonym || v.pairVerb ? <dl className="details vocab-info vocab-info-related">
             {v.synonym ? (
               <>
                 <dt>Đồng nghĩa</dt>
@@ -442,7 +511,9 @@ export function VocabScreen({
                   const target = findVocabByWordReading(v.pairVerb.word, v.pairVerb.reading);
                   return (
                     <>
-                      <dt>{v.transitivity === "Tự động từ" ? "Tha động từ" : "Tự động từ"}</dt>
+                      <dt>
+                        {v.transitivity === "Tự động từ" ? "Tha động từ" : v.transitivity === "Tha động từ" ? "Tự động từ" : "Cặp tự/tha động từ"}
+                      </dt>
                       <dd>
                         {target ? (
                           <span className="word-kanji-link" onClick={() => onOpenVocab(target.id)}>
@@ -460,47 +531,11 @@ export function VocabScreen({
                   );
                 })()
               : null}
-          </dl>
-
-          {v.mnemonic.length > 0 ? (
-            <p className="mnemonic">
-              <span className="mnemonic-label">Mẹo nhớ:</span> {v.mnemonic.join(" / ")}
-            </p>
-          ) : null}
-
-          {v.example ? (
-            <p className="example">
-              <span className="example-jp">{v.example}</span>
-              {v.exampleVi ? <span className="example-vi">{v.exampleVi}</span> : null}
-            </p>
-          ) : null}
-
-          {readingMatches.length > 0 ? (
-            <div className="related-vocab">
-              <div className="related-vocab-label">📖 Xuất hiện trong bài đọc</div>
-              <div className="related-vocab-list">
-                {readingMatches.map((p) => (
-                  <button key={p.id} className="related-vocab-item" onClick={() => handleOpenReading(p.id)}>
-                    {p.title}
-                  </button>
-                ))}
+          </dl> : null}
               </div>
-            </div>
+            </details>
           ) : null}
 
-          {quizBookMatches.length > 0 ? (
-            <div className="related-vocab">
-              <div className="related-vocab-label">📝 Xuất hiện trong luyện đề</div>
-              <div className="related-vocab-list">
-                {quizBookMatches.map((qq) => (
-                  <button key={qq.id} className="related-vocab-item" onClick={() => handleOpenQuizBook(qq.id)}>
-                    {qq.question.slice(0, 24)}
-                    {qq.question.length > 24 ? "…" : ""}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : null}
         </main>
       )}
 
