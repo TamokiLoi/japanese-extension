@@ -80,6 +80,86 @@ function formatExamQuestion(text: string, problemGroup: string): string {
   return text.replace(new RegExp(`」[\\t 　]*(${ORDERING_SPEAKER_LABEL}「)`, "gu"), "」\n$1");
 }
 
+function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: string; order: number[] } | null {
+  const order = question.orderingOrder;
+  if (!order || order.length !== 4 || question.options.length !== 4 || new Set(order).size !== 4 || order.some((index) => index < 0 || index >= 4)) {
+    return null;
+  }
+
+  const slotPattern = /(?:[（(][ \t　]*(?:★[ \t　]*)?[）)]|[＿_]{2,}|★)/gu;
+  const slots = [...question.question.matchAll(slotPattern)];
+  const starredSlots = slots.filter((slot) => slot[0].includes("★"));
+  if (slots.length === 4 && starredSlots.length === 1) {
+    const starSlot = slots.indexOf(starredSlots[0]);
+    if (order[starSlot] !== question.correctIndex) return null;
+    let slotIndex = 0;
+    const sentence = question.question.replace(slotPattern, () => {
+      const optionIndex = order[slotIndex];
+      return `${slotIndex++ === starSlot ? "★" : ""}${question.options[optionIndex]}`;
+    });
+    return { sentence, order };
+  }
+
+  if (slots.length === 1 && slots[0][0] === "★") {
+    const sentence = question.question.replace("★", order.map((optionIndex) => `${optionIndex === question.correctIndex ? "★" : ""}${question.options[optionIndex]}`).join(""));
+    return { sentence, order };
+  }
+
+  if (slots.length > 1 && starredSlots.length === 1 && slots.every((slot, index) =>
+    index === 0 || /^\s*$/u.test(question.question.slice(slots[index - 1].index + slots[index - 1][0].length, slot.index))
+  )) {
+    const firstSlot = slots[0];
+    const lastSlot = slots.at(-1)!;
+    const orderedFragments = order.map((optionIndex) => `${optionIndex === question.correctIndex ? "★" : ""}${question.options[optionIndex]}`).join("");
+    const sentence = question.question.slice(0, firstSlot.index)
+      + orderedFragments
+      + question.question.slice(lastSlot.index + lastSlot[0].length);
+    return { sentence, order };
+  }
+  return null;
+}
+
+function formatQuestionTranslation(question: string, translation: string): string {
+  const sourceLines = question.split(/\r?\n/u);
+  if (sourceLines.length < 2 || /[\r\n]/u.test(translation)) return translation;
+
+  const insertions = new Set<number>();
+  const firstLineIsContext = /^\s*[（(].*[）)]\s*$/u.test(sourceLines[0]);
+  const translatedContext = /^\s*(?:\([^)]*\)|（[^）]*）)[ \t]*/u.exec(translation);
+  if (firstLineIsContext && translatedContext && translatedContext[0].length < translation.length) {
+    insertions.add(translatedContext[0].length);
+  }
+
+  const sourceTurnCounts = sourceLines.map((line) => (line.match(/「/gu) ?? []).length);
+  const sourceTurnCount = sourceTurnCounts.reduce((total, count) => total + count, 0);
+  const translatedTurns = [...translation.matchAll(/[^「」]*「[^「」]*」/gu)];
+  const sourceQuoteCount = (question.match(/」/gu) ?? []).length;
+  const translatedQuoteCount = (translation.match(/「/gu) ?? []).length;
+  if (sourceTurnCount === 0 || sourceTurnCount !== sourceQuoteCount || sourceTurnCount !== translatedQuoteCount || sourceTurnCount !== translatedTurns.length) {
+    return addQuestionTranslationLineBreaks(translation, insertions);
+  }
+
+  let turnsBeforeLineBreak = 0;
+  for (let lineIndex = 0; lineIndex < sourceLines.length - 1; lineIndex++) {
+    turnsBeforeLineBreak += sourceTurnCounts[lineIndex];
+    if (turnsBeforeLineBreak <= 0 || turnsBeforeLineBreak >= sourceTurnCount) continue;
+    const previousTurn = translatedTurns[turnsBeforeLineBreak - 1];
+    insertions.add((previousTurn.index ?? 0) + previousTurn[0].length);
+  }
+
+  return addQuestionTranslationLineBreaks(translation, insertions);
+}
+
+function addQuestionTranslationLineBreaks(translation: string, insertions: Set<number>): string {
+  let formatted = translation;
+  for (const position of [...insertions].sort((left, right) => right - left)) {
+    const before = formatted.slice(0, position).replace(/[ \t]+$/u, "");
+    const after = formatted.slice(position).replace(/^[ \t]+/u, "");
+    formatted = `${before}\n${after}`;
+  }
+  return formatted;
+}
+
 function formatExamFurigana(
   segments: ({ text: string; furigana: string | null } | null)[] | undefined,
   problemGroup: string,
@@ -165,8 +245,9 @@ function passageFuriganaForQuestion(paper: DeThiPaper, index: number) {
 
 function questionTranslationForQuestion(paper: DeThiPaper, index: number): string | null {
   const question = paper.questions[index];
-  if (!question) return null;
-  return question.questionVi ?? null;
+  if (!question?.questionVi) return null;
+  const formattedQuestion = formatExamQuestion(question.question, question.problemGroup);
+  return formatQuestionTranslation(formattedQuestion, question.questionVi);
 }
 
 const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
@@ -1655,6 +1736,7 @@ function ReviewQuestion({
   onNavigate?: (screen: Screen, id?: string) => void;
   showListeningAudio?: boolean;
 }) {
+  const orderingReconstruction = reconstructOrderingQuestion(question);
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
   const [showListeningTranslation, setShowListeningTranslation] = useState(false);
@@ -2005,28 +2087,44 @@ function ReviewQuestion({
           })}
         </div>
       )}
-      {question.explanation ? <div className="mt-3 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-800">{question.explanation}</div> : null}
-      {question.optionExplanations?.length === optionExplanationCount ? (
-        <details className="mt-3 rounded-lg border border-neutral-200 bg-white p-3 text-left">
-          <summary className="cursor-pointer text-sm font-semibold text-neutral-700">Giải thích từng đáp án</summary>
-          <div className="mt-3 space-y-3">
-            {question.optionExplanations.map((explanation, oi) => (
-              <div key={oi} className="flex gap-2.5 text-sm leading-relaxed text-neutral-700">
+      {chosenIndex !== null ? (
+        <div className={`mt-4 font-semibold ${chosenIndex === question.correctIndex ? "text-emerald-700" : "text-rose-700"}`}>
+          {chosenIndex === question.correctIndex ? "✓ Đúng" : "✗ Sai"}
+        </div>
+      ) : null}
+      {question.explanation || orderingReconstruction ? (
+        <div className="mt-2 text-sm text-neutral-600">
+          {question.explanation ? <p>{question.explanation}</p> : null}
+          {orderingReconstruction ? (
+            <div className={question.explanation ? "mt-2 border-t border-neutral-200 pt-2" : ""}>
+              <p className="font-semibold">
+                Thứ tự ghép: {orderingReconstruction.order.map((optionIndex) => optionIndex + 1).join(" → ")} (★ ở phương án {question.correctIndex + 1}).
+              </p>
+              <p className="mt-1 whitespace-pre-line">
+                <span className="font-semibold">Câu hoàn chỉnh: </span>{orderingReconstruction.sentence}
+              </p>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+      {question.optionExplanations?.length === optionExplanationCount && question.optionExplanations.some((explanation) => explanation.trim()) ? (
+        <div className="mt-4 border-t border-neutral-100 pt-3">
+          <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Giải thích từng đáp án</div>
+          <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
+            {question.optionExplanations.map((explanation, oi) => explanation.trim() ? (
+              <div key={oi} className="flex gap-2">
                 <span
-                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                  className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
                     oi === question.correctIndex ? "bg-emerald-100 text-emerald-700" : "bg-rose-50 text-rose-600"
                   }`}
                 >
                   {oi + 1}
                 </span>
-                <div>
-                  <div className="font-semibold text-neutral-800">{question.options[oi] ?? (question.optionsImage ? `Hình lựa chọn ${oi + 1}` : `Lựa chọn ${oi + 1}`)}</div>
-                  <p>{explanation}</p>
-                </div>
+                <span>{explanation}</span>
               </div>
-            ))}
+            ) : null)}
           </div>
-        </details>
+        </div>
       ) : null}
       {question.answerSourceNote ? <div className="mt-3 rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.answerSourceNote}</div> : null}
       {question.transcriptUncertainty?.length ? (

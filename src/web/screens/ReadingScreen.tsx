@@ -850,26 +850,28 @@ function PassageView({
                 <div className="font-semibold text-neutral-800">
                   Câu {q.sourceNumber ?? qi + 1}: {q.question}
                 </div>
-                <button
-                  type="button"
-                  onClick={() =>
-                    updateViewOptions({
-                      visibleQuestionTranslations: {
-                        ...visibleQuestionTranslations,
-                        [qi]: !showQuestionTranslation,
-                      },
-                    })
-                  }
-                  className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
-                    showQuestionTranslation
-                      ? "border-sky-200 bg-sky-50 text-sky-700"
-                      : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
-                  }`}
-                >
-                  <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
-                </button>
+                {q.questionVi?.trim() ? (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      updateViewOptions({
+                        visibleQuestionTranslations: {
+                          ...visibleQuestionTranslations,
+                          [qi]: !showQuestionTranslation,
+                        },
+                      })
+                    }
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+                      showQuestionTranslation
+                        ? "border-sky-200 bg-sky-50 text-sky-700"
+                        : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+                    }`}
+                  >
+                    <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
+                  </button>
+                ) : null}
               </div>
-              {showQuestionTranslation ? <div className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{q.questionVi}</div> : null}
+              {showQuestionTranslation && q.questionVi?.trim() ? <div className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{q.questionVi}</div> : null}
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {q.options.map((opt, oi) => {
                   let cls = "border-neutral-200 hover:bg-neutral-50";

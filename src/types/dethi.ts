@@ -15,6 +15,8 @@ export interface DeThiQuestion {
   question: string;
   options: string[];
   correctIndex: number;
+  // Zero-based option indices in the correct sentence order for ★ ordering items.
+  orderingOrder?: number[];
   points: number;
   passage: string | null;
   // Optional Vietnamese translation for the shared reading passage shown in
