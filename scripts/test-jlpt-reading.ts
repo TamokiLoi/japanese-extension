@@ -15,6 +15,8 @@ const dataset = { meta: { level: "N3" }, exams: [{ id: "cacnam-n3-2099-12", sour
 const [p] = collectJlptReading([dataset]);
 assert.equal(collectJlptReading([dataset]).length, 1);
 assert.equal(p.questions.length, 2);
+assert.equal(p.examId, "cacnam-n3-2099-12");
+assert.equal(p.examLabel, "N3 T12/2099");
 assert.deepEqual(p.questions.map(q => q.sourceNumber), [23, 24]);
 assert.equal(p.questions[0].correctIndex, 1);
 assert.deepEqual(p.body, body);

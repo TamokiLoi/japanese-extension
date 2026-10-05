@@ -6,6 +6,7 @@ import {
   AVAILABLE_LEVELS,
   AVAILABLE_LENGTHS,
   AVAILABLE_BOOKS,
+  AVAILABLE_JLPT_EXAMS,
   AVAILABLE_TOPICS,
   LENGTH_LABELS,
   BOOK_LABELS,
@@ -18,6 +19,7 @@ import {
   getPassageProgress,
   resetPassageAnswers,
   matchesFilters,
+  matchesReadingSources,
   splitBodyIntoSentences,
   type ReadingPassageViewOptions,
   type ReadingViewerState,
@@ -293,17 +295,19 @@ function ListView({
   );
 
   const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
-  const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
+  const regularBooks = AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam");
+  const selectedRegularBooks = state.selectedBooks.filter((book) => book !== "jlpt-exam");
+  const allBooksChecked = selectedRegularBooks.length === regularBooks.length && state.selectedExamIds.length === AVAILABLE_JLPT_EXAMS.length;
   const allLengthsChecked = state.selectedLengths.length === AVAILABLE_LENGTHS.length;
   const allTopicsChecked = state.selectedTopics.length === AVAILABLE_TOPICS.length;
   const filterCount =
     (allLevelsChecked ? 0 : state.selectedLevels.length) +
-    (allBooksChecked ? 0 : state.selectedBooks.length) +
+    (allBooksChecked ? 0 : selectedRegularBooks.length + state.selectedExamIds.length) +
     (allLengthsChecked ? 0 : state.selectedLengths.length) +
     (state.selectedBooks.includes("jlpt-exam") && !allTopicsChecked ? state.selectedTopics.length : 0);
 
   async function handleStart() {
-    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics);
+    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
     if (!passage) {
       setError("Không có bài đọc nào khớp bộ lọc này.");
       return;
@@ -372,15 +376,36 @@ function ListView({
               }))),
           ...(allBooksChecked
             ? []
-            : state.selectedBooks.map((book) => ({
+            : selectedRegularBooks.map((book) => ({
                 key: `book-${book}`,
                 label: BOOK_LABELS[book],
                 onRemove: () => {
                   const next = state.selectedBooks.filter((b) => b !== book);
-                  if (next.length === 0) return;
+                  if (next.length === 0 && state.selectedExamIds.length === 0) return;
                   mutate({ selectedBooks: next });
                 },
               }))),
+          ...(!allBooksChecked && state.selectedExamIds.length === AVAILABLE_JLPT_EXAMS.length
+            ? [{
+                key: "jlpt-exams-all",
+                label: "Tất cả đề JLPT",
+                onRemove: () => {
+                  if (selectedRegularBooks.length === 0) return;
+                  mutate({ selectedExamIds: [], selectedBooks: selectedRegularBooks });
+                },
+              }]
+            : !allBooksChecked ? state.selectedExamIds.flatMap((id) => {
+                const exam = AVAILABLE_JLPT_EXAMS.find((item) => item.id === id);
+                return exam ? [{
+                  key: `exam-${id}`,
+                  label: exam.label,
+                  onRemove: () => {
+                    const nextExamIds = state.selectedExamIds.filter((item) => item !== id);
+                    if (nextExamIds.length === 0 && selectedRegularBooks.length === 0) return;
+                    mutate({ selectedExamIds: nextExamIds, selectedBooks: nextExamIds.length ? state.selectedBooks : selectedRegularBooks });
+                  },
+                }] : [];
+              }) : []),
           ...(allLengthsChecked
             ? []
             : state.selectedLengths.map((length) => ({
@@ -412,14 +437,14 @@ function ListView({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc luyện đọc"
-        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], selectedBooks: [...AVAILABLE_BOOKS], selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
+        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: AVAILABLE_JLPT_EXAMS.map((exam) => exam.id), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <FilterGroup title="Cấp độ">
             {AVAILABLE_LEVELS.map((level) => {
               const checked = state.selectedLevels.includes(level);
               const count = ALL_READING.filter(
-                (p) => p.level === level && state.selectedLengths.includes(p.length) && state.selectedBooks.includes(p.book),
+                (p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds),
               ).length;
               return (
                 <FilterChipOption
@@ -429,13 +454,18 @@ function ListView({
                   onClick={() => {
                     const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
                     if (next.length === 0) return;
-                    const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (b) =>
-                      ALL_READING.some((p) => p.book === b && next.includes(p.level) && state.selectedLengths.includes(p.length)),
-                    );
-                    const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (l) =>
-                      ALL_READING.some((p) => p.length === l && next.includes(p.level) && nextBooks.includes(p.book)),
-                    );
-                    mutate({ selectedLevels: next, selectedBooks: nextBooks, selectedLengths: nextLengths });
+                      const nextExamIds = state.selectedExamIds.length
+                        ? pruneToggle(state.selectedExamIds, AVAILABLE_JLPT_EXAMS.map((exam) => exam.id), (id) =>
+                            ALL_READING.some((p) => p.examId === id && next.includes(p.level) && state.selectedLengths.includes(p.length)),
+                          )
+                        : [];
+                      const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (book) =>
+                        ALL_READING.some((p) => p.book === book && next.includes(p.level) && state.selectedLengths.includes(p.length) && (book !== "jlpt-exam" || (!!p.examId && nextExamIds.includes(p.examId)))),
+                      );
+                      const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
+                        ALL_READING.some((p) => p.length === length && next.includes(p.level) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                      );
+                    mutate({ selectedLevels: next, selectedBooks: nextBooks, selectedExamIds: nextExamIds, selectedLengths: nextLengths });
                   }}
                 />
               );
@@ -444,38 +474,65 @@ function ListView({
         ) : null}
 
         <FilterGroup title="Sách">
-          {AVAILABLE_BOOKS.map((book) => {
-            const checked = state.selectedBooks.includes(book);
-            const count = ALL_READING.filter(
-              (p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
-            ).length;
-            return (
-              <FilterChipOption
-                key={book}
-                label={`${BOOK_LABELS[book]} (${count})`}
-                active={checked}
-                onClick={() => {
-                  const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
-                  if (next.length === 0) return;
-                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (lv) =>
-                    ALL_READING.some((p) => p.level === lv && next.includes(p.book) && state.selectedLengths.includes(p.length)),
-                  );
-                  const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (l) =>
-                    ALL_READING.some((p) => p.length === l && next.includes(p.book) && nextLevels.includes(p.level)),
-                  );
-                  mutate({ selectedBooks: next, selectedLevels: nextLevels, selectedLengths: nextLengths });
-                }}
-              />
-            );
-          })}
+            {AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam").map((book) => {
+              const checked = state.selectedBooks.includes(book);
+              const count = ALL_READING.filter(
+                (p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
+              ).length;
+              return (
+                <FilterChipOption
+                  key={book}
+                  label={`${BOOK_LABELS[book]} (${count})`}
+                  active={checked}
+                  onClick={() => {
+                    const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
+                    if (next.length === 0) return;
+                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
+                      ALL_READING.some((p) => p.level === level && next.includes(p.book) && state.selectedLengths.includes(p.length) && matchesReadingSources(p, next, state.selectedExamIds)),
+                    );
+                    const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
+                      ALL_READING.some((p) => p.length === length && next.includes(p.book) && nextLevels.includes(p.level) && matchesReadingSources(p, next, state.selectedExamIds)),
+                    );
+                    mutate({ selectedBooks: next, selectedLevels: nextLevels, selectedLengths: nextLengths });
+                  }}
+                />
+              );
+            })}
+            {AVAILABLE_JLPT_EXAMS.map((exam) => {
+              const checked = state.selectedExamIds.includes(exam.id);
+              const count = ALL_READING.filter((p) => p.examId === exam.id && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
+              return (
+                <FilterChipOption
+                  key={exam.id}
+                  label={`${exam.label} (${count})`}
+                  active={checked}
+                  onClick={() => {
+                    const nextExamIds = checked
+                      ? state.selectedExamIds.filter((id) => id !== exam.id)
+                      : [...new Set([...state.selectedExamIds, exam.id])];
+                    if (nextExamIds.length === 0 && selectedRegularBooks.length === 0) return;
+                    const nextBooks = nextExamIds.length
+                      ? [...new Set([...state.selectedBooks, "jlpt-exam" as const])]
+                      : state.selectedBooks.filter((book) => book !== "jlpt-exam");
+                    const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
+                      ALL_READING.some((p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                    );
+                    const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
+                      ALL_READING.some((p) => p.length === length && nextLevels.includes(p.level) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                    );
+                    mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks, selectedLevels: nextLevels, selectedLengths: nextLengths });
+                  }}
+                />
+              );
+            })}
         </FilterGroup>
 
         {state.selectedBooks.includes("jlpt-exam") ? (
           <FilterGroup title="Phần đề JLPT">
-            {AVAILABLE_TOPICS.map((topic) => {
+            {AVAILABLE_TOPICS.filter((topic) => ALL_READING.some((p) => p.book === "jlpt-exam" && p.topic === topic && !!p.examId && state.selectedExamIds.includes(p.examId) && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length))).map((topic) => {
               const checked = state.selectedTopics.includes(topic);
               const count = ALL_READING.filter(
-                (p) => p.book === "jlpt-exam" && p.topic === topic && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
+                (p) => p.book === "jlpt-exam" && p.topic === topic && !!p.examId && state.selectedExamIds.includes(p.examId) && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
               ).length;
               return (
                 <FilterChipOption
@@ -497,7 +554,7 @@ function ListView({
           {AVAILABLE_LENGTHS.map((length) => {
             const checked = state.selectedLengths.includes(length);
             const count = ALL_READING.filter(
-              (p) => p.length === length && state.selectedLevels.includes(p.level) && state.selectedBooks.includes(p.book),
+              (p) => p.length === length && state.selectedLevels.includes(p.level) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds),
             ).length;
             return (
               <FilterChipOption
@@ -507,13 +564,18 @@ function ListView({
                 onClick={() => {
                   const next = checked ? state.selectedLengths.filter((l) => l !== length) : [...new Set([...state.selectedLengths, length])];
                   if (next.length === 0) return;
-                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (lv) =>
-                    ALL_READING.some((p) => p.level === lv && next.includes(p.length) && state.selectedBooks.includes(p.book)),
-                  );
-                  const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (b) =>
-                    ALL_READING.some((p) => p.book === b && next.includes(p.length) && nextLevels.includes(p.level)),
-                  );
-                  mutate({ selectedLengths: next, selectedLevels: nextLevels, selectedBooks: nextBooks });
+                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
+                      ALL_READING.some((p) => p.level === level && next.includes(p.length) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds)),
+                    );
+                    const nextExamIds = state.selectedExamIds.length
+                      ? pruneToggle(state.selectedExamIds, AVAILABLE_JLPT_EXAMS.map((exam) => exam.id), (id) =>
+                          ALL_READING.some((p) => p.examId === id && next.includes(p.length) && nextLevels.includes(p.level)),
+                        )
+                      : [];
+                    const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (book) =>
+                      ALL_READING.some((p) => p.book === book && next.includes(p.length) && nextLevels.includes(p.level) && (book !== "jlpt-exam" || (!!p.examId && nextExamIds.includes(p.examId)))),
+                    );
+                  mutate({ selectedLengths: next, selectedLevels: nextLevels, selectedBooks: nextBooks, selectedExamIds: nextExamIds });
                 }}
               />
             );

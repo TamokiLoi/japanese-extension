@@ -118,6 +118,8 @@ export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPa
             length: inferLength(group.passage, dataset.meta.level, group.problemGroup),
             book: "jlpt-exam",
             topic,
+            examId: exam.id,
+            examLabel: exam.examLabel,
             estimatedMinutes: Math.max(2, Math.ceil(group.passage.replace(/\s/gu, "").length / 400) + questionCount),
             title: `${exam.examLabel} · ${group.problemGroup} · Bài ${passageNumber}`,
             source: `${exam.examLabel} · ${paper.label} · ${group.problemGroup}`,

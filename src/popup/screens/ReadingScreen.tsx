@@ -5,6 +5,7 @@ import {
   AVAILABLE_LEVELS,
   AVAILABLE_LENGTHS,
   AVAILABLE_BOOKS,
+  AVAILABLE_JLPT_EXAMS,
   AVAILABLE_TOPICS,
   LENGTH_LABELS,
   BOOK_LABELS,
@@ -16,6 +17,7 @@ import {
   getPassageProgress,
   resetPassageAnswers,
   matchesFilters,
+  matchesReadingSources,
   type ReadingViewerState,
 } from "../readingState.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
@@ -153,7 +155,7 @@ function ListView({
   }
 
   async function handleStart() {
-    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics);
+    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
     if (!passage) {
       setError("Không có bài đọc nào khớp bộ lọc này.");
       return;
@@ -183,7 +185,7 @@ function ListView({
         className="quiz-setup"
         title="Bộ lọc"
         defaultOpen
-        summary={`${state.selectedBooks.length}/${AVAILABLE_BOOKS.length} sách${state.selectedBooks.includes("jlpt-exam") ? ` · ${state.selectedTopics.length}/${AVAILABLE_TOPICS.length} dạng JLPT` : ""}`}
+        summary={`${state.selectedBooks.filter((book) => book !== "jlpt-exam").length + state.selectedExamIds.length}/${AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam").length + AVAILABLE_JLPT_EXAMS.length} nguồn${state.selectedExamIds.length ? ` · ${state.selectedTopics.length}/${AVAILABLE_TOPICS.length} dạng JLPT` : ""}`}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <div className="quiz-setup-group">
@@ -192,7 +194,7 @@ function ListView({
               {AVAILABLE_LEVELS.map((level) => {
                 const checked = state.selectedLevels.includes(level);
                 const count = ALL_READING.filter(
-                  (p) => p.level === level && state.selectedLengths.includes(p.length) && state.selectedBooks.includes(p.book),
+                  (p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds),
                 ).length;
                 return (
                   <label key={level} className="level-check">
@@ -219,7 +221,7 @@ function ListView({
         <div className="quiz-setup-group">
           <div className="quiz-setup-label">Sách</div>
           <div className="reading-book-radio-row">
-            {AVAILABLE_BOOKS.map((book) => {
+            {AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam").map((book) => {
               const checked = state.selectedBooks.includes(book);
               const count = ALL_READING.filter(
                 (p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
@@ -247,16 +249,42 @@ function ListView({
               );
             })}
           </div>
+          <div className="quiz-radio-row">
+            {AVAILABLE_JLPT_EXAMS.map((exam) => {
+              const checked = state.selectedExamIds.includes(exam.id);
+              const count = ALL_READING.filter((p) => p.examId === exam.id && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
+              return (
+                <label key={exam.id} className="quiz-radio">
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={(event) => {
+                      const nextExamIds = event.target.checked
+                        ? [...new Set([...state.selectedExamIds, exam.id])]
+                        : state.selectedExamIds.filter((id) => id !== exam.id);
+                      const regularBooks = state.selectedBooks.filter((book) => book !== "jlpt-exam");
+                      if (nextExamIds.length === 0 && regularBooks.length === 0) return;
+                      const nextBooks = nextExamIds.length
+                        ? [...new Set([...state.selectedBooks, "jlpt-exam" as const])]
+                        : regularBooks;
+                      mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks });
+                    }}
+                  />
+                  {exam.label} <span className="muted">({count})</span>
+                </label>
+              );
+            })}
+          </div>
         </div>
 
         {state.selectedBooks.includes("jlpt-exam") ? (
           <div className="quiz-setup-group">
             <div className="quiz-setup-label">Phần đề JLPT</div>
             <div className="quiz-radio-row">
-              {AVAILABLE_TOPICS.map((topic) => {
+              {AVAILABLE_TOPICS.filter((topic) => ALL_READING.some((p) => p.book === "jlpt-exam" && p.topic === topic && !!p.examId && state.selectedExamIds.includes(p.examId) && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length))).map((topic) => {
                 const checked = state.selectedTopics.includes(topic);
                 const count = ALL_READING.filter(
-                  (p) => p.book === "jlpt-exam" && p.topic === topic && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
+                  (p) => p.book === "jlpt-exam" && p.topic === topic && !!p.examId && state.selectedExamIds.includes(p.examId) && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
                 ).length;
                 return (
                   <label key={topic} className="quiz-radio">
@@ -285,7 +313,7 @@ function ListView({
             {AVAILABLE_LENGTHS.map((length) => {
               const checked = state.selectedLengths.includes(length);
               const count = ALL_READING.filter(
-                (p) => p.length === length && state.selectedLevels.includes(p.level) && state.selectedBooks.includes(p.book),
+                (p) => p.length === length && state.selectedLevels.includes(p.level) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds),
               ).length;
               return (
                 <label key={length} className="quiz-radio">

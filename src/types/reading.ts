@@ -52,6 +52,10 @@ export interface ReadingPassage {
   // Source problem-group topic, e.g. "N3 · 問題3", used to practice one
   // JLPT reading part at a time. Other books may omit it.
   topic?: string;
+  // JLPT exam cycle metadata; lets reading filters separate individual
+  // official papers while keeping `book: "jlpt-exam"` as their shared type.
+  examId?: string;
+  examLabel?: string;
   estimatedMinutes: number;
   title: string;
   // Which book/section this was adapted from -- kept for personal reference,
