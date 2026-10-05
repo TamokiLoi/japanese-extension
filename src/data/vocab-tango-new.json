@@ -1,16 +1,17 @@
 {
   "meta": {
     "schemaVersion": "1.0",
-    "generatedAt": "2026-09-10T15:36:09.000Z",
+    "generatedAt": "2026-10-05T13:35:34.286Z",
     "counts": {
-      "total": 5403
+      "total": 5408
     },
     "sources": {
       "dataset": "nihongotojapan.com vocab index (JMdict-derived word/reading/meaning + site's own JLPT-level tagging, pitch accent, example sentences)",
       "raw_file": "assets/data/tango-nihongotojapan/index.json",
-      "pipeline": "Loc bo tu khong pho bien (ten rieng/thuat ngu hiem/thanh ngu qua dac thu) bang Gemini truoc (_scratch/filter_common_tango_new.py), giu 5397/6927 tu (~82%). Sau do dich meaningVi/exampleVi + phan loai partOfSpeech/verbGroup/transitivity bang Gemini (_scratch/build_tango_new.py). conjugations tinh toan xac dinh (deterministic, khong qua AI) tu quy tac chia godan/ichidan/suru/kuru chuan, dua tren verbGroup Gemini phan loai (_scratch/ja_conjugate.py)."
+      "pipeline": "Loc bo tu khong pho bien (ten rieng/thuat ngu hiem/thanh ngu qua dac thu) bang Gemini truoc (_scratch/filter_common_tango_new.py), giu 5397/6927 tu (~82%). Sau do dich meaningVi/exampleVi + phan loai partOfSpeech/verbGroup/transitivity bang Gemini (_scratch/build_tango_new.py). conjugations tinh toan xac dinh (deterministic, khong qua AI) tu quy tac chia godan/ichidan/suru/kuru chuan, dua tren verbGroup Gemini phan loai (_scratch/ja_conjugate.py).",
+      "correctionReview": "nihongo-nin-data-corrections-2026-10-05.json (reviewed 2026-10-05 with Gemini, dictionary sources, and app corpus)"
     },
-    "notes": "5397 tu moi (khong trung voi cac bo Tango N1-N5 hien co trong app). Nguon tu index.json cua nihongotojapan.com (8330 tu N5-N1), da loc con tu pho bien qua Gemini truoc khi convert. meaningVi/exampleVi/partOfSpeech/verbGroup/transitivity: Gemini phan loai/dich tu nghia Anh+Trung va vi du that co san (khong tu bia). conjugations: tinh xac dinh tu quy tac ngu phap, KHONG qua AI -- do tin cay cao hon cac truong con lai. 11 tu bi loi conjugation (co the do Gemini phan loai sai nhom hoac tu bat quy tac khong duoc ho tro) -- kiem tra lai thu cong neu thay conjugations rong o dong tu. Da bo sung field english (nghia tieng Anh goc) cho toan bo 5397 tu bang cach doi chieu lai voi assets/data/tango-nihongotojapan/index.json (field en), khong qua AI -- du lieu nay von co san trong nguon nhung bi bo qua luc convert ban dau. Bo sung thu cong 3 tu (坂道, 通り道, 片道) theo yeu cau nguoi dung -- khong co trong nguon goc index.json. Bo sung thu cong 2 tu (通知, つまらない) theo yeu cau nguoi dung -- khong co trong nguon goc index.json."
+    "notes": "5397 tu moi (khong trung voi cac bo Tango N1-N5 hien co trong app). Nguon tu index.json cua nihongotojapan.com (8330 tu N5-N1), da loc con tu pho bien qua Gemini truoc khi convert. meaningVi/exampleVi/partOfSpeech/verbGroup/transitivity: Gemini phan loai/dich tu nghia Anh+Trung va vi du that co san (khong tu bia). conjugations: tinh xac dinh tu quy tac ngu phap, KHONG qua AI -- do tin cay cao hon cac truong con lai. 11 tu bi loi conjugation (co the do Gemini phan loai sai nhom hoac tu bat quy tac khong duoc ho tro) -- kiem tra lai thu cong neu thay conjugations rong o dong tu. Da bo sung field english (nghia tieng Anh goc) cho toan bo 5397 tu bang cach doi chieu lai voi assets/data/tango-nihongotojapan/index.json (field en), khong qua AI -- du lieu nay von co san trong nguon nhung bi bo qua luc convert ban dau. Bo sung thu cong 3 tu (坂道, 通り道, 片道) theo yeu cau nguoi dung -- khong co trong nguon goc index.json. Bo sung thu cong 2 tu (通知, つまらない) theo yeu cau nguoi dung -- khong co trong nguon goc index.json. Đã rà soát và cập nhật 5 mục 設備, 当日, 寝坊, 緩い, 温い theo góp ý ngày 2026-10-05; nhãn N3 theo học liệu trong app và đề xuất của người dùng, không khẳng định là danh sách JLPT chính thức. Đã chỉnh nghĩa 工夫, 〜ように言う và 翌週 trong file nguồn tương ứng."
   },
   "words": [
     {
@@ -109520,6 +109521,81 @@
       "example": "この映画はつまらなかった。",
       "exampleVi": "Bộ phim này chán quá.",
       "english": "boring, dull, trivial",
+      "pitch": null
+    },
+    {
+      "id": "tangonew-5404",
+      "word": "設備",
+      "reading": "せつび",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "THIẾT BỊ"
+      ],
+      "meaningVi": "Thiết bị; cơ sở vật chất",
+      "mnemonic": [],
+      "example": "この病院は最新の設備を整えている。",
+      "exampleVi": "Bệnh viện này được trang bị thiết bị hiện đại nhất.",
+      "pitch": null
+    },
+    {
+      "id": "tangonew-5405",
+      "word": "当日",
+      "reading": "とうじつ",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "ĐƯƠNG NHẬT"
+      ],
+      "meaningVi": "Ngày hôm đó; ngày diễn ra sự việc",
+      "mnemonic": [],
+      "example": "当日、直接集合場所に来てください。",
+      "exampleVi": "Hãy đến thẳng địa điểm tập trung vào ngày hôm đó.",
+      "pitch": null
+    },
+    {
+      "id": "tangonew-5406",
+      "word": "寝坊",
+      "reading": "ねぼう",
+      "level": "N3",
+      "partOfSpeech": "Danh từ",
+      "hanViet": [
+        "TẨM PHƯỜNG"
+      ],
+      "meaningVi": "Dậy muộn; ngủ quá giờ",
+      "mnemonic": [],
+      "example": "寝坊して会社に遅刻した。",
+      "exampleVi": "Tôi dậy muộn nên đi làm trễ.",
+      "pitch": null
+    },
+    {
+      "id": "tangonew-5407",
+      "word": "緩い",
+      "reading": "ゆるい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "HOÃN"
+      ],
+      "meaningVi": "Lỏng; không chặt",
+      "mnemonic": [],
+      "example": "くつひもが緩い。",
+      "exampleVi": "Dây giày buộc lỏng.",
+      "pitch": null
+    },
+    {
+      "id": "tangonew-5408",
+      "word": "温い",
+      "reading": "ぬるい",
+      "level": "N3",
+      "partOfSpeech": "Tính từ",
+      "hanViet": [
+        "ÔN"
+      ],
+      "meaningVi": "Âm ấm; không đủ nóng",
+      "mnemonic": [],
+      "example": "風呂がぬるい。",
+      "exampleVi": "Nước tắm hơi âm ấm.",
       "pitch": null
     }
   ]
