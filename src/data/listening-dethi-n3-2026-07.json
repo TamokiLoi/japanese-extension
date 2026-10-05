@@ -1407,7 +1407,7 @@
         {
           "speaker": "音声",
           "text": "ちょっと体の調子が悪いらしいよ。",
-          "textVi": "Hình như sức khỏe cơ thể cậu ấy không được tốt lắm."
+          "textVi": "Hình như cậu ấy không khỏe lắm."
         }
       ],
       "question": "3番",
@@ -1415,16 +1415,16 @@
       "options": [
         "少し休んだ方がいいんじゃない？",
         "もうちょっと休んでほしい？",
-        "ちょっと体の調子悪いらしいよ"
+        "ちょっと体の調子が悪いらしいよ"
       ],
       "optionsVi": [
         "Cậu có nghĩ là nên nghỉ ngơi một chút không?",
         "Cậu có muốn nghỉ ngơi thêm một chút nữa không?",
-        "Hình như sức khỏe cơ thể không được tốt lắm."
+        "Hình như cậu ấy không khỏe lắm."
       ],
       "optionExplanations": [
         "Phương án 1 đúng vì đây là câu đưa ra lời khuyên ân cần, phù hợp để nói với bạn khi họ mệt mỏi.",
-        "Phương án 2 sai vì dùng từ 'hwant cậu nghỉ ngơi' diễn đạt không tự nhiên và mang tính sai khiến trong ngữ cảnh này.",
+        "Phương án 2 sai vì đây là câu hỏi xem người nghe có muốn nghỉ thêm hay không, chứ không trực tiếp khuyên người bạn đang mệt nên nghỉ ngơi.",
         "Phương án 3 sai vì đây là câu tường thuật lại tình trạng của người khác cho người thứ ba nghe, không phải là lời nói trực tiếp với người bạn."
       ],
       "questionImage": "public/images/listening/cacnam-2026-07-listening-p3.jpg",
@@ -1432,7 +1432,7 @@
       "optionsInTurns": true,
       "correctIndex": 0,
       "explanation": "Đáp án đúng là phương án 1 vì đây là cách diễn đạt phù hợp để đưa ra lời khuyên nhẹ nhàng khi thấy bạn mình không khỏe.",
-      "notes": "Đáp án/lựa chọn lấy từ đề JLPT và đối chiếu answer key. Transcript tạo từ audio gốc bằng Gemini 3.5 Transcribe rồi được rà theo Script PDF và audio; khác biệt giữa văn bản in và lời đọc được ghi chú riêng ở câu tương ứng. Mốc phát là thời gian tuyệt đối trên audio nguyên đề, dùng riêng ở Luyện nghe và xem lại sau nộp; bài thi gốc vẫn phát liên tục."
+      "notes": "Đáp án 1 khớp Script PDF (問題4・3番 正解1) và answer key chính thức. Lựa chọn 3 được chuẩn hóa đúng nguyên văn Script PDF, gồm trợ từ が. Mốc phát đã qua audit ranh giới audio độc lập; phần bài thi gốc vẫn phát liên tục."
     },
     {
       "id": "listening-dethi-n3-2026-07-q19",
