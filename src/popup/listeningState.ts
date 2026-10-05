@@ -15,6 +15,8 @@ import listeningShinkanzenRaw from "../data/listening-shinkanzen-n3.json";
 // lựa chọn in trên đề giấy; Mondai 3/4/5 có transcript/đáp án do Gemini nghe
 // audio suy luận và đã được kiểm tra thủ công (xem field `notes` từng câu).
 import listeningDethi202512Raw from "../data/listening-dethi-2025-12.json";
+import listeningDethiN3July2024Raw from "../data/listening-dethi-n3-2024-07.json";
+import listeningDethiN3Dec2024Raw from "../data/listening-dethi-n3-2024-12.json";
 // N3 T7/2025 practice questions use the source's separate script booklet;
 // spoken choices stay audio-only for 問題3/4/5. Q20/Q21 follow the printed
 // source answer keys; Q18 uses the audio-verified answer after a key typo.
@@ -43,6 +45,8 @@ const soumatomeDataset = listeningSoumatomeRaw as unknown as ListeningDataset;
 const speedmasterDataset = listeningSpeedmasterRaw as unknown as ListeningDataset;
 const shinkanzenDataset = listeningShinkanzenRaw as unknown as ListeningDataset;
 const dethi202512Dataset = listeningDethi202512Raw as unknown as ListeningDataset;
+const dethiN3July2024Dataset = listeningDethiN3July2024Raw as unknown as ListeningDataset;
+const dethiN3Dec2024Dataset = listeningDethiN3Dec2024Raw as unknown as ListeningDataset;
 const dethiN3July2025Dataset = listeningDethiN3July2025Raw as unknown as ListeningDataset;
 const dethiN1July2026Dataset = listeningDethiN1July2026Raw as unknown as ListeningDataset;
 const dethiN3July2026Dataset = listeningDethiN3July2026Raw as unknown as ListeningDataset;
@@ -65,6 +69,8 @@ export const ALL_LISTENING: ListeningQuestion[] = [
   ...soumatomeDataset.questions,
   ...speedmasterDataset.questions,
   ...completeShinkanzenQuestions,
+  ...dethiN3July2024Dataset.questions,
+  ...dethiN3Dec2024Dataset.questions,
   ...completeDethi202512Questions,
   ...dethiN3July2025Dataset.questions,
   ...dethiN1July2026Dataset.questions,
@@ -97,6 +103,8 @@ export const BOOK_LABELS: Record<string, string> = {
   soumatome: "Nihongo Sou Matome N3 Choukai",
   speedmaster: "Speed Master N3 Choukai",
   shinkanzen: "Shin Kanzen Master N3 Choukai",
+  "dethi-n3-2024-07": "Đề thi thật N3 T7/2024 (28 câu nghe)",
+  "dethi-n3-2024-12": "Đề thi thật N3 T12/2024 (28 câu nghe)",
   "dethi-2025-12": "Đề thi thật N3 T12/2025 (28 câu nghe)",
   "dethi-n3-2025-07": "Đề thi thật N3 T7/2025 (28 câu nghe)",
   "dethi-n1-2026-07": "Đề thi thật N1 T7/2026 (30 câu nghe)",
@@ -105,7 +113,7 @@ export const BOOK_LABELS: Record<string, string> = {
   "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-2025-12", "dethi-n3-2025-07", "dethi-n1-2026-07", "dethi-n3-2026-07", "kaiwa-100cau"];
+const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-n3-2024-07", "dethi-n3-2024-12", "dethi-2025-12", "dethi-n3-2025-07", "dethi-n1-2026-07", "dethi-n3-2026-07", "kaiwa-100cau"];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {

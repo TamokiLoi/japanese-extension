@@ -251,6 +251,8 @@ function questionTranslationForQuestion(paper: DeThiPaper, index: number): strin
 }
 
 const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
+  "cacnam-n3-2024-07": "dethi-n3-2024-07",
+  "cacnam-n3-2024-12": "dethi-n3-2024-12",
   "cacnam-n3-2025-12": "dethi-2025-12",
   "cacnam-n1-2026-07": "dethi-n1-2026-07",
   "cacnam-n3-2026-07": "dethi-n3-2026-07",
@@ -280,7 +282,7 @@ function withListeningReviewContent(examId: string, paperId: string, question: D
     question: source.question.trim()
       ? hasQuestionSentence ? source.question.trim() : question.question
       : source.taskType === "sokuji" ? "" : question.question,
-    questionVi: hasQuestionSentence ? source.questionVi || question.questionVi : question.questionVi,
+    questionVi: source.questionVi || question.questionVi,
     optionsVi: source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
     optionExplanations: source.optionExplanations?.length === expectedOptionCount ? source.optionExplanations : question.optionExplanations,
     listeningAudioUrl: source.audioUrl,
