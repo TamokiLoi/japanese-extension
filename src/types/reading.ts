@@ -34,6 +34,9 @@ export interface ReadingQuestion {
   questionVi: string;
   options: string[];
   optionsVi: string[];
+  // Source-emphasized substring, copied from the exam prompt or conservatively
+  // inferred from an exact quote in the associated passage.
+  underline?: string;
   correctIndex: number;
   explanation: string;
   questionType?: ReadingQuestionType;
@@ -73,6 +76,11 @@ export interface ReadingPassage {
   // Optional worked-analysis note (Vietnamese) adapted from the source
   // book's own "how to think through this" walkthrough -- e.g. Taisaku
   // Mondai's かんがえよう section, which reasons through each choice rather
+  // Exact source phrases underlined by one or more questions for this passage.
+  underlinedPhrases?: string[];
+  // Exact UTF-16 character ranges in the concatenated passage body. Supports
+  // a specific occurrence when an underlined phrase repeats in the passage.
+  underlinedRanges?: { start: number; end: number }[];
   // than just stating the answer. Shown as an extra toggle in the UI when
   // present; most passages/books won't have one.
   studyNote?: string;

@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
+import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import {
   ALL_READING,
   AVAILABLE_LEVELS,
@@ -52,7 +53,13 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function renderTextWithReferences(text: string, terms: ReferenceTerm[], highlightReferences: boolean): ReactNode {
+function renderTextWithReferences(
+  text: string,
+  terms: ReferenceTerm[],
+  highlightReferences: boolean,
+  underlineRanges: TextRange[] = [],
+  sourceOffset = 0,
+): ReactNode {
   const renderLines = (value: string, keyPrefix: string) =>
     value.split("\n").map((line, lineIndex, lines) => (
       <span key={`${keyPrefix}-${lineIndex}`}>
@@ -61,22 +68,43 @@ function renderTextWithReferences(text: string, terms: ReferenceTerm[], highligh
       </span>
     ));
 
-  if (!highlightReferences || terms.length === 0) return renderLines(text, "plain");
+  const uniqueTerms = highlightReferences
+    ? [...new Set(terms.map((term) => term.text).filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length)
+    : [];
+  const referenceRanges: TextRange[] = [];
+  for (const term of uniqueTerms) {
+    const pattern = new RegExp(escapeRegExp(term), "gu");
+    for (const match of text.matchAll(pattern)) {
+      const start = match.index ?? 0;
+      referenceRanges.push({ start, end: start + match[0].length });
+    }
+  }
+  const localUnderlineRanges = underlineRanges.flatMap((range) => {
+    const start = Math.max(0, range.start - sourceOffset);
+    const end = Math.min(text.length, range.end - sourceOffset);
+    return start < end ? [{ start, end }] : [];
+  });
+  if (referenceRanges.length === 0 && localUnderlineRanges.length === 0) return renderLines(text, "plain");
 
-  const uniqueTerms = [...new Set(terms.map((term) => term.text).filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length);
-  if (uniqueTerms.length === 0) return renderLines(text, "plain");
-  const pattern = new RegExp(`(${uniqueTerms.map(escapeRegExp).join("|")})`, "g");
-
-  return text.split(pattern).map((part, index) => {
-    const matched = uniqueTerms.includes(part);
-    const lines = renderLines(part, `highlight-${index}`);
-    return matched ? (
-      <strong key={index} className="font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2">
-        {lines}
+  const boundaries = new Set([0, text.length]);
+  for (const range of [...referenceRanges, ...localUnderlineRanges]) {
+    boundaries.add(range.start);
+    boundaries.add(range.end);
+  }
+  const points = [...boundaries].sort((a, b) => a - b);
+  return points.slice(0, -1).map((start, index) => {
+    const end = points[index + 1];
+    const part = text.slice(start, end);
+    const isReference = referenceRanges.some((range) => start >= range.start && end <= range.end);
+    const isUnderlined = localUnderlineRanges.some((range) => start >= range.start && end <= range.end);
+    const content = renderLines(part, `marked-${index}`);
+    return isReference || isUnderlined ? (
+      <strong key={index} className={isReference
+        ? "font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2"
+        : "font-bold underline decoration-2 underline-offset-2"}>
+        {content}
       </strong>
-    ) : (
-      <span key={index}>{lines}</span>
-    );
+    ) : <span key={index}>{content}</span>;
   });
 }
 
@@ -91,18 +119,23 @@ function ReadingBody({
   referenceTerms?: ReferenceTerm[];
   highlightReferences?: boolean;
 }) {
+  const passageText = passage.body.map((segment) => segment.text).join("");
+  const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
+  let sourceOffset = 0;
   return (
     <>
-      {passage.body.map((seg, i) =>
-        showFurigana && seg.furigana ? (
+      {passage.body.map((seg, i) => {
+        const offset = sourceOffset;
+        sourceOffset += seg.text.length;
+        return showFurigana && seg.furigana ? (
           <ruby key={i}>
-            {renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}
+            {renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}
             <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
           </ruby>
         ) : (
-          <span key={i}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}</span>
-        ),
-      )}
+          <span key={i}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}</span>
+        );
+      })}
     </>
   );
 }
@@ -123,21 +156,27 @@ function ReadingBodyInterleaved({
   highlightReferences?: boolean;
 }) {
   const groups = splitBodyIntoSentences(passage.body);
+  const passageText = passage.body.map((segment) => segment.text).join("");
+  const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
+  let sourceSearchFrom = 0;
   return (
     <div className="flex flex-col gap-3">
       {groups.map((segs, gi) => (
         <div key={gi}>
           <div>
-            {segs.map((seg, si) =>
-              showFurigana && seg.furigana ? (
+            {segs.map((seg, si) => {
+              const matchOffset = passageText.indexOf(seg.text, sourceSearchFrom);
+              const offset = matchOffset >= 0 ? matchOffset : sourceSearchFrom;
+              sourceSearchFrom = offset + seg.text.length;
+              return showFurigana && seg.furigana ? (
                 <ruby key={si}>
-                  {renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}
+                  {renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}
                   <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
                 </ruby>
               ) : (
-                <span key={si}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences)}</span>
-              ),
-            )}
+                <span key={si}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}</span>
+              );
+            })}
           </div>
           {passage.sentencesVi?.[gi] ? (
             <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic">
@@ -910,7 +949,12 @@ function PassageView({
             <Card key={qi} className="gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
               <div className="flex flex-col items-start gap-2">
                 <div className="font-semibold text-neutral-800">
-                  Câu {q.sourceNumber ?? qi + 1}: {q.question}
+                  Câu {q.sourceNumber ?? qi + 1}: {renderTextWithReferences(
+                    q.question,
+                    [],
+                    false,
+                    findUniqueTextRanges(q.question, q.underline ? [q.underline] : []),
+                  )}
                 </div>
                 {q.questionVi?.trim() ? (
                   <button

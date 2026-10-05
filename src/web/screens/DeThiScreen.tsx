@@ -39,6 +39,7 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
+import { readingPassageUnderlineRange, readingQuestionUnderline } from "../../lib/jlptReadingAnnotations.ts";
 import type { Screen } from "../../popup/screens.ts";
 
 type Step =
@@ -398,6 +399,7 @@ function PassageTextWithReferences({
   highlightReferences,
   furigana,
   showFurigana,
+  underlineRange,
 }: {
   text: string;
   questionNumber: number;
@@ -405,6 +407,7 @@ function PassageTextWithReferences({
   highlightReferences: boolean;
   furigana?: { text: string; furigana: string | null }[] | null;
   showFurigana?: boolean;
+  underlineRange?: { start: number; end: number };
 }) {
   const terms = highlightReferences
     ? [...new Set(referenceTerms.filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length)
@@ -412,15 +415,38 @@ function PassageTextWithReferences({
   const pattern = terms.length > 0 ? new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gu") : null;
   const paragraphRanges = splitPassageParagraphs(text);
 
-  const renderHighlightedText = (value: string) => pattern
-    ? value.split(pattern).map((part, index) => terms.includes(part) ? (
-        <strong key={index} className="font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2">
-          <PassageText text={part} questionNumber={questionNumber} />
-        </strong>
-      ) : (
-        <PassageText key={index} text={part} questionNumber={questionNumber} />
-      ))
-    : <PassageText text={value} questionNumber={questionNumber} />;
+  const renderHighlightedText = (value: string, sourceOffset: number) => {
+    const referenceRanges: { start: number; end: number }[] = [];
+    if (pattern) {
+      for (const match of value.matchAll(pattern)) {
+        const start = match.index ?? 0;
+        referenceRanges.push({ start, end: start + match[0].length });
+      }
+    }
+    const localUnderlineRange = !underlineRange ? [] : [{
+      start: Math.max(0, underlineRange.start - sourceOffset),
+      end: Math.min(value.length, underlineRange.end - sourceOffset),
+    }].filter((range) => range.start < range.end);
+    if (!referenceRanges.length && !localUnderlineRange.length) return <PassageText text={value} questionNumber={questionNumber} />;
+    const boundaries = new Set([0, value.length]);
+    for (const range of [...referenceRanges, ...localUnderlineRange]) {
+      boundaries.add(range.start);
+      boundaries.add(range.end);
+    }
+    const points = [...boundaries].sort((left, right) => left - right);
+    return points.slice(0, -1).map((start, index) => {
+      const end = points[index + 1];
+      const part = value.slice(start, end);
+      const isReference = referenceRanges.some((range) => start >= range.start && end <= range.end);
+      const isUnderlined = localUnderlineRange.some((range) => start >= range.start && end <= range.end);
+      const content = <PassageText text={part} questionNumber={questionNumber} />;
+      return isReference || isUnderlined ? (
+        <strong key={index} className={isReference
+          ? "font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2"
+          : "font-bold underline decoration-2 underline-offset-2"}>{content}</strong>
+      ) : <span key={index}>{content}</span>;
+    });
+  };
 
   const furiganaMatchesText = furigana?.map((segment) => segment.text).join("") === text;
   const renderFuriganaRange = (start: number, end: number) => {
@@ -578,33 +604,25 @@ function QuestionText({
   showFurigana?: boolean;
 }) {
   if (showFurigana && furigana && furigana.length > 0) {
-    // Underline only the FIRST matching segment -- matches the plain-text
-    // path below (text.indexOf), which only ever finds the first occurrence.
-    // Without this, a tested word/kanji that happens to appear twice in the
-    // sentence got underlined at every occurrence with furigana on, but only
-    // the first with it off -- a toggle that's only supposed to affect ruby
-    // readings ended up changing which text reads as "the tested word".
-    let underlinedOnce = false;
+    const furiganaText = furigana.map((segment) => segment.text).join("");
+    const underlineStart = furiganaText === text && underline ? text.indexOf(underline) : -1;
+    let offset = 0;
     return (
       <>
         {furigana.map((seg, i) => {
-          const isUnderlined = !underlinedOnce && underline != null && seg.text === underline;
-          if (isUnderlined) underlinedOnce = true;
-          const content = seg.furigana ? (
-            <ruby>
-              {seg.text}
-              <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
-            </ruby>
-          ) : (
-            seg.text
-          );
-          return isUnderlined ? (
-            <span key={i} className="font-bold underline decoration-2 underline-offset-2">
-              {content}
-            </span>
-          ) : (
-            <span key={i}>{content}</span>
-          );
+          const segmentStart = offset;
+          const segmentEnd = offset + seg.text.length;
+          offset = segmentEnd;
+          const markedStart = Math.max(0, underlineStart - segmentStart);
+          const markedEnd = Math.min(seg.text.length, underlineStart + (underline?.length ?? 0) - segmentStart);
+          const content = underlineStart >= 0 && markedStart < markedEnd
+            ? <>
+                {seg.text.slice(0, markedStart)}
+                <span className="font-bold underline decoration-2 underline-offset-2">{seg.text.slice(markedStart, markedEnd)}</span>
+                {seg.text.slice(markedEnd)}
+              </>
+            : seg.text;
+          return <span key={i}>{seg.furigana ? <ruby>{content}<rt className="text-[10px] text-neutral-400">{seg.furigana}</rt></ruby> : content}</span>;
         })}
       </>
     );
@@ -1375,14 +1393,14 @@ function TakingView({
 
         {passage ? (
           <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
-            <PassageTextWithReferences text={passage} questionNumber={q.number} referenceTerms={[]} highlightReferences={false} />
+            <PassageTextWithReferences text={passage} questionNumber={q.number} referenceTerms={[]} highlightReferences={false} underlineRange={readingPassageUnderlineRange(q.question, q.underline, q.passageUnderline, passage, q.passageUnderlineOccurrence)} />
           </div>
         ) : null}
 
         <div className="mt-4 flex items-start gap-2 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">
           <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-sm font-bold text-neutral-600">{q.number}.</span>
           <div className="min-w-0 flex-1">
-            <QuestionText text={formatExamQuestion(q.question, q.problemGroup)} underline={q.underline} />
+            <QuestionText text={formatExamQuestion(q.question, q.problemGroup)} underline={readingQuestionUnderline(q.question, q.underline, passage)} />
           </div>
         </div>
 
@@ -1739,6 +1757,8 @@ function ReviewQuestion({
   showListeningAudio?: boolean;
 }) {
   const orderingReconstruction = reconstructOrderingQuestion(question);
+  const sourceUnderline = readingQuestionUnderline(question.question, question.underline, passage);
+  const sourcePassageUnderline = readingPassageUnderlineRange(question.question, question.underline, question.passageUnderline, passage, question.passageUnderlineOccurrence);
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
   const [showListeningTranslation, setShowListeningTranslation] = useState(false);
@@ -1918,7 +1938,7 @@ function ReviewQuestion({
               {translatedUnitsWithFurigana.map((unit, index) => (
                 <div key={index}>
                   <div className="whitespace-pre-line">
-                    <PassageTextWithReferences text={unit.japanese} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={unit.furigana} showFurigana={showFurigana} />
+                    <PassageTextWithReferences text={unit.japanese} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={unit.furigana} showFurigana={showFurigana} underlineRange={sourcePassageUnderline} />
                   </div>
                   {unit.vietnamese ? (
                     <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic whitespace-pre-line">
@@ -1929,7 +1949,7 @@ function ReviewQuestion({
               ))}
             </div>
           ) : (
-            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={passageFurigana} showFurigana={showFurigana} />
+            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={passageFurigana} showFurigana={showFurigana} underlineRange={sourcePassageUnderline} />
           )}
         </div>
       ) : null}
@@ -2021,7 +2041,7 @@ function ReviewQuestion({
         <div className="mt-3 flex items-start gap-2 whitespace-pre-line text-base font-semibold leading-loose text-neutral-800">
           <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-bold text-neutral-600">{question.number}.</span>
           <div className="min-w-0 flex-1">
-            <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={question.underline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
+            <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={sourceUnderline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
           </div>
         </div>
       ) : null}

@@ -2,6 +2,7 @@
 // Keep the legacy passage ID recipe to preserve bookmarks and question progress.
 import type { DeThiDataset, DeThiQuestion, DeThiPaper } from "../types/dethi.ts";
 import type { ReadingLength, ReadingPassage, ReadingQuestion } from "../types/reading.ts";
+import { readingPassageUnderlineRanges, readingQuestionUnderline } from "./jlptReadingAnnotations.ts";
 
 const SAME_PASSAGE_MARKERS = new Set(["（上記と同じ）", "（同上）"]);
 
@@ -55,10 +56,11 @@ function inferLength(passage: string, level: string, problemGroup: string): Read
   return "long";
 }
 
-function toReadingQuestions(questions: DeThiQuestion[]): ReadingQuestion[] {
+function toReadingQuestions(questions: DeThiQuestion[], passage: string): ReadingQuestion[] {
   return questions.map((question) => ({
     sourceNumber: question.number,
     question: question.question,
+    underline: readingQuestionUnderline(question.question, question.underline, passage),
     questionVi: question.questionVi ?? "",
     options: [...question.options],
     optionsVi: question.options.map((_, index) => question.optionsVi?.[index] ?? ""),
@@ -103,6 +105,7 @@ export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPa
           const passageSentencesVi = groupQuestions.find((question) => question.passageSentencesVi?.length)?.passageSentencesVi;
           const furigana = groupQuestions.find((question) => question.passageFurigana?.length)?.passageFurigana;
           const body = furigana?.length ? furigana : [{ text: group.passage, furigana: null }];
+          const visiblePassageText = body.map((segment) => segment.text).join("");
           const presentation = groupQuestions.find((question) => question.readingPresentation)?.readingPresentation;
           const presentationCurrent = presentation?.bodySignature === stableHash(JSON.stringify(body));
           // Never pair old sentence translations with changed source text/boundaries.
@@ -124,9 +127,10 @@ export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPa
             title: `${exam.examLabel} · ${group.problemGroup} · Bài ${passageNumber}`,
             source: `${exam.examLabel} · ${paper.label} · ${group.problemGroup}`,
             body,
+            underlinedRanges: readingPassageUnderlineRanges(groupQuestions, visiblePassageText),
             translationVi: presentationCurrent ? (presentation?.translationVi ?? passageVi) : passageVi,
             ...(sentencesVi?.length ? { sentencesVi: [...sentencesVi] } : {}),
-            questions: toReadingQuestions(groupQuestions),
+            questions: toReadingQuestions(groupQuestions, group.passage),
           });
         }
       }

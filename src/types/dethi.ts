@@ -50,6 +50,15 @@ export interface DeThiQuestion {
   // blanks: their ★ and slots are already part of the question text.
   // Vocabulary-usage questions instead emphasize the prompt word in options.
   underline?: string;
+  // For reading items, the source can emphasize a different string in the
+  // passage than in the question prompt (or emphasize only the prompt). A
+  // string marks that exact passage substring; null explicitly means the
+  // source passage has no underline for this question. Undefined allows the
+  // conservative exact-text fallback used for annual JLPT reading papers.
+  passageUnderline?: string | null;
+  // Zero-based occurrence when the underlined passage phrase appears more
+  // than once. Useful when the source underlines one repeated phrase only.
+  passageUnderlineOccurrence?: number;
   // Vocabulary usage: 問題4 in N1, 問題5 in some other levels. `question` holds
   // the tested word in dictionary/citation form,
   // but each option sentence uses it inflected (e.g. question "にぎる" appears

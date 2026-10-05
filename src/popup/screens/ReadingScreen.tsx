@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ReadingPassage, ReadingLength, ReadingBook } from "../../types/reading.ts";
+import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import {
   ALL_READING,
   AVAILABLE_LEVELS,
@@ -48,26 +49,53 @@ function timelineLabel(passage: ReadingPassage): string {
   return `${LENGTH_LABELS[passage.length]} · ~${min}-${max} phút`;
 }
 
+function renderReadingTextWithUnderlines(text: string, ranges: TextRange[], sourceOffset = 0) {
+  const renderLines = (value: string, prefix: string) => value.split("\n").map((line, index, lines) => (
+    <span key={`${prefix}-${index}`}>
+      {line}
+      {index < lines.length - 1 ? <br /> : null}
+    </span>
+  ));
+  const localRanges = ranges.flatMap((range) => {
+    const start = Math.max(0, range.start - sourceOffset);
+    const end = Math.min(text.length, range.end - sourceOffset);
+    return start < end ? [{ start, end }] : [];
+  });
+  if (!localRanges.length) return renderLines(text, "plain");
+  const boundaries = new Set([0, text.length]);
+  for (const range of localRanges) {
+    boundaries.add(range.start);
+    boundaries.add(range.end);
+  }
+  const points = [...boundaries].sort((a, b) => a - b);
+  return points.slice(0, -1).map((start, index) => {
+    const end = points[index + 1];
+    const part = text.slice(start, end);
+    return localRanges.some((range) => start >= range.start && end <= range.end)
+      ? <strong key={index} className="font-bold underline decoration-2 underline-offset-2">{renderLines(part, `marked-${index}`)}</strong>
+      : <span key={index}>{renderLines(part, `plain-${index}`)}</span>;
+  });
+}
+
 function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showFurigana: boolean }) {
+  const passageText = passage.body.map((segment) => segment.text).join("");
+  const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
+  let sourceOffset = 0;
   return (
     <>
-      {passage.body.map((seg, i) =>
-        showFurigana && seg.furigana ? (
+      {passage.body.map((seg, i) => {
+        const offset = sourceOffset;
+        sourceOffset += seg.text.length;
+        const markedText = renderReadingTextWithUnderlines(seg.text, underlineRanges, offset);
+        return showFurigana && seg.furigana ? (
           <ruby key={i}>
-            {seg.text}
+            {markedText}
             <rt>{seg.furigana}</rt>
           </ruby>
         ) : (
-          <span key={i}>
-            {seg.text.split("\n").map((line, li, arr) => (
-              <span key={li}>
-                {line}
-                {li < arr.length - 1 ? <br /> : null}
-              </span>
-            ))}
-          </span>
-        ),
-      )}
+          <span key={i}>{markedText}</span>
+        );
+      })}
     </>
   );
 }
@@ -539,7 +567,10 @@ function PassageView({
             return (
               <div key={qi} className="reading-question">
                 <div className="reading-question-prompt">
-                  Câu {q.sourceNumber ?? qi + 1}: {q.question}
+                  Câu {q.sourceNumber ?? qi + 1}: {renderReadingTextWithUnderlines(
+                    q.question,
+                    findUniqueTextRanges(q.question, q.underline ? [q.underline] : []),
+                  )}
                 </div>
                 <div className="quiz-choices">
                   {q.options.map((opt, oi) => {
