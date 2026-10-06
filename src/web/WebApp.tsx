@@ -25,6 +25,7 @@ const VocabScreen = lazy(() => import("./screens/VocabScreen.tsx").then((module)
 const KanjiScreen = lazy(() => import("./screens/KanjiScreen.tsx").then((module) => ({ default: module.KanjiScreen })));
 const SearchScreen = lazy(() => import("./screens/SearchScreen.tsx").then((module) => ({ default: module.SearchScreen })));
 const BunpoScreen = lazy(() => import("./screens/BunpoScreen.tsx").then((module) => ({ default: module.BunpoScreen })));
+const BunpoMapScreen = lazy(() => import("./screens/BunpoMapScreen.tsx").then((module) => ({ default: module.BunpoMapScreen })));
 const QuizScreen = lazy(() => import("./screens/QuizScreen.tsx").then((module) => ({ default: module.QuizScreen })));
 const QuizBookScreen = lazy(() => import("./screens/QuizBookScreen.tsx").then((module) => ({ default: module.QuizBookScreen })));
 const ReadingScreen = lazy(() => import("./screens/ReadingScreen.tsx").then((module) => ({ default: module.ReadingScreen })));
@@ -234,8 +235,18 @@ export function WebApp() {
       <BunpoScreen
         onOpenReading={(passageId) => go("reading", passageId)}
         onOpenQuizBook={(questionId) => go("quizBook", questionId)}
+        onOpenMap={(level) => go("bunpoMap", level === "N3" ? "N3" : undefined)}
         targetId={targetId}
         onCurrentItemChange={syncCurrentItem}
+      />
+    );
+  } else if (screen === "bunpoMap") {
+    content = (
+      <BunpoMapScreen
+        level={targetId === "N3" ? "N3" : "N5"}
+        onChangeLevel={(level) => go("bunpoMap", level === "N3" ? "N3" : undefined)}
+        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onBackToGrammar={() => go("bunpo")}
       />
     );
   } else if (screen === "quiz") {
@@ -313,7 +324,7 @@ export function WebApp() {
       <ConfirmProvider>
         <PwaUpdateManager />
         <WebAppShell
-          active={screen}
+          active={screen === "bunpoMap" ? "bunpo" : screen}
           onNavigate={navigate}
           returnTo={returnTo}
           onGoBack={goBack}

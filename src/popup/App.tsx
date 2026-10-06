@@ -138,6 +138,9 @@ export function App() {
       />
     );
   }
+  if (screen === "bunpoMap") {
+    return <p className="empty">Sơ đồ ngữ pháp hiện chỉ có trên bản Web Dashboard.</p>;
+  }
   if (screen === "review") {
     // Web-only Tailwind screen -- not ported to the extension popup UI in
     // this pass, so this stays a plain static message rather than pulling

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus } from "lucide-react";
+import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus, GitBranch } from "lucide-react";
 import type { BunpoGrammarPoint, BunpoRelatedKind, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -103,11 +103,13 @@ function getVisibleList(state: BunpoViewerState, searchQuery: string, progressMa
 export function BunpoScreen({
   onOpenReading,
   onOpenQuizBook,
+  onOpenMap,
   targetId,
   onCurrentItemChange,
 }: {
   onOpenReading: (passageId: string) => void;
   onOpenQuizBook: (questionId: string) => void;
+  onOpenMap: (level: "N5" | "N3") => void;
   targetId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
 }) {
@@ -157,15 +159,17 @@ export function BunpoScreen({
     return <DetailView g={current} state={state} onOpenReading={onOpenReading} onOpenQuizBook={onOpenQuizBook} mutate={mutate} />;
   }
 
-  return <ListView state={state} mutate={mutate} />;
+  return <ListView state={state} mutate={mutate} onOpenMap={onOpenMap} />;
 }
 
 function ListView({
   state,
   mutate,
+  onOpenMap,
 }: {
   state: BunpoViewerState;
   mutate: (partial: Partial<BunpoViewerState>) => void;
+  onOpenMap: (level: "N5" | "N3") => void;
 }) {
   const [query, setQuery] = useState(state.listSearchQuery);
   const debouncedQuery = useDebouncedValue(query, 150);
@@ -212,6 +216,25 @@ function ListView({
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Ngữ pháp" subtitle={`${chapterFiltered.length} mẫu ngữ pháp`} icon={{ img: "icon-grammar.png", bg: "#d1fae5" }} />
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={() => onOpenMap("N5")}
+          className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-800 transition-colors hover:bg-violet-100"
+        >
+          <GitBranch size={17} aria-hidden="true" />
+          Sơ đồ ngữ pháp N5
+        </button>
+        <button
+          type="button"
+          onClick={() => onOpenMap("N3")}
+          className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-sky-200 bg-sky-50 px-3 py-2 text-sm font-semibold text-sky-800 transition-colors hover:bg-sky-100"
+        >
+          <GitBranch size={17} aria-hidden="true" />
+          Sơ đồ ngữ pháp N3
+        </button>
+      </div>
 
       {bucketCounts ? (
         <div className="mt-4 grid grid-cols-2 gap-3">
