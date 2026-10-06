@@ -145,3 +145,28 @@
     cursor: not-allowed;
   }
 }
+
+@layer components {
+  .reading-passage-text-blocks {
+    @apply flex flex-col gap-3;
+  }
+  .reading-markdown-table-scroll {
+    @apply max-w-full overflow-x-auto overscroll-x-contain rounded-xl border border-neutral-200;
+  }
+  .reading-markdown-table {
+    @apply w-full min-w-[620px] border-collapse text-sm leading-relaxed;
+  }
+  .reading-markdown-table th {
+    @apply border-b border-r border-neutral-200 bg-neutral-50 px-3 py-2 text-left font-semibold;
+  }
+  .reading-markdown-table td {
+    @apply border-b border-r border-neutral-200 px-3 py-2 align-top;
+  }
+  .reading-markdown-table th:last-child,
+  .reading-markdown-table td:last-child {
+    @apply border-r-0;
+  }
+  .reading-markdown-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+}

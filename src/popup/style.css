@@ -1992,6 +1992,55 @@ body.tab-mode .jlpt-list {
   color: #888;
 }
 
+.reading-passage-text-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reading-markdown-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.reading-markdown-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.reading-markdown-table th,
+.reading-markdown-table td {
+  padding: 8px 10px;
+  border-right: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  text-align: left;
+}
+
+.reading-markdown-table th:last-child,
+.reading-markdown-table td:last-child {
+  border-right: 0;
+}
+
+.reading-markdown-table th {
+  background: #f5f5f5;
+  font-weight: 650;
+}
+
+.reading-markdown-table td {
+  vertical-align: top;
+}
+
+.reading-markdown-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .reading-translation {
   margin-top: 10px;
   padding: 10px 12px;

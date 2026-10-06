@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ReadingPassage, ReadingLength, ReadingBook } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
+import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import {
   ALL_READING,
   AVAILABLE_LEVELS,
@@ -80,6 +81,74 @@ function renderReadingTextWithUnderlines(text: string, ranges: TextRange[], sour
 function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showFurigana: boolean }) {
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
+  const markdownTables = findMarkdownPipeTables(passageText);
+  if (markdownTables.length > 0) {
+    let segmentOffset = 0;
+    const segmentRanges = passage.body.map((segment) => {
+      const start = segmentOffset;
+      segmentOffset += segment.text.length;
+      return { segment, start, end: segmentOffset };
+    });
+    const renderTextAtOffset = (text: string, sourceOffset: number, keyPrefix: string, renderBreakTags: boolean) => {
+      if (!renderBreakTags) return renderReadingTextWithUnderlines(text, underlineRanges, sourceOffset);
+      let localOffset = 0;
+      return text.split(/(<br\s*\/?>)/giu).map((part, index) => {
+        const partOffset = localOffset;
+        localOffset += part.length;
+        if (/^<br\s*\/?>$/iu.test(part)) return <br key={`${keyPrefix}-br-${index}`} />;
+        return part ? <span key={`${keyPrefix}-text-${index}`}>{renderReadingTextWithUnderlines(part, underlineRanges, sourceOffset + partOffset)}</span> : null;
+      });
+    };
+    const renderSourceRange = (start: number, end: number, keyPrefix: string, renderBreakTags = false) =>
+      segmentRanges.flatMap(({ segment, start: segmentStart, end: segmentEnd }, index) => {
+        const from = Math.max(start, segmentStart);
+        const to = Math.min(end, segmentEnd);
+        if (from >= to) return [];
+        const text = segment.text.slice(from - segmentStart, to - segmentStart);
+        const content = renderTextAtOffset(text, from, `${keyPrefix}-${index}`, renderBreakTags);
+        const key = `${keyPrefix}-${index}`;
+        return showFurigana && segment.furigana && from === segmentStart && to === segmentEnd
+          ? [<ruby key={key}>{content}<rt>{segment.furigana}</rt></ruby>]
+          : [<span key={key}>{content}</span>];
+      });
+
+    const blocks = [];
+    let cursor = 0;
+    markdownTables.forEach((table, tableIndex) => {
+      const columnCount = table.header?.length ?? Math.max(...table.rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0)));
+      let textEnd = table.start;
+      while (textEnd > cursor && (passageText[textEnd - 1] === "\n" || passageText[textEnd - 1] === "\r")) textEnd--;
+      if (textEnd > cursor) blocks.push(...renderSourceRange(cursor, textEnd, `before-${tableIndex}`));
+      blocks.push(
+        <div key={`table-${tableIndex}`} className="reading-markdown-table-scroll">
+          <table className="reading-markdown-table" style={{ minWidth: `${Math.max(620, columnCount * 140)}px` }}>
+            {table.header ? (
+              <thead>
+                <tr>
+                  {table.header.map((cell, cellIndex) => (
+                    <th key={cellIndex} colSpan={cell.colSpan ?? 1} scope="col">{renderSourceRange(cell.start, cell.end, `header-${tableIndex}-${cellIndex}`, true)}</th>
+                  ))}
+                </tr>
+              </thead>
+            ) : null}
+            <tbody>
+              {table.rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td key={cellIndex} colSpan={cell.colSpan ?? 1}>{renderSourceRange(cell.start, cell.end, `cell-${tableIndex}-${rowIndex}-${cellIndex}`, true)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>,
+      );
+      cursor = table.end;
+      while (passageText[cursor] === "\n" || passageText[cursor] === "\r") cursor++;
+    });
+    if (cursor < passageText.length) blocks.push(...renderSourceRange(cursor, passageText.length, "after-table"));
+    return <div className="reading-passage-text-blocks">{blocks}</div>;
+  }
   let sourceOffset = 0;
   return (
     <>

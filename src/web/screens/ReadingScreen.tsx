@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
+import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import {
   ALL_READING,
   AVAILABLE_LEVELS,
@@ -121,6 +122,74 @@ function ReadingBody({
 }) {
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
+  const markdownTables = findMarkdownPipeTables(passageText);
+  if (markdownTables.length > 0) {
+    let segmentOffset = 0;
+    const segmentRanges = passage.body.map((segment) => {
+      const start = segmentOffset;
+      segmentOffset += segment.text.length;
+      return { segment, start, end: segmentOffset };
+    });
+    const renderTextAtOffset = (text: string, sourceOffset: number, keyPrefix: string, renderBreakTags: boolean): ReactNode => {
+      if (!renderBreakTags) return renderTextWithReferences(text, referenceTerms, highlightReferences, underlineRanges, sourceOffset);
+      let localOffset = 0;
+      return text.split(/(<br\s*\/?>)/giu).map((part, index) => {
+        const partOffset = localOffset;
+        localOffset += part.length;
+        if (/^<br\s*\/?>$/iu.test(part)) return <br key={`${keyPrefix}-br-${index}`} />;
+        return part ? <span key={`${keyPrefix}-text-${index}`}>{renderTextWithReferences(part, referenceTerms, highlightReferences, underlineRanges, sourceOffset + partOffset)}</span> : null;
+      });
+    };
+    const renderSourceRange = (start: number, end: number, keyPrefix: string, renderBreakTags = false): ReactNode[] =>
+      segmentRanges.flatMap(({ segment, start: segmentStart, end: segmentEnd }, index) => {
+        const from = Math.max(start, segmentStart);
+        const to = Math.min(end, segmentEnd);
+        if (from >= to) return [];
+        const text = segment.text.slice(from - segmentStart, to - segmentStart);
+        const content = renderTextAtOffset(text, from, `${keyPrefix}-${index}`, renderBreakTags);
+        const key = `${keyPrefix}-${index}`;
+        return showFurigana && segment.furigana && from === segmentStart && to === segmentEnd
+          ? [<ruby key={key}>{content}<rt className="text-[10px] text-neutral-400">{segment.furigana}</rt></ruby>]
+          : [<span key={key}>{content}</span>];
+      });
+
+    const blocks: ReactNode[] = [];
+    let cursor = 0;
+    markdownTables.forEach((table, tableIndex) => {
+      const columnCount = table.header?.length ?? Math.max(...table.rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0)));
+      let textEnd = table.start;
+      while (textEnd > cursor && (passageText[textEnd - 1] === "\n" || passageText[textEnd - 1] === "\r")) textEnd--;
+      if (textEnd > cursor) blocks.push(...renderSourceRange(cursor, textEnd, `before-${tableIndex}`));
+      blocks.push(
+        <div key={`table-${tableIndex}`} className="reading-markdown-table-scroll">
+          <table className="reading-markdown-table" style={{ minWidth: `${Math.max(620, columnCount * 140)}px` }}>
+            {table.header ? (
+              <thead>
+                <tr>
+                  {table.header.map((cell, cellIndex) => (
+                    <th key={cellIndex} colSpan={cell.colSpan ?? 1} scope="col">{renderSourceRange(cell.start, cell.end, `header-${tableIndex}-${cellIndex}`, true)}</th>
+                  ))}
+                </tr>
+              </thead>
+            ) : null}
+            <tbody>
+              {table.rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {row.map((cell, cellIndex) => (
+                    <td key={cellIndex} colSpan={cell.colSpan ?? 1}>{renderSourceRange(cell.start, cell.end, `cell-${tableIndex}-${rowIndex}-${cellIndex}`, true)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>,
+      );
+      cursor = table.end;
+      while (passageText[cursor] === "\n" || passageText[cursor] === "\r") cursor++;
+    });
+    if (cursor < passageText.length) blocks.push(...renderSourceRange(cursor, passageText.length, "after-table"));
+    return <div className="reading-passage-text-blocks">{blocks}</div>;
+  }
   let sourceOffset = 0;
   return (
     <>
@@ -719,6 +788,7 @@ function PassageView({
   const showStudyNote = viewOptions.showStudyNote ?? state.showStudyNote;
   const highlightReferences = viewOptions.highlightReferences ?? (allAnswered && state.resultsRevealed);
   const visibleQuestionTranslations = viewOptions.visibleQuestionTranslations ?? {};
+  const hasMarkdownTable = findMarkdownPipeTables(passage.body.map((segment) => segment.text).join("")).length > 0;
 
   useEffect(() => {
     setReferenceTab("questions");
@@ -820,7 +890,7 @@ function PassageView({
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="text-lg leading-loose text-neutral-800">
-          {showTranslation && passage.sentencesVi ? (
+          {showTranslation && passage.sentencesVi && !hasMarkdownTable ? (
             <ReadingBodyInterleaved
               passage={passage}
               showFurigana={showFurigana}
@@ -838,7 +908,7 @@ function PassageView({
         </div>
       </Card>
 
-      {showTranslation && !passage.sentencesVi ? (
+      {showTranslation && (!passage.sentencesVi || hasMarkdownTable) ? (
         <div className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-relaxed text-amber-800">
           {passage.translationVi.split("\n").map((line, i, arr) => (
             <span key={i}>
