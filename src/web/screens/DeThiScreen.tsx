@@ -257,38 +257,80 @@ function questionTranslationForQuestion(paper: DeThiPaper, index: number): strin
 const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
   "cacnam-n3-2024-07": "dethi-n3-2024-07",
   "cacnam-n3-2024-12": "dethi-n3-2024-12",
+  "cacnam-n3-2025-07": "dethi-n3-2025-07",
   "cacnam-n3-2025-12": "dethi-2025-12",
   "cacnam-n1-2026-07": "dethi-n1-2026-07",
   "cacnam-n3-2026-07": "dethi-n3-2026-07",
 };
 
+function listeningFuriganaSegments(
+  text: string,
+  annotations: { word: string; reading: string }[] | undefined,
+): { text: string; furigana: string | null }[] | undefined {
+  if (!annotations?.length || !text) return undefined;
+  const segments: { text: string; furigana: string | null }[] = [];
+  let cursor = 0;
+  for (const annotation of annotations) {
+    const index = text.indexOf(annotation.word, cursor);
+    if (index < cursor || index < 0) return undefined;
+    if (index > cursor) segments.push({ text: text.slice(cursor, index), furigana: null });
+    segments.push({ text: annotation.word, furigana: annotation.reading });
+    cursor = index + annotation.word.length;
+  }
+  if (cursor < text.length) segments.push({ text: text.slice(cursor), furigana: null });
+  return segments;
+}
+
 function withListeningReviewContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
   const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
   if (paperId !== "choukai" || !book) return question;
 
-  const source = ALL_LISTENING.find((item) => item.book === book && item.id.endsWith(`q${String(question.number).padStart(2, "0")}`));
+  // Some converted JLPT datasets use Mondai-local IDs after the first two
+  // groups (for example `m3-1` instead of `q13`). The exam paper numbers are
+  // continuous, so align by source order rather than assuming every ID ends
+  // in a global question number.
+  const bookQuestions = ALL_LISTENING.filter((item) => item.book === book);
+  const source = bookQuestions[question.number - 1];
   if (!source) return question;
 
   const expectedOptionCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   if (source.correctIndex !== question.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return question;
-  if (source.options.length !== question.options.length) return question;
-  const normalizeChoice = (choice: string) => choice.trim().replace(/[。！？!?…]+$/u, "");
-  if (source.options.some((option, index) => normalizeChoice(option) !== normalizeChoice(question.options[index] ?? ""))) return question;
+  const normalizeChoice = (choice: string) => choice.trim()
+    .replace(/^[\s　]*[①②③④⑤⑥⑦⑧⑨⑩]/u, "")
+    .replace(/[。！？!?…]+$/u, "");
+  const imageOptionsMatch = !question.optionsImage && !source.optionsImage
+    || question.optionsImage === source.optionsImage && (source.optionCount ?? 0) === expectedOptionCount;
+  const optionsMatch = imageOptionsMatch && source.options.length === question.options.length && source.options.every(
+    (option, index) => normalizeChoice(option) === normalizeChoice(question.options[index] ?? ""),
+  );
 
   const transcriptTurns = source.turns.map((turn) => ({ ...turn }));
   const transcript = transcriptTurns.map((turn) => `${turn.speaker}：${turn.text}`).join("\n");
   const transcriptVi = transcriptTurns.map((turn) => turn.textVi ? `${turn.speaker}：${turn.textVi}` : "").filter(Boolean).join("\n");
   const hasQuestionSentence = source.question.trim() && !/^\d+番$/u.test(source.question.trim());
   const listeningPrompt = source.scenario.trim();
+  const enrichedQuestion = source.question.trim()
+    ? hasQuestionSentence ? source.question.trim() : question.question
+    : source.taskType === "sokuji" ? "" : question.question;
+  const questionFurigana = listeningFuriganaSegments(enrichedQuestion, source.questionFurigana);
+  const hasOptionFurigana = source.optionFurigana?.some((annotations) => annotations.length);
+  const optionsFurigana = optionsMatch && hasOptionFurigana
+    ? source.options.map((option, index) => listeningFuriganaSegments(option, source.optionFurigana?.[index]))
+    : undefined;
 
   return {
     ...question,
-    question: source.question.trim()
-      ? hasQuestionSentence ? source.question.trim() : question.question
-      : source.taskType === "sokuji" ? "" : question.question,
+    question: enrichedQuestion,
     questionVi: source.questionVi || question.questionVi,
-    optionsVi: source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
-    optionExplanations: source.optionExplanations?.length === expectedOptionCount ? source.optionExplanations : question.optionExplanations,
+    questionFurigana: questionFurigana ?? question.questionFurigana,
+    optionsVi: optionsMatch && source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
+    optionsFurigana: optionsMatch && optionsFurigana?.every((segments) => !!segments)
+      ? optionsFurigana as NonNullable<DeThiQuestion["optionsFurigana"]>
+      : question.optionsFurigana,
+    explanation: source.explanation || question.explanation,
+    optionExplanations: optionsMatch && source.optionExplanations?.length === expectedOptionCount
+      ? source.optionExplanations
+      : question.optionExplanations,
     listeningAudioUrl: source.audioUrl,
     audioStartSec: source.audioStartSec ?? question.audioStartSec,
     audioEndSec: source.audioEndSec ?? question.audioEndSec,
