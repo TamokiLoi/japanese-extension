@@ -113,7 +113,20 @@ export const BOOK_LABELS: Record<string, string> = {
   "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
 };
 
-const BOOK_ORDER: string[] = ["soumatome", "speedmaster", "shinkanzen", "dethi-n3-2024-07", "dethi-n3-2024-12", "dethi-2025-12", "dethi-n3-2025-07", "dethi-n1-2026-07", "dethi-n3-2026-07", "kaiwa-100cau"];
+// Keep study books grouped first, then show official exams newest-first so
+// the Listening filter follows the same chronological order as the exam list.
+const BOOK_ORDER: string[] = [
+  "soumatome",
+  "speedmaster",
+  "shinkanzen",
+  "dethi-n3-2026-07",
+  "dethi-n1-2026-07",
+  "dethi-2025-12",
+  "dethi-n3-2025-07",
+  "dethi-n3-2024-12",
+  "dethi-n3-2024-07",
+  "kaiwa-100cau",
+];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
 
 export interface ListeningViewerState {

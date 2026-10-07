@@ -42,6 +42,7 @@ import { useCountdown } from "../lib/useCountdown.ts";
 import { readingPassageUnderlineRange, readingQuestionUnderline } from "../../lib/jlptReadingAnnotations.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
+import { getJlptListeningMondaiLabel } from "../../lib/listeningMondai.ts";
 import type { Screen } from "../../popup/screens.ts";
 
 type Step =
@@ -1269,6 +1270,9 @@ function TakingView({
 
   const idx = session.currentIndex;
   const q = paper.questions[idx];
+  const listeningMondaiLabel = paper.id === "choukai" || paper.audioUrl
+    ? getJlptListeningMondaiLabel(q.problemGroup)
+    : undefined;
   const passage = passageForQuestion(paper, idx);
   const answered = session.answers[idx];
   const allAnswered = session.answers.every((a) => a !== null);
@@ -1378,7 +1382,7 @@ function TakingView({
             <span style={levelBadgeStyle(exam.level)} className="rounded-full px-2 py-0.5 text-[10px] font-bold normal-case">
               {exam.level}
             </span>
-            {q.problemGroup}
+            {listeningMondaiLabel ? `${listeningMondaiLabel} · ` : ""}{q.problemGroup}
           </div>
         </div>
 
@@ -1793,6 +1797,7 @@ function ReviewQuestion({
   const optionExplanationCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   const isListeningReview = Boolean(question.listeningAudioUrl || question.listeningPrompt || question.transcriptTurns?.length);
   const hasListeningTranscript = Boolean(question.transcriptTurns?.length);
+  const listeningMondaiLabel = isListeningReview ? getJlptListeningMondaiLabel(question.problemGroup) : undefined;
   const hasReferences = !!passage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
   const referenceTerms = useMemo(
     () => [
@@ -1895,7 +1900,7 @@ function ReviewQuestion({
       ) : null}
       <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
       <div className="text-xs font-semibold text-neutral-400 uppercase">
-        Câu {question.number} · {question.problemGroup}
+        Câu {question.number} · {listeningMondaiLabel ? `${listeningMondaiLabel} · ` : ""}{question.problemGroup}
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
         {!isListeningReview || !hasListeningTranscript ? <button

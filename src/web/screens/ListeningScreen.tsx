@@ -42,6 +42,7 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FuriganaText } from "../components/FuriganaText.tsx";
 import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
+import { getListeningMondaiNumber } from "../../lib/listeningMondai.ts";
 
 const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; description: string }> = {
   kadai: {
@@ -371,6 +372,7 @@ function ListView({
             if (statusFilter !== null && (status ?? "not-started") !== statusFilter) return null;
             const borderCls =
               status === "correct" ? "border-l-emerald-400" : status === "wrong" ? "border-l-rose-400" : "border-l-neutral-200";
+            const mondaiNumber = getListeningMondaiNumber(q);
             return (
               <button
                 key={q.id}
@@ -381,7 +383,7 @@ function ListView({
                 <div className="min-w-0 flex-1">
                   <div className="truncate font-semibold text-neutral-800">{q.scenario || q.question}</div>
                   <div className="truncate text-xs text-neutral-500">
-                    {TASK_TYPE_LABELS[q.taskType]} · {q.level}
+                    {mondaiNumber ? `Mondai ${mondaiNumber} · ` : ""}{TASK_TYPE_LABELS[q.taskType]} · {q.level}
                   </div>
                 </div>
                 {status === "correct" ? (
@@ -423,6 +425,7 @@ function QuestionView({
   const [showFurigana, setShowFurigana] = useState(false);
   const answered = selected !== null;
   const currentIndex = filtered.findIndex((q) => q.id === question.id);
+  const mondaiNumber = getListeningMondaiNumber(question);
   const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
   const nextQuestion = currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
 
@@ -491,6 +494,9 @@ function QuestionView({
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(question.level)}>
           {question.level}
         </span>
+        {mondaiNumber ? (
+          <span className="rounded-full bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-600">Mondai {mondaiNumber}</span>
+        ) : null}
         <span className="inline-flex items-center rounded-full bg-neutral-100 pl-2.5 text-xs font-semibold text-neutral-600">
           {TASK_TYPE_LABELS[question.taskType]}
           <ListeningTypeInfo taskType={question.taskType} />
