@@ -4,6 +4,7 @@ import { isRomaji, toHiragana, toKatakana } from "wanakana";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB } from "../../popup/vocabState.ts";
 import { ALL_BUNPO } from "../../popup/bunpoState.ts";
+import { buildKanjiHanVietReadings, matchesComposedHanViet } from "../../lib/vocabhanvietsearch.ts";
 import { useDebouncedValue } from "../../popup/useDebouncedValue.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
@@ -13,6 +14,7 @@ import { Button } from "../components/ui/button.tsx";
 
 const MAX_RESULTS = 40;
 const SEARCH_KIND_ORDER: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
+const KANJI_HAN_VIET = buildKanjiHanVietReadings(ALL_KANJI);
 
 // Search kana in both directions: a Katakana query ("チカチカ") should find
 // Hiragana data ("ちかちか") and vice versa. Romaji is also expanded to both
@@ -86,6 +88,7 @@ function searchVocab(q: string, variants: string[]): SearchResult[] {
       matchesAny((v.reading ?? "").toLowerCase(), variants) ||
       v.meaningVi.toLowerCase().includes(q) ||
       v.hanViet.some((h) => h.toLowerCase().includes(q)) ||
+      matchesComposedHanViet(v.word, q, KANJI_HAN_VIET) ||
       matchesConjugation(v, variants),
   ).map((v) => ({
     kind: "vocab" as const,

@@ -3,6 +3,7 @@ import { isRomaji, toHiragana, toKatakana } from "wanakana";
 import { ALL_KANJI } from "../kanjiState.ts";
 import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_BUNPO } from "../bunpoState.ts";
+import { buildKanjiHanVietReadings, matchesComposedHanViet } from "../../lib/vocabhanvietsearch.ts";
 import { ExpandTabButton } from "../TabMode.tsx";
 import { LevelDot } from "../LevelDot.tsx";
 import { useDebouncedValue } from "../useDebouncedValue.ts";
@@ -11,6 +12,7 @@ import type { JlptLevel } from "../../types/kanji.ts";
 
 const MAX_RESULTS = 40;
 const SEARCH_KIND_ORDER: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
+const KANJI_HAN_VIET = buildKanjiHanVietReadings(ALL_KANJI);
 
 // See src/web/screens/SearchScreen.tsx's copy of this pair for the full
 // rationale -- kept duplicated rather than shared since this popup screen
@@ -78,6 +80,7 @@ function searchVocab(q: string, variants: string[]): SearchResult[] {
       matchesAny((v.reading ?? "").toLowerCase(), variants) ||
       v.meaningVi.toLowerCase().includes(q) ||
       v.hanViet.some((h) => h.toLowerCase().includes(q)) ||
+      matchesComposedHanViet(v.word, q, KANJI_HAN_VIET) ||
       matchesConjugation(v, variants),
   ).map((v) => ({
     kind: "vocab" as const,
