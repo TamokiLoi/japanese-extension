@@ -40,6 +40,8 @@ import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
 import { readingPassageUnderlineRange, readingQuestionUnderline } from "../../lib/jlptReadingAnnotations.ts";
+import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
+import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import type { Screen } from "../../popup/screens.ts";
 
 type Step =
@@ -472,64 +474,53 @@ function PassageTextWithReferences({
     return rendered;
   };
 
-  const tableRowsForParagraph = (paragraph: { text: string; start: number }) => {
-    const rows: { cells: { text: string; start: number; end: number }[]; header: boolean }[] = [];
-    let lineOffset = 0;
-    let hasSeparator = false;
-    for (const line of paragraph.text.split("\n")) {
-      if (!/^\s*\|.*\|\s*$/u.test(line)) { lineOffset += line.length + 1; continue; }
-      const rawCells: { text: string; start: number; end: number }[] = [];
-      const firstBar = line.indexOf("|");
-      const lastBar = line.lastIndexOf("|");
-      let cellStart = firstBar + 1;
-      while (cellStart <= lastBar) {
-        const nextBar = line.indexOf("|", cellStart);
-        if (nextBar < 0 || nextBar > lastBar) break;
-        const rawCell = line.slice(cellStart, nextBar);
-        const leading = rawCell.length - rawCell.trimStart().length;
-        const trailing = rawCell.length - rawCell.trimEnd().length;
-        if (rawCell.trim()) rawCells.push({
-          text: rawCell.trim(),
-          start: paragraph.start + lineOffset + cellStart + leading,
-          end: paragraph.start + lineOffset + nextBar - trailing,
-        });
-        cellStart = nextBar + 1;
-      }
-      const isSeparator = rawCells.length > 0 && rawCells.every(({ text: cell }) => /^:?-{3,}:?$/u.test(cell));
-      if (isSeparator) hasSeparator = true;
-      else if (rawCells.length > 1) rows.push({ cells: rawCells, header: rows.length === 0 });
-      lineOffset += line.length + 1;
-    }
-    return hasSeparator && rows.length > 1 ? rows : null;
-  };
+  const markdownTables = findMarkdownPipeTables(text);
+  if (markdownTables.length > 0) {
+    const blocks: React.ReactNode[] = [];
+    let cursor = 0;
+    const addProse = (end: number, key: string) => {
+      let start = cursor;
+      while (start < end && /\s/u.test(text[start])) start++;
+      while (end > start && /\s/u.test(text[end - 1])) end--;
+      if (start < end) blocks.push(<p key={key} className="whitespace-pre-line">{renderFuriganaRange(start, end)}</p>);
+    };
+    const renderTableCell = (start: number, end: number) => {
+      const cellText = text.slice(start, end);
+      let offset = 0;
+      return cellText.split(/(<br\s*\/?>)/giu).map((part, index) => {
+        const partStart = offset;
+        offset += part.length;
+        return /^<br\s*\/?>$/iu.test(part)
+          ? <br key={index} />
+          : <span key={index}>{renderFuriganaRange(start + partStart, start + offset)}</span>;
+      });
+    };
+    markdownTables.forEach((table, tableIndex) => {
+      addProse(table.start, `before-${tableIndex}`);
+      const columnCount = table.header?.length ?? Math.max(...table.rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0)));
+      blocks.push(
+        <div key={`table-${tableIndex}`} className="reading-markdown-table-scroll">
+          <table className="reading-markdown-table" style={{ minWidth: `${Math.max(620, columnCount * 140)}px` }}>
+            {table.header ? <thead><tr>{table.header.map((cell, cellIndex) => (
+              <th key={cellIndex} colSpan={cell.colSpan ?? 1} scope="col">{renderTableCell(cell.start, cell.end)}</th>
+            ))}</tr></thead> : null}
+            <tbody>{table.rows.map((row, rowIndex) => (
+              <tr key={rowIndex}>{row.map((cell, cellIndex) => (
+                <td key={cellIndex} colSpan={cell.colSpan ?? 1}>{renderTableCell(cell.start, cell.end)}</td>
+              ))}</tr>
+            ))}</tbody>
+          </table>
+        </div>,
+      );
+      cursor = table.end;
+    });
+    addProse(text.length, "after-table");
+    return <div className="space-y-4">{blocks}</div>;
+  }
 
-  return (
-    <div className="space-y-4">
-      {paragraphRanges.map((paragraph, paragraphIndex) => {
-        const tableRows = tableRowsForParagraph(paragraph);
-        return tableRows ? (
-          <div key={paragraphIndex} className="overflow-x-auto rounded-lg border border-neutral-200">
-            <table className="w-full border-collapse text-left text-sm">
-              <tbody>
-                {tableRows.map((row, rowIndex) => (
-                  <tr key={rowIndex} className={row.header ? "bg-neutral-100" : ""}>
-                    {row.cells.map((cell, cellIndex) => {
-                      const Cell = row.header ? "th" : "td";
-                      return <Cell key={cellIndex} className="border-b border-r border-neutral-200 px-3 py-2 align-top last:border-r-0">{renderFuriganaRange(cell.start, cell.end)}</Cell>;
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <p key={paragraphIndex} className="whitespace-pre-line">
-            {renderFuriganaRange(paragraph.start, paragraph.end)}
-          </p>
-        );
-      })}
-    </div>
-  );
+  return <div className="space-y-4">{paragraphRanges.map((paragraph, index) => (
+    <p key={index} className="whitespace-pre-line">{renderFuriganaRange(paragraph.start, paragraph.end)}</p>
+  ))}</div>;
 }
 
 function splitTextIntoSentenceUnits(text: string, japanese: boolean): string[] {
@@ -1759,6 +1750,7 @@ function ReviewQuestion({
   const orderingReconstruction = reconstructOrderingQuestion(question);
   const sourceUnderline = readingQuestionUnderline(question.question, question.underline, passage);
   const sourcePassageUnderline = readingPassageUnderlineRange(question.question, question.underline, question.passageUnderline, passage, question.passageUnderlineOccurrence);
+  const hasMarkdownTable = !!passage && findMarkdownPipeTables(passage).length > 0;
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
   const [showListeningTranslation, setShowListeningTranslation] = useState(false);
@@ -1933,7 +1925,15 @@ function ReviewQuestion({
       </div>
       {passage ? (
         <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
-          {showPassageTranslation && passageVi ? (
+          {showPassageTranslation && passageVi && hasMarkdownTable ? (
+            <div className="space-y-5">
+              <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={passageFurigana} showFurigana={showFurigana} underlineRange={sourcePassageUnderline} />
+              <div className="border-t border-neutral-200 pt-4 text-neutral-600">
+                <div className="mb-3 text-xs font-semibold uppercase text-neutral-400">Bản dịch</div>
+                <MarkdownTableText text={passageVi} />
+              </div>
+            </div>
+          ) : showPassageTranslation && passageVi ? (
             <div className="flex flex-col gap-3">
               {translatedUnitsWithFurigana.map((unit, index) => (
                 <div key={index}>

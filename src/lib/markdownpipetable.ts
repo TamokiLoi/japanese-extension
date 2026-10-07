@@ -68,6 +68,10 @@ function isSeparatorRow(cells: MarkdownPipeTableCell[], text: string): boolean {
   return cells.every(({ start, end }) => /^:?-{3,}:?$/u.test(text.slice(start, end)));
 }
 
+function isEmptyPipeLine(line: SourceLine): boolean {
+  return /^[|｜]$/u.test(line.text.trim());
+}
+
 function getCellText(cell: MarkdownPipeTableCell, text: string): string {
   return text.slice(cell.start, cell.end);
 }
@@ -113,6 +117,9 @@ export function findMarkdownPipeTables(text: string): MarkdownPipeTable[] {
       const rows: MarkdownPipeTableCell[][] = [];
       let rowIndex = index + 2;
       while (rowIndex < lines.length) {
+        // Some translated exam tables contain a lone pipe after each row.
+        // It is a formatting artifact, not the end of the table.
+        if (isEmptyPipeLine(lines[rowIndex])) { rowIndex++; continue; }
         const row = parsePipeLine(lines[rowIndex]);
         if (!row || row.delimiter !== first.delimiter || isSeparatorRow(row.cells, text)) break;
         const fitted = fitRow(row.cells, header.length);
@@ -130,6 +137,7 @@ export function findMarkdownPipeTables(text: string): MarkdownPipeTable[] {
     const candidates: ParsedPipeLine[] = [first];
     let rowIndex = index + 1;
     while (rowIndex < lines.length) {
+      if (isEmptyPipeLine(lines[rowIndex])) { rowIndex++; continue; }
       const row = parsePipeLine(lines[rowIndex]);
       if (!row || row.delimiter !== first.delimiter || isSeparatorRow(row.cells, text)) break;
       candidates.push(row);

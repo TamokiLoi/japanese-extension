@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { ReadingPassage, ReadingLength, ReadingBook } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
+import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import {
   ALL_READING,
   AVAILABLE_LEVELS,
@@ -118,7 +119,9 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
       const columnCount = table.header?.length ?? Math.max(...table.rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0)));
       let textEnd = table.start;
       while (textEnd > cursor && (passageText[textEnd - 1] === "\n" || passageText[textEnd - 1] === "\r")) textEnd--;
-      if (textEnd > cursor) blocks.push(...renderSourceRange(cursor, textEnd, `before-${tableIndex}`));
+      if (textEnd > cursor) blocks.push(
+        <p key={`before-${tableIndex}`} style={{ whiteSpace: "pre-line" }}>{renderSourceRange(cursor, textEnd, `before-${tableIndex}`)}</p>,
+      );
       blocks.push(
         <div key={`table-${tableIndex}`} className="reading-markdown-table-scroll">
           <table className="reading-markdown-table" style={{ minWidth: `${Math.max(620, columnCount * 140)}px` }}>
@@ -146,7 +149,9 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
       cursor = table.end;
       while (passageText[cursor] === "\n" || passageText[cursor] === "\r") cursor++;
     });
-    if (cursor < passageText.length) blocks.push(...renderSourceRange(cursor, passageText.length, "after-table"));
+    if (cursor < passageText.length) blocks.push(
+      <p key="after-table" style={{ whiteSpace: "pre-line" }}>{renderSourceRange(cursor, passageText.length, "after-table")}</p>,
+    );
     return <div className="reading-passage-text-blocks">{blocks}</div>;
   }
   let sourceOffset = 0;
@@ -610,12 +615,7 @@ function PassageView({
 
         {state.showTranslation ? (
           <div className="reading-translation">
-            {passage.translationVi.split("\n").map((line, i, arr) => (
-              <span key={i}>
-                {line}
-                {i < arr.length - 1 ? <br /> : null}
-              </span>
-            ))}
+            <MarkdownTableText text={passage.translationVi} />
           </div>
         ) : null}
 
