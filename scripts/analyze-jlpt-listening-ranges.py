@@ -5,6 +5,8 @@ publishes/segments audio. Question ranges can be consumed by AudioPlayer's
 optional start/end offsets so one hosted full-paper track is reused safely.
 
 Usage:
+  python scripts/analyze-jlpt-listening-ranges.py --exam cacnam-n3-2024-07
+  python scripts/analyze-jlpt-listening-ranges.py --exam cacnam-n3-2024-12
   python scripts/analyze-jlpt-listening-ranges.py --exam cacnam-n3-2026-07
   python scripts/analyze-jlpt-listening-ranges.py --exam cacnam-n1-2026-07
 """
@@ -19,9 +21,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = os.environ.get("JLPT_AUDIO_RANGE_MODEL", "gemini-3.8-flash")
-OUTPUT = ROOT / "_scratch" / "jlpt-listening-2026-07-audio-ranges.json"
+OUTPUT_DIR = ROOT / "_scratch"
 
 EXAMS = {
+    "cacnam-n3-2024-07": {
+        "data": ROOT / "src/data/dethi-n3-cac-nam.json",
+        "audio": ROOT / "assets/data/de-thi-cac-nam/N3 7-2024/Nghe N3 T7-2024 Yuuki Bùi.mp3",
+        "audio_url": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2024-07-v1/N3-2024-07.mp3",
+    },
+    "cacnam-n3-2024-12": {
+        "data": ROOT / "src/data/dethi-n3-cac-nam.json",
+        "audio": ROOT / "assets/data/de-thi-cac-nam/N3 12-2024/Nghe N3 T12-2024 Yuuki Bui - Remake.mp3",
+        "audio_url": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2024-12-v1/N3-2024-12.mp3",
+    },
     "cacnam-n3-2026-07": {
         "data": ROOT / "src/data/dethi-n3-cac-nam.json",
         "audio": ROOT / "assets/data/de-thi-cac-nam/N3 7-2026/Nghe N3 T7-2026 (Yuuki Bui).mp3",
@@ -132,22 +144,15 @@ def main():
             if uploaded.state.name != "ACTIVE":
                 errors.append(f"{label}: upload state {uploaded.state.name}")
                 continue
-            interaction = client.interactions.create(
+            response = client.models.generate_content(
                 model=MODEL,
-                input=[
-                    {"type": "text", "text": prompt},
-                    {"type": "audio", "uri": uploaded.uri, "mime_type": uploaded.mime_type},
-                ],
-                response_format=schema,
-                background=True,
+                contents=[prompt, uploaded],
+                config={
+                    "response_mime_type": "application/json",
+                    "response_schema": schema,
+                },
             )
-            while interaction.status in {"queued", "in_progress"}:
-                print(f"[{args.exam}] Gemini audio analysis status: {interaction.status}", flush=True)
-                time.sleep(10)
-                interaction = client.interactions.get(id=interaction.id)
-            if interaction.status != "completed":
-                raise RuntimeError(f"Gemini interaction ended with status {interaction.status}")
-            result = parse_json(interaction.output_text)
+            result = parse_json(response.text or "")
             print(f"[{args.exam}] Gemini returned {len(result)} audio ranges", flush=True)
             break
         except Exception as error:
@@ -157,6 +162,9 @@ def main():
             errors.append(f"{label}: {status}")
             detail = re.sub(r"AIza[\w-]+", "[REDACTED]", str(error))[:240]
             print(f"[{args.exam}] key alias {label} failed ({status}): {detail}", flush=True)
+            if str(status) in {"400", "404", "INVALID_ARGUMENT", "NOT_FOUND"}:
+                print(f"[{args.exam}] request/model is not accepted; stopping instead of retrying other keys", flush=True)
+                break
             if str(status) in {"503", "UNAVAILABLE"}:
                 print(f"[{args.exam}] service/model unavailable; stopping instead of retrying another key", flush=True)
                 break
@@ -181,7 +189,8 @@ def main():
             raise RuntimeError(f"Gemini start disagrees with existing Q{item['number']} start ({start:.1f} vs {known_start})")
         normalized.append({"number": item["number"], "startSec": round(start, 2), "endSec": round(end, 2)})
 
-    payload = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else {}
+    output_path = OUTPUT_DIR / f"jlpt-listening-{args.exam.removeprefix('cacnam-n3-').removeprefix('cacnam-n1-')}-audio-ranges.json"
+    payload = json.loads(output_path.read_text(encoding="utf-8")) if output_path.exists() else {}
     payload[args.exam] = {
         "audioUrl": config["audio_url"],
         "durationSec": round(duration, 2),
@@ -189,11 +198,11 @@ def main():
         "method": "Gemini audio boundary analysis; requires representative playback verification before app integration",
         "ranges": normalized,
     }
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    temporary = OUTPUT.with_suffix(".tmp")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = output_path.with_suffix(".tmp")
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    temporary.replace(OUTPUT)
-    print(f"Saved verified-shape range draft to {OUTPUT.relative_to(ROOT)}; audio content still needs spot playback QA.")
+    temporary.replace(output_path)
+    print(f"Saved verified-shape range draft to {output_path.relative_to(ROOT)}; audio content still needs spot playback QA.")
 
 
 if __name__ == "__main__":

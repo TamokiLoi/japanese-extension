@@ -259,9 +259,10 @@ export function WebApp() {
     );
   } else if (screen === "quizBook") {
     content = <QuizBookScreen targetId={targetId} onCurrentItemChange={syncCurrentItem} />;
-  } else if (screen === "reading") {
+  } else if (screen === "reading" || screen === "news") {
     content = (
       <ReadingScreen
+        collection={screen === "news" ? "news" : "all"}
         targetId={targetId}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}

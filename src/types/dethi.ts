@@ -14,7 +14,10 @@ export interface DeThiQuestion {
   problemGroup: string;
   question: string;
   options: string[];
-  correctIndex: number;
+  // null means the source provides no answer key yet (e.g. listening items
+  // whose answer depends on a missing MP3). Such items can be displayed, but
+  // must not be scored as right or wrong.
+  correctIndex: number | null;
   // Zero-based option indices in the correct sentence order for ★ ordering items.
   orderingOrder?: number[];
   points: number;
@@ -142,6 +145,10 @@ export interface DeThiPaper {
   totalPoints: number;
   problemGroups: DeThiProblemGroup[];
   questions: DeThiQuestion[];
+  // False for question-only material that cannot be graded yet. The paper is
+  // still visible and can be navigated, but submissions are not scored or
+  // added to history until its answer key is available.
+  gradingAvailable?: boolean;
   // Set only for a 聴解 paper: one continuous audio file covering every
   // question in this paper, played once straight through (matching how the
   // real test works) rather than split into per-question clips. Absent for

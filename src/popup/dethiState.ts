@@ -13,8 +13,9 @@ export const AVAILABLE_LEVELS: JlptLevel[] = (["N5", "N4", "N3", "N2", "N1"] as 
 // Groups ExamListView's grid by DeThiExam.source instead of one flat list.
 export const SOURCE_LABELS: Record<string, string> = {
   "cac-nam": "Đề thi thật từng kỳ",
+  "de-n3": "10 đề N3",
 };
-const SOURCE_ORDER: string[] = ["cac-nam"];
+const SOURCE_ORDER: string[] = ["cac-nam", "de-n3"];
 export function getAvailableSources(level: JlptLevel): string[] {
   return SOURCE_ORDER.filter((source) => ALL_EXAMS.some((exam) => exam.level === level && exam.source === source));
 }
@@ -187,6 +188,7 @@ export async function submitPaper(session: DeThiSession): Promise<DeThiHistoryEn
   let correctPoints = 0;
   let correctCount = 0;
   paper.questions.forEach((q, i) => {
+    if (q.correctIndex === null) return;
     if (session.answers[i] === q.correctIndex) {
       correctPoints += q.points;
       correctCount++;
@@ -198,16 +200,16 @@ export async function submitPaper(session: DeThiSession): Promise<DeThiHistoryEn
     paperId: session.paperId,
     correctPoints,
     totalPoints: paper.totalPoints,
-    percent: Math.round((correctPoints / paper.totalPoints) * 100),
+    percent: paper.totalPoints > 0 ? Math.round((correctPoints / paper.totalPoints) * 100) : 0,
     correctCount,
-    totalQuestions: paper.questions.length,
+    totalQuestions: paper.questions.filter((question) => question.correctIndex !== null).length,
     durationSec: Math.round((Date.now() - session.startedAt) / 1000),
     finishedAt: Date.now(),
     answers: session.answers,
   };
 
-  if (!session.practiceMode) await appendHistory(entry);
-  if (found.exam.level === "N3" && session.paperId === "bunpou-dokkai") await flagWrongGrammar(paper, session.answers);
+  if (!session.practiceMode && paper.gradingAvailable !== false) await appendHistory(entry);
+  if (paper.gradingAvailable !== false && found.exam.level === "N3" && session.paperId === "bunpou-dokkai") await flagWrongGrammar(paper, session.answers);
   await clearDeThiSession();
   return entry;
 }
@@ -225,6 +227,7 @@ async function flagWrongGrammar(paper: DeThiPaper, answers: (number | null)[]): 
   const targets: string[] = [];
   paper.questions.forEach((q, i) => {
     if (q.problemGroup !== "問題1" && q.problemGroup !== "問題2") return;
+    if (q.correctIndex === null) return;
     if (answers[i] === null || answers[i] === q.correctIndex) return;
     // Match against just the correct option's own text, not question+option
     // together -- the surrounding sentence is full of common incidental

@@ -2924,6 +2924,8 @@
               "number": 47,
               "problemGroup": "問題8",
               "question": "逆説的なところとあるが、どのような点が逆説的なのか。",
+              "underline": "逆説的なところ",
+              "passageUnderline": null,
               "options": [
                 "自分ひとりで生きていく力なのに、他者の存在がなければ育てられない点",
                 "自分の心の声を捉える力なのに、他者の心の声も理解しなければならない点",
@@ -3379,9 +3381,7 @@
                   "text": "わせる",
                   "furigana": null
                 }
-              ],
-              "underline": "逆説的なところ",
-              "passageUnderline": null
+              ]
             },
             {
               "number": 48,
@@ -7471,6 +7471,9 @@
               "number": 57,
               "problemGroup": "問題10",
               "question": "①子どもの要求について、親はどうすればいいか。",
+              "underline": "子どもの要求",
+              "passageUnderline": "子どもの要求",
+              "passageUnderlineOccurrence": 0,
               "options": [
                 "子どもの気持ちを反映したものなので、できるだけ尊重したほうがいい。",
                 "明確な理由もなく言っているものもあり、すべてには応えなくてもいい。",
@@ -9095,15 +9098,13 @@
                 "(Chú thích 1) 禍根 (kaken): Ở đây là nguồn cơn của tai họa.",
                 "(Chú thích 2) やみくもに (yamikumo ni): Một cách bừa bãi.",
                 "(Chú thích 3) 呑む (nomu): Ở đây là chấp nhận."
-              ],
-              "underline": "子どもの要求",
-              "passageUnderline": "子どもの要求",
-              "passageUnderlineOccurrence": 0
+              ]
             },
             {
               "number": 58,
               "problemGroup": "問題10",
               "question": "②破綻しますとあるが、破綻すると子どもはどうなるか。",
+              "underline": "破綻します",
               "options": [
                 "どうして自分の要求を叶えてくれないのかと親を問い詰めるようになる。",
                 "自分に対する愛情がなくなったと考え、親を責めるようになる。",
@@ -9120,8 +9121,7 @@
                 "Trở nên nghĩ rằng tình yêu dành cho mình đã mất đi và trách móc cha mẹ.",
                 "Hiểu rằng không phải mọi yêu cầu của mình đều được đáp ứng và không còn kỳ vọng vào cha mẹ nữa.",
                 "Từ bỏ rằng yêu cầu của mình sẽ không được lắng nghe và không còn \"đối thoại\" với cha mẹ nữa."
-              ],
-              "underline": "破綻します"
+              ]
             },
             {
               "number": 59,

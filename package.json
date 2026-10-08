@@ -9,6 +9,10 @@
     "data:validate:try-n3": "node --experimental-strip-types scripts/validate-try-n3-chapters.ts",
     "reading:extract-jlpt": "node --experimental-strip-types scripts/extract-jlpt-reading.ts",
     "reading:test-jlpt": "node --experimental-strip-types scripts/test-jlpt-reading.ts",
+    "news:sync": "node --experimental-strip-types scripts/news-sync.ts",
+    "news:sync:enrich": "node --experimental-strip-types scripts/news-sync.ts --enrich",
+    "news:sync:rss": "node --experimental-strip-types scripts/news-sync.ts --rss --enrich",
+    "news:publish": "node --experimental-strip-types scripts/news-publish.ts",
     "listening:enrich": "node --experimental-strip-types scripts/enrich-listening-content.ts",
     "podcast:fetch": "node --experimental-strip-types scripts/fetch-podcast-episodes.ts",
     "podcast:transcript:fetch": "node --experimental-strip-types scripts/fetch-podcast-transcript.ts",
@@ -51,6 +55,7 @@
     "react-dom": "^19.2.8",
     "shadcn": "^4.19.0",
     "tailwind-merge": "^3.6.0",
+    "tesseract.js": "^7.0.0",
     "tw-animate-css": "^1.4.0",
     "wanakana": "^5.3.1"
   }

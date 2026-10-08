@@ -11,6 +11,9 @@ export type ReadingLength = "short" | "medium" | "long" | "info-search";
 export interface ReadingBodySegment {
   text: string;
   furigana: string | null;
+  // Marks the first run of a paragraph in an editorial/news passage. Existing
+  // datasets omit this and keep their historical inline/PDF formatting.
+  paragraphStart?: boolean;
 }
 
 export interface ReadingQuestionOption {
@@ -31,12 +34,12 @@ export interface ReadingQuestion {
   // omit it and keep the local per-passage numbering in the UI.
   sourceNumber?: number;
   question: string;
-  questionVi: string;
-  options: string[];
-  optionsVi: string[];
   // Source-emphasized substring, copied from the exam prompt or conservatively
   // inferred from an exact quote in the associated passage.
   underline?: string;
+  questionVi: string;
+  options: string[];
+  optionsVi: string[];
   correctIndex: number;
   explanation: string;
   questionType?: ReadingQuestionType;
@@ -45,7 +48,7 @@ export interface ReadingQuestion {
 // Which source book a passage came from -- lets the Reading screen filter/
 // label by book (e.g. Speed Master is noticeably easier than Shin Kanzen
 // Master even at the same JLPT level) instead of only by level/length.
-export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115" | "jlpt-exam";
+export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115" | "jlpt-exam" | "de-n3" | "news" | "custom";
 
 export interface ReadingPassage {
   id: string;
@@ -61,10 +64,23 @@ export interface ReadingPassage {
   examLabel?: string;
   estimatedMinutes: number;
   title: string;
-  // Which book/section this was adapted from -- kept for personal reference,
-  // not shown as a citation in the UI.
+  // Which book/section this was adapted from; displayed as attribution for
+  // the news/custom collections and retained for other books.
   source: string;
+  // Optional public source details displayed for curated news and user-added
+  // links. `source` remains the compact, human-readable attribution label.
+  sourceUrl?: string;
+  publishedAt?: string;
+  sourceNotice?: string;
+  // A title/source link may be published as a reading resource when its
+  // article body cannot be redistributed; the app then opens the source URL.
+  linkOnly?: boolean;
   body: ReadingBodySegment[];
+  // Exact source phrases underlined by one or more questions for this passage.
+  underlinedPhrases?: string[];
+  // Exact UTF-16 character ranges in the concatenated passage body. Supports
+  // a specific occurrence when an underlined phrase repeats in the passage.
+  underlinedRanges?: { start: number; end: number }[];
   translationVi: string;
   // Per-sentence Vietnamese translation, aligned 1:1 with
   // splitBodyIntoSentences(body) (see readingState.ts) -- lets the reading
@@ -76,11 +92,6 @@ export interface ReadingPassage {
   // Optional worked-analysis note (Vietnamese) adapted from the source
   // book's own "how to think through this" walkthrough -- e.g. Taisaku
   // Mondai's かんがえよう section, which reasons through each choice rather
-  // Exact source phrases underlined by one or more questions for this passage.
-  underlinedPhrases?: string[];
-  // Exact UTF-16 character ranges in the concatenated passage body. Supports
-  // a specific occurrence when an underlined phrase repeats in the passage.
-  underlinedRanges?: { start: number; end: number }[];
   // than just stating the answer. Shown as an extra toggle in the UI when
   // present; most passages/books won't have one.
   studyNote?: string;

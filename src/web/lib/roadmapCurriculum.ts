@@ -27,6 +27,7 @@ import type { BunpoSource } from "../../types/bunpo.ts";
 import {
   ALL_READING_QUESTIONS,
   AVAILABLE_BOOKS as READING_AVAILABLE_BOOKS,
+  readingExamIdsForBook,
   AVAILABLE_LEVELS as READING_AVAILABLE_LEVELS,
   AVAILABLE_LENGTHS as READING_AVAILABLE_LENGTHS,
   AVAILABLE_TOPICS as READING_AVAILABLE_TOPICS,
@@ -311,6 +312,7 @@ export async function jumpToReadingStop(book: ReadingBook): Promise<void> {
   await saveReadingViewerState({
     ...state,
     selectedBooks: [book],
+    selectedExamIds: readingExamIdsForBook(book),
     selectedLevels: [...READING_AVAILABLE_LEVELS],
     selectedLengths: [...READING_AVAILABLE_LENGTHS],
     selectedTopics: [...READING_AVAILABLE_TOPICS],

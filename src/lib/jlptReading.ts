@@ -57,16 +57,21 @@ function inferLength(passage: string, level: string, problemGroup: string): Read
 }
 
 function toReadingQuestions(questions: DeThiQuestion[], passage: string): ReadingQuestion[] {
-  return questions.map((question) => ({
-    sourceNumber: question.number,
-    question: question.question,
-    underline: readingQuestionUnderline(question.question, question.underline, passage),
-    questionVi: question.questionVi ?? "",
-    options: [...question.options],
-    optionsVi: question.options.map((_, index) => question.optionsVi?.[index] ?? ""),
-    correctIndex: question.correctIndex,
-    explanation: question.explanation ?? "",
-  }));
+  return questions.map((question) => {
+    if (question.correctIndex === null) {
+      throw new Error(`Reading question is missing an answer: ${question.problemGroup}/${question.number}`);
+    }
+    return {
+      sourceNumber: question.number,
+      question: question.question,
+      underline: readingQuestionUnderline(question.question, question.underline, passage),
+      questionVi: question.questionVi ?? "",
+      options: [...question.options],
+      optionsVi: question.options.map((_, index) => question.optionsVi?.[index] ?? ""),
+      correctIndex: question.correctIndex,
+      explanation: question.explanation ?? "",
+    };
+  });
 }
 
 export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPassage[] {
@@ -75,7 +80,8 @@ export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPa
 
   for (const dataset of datasets) {
     for (const exam of [...dataset.exams].sort((left, right) => right.id.localeCompare(left.id))) {
-      if (exam.source !== "cac-nam") continue;
+      const isMockN3Set = exam.source === "de-n3";
+      if (exam.source !== "cac-nam" && !isMockN3Set) continue;
       for (const paper of exam.papers) {
         if (!paper.label.includes("読解")) continue;
 
@@ -96,7 +102,8 @@ export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPa
         let passageNumber = 0;
         for (const group of groups.values()) {
           passageNumber++;
-          const id = `jlpt-${exam.id}-${paper.id}-${stableHash(`${group.problemGroup}\u0000${group.passage}`)}`;
+          const idPrefix = isMockN3Set ? "de-n3" : "jlpt";
+          const id = `${idPrefix}-${exam.id}-${paper.id}-${stableHash(`${group.problemGroup}\u0000${group.passage}`)}`;
           if (ids.has(id)) throw new Error(`Duplicate extracted reading passage id: ${id}`);
           ids.add(id);
 
@@ -119,8 +126,8 @@ export function collectJlptReading(datasets: readonly DeThiDataset[]): ReadingPa
             id,
             level: dataset.meta.level,
             length: inferLength(group.passage, dataset.meta.level, group.problemGroup),
-            book: "jlpt-exam",
-            topic,
+            book: isMockN3Set ? "de-n3" : "jlpt-exam",
+            topic: isMockN3Set ? `${exam.examLabel} · ${group.problemGroup}` : topic,
             examId: exam.id,
             examLabel: exam.examLabel,
             estimatedMinutes: Math.max(2, Math.ceil(group.passage.replace(/\s/gu, "").length / 400) + questionCount),

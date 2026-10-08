@@ -62,8 +62,10 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
       groups.push(current);
       current = [];
     }
-    const cleanText = genuineBreak ? text : text.replace(/^\n+/, "");
-    current.push({ text: cleanText, furigana });
+    // The boundary is retained as metadata, so the leading linebreak itself
+    // should not become a visible blank line in the sentence renderer.
+    const cleanText = text.replace(/^\n+/, "");
+    current.push({ text: cleanText, furigana, ...(genuineBreak ? { paragraphStart: true } : {}) });
     if (SENTENCE_END.test(cleanText)) {
       groups.push(current);
       current = [];
@@ -77,8 +79,46 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
     // trailing piece (a segment never starts mid-word right after a kanji
     // compound and then continues into an earlier sentence). Every earlier
     // piece carries no reading of its own.
-    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null, i === 0 && segStartsWithNewline));
+    const startsParagraph = seg.paragraphStart === true || segStartsWithNewline;
+    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null, i === 0 && startsParagraph));
   }
   if (current.length > 0) groups.push(current);
   return groups;
+}
+
+export interface TranslatedReadingUnit {
+  segments: ReadingBodySegment[];
+  translation: string;
+}
+
+function hasUnclosedQuote(text: string): boolean {
+  let depth = 0;
+  for (const character of text) {
+    if (character === "「" || character === "『") depth++;
+    if (character === "」" || character === "』") depth = Math.max(0, depth - 1);
+  }
+  return depth > 0;
+}
+
+// Some source translations were generated for a quote and its attribution as
+// separate entries (「...。 / 」と言った。), or cut midway through a
+// multi-sentence quote. Keep the stored alignment intact, then show those
+// entries together so the speaker stays with the quote.
+export function translatedReadingUnits(body: ReadingBodySegment[], translations: string[]): TranslatedReadingUnit[] {
+  const groups = splitBodyIntoSentences(body);
+  const units = groups.map((segments, index) => ({ segments, translation: translations[index] ?? "" }));
+  if (groups.length !== translations.length) return units;
+
+  const merged: TranslatedReadingUnit[] = [];
+  for (const unit of units) {
+    const previous = merged[merged.length - 1];
+    const previousText = previous?.segments.map((segment) => segment.text).join("") ?? "";
+    if (previous && hasUnclosedQuote(previousText) && !unit.segments[0]?.paragraphStart) {
+      previous.segments.push(...unit.segments);
+      previous.translation = [previous.translation.trim(), unit.translation.trim()].filter(Boolean).join(" ");
+    } else {
+      merged.push({ segments: [...unit.segments], translation: unit.translation });
+    }
+  }
+  return merged;
 }

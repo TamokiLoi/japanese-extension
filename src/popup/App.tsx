@@ -128,6 +128,9 @@ export function App() {
   if (screen === "reading") {
     return <ReadingScreen onBack={goBack} />;
   }
+  if (screen === "news") {
+    return <p className="empty">Đọc báo hiện chỉ có trên bản Web Dashboard.</p>;
+  }
   if (screen === "bunpo") {
     return (
       <BunpoScreen

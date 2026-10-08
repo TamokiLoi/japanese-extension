@@ -39,7 +39,10 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useSwipeNavigation } from "../lib/useSwipeNavigation.ts";
 import { useCountdown } from "../lib/useCountdown.ts";
-import { readingPassageUnderlineRange, readingQuestionUnderline } from "../../lib/jlptReadingAnnotations.ts";
+import { readingPassageUnderlineRange, readingPassageUnderlineRanges, readingQuestionUnderline } from "../../lib/jlptReadingAnnotations.ts";
+import { splitBodyIntoSentences, translatedReadingUnits } from "../../lib/readingSentences.ts";
+import { stableHash } from "../../lib/jlptReading.ts";
+import { splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import { getJlptListeningMondaiLabel } from "../../lib/listeningMondai.ts";
@@ -64,8 +67,9 @@ const REVIEW_RETURN_STORAGE_KEY = "jlpt-dethi-review-return";
 // the tested word, which should also be emphasized in every option sentence.
 // Inflected variants can be supplied by the conversion data.
 function usageWordInOption(question: string, forms: string[] | undefined, opt: string): string | undefined {
-  if (opt.includes(question)) return question;
-  return forms?.find((f) => opt.includes(f));
+  // Prefer the supplied full form so a short prompt (e.g. 感動) does not
+  // underline only the prefix of a longer printed form (e.g. 感動文).
+  return forms?.find((f) => opt.includes(f)) ?? (opt.includes(question) ? question : undefined);
 }
 
 function optionUnderline(group: string, question: string, forms: string[] | undefined, opt: string): string | undefined {
@@ -85,6 +89,8 @@ function formatExamQuestion(text: string, problemGroup: string): string {
 }
 
 function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: string; order: number[] } | null {
+  const correctIndex = question.correctIndex;
+  if (correctIndex === null) return null;
   const order = question.orderingOrder;
   if (!order || order.length !== 4 || question.options.length !== 4 || new Set(order).size !== 4 || order.some((index) => index < 0 || index >= 4)) {
     return null;
@@ -95,7 +101,7 @@ function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: strin
   const starredSlots = slots.filter((slot) => slot[0].includes("★"));
   if (slots.length === 4 && starredSlots.length === 1) {
     const starSlot = slots.indexOf(starredSlots[0]);
-    if (order[starSlot] !== question.correctIndex) return null;
+    if (order[starSlot] !== correctIndex) return null;
     let slotIndex = 0;
     const sentence = question.question.replace(slotPattern, () => {
       const optionIndex = order[slotIndex];
@@ -105,7 +111,7 @@ function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: strin
   }
 
   if (slots.length === 1 && slots[0][0] === "★") {
-    const sentence = question.question.replace("★", order.map((optionIndex) => `${optionIndex === question.correctIndex ? "★" : ""}${question.options[optionIndex]}`).join(""));
+    const sentence = question.question.replace("★", order.map((optionIndex) => `${optionIndex === correctIndex ? "★" : ""}${question.options[optionIndex]}`).join(""));
     return { sentence, order };
   }
 
@@ -114,7 +120,7 @@ function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: strin
   )) {
     const firstSlot = slots[0];
     const lastSlot = slots.at(-1)!;
-    const orderedFragments = order.map((optionIndex) => `${optionIndex === question.correctIndex ? "★" : ""}${question.options[optionIndex]}`).join("");
+    const orderedFragments = order.map((optionIndex) => `${optionIndex === correctIndex ? "★" : ""}${question.options[optionIndex]}`).join("");
     const sentence = question.question.slice(0, firstSlot.index)
       + orderedFragments
       + question.question.slice(lastSlot.index + lastSlot[0].length);
@@ -206,10 +212,23 @@ function passageForQuestion(paper: DeThiPaper, index: number): string | null {
   return current.passage;
 }
 
+function questionDisplayGroup(paper: DeThiPaper, index: number): { start: number; end: number; passage: string | null } {
+  const question = paper.questions[index];
+  const passage = passageForQuestion(paper, index);
+  if (!question || !passage || isSamePassageMarker(passage)) return { start: index, end: index + 1, passage: null };
+  let start = index;
+  let end = index + 1;
+  while (start > 0 && paper.questions[start - 1].problemGroup === question.problemGroup && passageForQuestion(paper, start - 1) === passage) start--;
+  while (end < paper.questions.length && paper.questions[end].problemGroup === question.problemGroup && passageForQuestion(paper, end) === passage) end++;
+  return { start, end, passage };
+}
+
 function passageTranslationForQuestion(paper: DeThiPaper, index: number): string | null {
   const current = paper.questions[index];
   const passage = passageForQuestion(paper, index);
   if (!current || !passage || isSamePassageMarker(passage)) return null;
+  const presentation = currentReadingPresentationForQuestion(paper, index);
+  if (presentation?.translationVi?.trim()) return presentation.translationVi;
 
   for (let i = 0; i < paper.questions.length; i++) {
     const candidate = paper.questions[i];
@@ -225,10 +244,38 @@ function passageSentenceTranslationsForQuestion(paper: DeThiPaper, index: number
   const current = paper.questions[index];
   const passage = passageForQuestion(paper, index);
   if (!current || !passage || isSamePassageMarker(passage)) return null;
+  const presentation = currentReadingPresentationForQuestion(paper, index);
+  if (presentation) return presentation.sentencesVi?.length ? presentation.sentencesVi : null;
+  let hasStalePresentation = false;
+  for (let i = 0; i < paper.questions.length; i++) {
+    const candidate = paper.questions[i];
+    if (candidate.problemGroup !== current.problemGroup || passageForQuestion(paper, i) !== passage) continue;
+    if (candidate.readingPresentation) hasStalePresentation = true;
+  }
+  if (hasStalePresentation) return null;
   for (let i = 0; i < paper.questions.length; i++) {
     const candidate = paper.questions[i];
     if (candidate.problemGroup === current.problemGroup && passageForQuestion(paper, i) === passage && candidate.passageSentencesVi?.length) {
       return candidate.passageSentencesVi;
+    }
+  }
+  return null;
+}
+
+function currentReadingPresentationForQuestion(paper: DeThiPaper, index: number): DeThiQuestion["readingPresentation"] | null {
+  const current = paper.questions[index];
+  const passage = passageForQuestion(paper, index);
+  if (!current || !passage || isSamePassageMarker(passage)) return null;
+  const furigana = passageFuriganaForQuestion(paper, index);
+  const body = furigana?.map((segment) => segment.text).join("") === passage
+    ? furigana!
+    : [{ text: passage, furigana: null }];
+  const bodySignature = stableHash(JSON.stringify(body));
+  for (let i = 0; i < paper.questions.length; i++) {
+    const candidate = paper.questions[i];
+    if (candidate.problemGroup !== current.problemGroup || passageForQuestion(paper, i) !== passage) continue;
+    if (candidate.readingPresentation?.bodySignature === bodySignature && candidate.readingPresentation.sentencesVi?.length) {
+      return candidate.readingPresentation;
     }
   }
   return null;
@@ -384,55 +431,6 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function splitPassageParagraphs(text: string): { text: string; start: number; end: number }[] {
-  const ranges: { text: string; start: number; end: number }[] = [];
-  const separator = /\r?\n[\t ]*\r?\n/gu;
-  let cursor = 0;
-  for (const match of text.matchAll(separator)) {
-    const start = match.index ?? cursor;
-    const raw = text.slice(cursor, start);
-    const leading = raw.length - raw.trimStart().length;
-    const trailing = raw.length - raw.trimEnd().length;
-    if (raw.trim()) ranges.push({ text: raw.trim(), start: cursor + leading, end: start - trailing });
-    cursor = start + match[0].length;
-  }
-  const tail = text.slice(cursor);
-  const tailLeading = tail.length - tail.trimStart().length;
-  const tailTrailing = tail.length - tail.trimEnd().length;
-  if (tail.trim()) ranges.push({ text: tail.trim(), start: cursor + tailLeading, end: text.length - tailTrailing });
-
-  return ranges.flatMap((paragraph) => {
-    const lines = [...paragraph.text.matchAll(/[^\r\n]+/gu)].map((match) => ({
-      text: match[0],
-      start: match.index ?? 0,
-    }));
-    if (lines.length < 2 || lines.length > 12 || paragraph.text.includes("|")) return [paragraph];
-
-    const isStructuredLine = (line: string) =>
-      /^\s*(?:[-*•・※]|\(?\d+\)?[.)、]|(?:日時|日\s*時|場所|料金|電話|営業時間|開室時間|連絡先|参加方法|持ち物|対象|申込)[：:])/u.test(line);
-    if (lines.some(({ text: line }) => isStructuredLine(line))) return [paragraph];
-
-    const longLines = lines.filter(({ text: line }) => line.trim().length >= 50).length;
-    const hasShortTitle = lines[0].text.trim().length <= 40 && !/[。！？!?」』）)]\s*$/u.test(lines[0].text.trim());
-    const candidateBreakLines = lines.slice(hasShortTitle ? 1 : 0, -1);
-    const sentenceEndedLines = candidateBreakLines.filter(({ text: line }) => /[。！？!?」』）)]\s*$/u.test(line.trim())).length;
-    const hasParagraphLikeBreaks = candidateBreakLines.length === 0
-      ? hasShortTitle
-      : sentenceEndedLines === candidateBreakLines.length;
-    if (!hasParagraphLikeBreaks || longLines < Math.ceil(lines.length / 2)) return [paragraph];
-
-    return lines.map(({ text: line, start }) => {
-      const leading = line.length - line.trimStart().length;
-      const trailing = line.length - line.trimEnd().length;
-      return {
-        text: line.trim(),
-        start: paragraph.start + start + leading,
-        end: paragraph.start + start + line.length - trailing,
-      };
-    });
-  });
-}
-
 function examGrammarChunks(pattern: string): string[] {
   return pattern.replace(/（[^）]*）/gu, "").split("〜").map((part) => part.trim()).filter((part) => part.length >= 3);
 }
@@ -445,6 +443,7 @@ function PassageTextWithReferences({
   furigana,
   showFurigana,
   underlineRange,
+  underlineRanges,
 }: {
   text: string;
   questionNumber: number;
@@ -453,6 +452,7 @@ function PassageTextWithReferences({
   furigana?: { text: string; furigana: string | null }[] | null;
   showFurigana?: boolean;
   underlineRange?: { start: number; end: number };
+  underlineRanges?: { start: number; end: number }[];
 }) {
   const terms = highlightReferences
     ? [...new Set(referenceTerms.filter((term) => term.length >= 2))].sort((a, b) => b.length - a.length)
@@ -468,10 +468,10 @@ function PassageTextWithReferences({
         referenceRanges.push({ start, end: start + match[0].length });
       }
     }
-    const localUnderlineRange = !underlineRange ? [] : [{
-      start: Math.max(0, underlineRange.start - sourceOffset),
-      end: Math.min(value.length, underlineRange.end - sourceOffset),
-    }].filter((range) => range.start < range.end);
+    const localUnderlineRange = (underlineRanges ?? (underlineRange ? [underlineRange] : [])).map((range) => ({
+      start: Math.max(0, range.start - sourceOffset),
+      end: Math.min(value.length, range.end - sourceOffset),
+    })).filter((range) => range.start < range.end);
     if (!referenceRanges.length && !localUnderlineRange.length) return <PassageText text={value} questionNumber={questionNumber} />;
     const boundaries = new Set([0, value.length]);
     for (const range of [...referenceRanges, ...localUnderlineRange]) {
@@ -495,7 +495,7 @@ function PassageTextWithReferences({
 
   const furiganaMatchesText = furigana?.map((segment) => segment.text).join("") === text;
   const renderFuriganaRange = (start: number, end: number) => {
-    if (!showFurigana || !furiganaMatchesText || !furigana?.length) return renderHighlightedText(text.slice(start, end));
+    if (!showFurigana || !furiganaMatchesText || !furigana?.length) return renderHighlightedText(text.slice(start, end), start);
     let offset = 0;
     const rendered: React.ReactNode[] = [];
     for (const [index, segment] of furigana.entries()) {
@@ -509,7 +509,7 @@ function PassageTextWithReferences({
       // Annotation segments are word-sized; if a review slice ever cuts one,
       // keep the text rather than applying a reading to a partial word.
       const reading = overlapStart === segmentStart && overlapEnd === segmentEnd ? segment.furigana : null;
-      const content = renderHighlightedText(segmentText);
+      const content = renderHighlightedText(segmentText, overlapStart);
       rendered.push(reading ? (
         <ruby key={index}>{content}<rt className="text-[10px] text-neutral-400">{reading}</rt></ruby>
       ) : <span key={index}>{content}</span>);
@@ -593,7 +593,23 @@ function splitTextIntoSentenceUnits(text: string, japanese: boolean): string[] {
   return units;
 }
 
-function translatedPassageUnits(passage: string, translation: string, explicitSentences?: string[]): { japanese: string; vietnamese: string }[] {
+function translatedPassageUnits(
+  passage: string,
+  translation: string,
+  explicitSentences?: string[],
+  furigana?: { text: string; furigana: string | null }[] | null,
+): { japanese: string; vietnamese: string; furigana?: { text: string; furigana: string | null }[] }[] {
+  const body = furigana?.map((segment) => segment.text).join("") === passage
+    ? furigana!
+    : [{ text: passage, furigana: null }];
+  const sentenceGroups = splitBodyIntoSentences(body);
+  if (explicitSentences?.length === sentenceGroups.length) {
+    return translatedReadingUnits(body, explicitSentences).map(({ segments, translation }) => ({
+      japanese: segments.map((segment) => segment.text).join(""),
+      vietnamese: translation,
+      furigana: segments,
+    }));
+  }
   const japaneseUnits = splitTextIntoSentenceUnits(passage, true);
   if (explicitSentences?.length === japaneseUnits.length) {
     return japaneseUnits.map((japanese, index) => ({ japanese, vietnamese: explicitSentences[index] }));
@@ -631,12 +647,15 @@ function QuestionText({
   underline,
   furigana,
   showFurigana,
+  keepUnderlineTogether,
 }: {
   text: string;
   underline?: string;
   furigana?: { text: string; furigana: string | null }[];
   showFurigana?: boolean;
+  keepUnderlineTogether?: boolean;
 }) {
+  const underlineClass = `font-bold underline decoration-2 underline-offset-2${keepUnderlineTogether ? " whitespace-nowrap" : ""}`;
   if (showFurigana && furigana && furigana.length > 0) {
     const furiganaText = furigana.map((segment) => segment.text).join("");
     const underlineStart = furiganaText === text && underline ? text.indexOf(underline) : -1;
@@ -652,7 +671,7 @@ function QuestionText({
           const content = underlineStart >= 0 && markedStart < markedEnd
             ? <>
                 {seg.text.slice(0, markedStart)}
-                <span className="font-bold underline decoration-2 underline-offset-2">{seg.text.slice(markedStart, markedEnd)}</span>
+                <span className={underlineClass}>{seg.text.slice(markedStart, markedEnd)}</span>
                 {seg.text.slice(markedEnd)}
               </>
             : seg.text;
@@ -667,7 +686,7 @@ function QuestionText({
   return (
     <>
       {text.slice(0, i)}
-      <span className="font-bold underline decoration-2 underline-offset-2">{underline}</span>
+      <span className={underlineClass}>{underline}</span>
       {text.slice(i + underline.length)}
     </>
   );
@@ -1159,6 +1178,9 @@ function ExamDetailView({
               </div>
               <div>
                 <div className="text-base font-bold text-neutral-800">{paper.label}</div>
+                {paper.gradingAvailable === false ? (
+                  <p className="mt-1 text-xs leading-relaxed text-amber-700">Chưa có MP3 và đáp án; hiện chỉ xem câu hỏi, không chấm điểm.</p>
+                ) : null}
               </div>
               <div className="flex items-center gap-3 text-xs font-medium text-neutral-500">
                 <span className="flex items-center gap-1">
@@ -1170,22 +1192,24 @@ function ExamDetailView({
                 {s && s.bestPercent !== null ? <span className="font-semibold text-emerald-600">{s.bestPercent}%</span> : null}
               </div>
               <div className="mt-1 flex gap-2">
-                <Button className="flex-1" onClick={() => onStart(paper)}>
-                  Bắt đầu <ChevronRight size={15} />
+                <Button className="flex-1" onClick={() => onStart(paper, paper.gradingAvailable === false)}>
+                  {paper.gradingAvailable === false ? "Xem câu hỏi" : "Bắt đầu"} <ChevronRight size={15} />
                 </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  aria-label={`Ôn tập ${paper.label}`}
-                  title={
-                    paper.audioUrl
-                      ? "Ôn tập không tính giờ; có thể dừng, tua, lặp lại và đổi tốc độ audio"
-                      : "Ôn tập không tính giờ và không lưu vào lịch sử"
-                  }
-                  onClick={() => onStart(paper, true)}
-                >
-                  <BookOpenText size={16} />
-                </Button>
+                {paper.gradingAvailable !== false ? (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label={`Ôn tập ${paper.label}`}
+                    title={
+                      paper.audioUrl
+                        ? "Ôn tập không tính giờ; có thể dừng, tua, lặp lại và đổi tốc độ audio"
+                        : "Ôn tập không tính giờ và không lưu vào lịch sử"
+                    }
+                    onClick={() => onStart(paper, true)}
+                  >
+                    <BookOpenText size={16} />
+                  </Button>
+                ) : null}
                 {s && s.attempts > 0 ? (
                   <button
                     title="Xem lịch sử làm bài, xem lại từng câu của mỗi lần làm"
@@ -1311,38 +1335,46 @@ function TakingView({
   const { exam, paper } = found;
 
   const idx = session.currentIndex;
-  const q = paper.questions[idx];
+  const group = questionDisplayGroup(paper, idx);
+  const questions = paper.questions.slice(group.start, group.end);
+  const firstQuestion = questions[0];
   const listeningMondaiLabel = paper.id === "choukai" || paper.audioUrl
-    ? getJlptListeningMondaiLabel(q.problemGroup)
+    ? getJlptListeningMondaiLabel(firstQuestion.problemGroup)
     : undefined;
-  const passage = passageForQuestion(paper, idx);
-  const answered = session.answers[idx];
+  const passage = group.passage;
+  const isGroupedReading = !!passage && questions.length > 1;
   const allAnswered = session.answers.every((a) => a !== null);
-  const isLast = idx === paper.questions.length - 1;
+  const isLast = group.end === paper.questions.length;
+  const previousIndex = group.start - 1;
 
   async function goTo(newIndex: number) {
+    const staysInGroup = newIndex >= group.start && newIndex < group.end;
     const next = { ...session, currentIndex: newIndex };
     await saveDeThiSession(next);
     onSessionChange(next);
+    requestAnimationFrame(() => {
+      if (staysInGroup) document.getElementById(`exam-taking-question-${newIndex}`)?.scrollIntoView({ block: "start" });
+      else window.scrollTo({ top: 0, behavior: "auto" });
+    });
   }
 
-  async function selectAnswer(optionIndex: number) {
+  async function selectAnswer(questionIndex: number, optionIndex: number) {
     const answers = [...session.answers];
-    answers[idx] = optionIndex;
-    const next = { ...session, answers };
+    answers[questionIndex] = optionIndex;
+    const next = { ...session, answers, currentIndex: questionIndex };
     await saveDeThiSession(next);
     onSessionChange(next);
   }
 
   function goNext() {
     if (isLast) return;
-    goTo(idx + 1);
+    goTo(group.end);
   }
 
   const swipe = useSwipeNavigation({
     onSwipeLeft: goNext,
     onSwipeRight: () => {
-      if (idx > 0) goTo(idx - 1);
+      if (previousIndex >= 0) goTo(previousIndex);
     },
   });
 
@@ -1356,7 +1388,7 @@ function TakingView({
         <div>
           <div className="text-xs font-semibold text-neutral-400">{paper.label}</div>
           <h1 className="text-lg font-bold text-neutral-800">
-            Câu {idx + 1} / {paper.questions.length}
+            {isGroupedReading ? `Câu ${group.start + 1}–${group.end} / ${paper.questions.length}` : `Câu ${idx + 1} / ${paper.questions.length}`}
           </h1>
         </div>
         <div className="flex items-center gap-2">
@@ -1409,7 +1441,7 @@ function TakingView({
       ) : null}
 
       <QuestionPalette
-        summary={`Câu ${idx + 1}/${paper.questions.length} · đã trả lời ${session.answers.filter((a) => a !== null).length}`}
+        summary={`${isGroupedReading ? `Câu ${group.start + 1}–${group.end}` : `Câu ${idx + 1}`}/${paper.questions.length} · đã trả lời ${session.answers.filter((a) => a !== null).length}`}
         onJump={goTo}
         items={paper.questions.map((question, i) => {
           const a = session.answers[i];
@@ -1424,88 +1456,92 @@ function TakingView({
             <span style={levelBadgeStyle(exam.level)} className="rounded-full px-2 py-0.5 text-[10px] font-bold normal-case">
               {exam.level}
             </span>
-            {listeningMondaiLabel ? `${listeningMondaiLabel} · ` : ""}{q.problemGroup}
+            {listeningMondaiLabel ? `${listeningMondaiLabel} · ` : ""}{firstQuestion.problemGroup}
           </div>
         </div>
 
         {passage ? (
           <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
-            <PassageTextWithReferences text={passage} questionNumber={q.number} referenceTerms={[]} highlightReferences={false} underlineRange={readingPassageUnderlineRange(q.question, q.underline, q.passageUnderline, passage, q.passageUnderlineOccurrence)} />
+            <PassageTextWithReferences text={passage} questionNumber={firstQuestion.number} referenceTerms={[]} highlightReferences={false} underlineRanges={readingPassageUnderlineRanges(questions, passage)} />
           </div>
         ) : null}
-
-        <div className="mt-4 flex items-start gap-2 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">
-          <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-sm font-bold text-neutral-600">{q.number}.</span>
-          <div className="min-w-0 flex-1">
-            <QuestionText text={formatExamQuestion(q.question, q.problemGroup)} underline={readingQuestionUnderline(q.question, q.underline, passage)} />
-          </div>
-        </div>
-
-        {q.questionImage ? (
-          <img src={assetUrl(q.questionImage)} alt="Hình tình huống của câu nghe" className="mt-4 w-full rounded-lg border border-neutral-200" />
-        ) : null}
-
-        {q.optionsImage ? (
-          <>
-            <img src={assetUrl(q.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-4 w-full rounded-lg border border-neutral-200" />
-            <div className="mt-3 grid grid-cols-4 gap-2">
-              {Array.from({ length: q.optionCount ?? 4 }, (_, oi) => (
-                <button
-                  key={oi}
-                  onClick={() => selectAnswer(oi)}
-                  className={`rounded-lg border py-2 text-center text-sm font-bold ${
-                    answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
-                  }`}
-                >
-                  {oi + 1}
-                </button>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="mt-5 grid gap-2 sm:grid-cols-2">
-            {q.options.map((opt, oi) => (
-              <button
-                key={oi}
-                onClick={() => selectAnswer(oi)}
-                className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${
-                  answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
-                }`}
-              >
-                <span
-                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${
-                    answered === oi ? "border-rose-300 text-rose-600" : "border-neutral-300 text-neutral-400"
-                  }`}
-                >
-                  {oi + 1}
-                </span>
-                <QuestionText
-                  text={opt}
-                  underline={optionUnderline(q.problemGroup, q.question, q.underlineForms, opt)}
-                />
-              </button>
-            ))}
-          </div>
-        )}
+        {questions.map((question, offset) => {
+          const questionIndex = group.start + offset;
+          const answered = session.answers[questionIndex];
+          return (
+            <section id={`exam-taking-question-${questionIndex}`} key={questionIndex} className={offset > 0 ? "mt-6 border-t border-neutral-200 pt-5" : undefined}>
+              <div className="mt-4 flex items-start gap-2 whitespace-pre-line text-lg leading-relaxed font-semibold text-neutral-800">
+                <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-sm font-bold text-neutral-600">{question.number}.</span>
+                <div className="min-w-0 flex-1">
+                  <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={readingQuestionUnderline(question.question, question.underline, passage)} />
+                </div>
+              </div>
+              {question.questionImage ? (
+                <img src={assetUrl(question.questionImage)} alt="Hình tình huống của câu nghe" className="mt-4 w-full rounded-lg border border-neutral-200" />
+              ) : null}
+              {question.optionsImage ? (
+                <>
+                  <img src={assetUrl(question.optionsImage)} alt="Lựa chọn minh hoạ" className="mt-4 w-full rounded-lg border border-neutral-200" />
+                  <div className="mt-3 grid grid-cols-4 gap-2">
+                    {Array.from({ length: question.optionCount ?? 4 }, (_, oi) => (
+                      <button
+                        key={oi}
+                        onClick={() => selectAnswer(questionIndex, oi)}
+                        className={`rounded-lg border py-2 text-center text-sm font-bold ${
+                          answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
+                        }`}
+                      >
+                        {oi + 1}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="mt-5 grid gap-2 md:grid-cols-2">
+                  {question.options.map((opt, oi) => (
+                    <button
+                      key={oi}
+                      onClick={() => selectAnswer(questionIndex, oi)}
+                      className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${
+                        answered === oi ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 hover:bg-neutral-50"
+                      }`}
+                    >
+                      <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${
+                        answered === oi ? "border-rose-300 text-rose-600" : "border-neutral-300 text-neutral-400"
+                      }`}>{oi + 1}</span>
+                      <span className="min-w-0 flex-1 whitespace-normal">
+                        <QuestionText
+                          text={opt}
+                          underline={optionUnderline(question.problemGroup, question.question, question.underlineForms, opt)}
+                          keepUnderlineTogether
+                        />
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </section>
+          );
+        })}
       </Card>
 
       {/* Desktop-only inline row -- on mobile, see the floating buttons below.
           Full-width on mobile it would put "Câu sau" right at the screen edge,
           the same edge-swipe-back trap fixed in QuizScreen (see useSwipeNavigation.ts). */}
       <div className="mt-4 hidden items-center gap-2 md:flex">
-        <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
-          <ChevronLeft size={16} /> Câu trước
+        <Button variant="outline" disabled={previousIndex < 0} onClick={() => goTo(previousIndex)}>
+          <ChevronLeft size={16} /> {isGroupedReading ? "Bài trước" : "Câu trước"}
         </Button>
         <Button className="ml-auto" disabled={isLast} onClick={goNext}>
-          Câu sau <ChevronRight size={16} />
+          {isGroupedReading ? "Bài sau" : "Câu sau"} <ChevronRight size={16} />
         </Button>
       </div>
 
-      {idx > 0 ? (
+      {previousIndex >= 0 ? (
         <button
-          onClick={() => goTo(idx - 1)}
-          aria-label="Câu trước"
-          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
+          onClick={() => goTo(previousIndex)}
+          aria-label={isGroupedReading ? "Bài trước" : "Câu trước"}
+          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -1513,8 +1549,8 @@ function TakingView({
       {!isLast ? (
         <button
           onClick={goNext}
-          aria-label="Câu sau"
-          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
+          aria-label={isGroupedReading ? "Bài sau" : "Câu sau"}
+          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
           <ChevronRight size={18} />
         </button>
@@ -1561,11 +1597,13 @@ function ResultView({
 }) {
   const found = findPaper(entry.examId, entry.paperId);
   const [reviewIndex, setReviewIndex] = useState<number | null>(initialReviewIndex ?? null);
+  const reviewGroup = found && reviewIndex !== null ? questionDisplayGroup(found.paper, reviewIndex) : null;
   const [showFurigana, setShowFurigana] = useState(false);
   // Entries saved before DeThiHistoryEntry.answers existed have none -- the
   // score summary above still renders fine, just skip the per-question
   // palette/review instead of showing it against an empty array.
   const hasAnswers = answers.length > 0;
+  const gradingAvailable = !!found && found.paper.gradingAvailable !== false && found.paper.questions.every((question) => question.correctIndex !== null);
   const actions = (
     <div className="mt-8 flex gap-2">
       <Button variant="outline" className="flex-1" onClick={onBack}>
@@ -1594,6 +1632,12 @@ function ResultView({
     onNavigate(screen, id);
   }
 
+  function jumpToReview(index: number, showPassage = false) {
+    setReviewIndex(index);
+    const target = showPassage && found ? questionDisplayGroup(found.paper, index).start : index;
+    requestAnimationFrame(() => document.getElementById(`exam-review-question-${target}`)?.scrollIntoView({ block: "start" }));
+  }
+
   return (
     <div className={`mx-auto px-2.5 py-2 text-center md:px-8 md:py-6 ${practiceMode ? "max-w-3xl" : "max-w-2xl"}`}>
       <h1 className="text-2xl font-bold text-neutral-800">{practiceMode ? "Kết quả ôn tập" : "Kết quả"}</h1>
@@ -1602,23 +1646,31 @@ function ResultView({
       </p>
 
       <div className="mt-6 flex flex-col items-center">
-        <div className="text-5xl font-extrabold text-rose-600">{entry.percent}%</div>
-        <div className="mt-1 text-sm font-medium text-neutral-500">
-          {entry.correctPoints}/{entry.totalPoints} điểm · {entry.correctCount}/{entry.totalQuestions} câu đúng
-        </div>
-        {practiceMode ? (
-          <div className="mt-1 text-xs text-neutral-500">Lượt ôn tập này không lưu vào lịch sử. Hãy xem đáp án trước khi rời trang.</div>
+        {gradingAvailable ? (
+          <>
+            <div className="text-5xl font-extrabold text-rose-600">{entry.percent}%</div>
+            <div className="mt-1 text-sm font-medium text-neutral-500">
+              {entry.correctPoints}/{entry.totalPoints} điểm · {entry.correctCount}/{entry.totalQuestions} câu đúng
+            </div>
+          </>
         ) : (
-          <div className="mt-1 text-xs text-neutral-400">Thời gian làm bài: {formatDuration(entry.durationSec)}</div>
+          <p className="max-w-lg rounded-xl bg-amber-50 p-3 text-sm font-medium text-amber-800">
+            Phần này chưa chấm điểm vì chưa có MP3 và đáp án. Câu trả lời của bạn không được lưu vào lịch sử.
+          </p>
         )}
+      {practiceMode && gradingAvailable ? (
+          <div className="mt-1 text-xs text-neutral-500">Lượt ôn tập này không lưu vào lịch sử. Hãy xem đáp án trước khi rời trang.</div>
+        ) : gradingAvailable ? (
+          <div className="mt-1 text-xs text-neutral-400">Thời gian làm bài: {formatDuration(entry.durationSec)}</div>
+        ) : null}
       </div>
 
       {!practiceMode ? actions : null}
 
       {practiceMode && found && hasAnswers ? (
         <div className="mt-8 text-left">
-          <h2 className="text-lg font-bold text-neutral-800">Đáp án và giải thích</h2>
-          <p className="mt-1 text-xs text-neutral-500">Đáp án đúng màu xanh, câu trả lời sai màu đỏ.</p>
+          <h2 className="text-lg font-bold text-neutral-800">{gradingAvailable ? "Đáp án và giải thích" : "Câu hỏi và lựa chọn"}</h2>
+          <p className="mt-1 text-xs text-neutral-500">{gradingAvailable ? "Đáp án đúng màu xanh, câu trả lời sai màu đỏ." : "Phần nghe chờ MP3; lựa chọn chưa được chấm."}</p>
           {found.paper.questions.map((question, i) => (
             <ReviewQuestion
               key={i}
@@ -1634,6 +1686,8 @@ function ResultView({
               showListeningAudio={false}
               onToggleFurigana={() => setShowFurigana((visible) => !visible)}
               onNavigate={(screen, id) => openReference(screen, id, i)}
+              showPassage={questionDisplayGroup(found.paper, i).start === i}
+              passageQuestions={found.paper.questions.slice(questionDisplayGroup(found.paper, i).start, questionDisplayGroup(found.paper, i).end)}
             />
           ))}
         </div>
@@ -1641,53 +1695,62 @@ function ResultView({
         <div className="mt-8 text-left">
           <QuestionPalette
             defaultOpen
-            summary={`${entry.correctCount} đúng · ${entry.totalQuestions - entry.correctCount - answers.filter((a) => a === null).length} sai${
-              answers.some((a) => a === null) ? ` · ${answers.filter((a) => a === null).length} chưa làm` : ""
-            } — bấm 1 câu để xem lại`}
-            onJump={(i) => setReviewIndex(i)}
+            summary={gradingAvailable
+              ? `${entry.correctCount} đúng · ${entry.totalQuestions - entry.correctCount - answers.filter((a) => a === null).length} sai${
+                answers.some((a) => a === null) ? ` · ${answers.filter((a) => a === null).length} chưa làm` : ""
+              } — bấm 1 câu để xem lại`
+              : `${answers.filter((answer) => answer !== null).length} lựa chọn đã chọn · chưa chấm — bấm 1 câu để xem lại`}
+            onJump={(i) => jumpToReview(i)}
             items={found.paper.questions.map((q, i) => {
               const a = answers[i];
-              const status: PaletteStatus = a === null ? "unanswered" : a === q.correctIndex ? "correct" : "wrong";
+              const status: PaletteStatus = a === null ? "unanswered" : q.correctIndex === null ? "answered" : a === q.correctIndex ? "correct" : "wrong";
               return { id: String(q.number), status };
             })}
           />
-          {reviewIndex !== null ? (
+          {reviewGroup ? (
             <>
-              <ReviewQuestion
-                key={found.paper.questions[reviewIndex].number}
-                question={withListeningReviewContent(found.exam.id, found.paper.id, found.paper.questions[reviewIndex])}
-                level={found.exam.level}
-                passage={passageForQuestion(found.paper, reviewIndex)}
-                passageFurigana={passageFuriganaForQuestion(found.paper, reviewIndex)}
-                passageVi={passageTranslationForQuestion(found.paper, reviewIndex)}
-                passageSentencesVi={passageSentenceTranslationsForQuestion(found.paper, reviewIndex)}
-                questionVi={questionTranslationForQuestion(found.paper, reviewIndex)}
-                chosenIndex={answers[reviewIndex]}
-                showFurigana={showFurigana}
-                onToggleFurigana={() => setShowFurigana((visible) => !visible)}
-                onNavigate={(screen, id) => openReference(screen, id, reviewIndex)}
-              />
+              {Array.from({ length: reviewGroup.end - reviewGroup.start }, (_, offset) => reviewGroup.start + offset).map((i) => (
+                <div id={`exam-review-question-${i}`} key={i}>
+                  <ReviewQuestion
+                    question={withListeningReviewContent(found.exam.id, found.paper.id, found.paper.questions[i])}
+                    level={found.exam.level}
+                    passage={passageForQuestion(found.paper, i)}
+                    passageFurigana={passageFuriganaForQuestion(found.paper, i)}
+                    passageVi={passageTranslationForQuestion(found.paper, i)}
+                    passageSentencesVi={passageSentenceTranslationsForQuestion(found.paper, i)}
+                    questionVi={questionTranslationForQuestion(found.paper, i)}
+                    chosenIndex={answers[i]}
+                    showFurigana={showFurigana}
+                    showPassage={i === reviewGroup.start}
+                    passageQuestions={found.paper.questions.slice(reviewGroup.start, reviewGroup.end)}
+                    onToggleFurigana={() => setShowFurigana((visible) => !visible)}
+                    onNavigate={(screen, id) => openReference(screen, id, i)}
+                  />
+                </div>
+              ))}
               <div className="mt-3 flex items-center justify-between gap-3">
                 <button
                   type="button"
-                  onClick={() => setReviewIndex((current) => Math.max(0, (current ?? 0) - 1))}
-                  disabled={reviewIndex === 0}
+                  onClick={() => jumpToReview(reviewGroup.start - 1, true)}
+                  disabled={reviewGroup.start === 0}
                   className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-40"
-                  aria-label="Câu trước"
+                  aria-label={reviewGroup.end - reviewGroup.start > 1 ? "Bài trước" : "Câu trước"}
                 >
-                  <ChevronLeft size={16} /> Câu trước
+                  <ChevronLeft size={16} /> {reviewGroup.end - reviewGroup.start > 1 ? "Bài trước" : "Câu trước"}
                 </button>
                 <span className="shrink-0 text-xs font-medium text-neutral-400">
-                  Câu {found.paper.questions[reviewIndex].number}/{found.paper.questions.length}
+                  {reviewGroup.end - reviewGroup.start > 1
+                    ? `Câu ${found.paper.questions[reviewGroup.start].number}–${found.paper.questions[reviewGroup.end - 1].number}`
+                    : `Câu ${found.paper.questions[reviewGroup.start].number}`}
                 </span>
                 <button
                   type="button"
-                  onClick={() => setReviewIndex((current) => Math.min(found.paper.questions.length - 1, (current ?? -1) + 1))}
-                  disabled={reviewIndex === found.paper.questions.length - 1}
+                  onClick={() => jumpToReview(reviewGroup.end, true)}
+                  disabled={reviewGroup.end === found.paper.questions.length}
                   className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-neutral-200 px-3 py-2 text-sm font-medium text-neutral-600 hover:bg-neutral-50 disabled:cursor-not-allowed disabled:opacity-40"
-                  aria-label="Câu sau"
+                  aria-label={reviewGroup.end - reviewGroup.start > 1 ? "Bài sau" : "Câu sau"}
                 >
-                  Câu sau <ChevronRight size={16} />
+                  {reviewGroup.end - reviewGroup.start > 1 ? "Bài sau" : "Câu sau"} <ChevronRight size={16} />
                 </button>
               </div>
             </>
@@ -1779,6 +1842,8 @@ function ReviewQuestion({
   onToggleFurigana,
   onNavigate,
   showListeningAudio = true,
+  showPassage = true,
+  passageQuestions,
 }: {
   question: DeThiPaper["questions"][number];
   level: JlptLevel;
@@ -1792,10 +1857,13 @@ function ReviewQuestion({
   onToggleFurigana: () => void;
   onNavigate?: (screen: Screen, id?: string) => void;
   showListeningAudio?: boolean;
+  showPassage?: boolean;
+  passageQuestions?: readonly DeThiQuestion[];
 }) {
   const orderingReconstruction = reconstructOrderingQuestion(question);
   const sourceUnderline = readingQuestionUnderline(question.question, question.underline, passage);
   const sourcePassageUnderline = readingPassageUnderlineRange(question.question, question.underline, question.passageUnderline, passage, question.passageUnderlineOccurrence);
+  const sourcePassageUnderlineRanges = passage && passageQuestions ? readingPassageUnderlineRanges(passageQuestions, passage) : undefined;
   const hasMarkdownTable = !!passage && findMarkdownPipeTables(passage).length > 0;
   const [showPassageTranslation, setShowPassageTranslation] = useState(false);
   const [showQuestionTranslation, setShowQuestionTranslation] = useState(false);
@@ -1810,7 +1878,7 @@ function ReviewQuestion({
   useEffect(() => {
     let cancelled = false;
     setReferenceMatches({ vocab: [], bunpo: [], vocabTerms: [] });
-    if (!passage) {
+    if (!passage || !showPassage) {
       return () => {
         cancelled = true;
       };
@@ -1833,14 +1901,14 @@ function ReviewQuestion({
     return () => {
       cancelled = true;
     };
-  }, [level, passage]);
+  }, [level, passage, showPassage]);
   const { vocab: vocabMatches, bunpo: bunpoMatches, vocabTerms } = referenceMatches;
   const displayedQuestionTranslation = questionVi ?? question.questionVi ?? null;
   const optionExplanationCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   const isListeningReview = Boolean(question.listeningAudioUrl || question.listeningPrompt || question.transcriptTurns?.length);
   const hasListeningTranscript = Boolean(question.transcriptTurns?.length);
   const listeningMondaiLabel = isListeningReview ? getJlptListeningMondaiLabel(question.problemGroup) : undefined;
-  const hasReferences = !!passage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
+  const hasReferences = !!passage && showPassage && (vocabMatches.length > 0 || bunpoMatches.length > 0);
   const referenceTerms = useMemo(
     () => [
       ...vocabTerms,
@@ -1850,14 +1918,14 @@ function ReviewQuestion({
   );
 
   const translatedUnits = useMemo(
-    () => passage && passageVi ? translatedPassageUnits(passage, passageVi, passageSentencesVi ?? undefined) : [],
-    [passage, passageSentencesVi, passageVi],
+    () => showPassage && passage && passageVi ? translatedPassageUnits(passage, passageVi, passageSentencesVi ?? undefined, passageFurigana) : [],
+    [passage, passageFurigana, passageSentencesVi, passageVi, showPassage],
   );
   const translatedUnitsWithFurigana = useMemo(() => {
-    if (!passage || !passageFurigana) return translatedUnits.map((unit) => ({ ...unit, furigana: null }));
+    if (!passage || !passageFurigana) return translatedUnits.map((unit) => ({ ...unit, furigana: unit.furigana ?? null }));
     let searchFrom = 0;
     return translatedUnits.map((unit) => {
-      const furigana = sliceFuriganaForText(passage, passageFurigana, unit.japanese, searchFrom);
+      const furigana = unit.furigana ?? sliceFuriganaForText(passage, passageFurigana, unit.japanese, searchFrom);
       const matchedAt = passage.indexOf(unit.japanese, searchFrom);
       if (matchedAt >= 0) searchFrom = matchedAt + unit.japanese.length;
       return { ...unit, furigana };
@@ -1956,7 +2024,7 @@ function ReviewQuestion({
         >
           <BookOpenText size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
         </button> : null}
-        {passage && passageVi ? (
+        {showPassage && passage && passageVi ? (
           <button
             type="button"
             onClick={() => setShowPassageTranslation((visible) => !visible)}
@@ -1970,7 +2038,7 @@ function ReviewQuestion({
           </button>
         ) : null}
       </div>
-      {passage ? (
+      {showPassage && passage ? (
         <div className="mt-3 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
           {showPassageTranslation && passageVi && hasMarkdownTable ? (
             <div className="space-y-5">
@@ -1996,7 +2064,7 @@ function ReviewQuestion({
               ))}
             </div>
           ) : (
-            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={passageFurigana} showFurigana={showFurigana} underlineRange={sourcePassageUnderline} />
+            <PassageTextWithReferences text={passage} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={passageFurigana} showFurigana={showFurigana} underlineRange={sourcePassageUnderline} underlineRanges={sourcePassageUnderlineRanges} />
           )}
         </div>
       ) : null}
@@ -2121,8 +2189,8 @@ function ReviewQuestion({
           <div className="mt-3 grid grid-cols-4 gap-2">
             {Array.from({ length: question.optionCount ?? 4 }, (_, oi) => {
               let cls = "border-neutral-200 opacity-60";
-              if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
-              else if (oi === chosenIndex) cls = "border-rose-300 bg-rose-50 text-rose-700";
+              if (question.correctIndex !== null && oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+              else if (oi === chosenIndex) cls = question.correctIndex === null ? "border-sky-300 bg-sky-50 text-sky-700" : "border-rose-300 bg-rose-50 text-rose-700";
               return (
                 <div key={oi} className={`rounded-lg border py-2 text-center text-sm font-bold ${cls}`}>
                   {oi + 1}
@@ -2132,11 +2200,11 @@ function ReviewQuestion({
           </div>
         </>
       ) : (
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+        <div className="mt-4 grid gap-2 md:grid-cols-2">
           {question.options.map((opt, oi) => {
             let cls = "border-neutral-200 opacity-60";
-            if (oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
-            else if (oi === chosenIndex) cls = "border-rose-300 bg-rose-50 text-rose-700";
+            if (question.correctIndex !== null && oi === question.correctIndex) cls = "border-emerald-300 bg-emerald-50 text-emerald-700";
+            else if (oi === chosenIndex) cls = question.correctIndex === null ? "border-sky-300 bg-sky-50 text-sky-700" : "border-rose-300 bg-rose-50 text-rose-700";
             return (
               <div key={oi} className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm ${cls}`}>
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
@@ -2146,6 +2214,7 @@ function ReviewQuestion({
                   <QuestionText
                     text={opt}
                     underline={optionUnderline(question.problemGroup, question.question, question.underlineForms, opt)}
+                    keepUnderlineTogether
                     furigana={question.optionsFurigana?.[oi]}
                     showFurigana={showFurigana}
                   />
@@ -2157,9 +2226,13 @@ function ReviewQuestion({
         </div>
       )}
       {chosenIndex !== null ? (
-        <div className={`mt-4 font-semibold ${chosenIndex === question.correctIndex ? "text-emerald-700" : "text-rose-700"}`}>
-          {chosenIndex === question.correctIndex ? "✓ Đúng" : "✗ Sai"}
-        </div>
+        question.correctIndex === null ? (
+          <div className="mt-4 font-semibold text-sky-700">Đã chọn phương án {chosenIndex + 1} · chưa chấm vì chưa có MP3 và đáp án.</div>
+        ) : (
+          <div className={`mt-4 font-semibold ${chosenIndex === question.correctIndex ? "text-emerald-700" : "text-rose-700"}`}>
+            {chosenIndex === question.correctIndex ? "✓ Đúng" : "✗ Sai"}
+          </div>
+        )
       ) : null}
       {question.explanation || orderingReconstruction ? (
         <div className="mt-2 text-sm text-neutral-600">
@@ -2167,7 +2240,7 @@ function ReviewQuestion({
           {orderingReconstruction ? (
             <div className={question.explanation ? "mt-2 border-t border-neutral-200 pt-2" : ""}>
               <p className="font-semibold">
-                Thứ tự ghép: {orderingReconstruction.order.map((optionIndex) => optionIndex + 1).join(" → ")} (★ ở phương án {question.correctIndex + 1}).
+                Thứ tự ghép: {orderingReconstruction.order.map((optionIndex) => optionIndex + 1).join(" → ")} (★ ở phương án {question.correctIndex === null ? "?" : question.correctIndex + 1}).
               </p>
               <p className="mt-1 whitespace-pre-line">
                 <span className="font-semibold">Câu hoàn chỉnh: </span>{orderingReconstruction.sentence}

@@ -1,8 +1,10 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
+import { sliceReadingBody, splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
+import { translatedReadingUnits } from "../../lib/readingSentences.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import {
   ALL_READING,
@@ -10,6 +12,9 @@ import {
   AVAILABLE_LENGTHS,
   AVAILABLE_BOOKS,
   AVAILABLE_JLPT_EXAMS,
+  AVAILABLE_N3_SETS,
+  AVAILABLE_READING_EXAMS,
+  READING_EXAM_BOOKS,
   AVAILABLE_TOPICS,
   LENGTH_LABELS,
   BOOK_LABELS,
@@ -23,7 +28,8 @@ import {
   resetPassageAnswers,
   matchesFilters,
   matchesReadingSources,
-  splitBodyIntoSentences,
+  readingExamIdsForBook,
+  isReadingExamBook,
   type ReadingPassageViewOptions,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
@@ -101,9 +107,7 @@ function renderTextWithReferences(
     const isUnderlined = localUnderlineRanges.some((range) => start >= range.start && end <= range.end);
     const content = renderLines(part, `marked-${index}`);
     return isReference || isUnderlined ? (
-      <strong key={index} className={isReference
-        ? "font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2"
-        : "font-bold underline decoration-2 underline-offset-2"}>
+      <strong key={index} className={`${isReference ? "font-extrabold text-rose-700 underline decoration-rose-200 decoration-2 underline-offset-2" : "font-bold underline decoration-2 underline-offset-2"}`}>
         {content}
       </strong>
     ) : <span key={index}>{content}</span>;
@@ -121,9 +125,35 @@ function ReadingBody({
   referenceTerms?: ReferenceTerm[];
   highlightReferences?: boolean;
 }) {
+  const isArticle = passage.book === "news" || passage.book === "custom";
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
   const markdownTables = findMarkdownPipeTables(passageText);
+  if (isArticle) {
+    const paragraphs: ReadingPassage["body"][] = [];
+    for (const segment of passage.body) {
+      if (paragraphs.length === 0 || segment.paragraphStart) paragraphs.push([]);
+      paragraphs[paragraphs.length - 1].push(segment);
+    }
+    return (
+      <div className="space-y-5">
+      {paragraphs.map((paragraph, pi) => (
+          <p key={pi}>
+            {paragraph.map((seg, i) => {
+              const text = seg.paragraphStart ? seg.text.replace(/^\n+/u, "") : seg.text;
+              const sourceOffset = passageText.indexOf(seg.text);
+              return showFurigana && seg.furigana ? (
+                <ruby key={i}>
+                  {renderTextWithReferences(text, referenceTerms, highlightReferences, underlineRanges, Math.max(0, sourceOffset))}
+                  <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
+                </ruby>
+              ) : <span key={i}>{renderTextWithReferences(text, referenceTerms, highlightReferences, underlineRanges, Math.max(0, sourceOffset))}</span>;
+            })}
+          </p>
+        ))}
+      </div>
+    );
+  }
   if (markdownTables.length > 0) {
     let segmentOffset = 0;
     const segmentRanges = passage.body.map((segment) => {
@@ -195,22 +225,19 @@ function ReadingBody({
     );
     return <div className="reading-passage-text-blocks">{blocks}</div>;
   }
-  let sourceOffset = 0;
   return (
-    <>
-      {passage.body.map((seg, i) => {
-        const offset = sourceOffset;
-        sourceOffset += seg.text.length;
-        return showFurigana && seg.furigana ? (
-          <ruby key={i}>
-            {renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}
-            <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
-          </ruby>
-        ) : (
-          <span key={i}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}</span>
-        );
-      })}
-    </>
+    <div className="space-y-4">
+      {splitPassageParagraphs(passageText).map((paragraph, pi) => (
+        <p key={pi}>
+          {sliceReadingBody(passage.body, paragraph.start, paragraph.end).map((segment, si) => {
+            const content = renderTextWithReferences(segment.text, referenceTerms, highlightReferences, underlineRanges, segment.offset);
+            return showFurigana && segment.furigana
+              ? <ruby key={si}>{content}<rt className="text-[10px] text-neutral-400">{segment.furigana}</rt></ruby>
+              : <span key={si}>{content}</span>;
+          })}
+        </p>
+      ))}
+    </div>
   );
 }
 
@@ -229,16 +256,16 @@ function ReadingBodyInterleaved({
   referenceTerms?: ReferenceTerm[];
   highlightReferences?: boolean;
 }) {
-  const groups = splitBodyIntoSentences(passage.body);
+  const units = translatedReadingUnits(passage.body, passage.sentencesVi ?? []);
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
   let sourceSearchFrom = 0;
   return (
     <div className="flex flex-col gap-3">
-      {groups.map((segs, gi) => (
-        <div key={gi}>
+      {units.map(({ segments: segs, translation }, gi) => (
+        <div key={gi} className={gi > 0 && segs[0]?.paragraphStart ? "pt-4" : undefined}>
           <div>
-            {segs.map((seg, si) => {
+      {segs.map((seg, si) => {
               const matchOffset = passageText.indexOf(seg.text, sourceSearchFrom);
               const offset = matchOffset >= 0 ? matchOffset : sourceSearchFrom;
               sourceSearchFrom = offset + seg.text.length;
@@ -252,9 +279,9 @@ function ReadingBodyInterleaved({
               );
             })}
           </div>
-          {passage.sentencesVi?.[gi] ? (
+          {translation ? (
             <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic">
-              {passage.sentencesVi[gi]}
+              {translation}
             </div>
           ) : null}
         </div>
@@ -264,11 +291,13 @@ function ReadingBodyInterleaved({
 }
 
 export function ReadingScreen({
+  collection = "all",
   targetId,
   onOpenVocab,
   onOpenBunpo,
   onCurrentItemChange,
 }: {
+  collection?: "all" | "news";
   targetId?: string;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string) => void;
@@ -281,11 +310,13 @@ export function ReadingScreen({
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
-      const passage = targetId ? findReadingById(targetId) : undefined;
+      const foundTarget = targetId ? findReadingById(targetId) : undefined;
+      const passage = foundTarget && (collection !== "news" || foundTarget.book === "news") ? foundTarget : undefined;
       if (passage) {
         s = {
           ...s,
           currentPassageId: passage.id,
+          lastPassageId: passage.id,
           answers: { ...s.answers, [passage.id]: s.answers[passage.id] ?? passage.questions.map(() => null) },
           showFurigana: false,
           showTranslation: false,
@@ -306,7 +337,7 @@ export function ReadingScreen({
     return () => {
       cancelled = true;
     };
-  }, [targetId]);
+  }, [collection, targetId]);
 
   async function mutate(partial: Partial<ReadingViewerState>) {
     if (!state) return;
@@ -316,20 +347,26 @@ export function ReadingScreen({
     setError(undefined);
   }
 
+  const savedPassage = state?.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
+  const passage = savedPassage && (collection !== "news" || savedPassage.book === "news") ? savedPassage : undefined;
+  const isStateLoaded = state !== null;
   useEffect(() => {
-    onCurrentItemChange?.(state?.currentPassageId ?? undefined);
-  }, [state?.currentPassageId, onCurrentItemChange]);
+    if (!isStateLoaded) return;
+    onCurrentItemChange?.(passage?.id);
+  }, [isStateLoaded, passage?.id, onCurrentItemChange]);
 
   if (!state) return <LoadingScreen />;
-
-  const passage = state.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
 
   // Lifted up from ListView (rather than each screen recomputing its own
   // copy) so PassageView can sequence Trước/Tiếp through the exact same
   // filtered+status-filtered order the user was browsing in the list --
   // same reasoning as BunpoScreen.tsx's DetailView visibleList.
-  const filtered = ALL_READING.filter((p) => matchesFilters(p, state));
+  const filtered = ALL_READING.filter((p) => {
+    if (collection !== "news") return matchesFilters(p, state);
+    return p.book === "news" && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && (!p.topic || state.selectedTopics.includes(p.topic));
+  });
   const visiblePassages = filtered.filter((p) => {
+    if (state.savedOnly && !state.savedPassageIds.includes(p.id)) return false;
     if (state.listStatusFilter === "all") return true;
     const progress = getPassageProgress(p, state.answers);
     if (state.listStatusFilter === "needs-review") return progress.status === "done" && progress.correct < progress.total;
@@ -339,6 +376,7 @@ export function ReadingScreen({
   async function openPassage(passage: ReadingPassage) {
     await mutate({
       currentPassageId: passage.id,
+      lastPassageId: passage.id,
       answers: { ...state!.answers, [passage.id]: state!.answers[passage.id] ?? passage.questions.map(() => null) },
       // Reset the session-level fallback when switching passages; per-passage
       // display choices are retained separately in passageViewOptions.
@@ -359,6 +397,7 @@ export function ReadingScreen({
         onOpenBunpo={onOpenBunpo}
         visiblePassages={visiblePassages}
         openPassage={openPassage}
+        collection={collection}
       />
     );
   }
@@ -372,6 +411,7 @@ export function ReadingScreen({
       filtered={filtered}
       visiblePassages={visiblePassages}
       openPassage={openPassage}
+      collection={collection}
     />
   );
 }
@@ -384,6 +424,7 @@ function ListView({
   filtered,
   visiblePassages,
   openPassage,
+  collection,
 }: {
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
@@ -392,11 +433,13 @@ function ListView({
   filtered: ReadingPassage[];
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
+  collection: "all" | "news";
 }) {
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
   const statusCounts = filtered.reduce(
     (acc, p) => {
+      if (p.questions.length === 0) return acc;
       const progress = getPassageProgress(p, state.answers);
       acc[progress.status]++;
       if (progress.status === "done" && progress.correct < progress.total) acc.needsReview++;
@@ -408,25 +451,43 @@ function ListView({
   );
 
   const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
-  const regularBooks = AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam");
-  const selectedRegularBooks = state.selectedBooks.filter((book) => book !== "jlpt-exam");
-  const allBooksChecked = selectedRegularBooks.length === regularBooks.length && state.selectedExamIds.length === AVAILABLE_JLPT_EXAMS.length;
+  const regularBooks = AVAILABLE_BOOKS.filter((book) => !isReadingExamBook(book));
+  const selectedRegularBooks = state.selectedBooks.filter((book) => !isReadingExamBook(book));
+  const allBooksChecked = collection === "news" || (state.selectedBooks.length === AVAILABLE_BOOKS.length && state.selectedExamIds.length === AVAILABLE_READING_EXAMS.length);
+  const selectedJlptExamIds = state.selectedExamIds.filter((id) => readingExamIdsForBook("jlpt-exam").includes(id));
+  const selectedN3SetIds = state.selectedExamIds.filter((id) => readingExamIdsForBook("de-n3").includes(id));
+  const sourceSummary = [
+    selectedRegularBooks.length === 1 ? BOOK_LABELS[selectedRegularBooks[0]] : selectedRegularBooks.length ? `${selectedRegularBooks.length} nguồn sách` : "",
+    selectedJlptExamIds.length === AVAILABLE_JLPT_EXAMS.length && selectedJlptExamIds.length ? "Đề JLPT" : selectedJlptExamIds.length === 1 ? `JLPT ${AVAILABLE_JLPT_EXAMS.find((exam) => exam.id === selectedJlptExamIds[0])?.label ?? "1 kỳ"}` : selectedJlptExamIds.length ? `${selectedJlptExamIds.length} kỳ JLPT` : "",
+    selectedN3SetIds.length === AVAILABLE_N3_SETS.length && selectedN3SetIds.length ? "10 đề N3" : selectedN3SetIds.length === 1 ? `10 đề N3 · ${AVAILABLE_N3_SETS.find((exam) => exam.id === selectedN3SetIds[0])?.label ?? "1 đề"}` : selectedN3SetIds.length ? `${selectedN3SetIds.length} đề N3` : "",
+  ].filter(Boolean).join(" · ");
   const allLengthsChecked = state.selectedLengths.length === AVAILABLE_LENGTHS.length;
-  const allTopicsChecked = state.selectedTopics.length === AVAILABLE_TOPICS.length;
+  const availableTopics = collection === "news"
+    ? AVAILABLE_TOPICS.filter((topic) => ALL_READING.some((p) => p.book === "news" && p.topic === topic))
+    : AVAILABLE_TOPICS;
+  const allTopicsChecked = availableTopics.every((topic) => state.selectedTopics.includes(topic));
+  const activeSelectedTopics = state.selectedTopics.filter((topic) =>
+    ALL_READING.some((p) => p.topic === topic && (collection === "news" ? p.book === "news" : matchesReadingSources(p, state.selectedBooks, state.selectedExamIds))),
+  );
+  const topicFilterActive = (collection === "news" || state.selectedBooks.some((book) => book === "jlpt-exam" || book === "news" || book === "custom")) && !allTopicsChecked;
   const filterCount =
     (allLevelsChecked ? 0 : state.selectedLevels.length) +
-    (allBooksChecked ? 0 : selectedRegularBooks.length + state.selectedExamIds.length) +
+    (allBooksChecked ? 0 : 1) +
     (allLengthsChecked ? 0 : state.selectedLengths.length) +
-    (state.selectedBooks.includes("jlpt-exam") && !allTopicsChecked ? state.selectedTopics.length : 0);
+    (topicFilterActive ? 1 : 0) +
+    (state.savedOnly ? 1 : 0);
 
   async function handleStart() {
-    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
+    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, collection === "news" ? ["news"] : state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
     if (!passage) {
-      setError("Không có bài đọc nào khớp bộ lọc này.");
+      setError(collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : "Không có bài đọc nào khớp bộ lọc này.");
       return;
     }
     await openPassage(passage);
   }
+
+  const lastPassageCandidate = state.lastPassageId ? findReadingById(state.lastPassageId) : undefined;
+  const lastPassage = lastPassageCandidate && (collection !== "news" || lastPassageCandidate.book === "news") ? lastPassageCandidate : undefined;
 
   async function handleResetRow(passage: ReadingPassage) {
     if (!(await confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`))) return;
@@ -435,7 +496,13 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title="Luyện đọc" subtitle={`${filtered.length} bài`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
+      <PageHeader title={collection === "news" ? "Đọc báo" : "Luyện đọc"} subtitle={`${filtered.length} bài`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
+
+      {collection === "news" && !ALL_READING.some((p) => p.book === "news") ? (
+        <p className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-600">
+          Chưa có bài báo nào được đưa vào thư viện. Khi có bài được biên tập và xuất bản, chúng sẽ xuất hiện tại đây.
+        </p>
+      ) : null}
 
       <div className="mt-4 grid grid-cols-2 gap-3">
         <StatCard
@@ -469,13 +536,18 @@ function ListView({
 
       <FilterBar>
         <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
+        {lastPassage ? <Button size="sm" variant="outline" title={lastPassage.title} onClick={() => openPassage(lastPassage)}>{collection === "news" ? "Tiếp tục đọc báo" : "Tiếp tục đọc"}</Button> : null}
+        <Button size="sm" variant={state.savedOnly ? "default" : "outline"} onClick={() => mutate({ savedOnly: !state.savedOnly })}>
+          <BookmarkCheck size={14} /> Đã lưu ({state.savedPassageIds.length})
+        </Button>
         <Button size="sm" variant="outline" onClick={handleStart}>
-          <Shuffle size={14} /> Random bài đọc
+          <Shuffle size={14} /> {collection === "news" ? "Random bài báo" : "Random bài đọc"}
         </Button>
       </FilterBar>
 
       <ActiveFilters
         chips={[
+          ...(state.savedOnly ? [{ key: "saved", label: "Chỉ bài đã lưu", onRemove: () => mutate({ savedOnly: false }) }] : []),
           ...(allLevelsChecked
             ? []
             : state.selectedLevels.map((level) => ({
@@ -489,36 +561,13 @@ function ListView({
               }))),
           ...(allBooksChecked
             ? []
-            : selectedRegularBooks.map((book) => ({
-                key: `book-${book}`,
-                label: BOOK_LABELS[book],
-                onRemove: () => {
-                  const next = state.selectedBooks.filter((b) => b !== book);
-                  if (next.length === 0 && state.selectedExamIds.length === 0) return;
-                  mutate({ selectedBooks: next });
-                },
-              }))),
-          ...(!allBooksChecked && state.selectedExamIds.length === AVAILABLE_JLPT_EXAMS.length
-            ? [{
-                key: "jlpt-exams-all",
-                label: "Tất cả đề JLPT",
-                onRemove: () => {
-                  if (selectedRegularBooks.length === 0) return;
-                  mutate({ selectedExamIds: [], selectedBooks: selectedRegularBooks });
-                },
-              }]
-            : !allBooksChecked ? state.selectedExamIds.flatMap((id) => {
-                const exam = AVAILABLE_JLPT_EXAMS.find((item) => item.id === id);
-                return exam ? [{
-                  key: `exam-${id}`,
-                  label: exam.label,
-                  onRemove: () => {
-                    const nextExamIds = state.selectedExamIds.filter((item) => item !== id);
-                    if (nextExamIds.length === 0 && selectedRegularBooks.length === 0) return;
-                    mutate({ selectedExamIds: nextExamIds, selectedBooks: nextExamIds.length ? state.selectedBooks : selectedRegularBooks });
-                  },
-                }] : [];
-              }) : []),
+            : [{
+              key: "sources",
+              label: `Nguồn: ${sourceSummary}`,
+              onRemove: () => {
+                mutate({ selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: AVAILABLE_READING_EXAMS.map((exam) => exam.id) });
+              },
+            }]),
           ...(allLengthsChecked
             ? []
             : state.selectedLengths.map((length) => ({
@@ -530,9 +579,9 @@ function ListView({
                   mutate({ selectedLengths: next });
                 },
               }))),
-          ...(allTopicsChecked || !state.selectedBooks.includes("jlpt-exam")
+          ...(!topicFilterActive || activeSelectedTopics.length === 0
             ? []
-            : state.selectedTopics.map((topic) => ({
+            : activeSelectedTopics.map((topic) => ({
                 key: `topic-${topic}`,
                 label: topic,
                 onRemove: () => {
@@ -549,15 +598,15 @@ function ListView({
       <FilterSheet
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
-        title="Bộ lọc luyện đọc"
-        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: AVAILABLE_JLPT_EXAMS.map((exam) => exam.id), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
+        title={collection === "news" ? "Bộ lọc đọc báo" : "Bộ lọc luyện đọc"}
+        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], ...(collection === "news" ? {} : { selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: AVAILABLE_READING_EXAMS.map((exam) => exam.id) }), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <FilterGroup title="Cấp độ">
             {AVAILABLE_LEVELS.map((level) => {
               const checked = state.selectedLevels.includes(level);
               const count = ALL_READING.filter(
-                (p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds),
+                (p) => p.level === level && state.selectedLengths.includes(p.length) && (collection === "news" ? p.book === "news" : matchesReadingSources(p, state.selectedBooks, state.selectedExamIds)),
               ).length;
               return (
                 <FilterChipOption
@@ -567,18 +616,22 @@ function ListView({
                   onClick={() => {
                     const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
                     if (next.length === 0) return;
+                    if (collection === "news") {
+                      mutate({ selectedLevels: next });
+                    } else {
                       const nextExamIds = state.selectedExamIds.length
-                        ? pruneToggle(state.selectedExamIds, AVAILABLE_JLPT_EXAMS.map((exam) => exam.id), (id) =>
-                            ALL_READING.some((p) => p.examId === id && next.includes(p.level) && state.selectedLengths.includes(p.length)),
+                        ? pruneToggle(state.selectedExamIds, AVAILABLE_READING_EXAMS.map((exam) => exam.id), (id) =>
+                            ALL_READING.some((p) => p.examId === id && state.selectedBooks.includes(p.book) && next.includes(p.level) && state.selectedLengths.includes(p.length)),
                           )
                         : [];
                       const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (book) =>
-                        ALL_READING.some((p) => p.book === book && next.includes(p.level) && state.selectedLengths.includes(p.length) && (book !== "jlpt-exam" || (!!p.examId && nextExamIds.includes(p.examId)))),
+                        ALL_READING.some((p) => p.book === book && next.includes(p.level) && state.selectedLengths.includes(p.length) && (!isReadingExamBook(book) || (!!p.examId && nextExamIds.includes(p.examId)))),
                       );
                       const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
                         ALL_READING.some((p) => p.length === length && next.includes(p.level) && matchesReadingSources(p, nextBooks, nextExamIds)),
                       );
-                    mutate({ selectedLevels: next, selectedBooks: nextBooks, selectedExamIds: nextExamIds, selectedLengths: nextLengths });
+                      mutate({ selectedLevels: next, selectedBooks: nextBooks, selectedExamIds: nextExamIds, selectedLengths: nextLengths });
+                    }
                   }}
                 />
               );
@@ -586,8 +639,9 @@ function ListView({
           </FilterGroup>
         ) : null}
 
-        <FilterGroup title="Sách">
-            {AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam").map((book) => {
+        {collection !== "news" ? (
+          <FilterGroup title="Nguồn bài đọc">
+            {AVAILABLE_BOOKS.map((book) => {
               const checked = state.selectedBooks.includes(book);
               const count = ALL_READING.filter(
                 (p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
@@ -600,47 +654,75 @@ function ListView({
                   onClick={() => {
                     const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
                     if (next.length === 0) return;
-                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
-                      ALL_READING.some((p) => p.level === level && next.includes(p.book) && state.selectedLengths.includes(p.length) && matchesReadingSources(p, next, state.selectedExamIds)),
-                    );
-                    const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
-                      ALL_READING.some((p) => p.length === length && next.includes(p.book) && nextLevels.includes(p.level) && matchesReadingSources(p, next, state.selectedExamIds)),
-                    );
-                    mutate({ selectedBooks: next, selectedLevels: nextLevels, selectedLengths: nextLengths });
-                  }}
-                />
-              );
-            })}
-            {AVAILABLE_JLPT_EXAMS.map((exam) => {
-              const checked = state.selectedExamIds.includes(exam.id);
-              const count = ALL_READING.filter((p) => p.examId === exam.id && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
-              return (
-                <FilterChipOption
-                  key={exam.id}
-                  label={`${exam.label} (${count})`}
-                  active={checked}
-                  onClick={() => {
-                    const nextExamIds = checked
-                      ? state.selectedExamIds.filter((id) => id !== exam.id)
-                      : [...new Set([...state.selectedExamIds, exam.id])];
-                    if (nextExamIds.length === 0 && selectedRegularBooks.length === 0) return;
-                    const nextBooks = nextExamIds.length
-                      ? [...new Set([...state.selectedBooks, "jlpt-exam" as const])]
-                      : state.selectedBooks.filter((book) => book !== "jlpt-exam");
+                    const familyIds = readingExamIdsForBook(book);
+                    const nextExamIds = isReadingExamBook(book)
+                      ? checked
+                        ? state.selectedExamIds.filter((id) => !familyIds.includes(id))
+                        : [...new Set([...state.selectedExamIds, ...familyIds])]
+                      : state.selectedExamIds;
                     const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
-                      ALL_READING.some((p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                      ALL_READING.some((p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, next, nextExamIds)),
                     );
                     const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
-                      ALL_READING.some((p) => p.length === length && nextLevels.includes(p.level) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                      ALL_READING.some((p) => p.length === length && nextLevels.includes(p.level) && matchesReadingSources(p, next, nextExamIds)),
                     );
-                    mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks, selectedLevels: nextLevels, selectedLengths: nextLengths });
+                    mutate({ selectedBooks: next, selectedExamIds: nextExamIds, selectedLevels: nextLevels, selectedLengths: nextLengths });
                   }}
                 />
               );
             })}
-        </FilterGroup>
+          </FilterGroup>
+        ) : null}
 
-        {state.selectedBooks.includes("jlpt-exam") ? (
+        {collection !== "news" ? READING_EXAM_BOOKS.map((book) => {
+          if (!state.selectedBooks.includes(book)) return null;
+          const options = book === "jlpt-exam" ? AVAILABLE_JLPT_EXAMS : AVAILABLE_N3_SETS;
+          const countForBook = ALL_READING.filter((p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
+          const selectedCount = options.filter((exam) => state.selectedExamIds.includes(exam.id)).length;
+          const title = book === "jlpt-exam" ? "Đề JLPT theo kỳ" : "10 đề N3 theo đề";
+          return (
+            <details key={book} className="rounded-xl border border-neutral-200 px-3 py-2">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 text-sm font-semibold text-neutral-700">
+                <span>{title}</span>
+                <span className="shrink-0 text-xs font-normal text-neutral-400">{selectedCount}/{options.length} · {countForBook} bài</span>
+              </summary>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {options.map((exam) => {
+                  const checked = state.selectedExamIds.includes(exam.id);
+                  const count = ALL_READING.filter((p) => p.examId === exam.id && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
+                  if (!count) return null;
+                  return (
+                    <FilterChipOption
+                      key={exam.id}
+                      label={`${exam.label} (${count})`}
+                      active={checked}
+                      onClick={() => {
+                        const nextExamIds = checked
+                          ? state.selectedExamIds.filter((id) => id !== exam.id)
+                          : [...new Set([...state.selectedExamIds, exam.id])];
+                        const idsForBook = readingExamIdsForBook(book);
+                        const remainingInBook = nextExamIds.some((id) => idsForBook.includes(id));
+                        const nextBooks = remainingInBook
+                          ? [...new Set([...state.selectedBooks, book])]
+                          : state.selectedBooks.filter((item) => item !== book);
+                        if (nextBooks.length === 0) return;
+                        const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
+                          ALL_READING.some((p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                        );
+                        const nextLengths = pruneToggle(state.selectedLengths, AVAILABLE_LENGTHS, (length) =>
+                          ALL_READING.some((p) => p.length === length && nextLevels.includes(p.level) && matchesReadingSources(p, nextBooks, nextExamIds)),
+                        );
+                        mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks, selectedLevels: nextLevels, selectedLengths: nextLengths });
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </details>
+          );
+        }) : null}
+
+        {collection !== "news" && state.selectedBooks.includes("jlpt-exam") ? (
           <FilterGroup title="Phần đề JLPT">
             {AVAILABLE_TOPICS.filter((topic) => ALL_READING.some((p) => p.book === "jlpt-exam" && p.topic === topic && !!p.examId && state.selectedExamIds.includes(p.examId) && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length))).map((topic) => {
               const checked = state.selectedTopics.includes(topic);
@@ -663,11 +745,40 @@ function ListView({
           </FilterGroup>
         ) : null}
 
+        {(collection === "news" ? (["news"] as const) : (["news", "custom"] as const)).map((book) => {
+          if (collection !== "news" && !state.selectedBooks.includes(book)) return null;
+          const topics = [...new Set(ALL_READING.filter((p) => p.book === book && p.topic).map((p) => p.topic!))]
+            .sort((a, b) => a.localeCompare(b, "ja", { numeric: true }));
+          if (topics.length === 0) return null;
+          return (
+            <FilterGroup key={book} title={book === "news" ? "Chủ đề báo Nhật" : "Chủ đề nội dung tự thêm"}>
+              {topics.map((topic) => {
+                const checked = state.selectedTopics.includes(topic);
+                const count = ALL_READING.filter(
+                  (p) => p.book === book && p.topic === topic && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
+                ).length;
+                return (
+                  <FilterChipOption
+                    key={topic}
+                    label={`${topic} (${count})`}
+                    active={checked}
+                    onClick={() => {
+                      const next = checked ? state.selectedTopics.filter((item) => item !== topic) : [...new Set([...state.selectedTopics, topic])];
+                      if (next.length === 0) return;
+                      mutate({ selectedTopics: next });
+                    }}
+                  />
+                );
+              })}
+            </FilterGroup>
+          );
+        })}
+
         <FilterGroup title="Độ dài bài đọc">
           {AVAILABLE_LENGTHS.map((length) => {
             const checked = state.selectedLengths.includes(length);
             const count = ALL_READING.filter(
-              (p) => p.length === length && state.selectedLevels.includes(p.level) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds),
+              (p) => p.length === length && state.selectedLevels.includes(p.level) && (collection === "news" ? p.book === "news" : matchesReadingSources(p, state.selectedBooks, state.selectedExamIds)),
             ).length;
             return (
               <FilterChipOption
@@ -677,18 +788,22 @@ function ListView({
                 onClick={() => {
                   const next = checked ? state.selectedLengths.filter((l) => l !== length) : [...new Set([...state.selectedLengths, length])];
                   if (next.length === 0) return;
-                  const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
+                  if (collection === "news") {
+                    mutate({ selectedLengths: next });
+                  } else {
+                    const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
                       ALL_READING.some((p) => p.level === level && next.includes(p.length) && matchesReadingSources(p, state.selectedBooks, state.selectedExamIds)),
                     );
                     const nextExamIds = state.selectedExamIds.length
-                      ? pruneToggle(state.selectedExamIds, AVAILABLE_JLPT_EXAMS.map((exam) => exam.id), (id) =>
-                          ALL_READING.some((p) => p.examId === id && next.includes(p.length) && nextLevels.includes(p.level)),
+                      ? pruneToggle(state.selectedExamIds, AVAILABLE_READING_EXAMS.map((exam) => exam.id), (id) =>
+                          ALL_READING.some((p) => p.examId === id && state.selectedBooks.includes(p.book) && next.includes(p.length) && nextLevels.includes(p.level)),
                         )
                       : [];
                     const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (book) =>
-                      ALL_READING.some((p) => p.book === book && next.includes(p.length) && nextLevels.includes(p.level) && (book !== "jlpt-exam" || (!!p.examId && nextExamIds.includes(p.examId)))),
+                      ALL_READING.some((p) => p.book === book && next.includes(p.length) && nextLevels.includes(p.level) && (!isReadingExamBook(book) || (!!p.examId && nextExamIds.includes(p.examId)))),
                     );
-                  mutate({ selectedLengths: next, selectedLevels: nextLevels, selectedBooks: nextBooks, selectedExamIds: nextExamIds });
+                    mutate({ selectedLengths: next, selectedLevels: nextLevels, selectedBooks: nextBooks, selectedExamIds: nextExamIds });
+                  }
                 }}
               />
             );
@@ -697,10 +812,16 @@ function ListView({
       </FilterSheet>
 
       {visiblePassages.length === 0 ? (
-        <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">Không có bài đọc nào khớp bộ lọc này.</p>
+        collection === "news" && !ALL_READING.some((p) => p.book === "news") ? null : (
+          <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">
+            {collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : "Không có bài đọc nào khớp bộ lọc này."}
+          </p>
+        )
       ) : (
         <div className="mt-4 flex flex-col gap-2">
           {visiblePassages.map((p, i) => {
+            const isArticle = p.book === "news" || p.book === "custom";
+            const isSaved = state.savedPassageIds.includes(p.id);
             const progress = getPassageProgress(p, state.answers);
             const borderCls =
               progress.status === "not-started"
@@ -723,9 +844,14 @@ function ListView({
                     {BOOK_LABELS[p.book]}
                     {p.topic ? ` · ${p.topic}` : ""}
                     {AVAILABLE_LEVELS.length > 1 ? ` · ${p.level}` : ""} · {timelineLabel(p)}
+                    {p.publishedAt ? ` · ${p.publishedAt}` : ""}
                   </div>
                 </div>
-                {progress.status === "done" ? (
+                {isArticle ? (
+                  <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${state.currentPassageId === p.id ? "bg-sky-50 text-sky-600" : isSaved ? "bg-rose-50 text-rose-600" : "bg-neutral-100 text-neutral-400"}`}>
+                    {state.lastPassageId === p.id ? "Đọc tiếp" : isSaved ? "Đã lưu" : "Bài đọc"}
+                  </span>
+                ) : progress.status === "done" ? (
                   <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">
                     ✓ {progress.correct}/{progress.total}
                   </span>
@@ -734,7 +860,7 @@ function ListView({
                 ) : (
                   <span className="shrink-0 rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-semibold text-neutral-400">chưa làm</span>
                 )}
-                {progress.status !== "not-started" ? (
+                {!isArticle && progress.status !== "not-started" ? (
                   <span
                     role="button"
                     title="Làm lại từ đầu"
@@ -764,6 +890,7 @@ function PassageView({
   onOpenBunpo,
   visiblePassages,
   openPassage,
+  collection,
 }: {
   passage: ReadingPassage;
   state: ReadingViewerState;
@@ -772,8 +899,12 @@ function PassageView({
   onOpenBunpo: (bunpoId: string) => void;
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
+  collection: "all" | "news";
 }) {
   const confirm = useConfirm();
+  const isArticle = passage.book === "news" || passage.book === "custom";
+  const isLinkOnly = passage.linkOnly === true;
+  const isSaved = state.savedPassageIds.includes(passage.id);
   const answers = state.answers[passage.id] ?? passage.questions.map(() => null);
   const answeredCount = answers.filter((a) => a !== null).length;
   const total = passage.questions.length;
@@ -793,6 +924,7 @@ function PassageView({
   const showStudyNote = viewOptions.showStudyNote ?? state.showStudyNote;
   const highlightReferences = viewOptions.highlightReferences ?? (allAnswered && state.resultsRevealed);
   const visibleQuestionTranslations = viewOptions.visibleQuestionTranslations ?? {};
+  const hasReferences = vocabMatches.length > 0 || bunpoMatches.length > 0;
   const hasMarkdownTable = findMarkdownPipeTables(passage.body.map((segment) => segment.text).join("")).length > 0;
 
   useEffect(() => {
@@ -835,6 +967,13 @@ function PassageView({
     await mutate({ ...resetPassageAnswers(state, passage.id), resultsRevealed: false });
   }
 
+  function toggleSaved() {
+    const savedPassageIds = isSaved
+      ? state.savedPassageIds.filter((id) => id !== passage.id)
+      : [...state.savedPassageIds, passage.id];
+    void mutate({ savedPassageIds });
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
@@ -842,7 +981,7 @@ function PassageView({
           onClick={() => mutate({ currentPassageId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
-          <ChevronLeft size={15} /> Luyện đọc
+          <ChevronLeft size={15} /> {collection === "news" ? "Đọc báo" : "Luyện đọc"}
         </button>
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(passage.level)}>
           {passage.level}
@@ -854,14 +993,35 @@ function PassageView({
 
       <h1 className="mt-3 text-2xl font-bold text-neutral-800">{passage.title}</h1>
 
-      <div className="mt-4 flex items-center gap-3">
+      {isArticle ? (
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500">
+          <span>{passage.source}</span>
+          {passage.publishedAt ? <span>{passage.publishedAt}</span> : null}
+          {passage.sourceUrl ? (
+            <a href={passage.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-rose-600 hover:text-rose-700">
+              Nguồn gốc <ExternalLink size={13} />
+            </a>
+          ) : null}
+          <button
+            type="button"
+            onClick={toggleSaved}
+            className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${isSaved ? "border-rose-200 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600 hover:border-rose-200 hover:text-rose-600"}`}
+          >
+            {isSaved ? <BookmarkCheck size={13} /> : <Bookmark size={13} />}
+            {isSaved ? "Đã lưu" : "Lưu bài"}
+          </button>
+          {passage.sourceNotice ? <p className="basis-full text-xs text-neutral-400">{passage.sourceNotice}</p> : null}
+        </div>
+      ) : null}
+
+      {!isArticle ? <div className="mt-4 flex items-center gap-3">
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-neutral-100">
           <div className="h-full rounded-full bg-rose-400" style={{ width: `${total ? (answeredCount / total) * 100 : 0}%` }} />
         </div>
         <span className="shrink-0 text-xs font-medium text-neutral-500">
           {answeredCount}/{total} câu
         </span>
-      </div>
+      </div> : null}
 
       {state.resultsRevealed && allAnswered && total > 0 ? (
         <div className={`mt-4 flex items-center gap-2 rounded-xl p-3 text-sm font-semibold ${correctCount === total ? "bg-emerald-50 text-emerald-700" : "bg-sky-50 text-sky-700"}`}>
@@ -870,7 +1030,7 @@ function PassageView({
         </div>
       ) : null}
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      {!isLinkOnly ? <div className="mt-4 flex flex-wrap gap-2">
         <button
           onClick={() => updateViewOptions({ showFurigana: !showFurigana })}
           className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${showFurigana ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
@@ -891,10 +1051,10 @@ function PassageView({
             {showStudyNote ? "Ẩn ghi chú" : "Xem ghi chú"}
           </button>
         ) : null}
-      </div>
+      </div> : null}
 
-      <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
-        <div className="text-lg leading-loose text-neutral-800">
+      {!isLinkOnly ? <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
+        <div className="rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
           {showTranslation && passage.sentencesVi && !hasMarkdownTable ? (
             <ReadingBodyInterleaved
               passage={passage}
@@ -911,7 +1071,11 @@ function PassageView({
             />
           )}
         </div>
-      </Card>
+      </Card> : (
+        <Card className="mt-4 gap-0 rounded-2xl border-sky-100 bg-sky-50 p-5 ring-0">
+          <p className="text-sm leading-relaxed text-sky-800">Nội dung bài chưa được cấp quyền hiển thị trong ứng dụng. Bạn có thể mở nguồn để đọc trực tiếp.</p>
+        </Card>
+      )}
 
       {showTranslation && (!passage.sentencesVi || hasMarkdownTable) ? (
         <div className="mt-3 rounded-xl bg-amber-50 p-4 text-sm leading-relaxed text-amber-800">
@@ -935,7 +1099,7 @@ function PassageView({
         </div>
       ) : null}
 
-      <div className="mt-5 flex rounded-xl border border-neutral-200 bg-neutral-50 p-1" role="tablist" aria-label="Nội dung bài đọc">
+      {!isArticle ? <div className="mt-5 flex rounded-xl border border-neutral-200 bg-neutral-50 p-1" role="tablist" aria-label="Nội dung bài đọc">
         <button
           role="tab"
           aria-selected={referenceTab === "questions"}
@@ -958,9 +1122,40 @@ function PassageView({
             Tham khảo ({vocabMatches.length + bunpoMatches.length})
           </button>
         ) : null}
-      </div>
+      </div> : null}
 
-      {referenceTab === "references" ? (
+      {isArticle ? (hasReferences ? (
+        <Card className="mt-5 gap-4 rounded-2xl border-neutral-200 p-4 ring-0">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 className="text-base font-bold text-neutral-800">Từ vựng và ngữ pháp trong bài</h2>
+              <p className="mt-0.5 text-xs text-neutral-500">Ưu tiên các mục quan trọng để hiểu nội dung bài đọc.</p>
+            </div>
+            <button
+              onClick={() => updateViewOptions({ highlightReferences: !highlightReferences })}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${highlightReferences ? "border-rose-300 bg-rose-50 text-rose-600" : "border-neutral-200 text-neutral-600"}`}
+            >
+              {highlightReferences ? "Tắt bôi đậm trong bài" : "Bôi đậm trong bài"}
+            </button>
+          </div>
+          {vocabMatches.length > 0 ? (
+            <div>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><Library size={14} /> Từ vựng trọng tâm</div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {vocabMatches.map((v) => <button key={v.id} onClick={() => onOpenVocab(v.id)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">{v.word}</button>)}
+              </div>
+            </div>
+          ) : null}
+          {bunpoMatches.length > 0 ? (
+            <div>
+              <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><PenSquare size={14} /> Ngữ pháp trong bài</div>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {bunpoMatches.map((g) => <button key={g.id} onClick={() => onOpenBunpo(g.id)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">{g.pattern}</button>)}
+              </div>
+            </div>
+          ) : null}
+        </Card>
+      ) : null) : referenceTab === "references" ? (
         <Card className="mt-4 gap-4 rounded-2xl border-neutral-200 p-4 ring-0">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
@@ -1134,7 +1329,7 @@ function PassageView({
           aria-label="Bài trước"
           aria-hidden={!floatingNavVisible}
           tabIndex={floatingNavVisible ? 0 : -1}
-          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronLeft size={16} />
         </button>
@@ -1145,7 +1340,7 @@ function PassageView({
           aria-label="Bài sau"
           aria-hidden={!floatingNavVisible}
           tabIndex={floatingNavVisible ? 0 : -1}
-          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-9 w-9 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronRight size={16} />
         </button>

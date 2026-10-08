@@ -133,7 +133,7 @@ function FloatingSearchButton({ mobileBottom, onClick }: { mobileBottom: Floatin
       onClick={onClick}
       aria-label="Mở Tra cứu nhanh"
       title="Mở Tra cứu nhanh"
-      className={`fixed right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 md:h-10 md:w-10 ${mobileBottom}`}
+      className={`fixed right-4 z-20 floating-action-button bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:bottom-6 ${mobileBottom}`}
     >
       <Search size={18} className="h-4 w-4 md:h-[18px] md:w-[18px]" />
     </button>
@@ -160,7 +160,7 @@ function ScrollToTopButton({ searchPopupEnabled, onVisibilityChange }: { searchP
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Lên đầu trang"
       title="Lên đầu trang"
-      className={`fixed right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 md:h-10 md:w-10 ${searchPopupEnabled ? "md:bottom-20" : "md:bottom-6"} bottom-36`}
+      className={`fixed right-4 z-20 floating-action-button bg-white text-neutral-500 shadow-lg ring-1 ring-neutral-200 hover:text-rose-600 md:right-6 ${searchPopupEnabled ? "md:bottom-20" : "md:bottom-6"} bottom-36`}
     >
       <ArrowUp size={18} className="h-4 w-4 md:h-[18px] md:w-[18px]" />
     </button>
@@ -175,7 +175,7 @@ function FloatingBackButton({ label, onClick, mobileBottom }: { label: string; o
       onClick={onClick}
       aria-label={`Quay lại ${label}`}
       title={`Quay lại ${label}`}
-      className={`fixed ${mobileBottom} left-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
+      className={`fixed ${mobileBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
     >
       <ArrowLeft size={16} />
     </button>

@@ -224,7 +224,7 @@ export function FloatingChatButton({ getContext }: { getContext: () => string })
         onClick={() => setOpen(true)}
         aria-label="Hỏi ChatGPT"
         title="Hỏi ChatGPT/Gemini"
-        className="fixed bottom-20 left-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg active:bg-neutral-700 md:right-6 md:bottom-20 md:left-auto"
+        className="fixed bottom-20 left-4 z-20 floating-action-button bg-neutral-900 text-white shadow-lg active:bg-neutral-700 md:right-6 md:bottom-20 md:left-auto"
       >
         <MessageCircleQuestion size={20} />
       </button>

@@ -124,11 +124,11 @@ export function BackupScreen() {
 
       <Tabs defaultValue="offline" className="mt-5 gap-5">
         <TabsList className="h-11 w-full max-w-md rounded-xl bg-neutral-100 p-1">
-          <TabsTrigger value="offline" className="h-full rounded-lg px-4 data-active:bg-white data-active:text-rose-600">
-            <Download size={15} /> Offline
-          </TabsTrigger>
           <TabsTrigger value="online" className="h-full rounded-lg px-4 data-active:bg-white data-active:text-sky-700">
             <Cloud size={15} /> Online
+          </TabsTrigger>
+          <TabsTrigger value="offline" className="h-full rounded-lg px-4 data-active:bg-white data-active:text-rose-600">
+            <Download size={15} /> Offline
           </TabsTrigger>
         </TabsList>
 

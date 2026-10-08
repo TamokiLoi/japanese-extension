@@ -147,6 +147,11 @@
 }
 
 @layer components {
+  /* Keep circular fixed-position actions the same compact size across screens. */
+  .floating-action-button {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full;
+  }
+
   .reading-passage-text-blocks {
     @apply flex flex-col gap-3;
   }

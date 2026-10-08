@@ -1012,11 +1012,88 @@ body.tab-mode .jlpt-list {
 
 .search-result {
   cursor: pointer;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 3px 8px;
+  padding: 9px 11px;
+  border-radius: 12px;
+  transition: background-color 120ms ease, border-color 120ms ease;
 }
 
-.search-result:hover {
-  background: #fff6ee;
-  border-color: #f0c090;
+.search-result-vocab {
+  border-color: #bae6fd;
+  background: #f0f9ff;
+}
+
+.search-result-kanji {
+  border-color: #fde68a;
+  background: #fffbeb;
+}
+
+.search-result-bunpo {
+  border-color: #ddd6fe;
+  background: #f5f3ff;
+}
+
+.search-result-vocab:hover {
+  border-color: #7dd3fc;
+  background: #e0f2fe;
+}
+
+.search-result-kanji:hover {
+  border-color: #fcd34d;
+  background: #fef3c7;
+}
+
+.search-result-bunpo:hover {
+  border-color: #c4b5fd;
+  background: #ede9fe;
+}
+
+.search-result-main {
+  min-width: 0;
+}
+
+.search-result .jlpt-entry-word {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-result-reading {
+  margin-left: 8px;
+  color: #888;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.search-result-han-viet {
+  max-width: 42%;
+  overflow: hidden;
+  color: #333;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.search-result .jlpt-entry-meaning {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+
+.search-result-meaning-text {
+  min-width: 0;
+  flex: 1 1 0%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .search-tag {
@@ -1047,8 +1124,25 @@ body.tab-mode .jlpt-list {
   display: inline-block;
   font-size: 10px;
   font-weight: 600;
-  color: #888;
-  margin-left: 4px;
+  align-self: start;
+  border-radius: 999px;
+  padding: 2px 7px;
+  margin: 0;
+}
+
+.search-result-vocab .search-tag-level {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.search-result-kanji .search-tag-level {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.search-result-bunpo .search-tag-level {
+  background: #ede9fe;
+  color: #6d28d9;
 }
 
 .search-kind-filter-row {
@@ -1235,6 +1329,41 @@ body.tab-mode .jlpt-list {
   font-size: 12px;
   font-weight: 600;
   color: #666;
+}
+
+.reading-exam-filter {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+.reading-exam-filter > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.reading-exam-filter > summary::-webkit-details-marker {
+  display: none;
+}
+
+.reading-exam-filter > summary::before {
+  content: "▸";
+  color: #999;
+}
+
+.reading-exam-filter[open] > summary::before {
+  content: "▾";
+}
+
+.reading-exam-filter-options {
+  margin-top: 8px;
 }
 
 .quiz-radio-row {
@@ -1979,12 +2108,13 @@ body.tab-mode .jlpt-list {
 }
 
 .reading-body {
-  font-size: 16px;
-  line-height: 2.1;
-  padding: 12px;
-  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #404040;
+  padding: 16px;
+  border: 1px solid #f0f0f0;
   border-radius: 8px;
-  background: #fff;
+  background: #fafafa;
 }
 
 .reading-body ruby rt {
@@ -1996,6 +2126,16 @@ body.tab-mode .jlpt-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.reading-passage-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+
+.reading-passage-paragraphs p {
+  margin: 0;
 }
 
 .reading-markdown-table-scroll {
@@ -2039,6 +2179,34 @@ body.tab-mode .jlpt-list {
 
 .reading-markdown-table tbody tr:last-child td {
   border-bottom: 0;
+}
+
+.reading-article-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+
+.reading-article-paragraphs p {
+  margin: 0;
+}
+
+.reading-news-source {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: -8px 0 12px;
+  color: #777;
+  font-size: 12px;
+}
+
+.reading-news-source a {
+  color: #b5340a;
+}
+
+.reading-news-source small {
+  flex-basis: 100%;
 }
 
 .reading-translation {

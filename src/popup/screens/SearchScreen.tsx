@@ -5,7 +5,6 @@ import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_BUNPO } from "../bunpoState.ts";
 import { buildKanjiHanVietReadings, matchesComposedHanViet } from "../../lib/vocabhanvietsearch.ts";
 import { ExpandTabButton } from "../TabMode.tsx";
-import { LevelDot } from "../LevelDot.tsx";
 import { useDebouncedValue } from "../useDebouncedValue.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
@@ -41,6 +40,7 @@ interface SearchResult {
   primary: string;
   secondary: string;
   meaning: string;
+  hanViet?: string;
 }
 
 function searchKanji(q: string, variants: string[]): SearchResult[] {
@@ -89,6 +89,7 @@ function searchVocab(q: string, variants: string[]): SearchResult[] {
     primary: v.word,
     secondary: v.reading ?? "",
     meaning: v.meaningVi,
+    hanViet: formatHanViet(v.hanViet, ""),
   }));
 }
 
@@ -230,17 +231,19 @@ function SearchResultRow({
     else onOpenBunpo(r.id);
   }
   return (
-    <div className="jlpt-entry search-result" onClick={handleClick}>
-      <span className={`search-tag ${KIND_CLASSES[r.kind]}`}>{KIND_LABELS[r.kind]}</span>
-      <span className="search-tag-level">
-        <LevelDot level={r.level} />
-        {r.level}
-      </span>
-      <div className="jlpt-entry-word">
-        {r.primary}
-        {r.secondary ? <span className="muted"> {r.secondary}</span> : null}
+    <div className={`jlpt-entry search-result search-result-${r.kind}`} onClick={handleClick}>
+      <div className="search-result-main">
+        <div className="jlpt-entry-word">
+          {r.primary}
+          {r.secondary && r.kind !== "kanji" ? <span className="search-result-reading">{r.secondary}</span> : null}
+        </div>
+        <div className="jlpt-entry-meaning">
+          {r.kind === "vocab" && r.hanViet ? <span className="search-result-han-viet" title={r.hanViet}>{r.hanViet}</span> : null}
+          {r.kind === "kanji" && r.secondary ? <span className="search-result-han-viet" title={r.secondary}>{r.secondary}</span> : null}
+          <span className="search-result-meaning-text" title={r.meaning || "—"}>{r.meaning || "—"}</span>
+        </div>
       </div>
-      <div className="jlpt-entry-meaning">{r.meaning || "—"}</div>
+      <span className="search-tag-level">{r.level}</span>
     </div>
   );
 }

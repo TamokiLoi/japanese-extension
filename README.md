@@ -22,6 +22,8 @@ diện legacy: có thể được thu gọn hoặc đóng gói lại sau khi cá
   dở.
 - Tra cứu đồng thời Kanji, từ vựng và ngữ pháp; hỗ trợ tìm bằng chữ Nhật,
   romaji, cách đọc, Hán Việt và nghĩa tiếng Việt.
+- Bản web có demo quét chữ Nhật in từ ảnh hoặc camera: các vùng chữ được đánh
+  dấu trên ảnh để chọn, sửa rồi mới tra. Lần quét đầu cần mạng để tải bộ OCR.
 - Kanji: lọc theo JLPT, xem âm On/Kun, Hán Việt, bộ thủ, nghĩa, mnemonic và từ
   vựng liên quan.
 - Từ vựng: nhiều bộ sách/nguồn dữ liệu, lọc theo cấp độ và nguồn, xem cách đọc,

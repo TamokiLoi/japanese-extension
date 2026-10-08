@@ -848,7 +848,7 @@ function PlayView({
         <button
           onClick={() => goTo(idx - 1)}
           aria-label="Câu trước"
-          className={`fixed ${floatingNavBottom} left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
+          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -858,7 +858,7 @@ function PlayView({
           onClick={goNext}
           disabled={answered === null}
           aria-label={isLast ? "Xem kết quả" : "Câu sau"}
-          className={`fixed right-4 ${floatingNavBottom} z-20 flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg md:hidden ${
+          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button text-white shadow-lg md:hidden ${
             answered === null ? "bg-neutral-300" : "bg-rose-600 active:bg-rose-700"
           }`}
         >

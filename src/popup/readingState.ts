@@ -6,6 +6,7 @@ import readingN3Dokkai55Raw from "../data/reading-n3-dokkai55.json";
 import readingN3Dokkai115Raw from "../data/reading-n3-dokkai115.json";
 import { JLPT_DATASETS } from "./dethiCatalog.ts";
 import { collectJlptReading } from "../lib/jlptReading.ts";
+import readingNewsRaw from "../data/reading-news.json";
 import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook, ReadingQuestionType } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -17,6 +18,7 @@ const mocktestShinkanzenDataset = mocktestN3ShinkanzenRaw as unknown as ReadingD
 const dokkai55Dataset = readingN3Dokkai55Raw as unknown as ReadingDataset;
 const dokkai115Dataset = readingN3Dokkai115Raw as unknown as ReadingDataset;
 const jlptExamsDataset: ReadingDataset = { passages: collectJlptReading(JLPT_DATASETS) };
+const readingNewsDataset = readingNewsRaw as unknown as ReadingDataset;
 export const ALL_READING: ReadingPassage[] = [
   ...shinkanzenDataset.passages,
   ...speedmasterDataset.passages,
@@ -25,6 +27,7 @@ export const ALL_READING: ReadingPassage[] = [
   ...dokkai55Dataset.passages,
   ...dokkai115Dataset.passages,
   ...jlptExamsDataset.passages,
+  ...readingNewsDataset.passages,
 ];
 
 const READING_BY_ID = new Map(ALL_READING.map((p) => [p.id, p]));
@@ -81,6 +84,9 @@ export const BOOK_LABELS: Record<ReadingBook, string> = {
   dokkai55: "N3 Dokkai 55+",
   dokkai115: "N3 Đọc Hiểu 115 Bài",
   "jlpt-exam": "Đề JLPT",
+  "de-n3": "10 đề N3",
+  news: "Báo Nhật",
+  custom: "Nội dung tự thêm",
 };
 
 export const BOOK_DIFFICULTY_NOTE: Record<ReadingBook, string> = {
@@ -90,6 +96,9 @@ export const BOOK_DIFFICULTY_NOTE: Record<ReadingBook, string> = {
   dokkai55: "nhiều bài tìm kiếm thông tin thực tế",
   dokkai115: "sách Trung Quốc, đủ 4 dạng bài chuẩn đề thi",
   "jlpt-exam": "đề thật theo từng kỳ thi và dạng câu hỏi",
+  "de-n3": "bộ đề luyện N3 theo từng dạng câu hỏi",
+  news: "bài báo Nhật đã biên soạn để luyện đọc",
+  custom: "đoạn văn, câu chuyện hoặc đường dẫn bạn gửi",
 };
 
 // Ordering shown in the length filter -- short to long, mirrors LEVEL_ORDER
@@ -103,24 +112,62 @@ export const AVAILABLE_LENGTHS: ReadingLength[] = (
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((level) => ALL_READING.some((p) => p.level === level));
 
-const BOOK_ORDER: ReadingBook[] = ["speedmaster", "shinkanzen", "taisaku", "dokkai55", "dokkai115", "jlpt-exam"];
+const BOOK_ORDER: ReadingBook[] = ["speedmaster", "shinkanzen", "taisaku", "dokkai55", "dokkai115", "jlpt-exam", "de-n3", "news", "custom"];
 export const AVAILABLE_BOOKS: ReadingBook[] = BOOK_ORDER.filter((book) => ALL_READING.some((p) => p.book === book));
 export interface ReadingExamFilterOption {
   id: string;
   level: JlptLevel;
   label: string;
+  book: Extract<ReadingBook, "jlpt-exam" | "de-n3">;
 }
 export const AVAILABLE_JLPT_EXAMS: ReadingExamFilterOption[] = [
   ...new Map(
     jlptExamsDataset.passages
-      .filter((passage) => passage.examId)
+      .filter((passage) => passage.examId && passage.book === "jlpt-exam")
       .map((passage) => [passage.examId!, {
         id: passage.examId!,
         level: passage.level,
-        label: `Đề thi thật ${(passage.examLabel ?? passage.examId!).replace(/\s*\(đề thật\)$/iu, "")}`,
+        label: (passage.examLabel ?? passage.examId!).replace(/\s*\(đề thật\)$/iu, ""),
+        book: "jlpt-exam",
       }] as const),
   ).values(),
-];
+].sort((left, right) => {
+  const cycleNumber = (exam: ReadingExamFilterOption) => {
+    const match = exam.label.match(/T(7|12)\/(\d{4})/u);
+    return match ? Number(match[2]) * 100 + Number(match[1]) : 0;
+  };
+  return cycleNumber(right) - cycleNumber(left);
+});
+export const AVAILABLE_N3_SETS: ReadingExamFilterOption[] = [
+  ...new Map(
+    jlptExamsDataset.passages
+      .filter((passage) => passage.examId && passage.book === "de-n3")
+      .map((passage) => [passage.examId!, {
+        id: passage.examId!,
+        level: passage.level,
+        label: passage.examLabel ?? passage.examId!,
+        book: "de-n3",
+      }] as const),
+  ).values(),
+].sort((left, right) => {
+  const setNumber = (exam: ReadingExamFilterOption) => Number(exam.id.match(/(\d+)$/u)?.[1] ?? 0);
+  return setNumber(left) - setNumber(right);
+});
+export const AVAILABLE_READING_EXAMS: ReadingExamFilterOption[] = [...AVAILABLE_JLPT_EXAMS, ...AVAILABLE_N3_SETS];
+export const READING_EXAM_BOOKS = ["jlpt-exam", "de-n3"] as const;
+
+export function readingExamIdsForBook(book: ReadingBook): string[] {
+  return AVAILABLE_READING_EXAMS.filter((exam) => exam.book === book).map((exam) => exam.id);
+}
+
+export function isReadingExamBook(book: ReadingBook): book is (typeof READING_EXAM_BOOKS)[number] {
+  return READING_EXAM_BOOKS.some((examBook) => examBook === book);
+}
+// Keep the two user-facing article collections visible before the first
+// locally-reviewed article has been published into the bundled dataset.
+for (const book of ["news", "custom"] as const) {
+  if (!AVAILABLE_BOOKS.includes(book)) AVAILABLE_BOOKS.push(book);
+}
 export const AVAILABLE_TOPICS: string[] = [...new Set(ALL_READING.flatMap((passage) => passage.topic ? [passage.topic] : []))]
   .sort((a, b) => a.localeCompare(b, "ja", { numeric: true }));
 
@@ -130,14 +177,15 @@ export function pickRandomPassage(
   books: ReadingBook[],
   excludeId?: string | null,
   topics: string[] = AVAILABLE_TOPICS,
-  examIds: string[] = AVAILABLE_JLPT_EXAMS.map((exam) => exam.id),
+  examIds: string[] = AVAILABLE_READING_EXAMS.map((exam) => exam.id),
 ): ReadingPassage | null {
   let pool = ALL_READING.filter(
     (p) =>
       levels.includes(p.level) &&
       lengths.includes(p.length) &&
       books.includes(p.book) &&
-      (p.book !== "jlpt-exam" || (!!p.examId && examIds.includes(p.examId) && !!p.topic && topics.includes(p.topic))),
+      (!(p.book === "jlpt-exam" || p.book === "de-n3") || (!!p.examId && examIds.includes(p.examId))) &&
+      (!(p.book === "jlpt-exam" || p.book === "news" || p.book === "custom") || (!!p.topic && topics.includes(p.topic))),
   );
   if (excludeId && pool.length > 1) pool = pool.filter((p) => p.id !== excludeId);
   if (pool.length === 0) return null;
@@ -187,9 +235,11 @@ export interface ReadingViewerState {
   selectedLevels: JlptLevel[];
   selectedLengths: ReadingLength[];
   selectedBooks: ReadingBook[];
+  // IDs for the secondary filters under both official JLPT cycles and the 10 N3 sets.
   selectedExamIds: string[];
   selectedTopics: string[];
   currentPassageId: string | null;
+  lastPassageId: string | null;
   showFurigana: boolean;
   showTranslation: boolean;
   showStudyNote: boolean;
@@ -201,6 +251,10 @@ export interface ReadingViewerState {
   // Web reading view options are kept per passage so review resumes with the
   // same furigana, translations, and emphasis the learner enabled previously.
   passageViewOptions: Record<string, ReadingPassageViewOptions>;
+  // User-pinned news and manually imported passages.
+  savedPassageIds: string[];
+  savedOnly: boolean;
+  articleCollectionsInitialized: boolean;
   // "needs-review" is done passages with at least 1 wrong answer -- a
   // subset of "done", not mutually exclusive with it at the data level, but
   // treated as its own distinct filter value here (see ReadingScreen.tsx's
@@ -217,15 +271,19 @@ export function defaultViewerState(): ReadingViewerState {
     selectedLevels: [...AVAILABLE_LEVELS],
     selectedLengths: [...AVAILABLE_LENGTHS],
     selectedBooks: [...AVAILABLE_BOOKS],
-    selectedExamIds: AVAILABLE_JLPT_EXAMS.map((exam) => exam.id),
+    selectedExamIds: AVAILABLE_READING_EXAMS.map((exam) => exam.id),
     selectedTopics: [...AVAILABLE_TOPICS],
     currentPassageId: null,
+    lastPassageId: null,
     showFurigana: false,
     showTranslation: false,
     showStudyNote: false,
     resultsRevealed: false,
     answers: {},
     passageViewOptions: {},
+    savedPassageIds: [],
+    savedOnly: false,
+    articleCollectionsInitialized: true,
     listStatusFilter: "all",
   };
 }
@@ -237,21 +295,55 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
   const selectedLengths = (saved?.selectedLengths ?? fallback.selectedLengths).filter((l) =>
     AVAILABLE_LENGTHS.includes(l),
   );
+  const selectedBooks = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_BOOKS.includes(b));
+  const savedExamIds = saved?.selectedExamIds;
   const selectedExamIds = (
-    saved?.selectedExamIds ??
-    (saved?.selectedBooks === undefined ? fallback.selectedExamIds : saved.selectedBooks.includes("jlpt-exam") ? fallback.selectedExamIds : [])
-  ).filter((id) => AVAILABLE_JLPT_EXAMS.some((exam) => exam.id === id));
-  const selectedBooks = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_BOOKS.includes(b) && b !== "jlpt-exam");
-  if (selectedExamIds.length > 0) selectedBooks.push("jlpt-exam");
+    savedExamIds ??
+    (saved?.selectedBooks === undefined
+      ? fallback.selectedExamIds
+      : AVAILABLE_READING_EXAMS.filter((exam) => selectedBooks.includes(exam.book)).map((exam) => exam.id))
+  ).filter((id) => AVAILABLE_READING_EXAMS.some((exam) => exam.id === id));
+  // Existing saves predate per-set selection for the 10 đề N3 collection.
+  // If that source was enabled but has no stored set IDs yet, select its sets.
+  for (const book of READING_EXAM_BOOKS) {
+    const idsForBook = readingExamIdsForBook(book);
+    if (selectedBooks.includes(book) && idsForBook.length > 0 && !selectedExamIds.some((id) => idsForBook.includes(id))) {
+      selectedExamIds.push(...idsForBook);
+    }
+  }
+  for (const book of READING_EXAM_BOOKS) {
+    const hasSelectedExam = selectedExamIds.some((id) => AVAILABLE_READING_EXAMS.some((exam) => exam.book === book && exam.id === id));
+    if (hasSelectedExam && !selectedBooks.includes(book)) selectedBooks.push(book);
+    if (!hasSelectedExam && savedExamIds !== undefined) {
+      const index = selectedBooks.indexOf(book);
+      if (index >= 0) selectedBooks.splice(index, 1);
+    }
+  }
   // Before the JLPT collection existed, selecting every available book meant
   // "all books". Preserve that intent for existing learners without adding
   // the new collection to users who had deliberately chosen a smaller set.
   const previousBookKeys: ReadingBook[] = ["shinkanzen", "speedmaster", "taisaku", "dokkai55", "dokkai115"];
   const hadAllPreviousBooks = previousBookKeys.every((book) => saved?.selectedBooks?.includes(book));
-  if (hadAllPreviousBooks && AVAILABLE_BOOKS.includes("jlpt-exam") && !selectedBooks.includes("jlpt-exam")) {
-    selectedBooks.push("jlpt-exam");
+  if (saved?.articleCollectionsInitialized !== true && hadAllPreviousBooks) {
+    for (const newBook of ["jlpt-exam", "de-n3", "news", "custom"] as const) {
+      if (AVAILABLE_BOOKS.includes(newBook) && !selectedBooks.includes(newBook)) selectedBooks.push(newBook);
+      if ((newBook === "jlpt-exam" && !saved?.selectedExamIds) || newBook === "de-n3") {
+        for (const id of readingExamIdsForBook(newBook)) {
+          if (!selectedExamIds.includes(id)) selectedExamIds.push(id);
+        }
+      }
+    }
   }
   const selectedTopics = (saved?.selectedTopics ?? fallback.selectedTopics).filter((topic) => AVAILABLE_TOPICS.includes(topic));
+  const previousTopics = [...new Set(jlptExamsDataset.passages.flatMap((passage) => passage.topic ? [passage.topic] : []))];
+  const hadAllPreviousTopics = previousTopics.length > 0 && previousTopics.every((topic) => saved?.selectedTopics?.includes(topic));
+  if (saved?.articleCollectionsInitialized !== true && hadAllPreviousTopics) {
+    for (const topic of AVAILABLE_TOPICS) {
+      if (ALL_READING.some((passage) => (passage.book === "news" || passage.book === "custom") && passage.topic === topic) && !selectedTopics.includes(topic)) {
+        selectedTopics.push(topic);
+      }
+    }
+  }
   return {
     selectedLevels: selectedLevels.length > 0 ? selectedLevels : fallback.selectedLevels,
     selectedLengths: selectedLengths.length > 0 ? selectedLengths : fallback.selectedLengths,
@@ -260,12 +352,19 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     selectedTopics: selectedTopics.length > 0 ? selectedTopics : fallback.selectedTopics,
     currentPassageId:
       saved?.currentPassageId && findReadingById(saved.currentPassageId) ? saved.currentPassageId : null,
+    lastPassageId:
+      saved?.lastPassageId && findReadingById(saved.lastPassageId)
+        ? saved.lastPassageId
+        : saved?.currentPassageId && findReadingById(saved.currentPassageId) ? saved.currentPassageId : null,
     showFurigana: saved?.showFurigana ?? fallback.showFurigana,
     showTranslation: saved?.showTranslation ?? fallback.showTranslation,
     showStudyNote: saved?.showStudyNote ?? fallback.showStudyNote,
     resultsRevealed: saved?.resultsRevealed ?? fallback.resultsRevealed,
     answers: saved?.answers ?? fallback.answers,
     passageViewOptions: saved?.passageViewOptions ?? fallback.passageViewOptions,
+    savedPassageIds: (saved?.savedPassageIds ?? fallback.savedPassageIds).filter((id) => READING_BY_ID.has(id)),
+    savedOnly: saved?.savedOnly ?? fallback.savedOnly,
+    articleCollectionsInitialized: true,
     listStatusFilter: saved?.listStatusFilter ?? fallback.listStatusFilter,
   };
 }
@@ -282,14 +381,16 @@ export function resetPassageAnswers(state: ReadingViewerState, passageId: string
 }
 
 export function matchesReadingSources(p: ReadingPassage, books: ReadingBook[], examIds: string[]): boolean {
-  return books.includes(p.book) && (p.book !== "jlpt-exam" || (!!p.examId && examIds.includes(p.examId)));
+  return books.includes(p.book) &&
+    (!(p.book === "jlpt-exam" || p.book === "de-n3") || (!!p.examId && examIds.includes(p.examId)));
 }
 
 export function matchesFilters(p: ReadingPassage, state: ReadingViewerState): boolean {
   return (
     state.selectedLevels.includes(p.level) &&
     state.selectedLengths.includes(p.length) &&
-    matchesReadingSources(p, state.selectedBooks, state.selectedExamIds) && (p.book !== "jlpt-exam" || (!!p.topic && state.selectedTopics.includes(p.topic)))
+    matchesReadingSources(p, state.selectedBooks, state.selectedExamIds) &&
+    (!(p.book === "jlpt-exam" || p.book === "news" || p.book === "custom") || (!!p.topic && state.selectedTopics.includes(p.topic)))
   );
 }
 

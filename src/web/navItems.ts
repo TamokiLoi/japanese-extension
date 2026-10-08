@@ -4,6 +4,7 @@ import {
   BookMarked,
   Library,
   BookOpenText,
+  Newspaper,
   PenSquare,
   GraduationCap,
   HelpCircle,
@@ -27,9 +28,8 @@ export interface NavItem {
   icon: typeof Home;
 }
 
-// Mirrors MenuScreen.tsx's card list/labels 1:1 -- the sidebar/drawer is a
-// second way to reach the same destinations, not a new taxonomy, so it
-// should read as "the same app" rather than a relabeled one.
+// Most entries mirror MenuScreen.tsx; web-only destinations are included
+// here as well so the dashboard sidebar/drawer can expose them directly.
 export const NAV_ITEMS: NavItem[] = [
   { screen: "menu", label: "Trang chủ", icon: Home },
   { screen: "search", label: "Tra cứu", icon: Search },
@@ -37,6 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "vocab", label: "Từ vựng", icon: Library },
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
+  { screen: "news", label: "Đọc báo", icon: Newspaper },
   { screen: "listening", label: "Luyện nghe", icon: Headphones },
   { screen: "podcast", label: "Podcast", icon: Podcast },
   // "translationPractice" deliberately not listed here -- feature is on
@@ -67,8 +68,9 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search", "roadmap"] },
-  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening", "podcast"] },
+  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "matchGame", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
+  { label: "Giải trí", screens: ["news", "podcast"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide", "settings"] },
 ];

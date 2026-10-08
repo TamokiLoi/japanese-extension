@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { ReadingPassage, ReadingLength, ReadingBook } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
+import { sliceReadingBody, splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import {
   ALL_READING,
@@ -9,6 +10,8 @@ import {
   AVAILABLE_LENGTHS,
   AVAILABLE_BOOKS,
   AVAILABLE_JLPT_EXAMS,
+  AVAILABLE_N3_SETS,
+  READING_EXAM_BOOKS,
   AVAILABLE_TOPICS,
   LENGTH_LABELS,
   BOOK_LABELS,
@@ -21,6 +24,8 @@ import {
   resetPassageAnswers,
   matchesFilters,
   matchesReadingSources,
+  readingExamIdsForBook,
+  isReadingExamBook,
   type ReadingViewerState,
 } from "../readingState.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
@@ -83,6 +88,27 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
   const markdownTables = findMarkdownPipeTables(passageText);
+  if (passage.book === "news" || passage.book === "custom") {
+    const paragraphs: ReadingPassage["body"][] = [];
+    for (const segment of passage.body) {
+      if (paragraphs.length === 0 || segment.paragraphStart) paragraphs.push([]);
+      paragraphs[paragraphs.length - 1].push(segment);
+    }
+    return (
+      <div className="reading-article-paragraphs">
+        {paragraphs.map((paragraph, pi) => (
+          <p key={pi}>
+            {paragraph.map((seg, i) => {
+              const text = seg.paragraphStart ? seg.text.replace(/^\n+/u, "") : seg.text;
+              const sourceOffset = passageText.indexOf(seg.text);
+              const markedText = renderReadingTextWithUnderlines(text, underlineRanges, Math.max(0, sourceOffset));
+              return showFurigana && seg.furigana ? <ruby key={i}>{markedText}<rt>{seg.furigana}</rt></ruby> : <span key={i}>{markedText}</span>;
+            })}
+          </p>
+        ))}
+      </div>
+    );
+  }
   if (markdownTables.length > 0) {
     let segmentOffset = 0;
     const segmentRanges = passage.body.map((segment) => {
@@ -154,23 +180,19 @@ function ReadingBody({ passage, showFurigana }: { passage: ReadingPassage; showF
     );
     return <div className="reading-passage-text-blocks">{blocks}</div>;
   }
-  let sourceOffset = 0;
   return (
-    <>
-      {passage.body.map((seg, i) => {
-        const offset = sourceOffset;
-        sourceOffset += seg.text.length;
-        const markedText = renderReadingTextWithUnderlines(seg.text, underlineRanges, offset);
-        return showFurigana && seg.furigana ? (
-          <ruby key={i}>
-            {markedText}
-            <rt>{seg.furigana}</rt>
-          </ruby>
-        ) : (
-          <span key={i}>{markedText}</span>
-        );
-      })}
-    </>
+    <div className="reading-passage-paragraphs">
+      {splitPassageParagraphs(passageText).map((paragraph, pi) => (
+        <p key={pi}>
+          {sliceReadingBody(passage.body, paragraph.start, paragraph.end).map((segment, si) => {
+            const content = renderReadingTextWithUnderlines(segment.text, underlineRanges, segment.offset);
+            return showFurigana && segment.furigana
+              ? <ruby key={si}>{content}<rt>{segment.furigana}</rt></ruby>
+              : <span key={si}>{content}</span>;
+          })}
+        </p>
+      ))}
+    </div>
   );
 }
 
@@ -234,14 +256,18 @@ function ListView({
   setDetailId: (id: string | null) => void;
 }) {
   const filtered = ALL_READING.filter((p) => matchesFilters(p, state));
-  const doneCount = filtered.filter((p) => getPassageProgress(p, state.answers).status === "done").length;
+  const practicePassages = filtered.filter((p) => p.questions.length > 0);
+  const doneCount = practicePassages.filter((p) => getPassageProgress(p, state.answers).status === "done").length;
 
   const visiblePassages = filtered.filter((p) => {
+    if (state.savedOnly && !state.savedPassageIds.includes(p.id)) return false;
     if (state.listStatusFilter === "all") return true;
     const progress = getPassageProgress(p, state.answers);
     if (state.listStatusFilter === "done") return progress.status === "done";
     return progress.status !== "done";
   });
+  const selectedJlptCount = state.selectedExamIds.filter((id) => readingExamIdsForBook("jlpt-exam").includes(id)).length;
+  const selectedN3SetCount = state.selectedExamIds.filter((id) => readingExamIdsForBook("de-n3").includes(id)).length;
 
   const statusDotClass = (status: "not-started" | "in-progress" | "done", correct: number, total: number) => {
     if (status === "done") return correct === total ? "reading-tile-perfect" : "reading-tile-done";
@@ -252,6 +278,7 @@ function ListView({
   async function openPassage(passage: ReadingPassage) {
     await mutate({
       currentPassageId: passage.id,
+      lastPassageId: passage.id,
       answers: { ...state.answers, [passage.id]: state.answers[passage.id] ?? passage.questions.map(() => null) },
     });
   }
@@ -267,6 +294,7 @@ function ListView({
 
   const detailPassage = detailId ? findReadingById(detailId) : undefined;
   const detailProgress = detailPassage ? getPassageProgress(detailPassage, state.answers) : null;
+  const lastPassage = state.lastPassageId ? findReadingById(state.lastPassageId) : undefined;
 
   async function handleResetDetail(passage: ReadingPassage) {
     if (!confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`)) return;
@@ -287,7 +315,7 @@ function ListView({
         className="quiz-setup"
         title="Bộ lọc"
         defaultOpen
-        summary={`${state.selectedBooks.filter((book) => book !== "jlpt-exam").length + state.selectedExamIds.length}/${AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam").length + AVAILABLE_JLPT_EXAMS.length} nguồn${state.selectedExamIds.length ? ` · ${state.selectedTopics.length}/${AVAILABLE_TOPICS.length} dạng JLPT` : ""}`}
+        summary={`Nguồn ${state.selectedBooks.length}/${AVAILABLE_BOOKS.length} · JLPT ${selectedJlptCount}/${AVAILABLE_JLPT_EXAMS.length} · 10 đề N3 ${selectedN3SetCount}/${AVAILABLE_N3_SETS.length}`}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <div className="quiz-setup-group">
@@ -321,9 +349,9 @@ function ListView({
         ) : null}
 
         <div className="quiz-setup-group">
-          <div className="quiz-setup-label">Sách</div>
+          <div className="quiz-setup-label">Nguồn bài đọc</div>
           <div className="reading-book-radio-row">
-            {AVAILABLE_BOOKS.filter((book) => book !== "jlpt-exam").map((book) => {
+            {AVAILABLE_BOOKS.map((book) => {
               const checked = state.selectedBooks.includes(book);
               const count = ALL_READING.filter(
                 (p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length),
@@ -338,7 +366,13 @@ function ListView({
                         ? [...new Set([...state.selectedBooks, book])]
                         : state.selectedBooks.filter((b) => b !== book);
                       if (next.length === 0) return;
-                      mutate({ selectedBooks: next });
+                      const familyIds = readingExamIdsForBook(book);
+                      const nextExamIds = isReadingExamBook(book)
+                        ? checked
+                          ? state.selectedExamIds.filter((id) => !familyIds.includes(id))
+                          : [...new Set([...state.selectedExamIds, ...familyIds])]
+                        : state.selectedExamIds;
+                      mutate({ selectedBooks: next, selectedExamIds: nextExamIds });
                     }}
                   />
                   <span className="reading-book-radio-body">
@@ -351,33 +385,51 @@ function ListView({
               );
             })}
           </div>
-          <div className="quiz-radio-row">
-            {AVAILABLE_JLPT_EXAMS.map((exam) => {
-              const checked = state.selectedExamIds.includes(exam.id);
-              const count = ALL_READING.filter((p) => p.examId === exam.id && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
-              return (
-                <label key={exam.id} className="quiz-radio">
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={(event) => {
-                      const nextExamIds = event.target.checked
-                        ? [...new Set([...state.selectedExamIds, exam.id])]
-                        : state.selectedExamIds.filter((id) => id !== exam.id);
-                      const regularBooks = state.selectedBooks.filter((book) => book !== "jlpt-exam");
-                      if (nextExamIds.length === 0 && regularBooks.length === 0) return;
-                      const nextBooks = nextExamIds.length
-                        ? [...new Set([...state.selectedBooks, "jlpt-exam" as const])]
-                        : regularBooks;
-                      mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks });
-                    }}
-                  />
-                  {exam.label} <span className="muted">({count})</span>
-                </label>
-              );
-            })}
-          </div>
         </div>
+
+        {READING_EXAM_BOOKS.map((book) => {
+          if (!state.selectedBooks.includes(book)) return null;
+          const options = book === "jlpt-exam" ? AVAILABLE_JLPT_EXAMS : AVAILABLE_N3_SETS;
+          const title = book === "jlpt-exam" ? "Đề JLPT theo kỳ" : "10 đề N3 theo đề";
+          const selectedCount = options.filter((exam) => state.selectedExamIds.includes(exam.id)).length;
+          const totalCount = ALL_READING.filter((p) => p.book === book && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
+          return (
+            <details key={book} className="reading-exam-filter">
+              <summary>
+                <span>{title}</span>
+                <span className="muted">{selectedCount}/{options.length} · {totalCount} bài</span>
+              </summary>
+              <div className="quiz-radio-row reading-exam-filter-options">
+                {options.map((exam) => {
+                  const checked = state.selectedExamIds.includes(exam.id);
+                  const count = ALL_READING.filter((p) => p.examId === exam.id && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length)).length;
+                  if (!count) return null;
+                  return (
+                    <label key={exam.id} className="quiz-radio">
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={(event) => {
+                          const nextExamIds = event.target.checked
+                            ? [...new Set([...state.selectedExamIds, exam.id])]
+                            : state.selectedExamIds.filter((id) => id !== exam.id);
+                          const idsForBook = readingExamIdsForBook(book);
+                          const hasFamilySelection = nextExamIds.some((id) => idsForBook.includes(id));
+                          const nextBooks = hasFamilySelection
+                            ? [...new Set([...state.selectedBooks, book])]
+                            : state.selectedBooks.filter((item) => item !== book);
+                          if (nextBooks.length === 0) return;
+                          mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks });
+                        }}
+                      />
+                      {exam.label} <span className="muted">({count})</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </details>
+          );
+        })}
 
         {state.selectedBooks.includes("jlpt-exam") ? (
           <div className="quiz-setup-group">
@@ -408,6 +460,38 @@ function ListView({
             </div>
           </div>
         ) : null}
+
+        {(["news", "custom"] as const).map((book) => {
+          if (!state.selectedBooks.includes(book)) return null;
+          const topics = [...new Set(ALL_READING.filter((p) => p.book === book && p.topic).map((p) => p.topic!))]
+            .sort((a, b) => a.localeCompare(b, "ja", { numeric: true }));
+          if (!topics.length) return null;
+          return (
+            <div key={book} className="quiz-setup-group">
+              <div className="quiz-setup-label">{book === "news" ? "Chủ đề báo Nhật" : "Chủ đề nội dung tự thêm"}</div>
+              <div className="quiz-radio-row">
+                {topics.map((topic) => {
+                  const checked = state.selectedTopics.includes(topic);
+                  return (
+                    <label key={topic} className="quiz-radio">
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={(event) => {
+                          const next = event.target.checked
+                            ? [...new Set([...state.selectedTopics, topic])]
+                            : state.selectedTopics.filter((item) => item !== topic);
+                          if (next.length) mutate({ selectedTopics: next });
+                        }}
+                      />
+                      {topic} <span className="muted">({ALL_READING.filter((p) => p.book === book && p.topic === topic).length})</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
 
         <div className="quiz-setup-group">
           <div className="quiz-setup-label">Độ dài bài đọc</div>
@@ -441,15 +525,20 @@ function ListView({
       <div className="quiz-setup">
         {error ? <p className="quiz-error">{error}</p> : null}
 
+        <button className={`secondary-action-btn ${state.savedOnly ? "reading-toggle-on" : ""}`} onClick={() => mutate({ savedOnly: !state.savedOnly })}>
+          {state.savedOnly ? "✓ Đang xem bài đã lưu" : `Bài đã lưu (${state.savedPassageIds.length})`}
+        </button>
+
         <button className="primary-action-btn" onClick={handleStart}>
           🎲 Random bài đọc
         </button>
+        {lastPassage ? <button className="secondary-action-btn" title={lastPassage.title} onClick={() => openPassage(lastPassage)}>Tiếp tục đọc</button> : null}
       </div>
 
       <section className="reading-list-section">
         <div className="reading-list-summary">
           <span>
-            Đã hoàn thành <strong>{doneCount}/{filtered.length}</strong> bài
+            Đã làm <strong>{doneCount}/{practicePassages.length}</strong> bài có câu hỏi
           </span>
           <div className="reading-status-filter-row">
             {(["all", "not-started", "done"] as const).map((s) => (
@@ -472,6 +561,9 @@ function ListView({
                 {detailPassage.topic ? ` · ${detailPassage.topic}` : ""}
                 {AVAILABLE_LEVELS.length > 1 ? ` · ${detailPassage.level}` : ""} · {timelineLabel(detailPassage)}
               </div>
+              {(detailPassage.book === "news" || detailPassage.book === "custom") && state.savedPassageIds.includes(detailPassage.id) ? (
+                <div className="reading-detail-meta">★ Đã lưu</div>
+              ) : null}
               <div className="reading-detail-footer">
                 <StatusIcon status={detailProgress.status} correct={detailProgress.correct} total={detailProgress.total} />
                 {detailProgress.status !== "not-started" ? (
@@ -527,6 +619,7 @@ function PassageView({
   const allAnswered = answeredCount >= total;
   const correctCount = passage.questions.filter((q, qi) => answers[qi] === q.correctIndex).length;
   const passagePool = ALL_READING.filter((p) => matchesFilters(p, state)).filter((p) => {
+    if (state.savedOnly && !state.savedPassageIds.includes(p.id)) return false;
     const progress = getPassageProgress(p, state.answers);
     if (state.listStatusFilter === "all") return true;
     if (state.listStatusFilter === "done") return progress.status === "done";
@@ -536,10 +629,20 @@ function PassageView({
   });
   const passageIndex = passagePool.findIndex((p) => p.id === passage.id);
   const nextPassage = passageIndex >= 0 ? passagePool[passageIndex + 1] : undefined;
+  const isArticle = passage.book === "news" || passage.book === "custom";
+  const isLinkOnly = passage.linkOnly === true;
+  const isSaved = state.savedPassageIds.includes(passage.id);
 
   async function handleReset() {
     if (!confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`)) return;
     await mutate(resetPassageAnswers(state, passage.id));
+  }
+
+  function toggleSaved() {
+    const savedPassageIds = isSaved
+      ? state.savedPassageIds.filter((id) => id !== passage.id)
+      : [...state.savedPassageIds, passage.id];
+    void mutate({ savedPassageIds });
   }
 
   return (
@@ -566,7 +669,17 @@ function PassageView({
         </div>
         <h2 className="reading-title">{passage.title}</h2>
 
-        <div className="reading-progress-row">
+        {isArticle ? (
+          <div className="reading-news-source">
+            <span>{passage.source}</span>
+            {passage.publishedAt ? <span> · {passage.publishedAt}</span> : null}
+            {passage.sourceUrl ? <a href={passage.sourceUrl} target="_blank" rel="noreferrer"> · Mở nguồn ↗</a> : null}
+            <button className="secondary-action-btn" onClick={toggleSaved}>{isSaved ? "★ Đã lưu" : "☆ Lưu bài"}</button>
+            {passage.sourceNotice ? <small>{passage.sourceNotice}</small> : null}
+          </div>
+        ) : null}
+
+        {!isArticle ? <div className="reading-progress-row">
           <div className="reading-progress-bar">
             <div className="reading-progress-bar-fill" style={{ width: `${total ? (answeredCount / total) * 100 : 0}%` }}></div>
           </div>
@@ -578,7 +691,7 @@ function PassageView({
               ↺ Làm lại
             </button>
           ) : null}
-        </div>
+        </div> : null}
 
         {allAnswered && total > 0 ? (
           <div className={`reading-score-banner ${correctCount === total ? "reading-score-perfect" : ""}`}>
@@ -586,7 +699,7 @@ function PassageView({
           </div>
         ) : null}
 
-        <div className="reading-toolbar-row">
+        {!isLinkOnly ? <div className="reading-toolbar-row">
           <button
             className={`secondary-action-btn reading-toggle-btn ${state.showFurigana ? "reading-toggle-on" : ""}`}
             onClick={() => mutate({ showFurigana: !state.showFurigana })}
@@ -607,11 +720,11 @@ function PassageView({
               {state.showStudyNote ? "Ẩn ghi chú" : "Xem ghi chú"}
             </button>
           ) : null}
-        </div>
+        </div> : null}
 
-        <div className="reading-body">
+        {!isLinkOnly ? <div className="reading-body">
           <ReadingBody passage={passage} showFurigana={state.showFurigana} />
-        </div>
+        </div> : <div className="reading-news-link-only">Nội dung bài chưa được cấp quyền hiển thị trong ứng dụng. Bạn có thể mở nguồn để đọc trực tiếp.</div>}
 
         {state.showTranslation ? (
           <div className="reading-translation">
@@ -630,7 +743,7 @@ function PassageView({
           </div>
         ) : null}
 
-        <div className="reading-questions">
+        {!isArticle ? <div className="reading-questions">
           {passage.questions.map((q, qi) => {
             const answered = answers[qi];
             return (
@@ -673,12 +786,13 @@ function PassageView({
               </div>
             );
           })}
-        </div>
+        </div> : null}
 
         <button
           className="primary-action-btn reading-another-btn"
           onClick={() => nextPassage && mutate({
             currentPassageId: nextPassage.id,
+            lastPassageId: nextPassage.id,
             answers: { ...state.answers, [nextPassage.id]: state.answers[nextPassage.id] ?? nextPassage.questions.map(() => null) },
           })}
           disabled={!nextPassage}

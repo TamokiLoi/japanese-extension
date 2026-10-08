@@ -11,6 +11,7 @@ import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../lib/levelColors.tsx";
 import { NewVocabCorrectionSheet } from "../components/NewVocabCorrectionSheet.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { ImageLookupPanel } from "../components/ImageLookupPanel.tsx";
 
 const MAX_RESULTS = 40;
 const SEARCH_KIND_ORDER: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
@@ -48,6 +49,7 @@ interface SearchResult {
   primary: string;
   secondary: string;
   meaning: string;
+  hanViet?: string;
 }
 
 function searchKanji(q: string, variants: string[]): SearchResult[] {
@@ -97,6 +99,7 @@ function searchVocab(q: string, variants: string[]): SearchResult[] {
     primary: v.word,
     secondary: v.reading ?? "",
     meaning: v.meaningVi,
+    hanViet: formatHanViet(v.hanViet, ""),
   }));
 }
 
@@ -121,6 +124,18 @@ const KIND_COLOR: Record<SearchResult["kind"], string> = {
   kanji: "border-amber-300 bg-amber-50 text-amber-700",
   vocab: "border-sky-300 bg-sky-50 text-sky-700",
   bunpo: "border-violet-300 bg-violet-50 text-violet-700",
+};
+
+const KIND_CARD_COLOR: Record<SearchResult["kind"], string> = {
+  kanji: "border-amber-200 bg-amber-50/50 hover:border-amber-300 hover:bg-amber-50",
+  vocab: "border-sky-200 bg-sky-50/50 hover:border-sky-300 hover:bg-sky-50",
+  bunpo: "border-violet-200 bg-violet-50/50 hover:border-violet-300 hover:bg-violet-50",
+};
+
+const KIND_LEVEL_COLOR: Record<SearchResult["kind"], string> = {
+  kanji: "bg-amber-100 text-amber-800",
+  vocab: "bg-sky-100 text-sky-800",
+  bunpo: "bg-violet-100 text-violet-800",
 };
 
 export function SearchScreen({
@@ -171,10 +186,15 @@ export function SearchScreen({
     else onOpenBunpo(r.id);
   }
 
+  function handleImageSearch(text: string) {
+    setQuery(text);
+    setActiveKinds(["vocab", "kanji", "bunpo"]);
+  }
+
   return (
     <div
       className={`mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6 ${
-        popup ? "max-h-[calc(100dvh-2rem)] overflow-hidden md:max-h-none md:overflow-visible" : ""
+        popup ? "max-h-[calc(100dvh-2rem)] overflow-y-auto md:max-h-none md:overflow-visible" : ""
       }`}
     >
       <div className="flex items-center justify-between">
@@ -201,6 +221,8 @@ export function SearchScreen({
         onChange={(e) => setQuery(e.target.value)}
         className="mt-4 w-full rounded-2xl border border-neutral-200 px-3.5 py-2.5 text-sm"
       />
+
+      <ImageLookupPanel onSearch={handleImageSearch} />
 
       <div className="mt-3 flex flex-wrap gap-2">
         {SEARCH_KIND_ORDER.map((kind) => {
@@ -237,22 +259,30 @@ export function SearchScreen({
             <button
               key={`${r.kind}-${r.id}`}
               onClick={() => handleOpen(r)}
-              className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40"
+              className={`grid w-full grid-cols-[minmax(0,1fr)_auto] items-start gap-2 rounded-2xl border px-3 py-2.5 text-left transition-colors ${KIND_CARD_COLOR[r.kind]}`}
             >
-              <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-bold ${KIND_COLOR[r.kind]}`}>
-                {KIND_LABELS[r.kind]}
-              </span>
-              <span className="flex shrink-0 items-center text-xs font-semibold text-neutral-400">
-                <LevelDot level={r.level} />
-                {r.level}
-              </span>
               <div className="min-w-0 flex-1">
-                <div className="truncate font-semibold text-neutral-800">
+                <div className="truncate text-base font-semibold text-neutral-800">
                   {r.primary}
-                  {r.secondary ? <span className="ml-1.5 font-normal text-neutral-400">{r.secondary}</span> : null}
+                  {r.secondary && r.kind !== "kanji" ? <span className="ml-2 text-sm font-normal text-neutral-500">{r.secondary}</span> : null}
                 </div>
-                <div className="truncate text-sm text-neutral-500">{r.meaning || "—"}</div>
+                <div className="mt-0.5 flex min-w-0 items-center gap-2 text-sm leading-5">
+                  {r.kind === "vocab" && r.hanViet ? (
+                    <span className="max-w-[42%] shrink-0 truncate font-bold uppercase tracking-wide text-neutral-700" title={r.hanViet}>
+                      {r.hanViet}
+                    </span>
+                  ) : null}
+                  {r.kind === "kanji" && r.secondary ? (
+                    <span className="max-w-[42%] shrink-0 truncate font-bold uppercase tracking-wide text-neutral-700" title={r.secondary}>
+                      {r.secondary}
+                    </span>
+                  ) : null}
+                  <span className="min-w-0 flex-1 truncate text-neutral-600" title={r.meaning || "—"}>
+                    {r.meaning || "—"}
+                  </span>
+                </div>
               </div>
+              <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${KIND_LEVEL_COLOR[r.kind]}`}>{r.level}</span>
             </button>
           ))}
         </div>
