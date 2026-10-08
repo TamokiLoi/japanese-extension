@@ -11,7 +11,6 @@ import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../lib/levelColors.tsx";
 import { NewVocabCorrectionSheet } from "../components/NewVocabCorrectionSheet.tsx";
 import { Button } from "../components/ui/button.tsx";
-import { ImageLookupPanel } from "../components/ImageLookupPanel.tsx";
 
 const MAX_RESULTS = 40;
 const SEARCH_KIND_ORDER: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
@@ -222,7 +221,9 @@ export function SearchScreen({
         className="mt-4 w-full rounded-2xl border border-neutral-200 px-3.5 py-2.5 text-sm"
       />
 
+      {/* Image lookup POC is hidden until it is ready for release.
       <ImageLookupPanel onSearch={handleImageSearch} />
+      */}
 
       <div className="mt-3 flex flex-wrap gap-2">
         {SEARCH_KIND_ORDER.map((kind) => {
