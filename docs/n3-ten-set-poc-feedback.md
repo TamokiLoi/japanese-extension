@@ -1,0 +1,30 @@
+# 10 đề N3: POC feedback and acceptance checks
+
+Use this checklist for every set in the 10 đề N3 collection. Set 01 is the POC; later sets must retain these decisions and checks.
+
+## Decisions from the POC
+
+- The collection is titled **10 đề N3**. Individual entries are titled **Đề 01**, **Đề 02**, and so on. Do not show the source publisher in the app title.
+- The source does not provide an official answer key. For questions that can be answered from the printed pages, any model-derived key is only a clearly labeled reference answer. Review it independently against the Japanese and the source context; never present it as official.
+- Until listening audio is supplied, transcribe only the printed listening prompts, choices, and necessary illustrations. Leave `audioUrl` absent, set `correctIndex` to `null`, and do not infer spoken content or grade those questions.
+
+## POC issues reported from the local preview
+
+- Important source-underlined words were missing in the attempt view. Preserve every printed target in the data (`underline`, and `underlineForms` for printed inflections in usage options). Check exact text matches and verify the emphasis appears while taking the test and in review.
+- A vocabulary-usage question had broken wrapping around the emphasized Japanese word. Verify underlined words stay together and choices wrap legibly on a narrow mobile viewport (390 px); no characters should be squeezed, split, clipped, or overlap other controls.
+- Record the exact text underlined in the scan for each choice, including kana only when the scan underlines it. The renderer may choose the longest among declared exact spans when choices share prefixes, but it must not expand the source span on its own.
+- Treat the screenshot issue as open until the relevant questions have been opened in the running app after the change. JSON fields or a successful build alone do not close the visual check.
+- For option emphasis, use non-empty `underlineForms` as the source of truth even when the question field contains only the target word. An explicitly empty list suppresses emphasis (for synonym choices); prompt-based inference is only a fallback for older records with no field.
+
+## Per-set regression gate
+
+Before moving to the next set, check the source page/question inventory against the converted data, validate printed underlines and image references, verify all proposed written answers, confirm listening questions remain ungraded without audio, and inspect representative vocabulary/grammar/reading/listening questions in both the exam view and review. Also open the same reading data in Reading practice and confirm the passage, table/list formatting, and questions remain readable.
+
+## Current continuation status (2026-10-08)
+
+- **Source review scope:** source scan page inventories and question counts were checked for all 10 sets. Targeted visual/OCR comparisons found and corrected the discrepancies listed below. This was not a line-by-line visual comparison of every printed written question, so the collection should not be described as fully proofread against every source page. The duplicate printed Q24 label in Set 03 is present in its scan and is retained as printed.
+- **Source transcription and answer fixes:** previous checks covered Set 01 Q2/Q35, Set 02 Q15/Q34 and listening Q1, Set 03 passage wording, Set 04 Q26/Q33, Set 06 Q31, Set 07 Q31/Q34, Set 08 Q32/Q34, Set 09 Q33, and Set 10's converted data. This pass also corrected Set 01 bunpou Q18; Set 03 bunpou Q14–16 and Q18 answer positions; Set 04 bunpou Q14–18 stems and ★ positions; and Set 05 bunpou Q16–18 answer positions. Set 08 Q15's ★ answer was already corrected in the earlier pass. Set 04 Q17 preserves the awkward wording printed in the source and marks the answer as tentative; Set 10 Q32 notes that options 2 and 3 both fit 「発生」 naturally, and Q20 remains a non-official reference choice based on context.
+- **Inventory and automated data checks:** Sets 01–10 contain 350 vocabulary, 381 grammar/reading, and 280 listening questions (Set 03 has 39 grammar/reading questions; the other sets have 38). The 731 written questions have Vietnamese prompts and choices, explanations, in-range reference keys, and answer-source notes. All 1,011 prompt-furigana arrays reconstruct their exact Japanese prompts; all 90 full reading passages have Vietnamese translations and furigana that reconstruct the source text. The 90 reading passages include the table/list presentation; Japanese and Vietnamese table shapes are checked by the regression test. Underline spans were checked to ensure they occur in their prompt or choices. Question and passage furigana dry-runs report zero missing/mismatched targets for every set.
+- **Listening and images:** all 280 listening questions remain without MP3, official key, or points. All 46 question/choice image references resolve to files under `public/images/listening`; 22 inconsistent leading-slash paths in Sets 06, 08, 09, and 10 were normalized to the app's `public/` asset convention. Listening prompts/options with no printed visual choices are intentionally left as ungraded placeholders until audio is available.
+- **Set 10:** added to the **10 đề N3** catalog as **Đề 10**, with 35 vocabulary, 38 grammar/reading, and 28 listening questions from its 21 scan pages. Its written items have Vietnamese prompts/choices and explanations; model-derived answer keys remain explicitly non-official because the source has no key. Listening questions remain ungraded without audio. The table/list reading and translations remain available in Reading practice.
+- **Regression results:** `npm run reading:test-jlpt` passes across 154 annual JLPT, 90 N3 practice-set, and 306 Reading passages (29 Japanese and 29 translated tables). Both `npm run build` and `npm run build:pages` pass; Vite still reports the existing large-chunk warning. `git diff --check` passes (only Git's line-ending conversion notices were emitted). Furigana dry-runs report zero targets for all 10 sets. The narrow 390 px visual check remains open; the current pass did not claim a mobile visual review of every question.

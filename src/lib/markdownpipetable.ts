@@ -41,6 +41,9 @@ function getLines(text: string): SourceLine[] {
 function parsePipeLine(line: SourceLine): ParsedPipeLine | null {
   const leading = line.text.length - line.text.trimStart().length;
   const trimmed = line.text.trim();
+  // Slashes can also be unit markers (円／人, yên / người), not column
+  // dividers. Exclude common per-person price notations from table heuristics.
+  if (/(?:円\s*／\s*人|(?:yên|yen)\s*\/\s*(?:người|nguoi))/iu.test(trimmed) && !/[|｜]/u.test(trimmed)) return null;
   const delimiter = trimmed.includes("|")
     ? "|"
     : trimmed.includes("｜")
@@ -245,7 +248,11 @@ export function findMarkdownPipeTables(text: string): MarkdownPipeTable[] {
         // It is a formatting artifact, not the end of the table.
         if (isEmptyPipeLine(lines[rowIndex])) { rowIndex++; continue; }
         const row = parsePipeLine(lines[rowIndex]);
-        if (!row || row.delimiter !== first.delimiter || isSeparatorRow(row.cells, text)) break;
+        if (!row || row.delimiter !== first.delimiter) break;
+        // Some source tables repeat a separator between row groups while
+        // keeping the same header. Treat the separator as decoration and keep
+        // the contiguous rows in one logical table.
+        if (isSeparatorRow(row.cells, text)) { rowIndex++; continue; }
         parsedRows.push(row);
         rowIndex++;
       }

@@ -9,16 +9,27 @@
 import { existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi.ts";
+import { enrichmentQuestionId } from "./jlptEnrichmentIds.ts";
 
 const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-3.5-flash-lite";
 const CACHE_VERSION = 3;
 const DATASETS: { path: string; paperId: string; readingGroups: string[] }[] = [
   { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-01.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-02.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-03.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-04.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-05.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-06.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-07.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-08.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-09.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-10.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
   { path: "src/data/dethi-n1-cac-nam.json", paperId: "language-reading", readingGroups: ["問題7", "問題8", "問題9", "問題10", "問題11", "問題12", "問題13"] },
 ];
 const CACHE_PATH = join(ROOT, `_scratch/dethi-reading-furigana-cache-${MODEL}.json`);
-const DELAY_MS = 4_300;
+const DELAY_MS = 6_000;
 const MAX_CHUNKS_PER_REQUEST = 16;
 const HAS_KANJI = /[\u3400-\u9fff々〆ヶ]/u;
 const KANA_ONLY = /^[\u3041-\u3096\u30a1-\u30faー]+$/u;
@@ -42,7 +53,7 @@ interface PassageEnrichment { id: string; segments: { text: string; furigana: st
 interface CachedEnrichment { version: number; result: PassageEnrichment }
 type Cache = Record<string, CachedEnrichment>;
 
-let lastGeminiRequestAt = 0;
+const lastGeminiRequestAt = new Map<string, number>();
 let apiCallCount = 0;
 
 function parseArgs() {
@@ -50,15 +61,21 @@ function parseArgs() {
   const dryRun = args.includes("--dry-run");
   const preview = args.includes("--preview");
   const force = args.includes("--force");
+  const setIndex = args.indexOf("--set");
+  const setNumber = setIndex >= 0 ? args[setIndex + 1] : undefined;
+  if (setIndex >= 0 && (!setNumber || !/^\d{2}$/u.test(setNumber))) throw new Error("--set must be a two-digit collection number");
   const limitIndex = args.indexOf("--limit");
   const idIndex = args.indexOf("--id");
+  const idsIndex = args.indexOf("--ids");
   const limit = limitIndex >= 0 ? Number(args[limitIndex + 1]) : undefined;
   const id = idIndex >= 0 ? args[idIndex + 1] : undefined;
+  const ids = idsIndex >= 0 ? args[idsIndex + 1]?.split(",").filter(Boolean) : undefined;
   if (limitIndex >= 0 && (!Number.isInteger(limit) || (limit ?? 0) < 1)) throw new Error("--limit must be a positive number of passage groups");
   if (idIndex >= 0 && (!id || id.startsWith("--"))) throw new Error("--id must be followed by a stable passage-group id");
+  if (idsIndex >= 0 && (!ids?.length || ids.some((value) => value.startsWith("--"))) || (idIndex >= 0 && idsIndex >= 0)) throw new Error("--ids must be a comma-separated list of stable passage-group IDs and cannot be combined with --id");
   if (dryRun && preview) throw new Error("Use either --dry-run or --preview, not both");
-  if (preview && !limit && !id) throw new Error("--preview requires --limit N or --id so it only translates a small sample");
-  return { dryRun, preview, force, limit, id };
+  if (preview && !limit && !id && !ids) throw new Error("--preview requires --limit N, --id, or --ids so it only translates a small sample");
+  return { dryRun, preview, force, limit, id, ids, setNumber };
 }
 
 function readApiKeys(): string[] {
@@ -180,7 +197,7 @@ function collectTargets(force: boolean): { sources: SourceFile[]; targets: Targe
               flush();
               currentPassage = passage;
               currentTarget = {
-                id: `${exam.id}/${paper.id}/${problemGroup}/q${question.number}`,
+                id: enrichmentQuestionId(exam.id, paper, question, problemGroup),
                 file: spec.path,
                 examLabel: exam.examLabel,
                 section: paper.label,
@@ -190,7 +207,7 @@ function collectTargets(force: boolean): { sources: SourceFile[]; targets: Targe
                 questions: [],
               };
             }
-            currentTarget?.questions.push({ id: `${exam.id}/${paper.id}/q${question.number}`, question });
+            currentTarget?.questions.push({ id: enrichmentQuestionId(exam.id, paper, question), question });
           }
           flush();
         }
@@ -234,10 +251,10 @@ function responseSchema() {
 }
 
 async function sendGeminiJson(apiKeys: string[], prompt: string, schema = responseSchema()): Promise<unknown> {
-  const waitMs = DELAY_MS - (Date.now() - lastGeminiRequestAt);
-  if (waitMs > 0) await sleep(waitMs);
-  lastGeminiRequestAt = Date.now();
   const apiKey = apiKeys[apiCallCount % apiKeys.length];
+  const waitMs = DELAY_MS - (Date.now() - (lastGeminiRequestAt.get(apiKey) ?? 0));
+  if (waitMs > 0) await sleep(waitMs);
+  lastGeminiRequestAt.set(apiKey, Date.now());
   apiCallCount++;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
     method: "POST",
@@ -439,10 +456,12 @@ async function generateBatch(apiKeys: string[], targets: Target[]): Promise<Pass
 }
 
 async function main() {
-  const { dryRun, preview, force, limit, id } = parseArgs();
+  const { dryRun, preview, force, limit, id, ids, setNumber } = parseArgs();
   const { sources, targets: allTargets } = collectTargets(force);
-  const targets = id ? allTargets.filter((target) => target.id === id) : allTargets;
-  if (id && targets.length === 0) throw new Error(`No missing passage furigana target found: ${id}`);
+  const setTargets = setNumber ? allTargets.filter((target) => target.id.startsWith(`de-n3-${setNumber}/`)) : allTargets;
+  const targets = ids ? setTargets.filter((target) => ids.includes(target.id)) : id ? setTargets.filter((target) => target.id === id) : setTargets;
+  const missingIds = [id, ...(ids ?? [])].filter((targetId): targetId is string => Boolean(targetId) && !targets.some((target) => target.id === targetId));
+  if (missingIds.length) throw new Error(`No missing passage furigana target found: ${missingIds.join(", ")}`);
   const cache = loadCache();
   console.log(`Model: ${MODEL}`);
   console.log(`Reading passages selected: ${targets.length}`);

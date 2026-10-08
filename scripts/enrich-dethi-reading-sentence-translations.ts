@@ -10,18 +10,38 @@
 import { existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi.ts";
+import type { ReadingBodySegment } from "../src/types/reading.ts";
+import { findMarkdownPipeTables } from "../src/lib/markdownpipetable.ts";
+import { splitBodyIntoSentences } from "../src/lib/readingSentences.ts";
+import { enrichmentQuestionId } from "./jlptEnrichmentIds.ts";
 
 const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-3.5-flash-lite";
 const CACHE_VERSION = 1;
 const DATASETS = [
   { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-02.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-03.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-04.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-05.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-06.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-07.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-08.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-09.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-10.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
   { path: "src/data/dethi-n1-cac-nam.json", paperId: "language-reading", readingGroups: ["問題7", "問題8", "問題9", "問題10", "問題11", "問題12", "問題13"] },
 ];
 const CACHE_PATH = join(ROOT, `_scratch/dethi-reading-sentence-translations-cache-${MODEL}.json`);
-const DELAY_MS = 4_300;
+const DELAY_MS = 6_000;
 const MAX_UNITS_PER_BATCH = 20;
 const SAME_PASSAGE_MARKERS = new Set(["（上記と同じ）", "（同上）"]);
+
+function looksLikeJapaneseText(value: string): boolean {
+  const letters = Array.from(value).filter((char) => /\p{L}/u.test(char));
+  if (!letters.length) return false;
+  const japaneseLetters = letters.filter((char) => /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}々〆ヶ]/u.test(char));
+  return japaneseLetters.length / letters.length > 0.25;
+}
 
 interface SourceFile { path: string; data: DeThiDataset }
 interface TargetQuestion { id: string; question: DeThiQuestion }
@@ -39,13 +59,17 @@ interface Enrichment { id: string; translations: string[] }
 interface CacheEntry { version: number; source: string; result: Enrichment }
 type Cache = Record<string, CacheEntry>;
 
-let lastGeminiRequestAt = 0;
+const lastGeminiRequestAt = new Map<string, number>();
 let apiCallCount = 0;
 
 function parseArgs() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
   const preview = args.includes("--preview");
+  const listIds = args.includes("--list-ids");
+  const setIndex = args.indexOf("--set");
+  const setNumber = setIndex >= 0 ? args[setIndex + 1] : undefined;
+  if (setIndex >= 0 && (!setNumber || !/^\d{2}$/u.test(setNumber))) throw new Error("--set must be a two-digit collection number");
   const idsIndex = args.indexOf("--ids");
   const ids = idsIndex >= 0 ? args[idsIndex + 1]?.split(",").filter(Boolean) : undefined;
   const limitIndex = args.indexOf("--limit");
@@ -54,7 +78,7 @@ function parseArgs() {
   if (limitIndex >= 0 && (!Number.isInteger(limit) || (limit ?? 0) < 1)) throw new Error("--limit must be a positive number of passage groups");
   if (dryRun && preview) throw new Error("Use either --dry-run or --preview, not both");
   if (preview && !limit && !ids) throw new Error("--preview requires --limit N or --ids so it only translates a small sample");
-  return { dryRun, preview, limit, ids };
+  return { dryRun, preview, limit, ids, listIds, setNumber };
 }
 
 function readApiKeys(): string[] {
@@ -113,8 +137,15 @@ function resolvePassage(paper: DeThiPaper, index: number): string | null {
   return current.passage;
 }
 
-function autoAligns(passage: string, translation: string): boolean {
-  const japaneseUnits = splitTextIntoSentenceUnits(passage, true);
+function readingBody(question: DeThiQuestion | undefined, passage: string): ReadingBodySegment[] {
+  const furiganaBody = question?.passageFurigana;
+  if (furiganaBody?.length && furiganaBody.map(({ text }) => text).join("") === passage) return furiganaBody;
+  return [{ text: passage, furigana: null }];
+}
+
+function autoAligns(body: ReadingBodySegment[], passage: string, translation: string): boolean {
+  if (looksLikeJapaneseText(translation)) return false;
+  const japaneseUnits = splitBodyIntoSentences(body).map((segments) => segments.map(({ text }) => text).join(""));
   const vietnameseUnits = splitTextIntoSentenceUnits(translation, false);
   if (japaneseUnits.length === vietnameseUnits.length) return true;
   const japaneseParagraphs = passage.split(/\n\s*\n/u).map((part) => part.trim()).filter(Boolean);
@@ -146,14 +177,18 @@ function collectTargets(): { sources: SourceFile[]; targets: Target[] } {
             for (let groupIndex = index; groupIndex < paper.questions.length; groupIndex++) {
               const candidate = paper.questions[groupIndex];
               if (candidate.problemGroup !== problemGroup) break;
-              if (resolvePassage(paper, groupIndex) === passage) groupQuestions.push({ id: `${exam.id}/${paper.id}/q${candidate.number}`, question: candidate });
+              if (resolvePassage(paper, groupIndex) === passage) groupQuestions.push({ id: enrichmentQuestionId(exam.id, paper, candidate), question: candidate });
             }
             const passageVi = groupQuestions.find(({ question: q }) => q.passageVi?.trim())?.question.passageVi ?? "";
             const firstQuestion = groupQuestions[0]?.question;
-            const units = splitTextIntoSentenceUnits(passage, true);
-            if (!units.length || (passageVi && autoAligns(passage, passageVi)) || firstQuestion?.passageSentencesVi?.length === units.length) continue;
+            const body = readingBody(firstQuestion, passage);
+            const units = splitBodyIntoSentences(body).map((segments) => segments.map(({ text }) => text).join(""));
+            const alignedSentenceVi = firstQuestion?.passageSentencesVi;
+            const sentenceTranslationsAreVietnamese = Boolean(alignedSentenceVi?.length === units.length &&
+              alignedSentenceVi.every((line, unitIndex) => line.trim() && line !== units[unitIndex] && !looksLikeJapaneseText(line)));
+            if (!units.length || (passageVi && autoAligns(body, passage, passageVi)) || sentenceTranslationsAreVietnamese) continue;
             targets.push({
-              id: `${exam.id}/${paper.id}/${problemGroup}/q${groupQuestions[0].question.number}`,
+              id: enrichmentQuestionId(exam.id, paper, groupQuestions[0].question, problemGroup),
               file: spec.path,
               examLabel: exam.examLabel,
               problemGroup,
@@ -204,10 +239,10 @@ function responseSchema() {
 }
 
 async function sendGeminiJson(apiKeys: string[], targets: Target[], correction?: string): Promise<unknown> {
-  const waitMs = DELAY_MS - (Date.now() - lastGeminiRequestAt);
-  if (waitMs > 0) await sleep(waitMs);
-  lastGeminiRequestAt = Date.now();
   const apiKey = apiKeys[apiCallCount % apiKeys.length];
+  const waitMs = DELAY_MS - (Date.now() - (lastGeminiRequestAt.get(apiKey) ?? 0));
+  if (waitMs > 0) await sleep(waitMs);
+  lastGeminiRequestAt.set(apiKey, Date.now());
   apiCallCount++;
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
     method: "POST",
@@ -225,7 +260,7 @@ async function sendGeminiJson(apiKeys: string[], targets: Target[], correction?:
   return JSON.parse(text);
 }
 
-function sourceSignature(target: Target): string { return `${target.passage}\n---\n${target.passageVi}`; }
+function sourceSignature(target: Target): string { return JSON.stringify({ passage: target.passage, passageVi: target.passageVi, units: target.units }); }
 
 function validateBatch(result: unknown, targets: Target[]): Enrichment[] {
   if (!Array.isArray(result) || result.length !== targets.length) throw new Error(`Expected ${targets.length} translation groups, got ${Array.isArray(result) ? result.length : "non-array"}`);
@@ -273,14 +308,16 @@ function makeBatches(targets: Target[]): Target[][] {
 }
 
 async function main() {
-  const { dryRun, preview, limit, ids } = parseArgs();
+  const { dryRun, preview, limit, ids, listIds, setNumber } = parseArgs();
   const { sources, targets: allTargets } = collectTargets();
-  const idTargets = ids ? allTargets.filter((target) => ids.includes(target.id)) : allTargets;
+  const setTargets = setNumber ? allTargets.filter((target) => target.id.startsWith(`de-n3-${setNumber}/`)) : allTargets;
+  const idTargets = ids ? setTargets.filter((target) => ids.includes(target.id)) : setTargets;
   const runTargets = limit ? idTargets.slice(0, limit) : idTargets;
   const totalUnits = allTargets.reduce((sum, target) => sum + target.units.length, 0);
   const cache = existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, "utf8")) as Cache : {};
   const pending = runTargets.filter((target) => cache[target.id]?.version !== CACHE_VERSION || cache[target.id]?.source !== sourceSignature(target));
   console.log(`Passages needing explicit sentence alignment: ${allTargets.length}; selected: ${runTargets.length}; source units: ${totalUnits}; Gemini cache hits: ${runTargets.length - pending.length}; pending: ${pending.length}`);
+  if (listIds) pending.forEach(({ id }) => console.log(id));
   if (dryRun || !pending.length) return;
 
   const apiKeys = readApiKeys();
@@ -307,7 +344,12 @@ async function main() {
     if (!result) throw new Error(`${target.id}: no validated sentence translations available`);
     const first = target.questions[0].question;
     first.passageSentencesVi = result.translations;
-    first.passageVi = result.translations.join("\n");
+    // Keep the full translation intact for table rendering. The line-aligned
+    // translations remain available in passageSentencesVi, while rebuilding
+    // passageVi from sentence strings would flatten Markdown table rows/cells.
+    if (findMarkdownPipeTables(target.passage).length === 0) {
+      first.passageVi = result.translations.join("\n");
+    }
   }
   const changedPaths = new Set(runTargets.map(({ file }) => file));
   for (const source of sources) {

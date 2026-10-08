@@ -13,17 +13,34 @@
 import { existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi.ts";
+import { enrichmentQuestionId } from "./jlptEnrichmentIds.ts";
 
 const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-3.5-flash-lite";
 const CACHE_VERSION = 3;
 const DATASETS: { path: string; paperId: string; readingGroups: string[] }[] = [
   { path: "src/data/dethi-n3-cac-nam.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-02.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-03.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-04.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-05.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-06.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-07.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-08.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-09.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
+  { path: "src/data/de-n3-set-10.json", paperId: "bunpou-dokkai", readingGroups: ["問題3", "問題4", "問題5", "問題6", "問題7"] },
   { path: "src/data/dethi-n1-cac-nam.json", paperId: "language-reading", readingGroups: ["問題7", "問題8", "問題9", "問題10", "問題11", "問題12", "問題13"] },
 ];
 const CACHE_PATH = join(ROOT, `_scratch/dethi-reading-translations-cache-${MODEL}.json`);
 const DELAY_MS = 4_300;
 const BATCH_SIZE = 3;
+
+function looksLikeJapaneseText(value: string): boolean {
+  const letters = Array.from(value).filter((char) => /\p{L}/u.test(char));
+  if (!letters.length) return false;
+  const japaneseLetters = letters.filter((char) => /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}々〆ヶ]/u.test(char));
+  return japaneseLetters.length / letters.length > 0.25;
+}
 
 interface SourceFile {
   path: string;
@@ -87,6 +104,9 @@ function parseArgs() {
   const dryRun = args.includes("--dry-run");
   const preview = args.includes("--preview");
   const force = args.includes("--force");
+  const setIndex = args.indexOf("--set");
+  const setNumber = setIndex >= 0 ? args[setIndex + 1] : undefined;
+  if (setIndex >= 0 && (!setNumber || !/^\d{2}$/u.test(setNumber))) throw new Error("--set must be a two-digit collection number");
   const limitIndex = args.indexOf("--limit");
   const idIndex = args.indexOf("--id");
   const idsIndex = args.indexOf("--ids");
@@ -99,7 +119,7 @@ function parseArgs() {
   if ((idIndex >= 0 || idsIndex >= 0) && (!ids?.length || ids.some((id) => id.startsWith("--")))) throw new Error("--id/--ids must be followed by stable passage-group id(s)");
   if (dryRun && preview) throw new Error("Use either --dry-run or --preview, not both");
   if (preview && !limit && !ids) throw new Error("--preview requires --limit N or --id so it only translates a small sample");
-  return { dryRun, preview, force, limit, ids };
+  return { dryRun, preview, force, limit, ids, setNumber };
 }
 
 function sleep(ms: number): Promise<void> {
@@ -145,11 +165,13 @@ function collectTargets(force: boolean): { sources: SourceFile[]; targets: Targe
 
           const flush = () => {
             if (!currentTarget) return;
-            const passageHasTranslation = currentTarget.questions.some(({ question }) => question.passageVi?.trim());
+            const passageHasTranslation = currentTarget.questions.some(({ question }) =>
+              question.passageVi?.trim() && !looksLikeJapaneseText(question.passageVi),
+            );
             const questionsHaveTranslations = currentTarget.questions.every(({ question }) =>
-              question.questionVi?.trim() &&
+              question.questionVi?.trim() && !looksLikeJapaneseText(question.questionVi) &&
               question.optionsVi?.length === question.options.length &&
-              question.optionsVi.every((text) => text.trim()),
+              question.optionsVi.every((text) => text.trim() && !looksLikeJapaneseText(text)),
             );
             if (!force && passageHasTranslation && questionsHaveTranslations) return;
             targets.push(currentTarget);
@@ -165,7 +187,7 @@ function collectTargets(force: boolean): { sources: SourceFile[]; targets: Targe
               flush();
               currentPassage = passage;
               currentTarget = {
-                id: `${exam.id}/${paper.id}/${problemGroup}/q${question.number}`,
+                id: enrichmentQuestionId(exam.id, paper, question, problemGroup),
                 file: datasetSpec.path,
                 level: data.meta.level,
                 examLabel: exam.examLabel,
@@ -175,7 +197,7 @@ function collectTargets(force: boolean): { sources: SourceFile[]; targets: Targe
                 questions: [],
               };
             }
-            currentTarget?.questions.push({ id: `${exam.id}/${paper.id}/q${question.number}`, question });
+            currentTarget?.questions.push({ id: enrichmentQuestionId(exam.id, paper, question), question });
           }
           flush();
         }
@@ -322,9 +344,10 @@ async function generateBatch(apiKeys: string[], targets: Target[]): Promise<Enri
 }
 
 async function main() {
-  const { dryRun, preview, force, limit, ids } = parseArgs();
+  const { dryRun, preview, force, limit, ids, setNumber } = parseArgs();
   const { sources, targets: allTargets } = collectTargets(force);
-  const targets = ids ? allTargets.filter((target) => ids.includes(target.id)) : allTargets;
+  const setTargets = setNumber ? allTargets.filter((target) => target.id.startsWith(`de-n3-${setNumber}/`)) : allTargets;
+  const targets = ids ? setTargets.filter((target) => ids.includes(target.id)) : setTargets;
   const missingIds = ids?.filter((id) => !targets.some((target) => target.id === id));
   if (missingIds?.length) throw new Error(`No eligible passage group found for id(s): ${missingIds.join(", ")}`);
   const questionCount = targets.reduce((sum, target) => sum + target.questions.length, 0);

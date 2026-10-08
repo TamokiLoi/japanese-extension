@@ -63,17 +63,24 @@ type Step =
 const REVIEW_RETURN_TARGET = "__dethi-review-return__";
 const REVIEW_RETURN_STORAGE_KEY = "jlpt-dethi-review-return";
 
-// The vocabulary-usage question is 問題4 in N1, but 問題5 in N3. Its prompt is
-// the tested word, which should also be emphasized in every option sentence.
-// Inflected variants can be supplied by the conversion data.
+// The vocabulary-usage question is 問題4 in N1, but 問題5 in N3. N3 問題4 is
+// a synonym question, so also check the printed usage-question prompt before
+// applying option underlines. Inflected variants can be supplied by the data.
 function usageWordInOption(question: string, forms: string[] | undefined, opt: string): string | undefined {
-  // Prefer the supplied full form so a short prompt (e.g. 感動) does not
-  // underline only the prefix of a longer printed form (e.g. 感動文).
-  return forms?.find((f) => opt.includes(f)) ?? (opt.includes(question) ? question : undefined);
+  // Prefer the longest declared source span when two exact variants share a prefix.
+  return forms?.filter((f) => opt.includes(f)).sort((a, b) => b.length - a.length)[0]
+    ?? (opt.includes(question) ? question : undefined);
 }
 
 function optionUnderline(group: string, question: string, forms: string[] | undefined, opt: string): string | undefined {
-  return group === "問題4" || group === "問題5" ? usageWordInOption(question, forms, opt) : undefined;
+  if (group !== "問題4" && group !== "問題5") return undefined;
+  // Converted sets can store the target word alone (without the generic prompt).
+  // An explicitly empty list means this option must remain unmarked, as with N3
+  // 問題4 synonym questions. Only use prompt-based fallback for legacy records.
+  if (forms?.length) return usageWordInOption(question, forms, opt);
+  if (forms) return undefined;
+  const isUsageQuestion = /次の(?:言葉|語)の(?:使い方|用法)として/u.test(question);
+  return isUsageQuestion ? usageWordInOption(question, forms, opt) : undefined;
 }
 
 // Dialogue items sometimes have the next speaker attached directly after the
@@ -1446,7 +1453,9 @@ function TakingView({
         items={paper.questions.map((question, i) => {
           const a = session.answers[i];
           const status: PaletteStatus = i === idx ? "current" : a === null ? "unanswered" : "answered";
-          return { id: String(question.number), status };
+          // Use the paper position as the React key: a scanned source can
+          // repeat a printed number, and the palette still maps by index.
+          return { id: String(i), status };
         })}
       />
 

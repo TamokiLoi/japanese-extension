@@ -57,6 +57,7 @@ const SENTENCE_END = /[。！？]$/;
 export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodySegment[][] {
   const groups: ReadingBodySegment[][] = [];
   let current: ReadingBodySegment[] = [];
+  let paragraphStartPending = false;
   function addPiece(text: string, furigana: string | null, genuineBreak: boolean) {
     if (genuineBreak && current.length > 0) {
       groups.push(current);
@@ -65,7 +66,12 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
     // The boundary is retained as metadata, so the leading linebreak itself
     // should not become a visible blank line in the sentence renderer.
     const cleanText = text.replace(/^\n+/, "");
-    current.push({ text: cleanText, furigana, ...(genuineBreak ? { paragraphStart: true } : {}) });
+    if (!cleanText && furigana === null) {
+      paragraphStartPending ||= genuineBreak;
+      return;
+    }
+    current.push({ text: cleanText, furigana, ...(genuineBreak || paragraphStartPending ? { paragraphStart: true } : {}) });
+    paragraphStartPending = false;
     if (SENTENCE_END.test(cleanText)) {
       groups.push(current);
       current = [];

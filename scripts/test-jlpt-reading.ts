@@ -48,6 +48,11 @@ assert.deepEqual(rowLabelTable?.header?.map(({ start, end }) => rowLabelTableTex
 assert.equal(rowLabelTable?.rows[0].length, 4, "row labels must not merge into the first data cell");
 assert.equal(rowLabelTable?.rows[0][0] && rowLabelTableText.slice(rowLabelTable.rows[0][0].start, rowLabelTable.rows[0][0].end), "火曜日");
 
+const perPersonFees = "◇参加費\n4回コース：3,000円／人\n2回コース：1,000円／人";
+assert.deepEqual(findMarkdownPipeTables(perPersonFees), [], "per-person fee lines are prose, not a slash-delimited table");
+const translatedPerPersonFees = "◇Phí tham gia\nKhóa 4 lần: 3.000 yên / người\nKhóa 2 lần: 1.000 yên / người";
+assert.deepEqual(findMarkdownPipeTables(translatedPerPersonFees), [], "translated per-person fee lines are prose, not a slash-delimited table");
+
 const pairedPriceTableText = "一般（大人）：380円（体育館）、200円（卓球室）\n高校生：190円（体育館）、150円（卓球室）\n小学生・中学生：130円（体育館）、100円（卓球室）";
 const [pairedPriceTable] = findMarkdownPipeTables(pairedPriceTableText);
 assert.deepEqual(pairedPriceTable?.header?.map(({ start, end }) => pairedPriceTableText.slice(start, end)), ["", "体育館", "卓球室"]);
@@ -137,13 +142,45 @@ const officialDatasets = ["n3", "n1"].map((level) =>
   JSON.parse(readFileSync(new URL(`../src/data/dethi-${level}-cac-nam.json`, import.meta.url), "utf8")) as DeThiDataset,
 );
 const officialPassages = collectJlptReading(officialDatasets);
+const registrySource = readFileSync(new URL("../src/popup/dethiCatalog.ts", import.meta.url), "utf8");
+const mockSetPaths = [...registrySource.matchAll(/import\s+\w+\s+from\s+["']\.\.\/data\/(de-n3-set-\d+\.json)["']/gu)].map((match) => match[1]);
+const mockSetDatasets = mockSetPaths.map((path) =>
+  JSON.parse(readFileSync(new URL(`../src/data/${path}`, import.meta.url), "utf8")) as DeThiDataset,
+);
+const mockSetPassages = collectJlptReading(mockSetDatasets);
+assert.equal(mockSetPassages.length > 0, true, "registered N3 practice sets must be available in Reading practice");
+let mockSetTableCount = 0;
+for (const passage of mockSetPassages) {
+  const passageText = passage.body.map((segment) => segment.text).join("");
+  const tables = findMarkdownPipeTables(passageText);
+  const translatedTables = findMarkdownPipeTables(passage.translationVi);
+  mockSetTableCount += tables.length;
+  assert.equal(translatedTables.length, tables.length, `mock Japanese/Vietnamese table counts must match for ${passage.examLabel}/${passage.title}`);
+  tables.forEach((table, index) => assert.equal(
+    tableShape(translatedTables[index]),
+    tableShape(table),
+    `mock Japanese/Vietnamese table shapes must match for ${passage.examLabel}/${passage.title} table ${index + 1}`,
+  ));
+  // Table translations are intentionally rendered as a complete table instead
+  // of sentence-by-sentence units, so their auxiliary sentence arrays are not
+  // required to match the prose splitter.
+  if (passage.sentencesVi && tables.length === 0) {
+    assert.equal(passage.sentencesVi.length, splitBodyIntoSentences(passage.body).length, `mock translation units must align for ${passage.id}`);
+  }
+  for (const question of passage.questions) {
+    assert.ok(question.correctIndex >= 0 && question.correctIndex < question.options.length, `mock answer must be present for ${passage.id}/q${question.sourceNumber}`);
+  }
+}
+const set09Passages = mockSetPassages.filter((passage) => passage.examId === "de-n3-09");
+assert.ok(set09Passages.length > 0, "Set09 must be present in Reading practice");
+assert.ok(set09Passages.some((passage) => passage.length === "info-search" && passage.body.some((segment) => segment.text.includes("10キロ"))), "Set09 table passage must be classified and retained as information search");
 let detectedTableCount = 0;
 let translatedTableCount = 0;
 const unparsedDelimiterLines: string[] = [];
-const tableShape = (table: ReturnType<typeof findMarkdownPipeTables>[number]) => {
+function tableShape(table: ReturnType<typeof findMarkdownPipeTables>[number]): string {
   const columns = table.header?.length ?? Math.max(...table.rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0)));
   return `${columns}:${table.rows.map((row) => row.reduce((count, cell) => count + (cell.colSpan ?? 1), 0)).join(",")}`;
-};
+}
 for (const passage of officialPassages) {
   const passageText = passage.body.map((segment) => segment.text).join("");
   const tables = findMarkdownPipeTables(passageText);
@@ -208,4 +245,4 @@ for (const passage of readingBookPassages) {
 assert.equal(readingBookTableCount, 9, "review registered reading-book tables when sources are added or changed");
 assert.equal(detectedTableCount + readingBookTableCount, 23, "review the combined JLPT and reading-book table inventory");
 assert.deepEqual(unparsedDelimiterLines, [], "all pipe-like lines in registered JLPT and Reading passages must belong to a rendered table");
-console.log(`PASS: shared passages, source propagation, stable progress IDs, translation grouping/staleness, table parsing and Japanese/Vietnamese table shape parity across ${officialPassages.length} JLPT + ${readingBookPassages.length} Reading passages (${detectedTableCount + readingBookTableCount} source + ${translatedTableCount + readingBookTableCount} translated tables).`);
+console.log(`PASS: shared passages, source propagation, stable progress IDs, translation grouping/staleness, table parsing and Japanese/Vietnamese table shape parity across ${officialPassages.length} annual JLPT + ${mockSetPassages.length} N3 practice-set + ${readingBookPassages.length} Reading passages (${detectedTableCount + mockSetTableCount + readingBookTableCount} source + ${translatedTableCount + mockSetTableCount + readingBookTableCount} translated tables).`);

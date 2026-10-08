@@ -32,6 +32,8 @@ If a gate cannot be completed (for example, source pages or a valid Gemini key a
 
 ## Inspect the source and app conventions
 
+- For the 10-set N3 collection, read [`docs/n3-ten-set-poc-feedback.md`](../../../docs/n3-ten-set-poc-feedback.md) before converting a set. It records the collection title and answer/audio constraints plus the POC underline and mobile-layout issues. Keep each set open until its visual regression checks pass.
+
 - Read repository `AGENTS.md` instructions and check the current branch/status before editing. Preserve unrelated work.
 - Build a current inventory from the app registries (including past-exam, quizbook, and listening registries) before deciding what “all exams” means. Distinguish registered/visible datasets from JSON files that are merely present on disk. For an all-exam request, include every registered dataset in the audit plan and report any source PDF that is missing.
 - Identify all source files for the requested exam: question booklet, answer key, listening script, and full listening MP3 when supplied. Filenames and PDFs vary; inspect rather than assume.

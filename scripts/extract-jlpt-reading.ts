@@ -8,7 +8,7 @@ import type { DeThiDataset } from "../src/types/dethi.ts";
 
 const root = join(import.meta.dirname, "..");
 const registry = readFileSync(join(root, "src/popup/dethiCatalog.ts"), "utf8");
-const names = [...registry.matchAll(/import\s+\w+\s+from\s+["']\.\.\/data\/(dethi-n\d+-cac-nam\.json)["']/gu)].map(m => m[1]);
+const names = [...registry.matchAll(/import\s+\w+\s+from\s+["']\.\.\/data\/((?:dethi-n\d+-cac-nam|de-n3-set-\d+)\.json)["']/gu)].map(m => m[1]);
 if (!names.length) throw new Error("No registered JLPT datasets");
 const datasets = names.map(name => JSON.parse(readFileSync(join(root, "src/data", name), "utf8")) as DeThiDataset);
 const passages = collectJlptReading(datasets);
@@ -126,5 +126,6 @@ for (const [examId, questionNumber, target] of [
   const passageText = passage?.body.map(segment => segment.text).join("") ?? "";
   assert.ok(passage?.underlinedRanges?.some(range => passageText.slice(range.start, range.end) === target));
 }
-const examCount = datasets.reduce((total, dataset) => total + dataset.exams.filter(exam => exam.source === "cac-nam").length, 0);
-console.log(`Validated ${examCount} registered annual JLPT papers, ${passages.length} reading passages / ${passages.reduce((n,p)=>n+p.questions.length,0)} questions; restored ${underlinedQuestionCount} prompt marks and ${passageMarkCount} passage marks across ${underlinedPassageCount} passages. No duplicate content file generated.`);
+const annualExamCount = datasets.reduce((total, dataset) => total + dataset.exams.filter(exam => exam.source === "cac-nam").length, 0);
+const mockExamCount = datasets.reduce((total, dataset) => total + dataset.exams.filter(exam => exam.source === "de-n3").length, 0);
+console.log(`Validated ${annualExamCount} annual JLPT papers and ${mockExamCount} N3 practice sets, ${passages.length} reading passages / ${passages.reduce((n,p)=>n+p.questions.length,0)} questions; restored ${underlinedQuestionCount} prompt marks and ${passageMarkCount} passage marks across ${underlinedPassageCount} passages. No duplicate content file generated.`);
