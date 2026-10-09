@@ -3197,6 +3197,7 @@
                 0,
                 1
               ],
+              "orderingSentenceVi": "Mỗi lần đi du lịch, anh Shimizu đều mua quà về cho tôi.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
               "explanation": "「旅行に行くたびにおみやげを買ってきてくれる」。★位置は「おみやげを」。",
               "questionFurigana": [
@@ -3244,6 +3245,7 @@
                 2,
                 1
               ],
+              "orderingSentenceVi": "Vì đường tắc do công trình thi công nên xe cộ hoàn toàn không nhúc nhích về phía trước.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
               "explanation": "「工事のせいで道が渋滞していて車が全然前に進まない」。★位置は「車が」。",
               "questionFurigana": [
@@ -3303,6 +3305,7 @@
                 1,
                 2
               ],
+              "orderingSentenceVi": "Tôi nghĩ khi tiết kiệm thêm được một chút tiền, mình sẽ đi du lịch vòng quanh thế giới.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
               "explanation": "「もう少しお金がたまったら世界旅行に行こうと思う」。★位置は「行こう」。",
               "questionFurigana": [
@@ -3362,6 +3365,7 @@
                 3,
                 2
               ],
+              "orderingSentenceVi": "Ngày nghỉ, tôi thường đi ăn với bạn bè, đi xem phim, hoặc chẳng đi đâu cả mà ở nhà.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
               "explanation": "「休みの日は友達と食事をしたり映画を見に行ったりするか、またはどこにも出かけずに過ごしている」。★位置は「または」。",
               "questionFurigana": [
@@ -3425,7 +3429,7 @@
                 "彼の作品とは",
                 "これまでに"
               ],
-              "correctIndex": 2,
+              "correctIndex": 0,
               "points": 1,
               "passage": null,
               "questionVi": "Tác phẩm mới lần này của anh ấy khác biệt lớn so với những tác phẩm đã công bố trước đây ở điểm lấy tình bạn làm chủ đề.",
@@ -3436,13 +3440,14 @@
                 "cho đến nay"
               ],
               "orderingOrder": [
+                1,
                 3,
                 0,
-                2,
-                1
+                2
               ],
-              "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "「今回の彼の新作は、これまでに発表されてきた彼の作品とは友情がテーマになっているという点で大きく違う」。★位置は「彼の作品とは」。",
+              "orderingSentenceVi": "Tác phẩm mới lần này của anh ấy khác hẳn những tác phẩm đã ra mắt trước đây ở điểm lấy tình bạn làm chủ đề.",
+              "answerSourceNote": "Sách không kèm đáp án; đã chỉnh đáp án ★ theo vị trí trong câu hoàn chỉnh.",
+              "explanation": "Thứ tự ghép: という点で → これまでに → 発表されてきた → 彼の作品とは. Câu hoàn chỉnh: 今回の彼の新作は、友情がテーマになっているという点でこれまでに発表されてきた彼の作品とは大きく違う。",
               "questionFurigana": [
                 {
                   "text": "今回",

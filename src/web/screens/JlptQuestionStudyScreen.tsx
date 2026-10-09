@@ -12,8 +12,10 @@ import type { DeThiExam, DeThiPaper, DeThiQuestion } from "../../types/dethi.ts"
 import { PageHeader } from "../components/PageHeader.tsx";
 import { StatCard } from "../components/StatCard.tsx";
 import { Card } from "../components/ui/card.tsx";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { reconstructOrderingQuestion } from "../../lib/jlptOrdering.ts";
 
 type QuestionCategory = "goi" | "grammar";
 type StatusFilter = "all" | "correct" | "wrong" | "not-started";
@@ -158,6 +160,7 @@ export function JlptQuestionStudyScreen({
     .filter((id) => catalog.some((set) => set.exam.source === id && set[category].length > 0))
     .map((id) => ({ id, label: SOURCE_LABELS[id] ?? id }));
   const examsForSource = catalog.filter((set) => set.exam.source === source && set[category].length > 0);
+  const examOptions = examsForSource.map((set) => ({ value: set.exam.id, label: set.exam.examLabel }));
   const selectedExam = examsForSource.find((set) => set.exam.id === examId) ?? examsForSource[0];
   const questions = selectedExam?.[category] ?? [];
   const selectedQuestion = selectedQuestionId ? questions.find((item) => item.key === selectedQuestionId) : undefined;
@@ -256,7 +259,7 @@ export function JlptQuestionStudyScreen({
         </button>
       ) : null}
       <PageHeader
-        title="Ôn Goi & Ngữ pháp JLPT"
+        title="Ôn Goi & Bunpo JLPT"
         subtitle={`${questions.length} câu${selectedExam ? ` · ${selectedExam.exam.examLabel}` : ""}`}
         icon={{ img: "icon-jlpt.png", bg: "#eff6ff" }}
       />
@@ -268,7 +271,7 @@ export function JlptQuestionStudyScreen({
           aria-pressed={category === "goi"}
           className={`rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${category === "goi" ? "bg-white text-rose-700 shadow-sm" : "text-neutral-500 hover:text-neutral-800"}`}
         >
-          Goi · Chữ Hán & từ vựng
+          Goi - Kanji & Tango
         </button>
         <button
           type="button"
@@ -276,35 +279,43 @@ export function JlptQuestionStudyScreen({
           aria-pressed={category === "grammar"}
           className={`rounded-xl px-3 py-2.5 text-sm font-semibold transition-colors ${category === "grammar" ? "bg-white text-rose-700 shadow-sm" : "text-neutral-500 hover:text-neutral-800"}`}
         >
-          Ngữ pháp
+          Bunpo
         </button>
       </div>
 
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
-        <label className="block text-xs font-semibold text-neutral-500">
-          Nguồn đề ôn
-          <select
-            aria-label="Nguồn đề ôn JLPT"
+        <div>
+          <div className="text-xs font-semibold text-neutral-500">Nguồn đề ôn</div>
+          <Select
+            items={sourceOptions.map((option) => ({ value: option.id, label: option.label }))}
             value={source}
-            onChange={(event) => changeSource(event.target.value)}
-            className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-sm font-medium text-neutral-800 outline-none focus:border-rose-300"
+            onValueChange={(value) => value !== null && changeSource(value)}
           >
-            {sourceOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-          </select>
-        </label>
-        <label className="block text-xs font-semibold text-neutral-500">
-          Kỳ thi / bộ đề
-          <select
-            aria-label="Chọn kỳ thi hoặc bộ đề JLPT"
+            <SelectTrigger aria-label="Nguồn đề ôn JLPT" className="mt-1.5 h-11 w-full rounded-xl px-3 text-left font-medium shadow-none">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {sourceOptions.map((option) => <SelectItem key={option.id} value={option.id}>{option.label}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <div className="text-xs font-semibold text-neutral-500">Kỳ thi / bộ đề</div>
+          <Select
+            items={examOptions}
             value={selectedExam?.exam.id ?? ""}
-            onChange={(event) => changeExam(event.target.value)}
-            className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-sm font-medium text-neutral-800 outline-none focus:border-rose-300"
+            onValueChange={(value) => value !== null && changeExam(value)}
           >
-            {examsForSource.map((set) => <option key={set.exam.id} value={set.exam.id}>{set.exam.examLabel}</option>)}
-          </select>
-        </label>
+            <SelectTrigger aria-label="Chọn kỳ thi hoặc bộ đề JLPT" className="mt-1.5 h-11 w-full rounded-xl px-3 text-left font-medium shadow-none">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {examsForSource.map((set) => <SelectItem key={set.exam.id} value={set.exam.id}>{set.exam.examLabel}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
-      <p className="mt-1 text-xs text-neutral-400">Hai lựa chọn này chỉ lọc danh sách ôn Goi và ngữ pháp bên dưới.</p>
+      <p className="mt-1 text-xs text-neutral-400">Hai lựa chọn này chỉ lọc danh sách ôn Goi và Bunpo bên dưới.</p>
 
       <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
         <StatCard label="Đã làm đúng" value={correctCount} tone="emerald" active={statusFilter === "correct"} onClick={() => setStatusFilter(statusFilter === "correct" ? "all" : "correct")} />
@@ -338,7 +349,7 @@ export function JlptQuestionStudyScreen({
           })}
         </div>
       ) : (
-        <p className="mt-4 rounded-xl bg-neutral-50 p-4 text-sm text-neutral-500">Đề này chưa có câu hỏi {category === "goi" ? "Goi" : "Ngữ pháp"} có đáp án.</p>
+        <p className="mt-4 rounded-xl bg-neutral-50 p-4 text-sm text-neutral-500">Đề này chưa có câu hỏi {category === "goi" ? "Goi" : "Bunpo"} có đáp án.</p>
       )}
     </div>
   );
@@ -376,9 +387,10 @@ function QuestionDetail({
   next?: PracticeQuestion;
 }) {
   const question = item.question;
+  const orderingReconstruction = reconstructOrderingQuestion(question);
   const answered = savedIndex !== undefined;
   const locked = answered || saving;
-  const categoryLabel = item.category === "goi" ? "Goi · Chữ Hán & từ vựng" : "Ngữ pháp";
+  const categoryLabel = item.category === "goi" ? "Goi - Kanji & Tango" : "Bunpo";
   const paletteItems = questions.map((candidate, candidateIndex) => {
     const candidateStatus = progress[candidate.key]?.status;
     const paletteStatus: PaletteStatus = candidate.key === item.key ? "current" : candidateStatus ?? "unanswered";
@@ -446,7 +458,21 @@ function QuestionDetail({
             <p className={`font-bold ${status === "correct" ? "text-emerald-700" : "text-rose-700"}`}>
               {status === "correct" ? "Bạn trả lời đúng" : "Bạn trả lời chưa đúng"} · đáp án {question.correctIndex + 1}
             </p>
-            {question.explanation ? <p className="mt-2 leading-relaxed text-neutral-700">{question.explanation}</p> : <p className="mt-2 text-neutral-500">Câu này chưa có giải thích riêng.</p>}
+            {orderingReconstruction ? (
+              <div className="mt-3">
+                <p className="font-semibold text-neutral-700">
+                  Thứ tự ghép: {orderingReconstruction.order.map((optionIndex) => optionIndex + 1).join(" → ")} · ★ là phương án {question.correctIndex + 1}
+                </p>
+                <p className="mt-1 leading-relaxed text-neutral-700">
+                  <span className="font-semibold">Câu hoàn chỉnh: </span>{orderingReconstruction.sentence}
+                </p>
+                {question.orderingSentenceVi ? <p className="mt-1 leading-relaxed text-neutral-500"><span className="font-semibold not-italic">Dịch: </span>{question.orderingSentenceVi}</p> : null}
+              </div>
+            ) : null}
+            {question.explanation ? (
+              <p className={`${orderingReconstruction ? "mt-3 border-t border-neutral-200/70 pt-3" : "mt-2"} leading-relaxed text-neutral-700`}>{question.explanation}</p>
+            ) : !orderingReconstruction ? <p className="mt-2 text-neutral-500">Câu này chưa có giải thích riêng.</p> : null}
+            {question.answerSourceNote ? <p className="mt-3 rounded-lg bg-amber-50 p-2 text-xs leading-relaxed text-amber-700">{question.answerSourceNote}</p> : null}
             {question.optionExplanations?.some((text) => !!text.trim()) ? (
               <div className="mt-3 space-y-1 border-t border-neutral-200/70 pt-3">
                 {question.optionExplanations.map((text, optionIndex) => text.trim() ? (

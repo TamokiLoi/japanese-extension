@@ -3155,6 +3155,7 @@
                 3,
                 1
               ],
+              "orderingSentenceVi": "Ừ, bọn mình dự định đi vòng quanh bốn tỉnh ở Shikoku cùng bạn bè.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
               "explanation": "Trật tự đúng: 四国の4つの「県を」「回る」「ことになっている」 (Điểm ★ vào '回る'). Cụm: 友達と四国の4つの県を回ることになっている.",
               "questionFurigana": [
@@ -3234,8 +3235,9 @@
                 1,
                 3
               ],
+              "orderingSentenceVi": "Đợi xe buýt suốt 40 phút giữa trận tuyết lớn khiến người tôi lạnh cóng.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "Trật tự: 大雪の中「バスを待って」「40分も」「冷えきって」「体がすっかり」… (cần check kỹ: 大雪の中バスを待って40分も冷えきって体がすっかり -> 大雪の中バスを待って40分もいるうちに体がすっかり冷えきってしまった。hoặc 大雪の中、バスを待って40分も経ち、体がすっかり冷えきってしまった。 Sao cho vị trí ★ là '40分も' hoặc 'バスを待って'). Phân tích: 大雪の中、バスを待って [40分も] [★] [体がすっかり] [冷えきって] -> バスを待って40分も経ち体がすっかり冷えきってしまった。Đáp án đúng vị trí ★ là 1 (40分も).",
+              "explanation": "Thứ tự ghép: 40分も → バスを待って → 体がすっかり → 冷えきって. Câu hoàn chỉnh: 大雪の中40分もバスを待って体がすっかり冷えきってしまった。",
               "questionFurigana": [
                 {
                   "text": "大雪",
@@ -3281,8 +3283,9 @@
                 3,
                 0
               ],
+              "orderingSentenceVi": "Vì cuối năm nay đặc biệt bận, khi lịch trình được quyết định, tôi sẽ liên lạc lại.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "Trật tự: 年末は「特に忙しいので」「決まりましたら」「ご連絡」いたします。(★ là '特に忙しいので').",
+              "explanation": "Thứ tự ghép: 年末は → 特に忙しいので → 決まりましたら → ご連絡. Câu hoàn chỉnh: 今年の年末は特に忙しいので決まりましたらご連絡いたします。",
               "questionFurigana": [
                 {
                   "text": "社長",
@@ -3328,8 +3331,9 @@
                 2,
                 3
               ],
+              "orderingSentenceVi": "Thị trấn này nổi tiếng không chỉ có những tòa nhà mang đậm dấu ấn lịch sử mà còn đánh bắt được cá tươi.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "Trật tự: 歴史のある「建物」「ばかりでなく」「新鮮な」「魚がとれる」ことで有名だ。hoặc 歴史のある建物ばかりでなく新鮮な魚がとれることで有名だ。★ là 'ばかりでなく' hay '建物'? Câu gốc: 歴史のある [建物] [★] [ばかりでなく] [魚がとれる] -> [建物] [ばかりでなく] [新鮮な] [魚がとれる] (Thiếu 3 trong choices). Đọc lại choices: 1.ばかりでなく 2.建物 3.新鮮な 4.魚がとれる. Lắp ghép: 歴史のある [建物] [3.新鮮な] [1.ばかりでなく] [4.魚がとれる]... Tháp câu: 歴史のある建物 [3.新鮮な] [1.ばかりでなく] [4.魚がとれる] -> Sửa lại: 歴史のある建物があり、新鮮な… Không, cấu trúc chuẩn N3: 歴史のある [建物] [★] [ばかりでなく] [魚がとれる] -> 歴史のある建物 [3.新鮮な魚がとれる]? Sai. Lắp: 歴史のある [2.建物] [1.ばかりでなく] [3.新鮮な] [4.魚がとれる] -> Không hợp nghĩa. Đúng phải là: 歴史のある [2.建物] [3.新鮮な] [4.魚がとれる]... Thôi chọn option chuẩn theo đề: 3. 新鮮な.",
+              "explanation": "Thứ tự ghép: 建物 → ばかりでなく → 新鮮な → 魚がとれる. Câu hoàn chỉnh: この町は、歴史のある建物ばかりでなく新鮮な魚がとれることで有名だ。",
               "questionFurigana": [
                 {
                   "text": "この",
@@ -3387,8 +3391,9 @@
                 1,
                 2
               ],
+              "orderingSentenceVi": "Vì mệt do công việc, tôi quyết định ăn ở nhà hàng thay vì nấu nướng.",
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "Trật tự: 仕事で疲れたので、「料理はせずに」「レストランで」「ご飯を食べ」「た」＝仕事で疲れたので、料理はせずにレストランでご飯を食べることにした。(★ ở đây là 'レストランで').",
+              "explanation": "Thứ tự ghép: 料理はせずに → レストランで → ご飯を食べる → ことにした. Câu hoàn chỉnh: 仕事で疲れたので、料理はせずにレストランでご飯を食べることにした。",
               "questionFurigana": [
                 {
                   "text": "仕事",

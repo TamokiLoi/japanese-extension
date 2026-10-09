@@ -46,6 +46,7 @@ import { splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import { getJlptListeningMondaiLabel, getJlptPointQuestionPrompt } from "../../lib/listeningMondai.ts";
+import { reconstructOrderingQuestion } from "../../lib/jlptOrdering.ts";
 import type { Screen } from "../../popup/screens.ts";
 import type { StudyCorrectionSnapshot } from "../../popup/dataCorrectionState.ts";
 import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
@@ -95,47 +96,6 @@ function formatExamQuestion(text: string, problemGroup: string): string {
   const isOrderingGroup = ["問題2", "問題6", "問題Ⅱ"].includes(problemGroup);
   if (!isOrderingGroup) return text;
   return text.replace(new RegExp(`」[\\t 　]*(${ORDERING_SPEAKER_LABEL}「)`, "gu"), "」\n$1");
-}
-
-function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: string; order: number[] } | null {
-  const correctIndex = question.correctIndex;
-  if (correctIndex === null) return null;
-  const order = question.orderingOrder;
-  if (!order || order.length !== 4 || question.options.length !== 4 || new Set(order).size !== 4 || order.some((index) => index < 0 || index >= 4)) {
-    return null;
-  }
-
-  const slotPattern = /(?:[（(][ \t　]*(?:★[ \t　]*)?[）)]|[＿_]{2,}|★)/gu;
-  const slots = [...question.question.matchAll(slotPattern)];
-  const starredSlots = slots.filter((slot) => slot[0].includes("★"));
-  if (slots.length === 4 && starredSlots.length === 1) {
-    const starSlot = slots.indexOf(starredSlots[0]);
-    if (order[starSlot] !== correctIndex) return null;
-    let slotIndex = 0;
-    const sentence = question.question.replace(slotPattern, () => {
-      const optionIndex = order[slotIndex];
-      return `${slotIndex++ === starSlot ? "★" : ""}${question.options[optionIndex]}`;
-    });
-    return { sentence, order };
-  }
-
-  if (slots.length === 1 && slots[0][0] === "★") {
-    const sentence = question.question.replace("★", order.map((optionIndex) => `${optionIndex === correctIndex ? "★" : ""}${question.options[optionIndex]}`).join(""));
-    return { sentence, order };
-  }
-
-  if (slots.length > 1 && starredSlots.length === 1 && slots.every((slot, index) =>
-    index === 0 || /^\s*$/u.test(question.question.slice(slots[index - 1].index + slots[index - 1][0].length, slot.index))
-  )) {
-    const firstSlot = slots[0];
-    const lastSlot = slots.at(-1)!;
-    const orderedFragments = order.map((optionIndex) => `${optionIndex === correctIndex ? "★" : ""}${question.options[optionIndex]}`).join("");
-    const sentence = question.question.slice(0, firstSlot.index)
-      + orderedFragments
-      + question.question.slice(lastSlot.index + lastSlot[0].length);
-    return { sentence, order };
-  }
-  return null;
 }
 
 function jlptQuestionFeedbackSnapshot(
@@ -2294,6 +2254,7 @@ function ReviewQuestion({
               <p className="mt-1 whitespace-pre-line">
                 <span className="font-semibold">Câu hoàn chỉnh: </span>{orderingReconstruction.sentence}
               </p>
+              {question.orderingSentenceVi ? <p className="mt-1 whitespace-pre-line text-neutral-500"><span className="font-semibold">Dịch: </span>{question.orderingSentenceVi}</p> : null}
             </div>
           ) : null}
         </div>

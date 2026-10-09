@@ -20,6 +20,8 @@ export interface DeThiQuestion {
   correctIndex: number | null;
   // Zero-based option indices in the correct sentence order for ★ ordering items.
   orderingOrder?: number[];
+  // Vietnamese translation of the completed sentence for ★ ordering items.
+  orderingSentenceVi?: string;
   points: number;
   passage: string | null;
   // Optional Vietnamese translation for the shared reading passage shown in

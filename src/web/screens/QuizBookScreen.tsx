@@ -219,7 +219,7 @@ function ListView({
           className="mt-4 flex w-full items-center justify-between gap-3 rounded-2xl border border-rose-100 bg-white px-4 py-3 text-left shadow-sm transition-colors hover:border-rose-200 hover:bg-rose-50/40"
         >
           <span className="min-w-0">
-            <span className="block text-sm font-semibold text-neutral-800">Ôn Goi &amp; ngữ pháp trong đề JLPT</span>
+            <span className="block text-sm font-semibold text-neutral-800">Ôn Goi &amp; Bunpo trong đề JLPT</span>
             <span className="mt-0.5 block text-xs text-neutral-500">Đề theo kỳ và 10 đề N3 · lưu kết quả riêng từng câu</span>
           </span>
           <span className="shrink-0 rounded-full bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700">Mở →</span>

@@ -708,7 +708,14 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Cấu trúc 「～分には」 dùng để giới hạn phạm vi, chỉ trong trường hợp đó thì không sao."
+              "explanation": "Cấu trúc 「～分には」 dùng để giới hạn phạm vi, chỉ trong trường hợp đó thì không sao.",
+              "orderingOrder": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Tôi vốn sợ chó, nhưng nếu chỉ đứng nhìn chúng từ xa thì vẫn ổn; dù vậy, tôi không thể lại gần."
             },
             {
               "number": 37,
@@ -723,7 +730,14 @@
               "correctIndex": 3,
               "points": 1,
               "passage": null,
-              "explanation": "Cấu trúc 「～私が」 kết hợp với 「引き止めたところで」 nhấn mạnh dù bản thân có làm gì cũng không thay đổi được kết quả."
+              "explanation": "Cấu trúc 「～私が」 kết hợp với 「引き止めたところで」 nhấn mạnh dù bản thân có làm gì cũng không thay đổi được kết quả.",
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Đồng nghiệp nói sẽ nghỉ việc và nghe đâu đã tìm được công việc mới. Vì đã làm việc cùng nhau nhiều năm, tôi không muốn anh ấy nghỉ, nhưng dù tôi có níu kéo thì tình hình cũng chẳng thay đổi."
             },
             {
               "number": 38,
@@ -738,7 +752,14 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Cấu trúc 「～恥をかかないだけの」 bổ nghĩa cho danh từ, chỉ mức độ vừa đủ để không bị xấu hổ."
+              "explanation": "Cấu trúc 「～恥をかかないだけの」 bổ nghĩa cho danh từ, chỉ mức độ vừa đủ để không bị xấu hổ.",
+              "orderingOrder": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Lý do tôi nghiêm khắc trong việc dạy dỗ là vì muốn các con được rèn từ nhỏ những phép tắc đủ để không bị bẽ mặt khi bước ra xã hội."
             },
             {
               "number": 39,
@@ -753,7 +774,14 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Cấu trúc 「～安いのを使っていたが」 tạo sự tương phản với việc sử dụng đồ hiệu quả hơn sau đó."
+              "explanation": "Cấu trúc 「～安いのを使っていたが」 tạo sự tương phản với việc sử dụng đồ hiệu quả hơn sau đó.",
+              "orderingOrder": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "orderingSentenceVi": "Tôi cứ nghĩ máy sấy nào cũng được, chỉ cần sấy khô tóc là ổn nên đã dùng loại rẻ tiền; vậy mà khi thử dùng máy sấy hiệu suất cao, tôi ngạc nhiên vì tóc trở nên suôn mượt."
             },
             {
               "number": 40,
@@ -768,7 +796,14 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Cấu trúc 「～ことなく」 diễn tả trạng thái không thực hiện hành động nào đó (không lấy ra khỏi hộp)."
+              "explanation": "Cấu trúc 「～ことなく」 diễn tả trạng thái không thực hiện hành động nào đó (không lấy ra khỏi hộp).",
+              "orderingOrder": [
+                0,
+                1,
+                3,
+                2
+              ],
+              "orderingSentenceVi": "Tôi thích sưu tầm bát đĩa, nhưng tủ bát đã hết chỗ trống nên những món mới mua gần đây vẫn bị cất sâu trong tủ âm tường, nguyên hộp chưa lấy ra."
             },
             {
               "number": 41,
@@ -16042,7 +16077,7 @@
             {
               "number": 36,
               "problemGroup": "問題6",
-              "question": "モギ「さっき、また課長と西山さんがもめてたね」\nユーキ「自分の主張を譲らない西山さん ____ ★ ____ ____ も課長だな。すぐ感情的になるんだから」",
+              "question": "モギ「さっき、また課長と西山さんがもめてたね」\nユーキ「自分の主張を譲らない西山さん ____ ★ ____ ____ だな。すぐ感情的になるんだから」",
               "options": [
                 "なら",
                 "も",
@@ -16052,7 +16087,15 @@
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Sắp xếp: 西山さんなら、西山さんも課長だよ (Nếu là Nishi-san, thì Nishi-san cũng là trưởng phòng rồi)."
+              "explanation": "Thứ tự ghép: なら → 西山さん → も → 課長. Câu hoàn chỉnh: 自分の主張を譲らない西山さんなら、西山さんも課長だな。",
+              "orderingOrder": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "answerSourceNote": "Bản chép prompt lặp lại 「も課長」 sau các ô trống; đã bỏ phần lặp theo câu được dựng trong lời giải nguồn.",
+              "orderingSentenceVi": "Nishiyama không chịu nhượng bộ lập trường của mình; nếu là Nishiyama thì Nishiyama cũng là trưởng phòng nhỉ. Anh ấy dễ xúc động ngay."
             },
             {
               "number": 37,
@@ -16067,7 +16110,14 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Sắp xếp: トラブルが起きないようどんなに気をつけていても、起きる時には起きてしまうのがトラブルだ。"
+              "explanation": "Sắp xếp: トラブルが起きないようどんなに気をつけていても、起きる時には起きてしまうのがトラブルだ。",
+              "orderingOrder": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "Dù có cẩn thận đến đâu để sự cố không xảy ra, sự cố vẫn sẽ xảy ra khi đến lúc nó xảy ra. Đó chính là bản chất của sự cố."
             },
             {
               "number": 38,
@@ -16082,7 +16132,14 @@
               "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Sắp xếp: 俳優の村川隆が今回の作品で見せた自然な演技は、長年会社勤めをしてきた彼ならではと言えるだろう。"
+              "explanation": "Sắp xếp: 俳優の村川隆が今回の作品で見せた自然な演技は、長年会社勤めをしてきた彼ならではと言えるだろう。",
+              "orderingOrder": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "Trong tác phẩm lần này, diễn xuất tự nhiên mà Takashi Murakawa thể hiện có thể nói là nét riêng của anh, người đã làm việc công ty suốt nhiều năm."
             },
             {
               "number": 39,
@@ -16097,7 +16154,14 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Sắp xếp: 入賞したことがよほどうれしかったのか、家に帰ってくるなり、楽しそうに話してくれた。"
+              "explanation": "Sắp xếp: 入賞したことがよほどうれしかったのか、家に帰ってくるなり、楽しそうに話してくれた。",
+              "orderingOrder": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Con trai vốn ít nói, nhưng hôm qua đoạt giải trong cuộc thi chạy marathon ở trường, có lẽ vui đến mức vừa về đến nhà đã hào hứng kể cho tôi nghe."
             },
             {
               "number": 40,
@@ -16112,7 +16176,14 @@
               "correctIndex": 0,
               "points": 1,
               "passage": null,
-              "explanation": "Sắp xếp: 将来のことをよく考えたうえでの決断ならば応援したいが、そうは思えないので..."
+              "explanation": "Sắp xếp: 将来のことをよく考えたうえでの決断ならば応援したいが、そうは思えないので...",
+              "orderingOrder": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "orderingSentenceVi": "Bạn tôi đột nhiên nói sẽ bỏ học đại học. Nếu đó là quyết định được đưa ra sau khi đã suy nghĩ kỹ về tương lai thì tôi muốn ủng hộ, nhưng tôi không nghĩ bạn ấy đã làm vậy nên đang thuyết phục bạn nghĩ lại."
             },
             {
               "number": 41,

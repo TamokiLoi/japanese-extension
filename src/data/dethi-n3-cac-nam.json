@@ -3639,7 +3639,14 @@
                   "text": "はコーヒー＿＿＿★＿＿＿おいしい。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Quán cà phê này không chỉ có cà phê mà cả những món như spaghetti cũng rất ngon."
             },
             {
               "number": 15,
@@ -3725,7 +3732,14 @@
                   "text": "いでね。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "(Ở rạp chiếu phim) Vợ「Em đi mua chút nước trái cây nhé.」Chồng「Ừ. À, nhưng chỉ còn 3 phút nữa là phim bắt đầu đấy. Nhanh lên nhé.」"
             },
             {
               "number": 16,
@@ -3775,12 +3789,19 @@
                   "text": "がある。＿＿＿★＿＿＿だが。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                3,
+                1,
+                0
+              ],
+              "orderingSentenceVi": "Chủ nhật tới tôi có đám cưới của một người bạn. Giá mà trời nắng thì tốt."
             },
             {
               "number": 17,
               "problemGroup": "問題2",
-              "question": "息子は、サッカークラブの練習がきついと＿＿＿★＿＿＿好きだからと思う。",
+              "question": "息子は、サッカークラブの練習がきついと＿＿＿★＿＿＿好きだからだと思う。",
               "options": [
                 "よく言っているが",
                 "やっぱりサッカーが",
@@ -3814,7 +3835,7 @@
                   "furigana": "すき"
                 },
                 {
-                  "text": "だからと",
+                  "text": "だからだと",
                   "furigana": null
                 },
                 {
@@ -3825,7 +3846,15 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Con trai tôi thường nói rằng việc tập luyện ở câu lạc bộ bóng đá rất vất vả, nhưng tôi nghĩ con vẫn tiếp tục mà không bỏ cuộc là vì con vẫn thích bóng đá.",
+              "answerSourceNote": "Bản chép thiếu 「だ」 trong cụm 「好きだからだと思う」; đã bổ sung để câu hoàn chỉnh đúng ngữ pháp."
             },
             {
               "number": 18,
@@ -3911,7 +3940,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                2,
+                3,
+                1
+              ],
+              "orderingSentenceVi": "Từ nhà tôi đến trường đi xe đạp mất 40 phút. Đi tàu thì chỉ mất 20 phút, nhưng tôi ghét tàu đông vào buổi sáng và đi xe đạp cũng là cách tập thể dục tốt, nên tôi vẫn đạp xe đi học."
             },
             {
               "number": 19,
@@ -14351,7 +14387,14 @@
                   "text": "（ ）（ ）（ ★ ）（ ）になった。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Trận bóng rổ giữa trường cấp ba X và trường cấp ba Y dự kiến bắt đầu lúc 10 giờ, nhưng do mưa lớn làm tàu trễ nên trận đấu được lùi đến 11 giờ."
             },
             {
               "number": 15,
@@ -14409,7 +14452,14 @@
                   "text": "がいた。あんなにいろいろな（ ）（ ）（ ★ ）（ ）ないだろう。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Hôm qua, ở Sở thú Sakura tôi đến có hơn 500 loài động vật. Chắc hiếm có sở thú nào cho xem được nhiều loài đa dạng đến vậy."
             },
             {
               "number": 16,
@@ -14455,7 +14505,14 @@
                   "text": "をしていた。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "Nghe tin chị gái đỗ vào trường đại học mà chị mong muốn nhất, mẹ có vẻ mặt như sắp khóc."
             },
             {
               "number": 17,
@@ -14521,7 +14578,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Một tòa chung cư lớn 20 tầng được xây bên cạnh nhà tôi, khiến nhà tôi không còn đón được nắng; ngay cả ban ngày trong phòng cũng tối."
             },
             {
               "number": 18,
@@ -14583,7 +14647,14 @@
                   "text": "の（ ）（ ）（ ★ ）（ ）のよ。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "「Đúng vậy, hình như hồi còn là sinh viên đại học, chị ấy từng làm thêm ở một công ty máy tính.」"
             },
             {
               "number": 19,
@@ -25723,7 +25794,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Hôm qua, tôi xin bố cho mượn xe vì tuần sau muốn đi du lịch với bạn bè, nhưng bố đã từ chối."
             },
             {
               "number": 15,
@@ -25777,7 +25855,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Đại học Sakura đã tiến hành khảo sát về suy nghĩ của sinh viên đối với việc đi làm."
             },
             {
               "number": 16,
@@ -25811,7 +25896,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "Tôi đã làm bẩn chiếc áo thun trắng vừa mới mua trong lúc ăn."
             },
             {
               "number": 17,
@@ -25897,7 +25989,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "Hôm qua là lần đầu tôi đến ga Hanakawa. Vì không biết nên đi chuyến tàu nào để đến đó nhanh nhất, tôi đã hỏi nhân viên nhà ga trước khi lên tàu."
             },
             {
               "number": 18,
@@ -25999,7 +26098,14 @@
                   "text": "で★あげるよ。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "A「Này, ngày mai cậu có đi tiệc không? Nhà hàng tổ chức tiệc cách ga khá xa, hơi bất tiện nên tôi đang phân vân.」\nB「Tôi định đi bằng ô tô. Nếu cậu đi thì tôi chở cậu nhé.」"
             },
             {
               "number": 19,
@@ -35927,7 +36033,14 @@
                   "text": "はいますか。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Thầy giáo hỏi:「Mọi người có ai mà dù chỉ một lần cũng muốn được gặp thử không?」"
             },
             {
               "number": 15,
@@ -35965,7 +36078,14 @@
                   "text": "がおいしかったです。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "orderingSentenceVi": "A「Món ăn trong bữa tiệc thế nào?」\nB「Ngon lắm ạ. Tôi không biết đó là loại cá gì, nhưng món sashimi rất ngon.」"
             },
             {
               "number": 16,
@@ -36043,7 +36163,14 @@
                   "text": "って。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "orderingSentenceVi": "A「Gửi ảnh chuyến đi Kyoto cho mình sớm nhé.」\nB「Mình đang chọn ảnh để gửi, chờ thêm một chút nhé.」"
             },
             {
               "number": 17,
@@ -36077,7 +36204,14 @@
                   "text": "が（ ）（ ）（ ★ ）（ ）ほとんどない。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Tôi nấu ăn không giỏi, hầu như chẳng có món nào tôi có thể nấu mà không xem công thức."
             },
             {
               "number": 18,
@@ -36131,7 +36265,14 @@
                   "text": "ばれています。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                2,
+                0,
+                1
+              ],
+              "orderingSentenceVi": "Hòn đảo này được gọi là “Đảo Tai” vì nhìn từ trên cao, nó có hình dáng giống tai người."
             },
             {
               "number": 19,
@@ -46097,7 +46238,14 @@
                   "text": "しまう。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Cậu học sinh tiểu học này có thể dễ dàng giải được cả những bài toán mà người lớn cũng không giải nổi."
             },
             {
               "number": 15,
@@ -46171,7 +46319,14 @@
                   "text": "なこともあったが、（ ）（ ）（ ★ ）（ ）だった。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "orderingSentenceVi": "Năm ngoái, lần đầu tiên tôi đi du lịch nước ngoài một mình. Trước khi đi tôi cũng có lo lắng, nhưng suốt hai tuần du lịch chỉ toàn những điều vui vẻ."
             },
             {
               "number": 16,
@@ -46233,7 +46388,14 @@
                   "text": "かったでしょう？」\nB「いや、（ ）（ ）（ ★ ）（ ）いませんでしたよ。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "A「Hôm qua là Chủ nhật nên chắc công viên giải trí đông lắm nhỉ?」\nB「Không, không đông như tôi nghĩ đâu.」"
             },
             {
               "number": 17,
@@ -46295,7 +46457,14 @@
                   "text": "なことか、よくわかった。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                2,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Sau khi sống một mình, tôi mới hiểu rõ việc bố mẹ vừa đi làm mỗi ngày vừa chuẩn bị bữa ăn và giặt giũ vất vả đến mức nào."
             },
             {
               "number": 18,
@@ -46345,7 +46514,14 @@
                   "text": "「（ ）（ ）（ ★ ）（ ）いいですよ」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Bệnh nhân「Bác sĩ, tôi có thể tắm được không ạ?」\nBác sĩ「Nếu đến ngày mai mà hết sốt thì được nhé.」"
             },
             {
               "number": 19,
@@ -57992,7 +58168,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Từ khi học lớp của thầy Mori, tôi đã thích môn Toán. Tôi nghĩ không có thầy cô nào dạy dễ hiểu như thầy ấy."
             },
             {
               "number": 15,
@@ -58058,7 +58241,14 @@
                   "text": "いますか。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "(Trong chương trình nấu ăn)「Hôm nay chúng ta sẽ làm món gà hầm với cola. Bạn có biết rằng hầm gà bằng cola sẽ làm thịt mềm hơn không?」"
             },
             {
               "number": 16,
@@ -58156,7 +58346,14 @@
                   "text": "さん（　）（　）★（　）どう？」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Yamashita「Sắp tới tôi đến Kitamori, anh có biết nhà hàng nào ngon ở đó không?」\nMinami「Tôi không biết nhiều, nhưng hay là hỏi anh Tanaka, người sống ở Kitamori xem?」"
             },
             {
               "number": 17,
@@ -58238,7 +58435,14 @@
                   "text": "です。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Hayashi「Anh Tan, kỳ nghỉ hè này anh có về nước không?」\nTan「Không, năm nay tôi không về. Đây là lần đầu tôi nghỉ hè ở Nhật nên rất háo hức.」"
             },
             {
               "number": 18,
@@ -58284,7 +58488,14 @@
                   "text": "などの（　）（　）★（　）ある。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "orderingSentenceVi": "Xung quanh Đại học Sakura có nhiều cửa hàng như hiệu sách và tiệm làm tóc, chủ yếu là các quán ăn và quán cà phê."
             },
             {
               "number": 19,
@@ -68216,7 +68427,14 @@
                   "text": "した。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Tôi yên tâm khi đọc email con trai đang du học viết rằng mỗi ngày con đều sống vui vẻ."
             },
             {
               "number": 15,
@@ -68306,7 +68524,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "orderingSentenceVi": "Từ tuần sau, tôi sẽ đi công tác ở Tokyo trong một tháng. Vì có bạn ở đó nên tôi muốn tranh thủ đi ăn cùng bạn trong thời gian ở Tokyo."
             },
             {
               "number": 16,
@@ -68348,7 +68573,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Tôi bắt đầu học violin một năm trước vì muốn chơi được đàn. Càng chơi nhiều, tôi càng cảm thấy đây là nhạc cụ thú vị đến mức không gì sánh bằng."
             },
             {
               "number": 17,
@@ -68378,7 +68610,14 @@
                   "text": "おめでとう。これ、プレゼントだよ。」B「わあ、かばんだ。ちょうど( ) ( ) ★ ( ) んだ。ありがとう。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "A「Chúc mừng sinh nhật. Đây là quà cho cậu.」\nB「Ồ, cái túi! Mình đang muốn có một chiếc túi đúng màu này. Cảm ơn nhé.」"
             },
             {
               "number": 18,
@@ -68444,7 +68683,14 @@
                   "text": "、( ) ( ) ★ ( )",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Giữa thành thị và nông thôn có nhiều điểm khác nhau, nhưng cả hai đều giống nhau ở chỗ mọi người làm việc và sinh sống tại đó."
             },
             {
               "number": 19,
@@ -78900,7 +79146,14 @@
                   "text": "こともあるそうだ。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Nghe nói mỏi mắt do nhìn máy tính hoặc điện thoại quá lâu đôi khi cũng gây đau đầu."
             },
             {
               "number": 15,
@@ -78966,7 +79219,14 @@
                   "text": "になってしまったのだ。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "orderingSentenceVi": "Hồi nhỏ tôi từng học piano nhưng đã nghỉ sau ba năm. Có một bản nhạc dù luyện bao nhiêu lần tôi cũng không chơi giỏi được, nên tôi đâm ra chán."
             },
             {
               "number": 16,
@@ -79036,7 +79296,14 @@
                   "text": "ようにすることだ。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Ai cũng có thể mắc sai lầm. Điều quan trọng là suy nghĩ xem vì sao mình thất bại và cố gắng không lặp lại sai lầm đó."
             },
             {
               "number": 17,
@@ -79122,7 +79389,14 @@
                   "text": "（ ）（ ）★（ ）？」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "(Trong lớp học) Minami「Mình tặng Nishikawa món quà sinh nhật gì đó nhé?」Mori「Hay đấy. Bạn ấy nói thích thể thao, tặng khăn chẳng hạn cũng được nhỉ?」"
             },
             {
               "number": 18,
@@ -79208,7 +79482,14 @@
                   "text": "をしていただきます。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                2,
+                3,
+                1
+              ],
+              "orderingSentenceVi": "(Tại buổi diễn thuyết) Người dẫn chương trình「Hôm nay, chúng ta sẽ nghe cô Hanako, chuyên gia về chim, nói về nhiều loài chim có thể nhìn thấy ở thành phố.」"
             },
             {
               "number": 19,
@@ -89857,7 +90138,14 @@
                   "text": "う。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Tôi rất thích ca sĩ Akari Ishikawa. Tôi nghĩ không có ca sĩ nào có giọng hát đẹp như cô ấy."
             },
             {
               "number": 15,
@@ -89915,7 +90203,14 @@
                   "text": "った。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Tôi biết được qua bản tin rằng ngày càng có nhiều người mua thực phẩm như rau và cá trên Internet."
             },
             {
               "number": 16,
@@ -90009,7 +90304,14 @@
                   "text": "「いいですよ。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "(Ở trường đại học) Nakayama「Anh Hayashi, em đã chuẩn bị tài liệu cho buổi thuyết trình seminar, nhưng có chỗ em chưa tự tin. Anh có thể kiểm tra giúp em một lần được không ạ?」\nHayashi「Được chứ.」"
             },
             {
               "number": 17,
@@ -90043,7 +90345,14 @@
                   "text": "いたから、（ ）（ ）（ ★ ）（ ）しまった。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Sáng nay vì vội nên tôi ra khỏi nhà mà quên tắt đèn ở lối vào."
             },
             {
               "number": 18,
@@ -90101,7 +90410,14 @@
                   "text": "かを（ ）（ ）（ ★ ）（ ）そうだ。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "orderingSentenceVi": "Nghe nói người bạn thích đọc sách của tôi luôn ghi vào sổ để không quên mình đã đọc cuốn sách nào và vào lúc nào."
             },
             {
               "number": 19,
@@ -100598,7 +100914,14 @@
                   "text": "ると、パン（ ）（ ）（ ★ ）（ ）する。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Buổi sáng, khi đi ngang qua tiệm bánh gần nhà, tôi ngửi thấy mùi bánh mới nướng rất thơm."
             },
             {
               "number": 15,
@@ -100610,10 +100933,10 @@
                 "使う",
                 "スピードを速くする"
               ],
-              "correctIndex": 3,
+              "correctIndex": 1,
               "points": 1,
               "passage": null,
-              "explanation": "Cần sắp xếp thành cụm hành động \"スピードを速くする\" (tăng tốc độ) để bổ nghĩa cho việc đi bộ.",
+              "explanation": "Thứ tự ghép: 使う → とか → 歩く → スピードを速くする. Câu hoàn chỉnh: 平日はなかなか運動する時間がないので、日常生活の中で、エレベーターではなく階段を使うとか歩くスピードを速くするとかしている。",
               "questionVi": "Vì ngày thường khó lòng có thời gian để vận động, nên trong cuộc sống hàng ngày, thay vì đi thang máy, tôi đang cố gắng làm những việc như là cầu thang（ ）（ ）（ ★ ）（ ）.",
               "questionFurigana": [
                 {
@@ -100664,7 +100987,15 @@
                   "text": "を（ ）（ ）（ ★ ）（ ）とかしている。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Ngày thường tôi khó có thời gian tập thể dục, nên trong sinh hoạt hằng ngày tôi cố gắng đi cầu thang thay vì thang máy hoặc đi bộ nhanh hơn.",
+              "answerSourceNote": "Thứ tự câu hoàn chỉnh đặt 「歩く」 ở vị trí ★; đáp án lưu trước đó trỏ nhầm sang phương án 「スピードを速くする」."
             },
             {
               "number": 16,
@@ -100738,7 +101069,14 @@
                   "text": "しいです。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "Morita「Nishiyama, công việc làm thêm mới thế nào?」\nNishiyama「Em mới bắt đầu nên có nhiều thứ phải nhớ, khá vất vả nhưng vui ạ.」"
             },
             {
               "number": 17,
@@ -100808,7 +101146,14 @@
                   "text": "した。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "orderingSentenceVi": "Lần đầu leo núi, nhìn cảnh vật từ trên đỉnh, tôi đã xúc động và nghĩ:「Khung cảnh đẹp biết bao!」"
             },
             {
               "number": 18,
@@ -100894,7 +101239,14 @@
                   "text": "らなかった。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                2,
+                0,
+                1
+              ],
+              "orderingSentenceVi": "(Ở công ty) Tanaka「Này, cậu biết chưa? Nghe nói anh Yamashita ở phòng kinh doanh tháng sau sẽ cưới cô Hayashi ở quầy lễ tân.」\nIshikawa「Ơ, vậy à. Tôi không biết đấy.」"
             },
             {
               "number": 19,
@@ -110900,7 +111252,14 @@
                   "text": "っている。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Ở Đại học Yamakawa, cứ vào tháng Tư hằng năm lại tiến hành khảo sát về hình dung của tân sinh viên đối với cuộc sống đại học."
             },
             {
               "number": 15,
@@ -110942,7 +111301,14 @@
                   "text": "には、（ ）（ ）（ ★ ）（ ）つもりだ。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Tuần sau là sinh nhật chồng tôi, tôi định tặng anh ấy chiếc túi mà gần đây anh ấy muốn có."
             },
             {
               "number": 16,
@@ -110976,7 +111342,14 @@
                   "text": "の（ ）（ ）（ ★ ）（ ）。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                2,
+                3,
+                0
+              ],
+              "orderingSentenceVi": "Vì sức khỏe, ngày nào tôi cũng cố gắng ngủ ít nhất tám tiếng."
             },
             {
               "number": 17,
@@ -111042,7 +111415,14 @@
                   "text": "う。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "Bánh quy làm quà mà trưởng phòng mua mỗi lần đi công tác Tokyo rất ngon, nên nếu có dịp đến Tokyo, tôi cũng định mua thử."
             },
             {
               "number": 18,
@@ -111116,7 +111496,14 @@
                   "text": "い（ ）（ ）（ ★ ）（ ）いい。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "orderingSentenceVi": "Tôi thích thư viện này. Nơi đây rộng và có nhiều sách; hơn nữa, tôi thích cả việc có thể ngắm cảnh biển qua cửa sổ lớn trong lúc đọc sách."
             },
             {
               "number": 19,
@@ -122960,6 +123347,7 @@
                 3,
                 1
               ],
+              "orderingSentenceVi": "Mùa hè năm nay cũng nóng, nhưng so với mùa hè năm ngoái nóng bất thường thì tôi cảm thấy mát hơn hẳn.",
               "points": 1,
               "passage": null,
               "explanation": "Điền cụm danh từ「去年の夏」để làm rõ mốc thời gian so sánh.",
@@ -123024,6 +123412,7 @@
                 1,
                 0
               ],
+              "orderingSentenceVi": "Lần đầu đi làm thêm, tôi mới hiểu kiếm tiền vất vả đến mức nào.",
               "points": 1,
               "passage": null,
               "explanation": "Cần tính từ「大変な」để bổ nghĩa cho danh từ「こと」với nghĩa công việc kiếm tiền rất vất vả.",
@@ -123072,6 +123461,7 @@
                 0,
                 2
               ],
+              "orderingSentenceVi": "Hôm nay sau bữa trưa, tôi đến thư viện đọc sách. Đến khi nhận ra bên ngoài trời đã tối nên tôi rất ngạc nhiên.",
               "points": 1,
               "passage": null,
               "explanation": "Mẫu「～ので」dùng để nối hai vế câu, chỉ lý do dẫn đến kết quả là「驚いた」.",
@@ -123152,6 +123542,7 @@
                 2,
                 0
               ],
+              "orderingSentenceVi": "Cách làm bánh cheesecake này chỉ cần trộn nguyên liệu rồi làm lạnh, nên tôi nghĩ ai cũng có thể làm dễ dàng.",
               "points": 1,
               "passage": null,
               "explanation": "Trợ từ「だけ」nhấn mạnh giới hạn, chỉ cần làm việc đó là đủ.",
@@ -123204,6 +123595,7 @@
                 3,
                 0
               ],
+              "orderingSentenceVi": "A「Tôi sẽ đến cổ vũ trận bóng đá ngày kia nhé. Dự báo nói trời nhiều mây, nhưng nếu mưa thì trận đấu có bị hủy không?」\nB「Cảm ơn nhé. Dù trời có mưa thì trận đấu cũng không bị hủy, nhưng nếu mưa thì cậu không cần cố đến cổ vũ đâu.」",
               "points": 1,
               "passage": null,
               "explanation": "Cụm「中止にならないんだけど」giải thích tình huống thực tế cho người nghe hiểu rõ.",
@@ -133627,7 +134019,14 @@
                   "text": "った。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Hôm qua tôi mua hai cuốn tiểu thuyết và một cuốn sách về cách viết báo cáo ở hiệu sách."
             },
             {
               "number": 15,
@@ -133673,7 +134072,14 @@
                   "text": "みない？」\nB「いいね。」",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "orderingSentenceVi": "(Trên đường) A「Quán cà phê kia, hình như mình đã thấy trên TV hay đâu đó rồi. Vào thử nhé?」\nB「Được đấy.」"
             },
             {
               "number": 16,
@@ -133751,7 +134157,14 @@
                   "text": "。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "orderingSentenceVi": "Từ khi bắt đầu học guitar nửa năm trước, ngày nào tôi cũng luyện tập. Tôi nhận ra rằng càng chơi nhiều thì mình càng chơi giỏi hơn, điều đó khiến tôi rất vui."
             },
             {
               "number": 17,
@@ -133833,7 +134246,14 @@
                   "text": "い（ ）（ ）（ ★ ）（ ）からだ。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "orderingSentenceVi": "Khi vào làm ở công ty hiện tại, tôi bắt đầu sống một mình tại Kitamachi. Dù xa công ty, tôi chọn Kitamachi vì từ lâu đã muốn sống ở đó."
             },
             {
               "number": 18,
@@ -133915,7 +134335,14 @@
                   "text": "らしい。",
                   "furigana": null
                 }
-              ]
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "orderingSentenceVi": "Phòng tắm là nơi đặc biệt dễ bị mốc ngay cả trong nhà. Có vẻ như để ngăn nấm mốc, điều quan trọng là không để phòng tắm ẩm ướt sau khi sử dụng."
             },
             {
               "number": 19,
@@ -142334,7 +142761,14 @@
               "correctIndex": 3,
               "passage": null,
               "points": 1,
-              "explanation": "Mẫu「かどうか」dùng để diễn tả ý nghĩa 'không biết là có... hay không'."
+              "explanation": "Mẫu「かどうか」dùng để diễn tả ý nghĩa 'không biết là có... hay không'.",
+              "orderingOrder": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "orderingSentenceVi": "Dù một việc khiến bản thân căng thẳng, tôi cũng không biết người khác có cảm nhận giống như vậy hay không."
             },
             {
               "number": 15,
@@ -142350,7 +142784,14 @@
               "correctIndex": 3,
               "passage": null,
               "points": 1,
-              "explanation": "Từ「大雪」là danh từ chỉ nguyên nhân, kết hợp với trợ từ「で」để chỉ lý do dẫn đến việc hủy giải đấu."
+              "explanation": "Từ「大雪」là danh từ chỉ nguyên nhân, kết hợp với trợ từ「で」để chỉ lý do dẫn đến việc hủy giải đấu.",
+              "orderingOrder": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "orderingSentenceVi": "Do tuyết rơi dày từ hôm qua, cuộc thi marathon dự kiến diễn ra hôm nay đã bị hủy."
             },
             {
               "number": 16,
@@ -142366,7 +142807,14 @@
               "correctIndex": 2,
               "passage": null,
               "points": 1,
-              "explanation": "Cấu trúc so sánh「～ほど～はない」dùng để nhấn mạnh rằng không có cái gì thú vị bằng toán học."
+              "explanation": "Cấu trúc so sánh「～ほど～はない」dùng để nhấn mạnh rằng không có cái gì thú vị bằng toán học.",
+              "orderingOrder": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "orderingSentenceVi": "Anh trai tôi rất thích Toán và thường nói rằng không có gì thú vị bằng Toán học."
             },
             {
               "number": 17,
@@ -142382,7 +142830,14 @@
               "correctIndex": 1,
               "passage": null,
               "points": 1,
-              "explanation": "Cấu trúc「～をしている」dùng để miêu tả trạng thái hoặc vẻ ngoài (khuôn mặt vui vẻ)."
+              "explanation": "Cấu trúc「～をしている」dùng để miêu tả trạng thái hoặc vẻ ngoài (khuôn mặt vui vẻ).",
+              "orderingOrder": [
+                2,
+                3,
+                1,
+                0
+              ],
+              "orderingSentenceVi": "Vào sinh nhật con trai, tôi tặng cháu trò chơi điện tử mà cháu đã nói muốn có từ lâu. Nhìn thấy con vui vẻ khi mở gói quà, tôi cũng thấy vui theo."
             },
             {
               "number": 18,
@@ -142398,7 +142853,14 @@
               "correctIndex": 0,
               "passage": null,
               "points": 1,
-              "explanation": "「車やバイクがないと生活するのに不便だ」dùng「と」để nêu điều kiện dẫn tới hệ quả: không có ô tô hoặc xe máy thì sinh hoạt bất tiện."
+              "explanation": "「車やバイクがないと生活するのに不便だ」dùng「と」để nêu điều kiện dẫn tới hệ quả: không có ô tô hoặc xe máy thì sinh hoạt bất tiện.",
+              "orderingOrder": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "orderingSentenceVi": "Nhà bố mẹ tôi xa cả ga tàu lẫn bến xe buýt, nên nếu không có ô tô hay xe máy thì sinh hoạt sẽ bất tiện."
             },
             {
               "number": 19,

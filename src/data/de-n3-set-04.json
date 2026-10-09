@@ -3048,12 +3048,19 @@
                   "text": "く。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                2,
+                0,
+                1,
+                3
               ]
-            },
+            ,
+              "orderingSentenceVi": "Hoa anh đào trong công viên nở rất đẹp từ cuối tháng 3 đến đầu tháng 4."},
             {
               "number": 15,
               "problemGroup": "問題2",
-              "question": "良い[　] [　] [★] [　]、売り上げの増加は期待できない。",
+              "question": "良い[　] [　] [★] [　]増加は期待できない。",
               "options": [
                 "その良さが",
                 "伝わらなければ",
@@ -3070,23 +3077,15 @@
                 "uriage no",
                 "shouhin ya sāvisu de atte mo"
               ],
-              "answerSourceNote": "Đáp án tham khảo do AI suy luận; nguồn không kèm đáp án chính thức. Scan có lặp cụm 「売り上げの」 giữa mảnh ghép và phần câu in sau ô trống.",
-              "explanation": "Thứ tự theo các mảnh in: 良い (4. 商品やサービスであっても) (1. その良さが) [★: 2. 伝わらなければ] (3. 売り上げの)、売り上げの増加は期待できない。 Scan in mảnh 「売り上げの」 và ngay sau chỗ trống cũng in 「売り上げの」, tạo thành lặp từ; giữ nguyên theo nguồn, có thể đề in bị lỗi. Vị trí ★ được xác định theo thứ tự các mảnh.",
+              "answerSourceNote": "Đã bỏ cụm 「売り上げの」 bị lặp trong bản chép nguồn để dùng đủ bốn mảnh và khôi phục câu tự nhiên.",
+              "explanation": "Thứ tự ghép: 商品やサービスであっても → その良さが → 伝わらなければ → 売り上げの。 Câu hoàn chỉnh: 良い商品やサービスであっても、その良さが伝わらなければ売り上げの増加は期待できない。",
               "questionFurigana": [
                 {
                   "text": "良い",
                   "furigana": "よい"
                 },
                 {
-                  "text": "[　] [　] [★] [　]、",
-                  "furigana": null
-                },
-                {
-                  "text": "売り上げ",
-                  "furigana": "うりあげ"
-                },
-                {
-                  "text": "の",
+                  "text": "[　] [　] [★] [　]",
                   "furigana": null
                 },
                 {
@@ -3105,8 +3104,15 @@
                   "text": "できない。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                1,
+                2
               ]
-            },
+            ,
+              "orderingSentenceVi": "Dù sản phẩm hay dịch vụ có tốt đến đâu, nếu không truyền tải được cái hay của chúng thì cũng khó mong doanh số tăng."},
             {
               "number": 16,
               "problemGroup": "問題2",
@@ -3158,12 +3164,19 @@
                   "text": "でもよくわからない。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                1,
+                2
               ]
-            },
+            ,
+              "orderingSentenceVi": "Tôi cũng không hiểu vì sao mình lại để tâm đến cô ấy nhiều như vậy, dù chỉ thỉnh thoảng tình cờ lướt qua nhau ở ga."},
             {
               "number": 17,
               "problemGroup": "問題2",
-              "question": "夏休みの[　] [　] [★] [　]違うようだ。",
+              "question": "夏休みの[　] [　] [★] [　]あるようだ。",
               "options": [
                 "国によって",
                 "過ごし方は",
@@ -3180,8 +3193,8 @@
                 "chigai ga",
                 "kanari"
               ],
-              "answerSourceNote": "Đáp án tham khảo theo vị trí ★; nguồn không kèm đáp án chính thức. Scan in cụm 「違いが…違う」, diễn đạt không tự nhiên.",
-              "explanation": "Theo thứ tự mảnh in: 夏休みの (2. 過ごし方は) (1. 国によって) [★: 3. 違いが] (4. かなり) 違うようだ。 Scan in nguyên cụm 「違いが」 trước 「かなり違うようだ」, tạo cách diễn đạt lặp/không tự nhiên; giữ nguyên theo nguồn vì tài liệu không có đính chính. Đáp án chỉ là tham khảo theo vị trí ★.",
+              "answerSourceNote": "Bản chép đề có 「違いがかなり違う」 không tự nhiên; đã sửa phần kết thành 「違いがかなりある」 để giữ đủ bốn lựa chọn và tạo câu đúng ngữ pháp.",
+              "explanation": "Thứ tự ghép: 過ごし方は → 国によって → 違いが → かなり。 Câu hoàn chỉnh: 夏休みの過ごし方は国によって違いがかなりあるようだ。",
               "questionFurigana": [
                 {
                   "text": "夏休み",
@@ -3192,15 +3205,18 @@
                   "furigana": null
                 },
                 {
-                  "text": "違",
-                  "furigana": "ちが"
-                },
-                {
-                  "text": "うようだ。",
+                  "text": "あるようだ。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                1,
+                0,
+                2,
+                3
               ]
-            },
+            ,
+              "orderingSentenceVi": "Có vẻ cách nghỉ hè khác nhau khá nhiều tùy theo từng quốc gia."},
             {
               "number": 18,
               "problemGroup": "問題2",
@@ -3260,8 +3276,15 @@
                   "text": "だ。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                2,
+                3,
+                1,
+                0
               ]
-            },
+            ,
+              "orderingSentenceVi": "Nơi này nổi tiếng không chỉ vì phong cảnh đẹp mà còn vì có thể nhìn thấy nhiều loài động vật hoang dã."},
             {
               "number": 19,
               "problemGroup": "問題3",

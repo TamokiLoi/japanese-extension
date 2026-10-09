@@ -3206,7 +3206,7 @@
                 "hiếm"
               ],
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "Sắp xếp: 飛行機の料金も以前よりだいぶ安くなり、海外旅行も珍しくなくなった。 (Vị trí ★ là あんなに/安くなり - đáp án 3). Cụ thể trật tự: 安くなり ★ なくなった (thành 3, 4, 2, 1? Kiểm tra: 3 [安くなり] -> 4 [珍しく] -> [★] 1 [なくなった] -> 2 [海外旅行も] -> Thử lại: 飛行機の料金も以前よりだいぶ安くなり、海外旅行も珍しくなくなった -> 3, 4, 1, 2. Vị trí ★ là 1 「なくなった」).",
+              "explanation": "Thứ tự ghép: 安くなり → 海外旅行も → 珍しく → なくなった. Câu hoàn chỉnh: 飛行機の料金も以前よりだいぶ安くなり、海外旅行も珍しくなくなった。",
               "questionFurigana": [
                 {
                   "text": "飛行機",
@@ -3232,8 +3232,15 @@
                   "text": "よりだいぶ＿＿＿ ＿＿＿ ★ ＿＿＿ 。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                3,
+                0
               ]
-            },
+            ,
+              "orderingSentenceVi": "Giá vé máy bay cũng rẻ hơn trước khá nhiều, nên du lịch nước ngoài không còn là chuyện hiếm hoi nữa."},
             {
               "number": 15,
               "problemGroup": "問題2",
@@ -3244,7 +3251,7 @@
                 "飛んでき",
                 "写真のように"
               ],
-              "correctIndex": 2,
+              "correctIndex": 1,
               "points": 1,
               "passage": null,
               "questionVi": "Bức tranh con chim cô ấy vẽ trông như thể sắp bay ra khỏi tranh giống như ảnh vậy.",
@@ -3254,8 +3261,8 @@
                 "bay đến",
                 "giống như bức ảnh"
               ],
-              "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
-              "explanation": "Trật tự: 写真のように (4) 飛んでき (3) そうだ (★) 見え (1) -> 4, 3, 1, 2? Xem lại: 写真のように今にも飛んでいきそうに見える (Giống như ảnh, trông như sắp bay đến). Sắp xếp: 写真のように (4) 今にも (2) 飛んでき (3) ★[そうだ] 見え(1)? Kiểm tra options: 1. 見え 2. 今にも 3. 飛んでき 4. 写真のように. Trật tự đúng: 写真のように (4) 今にも (2) 飛んできそうに (3) 見え (1)? Đọc: 写真のように (4) 今にも (2) 飛んでき (3) そうだ (★) -> Vị trí ★ là 3 「飛んでき」.",
+              "answerSourceNote": "Sách không kèm đáp án; đã xác định ★ là 「今にでも」 theo thứ tự ghép thành câu tự nhiên.",
+              "explanation": "Thứ tự ghép: 写真のように → 見え → 今にでも → 飛んでき. Câu hoàn chỉnh: 彼女が描いた鳥の絵は、写真のように見え、今にでも飛んできそうだ。",
               "questionFurigana": [
                 {
                   "text": "彼女",
@@ -3289,8 +3296,15 @@
                   "text": "は、＿＿＿ ＿＿＿ ★ ＿＿＿ そうだ。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                3,
+                0,
+                1,
+                2
               ]
-            },
+            ,
+              "orderingSentenceVi": "Bức tranh chú chim do cô ấy vẽ trông như ảnh chụp, cứ như sắp sửa bay vụt ra vậy."},
             {
               "number": 16,
               "problemGroup": "問題2",
@@ -3318,8 +3332,15 @@
                   "text": "あのミスがなかったら、＿＿＿ ＿＿＿ ★ ＿＿＿ たまらなかった。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                2,
+                1,
+                0,
+                3
               ]
-            },
+            ,
+              "orderingSentenceVi": "Nghĩ rằng nếu không mắc lỗi đó thì có lẽ mình đã đỗ, tôi hối hận đến không chịu nổi."},
             {
               "number": 17,
               "problemGroup": "問題2",
@@ -3395,8 +3416,15 @@
                   "text": "の＿＿＿ ＿＿＿ ★ ＿＿＿ だろう。」",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                3,
+                1,
+                0,
+                2
               ]
-            },
+            ,
+              "orderingSentenceVi": "Vậy thì để anh Ishida dự họp thay cậu ấy, anh thấy thế nào?"},
             {
               "number": 18,
               "problemGroup": "問題2",
@@ -3428,8 +3456,15 @@
                   "text": "だ＿＿＿ ＿＿＿ ★ ＿＿＿ こともある。",
                   "furigana": null
                 }
+              ],
+              "orderingOrder": [
+                0,
+                3,
+                1,
+                2
               ]
-            },
+            ,
+              "orderingSentenceVi": "Đôi khi chính vì là người nước ngoài mà ta có thể khám phá ra những điều tuyệt vời của đất nước ấy."},
             {
               "number": 19,
               "problemGroup": "問題3",
