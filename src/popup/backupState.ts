@@ -21,6 +21,7 @@ const BACKUP_KEYS = [
   "listeningProgress",
   "dictationProgress",
   "dethiHistory",
+  "jlptQuestionPracticeProgress",
   "dailyGoals",
   "roadmapSettings",
   "lastActiveScreen",

@@ -47,9 +47,11 @@ import { useFloatingNav } from "../WebAppShell.tsx";
 export function QuizBookScreen({
   targetId,
   onCurrentItemChange,
+  onOpenJlptPractice,
 }: {
   targetId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
+  onOpenJlptPractice?: () => void;
 } = {}) {
   const [state, setState] = useState<QuizBookViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -110,7 +112,17 @@ export function QuizBookScreen({
     return <QuestionView q={question} state={state} mutate={mutate} onAnswered={refreshProgressMap} />;
   }
 
-  return <ListView state={state} mutate={mutate} error={error} setError={setError} progressMap={progressMap} onProgressChange={refreshProgressMap} />;
+  return (
+    <ListView
+      state={state}
+      mutate={mutate}
+      error={error}
+      setError={setError}
+      progressMap={progressMap}
+      onProgressChange={refreshProgressMap}
+      onOpenJlptPractice={onOpenJlptPractice}
+    />
+  );
 }
 
 function ListView({
@@ -120,6 +132,7 @@ function ListView({
   setError,
   progressMap,
   onProgressChange,
+  onOpenJlptPractice,
 }: {
   state: QuizBookViewerState;
   mutate: (partial: Partial<QuizBookViewerState>) => Promise<void>;
@@ -127,6 +140,7 @@ function ListView({
   setError: (e?: string) => void;
   progressMap: ProgressMap;
   onProgressChange: () => Promise<void>;
+  onOpenJlptPractice?: () => void;
 }) {
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
@@ -197,6 +211,20 @@ function ListView({
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Luyện đề" subtitle={`${filtered.length} câu`} icon={{ img: "icon-review.png", bg: "#ffe4e6" }} />
+
+      {onOpenJlptPractice ? (
+        <button
+          type="button"
+          onClick={onOpenJlptPractice}
+          className="mt-4 flex w-full items-center justify-between gap-3 rounded-2xl border border-rose-100 bg-white px-4 py-3 text-left shadow-sm transition-colors hover:border-rose-200 hover:bg-rose-50/40"
+        >
+          <span className="min-w-0">
+            <span className="block text-sm font-semibold text-neutral-800">Ôn Goi &amp; ngữ pháp trong đề JLPT</span>
+            <span className="mt-0.5 block text-xs text-neutral-500">Đề theo kỳ và 10 đề N3 · lưu kết quả riêng từng câu</span>
+          </span>
+          <span className="shrink-0 rounded-full bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700">Mở →</span>
+        </button>
+      ) : null}
 
       <div className="mt-4 grid grid-cols-2 gap-3">
         <StatCard

@@ -28,6 +28,7 @@ const BunpoScreen = lazy(() => import("./screens/BunpoScreen.tsx").then((module)
 const BunpoMapScreen = lazy(() => import("./screens/BunpoMapScreen.tsx").then((module) => ({ default: module.BunpoMapScreen })));
 const QuizScreen = lazy(() => import("./screens/QuizScreen.tsx").then((module) => ({ default: module.QuizScreen })));
 const QuizBookScreen = lazy(() => import("./screens/QuizBookScreen.tsx").then((module) => ({ default: module.QuizBookScreen })));
+const JlptQuestionStudyPanel = lazy(() => import("./screens/JlptQuestionStudyScreen.tsx").then((module) => ({ default: module.JlptQuestionStudyScreen })));
 const ReadingScreen = lazy(() => import("./screens/ReadingScreen.tsx").then((module) => ({ default: module.ReadingScreen })));
 const StatsScreen = lazy(() => import("./screens/StatsScreen.tsx").then((module) => ({ default: module.StatsScreen })));
 const ReviewScreen = lazy(() => import("./screens/ReviewScreen.tsx").then((module) => ({ default: module.ReviewScreen })));
@@ -88,6 +89,7 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
 // works exactly as before once inside a section rendered via <App/>.
 export function WebApp() {
   const [{ screen, targetId, returnTo }, setRoute] = useState(readFromPath);
+  const [quizBookJlptMode, setQuizBookJlptMode] = useState(false);
   const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
   const [searchDisplayMode, setSearchDisplayMode] = useState<SearchDisplayMode>(DEFAULT_SEARCH_DISPLAY_MODE);
   const [searchPopupOpen, setSearchPopupOpen] = useState(false);
@@ -147,6 +149,7 @@ export function WebApp() {
   useEffect(() => {
     function onPopState() {
       const next = readFromPath();
+      if (next.screen !== "quizBook") setQuizBookJlptMode(false);
       setRoute(next);
       currentItemRef.current = next.targetId;
       window.scrollTo(0, 0);
@@ -156,6 +159,7 @@ export function WebApp() {
   }, []);
 
   function go(next: Screen, id?: string, opts: { linking?: boolean } = {}) {
+    if (next !== "quizBook") setQuizBookJlptMode(false);
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
     let path = next === "menu" && !id ? BASE : `${BASE}${next}${id ? `/${encodeURIComponent(id)}` : ""}`;
@@ -258,7 +262,15 @@ export function WebApp() {
       />
     );
   } else if (screen === "quizBook") {
-    content = <QuizBookScreen targetId={targetId} onCurrentItemChange={syncCurrentItem} />;
+    content = quizBookJlptMode ? (
+      <JlptQuestionStudyPanel onBack={() => setQuizBookJlptMode(false)} onBackLabel="Luyện đề" />
+    ) : (
+      <QuizBookScreen
+        targetId={targetId}
+        onCurrentItemChange={syncCurrentItem}
+        onOpenJlptPractice={() => setQuizBookJlptMode(true)}
+      />
+    );
   } else if (screen === "reading" || screen === "news") {
     content = (
       <ReadingScreen
