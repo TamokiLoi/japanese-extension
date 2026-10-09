@@ -42,6 +42,7 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FuriganaText } from "../components/FuriganaText.tsx";
 import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
+import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
 import { getJlptPointQuestionPrompt, getListeningMondaiNumber } from "../../lib/listeningMondai.ts";
 
 const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; description: string }> = {
@@ -505,6 +506,19 @@ function QuestionView({
           {TASK_TYPE_LABELS[question.taskType]}
           <ListeningTypeInfo taskType={question.taskType} />
         </span>
+        <StudyFeedbackButton
+          entityId={`study:listening:${question.id}`}
+          snapshot={{
+            title: question.questionPrompt || question.scenario || question.question || question.questionVi || question.scenarioVi || "Câu nghe",
+            context: `${question.level} · ${BOOK_LABELS[question.book]}${mondaiNumber ? ` · Mondai ${mondaiNumber}` : ""}`,
+            currentValue: answered
+              ? Number.isInteger(question.correctIndex) && question.correctIndex >= 0 && question.correctIndex < question.options.length
+                ? `Phương án ${question.correctIndex + 1}: ${question.options[question.correctIndex]}`
+                : "Chưa có đáp án trong dữ liệu"
+              : "Đáp án sẽ hiện sau khi trả lời",
+            sources: [BOOK_LABELS[question.book], question.level, mondaiNumber ? `Mondai ${mondaiNumber}` : ""].filter(Boolean),
+          }}
+        />
       </div>
 
       <QuestionPalette

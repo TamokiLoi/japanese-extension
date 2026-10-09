@@ -18,7 +18,7 @@ File hợp lệ phải có:
 - `version` được hỗ trợ; hiện tại là `1`.
 - `corrections` là mảng.
 - Mỗi entry có `id`, `entityType`, `entityId`, `snapshot`, `issueType`, `suggestedValue`, `status`.
-- `entityType` hỗ trợ `vocab` và `grammar`.
+- `entityType` hỗ trợ `vocab`, `grammar` và `study` (góp ý/ghi chú câu hỏi luyện tập).
 - `issueType` thuộc một trong:
   - `add-new-vocab`
   - `wrong-meaning`
@@ -26,6 +26,7 @@ File hợp lệ phải có:
   - `wrong-reading`
   - `wrong-usage`
   - `wrong-example`
+  - `wrong-answer`
   - `personal-note`
   - `other`
 
@@ -61,6 +62,13 @@ Nếu đã có cùng từ và cách đọc, ưu tiên bổ sung/sửa entry hi�
 - Với `wrong-meaning` hoặc `additional-meaning`, cần đối chiếu cấu trúc và ngữ cảnh câu ví dụ, không chỉ dịch riêng pattern.
 - Với `wrong-usage`, kiểm tra công thức, thể kết hợp và sắc thái sử dụng bằng ít nhất một nguồn ngữ pháp đáng tin cậy cùng một ví dụ thực tế.
 - `personal-note` chỉ là ghi chú người dùng, không được tự động áp dụng vào `src/data`.
+
+### Entry câu hỏi luyện tập
+
+- `entityType: "study"` có thể trỏ tới câu trong Luyện đọc, Luyện nghe hoặc lịch sử đề JLPT.
+- Dùng `snapshot.title`, `snapshot.context`, `snapshot.currentValue` và `snapshot.sources` để xác định đúng đề, câu hỏi và đáp án app đang hiển thị.
+- Với `wrong-answer`, đối chiếu lại PDF/đáp án nguồn hoặc âm thanh nguồn của đúng đề trước khi đề xuất sửa. Không coi `suggestedValue` là đáp án đúng chỉ vì người dùng gửi góp ý.
+- Với `personal-note`, giữ nội dung như ghi chú cá nhân; không tự động sửa đáp án hoặc dữ liệu nguồn.
 
 ## 3. Kiểm chứng bắt buộc bằng Gemini
 
@@ -158,6 +166,12 @@ Các liên kết trên được ghi trong báo cáo review. Chỉ thêm field m�
 - Chỉ thêm nghĩa đề xuất nếu đó là nghĩa độc lập hoặc cách diễn đạt Việt hữu ích.
 - Tránh thêm từ đồng nghĩa tiếng Việt không làm rõ thêm nội dung.
 - Sắp nghĩa chính trước, nghĩa phụ/sắc thái sau.
+
+### `wrong-answer`
+
+- Xác minh đúng mã đề, phần thi và số câu từ `snapshot` trước khi đánh giá.
+- So sánh đáp án hiện tại và đề xuất với PDF/đáp án chính thức; với câu nghe cần đối chiếu âm thanh nguồn.
+- Nếu thiếu nguồn hoặc câu hỏi còn mơ hồ, đánh dấu `needs-review` và không cập nhật đáp án.
 
 ### `wrong-meaning`
 

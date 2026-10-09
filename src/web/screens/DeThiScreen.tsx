@@ -47,6 +47,8 @@ import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import { getJlptListeningMondaiLabel, getJlptPointQuestionPrompt } from "../../lib/listeningMondai.ts";
 import type { Screen } from "../../popup/screens.ts";
+import type { StudyCorrectionSnapshot } from "../../popup/dataCorrectionState.ts";
+import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
 
 type Step =
   | { name: "examList" }
@@ -134,6 +136,26 @@ function reconstructOrderingQuestion(question: DeThiQuestion): { sentence: strin
     return { sentence, order };
   }
   return null;
+}
+
+function jlptQuestionFeedbackSnapshot(
+  examLabel: string,
+  paperLabel: string,
+  level: JlptLevel,
+  question: DeThiQuestion,
+): StudyCorrectionSnapshot {
+  const prompt = question.listeningPrompt?.trim() || question.question.trim() || question.transcript?.trim() || question.problemGroup;
+  const currentValue = question.correctIndex === null
+    ? "Đề hiện chưa có đáp án"
+    : question.options[question.correctIndex]
+      ? `Phương án ${question.correctIndex + 1}: ${question.options[question.correctIndex]}`
+      : `Phương án ${question.correctIndex + 1} (hình minh họa)`;
+  return {
+    title: `Câu ${question.number}: ${prompt}`,
+    context: `${level} · ${examLabel} · ${paperLabel} · ${question.problemGroup}`,
+    currentValue,
+    sources: [examLabel, paperLabel, question.problemGroup],
+  };
 }
 
 function formatQuestionTranslation(question: string, translation: string): string {
@@ -1691,6 +1713,8 @@ function ResultView({
             <ReviewQuestion
               key={i}
               question={withListeningContent(found.exam.id, found.paper.id, question)}
+              feedbackEntityId={`study:jlpt:${entry.examId}:${entry.paperId}:q${question.number}`}
+              feedbackSnapshot={jlptQuestionFeedbackSnapshot(found.exam.examLabel, found.paper.label, found.exam.level, withListeningContent(found.exam.id, found.paper.id, question))}
               level={found.exam.level}
               passage={passageForQuestion(found.paper, i)}
               passageFurigana={passageFuriganaForQuestion(found.paper, i)}
@@ -1729,6 +1753,8 @@ function ResultView({
                 <div id={`exam-review-question-${i}`} key={i}>
                   <ReviewQuestion
                     question={withListeningContent(found.exam.id, found.paper.id, found.paper.questions[i])}
+                    feedbackEntityId={`study:jlpt:${entry.examId}:${entry.paperId}:q${found.paper.questions[i].number}`}
+                    feedbackSnapshot={jlptQuestionFeedbackSnapshot(found.exam.examLabel, found.paper.label, found.exam.level, withListeningContent(found.exam.id, found.paper.id, found.paper.questions[i]))}
                     level={found.exam.level}
                     passage={passageForQuestion(found.paper, i)}
                     passageFurigana={passageFuriganaForQuestion(found.paper, i)}
@@ -1847,6 +1873,8 @@ function HistoryListView({
 
 function ReviewQuestion({
   question,
+  feedbackEntityId,
+  feedbackSnapshot,
   level,
   passage,
   passageFurigana,
@@ -1862,6 +1890,8 @@ function ReviewQuestion({
   passageQuestions,
 }: {
   question: DeThiPaper["questions"][number];
+  feedbackEntityId?: string;
+  feedbackSnapshot?: StudyCorrectionSnapshot;
   level: JlptLevel;
   passage: string | null;
   passageFurigana: { text: string; furigana: string | null }[] | null;
@@ -2029,6 +2059,9 @@ function ReviewQuestion({
         Câu {question.number} · {listeningMondaiLabel ? `${listeningMondaiLabel} · ` : ""}{question.problemGroup}
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
+        {feedbackEntityId && feedbackSnapshot ? (
+          <StudyFeedbackButton entityId={feedbackEntityId} snapshot={feedbackSnapshot} label="Góp ý câu hỏi" />
+        ) : null}
         {!isListeningReview || !hasListeningTranscript ? <button
           type="button"
           onClick={onToggleFurigana}

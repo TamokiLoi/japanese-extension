@@ -38,6 +38,7 @@ import { extractMatchChunks } from "../../popup/bunpoLinks.ts";
 import { recordAnswer } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
+import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
@@ -1226,26 +1227,41 @@ function PassageView({
                     findUniqueTextRanges(q.question, q.underline ? [q.underline] : []),
                   )}
                 </div>
-                {q.questionVi?.trim() ? (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      updateViewOptions({
-                        visibleQuestionTranslations: {
-                          ...visibleQuestionTranslations,
-                          [qi]: !showQuestionTranslation,
-                        },
-                      })
-                    }
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
-                      showQuestionTranslation
-                        ? "border-sky-200 bg-sky-50 text-sky-700"
-                        : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
-                    }`}
-                  >
-                    <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
-                  </button>
-                ) : null}
+                <div className="flex flex-wrap items-center gap-2">
+                  {q.questionVi?.trim() ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        updateViewOptions({
+                          visibleQuestionTranslations: {
+                            ...visibleQuestionTranslations,
+                            [qi]: !showQuestionTranslation,
+                          },
+                        })
+                      }
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold transition-colors ${
+                        showQuestionTranslation
+                          ? "border-sky-200 bg-sky-50 text-sky-700"
+                          : "border-neutral-200 text-neutral-500 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+                      }`}
+                    >
+                      <Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}
+                    </button>
+                  ) : null}
+                  <StudyFeedbackButton
+                    entityId={`study:reading:${readingQuestionId(passage.id, qi)}`}
+                    snapshot={{
+                      title: `Câu ${q.sourceNumber ?? qi + 1}: ${q.question}`,
+                      context: `${passage.title}${passage.examLabel ? ` · ${passage.examLabel}` : ""}`,
+                      currentValue: state.resultsRevealed
+                        ? q.correctIndex >= 0 && q.correctIndex < q.options.length
+                          ? `Phương án ${q.correctIndex + 1}: ${q.options[q.correctIndex]}`
+                          : "Chưa có đáp án trong dữ liệu"
+                        : "Đáp án sẽ hiện sau khi hoàn tất lượt luyện",
+                      sources: [BOOK_LABELS[passage.book], passage.examLabel, passage.source].filter((source): source is string => Boolean(source)),
+                    }}
+                  />
+                </div>
               </div>
               {showQuestionTranslation && q.questionVi?.trim() ? <div className="mt-2 rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{q.questionVi}</div> : null}
               <div className="mt-3 grid gap-2 sm:grid-cols-2">

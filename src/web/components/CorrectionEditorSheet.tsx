@@ -7,6 +7,7 @@ import {
   type DataCorrectionEntry,
   type GrammarCorrectionSnapshot,
   type CorrectionSnapshot,
+  type StudyCorrectionSnapshot,
   type VocabCorrectionSnapshot,
 } from "../../popup/dataCorrectionState.ts";
 import { FilterSheet } from "./FilterSheet.tsx";
@@ -31,9 +32,15 @@ const GRAMMAR_ISSUE_OPTIONS: { value: CorrectionIssueType; label: string; descri
   { value: "other", label: "Ghi chú khác", description: "Một vấn đề dữ liệu không thuộc các nhóm trên" },
 ];
 
+const STUDY_ISSUE_OPTIONS: { value: CorrectionIssueType; label: string; description: string }[] = [
+  { value: "wrong-answer", label: "Đáp án có thể sai", description: "Đề xuất đáp án đúng hơn cho câu hỏi này" },
+  { value: "personal-note", label: "Ghi chú cá nhân", description: "Lưu cách hiểu hoặc lưu ý riêng khi ôn tập" },
+  { value: "other", label: "Ghi chú khác", description: "Nêu vấn đề khác về câu hỏi hoặc nội dung" },
+];
+
 export const CORRECTION_ISSUE_LABELS: Record<CorrectionIssueType, string> = {
   "add-new-vocab": "Thêm từ vựng mới",
-  ...Object.fromEntries([...VOCAB_ISSUE_OPTIONS, ...GRAMMAR_ISSUE_OPTIONS].map((item) => [item.value, item.label])),
+  ...Object.fromEntries([...VOCAB_ISSUE_OPTIONS, ...GRAMMAR_ISSUE_OPTIONS, ...STUDY_ISSUE_OPTIONS].map((item) => [item.value, item.label])),
 } as Record<CorrectionIssueType, string>;
 
 export function CorrectionEditorSheet({
@@ -53,19 +60,25 @@ export function CorrectionEditorSheet({
   entry?: DataCorrectionEntry | null;
   onSaved: (saved: DataCorrectionEntry) => void;
 }) {
-  const resolvedEntityType = entityType ?? entry?.entityType ?? ("pattern" in snapshot ? "grammar" : "vocab");
-  const issueOptions = resolvedEntityType === "grammar" ? GRAMMAR_ISSUE_OPTIONS : VOCAB_ISSUE_OPTIONS;
-  const title = resolvedEntityType === "grammar" ? (snapshot as GrammarCorrectionSnapshot).pattern : (snapshot as VocabCorrectionSnapshot).word;
+  const resolvedEntityType = entityType ?? entry?.entityType ?? ("pattern" in snapshot ? "grammar" : "title" in snapshot ? "study" : "vocab");
+  const issueOptions = resolvedEntityType === "study"
+    ? STUDY_ISSUE_OPTIONS
+    : resolvedEntityType === "grammar" ? GRAMMAR_ISSUE_OPTIONS : VOCAB_ISSUE_OPTIONS;
+  const title = resolvedEntityType === "study"
+    ? (snapshot as StudyCorrectionSnapshot).title
+    : resolvedEntityType === "grammar" ? (snapshot as GrammarCorrectionSnapshot).pattern : (snapshot as VocabCorrectionSnapshot).word;
   const grammarSnapshot = resolvedEntityType === "grammar" ? (snapshot as GrammarCorrectionSnapshot) : null;
   const vocabSnapshot = resolvedEntityType === "vocab" ? (snapshot as VocabCorrectionSnapshot) : null;
-  const [issueType, setIssueType] = useState<CorrectionIssueType>("wrong-meaning");
+  const studySnapshot = resolvedEntityType === "study" ? (snapshot as StudyCorrectionSnapshot) : null;
+  const defaultIssueType: CorrectionIssueType = resolvedEntityType === "study" ? "wrong-answer" : "wrong-meaning";
+  const [issueType, setIssueType] = useState<CorrectionIssueType>(defaultIssueType);
   const [suggestedValue, setSuggestedValue] = useState("");
   const [note, setNote] = useState("");
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (!open) return;
-    setIssueType(entry?.issueType && issueOptions.some((option) => option.value === entry.issueType) ? entry.issueType : "wrong-meaning");
+    setIssueType(entry?.issueType && issueOptions.some((option) => option.value === entry.issueType) ? entry.issueType : defaultIssueType);
     setSuggestedValue(entry?.suggestedValue ?? "");
     setNote(entry?.note ?? "");
   }, [open, entry]);
@@ -96,7 +109,10 @@ export function CorrectionEditorSheet({
         <div className="font-semibold text-neutral-800">
           {title}{vocabSnapshot?.reading ? `（${vocabSnapshot.reading}）` : ""}
         </div>
-        <div className="mt-1 text-neutral-500">Nghĩa hiện tại: {snapshot.meaningVi || "—"}</div>
+        {studySnapshot ? <div className="mt-1 text-neutral-500">{studySnapshot.context}</div> : null}
+        <div className="mt-1 text-neutral-500">
+          {studySnapshot ? "Đáp án/nội dung hiện tại" : "Nghĩa hiện tại"}: {(studySnapshot?.currentValue ?? (snapshot as VocabCorrectionSnapshot | GrammarCorrectionSnapshot).meaningVi) || "—"}
+        </div>
         {grammarSnapshot?.chapter !== undefined ? <div className="mt-1 text-xs text-neutral-400">Chương nội bộ: {grammarSnapshot.chapter}</div> : null}
         <div className="mt-1 text-xs text-neutral-400">Nguồn: {snapshot.sources.join(" · ")}</div>
       </div>
@@ -126,14 +142,14 @@ export function CorrectionEditorSheet({
 
       <label className="block">
         <span className="mb-1.5 flex items-center gap-2 text-xs font-semibold text-neutral-500">
-          Nội dung đề xuất
+          {studySnapshot && issueType === "personal-note" ? "Nội dung ghi chú" : studySnapshot ? "Đáp án đề xuất hoặc ghi chú" : "Nội dung đề xuất"}
           <span className="rounded-full bg-rose-50 px-2 py-0.5 text-[10px] font-semibold text-rose-600">Bắt buộc</span>
         </span>
         <textarea
           value={suggestedValue}
           onChange={(event) => setSuggestedValue(event.target.value)}
           rows={4}
-          placeholder="Nhập nghĩa đúng, nghĩa bổ sung hoặc nội dung cần sửa..."
+          placeholder={studySnapshot ? "Ghi đáp án bạn cho là đúng hoặc nội dung cần lưu ý..." : "Nhập nghĩa đúng, nghĩa bổ sung hoặc nội dung cần sửa..."}
           className="w-full resize-y rounded-xl border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-700 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
         />
       </label>

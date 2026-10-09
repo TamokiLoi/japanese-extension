@@ -10,6 +10,7 @@ export type CorrectionIssueType =
   | "wrong-reading"
   | "wrong-usage"
   | "wrong-example"
+  | "wrong-answer"
   | "personal-note"
   | "other";
 
@@ -32,8 +33,15 @@ export interface GrammarCorrectionSnapshot {
   chapterTitle?: string;
 }
 
-export type CorrectionSnapshot = VocabCorrectionSnapshot | GrammarCorrectionSnapshot;
-export type CorrectionEntityType = "vocab" | "grammar";
+export interface StudyCorrectionSnapshot {
+  title: string;
+  context: string;
+  currentValue: string;
+  sources: string[];
+}
+
+export type CorrectionSnapshot = VocabCorrectionSnapshot | GrammarCorrectionSnapshot | StudyCorrectionSnapshot;
+export type CorrectionEntityType = "vocab" | "grammar" | "study";
 
 interface DataCorrectionBase {
   id: string;
@@ -50,7 +58,8 @@ interface DataCorrectionBase {
 
 export type DataCorrectionEntry =
   | (DataCorrectionBase & { entityType: "vocab"; snapshot: VocabCorrectionSnapshot })
-  | (DataCorrectionBase & { entityType: "grammar"; snapshot: GrammarCorrectionSnapshot });
+  | (DataCorrectionBase & { entityType: "grammar"; snapshot: GrammarCorrectionSnapshot })
+  | (DataCorrectionBase & { entityType: "study"; snapshot: StudyCorrectionSnapshot });
 
 export interface SaveCorrectionInput {
   id?: string;
@@ -74,7 +83,9 @@ export async function loadDataCorrections(): Promise<DataCorrectionEntry[]> {
     (entry): entry is DataCorrectionEntry =>
       typeof entry === "object" &&
       entry !== null &&
-      ((entry as DataCorrectionEntry).entityType === "vocab" || (entry as DataCorrectionEntry).entityType === "grammar") &&
+      ((entry as DataCorrectionEntry).entityType === "vocab" ||
+        (entry as DataCorrectionEntry).entityType === "grammar" ||
+        (entry as DataCorrectionEntry).entityType === "study") &&
       typeof (entry as DataCorrectionEntry).id === "string" &&
       typeof (entry as DataCorrectionEntry).entityId === "string" &&
       typeof (entry as DataCorrectionEntry).suggestedValue === "string",
@@ -104,6 +115,8 @@ export async function saveDataCorrection(input: SaveCorrectionInput): Promise<Da
   if (entityType === "vocab" && "word" in input.snapshot) {
     next = { ...base, entityType, snapshot: input.snapshot };
   } else if (entityType === "grammar" && "pattern" in input.snapshot) {
+    next = { ...base, entityType, snapshot: input.snapshot };
+  } else if (entityType === "study" && "title" in input.snapshot) {
     next = { ...base, entityType, snapshot: input.snapshot };
   } else {
     throw new Error("Correction entity type does not match its snapshot");

@@ -61,7 +61,7 @@ export function SettingsScreen({
   async function handleDelete(entry: DataCorrectionEntry) {
     const accepted = await confirm({
       title: "Xoá góp ý dữ liệu?",
-      message: `Góp ý cho “${entry.entityType === "grammar" ? entry.snapshot.pattern : entry.snapshot.word}” sẽ bị xoá khỏi trình duyệt này.`,
+      message: `Góp ý cho “${entry.entityType === "grammar" ? entry.snapshot.pattern : entry.entityType === "vocab" ? entry.snapshot.word : entry.snapshot.title}” sẽ bị xoá khỏi trình duyệt này.`,
       confirmLabel: "Xoá",
     });
     if (!accepted) return;
@@ -179,7 +179,7 @@ export function SettingsScreen({
               <p className="mt-0.5 text-sm text-neutral-500">
                 {corrections.length > 0
                   ? `${corrections.filter((entry) => entry.status === "open").length} chưa xử lý · ${corrections.length} tổng cộng`
-                  : "Các nghĩa sai hoặc nghĩa cần bổ sung sẽ xuất hiện tại đây."}
+              : "Góp ý từ vựng, ngữ pháp và câu hỏi luyện tập sẽ xuất hiện tại đây."}
               </p>
             </div>
           </div>
@@ -195,7 +195,7 @@ export function SettingsScreen({
 
         {corrections.length === 0 ? (
           <div className="mt-4 rounded-xl border border-dashed border-neutral-200 bg-neutral-50 px-4 py-6 text-center text-sm text-neutral-400">
-            Mở một thẻ Từ vựng hoặc Ngữ pháp và bấm biểu tượng góp ý để ghi nhận dữ liệu cần sửa.
+            Mở thẻ Từ vựng, Ngữ pháp hoặc câu hỏi luyện tập rồi bấm Góp ý để lưu nội dung tại đây.
           </div>
         ) : (
           <div className="mt-4 space-y-3">
@@ -204,10 +204,10 @@ export function SettingsScreen({
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-bold text-neutral-800">{entry.entityType === "grammar" ? entry.snapshot.pattern : entry.snapshot.word}</span>
+                      <span className="line-clamp-2 font-bold text-neutral-800">{entry.entityType === "grammar" ? entry.snapshot.pattern : entry.entityType === "vocab" ? entry.snapshot.word : entry.snapshot.title}</span>
                       {entry.entityType === "vocab" && entry.snapshot.reading ? <span className="text-xs text-neutral-500">{entry.snapshot.reading}</span> : null}
                       <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-semibold text-neutral-500">
-                        {entry.entityType === "grammar" ? "Ngữ pháp" : "Từ vựng"}
+                        {entry.entityType === "grammar" ? "Ngữ pháp" : entry.entityType === "vocab" ? "Từ vựng" : "Luyện tập"}
                       </span>
                       <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${entry.status === "applied" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}`}>
                         {entry.status === "applied" ? "Đã xử lý" : "Chưa xử lý"}
@@ -233,17 +233,25 @@ export function SettingsScreen({
                   <div className="rounded-lg bg-white/70 p-2.5">
                     <div className="text-[10px] font-semibold tracking-wide text-neutral-400 uppercase">Dữ liệu hiện tại</div>
                     <div className="mt-1 text-neutral-600">
-                      {entry.issueType === "add-new-vocab" ? "Chưa có trong dữ liệu" : entry.snapshot.meaningVi || "—"}
+                      {entry.issueType === "add-new-vocab"
+                        ? "Chưa có trong dữ liệu"
+                        : entry.entityType === "study"
+                          ? entry.snapshot.currentValue || "—"
+                          : entry.snapshot.meaningVi || "—"}
                     </div>
                   </div>
                   <div className="rounded-lg bg-white/70 p-2.5">
                     <div className="text-[10px] font-semibold tracking-wide text-neutral-400 uppercase">
-                      {entry.issueType === "add-new-vocab" ? "Nghĩa đề xuất" : "Đề xuất"}
+                      {entry.issueType === "add-new-vocab"
+                        ? "Nghĩa đề xuất"
+                        : entry.issueType === "personal-note" && entry.entityType === "study"
+                          ? "Ghi chú"
+                          : "Đề xuất"}
                     </div>
                     <div className="mt-1 whitespace-pre-wrap text-neutral-800">{entry.suggestedValue}</div>
                   </div>
                 </div>
-                {entry.snapshot.level ? <div className="mt-2 text-xs text-neutral-500">Cấp JLPT: {entry.snapshot.level}</div> : null}
+                {entry.entityType !== "study" && entry.snapshot.level ? <div className="mt-2 text-xs text-neutral-500">Cấp JLPT: {entry.snapshot.level}</div> : null}
                 {entry.note ? <div className="mt-2 text-xs text-neutral-500">Ghi chú: {entry.note}</div> : null}
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
                   <div className="text-[11px] text-neutral-400">Nguồn: {entry.snapshot.sources.join(" · ")}</div>
