@@ -282,9 +282,9 @@ export function JlptQuestionStudyScreen({
 
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <label className="block text-xs font-semibold text-neutral-500">
-          Bộ đề
+          Nguồn đề ôn
           <select
-            aria-label="Bộ đề JLPT"
+            aria-label="Nguồn đề ôn JLPT"
             value={source}
             onChange={(event) => changeSource(event.target.value)}
             className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-sm font-medium text-neutral-800 outline-none focus:border-rose-300"
@@ -293,9 +293,9 @@ export function JlptQuestionStudyScreen({
           </select>
         </label>
         <label className="block text-xs font-semibold text-neutral-500">
-          Đề thi
+          Kỳ thi / bộ đề
           <select
-            aria-label="Chọn đề JLPT"
+            aria-label="Chọn kỳ thi hoặc bộ đề JLPT"
             value={selectedExam?.exam.id ?? ""}
             onChange={(event) => changeExam(event.target.value)}
             className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-sm font-medium text-neutral-800 outline-none focus:border-rose-300"
@@ -304,6 +304,7 @@ export function JlptQuestionStudyScreen({
           </select>
         </label>
       </div>
+      <p className="mt-1 text-xs text-neutral-400">Hai lựa chọn này chỉ lọc danh sách ôn Goi và ngữ pháp bên dưới.</p>
 
       <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
         <StatCard label="Đã làm đúng" value={correctCount} tone="emerald" active={statusFilter === "correct"} onClick={() => setStatusFilter(statusFilter === "correct" ? "all" : "correct")} />

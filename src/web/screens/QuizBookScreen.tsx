@@ -267,7 +267,7 @@ function ListView({
       </div>
 
       <FilterBar>
-        <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
+        <FilterTrigger count={filterCount} label="Lọc kho câu hỏi" onClick={() => setFilterOpen(true)} />
         <Select
           items={countOptions.map((n) => ({ value: n, label: n === ALL_QUESTIONS_SENTINEL ? "Tất cả" : `${n} câu` }))}
           value={selectedCount}
@@ -327,11 +327,11 @@ function ListView({
       <FilterSheet
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
-        title="Bộ lọc luyện đề"
+        title="Lọc kho câu hỏi"
         onReset={() => mutate({ selectedBooks: booksInCurrentGroup, selectedCategories: [...AVAILABLE_CATEGORIES] })}
       >
         {AVAILABLE_GROUPS.length > 1 ? (
-          <FilterGroup title="Nguồn">
+          <FilterGroup title="Loại kho câu hỏi">
             {AVAILABLE_GROUPS.map((group) => (
               <FilterChipOption
                 key={group}
