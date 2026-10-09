@@ -45,7 +45,7 @@ import { stableHash } from "../../lib/jlptReading.ts";
 import { splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
-import { getJlptListeningMondaiLabel } from "../../lib/listeningMondai.ts";
+import { getJlptListeningMondaiLabel, getJlptPointQuestionPrompt } from "../../lib/listeningMondai.ts";
 import type { Screen } from "../../popup/screens.ts";
 
 type Step =
@@ -335,7 +335,7 @@ function listeningFuriganaSegments(
   return segments;
 }
 
-function withListeningReviewContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
+function withListeningContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
   const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
   if (paperId !== "choukai" || !book) return question;
 
@@ -361,12 +361,18 @@ function withListeningReviewContent(examId: string, paperId: string, question: D
   const transcriptTurns = source.turns.map((turn) => ({ ...turn }));
   const transcript = transcriptTurns.map((turn) => `${turn.speaker}：${turn.text}`).join("\n");
   const transcriptVi = transcriptTurns.map((turn) => turn.textVi ? `${turn.speaker}：${turn.textVi}` : "").filter(Boolean).join("\n");
+  const pointQuestionPrompt = getJlptPointQuestionPrompt(source);
   const hasQuestionSentence = source.question.trim() && !/^\d+番$/u.test(source.question.trim());
   const listeningPrompt = source.scenario.trim();
-  const enrichedQuestion = source.question.trim()
-    ? hasQuestionSentence ? source.question.trim() : question.question
-    : source.taskType === "sokuji" ? "" : question.question;
-  const questionFurigana = listeningFuriganaSegments(enrichedQuestion, source.questionFurigana);
+  const enrichedQuestion = pointQuestionPrompt
+    ? `${source.question.trim()}\n${pointQuestionPrompt.text}`
+    : source.question.trim()
+      ? hasQuestionSentence ? source.question.trim() : question.question
+      : source.taskType === "sokuji" ? "" : question.question;
+  const spokenQuestionVi = pointQuestionPrompt
+    ? source.questionPromptVi || (/^\d+番$/u.test(source.question.trim()) ? source.turns.at(-1)?.textVi : undefined)
+    : undefined;
+  const questionFurigana = listeningFuriganaSegments(enrichedQuestion, pointQuestionPrompt?.furigana ?? source.questionFurigana);
   const hasOptionFurigana = source.optionFurigana?.some((annotations) => annotations.length);
   const optionsFurigana = optionsMatch && hasOptionFurigana
     ? source.options.map((option, index) => listeningFuriganaSegments(option, source.optionFurigana?.[index]))
@@ -375,7 +381,7 @@ function withListeningReviewContent(examId: string, paperId: string, question: D
   return {
     ...question,
     question: enrichedQuestion,
-    questionVi: source.questionVi || question.questionVi,
+    questionVi: spokenQuestionVi || source.questionVi || question.questionVi,
     questionFurigana: questionFurigana ?? question.questionFurigana,
     optionsVi: optionsMatch && source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
     optionsFurigana: optionsMatch && optionsFurigana?.every((segments) => !!segments)
@@ -1343,7 +1349,8 @@ function TakingView({
 
   const idx = session.currentIndex;
   const group = questionDisplayGroup(paper, idx);
-  const questions = paper.questions.slice(group.start, group.end);
+  const questions = paper.questions.slice(group.start, group.end)
+    .map((question) => withListeningContent(exam.id, paper.id, question));
   const firstQuestion = questions[0];
   const listeningMondaiLabel = paper.id === "choukai" || paper.audioUrl
     ? getJlptListeningMondaiLabel(firstQuestion.problemGroup)
@@ -1683,7 +1690,7 @@ function ResultView({
           {found.paper.questions.map((question, i) => (
             <ReviewQuestion
               key={i}
-              question={withListeningReviewContent(found.exam.id, found.paper.id, question)}
+              question={withListeningContent(found.exam.id, found.paper.id, question)}
               level={found.exam.level}
               passage={passageForQuestion(found.paper, i)}
               passageFurigana={passageFuriganaForQuestion(found.paper, i)}
@@ -1721,7 +1728,7 @@ function ResultView({
               {Array.from({ length: reviewGroup.end - reviewGroup.start }, (_, offset) => reviewGroup.start + offset).map((i) => (
                 <div id={`exam-review-question-${i}`} key={i}>
                   <ReviewQuestion
-                    question={withListeningReviewContent(found.exam.id, found.paper.id, found.paper.questions[i])}
+                    question={withListeningContent(found.exam.id, found.paper.id, found.paper.questions[i])}
                     level={found.exam.level}
                     passage={passageForQuestion(found.paper, i)}
                     passageFurigana={passageFuriganaForQuestion(found.paper, i)}

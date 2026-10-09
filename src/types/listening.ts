@@ -37,6 +37,11 @@ export interface ListeningQuestion {
   question: string;
   questionFurigana?: { word: string; reading: string }[];
   questionVi: string;
+  // Explicit spoken question stem when the source transcript does not store
+  // the prompt as a separate final turn (e.g. N1 JLPT Mondai 2).
+  questionPrompt?: string;
+  questionPromptFurigana?: { word: string; reading: string }[];
+  questionPromptVi?: string;
   // Some 課題理解-style items use illustrated (picture) answer choices --
   // the book never prints those as text anywhere, so there's nothing to OCR.
   // Rather than crop individual pictures out (extra Gemini calls to guess

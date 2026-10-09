@@ -34,6 +34,40 @@ export function getListeningMondaiNumber(
   return undefined;
 }
 
+/**
+ * Gets the spoken question shown before audio for official JLPT Mondai 2.
+ * N3 exam datasets repeat the stem as their final turn; N1 keeps the curated
+ * stem in `questionPrompt` because its transcript only contains the dialogue.
+ */
+export function getJlptPointQuestionPrompt(
+  question: Pick<
+    ListeningQuestion,
+    | "book"
+    | "level"
+    | "taskType"
+    | "question"
+    | "questionPrompt"
+    | "questionPromptFurigana"
+    | "turns"
+  >,
+): { text: string; furigana?: { word: string; reading: string }[] } | undefined {
+  if (getListeningMondaiNumber(question) !== 2) return undefined;
+
+  const explicitPrompt = question.questionPrompt?.trim();
+  if (explicitPrompt) {
+    return { text: explicitPrompt, furigana: question.questionPromptFurigana };
+  }
+
+  // Textbooks already use `question` for the printed stem. The JLPT exam
+  // datasets use only a number there, while the actual prompt is repeated
+  // after the dialogue in their last transcript turn.
+  if (!/^\d+番$/u.test(question.question.trim())) return undefined;
+  const repeatedPrompt = question.turns.at(-1);
+  const text = repeatedPrompt?.text.trim();
+  if (!text) return undefined;
+  return { text, furigana: repeatedPrompt?.furigana };
+}
+
 /** Adds the learner-friendly name beside a native exam's 問題 group. */
 export function getJlptListeningMondaiLabel(problemGroup: string | undefined): string | undefined {
   const match = /^問題\s*([1-5])$/u.exec(problemGroup?.trim() ?? "");

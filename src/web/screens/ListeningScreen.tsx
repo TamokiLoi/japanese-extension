@@ -42,7 +42,7 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FuriganaText } from "../components/FuriganaText.tsx";
 import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
-import { getListeningMondaiNumber } from "../../lib/listeningMondai.ts";
+import { getJlptPointQuestionPrompt, getListeningMondaiNumber } from "../../lib/listeningMondai.ts";
 
 const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; description: string }> = {
   kadai: {
@@ -51,7 +51,7 @@ const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; descripti
   },
   point: {
     title: "ポイント理解 · Trọng điểm",
-    description: "Đọc câu hỏi trước để biết cần chú ý thông tin nào trong đoạn hội thoại.",
+    description: "Xem câu hỏi và các lựa chọn trước khi nghe để biết cần chú ý thông tin nào trong đoạn hội thoại.",
   },
   gaiyou: {
     title: "概要理解 · Khái quát",
@@ -426,6 +426,7 @@ function QuestionView({
   const answered = selected !== null;
   const currentIndex = filtered.findIndex((q) => q.id === question.id);
   const mondaiNumber = getListeningMondaiNumber(question);
+  const jlptPointQuestionPrompt = getJlptPointQuestionPrompt(question);
   const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
   const nextQuestion = currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
 
@@ -460,14 +461,17 @@ function QuestionView({
       : question.taskType === "gaiyou"
         ? "Nghe toàn bộ bài rồi chọn đáp án đúng"
         : "Nghe rồi chọn đáp án đúng"
-    : question.scenario || question.question;
+    : question.scenario || jlptPointQuestionPrompt?.text || question.question;
   // Immediate-response items store the spoken line in `scenario` and leave
   // `question` empty. Keep the prompt visible after answering so the learner
   // can review the Japanese line and its translation here.
   const showAudioPrompt = !(answered && question.taskType === "sokuji" && Boolean(question.question));
   const optionExplanations = question.optionExplanations ?? [];
   const hasOptionExplanations = optionExplanations.some((explanation) => explanation.trim());
-  const audioPromptFurigana = question.scenario ? question.scenarioFurigana : question.questionFurigana;
+  const audioPromptTranslation = question.scenario ? question.scenarioVi : question.questionPromptVi;
+  const audioPromptFurigana = question.scenario
+    ? question.scenarioFurigana
+    : jlptPointQuestionPrompt?.furigana ?? question.questionFurigana;
 
   function selectAnswer(oi: number) {
     const correct = oi === question.correctIndex;
@@ -519,11 +523,16 @@ function QuestionView({
             <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
               <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
               <span>
+                {jlptPointQuestionPrompt ? (
+                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-wide text-neutral-400">
+                    Câu hỏi · {question.question}
+                  </span>
+                ) : null}
                 {showFurigana && answered ? <FuriganaText annotations={audioPromptFurigana} text={audioPrompt} /> : audioPrompt}
               </span>
             </div>
-            {answered && showTranslation && question.scenarioVi ? (
-              <div className="ml-[25px] text-sm text-neutral-400">{question.scenarioVi}</div>
+            {answered && showTranslation && audioPromptTranslation ? (
+              <div className="ml-[25px] text-sm text-neutral-400">{audioPromptTranslation}</div>
             ) : null}
           </>
         ) : null}
