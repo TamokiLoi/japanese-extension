@@ -1,0 +1,1887 @@
+{
+  "questions": [
+    {
+      "id": "listening-dethi-n3-2023-07-q01",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "kadai",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q01.mp3",
+      "optionCount": 4,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "男の人と女の人が話しています。男の人は来週の週末、犬をどうしますか。",
+          "textVi": "Nam và nữ đang nói chuyện. Nam sẽ làm gì với con chó vào cuối tuần sau?"
+        },
+        {
+          "speaker": "男",
+          "text": "西田さん、前に犬飼ってたよね？うち、犬がいるでしょう。実は来週の週末、実家に帰らなくちゃいけなくなって……一泊だけなんだけど預かってもらえない？",
+          "textVi": "Nishida-san, trước đây bạn từng nuôi chó đúng không? Nhà tôi có nuôi một con. Thực ra cuối tuần sau tôi có việc phải về quê... chỉ một đêm thôi nhưng bạn có thể trông giúp được không?"
+        },
+        {
+          "speaker": "女",
+          "text": "あぁ、来週の週末は友達と旅行なんだ。実家に一緒に連れて行けないの？",
+          "textVi": "À, cuối tuần sau tôi đi du lịch với bạn rồi. Không thể đưa nó về quê cùng à?"
+        },
+        {
+          "speaker": "男",
+          "text": "そうしたいんだけど、父がアレルギーがあって……。",
+          "textVi": "Tôi cũng muốn thế, nhưng bố tôi bị dị ứng..."
+        },
+        {
+          "speaker": "女",
+          "text": "じゃ、ペットホテルに預けたら？私も前に使ったことあるけど、駅前の所、よかったよ。",
+          "textVi": "Thế thì gửi ở khách sạn thú cưng đi? Tôi cũng từng dùng rồi, cái chỗ trước ga ấy, rất được đấy."
+        },
+        {
+          "speaker": "男",
+          "text": "本当？預けたことないから心配だったけど、そうしてみる。",
+          "textVi": "Thật á? Tôi chưa từng gửi bao giờ nên hơi lo, nhưng tôi sẽ thử làm thế xem."
+        },
+        {
+          "speaker": "女",
+          "text": "うん。一泊でも家には置いていかないしね。",
+          "textVi": "Ừ. Dù sao thì một đêm cũng không thể bỏ mặc nó ở nhà được."
+        },
+        {
+          "speaker": "男",
+          "text": "そうだね、ありがとう。",
+          "textVi": "Đúng thế nhỉ, cảm ơn bạn."
+        }
+      ],
+      "question": "男の人は来週の週末、犬をどうしますか。",
+      "questionVi": "Nam sẽ làm gì với con chó vào cuối tuần sau?",
+      "options": [
+        "西田さんにあずける",
+        "じっかにつれていく",
+        "ペットホテルにあずける",
+        "家においていく"
+      ],
+      "optionsVi": [
+        "Gửi cho Nishida-san",
+        "Đưa về quê",
+        "Gửi khách sạn thú cưng",
+        "Để ở nhà"
+      ],
+      "correctIndex": 2,
+      "explanation": "Người nam ban đầu định nhờ Nishida trông hộ nhưng cô ấy bận đi du lịch, còn đưa về quê thì không được vì bố bị dị ứng. Cuối cùng, theo gợi ý của người nữ, anh quyết định gửi chú chó vào khách sạn thú cưng.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án. Lựa chọn là hình trong trang đề nghe gốc. Bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không khớp vì Nishida-san từ chối do bận đi du lịch vào cuối tuần đó.",
+        "Lựa chọn 2 không khớp vì bố của nam nhân bị dị ứng nên không thể mang chú chó về quê.",
+        "Lựa chọn 3 khớp vì người nữ gợi ý đưa đến khách sạn thú cưng gần ga và người nam đã đồng ý làm theo.",
+        "Lựa chọn 4 không khớp vì người nữ đã khẳng định không thể bỏ mặc chú chó ở nhà một mình."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q02",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "kadai",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q02.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "会社で課長と男の人が話しています。男の人は資料を何人分コピーして誰に渡しますか。",
+          "textVi": "Tại công ty, trưởng phòng và nam nhân viên đang nói chuyện. Nam nhân viên photo tài liệu cho mấy người và đưa cho ai?"
+        },
+        {
+          "speaker": "女",
+          "text": "あの、ちょっと頼みたいことがあるんですが……会議用の資料をコピーしてもらいたいんです。会議まであと三十五分しかないんですけど、それまでにお願いできますか。私、会議前に終わらせなければいけない仕事があって……。",
+          "textVi": "À, tôi có việc muốn nhờ chút... Tôi muốn nhờ bạn photo tài liệu dùng cho cuộc họp. Chỉ còn 35 phút nữa là đến cuộc họp thôi, bạn làm kịp trước lúc đó chứ? Tôi có việc phải hoàn thành trước cuộc họp..."
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。",
+          "textVi": "Vâng, tôi hiểu rồi."
+        },
+        {
+          "speaker": "女",
+          "text": "この資料を十人分お願いします。",
+          "textVi": "Nhờ bạn photo tài liệu này 10 người nhé."
+        },
+        {
+          "speaker": "男",
+          "text": "はい、十人分ですね。終わったらお持ちします。",
+          "textVi": "Vâng, 10 người phải không ạ. Xong tôi sẽ mang đi."
+        },
+        {
+          "speaker": "女",
+          "text": "あ、会議室に持っていってください。木村さんが会議室の準備をしているので渡してくれますか。",
+          "textVi": "À, hãy mang đến phòng họp nhé. Anh Kimura đang chuẩn bị phòng họp nên bạn đưa cho anh ấy nhé?"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。",
+          "textVi": "Vâng."
+        },
+        {
+          "speaker": "女",
+          "text": "あ、すみません。営業の人も出席することになったって言ってたから、あと三人分お願いします。",
+          "textVi": "À, xin lỗi nhé. Nghe nói người bên bộ phận kinh doanh cũng sẽ tham dự, nên làm thêm 3 người nữa nhé."
+        }
+      ],
+      "question": "男の人は資料を何人分コピーして誰に渡しますか。",
+      "questionVi": "Nam nhân viên photo tài liệu cho mấy người và đưa cho ai?",
+      "options": [
+        "3人分コピーして、かちょうにわたす",
+        "3人分コピーして、木村さんにわたす",
+        "13人分コピーして、かちょうにわたす",
+        "13人分コピーして、木村さんにわたす"
+      ],
+      "optionsVi": [
+        "Photo 3 phần và đưa cho trưởng phòng",
+        "Photo 3 phần và đưa cho anh Kimura",
+        "Photo 13 phần và đưa cho trưởng phòng",
+        "Photo 13 phần và đưa cho anh Kimura"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ban đầu yêu cầu photo 10 phần, sau đó cộng thêm 3 phần cho người bộ phận kinh doanh thành tổng cộng 13 phần. Toàn bộ tài liệu được chỉ định mang đến phòng họp để đưa cho anh Kimura đang chuẩn bị ở đó.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không khớp vì số lượng là 13 phần chứ không phải 3 phần, và người nhận là anh Kimura chứ không phải trưởng phòng.",
+        "Lựa chọn 2 không khớp vì số lượng tài liệu yêu cầu ban đầu là 10 phần sau đó cộng thêm 3 phần thành 13 phần.",
+        "Lựa chọn 3 không khớp vì người nhận tài liệu là anh Kimura đang chuẩn bị phòng họp chứ không phải trưởng phòng.",
+        "Lựa chọn 4 khớp vì tổng số lượng tài liệu là 10 cộng 3 thành 13 phần, và người nữ dặn mang đến đưa cho anh Kimura."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q03",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "kadai",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q03.mp3",
+      "optionsImage": "public/images/listening/cacnam-2023-07-listening-p1.jpg",
+      "optionCount": 4,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "留学生とホストファミリーのお母さんが話しています。留学生は今日の午後、何をしますか。",
+          "textVi": "Một lưu học sinh và mẹ của gia đình host đang nói chuyện với nhau. Lưu học sinh sẽ làm gì vào chiều nay?"
+        },
+        {
+          "speaker": "男",
+          "text": "今日、午後から暇なんですけど、何かすることありますか。お風呂の掃除しましょうか。",
+          "textVi": "Chiều nay em rảnh, có việc gì cần làm không ạ? Em dọn phòng tắm nhé?"
+        },
+        {
+          "speaker": "女",
+          "text": "ありがとう。でも、さっき終わったから。",
+          "textVi": "Cảm ơn em. Nhưng mà vừa nãy mẹ dọn xong rồi."
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。",
+          "textVi": "Thế ạ."
+        },
+        {
+          "speaker": "女",
+          "text": "あ、この間作ってくれた料理、おいしかったから、晩ご飯にもう一度作ってくれない？材料は鶏肉とキャベツだよね。ちょうどあるから。",
+          "textVi": "À, món ăn hôm trước em làm ngon lắm, tối nay em làm lại một lần nữa được không? Nguyên liệu là thịt gà với bắp cải đúng không? Nhà mình có sẵn rồi đấy."
+        },
+        {
+          "speaker": "男",
+          "text": "ああ、はい。いいですよ。",
+          "textVi": "Vâng, được ạ."
+        },
+        {
+          "speaker": "女",
+          "text": "じゃ、お願いね。あ、昨日のプリンターで印刷ができないからちょっと見てほしいって言ったけど、インクがなかっただけみたい。新しいの入れたからもう大丈夫。",
+          "textVi": "Vậy nhờ em nhé. À, hôm qua em bảo là máy in không in được nhờ mẹ xem hộ, nhưng hình như chỉ là hết mực thôi. Mẹ lắp cái mới vào rồi nên ổn rồi đấy."
+        },
+        {
+          "speaker": "男",
+          "text": "あ、すみません。忘れてました。",
+          "textVi": "À, em xin lỗi. Em quên mất."
+        }
+      ],
+      "question": "留学生は今日の午後、何をしますか。",
+      "questionVi": "Lưu học sinh sẽ làm gì vào chiều nay?",
+      "options": [],
+      "optionsVi": [],
+      "correctIndex": 1,
+      "explanation": "Người mẹ nhờ nam lưu học sinh nấu lại món ăn hôm trước cho bữa tối và nam sinh đã đồng ý.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án. Lựa chọn là hình trong trang đề nghe gốc. Bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 sai vì việc dọn phòng tắm đã xong; người mẹ không nhờ rửa hay dọn gì thêm.",
+        "Lựa chọn 2 đúng vì người mẹ nhờ nam sinh nấu lại món ăn đã làm hôm trước cho bữa tối, với thịt gà và bắp cải.",
+        "Lựa chọn 3 sai vì nguyên liệu đã có sẵn trong nhà; không có yêu cầu đi lấy hay mang rau củ.",
+        "Lựa chọn 4 sai vì người mẹ đã thay mực máy in và nói máy in dùng được rồi."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q04",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "kadai",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q04.mp3",
+      "optionsImage": "public/images/listening/cacnam-2023-07-listening-p2.jpg",
+      "optionCount": 4,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "レストランで、店長とアルバイトの女の学生が話しています。女の学生は何日までアルバイトをしますか。",
+          "textVi": "Tại một nhà hàng, cửa hàng trưởng và một nữ sinh làm thêm đang nói chuyện. Nữ sinh làm thêm sẽ làm việc đến ngày mấy?"
+        },
+        {
+          "speaker": "男",
+          "text": "森さんは四月から会社に就職することが決まってるんだよね？アルバイト、三月十五日を最後にしたいって言ってたけど、もう少し続けられない？三月いっぱいは無理だよね？",
+          "textVi": "Cô Mori đã quyết định sẽ vào làm ở công ty từ tháng 4 phải không nhỉ? Em từng bảo muốn kết thúc việc làm thêm vào ngày 15 tháng 3, nhưng có thể tiếp tục thêm chút nữa được không? Đến hết tháng 3 thì chắc là không được nhỉ?"
+        },
+        {
+          "speaker": "女",
+          "text": "えーと、今、金・土・日の週三日来てますから、三月いっぱいって言うと三月二十九日の日曜日までですか？",
+          "textVi": "Dạ, bây giờ em đang làm 3 buổi một tuần là thứ Sáu, thứ Bảy, Chủ nhật, nên nếu nói là đến hết tháng 3 thì là đến chủ nhật ngày 29 tháng 3 phải không ạ?"
+        },
+        {
+          "speaker": "男",
+          "text": "そう。この時期、週末は忙しいし人が足りなくなるんだ。",
+          "textVi": "Đúng vậy. Thời điểm này cuối tuần rất bận và thiếu người."
+        },
+        {
+          "speaker": "女",
+          "text": "卒業式が三月二十日の金曜日で、その週は都合が悪くて……だから十五日までって思ってたんですけど。",
+          "textVi": "Lễ tốt nghiệp là thứ Sáu ngày 20 tháng 3, tuần đó em vướng bận lịch nên... vì thế em mới nghĩ là đến ngày 15 thôi ạ."
+        },
+        {
+          "speaker": "男",
+          "text": "卒業式の週は来なくていいから、その翌週は頼めない？曜日は今までと同じで日曜日まで。",
+          "textVi": "Tuần lễ lễ tốt nghiệp thì em không cần đến cũng được, vậy tuần tiếp theo đó em có thể giúp anh được không? Các ngày trong tuần vẫn như cũ cho đến Chủ nhật."
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。その週は大丈夫です。",
+          "textVi": "Em hiểu rồi. Tuần đó thì em không vấn đề gì ạ."
+        }
+      ],
+      "question": "女の学生は何日までアルバイトをしますか。",
+      "questionVi": "Nữ sinh làm thêm sẽ làm việc đến ngày mấy?",
+      "options": [],
+      "optionsVi": [],
+      "correctIndex": 3,
+      "explanation": "Ban đầu nữ sinh dự định nghỉ làm vào ngày 15 tháng 3 do vướng tuần tốt nghiệp, nhưng sau khi cửa hàng trưởng đề nghị cô nghỉ vào tuần tốt nghiệp và làm tiếp tuần liền sau đó cho đến Chủ nhật, cô ấy đã đồng ý làm đến hết ngày 29 tháng 3.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án. Lựa chọn là hình trong trang đề nghe gốc. Bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 sai vì ngày 15 là ngày nữ sinh định nghỉ ban đầu; cửa hàng trưởng đang hỏi cô có thể làm lâu hơn không.",
+        "Lựa chọn 2 sai vì ngày 20 vẫn chưa phải hết tháng; cô đồng ý tiếp tục đến ngày cuối cùng trong tháng.",
+        "Lựa chọn 3 sai vì ngày 22 chưa phải ngày cuối tháng 3.",
+        "Lựa chọn 4 đúng vì ngày 29 là Chủ nhật cuối tháng 3, cũng là ngày cuối cùng trong lịch làm thứ Sáu, thứ Bảy và Chủ nhật của cô."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q05",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "kadai",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q05.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "会社で女の人と部長が話しています。女の人はこの後、何をしますか。",
+          "textVi": "Tại công ty, nữ nhân viên và trưởng phòng đang nói chuyện. Nữ nhân viên sẽ làm gì sau đây?"
+        },
+        {
+          "speaker": "女",
+          "text": "部長、こちら、明日の新商品の説明会で配るパンフレットです。",
+          "textVi": "Thưa trưởng phòng, đây là tờ rơi sẽ phát trong buổi giới thiệu sản phẩm mới vào ngày mai."
+        },
+        {
+          "speaker": "男",
+          "text": "ありがとう。山田さん、ちょうどよかった。説明会の場所が第一会議室から第三会議室に変わったんだ。参加者が思ったより増えそうだから、広い場所のほうがいいってことになって……。",
+          "textVi": "Cảm ơn em. Chị Yamada, em đến đúng lúc lắm. Địa điểm của buổi giới thiệu đã đổi từ phòng họp thứ nhất sang phòng họp thứ ba rồi. Vì người tham gia có vẻ sẽ đông hơn dự kiến, nên quyết định là chọn nơi rộng hơn..."
+        },
+        {
+          "speaker": "女",
+          "text": "え？場所が変わったんですか。",
+          "textVi": "Ể? Địa điểm đã thay đổi ạ?"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。それで第三会議室の椅子や机の準備、頼むよ。私の方で何人かに声をかけておいたから、一緒にやってくれる？",
+          "textVi": "Ừ. Vì vậy, nhờ em chuẩn bị bàn ghế ở phòng họp thứ ba nhé. Anh đã gọi vài người giúp rồi, em cùng làm với họ nhé?"
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。説明会の参加者に場所が変わったことをメールで伝えたほうがいいですか。",
+          "textVi": "Em hiểu rồi ạ. Tôi có nên gửi email thông báo việc đổi địa điểm cho những người tham gia buổi giới thiệu không ạ?"
+        },
+        {
+          "speaker": "男",
+          "text": "いや。それは明日、受付で案内してもらうことにするよ。他には参加者は増えるけどスケジュールは変わらないし、パンフレットは多めに用意してあるから大丈夫そうだね。",
+          "textVi": "Không. Việc đó để ngày mai hướng dẫn ở quầy tiếp đón là được. Ngoài ra, số lượng người tham gia tăng lên nhưng lịch trình không thay đổi, và tờ rơi thì đã chuẩn bị sẵn nhiều hơn nên có vẻ ổn rồi nhỉ."
+        },
+        {
+          "speaker": "女",
+          "text": "はい。",
+          "textVi": "Vâng ạ."
+        }
+      ],
+      "question": "女の人はこの後、何をしますか。",
+      "questionVi": "Nữ nhân viên sẽ làm gì sau đây?",
+      "options": [
+        "パンフレットを用意する",
+        "会場のじゅんびをする",
+        "さんかしゃにメールを送る",
+        "スケジュールを作りなおす"
+      ],
+      "optionsVi": [
+        "Chuẩn bị tờ rơi",
+        "Chuẩn bị hội场",
+        "Gửi email cho người tham gia",
+        "Làm lại lịch trình"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trưởng phòng nhờ nữ nhân viên chuẩn bị bàn ghế ở phòng họp số 3, và cô ấy đã đồng ý làm việc này ngay sau đoạn hội thoại.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì trưởng phòng đã xác nhận tờ rơi được chuẩn bị sẵn nhiều hơn và không cần làm thêm.",
+        "Lựa chọn 2 chính xác vì trưởng phòng đã trực tiếp nhờ nữ nhân viên chuẩn bị bàn ghế ở phòng họp số 3 và cô ấy đã nhận lời.",
+        "Lựa chọn 3 không chính xác vì trưởng phòng bảo không cần gửi email mà để ngày mai hướng dẫn trực tiếp ở quầy tiếp đón.",
+        "Lựa chọn 4 không chính xác vì trưởng phòng đã khẳng định lịch trình không thay đổi."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q06",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "kadai",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q06.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "専門学校で先生が就職試験の面接の練習について話しています。学生はこの後まず、何をしなければなりませんか。",
+          "textVi": "Tại trường chuyên môn, giáo viên đang nói về việc luyện tập phỏng vấn xin việc. Học sinh phải làm gì trước tiên sau đây?"
+        },
+        {
+          "speaker": "女",
+          "text": "今日の授業はこれで終わります。来週から授業の後に一人ずつ就職試験の面接の練習を行います。教室の後ろに日時を書いた表が貼ってあるので、希望するところに名前を書いて帰ってください。",
+          "textVi": "Buổi học hôm nay đến đây là kết thúc. Từ tuần sau, sau giờ học, chúng ta sẽ luyện tập phỏng vấn xin việc cho từng người một. Ở phía cuối phòng học có dán bảng ghi ngày giờ, hãy viết tên vào chỗ mong muốn rồi hãy về nhé."
+        },
+        {
+          "speaker": "女",
+          "text": "練習では私が質問をして、それに答えてもらいます。面接で予想される質問のプリントを今から配りますので、練習の日までにどう答えるか準備してきてください。",
+          "textVi": "Trong buổi luyện tập, tôi sẽ đặt câu hỏi và các bạn hãy trả lời. Ngay bây giờ tôi sẽ phát tờ in các câu hỏi dự kiến trong buổi phỏng vấn, hãy chuẩn bị trước cách trả lời cho đến ngày luyện tập nhé."
+        },
+        {
+          "speaker": "女",
+          "text": "練習にはスーツを着てくる必要はありませんが、面接用のスーツは用意しておいてくださいね。",
+          "textVi": "Khi luyện tập thì không cần mặc vest, nhưng hãy chuẩn bị sẵn bộ vest dùng cho buổi phỏng vấn nhé."
+        }
+      ],
+      "question": "学生はこの後まず、何をしなければなりませんか。",
+      "questionVi": "Học sinh phải làm gì trước tiên sau đây?",
+      "options": [
+        "日時を書いたひょうに名前を書く",
+        "めんせつのれんしゅうをする",
+        "質問の答えを考える",
+        "スーツを用意する"
+      ],
+      "optionsVi": [
+        "Viết tên vào bảng ghi ngày giờ",
+        "Luyện tập phỏng vấn",
+        "Suy nghĩ câu trả lời cho câu hỏi",
+        "Chuẩn bị đồ vest"
+      ],
+      "correctIndex": 0,
+      "explanation": "Giáo viên dặn học sinh trước khi về hãy viết tên vào bảng ghi ngày giờ được dán ở cuối lớp, đây là việc cần làm ngay.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 chính xác vì giáo viên hướng dẫn học sinh xem bảng ghi ngày giờ ở cuối lớp và viết tên vào trước khi về.",
+        "Lựa chọn 2 không chính xác vì việc luyện tập sẽ diễn ra từ tuần sau chứ chưa phải là việc làm ngay lúc này.",
+        "Lựa chọn 3 không chính xác vì việc chuẩn bị câu trả lời là để làm dần cho đến ngày luyện tập sau.",
+        "Lựa chọn 4 không chính xác vì giáo viên nói không cần mặc vest khi luyện tập mà chỉ cần chuẩn bị sẵn cho buổi phỏng vấn thực tế sau này."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q07",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "point",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q07.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "大学で男の学生と女の学生が話しています。女の学生は今度の夏休みは何が楽しみだと言っていますか。女の学生です。",
+          "textVi": "Nam sinh viên và nữ sinh viên đang nói chuyện ở trường đại học. Nữ sinh viên nói rằng cô ấy mong chờ điều gì nhất trong kỳ nghỉ hè tới? Người nữ sinh viên."
+        },
+        {
+          "speaker": "男",
+          "text": "もうすぐ夏休みだね。友達とどっか遊びに行ったりする？",
+          "textVi": "Sắp đến kỳ nghỉ hè rồi nhỉ. Cậu có định đi chơi đâu đó với bạn bè không?"
+        },
+        {
+          "speaker": "女",
+          "text": "ううん。夏休みが始まったらすぐ実家に帰ることにしたよ。姉に子どもが生まれて、赤ちゃんを連れて帰ってくるんだ。まだ写真でしか見たことないから早く会いたくって。",
+          "textVi": "Không. Tớ quyết định sẽ về quê ngay khi kỳ nghỉ hè bắt đầu. Chị tớ vừa sinh em bé và sẽ đưa em bé về cùng. Tớ mới chỉ nhìn thấy qua ảnh nên rất muốn được gặp sớm."
+        },
+        {
+          "speaker": "男",
+          "text": "それはいいね。家族と旅行とかするの？",
+          "textVi": "Thế thì hay quá nhỉ. Cậu có đi du lịch hay gì đó với gia đình không?"
+        },
+        {
+          "speaker": "女",
+          "text": "うん、温泉に行くんだ。夏に温泉は暑くて嫌なんだけどね。佐藤くんは何かするの？",
+          "textVi": "Ừ, bọn tớ sẽ đi suối nước nóng. Mặc dù mùa hè đi suối nước nóng thì nóng nực nên tớ không thích lắm. Còn Satoshi có làm gì không?"
+        },
+        {
+          "speaker": "男",
+          "text": "新しいアルバイトを始めるんだ。海の近くのカフェなんだけど。",
+          "textVi": "Tớ sẽ bắt đầu làm thêm công việc mới. Là một quán cà phê ở gần biển."
+        }
+      ],
+      "question": "女の学生は今度の夏休みは何が楽しみだと言っていますか。",
+      "questionVi": "Nữ sinh viên nói rằng cô ấy mong chờ điều gì nhất trong kỳ nghỉ hè tới?",
+      "options": [
+        "友だちとあそびに行くこと",
+        "姉の子どもに会うこと",
+        "かぞくとおんせんに行くこと",
+        "新しいアルバイトを始めること"
+      ],
+      "optionsVi": [
+        "Đi chơi với bạn bè",
+        "Gặp con của chị gái",
+        "Đi suối nước nóng cùng gia đình",
+        "Bắt đầu công việc làm thêm mới"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nữ sinh chia sẻ rằng chị gái mới sinh em bé và sẽ đưa cháu về quê, cô mới chỉ thấy qua ảnh nên rất muốn sớm được gặp, qua đó xác định Lựa chọn 2 là đáp án chính xác.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì cô ấy đã trả lời không đi chơi đâu với bạn bè.",
+        "Lựa chọn 2 chính xác vì cô ấy háo hức muốn gặp em bé của chị gái mới sinh mà cô chưa từng gặp ngoài đời.",
+        "Lựa chọn 3 không chính xác vì dù cô ấy có đi suối nước nóng, cô ấy lại bày tỏ sự không thích vì thời tiết nóng.",
+        "Lựa chọn 4 không chính xác vì việc làm thêm ở quán cà phê gần biển là dự định của nam sinh."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q08",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "point",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q08.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "大学で女の学生と男の学生が話しています。二人はいつ発表について相談をしますか。",
+          "textVi": "Nữ sinh viên và nam sinh viên đang nói chuyện ở trường đại học. Hai người sẽ thảo luận về buổi thuyết trình vào khi nào?"
+        },
+        {
+          "speaker": "女",
+          "text": "高橋くん、来週の授業で二人でする発表のことなんだけど、当日の流れとか今日の午後四時から相談することにしてたよね。",
+          "textVi": "Takahashi này, về buổi thuyết trình hai người chúng mình sẽ làm trong giờ học tuần tới, chúng ta đã định thảo luận về trình tự trong ngày vào lúc 4 giờ chiều hôm nay đúng không?"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。",
+          "textVi": "Ừ."
+        },
+        {
+          "speaker": "女",
+          "text": "青木先生のレポートの締め切り、明日の昼十二時まででしょう。私まだ終わってなくて……。",
+          "textVi": "Hạn chót nộp báo cáo cho thầy Aoki là 12 giờ trưa mai phải không? Tớ vẫn chưa làm xong..."
+        },
+        {
+          "speaker": "男",
+          "text": "そっか。じゃ、今日は早めに五時には終わらせようか。",
+          "textVi": "Vậy à. Thế thì hôm nay chúng ta kết thúc sớm vào lúc 5 giờ nhé?"
+        },
+        {
+          "speaker": "女",
+          "text": "申し訳ないんだけど、できれば明日にしてくれない？今日はレポートに集中したくて……。",
+          "textVi": "Xin lỗi nhưng nếu có thể thì cậu đổi sang ngày mai được không? Hôm nay tớ muốn tập trung làm báo cáo..."
+        },
+        {
+          "speaker": "男",
+          "text": "わかった。時間は今日と同じでいい？",
+          "textVi": "Biết rồi. Thời gian vẫn như hôm nay được chứ?"
+        },
+        {
+          "speaker": "女",
+          "text": "うん。ごめんね。ありがとう。",
+          "textVi": "Ừ. Xin lỗi cậu nhé. Cảm ơn cậu."
+        }
+      ],
+      "question": "二人はいつ発表について相談をしますか。",
+      "questionVi": "Hai người sẽ thảo luận về buổi thuyết trình vào khi nào?",
+      "options": [
+        "今日の午後4時から",
+        "今日の午後5時から",
+        "あしたの午後4時から",
+        "あしたの午後5時から"
+      ],
+      "optionsVi": [
+        "Hôm nay lúc 4 giờ chiều",
+        "Hôm nay lúc 5 giờ chiều",
+        "Ngày mai lúc 4 giờ chiều",
+        "Ngày mai lúc 5 giờ chiều"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nữ sinh đề nghị dời lịch sang ngày mai vì hôm nay phải tập trung làm báo cáo, và xác nhận thời gian vẫn giữ nguyên như dự kiến ban đầu là lúc 4 giờ chiều, khớp với Lựa chọn 3.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì lịch 4 giờ chiều hôm nay đã bị hoãn theo đề nghị của nữ sinh.",
+        "Lựa chọn 2 không chính xác vì mốc 5 giờ chiều là đề xuất ban đầu bị từ chối.",
+        "Lựa chọn 3 chính xác vì cuộc hẹn được dời sang ngày mai và giữ nguyên mốc thời gian cũ là 4 giờ chiều.",
+        "Lựa chọn 4 không chính xác vì thời gian được giữ nguyên như dự định ban đầu chứ không phải 5 giờ chiều."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q09",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "point",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q09.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "男の人と女の人が話しています。男の人は新しい鍋について何が一番いいと言っていますか。男の人です。",
+          "textVi": "Nam và nữ đang nói chuyện. Người đàn ông nói điều gì là tốt nhất về chiếc nồi mới? Người đàn ông."
+        },
+        {
+          "speaker": "男",
+          "text": "最近新しい鍋を買って、家でよく料理をするようになったんだ。",
+          "textVi": "Gần đây tôi đã mua một chiếc nồi mới, và bắt đầu nấu ăn ở nhà thường xuyên hơn."
+        },
+        {
+          "speaker": "女",
+          "text": "そうなんだ。最近の鍋は軽くて使いやすいのが多いよね。",
+          "textVi": "Thế à. Những chiếc nồi gần đây thường nhẹ và dễ sử dụng phải không."
+        },
+        {
+          "speaker": "男",
+          "text": "僕が買った鍋は結構重いんだけどね。調味料や水をあまり入れなくてよくて、野菜や肉の味を引き出してくれるんだ。",
+          "textVi": "Chiếc nồi tôi mua khá nặng đấy. Nhưng nó không cần cho nhiều gia vị hay nước, mà làm nổi bật vị ngon của rau và thịt."
+        },
+        {
+          "speaker": "女",
+          "text": "すごい。調味料が少なくていいなら、体にも良さそうだね。",
+          "textVi": "Tuyệt thật. Nếu dùng ít gia vị thì có vẻ cũng tốt cho sức khỏe nữa."
+        },
+        {
+          "speaker": "男",
+          "text": "あぁ、そうなんだけど。材料を入れて蓋をして火にかけるだけで、おいしい料理ができるんだよ。そこが特に気に入ってるんだ。",
+          "textVi": "À, đúng là thế. Chỉ cần cho nguyên liệu vào, đậy nắp và đun lên là có thể làm ra món ăn ngon. Đó là điểm tôi đặc biệt thích."
+        },
+        {
+          "speaker": "女",
+          "text": "それはいいね。私も最近取っ手を取れる鍋を買ったんだ。",
+          "textVi": "Thế thì tuyệt quá. Gần đây tôi cũng đã mua một chiếc nồi có thể tháo rời tay cầm."
+        },
+        {
+          "speaker": "男",
+          "text": "あぁ、便利だよね。",
+          "textVi": "À, tiện lợi lắm đúng không."
+        }
+      ],
+      "question": "男の人は新しい鍋について何が一番いいと言っていますか。",
+      "questionVi": "Người đàn ông cho biết điều gì là tốt nhất về chiếc nồi mới?",
+      "options": [
+        "軽くて使いやすいこと",
+        "体にいい料理が作れること",
+        "かんたんにおいしい料理ができること",
+        "とってがとれること"
+      ],
+      "optionsVi": [
+        "Nhẹ và dễ sử dụng",
+        "Có thể làm ra món ăn tốt cho sức khỏe",
+        "Có thể làm món ăn ngon một cách dễ dàng",
+        "Có tay cầm tháo rời được"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nam giới khẳng định điểm anh ấy đặc biệt thích nhất ở chiếc nồi mới là chỉ cần cho nguyên liệu vào, đậy nắp và bắc lên bếp là có thể nấu được món ăn ngon.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì người nữ nhận xét nồi gần đây nhẹ và dễ sử dụng, còn nồi của nam thực tế khá nặng.",
+        "Lựa chọn 2 không chính xác vì việc tốt cho sức khỏe chỉ là ý kiến phụ của người nữ khi nghe nói ít gia vị, không phải điểm mấu chốt nam giới tâm đắc nhất.",
+        "Lựa chọn 3 chính xác vì người nam nêu rõ điểm anh ấy thích nhất là chỉ cần cho nguyên liệu, đậy nắp và đun lên là làm được món ăn ngon.",
+        "Lựa chọn 4 không chính xác vì việc tháo rời tay cầm là chiếc nồi mà người nữ vừa mới mua chứ không phải nồi của nam."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q10",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "point",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q10.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "大学で男の学生と女の留学生が話しています。女の留学生はどうして日本語の勉強を始めたと言っていますか。",
+          "textVi": "Nam sinh viên đại học và nữ sinh viên lưu học sinh đang nói chuyện với nhau. Nữ lưu học sinh nói lý do tại sao cô ấy bắt đầu học tiếng Nhật là gì?"
+        },
+        {
+          "speaker": "男",
+          "text": "メイさんはどうして日本語を勉強しようと思ったの？",
+          "textVi": "メイさん, tại sao bạn lại nghĩ đến việc học tiếng Nhật vậy?"
+        },
+        {
+          "speaker": "女",
+          "text": "今は日本で就職したいから勉強してるんだけど、最初は偶然日本のドラマを見て興味を持ったんだ。",
+          "textVi": "Bây giờ thì mình học vì muốn làm việc ở Nhật, nhưng ban đầu là do tình cờ xem phim truyền hình Nhật Bản nên mình đã có hứng thú."
+        },
+        {
+          "speaker": "男",
+          "text": "ドラマ？",
+          "textVi": "Phim truyền hình á?"
+        },
+        {
+          "speaker": "女",
+          "text": "うん。日本語の音ってきれいだなと思って、私も話せるようになりたくて……。それで勉強を始めたんだ。日本語が少しわかるようになって日本の漫画にも興味を持ったんだけど、国ではあまり売ってないし、もっといろいろ読みたいと思って、じゃ、日本に行こうって。",
+          "textVi": "Ừ. Mình nghĩ âm thanh của tiếng Nhật thật đẹp, và mình cũng muốn nói được... Vì thế nên mình đã bắt đầu học."
+        },
+        {
+          "speaker": "男",
+          "text": "そうなんだ。実際、日本で生活してみてどう？",
+          "textVi": "Thế à. Thực tế, bạn thấy cuộc sống ở Nhật thế nào?"
+        },
+        {
+          "speaker": "女",
+          "text": "自分の国とは違う文化を知ることができて楽しいよ。",
+          "textVi": "Vui lắm vì mình biết thêm được những nền văn hóa khác với đất nước của mình."
+        }
+      ],
+      "question": "女の留学生はどうして日本語の勉強を始めたと言っていますか。",
+      "questionVi": "Nữ lưu học sinh nói lý do cô ấy bắt đầu học tiếng Nhật là gì?",
+      "options": [
+        "日本ではたらきたかったから",
+        "日本語の音がきれいだと思ったから",
+        "日本のまんがにきょうみがあったから",
+        "ちがうぶんかを知りたかったから"
+      ],
+      "optionsVi": [
+        "Vì muốn làm việc ở Nhật Bản",
+        "Vì nghĩ rằng âm thanh tiếng Nhật rất đẹp",
+        "Vì có hứng thú với truyện tranh Nhật Bản",
+        "Vì muốn tìm hiểu về nền văn hóa khác"
+      ],
+      "correctIndex": 1,
+      "explanation": "Khi được hỏi lý do bắt đầu học tiếng Nhật, nữ sinh trả lời ban đầu do xem phim truyền hình thấy âm thanh tiếng Nhật đẹp và muốn nói được nên đã bắt đầu học.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì việc muốn làm việc ở Nhật là lý do hiện tại của cô ấy chứ không phải lý do bắt đầu học.",
+        "Lựa chọn 2 chính xác vì cô ấy chia sẻ ban đầu do thấy âm thanh tiếng Nhật đẹp và muốn nói được nên đã bắt đầu học.",
+        "Lựa chọn 3 không chính xác vì cô ấy chỉ bắt đầu quan tâm đến truyện tranh sau khi tiếng Nhật đã khá hơn nhờ việc học từ trước.",
+        "Lựa chọn 4 không chính xác vì việc tìm hiểu văn hóa khác là cảm nhận khi sinh sống thực tế ở Nhật, không phải lý do khởi điểm để học."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q11",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "point",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q11.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "大学の授業で先生が話しています。先生は学生のレポートで何ができていない人が多かったと言っていますか。",
+          "textVi": "Giáo viên đang nói chuyện trong một lớp học ở đại học. Giáo viên nói rằng có nhiều học sinh không làm được điều gì trong bài báo cáo của mình?"
+        },
+        {
+          "speaker": "女",
+          "text": "今返した実験のレポートですが、皆さんよく書けていました。実験の目的や方法についてはこの前授業で注意をしましたが、しっかり書けていました。",
+          "textVi": "Về bài báo cáo thí nghiệm vừa trả lại, các bạn đã viết rất tốt. Về mục đích và phương pháp thí nghiệm, tôi đã nhắc nhở các bạn trong giờ học lần trước, nhưng các bạn đã viết rất chắc chắn."
+        },
+        {
+          "speaker": "女",
+          "text": "結果の表についてですが、表はわかりやすくできていました。でも、それにタイトルをつけていない人がたくさんいたので、次のレポートではそこに気をつけてください。",
+          "textVi": "Về bảng kết quả, bảng đã được làm dễ hiểu. Tuy nhiên, có rất nhiều người không đặt tiêu đề cho nó, vì vậy hãy chú ý đến điều đó trong bài báo cáo tiếp theo."
+        }
+      ],
+      "question": "先生は学生のレポートで何ができていない人が多かったと言っていますか。",
+      "questionVi": "Giáo viên nói rằng có nhiều học sinh không làm được điều gì trong bài báo cáo của mình?",
+      "options": [
+        "じっけんのもくてきを書くこと",
+        "じっけんの方法を正しく書くこと",
+        "けっかをひょうにすること",
+        "ひょうにタイトルをつけること"
+      ],
+      "optionsVi": [
+        "Viết mục đích thí nghiệm",
+        "Viết đúng phương pháp thí nghiệm",
+        "Làm kết quả thành dạng bảng",
+        "Đặt tiêu đề cho bảng"
+      ],
+      "correctIndex": 3,
+      "explanation": "Giáo viên khen ngợi các phần mục đích, phương pháp và bảng kết quả đều được làm tốt, nhưng chỉ rõ rằng có rất nhiều người không đặt tiêu đề cho bảng kết quả. Do đó, Lựa chọn 4 là đáp án chính xác.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì giáo viên xác nhận phần mục đích thí nghiệm đã được học sinh viết rất chắc chắn.",
+        "Lựa chọn 2 không chính xác vì phần phương pháp thí nghiệm cũng đã được học sinh chú ý và viết rất tốt theo như lời giáo viên.",
+        "Lựa chọn 3 không chính xác vì giáo viên đánh giá phần bảng kết quả đã được làm rất dễ hiểu, không phải là điểm yếu của đa số sinh viên.",
+        "Lựa chọn 4 chính xác vì giáo viên nêu rõ là có rất nhiều người không đặt tiêu đề cho bảng kết quả và nhắc nhở cần chú ý điều này ở bài sau."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q12",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "point",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q12.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "町の無料のパソコン教室で男の人が自己紹介をしています。男の人はパソコンを習うことにした理由は何だと言っていますか。",
+          "textVi": "Một người đàn ông đang tự giới thiệu tại một lớp học máy tính miễn phí trong thị trấn. Người đàn ông nói lý do tại sao anh ấy quyết định học máy tính là gì?"
+        },
+        {
+          "speaker": "男",
+          "text": "松田です。仕事はタクシーの運転手で、仕事ではパソコンを使うことはほとんどなく、家で興味のあるサイトを見る時しかパソコンを使っていません。",
+          "textVi": "Tôi là Matsuda. Công việc của tôi là tài xế taxi, và trong công việc tôi hầu như không sử dụng máy tính, tôi chỉ dùng máy tính khi xem các trang web mình quan tâm ở nhà."
+        },
+        {
+          "speaker": "男",
+          "text": "写真を撮るのが趣味なんですが、インターネットに写真を載せて、みんなに見てもらいたいと思ってこちらに通うことにしました。",
+          "textVi": "Sở thích của tôi là chụp ảnh, và tôi quyết định đến lớp học này vì muốn đăng những bức ảnh lên Internet để mọi người cùng xem."
+        },
+        {
+          "speaker": "男",
+          "text": "今日、私がこちらの教室に来る時に妻にはずいぶんうれしそうだと言われました。パソコンは苦手ですが、基本的なことから皆さんと楽しく学びたいと思っています。よろしくお願いします。",
+          "textVi": "Hôm nay, khi tôi đến lớp học này, vợ tôi đã bảo rằng trông tôi có vẻ rất vui. Máy tính thì tôi kém, nhưng tôi mong muốn được học tập một cách vui vẻ cùng mọi người từ những điều cơ bản. Mong mọi người giúp đỡ."
+        }
+      ],
+      "question": "男の人はパソコンを習うことにした理由は何だと言っていますか。",
+      "questionVi": "Người đàn ông nói lý do tại sao anh ấy quyết định học máy tính là gì?",
+      "options": [
+        "仕事でひつようだから",
+        "いろいろなサイトを見たいから",
+        "インターネットに写真をのせたいから",
+        "つまに習うといいと言われたから"
+      ],
+      "optionsVi": [
+        "Vì nó cần thiết cho công việc",
+        "Vì muốn xem nhiều trang web khác nhau",
+        "Vì muốn đăng ảnh lên Internet",
+        "Vì được vợ bảo nên học"
+      ],
+      "correctIndex": 2,
+      "explanation": "Người đàn ông trực tiếp nêu rõ lý do anh ấy theo học lớp máy tính là vì muốn đăng những bức ảnh do mình chụp lên Internet cho mọi người xem. Do đó, Lựa chọn 3 là đáp án chính xác.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì anh ấy thừa nhận công việc lái xe taxi hầu như không sử dụng máy tính.",
+        "Lựa chọn 2 không chính xác vì việc xem các trang web quan tâm chỉ là việc anh ấy làm ở nhà, không phải là mục đích đi học.",
+        "Lựa chọn 3 chính xác vì anh ấy nói rõ sở thích chụp ảnh và muốn đăng ảnh lên Internet cho mọi người xem nên đã quyết định theo học.",
+        "Lựa chọn 4 không chính xác vì việc vợ nói anh ấy trông rất vui khi đến lớp chỉ là lời nhận xét lúc đi, không phải là lý do khiến anh quyết định đi học."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q13",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "gaiyou",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q13.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "女の人と男の人が話しています。",
+          "textVi": "Một người phụ nữ và một người đàn ông đang nói chuyện với nhau."
+        },
+        {
+          "speaker": "女",
+          "text": "松本くん。明後日、皆で登山に行くでしょう？ちょっと聞いてもいい？松本くんは登山が趣味なんだよね。私、山登りはほとんどしたことなくて、何を着たらいいか悩んでるんだ。山は寒くなるからセーターも必要だよね？",
+          "textVi": "Cậu Matsumoto này. Ngày kia mọi người sẽ đi leo núi cùng nhau phải không? Tớ hỏi một chút được không? Cậu Matsumoto có sở thích leo núi phải không nhỉ? Tớ thì hầu như chưa từng leo núi bao giờ nên đang phân vân không biết nên mặc cái gì. Trên núi trời lạnh nên chắc cũng cần áo len nữa phải không?"
+        },
+        {
+          "speaker": "男",
+          "text": "山は気温の変化が大きいし、登ってるうちに暑くなることがあるから、セーターより脱いだり着たりしやすい上着の方がいいと思うよ。",
+          "textVi": "Trên núi sự thay đổi nhiệt độ rất lớn và trong lúc leo có lúc sẽ thấy nóng, nên tớ nghĩ dùng áo khoác dễ mặc vào cởi ra thì tốt hơn là áo len đấy."
+        },
+        {
+          "speaker": "女",
+          "text": "なるほど、そうする。それから、ジーンズをはいて行っても大丈夫だと思う？",
+          "textVi": "Ra vậy, tớ sẽ làm thế. Với lại, tớ mặc quần jean đi thì có ổn không nhỉ?"
+        },
+        {
+          "speaker": "男",
+          "text": "うーん、山登り用のズボンの方が疲れにくいと思うけど、歩きやすければジーンズでもいいと思うよ。",
+          "textVi": "Ừm, tớ nghĩ quần chuyên dụng để leo núi sẽ ít mỏi hơn, nhưng nếu dễ di chuyển thì mặc quần jean cũng được."
+        },
+        {
+          "speaker": "女",
+          "text": "わかった。ありがとう。",
+          "textVi": "Tớ hiểu rồi. Cảm ơn cậu."
+        }
+      ],
+      "question": "二人は何について話していますか。",
+      "questionVi": "Hai người đang nói chuyện về điều gì?",
+      "options": [
+        "山登りの面白さ",
+        "山登りをするときの服装",
+        "山登りのいい季節",
+        "山で疲れない歩き方"
+      ],
+      "optionsVi": [
+        "Sự thú vị của việc leo núi",
+        "Trang phục khi đi leo núi",
+        "Mùa đẹp để leo núi",
+        "Cách đi bộ để không bị mỏi trên núi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Người phụ nữ hỏi ý kiến về trang phục như áo len, áo khoác hay quần jean để mặc khi đi leo núi, và người đàn ông đã tư vấn lại. Do đó, hai người đang thảo luận về trang phục khi đi leo núi.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì nội dung không đề cập đến việc leo núi thú vị như thế nào.",
+        "Lựa chọn 2 chính xác vì cả hai đang bàn luận về việc nên mặc áo khoác hay áo len và quần gì khi leo núi.",
+        "Lựa chọn 3 không chính xác vì không nhắc đến thời điểm hay mùa nào thích hợp để đi leo núi.",
+        "Lựa chọn 4 không chính xác vì không bàn về kỹ thuật hay cách bước đi để không mỏi."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q14",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "gaiyou",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q14.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "ラジオで男の人が話しています。",
+          "textVi": "Một người đàn ông đang nói chuyện trên đài phát thanh."
+        },
+        {
+          "speaker": "男",
+          "text": "もうすぐ花見の季節がやってきますね。今年もたくさんの方がお弁当を持って、公園などへ桜を見に出かけられるのではないでしょうか。",
+          "textVi": "Chẳng mấy chốc mà mùa ngắm hoa đã đến rồi nhỉ. Năm nay chắc cũng có rất nhiều quý vị mang theo cơm hộp và cùng nhau ra công viên ngắm hoa anh đào phải không ạ?"
+        },
+        {
+          "speaker": "男",
+          "text": "この花見、始まりは千三百年ほど前と言われていますが、実はその頃は桜ではなく、梅を見ていたという記録があるそうです。また、普通の市民ではなく、特別な人たちだけが自宅の庭に植えた梅を見て楽しんでいたそうです。誰でも楽しめることではなかったんですね。",
+          "textVi": "Về việc ngắm hoa này, người ta nói rằng sự khởi đầu là từ khoảng 1300 năm trước, nhưng thực tế có ghi chép rằng vào thời điểm đó người ta ngắm hoa mơ chứ không phải hoa anh đào. Thêm nữa, không phải những người dân bình thường mà chỉ những người đặc biệt mới ngắm và thưởng thức hoa mơ được trồng trong vườn nhà họ. Hồi đó không phải ai cũng có thể thưởng thức được nhỉ."
+        }
+      ],
+      "question": "男の人は何について話していますか。",
+      "questionVi": "Người đàn ông đang nói chuyện về điều gì?",
+      "options": [
+        "花見をする時期",
+        "花見で食べるもの",
+        "花見が始まった理由",
+        "花見の昔と今"
+      ],
+      "optionsVi": [
+        "Thời điểm ngắm hoa",
+        "Đồ ăn khi ngắm hoa",
+        "Lý do việc ngắm hoa bắt đầu",
+        "Việc ngắm hoa ngày xưa và ngày nay"
+      ],
+      "correctIndex": 3,
+      "explanation": "Người đàn ông nói về khung cảnh ngắm hoa hiện tại (mọi người mang cơm hộp đi ngắm hoa anh đào) và đối chiếu với thời điểm 1300 năm trước (ngắm hoa mơ và chỉ giới hạn cho tầng lớp đặc biệt). Do đó, chủ đề là sự thay đổi của việc ngắm hoa qua thời gian.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì thời điểm tổ chức ngắm hoa không phải trọng tâm chính của bài nói.",
+        "Lựa chọn 2 không chính xác vì đồ ăn chỉ được nhắc đến như một bối cảnh hiện tại, không phải chủ đề chính.",
+        "Lựa chọn 3 không chính xác vì bài nói không giải thích chi tiết gốc tích lý do vì sao hoạt động ngắm hoa lại ra đời.",
+        "Lựa chọn 4 chính xác vì nội dung bài nói đối chiếu phong tục ngắm hoa hiện nay với lịch sử khoảng 1300 năm trước."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q15",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "gaiyou",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q15.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "テレビで女の人が話しています。",
+          "textVi": "Một người phụ nữ đang nói chuyện trên tivi."
+        },
+        {
+          "speaker": "女",
+          "text": "今年生まれた赤ちゃんにどんな名前が多いのか発表されましたね。リストにある名前を見てみると、ひらがなの名前が少なくて、難しい漢字の名前が結構多いですね。",
+          "textVi": "Danh sách những cái tên nào phổ biến cho các em bé sinh năm nay đã được công bố nhỉ. Nhìn vào những cái tên trong danh sách, tôi thấy có rất ít tên viết bằng hiragana mà có khá nhiều tên sử dụng chữ Hán khó đấy."
+        },
+        {
+          "speaker": "女",
+          "text": "これまでのリストも見てみたんですが、ここ数年は花の名前や海、空など、自然に関する漢字を使った名前が多いですね。以前と比較すると「幸せ」や「明るい」という漢字を使った名前は減っているようです。名前にも時代によって流行があるのですね。",
+          "textVi": "Tôi cũng đã xem qua các danh sách trước đây, và trong vài năm gần đây, có rất nhiều tên sử dụng chữ Hán liên quan đến tự nhiên như tên các loài hoa, biển, bầu trời. So với trước đây, có vẻ như các tên sử dụng chữ Hán như \"hạnh phúc\" hay \"tươi sáng\" đang giảm dần. Hóa ra tên gọi cũng có những xu hướng theo từng thời đại."
+        }
+      ],
+      "question": "女の人は何について話していますか。",
+      "questionVi": "Người phụ nữ đang nói về điều gì?",
+      "options": [
+        "名前に使われる漢字の変化",
+        "漢字を使った名前が減った理由",
+        "名前をつけることの難しさ",
+        "名前をつけるときの親の気持ち"
+      ],
+      "optionsVi": [
+        "Sự thay đổi của các chữ Hán được sử dụng trong tên",
+        "Lý do tại sao tên sử dụng chữ Hán giảm đi",
+        "Sự khó khăn trong việc đặt tên",
+        "Tâm trạng của cha mẹ khi đặt tên"
+      ],
+      "correctIndex": 0,
+      "explanation": "Người phụ nữ nói về việc các chữ Hán dùng để đặt tên đã thay đổi qua các năm, từ các chữ liên quan đến hạnh phúc, tươi sáng sang các chữ liên quan đến thiên nhiên như hoa, biển, trời, và nhận định rằng tên gọi có xu hướng thay đổi theo thời đại. Do đó, Lựa chọn 1 là đáp án chính xác.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script.",
+      "optionExplanations": [
+        "Lựa chọn 1 đúng vì người phụ nữ đề cập trực tiếp đến sự thay đổi của các loại chữ Hán dùng để đặt tên qua các thời kỳ.",
+        "Lựa chọn 2 sai vì nội dung chỉ nói về sự thay đổi loại chữ Hán được dùng, không nói về lý do tại sao số lượng tên dùng chữ Hán lại giảm.",
+        "Lựa chọn 3 sai vì đoạn hội thoại không bàn về sự khó khăn khi đặt tên cho con.",
+        "Lựa chọn 4 sai vì người nói không nhắc đến tâm tư hay cảm xúc của cha mẹ khi chọn tên."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q16",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "hatsugen",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q16.mp3",
+      "questionImage": "public/images/listening/cacnam-n3-2023-07-mondai4-q1.jpg",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題4 1番。友達が瓶の蓋を開けることができません。開けてあげたいです。何と言いますか。",
+          "textVi": "Câu hỏi 4 Số 1. Bạn của bạn không thể mở nắp lọ. Bạn muốn mở giúp bạn ấy. Bạn sẽ nói gì?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "私がやろうか？",
+          "textVi": "Để tôi làm cho nhé?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "開けてくれない？",
+          "textVi": "Bạn mở hộ tôi được không?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "手伝わないの？",
+          "textVi": "Bạn không giúp à?"
+        }
+      ],
+      "question": "友達が瓶の蓋を開けることができません。開けてあげたいです。何と言いますか。",
+      "questionVi": "Bạn của bạn không thể mở nắp lọ. Bạn muốn mở giúp bạn ấy. Bạn sẽ nói gì?",
+      "options": [
+        "私がやろうか？",
+        "開けてくれない？",
+        "手伝わないの？"
+      ],
+      "optionsVi": [
+        "Để tôi làm cho nhé?",
+        "Bạn mở hộ tôi được không?",
+        "Bạn không giúp à?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Khi muốn chủ động giúp bạn mở nắp lọ, câu nói lịch sự và đúng chức năng để ngỏ ý tự làm giúp là \"Để tôi làm cho nhé?\". Do đó, Lựa chọn 1 là đáp án chính xác.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 đúng vì dùng cấu trúc ngỏ ý muốn tự mình làm giúp khi người khác đang gặp khó khăn.",
+        "Lựa chọn 2 sai vì đây là lời nhờ người khác mở hộ mình, không phải là mình giúp người khác.",
+        "Lựa chọn 3 sai vì đây là câu hỏi mang tính chất trách móc hoặc hỏi về việc không giúp đỡ, không phù hợp với tình huống muốn giúp."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q17",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "hatsugen",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q17.mp3",
+      "questionImage": "public/images/listening/cacnam-n3-2023-07-mondai4-q2.jpg",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題4 2番。お客さんが来ました。社長を呼びに行く間、ここにいてほしいです。何と言いますか。",
+          "textVi": "Mondai 4, câu 2. Khách đã đến. Trong lúc đi gọi giám đốc, bạn muốn khách ở lại đây. Bạn sẽ nói gì?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "こちらでお待ちください。",
+          "textVi": "Xin mời đợi ở đây."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "お着きになりました。",
+          "textVi": "Đã đến nơi rồi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "呼んでいただけますか。",
+          "textVi": "Bạn có thể gọi giúp tôi được không?"
+        }
+      ],
+      "question": "お客さんが来ました。社長を呼びに行く間、ここにいてほしいです。何と言いますか。",
+      "questionVi": "Khách đã đến. Trong lúc đi gọi giám đốc, bạn muốn khách ở lại đây. Bạn sẽ nói gì?",
+      "options": [
+        "こちらでお待ちください",
+        "お着きになりました",
+        "呼んでいただけますか"
+      ],
+      "optionsVi": [
+        "Xin mời đợi ở đây.",
+        "Đã đến nơi rồi.",
+        "Bạn có thể gọi giúp tôi được không?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Lựa chọn 1 là cách nói lịch sự và phù hợp nhất để đề nghị khách chờ tại chỗ trong lúc nhân viên đi gọi giám đốc.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 đúng vì cấu trúc \"こちらでお待ちください\" có nghĩa là \"Xin mời đợi ở đây\", đúng với tình huống cần yêu cầu khách chờ.",
+        "Lựa chọn 2 sai vì \"お着きになりました\" dùng để thông báo khách đã đến nơi, không phải câu đề nghị khách chờ.",
+        "Lựa chọn 3 sai vì \"呼んでいただけますか\" mang ý nghĩa nhờ người khác gọi giúp, không phải nói với khách."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q18",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "hatsugen",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q18.mp3",
+      "questionImage": "public/images/listening/cacnam-n3-2023-07-mondai4-q3.jpg",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題4 3番。喫茶店で注文したコーヒーがなかなか来ません。何と言いますか。",
+          "textVi": "Mondai 4, câu 3. Cà phê gọi ở quán nước mãi vẫn chưa ra. Bạn sẽ nói gì?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "あの、コーヒーもういただいたんですけど……。",
+          "textVi": "À, tôi đã uống cà phê rồi mà..."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "あの、コーヒーまだでしょうか？",
+          "textVi": "À, cà phê vẫn chưa ra phải không?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "あの、コーヒー注文しますか？",
+          "textVi": "À, bạn có gọi cà phê không?"
+        }
+      ],
+      "question": "喫茶店で注文したコーヒーがなかなか来ません。何と言いますか。",
+      "questionVi": "Cà phê gọi ở quán nước mãi vẫn chưa ra. Bạn sẽ nói gì?",
+      "options": [
+        "あの、コーヒーもういただいたんですけど……",
+        "あの、コーヒーまだでしょうか？",
+        "あの、コーヒー注文しますか？"
+      ],
+      "optionsVi": [
+        "À, tôi đã uống cà phê rồi mà...",
+        "À, cà phê vẫn chưa ra phải không?",
+        "À, bạn có gọi cà phê không?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Lựa chọn 2 là cách hỏi lịch sự và tự nhiên nhất để nhắc nhở nhân viên khi đồ uống đã gọi lâu nhưng chưa được mang ra.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 sai vì \"もういただいたんですけど\" có nghĩa là đã dùng rồi, trái ngược với tình huống cà phê chưa được mang ra.",
+        "Lựa chọn 2 đúng vì \"まだでしょうか\" dùng để hỏi lịch sự xem đồ gọi đã đến chưa khi thấy lâu.",
+        "Lựa chọn 3 sai vì \"注文しますか\" mang nghĩa hỏi xem người khác có muốn gọi món hay không, không phù hợp với tình huống bản thân đang chờ đồ."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q19",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "hatsugen",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q19.mp3",
+      "questionImage": "public/images/listening/cacnam-n3-2023-07-mondai4-q4.jpg",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題4 4番。友達が壁に絵を掛けています。まっすぐではないので教えます。何と言いますか。",
+          "textVi": "Vấn đề 4, số 4. Một người bạn đang treo tranh lên tường. Vì tranh không thẳng nên bạn sẽ nhắc nhở. Bạn sẽ nói gì?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "絵を掛けなくちゃ。",
+          "textVi": "Phải treo tranh lên thôi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "まっすぐじゃなかったら教えて。",
+          "textVi": "Nếu không thẳng thì hãy chỉ cho tôi nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "斜めになってるよ。",
+          "textVi": "Bị nghiêng rồi kìa."
+        }
+      ],
+      "question": "友達が壁に絵を掛けています。まっすぐではないので教えます。何と言いますか。",
+      "questionVi": "Một người bạn đang treo tranh lên tường. Vì tranh không thẳng nên bạn sẽ nhắc nhở. Bạn sẽ nói gì?",
+      "options": [
+        "絵を掛けなくちゃ",
+        "まっすぐじゃなかったら教えて",
+        "斜めになってるよ"
+      ],
+      "optionsVi": [
+        "Phải treo tranh lên thôi.",
+        "Nếu không thẳng thì hãy chỉ cho tôi nhé.",
+        "Bị nghiêng rồi kìa."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Đáp án đúng là Lựa chọn 3 vì người bạn đang treo tranh nhưng không thẳng, câu nói phù hợp nhất để thông báo tình trạng hiện tại là chỉ ra bức tranh bị nghiêng.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 diễn đạt ý phải treo tranh lên, không phù hợp với ngữ cảnh tranh đã được treo nhưng bị lệch.",
+        "Lựa chọn 2 mang ý nhờ người khác nhắc nhở nếu không thẳng, sai vai trò vì người nghe đang là người treo.",
+        "Lựa chọn 3 chính xác vì chỉ ra trực tiếp tình trạng bức tranh đang bị nghiêng để người bạn chỉnh lại."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q20",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q20.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 1番。",
+          "textVi": "Vấn đề 5, số 1."
+        },
+        {
+          "speaker": "男",
+          "text": "田中さん。倉庫の整理、ちょっと手伝ってほしいんですけど……。",
+          "textVi": "Anh Tanaka. Việc sắp xếp kho hàng, tôi muốn nhờ anh giúp một chút..."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "倉庫の整理、終わったんですね？",
+          "textVi": "Việc sắp xếp kho hàng đã kết thúc rồi nhỉ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "手伝ってくれるんですか？",
+          "textVi": "Bạn sẽ giúp tôi chứ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "いいですよ、今からですか？",
+          "textVi": "Được chứ, từ bây giờ luôn à?"
+        }
+      ],
+      "question": "倉庫の整理を手伝ってほしいと頼まれました。何と言いますか。",
+      "questionVi": "Bạn được nhờ giúp sắp xếp kho hàng. Bạn sẽ nói gì?",
+      "options": [
+        "倉庫の整理、終わったんですね？",
+        "手伝ってくれるんですか？",
+        "いいですよ、今からですか？"
+      ],
+      "optionsVi": [
+        "Việc sắp xếp kho hàng đã kết thúc rồi nhỉ?",
+        "Bạn sẽ giúp tôi chứ?",
+        "Được chứ, từ bây giờ luôn à?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Người nam mở lời nhờ giúp dọn dẹp kho, phản hồi tự nhiên và lịch sự của người nghe là đồng ý giúp đỡ và xác nhận thời gian bắt đầu.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 hiểu nhầm rằng việc dọn kho đã hoàn thành, không phù hợp với lời nhờ giúp.",
+        "Lựa chọn 2 hỏi ngược lại xem người nhờ có giúp không, sai ngữ cảnh vì người nam mới là người đang nhờ vả.",
+        "Lựa chọn 3 chính xác vì thể hiện sự đồng ý giúp đỡ và hỏi lại thời điểm bắt đầu thực hiện công việc."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q21",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q21.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 2番。",
+          "textVi": "Vấn đề 5, câu 2."
+        },
+        {
+          "speaker": "男",
+          "text": "リンさん。リンさんのアドバイスのおかげで社会学の授業の発表、うまくいったよ。",
+          "textVi": "Bạn Rin. Nhờ lời khuyên của bạn Rin mà bài phát biểu môn xã hội học đã diễn ra suôn sẻ đấy."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "発表、頑張ってね。",
+          "textVi": "Cố gắng phát biểu nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "役に立ててうれしいよ。",
+          "textVi": "Tôi rất vui vì đã giúp ích được."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "アドバイスできなくてごめんね。",
+          "textVi": "Xin lỗi vì đã không thể đưa ra lời khuyên."
+        }
+      ],
+      "question": "アドバイスのおかげで発表がうまくいったと言われました。何と言いますか。",
+      "questionVi": "Bạn được nói là nhờ có lời khuyên nên bài thuyết trình đã diễn ra tốt đẹp. Bạn sẽ nói gì?",
+      "options": [
+        "発表、頑張ってね",
+        "役に立ててうれしいよ",
+        "アドバイスできなくてごめんね"
+      ],
+      "optionsVi": [
+        "Cố gắng phát biểu nhé",
+        "Tôi rất vui vì đã giúp ích được",
+        "Xin lỗi vì đã không thể đưa ra lời khuyên"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Người nam cảm ơn vì nhờ lời khuyên mà bài thuyết trình thành công, vì vậy câu trả lời phù hợp nhất là bày tỏ sự vui mừng vì đã giúp đỡ được.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 không phù hợp vì bài thuyết trình đã diễn ra rồi và thành công, không phải là lời cổ vũ trước khi làm.",
+        "Lựa chọn 2 là đáp án chính xác vì thể hiện sự vui mừng khi lời khuyên của mình đã giúp ích cho người khác.",
+        "Lựa chọn 3 không phù hợp vì thực tế người nói đã đưa ra lời khuyên và giúp ích, không phải là từ chối hay không thể giúp."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q22",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q22.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 3番。",
+          "textVi": "Vấn đề 5, câu 3."
+        },
+        {
+          "speaker": "男",
+          "text": "同じクラスの加藤さんって野球に詳しいよね。",
+          "textVi": "Kato-san cùng lớp rất am hiểu về bóng chày phải không."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "野球のこと、よく知ってるよね。",
+          "textVi": "Cậu biết rõ về bóng chày nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "野球、全然知らないんだね。",
+          "textVi": "Cậu hoàn toàn không biết gì về bóng chày nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "野球はあまり得意じゃないんだね。",
+          "textVi": "Cậu không giỏi bóng chày lắm nhỉ."
+        }
+      ],
+      "question": "同じクラスの加藤さんは野球に詳しいと言われました。何と言いますか。",
+      "questionVi": "Bạn được nói rằng Kato-san cùng lớp rất am hiểu về bóng chày. Bạn sẽ nói gì?",
+      "options": [
+        "野球のこと、よく知ってるよね",
+        "野球、全然知らないんだね",
+        "野球はあまり得意じゃないんだね"
+      ],
+      "optionsVi": [
+        "Cậu biết rõ về bóng chày nhỉ",
+        "Cậu hoàn toàn không biết gì về bóng chày nhỉ",
+        "Cậu không giỏi bóng chày lắm nhỉ"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Người nam nhận xét Kato am hiểu bóng chày, câu đáp lại phù hợp là sự đồng tình với nhận định đó.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 là đáp án chính xác vì đồng tình và xác nhận lại việc hiểu biết rõ về bóng chày.",
+        "Lựa chọn 2 không chính xác vì trái ngược hoàn toàn với nhận định ban đầu là am hiểu.",
+        "Lựa chọn 3 không chính xác vì phủ nhận năng lực hoặc sự am hiểu về bóng chày."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q23",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q23.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 4番。",
+          "textVi": "Vấn đề 5 - Câu 4."
+        },
+        {
+          "speaker": "女",
+          "text": "山田さん。仕事でわからないことがあれば、何でも聞いてね。",
+          "textVi": "Chị Yamada. Nếu có điều gì không hiểu trong công việc, anh cứ hỏi bất cứ lúc nào nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "自分で調べたほうがいいですね。",
+          "textVi": "Tôi tự tra cứu thì hơn nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "わかりました。ありがとうございます。",
+          "textVi": "Tôi hiểu rồi. Cảm ơn chị."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "何かあったら聞いてください。",
+          "textVi": "Nếu có gì xảy ra hãy hỏi nhé."
+        }
+      ],
+      "question": "仕事でわからないことがあれば何でも聞いてと言われました。何と言いますか。",
+      "questionVi": "Bạn được bảo rằng nếu có điều gì không hiểu trong công việc thì cứ hỏi bất cứ lúc nào. Bạn sẽ nói gì?",
+      "options": [
+        "自分で調べたほうがいいですね",
+        "わかりました。ありがとうございます",
+        "何かあったら聞いてください"
+      ],
+      "optionsVi": [
+        "Tôi tự tra cứu thì hơn nhỉ",
+        "Tôi hiểu rồi. Cảm ơn bạn",
+        "Nếu có gì xảy ra hãy hỏi nhé"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Khi được đồng nghiệp hoặc cấp trên đề nghị giúp đỡ trong công việc, câu trả lời lịch sự và phù hợp nhất là ghi nhận ý tốt và gửi lời cảm ơn.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 không phù hợp vì người nói đang chủ động đề nghị giúp đỡ, việc tự tra cứu đi ngược lại lời mời giúp đỡ đó.",
+        "Lựa chọn 2 là đáp án chính xác vì thể hiện sự tiếp nhận lời đề nghị giúp đỡ và cảm ơn.",
+        "Lựa chọn 3 không phù hợp vì lặp lại lời đề nghị hỏi han thay vì là câu trả lời của người nghe."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q24",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q24.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 5番。",
+          "textVi": "Vấn đề 5 - Câu 5."
+        },
+        {
+          "speaker": "男",
+          "text": "チャーハン頼んだけど、これ、全部食べられそうにないよ。",
+          "textVi": "Tôi gọi cơm rang rồi nhưng hình như không ăn hết được chỗ này đâu."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "もう一つ頼もうか。",
+          "textVi": "Gọi thêm một cái nữa nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "ちょうどいい量でよかったね。",
+          "textVi": "Lượng vừa đủ nên tốt quá nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "思ったより多いね。",
+          "textVi": "Nhiều hơn tôi nghĩ nhỉ."
+        }
+      ],
+      "question": "チャーハンが全部食べられそうにないと言われました。何と言いますか。",
+      "questionVi": "Người ta nói rằng có vẻ không ăn hết được phần cơm rang. Bạn sẽ nói gì?",
+      "options": [
+        "もう1つ頼もうか",
+        "ちょうどいい量でよかったね",
+        "思ったより多いね"
+      ],
+      "optionsVi": [
+        "Gọi 1 cái nữa nhé",
+        "Lượng vừa đủ nên tốt quá nhỉ",
+        "Nhiều hơn tôi nghĩ nhỉ"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Người nam nói rằng anh ấy không thể ăn hết phần cơm rang (tức là phần ăn quá nhiều), câu phản hồi phù hợp là đồng tình với thực tế lượng thức ăn lớn hơn dự kiến.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 không hợp lý vì người nam đã không ăn hết, việc gọi thêm sẽ làm thức ăn thừa nhiều hơn.",
+        "Lựa chọn 2 sai vì thực tế lượng ăn quá nhiều chứ không phải vừa đủ.",
+        "Lựa chọn 3 là đáp án chính xác vì đồng tình với việc suất ăn nhiều hơn dự kiến."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q25",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q25.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 6番。",
+          "textVi": "Vấn đề 5, câu số 6."
+        },
+        {
+          "speaker": "女",
+          "text": "中野さん。午後の会議の資料、会議の前に見たいんだけど、あとどれぐらいでできそう？",
+          "textVi": "Chị Nakano. Tài liệu cho cuộc họp buổi chiều, tôi muốn xem trước cuộc họp, khoảng bao lâu nữa thì có thể xong?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "一時間以内には終わりそうです。",
+          "textVi": "Có vẻ sẽ xong trong vòng một tiếng nữa."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "じゃ、会議の資料はあとでやります。",
+          "textVi": "Vậy, tài liệu cuộc họp tôi sẽ làm sau."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "資料、もうできたんですか？",
+          "textVi": "Tài liệu đã xong rồi sao?"
+        }
+      ],
+      "question": "会議の資料があとどれぐらいでできるか聞かれました。何と言いますか。",
+      "questionVi": "Bạn được hỏi tài liệu cuộc họp khoảng bao lâu nữa thì xong. Bạn sẽ nói gì?",
+      "options": [
+        "1時間以内には終わりそうです",
+        "じゃ、会議の資料はあとでやります",
+        "資料、もう出来たんですか？"
+      ],
+      "optionsVi": [
+        "1. Có vẻ sẽ xong trong vòng một tiếng nữa",
+        "2. Vậy, tài liệu cuộc họp tôi sẽ làm sau",
+        "3. Tài liệu đã xong rồi sao?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Người hỏi đang muốn biết thời gian hoàn thành tài liệu trước cuộc họp. Lựa chọn 1 đưa ra câu trả lời trực tiếp và chính xác về ước lượng thời gian hoàn thành trong vòng một tiếng.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 là phương án chính xác vì đưa ra câu trả lời đúng trọng tâm về thời gian hoàn thành tài liệu theo câu hỏi của người nói.",
+        "Lựa chọn 2 không chính xác vì câu trả lời này ngụ ý sẽ gác lại việc làm tài liệu, không phù hợp với tình huống cần gấp trước cuộc họp.",
+        "Lựa chọn 3 không chính xác vì đây là câu hỏi thắc mắc liệu tài liệu đã xong chưa, không phải là câu trả lời cung cấp thời gian ước tính."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q26",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q26.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 7番。",
+          "textVi": "Vấn đề 5, câu số 7."
+        },
+        {
+          "speaker": "男",
+          "text": "頼まれてたいつものパン、帰りにスーパーに寄ったら売り切れてたよ。",
+          "textVi": "Loại bánh mỳ quen thuộc mà tôi nhờ mua, lúc ghé qua siêu thị trên đường về thì đã bán hết sạch rồi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "よかった、ありがとう。",
+          "textVi": "May quá, cảm ơn nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "えー？残念。なかったんだ。",
+          "textVi": "Ể? Tiếc thế. Không có à."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "スーパー、閉まってたの？",
+          "textVi": "3. Siêu thị đóng cửa rồi à?"
+        }
+      ],
+      "question": "頼んでいたパンが売り切れていたと聞きました。何と言いますか。",
+      "questionVi": "Bạn nghe thông báo rằng loại bánh mỳ bạn nhờ mua đã bị bán hết. Bạn sẽ nói gì?",
+      "options": [
+        "よかった、ありがとう",
+        "えー？残念。なかったんだ",
+        "スーパー、閉まってたの？"
+      ],
+      "optionsVi": [
+        "1. May quá, cảm ơn nhé",
+        "2. Ể? Tiếc thế. Không có à",
+        "3. Siêu thị đóng cửa rồi à?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Người nói báo tin loại bánh mỳ nhờ mua đã hết hàng ở siêu thị. Phản ứng phù hợp và tự nhiên nhất là thể hiện sự tiếc nuối trước thông tin đó.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 không chính xác vì cảm ơn và nói may mắn không phù hợp khi nghe tin món đồ mình nhờ mua đã bị bán hết.",
+        "Lựa chọn 2 là phương án chính xác vì thể hiện đúng sự tiếc nuối khi nghe tin món bánh mỳ đã hết hàng.",
+        "Lựa chọn 3 không chính xác vì người nói đã thông báo lý do là hết hàng chứ không phải vì siêu thị đóng cửa."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q27",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q27.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 8番。",
+          "textVi": "Vấn đề 5, số 8."
+        },
+        {
+          "speaker": "男",
+          "text": "先輩、レポート書いたんですけど、ちょっと見ていただけないでしょうか。",
+          "textVi": "Tiền bối ơi, em đã viết báo cáo rồi, anh/chị xem giùm em một chút được không ạ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "私のレポートは見せられないよ。",
+          "textVi": "Tôi không thể cho xem báo cáo của mình đâu."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "コピーならあげられるけど。",
+          "textVi": "Nếu là bản sao thì tôi cho được đấy."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "いいよ、何のレポート？",
+          "textVi": "Được chứ, báo cáo về cái gì thế?"
+        }
+      ],
+      "question": "レポートを見てほしいと頼まれました。何と言いますか。",
+      "questionVi": "Bạn được nhờ xem giúp báo cáo. Bạn sẽ nói gì?",
+      "options": [
+        "私のレポートは見せられないよ",
+        "コピーならあげられるけど",
+        "いいよ、何のレポート？"
+      ],
+      "optionsVi": [
+        "Tôi không thể cho xem báo cáo của mình đâu",
+        "Nếu là bản sao thì tôi cho được đấy",
+        "Được chứ, báo cáo về cái gì thế?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Đàn em nhờ tiền bối xem giúp báo cáo, tiền bối đồng ý giúp và hỏi lại là báo cáo về đề tài gì.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 sai vì từ chối thẳng thừng việc cho xem, không phù hợp với ngữ cảnh đồng ý giúp đỡ.",
+        "Lựa chọn 2 sai vì đề xuất cho bản sao thay vì xem báo cáo để góp ý.",
+        "Lựa chọn 3 là đáp án đúng vì thể hiện sự đồng ý xem báo cáo và hỏi thêm chi tiết về nội dung."
+      ]
+    },
+    {
+      "id": "listening-dethi-n3-2023-07-q28",
+      "level": "N3",
+      "book": "dethi-n3-2023-07",
+      "taskType": "sokuji",
+      "audioUrl": "public/audio-preview/N3-T7-2023/Q28.mp3",
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題5 9番。",
+          "textVi": "Vấn đề 5, số 9."
+        },
+        {
+          "speaker": "男",
+          "text": "来週の食事会、ネクタイして行かなきゃならないと思う？",
+          "textVi": "Bữa tiệc ăn uống tuần tới, cậu nghĩ có phải mặc cà vạt đi không?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1",
+          "textVi": "1"
+        },
+        {
+          "speaker": "音声",
+          "text": "しなくてもいいんじゃない？",
+          "textVi": "Không đeo cũng được mà nhỉ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2",
+          "textVi": "2"
+        },
+        {
+          "speaker": "音声",
+          "text": "ネクタイして行かなかったの？",
+          "textVi": "Cậu đã không đeo cà vạt mà đi à?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3",
+          "textVi": "3"
+        },
+        {
+          "speaker": "音声",
+          "text": "私は参加しようと思ってるよ。",
+          "textVi": "Tôi định sẽ tham gia đấy."
+        }
+      ],
+      "question": "来週の食事会にネクタイをして行く必要があるか聞かれました。何と言いますか。",
+      "questionVi": "Bạn được hỏi xem bữa tiệc ăn uống tuần tới có cần đeo cà vạt đi hay không. Bạn sẽ nói gì?",
+      "options": [
+        "しなくてもいいんじゃない？",
+        "ネクタイして行かなかったの？",
+        "私は参加しようと思ってるよ"
+      ],
+      "optionsVi": [
+        "Không đeo cũng được mà nhỉ?",
+        "Cậu đã không đeo cà vạt mà đi à?",
+        "Tôi định sẽ tham gia đấy."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Người nam hỏi ý kiến về việc có cần đeo cà vạt không, câu trả lời phù hợp là đưa ra nhận định không bắt buộc phải đeo.",
+      "notes": "Transcript đối chiếu Script Nghe N3 T7-2023; đáp án chính thức đối chiếu PDF đáp án; bản dịch Việt biên soạn theo script. Audio đọc từng lựa chọn, vì vậy lựa chọn được giữ ẩn trước khi trả lời.",
+      "optionExplanations": [
+        "Lựa chọn 1 là đáp án đúng vì đưa ra ý kiến phản hồi trực tiếp và tự nhiên cho câu hỏi về việc có cần đeo cà vạt hay không.",
+        "Lựa chọn 2 sai vì dùng câu hỏi ngược về quá khứ, không trả lời cho thắc mắc của người nam.",
+        "Lựa chọn 3 sai vì lạc đề, chuyển sang nói về việc tham gia bữa tiệc thay vì bàn về trang phục cà vạt."
+      ]
+    }
+  ]
+}

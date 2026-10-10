@@ -293,6 +293,8 @@ function questionTranslationForQuestion(paper: DeThiPaper, index: number): strin
 const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
   "cacnam-n3-2024-07": "dethi-n3-2024-07",
   "cacnam-n3-2024-12": "dethi-n3-2024-12",
+  "cacnam-n3-2023-07": "dethi-n3-2023-07",
+  "cacnam-n3-2023-12": "dethi-n3-2023-12",
   "cacnam-n3-2025-07": "dethi-n3-2025-07",
   "cacnam-n3-2025-12": "dethi-2025-12",
   "cacnam-n1-2026-07": "dethi-n1-2026-07",
@@ -331,9 +333,11 @@ function withListeningContent(examId: string, paperId: string, question: DeThiQu
 
   const expectedOptionCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
   if (source.correctIndex !== question.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return question;
-  const normalizeChoice = (choice: string) => choice.trim()
+  const normalizeChoice = (choice: string) => choice.normalize("NFKC").trim()
     .replace(/^[\s　]*[①②③④⑤⑥⑦⑧⑨⑩]/u, "")
-    .replace(/[。！？!?…]+$/u, "");
+    .replace(/^\s*[1-4][.、]\s*/u, "")
+    .replace(/[。！？!?….]+$/u, "")
+    .replace(/\s+/gu, "");
   const imageOptionsMatch = !question.optionsImage && !source.optionsImage
     || question.optionsImage === source.optionsImage && (source.optionCount ?? 0) === expectedOptionCount;
   const optionsMatch = imageOptionsMatch && source.options.length === question.options.length && source.options.every(

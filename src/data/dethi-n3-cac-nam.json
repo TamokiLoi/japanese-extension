@@ -86079,11 +86079,16 @@
               "number": 1,
               "problemGroup": "問題1",
               "question": "1番",
-              "options": [],
-              "isPicture": true,
+              "options": [
+                "西田さんにあずける",
+                "じっかにつれていく",
+                "ペットホテルにあずける",
+                "家においていく"
+              ],
+              "isPicture": false,
               "optionCount": 4,
               "correctIndex": 2,
-              "optionsImage": "public/images/listening/cacnam-2023-07-listening-p1.jpg",
+              "optionsImage": null,
               "audioStartSec": 3,
               "explanation": "Nam nhân nói 'trader' (hướng tới pet hotel) và chốt lại bằng việc đồng ý sử dụng dịch vụ này."
             },
@@ -86252,7 +86257,7 @@
               "problemGroup": "問題2",
               "question": "6番",
               "options": [
-                "仕事でひつようだら",
+              "仕事でひつようだから",
                 "いろいろなサイトを見たいから",
                 "インターネットに写真をのせたいから",
                 "つまに習うといいと言われたから"
@@ -97126,9 +97131,9 @@
               "question": "1番",
               "options": [],
               "isPicture": true,
-              "optionCount": 3,
+              "optionCount": 4,
               "correctIndex": 2,
-              "optionsImage": "public/images/listening/cacnam-2023-12-listening-p2.jpg",
+              "optionsImage": "public/images/listening/cacnam-2023-12-listening-p2-repaired.jpg",
               "audioStartSec": 187,
               "explanation": "Người mẹ nhắc chuẩn bị tất cả: áo len (hàng 3), thuốc (hàng 5) và bưu thiếp/tem để gửi về gia đình (hàng 7)."
             },
@@ -97174,7 +97179,7 @@
               "isPicture": true,
               "optionCount": 4,
               "correctIndex": 1,
-              "optionsImage": "public/images/listening/cacnam-2023-12-listening-p3.jpg",
+              "optionsImage": "public/images/listening/cacnam-2023-12-listening-p3-repaired.jpg",
               "audioStartSec": 442,
               "explanation": "Nhân viên nữ yêu cầu nam nhân viên trước tiên hãy đặt cái đựng ô ra bên ngoài lối vào."
             },

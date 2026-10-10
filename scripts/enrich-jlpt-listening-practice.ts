@@ -116,7 +116,7 @@ function makePrompt(questions: Question[], correction = ""): string {
   return [
     "Bạn là biên tập viên nội dung luyện nghe JLPT. Hãy xử lý riêng từng câu theo id và trả về DUY NHẤT một JSON array, đúng thứ tự và đủ số phần tử.",
     "Dịch từng lượt thoại Nhật sang tiếng Việt tự nhiên, sát nghĩa; turnsVi phải có đúng số phần tử và khớp đúng thứ tự turns. Không dịch tên speaker.",
-    "Nếu scenario rỗng, scenarioVi phải rỗng. questionVi dịch nhãn câu ngắn gọn (ví dụ 1番 -> Câu 1; 2番（質問1） -> Câu 2 — câu phụ 1).",
+    "Nếu scenario rỗng, scenarioVi phải rỗng. questionVi phải dịch đầy đủ nội dung câu hỏi tiếng Nhật sang tiếng Việt tự nhiên; chỉ dùng nhãn như 'Câu 1' khi question nguồn chỉ là số thứ tự (ví dụ 1番). Không được thay câu hỏi đầy đủ bằng 'Câu hỏi' hoặc 'Câu N'.",
     "optionsVi phải giữ đúng số lượng/thứ tự với options. Giữ nguyên ký hiệu lựa chọn như ア, イ, A, B; dịch phần chữ Nhật nếu có. Không tự tạo lựa chọn mới.",
     "BẮT BUỘC dịch mọi lựa chọn có từ tiếng Nhật sang tiếng Việt; tuyệt đối không chép nguyên văn lựa chọn Nhật sang optionsVi. Chỉ giữ nguyên khi toàn bộ lựa chọn là ký hiệu thuần túy như ア / イ / ウ / エ hoặc A / B / C / D.",
     "Dịch riêng từng turns[i] theo đúng câu Nhật turns[i]; không tráo bản dịch giữa các lượt nói ngay cả khi các câu gần nghĩa hoặc trùng với lựa chọn.",
@@ -290,6 +290,10 @@ function validate(question: Question, item: Enrichment): void {
   if (fields.some((value) => typeof value !== "string" || value.trim() === "")) {
     throw new Error(`${question.id}: empty required translation/explanation`);
   }
+  const questionIsOnlyLabel = /^(?:[0-9]+番(?:（質問\s*[0-9]+）)?|質問\s*[0-9]+)$/u.test(question.question.trim());
+  if (!questionIsOnlyLabel && /^Câu(?: hỏi|\s+[0-9]+)(?:\s*[—–-].*)?$/iu.test(item.questionVi.trim())) {
+    throw new Error(`${question.id}: questionVi is only a label, not a translation of the question`);
+  }
   if (question.scenario.trim() === "" && item.scenarioVi.trim() !== "") {
     throw new Error(`${question.id}: invented scenario translation for empty source`);
   }
@@ -346,16 +350,16 @@ async function main(): Promise<void> {
           textVi: matchingOptionIndex >= 0 ? item.optionsVi[matchingOptionIndex] : item.turnsVi[index],
         };
       });
-      const globalNumber = Number(question.id.match(/q(\d+)$/u)?.[1]);
-      const subQuestion = question.question.match(/質問\s*([0-9]+)/u)?.[1];
-      question.questionVi = `Câu ${globalNumber}${subQuestion ? ` — câu phụ ${subQuestion}` : ""}`;
+      question.questionVi = item.questionVi;
       question.optionsVi = item.optionsVi;
       question.explanation = item.explanation;
-      question.optionExplanations = item.optionExplanations.map((explanation) =>
-        explanation.replace(/(?:phương án|option)\s+([A-D])\b/giu, (_match, letter: string) =>
-          `Lựa chọn ${letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0) + 1}`,
-        ),
-      );
+      if (question.options.length) {
+        question.optionExplanations = item.optionExplanations.map((explanation) =>
+          explanation.replace(/(?:phương án|option)\s+([A-D])\b/giu, (_match, letter: string) =>
+            `Lựa chọn ${letter.toUpperCase().charCodeAt(0) - "A".charCodeAt(0) + 1}`,
+          ),
+        );
+      }
     }
     writeJsonAtomic(path, dataset);
     console.log(`${arg}: saved ${dataset.questions.length} enriched questions.`);
