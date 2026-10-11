@@ -242,7 +242,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   }
 
   if (examDate === undefined) {
-    return <LoadingScreen />;
+    return <LoadingScreen variant="roadmap" title="Lộ trình N3" />;
   }
 
   if (!examDate) {
@@ -273,7 +273,7 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
   }
 
   if (!status) {
-    return <LoadingScreen />;
+    return <LoadingScreen variant="roadmap" title="Lộ trình N3" />;
   }
 
   if (status.phase === "past-exam") {

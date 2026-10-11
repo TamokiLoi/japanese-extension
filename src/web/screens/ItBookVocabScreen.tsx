@@ -168,7 +168,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid");
 
   if (!state) {
-    return <LoadingScreen />;
+    return <LoadingScreen variant="study" title="Từ vựng IT" />;
   }
 
   const v = list[state.index];

@@ -98,7 +98,7 @@ export function PodcastScreen({
   }
 
   if (!data || !available || !state) {
-    return <LoadingScreen />;
+    return <LoadingScreen variant="listening" title="Podcast" />;
   }
 
   const current = currentId ? data.byId.get(currentId) : undefined;

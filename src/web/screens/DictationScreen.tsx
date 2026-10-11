@@ -90,7 +90,7 @@ export function DictationScreen({
     setProgress(await loadDictationProgress());
   }
 
-  if (!state) return <LoadingScreen />;
+  if (!state) return <LoadingScreen variant="listening" title="Nghe chép chính tả" />;
 
   const list = getFilteredList(state);
   const current = currentId ? list.find((q) => q.id === currentId) : undefined;

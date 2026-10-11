@@ -151,7 +151,7 @@ export function BunpoScreen({
     onCurrentItemChange?.(state?.currentGrammarId ?? undefined);
   }, [state?.currentGrammarId, onCurrentItemChange]);
 
-  if (!state) return <LoadingScreen />;
+  if (!state) return <LoadingScreen variant="study" title="Ngữ pháp" />;
 
   const current = state.currentGrammarId ? findBunpoById(state.currentGrammarId) : undefined;
 
@@ -580,7 +580,7 @@ function DetailView({
 
   const floatingNavBottom = useFloatingNav(true);
 
-  if (!progress) return <LoadingScreen />;
+  if (!progress) return <LoadingScreen variant="study" title="Ngữ pháp" />;
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">

@@ -72,11 +72,11 @@ const WEEKDAY_LABELS = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
 type DailyPlan = Record<PlanType, DailyPlanItem>;
 
 const PLAN_META: Record<PlanType, { label: string; unit: string; icon: typeof BookMarked; screen: Screen; accent: string; img: string }> = {
-  kanji: { label: "Kanji", unit: "chữ mới", icon: BookMarked, screen: "kanji", accent: "#e11d48", img: "icon-kanji.png" },
-  vocab: { label: "Từ vựng", unit: "từ mới", icon: Library, screen: "vocab", accent: "#ea580c", img: "icon-vocab.png" },
-  bunpo: { label: "Ngữ pháp", unit: "mẫu mới", icon: PenSquare, screen: "bunpo", accent: "#059669", img: "icon-grammar.png" },
-  reading: { label: "Luyện đọc", unit: "câu mới", icon: BookOpenText, screen: "reading", accent: "#7c3aed", img: "icon-reading.png" },
-  listening: { label: "Luyện nghe", unit: "câu mới", icon: Headphones, screen: "listening", accent: "#db2777", img: "icon-listening.png" },
+  kanji: { label: "Kanji", unit: "mục", icon: BookMarked, screen: "kanji", accent: "#e11d48", img: "icon-kanji.png" },
+  vocab: { label: "Từ vựng", unit: "mục", icon: Library, screen: "vocab", accent: "#ea580c", img: "icon-vocab.png" },
+  bunpo: { label: "Ngữ pháp", unit: "mục", icon: PenSquare, screen: "bunpo", accent: "#059669", img: "icon-grammar.png" },
+  reading: { label: "Luyện đọc", unit: "mục", icon: BookOpenText, screen: "reading", accent: "#7c3aed", img: "icon-reading.png" },
+  listening: { label: "Luyện nghe", unit: "mục", icon: Headphones, screen: "listening", accent: "#db2777", img: "icon-listening.png" },
 };
 
 // What the "Tiếp tục học" banner shows for each resumable screen -- icon,
@@ -460,8 +460,7 @@ function DailyPlanSettingsSheet({
   return (
     <FilterSheet open={open} onClose={onClose} title="Cài đặt mục tiêu mỗi ngày">
       <p className="text-sm text-neutral-500">
-        Đặt tốc độ mỗi ngày cho từng mục. Số ngày còn lại được tính trên số mục "chưa học" theo đúng bộ lọc bạn đang chọn ở màn đó --
-        đổi bộ lọc sẽ tự tính lại lần tới bạn mở trang chủ.
+        Chọn số mục bạn muốn mở hoặc học mỗi ngày. Đây là mục tiêu hoạt động, không đo số câu đúng hay mức độ ghi nhớ.
       </p>
       <div className="mt-4 flex flex-col gap-3">
         {PLAN_TYPES.map((type) => {
@@ -529,7 +528,7 @@ function DailyPlanCard({
         <div className="flex items-center gap-1.5">
           <Target size={14} style={{ color: "#E91E4D" }} />
           <h2 className="text-[13px] font-bold" style={{ color: "#111827" }}>
-            Mục tiêu mỗi ngày
+            Hoạt động học hôm nay
           </h2>
         </div>
         <button
@@ -544,6 +543,10 @@ function DailyPlanCard({
       {enabledTypes.length === 0 ? (
         <p className="relative mt-3 text-sm text-neutral-500">Chưa bật mục nào -- bấm nút bút chì để chọn mục và đặt tốc độ mỗi ngày.</p>
       ) : (
+        <>
+        <p className="relative mt-2 text-[11px] leading-relaxed text-neutral-500">
+          Đếm số mục đã mở hoặc tương tác hôm nay; chưa phản ánh độ chính xác hay khả năng ghi nhớ.
+        </p>
         <div className="relative mt-3.5 flex flex-col gap-1.5">
           {enabledTypes.map((type) => {
             const meta = PLAN_META[type];
@@ -563,13 +566,11 @@ function DailyPlanCard({
                 <div className="mt-0.75 ml-7.5 h-0.75 rounded-full bg-neutral-200">
                   <div className="h-full rounded-full" style={{ width: `${pct}%`, background: meta.accent }} />
                 </div>
-                {item.daysLeft !== null && item.remainingNew > 0 ? (
-                  <div className="mt-0.5 ml-7.5 text-[10px] text-neutral-400">còn {item.daysLeft} ngày</div>
-                ) : null}
               </button>
             );
           })}
         </div>
+        </>
       )}
 
       <DailyPlanSettingsSheet open={settingsOpen} onClose={() => setSettingsOpen(false)} goals={goals} onSave={onSaveGoals} />
@@ -918,10 +919,10 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
               </h2>
               <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200/50 bg-white p-4 md:grid-cols-4">
                 <div className="flex items-center gap-2 rounded-xl bg-blue-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-time.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
+                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
-                    <div className="truncate text-[11px] text-neutral-600">Giờ học hôm nay</div>
-                    <div className="mt-0.5 text-xl font-bold text-neutral-800">0 giờ</div>
+                    <div className="truncate text-[11px] text-neutral-600">Chuỗi học</div>
+                    <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.streak} ngày</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-4 py-5">
@@ -941,8 +942,8 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                 <div className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-5">
                   <img src={`${ICON_IMG}icon-today.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
-                    <div className="truncate text-[11px] text-neutral-600">Học hôm nay</div>
-                    <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.studiedToday} thẻ</div>
+                    <div className="truncate text-[11px] text-neutral-600">Mục có hoạt động hôm nay</div>
+                    <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.studiedToday} mục</div>
                   </div>
                 </div>
               </div>
@@ -1064,7 +1065,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
           </div>
         </div>
       ) : (
-        <LoadingScreen />
+        <LoadingScreen variant="home" title="Trang chủ" />
       )}
     </div>
   );

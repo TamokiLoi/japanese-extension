@@ -364,7 +364,7 @@ export function VocabScreen({
   }, [currentId]);
 
   if (!state) {
-    return <LoadingScreen />;
+    return <LoadingScreen variant="study" title="Từ vựng" />;
   }
 
   const v = list[state.index];

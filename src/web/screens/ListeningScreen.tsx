@@ -222,7 +222,7 @@ function ListView({
     setState(next);
   }
 
-  if (!state) return <LoadingScreen />;
+  if (!state) return <LoadingScreen variant="listening" title="Luyện nghe" />;
 
   const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
   const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;

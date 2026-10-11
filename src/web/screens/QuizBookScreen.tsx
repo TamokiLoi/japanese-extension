@@ -104,7 +104,7 @@ export function QuizBookScreen({
     onCurrentItemChange?.(state?.currentQuestionId ?? undefined);
   }, [state?.currentQuestionId, onCurrentItemChange]);
 
-  if (!state) return <LoadingScreen />;
+  if (!state) return <LoadingScreen variant="quiz" title="Luyện đề" />;
 
   const question = state.currentQuestionId ? findQuizBookById(state.currentQuestionId) : undefined;
 

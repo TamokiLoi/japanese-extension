@@ -222,7 +222,7 @@ export function KanjiScreen({
   }, [currentId, onCurrentItemChange]);
 
   if (!state) {
-    return <LoadingScreen />;
+    return <LoadingScreen variant="study" title="Kanji" />;
   }
 
   const k = list[state.index];

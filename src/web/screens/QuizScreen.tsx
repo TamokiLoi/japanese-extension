@@ -114,10 +114,10 @@ export function QuizScreen(open: OpenCallbacks) {
     })();
   }, []);
 
-  if (step === undefined) return <LoadingScreen />;
+  if (step === undefined) return <LoadingScreen variant="quiz" title="Quiz" />;
 
   if (step === "setup") {
-    if (!settings) return <LoadingScreen />;
+    if (!settings) return <LoadingScreen variant="quiz" title="Quiz" />;
     return (
       <SetupView
         settings={settings}
@@ -143,7 +143,7 @@ export function QuizScreen(open: OpenCallbacks) {
   }
 
   if (step === "play") {
-    if (!session) return <LoadingScreen />;
+    if (!session) return <LoadingScreen variant="quiz" title="Quiz" />;
     return (
       <PlayView
         session={session}
@@ -165,7 +165,7 @@ export function QuizScreen(open: OpenCallbacks) {
     );
   }
 
-  if (!session) return <LoadingScreen />;
+  if (!session) return <LoadingScreen variant="quiz" title="Quiz" />;
   return (
     <ResultView
       session={session}
@@ -506,7 +506,7 @@ function SetupView({
             onChange={(e) => updateSettings({ autoAdvance: e.target.checked })}
             className="h-4 w-4 rounded border-neutral-300 accent-rose-600"
           />
-          Tự động chuyển câu sau khi trả lời ({(AUTO_ADVANCE_DELAY_MS / 1000).toFixed(1)}s)
+          Tự chuyển khi trả lời đúng ({(AUTO_ADVANCE_DELAY_MS / 1000).toFixed(1)}s); câu sai sẽ dừng lại
         </label>
 
         <div>
@@ -697,14 +697,13 @@ function PlayView({
   const idx = session.currentIndex;
   const q = session.questions[idx];
   const answered = session.answers[idx];
+  const isAnsweredCorrect = answered !== null && q.choices[answered]?.correct === true;
+  const showManualNavigation = !autoAdvance || (answered !== null && !isAnsweredCorrect);
 
-  // Set true only by the two "just picked an answer right now" handlers
-  // below (submitTyped, the choice button's onClick), and consumed
-  // (reset to false) the moment the auto-advance effect actually schedules
-  // a move -- so navigating to an ALREADY-answered question (QuestionPalette
-  // jump, swipe right to review) never re-triggers it. Without this, that
-  // effect only checked `answered !== null`, which is equally true whether
-  // the answer just happened or the user is simply looking at an old one.
+  // Set true only when a correct answer is submitted while auto-advance is
+  // enabled, and consumed (reset to false) by the effect -- so a wrong answer,
+  // toggling auto-advance after answering, or navigating to an already-answered
+  // question never triggers a delayed move.
   const justAnsweredRef = useRef(false);
 
   // Reset the typed-input draft whenever the question changes (both moving
@@ -724,7 +723,7 @@ function PlayView({
     const newTypedAnswers = session.typedAnswers ? [...session.typedAnswers] : session.questions.map(() => null);
     newTypedAnswers[idx] = typedText;
     const newSession = { ...session, answers: newAnswers, typedAnswers: newTypedAnswers };
-    justAnsweredRef.current = true;
+    justAnsweredRef.current = autoAdvance && correct;
     await saveQuizSlot(newSession);
     onSessionChange(newSession);
   }
@@ -739,6 +738,7 @@ function PlayView({
   }
 
   async function goTo(newIndex: number) {
+    justAnsweredRef.current = false;
     const newSession = { ...session, currentIndex: newIndex };
     await saveQuizSlot(newSession);
     onSessionChange(newSession);
@@ -763,12 +763,13 @@ function PlayView({
   // moving on (by this timer, a manual tap, or a swipe) changes one of those
   // deps and cleans the old timer up before a new one could stack on top.
   useEffect(() => {
-    if (!autoAdvance || answered === null || !justAnsweredRef.current) return;
+    if (!justAnsweredRef.current) return;
     justAnsweredRef.current = false;
+    if (!autoAdvance || answered === null || !isAnsweredCorrect) return;
     const t = setTimeout(goNext, AUTO_ADVANCE_DELAY_MS);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoAdvance, answered, idx]);
+  }, [autoAdvance, answered, idx, isAnsweredCorrect]);
 
   const swipe = useSwipeNavigation({
     onSwipeLeft: goNext,
@@ -823,7 +824,7 @@ function PlayView({
           onChange={(e) => onAutoAdvanceChange(e.target.checked)}
           className="h-4 w-4 rounded border-neutral-300 accent-rose-600"
         />
-        Tự động chuyển câu sau khi trả lời ({(AUTO_ADVANCE_DELAY_MS / 1000).toFixed(1)}s)
+        Tự chuyển khi trả lời đúng ({(AUTO_ADVANCE_DELAY_MS / 1000).toFixed(1)}s); câu sai sẽ dừng lại
       </label>
 
       {/* Desktop only -- on mobile these same actions live in the floating
@@ -833,7 +834,7 @@ function PlayView({
           tapping it could get misread as "go back" and exit the quiz
           entirely instead of advancing. The floating buttons are inset
           well clear of that zone on both sides. */}
-      {autoAdvance ? null : (
+      {showManualNavigation ? (
         <div className="mt-4 hidden items-center gap-2 md:flex">
           <Button variant="outline" disabled={idx === 0} onClick={() => goTo(idx - 1)}>
             <ChevronLeft size={16} /> Câu trước
@@ -842,9 +843,9 @@ function PlayView({
             {isLast ? "Xem kết quả" : "Câu sau"} <ChevronRight size={16} />
           </Button>
         </div>
-      )}
+      ) : null}
 
-      {!autoAdvance && idx > 0 ? (
+      {showManualNavigation && idx > 0 ? (
         <button
           onClick={() => goTo(idx - 1)}
           aria-label="Câu trước"
@@ -853,7 +854,7 @@ function PlayView({
           <ChevronLeft size={18} />
         </button>
       ) : null}
-      {autoAdvance ? null : (
+      {showManualNavigation ? (
         <button
           onClick={goNext}
           disabled={answered === null}
@@ -864,7 +865,7 @@ function PlayView({
         >
           {isLast ? <Check size={16} /> : <ChevronRight size={18} />}
         </button>
-      )}
+      ) : null}
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
         {q.level ? (
@@ -925,7 +926,7 @@ function PlayView({
                     const newAnswers = [...session.answers];
                     newAnswers[idx] = i;
                     const newSession = { ...session, answers: newAnswers };
-                    justAnsweredRef.current = true;
+                    justAnsweredRef.current = autoAdvance && c.correct;
                     await saveQuizSlot(newSession);
                     onSessionChange(newSession);
                   }}

@@ -154,7 +154,7 @@ export function JlptQuestionStudyScreen({
     onCurrentItemChange?.(selectedQuestionId ?? undefined);
   }, [selectedQuestionId, onCurrentItemChange]);
 
-  if (progress === null) return <LoadingScreen />;
+  if (progress === null) return <LoadingScreen variant="quiz" title="Luyện câu hỏi JLPT" />;
 
   const sourceOptions = SOURCE_ORDER
     .filter((id) => catalog.some((set) => set.exam.source === id && set[category].length > 0))

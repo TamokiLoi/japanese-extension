@@ -61,7 +61,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
     })();
   }, []);
 
-  if (step === undefined) return <LoadingScreen />;
+  if (step === undefined) return <LoadingScreen variant="study" title="Ôn tập" />;
 
   if (step === "empty") {
     return (
@@ -78,7 +78,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
   }
 
   if (step === "resume") {
-    if (!session) return <LoadingScreen />;
+    if (!session) return <LoadingScreen variant="study" title="Ôn tập" />;
     const answeredCount = session.answers.filter((a) => a !== null).length;
     return (
       <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
@@ -112,7 +112,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
   }
 
   if (step === "play") {
-    if (!session) return <LoadingScreen />;
+    if (!session) return <LoadingScreen variant="study" title="Ôn tập" />;
     return (
       <PlayView
         session={session}
@@ -126,7 +126,7 @@ export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenC
     );
   }
 
-  if (!session) return <LoadingScreen />;
+  if (!session) return <LoadingScreen variant="study" title="Ôn tập" />;
   return <ResultView session={session} onDone={onDone} />;
 }
 

@@ -28,6 +28,7 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 import { PageHeader } from "../components/PageHeader.tsx";
 import { Card } from "../components/ui/card.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { LoadingScreen } from "../components/LoadingScreen.tsx";
 
 // "Ghép cặp": tap-to-match instead of drag-and-drop -- same interaction
 // works identically with mouse and touch (no pointer/touch code paths to
@@ -294,7 +295,7 @@ export function MatchGameScreen() {
   }
 
   if (phase === "loading") {
-    return <div className="mx-auto max-w-3xl px-2.5 py-6 text-center text-neutral-400">Đang tải...</div>;
+    return <LoadingScreen variant="match" title="Ghép cặp" />;
   }
 
   if (phase === "resume") {
@@ -339,7 +340,7 @@ export function MatchGameScreen() {
   }
 
   if (pool === null) {
-    return <div className="mx-auto max-w-3xl px-2.5 py-6 text-center text-neutral-400">Đang tải...</div>;
+    return <LoadingScreen variant="match" title="Ghép cặp" />;
   }
 
   const allLevelsChecked = selectedLevels.length === AVAILABLE_LEVELS.length;

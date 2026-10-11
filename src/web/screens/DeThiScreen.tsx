@@ -821,7 +821,7 @@ export function DeThiScreen({
     };
   }, [targetId]);
 
-  if (!step) return <LoadingScreen />;
+  if (!step) return <LoadingScreen variant="exam" title="Đề thi JLPT" />;
 
   if (step.name === "examList") {
     return <ExamListView onOpen={(examId) => setStep({ name: "examDetail", examId })} />;
@@ -1804,7 +1804,7 @@ function HistoryListView({
       <h1 className="mt-1.5 text-lg font-bold text-neutral-800">Lịch sử · {found.paper.label}</h1>
 
       {attempts === null ? (
-        <LoadingScreen />
+        <LoadingScreen variant="exam" title="Lịch sử làm đề" />
       ) : attempts.length === 0 ? (
         <p className="mt-6 text-sm text-neutral-400">Chưa có lần làm nào.</p>
       ) : (

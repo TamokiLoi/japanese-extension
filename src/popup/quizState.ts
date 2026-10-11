@@ -500,18 +500,15 @@ export interface QuizSettings {
   itBookVocabMode: ItBookVocabQuizMode;
   questionCount: number;
   progressBucket: QuizBucketFilter;
-  // Opt-in: auto-advance to the next question a fixed delay after answering,
-  // instead of requiring a tap every time -- mainly for long (e.g. 100-câu)
-  // sessions where clicking through each one gets tedious. Off by default
-  // since it also shortens how long a wrong answer's correct-answer callout
-  // stays on screen.
+  // Opt-in: auto-advance after a correct answer only. Wrong answers stay on
+  // screen for review and require a deliberate manual move to the next one.
   autoAdvance: boolean;
 }
 
 const QUIZ_SETTINGS_KEY = "quizSettings";
 
-// How long to show the answered state (correct/wrong highlight + detail)
-// before auto-advancing, when autoAdvance is on.
+// How long to show the correct-answer state before auto-advancing, when
+// autoAdvance is on.
 export const AUTO_ADVANCE_DELAY_MS = 1000;
 
 export async function loadQuizSettings(): Promise<QuizSettings> {

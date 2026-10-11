@@ -356,7 +356,7 @@ export function ReadingScreen({
     onCurrentItemChange?.(passage?.id);
   }, [isStateLoaded, passage?.id, onCurrentItemChange]);
 
-  if (!state) return <LoadingScreen />;
+  if (!state) return <LoadingScreen variant="reading" title={collection === "news" ? "Đọc báo" : "Luyện đọc"} />;
 
   // Lifted up from ListView (rather than each screen recomputing its own
   // copy) so PassageView can sequence Trước/Tiếp through the exact same

@@ -5,7 +5,7 @@ import { saveLastActive } from "../popup/lastActiveState.ts";
 import { WebAppShell } from "./WebAppShell.tsx";
 import { ConfirmProvider } from "./components/ConfirmDialog.tsx";
 import { DevToolsGuard } from "./components/DevToolsGuard.tsx";
-import { LoadingScreen } from "./components/LoadingScreen.tsx";
+import { LoadingScreen, type LoadingVariant } from "./components/LoadingScreen.tsx";
 import { PwaUpdateManager } from "./components/PwaUpdateManager.tsx";
 import {
   DEFAULT_BOTTOM_NAV_SHORTCUTS,
@@ -50,6 +50,40 @@ const LegacyApp = lazy(() => import("../popup/App.tsx").then((module) => ({ defa
 const BASE = import.meta.env.BASE_URL;
 
 type ReturnTo = { screen: Screen; targetId?: string };
+
+function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; title: string } {
+  if (screen === "menu") return { variant: "home", title: "Trang chủ" };
+  if (screen === "reading" || screen === "news") return { variant: "reading", title: screen === "news" ? "Đọc báo" : "Luyện đọc" };
+  if (screen === "listening" || screen === "dictation" || screen === "podcast") {
+    const titles = { listening: "Luyện nghe", dictation: "Nghe chép chính tả", podcast: "Podcast" };
+    return { variant: "listening", title: titles[screen] };
+  }
+  if (screen === "exams" || screen === "jlptHistory") {
+    return { variant: "exam", title: screen === "exams" ? "Đề thi JLPT" : "Lịch sử đề thi" };
+  }
+  if (screen === "quiz" || screen === "quizBook" || screen === "translationPractice") {
+    const titles = { quiz: "Quiz", quizBook: "Luyện đề", translationPractice: "Luyện dịch" };
+    return { variant: "quiz", title: titles[screen] };
+  }
+  if (screen === "stats") return { variant: "stats", title: "Thống kê" };
+  if (screen === "guide") return { variant: "guide", title: "Hướng dẫn" };
+  if (screen === "roadmap") return { variant: "roadmap", title: "Lộ trình N3" };
+  if (screen === "matchGame") return { variant: "match", title: "Ghép cặp" };
+
+  const titles: Partial<Record<Screen, string>> = {
+    kanji: "Kanji",
+    vocab: "Từ vựng",
+    search: "Tra cứu",
+    bunpo: "Ngữ pháp",
+    bunpoMap: "Sơ đồ ngữ pháp",
+    review: "Ôn tập",
+    backup: "Sao lưu dữ liệu",
+    itBookVocab: "Từ vựng IT",
+    itBookLessons: "Bài học IT",
+    settings: "Cài đặt",
+  };
+  return { variant: "study", title: titles[screen] ?? "nội dung học" };
+}
 
 function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo | null } {
   const path = location.pathname.startsWith(BASE) ? location.pathname.slice(BASE.length) : location.pathname.replace(/^\/+/, "");
@@ -201,6 +235,7 @@ export function WebApp() {
   }
 
   const navKey = targetId ? `${screen}:${targetId}` : screen;
+  const loadingPresentation = getLoadingPresentation(screen);
 
   let content: React.ReactNode;
   if (screen === "menu") {
@@ -293,7 +328,7 @@ export function WebApp() {
       />
     );
   } else if (screen === "guide") {
-    content = <GuideScreen />;
+    content = <GuideScreen onNavigate={navigate} />;
   } else if (screen === "backup") {
     content = <BackupScreen />;
   } else if (screen === "listening") {
@@ -344,7 +379,7 @@ export function WebApp() {
           bottomNavShortcuts={bottomNavShortcuts}
           searchPopupEnabled={searchDisplayMode === "popup"}
         >
-          <Suspense fallback={<LoadingScreen />}>{content}</Suspense>
+          <Suspense fallback={<LoadingScreen {...loadingPresentation} />}>{content}</Suspense>
         </WebAppShell>
 {searchPopupOpen ? (
   <div
@@ -366,7 +401,7 @@ export function WebApp() {
               >
                 <X size={18} />
               </button>
-              <Suspense fallback={<LoadingScreen />}>
+              <Suspense fallback={<LoadingScreen variant="study" title="Tra cứu nhanh" />}>
                 <SearchScreen
                   popup
                   onOpenKanji={(id) => {

@@ -277,7 +277,7 @@ export function StatsScreen({
       .sort((a, b) => (map[b.id]?.lastSeenAt ?? 0) - (map[a.id]?.lastSeenAt ?? 0));
   }, [entries, map, bucket]);
 
-  if (!map || !buckets) return <LoadingScreen />;
+  if (!map || !buckets) return <LoadingScreen variant="stats" title="Thống kê" />;
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">

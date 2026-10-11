@@ -1,6 +1,6 @@
-// Imported by the generated service worker. Store whether a worker already
-// controlled this registration before this one installed; first-time PWA
-// installs should not cause a pointless reload.
+// Imported by the generated service worker. Existing clients are moved to a
+// new worker only after the user applies an update, or after index.html
+// explicitly activates it to recover from a failed stale lazy chunk.
 const replacingExistingWorker = Boolean(self.registration.active);
 
 self.addEventListener("activate", (event) => {

@@ -1,193 +1,182 @@
 import {
-  Search,
+  ArrowRight,
+  BarChart3,
   BookMarked,
   BookOpenText,
-  GraduationCap,
-  HelpCircle,
-  RotateCcw,
-  BarChart3,
-  Filter,
-  Headphones,
-  ClipboardCheck,
-  Info,
   CalendarCheck,
-  Cpu,
-  MessageCircleQuestion,
+  ClipboardCheck,
   DatabaseBackup,
+  GraduationCap,
+  Headphones,
+  HelpCircle,
+  Home,
+  Info,
+  Library,
+  Newspaper,
+  PenSquare,
+  Podcast,
+  RotateCcw,
+  Search,
+  Settings,
+  Puzzle,
+  Cpu,
+  type LucideIcon,
 } from "lucide-react";
-import { Card } from "../components/ui/card.tsx";
+import type { Screen } from "../../popup/App.tsx";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs.tsx";
 
-interface GuideItem {
-  icon: typeof Search;
+interface GuideTopic {
+  screen: Screen;
   title: string;
-  points: string[];
+  icon: LucideIcon;
+  summary: string;
+  flow: string[];
+  caveat?: string;
 }
 
-const GUIDE_SECTIONS: GuideItem[] = [
+interface GuideTab {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+  topics: GuideTopic[];
+}
+
+const GUIDE_TABS: GuideTab[] = [
   {
-    icon: Search,
-    title: "Tra cứu",
-    points: [
-      "Gõ chữ Hán, từ, Hán Việt, hoặc nghĩa tiếng Việt để tìm nhanh trong cả Kanji, Từ vựng và Ngữ pháp.",
-      "Bấm vào các nhãn Kanji/Từ vựng/Ngữ pháp phía trên ô tìm để giới hạn chỉ tìm trong 1 loại.",
+    id: "start",
+    label: "Bắt đầu",
+    icon: Home,
+    topics: [
+      { screen: "menu", title: "Trang chủ", icon: Home, summary: "Tiếp tục học, xem tiến độ và vào các phần thường dùng.", flow: ["Chọn một mục học", "Mở phần cần học", "Quay lại trang chủ xem tiến độ"] },
+      { screen: "roadmap", title: "Lộ trình N3", icon: CalendarCheck, summary: "Chọn ngày thi để xem các giai đoạn ôn N3 theo thời gian còn lại.", flow: ["Nhập ngày thi", "Chọn nhiệm vụ đang học", "Mở đúng nguồn theo bộ lọc"], caveat: "Lộ trình hiện dùng các mốc thời gian và thứ tự tài liệu định sẵn; chưa tự điều chỉnh theo độ đúng của từng kỹ năng." },
+      { screen: "search", title: "Tra cứu", icon: Search, summary: "Tìm Kanji, từ vựng và ngữ pháp bằng chữ Nhật, Hán Việt hoặc nghĩa tiếng Việt.", flow: ["Nhập từ cần tìm", "Chọn loại kết quả nếu muốn thu hẹp", "Mở thẻ để xem chi tiết"] },
     ],
   },
   {
+    id: "study",
+    label: "Học",
     icon: BookMarked,
-    title: "Kanji / Từ vựng / Ngữ pháp",
-    points: [
-      "Bấm nút Bộ lọc để chọn cấp độ, nguồn tài liệu... — mặc định ẩn đi để nội dung học hiện ngay, không cần cuộn.",
-      "Các thẻ đang lọc hiện thành nhãn nhỏ ngay dưới thanh công cụ — bấm dấu × trên nhãn để bỏ lọc nhanh.",
-      "Ngẫu nhiên: xáo trộn thứ tự thẻ. Trước/Tiếp: duyệt tuần tự. Bấm 'Đánh dấu đã thuộc' hoặc cờ (khó) để ghi nhận tiến độ.",
+    topics: [
+      { screen: "kanji", title: "Kanji", icon: BookMarked, summary: "Học cách đọc, nghĩa và từ có chứa Kanji.", flow: ["Chọn cấp độ / nguồn", "Học thẻ hoặc trả lời quiz", "Đánh dấu đã thuộc hoặc cần ôn"] },
+      { screen: "vocab", title: "Từ vựng", icon: Library, summary: "Học từ theo bộ, cấp độ và trạng thái hiện tại.", flow: ["Lọc bộ từ", "Xem từ và nghĩa", "Luyện lại mục đã đánh dấu"] },
+      { screen: "bunpo", title: "Ngữ pháp", icon: PenSquare, summary: "Xem nghĩa, cách dùng, ví dụ và các mẫu liên quan.", flow: ["Lọc mẫu ngữ pháp", "Đọc nghĩa / ví dụ", "Mở mẫu liên quan hoặc sơ đồ"] },
+      { screen: "bunpoMap", title: "Sơ đồ ngữ pháp", icon: PenSquare, summary: "Duyệt các mẫu ngữ pháp theo nhóm liên quan.", flow: ["Chọn cấp độ", "Chọn nhóm trên sơ đồ", "Mở thẻ mẫu cần học"] },
     ],
   },
   {
+    id: "read-listen",
+    label: "Đọc & Nghe",
     icon: BookOpenText,
-    title: "Luyện đọc",
-    points: [
-      "Danh sách bài đọc hiện đủ tiêu đề/nguồn/độ dài/trạng thái để chọn nhanh, không cần mở từng bài mới biết nội dung.",
-      "Trong bài đọc có thể bật/tắt furigana và xem bản dịch tiếng Việt.",
+    topics: [
+      { screen: "reading", title: "Luyện đọc", icon: BookOpenText, summary: "Đọc bài theo cấp độ, nguồn và dạng bài; làm các câu hỏi đi kèm.", flow: ["Chọn sách / đề / độ dài", "Đọc bài, bật furigana hoặc bản dịch", "Làm câu hỏi rồi xem tham khảo"] },
+      { screen: "listening", title: "Luyện nghe", icon: Headphones, summary: "Nghe audio, chọn đáp án và xem transcript / dịch khi dữ liệu có.", flow: ["Chọn nguồn / dạng câu", "Nghe và trả lời", "Đối chiếu transcript và giải thích"] },
+      { screen: "dictation", title: "Nghe chép chính tả", icon: Headphones, summary: "Nghe audio rồi gõ lại lời thoại để so sánh với transcript.", flow: ["Chọn câu", "Nghe và gõ", "Xem phần khớp / còn sai"], caveat: "Kết quả phụ thuộc transcript và cách chuẩn hóa kana, Kanji, dấu câu." },
     ],
   },
   {
-    icon: Headphones,
-    title: "Luyện nghe",
-    points: [
-      "2 tab ở đầu màn dùng chung 1 kho câu hỏi: 'Nghe & chọn đáp án' (trắc nghiệm) và 'Nghe chép chính tả' (gõ lại nguyên văn đã nghe).",
-      "Nghe & chọn đáp án -- đề N3 phần Nghe có 5 dạng câu, mỗi dạng cần nghe khác nhau -- lọc theo 'Dạng câu hỏi' để luyện riêng từng dạng:",
-      "課題理解 (việc cần làm): nghe hội thoại rồi chọn việc cần làm/đã làm tiếp theo -- câu hỏi và đáp án được in sẵn (hoặc là tranh), có thể đọc trước khi nghe.",
-      "ポイント理解 (trọng điểm): câu hỏi được đọc trước khi hội thoại bắt đầu, giúp biết cần chú ý nghe gì -- đáp án cũng được in sẵn.",
-      "概要理解 (khái quát): không có gì in sẵn -- chỉ nghe toàn bộ hội thoại rồi mới nghe câu hỏi và đáp án đọc ra, phải nhớ trong đầu.",
-      "発話表現 (biểu hiện lời nói): nhìn tình huống/tranh, nghe câu hỏi 'nói thế nào?' rồi chọn câu trả lời phù hợp; phần chữ đáp án không có sẵn trên đề.",
-      "即時応答 (phản xạ nhanh): câu ngắn, không in gì cả -- nghe một câu rồi chọn ngay 1 trong 3 đáp án cũng được đọc bằng lời.",
-      "Trả lời xong sẽ hiện bản dịch tiếng Việt (bối cảnh + câu hỏi + đáp án) và transcript đầy đủ để đối chiếu.",
-      "Nghe chép chính tả -- nghe 1 đoạn audio thật rồi gõ lại nguyên văn, app so khớp từng chữ với transcript và tính % chính xác; lưới câu hỏi cho biết câu nào đã gõ đúng hoàn toàn hay mới đúng một phần.",
-    ],
-  },
-  {
+    id: "practice",
+    label: "Luyện thi",
     icon: GraduationCap,
-    title: "Luyện đề",
-    points: [
-      "Câu hỏi trích từ đề thi/sách luyện thi thật, chia theo dạng (Chữ Hán, Từ vựng, Ngữ pháp).",
-      "Chọn số câu rồi bấm Bắt đầu để làm theo phiên ngẫu nhiên, hoặc bấm thẳng vào 1 câu trong danh sách để làm riêng câu đó.",
+    topics: [
+      { screen: "quizBook", title: "Luyện đề", icon: GraduationCap, summary: "Luyện câu từ đề và sách theo nguồn, dạng và số lượng tùy chọn.", flow: ["Chọn nguồn / dạng câu", "Chọn số câu hoặc câu cụ thể", "Làm và xem đáp án"] },
+      { screen: "exams", title: "Đề thi JLPT", icon: ClipboardCheck, summary: "Làm đề theo phần, lưu phiên và xem lại các lần đã thi.", flow: ["Chọn kỳ thi", "Làm và nộp từng phần", "Xem lịch sử, đáp án và tham khảo"], caveat: "Độ phủ đáp án / nghe khác nhau theo kỳ thi; đáp án tham khảo chưa đồng nghĩa đã xác minh chính thức." },
+      { screen: "quiz", title: "Quiz", icon: HelpCircle, summary: "Tạo lượt trắc nghiệm từ Kanji, từ vựng hoặc ngữ pháp.", flow: ["Chọn nội dung và bộ lọc", "Bắt đầu quiz", "Mở lưới để xem lại câu"] },
+      { screen: "review", title: "Ôn tập", icon: RotateCcw, summary: "Ôn Kanji, từ vựng và ngữ pháp đã đến hạn.", flow: ["Mở phiên ôn", "Tự trả lời / tự đánh giá", "Tiến độ cập nhật cho lần sau"] },
+      { screen: "matchGame", title: "Ghép cặp", icon: Puzzle, summary: "Ghép từ với nghĩa theo cấp độ và nguồn.", flow: ["Chọn cấp độ / nguồn", "Chạm các cặp tương ứng", "Tiếp tục hoặc chơi lượt khác"] },
     ],
   },
   {
-    icon: ClipboardCheck,
-    title: "Đề thi JLPT",
-    points: [
-      "Làm nguyên đề N3 thật (không có phần Nghe), chấm điểm theo đúng barem của đề gốc chứ không chỉ đếm số câu đúng.",
-      "Mỗi phần (Chữ Hán-Từ vựng, Ngữ pháp-Đọc hiểu) có đồng hồ đếm ngược riêng -- hạn nộp được lưu lại nên thoát/tải lại trang không mất giờ, hết giờ tự nộp bài.",
-      "Mỗi đề lưu lại lịch sử các lần đã làm (số lần, điểm cao nhất, lần gần nhất) để theo dõi tiến bộ qua từng lượt.",
-    ],
-  },
-  {
-    icon: CalendarCheck,
-    title: "Lộ trình N3",
-    points: [
-      "Nhập ngày thi N3, app tự chia 3 giai đoạn (Nền tảng → Luyện đề → Nước rút) theo % thời gian đã trôi qua.",
-      "Mỗi giai đoạn tự xếp Kanji/Từ vựng/Ngữ pháp/Đọc/Nghe theo đúng thứ tự sách từ dễ đến khó, dựa trên tiến độ thật (bộ nào chưa học hết mới coi là 'đang học' -- học nhanh/chậm hơn dự kiến thì tự điều chỉnh, không theo lịch cố định).",
-      "Bấm vào 1 dòng sẽ tự nhảy sang đúng màn đó, lọc sẵn đúng bộ đang học -- khỏi cần tự chọn lại bộ lọc.",
-      "Icon quyển sổ ở góc header mở 'Ghi chú tài liệu' -- mô tả ngắn + độ khó từng sách để biết trước nên học gì.",
-    ],
-  },
-  {
-    icon: HelpCircle,
-    title: "Quiz",
-    points: [
-      "Trắc nghiệm tùy chỉnh: chọn nội dung (Kanji/Từ vựng/Ngữ pháp), dạng câu hỏi, số câu, phạm vi theo bộ lọc hiện tại.",
-      "Bấm vào ô tóm tắt phía trên câu hỏi để mở lưới xem nhanh câu nào đã làm/đúng/sai và nhảy tới câu bất kỳ.",
-    ],
-  },
-  {
-    icon: RotateCcw,
-    title: "Ôn tập",
-    points: [
-      "Gộp toàn bộ thẻ đến hạn ôn lại (Kanji + Từ vựng + Ngữ pháp) vào 1 phiên duy nhất, truy cập từ nút ở Trang chủ.",
-      "Kanji/Từ vựng: gõ đáp án (không cần gõ dấu vẫn được chấm đúng). Ngữ pháp: bấm 'Hiện đáp án' rồi tự đánh giá Nhớ đúng/Chưa nhớ.",
-      "Trả lời đúng sẽ đẩy lịch ôn tiếp theo ra xa hơn; trả lời sai/chưa nhớ sẽ đưa thẻ về lại trạng thái cần học.",
-    ],
-  },
-  {
+    id: "it",
+    label: "IT Book",
     icon: Cpu,
-    title: "IT Book",
-    points: [
-      "Riêng cho người học tiếng Nhật ngành IT -- từ vựng và 15 bài đọc/hội thoại chuyển thể từ 1 giáo trình IT tiếng Nhật thật.",
-      "Mỗi bài có ảnh chụp trang sách gốc (gập/mở được) để xem sơ đồ/bảng biểu không bị mất khi chuyển thành văn bản, kèm bài trắc nghiệm 'IT用語を覚えましょう' có đáp án thật để tự chấm.",
+    topics: [
+      { screen: "itBookLessons", title: "Bài học IT", icon: BookOpenText, summary: "Đọc bài và hội thoại tiếng Nhật trong ngữ cảnh công nghệ thông tin.", flow: ["Chọn bài", "Đọc văn bản hoặc ảnh trang gốc", "Làm câu hỏi của bài"] },
+      { screen: "itBookVocab", title: "Từ vựng IT", icon: Cpu, summary: "Học từ chuyên ngành theo nội dung IT Book.", flow: ["Chọn bài / nhóm từ", "Xem nghĩa và cách đọc", "Ôn lại thẻ cần nhớ"] },
     ],
   },
   {
-    icon: MessageCircleQuestion,
-    title: "Hỏi AI",
-    points: [
-      "Nút tròn nổi ở mọi màn (góc dưới trái trên mobile, dưới phải trên desktop) -- tự lấy ngữ cảnh từ thẻ đang xem để hỏi nhanh.",
-      "Mặc định mở tab ChatGPT/Gemini kèm sẵn câu hỏi -- hoàn toàn miễn phí. Muốn trả lời ngay tại chỗ thì tự nhập API key riêng (OpenAI hoặc Gemini) qua icon bánh răng trong popup -- key chỉ lưu trên máy bạn.",
+    id: "entertainment",
+    label: "Giải trí",
+    icon: Newspaper,
+    topics: [
+      { screen: "news", title: "Đọc báo", icon: Newspaper, summary: "Khu vực dành cho bài báo và bài đọc thời sự.", flow: ["Chọn chủ đề / cấp độ", "Đọc bài", "Xem bản dịch và câu hỏi"], caveat: "Kho bài hiện chưa có nội dung được xuất bản." },
+      { screen: "podcast", title: "Podcast", icon: Podcast, summary: "Tìm và nghe podcast tiếng Nhật; lưu yêu thích và tiến độ nghe.", flow: ["Chọn kênh / cấp độ", "Mở tập và nghe", "Chuyển transcript hoặc từ vựng nếu tập có dữ liệu"], caveat: "Danh sách hiện bật Bitesize và Haruno. Transcript, bản dịch và tham khảo tùy từng tập." },
     ],
   },
   {
-    icon: DatabaseBackup,
-    title: "Sao lưu dữ liệu",
-    points: [
-      "Xuất toàn bộ tiến độ học (đã thuộc, streak, cài đặt lộ trình...) ra 1 file JSON.",
-      "Nhập lại file đó trên máy/trình duyệt khác để tiếp tục đúng tiến độ, không cần học lại từ đầu khi đổi thiết bị.",
-    ],
-  },
-  {
-    icon: BarChart3,
-    title: "Thống kê",
-    points: [
-      "Xem tổng quan Đã thuộc/Đang học/Cần ôn lại/Chưa học theo Kanji, Từ vựng, Ngữ pháp, Đọc hiểu, Luyện đề, Luyện nghe hoặc Nghe chép chính tả, và tiến độ theo từng cấp độ/nguồn.",
-      "Bấm vào 1 ô tổng quan (vd 'Cần ôn lại') để lọc danh sách bên dưới chỉ hiện đúng nhóm đó.",
+    id: "tools",
+    label: "Công cụ",
+    icon: Settings,
+    topics: [
+      { screen: "stats", title: "Thống kê", icon: BarChart3, summary: "Xem tiến độ theo nội dung, trạng thái, cấp độ và nguồn.", flow: ["Chọn nhóm thống kê", "Lọc mục cần xem", "Mở nội dung từ kết quả"] },
+      { screen: "backup", title: "Sao lưu dữ liệu", icon: DatabaseBackup, summary: "Xuất hoặc khôi phục tiến độ học và cài đặt.", flow: ["Chọn JSON hoặc Google Drive", "Xuất bản sao", "Nhập lại khi cần chuyển hồ sơ / thiết bị"], caveat: "Drive là thao tác thủ công và cần cấu hình OAuth; sao lưu không bao gồm API key AI." },
+      { screen: "settings", title: "Cài đặt", icon: Settings, summary: "Đổi lối tắt thanh điều hướng và cách mở Tra cứu; xem các góp ý dữ liệu trên thiết bị.", flow: ["Chọn cài đặt", "Thay đổi và lưu", "Quay lại phần học"] },
     ],
   },
 ];
 
-export function GuideScreen() {
+function TopicCard({ topic, onNavigate }: { topic: GuideTopic; onNavigate: (screen: Screen) => void }) {
+  const Icon = topic.icon;
+  return (
+    <article className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-5">
+      <div className="flex items-start gap-3">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-600"><Icon size={18} /></span>
+        <div className="min-w-0 flex-1">
+          <h3 className="font-semibold text-neutral-800">{topic.title}</h3>
+          <p className="mt-1 text-sm text-neutral-500">{topic.summary}</p>
+        </div>
+        <button type="button" onClick={() => onNavigate(topic.screen)} className="inline-flex shrink-0 items-center gap-1 rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-600 hover:border-rose-200 hover:text-rose-600">
+          Mở <ArrowRight size={13} />
+        </button>
+      </div>
+      <div className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+        {topic.flow.map((step, index) => (
+          <span key={step} className="inline-flex items-center gap-2">
+            <span className="rounded-lg bg-neutral-100 px-2.5 py-1.5 text-neutral-700"><span className="mr-1.5 font-semibold text-rose-600">{index + 1}</span>{step}</span>
+            {index < topic.flow.length - 1 ? <ArrowRight size={13} className="text-neutral-300" aria-hidden="true" /> : null}
+          </span>
+        ))}
+      </div>
+      {topic.caveat ? <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900">{topic.caveat}</p> : null}
+    </article>
+  );
+}
+
+export function GuideScreen({ onNavigate }: { onNavigate: (screen: Screen) => void }) {
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px]" style={{ background: "#ffe4e6" }}>
-          <Info size={20} className="text-rose-600" />
-        </div>
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] bg-rose-100 text-rose-600"><Info size={20} /></div>
         <div>
           <h1 className="text-2xl font-bold text-neutral-800">Hướng dẫn</h1>
-          <p className="text-sm text-neutral-500">Cách dùng nhanh từng phần của Nihongo Nin</p>
+          <p className="text-sm text-neutral-500">Chọn một mục để xem luồng sử dụng và mở thẳng phần học.</p>
         </div>
       </div>
 
-      <div className="mt-4 flex items-start gap-2 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
-        <Filter size={16} className="mt-0.5 shrink-0" />
-        <div>
-          Hầu hết các màn duyệt nội dung đều theo cùng 1 kiểu: <b>tiêu đề → thanh công cụ (Bộ lọc/Sắp xếp) → nội dung</b>.
-          Bộ lọc luôn ẩn mặc định để bạn thấy bài học ngay, chỉ mở ra khi cần đổi phạm vi.
-        </div>
-      </div>
-
-      <div className="mt-6 flex flex-col gap-4">
-        {GUIDE_SECTIONS.map(({ icon: Icon, title, points }) => (
-          <Card key={title} className="gap-2 rounded-2xl border-neutral-200 p-5 ring-0">
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-rose-50 text-rose-600">
-                <Icon size={17} />
-              </span>
-              <h2 className="font-semibold text-neutral-800">{title}</h2>
+      <Tabs defaultValue="start" className="mt-5">
+        <TabsList className="!h-auto grid w-full grid-cols-2 gap-1 rounded-xl bg-neutral-100 p-1 sm:grid-cols-4 lg:grid-cols-7">
+          {GUIDE_TABS.map(({ id, label, icon: Icon }) => (
+            <TabsTrigger key={id} value={id} className="h-9 min-w-0 px-2 text-xs sm:text-sm"><Icon size={14} />{label}</TabsTrigger>
+          ))}
+        </TabsList>
+        {GUIDE_TABS.map(({ id, label, topics }) => (
+          <TabsContent key={id} value={id} className="mt-4">
+            <div className="mb-3 flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-neutral-800">{label}</h2>
+              <span className="text-xs text-neutral-400">{topics.length} mục</span>
             </div>
-            <ul className="ml-1 list-disc space-y-1.5 pl-4 text-sm text-neutral-600">
-              {points.map((p, i) => (
-                <li key={i}>{p}</li>
-              ))}
-            </ul>
-          </Card>
+            <div className="grid gap-3 lg:grid-cols-2">
+              {topics.map((topic) => <TopicCard key={topic.screen} topic={topic} onNavigate={onNavigate} />)}
+            </div>
+          </TabsContent>
         ))}
-      </div>
+      </Tabs>
 
-      <div className="mt-6 text-center text-xs text-neutral-400">
-        Một phần nội dung "Cách dùng" trong Ngữ pháp tham khảo từ{" "}
-        <a href="https://hanabira.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">
-          hanabira.org
-        </a>{" "}
-        (Creative Commons License), đã dịch và biên tập lại.
-      </div>
+      <p className="mt-6 text-center text-xs text-neutral-400">
+        Phần “Cách dùng” trong một số thẻ Ngữ pháp tham khảo từ{" "}
+        <a href="https://hanabira.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-neutral-600">hanabira.org</a>
+        {" "}(Creative Commons License), đã được dịch và biên tập lại.
+      </p>
     </div>
   );
 }

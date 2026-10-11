@@ -56,7 +56,10 @@ const isPages = process.env.GH_PAGES === "true";
 const pagesBase = "/japanese-extension/";
 
 const pwa = VitePWA({
-  registerType: "autoUpdate",
+  // Keep the current study screen open until the user chooses to apply an
+  // available update. A waiting worker can still be activated immediately
+  // by the existing stale-chunk recovery path after a hard import failure.
+  registerType: "prompt",
   // Register from the HTML shell before the app's dynamically imported
   // screens load. If an older app shell is missing one of its lazy chunks,
   // PWA registration must still run so the replacement worker can take over.
@@ -99,9 +102,9 @@ const pwa = VitePWA({
     "icons/icon128.png",
   ],
   workbox: {
-    // Auto-activate and claim clients so an old page cannot stay pinned to a
-    // worker whose deploy-time hashed chunks have already disappeared.
-    skipWaiting: true,
+    // Apply updates only from the visible PWA prompt, or the explicit
+    // recovery path in index.html if a removed lazy chunk fails to load.
+    skipWaiting: false,
     clientsClaim: true,
     importScripts: ["pwa-update-migration.js"],
     // Precache only the app shell and its startup dependencies. The app has
