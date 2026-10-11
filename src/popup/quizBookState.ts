@@ -13,6 +13,7 @@ import quizbookN3KanjiDrillRaw from "../data/quizbook-n3-kanji-drill.json";
 import quizbookN2KanjiDrillRaw from "../data/quizbook-n2-kanji-drill.json";
 import quizbookN1KanjiDrillRaw from "../data/quizbook-n1-kanji-drill.json";
 import quizbookN3TwentyDaysRaw from "../data/quizbook-n3-20days.json";
+import quizbookN3DienSao260Raw from "../data/quizbook-n3-dien-sao-260.json";
 import type { QuizBookDataset, QuizBookQuestion, QuizBookCategory } from "../types/quizBook.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -33,6 +34,7 @@ const n3KanjiDrillDataset = quizbookN3KanjiDrillRaw as unknown as QuizBookDatase
 const n2KanjiDrillDataset = quizbookN2KanjiDrillRaw as unknown as QuizBookDataset;
 const n1KanjiDrillDataset = quizbookN1KanjiDrillRaw as unknown as QuizBookDataset;
 const n3TwentyDaysDataset = quizbookN3TwentyDaysRaw as unknown as QuizBookDataset;
+const n3DienSao260Dataset = quizbookN3DienSao260Raw as unknown as QuizBookDataset;
 
 export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3500monDataset.questions,
@@ -50,6 +52,7 @@ export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n2KanjiDrillDataset.questions,
   ...n1KanjiDrillDataset.questions,
   ...n3TwentyDaysDataset.questions,
+  ...n3DienSao260Dataset.questions,
 ];
 
 const QUIZBOOK_BY_ID = new Map(ALL_QUIZBOOK.map((q) => [q.id, q]));
@@ -83,6 +86,7 @@ export const BOOK_LABELS: Record<string, string> = {
   "kanji-drill-n2": n2KanjiDrillDataset.meta.bookLabel,
   "kanji-drill-n1": n1KanjiDrillDataset.meta.bookLabel,
   "20days-n3": n3TwentyDaysDataset.meta.bookLabel,
+  "n3-dien-sao-260": n3DienSao260Dataset.meta.bookLabel,
 };
 
 // Each book currently belongs to exactly one level, so the book picker
@@ -104,6 +108,7 @@ export const BOOK_LEVELS: Record<string, JlptLevel> = {
   "kanji-drill-n2": n2KanjiDrillDataset.meta.level,
   "kanji-drill-n1": n1KanjiDrillDataset.meta.level,
   "20days-n3": n3TwentyDaysDataset.meta.level,
+  "n3-dien-sao-260": n3DienSao260Dataset.meta.level,
 };
 
 // Top-level grouping shown as a tab/radio switch above the book picker, so
@@ -134,6 +139,7 @@ export const BOOK_GROUP: Record<string, QuizBookGroup> = {
   "kanji-drill-n2": "sach",
   "kanji-drill-n1": "sach",
   "20days-n3": "sach",
+  "n3-dien-sao-260": "sach",
 };
 
 const CATEGORY_ORDER: QuizBookCategory[] = ["moji", "goi", "bunpou"];
