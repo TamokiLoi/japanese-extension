@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { collectJlptReading, stableHash } from "../src/lib/jlptReading.ts";
-import { splitBodyIntoSentences } from "../src/lib/readingSentences.ts";
+import { splitBodyIntoSentences, translatedReadingUnits } from "../src/lib/readingSentences.ts";
 import { inferReadingUnderline } from "../src/lib/jlptReadingAnnotations.ts";
 import { readingPassageUnderline, readingPassageUnderlineRange } from "../src/lib/jlptReadingAnnotations.ts";
 import type { DeThiDataset } from "../src/types/dethi.ts";
@@ -88,6 +88,15 @@ assert.equal(blankHeaderTable?.rows.length, 2);
 
 
 const body = [{ text: "題名\n本文です。次の文です。", furigana: null }];
+const blankGapBody = [{ text: "宛名\n\n本文です。", furigana: null }];
+const blankGapGroups = splitBodyIntoSentences(blankGapBody);
+assert.equal(blankGapGroups.length, 1, "paragraph spacing must not change sentence translation alignment");
+assert.equal(blankGapGroups[0][1].paragraphGap, true, "a blank source gap must survive sentence splitting");
+assert.equal(translatedReadingUnits(blankGapBody, ["Người nhận, nội dung."])[0].segments[1].paragraphGap, true);
+const indentedBody = [{ text: "第一段落です。\n　第二段落です。", furigana: null }];
+const indentedGroups = splitBodyIntoSentences(indentedBody);
+assert.equal(indentedGroups[1][0].paragraphStart, true, "an indented source paragraph must keep its boundary");
+assert.equal(indentedGroups[1][0].paragraphGap, undefined, "an indented paragraph must not gain a blank-gap margin");
 assert.equal(
   inferReadingUnderline("やってみようと思ったとあるが、何をしようと思ったのか。", "今度、私もやってみようと思った。"),
   "やってみようと思った",
@@ -142,6 +151,20 @@ const officialDatasets = ["n3", "n1"].map((level) =>
   JSON.parse(readFileSync(new URL(`../src/data/dethi-${level}-cac-nam.json`, import.meta.url), "utf8")) as DeThiDataset,
 );
 const officialPassages = collectJlptReading(officialDatasets);
+const annualN3Data = officialDatasets.find((dataset) => dataset.exams.some((exam) => exam.id === "cacnam-n3-2021-12"));
+assert.ok(annualN3Data, "annual N3 source data must be loaded");
+const q38LibraryNotice = annualN3Data.exams
+  .find((exam) => exam.id === "cacnam-n3-2021-12")?.papers
+  .flatMap((paper) => paper.questions)
+  .find((question) => question.number === 38);
+assert.ok(q38LibraryNotice?.passage?.startsWith("あおい市市立図書館\n4月の読書会のお知らせ"), "T12/2021 Q38 must show the book-club notice it asks about");
+assert.ok(!q38LibraryNotice.passage.includes("ご利用案内"), "T12/2021 Q38 must not repeat Q37's library guide");
+assert.equal(q38LibraryNotice.passageSentencesVi?.length, splitBodyIntoSentences(q38LibraryNotice.passageFurigana ?? []).length,
+  "T12/2021 Q38 translation units must line up with the book-club notice");
+const t72024N3 = annualN3Data.exams.find((exam) => exam.id === "cacnam-n3-2024-07");
+const t72024Essay = t72024N3?.papers.flatMap((paper) => paper.questions).find((question) => question.number === 19 && question.passage);
+assert.ok(t72024Essay?.passage?.includes("私たちは友達です。\n\nそのお店には"), "T7/2024 essay must retain its first source paragraph gap");
+assert.ok(t72024Essay.passage.includes("仲がよくなりました。\n\nほかのお客さん"), "T7/2024 essay must retain its second source paragraph gap");
 const registrySource = readFileSync(new URL("../src/popup/dethiCatalog.ts", import.meta.url), "utf8");
 const mockSetPaths = [...registrySource.matchAll(/import\s+\w+\s+from\s+["']\.\.\/data\/(de-n3-set-\d+\.json)["']/gu)].map((match) => match[1]);
 const mockSetDatasets = mockSetPaths.map((path) =>

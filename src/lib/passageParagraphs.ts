@@ -32,6 +32,11 @@ export function splitPassageParagraphs(text: string): PassageParagraphRange[] {
     }));
     if (lines.length < 2 || lines.length > 12 || paragraph.text.includes("|")) return [paragraph];
 
+    // Some source PDFs mark paragraph starts with an ideographic indent and
+    // no extra vertical gap. Keep those explicit line breaks inside the same
+    // rendered block so the indent remains visible instead of adding margin.
+    if (lines.some(({ text: line }) => line.startsWith("　"))) return [paragraph];
+
     const isStructuredLine = (line: string) =>
       /^\s*(?:[-*•・※]|\(?\d+\)?[.)、]|(?:日時|日\s*時|場所|料金|電話|営業時間|開室時間|連絡先|参加方法|持ち物|対象|申込)[：:])/u.test(line);
     if (lines.some(({ text: line }) => isStructuredLine(line))) return [paragraph];

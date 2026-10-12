@@ -4602,7 +4602,7 @@
               ],
               "correctIndex": 2,
               "points": 1,
-              "passage": "これは森大学から受験者に届いたメールである。\nあて先：shinnyusei@mori-college.ac.jp\n件名：2025年入学試験の結果について\n送信日時：2025年1月13日 15:00\n森大学を受験したみなさんへ\n入学試験、お疲れ様でした。明日、試験結果の発表があります。\n試験の結果は、大学のホームページで発表しますので、必ず確認してください。\n入学が決まった方には、書類をお送りします。入学準備の進め方が書かれている大切な書類です。届き次第、すぐに確認してください。\nまた、一度にたくさんの人がアクセスすると、ホームページが開きにくくなることがあります。その場合は、時間を置いてから、もう一度アクセスしてください。それでも確認できない場合は、学生課までお電話ください。\n森大学 学生課",
+              "passage": "これは森大学から受験者に届いたメールである。\nあて先：shinnyusei@mori-college.ac.jp\n件名：2025年入学試験の結果について\n送信日時：2025年1月13日 15:00\n　森大学を受験したみなさんへ\n　入学試験、お疲れ様でした。明日、試験結果の発表があります。\n　試験の結果は、大学のホームページで発表しますので、必ず確認してください。\n　入学が決まった方には、書類をお送りします。入学準備の進め方が書かれている大切な書類です。届き次第、すぐに確認してください。\n　また、一度にたくさんの人がアクセスすると、ホームページが開きにくくなることがあります。その場合は、時間を置いてから、もう一度アクセスしてください。それでも確認できない場合は、学生課までお電話ください。\n森大学 学生課",
               "questionVi": "Điều có thể hiểu từ email này là gì?",
               "optionsVi": [
                 "Có thể xem tài liệu trên trang web.",
@@ -4741,6 +4741,10 @@
                   "furigana": null
                 },
                 {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
                   "text": "森",
                   "furigana": "もり"
                 },
@@ -4758,6 +4762,10 @@
                 },
                 {
                   "text": "したみなさんへ\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -4817,6 +4825,10 @@
                   "furigana": null
                 },
                 {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
                   "text": "試験",
                   "furigana": "しけん"
                 },
@@ -4862,6 +4874,10 @@
                 },
                 {
                   "text": "してください。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -4977,7 +4993,15 @@
                   "furigana": "かくにん"
                 },
                 {
-                  "text": "してください。\nまた、",
+                  "text": "してください。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "また、",
                   "furigana": null
                 },
                 {
@@ -5115,7 +5139,7 @@
                 "Phòng Công tác sinh viên Đại học Mori"
               ],
               "readingPresentation": {
-                "bodySignature": "xqifyc",
+                "bodySignature": "179g7d0",
                 "sentencesVi": [
                   "Đây là email được gửi từ Đại học Mori đến các thí sinh.",
                   "あて先：shinnyusei@mori-college.ac.jp件名：2025年入学試験の結果について送信日時：2025年1月13日 15:00森大学を受験したみなさんへ入学試験、お疲れ様でした。",
@@ -5144,7 +5168,7 @@
               ],
               "correctIndex": 1,
               "points": 1,
-              "passage": "市役所に、子どもたちが描いた「緑の丘から見た町の景色」の絵が飾られていた。\nその中に一枚、ほかとは違う絵があった。ほかの絵には丘から見える家や木などが描かれているのに、その絵だけは、紙全体が青く塗られ、あちらこちらに白いものが描かれていた。たぶん、この絵を描いた子どもは、丘の上から町を見ているうちに、空の青さと流れていく雲に心をひかれていったのだろう。そして、その空の美しさを紙いっぱいに描いたのではないだろうか。",
+              "passage": "市役所に、子どもたちが描いた「緑の丘から見た町の景色」の絵が飾られていた。その中に一枚、ほかとは違う絵があった。ほかの絵には丘から見える家や木などが描かれているのに、その絵だけは、紙全体が青く塗られ、あちらこちらに白いものが描かれていた。たぶん、この絵を描いた子どもは、丘の上から町を見ているうちに、空の青さと流れていく雲に心をひかれていったのだろう。そして、その空の美しさを紙いっぱいに描いたのではないだろうか。",
               "questionVi": "Tác giả viết bài này nói gì về đứa trẻ đã vẽ bức tranh khác với những đứa trẻ khác?",
               "optionsVi": [
                 "Chắc là không muốn vẽ bức tranh giống những đứa trẻ khác.",
@@ -5154,7 +5178,7 @@
               ],
               "answerSourceNote": "Đáp án tham khảo do AI suy luận từ đề; tài liệu không kèm đáp án chính thức.",
               "explanation": "Tác giả suy đoán đứa trẻ bị thu hút bởi bầu trời xanh và mây trôi, rồi vẽ lại vẻ đẹp đó lên toàn bộ bức tranh (vẻ đẹp ấn tượng nhất lúc đó).",
-              "passageVi": "Tại tòa thị chính, có trưng bày bức tranh \"Cảnh thành phố nhìn từ đồi xanh\" do trẻ em vẽ.\nTrong số đó có một bức tranh khác biệt so với những bức còn lại. Những bức tranh khác vẽ nhà, cây cối nhìn từ ngọn đồi, nhưng riêng bức tranh đó thì toàn bộ giấy được tô màu xanh lam, và có vẽ những vật màu trắng ở khắp nơi. Có lẽ đứa trẻ vẽ bức tranh này, trong lúc ngắm nhìn thành phố từ trên đỉnh đồi, đã bị cuốn hút bởi sắc xanh của bầu trời và những đám mây đang trôi đi. Và có lẽ em đã vẽ vẻ đẹp của bầu trời đó kín cả trang giấy.",
+              "passageVi": "Tại tòa thị chính, có trưng bày bức tranh \"Cảnh thành phố nhìn từ đồi xanh\" do trẻ em vẽ. Trong số đó có một bức tranh khác biệt so với những bức còn lại. Những bức tranh khác vẽ nhà, cây cối nhìn từ ngọn đồi, nhưng riêng bức tranh đó thì toàn bộ giấy được tô màu xanh lam, và có vẽ những vật màu trắng ở khắp nơi. Có lẽ đứa trẻ vẽ bức tranh này, trong lúc ngắm nhìn thành phố từ trên đỉnh đồi, đã bị cuốn hút bởi sắc xanh của bầu trời và những đám mây đang trôi đi. Và có lẽ em đã vẽ vẻ đẹp của bầu trời đó kín cả trang giấy.",
               "questionFurigana": [
                 {
                   "text": "ほかとは",
@@ -5307,7 +5331,7 @@
                   "furigana": "かざ"
                 },
                 {
-                  "text": "られていた。\nその",
+                  "text": "られていた。その",
                   "furigana": null
                 },
                 {
@@ -5580,7 +5604,7 @@
                 }
               ],
               "readingPresentation": {
-                "bodySignature": "77z1rx",
+                "bodySignature": "uzfh3",
                 "sentencesVi": [
                   "Tại tòa thị chính, có trưng bày những bức tranh \"Cảnh thành phố nhìn từ đồi xanh\" do trẻ em vẽ.",
                   "Trong số đó có một bức tranh khác với những bức còn lại.",
@@ -5588,7 +5612,7 @@
                   "Có lẽ đứa trẻ vẽ bức tranh này, trong lúc đang ngắm nhìn thị trấn từ trên đỉnh đồi, đã bị cuốn hút bởi sắc xanh của bầu trời và những đám mây đang trôi qua.",
                   "Và chẳng phải em đã vẽ vẻ đẹp của bầu trời đó tràn ngập cả trang giấy hay sao."
                 ],
-                "translationVi": "Tại tòa thị chính, có trưng bày bức tranh \"Cảnh thành phố nhìn từ đồi xanh\" do trẻ em vẽ.\nTrong số đó có một bức tranh khác biệt so với những bức còn lại. Những bức tranh khác vẽ nhà, cây cối nhìn từ ngọn đồi, nhưng riêng bức tranh đó thì toàn bộ giấy được tô màu xanh lam, và có vẽ những vật màu trắng ở khắp nơi. Có lẽ đứa trẻ vẽ bức tranh này, trong lúc ngắm nhìn thành phố từ trên đỉnh đồi, đã bị cuốn hút bởi sắc xanh của bầu trời và những đám mây đang trôi đi. Và có lẽ em đã vẽ vẻ đẹp của bầu trời đó kín cả trang giấy."
+                "translationVi": "Tại tòa thị chính, có trưng bày bức tranh \"Cảnh thành phố nhìn từ đồi xanh\" do trẻ em vẽ. Trong số đó có một bức tranh khác biệt so với những bức còn lại. Những bức tranh khác vẽ nhà, cây cối nhìn từ ngọn đồi, nhưng riêng bức tranh đó thì toàn bộ giấy được tô màu xanh lam, và có vẽ những vật màu trắng ở khắp nơi. Có lẽ đứa trẻ vẽ bức tranh này, trong lúc ngắm nhìn thành phố từ trên đỉnh đồi, đã bị cuốn hút bởi sắc xanh của bầu trời và những đám mây đang trôi đi. Và có lẽ em đã vẽ vẻ đẹp của bầu trời đó kín cả trang giấy."
               }
             },
             {
@@ -5603,7 +5627,7 @@
               ],
               "correctIndex": 0,
               "points": 1,
-              "passage": "木村さんが出勤すると、ロッカーに店長からのメッセージが貼ってあった。\n木村さん\n3日前うちの店でくつを買ったお客さんから連絡がありました。買ったハイヒールが、すぐに壊れてしまったそうです。\n14時ごろに来店されるそうなので、くつの状態を確認して、修理してください。\n修理の方法は資料にまとめておいたので、午前中に読んでおいてください。\n私は今日、野田さんと一緒にほかの支店へ行く用事があります。用事が終わったら、すぐに店に戻ります。\n店長",
+              "passage": "木村さんが出勤すると、ロッカーに店長からのメッセージが貼ってあった。\n木村さん\n　3日前うちの店でくつを買ったお客さんから連絡がありました。買ったハイヒールが、すぐに壊れてしまったそうです。\n　14時ごろに来店されるそうなので、くつの状態を確認して、修理してください。\n修理の方法は資料にまとめておいたので、午前中に読んでおいてください。\n　私は今日、野田さんと一緒にほかの支店へ行く用事があります。用事が終わったら、すぐに店に戻ります。\n店長",
               "questionVi": "Đọc ghi chú này, việc Kimura-san phải làm là gì?",
               "optionsVi": [
                 "Đọc trước tài liệu về phương pháp sửa chữa trước khi cửa hàng trưởng đến.",
@@ -5686,6 +5710,10 @@
                   "furigana": null
                 },
                 {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
                   "text": "3",
                   "furigana": null
                 },
@@ -5743,6 +5771,10 @@
                 },
                 {
                   "text": "れてしまったそうです。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -5827,6 +5859,10 @@
                 },
                 {
                   "text": "んでおいてください。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -5927,7 +5963,7 @@
                 }
               ],
               "readingPresentation": {
-                "bodySignature": "14jux86",
+                "bodySignature": "12r7thh",
                 "sentencesVi": [
                   "Khi anh Kimura đến làm việc, trên tủ đựng đồ có dán một tin nhắn từ cửa hàng trưởng.",
                   "Anh Kimura, có liên lạc từ vị khách hàng đã mua giày ở cửa hàng chúng ta 3 ngày trước.",
@@ -5953,7 +5989,7 @@
               ],
               "correctIndex": 3,
               "points": 1,
-              "passage": "先日、初めてすし屋に行った。\n最初は、食べたいものを自由に注文していたが、注文したすしによって、色の違うことに気づいた。今までいろいろな店でご飯を食べたが、食べ物の種類によって皿の色が決まっているのは初めて見た。全部同じ色のほうが、簡単に皿にのせるのに、なぜ色を分けるのか気になった。\nすると、一緒に行った日本人の友達が、皿の色によってすしの値段が違うことを教えてくれた。たしかに、これは店員にもお客さんにも、どれくらい食べたのかすぐわかって良いなと思った。",
+              "passage": "先日、初めてすし屋に行った。\n　最初は、食べたいものを自由に注文していたが、注文したすしによって、色の違うことに気づいた。今までいろいろな店でご飯を食べたが、食べ物の種類によって皿の色が決まっているのは初めて見た。全部同じ色のほうが、簡単に皿にのせるのに、なぜ色を分けるのか気になった。\n　すると、一緒に行った日本人の友達が、皿の色によってすしの値段が違うことを教えてくれた。たしかに、これは店員にもお客さんにも、どれくらい食べたのかすぐわかって良いなと思った。",
               "questionVi": "Theo người bạn Nhật, tại sao màu đĩa lại khác nhau?",
               "optionsVi": [
                 "Vì tùy theo màu đĩa mà lượng ăn được quy định sẵn.",
@@ -6037,6 +6073,10 @@
                 },
                 {
                   "text": "た。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -6248,7 +6288,15 @@
                   "furigana": "き"
                 },
                 {
-                  "text": "になった。\nすると、",
+                  "text": "になった。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "すると、",
                   "furigana": null
                 },
                 {
@@ -6369,7 +6417,7 @@
                 }
               ],
               "readingPresentation": {
-                "bodySignature": "17o9k3b",
+                "bodySignature": "13vogra",
                 "sentencesVi": [
                   "Hôm nọ, tôi lần đầu tiên đi quán sushi.",
                   "Ban đầu, tôi gọi món tùy thích những gì muốn ăn, nhưng tôi nhận ra rằng tùy theo từng loại sushi gọi mà màu đĩa lại khác nhau.",
@@ -6393,7 +6441,7 @@
               ],
               "correctIndex": 1,
               "points": 1,
-              "passage": "子どもの習い事として人気の高い「書道」だが、これはただの「字を上手く書く練習」ではない。\n書道をすると、まず集中力が身につく。一度墨で紙に書いてしまったら、えんぴつで書くときのように消しゴムで消すことはできない。そのため、書く前に心を落ち着かせ、字の形や筆の動かし方を頭の中に思い浮かべる。(1)その書き方に沿って字を書くので、自然に紙や手に気が集中するのだ。\nそれから、(2)道具をあつかう力が身につく。筆や墨は、正しく持って上手に使わないと、服を汚したりする。子どもたちは、道具の正しいあつかい方には意味があると学ぶ。また、自分の道具を自分で準備したり片づけたりするのも大事な勉強だ。\nこのように、書道によって、字が上手になるだけでなく、人生に必要な基礎の力をつけることができる。子どもに書道を学んでほしいと考える親は、今後もいなくなることはないだろう。\n(注1)墨：書道で使う黒いインク\n(注2)筆：墨をつけて字を書くための道具",
+              "passage": "子どもの習い事として人気の高い「書道」だが、これはただの「字を上手く書く練習」ではない。\n　書道をすると、まず集中力が身につく。一度墨で紙に書いてしまったら、えんぴつで書くときのように消しゴムで消すことはできない。そのため、書く前に心を落ち着かせ、字の形や筆の動かし方を頭の中に思い浮かべる。(1)その書き方に沿って字を書くので、自然に紙や手に気が集中するのだ。\n　それから、(2)道具をあつかう力が身につく。筆や墨は、正しく持って上手に使わないと、服を汚したりする。子どもたちは、道具の正しいあつかい方には意味があると学ぶ。また、自分の道具を自分で準備したり片づけたりするのも大事な勉強だ。\n　このように、書道によって、字が上手になるだけでなく、人生に必要な基礎の力をつけることができる。子どもに書道を学んでほしいと考える親は、今後もいなくなることはないだろう。\n(注1)墨：書道で使う黒いインク\n(注2)筆：墨をつけて字を書くための道具",
               "questionVi": "'Cách viết đó' trong ① gần với cái gì nhất?",
               "optionsVi": [
                 "Cách viết khi viết đẹp bằng bút chì",
@@ -6532,6 +6580,10 @@
                 },
                 {
                   "text": "」ではない。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -6803,7 +6855,15 @@
                   "furigana": "しゅうちゅう"
                 },
                 {
-                  "text": "するのだ。\nそれから、(2)",
+                  "text": "するのだ。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "それから、(2)",
                   "furigana": null
                 },
                 {
@@ -6995,7 +7055,15 @@
                   "furigana": "べんきょう"
                 },
                 {
-                  "text": "だ。\nこのように、",
+                  "text": "だ。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "このように、",
                   "furigana": null
                 },
                 {
@@ -7192,7 +7260,7 @@
                 }
               ],
               "readingPresentation": {
-                "bodySignature": "11hf0yn",
+                "bodySignature": "1jjuan9",
                 "sentencesVi": [
                   "“Thư pháp”, một môn học thêm phổ biến dành cho trẻ em, không chỉ đơn thuần là “luyện tập viết chữ đẹp”.",
                   "Khi học thư pháp, trước hết bạn sẽ có được khả năng tập trung.",
@@ -7343,7 +7411,7 @@
               ],
               "correctIndex": 0,
               "points": 1,
-              "passage": "警察官だった父は、65歳で仕事を辞めた後、外出したがらなくなった。とても仕事に熱心だったし、休日でも「出勤しなさい」という命令がいつあるかわからなかったので、趣味もなかった。新しいことにチャレンジすることもなく、母が旅行にさそっても効果はなかった。\nそんな父が変化したきっかけは、うちに子犬が来たことだ。友人の家で産まれた子犬を私がもらったのだ。子犬の世話は父の役割になった。\n私が子どものころ、わが家では「タロ」という名前の犬を飼っていた。家族の中でタロを最もかわいがるのは父だった。どんなに忙しくても、時間を作ってタロと遊んでいた。父は犬好きなのだ。しかし、タロが死んだとき、仕事のせいですぐに帰ってくることができなかった。父はそのことが忘れられず、それ以来、犬は飼わなかった。しかし今は環境が違い、時間もあるので、子犬のそばにずっといることができる。\n( )父はよく笑うようになった。ひまがあれば、子犬の写真を私の携帯電話に送ってくる。「小さいのに力があるから、家具をかまないように教えるのが大変だよ。」と楽しそうに話してくれた。",
+              "passage": "警察官だった父は、65歳で仕事を辞めた後、外出したがらなくなった。とても仕事に熱心だったし、休日でも「出勤しなさい」という命令がいつあるかわからなかったので、趣味もなかった。新しいことにチャレンジすることもなく、母が旅行にさそっても効果はなかった。\n　そんな父が変化したきっかけは、うちに子犬が来たことだ。友人の家で産まれた子犬を私がもらったのだ。子犬の世話は父の役割になった。\n　私が子どものころ、わが家では「タロ」という名前の犬を飼っていた。家族の中でタロを最もかわいがるのは父だった。どんなに忙しくても、時間を作ってタロと遊んでいた。父は犬好きなのだ。しかし、タロが死んだとき、仕事のせいですぐに帰ってくることができなかった。父はそのことが忘れられず、それ以来、犬は飼わなかった。しかし今は環境が違い、時間もあるので、子犬のそばにずっといることができる。\n　( )父はよく笑うようになった。ひまがあれば、子犬の写真を私の携帯電話に送ってくる。「小さいのに力があるから、家具をかまないように教えるのが大変だよ。」と楽しそうに話してくれた。",
               "questionVi": "Có câu 'không muốn ra ngoài', tại sao lại như vậy?",
               "optionsVi": [
                 "Vì công việc bận rộn và không biết khi nào có lệnh đi làm.",
@@ -7505,7 +7573,15 @@
                   "furigana": "こうか"
                 },
                 {
-                  "text": "はなかった。\nそんな",
+                  "text": "はなかった。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "そんな",
                   "furigana": null
                 },
                 {
@@ -7610,6 +7686,10 @@
                 },
                 {
                   "text": "になった。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -7853,7 +7933,15 @@
                   "furigana": "こいぬ"
                 },
                 {
-                  "text": "のそばにずっといることができる。\n( )",
+                  "text": "のそばにずっといることができる。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "( )",
                   "furigana": null
                 },
                 {
@@ -7997,7 +8085,7 @@
                 "Ông đã vui vẻ kể lại như vậy."
               ],
               "readingPresentation": {
-                "bodySignature": "bu5nux",
+                "bodySignature": "1b8o3ay",
                 "sentencesVi": [
                   "Bố tôi, người từng là cảnh sát, sau khi nghỉ việc ở tuổi 65, đã trở nên không muốn ra ngoài.",
                   "Ông rất tận tụy với công việc, và ngay cả vào ngày nghỉ cũng không biết khi nào có lệnh \"hãy đi làm\" nên ông không có sở thích gì cả.",
@@ -8142,7 +8230,7 @@
               ],
               "correctIndex": 3,
               "points": 1,
-              "passage": "マラソン大会、チーズまつり、手品コンテスト……。住民による小さなイベントや趣味のサークル活動が、町の名物と呼ばれるほど大きく広がることがある。大浜市にも①このような名物がある。小学生親子バレーボール大会、「ひかりカップ」だ。今年は、県の内外から156チームが出場し、2日間で4,000人もの人が同市を訪れた。\nこの大会は、バレーボールの市民サークルが小学校のクラブと交流試合を行ったのが始まりだ。はじめは参加10チームの小さな大会だったが、この大会を広げることで②町おこしができないかとサークルのメンバーたちは考えた。\n商店街に協力を呼びかけても、なかなかこたえてもらえず、(1)大会当日の昼はお弁当を注文する、(2)県外からのチームは市内に泊まる、という参加ルールをつくることにした。その結果、多くの店や旅館が協力してくれるようになった。これは農家にとっても③いい宣伝になっている。お弁当にはすべて地元(注)の食材を使うことになっているのだ。今では、大会中は町に人があふれ、まつりのようなにぎやかさだ。試合の帰りに市内を観光して帰る人も多い。町おこしは大成功だ。\n「皆さんが楽しそうにプレーしていたのがいちばんうれしい。町の方々とボランティアの力を借りて、来年もよりよい大会にしたい」と会長の木村さんは話している。サークルには、参加者からのお礼の手紙がたくさん届いているそうだ。試合結果と参加者の声はサークルのホームページで公開されている。\n(注)地元：その人やそのことに直接関係のあるところ",
+              "passage": "マラソン大会、チーズまつり、手品コンテスト……。住民による小さなイベントや趣味のサークル活動が、町の名物と呼ばれるほど大きく広がることがある。大浜市にも①このような名物がある。小学生親子バレーボール大会、「ひかりカップ」だ。今年は、県の内外から156チームが出場し、2日間で4,000人もの人が同市を訪れた。\n　この大会は、バレーボールの市民サークルが小学校のクラブと交流試合を行ったのが始まりだ。はじめは参加10チームの小さな大会だったが、この大会を広げることで②町おこしができないかとサークルのメンバーたちは考えた。\n　商店街に協力を呼びかけても、なかなかこたえてもらえず、(1)大会当日の昼はお弁当を注文する、(2)県外からのチームは市内に泊まる、という参加ルールをつくることにした。その結果、多くの店や旅館が協力してくれるようになった。これは農家にとっても③いい宣伝になっている。お弁当にはすべて地元(注)の食材を使うことになっているのだ。今では、大会中は町に人があふれ、まつりのようなにぎやかさだ。試合の帰りに市内を観光して帰る人も多い。町おこしは大成功だ。\n　「皆さんが楽しそうにプレーしていたのがいちばんうれしい。町の方々とボランティアの力を借りて、来年もよりよい大会にしたい」と会長の木村さんは話している。サークルには、参加者からのお礼の手紙がたくさん届いているそうだ。試合結果と参加者の声はサークルのホームページで公開されている。\n(注)地元：その人やそのことに直接関係のあるところ",
               "questionVi": "'Danh vật như thế này' ở ① là danh vật như thế nào?",
               "optionsVi": [
                 "Giải đấu thể thao nổi tiếng được biết đến cả nước.",
@@ -8384,7 +8472,15 @@
                   "furigana": "おとず"
                 },
                 {
-                  "text": "れた。\nこの",
+                  "text": "れた。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
+                  "text": "この",
                   "furigana": null
                 },
                 {
@@ -8501,6 +8597,10 @@
                 },
                 {
                   "text": "えた。\n",
+                  "furigana": null
+                },
+                {
+                  "text": "　",
                   "furigana": null
                 },
                 {
@@ -8816,6 +8916,10 @@
                   "furigana": null
                 },
                 {
+                  "text": "　",
+                  "furigana": null
+                },
+                {
                   "text": "「",
                   "furigana": null
                 },
@@ -9042,7 +9146,7 @@
                 "(Chú thích) Địa phương: Nơi có liên quan trực tiếp đến người đó hoặc việc đó."
               ],
               "readingPresentation": {
-                "bodySignature": "1g9lyyf",
+                "bodySignature": "5d4opv",
                 "sentencesVi": [
                   "Giải chạy marathon, lễ hội phô mai, cuộc thi ảo thuật...",
                   "Các sự kiện nhỏ do cư dân tổ chức hoặc hoạt động câu lạc bộ sở thích đôi khi lan rộng đến mức được gọi là đặc sản của thị trấn.",

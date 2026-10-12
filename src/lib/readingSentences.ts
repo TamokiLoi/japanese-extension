@@ -1,7 +1,7 @@
 import type { ReadingBodySegment } from "../types/reading.ts";
 
 // Breaks one segment's text into one piece per sentence (plus a piece
-// boundary right before each "\n"). A segment's furigana is NOT necessarily
+// boundary right before each newline run). A segment's furigana is NOT necessarily
 // for its whole text -- in this dataset a segment routinely spans multiple
 // sentences with the furigana reading only the one kanji word right at its
 // end (e.g. "に入れないこと。\n入れるときは管理人" carries furigana for just
@@ -14,9 +14,19 @@ function splitPlainText(text: string): string[] {
   let i = 0;
   while (i < text.length) {
     const ch = text[i];
-    if (ch === "\n" && buf.length > 0) {
-      pieces.push(buf);
-      buf = "";
+    if (ch === "\n") {
+      if (buf.length > 0) {
+        pieces.push(buf);
+        buf = "";
+      }
+      // Keep a whole newline run attached to the following text. This lets
+      // the translation renderer recognize explicit paragraph markers
+      // without treating ordinary single newlines as paragraph gaps.
+      let end = i;
+      while (end < text.length && text[end] === "\n") end++;
+      buf = text.slice(i, end);
+      i = end;
+      continue;
     }
     buf += ch;
     if (ch === "。" || ch === "！" || ch === "？") {
@@ -58,7 +68,14 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
   const groups: ReadingBodySegment[][] = [];
   let current: ReadingBodySegment[] = [];
   let paragraphStartPending = false;
-  function addPiece(text: string, furigana: string | null, genuineBreak: boolean) {
+  let paragraphGapPending = false;
+  function addPiece(
+    text: string,
+    furigana: string | null,
+    genuineBreak: boolean,
+    explicitParagraphStart = false,
+    explicitParagraphGap = false,
+  ) {
     if (genuineBreak && current.length > 0) {
       groups.push(current);
       current = [];
@@ -67,11 +84,20 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
     // should not become a visible blank line in the sentence renderer.
     const cleanText = text.replace(/^\n+/, "");
     if (!cleanText && furigana === null) {
-      paragraphStartPending ||= genuineBreak;
+      paragraphStartPending ||= genuineBreak || explicitParagraphStart;
+      paragraphGapPending ||= explicitParagraphGap;
       return;
     }
-    current.push({ text: cleanText, furigana, ...(genuineBreak || paragraphStartPending ? { paragraphStart: true } : {}) });
+    const paragraphStart = genuineBreak || explicitParagraphStart || paragraphStartPending;
+    const paragraphGap = explicitParagraphGap || paragraphGapPending;
+    current.push({
+      text: cleanText,
+      furigana,
+      ...(paragraphStart ? { paragraphStart: true } : {}),
+      ...(paragraphGap ? { paragraphGap: true } : {}),
+    });
     paragraphStartPending = false;
+    paragraphGapPending = false;
     if (SENTENCE_END.test(cleanText)) {
       groups.push(current);
       current = [];
@@ -86,7 +112,17 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
     // compound and then continues into an earlier sentence). Every earlier
     // piece carries no reading of its own.
     const startsParagraph = seg.paragraphStart === true || segStartsWithNewline;
-    pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null, i === 0 && startsParagraph));
+    pieces.forEach((piece, i) => {
+      const explicitParagraphGap = /^\n\n/u.test(piece);
+      const explicitParagraphStart = explicitParagraphGap || /^\n　/u.test(piece);
+      addPiece(
+        piece,
+        i === pieces.length - 1 ? seg.furigana : null,
+        i === 0 && startsParagraph,
+        explicitParagraphStart,
+        explicitParagraphGap,
+      );
+    });
   }
   if (current.length > 0) groups.push(current);
   return groups;

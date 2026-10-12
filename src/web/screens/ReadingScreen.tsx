@@ -264,19 +264,26 @@ function ReadingBodyInterleaved({
   return (
     <div className="flex flex-col gap-3">
       {units.map(({ segments: segs, translation }, gi) => (
-        <div key={gi} className={gi > 0 && segs[0]?.paragraphStart ? "pt-4" : undefined}>
+        <div key={gi} className={gi > 0 && segs[0]?.paragraphGap ? "pt-4" : undefined}>
           <div>
-      {segs.map((seg, si) => {
+              {segs.map((seg, si) => {
               const matchOffset = passageText.indexOf(seg.text, sourceSearchFrom);
               const offset = matchOffset >= 0 ? matchOffset : sourceSearchFrom;
               sourceSearchFrom = offset + seg.text.length;
+              const paragraphClass = si > 0 && seg.paragraphStart
+                ? seg.paragraphGap ? "block pt-4" : "block"
+                : undefined;
               return showFurigana && seg.furigana ? (
-                <ruby key={si}>
-                  {renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}
-                  <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
-                </ruby>
+                <span key={si} className={paragraphClass}>
+                  <ruby>
+                    {renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}
+                    <rt className="text-[10px] text-neutral-400">{seg.furigana}</rt>
+                  </ruby>
+                </span>
               ) : (
-                <span key={si}>{renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}</span>
+                <span key={si} className={paragraphClass}>
+                  {renderTextWithReferences(seg.text, referenceTerms, highlightReferences, underlineRanges, offset)}
+                </span>
               );
             })}
           </div>

@@ -14,6 +14,9 @@ export interface ReadingBodySegment {
   // Marks the first run of a paragraph in an editorial/news passage. Existing
   // datasets omit this and keep their historical inline/PDF formatting.
   paragraphStart?: boolean;
+  // Distinguishes a blank-gap paragraph from a source-indented paragraph.
+  // Used only when sentence-level translations are interleaved.
+  paragraphGap?: boolean;
 }
 
 export interface ReadingQuestionOption {

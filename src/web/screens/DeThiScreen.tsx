@@ -597,17 +597,35 @@ function translatedPassageUnits(
   translation: string,
   explicitSentences?: string[],
   furigana?: { text: string; furigana: string | null }[] | null,
-): { japanese: string; vietnamese: string; furigana?: { text: string; furigana: string | null }[] }[] {
+): {
+  japanese: string;
+  vietnamese: string;
+  furigana?: { text: string; furigana: string | null; paragraphStart?: boolean; paragraphGap?: boolean }[];
+  paragraphStart?: boolean;
+  paragraphGap?: boolean;
+}[] {
   const body = furigana?.map((segment) => segment.text).join("") === passage
     ? furigana!
     : [{ text: passage, furigana: null }];
   const sentenceGroups = splitBodyIntoSentences(body);
   if (explicitSentences?.length === sentenceGroups.length) {
-    return translatedReadingUnits(body, explicitSentences).map(({ segments, translation }) => ({
-      japanese: segments.map((segment) => segment.text).join(""),
-      vietnamese: translation,
-      furigana: segments,
-    }));
+    return translatedReadingUnits(body, explicitSentences).map(({ segments, translation }) => {
+      const displayedSegments = segments.map((segment, index) => ({
+        ...segment,
+        // A paragraph can begin inside a sentence-aligned translation unit
+        // (for example, a salutation followed by the body of an email). Keep
+        // that source boundary as a visual line break while retaining the
+        // sentence-level translation pairing.
+        text: `${index > 0 && segment.paragraphStart ? segment.paragraphGap ? "\n\n" : "\n" : ""}${segment.text}`,
+      }));
+      return {
+        japanese: displayedSegments.map((segment) => segment.text).join(""),
+        vietnamese: translation,
+        furigana: displayedSegments,
+        paragraphStart: segments[0]?.paragraphStart === true,
+        paragraphGap: segments[0]?.paragraphGap === true,
+      };
+    });
   }
   const japaneseUnits = splitTextIntoSentenceUnits(passage, true);
   if (explicitSentences?.length === japaneseUnits.length) {
@@ -2064,7 +2082,7 @@ function ReviewQuestion({
           ) : showPassageTranslation && passageVi ? (
             <div className="flex flex-col gap-3">
               {translatedUnitsWithFurigana.map((unit, index) => (
-                <div key={index}>
+                <div key={index} className={index > 0 && unit.paragraphGap ? "pt-4" : undefined}>
                   <div className="whitespace-pre-line">
                     <PassageTextWithReferences text={unit.japanese} questionNumber={question.number} referenceTerms={referenceTerms} highlightReferences={highlightReferences} furigana={unit.furigana} showFurigana={showFurigana} underlineRange={sourcePassageUnderline} />
                   </div>
