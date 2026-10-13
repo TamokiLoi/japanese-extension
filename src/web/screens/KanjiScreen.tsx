@@ -98,7 +98,7 @@ export function KanjiScreen({
   // floating back button) pointed at whichever card is actually on screen,
   // even though paging Trước/Tiếp is handled entirely by this screen's own
   // `mutate()` state rather than a route change.
-  onCurrentItemChange?: (id: string | undefined) => void;
+  onCurrentItemChange?: (id: string | undefined, text?: string) => void;
 }) {
   const [state, setState] = useState<KanjiViewerState | null>(null);
   const [list, setList] = useState<Kanji[]>([]);
@@ -130,7 +130,8 @@ export function KanjiScreen({
       // slower already-superseded jump can't clobber a newer one's base.
       let nextBase: typeof baseFilterRef.current = null;
       if (jumpToId) {
-        const jumped = resolveJumpState(s, jumpToId);
+        const jumpTargetId = ALL_KANJI.find((k) => k.id === jumpToId || k.character === jumpToId)?.id ?? jumpToId;
+        const jumped = resolveJumpState(s, jumpTargetId);
         if (jumped) {
           nextBase = { selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
           s = jumped;
@@ -217,9 +218,10 @@ export function KanjiScreen({
   const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid");
 
   const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
+  const currentText = state && state.viewMode !== "grid" ? list[state.index]?.character : undefined;
   useEffect(() => {
-    onCurrentItemChange?.(currentId);
-  }, [currentId, onCurrentItemChange]);
+    onCurrentItemChange?.(currentId, currentText);
+  }, [currentId, currentText, onCurrentItemChange]);
 
   if (!state) {
     return <LoadingScreen variant="study" title="Kanji" />;

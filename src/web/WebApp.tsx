@@ -49,7 +49,11 @@ const LegacyApp = lazy(() => import("../popup/App.tsx").then((module) => ({ defa
 // the same code works under either.
 const BASE = import.meta.env.BASE_URL;
 
-type ReturnTo = { screen: Screen; targetId?: string };
+type ReturnTo = { screen: Screen; targetId?: string; searchQuery?: string; searchTypes?: string[] };
+
+function lookupRouteName(screen: Screen): string {
+  return screen === "vocab" ? "goi" : screen;
+}
 
 function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; title: string } {
   if (screen === "menu") return { variant: "home", title: "Trang chủ" };
@@ -95,7 +99,7 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
   // id like "kanji-男" round-trips through the URL percent-encoded).
   const [rawScreen, ...rest] = path.split("/").filter(Boolean);
   const rawTargetId = rest.length > 0 ? rest.join("/") : undefined;
-  const screen = rawScreen as Screen;
+  const screen = (rawScreen === "goi" ? "vocab" : rawScreen) as Screen;
   // "Quay lại" state travels as ?from=<screen>&fromId=<id> instead of plain
   // React/ref state -- a page reload or a manual browser back/forward (both
   // of which only replay the URL) then still resolves the right "return to"
@@ -103,10 +107,17 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
   const params = new URLSearchParams(location.search);
   const fromScreen = params.get("from");
   const returnTo: ReturnTo | null =
-    fromScreen && VALID_SCREENS.includes(fromScreen as Screen) ? { screen: fromScreen as Screen, targetId: params.get("fromId") ?? undefined } : null;
+    fromScreen && VALID_SCREENS.includes(fromScreen as Screen)
+      ? {
+          screen: fromScreen as Screen,
+          targetId: params.get("fromId") ?? undefined,
+          searchQuery: params.get("fromQ") ?? undefined,
+          searchTypes: params.get("fromTypes")?.split(",").filter(Boolean),
+        }
+      : null;
   return {
     screen: VALID_SCREENS.includes(screen) ? screen : "menu",
-    targetId: rawTargetId ? decodeURIComponent(rawTargetId) : undefined,
+    targetId: rawTargetId ? decodeURIComponent(rawTargetId) : params.get("param") ?? undefined,
     returnTo,
   };
 }
@@ -129,7 +140,8 @@ export function WebApp() {
   const [quizBookJlptMode, setQuizBookJlptMode] = useState(false);
   const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
   const [searchDisplayMode, setSearchDisplayMode] = useState<SearchDisplayMode>(DEFAULT_SEARCH_DISPLAY_MODE);
-  const [searchPopupOpen, setSearchPopupOpen] = useState(false);
+  const [searchPopupOpen, setSearchPopupOpen] = useState(() => new URLSearchParams(location.search).get("lookup") === "1");
+  const routeSyncPendingRef = useRef(true);
   // Several screens (Kanji/Vocab/Bunpo/QuizBook/Reading/Listening/Dictation)
   // page between items -- Trước/Tiếp, tapping a grid tile, jumping via the
   // question palette -- entirely through their own local/persisted state,
@@ -167,10 +179,31 @@ export function WebApp() {
   // query string (see readFromPath) rides along untouched, since only the
   // pathname portion is rebuilt here.
   const syncCurrentItem = useCallback(
-    (id: string | undefined) => {
+    (id: string | undefined, text?: string) => {
+      // Item screens report `undefined` once before their persisted state has
+      // loaded. Keep a deep link intact until the actual target is emitted.
+      if (!id && routeSyncPendingRef.current && currentItemRef.current) return;
+      const previousId = currentItemRef.current;
       currentItemRef.current = id;
-      const path = id ? `${BASE}${screen}/${encodeURIComponent(id)}` : `${BASE}${screen}`;
-      history.replaceState(null, "", path + location.search);
+      const url = new URL(location.href);
+      const routeName = lookupRouteName(screen);
+      const relativePath = url.pathname.startsWith(BASE) ? url.pathname.slice(BASE.length).replace(/^\/+/, "") : url.pathname.replace(/^\/+/, "");
+      const currentRouteName = relativePath.split("/")[0];
+      const isTextLookupRoute = url.searchParams.has("param") && currentRouteName === routeName && ["vocab", "kanji", "bunpo"].includes(screen);
+
+      if (id && isTextLookupRoute && text) {
+        url.searchParams.set("param", text);
+        const href = `${url.pathname}${url.search}${url.hash}`;
+        if (routeSyncPendingRef.current || id === previousId) {
+          history.replaceState(history.state, "", href);
+        } else {
+          history.pushState(null, "", href);
+        }
+      } else {
+        const path = id ? `${BASE}${screen}/${encodeURIComponent(id)}` : `${BASE}${screen}`;
+        history.replaceState(history.state, "", path + location.search);
+      }
+      routeSyncPendingRef.current = false;
     },
     [screen],
   );
@@ -188,18 +221,24 @@ export function WebApp() {
       const next = readFromPath();
       if (next.screen !== "quizBook") setQuizBookJlptMode(false);
       setRoute(next);
+      setSearchPopupOpen(new URLSearchParams(location.search).get("lookup") === "1");
       currentItemRef.current = next.targetId;
+      routeSyncPendingRef.current = true;
       window.scrollTo(0, 0);
     }
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  function go(next: Screen, id?: string, opts: { linking?: boolean } = {}) {
+  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[] } = {}) {
     if (next !== "quizBook") setQuizBookJlptMode(false);
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
-    let path = next === "menu" && !id ? BASE : `${BASE}${next}${id ? `/${encodeURIComponent(id)}` : ""}`;
+    let path = opts.lookupText !== undefined
+      ? `${BASE}${lookupRouteName(next)}`
+      : next === "menu" && !id
+        ? BASE
+        : `${BASE}${next}${id ? `/${encodeURIComponent(id)}` : ""}`;
     // Where to send the user back to after they followed a cross-content
     // link (e.g. a Kanji reference from inside a Reading passage) -- carried
     // as ?from=<screen>&fromId=<id> (see readFromPath) rather than plain
@@ -209,14 +248,37 @@ export function WebApp() {
     // cross-link call site passes one; a plain section switch via the
     // bottom nav/sidebar never does) unless explicitly suppressed (goBack()
     // itself does, to stay one level deep instead of chaining back↔back).
-    const nextReturnTo: ReturnTo | null = opts.linking !== false && id ? { screen, targetId: currentItemRef.current } : null;
+    const sourceSearch = screen === "search" ? new URLSearchParams(location.search) : null;
+    const nextReturnTo: ReturnTo | null = opts.linking !== false && id
+      ? {
+          screen,
+          targetId: currentItemRef.current,
+          searchQuery: sourceSearch?.get("q") ?? undefined,
+          searchTypes: sourceSearch?.get("types")?.split(",").filter(Boolean),
+        }
+      : null;
     if (nextReturnTo) {
       const params = new URLSearchParams({ from: nextReturnTo.screen });
       if (nextReturnTo.targetId) params.set("fromId", nextReturnTo.targetId);
+      if (nextReturnTo.screen === "search") {
+        const currentSearch = new URLSearchParams(location.search);
+        if (currentSearch.has("q")) params.set("fromQ", currentSearch.get("q") ?? "");
+        if (currentSearch.has("types")) params.set("fromTypes", currentSearch.get("types") ?? "");
+      }
+      if (opts.lookupText !== undefined) params.set("param", opts.lookupText);
       path += `?${params}`;
+    } else if (opts.lookupText !== undefined) {
+      path += `?${new URLSearchParams({ param: opts.lookupText })}`;
+    } else if (opts.searchQuery !== undefined || opts.searchTypes !== undefined) {
+      const params = new URLSearchParams();
+      if (opts.searchQuery) params.set("q", opts.searchQuery);
+      if (opts.searchTypes?.length) params.set("types", opts.searchTypes.join(","));
+      const query = params.toString();
+      if (query) path += `?${query}`;
     }
-    history.pushState(null, "", path);
+    history.pushState({ lookupPopup: false }, "", path);
     currentItemRef.current = id;
+    routeSyncPendingRef.current = true;
     setRoute({ screen: next, targetId: id, returnTo: nextReturnTo });
     window.scrollTo(0, 0);
     // Fire-and-forget -- Home's "Tiếp tục học" banner reads this back on its
@@ -226,6 +288,9 @@ export function WebApp() {
 
   function navigate(next: Screen, id?: string) {
     if (next === "search" && searchDisplayMode === "popup" && !id) {
+      const url = new URL(location.href);
+      url.searchParams.set("lookup", "1");
+      history.pushState({ lookupPopup: true }, "", url);
       setSearchPopupOpen(true);
       return;
     }
@@ -234,7 +299,28 @@ export function WebApp() {
 
   function goBack() {
     if (!returnTo) return;
-    go(returnTo.screen, returnTo.targetId, { linking: false });
+    go(returnTo.screen, returnTo.targetId, {
+      linking: false,
+      searchQuery: returnTo.searchQuery,
+      searchTypes: returnTo.searchTypes,
+    });
+  }
+
+  function openSearchResult(next: Screen, id: string, text: string) {
+    go(next, id, { lookupText: text });
+  }
+
+  function closeSearchPopup() {
+    if (new URLSearchParams(location.search).get("lookup") === "1" && history.state?.lookupPopup === true) {
+      history.back();
+      return;
+    }
+    const url = new URL(location.href);
+    url.searchParams.delete("lookup");
+    url.searchParams.delete("q");
+    url.searchParams.delete("types");
+    history.replaceState(history.state, "", url);
+    setSearchPopupOpen(false);
   }
 
   const navKey = targetId ? `${screen}:${targetId}` : screen;
@@ -258,9 +344,9 @@ export function WebApp() {
   } else if (screen === "search") {
     content = (
       <SearchScreen
-        onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
-        onOpenVocab={(vocabId) => go("vocab", vocabId)}
-        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenKanji={(kanjiId, text) => openSearchResult("kanji", kanjiId, text)}
+        onOpenVocab={(vocabId, text) => openSearchResult("vocab", vocabId, text)}
+        onOpenBunpo={(bunpoId, text) => openSearchResult("bunpo", bunpoId, text)}
       />
     );
   } else if (screen === "kanji") {
@@ -393,7 +479,7 @@ export function WebApp() {
     aria-modal="true"
     aria-label="Tra cứu nhanh"
     className="fixed inset-0 z-50 overflow-y-auto bg-black/40 p-3 md:p-8"
-    onClick={() => setSearchPopupOpen(false)}
+    onClick={closeSearchPopup}
   >
     <div
       className="relative mx-auto min-h-0 max-h-[calc(100dvh-1.5rem)] max-w-3xl overflow-hidden rounded-2xl bg-white pt-10 shadow-2xl md:max-h-none md:pt-2"
@@ -402,7 +488,7 @@ export function WebApp() {
               <button
                 type="button"
                 aria-label="Đóng Tra cứu"
-                onClick={() => setSearchPopupOpen(false)}
+                onClick={closeSearchPopup}
                 className="absolute top-3 right-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-neutral-500 shadow-sm ring-1 ring-neutral-200 hover:bg-neutral-100 hover:text-neutral-800"
               >
                 <X size={18} />
@@ -410,17 +496,17 @@ export function WebApp() {
               <Suspense fallback={<LoadingScreen variant="study" title="Tra cứu nhanh" />}>
                 <SearchScreen
                   popup
-                  onOpenKanji={(id) => {
+                  onOpenKanji={(id, text) => {
                     setSearchPopupOpen(false);
-                    go("kanji", id);
+                    openSearchResult("kanji", id, text);
                   }}
-                  onOpenVocab={(id) => {
+                  onOpenVocab={(id, text) => {
                     setSearchPopupOpen(false);
-                    go("vocab", id);
+                    openSearchResult("vocab", id, text);
                   }}
-                  onOpenBunpo={(id) => {
+                  onOpenBunpo={(id, text) => {
                     setSearchPopupOpen(false);
-                    go("bunpo", id);
+                    openSearchResult("bunpo", id, text);
                   }}
                 />
               </Suspense>

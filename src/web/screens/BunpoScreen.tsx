@@ -111,7 +111,7 @@ export function BunpoScreen({
   onOpenQuizBook: (questionId: string) => void;
   onOpenMap: (level: "N5" | "N3") => void;
   targetId?: string;
-  onCurrentItemChange?: (id: string | undefined) => void;
+  onCurrentItemChange?: (id: string | undefined, text?: string) => void;
 }) {
   const [state, setState] = useState<BunpoViewerState | null>(null);
 
@@ -119,8 +119,11 @@ export function BunpoScreen({
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
-      if (targetId && findBunpoById(targetId)) {
-        s = { ...s, currentGrammarId: targetId };
+      const targetGrammar = targetId
+        ? ALL_BUNPO.find((grammar) => grammar.id === targetId || grammar.pattern === targetId)
+        : undefined;
+      if (targetGrammar) {
+        s = { ...s, currentGrammarId: targetGrammar.id };
         await saveViewerState(s);
       }
       if (cancelled) return;
@@ -148,7 +151,8 @@ export function BunpoScreen({
   }
 
   useEffect(() => {
-    onCurrentItemChange?.(state?.currentGrammarId ?? undefined);
+    const currentGrammar = state?.currentGrammarId ? findBunpoById(state.currentGrammarId) : undefined;
+    onCurrentItemChange?.(currentGrammar?.id, currentGrammar?.pattern);
   }, [state?.currentGrammarId, onCurrentItemChange]);
 
   if (!state) return <LoadingScreen variant="study" title="Ngữ pháp" />;

@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Plus, Search } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { History, Plus, Search } from "lucide-react";
 import { isRomaji, toHiragana, toKatakana } from "wanakana";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB } from "../../popup/vocabState.ts";
@@ -11,10 +11,36 @@ import type { JlptLevel } from "../../types/kanji.ts";
 import { LevelDot } from "../lib/levelColors.tsx";
 import { NewVocabCorrectionSheet } from "../components/NewVocabCorrectionSheet.tsx";
 import { Button } from "../components/ui/button.tsx";
+import {
+  addSearchHistoryEntry,
+  loadSearchHistory,
+  persistSearchHistory,
+  type SearchHistoryEntry,
+} from "../lib/searchHistory.ts";
 
 const MAX_RESULTS = 40;
 const SEARCH_KIND_ORDER: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
 const KANJI_HAN_VIET = buildKanjiHanVietReadings(ALL_KANJI);
+
+function readSearchLocation() {
+  const params = new URLSearchParams(location.search);
+  const rawKinds = params.get("types")?.split(",") ?? [];
+  const kinds = SEARCH_KIND_ORDER.filter((kind) => rawKinds.includes(kind));
+  return {
+    query: params.get("q") ?? "",
+    kinds: kinds.length > 0 ? kinds : (["vocab"] as SearchResult["kind"][]),
+  };
+}
+
+function writeSearchLocation(query: string, kinds: SearchResult["kind"][], popup: boolean) {
+  const url = new URL(location.href);
+  const trimmedQuery = query.trim();
+  if (trimmedQuery) url.searchParams.set("q", trimmedQuery);
+  else url.searchParams.delete("q");
+  url.searchParams.set("types", kinds.join(","));
+  if (popup) url.searchParams.set("lookup", "1");
+  history.replaceState(history.state, "", url);
+}
 
 // Search kana in both directions: a Katakana query ("チカチカ") should find
 // Hiragana data ("ちかちか") and vice versa. Romaji is also expanded to both
@@ -143,16 +169,28 @@ export function SearchScreen({
   onOpenBunpo,
   popup = false,
 }: {
-  onOpenKanji: (kanjiId: string) => void;
-  onOpenVocab: (vocabId: string) => void;
-  onOpenBunpo: (bunpoId: string) => void;
+  onOpenKanji: (kanjiId: string, text: string) => void;
+  onOpenVocab: (vocabId: string, text: string) => void;
+  onOpenBunpo: (bunpoId: string, text: string) => void;
   popup?: boolean;
 }) {
-  const [query, setQuery] = useState("");
-  const [activeKinds, setActiveKinds] = useState<SearchResult["kind"][]>(["vocab"]);
+  const initialSearch = readSearchLocation();
+  const [query, setQuery] = useState(initialSearch.query);
+  const [activeKinds, setActiveKinds] = useState<SearchResult["kind"][]>(initialSearch.kinds);
+  const [recentSearches, setRecentSearches] = useState<SearchHistoryEntry[]>(loadSearchHistory);
   const [newVocabOpen, setNewVocabOpen] = useState(false);
   const [savedWord, setSavedWord] = useState<string | null>(null);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const searchRootRef = useRef<HTMLDivElement>(null);
   const debouncedQuery = useDebouncedValue(query, 150);
+
+  useEffect(() => {
+    function closeSuggestionsWhenOutside(event: PointerEvent) {
+      if (!searchRootRef.current?.contains(event.target as Node)) setSearchFocused(false);
+    }
+    document.addEventListener("pointerdown", closeSuggestionsWhenOutside);
+    return () => document.removeEventListener("pointerdown", closeSuggestionsWhenOutside);
+  }, []);
 
   const q = debouncedQuery.trim().toLowerCase();
   const variants = useMemo(() => queryVariants(q), [q]);
@@ -169,30 +207,51 @@ export function SearchScreen({
     return all.slice(0, MAX_RESULTS);
   }, [q, variants, activeKinds]);
 
-  function toggleKind(kind: SearchResult["kind"]) {
-    setActiveKinds((prev) => {
-      if (prev.includes(kind)) {
-        const next = prev.filter((k) => k !== kind);
-        return next.length > 0 ? next : prev;
-      }
-      return [...prev, kind];
+  const recentSuggestions = useMemo(() => {
+    const typedQuery = query.trim().toLowerCase();
+    const recentVariants = queryVariants(typedQuery);
+    return recentSearches.filter((entry) => {
+      if (!typedQuery) return true;
+      const searchable = [entry.primary, entry.secondary, entry.meaning, entry.hanViet ?? ""];
+      return searchable.some((value) => {
+        const normalized = value.toLowerCase();
+        return normalized.includes(typedQuery) || matchesAny(normalized, recentVariants);
+      });
     });
+  }, [query, recentSearches]);
+
+  function toggleKind(kind: SearchResult["kind"]) {
+    setSearchFocused(false);
+    const next = activeKinds.includes(kind)
+      ? activeKinds.filter((k) => k !== kind)
+      : [...activeKinds, kind];
+    if (next.length === 0) return;
+    setActiveKinds(next);
+    writeSearchLocation(query, next, popup);
   }
 
   function handleOpen(r: SearchResult) {
-    if (r.kind === "kanji") onOpenKanji(r.id);
-    else if (r.kind === "vocab") onOpenVocab(r.id);
-    else onOpenBunpo(r.id);
+    // Persist synchronously before navigation unmounts SearchScreen.
+    const nextRecent = addSearchHistoryEntry(recentSearches, r);
+    persistSearchHistory(nextRecent);
+    setRecentSearches(nextRecent);
+    setSearchFocused(false);
+    if (r.kind === "kanji") onOpenKanji(r.id, r.primary);
+    else if (r.kind === "vocab") onOpenVocab(r.id, r.primary);
+    else onOpenBunpo(r.id, r.primary);
   }
 
   function handleImageSearch(text: string) {
     setQuery(text);
-    setActiveKinds(["vocab", "kanji", "bunpo"]);
+    const nextKinds: SearchResult["kind"][] = ["vocab", "kanji", "bunpo"];
+    setActiveKinds(nextKinds);
+    writeSearchLocation(text, nextKinds, popup);
   }
 
   return (
     <div
-      className={`mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6 ${
+      ref={searchRootRef}
+      className={`relative mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6 ${
         popup ? "max-h-[calc(100dvh-2rem)] overflow-y-auto md:max-h-none md:overflow-visible" : ""
       }`}
     >
@@ -217,9 +276,39 @@ export function SearchScreen({
         autoFocus
         placeholder="Nhập chữ Hán, từ, Hán Việt, nghĩa..."
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onFocus={() => setSearchFocused(true)}
+        onChange={(e) => {
+          const nextQuery = e.target.value;
+          setQuery(nextQuery);
+          writeSearchLocation(nextQuery, activeKinds, popup);
+        }}
         className="mt-4 w-full rounded-2xl border border-neutral-200 px-3.5 py-2.5 text-sm"
       />
+
+      {searchFocused && recentSuggestions.length > 0 ? (
+        <section className="mt-2 overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-lg" aria-label="Tìm gần đây">
+          <div className={`overflow-y-auto ${popup ? "max-h-[min(45dvh,18rem)]" : "max-h-[min(55dvh,24rem)]"}`}>
+            {recentSuggestions.map((entry, index) => (
+              <button
+                key={`recent-${entry.kind}-${entry.id}`}
+                type="button"
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => handleOpen(entry)}
+                className="flex w-full items-start gap-3 px-4 py-2.5 text-left transition-colors hover:bg-neutral-50"
+              >
+                <History size={17} className="mt-0.5 shrink-0 text-slate-400" aria-hidden="true" />
+                <span className={`min-w-0 flex-1 ${index < recentSuggestions.length - 1 ? "border-b border-slate-200 pb-2.5" : ""}`}>
+                  <span className="block truncate text-sm font-semibold text-neutral-800">
+                    {entry.primary}
+                    {entry.secondary ? <span className="ml-1.5 font-normal text-slate-500">（{entry.secondary}）</span> : null}
+                  </span>
+                  <span className="mt-0.5 block truncate text-sm text-slate-500">{entry.meaning}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {/* Image lookup POC is hidden until it is ready for release.
       <ImageLookupPanel onSearch={handleImageSearch} />

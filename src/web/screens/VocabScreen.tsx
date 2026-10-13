@@ -169,7 +169,7 @@ export function VocabScreen({
   onOpenQuiz: () => void;
   onOpenVocab: (vocabId: string) => void;
   jumpToId?: string;
-  onCurrentItemChange?: (id: string | undefined) => void;
+  onCurrentItemChange?: (id: string | undefined, text?: string) => void;
 }) {
   const [state, setState] = useState<VocabViewerState | null>(null);
   const [list, setList] = useState<VocabCard[]>([]);
@@ -209,7 +209,8 @@ export function VocabScreen({
       // newer one and clobber the ref with its stale base filter.
       let nextBase: typeof baseFilterRef.current = null;
       if (jumpToId) {
-        const jumped = resolveJumpState(s, jumpToId);
+        const jumpTargetId = ALL_VOCAB.find((v) => v.id === jumpToId || v.word === jumpToId)?.id ?? jumpToId;
+        const jumped = resolveJumpState(s, jumpTargetId);
         if (jumped) {
           nextBase = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
           s = jumped;
@@ -345,9 +346,10 @@ export function VocabScreen({
   const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid");
 
   const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
+  const currentText = state && state.viewMode !== "grid" ? list[state.index]?.word : undefined;
   useEffect(() => {
-    onCurrentItemChange?.(currentId);
-  }, [currentId, onCurrentItemChange]);
+    onCurrentItemChange?.(currentId, currentText);
+  }, [currentId, currentText, onCurrentItemChange]);
 
   useEffect(() => {
     let cancelled = false;
