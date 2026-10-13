@@ -48,7 +48,7 @@ export interface ReadingQuestion {
 // Which source book a passage came from -- lets the Reading screen filter/
 // label by book (e.g. Speed Master is noticeably easier than Shin Kanzen
 // Master even at the same JLPT level) instead of only by level/length.
-export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115" | "jlpt-exam" | "de-n3" | "news" | "custom";
+export type ReadingBook = "shinkanzen" | "speedmaster" | "taisaku" | "dokkai55" | "dokkai115" | "jlpt-exam" | "de-n3" | "news" | "custom" | "ai-story";
 
 export interface ReadingPassage {
   id: string;
@@ -72,6 +72,11 @@ export interface ReadingPassage {
   sourceUrl?: string;
   publishedAt?: string;
   sourceNotice?: string;
+  illustration?: { path: string; alt: string };
+  // Curated learning links keep AI-generated lessons aligned with the exact
+  // vocabulary and grammar records used to create the story.
+  vocabularyIds?: string[];
+  grammarIds?: string[];
   // A title/source link may be published as a reading resource when its
   // article body cannot be redistributed; the app then opens the source URL.
   linkOnly?: boolean;

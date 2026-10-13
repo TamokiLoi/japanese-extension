@@ -18,6 +18,7 @@ import {
   RotateCcw,
   Search,
   Settings,
+  Sparkles,
   Puzzle,
   Cpu,
   type LucideIcon,
@@ -100,6 +101,7 @@ const GUIDE_TABS: GuideTab[] = [
     icon: Newspaper,
     topics: [
       { screen: "news", title: "Đọc báo", icon: Newspaper, summary: "Khu vực dành cho bài báo và bài đọc thời sự.", flow: ["Chọn chủ đề / cấp độ", "Đọc bài", "Xem bản dịch và câu hỏi"], caveat: "Kho bài hiện chưa có nội dung được xuất bản." },
+      { screen: "aiStories", title: "Truyện AI", icon: Sparkles, summary: "Đọc truyện tiếng Nhật do AI biên soạn từ từ vựng và ngữ pháp trong app.", flow: ["Mở truyện theo chủ đề", "Đọc với furigana hoặc bản dịch", "Ôn từ vựng, ngữ pháp và câu hỏi"] },
       { screen: "podcast", title: "Podcast", icon: Podcast, summary: "Tìm và nghe podcast tiếng Nhật; lưu yêu thích và tiến độ nghe.", flow: ["Chọn kênh / cấp độ", "Mở tập và nghe", "Chuyển transcript hoặc từ vựng nếu tập có dữ liệu"], caveat: "Danh sách hiện bật Bitesize và Haruno. Transcript, bản dịch và tham khảo tùy từng tập." },
     ],
   },

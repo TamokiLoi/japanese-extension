@@ -53,7 +53,10 @@ type ReturnTo = { screen: Screen; targetId?: string };
 
 function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; title: string } {
   if (screen === "menu") return { variant: "home", title: "Trang chủ" };
-  if (screen === "reading" || screen === "news") return { variant: "reading", title: screen === "news" ? "Đọc báo" : "Luyện đọc" };
+  if (screen === "reading" || screen === "news" || screen === "aiStories" || screen === "savedStories") {
+    const titles = { reading: "Luyện đọc", news: "Đọc báo", aiStories: "Truyện AI", savedStories: "Truyện đã lưu" };
+    return { variant: "reading", title: titles[screen] };
+  }
   if (screen === "listening" || screen === "dictation" || screen === "podcast") {
     const titles = { listening: "Luyện nghe", dictation: "Nghe chép chính tả", podcast: "Podcast" };
     return { variant: "listening", title: titles[screen] };
@@ -306,11 +309,14 @@ export function WebApp() {
         onOpenJlptPractice={() => setQuizBookJlptMode(true)}
       />
     );
-  } else if (screen === "reading" || screen === "news") {
+  } else if (screen === "reading" || screen === "news" || screen === "aiStories" || screen === "savedStories") {
     content = (
       <ReadingScreen
-        collection={screen === "news" ? "news" : "all"}
+        collection={screen === "news" ? "news" : screen === "reading" ? "all" : "stories"}
+        savedOnlyView={screen === "savedStories"}
         targetId={targetId}
+        onOpenSavedStories={() => go("savedStories")}
+        onOpenStories={() => go("aiStories")}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
         onCurrentItemChange={syncCurrentItem}

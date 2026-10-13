@@ -18,6 +18,8 @@ import {
   Cpu,
   CalendarCheck,
   Podcast,
+  Sparkles,
+  BookmarkCheck,
   Puzzle,
   Settings,
 } from "lucide-react";
@@ -38,6 +40,8 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
   { screen: "news", label: "Đọc báo", icon: Newspaper },
+  { screen: "aiStories", label: "Truyện AI", icon: Sparkles },
+  { screen: "savedStories", label: "Truyện đã lưu", icon: BookmarkCheck },
   { screen: "listening", label: "Luyện nghe", icon: Headphones },
   { screen: "podcast", label: "Podcast", icon: Podcast },
   // "translationPractice" deliberately not listed here -- feature is on
@@ -71,6 +75,6 @@ export const NAV_GROUPS: NavGroup[] = [
   { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "matchGame", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
-  { label: "Giải trí", screens: ["news", "podcast"] },
+  { label: "Giải trí", screens: ["news", "aiStories", "savedStories", "podcast"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide", "settings"] },
 ];

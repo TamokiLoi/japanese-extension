@@ -13,6 +13,8 @@ import type { JlptLevel } from "../types/kanji.ts";
 // Keep non-verb references compact; every relevant verb is included because
 // conjugated verbs carry much of a reading passage's meaning.
 const MAX_VOCAB_MATCHES = 12;
+const VOCAB_BY_ID = new Map(ALL_VOCAB.map((vocab) => [vocab.id, vocab]));
+const BUNPO_BY_ID = new Map(ALL_BUNPO.map((grammar) => [grammar.id, grammar]));
 
 const LEVEL_RANK: Record<JlptLevel, number> = { N5: 0, N4: 1, N3: 2, N2: 3, N1: 4 };
 
@@ -261,7 +263,8 @@ function passageText(passage: Pick<ReadingPassage, "body">): string {
 // Index the passage once against precomputed dictionary and conjugated forms,
 // then list every matched verb before content nouns/adverbs. Less specific
 // parts of speech only fill any remaining non-verb slots.
-export function findVocabInPassage(passage: Pick<ReadingPassage, "body" | "level">, limit = MAX_VOCAB_MATCHES): VocabCard[] {
+export function findVocabInPassage(passage: Pick<ReadingPassage, "body" | "level" | "vocabularyIds">, limit = MAX_VOCAB_MATCHES): VocabCard[] {
+  if (passage.vocabularyIds) return passage.vocabularyIds.flatMap((id) => VOCAB_BY_ID.has(id) ? [VOCAB_BY_ID.get(id)!] : []);
   const text = passageText(passage);
   const matched = new Map<VocabReferenceEntry, VocabReferenceMatch>();
   for (let start = 0; start < text.length; start++) {
@@ -313,7 +316,8 @@ export function findVocabInPassage(passage: Pick<ReadingPassage, "body" | "level
   ].map(([entry]) => entry.vocab);
 }
 
-export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level">): BunpoGrammarPoint[] {
+export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level" | "grammarIds">): BunpoGrammarPoint[] {
+  if (passage.grammarIds) return passage.grammarIds.flatMap((id) => BUNPO_BY_ID.has(id) ? [BUNPO_BY_ID.get(id)!] : []);
   const text = passageText(passage);
   const bestByPattern = new Map<string, { grammar: BunpoGrammarPoint; score: number }>();
   for (const g of ALL_BUNPO) {

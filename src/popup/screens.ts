@@ -8,6 +8,8 @@ export type Screen =
   | "stats"
   | "reading"
   | "news"
+  | "aiStories"
+  | "savedStories"
   | "quizBook"
   | "bunpo"
   | "bunpoMap"
@@ -35,6 +37,8 @@ export const VALID_SCREENS: Screen[] = [
   "stats",
   "reading",
   "news",
+  "aiStories",
+  "savedStories",
   "quizBook",
   "bunpo",
   "bunpoMap",

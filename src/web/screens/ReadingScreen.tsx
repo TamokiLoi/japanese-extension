@@ -56,6 +56,12 @@ function timelineLabel(passage: ReadingPassage): string {
   return `${LENGTH_LABELS[passage.length]} · ~${min}-${max} phút`;
 }
 
+function isInCollection(passage: ReadingPassage, collection: "all" | "news" | "stories"): boolean {
+  if (collection === "news") return passage.book === "news";
+  if (collection === "stories") return passage.book === "ai-story";
+  return passage.book !== "ai-story";
+}
+
 type ReferenceTerm = { text: string; kind: "vocab" | "bunpo" };
 
 function escapeRegExp(value: string): string {
@@ -126,7 +132,7 @@ function ReadingBody({
   referenceTerms?: ReferenceTerm[];
   highlightReferences?: boolean;
 }) {
-  const isArticle = passage.book === "news" || passage.book === "custom";
+  const isArticle = passage.book === "news" || passage.book === "custom" || passage.book === "ai-story";
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
   const markdownTables = findMarkdownPipeTables(passageText);
@@ -293,13 +299,19 @@ function ReadingBodyInterleaved({
 
 export function ReadingScreen({
   collection = "all",
+  savedOnlyView = false,
   targetId,
+  onOpenSavedStories,
+  onOpenStories,
   onOpenVocab,
   onOpenBunpo,
   onCurrentItemChange,
 }: {
-  collection?: "all" | "news";
+  collection?: "all" | "news" | "stories";
+  savedOnlyView?: boolean;
   targetId?: string;
+  onOpenSavedStories?: () => void;
+  onOpenStories?: () => void;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string) => void;
   onCurrentItemChange?: (id: string | undefined) => void;
@@ -312,7 +324,7 @@ export function ReadingScreen({
     (async () => {
       let s = await loadViewerState();
       const foundTarget = targetId ? findReadingById(targetId) : undefined;
-      const passage = foundTarget && (collection !== "news" || foundTarget.book === "news") ? foundTarget : undefined;
+      const passage = foundTarget && isInCollection(foundTarget, collection) && (!savedOnlyView || s.savedPassageIds.includes(foundTarget.id)) ? foundTarget : undefined;
       if (passage) {
         s = {
           ...s,
@@ -324,6 +336,11 @@ export function ReadingScreen({
           showStudyNote: false,
           resultsRevealed: getPassageProgress(passage, s.answers).status === "done",
         };
+        await saveViewerState(s);
+      } else if (savedOnlyView && !targetId && s.currentPassageId) {
+        // Opening the saved-stories destination should show its collection;
+        // keep lastPassageId so the user can still resume from the list.
+        s = { ...s, currentPassageId: null };
         await saveViewerState(s);
       } else if (s.currentPassageId) {
         const currentPassage = findReadingById(s.currentPassageId);
@@ -338,7 +355,7 @@ export function ReadingScreen({
     return () => {
       cancelled = true;
     };
-  }, [collection, targetId]);
+  }, [collection, savedOnlyView, targetId]);
 
   async function mutate(partial: Partial<ReadingViewerState>) {
     if (!state) return;
@@ -349,22 +366,23 @@ export function ReadingScreen({
   }
 
   const savedPassage = state?.currentPassageId ? findReadingById(state.currentPassageId) : undefined;
-  const passage = savedPassage && (collection !== "news" || savedPassage.book === "news") ? savedPassage : undefined;
+  const passage = savedPassage && isInCollection(savedPassage, collection) && (!savedOnlyView || state?.savedPassageIds.includes(savedPassage.id)) ? savedPassage : undefined;
   const isStateLoaded = state !== null;
   useEffect(() => {
     if (!isStateLoaded) return;
     onCurrentItemChange?.(passage?.id);
   }, [isStateLoaded, passage?.id, onCurrentItemChange]);
 
-  if (!state) return <LoadingScreen variant="reading" title={collection === "news" ? "Đọc báo" : "Luyện đọc"} />;
+  if (!state) return <LoadingScreen variant="reading" title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"} />;
 
   // Lifted up from ListView (rather than each screen recomputing its own
   // copy) so PassageView can sequence Trước/Tiếp through the exact same
   // filtered+status-filtered order the user was browsing in the list --
   // same reasoning as BunpoScreen.tsx's DetailView visibleList.
   const filtered = ALL_READING.filter((p) => {
-    if (collection !== "news") return matchesFilters(p, state);
-    return p.book === "news" && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && (!p.topic || state.selectedTopics.includes(p.topic));
+    if (collection === "stories") return p.book === "ai-story" && (!savedOnlyView || state.savedPassageIds.includes(p.id));
+    if (collection === "news") return p.book === "news" && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && (!p.topic || state.selectedTopics.includes(p.topic));
+    return p.book !== "ai-story" && matchesFilters(p, state);
   });
   const visiblePassages = filtered.filter((p) => {
     if (state.savedOnly && !state.savedPassageIds.includes(p.id)) return false;
@@ -399,6 +417,7 @@ export function ReadingScreen({
         visiblePassages={visiblePassages}
         openPassage={openPassage}
         collection={collection}
+        savedOnlyView={savedOnlyView}
       />
     );
   }
@@ -413,6 +432,9 @@ export function ReadingScreen({
       visiblePassages={visiblePassages}
       openPassage={openPassage}
       collection={collection}
+      savedOnlyView={savedOnlyView}
+      onOpenSavedStories={onOpenSavedStories}
+      onOpenStories={onOpenStories}
     />
   );
 }
@@ -426,6 +448,9 @@ function ListView({
   visiblePassages,
   openPassage,
   collection,
+  savedOnlyView,
+  onOpenSavedStories,
+  onOpenStories,
 }: {
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
@@ -434,7 +459,10 @@ function ListView({
   filtered: ReadingPassage[];
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
-  collection: "all" | "news";
+  collection: "all" | "news" | "stories";
+  savedOnlyView: boolean;
+  onOpenSavedStories?: () => void;
+  onOpenStories?: () => void;
 }) {
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
@@ -454,7 +482,7 @@ function ListView({
   const allLevelsChecked = AVAILABLE_LEVELS.length <= 1 || state.selectedLevels.length === AVAILABLE_LEVELS.length;
   const regularBooks = AVAILABLE_BOOKS.filter((book) => !isReadingExamBook(book));
   const selectedRegularBooks = state.selectedBooks.filter((book) => !isReadingExamBook(book));
-  const allBooksChecked = collection === "news" || (state.selectedBooks.length === AVAILABLE_BOOKS.length && state.selectedExamIds.length === AVAILABLE_READING_EXAMS.length);
+  const allBooksChecked = collection !== "all" || (state.selectedBooks.length === AVAILABLE_BOOKS.length && state.selectedExamIds.length === AVAILABLE_READING_EXAMS.length);
   const selectedJlptExamIds = state.selectedExamIds.filter((id) => readingExamIdsForBook("jlpt-exam").includes(id));
   const selectedN3SetIds = state.selectedExamIds.filter((id) => readingExamIdsForBook("de-n3").includes(id));
   const sourceSummary = [
@@ -463,7 +491,7 @@ function ListView({
     selectedN3SetIds.length === AVAILABLE_N3_SETS.length && selectedN3SetIds.length ? "10 đề N3" : selectedN3SetIds.length === 1 ? `10 đề N3 · ${AVAILABLE_N3_SETS.find((exam) => exam.id === selectedN3SetIds[0])?.label ?? "1 đề"}` : selectedN3SetIds.length ? `${selectedN3SetIds.length} đề N3` : "",
   ].filter(Boolean).join(" · ");
   const allLengthsChecked = state.selectedLengths.length === AVAILABLE_LENGTHS.length;
-  const availableTopics = collection === "news"
+  const availableTopics = collection === "stories" ? [] : collection === "news"
     ? AVAILABLE_TOPICS.filter((topic) => ALL_READING.some((p) => p.book === "news" && p.topic === topic))
     : AVAILABLE_TOPICS;
   const allTopicsChecked = availableTopics.every((topic) => state.selectedTopics.includes(topic));
@@ -479,16 +507,22 @@ function ListView({
     (state.savedOnly ? 1 : 0);
 
   async function handleStart() {
-    const passage = pickRandomPassage(state.selectedLevels, state.selectedLengths, collection === "news" ? ["news"] : state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
+    const randomPool = collection === "stories"
+      ? (visiblePassages.length ? visiblePassages : filtered)
+      : null;
+    const passage = randomPool
+      ? randomPool[Math.floor(Math.random() * randomPool.length)] ?? null
+      : pickRandomPassage(state.selectedLevels, state.selectedLengths, collection === "news" ? ["news"] : state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
     if (!passage) {
-      setError(collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : "Không có bài đọc nào khớp bộ lọc này.");
+      setError(savedOnlyView ? "Chưa có truyện nào được lưu." : collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : collection === "stories" ? "Chưa có truyện AI nào." : "Không có bài đọc nào khớp bộ lọc này.");
       return;
     }
     await openPassage(passage);
   }
 
   const lastPassageCandidate = state.lastPassageId ? findReadingById(state.lastPassageId) : undefined;
-  const lastPassage = lastPassageCandidate && (collection !== "news" || lastPassageCandidate.book === "news") ? lastPassageCandidate : undefined;
+  const lastPassage = lastPassageCandidate && isInCollection(lastPassageCandidate, collection) && (!savedOnlyView || state.savedPassageIds.includes(lastPassageCandidate.id)) ? lastPassageCandidate : undefined;
+  const savedStoryCount = state.savedPassageIds.filter((id) => ALL_READING.some((p) => p.id === id && p.book === "ai-story")).length;
 
   async function handleResetRow(passage: ReadingPassage) {
     if (!(await confirm(`Làm lại "${passage.title}" từ đầu? Kết quả đã trả lời sẽ bị xoá.`))) return;
@@ -497,56 +531,73 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title={collection === "news" ? "Đọc báo" : "Luyện đọc"} subtitle={`${filtered.length} bài`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
+      <PageHeader title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"} subtitle={`${filtered.length} ${savedOnlyView ? "truyện" : "bài"}`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
 
       {collection === "news" && !ALL_READING.some((p) => p.book === "news") ? (
         <p className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-600">
           Chưa có bài báo nào được đưa vào thư viện. Khi có bài được biên tập và xuất bản, chúng sẽ xuất hiện tại đây.
         </p>
       ) : null}
+      {collection === "stories" && filtered.length === 0 ? (
+        <p className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-600">
+          {savedOnlyView ? "Chưa có truyện nào được lưu. Mở Truyện AI rồi bấm Lưu bài để giữ truyện ở đây." : "Chưa có truyện AI nào được thêm vào thư viện."}
+        </p>
+      ) : null}
 
-      <div className="mt-4 grid grid-cols-2 gap-3">
-        <StatCard
-          label="Đã hoàn thành"
-          value={statusCounts.done}
-          tone="emerald"
-          active={state.listStatusFilter === "done"}
-          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "done" ? "all" : "done" })}
-        />
-        <StatCard
-          label="Đang làm dở"
-          value={statusCounts["in-progress"]}
-          tone="amber"
-          active={state.listStatusFilter === "in-progress"}
-          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "in-progress" ? "all" : "in-progress" })}
-        />
-        <StatCard
-          label="Chưa làm"
-          value={statusCounts["not-started"]}
-          active={state.listStatusFilter === "not-started"}
-          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "not-started" ? "all" : "not-started" })}
-        />
-        <StatCard
-          label="Cần ôn lại"
-          value={statusCounts.needsReview}
-          tone="rose"
-          active={state.listStatusFilter === "needs-review"}
-          onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "needs-review" ? "all" : "needs-review" })}
-        />
-      </div>
+      {!savedOnlyView ? (
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <StatCard
+            label="Đã hoàn thành"
+            value={statusCounts.done}
+            tone="emerald"
+            active={state.listStatusFilter === "done"}
+            onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "done" ? "all" : "done" })}
+          />
+          <StatCard
+            label="Đang làm dở"
+            value={statusCounts["in-progress"]}
+            tone="amber"
+            active={state.listStatusFilter === "in-progress"}
+            onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "in-progress" ? "all" : "in-progress" })}
+          />
+          <StatCard
+            label="Chưa làm"
+            value={statusCounts["not-started"]}
+            active={state.listStatusFilter === "not-started"}
+            onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "not-started" ? "all" : "not-started" })}
+          />
+          <StatCard
+            label="Cần ôn lại"
+            value={statusCounts.needsReview}
+            tone="rose"
+            active={state.listStatusFilter === "needs-review"}
+            onClick={() => mutate({ listStatusFilter: state.listStatusFilter === "needs-review" ? "all" : "needs-review" })}
+          />
+        </div>
+      ) : null}
 
       <FilterBar>
-        <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} />
-        {lastPassage ? <Button size="sm" variant="outline" title={lastPassage.title} onClick={() => openPassage(lastPassage)}>{collection === "news" ? "Tiếp tục đọc báo" : "Tiếp tục đọc"}</Button> : null}
-        <Button size="sm" variant={state.savedOnly ? "default" : "outline"} onClick={() => mutate({ savedOnly: !state.savedOnly })}>
-          <BookmarkCheck size={14} /> Đã lưu ({state.savedPassageIds.length})
-        </Button>
-        <Button size="sm" variant="outline" onClick={handleStart}>
-          <Shuffle size={14} /> {collection === "news" ? "Random bài báo" : "Random bài đọc"}
-        </Button>
+        {collection !== "stories" ? <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} /> : null}
+        {lastPassage ? <Button size="sm" variant="outline" title={lastPassage.title} onClick={() => openPassage(lastPassage)}>{collection === "news" ? "Tiếp tục đọc báo" : collection === "stories" ? (savedOnlyView ? "Đọc tiếp truyện đã lưu" : "Đọc tiếp truyện") : "Tiếp tục đọc"}</Button> : null}
+        {collection === "stories" ? (
+          savedOnlyView ? (
+            <Button size="sm" variant="outline" onClick={onOpenStories}>Tất cả truyện</Button>
+          ) : (
+            <Button size="sm" variant="outline" onClick={onOpenSavedStories}>
+              <BookmarkCheck size={14} /> Truyện đã lưu ({savedStoryCount})
+            </Button>
+          )
+        ) : (
+          <Button size="sm" variant={state.savedOnly ? "default" : "outline"} onClick={() => mutate({ savedOnly: !state.savedOnly })}>
+            <BookmarkCheck size={14} /> Đã lưu ({state.savedPassageIds.length})
+          </Button>
+        )}
+        {!savedOnlyView ? <Button size="sm" variant="outline" onClick={handleStart}>
+          <Shuffle size={14} /> {collection === "news" ? "Random bài báo" : collection === "stories" ? "Random truyện" : "Random bài đọc"}
+        </Button> : null}
       </FilterBar>
 
-      <ActiveFilters
+      {collection !== "stories" ? <ActiveFilters
         chips={[
           ...(state.savedOnly ? [{ key: "saved", label: "Chỉ bài đã lưu", onRemove: () => mutate({ savedOnly: false }) }] : []),
           ...(allLevelsChecked
@@ -592,12 +643,12 @@ function ListView({
                 },
               }))),
         ]}
-      />
+      /> : null}
 
       {error ? <p className="mt-3 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">{error}</p> : null}
 
       <FilterSheet
-        open={filterOpen}
+        open={filterOpen && collection !== "stories"}
         onClose={() => setFilterOpen(false)}
         title={collection === "news" ? "Bộ lọc đọc báo" : "Bộ lọc luyện đọc"}
         onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], ...(collection === "news" ? {} : { selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: AVAILABLE_READING_EXAMS.map((exam) => exam.id) }), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
@@ -813,9 +864,9 @@ function ListView({
       </FilterSheet>
 
       {visiblePassages.length === 0 ? (
-        collection === "news" && !ALL_READING.some((p) => p.book === "news") ? null : (
+        (collection === "news" && !ALL_READING.some((p) => p.book === "news")) || (collection === "stories" && filtered.length === 0) ? null : (
           <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">
-            {collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : "Không có bài đọc nào khớp bộ lọc này."}
+            {savedOnlyView ? "Chưa có truyện nào được lưu. Mở Truyện AI rồi bấm Lưu bài để giữ truyện ở đây." : collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : collection === "stories" ? "Không có truyện nào khớp trạng thái đã chọn." : "Không có bài đọc nào khớp bộ lọc này."}
           </p>
         )
       ) : (
@@ -892,6 +943,7 @@ function PassageView({
   visiblePassages,
   openPassage,
   collection,
+  savedOnlyView,
 }: {
   passage: ReadingPassage;
   state: ReadingViewerState;
@@ -900,9 +952,11 @@ function PassageView({
   onOpenBunpo: (bunpoId: string) => void;
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
-  collection: "all" | "news";
+  collection: "all" | "news" | "stories";
+  savedOnlyView: boolean;
 }) {
   const confirm = useConfirm();
+  const isAiStory = passage.book === "ai-story";
   const isArticle = passage.book === "news" || passage.book === "custom";
   const isLinkOnly = passage.linkOnly === true;
   const isSaved = state.savedPassageIds.includes(passage.id);
@@ -917,7 +971,7 @@ function PassageView({
     ...vocabMatches.flatMap((v) => getVocabReferenceTerms(v).map((text) => ({ text, kind: "vocab" as const }))),
     ...bunpoMatches.flatMap((g) => extractMatchChunks(g.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
   ];
-  const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
+  const [referenceTab, setReferenceTab] = useState<"questions" | "references" | "vocabulary" | "grammar">("questions");
   const [floatingNavVisible, setFloatingNavVisible] = useState(false);
   const viewOptions = state.passageViewOptions[passage.id] ?? {};
   const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
@@ -982,7 +1036,7 @@ function PassageView({
           onClick={() => mutate({ currentPassageId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
-          <ChevronLeft size={15} /> {collection === "news" ? "Đọc báo" : "Luyện đọc"}
+          <ChevronLeft size={15} /> {savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"}
         </button>
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(passage.level)}>
           {passage.level}
@@ -994,7 +1048,7 @@ function PassageView({
 
       <h1 className="mt-3 text-2xl font-bold text-neutral-800">{passage.title}</h1>
 
-      {isArticle ? (
+      {isArticle || isAiStory ? (
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500">
           <span>{passage.source}</span>
           {passage.publishedAt ? <span>{passage.publishedAt}</span> : null}
@@ -1013,6 +1067,16 @@ function PassageView({
           </button>
           {passage.sourceNotice ? <p className="basis-full text-xs text-neutral-400">{passage.sourceNotice}</p> : null}
         </div>
+      ) : null}
+
+      {passage.illustration ? (
+        <Card className="mt-4 overflow-hidden gap-0 rounded-2xl border-neutral-200 p-2 ring-0">
+          <img
+            src={`${import.meta.env.BASE_URL}${passage.illustration.path}`}
+            alt={passage.illustration.alt}
+            className="max-h-[min(62vw,420px)] w-full rounded-xl object-cover"
+          />
+        </Card>
       ) : null}
 
       {!isArticle ? <div className="mt-4 flex items-center gap-3">
@@ -1105,13 +1169,36 @@ function PassageView({
           role="tab"
           aria-selected={referenceTab === "questions"}
           onClick={() => setReferenceTab("questions")}
-          className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+          className={`flex-1 rounded-lg px-2 py-2 text-sm font-semibold transition-colors ${
             referenceTab === "questions" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
           }`}
         >
           Câu hỏi ({total})
         </button>
-        {vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
+        {isAiStory ? (
+          <>
+            <button
+              role="tab"
+              aria-selected={referenceTab === "vocabulary"}
+              onClick={() => setReferenceTab("vocabulary")}
+              className={`flex-1 rounded-lg px-2 py-2 text-sm font-semibold transition-colors ${
+                referenceTab === "vocabulary" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+              }`}
+            >
+              Từ vựng ({vocabMatches.length})
+            </button>
+            <button
+              role="tab"
+              aria-selected={referenceTab === "grammar"}
+              onClick={() => setReferenceTab("grammar")}
+              className={`flex-1 rounded-lg px-2 py-2 text-sm font-semibold transition-colors ${
+                referenceTab === "grammar" ? "bg-white text-neutral-800 shadow-sm" : "text-neutral-500 hover:text-neutral-700"
+              }`}
+            >
+              Ngữ pháp ({bunpoMatches.length})
+            </button>
+          </>
+        ) : vocabMatches.length > 0 || bunpoMatches.length > 0 ? (
           <button
             role="tab"
             aria-selected={referenceTab === "references"}
@@ -1156,12 +1243,14 @@ function PassageView({
             </div>
           ) : null}
         </Card>
-      ) : null) : referenceTab === "references" ? (
+      ) : null) : referenceTab !== "questions" ? (
         <Card className="mt-4 gap-4 rounded-2xl border-neutral-200 p-4 ring-0">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <h2 className="text-base font-bold text-neutral-800">Từ vựng và ngữ pháp trong bài</h2>
-              <p className="mt-0.5 text-xs text-neutral-500">Ưu tiên các từ khó và mẫu ngữ pháp đáng chú ý trong bài đọc.</p>
+              <h2 className="text-base font-bold text-neutral-800">
+                {referenceTab === "vocabulary" ? "Từ vựng trong truyện" : referenceTab === "grammar" ? "Ngữ pháp trong truyện" : "Từ vựng và ngữ pháp trong bài"}
+              </h2>
+              <p className="mt-0.5 text-xs text-neutral-500">{isAiStory ? "Các mục được chọn để học trong câu chuyện này." : "Ưu tiên các từ khó và mẫu ngữ pháp đáng chú ý trong bài đọc."}</p>
             </div>
             <button
               onClick={() => updateViewOptions({ highlightReferences: !highlightReferences })}
@@ -1173,7 +1262,7 @@ function PassageView({
             </button>
           </div>
 
-          {vocabMatches.length > 0 ? (
+          {referenceTab !== "grammar" && vocabMatches.length > 0 ? (
             <div>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500">
                 <Library size={14} /> Từ vựng trọng tâm
@@ -1191,7 +1280,7 @@ function PassageView({
               </div>
             </div>
           ) : null}
-          {bunpoMatches.length > 0 ? (
+          {referenceTab !== "vocabulary" && bunpoMatches.length > 0 ? (
             <div>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500">
                 <PenSquare size={14} /> Ngữ pháp trong bài

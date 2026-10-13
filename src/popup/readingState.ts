@@ -7,6 +7,7 @@ import readingN3Dokkai115Raw from "../data/reading-n3-dokkai115.json";
 import { JLPT_DATASETS } from "./dethiCatalog.ts";
 import { collectJlptReading } from "../lib/jlptReading.ts";
 import readingNewsRaw from "../data/reading-news.json";
+import readingAiStoriesRaw from "../data/reading-ai-stories.json";
 import type { ReadingDataset, ReadingPassage, ReadingLength, ReadingBook, ReadingQuestionType } from "../types/reading.ts";
 import type { JlptLevel } from "../types/kanji.ts";
 import { storageGet, storageSet } from "../platform/storage";
@@ -19,6 +20,7 @@ const dokkai55Dataset = readingN3Dokkai55Raw as unknown as ReadingDataset;
 const dokkai115Dataset = readingN3Dokkai115Raw as unknown as ReadingDataset;
 const jlptExamsDataset: ReadingDataset = { passages: collectJlptReading(JLPT_DATASETS) };
 const readingNewsDataset = readingNewsRaw as unknown as ReadingDataset;
+const readingAiStoriesDataset = readingAiStoriesRaw as unknown as ReadingDataset;
 export const ALL_READING: ReadingPassage[] = [
   ...shinkanzenDataset.passages,
   ...speedmasterDataset.passages,
@@ -28,6 +30,7 @@ export const ALL_READING: ReadingPassage[] = [
   ...dokkai115Dataset.passages,
   ...jlptExamsDataset.passages,
   ...readingNewsDataset.passages,
+  ...readingAiStoriesDataset.passages,
 ];
 
 const READING_BY_ID = new Map(ALL_READING.map((p) => [p.id, p]));
@@ -87,6 +90,7 @@ export const BOOK_LABELS: Record<ReadingBook, string> = {
   "de-n3": "10 đề N3",
   news: "Báo Nhật",
   custom: "Nội dung tự thêm",
+  "ai-story": "Truyện AI",
 };
 
 export const BOOK_DIFFICULTY_NOTE: Record<ReadingBook, string> = {
@@ -99,6 +103,7 @@ export const BOOK_DIFFICULTY_NOTE: Record<ReadingBook, string> = {
   "de-n3": "bộ đề luyện N3 theo từng dạng câu hỏi",
   news: "bài báo Nhật đã biên soạn để luyện đọc",
   custom: "đoạn văn, câu chuyện hoặc đường dẫn bạn gửi",
+  "ai-story": "truyện tiếng Nhật do AI biên soạn kèm tham khảo học tập",
 };
 
 // Ordering shown in the length filter -- short to long, mirrors LEVEL_ORDER
@@ -168,7 +173,7 @@ export function isReadingExamBook(book: ReadingBook): book is (typeof READING_EX
 for (const book of ["news", "custom"] as const) {
   if (!AVAILABLE_BOOKS.includes(book)) AVAILABLE_BOOKS.push(book);
 }
-export const AVAILABLE_TOPICS: string[] = [...new Set(ALL_READING.flatMap((passage) => passage.topic ? [passage.topic] : []))]
+export const AVAILABLE_TOPICS: string[] = [...new Set(ALL_READING.flatMap((passage) => passage.book !== "ai-story" && passage.topic ? [passage.topic] : []))]
   .sort((a, b) => a.localeCompare(b, "ja", { numeric: true }));
 
 export function pickRandomPassage(
