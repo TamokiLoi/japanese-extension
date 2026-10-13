@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
 import type { Kanji } from "../../types/kanji.ts";
+import { KANJI_STUDY_SETS, type KanjiStudySetId } from "../../data/kanjiStudySets.ts";
+import { storageGet, storageSet } from "../../platform/storage.ts";
 import {
   ALL_KANJI,
   AVAILABLE_LEVELS,
@@ -74,6 +76,11 @@ const BUCKET_ACTIVE_RING: Record<ProgressBucket, string> = {
   flagged: "border-rose-400 ring-2 ring-rose-400",
   new: "border-neutral-400 ring-2 ring-neutral-400",
 };
+const STUDY_SET_STORAGE_KEY = "kanjiWebStudySet";
+
+function isKanjiStudySetId(value: unknown): value is KanjiStudySetId {
+  return typeof value === "string" && Object.prototype.hasOwnProperty.call(KANJI_STUDY_SETS, value);
+}
 
 function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   if (k.meanings.vi.length > 0) return { text: k.meanings.vi.join(", "), isDraft: false };
@@ -81,9 +88,28 @@ function meaningLine(k: Kanji): { text: string; isDraft: boolean } {
   return { text: "(chưa có nghĩa tiếng Việt)", isDraft: false };
 }
 
-async function getFilteredList(state: KanjiViewerState): Promise<Kanji[]> {
+async function getFilteredList(state: KanjiViewerState, studySetId: KanjiStudySetId | null = null): Promise<Kanji[]> {
   const map = await loadProgressMap();
-  return filterByProgress(getOrderedList(state), map, state.progressFilter);
+  // A source collection is an alternative to JLPT-level filtering. This
+  // keeps every item from the workbook set even when its app level differs
+  // from the set's N3 label.
+  const collectionState = studySetId ? { ...state, selectedLevels: [...AVAILABLE_LEVELS] } : state;
+  const ordered = getOrderedList(collectionState);
+  let collectionList = ordered;
+  if (studySetId) {
+    const ids = KANJI_STUDY_SETS[studySetId].ids;
+    if (state.randomOrder) {
+      const idSet = new Set<string>(ids);
+      collectionList = ordered.filter((kanji) => idSet.has(kanji.id));
+    } else {
+      const byId = new Map(ALL_KANJI.map((kanji) => [kanji.id, kanji]));
+      collectionList = ids.flatMap((id) => {
+        const kanji = byId.get(id);
+        return kanji ? [kanji] : [];
+      });
+    }
+  }
+  return filterByProgress(collectionList, map, state.progressFilter);
 }
 
 export function KanjiScreen({
@@ -102,6 +128,7 @@ export function KanjiScreen({
 }) {
   const [state, setState] = useState<KanjiViewerState | null>(null);
   const [list, setList] = useState<Kanji[]>([]);
+  const [studySetId, setStudySetId] = useState<KanjiStudySetId | null>(null);
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -125,6 +152,8 @@ export function KanjiScreen({
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
+      const savedStudySet = await storageGet<unknown>(STUDY_SET_STORAGE_KEY);
+      let activeStudySetId = isKanjiStudySetId(savedStudySet) ? savedStudySet : null;
       let l: Kanji[];
       // Only committed to the ref after the `cancelled` check below, so a
       // slower already-superseded jump can't clobber a newer one's base.
@@ -134,10 +163,16 @@ export function KanjiScreen({
         const jumped = resolveJumpState(s, jumpTargetId);
         if (jumped) {
           nextBase = { selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
+          // A deep link outside the active source set must still open. The
+          // saved set remains intact and is restored on the next fresh visit.
+          if (activeStudySetId && !new Set<string>(KANJI_STUDY_SETS[activeStudySetId].ids).has(jumpTargetId)) {
+            activeStudySetId = null;
+          }
           s = jumped;
-          l = getOrderedList(s);
+          l = await getFilteredList(s, activeStudySetId);
+          s = { ...s, index: Math.max(0, l.findIndex((kanji) => kanji.id === jumpTargetId)) };
         } else {
-          l = await getFilteredList(s);
+          l = await getFilteredList(s, activeStudySetId);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
           await saveViewerState(s);
         }
@@ -146,12 +181,13 @@ export function KanjiScreen({
         // the overview grid, regardless of whatever mode was last saved --
         // "which kanji do I already know" should be the first thing you see
         // each visit, not wherever you happened to leave off studying.
-        l = await getFilteredList(s);
+        l = await getFilteredList(s, activeStudySetId);
         s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)), viewMode: "grid" };
         await saveViewerState(s);
       }
       if (cancelled) return;
       baseFilterRef.current = nextBase;
+      setStudySetId(activeStudySetId);
       setState(s);
       setList(l);
     })();
@@ -186,7 +222,11 @@ export function KanjiScreen({
     };
   }, [state, list]);
 
-  async function mutate(partial: Partial<KanjiViewerState>, recomputeList = true) {
+  async function mutate(
+    partial: Partial<KanjiViewerState>,
+    recomputeList = true,
+    listStudySetId: KanjiStudySetId | null = studySetId,
+  ) {
     if (!state) return;
     const next: KanjiViewerState = { ...state, ...partial };
     // Restore the pre-jump base, then re-apply `partial` on top so an
@@ -197,7 +237,7 @@ export function KanjiScreen({
     if (baseFilterRef.current) {
       baseFilterRef.current = { ...baseFilterRef.current, progressFilter: toPersist.progressFilter, viewMode: toPersist.viewMode };
     }
-    const newList = recomputeList ? await getFilteredList(next) : list;
+    const newList = recomputeList ? await getFilteredList(next, listStudySetId) : list;
     setState(next);
     setList(newList);
   }
@@ -205,7 +245,25 @@ export function KanjiScreen({
   async function applyLevelSelection(newLevels: (typeof AVAILABLE_LEVELS)[number][]) {
     if (newLevels.length === 0) return;
     baseFilterRef.current = null;
-    await mutate({ selectedLevels: newLevels, index: 0 });
+    setStudySetId(null);
+    await storageSet(STUDY_SET_STORAGE_KEY, null);
+    await mutate({ selectedLevels: newLevels, index: 0 }, true, null);
+  }
+
+  async function applyStudySetSelection(nextStudySetId: KanjiStudySetId | null) {
+    if (!state) return;
+    baseFilterRef.current = null;
+    setStudySetId(nextStudySetId);
+    await storageSet(STUDY_SET_STORAGE_KEY, nextStudySetId);
+    await mutate({ index: 0 }, true, nextStudySetId);
+  }
+
+  async function resetFilters() {
+    if (!state) return;
+    baseFilterRef.current = null;
+    setStudySetId(null);
+    await storageSet(STUDY_SET_STORAGE_KEY, null);
+    await mutate({ selectedLevels: [...AVAILABLE_LEVELS], index: 0 }, true, null);
   }
 
   async function refreshProgress() {
@@ -231,7 +289,8 @@ export function KanjiScreen({
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
-  const allChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
+  const allChecked = !studySetId && state.selectedLevels.length === AVAILABLE_LEVELS.length;
+  const activeFilterCount = studySetId ? 1 : allChecked ? 0 : state.selectedLevels.length;
   const related = k ? vocabForKanjiChar(k.character) : null;
 
   return (
@@ -248,7 +307,7 @@ export function KanjiScreen({
       />
 
       <FilterBar>
-        <FilterTrigger count={allChecked ? 0 : state.selectedLevels.length} onClick={() => setFilterOpen(true)} />
+        <FilterTrigger count={activeFilterCount} onClick={() => setFilterOpen(true)} />
         <button
           title="Đến hạn ôn lại"
           onClick={() => mutate({ progressFilter: state.progressFilter === "due" ? "all" : "due", index: 0 })}
@@ -274,9 +333,15 @@ export function KanjiScreen({
 
       <ActiveFilters
         chips={
-          allChecked
-            ? []
-            : state.selectedLevels.map((level) => ({
+          studySetId
+            ? [{
+                key: studySetId,
+                label: KANJI_STUDY_SETS[studySetId].label,
+                onRemove: () => void applyStudySetSelection(null),
+              }]
+            : allChecked
+              ? []
+              : state.selectedLevels.map((level) => ({
                 key: level,
                 label: level,
                 onRemove: () => applyLevelSelection(state.selectedLevels.filter((l) => l !== level)),
@@ -288,29 +353,50 @@ export function KanjiScreen({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc Kanji"
-        onReset={() => applyLevelSelection([...AVAILABLE_LEVELS])}
+        onReset={() => void resetFilters()}
       >
-        <FilterGroup title="Cấp độ">
-          <FilterChipOption
-            label={`Tất cả (${ALL_KANJI.length})`}
-            active={allChecked}
-            onClick={() => applyLevelSelection(allChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
-          />
-          {AVAILABLE_LEVELS.map((level) => {
-            const checked = state.selectedLevels.includes(level);
-            return (
-              <FilterChipOption
-                key={level}
-                label={`${level} (${countForLevel(level)})`}
-                active={checked}
-                onClick={() => {
-                  const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
-                  applyLevelSelection(next);
-                }}
-              />
-            );
-          })}
+        {studySetId ? (
+          <p className="text-sm leading-relaxed text-neutral-500">
+            Đang lọc theo bộ tài liệu {studySetId}. Bộ lọc cấp JLPT được tạm thay thế để hiển thị đầy đủ danh sách này. Chạm lại tên bộ để bỏ lọc.
+          </p>
+        ) : (
+          <FilterGroup title="Cấp độ">
+            <FilterChipOption
+              label={`Tất cả (${ALL_KANJI.length})`}
+              active={allChecked}
+              onClick={() => applyLevelSelection(allChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
+            />
+            {AVAILABLE_LEVELS.map((level) => {
+              const checked = state.selectedLevels.includes(level);
+              return (
+                <FilterChipOption
+                  key={level}
+                  label={`${level} (${countForLevel(level)})`}
+                  active={checked}
+                  onClick={() => {
+                    const next = checked ? state.selectedLevels.filter((l) => l !== level) : [...new Set([...state.selectedLevels, level])];
+                    applyLevelSelection(next);
+                  }}
+                />
+              );
+            })}
+          </FilterGroup>
+        )}
+        <FilterGroup title="Bộ tài liệu">
+          {(Object.keys(KANJI_STUDY_SETS) as KanjiStudySetId[]).map((setId) => (
+            <FilterChipOption
+              key={setId}
+              label={KANJI_STUDY_SETS[setId].label}
+              active={studySetId === setId}
+              onClick={() => applyStudySetSelection(studySetId === setId ? null : setId)}
+            />
+          ))}
         </FilterGroup>
+        {!studySetId ? (
+          <p className="text-xs leading-relaxed text-neutral-400">
+            Chọn bộ tài liệu sẽ tạm thay thế lọc cấp JLPT, vì một số Kanji trong Excel được app xếp ở cấp khác.
+          </p>
+        ) : null}
       </FilterSheet>
 
       {isGrid ? null : (
