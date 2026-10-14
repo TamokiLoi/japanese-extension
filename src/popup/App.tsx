@@ -119,6 +119,9 @@ export function App() {
       />
     );
   }
+  if (screen === "flashcards") {
+    return <p className="empty">Flashcard hiện chỉ có trên bản Web/PWA.</p>;
+  }
   if (screen === "kanji") {
     return <KanjiScreen onBack={goBack} onOpenVocab={(vocabId) => navigate("vocab", vocabId)} jumpToId={targetId} />;
   }

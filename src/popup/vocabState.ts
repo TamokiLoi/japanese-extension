@@ -17,6 +17,13 @@ import tangoNewRaw from "../data/vocab-tango-new.json";
 import doicapTudongtuRaw from "../data/vocab-doicap-tudongtu.json";
 import dongnghiaKoseiRaw from "../data/vocab-dongnghia-n3-kosei.json";
 import jlptN3DethiRaw from "../data/vocab-jlpt-n3-dethi.json";
+import fptN3TangoMissingRaw from "../data/vocab-fpt-n3-tango-missing.json";
+import fptN3TangoWeek1Raw from "../data/fpt-n3-kanji-week-1.json";
+import fptN3TangoWeek2Raw from "../data/fpt-n3-kanji-week-2.json";
+import fptN3TangoWeek3Raw from "../data/fpt-n3-kanji-week-3.json";
+import fptN3TangoWeek4Raw from "../data/fpt-n3-kanji-week-4.json";
+import fptN3TangoWeek5Raw from "../data/fpt-n3-kanji-week-5.json";
+import fptN3TangoWeek6Raw from "../data/fpt-n3-kanji-week-6.json";
 import type {
   TanoshiiVocabDataset,
   MimikaraDataset,
@@ -46,7 +53,8 @@ export type VocabSource =
   | "tango-new"
   | "doicap-tudongtu"
   | "dongnghia-n3-kosei"
-  | "jlpt-n3-dethi";
+  | "jlpt-n3-dethi"
+  | "fpt-n3-tango";
 
 export interface VocabCard {
   id: string;
@@ -96,6 +104,7 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "doicap-tudongtu": "100 cặp Tự-Tha động từ",
   "dongnghia-n3-kosei": "Từ đồng nghĩa N3 (Kosei)",
   "jlpt-n3-dethi": "JLPT-N3",
+  "fpt-n3-tango": "FPT-N3-Tango",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -116,6 +125,7 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "doicap-tudongtu",
   "dongnghia-n3-kosei",
   "jlpt-n3-dethi",
+  "fpt-n3-tango",
 ];
 
 // Gộp hiển thị cho bộ lọc "Nguồn" -- KHÔNG đổi VocabSource gốc (vẫn giữ
@@ -183,6 +193,21 @@ const tangoNewDataset = tangoNewRaw as unknown as TanoshiiVocabDataset;
 // Từ vựng quét ra từ 13 đề N3 thật (2019-2025) -- xuất hiện trong câu hỏi/đáp
 // án phần 文字・語彙 nhưng chưa có ở bất kỳ nguồn nào khác (kể cả dạng な/する).
 const jlptN3DethiDataset = jlptN3DethiRaw as unknown as TanoshiiVocabDataset;
+const fptN3TangoMissingDataset = fptN3TangoMissingRaw as unknown as TanoshiiVocabDataset;
+
+type FptN3TangoWeek = { words: { word: string }[] };
+const FPT_N3_TANGO_WORDS = new Set(
+  [
+    fptN3TangoWeek1Raw,
+    fptN3TangoWeek2Raw,
+    fptN3TangoWeek3Raw,
+    fptN3TangoWeek4Raw,
+    fptN3TangoWeek5Raw,
+    fptN3TangoWeek6Raw,
+  ]
+    .flatMap((week) => (week as FptN3TangoWeek).words)
+    .map(({ word }) => word),
+);
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -341,7 +366,7 @@ function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
   return merged;
 }
 
-export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
+const BASE_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromMimikara(mimikaraDataset),
   ...fromTanoshiiVocab("dongtu", dongtuDataset),
   ...fromTanoshiiVocab("dongtu", dongtu200Dataset),
@@ -362,6 +387,21 @@ export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...fromDongnghia("dongnghia-n3-kosei", dongnghiaKoseiDataset),
   ...fromTanoshiiVocab("jlpt-n3-dethi", jlptN3DethiDataset),
 ]);
+
+// Link the FPT-N3-Tango study list to existing vocabulary cards by spelling,
+// keeping each card's original id and progress. Only the terms which were
+// missing from the app are added as new cards from the supplemental dataset.
+// Week membership remains in the six source files for future weekly study UX.
+const TAGGED_EXISTING_VOCAB = BASE_VOCAB.map((card) =>
+  FPT_N3_TANGO_WORDS.has(card.word)
+    ? { ...card, sources: [...new Set([...card.sources, "fpt-n3-tango" as const])] }
+    : card,
+);
+
+export const ALL_VOCAB: VocabCard[] = [
+  ...TAGGED_EXISTING_VOCAB,
+  ...fromTanoshiiVocab("fpt-n3-tango", fptN3TangoMissingDataset),
+];
 
 export function countForSource(source: VocabSource): number {
   return ALL_VOCAB.filter((v) => v.sources.includes(source)).length;

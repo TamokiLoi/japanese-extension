@@ -2,6 +2,7 @@ export type Screen =
   | "menu"
   | "kanji"
   | "vocab"
+  | "flashcards"
   | "quiz"
   | "search"
   | "jlptHistory"
@@ -31,6 +32,7 @@ export const VALID_SCREENS: Screen[] = [
   "menu",
   "kanji",
   "vocab",
+  "flashcards",
   "quiz",
   "search",
   "jlptHistory",

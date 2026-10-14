@@ -6,6 +6,7 @@ const STORAGE_KEY = "bottomNavShortcuts";
 export const BOTTOM_NAV_CHOICES: Screen[] = [
   "kanji",
   "vocab",
+  "flashcards",
   "bunpo",
   "reading",
   "listening",

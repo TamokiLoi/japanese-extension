@@ -17,6 +17,8 @@ const BACKUP_KEYS = [
   "dictationViewer",
   "itBookViewer",
   "itemProgress",
+  "fptN3TangoFlashcardProgress",
+  "flashcardProgressV1",
   "studyLog",
   "listeningProgress",
   "dictationProgress",

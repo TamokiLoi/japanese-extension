@@ -22,6 +22,7 @@ import "./tailwind.css";
 
 const HomeScreen = lazy(() => import("./screens/HomeScreen.tsx").then((module) => ({ default: module.HomeScreen })));
 const VocabScreen = lazy(() => import("./screens/VocabScreen.tsx").then((module) => ({ default: module.VocabScreen })));
+const FlashcardScreen = lazy(() => import("./screens/FlashcardScreen.tsx").then((module) => ({ default: module.FlashcardScreen })));
 const KanjiScreen = lazy(() => import("./screens/KanjiScreen.tsx").then((module) => ({ default: module.KanjiScreen })));
 const SearchScreen = lazy(() => import("./screens/SearchScreen.tsx").then((module) => ({ default: module.SearchScreen })));
 const BunpoScreen = lazy(() => import("./screens/BunpoScreen.tsx").then((module) => ({ default: module.BunpoScreen })));
@@ -80,6 +81,7 @@ function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; titl
   const titles: Partial<Record<Screen, string>> = {
     kanji: "Kanji",
     vocab: "Từ vựng",
+    flashcards: "Flashcard",
     search: "Tra cứu",
     bunpo: "Ngữ pháp",
     bunpoMap: "Sơ đồ ngữ pháp",
@@ -362,6 +364,8 @@ export function WebApp() {
         onCurrentItemChange={syncCurrentItem}
       />
     );
+  } else if (screen === "flashcards") {
+    content = <FlashcardScreen />;
   } else if (screen === "search") {
     content = (
       <SearchScreen

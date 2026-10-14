@@ -3,6 +3,7 @@ import {
   Home,
   BookMarked,
   Library,
+  Layers,
   BookOpenText,
   Newspaper,
   PenSquare,
@@ -37,6 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "search", label: "Tra cứu", icon: Search },
   { screen: "kanji", label: "Kanji", icon: BookMarked },
   { screen: "vocab", label: "Từ vựng", icon: Library },
+  { screen: "flashcards", label: "Flashcard", icon: Layers },
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
   { screen: "news", label: "Đọc báo", icon: Newspaper },
@@ -72,7 +74,7 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search", "roadmap"] },
-  { label: "Học", screens: ["kanji", "vocab", "bunpo", "reading", "listening"] },
+  { label: "Học", screens: ["kanji", "vocab", "flashcards", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "matchGame", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
   { label: "Giải trí", screens: ["news", "aiStories", "savedStories", "podcast"] },
