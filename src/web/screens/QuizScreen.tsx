@@ -23,7 +23,7 @@ import {
   type ItBookVocabQuizMode,
   type QuizBucketFilter,
   requiredDirectionsFor,
-  KANJI_MASTERY_DIRECTIONS,
+  KANJI_QUIZ_MODES,
   VOCAB_MASTERY_DIRECTIONS,
   VOCAB_QUIZ_MODES,
   KANJI_MODE_LABELS,
@@ -33,7 +33,7 @@ import {
 } from "../../popup/quizState.ts";
 import { newSlotId, type SessionSlot } from "../../popup/sessionSlots.ts";
 import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../../popup/progressState.ts";
-import { isCorrectAnswer } from "../../popup/reviewState.ts";
+import { isCorrectAnswer, isCorrectHanVietAnswer } from "../../popup/reviewState.ts";
 import { speakJapanese } from "../lib/speak.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
@@ -306,9 +306,10 @@ function SetupView({
   useEffect(() => {
     (async () => {
       const progressMap = await loadProgressMap();
-      let pool: { id: string }[];
+      let pool: { id: string; hanViet?: string[] }[];
       if (settings.contentType === "kanji") {
         pool = getKanjiOrderedList({ ...(await loadKanjiViewerState()), randomOrder: false });
+        if (settings.kanjiMode === "typedHanViet") pool = pool.filter((k) => k.hanViet?.some((reading) => reading.trim().length > 0));
       } else if (settings.contentType === "vocab") {
         let p = getVocabOrderedList({ ...(await loadVocabViewerState()), randomOrder: false });
         if (settings.vocabMode === "reading" || settings.vocabMode === "wordFromReading") {
@@ -421,7 +422,7 @@ function SetupView({
             <SegmentedRadio
               variant="segmented"
               stack
-              options={KANJI_MASTERY_DIRECTIONS.map((m): [KanjiQuizMode, string] => [m, KANJI_MODE_LABELS[m]])}
+              options={KANJI_QUIZ_MODES.map((m): [KanjiQuizMode, string] => [m, KANJI_MODE_LABELS[m]])}
               value={settings.kanjiMode}
               onChange={(v) => updateSettings({ kanjiMode: v as KanjiQuizMode })}
             />
@@ -721,7 +722,9 @@ function PlayView({
 
   async function submitTyped() {
     if (answered !== null || typedText.trim() === "") return;
-    const correct = isCorrectAnswer(typedText, q.expectedAnswers ?? []);
+    const correct = q.kind === "kanji" && q.mode === "typedHanViet"
+      ? isCorrectHanVietAnswer(typedText, q.expectedAnswers ?? [])
+      : isCorrectAnswer(typedText, q.expectedAnswers ?? []);
     await recordAnswer(q.id, correct, q.mode, requiredDirectionsFor(q));
     const newAnswers = [...session.answers];
     newAnswers[idx] = correct ? 0 : 1;
@@ -905,7 +908,7 @@ function PlayView({
                   q.choices[answered].correct ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
                 }`}
               >
-                {q.choices[answered].correct ? "Chính xác!" : "Chưa đúng."} Đáp án: <b>{q.expectedAnswers?.[0]}</b>
+                {q.choices[answered].correct ? "Chính xác!" : "Chưa đúng."} Đáp án: <b>{q.kind === "kanji" && q.mode === "typedHanViet" ? q.choices.find((choice) => choice.correct)?.text : q.expectedAnswers?.[0]}</b>
               </div>
             )}
           </div>

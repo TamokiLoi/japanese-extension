@@ -190,6 +190,18 @@ export function isCorrectAnswer(typed: string, expected: string[]): boolean {
   return expected.some((e) => normalizeAnswer(e) === norm);
 }
 
+// Hán Việt readings distinguish lexical values through Vietnamese tone marks,
+// so unlike general meaning entry, this check keeps diacritics and only
+// normalizes Unicode form, whitespace, and letter case. One listed reading is
+// enough when a kanji has multiple valid Hán Việt readings.
+export function isCorrectHanVietAnswer(typed: string, expected: string[]): boolean {
+  const normalizeHanViet = (value: string) =>
+    value.normalize("NFC").trim().replace(/\s+/gu, " ").toLocaleLowerCase("vi");
+  const normalized = normalizeHanViet(typed);
+  if (normalized === "") return false;
+  return expected.some((answer) => normalizeHanViet(answer) === normalized);
+}
+
 const REVIEW_SESSION_KEY = "reviewSession";
 
 export async function loadReviewSession(): Promise<ReviewSession | null> {

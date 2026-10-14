@@ -25,7 +25,9 @@ const CHOICE_COUNT = 4;
 export type QuizContentType = "kanji" | "vocab" | "bunpo" | "itBookVocab";
 // "meaning": show the kanji, pick its Hán Việt/nghĩa. "character": the
 // reverse -- show Hán Việt/nghĩa as the prompt, pick the matching kanji.
-export type KanjiQuizMode = "meaning" | "character";
+// "typedHanViet" is a free-recall drill for one valid Hán Việt reading.
+export type KanjiMasteryMode = "meaning" | "character";
+export type KanjiQuizMode = KanjiMasteryMode | "typedHanViet";
 // "meaning"/"reading": show the word, pick its meaning/reading. The
 // "wordFrom*" pair reverses that -- show the meaning or reading as the
 // prompt, pick the matching word. "typedReading"/"typedHanViet" drill the
@@ -81,7 +83,8 @@ export interface QuizQuestion {
 // direction to be proven, not just whichever one the user happened to
 // drill; Bunpo keeps the old single-direction behavior (see
 // requiredDirectionsFor below).
-export const KANJI_MASTERY_DIRECTIONS: KanjiQuizMode[] = ["meaning", "character"];
+export const KANJI_MASTERY_DIRECTIONS: KanjiMasteryMode[] = ["meaning", "character"];
+export const KANJI_QUIZ_MODES: KanjiQuizMode[] = [...KANJI_MASTERY_DIRECTIONS, "typedHanViet"];
 export const VOCAB_MASTERY_DIRECTIONS: VocabQuizMode[] = ["meaning", "reading", "wordFromMeaning", "wordFromReading"];
 // Every mode selectable in the Quiz setup picker -- a superset of
 // VOCAB_MASTERY_DIRECTIONS. "typedReading"/"typedHanViet" are deliberately
@@ -98,6 +101,7 @@ export const VOCAB_QUIZ_MODES: VocabQuizMode[] = [...VOCAB_MASTERY_DIRECTIONS, "
 export const KANJI_MODE_LABELS: Record<KanjiQuizMode, string> = {
   meaning: "Xem chữ, đoán nghĩa",
   character: "Xem nghĩa, đoán chữ",
+  typedHanViet: "Xem chữ, gõ Hán Việt (không trắc nghiệm)",
 };
 export const VOCAB_MODE_LABELS: Record<VocabQuizMode, string> = {
   meaning: "Xem từ, đoán nghĩa",
@@ -129,7 +133,7 @@ export const CONTENT_TYPE_LABELS: Record<QuizContentType, string> = {
 // doesn't. Full labels stay as-is anywhere else (e.g. Quiz's "Dạng câu hỏi"
 // picker), only these badges use the short form; the full text is kept as
 // each badge's `title` tooltip.
-export const KANJI_MODE_SHORT_LABELS: Record<KanjiQuizMode, string> = {
+export const KANJI_MODE_SHORT_LABELS: Record<KanjiMasteryMode, string> = {
   meaning: "Chữ→Nghĩa",
   character: "Nghĩa→Chữ",
 };
@@ -331,12 +335,34 @@ export async function buildKanjiQuiz(
   bucket: QuizBucketFilter = "all",
 ): Promise<QuizQuestion[]> {
   const state = await loadKanjiViewerState();
-  const pool = getKanjiOrderedList({ ...state, randomOrder: false });
+  let pool = getKanjiOrderedList({ ...state, randomOrder: false });
+  if (mode === "typedHanViet") pool = pool.filter((k) => k.hanViet.some((reading) => reading.trim().length > 0));
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
   const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
   const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
+
+  if (mode === "typedHanViet") {
+    return targets.map((k): QuizQuestion => ({
+      id: k.id,
+      kind: "kanji",
+      mode,
+      level: k.level,
+      promptLabel: "Chữ Hán này có âm Hán Việt là gì?",
+      prompt: k.character,
+      answerFormat: "typed",
+      expectedAnswers: k.hanViet.filter((reading) => reading.trim().length > 0),
+      // Typed questions keep a two-entry choice shape for the shared score,
+      // palette, and result flow. Any single Hán Việt entry is accepted by
+      // the validator; the display text may list the other valid readings.
+      choices: [
+        { text: formatHanViet(k.hanViet), correct: true },
+        { text: "—", correct: false },
+      ],
+    }));
+  }
+
   return targets
     .map((k) =>
       mode === "character"
