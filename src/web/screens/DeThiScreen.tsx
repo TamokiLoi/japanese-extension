@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Clock, FileText, BookOpenText, PenSquare, Headphones, ChevronLeft, ChevronRight, Check, Flag, RotateCcw, History, Play, Trophy, ArrowUpDown, Languages, Library } from "lucide-react";
 import type { DeThiExam, DeThiPaper, DeThiQuestion } from "../../types/dethi.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
+import type { BunpoGrammarPoint } from "../../types/bunpo.ts";
 import {
   ALL_EXAMS,
   SOURCE_LABELS,
@@ -761,7 +762,7 @@ export function DeThiScreen({
   targetId,
   onNavigate,
   onCurrentItemChange,
-}: { targetId?: string; onNavigate?: (screen: Screen, id?: string) => void; onCurrentItemChange?: (id?: string) => void } = {}) {
+}: { targetId?: string; onNavigate?: (screen: Screen, id?: string, opts?: { senseId?: string }) => void; onCurrentItemChange?: (id?: string) => void } = {}) {
   const [step, setStep] = useState<Step | null>(null);
 
   useEffect(() => {
@@ -1103,7 +1104,7 @@ function ExamDetailView({
   onBack: () => void;
   onStart: (paper: DeThiPaper, practiceMode?: boolean) => void;
   onOpenHistory: (paper: DeThiPaper) => void;
-  onNavigate?: (screen: Screen, id?: string) => void;
+  onNavigate?: (screen: Screen, id?: string, opts?: { senseId?: string }) => void;
 }) {
   const confirm = useConfirm();
   const [summaries, setSummaries] = useState<Record<string, DeThiPaperSummary> | null>(null);
@@ -1591,7 +1592,7 @@ function ResultView({
   practiceMode?: boolean;
   backTo: "examDetail" | "history";
   initialReviewIndex?: number | null;
-  onNavigate?: (screen: Screen, id?: string) => void;
+  onNavigate?: (screen: Screen, id?: string, opts?: { senseId?: string }) => void;
   onCurrentItemChange?: (id?: string) => void;
   onBack: () => void;
   backLabel: string;
@@ -1617,7 +1618,7 @@ function ResultView({
     </div>
   );
 
-  function openReference(screen: Screen, id: string | undefined, questionIndex: number) {
+  function openReference(screen: Screen, id: string | undefined, questionIndex: number, opts?: { senseId?: string }) {
     if (!onNavigate || !id) return;
     try {
       window.sessionStorage.setItem(REVIEW_RETURN_STORAGE_KEY, JSON.stringify({
@@ -1631,7 +1632,7 @@ function ResultView({
       // Vocabulary/grammar navigation still works if session storage is unavailable.
     }
     onCurrentItemChange?.(REVIEW_RETURN_TARGET);
-    onNavigate(screen, id);
+    onNavigate(screen, id, opts);
   }
 
   function jumpToReview(index: number, showPassage = false) {
@@ -1689,7 +1690,7 @@ function ResultView({
               showFurigana={showFurigana}
               showListeningAudio={false}
               onToggleFurigana={() => setShowFurigana((visible) => !visible)}
-              onNavigate={(screen, id) => openReference(screen, id, i)}
+              onNavigate={(screen, id, opts) => openReference(screen, id, i, opts)}
               showPassage={questionDisplayGroup(found.paper, i).start === i}
               passageQuestions={found.paper.questions.slice(questionDisplayGroup(found.paper, i).start, questionDisplayGroup(found.paper, i).end)}
             />
@@ -1730,7 +1731,7 @@ function ResultView({
                     showPassage={i === reviewGroup.start}
                     passageQuestions={found.paper.questions.slice(reviewGroup.start, reviewGroup.end)}
                     onToggleFurigana={() => setShowFurigana((visible) => !visible)}
-                    onNavigate={(screen, id) => openReference(screen, id, i)}
+                    onNavigate={(screen, id, opts) => openReference(screen, id, i, opts)}
                   />
                 </div>
               ))}
@@ -1865,7 +1866,7 @@ function ReviewQuestion({
   chosenIndex: number | null;
   showFurigana?: boolean;
   onToggleFurigana: () => void;
-  onNavigate?: (screen: Screen, id?: string) => void;
+  onNavigate?: (screen: Screen, id?: string, opts?: { senseId?: string }) => void;
   showListeningAudio?: boolean;
   showPassage?: boolean;
   passageQuestions?: readonly DeThiQuestion[];
@@ -1882,7 +1883,7 @@ function ReviewQuestion({
   const [referenceTab, setReferenceTab] = useState<"questions" | "references">("questions");
   const [referenceMatches, setReferenceMatches] = useState<{
     vocab: { id: string; word: string }[];
-    bunpo: { id: string; pattern: string }[];
+    bunpo: { grammar: BunpoGrammarPoint; senseId: string; label: string }[];
     vocabTerms: string[];
   }>({ vocab: [], bunpo: [], vocabTerms: [] });
   useEffect(() => {
@@ -1895,14 +1896,14 @@ function ReviewQuestion({
     }
     // Load the reading/vocabulary catalogs only when answer review is opened;
     // do not add that bundle or work to the active exam-taking screen.
-    import("../../popup/readingLinks.ts").then(({ findVocabInPassage, findBunpoInPassage, getVocabReferenceTerms }) => {
+    import("../../popup/readingLinks.ts").then(({ findVocabInPassage, findBunpoInPassage, bunpoPassageMatchLabel, getVocabReferenceTerms }) => {
       if (cancelled) return;
       const source = { level, body: [{ text: passage, furigana: null }] };
       const vocab = findVocabInPassage(source);
       const bunpo = findBunpoInPassage(source);
       setReferenceMatches({
         vocab,
-        bunpo,
+        bunpo: bunpo.map((match) => ({ ...match, label: bunpoPassageMatchLabel(bunpo, match) })),
         vocabTerms: vocab.flatMap((vocab) => getVocabReferenceTerms(vocab)),
       });
     }).catch(() => {
@@ -1922,7 +1923,7 @@ function ReviewQuestion({
   const referenceTerms = useMemo(
     () => [
       ...vocabTerms,
-      ...bunpoMatches.flatMap((grammar) => examGrammarChunks(grammar.pattern)),
+      ...bunpoMatches.flatMap(({ grammar }) => examGrammarChunks(grammar.pattern)),
     ],
     [bunpoMatches, vocabTerms],
   );
@@ -2149,9 +2150,9 @@ function ReviewQuestion({
             <div className="mt-3">
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><PenSquare size={14} /> Ngữ pháp trong bài</div>
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {bunpoMatches.map((grammar) => (
-                  <button key={grammar.id} type="button" onClick={() => onNavigate?.("bunpo", grammar.id)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">
-                    {grammar.pattern}
+                {bunpoMatches.map(({ grammar, senseId, label }) => (
+                  <button key={`${grammar.id}:${senseId}`} type="button" onClick={() => onNavigate?.("bunpo", grammar.id, { senseId })} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">
+                    {label}
                   </button>
                 ))}
               </div>

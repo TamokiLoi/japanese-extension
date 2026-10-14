@@ -49,7 +49,7 @@ const LegacyApp = lazy(() => import("../popup/App.tsx").then((module) => ({ defa
 // the same code works under either.
 const BASE = import.meta.env.BASE_URL;
 
-type ReturnTo = { screen: Screen; targetId?: string; searchQuery?: string; searchTypes?: string[] };
+type ReturnTo = { screen: Screen; targetId?: string; targetSenseId?: string; searchQuery?: string; searchTypes?: string[] };
 
 function lookupRouteName(screen: Screen): string {
   return screen === "vocab" ? "goi" : screen;
@@ -92,7 +92,7 @@ function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; titl
   return { variant: "study", title: titles[screen] ?? "nội dung học" };
 }
 
-function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo | null } {
+function readFromPath(): { screen: Screen; targetId?: string; targetSenseId?: string; returnTo: ReturnTo | null } {
   const path = location.pathname.startsWith(BASE) ? location.pathname.slice(BASE.length) : location.pathname.replace(/^\/+/, "");
   // First path segment is the screen, the rest (rejoined) is the target id --
   // see App.tsx's initializer for why this needs decodeURIComponent (a kanji
@@ -111,6 +111,7 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
       ? {
           screen: fromScreen as Screen,
           targetId: params.get("fromId") ?? undefined,
+          targetSenseId: params.get("fromSense") ?? undefined,
           searchQuery: params.get("fromQ") ?? undefined,
           searchTypes: params.get("fromTypes")?.split(",").filter(Boolean),
         }
@@ -118,6 +119,7 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
   return {
     screen: VALID_SCREENS.includes(screen) ? screen : "menu",
     targetId: rawTargetId ? decodeURIComponent(rawTargetId) : params.get("param") ?? undefined,
+    targetSenseId: params.get("sense") ?? undefined,
     returnTo,
   };
 }
@@ -136,7 +138,7 @@ function readFromPath(): { screen: Screen; targetId?: string; returnTo: ReturnTo
 // screen's own internal back/forward stack (App's `navigate`/`goBack`) still
 // works exactly as before once inside a section rendered via <App/>.
 export function WebApp() {
-  const [{ screen, targetId, returnTo }, setRoute] = useState(readFromPath);
+  const [{ screen, targetId, targetSenseId, returnTo }, setRoute] = useState(readFromPath);
   const [quizBookJlptMode, setQuizBookJlptMode] = useState(false);
   const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
   const [searchDisplayMode, setSearchDisplayMode] = useState<SearchDisplayMode>(DEFAULT_SEARCH_DISPLAY_MODE);
@@ -152,6 +154,7 @@ export function WebApp() {
   // syncCurrentItem() below whenever its own current item changes; this ref
   // (not React state -- see syncCurrentItem) always holds the freshest one.
   const currentItemRef = useRef<string | undefined>(targetId);
+  const currentSenseRef = useRef<string | undefined>(targetSenseId);
 
   useEffect(() => {
     document.body.classList.add("web-shell");
@@ -179,12 +182,14 @@ export function WebApp() {
   // query string (see readFromPath) rides along untouched, since only the
   // pathname portion is rebuilt here.
   const syncCurrentItem = useCallback(
-    (id: string | undefined, text?: string) => {
+    (id: string | undefined, text?: string, senseId?: string) => {
       // Item screens report `undefined` once before their persisted state has
       // loaded. Keep a deep link intact until the actual target is emitted.
       if (!id && routeSyncPendingRef.current && currentItemRef.current) return;
       const previousId = currentItemRef.current;
+      const previousSenseId = currentSenseRef.current;
       currentItemRef.current = id;
+      currentSenseRef.current = senseId;
       const url = new URL(location.href);
       const routeName = lookupRouteName(screen);
       const relativePath = url.pathname.startsWith(BASE) ? url.pathname.slice(BASE.length).replace(/^\/+/, "") : url.pathname.replace(/^\/+/, "");
@@ -193,15 +198,21 @@ export function WebApp() {
 
       if (id && isTextLookupRoute && text) {
         url.searchParams.set("param", text);
+        if (screen === "bunpo" && senseId) url.searchParams.set("sense", senseId);
+        else if (screen === "bunpo") url.searchParams.delete("sense");
         const href = `${url.pathname}${url.search}${url.hash}`;
-        if (routeSyncPendingRef.current || id === previousId) {
+        if (routeSyncPendingRef.current || id === previousId || (screen === "bunpo" && senseId !== previousSenseId)) {
           history.replaceState(history.state, "", href);
         } else {
           history.pushState(null, "", href);
         }
       } else {
         const path = id ? `${BASE}${screen}/${encodeURIComponent(id)}` : `${BASE}${screen}`;
-        history.replaceState(history.state, "", path + location.search);
+        const params = new URLSearchParams(location.search);
+        if (screen === "bunpo" && senseId) params.set("sense", senseId);
+        else if (screen === "bunpo") params.delete("sense");
+        const query = params.toString();
+        history.replaceState(history.state, "", `${path}${query ? `?${query}` : ""}`);
       }
       routeSyncPendingRef.current = false;
     },
@@ -223,6 +234,7 @@ export function WebApp() {
       setRoute(next);
       setSearchPopupOpen(new URLSearchParams(location.search).get("lookup") === "1");
       currentItemRef.current = next.targetId;
+      currentSenseRef.current = next.targetSenseId;
       routeSyncPendingRef.current = true;
       window.scrollTo(0, 0);
     }
@@ -230,7 +242,7 @@ export function WebApp() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[] } = {}) {
+  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string } = {}) {
     if (next !== "quizBook") setQuizBookJlptMode(false);
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
@@ -253,6 +265,7 @@ export function WebApp() {
       ? {
           screen,
           targetId: currentItemRef.current,
+          targetSenseId: screen === "bunpo" ? currentSenseRef.current : undefined,
           searchQuery: sourceSearch?.get("q") ?? undefined,
           searchTypes: sourceSearch?.get("types")?.split(",").filter(Boolean),
         }
@@ -260,30 +273,37 @@ export function WebApp() {
     if (nextReturnTo) {
       const params = new URLSearchParams({ from: nextReturnTo.screen });
       if (nextReturnTo.targetId) params.set("fromId", nextReturnTo.targetId);
+      if (nextReturnTo.targetSenseId) params.set("fromSense", nextReturnTo.targetSenseId);
       if (nextReturnTo.screen === "search") {
         const currentSearch = new URLSearchParams(location.search);
         if (currentSearch.has("q")) params.set("fromQ", currentSearch.get("q") ?? "");
         if (currentSearch.has("types")) params.set("fromTypes", currentSearch.get("types") ?? "");
       }
       if (opts.lookupText !== undefined) params.set("param", opts.lookupText);
+      if (opts.senseId) params.set("sense", opts.senseId);
       path += `?${params}`;
     } else if (opts.lookupText !== undefined) {
-      path += `?${new URLSearchParams({ param: opts.lookupText })}`;
+      const params = new URLSearchParams({ param: opts.lookupText });
+      if (opts.senseId) params.set("sense", opts.senseId);
+      path += `?${params}`;
     } else if (opts.searchQuery !== undefined || opts.searchTypes !== undefined) {
       const params = new URLSearchParams();
       if (opts.searchQuery) params.set("q", opts.searchQuery);
       if (opts.searchTypes?.length) params.set("types", opts.searchTypes.join(","));
       const query = params.toString();
       if (query) path += `?${query}`;
+    } else if (next === "bunpo" && opts.senseId) {
+      path += `?${new URLSearchParams({ sense: opts.senseId })}`;
     }
     history.pushState({ lookupPopup: false }, "", path);
     currentItemRef.current = id;
+    currentSenseRef.current = opts.senseId;
     routeSyncPendingRef.current = true;
-    setRoute({ screen: next, targetId: id, returnTo: nextReturnTo });
+    setRoute({ screen: next, targetId: id, targetSenseId: opts.senseId, returnTo: nextReturnTo });
     window.scrollTo(0, 0);
     // Fire-and-forget -- Home's "Tiếp tục học" banner reads this back on its
     // own next mount, nothing here needs to await it.
-    void saveLastActive(next, id);
+    void saveLastActive(next, id, opts.senseId);
   }
 
   function navigate(next: Screen, id?: string) {
@@ -301,13 +321,14 @@ export function WebApp() {
     if (!returnTo) return;
     go(returnTo.screen, returnTo.targetId, {
       linking: false,
+      senseId: returnTo.targetSenseId,
       searchQuery: returnTo.searchQuery,
       searchTypes: returnTo.searchTypes,
     });
   }
 
-  function openSearchResult(next: Screen, id: string, text: string) {
-    go(next, id, { lookupText: text });
+  function openSearchResult(next: Screen, id: string, text: string, senseId?: string) {
+    go(next, id, { lookupText: text, senseId });
   }
 
   function closeSearchPopup() {
@@ -346,7 +367,7 @@ export function WebApp() {
       <SearchScreen
         onOpenKanji={(kanjiId, text) => openSearchResult("kanji", kanjiId, text)}
         onOpenVocab={(vocabId, text) => openSearchResult("vocab", vocabId, text)}
-        onOpenBunpo={(bunpoId, text) => openSearchResult("bunpo", bunpoId, text)}
+        onOpenBunpo={(bunpoId, senseId, text) => openSearchResult("bunpo", bunpoId, text, senseId)}
       />
     );
   } else if (screen === "kanji") {
@@ -365,6 +386,7 @@ export function WebApp() {
         onOpenQuizBook={(questionId) => go("quizBook", questionId)}
         onOpenMap={(level) => go("bunpoMap", level === "N3" ? "N3" : undefined)}
         targetId={targetId}
+        targetSenseId={targetSenseId}
         onCurrentItemChange={syncCurrentItem}
       />
     );
@@ -373,7 +395,7 @@ export function WebApp() {
       <BunpoMapScreen
         level={targetId === "N3" ? "N3" : "N5"}
         onChangeLevel={(level) => go("bunpoMap", level === "N3" ? "N3" : undefined)}
-        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenBunpo={(bunpoId, senseId) => go("bunpo", bunpoId, { senseId })}
         onBackToGrammar={() => go("bunpo")}
       />
     );
@@ -382,7 +404,7 @@ export function WebApp() {
       <QuizScreen
         onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
-        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenBunpo={(bunpoId, senseId) => go("bunpo", bunpoId, { senseId })}
       />
     );
   } else if (screen === "quizBook") {
@@ -404,7 +426,7 @@ export function WebApp() {
         onOpenSavedStories={() => go("savedStories")}
         onOpenStories={() => go("aiStories")}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
-        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenBunpo={(bunpoId, senseId) => go("bunpo", bunpoId, { senseId })}
         onCurrentItemChange={syncCurrentItem}
       />
     );
@@ -415,7 +437,7 @@ export function WebApp() {
       <ReviewScreen
         onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
-        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenBunpo={(bunpoId, senseId) => go("bunpo", bunpoId, { senseId })}
         onDone={() => go("menu")}
       />
     );
@@ -441,7 +463,7 @@ export function WebApp() {
         jumpToId={targetId}
         onCurrentItemChange={syncCurrentItem}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
-        onOpenBunpo={(bunpoId) => go("bunpo", bunpoId)}
+        onOpenBunpo={(bunpoId, senseId) => go("bunpo", bunpoId, { senseId })}
       />
     );
   } else if (screen === "matchGame") {
@@ -504,9 +526,9 @@ export function WebApp() {
                     setSearchPopupOpen(false);
                     openSearchResult("vocab", id, text);
                   }}
-                  onOpenBunpo={(id, text) => {
+                  onOpenBunpo={(id, senseId, text) => {
                     setSearchPopupOpen(false);
-                    openSearchResult("bunpo", id, text);
+                    openSearchResult("bunpo", id, text, senseId);
                   }}
                 />
               </Suspense>

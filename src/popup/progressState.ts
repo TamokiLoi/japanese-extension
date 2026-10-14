@@ -1,4 +1,5 @@
 import { storageGet, storageSet } from "../platform/storage";
+import { BUNPO_LEGACY_ID_MAP, bunpoSenseProgressId } from "./bunpoState.ts";
 
 // Per-card mastery/flag tracking, shared between Kanji cards and Vocab
 // cards (both already have a globally-unique `id` string, so one flat map
@@ -80,8 +81,46 @@ export async function loadProgressMap(): Promise<ProgressMap> {
     };
     normalized = true;
   }
+  for (const [oldId, reference] of Object.entries(BUNPO_LEGACY_ID_MAP)) {
+    const legacyProgress = map[oldId];
+    if (!legacyProgress) continue;
+    const newId = bunpoSenseProgressId(reference.grammarId, reference.senseId);
+    map[newId] = mergeProgress(map[newId], legacyProgress);
+    delete map[oldId];
+    normalized = true;
+  }
   if (normalized) await saveProgressMap(map);
   return map;
+}
+
+function mergeProgress(existing: ItemProgress | undefined, incoming: ItemProgress): ItemProgress {
+  if (!existing) return incoming;
+  const mergeMaxRecord = (left: Record<string, number> = {}, right: Record<string, number> = {}) => {
+    const merged = { ...left };
+    for (const [key, value] of Object.entries(right)) merged[key] = Math.max(merged[key] ?? 0, value);
+    return merged;
+  };
+  const directionFlags = { ...(existing.directionFlags ?? {}) };
+  for (const [direction, flagged] of Object.entries(incoming.directionFlags ?? {})) {
+    if (flagged) directionFlags[direction] = true;
+  }
+  const dueDates = [existing.dueAt, incoming.dueAt].filter((value): value is number => value !== undefined);
+  const mastered = existing.mastered || incoming.mastered;
+  const flagged = existing.flagged || incoming.flagged;
+  return {
+    ...existing,
+    correctStreak: Math.max(existing.correctStreak, incoming.correctStreak),
+    correctCount: existing.correctCount + incoming.correctCount,
+    wrongCount: existing.wrongCount + incoming.wrongCount,
+    wrongStreak: Math.max(existing.wrongStreak, incoming.wrongStreak),
+    mastered: mastered && !flagged,
+    flagged,
+    lastSeenAt: Math.max(existing.lastSeenAt, incoming.lastSeenAt),
+    directionStreaks: mergeMaxRecord(existing.directionStreaks, incoming.directionStreaks),
+    directionWrongStreaks: mergeMaxRecord(existing.directionWrongStreaks, incoming.directionWrongStreaks),
+    directionFlags,
+    ...(mastered && dueDates.length ? { dueAt: Math.min(...dueDates) } : { dueAt: undefined }),
+  };
 }
 
 async function saveProgressMap(map: ProgressMap): Promise<void> {

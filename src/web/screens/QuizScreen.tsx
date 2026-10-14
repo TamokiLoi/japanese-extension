@@ -40,6 +40,7 @@ import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, 
 import {
   loadViewerState as loadBunpoViewerState,
   findBunpoById,
+  findBunpoSense,
   SOURCE_LABELS as BUNPO_SOURCE_LABELS,
   getFilteredList as getBunpoFilteredList,
 } from "../../popup/bunpoState.ts";
@@ -76,7 +77,7 @@ type QuizStep = "setup" | "play" | "result";
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
   onOpenVocab: (vocabId: string) => void;
-  onOpenBunpo: (bunpoId: string) => void;
+  onOpenBunpo: (bunpoId: string, senseId?: string) => void;
 };
 
 // Unlike the extension's QuizScreen (whose `step` lives in App's outer nav
@@ -539,7 +540,7 @@ function SetupView({
 
 // Generalized over just {id, kind} (not the full QuizQuestion) so it's
 // reusable by ReviewScreen.tsx's typed-recall/reveal questions too.
-export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizContentType } } & OpenCallbacks) {
+export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizContentType; contentId?: string; senseId?: string } } & OpenCallbacks) {
   // Auto-pronounce the vocab word as soon as its detail reveals (right after
   // the user picks an answer) -- lets them hear it without an extra tap.
   // Silently no-ops if the device has no Japanese TTS voice (speakJapanese
@@ -577,30 +578,34 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
     );
   }
   if (q.kind === "bunpo") {
-    const g = findBunpoById(q.id);
-    if (!g) return null;
+    const resolved = findBunpoSense(q.contentId ?? q.id, q.senseId);
+    const g = resolved?.grammar ?? findBunpoById(q.contentId ?? q.id);
+    const sense = resolved?.sense ?? g?.senses?.[0];
+    if (!g || !sense) return null;
     return (
       <div className="mt-4 space-y-1.5 rounded-xl bg-neutral-50 p-4 text-sm">
-        {g.usage ? (
+        {sense.usage ? (
           <div>
-            <b className="text-neutral-700">Cách dùng:</b> {g.usage}
+            <b className="text-neutral-700">Cách dùng:</b> {sense.usage}
           </div>
         ) : null}
-        {g.examTip ? (
+        {sense.examTip ? (
           <div>
-            <b className="text-neutral-700">Key JLPT:</b> {g.examTip}
+            <b className="text-neutral-700">Key JLPT:</b> {sense.examTip}
           </div>
         ) : null}
-        <div>
-          {g.example}
-          {g.exampleVi ? (
+        {sense.examples.slice(0, 2).map((example, index) => (
+          <div key={index}>
+          {example.jp}
+          {example.vi ? (
             <>
               <br />
-              <span className="text-neutral-400">{g.exampleVi}</span>
+              <span className="text-neutral-400">{example.vi}</span>
             </>
           ) : null}
-        </div>
-        <button onClick={() => open.onOpenBunpo(g.id)} className="flex items-center gap-1 pt-1 font-semibold text-rose-600">
+          </div>
+        ))}
+        <button onClick={() => open.onOpenBunpo(g.id, sense.id)} className="flex items-center gap-1 pt-1 font-semibold text-rose-600">
           Xem thẻ đầy đủ <ArrowRight size={14} />
         </button>
       </div>

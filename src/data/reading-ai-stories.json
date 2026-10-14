@@ -1142,12 +1142,12 @@
         "mimikara-n3-325",
         "mimikara-n3-365"
       ],
-      "grammarIds": [
-        "bunpo-tryn3-18",
-        "bunpo-jlpt-33",
-        "bunpo-jlpt-51",
-        "bunpo-shinkanzen-59",
-        "bunpo-400-181"
+      "grammarRefs": [
+        { "grammarId": "bunpo-ytcju3", "senseId": "sense-1i2heo6" },
+        { "grammarId": "bunpo-1b8h37z", "senseId": "sense-1wuafby" },
+        { "grammarId": "bunpo-19s4lfj", "senseId": "sense-1lolemv" },
+        { "grammarId": "bunpo-pf638i", "senseId": "sense-rlf6l3" },
+        { "grammarId": "bunpo-1s97k89", "senseId": "sense-705f9a" }
       ]
     }
   ]

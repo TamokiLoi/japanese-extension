@@ -22,7 +22,7 @@ type ReviewStep = "resume" | "empty" | "play" | "result";
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
   onOpenVocab: (vocabId: string) => void;
-  onOpenBunpo: (bunpoId: string) => void;
+  onOpenBunpo: (bunpoId: string, senseId?: string) => void;
 };
 
 export function ReviewScreen({ onDone, ...open }: { onDone: () => void } & OpenCallbacks) {

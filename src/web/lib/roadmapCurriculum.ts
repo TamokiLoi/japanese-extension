@@ -15,7 +15,7 @@ import {
   type VocabSource,
 } from "../../popup/vocabState.ts";
 import {
-  ALL_BUNPO,
+  ALL_BUNPO_SENSES,
   AVAILABLE_SOURCES as BUNPO_AVAILABLE_SOURCES,
   AVAILABLE_LEVELS as BUNPO_AVAILABLE_LEVELS,
   AVAILABLE_CHAPTERS as BUNPO_AVAILABLE_CHAPTERS,
@@ -163,7 +163,7 @@ const BUNPO_REQUIRED_SOURCES: BunpoSource[] = ["theo-chuong"];
 const BUNPO_STOPS: Stop[] = BUNPO_AVAILABLE_SOURCES.map((s) => ({
   key: s,
   label: BUNPO_SOURCE_LABELS[s],
-  items: ALL_BUNPO.filter((g) => g.sources.includes(s) && INCLUDE_LEVELS.includes(g.level)),
+  items: ALL_BUNPO_SENSES.filter((item) => item.sources.includes(s) && item.levels.some((level) => INCLUDE_LEVELS.includes(level))),
   required: BUNPO_REQUIRED_SOURCES.includes(s),
 })).filter((stop) => stop.items.length > 0);
 

@@ -1,8 +1,8 @@
 import type { Kanji, JlptLevel } from "../types/kanji.ts";
-import type { BunpoGrammarPoint } from "../types/bunpo.ts";
+import type { BunpoStudyItem } from "./bunpoCatalog.ts";
 import { ALL_KANJI } from "./kanjiState.ts";
 import { ALL_VOCAB, type VocabCard } from "./vocabState.ts";
-import { ALL_BUNPO } from "./bunpoState.ts";
+import { ALL_BUNPO_SENSES } from "./bunpoState.ts";
 import { loadProgressMap, filterByProgress } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
 import { storageGet, storageSet, storageRemove } from "../platform/storage";
@@ -28,6 +28,8 @@ export interface ReviewQuestion {
   answerFormat: ReviewAnswerFormat;
   expectedAnswers: string[]; // only used when answerFormat === "typed"
   displayAnswer: string; // shown on reveal either way
+  contentId?: string;
+  senseId?: string;
 }
 
 export interface ReviewAnswerResult {
@@ -120,12 +122,14 @@ function vocabToQuestion(v: VocabCard): ReviewQuestion {
   };
 }
 
-function bunpoToQuestion(g: BunpoGrammarPoint): ReviewQuestion {
+function bunpoToQuestion(g: BunpoStudyItem): ReviewQuestion {
   const mode = Math.random() < 0.5 ? "pattern" : "meaning";
   if (mode === "pattern") {
     return {
       id: g.id,
       kind: "bunpo",
+      contentId: g.grammarId,
+      senseId: g.senseId,
       mode: "pattern",
       level: g.level,
       promptLabel: "Nghĩa này ứng với mẫu ngữ pháp nào?",
@@ -138,6 +142,8 @@ function bunpoToQuestion(g: BunpoGrammarPoint): ReviewQuestion {
   return {
     id: g.id,
     kind: "bunpo",
+    contentId: g.grammarId,
+    senseId: g.senseId,
     mode: "meaning",
     level: g.level,
     promptLabel: "Mẫu ngữ pháp này nghĩa là gì?",
@@ -152,7 +158,7 @@ export async function buildReviewQuestions(): Promise<ReviewQuestion[]> {
   const map = await loadProgressMap();
   const dueKanji = filterByProgress(ALL_KANJI, map, "due");
   const dueVocab = filterByProgress(ALL_VOCAB, map, "due");
-  const dueBunpo = filterByProgress(ALL_BUNPO, map, "due");
+  const dueBunpo = filterByProgress(ALL_BUNPO_SENSES, map, "due");
   return shuffle([
     ...dueKanji.map(kanjiToQuestion),
     ...dueVocab.map(vocabToQuestion),

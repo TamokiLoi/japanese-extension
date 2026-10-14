@@ -33,7 +33,7 @@ import {
   type ReadingPassageViewOptions,
   type ReadingViewerState,
 } from "../../popup/readingState.ts";
-import { findVocabInPassage, findBunpoInPassage, getVocabReferenceTerms } from "../../popup/readingLinks.ts";
+import { findVocabInPassage, findBunpoInPassage, bunpoPassageMatchLabel, getVocabReferenceTerms } from "../../popup/readingLinks.ts";
 import { extractMatchChunks } from "../../popup/bunpoLinks.ts";
 import { recordAnswer } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
@@ -313,7 +313,7 @@ export function ReadingScreen({
   onOpenSavedStories?: () => void;
   onOpenStories?: () => void;
   onOpenVocab: (vocabId: string) => void;
-  onOpenBunpo: (bunpoId: string) => void;
+  onOpenBunpo: (bunpoId: string, senseId?: string) => void;
   onCurrentItemChange?: (id: string | undefined) => void;
 }) {
   const [state, setState] = useState<ReadingViewerState | null>(null);
@@ -949,7 +949,7 @@ function PassageView({
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
   onOpenVocab: (vocabId: string) => void;
-  onOpenBunpo: (bunpoId: string) => void;
+  onOpenBunpo: (bunpoId: string, senseId?: string) => void;
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
   collection: "all" | "news" | "stories";
@@ -969,7 +969,7 @@ function PassageView({
   const bunpoMatches = findBunpoInPassage(passage);
   const referenceTerms: ReferenceTerm[] = [
     ...vocabMatches.flatMap((v) => getVocabReferenceTerms(v).map((text) => ({ text, kind: "vocab" as const }))),
-    ...bunpoMatches.flatMap((g) => extractMatchChunks(g.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
+    ...bunpoMatches.flatMap(({ grammar }) => extractMatchChunks(grammar.pattern).map((text) => ({ text, kind: "bunpo" as const }))),
   ];
   const [referenceTab, setReferenceTab] = useState<"questions" | "references" | "vocabulary" | "grammar">("questions");
   const [floatingNavVisible, setFloatingNavVisible] = useState(false);
@@ -1238,7 +1238,7 @@ function PassageView({
             <div>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-500"><PenSquare size={14} /> Ngữ pháp trong bài</div>
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {bunpoMatches.map((g) => <button key={g.id} onClick={() => onOpenBunpo(g.id)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">{g.pattern}</button>)}
+                {bunpoMatches.map((match) => <button key={`${match.grammar.id}:${match.senseId}`} onClick={() => onOpenBunpo(match.grammar.id, match.senseId)} className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700">{bunpoPassageMatchLabel(bunpoMatches, match)}</button>)}
               </div>
             </div>
           ) : null}
@@ -1286,13 +1286,13 @@ function PassageView({
                 <PenSquare size={14} /> Ngữ pháp trong bài
               </div>
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {bunpoMatches.map((g) => (
+                {bunpoMatches.map((match) => (
                   <button
-                    key={g.id}
-                    onClick={() => onOpenBunpo(g.id)}
+                    key={`${match.grammar.id}:${match.senseId}`}
+                    onClick={() => onOpenBunpo(match.grammar.id, match.senseId)}
                     className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-rose-200 hover:bg-rose-50 hover:text-rose-700"
                   >
-                    {g.pattern}
+                    {bunpoPassageMatchLabel(bunpoMatches, match)}
                   </button>
                 ))}
               </div>

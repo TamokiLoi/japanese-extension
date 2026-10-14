@@ -26,6 +26,7 @@ export function isResumableScreen(screen: Screen): screen is ResumableScreen {
 export interface LastActive {
   screen: ResumableScreen;
   targetId?: string;
+  targetSenseId?: string;
   visitedAt: number;
 }
 
@@ -34,9 +35,9 @@ const STORAGE_KEY = "lastActiveScreen";
 // Called from WebApp.tsx's go() on every navigation -- silently ignores
 // non-resumable screens instead of erroring, so callers don't need to check
 // isResumableScreen themselves before calling this.
-export async function saveLastActive(screen: Screen, targetId?: string): Promise<void> {
+export async function saveLastActive(screen: Screen, targetId?: string, targetSenseId?: string): Promise<void> {
   if (!isResumableScreen(screen)) return;
-  const entry: LastActive = { screen, targetId, visitedAt: Date.now() };
+  const entry: LastActive = { screen, targetId, targetSenseId, visitedAt: Date.now() };
   await storageSet(STORAGE_KEY, entry);
 }
 

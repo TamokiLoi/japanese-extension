@@ -26,9 +26,44 @@ export interface BunpoRelatedGrammar {
   note: string;
 }
 
+export interface BunpoChapterReference {
+  source: "theo-chuong";
+  chapter: number;
+  chapterTitle?: string;
+}
+
+export interface BunpoSenseSource {
+  source: BunpoSource;
+  level: JlptLevel;
+  chapter?: number;
+  chapterTitle?: string;
+  formula?: string;
+  usage?: string;
+  examTip?: string;
+  examples: { jp: string; vi: string }[];
+}
+
+/** A distinct meaning/function of a canonical grammar structure. */
+export interface BunpoSense {
+  id: string;
+  meaningVi: string;
+  levels: JlptLevel[];
+  sources: BunpoSource[];
+  chapters: BunpoChapterReference[];
+  formula?: string;
+  usage?: string;
+  examTip?: string;
+  examples: { jp: string; vi: string }[];
+  compareWith?: { pattern: string; note: string }[];
+  /** Preserves source-specific details while the main view uses the richest merged explanation. */
+  sourceDetails: BunpoSenseSource[];
+}
+
 export interface BunpoGrammarPoint {
   id: string;
   level: JlptLevel;
+  /** Levels at which this structure is represented in the source collection. */
+  levels?: JlptLevel[];
   // Một mẫu ngữ pháp có thể được xác nhận trùng ở nhiều nguồn (vd vừa có
   // trong "theo-chuong" vừa có trong "shinkanzen") -- khi đó chỉ giữ 1 thẻ
   // duy nhất, gộp nội dung chi tiết nhất, và liệt kê đủ các nguồn ở đây
@@ -52,6 +87,9 @@ export interface BunpoGrammarPoint {
   // liệu (không bịa mẫu không tồn tại). Rỗng/không có nếu mẫu này không có
   // đối chiếu nào thật sự đáng chú ý.
   compareWith?: { pattern: string; note: string }[];
+  /** Canonical card data; legacy top-level fields project the first sense for older shared screens. */
+  senses?: BunpoSense[];
+  patternVariants?: string[];
 }
 
 export interface BunpoDataset {
@@ -66,6 +104,6 @@ export interface TryN3Chapter {
   titleJa: string;
   titleVi: string;
   quizCount: number;
-  /** Grammar cards that have been manually linked to this book unit. */
-  grammarIds?: string[];
+  /** Canonical grammar meanings manually linked to this book unit. */
+  grammarRefs?: { grammarId: string; senseId: string }[];
 }

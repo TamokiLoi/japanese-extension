@@ -51,7 +51,7 @@ export function PodcastScreen({
   jumpToId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
   onOpenVocab?: (vocabId: string) => void;
-  onOpenBunpo?: (bunpoId: string) => void;
+  onOpenBunpo?: (bunpoId: string, senseId: string) => void;
 } = {}) {
   // Every channel's dataset loads as its own async chunk now (see
   // loadPodcastData in podcastState.ts) instead of a static top-level
@@ -507,7 +507,7 @@ function EpisodeView({
   onBack: () => void;
   onOpen: (id: string) => void;
   onOpenVocab?: (vocabId: string) => void;
-  onOpenBunpo?: (bunpoId: string) => void;
+  onOpenBunpo?: (bunpoId: string, senseId: string) => void;
 }) {
   const floatingNavBottom = useFloatingNav(true);
   // Memoized -- EpisodeView re-renders every 500ms from the currentTime
@@ -828,13 +828,13 @@ function EpisodeView({
                       <PenSquare size={14} /> Ngữ pháp trong tập này (bấm để xem lại)
                     </div>
                     <div className="mt-2 flex flex-wrap gap-1.5">
-                      {bunpoMatches.map((g) => (
+                      {bunpoMatches.map(({ grammar, sense, label }) => (
                         <button
-                          key={g.id}
-                          onClick={() => onOpenBunpo?.(g.id)}
+                          key={`${grammar.id}:${sense.id}`}
+                          onClick={() => onOpenBunpo?.(grammar.id, sense.id)}
                           className="rounded-lg border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:bg-neutral-50"
                         >
-                          {g.pattern}
+                          {label}
                         </button>
                       ))}
                     </div>

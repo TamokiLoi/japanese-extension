@@ -7,77 +7,237 @@
       "titleJa": "初めての富士登山",
       "titleVi": "Lần đầu leo núi Phú Sĩ",
       "quizCount": 15,
-      "grammarIds": ["bunpo-tryn3-1", "bunpo-tryn3-2", "bunpo-tryn3-3", "bunpo-tryn3-4", "bunpo-jlpt-26", "bunpo-chuong3-3", "bunpo-chuong3-5", "bunpo-chuong3-7", "bunpo-chuong4-3", "bunpo-chuong4-4", "bunpo-chuong5-9", "bunpo-jlpt-4", "bunpo-shinkanzen-19", "bunpo-tryn3-18", "bunpo-tryn3-19"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-1rqmlnx", "senseId": "sense-1ywzbe5" },
+        { "grammarId": "bunpo-u19h5j", "senseId": "sense-1vkt6ag" },
+        { "grammarId": "bunpo-tnbdl2", "senseId": "sense-13yblks" },
+        { "grammarId": "bunpo-1su44ks", "senseId": "sense-meilqj" },
+        { "grammarId": "bunpo-1hp1xwv", "senseId": "sense-x4uqy" },
+        { "grammarId": "bunpo-1jo8exg", "senseId": "sense-199yvpg" },
+        { "grammarId": "bunpo-1oas4qh", "senseId": "sense-pm986d" },
+        { "grammarId": "bunpo-1z57j9", "senseId": "sense-1qsbkn5" },
+        { "grammarId": "bunpo-afciq", "senseId": "sense-1umsgs9" },
+        { "grammarId": "bunpo-i2sw91", "senseId": "sense-1hssifc" },
+        { "grammarId": "bunpo-1p9fwi7", "senseId": "sense-dd6tjx" },
+        { "grammarId": "bunpo-1r4lcv5", "senseId": "sense-14msykl" },
+        { "grammarId": "bunpo-1dd4bfq", "senseId": "sense-hx62qs" },
+        { "grammarId": "bunpo-ytcju3", "senseId": "sense-1i2heo6" },
+        { "grammarId": "bunpo-1n25lj2", "senseId": "sense-17rbezq" }
+      ]
     },
     {
       "chapter": 2,
       "titleJa": "ぼくの犬、クロ",
       "titleVi": "Chú chó Kuro",
       "quizCount": 15,
-      "grammarIds": ["bunpo-tryn3-5", "bunpo-tryn3-6", "bunpo-tryn3-7", "bunpo-tryn3-8", "bunpo-tryn3-9", "bunpo-tryn3-10", "bunpo-tryn3-11", "bunpo-tryn3-12", "bunpo-tryn3-13", "bunpo-chuong4-4", "bunpo-chuong8-3", "bunpo-tryn3-14"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-7p55vr", "senseId": "sense-39di17" },
+        { "grammarId": "bunpo-1lvl1p2", "senseId": "sense-19chia6" },
+        { "grammarId": "bunpo-x5yn4m", "senseId": "sense-w8q4j4" },
+        { "grammarId": "bunpo-1bqd9bk", "senseId": "sense-18ivz37" },
+        { "grammarId": "bunpo-1et9kpz", "senseId": "sense-1bdfsrn" },
+        { "grammarId": "bunpo-idv3wp", "senseId": "sense-czovj" },
+        { "grammarId": "bunpo-11oxjco", "senseId": "sense-z7mair" },
+        { "grammarId": "bunpo-967b5q", "senseId": "sense-1836xoz" },
+        { "grammarId": "bunpo-xrhg6p", "senseId": "sense-1nghuic" },
+        { "grammarId": "bunpo-i2sw91", "senseId": "sense-1hssifc" },
+        { "grammarId": "bunpo-i2sw91", "senseId": "sense-h7x476" },
+        { "grammarId": "bunpo-18992is", "senseId": "sense-1mtxzdb" }
+      ]
     },
     {
       "chapter": 3,
       "titleJa": "市民農園の募集",
       "titleVi": "Tuyển người cho nông trại thành phố",
       "quizCount": 16,
-      "grammarIds": ["bunpo-tryn3-14", "bunpo-tryn3-15", "bunpo-tryn3-16", "bunpo-tryn3-17", "bunpo-tryn3-18", "bunpo-tryn3-19", "bunpo-tryn3-34", "bunpo-shinkanzen-82", "bunpo-jlpt-44", "bunpo-jlpt-45", "bunpo-chuong7-10", "bunpo-chuong9-7"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-18992is", "senseId": "sense-1mtxzdb" },
+        { "grammarId": "bunpo-bh6uu1", "senseId": "sense-13pvcmm" },
+        { "grammarId": "bunpo-vybb73", "senseId": "sense-1gxdj82" },
+        { "grammarId": "bunpo-1hp1xwv", "senseId": "sense-1pcoe5k" },
+        { "grammarId": "bunpo-ytcju3", "senseId": "sense-1i2heo6" },
+        { "grammarId": "bunpo-1n25lj2", "senseId": "sense-17rbezq" },
+        { "grammarId": "bunpo-1c6ptwy", "senseId": "sense-5m7qaf" },
+        { "grammarId": "bunpo-1gx3pkk", "senseId": "sense-frby1s" },
+        { "grammarId": "bunpo-xfip3j", "senseId": "sense-1ouykjp" },
+        { "grammarId": "bunpo-1bsgiza", "senseId": "sense-1g744q8" },
+        { "grammarId": "bunpo-1bsgiza", "senseId": "sense-ilcelx" },
+        { "grammarId": "bunpo-xfip3j", "senseId": "sense-zygbv3" }
+      ]
     },
     {
       "chapter": 4,
       "titleJa": "水泳大会",
       "titleVi": "Hội thi bơi lội",
       "quizCount": 10,
-      "grammarIds": ["bunpo-tryn3-20", "bunpo-tryn3-21", "bunpo-tryn3-22", "bunpo-tryn3-23", "bunpo-tryn3-24", "bunpo-tryn3-25", "bunpo-tryn3-26", "bunpo-tryn3-27", "bunpo-jlpt-20", "bunpo-jlpt-29", "bunpo-jlpt-64", "bunpo-chuong6-6"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-ykv5eg", "senseId": "sense-1c5nxqx" },
+        { "grammarId": "bunpo-ckfy4v", "senseId": "sense-m4bq7e" },
+        { "grammarId": "bunpo-1rik1tb", "senseId": "sense-xedqn3" },
+        { "grammarId": "bunpo-svk1t3", "senseId": "sense-og8y3w" },
+        { "grammarId": "bunpo-ivxwn1", "senseId": "sense-9yy5dn" },
+        { "grammarId": "bunpo-4lgmdw", "senseId": "sense-ur0d3r" },
+        { "grammarId": "bunpo-si9q5i", "senseId": "sense-17lx9us" },
+        { "grammarId": "bunpo-1hp1xwv", "senseId": "sense-1pcoe5k" },
+        { "grammarId": "bunpo-iec82e", "senseId": "sense-1k9gqj5" },
+        { "grammarId": "bunpo-o19o6r", "senseId": "sense-13xyq5p" },
+        { "grammarId": "bunpo-1ci5uok", "senseId": "sense-1xxad8k" },
+        { "grammarId": "bunpo-o19o6r", "senseId": "sense-1pb8eto" }
+      ]
     },
     {
       "chapter": 5,
       "titleJa": "手作りハムのレシピ",
       "titleVi": "Công thức tự làm thịt nguội",
       "quizCount": 17,
-      "grammarIds": ["bunpo-tryn3-27", "bunpo-tryn3-28", "bunpo-tryn3-29", "bunpo-tryn3-30", "bunpo-tryn3-31", "bunpo-tryn3-32", "bunpo-tryn3-33", "bunpo-tryn3-34", "bunpo-tryn3-35", "bunpo-jlpt-22", "bunpo-jlpt-79", "bunpo-jlpt-84", "bunpo-jlpt-85", "bunpo-chuong5-2", "bunpo-chuong9-3", "bunpo-chuong9-4"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-1hp1xwv", "senseId": "sense-1pcoe5k" },
+        { "grammarId": "bunpo-15fjw0h", "senseId": "sense-1plet" },
+        { "grammarId": "bunpo-j27a8e", "senseId": "sense-1fe7drv" },
+        { "grammarId": "bunpo-1rlujzy", "senseId": "sense-gqpxg6" },
+        { "grammarId": "bunpo-1oj0l9f", "senseId": "sense-10js1u9" },
+        { "grammarId": "bunpo-10fi0cn", "senseId": "sense-1yytapb" },
+        { "grammarId": "bunpo-zy8v8m", "senseId": "sense-yff3iu" },
+        { "grammarId": "bunpo-1c6ptwy", "senseId": "sense-5m7qaf" },
+        { "grammarId": "bunpo-hm0x6i", "senseId": "sense-hgvwb8" },
+        { "grammarId": "bunpo-hxvwx2", "senseId": "sense-zq7zkj" },
+        { "grammarId": "bunpo-is7kav", "senseId": "sense-147ggxe" },
+        { "grammarId": "bunpo-1klbykn", "senseId": "sense-1ia57ik" },
+        { "grammarId": "bunpo-1h2xojw", "senseId": "sense-1g567rk" },
+        { "grammarId": "bunpo-udb1xf", "senseId": "sense-1l1c1lf" },
+        { "grammarId": "bunpo-1p9fwi7", "senseId": "sense-1n7mdn8" },
+        { "grammarId": "bunpo-1a4xql9", "senseId": "sense-1fw9kxn" }
+      ]
     },
     {
       "chapter": 6,
       "titleJa": "里山について",
       "titleVi": "Về Satoyama",
       "quizCount": 16,
-      "grammarIds": ["bunpo-tryn3-35", "bunpo-tryn3-36", "bunpo-tryn3-37", "bunpo-tryn3-38", "bunpo-tryn3-39", "bunpo-tryn3-40", "bunpo-tryn3-41", "bunpo-chuong4-6", "bunpo-chuong5-3", "bunpo-chuong6-2", "bunpo-chuong6-8", "bunpo-chuong7-6", "bunpo-chuong7-9", "bunpo-chuong10-5", "bunpo-jlpt-16", "bunpo-tryn3-12", "bunpo-shinkanzen-51"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-hm0x6i", "senseId": "sense-hgvwb8" },
+        { "grammarId": "bunpo-18992is", "senseId": "sense-1hiv2v7" },
+        { "grammarId": "bunpo-1wum5p8", "senseId": "sense-wy591f" },
+        { "grammarId": "bunpo-9pl50s", "senseId": "sense-fp7y6x" },
+        { "grammarId": "bunpo-1a21l9q", "senseId": "sense-1924gac" },
+        { "grammarId": "bunpo-1pw055n", "senseId": "sense-1b5pwi8" },
+        { "grammarId": "bunpo-3lgsa0", "senseId": "sense-i9a1l0" },
+        { "grammarId": "bunpo-168sa8j", "senseId": "sense-tf4bg6" },
+        { "grammarId": "bunpo-14cgjl3", "senseId": "sense-15hb8u6" },
+        { "grammarId": "bunpo-o6ribl", "senseId": "sense-mh8utd" },
+        { "grammarId": "bunpo-1u9xa8", "senseId": "sense-jvqzih" },
+        { "grammarId": "bunpo-oistr5", "senseId": "sense-1sz2yra" },
+        { "grammarId": "bunpo-967b5q", "senseId": "sense-1836xoz" },
+        { "grammarId": "bunpo-1k8mroo", "senseId": "sense-1ikuhbu" }
+      ]
     },
     {
       "chapter": 7,
       "titleJa": "不動産屋で",
       "titleVi": "Ở văn phòng bất động sản",
       "quizCount": 14,
-      "grammarIds": ["bunpo-tryn3-41", "bunpo-tryn3-42", "bunpo-tryn3-43", "bunpo-tryn3-44", "bunpo-tryn3-45", "bunpo-tryn3-46", "bunpo-tryn3-47", "bunpo-tryn3-48", "bunpo-tryn3-49", "bunpo-tryn3-50", "bunpo-tryn3-51", "bunpo-chuong2-2", "bunpo-chuong2-6", "bunpo-chuong8-8", "bunpo-chuong14-10", "bunpo-chuong11-5"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-3lgsa0", "senseId": "sense-i9a1l0" },
+        { "grammarId": "bunpo-20tk0v", "senseId": "sense-31fl6s" },
+        { "grammarId": "bunpo-5ycikd", "senseId": "sense-11wu8zs" },
+        { "grammarId": "bunpo-1u9c7fj", "senseId": "sense-11kn73b" },
+        { "grammarId": "bunpo-1yy3r8m", "senseId": "sense-1c4ykk6" },
+        { "grammarId": "bunpo-y4oedg", "senseId": "sense-cir28w" },
+        { "grammarId": "bunpo-6aj4ct", "senseId": "sense-999czf" },
+        { "grammarId": "bunpo-jeoo6h", "senseId": "sense-7zx8wv" },
+        { "grammarId": "bunpo-8sgomn", "senseId": "sense-cxev79" },
+        { "grammarId": "bunpo-1lyqagq", "senseId": "sense-rqtxpa" },
+        { "grammarId": "bunpo-1q30zbd", "senseId": "sense-1e5nzuy" },
+        { "grammarId": "bunpo-1r4lcv5", "senseId": "sense-w4jddv" },
+        { "grammarId": "bunpo-63j2y1", "senseId": "sense-16j6bse" },
+        { "grammarId": "bunpo-14cgjl3", "senseId": "sense-15hb8u6" }
+      ]
     },
     {
       "chapter": 8,
       "titleJa": "就職の面接",
       "titleVi": "Phỏng vấn xin việc",
       "quizCount": 8,
-      "grammarIds": ["bunpo-tryn3-47", "bunpo-tryn3-48", "bunpo-tryn3-49", "bunpo-tryn3-50", "bunpo-tryn3-51", "bunpo-tryn3-52", "bunpo-tryn3-53", "bunpo-tryn3-54", "bunpo-tryn3-55", "bunpo-tryn3-56"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-6aj4ct", "senseId": "sense-999czf" },
+        { "grammarId": "bunpo-jeoo6h", "senseId": "sense-7zx8wv" },
+        { "grammarId": "bunpo-8sgomn", "senseId": "sense-cxev79" },
+        { "grammarId": "bunpo-1lyqagq", "senseId": "sense-rqtxpa" },
+        { "grammarId": "bunpo-1q30zbd", "senseId": "sense-1e5nzuy" },
+        { "grammarId": "bunpo-b07jwf", "senseId": "sense-1mbj2mk" },
+        { "grammarId": "bunpo-x4uzzz", "senseId": "sense-4iuyu6" },
+        { "grammarId": "bunpo-1479n75", "senseId": "sense-h7ukw2" },
+        { "grammarId": "bunpo-1y8oz59", "senseId": "sense-12940sa" },
+        { "grammarId": "bunpo-2pu4nl", "senseId": "sense-16mea1w" }
+      ]
     },
     {
       "chapter": 9,
       "titleJa": "お花見",
       "titleVi": "Ngắm hoa anh đào",
       "quizCount": 16,
-      "grammarIds": ["bunpo-tryn3-54", "bunpo-tryn3-55", "bunpo-tryn3-56", "bunpo-tryn3-57", "bunpo-tryn3-58", "bunpo-tryn3-59", "bunpo-tryn3-60", "bunpo-tryn3-61", "bunpo-tryn3-62", "bunpo-tryn3-63", "bunpo-tryn3-64", "bunpo-jlpt-1", "bunpo-chuong2-6", "bunpo-chuong8-8", "bunpo-chuong14-10", "bunpo-tryn3-73"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-1479n75", "senseId": "sense-h7ukw2" },
+        { "grammarId": "bunpo-1y8oz59", "senseId": "sense-12940sa" },
+        { "grammarId": "bunpo-2pu4nl", "senseId": "sense-16mea1w" },
+        { "grammarId": "bunpo-aewchi", "senseId": "sense-1i3gl61" },
+        { "grammarId": "bunpo-8kfso3", "senseId": "sense-y5jlnx" },
+        { "grammarId": "bunpo-1uxbzt8", "senseId": "sense-u47bv4" },
+        { "grammarId": "bunpo-1wc28c8", "senseId": "sense-1uhwrnl" },
+        { "grammarId": "bunpo-1keqvco", "senseId": "sense-kvutfn" },
+        { "grammarId": "bunpo-7jj89j", "senseId": "sense-1pm6xjq" },
+        { "grammarId": "bunpo-1u3zk6l", "senseId": "sense-szhvbs" },
+        { "grammarId": "bunpo-tzhc2x", "senseId": "sense-ngiqag" },
+        { "grammarId": "bunpo-63j2y1", "senseId": "sense-16j6bse" },
+        { "grammarId": "bunpo-oa3q2s", "senseId": "sense-1o3rckx" }
+      ]
     },
     {
       "chapter": 10,
       "titleJa": "ゆきの選択",
       "titleVi": "Sự lựa chọn của Yuki",
       "quizCount": 16,
-      "grammarIds": ["bunpo-tryn3-60", "bunpo-tryn3-65", "bunpo-tryn3-66", "bunpo-tryn3-67", "bunpo-tryn3-68", "bunpo-tryn3-69", "bunpo-tryn3-70", "bunpo-tryn3-71", "bunpo-tryn3-72", "bunpo-tryn3-73", "bunpo-tryn3-74", "bunpo-tryn3-75", "bunpo-tryn3-76", "bunpo-tryn3-77", "bunpo-jlpt-39", "bunpo-shinkanzen-21"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-1wc28c8", "senseId": "sense-1uhwrnl" },
+        { "grammarId": "bunpo-lwhgwy", "senseId": "sense-zhjoy9" },
+        { "grammarId": "bunpo-h8luqp", "senseId": "sense-i1zx3p" },
+        { "grammarId": "bunpo-1dfcv1", "senseId": "sense-j8g91p" },
+        { "grammarId": "bunpo-inkz0r", "senseId": "sense-1x8m2hh" },
+        { "grammarId": "bunpo-1n1czgy", "senseId": "sense-t15p3t" },
+        { "grammarId": "bunpo-16fpvg1", "senseId": "sense-whxgf8" },
+        { "grammarId": "bunpo-1fd2um6", "senseId": "sense-livh8h" },
+        { "grammarId": "bunpo-6wrqse", "senseId": "sense-1u3ujld" },
+        { "grammarId": "bunpo-oa3q2s", "senseId": "sense-1o3rckx" },
+        { "grammarId": "bunpo-118x94q", "senseId": "sense-3alftq" },
+        { "grammarId": "bunpo-76jylg", "senseId": "sense-rb1l8e" },
+        { "grammarId": "bunpo-1hymgwz", "senseId": "sense-qunjbr" },
+        { "grammarId": "bunpo-cpdspp", "senseId": "sense-texosy" },
+        { "grammarId": "bunpo-yi8cgh", "senseId": "sense-10o96i2" },
+        { "grammarId": "bunpo-1c85lxz", "senseId": "sense-d06m3w" }
+      ]
     },
     {
       "chapter": 11,
       "titleJa": "友だちのお見舞い",
       "titleVi": "Thăm bạn bị bệnh",
       "quizCount": 12,
-      "grammarIds": ["bunpo-tryn3-61", "bunpo-tryn3-62", "bunpo-tryn3-63", "bunpo-tryn3-64", "bunpo-tryn3-65", "bunpo-tryn3-66", "bunpo-tryn3-67", "bunpo-jlpt-13", "bunpo-jlpt-77", "bunpo-jlpt-80", "bunpo-jlpt-88", "bunpo-jlpt-90", "bunpo-chuong9-4", "bunpo-chuong12-5", "bunpo-tryn3-30"]
+      "grammarRefs": [
+        { "grammarId": "bunpo-1keqvco", "senseId": "sense-kvutfn" },
+        { "grammarId": "bunpo-7jj89j", "senseId": "sense-1pm6xjq" },
+        { "grammarId": "bunpo-1u3zk6l", "senseId": "sense-szhvbs" },
+        { "grammarId": "bunpo-tzhc2x", "senseId": "sense-ngiqag" },
+        { "grammarId": "bunpo-lwhgwy", "senseId": "sense-zhjoy9" },
+        { "grammarId": "bunpo-h8luqp", "senseId": "sense-i1zx3p" },
+        { "grammarId": "bunpo-1dfcv1", "senseId": "sense-j8g91p" },
+        { "grammarId": "bunpo-o6ribl", "senseId": "sense-10nr1x" },
+        { "grammarId": "bunpo-1p9fwi7", "senseId": "sense-1vd62vf" },
+        { "grammarId": "bunpo-18hrz5e", "senseId": "sense-1ba31dl" },
+        { "grammarId": "bunpo-1afbczx", "senseId": "sense-all9jf" },
+        { "grammarId": "bunpo-rp5ebl", "senseId": "sense-jf496g" },
+        { "grammarId": "bunpo-1a4xql9", "senseId": "sense-1fw9kxn" },
+        { "grammarId": "bunpo-14cgjl3", "senseId": "sense-15hb8u6" },
+        { "grammarId": "bunpo-1rlujzy", "senseId": "sense-gqpxg6" }
+      ]
     }
   ]
 }

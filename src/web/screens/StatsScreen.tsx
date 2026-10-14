@@ -5,7 +5,7 @@ import type { ReadingQuestionType } from "../../types/reading.ts";
 import type { Screen } from "../../popup/App.tsx";
 import { ALL_KANJI, AVAILABLE_LEVELS } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB, AVAILABLE_SOURCES, SOURCE_LABELS } from "../../popup/vocabState.ts";
-import { ALL_BUNPO, AVAILABLE_LEVELS as BUNPO_LEVELS } from "../../popup/bunpoState.ts";
+import { ALL_BUNPO_SENSES, AVAILABLE_LEVELS as BUNPO_LEVELS } from "../../popup/bunpoState.ts";
 import { ALL_READING_QUESTIONS, findReadingById } from "../../popup/readingState.ts";
 import {
   ALL_QUIZBOOK,
@@ -66,6 +66,7 @@ interface StatEntry {
   // per-question screen to open, just the passage it belongs to.
   navScreen: Screen;
   navId: string;
+  navSenseId?: string;
 }
 
 function buildEntries(contentType: StatsContentType): StatEntry[] {
@@ -90,13 +91,14 @@ function buildEntries(contentType: StatsContentType): StatEntry[] {
     }));
   }
   if (contentType === "bunpo") {
-    return ALL_BUNPO.map((g) => ({
-      id: g.id,
-      level: g.level,
-      char: g.pattern,
-      title: g.meaningVi,
+    return ALL_BUNPO_SENSES.map((item) => ({
+      id: item.id,
+      level: item.level,
+      char: item.pattern,
+      title: item.meaningVi,
       navScreen: "bunpo",
-      navId: g.id,
+      navId: item.grammarId,
+      navSenseId: item.senseId,
     }));
   }
   if (contentType === "reading") {
@@ -176,7 +178,7 @@ function buildGroupBars(contentType: StatsContentType): GroupBar[] {
       key: level,
       label: level as string,
       isLevel: true,
-      ids: ALL_BUNPO.filter((g) => g.level === level).map((g) => g.id),
+      ids: ALL_BUNPO_SENSES.filter((item) => item.levels.includes(level)).map((item) => item.id),
     }));
   }
   if (contentType === "reading") {
@@ -229,7 +231,7 @@ export function StatsScreen({
   onNavigate,
   targetId,
 }: {
-  onNavigate: (screen: Screen, id?: string) => void;
+  onNavigate: (screen: Screen, id?: string, opts?: { senseId?: string }) => void;
   // Reused as an entry-point preset rather than an item id: e.g. Reading's
   // "Câu sai cần ôn lại" button links here with targetId="reading" to land
   // straight on the reading tab, pre-filtered to "cần ôn lại" instead of the
@@ -361,7 +363,7 @@ export function StatsScreen({
                 key={entry.id}
                 entry={entry}
                 map={map}
-                onOpen={() => onNavigate(entry.navScreen, entry.navId)}
+                onOpen={() => onNavigate(entry.navScreen, entry.navId, { senseId: entry.navSenseId })}
               />
             ))
         )}

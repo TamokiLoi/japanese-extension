@@ -1,4 +1,5 @@
 import { storageGet, storageSet } from "../platform/storage";
+import { bunpoSenseProgressId, resolveBunpoReference } from "./bunpoState.ts";
 
 const STORAGE_KEY = "dataCorrectionNotes";
 const EXPORT_VERSION = 1;
@@ -79,7 +80,7 @@ function createId(): string {
 export async function loadDataCorrections(): Promise<DataCorrectionEntry[]> {
   const stored = await storageGet<unknown>(STORAGE_KEY);
   if (!Array.isArray(stored)) return [];
-  return stored.filter(
+  const validEntries = stored.filter(
     (entry): entry is DataCorrectionEntry =>
       typeof entry === "object" &&
       entry !== null &&
@@ -90,6 +91,18 @@ export async function loadDataCorrections(): Promise<DataCorrectionEntry[]> {
       typeof (entry as DataCorrectionEntry).entityId === "string" &&
       typeof (entry as DataCorrectionEntry).suggestedValue === "string",
   );
+  let changed = false;
+  const migrated = validEntries.map((entry) => {
+    if (entry.entityType !== "grammar" || entry.entityId.startsWith("bunpo:")) return entry;
+    const reference = resolveBunpoReference(entry.entityId);
+    if (!reference) return entry;
+    const entityId = bunpoSenseProgressId(reference.grammarId, reference.senseId);
+    if (entityId === entry.entityId) return entry;
+    changed = true;
+    return { ...entry, entityId };
+  });
+  if (changed) await writeDataCorrections(migrated);
+  return migrated;
 }
 
 async function writeDataCorrections(entries: DataCorrectionEntry[]): Promise<void> {

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Background, Controls, ReactFlow, type Edge, type Node, type NodeProps, type ReactFlowInstance } from "@xyflow/react";
 import { BookOpenText, Check, ChevronLeft } from "lucide-react";
-import { findBunpoById } from "../../popup/bunpoState.ts";
+import { bunpoSenseProgressId, findBunpoById, resolveBunpoReference } from "../../popup/bunpoState.ts";
 import { bucketFor, loadProgressMap, type ProgressBucket, type ProgressMap } from "../../popup/progressState.ts";
 import { BUNPO_N3_MAP_GROUPS } from "../data/bunpoN3Map.ts";
 import { BUNPO_N5_MAP_GROUPS, type BunpoMapGroup } from "../data/bunpoN5Map.ts";
@@ -122,7 +122,7 @@ export function BunpoMapScreen({
 }: {
   level: BunpoMapLevel;
   onChangeLevel: (level: BunpoMapLevel) => void;
-  onOpenBunpo: (grammarId: string) => void;
+  onOpenBunpo: (grammarId: string, senseId?: string) => void;
   onBackToGrammar: () => void;
 }) {
   const smallScreen = useSmallScreen();
@@ -200,7 +200,8 @@ export function BunpoMapScreen({
         },
       },
       ...selectedGroup.items.map((item, index) => {
-        const existingCard = item.grammarId ? findBunpoById(item.grammarId) : undefined;
+        const reference = item.grammarId ? resolveBunpoReference(item.grammarId) : undefined;
+        const existingCard = reference ? findBunpoById(reference.grammarId) : undefined;
         return {
           id: item.id,
           type: "bunpoMapNode" as const,
@@ -212,8 +213,12 @@ export function BunpoMapScreen({
             groupId: selectedGroup.id,
             color: selectedGroup.color,
             grammarId: existingCard?.id,
-            status: existingCard ? bucketFor(progressMap[existingCard.id]) : undefined,
-            onActivate: existingCard ? () => onOpenBunpo(existingCard.id) : undefined,
+            status: existingCard && reference
+              ? bucketFor(progressMap[bunpoSenseProgressId(existingCard.id, reference.senseId)])
+              : undefined,
+            onActivate: existingCard && reference
+              ? () => onOpenBunpo(existingCard.id, reference.senseId)
+              : undefined,
           },
         };
       }),
@@ -336,14 +341,17 @@ export function BunpoMapScreen({
               </div>
               <div className="bunpo-map-mobile-list" style={{ "--map-accent": selectedGroup.color } as React.CSSProperties}>
                 {selectedGroup.items.map((item) => {
-                  const card = item.grammarId ? findBunpoById(item.grammarId) : undefined;
-                  const status = card ? bucketFor(progressMap[card.id]) : undefined;
+                  const reference = item.grammarId ? resolveBunpoReference(item.grammarId) : undefined;
+                  const card = reference ? findBunpoById(reference.grammarId) : undefined;
+                  const status = card && reference
+                    ? bucketFor(progressMap[bunpoSenseProgressId(card.id, reference.senseId)])
+                    : undefined;
                   return (
                     <button
                       type="button"
                       key={item.id}
                       disabled={!card}
-                      onClick={card ? () => onOpenBunpo(card.id) : undefined}
+                      onClick={card && reference ? () => onOpenBunpo(card.id, reference.senseId) : undefined}
                       className={`bunpo-map-mobile-item ${card ? `status-${status}` : "is-unlinked"}`}
                       aria-label={card ? `${item.label}, trạng thái ${STATUS_TEXT[status ?? "new"]}` : `${item.label}, chưa có bài ngữ pháp`}
                     >

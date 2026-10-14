@@ -199,7 +199,7 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
   // matching each screen's own filtered list instead of a fixed grand total.
   const filteredKanji = kanji.getOrderedList(kanjiState);
   const filteredVocab = vocab.getOrderedList(vocabState);
-  const filteredBunpo = bunpo.getFilteredList(bunpoState);
+  const filteredBunpo = bunpo.getFilteredSenseList(bunpoState);
   const filteredReading = reading.getFilteredQuestions(readingState);
   const filteredListening = listening.getFilteredList(listeningState);
   const filteredQuizBook = quizBook.ALL_QUIZBOOK.filter((q) => quizBook.matchesFilters(q, quizBookState));
@@ -260,7 +260,7 @@ async function loadStats(): Promise<{ stats: Stats; content: FilteredContent }> 
       due: {
         kanji: countDue(kanji.ALL_KANJI, map),
         vocab: countDue(vocab.ALL_VOCAB, map),
-        bunpo: countDue(bunpo.ALL_BUNPO, map),
+        bunpo: countDue(bunpo.ALL_BUNPO_SENSES, map),
       },
       progress: {
         kanji: { mastered: masteredCount(filteredKanji), total: filteredKanji.length },
@@ -677,7 +677,7 @@ function QuoteCard() {
   );
 }
 
-export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: string) => void }) {
+export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: string, opts?: { senseId?: string }) => void }) {
   const [stats, setStats] = useState<Stats | null>(null);
   const [content, setContent] = useState<FilteredContent | null>(null);
   const [goals, setGoals] = useState<DailyGoals | null>(null);
@@ -798,7 +798,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                           <p className="mt-1 text-[11px] text-neutral-600 md:text-sm">Tiếp tục luyện tập ngay nào.</p>
                         )}
                         <button
-                          onClick={() => onNavigate(lastActive.screen, lastActive.targetId)}
+                          onClick={() => onNavigate(lastActive.screen, lastActive.targetId, { senseId: lastActive.targetSenseId })}
                           className="mt-3 inline-flex items-center gap-2 rounded-full bg-rose-600 px-4 py-2 text-xs font-semibold text-white hover:bg-rose-700 md:mt-4 md:px-5 md:py-2.5 md:text-sm"
                         >
                           Tiếp tục học
@@ -877,7 +877,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   img="icon-grammar.png"
                   label="Ngữ pháp"
                   progress={stats.progress.bunpo}
-                  suffix="mẫu"
+                  suffix="nghĩa"
                   onClick={() => onNavigate("bunpo")}
                 />
                 <ProgressCard

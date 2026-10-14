@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus, GitBranch } from "lucide-react";
-import type { BunpoGrammarPoint, BunpoRelatedKind, BunpoSource } from "../../types/bunpo.ts";
+import type { BunpoGrammarPoint, BunpoRelatedKind, BunpoSense, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
   ALL_BUNPO,
@@ -9,7 +9,11 @@ import {
   AVAILABLE_CHAPTERS,
   SOURCE_LABELS,
   TRY_N3_CHAPTERS,
-  tryN3GrammarIds,
+  ALL_BUNPO_SENSES,
+  matchingBunpoSenses,
+  getFilteredSenseList,
+  bunpoSenseProgressId,
+  resolveBunpoReference,
   findBunpoById,
   findChapterTitle,
   getFilteredList,
@@ -89,15 +93,39 @@ const USAGE_TERM_GLOSSARY: { term: string; explanation: string }[] = [
 
 function matchesQuery(g: BunpoGrammarPoint, q: string): boolean {
   if (!q) return true;
-  return g.pattern.toLowerCase().includes(q) || g.meaningVi.toLowerCase().includes(q);
+  return (g.patternVariants ?? [g.pattern]).some((pattern) => pattern.toLowerCase().includes(q)) ||
+    (g.senses ?? []).some((sense) => sense.meaningVi.toLowerCase().includes(q));
+}
+
+function getVisibleSenseItems(state: BunpoViewerState, searchQuery: string, progressMap: ProgressMap) {
+  const q = searchQuery.trim().toLowerCase();
+  const matchingItems = getFilteredSenseList(state).filter((item) =>
+    !q || item.patternVariants.some((pattern) => pattern.toLowerCase().includes(q)) || item.meaningVi.toLowerCase().includes(q),
+  );
+  return filterByProgress(matchingItems, progressMap, state.progressFilter);
 }
 
 function getVisibleList(state: BunpoViewerState, searchQuery: string, progressMap: ProgressMap): BunpoGrammarPoint[] {
-  const q = searchQuery.trim().toLowerCase();
-  const base = filterByProgress(getFilteredList(state).filter((g) => matchesQuery(g, q)), progressMap, state.progressFilter);
-  if (state.tryN3Chapter === null || !state.selectedSources.includes("try-n3")) return base;
-  const ids = tryN3GrammarIds(state.tryN3Chapter);
-  return base.filter((g) => ids.has(g.id));
+  const visibleItems = getVisibleSenseItems(state, searchQuery, progressMap);
+  const ids = new Set(visibleItems.map((item) => item.grammarId));
+  return getFilteredList(state).filter((grammar) => ids.has(grammar.id));
+}
+
+function getListSense(
+  grammar: BunpoGrammarPoint,
+  state: BunpoViewerState,
+  progressMap: ProgressMap,
+  query: string,
+  bucket?: ProgressBucket | null,
+): BunpoSense | undefined {
+  const q = query.trim().toLowerCase();
+  return matchingBunpoSenses(state, grammar).find((sense) => {
+    if (q && !sense.meaningVi.toLowerCase().includes(q) && !(grammar.patternVariants ?? [grammar.pattern]).some((pattern) => pattern.toLowerCase().includes(q))) return false;
+    const id = bunpoSenseProgressId(grammar.id, sense.id);
+    const item = ALL_BUNPO_SENSES.find((candidate) => candidate.id === id);
+    if (state.progressFilter !== "all" && (!item || filterByProgress([item], progressMap, state.progressFilter).length === 0)) return false;
+    return !bucket || bucketFor(progressMap[id]) === bucket;
+  }) ?? grammar.senses?.[0];
 }
 
 export function BunpoScreen({
@@ -105,13 +133,15 @@ export function BunpoScreen({
   onOpenQuizBook,
   onOpenMap,
   targetId,
+  targetSenseId,
   onCurrentItemChange,
 }: {
   onOpenReading: (passageId: string) => void;
   onOpenQuizBook: (questionId: string) => void;
   onOpenMap: (level: "N5" | "N3") => void;
   targetId?: string;
-  onCurrentItemChange?: (id: string | undefined, text?: string) => void;
+  targetSenseId?: string;
+  onCurrentItemChange?: (id: string | undefined, text?: string, senseId?: string) => void;
 }) {
   const [state, setState] = useState<BunpoViewerState | null>(null);
 
@@ -119,11 +149,15 @@ export function BunpoScreen({
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
-      const targetGrammar = targetId
-        ? ALL_BUNPO.find((grammar) => grammar.id === targetId || grammar.pattern === targetId)
-        : undefined;
+      const targetReference = targetId ? resolveBunpoReference(targetId, targetSenseId) : undefined;
+      const targetGrammar = targetReference
+        ? findBunpoById(targetReference.grammarId)
+        : targetId
+          ? ALL_BUNPO.find((grammar) => grammar.pattern === targetId || grammar.patternVariants?.includes(targetId))
+          : undefined;
       if (targetGrammar) {
-        s = { ...s, currentGrammarId: targetGrammar.id };
+        const targetSense = targetGrammar.senses?.find((sense) => sense.id === targetSenseId);
+        s = { ...s, currentGrammarId: targetGrammar.id, currentSenseId: targetReference?.senseId ?? targetSense?.id ?? targetGrammar.senses?.[0]?.id ?? null };
         await saveViewerState(s);
       }
       if (cancelled) return;
@@ -132,7 +166,7 @@ export function BunpoScreen({
     return () => {
       cancelled = true;
     };
-  }, [targetId]);
+  }, [targetId, targetSenseId]);
 
   // Functional setState so each call builds on the LATEST state instead of
   // whatever `state` this closure captured at render time -- two mutate()
@@ -152,8 +186,8 @@ export function BunpoScreen({
 
   useEffect(() => {
     const currentGrammar = state?.currentGrammarId ? findBunpoById(state.currentGrammarId) : undefined;
-    onCurrentItemChange?.(currentGrammar?.id, currentGrammar?.pattern);
-  }, [state?.currentGrammarId, onCurrentItemChange]);
+    onCurrentItemChange?.(currentGrammar?.id, currentGrammar?.pattern, state?.currentSenseId ?? undefined);
+  }, [state?.currentGrammarId, state?.currentSenseId, onCurrentItemChange]);
 
   if (!state) return <LoadingScreen variant="study" title="Ngữ pháp" />;
 
@@ -198,21 +232,21 @@ function ListView({
   const theoChuongChecked = state.selectedSources.includes("theo-chuong");
   const allChaptersSelected = state.selectedChapters.length === AVAILABLE_CHAPTERS.length;
 
+  const visibleSenseItems = progressMap ? getVisibleSenseItems(state, debouncedQuery, progressMap) : [];
   const filtered = progressMap ? getVisibleList(state, debouncedQuery, progressMap) : [];
-  const selectedTryN3Ids =
-    state.tryN3Chapter !== null && state.selectedSources.includes("try-n3") ? tryN3GrammarIds(state.tryN3Chapter) : null;
-  const chapterFiltered = selectedTryN3Ids ? filtered.filter((g) => selectedTryN3Ids.has(g.id)) : filtered;
-  const bucketCounts = progressMap ? countBuckets(chapterFiltered, progressMap) : null;
-  const tryN3N3CardCount = ALL_BUNPO.filter((g) => g.level === "N3" && g.sources.includes("try-n3")).length;
-  const visibleRows =
-    bucketFilter !== null && progressMap ? chapterFiltered.filter((g) => bucketFor(progressMap[g.id]) === bucketFilter) : chapterFiltered;
+  const chapterFiltered = filtered;
+  const bucketCounts = progressMap ? countBuckets(visibleSenseItems, progressMap) : null;
+  const tryN3N3CardCount = ALL_BUNPO.filter((g) => g.senses?.some((sense) => sense.levels.includes("N3") && sense.sources.includes("try-n3"))).length;
+  const visibleRows = bucketFilter !== null && progressMap
+    ? chapterFiltered.filter((grammar) => visibleSenseItems.some((item) => item.grammarId === grammar.id && bucketFor(progressMap[item.id]) === bucketFilter))
+    : chapterFiltered;
 
   function applyLevelSelection(newLevels: JlptLevel[]) {
     if (newLevels.length === 0) return;
     const nextSources = pruneToggle(
       state.selectedSources,
       AVAILABLE_SOURCES,
-      (source) => ALL_BUNPO.some((g) => g.sources.includes(source) && newLevels.includes(g.level)),
+      (source) => ALL_BUNPO.some((g) => g.senses?.some((sense) => sense.sources.includes(source) && sense.levels.some((level) => newLevels.includes(level)))),
     );
     mutate({ selectedLevels: newLevels, selectedSources: nextSources as BunpoSource[] });
   }
@@ -336,7 +370,7 @@ function ListView({
               <div className="mt-1 text-[11px] text-neutral-500">{tryN3N3CardCount} thẻ N3 liên quan</div>
             </button>
             {TRY_N3_CHAPTERS.map((unit) => {
-              const mappedCount = tryN3GrammarIds(unit.chapter).size;
+              const mappedCount = new Set(unit.grammarRefs?.map((reference) => reference.grammarId) ?? []).size;
               return (
               <button
                 key={unit.chapter}
@@ -378,7 +412,7 @@ function ListView({
       >
         <FilterGroup title="Cấp độ">
           <FilterChipOption
-            label={`Tất cả cấp độ (${ALL_BUNPO.filter((g) => g.sources.some((s) => state.selectedSources.includes(s))).length})`}
+            label={`Tất cả cấp độ (${ALL_BUNPO.filter((g) => matchingBunpoSenses({ ...state, selectedLevels: AVAILABLE_LEVELS }, g).length > 0).length})`}
             active={allLevelsChecked}
             onClick={() => applyLevelSelection(allLevelsChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
           />
@@ -388,7 +422,7 @@ function ListView({
             // "Nguồn" chips below factor in the selected levels -- otherwise
             // a level chip could show a nonzero count that actually yields 0
             // items once combined with the active source filter.
-            const count = ALL_BUNPO.filter((g) => g.level === level && g.sources.some((s) => state.selectedSources.includes(s))).length;
+            const count = ALL_BUNPO.filter((g) => matchingBunpoSenses({ ...state, selectedLevels: [level] }, g).length > 0).length;
             return (
               <FilterChipOption
                 key={level}
@@ -409,9 +443,7 @@ function ListView({
               were just another source. */}
           {AVAILABLE_SOURCES.filter((source) => source !== "theo-chuong").map((source) => {
             const checked = state.selectedSources.includes(source);
-            const count = ALL_BUNPO.filter(
-              (g) => g.sources.includes(source) && state.selectedLevels.includes(g.level),
-            ).length;
+            const count = ALL_BUNPO.filter((g) => matchingBunpoSenses({ ...state, selectedSources: [source] }, g).length > 0).length;
             return (
               <FilterChipOption
                 key={source}
@@ -431,7 +463,7 @@ function ListView({
         {AVAILABLE_SOURCES.includes("theo-chuong") ? (
           <FilterGroup title="Lộ trình N3">
             <FilterChipOption
-              label={`Bật lộ trình 15 chương (${ALL_BUNPO.filter((g) => g.sources.includes("theo-chuong") && state.selectedLevels.includes(g.level)).length})`}
+              label={`Bật lộ trình 15 chương (${ALL_BUNPO.filter((g) => matchingBunpoSenses({ ...state, selectedSources: ["theo-chuong"] }, g).length > 0).length})`}
               active={theoChuongChecked}
               onClick={() => {
                 const next = theoChuongChecked
@@ -480,7 +512,9 @@ function ListView({
         ) : (
           progressMap &&
           visibleRows.map((g, i) => {
-            const bucket = bucketFor(progressMap[g.id]);
+            const rowSense = getListSense(g, state, progressMap, query, bucketFilter);
+            const rowProgressId = rowSense ? bunpoSenseProgressId(g.id, rowSense.id) : g.id;
+            const bucket = bucketFor(progressMap[rowProgressId]);
             return (
               <button
                 key={g.id}
@@ -490,7 +524,7 @@ function ListView({
                 // state.listSearchQuery) matches what was actually on
                 // screen when tapped, instead of racing the ~150ms debounce
                 // and briefly using a stale/unfiltered query.
-                onClick={() => mutate({ currentGrammarId: g.id, listSearchQuery: query })}
+                onClick={() => mutate({ currentGrammarId: g.id, currentSenseId: rowSense?.id ?? g.senses?.[0]?.id ?? null, listSearchQuery: query })}
                 className={`flex items-center gap-3 rounded-2xl border border-l-4 border-neutral-200 bg-white px-4 py-3.5 text-left hover:border-rose-200 hover:bg-rose-50/40 ${BUCKET_ITEM_BORDER[bucket]}`}
               >
                 <span className="w-6 shrink-0 text-xs font-semibold text-neutral-300">{String(i + 1).padStart(2, "0")}</span>
@@ -498,9 +532,9 @@ function ListView({
                   <div className="flex items-center gap-1.5 font-semibold text-neutral-800">
                     {bucket === "flagged" ? <Flag size={14} className="shrink-0 text-rose-500" /> : null}
                     <span className="truncate">{g.pattern}</span>
-                    {g.chapter !== undefined ? <span className="shrink-0 text-xs font-normal text-neutral-400">· Chương {g.chapter}</span> : null}
+                    {rowSense?.chapters[0] ? <span className="shrink-0 text-xs font-normal text-neutral-400">· Chương {rowSense.chapters.map((chapter) => chapter.chapter).join(", ")}</span> : null}
                   </div>
-                  <div className="truncate text-sm text-neutral-500">{g.meaningVi}</div>
+                  <div className="truncate text-sm text-neutral-500">{rowSense?.meaningVi ?? g.meaningVi}</div>
                 </div>
                 {bucket === "mastered" ? <CheckCircle2 size={16} className="shrink-0 text-emerald-500" /> : null}
               </button>
@@ -513,7 +547,7 @@ function ListView({
 }
 
 function DetailView({
-  g,
+  g: grammar,
   state,
   onOpenReading,
   onOpenQuizBook,
@@ -525,7 +559,28 @@ function DetailView({
   onOpenQuizBook: (questionId: string) => void;
   mutate: (partial: Partial<BunpoViewerState>) => void;
 }) {
+  const activeSense = grammar.senses?.find((sense) => sense.id === state.currentSenseId) ??
+    matchingBunpoSenses(state, grammar)[0] ?? grammar.senses?.[0];
+  const senseProgressId = activeSense ? bunpoSenseProgressId(grammar.id, activeSense.id) : grammar.id;
+  const activeExamples = activeSense?.examples ?? [];
+  const g: BunpoGrammarPoint = activeSense ? {
+    ...grammar,
+    level: activeSense.levels[0] ?? grammar.level,
+    levels: activeSense.levels,
+    sources: activeSense.sources,
+    chapter: activeSense.chapters.length === 1 ? activeSense.chapters[0]!.chapter : undefined,
+    chapterTitle: activeSense.chapters.length === 1 ? activeSense.chapters[0]!.chapterTitle : undefined,
+    meaningVi: activeSense.meaningVi,
+    formula: activeSense.formula,
+    usage: activeSense.usage,
+    examTip: activeSense.examTip,
+    example: activeExamples[0]?.jp ?? "",
+    exampleVi: activeExamples[0]?.vi ?? "",
+    moreExamples: activeExamples.slice(1),
+    compareWith: activeSense.compareWith,
+  } : grammar;
   const [progress, setProgress] = useState<ItemProgress | null>(null);
+  const [progressMap, setProgressMap] = useState<ProgressMap | null>(null);
   const [visibleList, setVisibleList] = useState<BunpoGrammarPoint[]>([]);
   const [showUsageGlossary, setShowUsageGlossary] = useState(false);
   const [correctionOpen, setCorrectionOpen] = useState(false);
@@ -536,7 +591,7 @@ function DetailView({
   // storage read/parse twice on every mount and every flag/mastered toggle.
   async function loadDetail(): Promise<{ p: ItemProgress; progressMap: ProgressMap }> {
     const progressMap = await loadProgressMap();
-    return { p: progressMap[g.id] ?? defaultProgress(), progressMap };
+    return { p: progressMap[senseProgressId] ?? defaultProgress(), progressMap };
   }
 
   useEffect(() => {
@@ -545,21 +600,22 @@ function DetailView({
       const { p, progressMap } = await loadDetail();
       if (cancelled) return;
       setProgress(p);
+      setProgressMap(progressMap);
       setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
-      setCorrections(await loadCorrectionsForEntity(g.id));
+      setCorrections(await loadCorrectionsForEntity(senseProgressId));
       // Fire-and-forget -- looking at a grammar point's detail is itself
       // "studying" it today, independent of whether the user also
       // flags/masters it.
-      void markViewed(g.id);
+      void markViewed(senseProgressId);
     })();
     return () => {
       cancelled = true;
     };
-  }, [g.id, state]);
+  }, [g.id, senseProgressId, state]);
 
   const readingMatches = findMatchingReadingPassages(g);
   const quizBookMatches = findMatchingQuizBookQuestions(g);
-  const relatedBunpo = g.level === "N3" ? findRelatedBunpo(g) : [];
+  const relatedBunpo = (g.levels ?? [g.level]).includes("N3") ? findRelatedBunpo(g) : [];
   const parsedUsage = g.usage ? parseUsage(g.usage) : null;
   const usageIsFormula = g.usage ? isGrammarFormula(g.usage) : false;
   const formulaLines = [
@@ -570,6 +626,25 @@ function DetailView({
   const currentIndex = visibleList.findIndex((item) => item.id === g.id);
   const prevItem = currentIndex > 0 ? visibleList[currentIndex - 1] : null;
   const nextItem = currentIndex >= 0 && currentIndex < visibleList.length - 1 ? visibleList[currentIndex + 1] : null;
+  function openGrammar(item: BunpoGrammarPoint, preferredSenseId?: string) {
+    const preferredSense = preferredSenseId ? item.senses?.find((sense) => sense.id === preferredSenseId) : undefined;
+    const sense = progressMap
+      ? preferredSense ?? getListSense(item, state, progressMap, state.listSearchQuery)
+      : preferredSense ?? matchingBunpoSenses(state, item)[0] ?? item.senses?.[0];
+    mutate({ currentGrammarId: item.id, currentSenseId: sense?.id ?? null });
+  }
+
+  function relatedSenseButtons(item: BunpoGrammarPoint) {
+    const senses = item.senses ?? [];
+    if (senses.length <= 1) {
+      return <button onClick={() => openGrammar(item, senses[0]?.id)} className="grammar-link-pattern">{item.pattern}</button>;
+    }
+    return senses.map((sense) => (
+      <button key={sense.id} onClick={() => openGrammar(item, sense.id)} className="grammar-link-pattern">
+        {item.pattern} · {sense.meaningVi}
+      </button>
+    ));
+  }
 
   // Also recomputes visibleList (not just `progress`) -- toggling
   // flag/mastered can move `g` in or out of the current progressFilter
@@ -579,18 +654,19 @@ function DetailView({
   async function refreshProgress() {
     const { p, progressMap } = await loadDetail();
     setProgress(p);
+    setProgressMap(progressMap);
     setVisibleList(getVisibleList(state, state.listSearchQuery, progressMap));
   }
 
   const floatingNavBottom = useFloatingNav(true);
 
-  if (!progress) return <LoadingScreen variant="study" title="Ngữ pháp" />;
+  if (!progress || !activeSense) return <LoadingScreen variant="study" title="Ngữ pháp" />;
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
         <button
-          onClick={() => mutate({ currentGrammarId: null })}
+          onClick={() => mutate({ currentGrammarId: null, currentSenseId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
           <ChevronLeft size={15} /> Ngữ pháp
@@ -607,17 +683,17 @@ function DetailView({
       </div>
 
       <div className="mt-3 hidden items-center gap-2 md:flex">
-        <Button variant="outline" disabled={!prevItem} onClick={() => prevItem && mutate({ currentGrammarId: prevItem.id })}>
+        <Button variant="outline" disabled={!prevItem} onClick={() => prevItem && openGrammar(prevItem)}>
           <ChevronLeft size={16} /> Mẫu trước
         </Button>
-        <Button variant="outline" className="ml-auto" disabled={!nextItem} onClick={() => nextItem && mutate({ currentGrammarId: nextItem.id })}>
+        <Button variant="outline" className="ml-auto" disabled={!nextItem} onClick={() => nextItem && openGrammar(nextItem)}>
           Mẫu sau <ChevronRight size={16} />
         </Button>
       </div>
 
       {prevItem ? (
         <button
-          onClick={() => mutate({ currentGrammarId: prevItem.id })}
+          onClick={() => openGrammar(prevItem)}
           aria-label="Mẫu trước"
           className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
@@ -626,7 +702,7 @@ function DetailView({
       ) : null}
       {nextItem ? (
         <button
-          onClick={() => mutate({ currentGrammarId: nextItem.id })}
+          onClick={() => openGrammar(nextItem)}
           aria-label="Mẫu sau"
           className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >
@@ -634,10 +710,27 @@ function DetailView({
         </button>
       ) : null}
 
+      {grammar.senses && grammar.senses.length > 1 ? (
+        <div role="tablist" aria-label={`${grammar.pattern} nghĩa`} className="mt-4 flex flex-wrap gap-2">
+          {grammar.senses.map((sense, index) => (
+            <button
+              key={sense.id}
+              type="button"
+              role="tab"
+              aria-selected={sense.id === activeSense.id}
+              onClick={() => mutate({ currentSenseId: sense.id })}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${sense.id === activeSense.id ? "border-rose-300 bg-rose-50 text-rose-700" : "border-neutral-200 bg-white text-neutral-600 hover:border-rose-200"}`}
+            >
+              {sense.meaningVi || `Nghĩa ${index + 1}`}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
       <Card className="grammar-detail-card mt-4 gap-0 rounded-2xl border-neutral-200 p-4 sm:p-6 ring-0">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex min-w-0 flex-wrap items-center gap-2">
-            <Badge style={levelBadgeStyle(g.level)}>{g.level}</Badge>
+            {(g.levels ?? [g.level]).map((level) => <Badge key={level} style={levelBadgeStyle(level)}>{level}</Badge>)}
             {g.chapterTitle ? <span className="grammar-chapter-tag">{g.chapterTitle}</span> : null}
           </div>
           <div className="flex shrink-0 items-center gap-1.5">
@@ -653,7 +746,7 @@ function DetailView({
             <button
               title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
               onClick={async () => {
-                await toggleFlag(g.id);
+                await toggleFlag(senseProgressId);
                 await refreshProgress();
               }}
               className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
@@ -665,7 +758,7 @@ function DetailView({
             <button
               title={progress.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
               onClick={async () => {
-                await toggleMastered(g.id);
+                await toggleMastered(senseProgressId);
                 await refreshProgress();
               }}
               className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
@@ -716,7 +809,7 @@ function DetailView({
           open={correctionOpen}
           onClose={() => setCorrectionOpen(false)}
           entityType="grammar"
-          entityId={g.id}
+          entityId={senseProgressId}
           snapshot={{
             pattern: g.pattern,
             level: g.level,
@@ -772,12 +865,7 @@ function DetailView({
               {relatedBunpo.map(({ target, relation, note }) => (
                 <div key={target.id}>
                   <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      onClick={() => mutate({ currentGrammarId: target.id })}
-                      className="grammar-link-pattern"
-                    >
-                      {target.pattern}
-                    </button>
+                    {relatedSenseButtons(target)}
                     <span className="grammar-tag">
                       {RELATED_LABEL[relation]}
                     </span>
@@ -799,9 +887,7 @@ function DetailView({
                 return (
                   <div key={i}>
                     {target ? (
-                        <button onClick={() => mutate({ currentGrammarId: target.id })} className="grammar-link-pattern">
-                        {c.pattern}
-                      </button>
+                      <div className="flex flex-wrap items-center gap-2">{relatedSenseButtons(target)}</div>
                     ) : (
                       <span className="grammar-link-pattern">{c.pattern}</span>
                     )}

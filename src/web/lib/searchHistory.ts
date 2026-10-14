@@ -1,10 +1,12 @@
 import type { JlptLevel } from "../../types/kanji.ts";
+import { resolveBunpoReference } from "../../popup/bunpoState.ts";
 
 export type SearchHistoryKind = "kanji" | "vocab" | "bunpo";
 
 export interface SearchHistoryEntry {
   kind: SearchHistoryKind;
   id: string;
+  senseId?: string;
   level: JlptLevel;
   primary: string;
   secondary: string;
@@ -32,13 +34,22 @@ function isSearchHistoryEntry(value: unknown): value is SearchHistoryEntry {
   );
 }
 
+function migrateEntry(entry: SearchHistoryEntry): SearchHistoryEntry | null {
+  if (entry.kind !== "bunpo") return entry;
+  const reference = resolveBunpoReference(entry.id, entry.senseId);
+  return reference ? { ...entry, id: reference.grammarId, senseId: reference.senseId } : null;
+}
+
 export function loadSearchHistory(): SearchHistoryEntry[] {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     const parsed: unknown = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(isSearchHistoryEntry).slice(0, MAX_SEARCH_HISTORY);
+    return parsed.filter(isSearchHistoryEntry).flatMap((entry) => {
+      const migrated = migrateEntry(entry);
+      return migrated ? [migrated] : [];
+    }).slice(0, MAX_SEARCH_HISTORY);
   } catch {
     return [];
   }
@@ -57,6 +68,8 @@ export function addSearchHistoryEntry(
   entry: SearchHistoryEntry,
 ): SearchHistoryEntry[] {
   if (!entry.meaning.trim()) return current;
-  return [entry, ...current.filter((item) => item.kind !== entry.kind || item.id !== entry.id)]
+  return [entry, ...current.filter((item) =>
+    item.kind !== entry.kind || item.id !== entry.id || (entry.kind === "bunpo" && item.senseId !== entry.senseId),
+  )]
     .slice(0, MAX_SEARCH_HISTORY);
 }

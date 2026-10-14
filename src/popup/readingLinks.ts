@@ -5,7 +5,7 @@
 // properly instead of re-typing it into Tra cứu.
 import type { ReadingPassage } from "../types/reading.ts";
 import { ALL_VOCAB, type VocabCard } from "./vocabState.ts";
-import { ALL_BUNPO } from "./bunpoState.ts";
+import { ALL_BUNPO, resolveBunpoReference } from "./bunpoState.ts";
 import { extractMatchChunks } from "./bunpoLinks.ts";
 import type { BunpoGrammarPoint } from "../types/bunpo.ts";
 import type { JlptLevel } from "../types/kanji.ts";
@@ -316,20 +316,51 @@ export function findVocabInPassage(passage: Pick<ReadingPassage, "body" | "level
   ].map(([entry]) => entry.vocab);
 }
 
-export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level" | "grammarIds">): BunpoGrammarPoint[] {
-  if (passage.grammarIds) return passage.grammarIds.flatMap((id) => BUNPO_BY_ID.has(id) ? [BUNPO_BY_ID.get(id)!] : []);
+export interface BunpoPassageMatch {
+  grammar: BunpoGrammarPoint;
+  senseId: string;
+}
+
+export function bunpoPassageMatchLabel(matches: BunpoPassageMatch[], match: BunpoPassageMatch): string {
+  const sameGrammar = matches.filter((candidate) => candidate.grammar.id === match.grammar.id);
+  const meaning = match.grammar.senses?.find((sense) => sense.id === match.senseId)?.meaningVi;
+  return sameGrammar.length > 1 && meaning ? `${match.grammar.pattern} · ${meaning}` : match.grammar.pattern;
+}
+
+export function findBunpoInPassage(passage: Pick<ReadingPassage, "body" | "level" | "grammarRefs" | "grammarIds">): BunpoPassageMatch[] {
+  const references = passage.grammarRefs ?? passage.grammarIds?.flatMap((id) => {
+    const reference = resolveBunpoReference(id);
+    return reference ? [reference] : [];
+  });
+  if (references) return [...new Map(references.flatMap((reference) => {
+    const resolved = resolveBunpoReference(reference.grammarId, reference.senseId);
+    const grammar = resolved ? BUNPO_BY_ID.get(resolved.grammarId) : undefined;
+    const senseId = resolved?.senseId;
+    return grammar?.senses?.some((sense) => sense.id === senseId) && senseId
+      ? [[`${grammar.id}:${senseId}`, { grammar, senseId }] as const]
+      : [];
+  })).values()];
   const text = passageText(passage);
-  const bestByPattern = new Map<string, { grammar: BunpoGrammarPoint; score: number }>();
+  const bestByPatternAndSense = new Map<string, { grammar: BunpoGrammarPoint; senseId: string; score: number }>();
   for (const g of ALL_BUNPO) {
     const chunks = extractMatchChunks(g.pattern);
     const meaningfulChunks = chunks.filter((chunk) => chunk.length >= 2);
     if (meaningfulChunks.length === 0 || !meaningfulChunks.every((chunk) => text.includes(chunk))) continue;
-    const score = grammarReferenceScore(g, passage.level, meaningfulChunks);
-    const key = g.pattern.replace(/\s+/gu, "").trim();
-    const current = bestByPattern.get(key);
-    if (!current || score > current.score) bestByPattern.set(key, { grammar: g, score });
+    const senses = g.senses ?? [];
+    const scoreLevel = (levels: JlptLevel[]) => Math.min(...levels.map((level) => Math.abs(LEVEL_RANK[level] - LEVEL_RANK[passage.level])));
+    const nearestLevelDistance = Math.min(...senses.map((sense) => scoreLevel(sense.levels)));
+    // Text-only matches cannot tell apart meanings that share a pattern and
+    // JLPT level. Keep every equally plausible sense so the learner can pick
+    // the intended tab instead of silently landing on the first one.
+    const candidates = senses.filter((sense) => scoreLevel(sense.levels) === nearestLevelDistance);
+    for (const sense of candidates) {
+      const score = grammarReferenceScore({ ...g, level: sense.levels[0] ?? g.level }, passage.level, meaningfulChunks);
+      const key = `${g.pattern.replace(/\s+/gu, "").trim()}:${sense.id}`;
+      const current = bestByPatternAndSense.get(key);
+      if (!current || score > current.score) bestByPatternAndSense.set(key, { grammar: g, senseId: sense.id, score });
+    }
   }
-  return [...bestByPattern.values()]
-    .sort((a, b) => b.score - a.score || b.grammar.pattern.length - a.grammar.pattern.length)
-    .map(({ grammar }) => grammar);
+  return [...bestByPatternAndSense.values()]
+    .sort((a, b) => b.score - a.score || b.grammar.pattern.length - a.grammar.pattern.length || a.senseId.localeCompare(b.senseId))
+    .map(({ grammar, senseId }) => ({ grammar, senseId }));
 }

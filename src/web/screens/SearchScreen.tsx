@@ -3,7 +3,7 @@ import { History, Plus, Search } from "lucide-react";
 import { isRomaji, toHiragana, toKatakana } from "wanakana";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
 import { ALL_VOCAB } from "../../popup/vocabState.ts";
-import { ALL_BUNPO } from "../../popup/bunpoState.ts";
+import { ALL_BUNPO, resolveBunpoReference } from "../../popup/bunpoState.ts";
 import { buildKanjiHanVietReadings, matchesComposedHanViet } from "../../lib/vocabhanvietsearch.ts";
 import { useDebouncedValue } from "../../popup/useDebouncedValue.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
@@ -70,6 +70,7 @@ function matchesReading(reading: string, variants: string[]): boolean {
 interface SearchResult {
   kind: "kanji" | "vocab" | "bunpo";
   id: string;
+  senseId?: string;
   level: JlptLevel;
   primary: string;
   secondary: string;
@@ -129,13 +130,18 @@ function searchVocab(q: string, variants: string[]): SearchResult[] {
 }
 
 function searchBunpo(q: string, variants: string[]): SearchResult[] {
-  return ALL_BUNPO.filter((g) => matchesAny(g.pattern.toLowerCase(), variants) || g.meaningVi.toLowerCase().includes(q)).map((g) => ({
-    kind: "bunpo" as const,
-    id: g.id,
-    level: g.level,
-    primary: g.pattern,
-    secondary: "",
-    meaning: g.meaningVi,
+  return ALL_BUNPO.flatMap((grammar) => (grammar.senses ?? []).flatMap((sense) => {
+    const patterns = grammar.patternVariants ?? [grammar.pattern];
+    if (!matchesAny(patterns.join(" ").toLowerCase(), variants) && !sense.meaningVi.toLowerCase().includes(q)) return [];
+    return [{
+      kind: "bunpo" as const,
+      id: grammar.id,
+      senseId: sense.id,
+      level: sense.levels[0] ?? grammar.level,
+      primary: grammar.pattern,
+      secondary: "",
+      meaning: sense.meaningVi,
+    }];
   }));
 }
 
@@ -171,7 +177,7 @@ export function SearchScreen({
 }: {
   onOpenKanji: (kanjiId: string, text: string) => void;
   onOpenVocab: (vocabId: string, text: string) => void;
-  onOpenBunpo: (bunpoId: string, text: string) => void;
+  onOpenBunpo: (bunpoId: string, senseId: string, text: string) => void;
   popup?: boolean;
 }) {
   const initialSearch = readSearchLocation();
@@ -238,7 +244,7 @@ export function SearchScreen({
     setSearchFocused(false);
     if (r.kind === "kanji") onOpenKanji(r.id, r.primary);
     else if (r.kind === "vocab") onOpenVocab(r.id, r.primary);
-    else onOpenBunpo(r.id, r.primary);
+    else onOpenBunpo(r.id, r.senseId ?? resolveBunpoReference(r.id)?.senseId ?? "", r.primary);
   }
 
   function handleImageSearch(text: string) {
@@ -347,7 +353,7 @@ export function SearchScreen({
         <div className={`mt-4 flex flex-col gap-2 ${popup ? "max-h-64 overflow-y-auto pr-1 md:max-h-none md:overflow-visible" : ""}`}>
           {results.map((r) => (
             <button
-              key={`${r.kind}-${r.id}`}
+              key={`${r.kind}-${r.id}-${r.senseId ?? ""}`}
               onClick={() => handleOpen(r)}
               className={`grid w-full grid-cols-[minmax(0,1fr)_auto] items-start gap-2 rounded-2xl border px-3 py-2.5 text-left transition-colors ${KIND_CARD_COLOR[r.kind]}`}
             >

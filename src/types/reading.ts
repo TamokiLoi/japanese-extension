@@ -76,6 +76,9 @@ export interface ReadingPassage {
   // Curated learning links keep AI-generated lessons aligned with the exact
   // vocabulary and grammar records used to create the story.
   vocabularyIds?: string[];
+  /** Canonical grammar card + meaning references used by this passage. */
+  grammarRefs?: { grammarId: string; senseId: string }[];
+  /** @deprecated Legacy source-card references; resolved during migration. */
   grammarIds?: string[];
   // A title/source link may be published as a reading resource when its
   // article body cannot be redistributed; the app then opens the source URL.

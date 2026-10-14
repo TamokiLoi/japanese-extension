@@ -1,10 +1,10 @@
 import type { Kanji, JlptLevel } from "../types/kanji.ts";
 import type { VocabCard } from "./vocabState.ts";
-import type { BunpoGrammarPoint } from "../types/bunpo.ts";
+import type { BunpoStudyItem } from "./bunpoCatalog.ts";
 import type { ItBookVocabWord } from "../types/itBook.ts";
 import { getOrderedList as getKanjiOrderedList, loadViewerState as loadKanjiViewerState } from "./kanjiState.ts";
 import { getOrderedList as getVocabOrderedList, loadViewerState as loadVocabViewerState } from "./vocabState.ts";
-import { getFilteredList as getBunpoFilteredList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
+import { getFilteredSenseList as getBunpoFilteredSenseList, loadViewerState as loadBunpoViewerState } from "./bunpoState.ts";
 import { getOrderedList as getItBookVocabOrderedList, loadViewerState as loadItBookVocabViewerState } from "./itBookState.ts";
 import { loadProgressMap, pickWeighted, bucketForDirection, type ProgressMap, type ProgressBucket } from "./progressState.ts";
 import { formatHanViet } from "../hanVietFormat.ts";
@@ -71,6 +71,9 @@ export interface QuizQuestion {
   // session.answers as a plain choice index without a separate code path.
   answerFormat?: "typed";
   expectedAnswers?: string[];
+  /** Canonical grammar card/sense for opening the referenced detail after answering. */
+  contentId?: string;
+  senseId?: string;
 }
 
 // Which directions must each independently reach the mastery streak before
@@ -448,23 +451,26 @@ export async function buildBunpoQuiz(
   bucket: QuizBucketFilter = "all",
 ): Promise<QuizQuestion[]> {
   const state = await loadBunpoViewerState();
-  const pool = getBunpoFilteredList(state);
+  const pool = getBunpoFilteredSenseList(state);
   if (pool.length === 0) return [];
   const progressMap = await loadProgressMap();
   const scoped = filterByBucket(pool, progressMap, bucket, mode);
   if (scoped.length === 0) return [];
   const targets = pickQuestionTargets(scoped, progressMap, questionCount, mode);
 
-  const patternOf = (g: BunpoGrammarPoint) => g.pattern;
-  const meaningOf = (g: BunpoGrammarPoint) => g.meaningVi;
+  const patternOf = (g: BunpoStudyItem) => g.pattern;
+  const meaningOf = (g: BunpoStudyItem) => g.meaningVi;
 
-  return targets
+  const questions: (QuizQuestion | null)[] = targets
     .map((g) =>
-      mode === "pattern"
-        ? buildQuestion(pool, g, "bunpo", mode, patternOf, "Nghĩa này ứng với mẫu ngữ pháp nào?", meaningOf)
-        : buildQuestion(pool, g, "bunpo", mode, meaningOf, "Mẫu ngữ pháp này nghĩa là gì?", patternOf),
-    )
-    .filter((q): q is QuizQuestion => q !== null);
+      (() => {
+        const question = mode === "pattern"
+          ? buildQuestion(pool, g, "bunpo", mode, patternOf, "Nghĩa này ứng với mẫu ngữ pháp nào?", meaningOf)
+          : buildQuestion(pool, g, "bunpo", mode, meaningOf, "Mẫu ngữ pháp này nghĩa là gì?", patternOf);
+        return question ? { ...question, contentId: g.grammarId, senseId: g.senseId } : null;
+      })(),
+    );
+  return questions.filter((q): q is QuizQuestion => q !== null);
 }
 
 export async function buildItBookVocabQuiz(
