@@ -1,14 +1,3 @@
-/** FPT N3 kanji in the source workbook's `Kanji N3` sheet order. */
-export const FPT_N3_98 = [
-  "駐", "横", "非", "線", "鉄", "路", "座", "血", "予", "協", "神", "橋", "骨", "無",
-  "押", "常", "面", "指", "停", "降", "助", "約", "願", "寺", "公", "折", "満", "式",
-  "階", "普", "定", "整", "未", "準", "煙", "観", "役", "受", "向", "信", "段", "各",
-  "席", "券", "若", "備", "当", "園", "郵", "付", "禁", "号", "箱", "次", "由", "現",
-  "末", "営", "全", "港", "局", "科", "関", "確", "危", "快", "番", "両", "晩", "閉",
-  "客", "遊", "交", "鼻", "係", "認", "険", "速", "窓", "替", "島", "案", "様", "美",
-  "差", "婦", "断", "飛", "捨", "過", "側", "優", "皿", "内", "解", "術", "点", "形",
-] as const;
-
 /** Unique kanji from the Japanese Somatome sheet, in first-occurrence row order. */
 export const FPT_SOMATOME_334 = [
   "駐", "無", "満", "向", "禁", "関", "係", "断", "困", "消", "防", "救", "警", "察", "故", "伝",
@@ -34,9 +23,8 @@ export const FPT_SOMATOME_334 = [
   "職", "容", "技", "般", "務", "課", "球", "決", "勝", "対", "流", "負", "投", "果",
 ] as const;
 
-export type FptN3KanjiCharacter = (typeof FPT_N3_98)[number];
 export type FptSomatomeKanjiCharacter = (typeof FPT_SOMATOME_334)[number];
-export type FptKanjiCharacter = FptN3KanjiCharacter | FptSomatomeKanjiCharacter;
+export type FptKanjiCharacter = FptSomatomeKanjiCharacter;
 export type FptKanjiId = `kanji-${FptKanjiCharacter}`;
 
 export function toCanonicalKanjiId<T extends FptKanjiCharacter>(character: T): `kanji-${T}` {
@@ -48,10 +36,6 @@ export function getFptStudySetIds(characters: readonly FptKanjiCharacter[]): Fpt
 }
 
 export const KANJI_STUDY_SETS = {
-  "FPT-N3-98": {
-    label: "FPT-N3-98",
-    ids: getFptStudySetIds(FPT_N3_98),
-  },
   "FPT-Soumatome-334": {
     label: "FPT-Soumatome-334",
     ids: getFptStudySetIds(FPT_SOMATOME_334),

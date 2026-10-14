@@ -154,6 +154,9 @@ export function KanjiScreen({
       let s = await loadViewerState();
       const savedStudySet = await storageGet<unknown>(STUDY_SET_STORAGE_KEY);
       let activeStudySetId = isKanjiStudySetId(savedStudySet) ? savedStudySet : null;
+      if (savedStudySet != null && activeStudySetId === null) {
+        await storageSet(STUDY_SET_STORAGE_KEY, null);
+      }
       let l: Kanji[];
       // Only committed to the ref after the `cancelled` check below, so a
       // slower already-superseded jump can't clobber a newer one's base.
