@@ -47,6 +47,23 @@
         "usedFor": "meanings.viDraft only, an unverified starting point for human review; never written into the verified meanings.vi field",
         "license": "n/a"
       },
+      "kanjipediaVerifiedGlosses": {
+        "name": "Kanjipedia (公益財団法人 日本漢字能力検定協会 / Japan Kanji Aptitude Testing Foundation)",
+        "url": "https://www.kanjipedia.jp/",
+        "usedFor": "Japanese dictionary sense cross-checks for short, original Vietnamese glosses of 難, 救, 費, 製, 賞, 停, 粉, 告, 型",
+        "entryUrls": {
+          "難": "https://www.kanjipedia.jp/kanji/0005413400",
+          "救": "https://www.kanjipedia.jp/kanji/0001400000",
+          "費": "https://www.kanjipedia.jp/kanji/0005839100",
+          "製": "https://www.kanjipedia.jp/kanji/0003922100",
+          "賞": "https://www.kanjipedia.jp/kanji/0003449800",
+          "停": "https://www.kanjipedia.jp/kanji/0004965500",
+          "粉": "https://www.kanjipedia.jp/kanji/0006161800",
+          "告": "https://www.kanjipedia.jp/kanji/0002368200",
+          "型": "https://www.kanjipedia.jp/kanji/0001764100"
+        },
+        "license": "Kanjipedia content is copyrighted by its publisher; this project uses concise original Vietnamese translations/paraphrases, not copied definitions. Review the site's terms before redistribution."
+      },
       "hantuTanoshii": {
         "name": "Han tu Tanoshii (personal Vietnamese-authored Kanji flashcard PDF set, NOT an open/licensed dataset)",
         "url": "n/a -- user-supplied PDF, transcribed by hand/OCR into scripts/data/hantu-tanoshii/*.json for personal use only",
@@ -64,7 +81,7 @@
       "JLPT publishes no official kanji list for N5/N4/N3/N2 post-2010; this dataset uses a widely-used community-compiled grouping. See README for details.",
       "170 of 2381 kanji were added from Han tu Tanoshii's own broader grouping (not present in the tanos.co.uk/jlpt_new list). Of those, 11 came from the combined N5+N4 Tanoshii book and were assigned N4 as an editorial default (that book does not distinguish N5 from N4 per character) -- see sources.hantuTanoshiiLevelGrouping. The N3, N2, and N1 Tanoshii-only extras are unambiguous (single-level source books).",
       "19 kanji have no entry in either the CC-CEDICT or Unihan Han-Viet sources (mostly Japan-only shinjitai forms with no matching Chinese-character-set entry) and were left with hanViet: [] rather than guessed.",
-      "meanings.vi is populated for 2104 kanji from the Han tu Tanoshii personal PDF source (see sources.hantuTanoshii) -- NOT an open dataset, personal use only. Remaining entries keep meanings.vi: [] with only meanings.viDraft (AI-translated, unverified) available.",
+      "meanings.vi is populated for 2104 kanji from the Han tu Tanoshii personal PDF source (see sources.hantuTanoshii) -- NOT an open dataset, personal use only. Nine additional entries (難, 救, 費, 製, 賞, 停, 粉, 告, 型) use concise original Vietnamese glosses cross-checked against sources.kanjipediaVerifiedGlosses; all other entries still have empty meanings.vi, and only some have an unverified meanings.viDraft.",
       "1402 kanji have no meanings.viDraft entry: 刀 丁 又 分 矢 里 羊 氏 身 仮 級 功 第 暑 整 詩 器 士 標 鏡 養 謝 松 的 基 妥 雰 頑 司 泣 紀 典 保 弁 証 冒 冗 阪 梅 無 結 是 渉 虚 幻 弓 汽 僧 禅 可 句 節 昆 閥 舌 宙 履 善 災 率 妨 裕 尻 尾 嫌 臭 穴 笛 敵 挙 派 岡 素 評 批 検 審 条 企 義 罰 誕 脱 坊 宮 案 価 統 策 藤 姿 応 提 援 態 賀 鬼 護 裁 崎 看 幹 張 沢 施 俳 秀 製 狭 載 視 環 展 株 影 響 票 訴 訟 逮 模 鮮 属 肥 絞 輩 隠 授 創 往 較 鉛 故 障 従 我 激 励 討 徴 怪 獣 振 豚 独 屈 暇 織 惑 誘 就 睡 症 締 迫 端 健 康 郎 稚 博 潔 隊 修 奇 妙 麗 微 益 憲 衆 傘 浜 撃 攻 監 催 促 江 請 雄 韓 壊 診 閣 僚 督 街 宗 緊 宴 添 猛 烈 索 詳 魅 渇 系 旗 乏 覧 懐 枕 漏 購 飾 騒 撮 離 融 華 既 豪 鑑 尋 廊 驚 嘆 倉 巣 径 救 脈 墓 徳 偵 綺 序 志 恩 桜 眼 興 衛 酸 銭 飼 傷 厳 密 暖 秘 訳 染 筋 垂 宣 忠 拡 操 熟 異 皇 盛 漠 糖 納 肺 賃 貴 丼 吐 奴 隷 芋 縮 縦 粋 聖 磁 射 幕 薦 推 揮 沿 源 歓 爪 豆 腐 彫 舎 滞 己 厄 亀 剣 寿 杉 汁 炎 為 熊 獄 酔 酢 鍋 盟 遺 債 及 奈 廃 摘 核 沖 縄 津 献 継 維 伎 踏 鹿 諾 牙 跳 昭 償 刑 執 塁 崩 抗 抵 旬 弾 聴 遣 闘 陣 臨 削 契 恵 掲 狙 葬 需 宜 繰 避 妊 娠 致 奏 伴 併 却 慮 懸 房 扱 抑 択 描 盤 称 緩 託 賄 賂 還 邦 鈴 阜 岐 隆 控 壁 棋 渋 仙 充 免 勧 圏 埼 奪 慎 拒 枠 甲 斐 祉 稲 譲 謙 躍 銃 項 鋼 顧 駆 唱 孝 俊 兼 剤 堀 巡 戒 排 携 敏 敷 犠 獲 茂 繁 頻 殖 衝 誉 褒 透 隣 雅 遜 徹 瀬 撤 措 拠 儀 樹 棄 虎 蛍 蜂 酎 蜜 艦 潜 拳 畑 仁 至 誠 郷 侵 偽 克 哲 喪 堅 括 弧 挑 揚 握 揺 斎 暫 析 枢 軸 柄 滑 潟 焦 範 紛 糾 綱 網 肝 芝 誰 裂 襲 貢 趣 距 露 牧 朗 潮 即 垣 威 岳 慰 懇 懲 摩 擦 撲 斉 旨 沼 泰 滅 滋 炉 琴 寸 竜 縁 翼 吉 刃 忍 桃 謎 侍 俺 叱 娯 斗 朱 丘 梨 僕 釣 嵐 姫 棚 砲 雷 芽 澄 矛 鐘 凶 塊 狩 頃 魂 脚 也 井 呪 嬢 暦 眺 裸 賭 塾 卓 菌 陰 霊 稼 嫁 溝 滝 狂 翔 墨 鳩 穏 魔 寮 盆 棟 斬 寧 椅 猿 瞳 鍵 碁 租 幽 泡 癖 鍛 錬 穂 帝 瞬 菊 誇 庄 阻 黙 俵 架 砕 粘 粧 欺 詐 霧 柳 伊 佐 尺 哀 唇 塀 墜 如 婆 崖 幣 恨 憩 扇 扉 挿 掌 炊 爽 瞭 箸 胴 芯 虹 帳 蚊 蛇 貼 辱 鉢 闇 隙 霜 飢 餓 迅 騎 蓄 尽 彩 憶 耐 輝 脅 麻 培 悔 脇 遂 班 斜 殴 盾 穫 巾 駒 紫 抽 誓 悟 拓 拘 礎 鶴 刈 剛 唯 壇 尼 概 浸 淡 煮 覆 謀 陶 隔 征 陛 俗 桑 潤 珠 衰 奨 劣 勘 妃 丈 峰 巧 邪 駄 唐 廷 鬱 簿 彰 漫 訂 諮 銘 堤 漂 翻 軌 后 奮 亭 仰 伯 墳 壮 把 搬 晶 洞 涯 疫 孔 邸 郡 釈 肪 喚 媛 貞 玄 苗 渦 慈 襟 蓮 亮 聡 浦 塚 陥 貫 覇 呂 茨 擁 孤 賠 鎖 噴 祥 牲 秩 唆 膨 芳 恒 倫 陳 須 偏 遇 糧 殊 慢 没 怠 遭 惰 猟 乃 綾 颯 隼 輔 寛 胞 浄 随 稿 丹 壌 舗 騰 緯 艇 披 錦 准 剰 繊 諭 惨 虐 据 徐 搭 鯉 戴 緋 曙 胡 帥 啓 葵 駿 諒 莉 鯨 荘 栽 拐 冠 勲 酬 紋 卸 欄 逸 尚 顕 粛 愚 庶 践 呈 疎 疾 謡 鎌 酷 叙 且 痴 哺 傲 茎 阿 悠 杏 茜 栞 伏 鎮 奉 憂 朴 栃 惜 佳 悼 該 赴 髄 傍 累 癒 郭 尿 賓 虜 憾 弥 粗 循 凝 脊 昌 旦 愉 抹 栓 之 遼 瑛 那 拍 猶 宰 寂 縫 呉 凡 恭 錯 穀 陵 弊 舶 窮 悦 縛 轄 弦 窒 洪 摂 飽 紳 庸 靖 嘉 搾 蝶 碑 尉 匠 遥 智 賊 鼓 旋 腸 槽 伐 漬 坪 紺 羅 峡 俸 醸 弔 乙 遍 衡 款 閲 喝 敢 膜 盲 胎 酵 堕 遮 凸 凹 楓 哉 蒼 瑠 萌 硫 赦 窃 慨 扶 戯 忌 濁 奔 肖 朽 殻 享 藩 媒 鶏 嘱 迭 椎 絹 陪 剖 譜 淑 帆 憤 酌 暁 傑 錠 凌 瑞 璃 遷 拙 峠 篤 叔 雌 堪 吟 甚 崇 漆 岬 紡 礁 屯 姻 擬 睦 閑 曹 詠 卑 侮 鋳 蔑 胆 浪 禍 酪 憧 慶 亜 汰 梓 沙 逝 匿 寡 痢 坑 藍 畔 唄 拷 渓 廉 謹 湧 醜 升 殉 煩 劾 桟 婿 慕 罷 矯 某 囚 泌 漸 藻 妄 蛮 倹 挨 渥 旭 宛 絢 鮎 惟 畏 萎 亥 郁 磯 壱 允 咽 淫 胤 韻 卯 丑 臼 餌 叡 謁 怨 艶 苑 於 旺 翁 臆 伽 箇 苛 茄 霞 魁 凱 蓋 骸 馨 柿 嚇 顎 葛 褐 叶 樺 釜 茅 瓦 侃 棺 莞 巌 玩 嬉 毅 畿 稀 誼 鞠 橘 亨 匡 喬 尭 桐 僅 斤 欣 欽 芹 衿 玖 虞 串 窟 栗 薫 袈 圭 慧 桂 稽 詣 桁 絃 舷 股 伍 梧 瑚 乞 侯 倖 勾 喉 宏 弘 慌 昂 晃 梗 浩 紘 鴻 墾 痕 嵯 瑳 裟 挫 塞 采 冴 朔 柵 笹 拶 皐 燦 蚕 嗣 肢 賜 爾 蒔 汐 嫉 偲 紗 勺 爵 腫 儒 愁 洲 蹴 峻 竣 舜 淳 遵 渚 恕 宵 抄 捷 梢 硝 菖 蕉 詔 丞 穣 拭 晋 榛 秦 薪 腎 翠 錘 嵩 雛 裾 畝 凄 醒 戚 斥 碩 煎 羨 腺 詮 銑 繕 膳 塑 曽 遡 惣 痩 綜 捉 袖 唾 堆 黛 鯛 鷹 啄 琢 只 但 辰 巽 綻 檀 逐 嫡 衷 猪 暢 脹 勅 捗 朕 掴 槻 蔦 椿 潰 紬 悌 禎 諦 逓 溺 填 妬 杜 痘 謄 寅 酉 惇 敦 頓 凪 捺 楠 弐 匂 捻 巴 罵 萩 剥 肇 斑 汎 頒 眉 柊 彦 膝 肘 彪 彬 芙 賦 附 蕗 丙 蔽 碧 甫 倣 朋 鳳 鵬 貌 頬 勃 昧 槙 柾 亦 繭 麿 巳 稔 椋 冥 麺 孟 耗 餅 匁 冶 耶 佑 宥 柚 祐 邑 妖 楊 窯 耀 蓉 沃 濫 蘭 吏 李 琉 侶 稜 厘 琳 麟 伶 嶺 怜 玲 弄 楼 麓 禄 倭 亘 侑 刹 勁 喩 嗅 嘲 毀 奎 崚 彗 彙 恣 惧 慄 憬 拉 摯 昴 晏 晨 晟 暉 曖 楷 椰 毬 洸 洵 滉 漱 澪 燎 燿 瑶 璧 瘍 皓 眸 笙 箋 籠 綸 緻 脩 茉 菫 訃 詢 諄 諧 貪 赳 踪 辣 迪 錮 頌 黎 凜 熙",
       "mnemonic is populated for 2104 kanji from the same Han tu Tanoshii source; remaining entries are null. words and examples are intentionally left empty: no source integrated yet."
     ]
@@ -6054,7 +6071,11 @@
         "đình"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "dừng; ngừng lại",
+          "đình chỉ; tạm ngừng",
+          "đình trệ"
+        ],
         "en": [
           "Halt",
           "Stopping"
@@ -15114,7 +15135,10 @@
         "cốc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "báo cho; thông báo",
+          "tố cáo; kiện cáo"
+        ],
         "en": [
           "Revelation",
           "Tell",
@@ -17947,7 +17971,10 @@
         "hình"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "khuôn; hình mẫu",
+          "kiểu; dạng; thế căn bản"
+        ],
         "en": [
           "Mould",
           "Type",
@@ -39515,7 +39542,10 @@
         "cứu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "cứu; cứu giúp",
+          "cứu hộ; giải cứu"
+        ],
         "en": [
           "Salvation",
           "Save",
@@ -66823,7 +66853,11 @@
         "phấn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "bột; bụi; phấn",
+          "nghiền thành bột",
+          "phấn trang điểm"
+        ],
         "en": [
           "Flour",
           "Powder",
@@ -78961,7 +78995,10 @@
         "chế"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "chế tạo; sản xuất",
+          "làm ra; chế biến"
+        ],
         "en": [
           "Made In...",
           "Manufacture"
@@ -83728,7 +83765,10 @@
         "bỉ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "tiêu phí; hao tốn",
+          "chi phí; phí tổn"
+        ],
         "en": [
           "Expense",
           "Cost",
@@ -84208,7 +84248,11 @@
         "thưởng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "phần thưởng; tiền thưởng",
+          "khen thưởng; khen ngợi",
+          "thưởng thức; thưởng ngoạn"
+        ],
         "en": [
           "Prize",
           "Reward",
@@ -93704,7 +93748,11 @@
         "na"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "khó; khó khăn",
+          "tai họa; hoạn nạn",
+          "chê trách"
+        ],
         "en": [
           "Difficult",
           "Impossible",
