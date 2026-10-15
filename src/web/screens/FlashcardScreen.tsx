@@ -31,6 +31,7 @@ import type { Kanji, JlptLevel } from "../../types/kanji.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { FPT_SOMATOME_MNEMONICS, KANJI_STUDY_SETS } from "../../data/kanjiStudySets.ts";
 import { markViewed } from "../../popup/progressState.ts";
+import { speakJapanese } from "../lib/speak.ts";
 import {
   loadFlashcardProgress,
   saveFlashcardProgress,
@@ -63,6 +64,7 @@ interface FlashcardItem {
   frontLabel: string;
   primaryLabel: string;
   primary: string;
+  pronunciation?: string;
   secondaryLabel?: string;
   secondary?: string;
   backReference?: string;
@@ -126,6 +128,7 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
     frontLabel: "Từ vựng",
     primaryLabel: "Cách đọc",
     primary: card.reading || "Chưa có cách đọc",
+    pronunciation: card.reading || card.word,
     secondaryLabel: "Nghĩa",
     secondary: card.meaningVi || "Chưa có nghĩa",
     memoryHints: getVocabMnemonic(card),
@@ -463,6 +466,11 @@ export function FlashcardScreen() {
     if (!revealed || !current) return;
     void markViewed(current.progressId);
   }, [current?.progressId, revealed]);
+
+  useEffect(() => {
+    if (!revealed || !current?.pronunciation || selectedCollection?.id !== "vocab:fpt-n3-tango") return;
+    speakJapanese(current.pronunciation);
+  }, [current?.id, current?.pronunciation, revealed, selectedCollection?.id]);
 
   function chooseCategory(nextCategory: FlashcardCategoryId) {
     setCategoryId(nextCategory);
