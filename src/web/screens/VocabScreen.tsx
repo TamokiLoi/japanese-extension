@@ -8,6 +8,7 @@ import type { VerbConjugations } from "../../types/vocab.ts";
 import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS } from "../../popup/quizState.ts";
 import {
   ALL_VOCAB,
+  getVocabExamples,
   AVAILABLE_SOURCES,
   AVAILABLE_LEVELS,
   SOURCE_LABELS,
@@ -370,6 +371,7 @@ export function VocabScreen({
   }
 
   const v = list[state.index];
+  const vocabExamples = v ? getVocabExamples(v) : [];
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
@@ -779,11 +781,11 @@ export function VocabScreen({
               </div>
             </details>
           ) : null}
-          {(v.synonym || v.pairVerb || corrections.length > 0 || v.mnemonic.length > 0 || v.example || v.conjugations) ? (
+          {(v.synonym || v.pairVerb || corrections.length > 0 || v.mnemonic.length > 0 || vocabExamples.length > 0 || v.conjugations) ? (
             <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
               <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
                 Thông tin bổ sung <span className="ml-2 font-normal text-neutral-400">{[
-                  v.example && "Ví dụ",
+                  vocabExamples.length > 0 && `Ví dụ (${vocabExamples.length})`,
                   v.mnemonic.length > 0 && "Ghi nhớ",
                   (v.synonym || v.pairVerb) && "Từ liên quan",
                   v.conjugations && "Chia thể",
@@ -858,20 +860,26 @@ export function VocabScreen({
             </div>
           ) : null}
 
-          {v.example ? (
+          {vocabExamples.length > 0 ? (
             <div className="mt-3 rounded-xl border-l-4 border-sky-600 bg-sky-50 p-3 text-sm">
-              <div className="mb-1 font-semibold text-sky-700">Mẫu câu</div>
-              <div className="flex items-start justify-between gap-2">
-                <div className="text-neutral-800">{v.example}</div>
-                <button
-                  onClick={() => speakJapanese(v.example!)}
-                  aria-label="Phát âm ví dụ"
-                  className="shrink-0 text-sky-600 hover:text-sky-800"
-                >
-                  <Volume2 size={16} />
-                </button>
+              <div className="mb-1 font-semibold text-sky-700">Mẫu câu · {vocabExamples.length}</div>
+              <div className="space-y-3">
+                {vocabExamples.map((example, index) => (
+                  <div key={example.jp + index}>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="text-neutral-800">{example.jp}</div>
+                      <button
+                        onClick={() => speakJapanese(example.jp)}
+                        aria-label={`Phát âm ví dụ ${index + 1}`}
+                        className="shrink-0 text-sky-600 hover:text-sky-800"
+                      >
+                        <Volume2 size={16} />
+                      </button>
+                    </div>
+                    {example.vi ? <div className="mt-1 text-sky-800">{example.vi}</div> : null}
+                  </div>
+                ))}
               </div>
-              {v.exampleVi ? <div className="mt-1 text-sky-800">{v.exampleVi}</div> : null}
             </div>
           ) : null}
 

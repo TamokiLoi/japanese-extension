@@ -104,6 +104,18 @@
   color: #075985;
 }
 
+.vocab-layout .vocab-example-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vocab-layout .vocab-example-item + .vocab-example-item {
+  margin-top: 8px;
+  border-top: 1px solid #d8eef8;
+  padding-top: 8px;
+}
+
 .vocab-layout .vocab-info-mnemonic {
   border-color: #d89616;
   background: #fffbeb;

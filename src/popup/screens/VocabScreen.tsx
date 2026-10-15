@@ -15,6 +15,7 @@ import {
   saveViewerState,
   resolveJumpState,
   findVocabByWordReading,
+  getVocabExamples,
   type VocabCard,
   type VocabSource,
   type VocabViewerState,
@@ -232,6 +233,7 @@ export function VocabScreen({
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
   const allChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
   const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
+  const vocabExamples = v ? getVocabExamples(v) : [];
   const readingMatches = v ? findMatchingReadingPassages(v) : [];
   const quizBookMatches = v ? findMatchingQuizBookQuestions(v) : [];
 
@@ -480,19 +482,23 @@ export function VocabScreen({
               </div>
             </details>
           ) : null}
-          {v.example || v.mnemonic.length > 0 || v.synonym || v.pairVerb ? (
+          {vocabExamples.length > 0 || v.mnemonic.length > 0 || v.synonym || v.pairVerb ? (
             <details className="vocab-more-details">
               <summary>Thông tin bổ sung <span>{[
-                v.example && "Ví dụ",
+                vocabExamples.length > 0 && "Ví dụ",
                 v.mnemonic.length > 0 && "Ghi nhớ",
                 (v.synonym || v.pairVerb) && "Từ liên quan",
               ].filter(Boolean).join(" · ")}</span></summary>
               <div className="vocab-more-body">
-          {v.example ? (
+          {vocabExamples.length > 0 ? (
             <section className="vocab-info vocab-info-example">
               <strong>Mẫu câu</strong>
-              <span className="example-jp">{v.example}</span>
-              {v.exampleVi ? <span className="example-vi">{v.exampleVi}</span> : null}
+              {vocabExamples.map((example, index) => (
+                <div className="vocab-example-item" key={`${example.jp}-${index}`}>
+                  <span className="example-jp">{example.jp}</span>
+                  {example.vi ? <span className="example-vi">{example.vi}</span> : null}
+                </div>
+              ))}
             </section>
           ) : null}
           {v.mnemonic.length > 0 ? (

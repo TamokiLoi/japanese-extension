@@ -230,24 +230,25 @@ const FPT_N3_TANGO_MNEMONICS = canonicalizeFptWordMap<string>(fptN3TangoMnemonic
 
 function addFptTangoExamples(card: VocabCard): VocabCard {
   if (!card.sources.includes("fpt-n3-tango")) return card;
-  const existing = [
-    ...(card.example ? [card.example] : []),
-    ...(card.additionalExamples ?? []).map((example) => example.jp),
-  ];
-  const existingSentences = new Set(existing);
-  const needed = Math.max(0, 2 - existingSentences.size);
-  if (needed === 0) return card;
   // FPT marks counters and suffixes with ～; generated usage sentences use
   // concrete forms (e.g. 三冊, 二十歳), so match the lexical suffix itself.
   const target = card.word.replace(/[～〜]/g, "");
-  const additions = (FPT_N3_TANGO_EXAMPLES[card.word] ?? [])
+  // Treat the curated FPT pair as authoritative. Legacy dictionary examples
+  // can contain OCR debris or fragments, and must not count toward the two
+  // full-sentence examples shown on the vocabulary card and flashcard.
+  const examples = (FPT_N3_TANGO_EXAMPLES[card.word] ?? [])
+    .map((example) => ({ jp: example.jp.trim(), vi: example.vi.trim() }))
     .filter((example) => (example.jp.includes(card.word) || (target && example.jp.includes(target)))
-      && example.vi.trim()
-      && !existingSentences.has(example.jp))
-    .slice(0, needed);
+      && example.vi
+      && /[。！？!?]$/.test(example.jp))
+    .filter((example, index, all) => all.findIndex((candidate) => candidate.jp === example.jp) === index)
+    .slice(0, 2);
+  if (examples.length < 2) return card;
   return {
     ...card,
-    additionalExamples: [...(card.additionalExamples ?? []), ...additions],
+    example: examples[0].jp,
+    exampleVi: examples[0].vi,
+    additionalExamples: [examples[1]],
   };
 }
 
