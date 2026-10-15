@@ -576,50 +576,57 @@ export function FlashcardScreen() {
             <div className="h-full rounded-full bg-rose-500 transition-all" style={{ width: (completed ? 100 : progress) + "%" }} />
           </div>
 
-          <div
-            className="mt-5 touch-pan-y"
-            onPointerDown={(event) => {
-              if (event.button !== 0 || swipeExitStatus) return;
-              pointerStartXRef.current = event.clientX;
-              setDragOffsetX(0);
-              event.currentTarget.setPointerCapture(event.pointerId);
-            }}
-            onPointerMove={(event) => {
-              const startX = pointerStartXRef.current;
-              if (!revealed || startX === null || swipeExitStatus) return;
-              const offset = Math.max(-120, Math.min(120, event.clientX - startX));
-              setDragOffsetX(offset);
-            }}
-            onPointerUp={(event) => {
-              const startX = pointerStartXRef.current;
-              pointerStartXRef.current = null;
-              if (!revealed || startX === null || swipeExitStatus) {
-                setDragOffsetX(0);
-                return;
-              }
-              const distance = event.clientX - startX;
-              if (Math.abs(distance) < 72) {
-                setDragOffsetX(0);
-                return;
-              }
-              suppressCardClickRef.current = true;
-              window.setTimeout(() => {
-                suppressCardClickRef.current = false;
-              }, 500);
-              setDragOffsetX(Math.max(-120, Math.min(120, distance)));
-              setSwipeExitStatus(distance > 0 ? "known" : "not-yet");
-            }}
-            onPointerCancel={() => {
-              pointerStartXRef.current = null;
-              setDragOffsetX(0);
-            }}
-          >
+          <div className="mt-5 touch-pan-y">
             <button
               type="button"
               disabled={Boolean(swipeExitStatus)}
               aria-pressed={revealed}
+              onPointerDown={(event) => {
+                if (event.button !== 0 || swipeExitStatus) return;
+                pointerStartXRef.current = event.clientX;
+                setDragOffsetX(0);
+                // Capture on the button itself so the completed pointer
+                // sequence still dispatches click to this button and flips
+                // the card on desktop; capturing on its parent div swallowed
+                // that click in Chromium.
+                event.currentTarget.setPointerCapture(event.pointerId);
+              }}
+              onPointerMove={(event) => {
+                const startX = pointerStartXRef.current;
+                if (!revealed || startX === null || swipeExitStatus) return;
+                const offset = Math.max(-120, Math.min(120, event.clientX - startX));
+                setDragOffsetX(offset);
+              }}
+              onPointerUp={(event) => {
+                const startX = pointerStartXRef.current;
+                pointerStartXRef.current = null;
+                if (!revealed || startX === null || swipeExitStatus) {
+                  setDragOffsetX(0);
+                  return;
+                }
+                const distance = event.clientX - startX;
+                if (Math.abs(distance) < 72) {
+                  setDragOffsetX(0);
+                  return;
+                }
+                suppressCardClickRef.current = true;
+                window.setTimeout(() => {
+                  suppressCardClickRef.current = false;
+                }, 500);
+                setDragOffsetX(Math.max(-120, Math.min(120, distance)));
+                setSwipeExitStatus(distance > 0 ? "known" : "not-yet");
+              }}
+              onPointerCancel={() => {
+                pointerStartXRef.current = null;
+                setDragOffsetX(0);
+              }}
               onAnimationEnd={(event) => {
                 if (event.target !== event.currentTarget || !swipeExitStatus) return;
+                // A swipe disables the card during its exit animation, so the
+                // browser may not dispatch the click that would normally
+                // consume this guard. Clear it before the next card appears;
+                // otherwise an immediate click on that card is swallowed.
+                suppressCardClickRef.current = false;
                 const status = swipeExitStatus;
                 setSwipeExitStatus(null);
                 setDragOffsetX(0);
