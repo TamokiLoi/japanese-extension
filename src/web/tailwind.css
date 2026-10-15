@@ -49,6 +49,101 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+.flashcard-flip-scene {
+  perspective: 1100px;
+  touch-action: pan-y;
+}
+
+.flashcard-flip-inner {
+  display: grid;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 520ms cubic-bezier(0.2, 0.72, 0.25, 1);
+}
+
+.flashcard-flip-inner.is-revealed {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  grid-area: 1 / 1;
+  display: flex;
+  min-height: min(58vh, 420px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  overflow-wrap: anywhere;
+  border: 1px solid rgb(255 228 230);
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #fff1f2 58%, #fff7ed 100%);
+  box-shadow: 0 1px 3px rgb(15 23 42 / 8%);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-face-front {
+  transition: border-color 180ms ease;
+}
+
+.flashcard-face-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard-swipe-card {
+  --flashcard-drag-x: 0px;
+  --flashcard-drag-angle: 0deg;
+  transform: translate3d(var(--flashcard-drag-x), 0, 0) rotate(var(--flashcard-drag-angle));
+  transition: transform 180ms ease-out, opacity 180ms ease-out;
+  will-change: transform;
+}
+
+.flashcard-swipe-dragging {
+  transition: none;
+}
+
+.flashcard-swipe-exit-right {
+  animation: flashcard-swipe-out-right 240ms cubic-bezier(0.25, 0.7, 0.35, 1) forwards;
+}
+
+.flashcard-swipe-exit-left {
+  animation: flashcard-swipe-out-left 240ms cubic-bezier(0.25, 0.7, 0.35, 1) forwards;
+}
+
+@keyframes flashcard-swipe-out-right {
+  from {
+    transform: translate3d(var(--flashcard-drag-x), 0, 0) rotate(var(--flashcard-drag-angle));
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(120vw, 0, 0) rotate(16deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flashcard-swipe-out-left {
+  from {
+    transform: translate3d(var(--flashcard-drag-x), 0, 0) rotate(var(--flashcard-drag-angle));
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(-120vw, 0, 0) rotate(-16deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashcard-flip-inner,
+  .flashcard-swipe-card {
+    transition-duration: 1ms;
+  }
+
+  .flashcard-swipe-exit-right,
+  .flashcard-swipe-exit-left {
+    animation-duration: 1ms;
+  }
+}
+
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);

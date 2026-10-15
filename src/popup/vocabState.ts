@@ -24,6 +24,9 @@ import fptN3TangoWeek3Raw from "../data/fpt-n3-kanji-week-3.json";
 import fptN3TangoWeek4Raw from "../data/fpt-n3-kanji-week-4.json";
 import fptN3TangoWeek5Raw from "../data/fpt-n3-kanji-week-5.json";
 import fptN3TangoWeek6Raw from "../data/fpt-n3-kanji-week-6.json";
+import fptN3TangoExamplesA from "../data/fpt-n3-tango-examples-a.json";
+import fptN3TangoExamplesB from "../data/fpt-n3-tango-examples-b.json";
+import fptN3TangoMnemonicsRaw from "../data/fpt-n3-tango-mnemonics.json";
 import type {
   TanoshiiVocabDataset,
   MimikaraDataset,
@@ -72,6 +75,7 @@ export interface VocabCard {
   mnemonic: string[];
   example: string | null;
   exampleVi: string | null;
+  additionalExamples?: { jp: string; vi: string }[];
   synonym: { word: string; reading: string | null } | null;
   // Đối cặp tự động từ/tha động từ (vd 開く <-> 開ける) -- chỉ set khi từ
   // này nằm trong bộ "100 cặp tự-tha động từ" (xem fromTransitivityPairs).
@@ -196,6 +200,13 @@ const jlptN3DethiDataset = jlptN3DethiRaw as unknown as TanoshiiVocabDataset;
 const fptN3TangoMissingDataset = fptN3TangoMissingRaw as unknown as TanoshiiVocabDataset;
 
 type FptN3TangoWeek = { words: { word: string }[] };
+type FptN3TangoExample = { jp: string; vi: string };
+type FptN3TangoExampleMap = Record<string, FptN3TangoExample[]>;
+type FptN3TangoMnemonicMap = Record<string, string>;
+const FPT_N3_TANGO_WORD_ALIASES: Record<string, string> = { "客様": "お客様" };
+function canonicalizeFptN3TangoWord(word: string): string {
+  return FPT_N3_TANGO_WORD_ALIASES[word] ?? word;
+}
 const FPT_N3_TANGO_WORDS = new Set(
   [
     fptN3TangoWeek1Raw,
@@ -206,8 +217,39 @@ const FPT_N3_TANGO_WORDS = new Set(
     fptN3TangoWeek6Raw,
   ]
     .flatMap((week) => (week as FptN3TangoWeek).words)
-    .map(({ word }) => word),
+    .map(({ word }) => canonicalizeFptN3TangoWord(word)),
 );
+function canonicalizeFptWordMap<T>(map: Record<string, T>): Record<string, T> {
+  return Object.fromEntries(Object.entries(map).map(([word, value]) => [canonicalizeFptN3TangoWord(word), value]));
+}
+const FPT_N3_TANGO_EXAMPLES = canonicalizeFptWordMap<FptN3TangoExample[]>({
+  ...(fptN3TangoExamplesA as FptN3TangoExampleMap),
+  ...(fptN3TangoExamplesB as FptN3TangoExampleMap),
+});
+const FPT_N3_TANGO_MNEMONICS = canonicalizeFptWordMap<string>(fptN3TangoMnemonicsRaw as FptN3TangoMnemonicMap);
+
+function addFptTangoExamples(card: VocabCard): VocabCard {
+  if (!card.sources.includes("fpt-n3-tango")) return card;
+  const existing = [
+    ...(card.example ? [card.example] : []),
+    ...(card.additionalExamples ?? []).map((example) => example.jp),
+  ];
+  const existingSentences = new Set(existing);
+  const needed = Math.max(0, 2 - existingSentences.size);
+  if (needed === 0) return card;
+  // FPT marks counters and suffixes with ～; generated usage sentences use
+  // concrete forms (e.g. 三冊, 二十歳), so match the lexical suffix itself.
+  const target = card.word.replace(/[～〜]/g, "");
+  const additions = (FPT_N3_TANGO_EXAMPLES[card.word] ?? [])
+    .filter((example) => (example.jp.includes(card.word) || (target && example.jp.includes(target)))
+      && example.vi.trim()
+      && !existingSentences.has(example.jp))
+    .slice(0, needed);
+  return {
+    ...card,
+    additionalExamples: [...(card.additionalExamples ?? []), ...additions],
+  };
+}
 
 function fromTanoshiiVocab(source: VocabSource, dataset: TanoshiiVocabDataset): VocabCard[] {
   return dataset.words.map((w) => ({
@@ -349,7 +391,7 @@ function mergeDuplicateVocab(cards: VocabCard[]): VocabCard[] {
     };
     merged.push({
       ...primary,
-      sources: group.flatMap((c) => c.sources),
+      sources: [...new Set(group.flatMap((c) => c.sources))],
       hanViet: pick((c) => c.hanViet, (v: string[]) => v.length === 0) ?? [],
       mnemonic: pick((c) => c.mnemonic, (v: string[]) => v.length === 0) ?? [],
       example: pick((c) => c.example, (v: string | null) => !v) ?? null,
@@ -389,19 +431,45 @@ const BASE_VOCAB: VocabCard[] = mergeDuplicateVocab([
 ]);
 
 // Link the FPT-N3-Tango study list to existing vocabulary cards by spelling,
-// keeping each card's original id and progress. Only the terms which were
-// missing from the app are added as new cards from the supplemental dataset.
-// Week membership remains in the six source files for future weekly study UX.
-const TAGGED_EXISTING_VOCAB = BASE_VOCAB.map((card) =>
-  FPT_N3_TANGO_WORDS.has(card.word)
-    ? { ...card, sources: [...new Set([...card.sources, "fpt-n3-tango" as const])] }
-    : card,
-);
+// keeping each card's original id and progress. Supplemental terms already
+// present under the same spelling and reading are merged rather than shown as
+// duplicate cards. Week membership remains in the six source files for weekly
+// study UX.
+const TAGGED_EXISTING_VOCAB = BASE_VOCAB.map((card) => {
+  if (!FPT_N3_TANGO_WORDS.has(canonicalizeFptN3TangoWord(card.word))) return card;
+  return { ...card, sources: [...new Set([...card.sources, "fpt-n3-tango" as const])] };
+});
 
-export const ALL_VOCAB: VocabCard[] = [
+const FPT_N3_TANGO_SUPPLEMENTAL = fromTanoshiiVocab("fpt-n3-tango", fptN3TangoMissingDataset);
+
+export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...TAGGED_EXISTING_VOCAB,
-  ...fromTanoshiiVocab("fpt-n3-tango", fptN3TangoMissingDataset),
-];
+  ...FPT_N3_TANGO_SUPPLEMENTAL,
+]).map(addFptTangoExamples);
+
+export function getVocabExamples(card: Pick<VocabCard, "example" | "exampleVi" | "additionalExamples">): FptN3TangoExample[] {
+  const examples: FptN3TangoExample[] = [];
+  const seen = new Set<string>();
+  const candidates = [
+    ...(card.example ? [{ jp: card.example, vi: card.exampleVi ?? "" }] : []),
+    ...(card.additionalExamples ?? []),
+  ];
+  for (const example of candidates) {
+    const jp = example.jp.trim();
+    if (!jp || seen.has(jp)) continue;
+    seen.add(jp);
+    examples.push({ jp, vi: example.vi.trim() });
+  }
+  return examples;
+}
+
+export function getVocabMnemonic(card: Pick<VocabCard, "word" | "sources" | "mnemonic">): string[] {
+  if (card.sources.includes("fpt-n3-tango")) {
+    const hint = FPT_N3_TANGO_MNEMONICS[card.word];
+    if (hint) return [hint];
+  }
+  return card.mnemonic;
+}
 
 export function countForSource(source: VocabSource): number {
   return ALL_VOCAB.filter((v) => v.sources.includes(source)).length;

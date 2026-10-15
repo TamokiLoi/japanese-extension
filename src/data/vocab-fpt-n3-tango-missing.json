@@ -2,7 +2,7 @@
   "meta": {
     "schemaVersion": "1.0.0",
     "generatedAt": "2026-10-14T00:00:00.000Z",
-    "counts": { "count": 162 },
+    "counts": { "count": 168 },
     "sources": {
       "fptN3Tango": {
         "name": "FPT N3 Tango missing-vocabulary supplement",
@@ -10,8 +10,8 @@
       }
     },
     "notes": [
-      "Supplementary records for the 162 source terms requested as absent from app ALL_VOCAB; source order and spellings are preserved.",
-      "Source spelling 客様 is retained as supplied; the more usual customer address is お客様 (おきゃくさま).",
+      "Supplementary records reconciled from the FPT-N3-Tango source list. Matching word+reading records are merged into existing cards (preserving their IDs); only terms without an existing match are added as new cards.",
+      "The source spelling 客様 is normalized to the standard Japanese card お客様 (おきゃくさま); the weekly source list remains unchanged.",
       "米 is read こめ here (rice); its reading is べい in compounds such as 米国.",
       "曲 is read きょく here (music piece); the source is ambiguous without context and can also be read まがり or まげる in other uses.",
       "Standalone 君 is read きみ here (you); it can also be the honorific suffix くん. ～君 is retained as a suffix item, read くん.",
@@ -66,7 +66,7 @@
     { "id": "fpt-n3-tango-missing-045", "word": "島国", "reading": "しまぐに", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "quốc đảo; nước đảo", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-046", "word": "お皿", "reading": "おさら", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "đĩa", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-047", "word": "閉店", "reading": "へいてん", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "đóng cửa hàng; giờ đóng cửa", "mnemonic": [], "example": null, "exampleVi": null },
-    { "id": "fpt-n3-tango-missing-048", "word": "客様", "reading": "きゃくさま", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "khách hàng; quý khách", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-048", "word": "お客様", "reading": "おきゃくさま", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "khách hàng; quý khách", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-049", "word": "神様", "reading": "かみさま", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "thần; vị thần", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-050", "word": "役員", "reading": "やくいん", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "lãnh đạo; thành viên ban quản lý", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-051", "word": "差出人", "reading": "さしだしにん", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "người gửi (thư, bưu phẩm)", "mnemonic": [], "example": null, "exampleVi": null },
@@ -180,6 +180,12 @@
     { "id": "fpt-n3-tango-missing-159", "word": "国際的", "reading": "こくさいてき", "level": "N3", "partOfSpeech": "Tính từ đuôi な", "hanViet": [], "meaningVi": "mang tính quốc tế", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-160", "word": "多忙", "reading": "たぼう", "level": "N3", "partOfSpeech": "Tính từ đuôi な", "hanViet": [], "meaningVi": "rất bận rộn", "mnemonic": [], "example": null, "exampleVi": null },
     { "id": "fpt-n3-tango-missing-161", "word": "忘年会", "reading": "ぼうねんかい", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "tiệc tất niên", "mnemonic": [], "example": null, "exampleVi": null },
-    { "id": "fpt-n3-tango-missing-162", "word": "労働者", "reading": "ろうどうしゃ", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "người lao động; công nhân", "mnemonic": [], "example": null, "exampleVi": null }
+    { "id": "fpt-n3-tango-missing-162", "word": "労働者", "reading": "ろうどうしゃ", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "người lao động; công nhân", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-163", "word": "食事", "reading": "しょくじ", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "bữa ăn; việc ăn uống", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-164", "word": "重要", "reading": "じゅうよう", "level": "N3", "partOfSpeech": "Tính từ đuôi な", "hanViet": [], "meaningVi": "quan trọng; thiết yếu", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-165", "word": "遅れる", "reading": "おくれる", "level": "N3", "partOfSpeech": "Động từ", "hanViet": [], "meaningVi": "đến muộn; bị trễ", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-166", "word": "適当", "reading": "てきとう", "level": "N3", "partOfSpeech": "Tính từ đuôi な", "hanViet": [], "meaningVi": "phù hợp; vừa đủ; qua loa (tùy ngữ cảnh)", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-167", "word": "例", "reading": "れい", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "ví dụ; trường hợp", "mnemonic": [], "example": null, "exampleVi": null },
+    { "id": "fpt-n3-tango-missing-168", "word": "宿泊", "reading": "しゅくはく", "level": "N3", "partOfSpeech": "Danh từ", "hanViet": [], "meaningVi": "việc lưu trú; nghỉ qua đêm", "mnemonic": [], "example": null, "exampleVi": null }
   ]
 }

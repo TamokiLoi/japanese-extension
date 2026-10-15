@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import {
   ALL_VOCAB,
+  getVocabExamples,
+  getVocabMnemonic,
   AVAILABLE_SOURCES as VOCAB_SOURCES,
   SOURCE_LABELS as VOCAB_SOURCE_LABELS,
   type VocabCard,
@@ -26,6 +28,7 @@ import {
 } from "../../popup/bunpoState.ts";
 import type { BunpoStudyItem } from "../../popup/bunpoCatalog.ts";
 import type { Kanji, JlptLevel } from "../../types/kanji.ts";
+import { formatHanViet } from "../../hanVietFormat.ts";
 import { KANJI_STUDY_SETS } from "../../data/kanjiStudySets.ts";
 import {
   loadFlashcardProgress,
@@ -107,7 +110,9 @@ const FPT_WORD_CARDS = new Map(
 function toVocabFlashcard(card: VocabCard): FlashcardItem {
   const details = [
     card.partOfSpeech || "",
-    card.hanViet.length > 0 ? "Hán Việt: " + card.hanViet.join(" · ") : "",
+    card.hanViet.length > 0 ? "Hán Việt: " + formatHanViet(card.hanViet) : "",
+    ...getVocabMnemonic(card).map((hint) => "Mẹo nhớ: " + hint),
+    ...getVocabExamples(card).map((example, index) => `Ví dụ ${index + 1}: ${example.jp}${example.vi ? " — " + example.vi : ""}`),
   ].filter(Boolean);
   return {
     id: "vocab:" + card.id,
@@ -126,6 +131,7 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
 
 function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
   const details = [
+    kanji.mnemonic ? "Mẹo nhớ: " + kanji.mnemonic : "",
     kanji.readings.on.length > 0 ? "Âm On: " + kanji.readings.on.join("、") : "",
     kanji.readings.kun.length > 0 ? "Âm Kun: " + kanji.readings.kun.join("、") : "",
     kanji.words.length > 0 ? "Từ ví dụ: " + kanji.words.slice(0, 4).join("、") : "",
@@ -136,7 +142,7 @@ function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
     front: kanji.character,
     frontLabel: "Kanji",
     primaryLabel: "Hán Việt",
-    primary: kanji.hanViet.join(" · ") || "Chưa có Hán Việt",
+    primary: formatHanViet(kanji.hanViet, "Chưa có Hán Việt"),
     secondaryLabel: "Nghĩa",
     secondary: kanji.meanings.vi.join(" · ") || "Chưa có nghĩa",
     details,
@@ -217,7 +223,9 @@ function fptCardsFor(words: FptWeekDataset["words"]): FlashcardItem[] {
   return words.flatMap(({ word }) => {
     if (seen.has(word)) return [];
     seen.add(word);
-    const card = FPT_WORD_CARDS.get(word);
+    // The source list has the malformed spelling 客様; the vocabulary card
+    // uses the standard お客様, but both should resolve to the same item.
+    const card = FPT_WORD_CARDS.get(word) ?? (word === "客様" ? FPT_WORD_CARDS.get("お客様") : undefined);
     return card ? [toVocabFlashcard(card)] : [];
   });
 }
@@ -397,10 +405,14 @@ export function FlashcardScreen() {
   const [completed, setCompleted] = useState(false);
   const [shuffleOnStart, setShuffleOnStart] = useState(false);
   const [flashcardCount, setFlashcardCount] = useState<number | "all">(20);
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  // Start a study session with items still needing review; mastered cards
+  // remain available through the explicit "Tất cả" / "Đã thuộc" filters.
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("not-yet");
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress>({});
   const [progressLoaded, setProgressLoaded] = useState(false);
   const [progressSaveFailed, setProgressSaveFailed] = useState(false);
+  const [dragOffsetX, setDragOffsetX] = useState(0);
+  const [swipeExitStatus, setSwipeExitStatus] = useState<FlashcardStatus | null>(null);
   const progressRef = useRef<FlashcardProgress>({});
   const saveQueueRef = useRef<Promise<void>>(Promise.resolve());
   const pointerStartXRef = useRef<number | null>(null);
@@ -517,7 +529,7 @@ export function FlashcardScreen() {
           subtitle={sessionDeck.title + " · " + (index + 1) + " / " + cards.length}
           icon={{ img: "icon-vocab.png", bg: "#ffedd5" }}
           action={
-            <Button type="button" variant="outline" onClick={leaveSession}>
+            <Button type="button" variant="outline" disabled={Boolean(swipeExitStatus)} onClick={leaveSession}>
               <ArrowLeft size={15} /> <span className="hidden sm:inline">Chọn phần khác</span>
             </Button>
           }
@@ -535,40 +547,79 @@ export function FlashcardScreen() {
           <div
             className="mt-5 touch-pan-y"
             onPointerDown={(event) => {
-              if (event.button !== 0) return;
+              if (event.button !== 0 || swipeExitStatus) return;
               pointerStartXRef.current = event.clientX;
+              setDragOffsetX(0);
               event.currentTarget.setPointerCapture(event.pointerId);
+            }}
+            onPointerMove={(event) => {
+              const startX = pointerStartXRef.current;
+              if (!revealed || startX === null || swipeExitStatus) return;
+              const offset = Math.max(-120, Math.min(120, event.clientX - startX));
+              setDragOffsetX(offset);
             }}
             onPointerUp={(event) => {
               const startX = pointerStartXRef.current;
               pointerStartXRef.current = null;
-              if (!revealed || startX === null) return;
+              if (!revealed || startX === null || swipeExitStatus) {
+                setDragOffsetX(0);
+                return;
+              }
               const distance = event.clientX - startX;
-              if (Math.abs(distance) < 72) return;
+              if (Math.abs(distance) < 72) {
+                setDragOffsetX(0);
+                return;
+              }
               suppressCardClickRef.current = true;
               window.setTimeout(() => {
                 suppressCardClickRef.current = false;
-              }, 350);
-              markCurrent(distance > 0 ? "known" : "not-yet");
+              }, 500);
+              setDragOffsetX(Math.max(-120, Math.min(120, distance)));
+              setSwipeExitStatus(distance > 0 ? "known" : "not-yet");
             }}
             onPointerCancel={() => {
               pointerStartXRef.current = null;
+              setDragOffsetX(0);
             }}
           >
             <button
               type="button"
+              disabled={Boolean(swipeExitStatus)}
               aria-pressed={revealed}
+              onAnimationEnd={(event) => {
+                if (event.target !== event.currentTarget || !swipeExitStatus) return;
+                const status = swipeExitStatus;
+                setSwipeExitStatus(null);
+                setDragOffsetX(0);
+                markCurrent(status);
+              }}
               onClick={() => {
-                if (suppressCardClickRef.current) {
+                if (suppressCardClickRef.current || swipeExitStatus) {
                   suppressCardClickRef.current = false;
                   return;
                 }
                 setRevealed((value) => !value);
               }}
-              className="flex min-h-[min(58vh,420px)] w-full flex-col items-center justify-center rounded-3xl border border-rose-100 bg-gradient-to-br from-white via-rose-50 to-orange-50 px-5 py-8 text-center shadow-sm transition hover:border-rose-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-rose-100"
+              style={{
+                "--flashcard-drag-x": `${dragOffsetX}px`,
+                "--flashcard-drag-angle": `${dragOffsetX * 0.08}deg`,
+              } as CSSProperties}
+              className={[
+                "flashcard-swipe-card flashcard-flip-scene relative block w-full rounded-3xl bg-transparent p-0 text-center focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-rose-100",
+                dragOffsetX !== 0 && !swipeExitStatus ? "flashcard-swipe-dragging" : "",
+                swipeExitStatus === "known" ? "flashcard-swipe-exit-right" : "",
+                swipeExitStatus === "not-yet" ? "flashcard-swipe-exit-left" : "",
+              ].filter(Boolean).join(" ")}
             >
-              {revealed ? (
-                <>
+              <span className={`flashcard-flip-inner${revealed ? " is-revealed" : ""}`}>
+                <span aria-hidden={revealed} className="flashcard-face flashcard-face-front">
+                  <span className="text-xs font-semibold tracking-[0.18em] text-neutral-400 uppercase">{current.frontLabel}</span>
+                  <span className="mt-5 text-5xl font-bold text-neutral-800 sm:text-6xl">{current.front}</span>
+                  <span className="mt-7 rounded-full bg-white/80 px-4 py-2 text-sm text-neutral-500 shadow-sm">
+                    Tự nhớ đáp án rồi chạm để lật thẻ
+                  </span>
+                </span>
+                <span aria-hidden={!revealed} className="flashcard-face flashcard-face-back">
                   <span className="text-xs font-semibold tracking-[0.18em] text-neutral-400 uppercase">{current.primaryLabel}</span>
                   <span className="mt-3 max-w-2xl text-2xl font-bold text-rose-600 sm:text-3xl">{current.primary}</span>
                   {current.secondary ? (
@@ -579,21 +630,24 @@ export function FlashcardScreen() {
                     </>
                   ) : null}
                   {current.details.length > 0 ? (
-                    <div className="mt-4 max-w-2xl space-y-1.5 text-left text-sm leading-relaxed text-neutral-600">
-                      {current.details.map((detail, detailIndex) => <p key={detailIndex}>{detail}</p>)}
-                    </div>
+                    <span className="mt-4 block max-w-2xl space-y-1.5 text-left text-sm leading-relaxed text-neutral-600">
+                      {current.details.map((detail, detailIndex) => <span key={detailIndex} className="block">{detail}</span>)}
+                    </span>
                   ) : null}
                   <span className="mt-7 text-xs text-neutral-400">Vuốt phải: đã thuộc · Vuốt trái: cần ôn</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-xs font-semibold tracking-[0.18em] text-neutral-400 uppercase">{current.frontLabel}</span>
-                  <span className="mt-5 text-5xl font-bold text-neutral-800 sm:text-6xl">{current.front}</span>
-                  <span className="mt-7 rounded-full bg-white/80 px-4 py-2 text-sm text-neutral-500 shadow-sm">
-                    Tự nhớ đáp án rồi chạm để lật thẻ
-                  </span>
-                </>
-              )}
+                </span>
+              </span>
+              {Math.abs(dragOffsetX) > 16 ? (
+                <span
+                  aria-hidden="true"
+                  style={{ opacity: Math.min(1, Math.abs(dragOffsetX) / 90) }}
+                  className={dragOffsetX > 0
+                    ? "pointer-events-none absolute left-5 top-5 z-10 rounded-xl border-2 border-emerald-500 px-3 py-1.5 text-lg font-bold text-emerald-600"
+                    : "pointer-events-none absolute right-5 top-5 z-10 rounded-xl border-2 border-amber-500 px-3 py-1.5 text-lg font-bold text-amber-600"}
+                >
+                  {dragOffsetX > 0 ? "✓ ĐÃ THUỘC" : "CẦN ÔN ✕"}
+                </span>
+              ) : null}
             </button>
           </div>
 
@@ -624,22 +678,22 @@ export function FlashcardScreen() {
           ) : null}
 
           <div className="mt-4 flex items-center justify-between gap-2">
-            <Button type="button" variant="outline" disabled={index === 0} onClick={previousCard}>
+            <Button type="button" variant="outline" disabled={index === 0 || Boolean(swipeExitStatus)} onClick={previousCard}>
               <ArrowLeft size={15} /> Trước
             </Button>
-            <Button type="button" variant={revealed ? "default" : "secondary"} onClick={() => setRevealed(true)}>
+            <Button type="button" variant={revealed ? "default" : "secondary"} disabled={Boolean(swipeExitStatus)} onClick={() => setRevealed(true)}>
               <BookOpen size={15} /> {revealed ? "Đã xem đáp án" : "Hiện đáp án"}
             </Button>
-            <Button type="button" disabled={!revealed || completed} onClick={nextCard}>
+            <Button type="button" disabled={!revealed || completed || Boolean(swipeExitStatus)} onClick={nextCard}>
               {index === cards.length - 1 ? <><Check size={15} /> Hoàn tất</> : <>Tiếp <ArrowRight size={15} /></>}
             </Button>
           </div>
           {revealed && !completed ? (
             <div className="mt-4 grid grid-cols-2 gap-3">
-              <Button type="button" variant="outline" className="border-amber-200 text-amber-700 hover:bg-amber-50" onClick={() => markCurrent("not-yet")}>
+              <Button type="button" variant="outline" disabled={Boolean(swipeExitStatus)} className="border-amber-200 text-amber-700 hover:bg-amber-50" onClick={() => markCurrent("not-yet")}>
                 <XCircle size={16} /> Chưa thuộc
               </Button>
-              <Button type="button" className="bg-emerald-600 text-white hover:bg-emerald-700" onClick={() => markCurrent("known")}>
+              <Button type="button" disabled={Boolean(swipeExitStatus)} className="bg-emerald-600 text-white hover:bg-emerald-700" onClick={() => markCurrent("known")}>
                 <CheckCircle2 size={16} /> Đã thuộc
               </Button>
             </div>
