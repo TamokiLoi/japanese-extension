@@ -65,6 +65,7 @@ interface FlashcardItem {
   primary: string;
   secondaryLabel?: string;
   secondary?: string;
+  backReference?: string;
   memoryHints: string[];
   details: string[];
   levels: string[];
@@ -151,6 +152,7 @@ function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
     primary: formatHanViet(kanji.hanViet, "Chưa có Hán Việt"),
     secondaryLabel: "Nghĩa",
     secondary: kanji.meanings.vi.join(" · ") || "Chưa có nghĩa",
+    backReference: kanji.character,
     memoryHints: mnemonic ? [mnemonic] : [],
     details,
     levels: [kanji.level],
@@ -653,10 +655,17 @@ export function FlashcardScreen() {
                     </>
                   ) : null}
                   {current.memoryHints.length > 0 ? (
-                    <span className="mt-4 block w-full max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-left shadow-sm">
+                    <span className="flashcard-memory-hint mt-4 block w-full max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-left shadow-sm">
                       <span className="block text-[11px] font-bold tracking-[0.12em] text-amber-800 uppercase">Gợi ý ghi nhớ</span>
                       {current.memoryHints.map((hint, hintIndex) => (
-                        <span key={hintIndex} className="mt-1.5 block text-sm leading-relaxed text-amber-950">{hint}</span>
+                        <span key={hintIndex} className="mt-1.5 block text-sm leading-relaxed text-amber-950">
+                          {hint}
+                          {hintIndex === current.memoryHints.length - 1 && current.backReference ? (
+                            <strong aria-label={`Kanji gốc: ${current.backReference}`} className="ml-1 inline-block text-xl font-bold leading-none text-rose-700">
+                              {current.backReference}
+                            </strong>
+                          ) : null}
+                        </span>
                       ))}
                     </span>
                   ) : null}
