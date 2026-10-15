@@ -468,7 +468,14 @@ export function getVocabMnemonic(card: Pick<VocabCard, "word" | "sources" | "mne
     const hint = FPT_N3_TANGO_MNEMONICS[card.word];
     if (hint) return [hint];
   }
-  return card.mnemonic;
+  // A couple of older vocabulary records stored this as a single string
+  // despite the schema requiring an array. Normalize defensively so one bad
+  // mnemonic cannot prevent the entire Flashcard screen from rendering.
+  const mnemonic: unknown = card.mnemonic;
+  if (Array.isArray(mnemonic)) {
+    return mnemonic.filter((hint): hint is string => typeof hint === "string" && hint.trim().length > 0);
+  }
+  return typeof mnemonic === "string" && mnemonic.trim() ? [mnemonic] : [];
 }
 
 export function countForSource(source: VocabSource): number {

@@ -233,6 +233,9 @@ export async function markViewed(id: string): Promise<void> {
   cur.lastSeenAt = Date.now();
   map[id] = cur;
   await saveProgressMap(map);
+  // Viewing a study card is a real learning interaction too (including
+  // flashcards), so keep the homepage streak in sync with its daily activity.
+  await markStudiedToday();
 }
 
 // "flagged" (cần ôn lại) and "mastered" (đã thuộc) are mutually exclusive --

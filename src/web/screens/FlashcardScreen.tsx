@@ -30,6 +30,7 @@ import type { BunpoStudyItem } from "../../popup/bunpoCatalog.ts";
 import type { Kanji, JlptLevel } from "../../types/kanji.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { KANJI_STUDY_SETS } from "../../data/kanjiStudySets.ts";
+import { markViewed } from "../../popup/progressState.ts";
 import {
   loadFlashcardProgress,
   saveFlashcardProgress,
@@ -55,6 +56,8 @@ type StatusFilter = "all" | FlashcardStatus;
 
 interface FlashcardItem {
   id: string;
+  /** Shared progress key used by the vocabulary/kanji/grammar study screens. */
+  progressId: string;
   statusKey: string;
   front: string;
   frontLabel: string;
@@ -116,6 +119,7 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
   ].filter(Boolean);
   return {
     id: "vocab:" + card.id,
+    progressId: card.id,
     statusKey: "vocab:" + card.id,
     front: card.word,
     frontLabel: "Từ vựng",
@@ -138,6 +142,7 @@ function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
   ].filter(Boolean);
   return {
     id: "kanji:" + kanji.id,
+    progressId: kanji.id,
     statusKey: "kanji:" + kanji.id,
     front: kanji.character,
     frontLabel: "Kanji",
@@ -159,6 +164,7 @@ function toGrammarFlashcard(item: BunpoStudyItem): FlashcardItem {
   ].filter(Boolean);
   return {
     id: "grammar:" + item.id,
+    progressId: item.id,
     statusKey: "grammar:" + item.id,
     front: item.pattern,
     frontLabel: "Ngữ pháp",
@@ -444,6 +450,13 @@ export function FlashcardScreen() {
     : categoryCounts;
   const current = cards[index];
   const currentStatus = current ? flashcardProgress[current.statusKey] : undefined;
+
+  // Reveal is the meaningful study action: it updates the shared item-level
+  // activity used by Home and the common study-day log used by the streak.
+  useEffect(() => {
+    if (!revealed || !current) return;
+    void markViewed(current.progressId);
+  }, [current?.progressId, revealed]);
 
   function chooseCategory(nextCategory: FlashcardCategoryId) {
     setCategoryId(nextCategory);
