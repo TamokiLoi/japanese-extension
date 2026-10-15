@@ -29,7 +29,7 @@ import {
 import type { BunpoStudyItem } from "../../popup/bunpoCatalog.ts";
 import type { Kanji, JlptLevel } from "../../types/kanji.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
-import { KANJI_STUDY_SETS } from "../../data/kanjiStudySets.ts";
+import { FPT_SOMATOME_MNEMONICS, KANJI_STUDY_SETS } from "../../data/kanjiStudySets.ts";
 import { markViewed } from "../../popup/progressState.ts";
 import {
   loadFlashcardProgress,
@@ -65,6 +65,7 @@ interface FlashcardItem {
   primary: string;
   secondaryLabel?: string;
   secondary?: string;
+  memoryHints: string[];
   details: string[];
   levels: string[];
   chapters: { number: number; title?: string }[];
@@ -114,7 +115,6 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
   const details = [
     card.partOfSpeech || "",
     card.hanViet.length > 0 ? "Hán Việt: " + formatHanViet(card.hanViet) : "",
-    ...getVocabMnemonic(card).map((hint) => "Mẹo nhớ: " + hint),
     ...getVocabExamples(card).map((example, index) => `Ví dụ ${index + 1}: ${example.jp}${example.vi ? " — " + example.vi : ""}`),
   ].filter(Boolean);
   return {
@@ -127,6 +127,7 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
     primary: card.reading || "Chưa có cách đọc",
     secondaryLabel: "Nghĩa",
     secondary: card.meaningVi || "Chưa có nghĩa",
+    memoryHints: getVocabMnemonic(card),
     details,
     levels: [card.level],
     chapters: [],
@@ -134,8 +135,8 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
 }
 
 function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
+  const mnemonic = kanji.mnemonic?.trim() || FPT_SOMATOME_MNEMONICS[kanji.character as keyof typeof FPT_SOMATOME_MNEMONICS];
   const details = [
-    kanji.mnemonic ? "Mẹo nhớ: " + kanji.mnemonic : "",
     kanji.readings.on.length > 0 ? "Âm On: " + kanji.readings.on.join("、") : "",
     kanji.readings.kun.length > 0 ? "Âm Kun: " + kanji.readings.kun.join("、") : "",
     kanji.words.length > 0 ? "Từ ví dụ: " + kanji.words.slice(0, 4).join("、") : "",
@@ -150,6 +151,7 @@ function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
     primary: formatHanViet(kanji.hanViet, "Chưa có Hán Việt"),
     secondaryLabel: "Nghĩa",
     secondary: kanji.meanings.vi.join(" · ") || "Chưa có nghĩa",
+    memoryHints: mnemonic ? [mnemonic] : [],
     details,
     levels: [kanji.level],
     chapters: [],
@@ -172,6 +174,7 @@ function toGrammarFlashcard(item: BunpoStudyItem): FlashcardItem {
     primary: item.meaningVi || "Chưa có nghĩa",
     secondaryLabel: item.sense.formula ? "Cấu trúc" : undefined,
     secondary: item.sense.formula,
+    memoryHints: [],
     details,
     levels: item.levels,
     chapters: item.chapters.map((chapter) => ({ number: chapter.chapter, title: chapter.chapterTitle })),
@@ -408,6 +411,7 @@ export function FlashcardScreen() {
   const [cards, setCards] = useState<FlashcardItem[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const [animateFlip, setAnimateFlip] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [shuffleOnStart, setShuffleOnStart] = useState(false);
   const [flashcardCount, setFlashcardCount] = useState<number | "all">(20);
@@ -478,6 +482,7 @@ export function FlashcardScreen() {
     setCards(cardsForSession);
     setIndex(0);
     setRevealed(false);
+    setAnimateFlip(false);
     setCompleted(false);
   }
 
@@ -486,6 +491,7 @@ export function FlashcardScreen() {
     setCards([]);
     setIndex(0);
     setRevealed(false);
+    setAnimateFlip(false);
     setCompleted(false);
   }
 
@@ -500,12 +506,14 @@ export function FlashcardScreen() {
       setCompleted(true);
       return;
     }
+    setAnimateFlip(false);
     setIndex((value) => value + 1);
     setRevealed(false);
   }
 
   function previousCard() {
     if (index === 0) return;
+    setAnimateFlip(false);
     setIndex((value) => value - 1);
     setRevealed(false);
     setCompleted(false);
@@ -527,6 +535,7 @@ export function FlashcardScreen() {
       setCompleted(true);
       return;
     }
+    setAnimateFlip(false);
     setIndex((value) => value + 1);
     setRevealed(false);
   }
@@ -611,6 +620,7 @@ export function FlashcardScreen() {
                   suppressCardClickRef.current = false;
                   return;
                 }
+                setAnimateFlip(true);
                 setRevealed((value) => !value);
               }}
               style={{
@@ -624,7 +634,7 @@ export function FlashcardScreen() {
                 swipeExitStatus === "not-yet" ? "flashcard-swipe-exit-left" : "",
               ].filter(Boolean).join(" ")}
             >
-              <span className={`flashcard-flip-inner${revealed ? " is-revealed" : ""}`}>
+              <span className={`flashcard-flip-inner${revealed ? " is-revealed" : ""}${animateFlip ? "" : " flashcard-flip-no-transition"}`}>
                 <span aria-hidden={revealed} className="flashcard-face flashcard-face-front">
                   <span className="text-xs font-semibold tracking-[0.18em] text-neutral-400 uppercase">{current.frontLabel}</span>
                   <span className="mt-5 text-5xl font-bold text-neutral-800 sm:text-6xl">{current.front}</span>
@@ -641,6 +651,14 @@ export function FlashcardScreen() {
                       <span className="mt-4 text-xs font-semibold tracking-[0.12em] text-neutral-400 uppercase">{current.secondaryLabel}</span>
                       <span className="mt-2 max-w-2xl text-lg font-semibold text-neutral-800">{current.secondary}</span>
                     </>
+                  ) : null}
+                  {current.memoryHints.length > 0 ? (
+                    <span className="mt-4 block w-full max-w-2xl rounded-2xl border border-amber-200 bg-amber-50/90 px-4 py-3 text-left shadow-sm">
+                      <span className="block text-[11px] font-bold tracking-[0.12em] text-amber-800 uppercase">Gợi ý ghi nhớ</span>
+                      {current.memoryHints.map((hint, hintIndex) => (
+                        <span key={hintIndex} className="mt-1.5 block text-sm leading-relaxed text-amber-950">{hint}</span>
+                      ))}
+                    </span>
                   ) : null}
                   {current.details.length > 0 ? (
                     <span className="mt-4 block max-w-2xl space-y-1.5 text-left text-sm leading-relaxed text-neutral-600">
@@ -694,7 +712,7 @@ export function FlashcardScreen() {
             <Button type="button" variant="outline" disabled={index === 0 || Boolean(swipeExitStatus)} onClick={previousCard}>
               <ArrowLeft size={15} /> Trước
             </Button>
-            <Button type="button" variant={revealed ? "default" : "secondary"} disabled={Boolean(swipeExitStatus)} onClick={() => setRevealed(true)}>
+            <Button type="button" variant={revealed ? "default" : "secondary"} disabled={Boolean(swipeExitStatus)} onClick={() => { setAnimateFlip(true); setRevealed(true); }}>
               <BookOpen size={15} /> {revealed ? "Đã xem đáp án" : "Hiện đáp án"}
             </Button>
             <Button type="button" disabled={!revealed || completed || Boolean(swipeExitStatus)} onClick={nextCard}>

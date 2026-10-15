@@ -35,6 +35,19 @@ export function getFptStudySetIds(characters: readonly FptKanjiCharacter[]): Fpt
   return characters.map((character) => toCanonicalKanjiId(character));
 }
 
+/** Mnemonic hints for FPT Soumatome kanji missing a hint in the core dataset. */
+export const FPT_SOMATOME_MNEMONICS = {
+  救: "Khi ai đó CẦU 求 cứu, hãy hành động 攵 để ra tay CỨU giúp.",
+  費: "Tiền 貝 bỏ ra cho một việc chính là khoản CHI PHÍ; tiêu nhiều thì hao tốn.",
+  製: "Dùng quy cách 制 để làm ra áo quần 衣 và sản phẩm: CHẾ TẠO.",
+  賞: "Trao vật quý hoặc tiền 貝 để KHEN THƯỞNG người xứng đáng.",
+  停: "Người 亻 dừng chân ở đình 亭 nghỉ một lát: 停 là DỪNG.",
+  粉: "Gạo 米 được chia, nghiền thành hạt nhỏ 分 để thành BỘT 粉.",
+  告: "Hình dung dùng miệng 口 loan báo điều mình biết: 告 là THÔNG BÁO.",
+  型: "Đất 土 được nặn theo khuôn để tạo dáng cố định: KIỂU, HÌNH MẪU.",
+  難: "Hình dung một con chim 隹 mắc giữa bụi rậm, loay hoay mãi mới thoát ra — thật KHÓ KHĂN.",
+} as const satisfies Partial<Record<FptSomatomeKanjiCharacter, string>>;
+
 export const KANJI_STUDY_SETS = {
   "FPT-Soumatome-334": {
     label: "FPT-Soumatome-334",
