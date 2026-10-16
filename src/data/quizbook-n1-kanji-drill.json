@@ -628,7 +628,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "涯透",
+            "furigana": "しんとう"
+          }
+        ],
         [
           {
             "text": "浸透",
@@ -813,7 +818,12 @@
             "furigana": "べんしょう"
           }
         ],
-        null,
+        [
+          {
+            "text": "弁併",
+            "furigana": "べんしょう"
+          }
+        ],
         [
           {
             "text": "弁",
@@ -913,7 +923,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "濡した",
+            "furigana": "ぬらした"
+          }
+        ],
         [
           {
             "text": "濡らし",
@@ -1031,7 +1046,12 @@
             "furigana": null
           }
         ],
-        null
+        [
+          {
+            "text": "渇わいた",
+            "furigana": "かわいた"
+          }
+        ]
       ]
     },
     {
@@ -1057,7 +1077,12 @@
             "furigana": "ただよって"
           }
         ],
-        null,
+        [
+          {
+            "text": "漬って",
+            "furigana": "ただよって"
+          }
+        ],
         [
           {
             "text": "漏っ",
@@ -1185,7 +1210,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "僅い",
+            "furigana": "ならい"
+          }
+        ],
         [
           {
             "text": "俵",
@@ -1354,14 +1384,24 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "沁く",
+            "furigana": "ようやく"
+          }
+        ],
         [
           {
             "text": "漸く",
             "furigana": "ようやく"
           }
         ],
-        null,
+        [
+          {
+            "text": "沁やく",
+            "furigana": "ようやく"
+          }
+        ],
         [
           {
             "text": "漸",
@@ -1391,9 +1431,24 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
-        null,
-        null,
+        [
+          {
+            "text": "ご無汰沢",
+            "furigana": "ごぶさた"
+          }
+        ],
+        [
+          {
+            "text": "ご無汰沙",
+            "furigana": "ごぶさた"
+          }
+        ],
+        [
+          {
+            "text": "ご無沢汰",
+            "furigana": "ごぶさた"
+          }
+        ],
         [
           {
             "text": "ご無沙汰",
@@ -1487,7 +1542,13 @@
       "correctIndex": 1,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "渦",
+          "furigana": "うず"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0022",
@@ -1747,7 +1808,12 @@
             "furigana": "てつや"
           }
         ],
-        null
+        [
+          {
+            "text": "撤夜",
+            "furigana": "てつや"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -1795,9 +1861,24 @@
             "furigana": "めつぼう"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "漂亡",
+            "furigana": "めつぼう"
+          }
+        ],
+        [
+          {
+            "text": "漠亡",
+            "furigana": "めつぼう"
+          }
+        ],
+        [
+          {
+            "text": "没亡",
+            "furigana": "めつぼう"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -1857,7 +1938,12 @@
             "furigana": "ほり"
           }
         ],
-        null
+        [
+          {
+            "text": "活併",
+            "furigana": "がっぺい"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -1925,7 +2011,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "反濫",
+            "furigana": "はんらん"
+          }
+        ],
         [
           {
             "text": "氾濫",
@@ -2013,8 +2104,18 @@
             "furigana": "しゅう"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "沈修",
+            "furigana": "ぼっしゅう"
+          }
+        ],
+        [
+          {
+            "text": "沈拾",
+            "furigana": "ぼっしゅう"
+          }
+        ]
       ]
     },
     {
@@ -2107,14 +2208,24 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "抜採",
+            "furigana": "ばっさい"
+          }
+        ],
         [
           {
             "text": "伐採",
             "furigana": "ばっさい"
           }
         ],
-        null,
+        [
+          {
+            "text": "抜裁",
+            "furigana": "ばっさい"
+          }
+        ],
         [
           {
             "text": "伐",
@@ -2172,7 +2283,12 @@
             "furigana": "ごえい"
           }
         ],
-        null,
+        [
+          {
+            "text": "護衡",
+            "furigana": "ごえい"
+          }
+        ],
         [
           {
             "text": "御",
@@ -3237,9 +3353,24 @@
         }
       ],
       "optionsFurigana": [
-        null,
-        null,
-        null,
+        [
+          {
+            "text": "稽せぐ",
+            "furigana": "かせぐ"
+          }
+        ],
+        [
+          {
+            "text": "稼せぐ",
+            "furigana": "かせぐ"
+          }
+        ],
+        [
+          {
+            "text": "稽ぐ",
+            "furigana": "かせぐ"
+          }
+        ],
         [
           {
             "text": "稼ぐ",
@@ -3307,7 +3438,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "肹える",
+            "furigana": "こえる"
+          }
+        ],
         [
           {
             "text": "肥える",
@@ -3609,7 +3745,12 @@
             "furigana": "びょうとう"
           }
         ],
-        null,
+        [
+          {
+            "text": "病椅",
+            "furigana": "びょうとう"
+          }
+        ],
         [
           {
             "text": "病",
@@ -3788,7 +3929,12 @@
             "furigana": "ばっすい"
           }
         ],
-        null,
+        [
+          {
+            "text": "抜粘",
+            "furigana": "ばっすい"
+          }
+        ],
         [
           {
             "text": "伐",
@@ -3849,7 +3995,13 @@
       "correctIndex": 1,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "桃",
+          "furigana": "もも"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0063",
@@ -3935,7 +4087,13 @@
       "correctIndex": 2,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "穂",
+          "furigana": "ほ"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0067",
@@ -3998,7 +4156,13 @@
       "correctIndex": 0,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "肺",
+          "furigana": "はい"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0070",
@@ -4046,7 +4210,12 @@
             "furigana": "きけん"
           }
         ],
-        null,
+        [
+          {
+            "text": "危権",
+            "furigana": "きけん"
+          }
+        ],
         [
           {
             "text": "貴",
@@ -4193,8 +4362,18 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
-        null,
+        [
+          {
+            "text": "慢要",
+            "furigana": "がいよう"
+          }
+        ],
+        [
+          {
+            "text": "慨要",
+            "furigana": "がいよう"
+          }
+        ],
         [
           {
             "text": "樹",
@@ -4248,15 +4427,30 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "裁培",
+            "furigana": "さいばい"
+          }
+        ],
         [
           {
             "text": "栽培",
             "furigana": "さいばい"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "載培",
+            "furigana": "さいばい"
+          }
+        ],
+        [
+          {
+            "text": "哉培",
+            "furigana": "さいばい"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -4381,7 +4575,12 @@
             "furigana": "てい"
           }
         ],
-        null,
+        [
+          {
+            "text": "風那",
+            "furigana": "かぜ"
+          }
+        ],
         [
           {
             "text": "風",
@@ -4453,7 +4652,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "租大ゴミ",
+            "furigana": "そだいゴミ"
+          }
+        ],
         [
           {
             "text": "粗大",
@@ -4464,7 +4668,12 @@
             "furigana": null
           }
         ],
-        null
+        [
+          {
+            "text": "阻大ゴミ",
+            "furigana": "そだいゴミ"
+          }
+        ]
       ]
     },
     {
@@ -4579,7 +4788,12 @@
             "furigana": "くうらん"
           }
         ],
-        null
+        [
+          {
+            "text": "空椅",
+            "furigana": "くうらん"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -5322,7 +5536,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "撤く",
+            "furigana": "まく"
+          }
+        ],
         [
           {
             "text": "撒く",
@@ -5364,7 +5583,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "撫る",
+            "furigana": "なでる"
+          }
+        ],
         [
           {
             "text": "触る",
@@ -5460,7 +5684,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "恨しい",
+            "furigana": "おしい"
+          }
+        ],
         [
           {
             "text": "惜",
@@ -5471,8 +5700,18 @@
             "furigana": null
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "恨い",
+            "furigana": "おしい"
+          }
+        ],
+        [
+          {
+            "text": "惜い",
+            "furigana": "おしい"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -5699,14 +5938,24 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "惜じめ",
+            "furigana": "みじめ"
+          }
+        ],
         [
           {
             "text": "惨め",
             "furigana": "みじめ"
           }
         ],
-        null
+        [
+          {
+            "text": "惜め",
+            "furigana": "みじめ"
+          }
+        ]
       ]
     },
     {
@@ -5732,7 +5981,12 @@
             "furigana": "こころがける"
           }
         ],
-        null,
+        [
+          {
+            "text": "心搬ける",
+            "furigana": "こころがける"
+          }
+        ],
         [
           {
             "text": "心",
@@ -5743,7 +5997,12 @@
             "furigana": "かかる"
           }
         ],
-        null
+        [
+          {
+            "text": "心搬る",
+            "furigana": "こころがける"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -5811,9 +6070,24 @@
             "furigana": "あいさつ"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "拶挨",
+            "furigana": "あいさつ"
+          }
+        ],
+        [
+          {
+            "text": "撲拶",
+            "furigana": "あいさつ"
+          }
+        ],
+        [
+          {
+            "text": "拶撲",
+            "furigana": "あいさつ"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -6163,7 +6437,12 @@
             "furigana": "じょう"
           }
         ],
-        null,
+        [
+          {
+            "text": "搭場",
+            "furigana": "とうじょう"
+          }
+        ],
         [
           {
             "text": "塔",
@@ -6283,7 +6562,13 @@
       "correctIndex": 2,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "鈴",
+          "furigana": "すず"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0106",
@@ -6369,7 +6654,13 @@
       "correctIndex": 1,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "塊",
+          "furigana": "かたまり"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0110",
@@ -6417,7 +6708,12 @@
             "furigana": "かくご"
           }
         ],
-        null,
+        [
+          {
+            "text": "覚惜",
+            "furigana": "かくご"
+          }
+        ],
         [
           {
             "text": "格",
@@ -6428,7 +6724,12 @@
             "furigana": "さとる"
           }
         ],
-        null
+        [
+          {
+            "text": "格惜",
+            "furigana": "かくご"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -6559,7 +6860,12 @@
             "furigana": "き"
           }
         ],
-        null,
+        [
+          {
+            "text": "飯炊器",
+            "furigana": "すいはんき"
+          }
+        ],
         [
           {
             "text": "飯",
@@ -6639,7 +6945,12 @@
             "furigana": "おも"
           }
         ],
-        null,
+        [
+          {
+            "text": "慢重",
+            "furigana": "しんちょう"
+          }
+        ],
         [
           {
             "text": "慎重",
@@ -6709,9 +7020,24 @@
         }
       ],
       "optionsFurigana": [
-        null,
-        null,
-        null,
+        [
+          {
+            "text": "遊択",
+            "furigana": "ゆうかい"
+          }
+        ],
+        [
+          {
+            "text": "誘択",
+            "furigana": "ゆうかい"
+          }
+        ],
+        [
+          {
+            "text": "遊拐",
+            "furigana": "ゆうかい"
+          }
+        ],
         [
           {
             "text": "誘拐",
@@ -6759,7 +7085,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "塾落",
+            "furigana": "ついらく"
+          }
+        ],
         [
           {
             "text": "墜落",
@@ -6890,7 +7221,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "指撫",
+            "furigana": "しき"
+          }
+        ],
         [
           {
             "text": "指揮",
@@ -6907,7 +7243,12 @@
             "furigana": "くく"
           }
         ],
-        null
+        [
+          {
+            "text": "指挿",
+            "furigana": "しき"
+          }
+        ]
       ]
     },
     {
@@ -7040,7 +7381,12 @@
             "furigana": "よう"
           }
         ],
-        null,
+        [
+          {
+            "text": "陪養",
+            "furigana": "ばいよう"
+          }
+        ],
         [
           {
             "text": "培養",
@@ -7710,7 +8056,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "該意",
+            "furigana": "せいい"
+          }
+        ],
         [
           {
             "text": "譜",
@@ -7860,15 +8211,30 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "甚はだしい",
+            "furigana": "はなはだしい"
+          }
+        ],
         [
           {
             "text": "甚だしい",
             "furigana": "はなはだしい"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "甚しい",
+            "furigana": "はなはだしい"
+          }
+        ],
+        [
+          {
+            "text": "甚い",
+            "furigana": "はなはだしい"
+          }
+        ]
       ]
     },
     {
@@ -7946,7 +8312,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "砕た",
+            "furigana": "くだけた"
+          }
+        ],
         [
           {
             "text": "砲",
@@ -8014,7 +8385,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "暫頭",
+            "furigana": "ぼうとう"
+          }
+        ],
         [
           {
             "text": "旨",
@@ -8060,15 +8436,30 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "訟訴",
+            "furigana": "そしょう"
+          }
+        ],
         [
           {
             "text": "訴訟",
             "furigana": "そしょう"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "訟託",
+            "furigana": "そしょう"
+          }
+        ],
+        [
+          {
+            "text": "託訟",
+            "furigana": "そしょう"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -8198,9 +8589,24 @@
             "furigana": "へいさ"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "閉鍵",
+            "furigana": "へいさ"
+          }
+        ],
+        [
+          {
+            "text": "閉錯",
+            "furigana": "へいさ"
+          }
+        ],
+        [
+          {
+            "text": "閉銘",
+            "furigana": "へいさ"
+          }
+        ]
       ]
     },
     {
@@ -8262,7 +8668,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "暫らく",
+            "furigana": "しばらく"
+          }
+        ],
         [
           {
             "text": "暫く",
@@ -8308,15 +8719,30 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "欺詐",
+            "furigana": "さぎ"
+          }
+        ],
         [
           {
             "text": "詐欺",
             "furigana": "さぎ"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "詐訴",
+            "furigana": "さぎ"
+          }
+        ],
+        [
+          {
+            "text": "訴欺",
+            "furigana": "さぎ"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -8812,8 +9238,18 @@
             "furigana": "がい"
           }
         ],
-        null,
-        null,
+        [
+          {
+            "text": "噴概",
+            "furigana": "ふんがい"
+          }
+        ],
+        [
+          {
+            "text": "噴慨",
+            "furigana": "ふんがい"
+          }
+        ],
         [
           {
             "text": "憤慨",
@@ -8869,7 +9305,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "間酩",
+            "furigana": "かんめい"
+          }
+        ],
         [
           {
             "text": "間",
@@ -8880,7 +9321,12 @@
             "furigana": "めい"
           }
         ],
-        null,
+        [
+          {
+            "text": "感酩",
+            "furigana": "かんめい"
+          }
+        ],
         [
           {
             "text": "感銘",
@@ -8940,7 +9386,12 @@
             "furigana": "せい"
           }
         ],
-        null,
+        [
+          {
+            "text": "棋正",
+            "furigana": "ていせい"
+          }
+        ],
         [
           {
             "text": "誇",
@@ -9215,7 +9666,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "用冒",
+            "furigana": "ようし"
+          }
+        ],
         [
           {
             "text": "用",
@@ -9226,7 +9682,12 @@
             "furigana": "むね"
           }
         ],
-        null,
+        [
+          {
+            "text": "要冒",
+            "furigana": "ようし"
+          }
+        ],
         [
           {
             "text": "要旨",
@@ -9394,9 +9855,24 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
-        null,
-        null,
+        [
+          {
+            "text": "施鍵",
+            "furigana": "せじょう"
+          }
+        ],
+        [
+          {
+            "text": "施鍋",
+            "furigana": "せじょう"
+          }
+        ],
+        [
+          {
+            "text": "施錯",
+            "furigana": "せじょう"
+          }
+        ],
         [
           {
             "text": "施錠",
@@ -10104,8 +10580,18 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
-        null,
+        [
+          {
+            "text": "軌働",
+            "furigana": "きどう"
+          }
+        ],
+        [
+          {
+            "text": "輝働",
+            "furigana": "きどう"
+          }
+        ],
         [
           {
             "text": "軌道",
@@ -10199,7 +10685,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "牲犠者",
+            "furigana": "ぎせいしゃ"
+          }
+        ],
         [
           {
             "text": "犠牲",
@@ -10323,7 +10814,12 @@
             "furigana": "はらい"
           }
         ],
-        null,
+        [
+          {
+            "text": "酵っ払い",
+            "furigana": "よっぱらい"
+          }
+        ],
         [
           {
             "text": "酸",
@@ -10461,7 +10957,12 @@
             "furigana": "おく"
           }
         ],
-        null
+        [
+          {
+            "text": "御馳送",
+            "furigana": "ごちそう"
+          }
+        ]
       ]
     },
     {
@@ -10501,7 +11002,12 @@
             "furigana": "じょう"
           }
         ],
-        null,
+        [
+          {
+            "text": "娠妊",
+            "furigana": "にんしん"
+          }
+        ],
         [
           {
             "text": "妊娠",
@@ -10611,7 +11117,12 @@
             "furigana": "はに"
           }
         ],
-        null
+        [
+          {
+            "text": "増稙",
+            "furigana": "ぞうしょく"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -10723,7 +11234,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "抱てきた",
+            "furigana": "あきてきた"
+          }
+        ],
         [
           {
             "text": "抱き",
@@ -10742,7 +11258,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "飽てきた",
+            "furigana": "あきてきた"
+          }
+        ],
         [
           {
             "text": "飽き",
@@ -10824,7 +11345,12 @@
             "furigana": "ゆうよ"
           }
         ],
-        null,
+        [
+          {
+            "text": "猛予",
+            "furigana": "ゆうよ"
+          }
+        ],
         [
           {
             "text": "猶",
@@ -10956,7 +11482,12 @@
             "furigana": "よしいえ"
           }
         ],
-        null,
+        [
+          {
+            "text": "酪能家",
+            "furigana": "らくのうか"
+          }
+        ],
         [
           {
             "text": "酷",
@@ -11046,15 +11577,30 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "餓飢",
+            "furigana": "きが"
+          }
+        ],
         [
           {
             "text": "飢餓",
             "furigana": "きが"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "餓飽",
+            "furigana": "きが"
+          }
+        ],
+        [
+          {
+            "text": "飽餓",
+            "furigana": "きが"
+          }
+        ]
       ]
     },
     {
@@ -11072,7 +11618,13 @@
       "correctIndex": 1,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "鯨",
+          "furigana": "くじら"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0182",
@@ -11135,7 +11687,13 @@
       "correctIndex": 0,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "峰",
+          "furigana": "みね"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0185",
@@ -11225,7 +11783,13 @@
       "correctIndex": 3,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "襟",
+          "furigana": "えり"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0189",
@@ -11316,7 +11880,12 @@
             "furigana": "か"
           }
         ],
-        null
+        [
+          {
+            "text": "酬化",
+            "furigana": "さんか"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -11354,15 +11923,30 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
-        null,
+        [
+          {
+            "text": "褒る",
+            "furigana": "ほめる"
+          }
+        ],
+        [
+          {
+            "text": "衰る",
+            "furigana": "ほめる"
+          }
+        ],
         [
           {
             "text": "褒める",
             "furigana": "ほめる"
           }
         ],
-        null
+        [
+          {
+            "text": "衰める",
+            "furigana": "ほめる"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -11396,7 +11980,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "好謄",
+            "furigana": "こうとう"
+          }
+        ],
         [
           {
             "text": "好",
@@ -11407,7 +11996,12 @@
             "furigana": "あが"
           }
         ],
-        null,
+        [
+          {
+            "text": "高謄",
+            "furigana": "こうとう"
+          }
+        ],
         [
           {
             "text": "高騰",
@@ -11540,8 +12134,18 @@
             "furigana": "がい"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "如害",
+            "furigana": "ぼうがい"
+          }
+        ],
+        [
+          {
+            "text": "娯害",
+            "furigana": "ぼうがい"
+          }
+        ]
       ]
     },
     {
@@ -11591,7 +12195,12 @@
             "furigana": null
           }
         ],
-        null
+        [
+          {
+            "text": "飢う",
+            "furigana": "かう"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -11645,7 +12254,12 @@
             "furigana": "じょ"
           }
         ],
-        null,
+        [
+          {
+            "text": "馳除",
+            "furigana": "くじょ"
+          }
+        ],
         [
           {
             "text": "駆除",
@@ -11705,7 +12319,12 @@
             "furigana": "さとく"
           }
         ],
-        null,
+        [
+          {
+            "text": "敢く",
+            "furigana": "しく"
+          }
+        ],
         [
           {
             "text": "敷く",
@@ -11818,14 +12437,24 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "餓る",
+            "furigana": "かざる"
+          }
+        ],
         [
           {
             "text": "飾る",
             "furigana": "かざる"
           }
         ],
-        null,
+        [
+          {
+            "text": "餓ざる",
+            "furigana": "かざる"
+          }
+        ],
         [
           {
             "text": "飾",
@@ -12652,7 +13281,12 @@
             "furigana": "まがい"
           }
         ],
-        null,
+        [
+          {
+            "text": "紛しい",
+            "furigana": "まぎらわしい"
+          }
+        ],
         [
           {
             "text": "紛わ",
@@ -13250,7 +13884,12 @@
             "furigana": "さる"
           }
         ],
-        null,
+        [
+          {
+            "text": "怪猷",
+            "furigana": "かいじゅう"
+          }
+        ],
         [
           {
             "text": "怪",
@@ -13350,6 +13989,32 @@
           "text": "。",
           "furigana": null
         }
+      ],
+      "optionsFurigana": [
+        [
+          {
+            "text": "殻",
+            "furigana": "から"
+          }
+        ],
+        [
+          {
+            "text": "殴",
+            "furigana": "なぐる"
+          }
+        ],
+        [
+          {
+            "text": "殿",
+            "furigana": "との"
+          }
+        ],
+        [
+          {
+            "text": "殷",
+            "furigana": "いん"
+          }
+        ]
       ]
     },
     {
@@ -13369,7 +14034,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "繊持",
+            "furigana": "いじ"
+          }
+        ],
         [
           {
             "text": "維持",
@@ -13592,7 +14262,13 @@
       "correctIndex": 2,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "蚊",
+          "furigana": "か"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0222",
@@ -13774,7 +14450,13 @@
       "correctIndex": 1,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "網",
+          "furigana": "あみ"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0230",
@@ -13871,14 +14553,24 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "縛",
+            "furigana": "しばる"
+          }
+        ],
         [
           {
             "text": "横",
             "furigana": "よこ"
           }
         ],
-        null,
+        [
+          {
+            "text": "緯",
+            "furigana": "い"
+          }
+        ],
         [
           {
             "text": "縦",
@@ -13952,7 +14644,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "開剖",
+            "furigana": "かいぼう"
+          }
+        ],
         [
           {
             "text": "開",
@@ -14095,7 +14792,12 @@
             "furigana": "きゃっか"
           }
         ],
-        null,
+        [
+          {
+            "text": "叩下",
+            "furigana": "きゃっか"
+          }
+        ],
         [
           {
             "text": "卸",
@@ -14204,7 +14906,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "逸致",
+            "furigana": "いっち"
+          }
+        ],
         [
           {
             "text": "逸",
@@ -14300,7 +15007,12 @@
             "furigana": "しげる"
           }
         ],
-        null,
+        [
+          {
+            "text": "模牽",
+            "furigana": "もさく"
+          }
+        ],
         [
           {
             "text": "模",
@@ -14342,9 +15054,24 @@
             "furigana": "きょうせい"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "僑正",
+            "furigana": "きょうせい"
+          }
+        ],
+        [
+          {
+            "text": "矯生",
+            "furigana": "きょうせい"
+          }
+        ],
+        [
+          {
+            "text": "僑生",
+            "furigana": "きょうせい"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -15254,7 +15981,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "耐た",
+            "furigana": "たえた"
+          }
+        ],
         [
           {
             "text": "斜",
@@ -15550,7 +16282,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "赴むく",
+            "furigana": "おもむく"
+          }
+        ],
         [
           {
             "text": "赴く",
@@ -15703,9 +16440,24 @@
             "furigana": "ちんもく"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "沈忌",
+            "furigana": "ちんもく"
+          }
+        ],
+        [
+          {
+            "text": "沈悠",
+            "furigana": "ちんもく"
+          }
+        ],
+        [
+          {
+            "text": "沈愁",
+            "furigana": "ちんもく"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -15865,15 +16617,30 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "爽わやか",
+            "furigana": "さわやか"
+          }
+        ],
         [
           {
             "text": "爽やか",
             "furigana": "さわやか"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "爽か",
+            "furigana": "さわやか"
+          }
+        ],
+        [
+          {
+            "text": "爽",
+            "furigana": "さわやか"
+          }
+        ]
       ]
     },
     {
@@ -16082,7 +16849,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "懲た",
+            "furigana": "こりた"
+          }
+        ],
         [
           {
             "text": "懸り",
@@ -16579,7 +17351,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "嘱択",
+            "furigana": "しょくたく"
+          }
+        ],
         [
           {
             "text": "嘱託",
@@ -16639,15 +17416,30 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "魅",
+            "furigana": "み"
+          }
+        ],
         [
           {
             "text": "魂",
             "furigana": "たましい"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "魔",
+            "furigana": "ま"
+          }
+        ],
+        [
+          {
+            "text": "鬼",
+            "furigana": "おに"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -16691,9 +17483,24 @@
             "furigana": "えんそう"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "演奉",
+            "furigana": "えんそう"
+          }
+        ],
+        [
+          {
+            "text": "演秦",
+            "furigana": "えんそう"
+          }
+        ],
+        [
+          {
+            "text": "演春",
+            "furigana": "えんそう"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -16755,14 +17562,24 @@
             "furigana": "つかう"
           }
         ],
-        null,
+        [
+          {
+            "text": "赴う",
+            "furigana": "はう"
+          }
+        ],
         [
           {
             "text": "這う",
             "furigana": "はう"
           }
         ],
-        null
+        [
+          {
+            "text": "廷う",
+            "furigana": "はう"
+          }
+        ]
       ]
     },
     {
@@ -16830,7 +17647,12 @@
             "furigana": "しょう"
           }
         ],
-        null
+        [
+          {
+            "text": "便償",
+            "furigana": "べんしょう"
+          }
+        ]
       ]
     },
     {
@@ -18092,7 +18914,12 @@
             "furigana": "がい"
           }
         ],
-        null
+        [
+          {
+            "text": "范華街",
+            "furigana": "はんかがい"
+          }
+        ]
       ]
     },
     {
@@ -18237,7 +19064,12 @@
             "furigana": "じる"
           }
         ],
-        null,
+        [
+          {
+            "text": "味會汁",
+            "furigana": "みそしる"
+          }
+        ],
         [
           {
             "text": "味",
@@ -18341,8 +19173,18 @@
             "furigana": "しつ"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "喪疾",
+            "furigana": "そうしつ"
+          }
+        ],
+        [
+          {
+            "text": "葬嫉",
+            "furigana": "そうしつ"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -18432,8 +19274,18 @@
             "furigana": "きょうじゅ"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "享授",
+            "furigana": "きょうじゅ"
+          }
+        ],
+        [
+          {
+            "text": "教受",
+            "furigana": "きょうじゅ"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -18679,9 +19531,24 @@
             "furigana": "うわさ"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "樽",
+            "furigana": "たる"
+          }
+        ],
+        [
+          {
+            "text": "尊",
+            "furigana": "そん"
+          }
+        ],
+        [
+          {
+            "text": "鱒",
+            "furigana": "ます"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -18913,7 +19780,13 @@
       "correctIndex": 1,
       "explanation": "",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        {
+          "text": "喪",
+          "furigana": "も"
+        }
+      ]
     },
     {
       "id": "kanji-drill-n1-q0310",
@@ -18991,7 +19864,12 @@
             "furigana": "かわ"
           }
         ],
-        null,
+        [
+          {
+            "text": "哀り革",
+            "furigana": "つりかわ"
+          }
+        ],
         [
           {
             "text": "吊り革",
@@ -19031,14 +19909,24 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "吠る",
+            "furigana": "ほえる"
+          }
+        ],
         [
           {
             "text": "吠える",
             "furigana": "ほえる"
           }
         ],
-        null,
+        [
+          {
+            "text": "唱る",
+            "furigana": "ほえる"
+          }
+        ],
         [
           {
             "text": "唱える",
@@ -19084,9 +19972,24 @@
             "furigana": "けんか"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "嘩喧",
+            "furigana": "けんか"
+          }
+        ],
+        [
+          {
+            "text": "嘆華",
+            "furigana": "けんか"
+          }
+        ],
+        [
+          {
+            "text": "宣嘩",
+            "furigana": "けんか"
+          }
+        ]
       ]
     },
     {
@@ -19183,7 +20086,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "剋服",
+            "furigana": "こくふく"
+          }
+        ],
         [
           {
             "text": "告",
@@ -19200,7 +20108,12 @@
             "furigana": "こくふく"
           }
         ],
-        null
+        [
+          {
+            "text": "冗服",
+            "furigana": "こくふく"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -19260,14 +20173,24 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "安慕",
+            "furigana": "あんたい"
+          }
+        ],
         [
           {
             "text": "安泰",
             "furigana": "あんたい"
           }
         ],
-        null,
+        [
+          {
+            "text": "暗慕",
+            "furigana": "あんたい"
+          }
+        ],
         [
           {
             "text": "暗",
@@ -20345,7 +21268,12 @@
             "furigana": "しょ"
           }
         ],
-        null
+        [
+          {
+            "text": "痴歴書",
+            "furigana": "りれきしょ"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -20463,9 +21391,24 @@
             "furigana": "きゅうくつ"
           }
         ],
-        null,
-        null,
-        null
+        [
+          {
+            "text": "弓屈",
+            "furigana": "きゅうくつ"
+          }
+        ],
+        [
+          {
+            "text": "究屈",
+            "furigana": "きゅうくつ"
+          }
+        ],
+        [
+          {
+            "text": "救屈",
+            "furigana": "きゅうくつ"
+          }
+        ]
       ]
     },
     {
@@ -20535,7 +21478,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "渦疎也域",
+            "furigana": "かそちいき"
+          }
+        ],
         [
           {
             "text": "禍",
@@ -20550,7 +21498,12 @@
             "furigana": "ちいき"
           }
         ],
-        null,
+        [
+          {
+            "text": "禍疎也域",
+            "furigana": "かそちいき"
+          }
+        ],
         [
           {
             "text": "過疎",
@@ -20636,7 +21589,12 @@
             "furigana": "おうとつ"
           }
         ],
-        null,
+        [
+          {
+            "text": "凹凹",
+            "furigana": "おうとつ"
+          }
+        ],
         [
           {
             "text": "凸凹",
@@ -20773,7 +21731,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "新戚",
+            "furigana": "しんせき"
+          }
+        ],
         [
           {
             "text": "親戚",
@@ -21049,7 +22012,12 @@
             "furigana": "き"
           }
         ],
-        null,
+        [
+          {
+            "text": "奮囲気",
+            "furigana": "ふんいき"
+          }
+        ],
         [
           {
             "text": "雰",
@@ -21515,7 +22483,12 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "体屈",
+            "furigana": "たいくつ"
+          }
+        ],
         [
           {
             "text": "退",
@@ -21567,8 +22540,18 @@
             "furigana": "はいき"
           }
         ],
-        null,
-        null,
+        [
+          {
+            "text": "発棄",
+            "furigana": "はいき"
+          }
+        ],
+        [
+          {
+            "text": "排棄",
+            "furigana": "はいき"
+          }
+        ],
         [
           {
             "text": "廃棄",
@@ -22056,7 +23039,12 @@
             "furigana": "たくみ"
           }
         ],
-        null,
+        [
+          {
+            "text": "巨症",
+            "furigana": "きょしょう"
+          }
+        ],
         [
           {
             "text": "巨匠",
@@ -22859,7 +23847,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "王姻",
+            "furigana": "おうひ"
+          }
+        ],
         [
           {
             "text": "王",
@@ -22955,7 +23948,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "壊造",
+            "furigana": "じょうぞう"
+          }
+        ],
         [
           {
             "text": "醸造",
@@ -23233,14 +24231,24 @@
             "furigana": "にじ"
           }
         ],
-        null,
+        [
+          {
+            "text": "蚊",
+            "furigana": "か"
+          }
+        ],
         [
           {
             "text": "蝶",
             "furigana": "ちょう"
           }
         ],
-        null
+        [
+          {
+            "text": "蛾",
+            "furigana": "が"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -23535,7 +24543,12 @@
             "furigana": "つね"
           }
         ],
-        null
+        [
+          {
+            "text": "対悼",
+            "furigana": "ついとう"
+          }
+        ]
       ]
     },
     {
@@ -23599,14 +24612,24 @@
             "furigana": "いち"
           }
         ],
-        null,
+        [
+          {
+            "text": "遵一",
+            "furigana": "ちくいち"
+          }
+        ],
         [
           {
             "text": "逐一",
             "furigana": "ちくいち"
           }
         ],
-        null
+        [
+          {
+            "text": "迭一",
+            "furigana": "ちくいち"
+          }
+        ]
       ]
     },
     {
@@ -23662,6 +24685,32 @@
           "text": "。",
           "furigana": null
         }
+      ],
+      "optionsFurigana": [
+        [
+          {
+            "text": "宵",
+            "furigana": "よい"
+          }
+        ],
+        [
+          {
+            "text": "寡",
+            "furigana": "か"
+          }
+        ],
+        [
+          {
+            "text": "薫",
+            "furigana": "かおる"
+          }
+        ],
+        [
+          {
+            "text": "窯",
+            "furigana": "かま"
+          }
+        ]
       ]
     },
     {
@@ -24164,9 +25213,24 @@
         }
       ],
       "optionsFurigana": [
-        null,
-        null,
-        null,
+        [
+          {
+            "text": "態惰",
+            "furigana": "たいだ"
+          }
+        ],
+        [
+          {
+            "text": "怠堕",
+            "furigana": "たいだ"
+          }
+        ],
+        [
+          {
+            "text": "態堕",
+            "furigana": "たいだ"
+          }
+        ],
         [
           {
             "text": "怠惰",
@@ -24248,7 +25312,12 @@
             "furigana": "ぞう"
           }
         ],
-        null
+        [
+          {
+            "text": "塑象",
+            "furigana": "そぞう"
+          }
+        ]
       ]
     },
     {
@@ -24286,7 +25355,12 @@
         }
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "古噴",
+            "furigana": "こいきどお"
+          }
+        ],
         [
           {
             "text": "古",
@@ -24463,7 +25537,12 @@
             "furigana": "もり"
           }
         ],
-        null,
+        [
+          {
+            "text": "殉守",
+            "furigana": "じゅんしゅ"
+          }
+        ],
         [
           {
             "text": "遵守",
@@ -24513,7 +25592,12 @@
             "furigana": "よいん"
           }
         ],
-        null,
+        [
+          {
+            "text": "予韻",
+            "furigana": "よいん"
+          }
+        ],
         [
           {
             "text": "余",
@@ -24524,7 +25608,12 @@
             "furigana": "いん"
           }
         ],
-        null
+        [
+          {
+            "text": "予段",
+            "furigana": "よいん"
+          }
+        ]
       ]
     },
     {
@@ -24544,15 +25633,30 @@
       "explanationEn": "",
       "notes": [],
       "optionsFurigana": [
-        null,
-        null,
+        [
+          {
+            "text": "示酸",
+            "furigana": "しさ"
+          }
+        ],
+        [
+          {
+            "text": "示差",
+            "furigana": "しさ"
+          }
+        ],
         [
           {
             "text": "示唆",
             "furigana": "しさ"
           }
         ],
-        null
+        [
+          {
+            "text": "示左",
+            "furigana": "しさ"
+          }
+        ]
       ],
       "questionFurigana": [
         {

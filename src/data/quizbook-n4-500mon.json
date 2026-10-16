@@ -5631,7 +5631,12 @@
         "切符 ticket / vé"
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "聞って",
+            "furigana": "きって"
+          }
+        ],
         [
           {
             "text": "来",
@@ -10935,14 +10940,24 @@
             "furigana": "じどう"
           }
         ],
-        null,
+        [
+          {
+            "text": "自働",
+            "furigana": "じどう"
+          }
+        ],
         [
           {
             "text": "手動",
             "furigana": "しゅどう"
           }
         ],
-        null
+        [
+          {
+            "text": "手働",
+            "furigana": "しゅどう"
+          }
+        ]
       ]
     },
     {
@@ -15459,7 +15474,12 @@
         "買 (-う) : 買う・買い物する shop / mua sắm"
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "館",
+            "furigana": "かん"
+          }
+        ],
         [
           {
             "text": "家",
@@ -18659,7 +18679,12 @@
             "furigana": "まち"
           }
         ],
-        null,
+        [
+          {
+            "text": "進",
+            "furigana": "すすむ"
+          }
+        ],
         [
           {
             "text": "歩",
@@ -28915,7 +28940,12 @@
         "問 もん : 問題 もんだい question, problem / câu hỏi, bài, vấn đề"
       ],
       "optionsFurigana": [
-        null,
+        [
+          {
+            "text": "質問聞",
+            "furigana": "しつもん"
+          }
+        ],
         [
           {
             "text": "質問",
@@ -34285,14 +34315,24 @@
             "furigana": "いみ"
           }
         ],
-        null,
+        [
+          {
+            "text": "以味",
+            "furigana": "いみ"
+          }
+        ],
         [
           {
             "text": "意見",
             "furigana": "いけん"
           }
         ],
-        null
+        [
+          {
+            "text": "以見",
+            "furigana": "いけん"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -36434,7 +36474,12 @@
             "furigana": "かい"
           }
         ],
-        null,
+        [
+          {
+            "text": "試会",
+            "furigana": "しあい"
+          }
+        ],
         [
           {
             "text": "仕合",
@@ -40935,8 +40980,18 @@
             "furigana": null
           }
         ],
-        null,
-        null,
+        [
+          {
+            "text": "引める",
+            "furigana": "しめる"
+          }
+        ],
+        [
+          {
+            "text": "押める",
+            "furigana": "しめる"
+          }
+        ],
         [
           {
             "text": "閉",

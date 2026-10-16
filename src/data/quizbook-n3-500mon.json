@@ -796,7 +796,12 @@
             "furigana": "こ"
           }
         ],
-        null
+        [
+          {
+            "text": "お菓物",
+            "furigana": "おかし"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -2061,7 +2066,12 @@
             "furigana": null
           }
         ],
-        null
+        [
+          {
+            "text": "受こう",
+            "furigana": "うけよう"
+          }
+        ]
       ]
     },
     {
@@ -4600,8 +4610,18 @@
             "furigana": "ひこうき"
           }
         ],
-        null,
-        null
+        [
+          {
+            "text": "引行機",
+            "furigana": "ひこうき"
+          }
+        ],
+        [
+          {
+            "text": "引高機",
+            "furigana": "ひこうき"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -7863,7 +7883,12 @@
             "furigana": "まい"
           }
         ],
-        null
+        [
+          {
+            "text": "故",
+            "furigana": "こ"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -31493,7 +31518,12 @@
             "furigana": "しお"
           }
         ],
-        null
+        [
+          {
+            "text": "乳",
+            "furigana": "ちち"
+          }
+        ]
       ],
       "questionFurigana": [
         {
@@ -33119,7 +33149,12 @@
             "furigana": "なく"
           }
         ],
-        null,
+        [
+          {
+            "text": "拉く",
+            "furigana": "なく"
+          }
+        ],
         [
           {
             "text": "鳴く",
@@ -38967,7 +39002,12 @@
             "furigana": null
           }
         ],
-        null,
+        [
+          {
+            "text": "捨られた",
+            "furigana": "すてられた"
+          }
+        ],
         [
           {
             "text": "育",
@@ -41915,14 +41955,24 @@
             "furigana": "はたけ"
           }
         ],
-        null,
+        [
+          {
+            "text": "田",
+            "furigana": "た"
+          }
+        ],
         [
           {
             "text": "苗",
             "furigana": "なえ"
           }
         ],
-        null
+        [
+          {
+            "text": "細",
+            "furigana": "ほそい"
+          }
+        ]
       ],
       "questionFurigana": [
         {

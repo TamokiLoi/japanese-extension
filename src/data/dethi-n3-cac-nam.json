@@ -659,7 +659,12 @@
                     "furigana": null
                   }
                 ],
-                [],
+                [
+                  {
+                    "text": "悲いて",
+                    "furigana": "ないて"
+                  }
+                ],
                 [
                   {
                     "text": "泣いて",
@@ -784,14 +789,14 @@
                 }
               ],
               "optionsFurigana": [
-                [],
+                [{ "text": "復推", "furigana": "ふくざつ" }],
                 [
                   {
                     "text": "複雑",
                     "furigana": "ふくざつ"
                   }
                 ],
-                [],
+                [{ "text": "複推", "furigana": "ふくざつ" }],
                 [
                   {
                     "text": "複雜",
@@ -38826,7 +38831,7 @@
                 }
               ],
               "optionsFurigana": [
-                null,
+                [{ "text": "一設的", "furigana": "いっぱんてき" }],
                 [
                   {
                     "text": "一",
@@ -38908,7 +38913,7 @@
                     "furigana": "かならず"
                   }
                 ],
-                [],
+                [{ "text": "確ず", "furigana": "かならず" }],
                 [
                   {
                     "text": "要",
@@ -38992,7 +38997,7 @@
                     "furigana": null
                   }
                 ],
-                []
+                [{ "text": "倪れた", "furigana": "あらわれた" }]
               ]
             },
             {
@@ -57260,14 +57265,14 @@
                 }
               ],
               "optionsFurigana": [
-                [],
+                [{ "text": "現販", "furigana": "きそく" }],
                 [
                   {
                     "text": "規則",
                     "furigana": "きそく"
                   }
                 ],
-                [],
+                [{ "text": "規販", "furigana": "きそく" }],
                 [
                   {
                     "text": "現",
@@ -57940,15 +57945,15 @@
                 }
               ],
               "optionsFurigana": [
-                [],
-                [],
+                [{ "text": "生", "furigana": "しゃ" }],
+                [{ "text": "人", "furigana": "しゃ" }],
                 [
                   {
                     "text": "者",
                     "furigana": "しゃ"
                   }
                 ],
-                []
+                [{ "text": "員", "furigana": "しゃ" }]
               ]
             },
             {
@@ -75505,8 +75510,8 @@
                     "furigana": "めいれい"
                   }
                 ],
-                [],
-                []
+                [{ "text": "企例", "furigana": "めいれい" }],
+                [{ "text": "企令", "furigana": "めいれい" }]
               ]
             },
             {
@@ -75574,7 +75579,7 @@
                     "furigana": "かえ"
                   }
                 ],
-                null
+                [{ "text": "貯け", "furigana": "あずけ" }]
               ]
             },
             {
@@ -94277,7 +94282,7 @@
                     "furigana": "つげ"
                   }
                 ],
-                [],
+                [{ "text": "広営", "furigana": "こうこく" }],
                 [
                   {
                     "text": "広告",
@@ -94479,7 +94484,7 @@
                     "furigana": "たしか"
                   }
                 ],
-                [],
+                [{ "text": "必か", "furigana": "たしか" }],
                 [
                   {
                     "text": "常",
@@ -113508,32 +113513,10 @@
                 }
               ],
               "optionsFurigana": [
-                null,
-                [
-                  {
-                    "text": "呼",
-                    "furigana": "こ"
-                  },
-                  {
-                    "text": "っ",
-                    "furigana": null
-                  },
-                  {
-                    "text": "た",
-                    "furigana": null
-                  }
-                ],
-                [
-                  {
-                    "text": "吸っ",
-                    "furigana": "すっ"
-                  },
-                  {
-                    "text": "た",
-                    "furigana": null
-                  }
-                ],
-                null
+                [{ "text": "吹った", "furigana": "すった" }],
+                [{ "text": "呼った", "furigana": "すった" }],
+                [{ "text": "吸った", "furigana": "すった" }],
+                [{ "text": "叫った", "furigana": "すった" }]
               ]
             },
             {
@@ -113711,7 +113694,7 @@
                     "furigana": "がお"
                   }
                 ],
-                [],
+                [{ "text": "悲顔", "furigana": "ひがお" }],
                 [
                   {
                     "text": "泣顔",
@@ -113852,7 +113835,7 @@
                     "furigana": "てき"
                   }
                 ],
-                null
+                [{ "text": "一設的", "furigana": "いっぱんてき" }]
               ]
             },
             {
@@ -132227,15 +132210,11 @@
               "optionsFurigana": [
                 [
                   {
-                    "text": "焼い",
-                    "furigana": "やい"
-                  },
-                  {
-                    "text": "て",
-                    "furigana": null
+                    "text": "焼いて",
+                    "furigana": "やいて"
                   }
                 ],
-                null,
+                [{ "text": "燃いて", "furigana": "やいて" }],
                 [
                   {
                     "text": "煙い",
@@ -132293,7 +132272,7 @@
                 }
               ],
               "optionsFurigana": [
-                [],
+                [{ "text": "確ず", "furigana": "かならず" }],
                 [
                   {
                     "text": "要",
@@ -152222,7 +152201,7 @@
                     "furigana": "から"
                   }
                 ],
-                [],
+                [{ "text": "欠", "furigana": "から" }],
                 [
                   {
                     "text": "穴",

@@ -284,15 +284,15 @@
               "question": "今日は今年初めての真夏日となった。",
               "options": [
                 "まなつび",
-                "しんかぴ",
+                "しんかび",
                 "まなつにち",
-                "しんか日にち"
+                "しんかにち"
               ],
               "optionsFurigana": [
                 [{ "text": "まなつび", "furigana": null }],
-                [{ "text": "しんかぴ", "furigana": null }],
+                [{ "text": "しんかび", "furigana": null }],
                 [{ "text": "まなつにち", "furigana": null }],
-                [{ "text": "しんか", "furigana": null }, { "text": "日", "furigana": null }, { "text": "にち", "furigana": null }]
+                [{ "text": "しんかにち", "furigana": null }]
               ],
               "correctIndex": 0,
               "points": 1,
@@ -300,7 +300,7 @@
               "questionVi": "Hôm nay đã trở thành ngày giữa hè đầu tiên trong năm nay.",
               "optionsVi": [
                 "manatsubi",
-                "shinkapi",
+                "shinkabi",
                 "manatsunichi",
                 "shinkanichi"
               ],
@@ -516,7 +516,7 @@
               ],
               "optionsFurigana": [
                 [{ "text": "雑紙", "furigana": "ざっし" }],
-                [{ "text": "雑本", "furigana": null }],
+                [{ "text": "雑本", "furigana": "ざっし" }],
                 [{ "text": "雑史", "furigana": "ざっし" }],
                 [{ "text": "雑誌", "furigana": "ざっし" }]
               ],
@@ -566,9 +566,9 @@
                 "泊まった"
               ],
               "optionsFurigana": [
-                [{ "text": "寝まった", "furigana": null }],
-                [{ "text": "宿まった", "furigana": null }],
-                [{ "text": "渡まった", "furigana": null }],
+                [{ "text": "寝まった", "furigana": "とまった" }],
+                [{ "text": "宿まった", "furigana": "とまった" }],
+                [{ "text": "渡まった", "furigana": "とまった" }],
                 [{ "text": "泊まった", "furigana": "とまった" }]
               ],
               "correctIndex": 3,
@@ -743,10 +743,10 @@
                 "氷ぐ"
               ],
               "optionsFurigana": [
-                [{ "text": "永ぐ", "furigana": null }],
+                [{ "text": "永ぐ", "furigana": "およぐ" }],
                 [{ "text": "泳ぐ", "furigana": "およぐ" }],
-                [{ "text": "詠ぐ", "furigana": null }],
-                [{ "text": "氷ぐ", "furigana": null }]
+                [{ "text": "詠ぐ", "furigana": "およぐ" }],
+                [{ "text": "氷ぐ", "furigana": "およぐ" }]
               ],
               "correctIndex": 1,
               "points": 1,
@@ -809,7 +809,7 @@
                 [{ "text": "積任", "furigana": "せきにん" }],
                 [{ "text": "責任", "furigana": "せきにん" }],
                 [{ "text": "責仁", "furigana": "せきにん" }],
-                [{ "text": "関仁", "furigana": null }]
+                [{ "text": "関仁", "furigana": "せきにん" }]
               ],
               "correctIndex": 1,
               "points": 1,
