@@ -7,14 +7,23 @@
 
 import { existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { normalizePeopleCounterReadings } from "./furiganaCounterReadings.ts";
 
 const ROOT = join(import.meta.dirname, "..");
-const MODEL = "gemini-3.1-flash-lite";
+const MODEL = "gemini-3.5-flash-lite";
 const DATA_FILES = [
   "listening-soumatome-n3.json",
   "listening-speedmaster-n3.json",
   "listening-shinkanzen-n3.json",
   "listening-kaiwa-100cau.json",
+  "listening-dethi-2025-12.json",
+  "listening-dethi-n3-2023-07.json",
+  "listening-dethi-n3-2023-12.json",
+  "listening-dethi-n3-2024-07.json",
+  "listening-dethi-n3-2024-12.json",
+  "listening-dethi-n3-2025-07.json",
+  "listening-dethi-n3-2026-07.json",
+  "listening-dethi-n1-2026-07.json",
 ];
 const BATCH_SIZE = 8;
 const CACHE_PATH = join(ROOT, `_scratch/listening-enrichment-cache-${MODEL}.json`);
@@ -34,12 +43,14 @@ interface Turn {
 
 interface Question {
   id: string;
+  level?: string;
   book: string;
   taskType: string;
   scenario: string;
   scenarioVi?: string;
   turns: Turn[];
   question: string;
+  questionPrompt?: string;
   questionVi?: string;
   options: string[];
   optionsVi?: string[];
@@ -48,6 +59,7 @@ interface Question {
   notes?: string | string[];
   scenarioFurigana?: Annotation[];
   questionFurigana?: Annotation[];
+  questionPromptFurigana?: Annotation[];
   optionFurigana?: Annotation[][];
   optionExplanations?: string[];
 }
@@ -61,6 +73,7 @@ interface Enrichment {
   scenarioFurigana: Annotation[];
   turnsFurigana: Annotation[][];
   questionFurigana: Annotation[];
+  questionPromptFurigana: Annotation[];
   optionsFurigana: Annotation[][];
   explanation: string;
   optionExplanations: string[];
@@ -87,14 +100,22 @@ const annotationsSchema = {
   },
 };
 
-let lastGeminiRequestAt = 0;
+const lastGeminiRequestAt = new Map<string, number>();
+const unavailableApiKeys = new Set<string>();
 let apiCallCount = 0;
+let apiKeyCursor = 0;
 
-function readApiKey(): string {
+function readApiKeys(): string[] {
   const text = readFileSync(join(ROOT, "_scratch/.env.gemini"), "utf8");
-  const match = text.match(/^GEMINI_API_KEY=(\S+)/m);
-  if (!match) throw new Error("No GEMINI_API_KEY found in _scratch/.env.gemini");
-  return match[1];
+  const keys = text.split(/\r?\n/u).flatMap((line) => {
+    const match = line.trim().match(/^GEMINI_API_KEY(?:_[A-Z0-9_]+)?=(.*)$/u);
+    if (!match) return [];
+    let key = match[1].trim();
+    if ((key.startsWith('"') && key.endsWith('"')) || (key.startsWith("'") && key.endsWith("'"))) key = key.slice(1, -1);
+    return key ? [key] : [];
+  });
+  if (!keys.length) throw new Error("No Gemini API keys found in _scratch/.env.gemini");
+  return [...new Set(keys)];
 }
 
 function sleep(ms: number): Promise<void> {
@@ -121,6 +142,7 @@ function japaneseInput(question: Question) {
     scenarioVi: question.scenarioVi ?? "",
     turns: question.turns.map(({ speaker, text, textVi }) => ({ speaker, text, textVi: textVi ?? "" })),
     question: question.question,
+    questionPrompt: question.questionPrompt ?? "",
     questionVi: question.questionVi ?? "",
     options: question.options,
     optionsVi: question.optionsVi ?? [],
@@ -134,7 +156,7 @@ function makePrompt(questions: Question[], correction?: string): string {
     "Bạn đang bổ sung dữ liệu cho ứng dụng luyện nghe tiếng Nhật. Xử lý riêng từng câu theo id và trả về DUY NHẤT một JSON array đúng thứ tự, đủ số phần tử.",
     "",
     "PHẦN FURIGANA:",
-    "- Tạo các mảng scenarioFurigana, turnsFurigana, questionFurigana, optionsFurigana theo từng chuỗi đầu vào. Speaker label không cần xử lý.",
+    "- Tạo các mảng scenarioFurigana, turnsFurigana, questionFurigana, questionPromptFurigana, optionsFurigana theo từng chuỗi đầu vào. Speaker label không cần xử lý.",
     "- Mỗi mảng chỉ liệt kê các mục {word, reading} cho những từ có kanji, theo đúng thứ tự xuất hiện. Không chép lại cả câu và không đưa dấu câu/kana đứng riêng vào danh sách.",
     "- word phải là nguyên văn một từ/cụm từ trong câu; ưu tiên gồm cả okurigana gắn liền (ví dụ 使って) nhưng không gồm trợ từ đứng riêng. reading phải tương ứng chính xác với word: nếu word chỉ là kanji 使 thì reading là つか, còn nếu word là 使って thì reading là つかって. Chỉ dùng hiragana/katakana, không chứa kanji, dấu câu hay khoảng trắng.",
     "- Ví dụ 鈴木君、ちょっと残って手伝って -> [{word:鈴木君, reading:すずきくん}, {word:残って, reading:のこって}, {word:手伝って, reading:てつだって}]. Với cụm 約束があって, word là 約束 và reading là やくそく.",
@@ -150,7 +172,7 @@ function makePrompt(questions: Question[], correction?: string): string {
     "- Nếu dữ liệu nguồn không đủ để kết luận về một lựa chọn, hãy nói rõ chưa đủ dữ liệu thay vì tự bịa tình tiết.",
     "- Với câu không có lựa chọn bằng chữ (ví dụ đáp án là hình), trả về optionExplanations là [] và giải thích giới hạn đó trong explanation nếu không thể suy luận đáng tin cậy.",
     "",
-    "Mỗi phần tử kết quả phải có đúng các trường: id, scenarioFurigana, turnsFurigana, questionFurigana, optionsFurigana, explanation, optionExplanations.",
+    "Mỗi phần tử kết quả phải có đúng các trường: id, scenarioFurigana, turnsFurigana, questionFurigana, questionPromptFurigana, optionsFurigana, explanation, optionExplanations.",
     correction ? `\nSỬA KẾT QUẢ TRƯỚC: ${correction}. Hãy kiểm tra word phải là chuỗi con nguyên văn theo đúng thứ tự trong chuỗi nguồn; reading chỉ được ghi bằng kana.` : "",
     "",
     JSON.stringify(questions.map(japaneseInput)),
@@ -167,6 +189,7 @@ function makeResponseSchema() {
         scenarioFurigana: annotationsSchema,
         turnsFurigana: { type: "ARRAY", items: annotationsSchema },
         questionFurigana: annotationsSchema,
+        questionPromptFurigana: annotationsSchema,
         optionsFurigana: { type: "ARRAY", items: annotationsSchema },
         explanation: { type: "STRING" },
         optionExplanations: { type: "ARRAY", items: { type: "STRING" } },
@@ -176,6 +199,7 @@ function makeResponseSchema() {
         "scenarioFurigana",
         "turnsFurigana",
         "questionFurigana",
+        "questionPromptFurigana",
         "optionsFurigana",
         "explanation",
         "optionExplanations",
@@ -184,45 +208,56 @@ function makeResponseSchema() {
   };
 }
 
-async function sendGeminiJson(apiKey: string, prompt: string, responseSchema: unknown): Promise<unknown> {
-  const waitMs = DELAY_MS - (Date.now() - lastGeminiRequestAt);
-  if (waitMs > 0) await sleep(waitMs);
-  lastGeminiRequestAt = Date.now();
-  apiCallCount++;
+async function sendGeminiJson(apiKeys: string[], prompt: string, responseSchema: unknown): Promise<unknown> {
+  let lastError: Error | undefined;
+  for (let attempt = 0; attempt < apiKeys.length; attempt++) {
+    const apiKey = apiKeys[apiKeyCursor++ % apiKeys.length];
+    if (unavailableApiKeys.has(apiKey)) continue;
+    const now = Date.now();
+    const waitMs = Math.max(0, (lastGeminiRequestAt.get(apiKey) ?? 0) + DELAY_MS - now);
+    if (waitMs > 0) await sleep(waitMs);
+    lastGeminiRequestAt.set(apiKey, Date.now());
+    apiCallCount++;
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-    method: "POST",
-    headers: { "x-goog-api-key": apiKey, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        responseMimeType: "application/json",
-        responseSchema,
-        temperature: 0.2,
-      },
-    }),
-    signal: AbortSignal.timeout(90_000),
-  });
-
-  if (!res.ok) {
-    const message = await res.text();
-    const error = new Error(`Gemini HTTP ${res.status}: ${message.slice(0, 500)}`);
-    const retryAfter = Number(res.headers.get("retry-after"));
-    Object.assign(error, {
-      status: res.status,
-      retryAfterMs: Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : undefined,
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+      method: "POST",
+      headers: { "x-goog-api-key": apiKey, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: "application/json",
+          responseSchema,
+          temperature: 0.2,
+        },
+      }),
+      signal: AbortSignal.timeout(90_000),
     });
-    throw error;
-  }
 
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error(`Gemini returned no JSON text: ${JSON.stringify(data).slice(0, 500)}`);
-  return JSON.parse(text);
+    if (!res.ok) {
+      const message = await res.text();
+      const error = new Error(`Gemini HTTP ${res.status}: ${message.slice(0, 500)}`);
+      const retryAfter = Number(res.headers.get("retry-after"));
+      Object.assign(error, {
+        status: res.status,
+        retryAfterMs: Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : undefined,
+      });
+      lastError = error;
+      if ([401, 403, 404].includes(res.status)) unavailableApiKeys.add(apiKey);
+      else if (![429, 500, 502, 503, 504].includes(res.status)) throw error;
+      continue;
+    }
+
+    const data = await res.json();
+    const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!responseText) throw new Error(`Gemini returned no JSON text: ${JSON.stringify(data).slice(0, 500)}`);
+    return JSON.parse(responseText);
+  }
+  if (lastError) throw lastError;
+  throw new Error("No available Gemini API keys remain after authorization failures");
 }
 
-async function callGemini(apiKey: string, questions: Question[], correction?: string): Promise<Enrichment[]> {
-  const parsed = await sendGeminiJson(apiKey, makePrompt(questions, correction), makeResponseSchema());
+async function callGemini(apiKeys: string[], questions: Question[], correction?: string): Promise<Enrichment[]> {
+  const parsed = await sendGeminiJson(apiKeys, makePrompt(questions, correction), makeResponseSchema());
   if (!Array.isArray(parsed)) throw new Error("Gemini response was not a JSON array");
   return parsed as Enrichment[];
 }
@@ -233,6 +268,7 @@ function hasKanji(text: string): boolean {
 
 function validateAnnotations(source: string, annotations: Annotation[], label: string, requireCoverage = true): Annotation[] {
   if (!Array.isArray(annotations)) throw new Error(`${label}: furigana annotations are missing`);
+  annotations = normalizePeopleCounterReadings(source, annotations);
   let cursor = 0;
   const covered = new Array<boolean>(source.length).fill(false);
   for (const annotation of annotations) {
@@ -267,6 +303,7 @@ function validateResult(question: Question, result: Enrichment, requireCoverage 
   if (!result || result.id !== question.id) throw new Error(`Expected id ${question.id}`);
   result.scenarioFurigana = validateAnnotations(question.scenario, result.scenarioFurigana, `${question.id} scenario`, requireCoverage);
   result.questionFurigana = validateAnnotations(question.question, result.questionFurigana, `${question.id} question`, requireCoverage);
+  result.questionPromptFurigana = validateAnnotations(question.questionPrompt ?? "", result.questionPromptFurigana, `${question.id} questionPrompt`, requireCoverage);
   if (result.turnsFurigana?.length !== question.turns.length) throw new Error(`${question.id}: turnsFurigana count mismatch`);
   question.turns.forEach((turn, index) => {
     result.turnsFurigana[index] = validateAnnotations(turn.text, result.turnsFurigana[index], `${question.id} turn ${index + 1}`, requireCoverage);
@@ -295,6 +332,12 @@ function getAnnotationSlots(question: Question, result: Enrichment): AnnotationS
       source: question.question,
       annotations: result.questionFurigana,
       set: (annotations) => { result.questionFurigana = annotations; },
+    },
+    {
+      field: "questionPromptFurigana",
+      source: question.questionPrompt ?? "",
+      annotations: result.questionPromptFurigana,
+      set: (annotations) => { result.questionPromptFurigana = annotations; },
     },
   ];
   question.turns.forEach((turn, index) => slots.push({
@@ -450,7 +493,7 @@ function makeCharacterRepairSchema() {
   };
 }
 
-async function repairMissingFurigana(apiKey: string, questions: Question[], results: Enrichment[]): Promise<void> {
+async function repairMissingFurigana(apiKeys: string[], questions: Question[], results: Enrichment[]): Promise<void> {
   const requested = questions.flatMap((question, index) => {
     const result = results[index];
     return getAnnotationSlots(question, result)
@@ -474,7 +517,7 @@ async function repairMissingFurigana(apiKey: string, questions: Question[], resu
     ].filter(Boolean).join("\n");
 
     try {
-      const parsed = await sendGeminiJson(apiKey, prompt, makeRepairSchema());
+      const parsed = await sendGeminiJson(apiKeys, prompt, makeRepairSchema());
       if (!Array.isArray(parsed)) throw new Error("Furigana repair response was not an array");
       const byId = new Map((parsed as { id: string; repairs: { field: string; additions: (Annotation & { position: number })[] }[] }[]).map((item) => [item.id, item]));
       const repairedResults: Enrichment[] = results.map((result) => ({
@@ -482,6 +525,7 @@ async function repairMissingFurigana(apiKey: string, questions: Question[], resu
         scenarioFurigana: [...result.scenarioFurigana],
         turnsFurigana: result.turnsFurigana.map((items) => [...items]),
         questionFurigana: [...result.questionFurigana],
+        questionPromptFurigana: [...result.questionPromptFurigana],
         optionsFurigana: result.optionsFurigana.map((items) => [...items]),
       }));
       for (let questionIndex = 0; questionIndex < questions.length; questionIndex++) {
@@ -551,7 +595,7 @@ async function repairMissingFurigana(apiKey: string, questions: Question[], resu
   }
 }
 
-async function repairMissingFuriganaByCharacter(apiKey: string, question: Question, result: Enrichment): Promise<void> {
+async function repairMissingFuriganaByCharacter(apiKeys: string[], question: Question, result: Enrichment): Promise<void> {
   const slots = getAnnotationSlots(question, result).map((slot) => ({
     ...slot,
     missing: missingKanjiContexts(slot.source, slot.annotations),
@@ -571,7 +615,7 @@ async function repairMissingFuriganaByCharacter(apiKey: string, question: Questi
     ].filter(Boolean).join("\n");
 
     try {
-      const parsed = await sendGeminiJson(apiKey, prompt, makeCharacterRepairSchema());
+      const parsed = await sendGeminiJson(apiKeys, prompt, makeCharacterRepairSchema());
       if (!Array.isArray(parsed)) throw new Error("Character-level furigana repair response was not an array");
       const item = (parsed as { id: string; repairs: { field: string; readings: { position: number; reading: string }[] }[] }[])
         .find((entry) => entry.id === question.id);
@@ -582,6 +626,7 @@ async function repairMissingFuriganaByCharacter(apiKey: string, question: Questi
         scenarioFurigana: [...result.scenarioFurigana],
         turnsFurigana: result.turnsFurigana.map((items) => [...items]),
         questionFurigana: [...result.questionFurigana],
+        questionPromptFurigana: [...result.questionPromptFurigana],
         optionsFurigana: result.optionsFurigana.map((items) => [...items]),
       };
       for (const slot of slots) {
@@ -624,26 +669,26 @@ async function repairMissingFuriganaByCharacter(apiKey: string, question: Questi
   }
 }
 
-async function repairBatchWithFallback(apiKey: string, questions: Question[], results: Enrichment[]): Promise<void> {
+async function repairBatchWithFallback(apiKeys: string[], questions: Question[], results: Enrichment[]): Promise<void> {
   try {
-    await repairMissingFurigana(apiKey, questions, results);
+    await repairMissingFurigana(apiKeys, questions, results);
   } catch (error) {
     if (questions.length === 1) {
-      await repairMissingFuriganaByCharacter(apiKey, questions[0], results[0]);
+      await repairMissingFuriganaByCharacter(apiKeys, questions[0], results[0]);
       return;
     }
     const midpoint = Math.ceil(questions.length / 2);
     console.log(`  Retrying furigana repair in smaller groups (${String(error).slice(0, 140)}).`);
     const leftResults = results.slice(0, midpoint);
     const rightResults = results.slice(midpoint);
-    await repairBatchWithFallback(apiKey, questions.slice(0, midpoint), leftResults);
-    await repairBatchWithFallback(apiKey, questions.slice(midpoint), rightResults);
+    await repairBatchWithFallback(apiKeys, questions.slice(0, midpoint), leftResults);
+    await repairBatchWithFallback(apiKeys, questions.slice(midpoint), rightResults);
     results.splice(0, results.length, ...leftResults, ...rightResults);
   }
 }
 
 async function generateBatch(
-  apiKey: string,
+  apiKeys: string[],
   questions: Question[],
   correction?: string,
   correctionAttempt = 0,
@@ -652,7 +697,7 @@ async function generateBatch(
     let response: Enrichment[] | undefined;
     for (let attempt = 0; attempt < 5 && !response; attempt++) {
       try {
-        response = await callGemini(apiKey, questions, correction);
+        response = await callGemini(apiKeys, questions, correction);
       } catch (error) {
         const status = (error as { status?: number }).status;
         const retryable = status === 429 || status === 500 || status === 502 || status === 503 || status === 504;
@@ -677,13 +722,13 @@ async function generateBatch(
   } catch (error) {
     if (questions.length === 1 && correctionAttempt < 2) {
       console.log(`  Asking Gemini to repair ${questions[0].id}: ${String(error).slice(0, 150)}.`);
-      return generateBatch(apiKey, questions, String(error).slice(0, 400), correctionAttempt + 1);
+      return generateBatch(apiKeys, questions, String(error).slice(0, 400), correctionAttempt + 1);
     }
     if (questions.length === 1) throw error;
     const midpoint = Math.ceil(questions.length / 2);
     console.log(`  Retrying batch of ${questions.length} as smaller batches (${String(error).slice(0, 180)}).`);
-    const left = await generateBatch(apiKey, questions.slice(0, midpoint));
-    const right = await generateBatch(apiKey, questions.slice(midpoint));
+    const left = await generateBatch(apiKeys, questions.slice(0, midpoint));
+    const right = await generateBatch(apiKeys, questions.slice(midpoint));
     return [...left, ...right];
   }
 }
@@ -691,9 +736,8 @@ async function generateBatch(
 function applyResult(question: Question, result: Enrichment): void {
   question.scenarioFurigana = result.scenarioFurigana;
   question.questionFurigana = result.questionFurigana;
+  question.questionPromptFurigana = result.questionPromptFurigana;
   question.optionFurigana = result.optionsFurigana;
-  question.explanation = result.explanation;
-  question.optionExplanations = result.optionExplanations;
   question.turns.forEach((turn, index) => {
     turn.furigana = result.turnsFurigana[index];
   });
@@ -702,24 +746,46 @@ function applyResult(question: Question, result: Enrichment): void {
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
+  const levelValue = args.find((arg) => arg.startsWith("--level="))?.slice("--level=".length)
+    ?? (args.indexOf("--level") >= 0 ? args[args.indexOf("--level") + 1] : undefined);
+  if (levelValue && !["N3", "N1"].includes(levelValue)) throw new Error("--level must be N3 or N1");
   const requestedId = args.find((arg) => arg.startsWith("--id="))?.slice("--id=".length);
+  const requestedFiles = args.find((arg) => arg.startsWith("--files="))?.slice("--files=".length).split(",").filter(Boolean);
   const limitValue = args.find((arg) => arg.startsWith("--limit="))?.slice("--limit=".length);
   const limit = limitValue ? Number(limitValue) : undefined;
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) throw new Error("--limit must be a positive integer");
   if (dryRun && !requestedId && !limit) throw new Error("Use --id or --limit with --dry-run to keep the pilot small");
 
-  const apiKey = readApiKey();
+  const apiKeys = readApiKeys();
   const cache = loadCache();
   let processed = 0;
 
-  for (const file of DATA_FILES) {
+  for (const file of requestedFiles ?? DATA_FILES) {
+    if (!DATA_FILES.includes(file)) throw new Error(`Unsupported listening dataset: ${file}`);
     const dataPath = join(ROOT, "src/data", file);
     const dataset = JSON.parse(readFileSync(dataPath, "utf8")) as Dataset;
-    const questions = requestedId
-      ? dataset.questions.filter((question) => question.id === requestedId)
+    const levelQuestions = levelValue ? dataset.questions.filter((question) => question.level === levelValue) : dataset.questions;
+    const selectedQuestions = requestedId
+      ? levelQuestions.filter((question) => question.id === requestedId)
       : limit
-        ? dataset.questions.slice(0, limit)
-        : dataset.questions;
+        ? levelQuestions.slice(0, limit)
+        : levelQuestions;
+    const questions = selectedQuestions.filter((question) => {
+      if (requestedId || limit) return true;
+      if (question.book === "shinkanzen" && /-(0(?:39|4\d|5[0-3]))$/u.test(question.id)) return false;
+      const complete = (source: string | undefined, annotations: Annotation[] | undefined): boolean => {
+        if (!source) return true;
+        try { validateAnnotations(source, annotations ?? [], `${question.id} coverage`, true); return true; }
+        catch { return false; }
+      };
+      return ![
+        complete(question.scenario, question.scenarioFurigana),
+        complete(question.question, question.questionFurigana),
+        complete(question.questionPrompt, question.questionPromptFurigana),
+        ...question.turns.map((turn) => complete(turn.text, turn.furigana)),
+        ...question.options.map((option, index) => complete(option, question.optionFurigana?.[index])),
+      ].every(Boolean);
+    });
     if (requestedId && questions.length === 0) continue;
 
     const remaining = questions.filter((question) => !cache[`${file}|${question.id}`]);
@@ -728,8 +794,8 @@ async function main(): Promise<void> {
     for (let index = 0; index < remaining.length; index += BATCH_SIZE) {
       const batch = remaining.slice(index, index + BATCH_SIZE);
       console.log(`  Generating ${Math.min(index + batch.length, remaining.length)}/${remaining.length}...`);
-      const generated = await generateBatch(apiKey, batch);
-      await repairBatchWithFallback(apiKey, batch, generated);
+      const generated = await generateBatch(apiKeys, batch);
+      await repairBatchWithFallback(apiKeys, batch, generated);
       generated.forEach((result, resultIndex) => validateResult(batch[resultIndex], result, true));
       generated.forEach((result) => {
         cache[`${file}|${result.id}`] = result;

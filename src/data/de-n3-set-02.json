@@ -269,11 +269,11 @@
                   "furigana": null
                 },
                 {
-                  "text": "量",
-                  "furigana": "はかる"
+                  "text": "量って",
+                  "furigana": "はかって"
                 },
                 {
-                  "text": "っておく。",
+                  "text": "おく。",
                   "furigana": null
                 }
               ]
@@ -287,6 +287,12 @@
                 "しんかぴ",
                 "まなつにち",
                 "しんか日にち"
+              ],
+              "optionsFurigana": [
+                [{ "text": "まなつび", "furigana": null }],
+                [{ "text": "しんかぴ", "furigana": null }],
+                [{ "text": "まなつにち", "furigana": null }],
+                [{ "text": "しんか", "furigana": null }, { "text": "日", "furigana": null }, { "text": "にち", "furigana": null }]
               ],
               "correctIndex": 0,
               "points": 1,
@@ -508,6 +514,12 @@
                 "雑史",
                 "雑誌"
               ],
+              "optionsFurigana": [
+                [{ "text": "雑紙", "furigana": "ざっし" }],
+                [{ "text": "雑本", "furigana": null }],
+                [{ "text": "雑史", "furigana": "ざっし" }],
+                [{ "text": "雑誌", "furigana": "ざっし" }]
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -552,6 +564,12 @@
                 "宿まった",
                 "渡まった",
                 "泊まった"
+              ],
+              "optionsFurigana": [
+                [{ "text": "寝まった", "furigana": null }],
+                [{ "text": "宿まった", "furigana": null }],
+                [{ "text": "渡まった", "furigana": null }],
+                [{ "text": "泊まった", "furigana": "とまった" }]
               ],
               "correctIndex": 3,
               "points": 1,
@@ -614,6 +632,12 @@
                 "観察",
                 "権察"
               ],
+              "optionsFurigana": [
+                [{ "text": "考察", "furigana": "こうさつ" }],
+                [{ "text": "診察", "furigana": "しんさつ" }],
+                [{ "text": "観察", "furigana": "かんさつ" }],
+                [{ "text": "権察", "furigana": "けんさつ" }]
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -658,6 +682,12 @@
                 "効課",
                 "高加",
                 "効果"
+              ],
+              "optionsFurigana": [
+                [{ "text": "高価", "furigana": "こうか" }],
+                [{ "text": "効課", "furigana": "こうか" }],
+                [{ "text": "高加", "furigana": "こうか" }],
+                [{ "text": "効果", "furigana": "こうか" }]
               ],
               "correctIndex": 3,
               "points": 1,
@@ -711,6 +741,12 @@
                 "泳ぐ",
                 "詠ぐ",
                 "氷ぐ"
+              ],
+              "optionsFurigana": [
+                [{ "text": "永ぐ", "furigana": null }],
+                [{ "text": "泳ぐ", "furigana": "およぐ" }],
+                [{ "text": "詠ぐ", "furigana": null }],
+                [{ "text": "氷ぐ", "furigana": null }]
               ],
               "correctIndex": 1,
               "points": 1,
@@ -769,6 +805,12 @@
                 "責仁",
                 "関仁"
               ],
+              "optionsFurigana": [
+                [{ "text": "積任", "furigana": "せきにん" }],
+                [{ "text": "責任", "furigana": "せきにん" }],
+                [{ "text": "責仁", "furigana": "せきにん" }],
+                [{ "text": "関仁", "furigana": null }]
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -825,6 +867,12 @@
                 "発信",
                 "自発",
                 "発生"
+              ],
+              "optionsFurigana": [
+                [{ "text": "開発", "furigana": "かいはつ" }],
+                [{ "text": "発信", "furigana": "はっしん" }],
+                [{ "text": "自発", "furigana": "じはつ" }],
+                [{ "text": "発生", "furigana": "はっせい" }]
               ],
               "correctIndex": 3,
               "points": 1,
@@ -899,6 +947,12 @@
                 "蒸す",
                 "わかす",
                 "ゆでる"
+              ],
+              "optionsFurigana": [
+                [{ "text": "揚げる", "furigana": "あげる" }],
+                [{ "text": "蒸す", "furigana": "むす" }],
+                [{ "text": "わかす", "furigana": null }],
+                [{ "text": "ゆでる", "furigana": null }]
               ],
               "correctIndex": 0,
               "points": 1,
@@ -1015,6 +1069,12 @@
                 "売りはらって",
                 "売り始めて",
                 "売り終わって"
+              ],
+              "optionsFurigana": [
+                [{ "text": "売り切れて", "furigana": "うりきれて" }],
+                [{ "text": "売りはらって", "furigana": "うりはらって" }],
+                [{ "text": "売り始めて", "furigana": "うりはじめて" }],
+                [{ "text": "売り終わって", "furigana": "うりおわって" }]
               ],
               "correctIndex": 0,
               "points": 1,
@@ -1198,6 +1258,12 @@
                 "誤解して",
                 "心配して"
               ],
+              "optionsFurigana": [
+                [{ "text": "迷惑", "furigana": "めいわく" }, { "text": "して", "furigana": null }],
+                [{ "text": "後悔", "furigana": "こうかい" }, { "text": "して", "furigana": null }],
+                [{ "text": "誤解", "furigana": "ごかい" }, { "text": "して", "furigana": null }],
+                [{ "text": "心配", "furigana": "しんぱい" }, { "text": "して", "furigana": null }]
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -1264,6 +1330,12 @@
                 "うらやましい",
                 "惜しい"
               ],
+              "optionsFurigana": [
+                [{ "text": "なつかしい", "furigana": null }],
+                [{ "text": "そそっかしい", "furigana": null }],
+                [{ "text": "うらやましい", "furigana": null }],
+                [{ "text": "惜しい", "furigana": "おしい" }]
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -1321,6 +1393,12 @@
                 "期間",
                 "日程",
                 "日常"
+              ],
+              "optionsFurigana": [
+                [{ "text": "期限", "furigana": "きげん" }],
+                [{ "text": "期間", "furigana": "きかん" }],
+                [{ "text": "日程", "furigana": "にってい" }],
+                [{ "text": "日常", "furigana": "にちじょう" }]
               ],
               "correctIndex": 0,
               "points": 1,
@@ -1434,6 +1512,12 @@
                 "重ねて",
                 "ぶつけて"
               ],
+              "optionsFurigana": [
+                [{ "text": "振って", "furigana": "ふって" }],
+                [{ "text": "握って", "furigana": "にぎって" }],
+                [{ "text": "重ねて", "furigana": "かさねて" }],
+                [{ "text": "ぶつけて", "furigana": null }]
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -1512,6 +1596,12 @@
                 "頭を使う",
                 "復習する"
               ],
+              "optionsFurigana": [
+                [{ "text": "練習", "furigana": "れんしゅう" }, { "text": "する", "furigana": null }],
+                [{ "text": "身", "furigana": "み" }, { "text": "につける", "furigana": null }],
+                [{ "text": "頭", "furigana": "あたま" }, { "text": "を", "furigana": null }, { "text": "使う", "furigana": "つかう" }],
+                [{ "text": "復習", "furigana": "ふくしゅう" }, { "text": "する", "furigana": null }]
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -1578,6 +1668,12 @@
                 "活発だ",
                 "高価だ"
               ],
+              "optionsFurigana": [
+                [{ "text": "伝統的", "furigana": "でんとうてき" }, { "text": "だ", "furigana": null }],
+                [{ "text": "有名", "furigana": "ゆうめい" }, { "text": "だ", "furigana": null }],
+                [{ "text": "活発", "furigana": "かっぱつ" }, { "text": "だ", "furigana": null }],
+                [{ "text": "高価", "furigana": "こうか" }, { "text": "だ", "furigana": null }]
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -1632,6 +1728,12 @@
                 "話すスピードが遅い",
                 "秘密を守る"
               ],
+              "optionsFurigana": [
+                [{ "text": "むだ", "furigana": null }, { "text": "遣い", "furigana": "づかい" }, { "text": "をしない", "furigana": null }],
+                [{ "text": "知識", "furigana": "ちしき" }, { "text": "が", "furigana": null }, { "text": "多い", "furigana": "おおい" }],
+                [{ "text": "話す", "furigana": "はなす" }, { "text": "スピードが", "furigana": null }, { "text": "遅い", "furigana": "おそい" }],
+                [{ "text": "秘密", "furigana": "ひみつ" }, { "text": "を", "furigana": null }, { "text": "守る", "furigana": "まもる" }]
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -1681,6 +1783,12 @@
                 "習っている",
                 "教えている",
                 "調べている"
+              ],
+              "optionsFurigana": [
+                [{ "text": "考えている", "furigana": "かんがえている" }],
+                [{ "text": "習っている", "furigana": "ならっている" }],
+                [{ "text": "教えている", "furigana": "おしえている" }],
+                [{ "text": "調べている", "furigana": "しらべている" }]
               ],
               "correctIndex": 2,
               "points": 1,
@@ -1748,6 +1856,12 @@
                 "いつも",
                 "だんだん"
               ],
+              "optionsFurigana": [
+                [{ "text": "ほとんど", "furigana": null }],
+                [{ "text": "全然", "furigana": "ぜんぜん" }],
+                [{ "text": "いつも", "furigana": null }],
+                [{ "text": "だんだん", "furigana": null }]
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -1785,6 +1899,12 @@
                 "新しいクラスで隣の人に話しかけた。",
                 "医者は、患者に病気について話しかけた。",
                 "祖父は、昔の大きな地震のことを話しかけ続けている。"
+              ],
+              "optionsFurigana": [
+                [{ "text": "先生", "furigana": "せんせい" }, { "text": "は、", "furigana": null }, { "text": "教室", "furigana": "きょうしつ" }, { "text": "が", "furigana": null }, { "text": "静か", "furigana": "しずか" }, { "text": "になってから", "furigana": null }, { "text": "話しかけた", "furigana": "はなしかけた" }, { "text": "。", "furigana": null }],
+                [{ "text": "新しい", "furigana": "あたらしい" }, { "text": "クラスで", "furigana": null }, { "text": "隣", "furigana": "となり" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "に", "furigana": null }, { "text": "話しかけた", "furigana": "はなしかけた" }, { "text": "。", "furigana": null }],
+                [{ "text": "医者", "furigana": "いしゃ" }, { "text": "は、", "furigana": null }, { "text": "患者", "furigana": "かんじゃ" }, { "text": "に", "furigana": null }, { "text": "病気", "furigana": "びょうき" }, { "text": "について", "furigana": null }, { "text": "話しかけた", "furigana": "はなしかけた" }, { "text": "。", "furigana": null }],
+                [{ "text": "祖父", "furigana": "そふ" }, { "text": "は、", "furigana": null }, { "text": "昔", "furigana": "むかし" }, { "text": "の", "furigana": null }, { "text": "大きな", "furigana": "おおきな" }, { "text": "地震", "furigana": "じしん" }, { "text": "のことを", "furigana": null }, { "text": "話しかけ", "furigana": "はなしかけ" }, { "text": "続けている", "furigana": "つづけている" }, { "text": "。", "furigana": null }]
               ],
               "correctIndex": 1,
               "points": 1,
@@ -1826,6 +1946,12 @@
                 "私は彼女の言ったことを頭の中で何度も回復した。",
                 "回復ばかりしていても、成長できないよ。"
               ],
+              "optionsFurigana": [
+                [{ "text": "もう", "furigana": null }, { "text": "1週間", "furigana": "いっしゅうかん" }, { "text": "も", "furigana": null }, { "text": "待って", "furigana": "まって" }, { "text": "いるが、", "furigana": null }, { "text": "彼", "furigana": "かれ" }, { "text": "からまったく", "furigana": null }, { "text": "回復", "furigana": "かいふく" }, { "text": "がない。", "furigana": null }],
+                [{ "text": "よく", "furigana": null }, { "text": "休んだ", "furigana": "やすんだ" }, { "text": "おかげで、", "furigana": null }, { "text": "体調", "furigana": "たいちょう" }, { "text": "もすっかり", "furigana": null }, { "text": "回復", "furigana": "かいふく" }, { "text": "した。", "furigana": null }],
+                [{ "text": "私", "furigana": "わたし" }, { "text": "は", "furigana": null }, { "text": "彼女", "furigana": "かのじょ" }, { "text": "の", "furigana": null }, { "text": "言った", "furigana": "いった" }, { "text": "ことを", "furigana": null }, { "text": "頭", "furigana": "あたま" }, { "text": "の", "furigana": null }, { "text": "中", "furigana": "なか" }, { "text": "で", "furigana": null }, { "text": "何度", "furigana": "なんど" }, { "text": "も", "furigana": null }, { "text": "回復", "furigana": "かいふく" }, { "text": "した。", "furigana": null }],
+                [{ "text": "回復", "furigana": "かいふく" }, { "text": "ばかりしていても、", "furigana": null }, { "text": "成長", "furigana": "せいちょう" }, { "text": "できないよ。", "furigana": null }]
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -1861,6 +1987,12 @@
                 "授業中にお腹が痛くなったので、早退した。",
                 "彼は大学を3年で早退したそうだ。",
                 "私は毎朝ランニングをしてから早退している。"
+              ],
+              "optionsFurigana": [
+                [{ "text": "電車", "furigana": "でんしゃ" }, { "text": "が", "furigana": null }, { "text": "遅れて", "furigana": "おくれて" }, { "text": "早退", "furigana": "そうたい" }, { "text": "してしまった。", "furigana": null }],
+                [{ "text": "授業中", "furigana": "じゅぎょうちゅう" }, { "text": "に", "furigana": null }, { "text": "お腹", "furigana": "おなか" }, { "text": "が", "furigana": null }, { "text": "痛く", "furigana": "いたく" }, { "text": "なったので、", "furigana": null }, { "text": "早退", "furigana": "そうたい" }, { "text": "した。", "furigana": null }],
+                [{ "text": "彼", "furigana": "かれ" }, { "text": "は", "furigana": null }, { "text": "大学", "furigana": "だいがく" }, { "text": "を", "furigana": null }, { "text": "3年", "furigana": "さんねん" }, { "text": "で", "furigana": null }, { "text": "早退", "furigana": "そうたい" }, { "text": "したそうだ。", "furigana": null }],
+                [{ "text": "私", "furigana": "わたし" }, { "text": "は", "furigana": null }, { "text": "毎朝", "furigana": "まいあさ" }, { "text": "ランニングをしてから", "furigana": null }, { "text": "早退", "furigana": "そうたい" }, { "text": "している。", "furigana": null }]
               ],
               "correctIndex": 1,
               "points": 1,
@@ -1898,6 +2030,12 @@
                 "昨日のマラソン大会は頑張りましたが、体力の制限で最後まで走れなかった。",
                 "日本に来てまだ一か月なので、日本語の制限があってあまり話せない。"
               ],
+              "optionsFurigana": [
+                [{ "text": "安全", "furigana": "あんぜん" }, { "text": "のため、この", "furigana": null }, { "text": "乗り物", "furigana": "のりもの" }, { "text": "に", "furigana": null }, { "text": "乗れる", "furigana": "のれる" }, { "text": "人数", "furigana": "にんずう" }, { "text": "には", "furigana": null }, { "text": "10人", "furigana": "じゅうにん" }, { "text": "までという", "furigana": null }, { "text": "制限", "furigana": "せいげん" }, { "text": "がある。", "furigana": null }],
+                [{ "text": "この", "furigana": null }, { "text": "宿題", "furigana": "しゅくだい" }, { "text": "の", "furigana": null }, { "text": "制限", "furigana": "せいげん" }, { "text": "はあしたなので、", "furigana": null }, { "text": "急いで", "furigana": "いそいで" }, { "text": "やらないといけない。", "furigana": null }],
+                [{ "text": "昨日", "furigana": "きのう" }, { "text": "のマラソン", "furigana": null }, { "text": "大会", "furigana": "たいかい" }, { "text": "は", "furigana": null }, { "text": "頑張りました", "furigana": "がんばりました" }, { "text": "が、", "furigana": null }, { "text": "体力", "furigana": "たいりょく" }, { "text": "の", "furigana": null }, { "text": "制限", "furigana": "せいげん" }, { "text": "で", "furigana": null }, { "text": "最後", "furigana": "さいご" }, { "text": "まで", "furigana": null }, { "text": "走れなかった", "furigana": "はしれなかった" }, { "text": "。", "furigana": null }],
+                [{ "text": "日本", "furigana": "にほん" }, { "text": "に", "furigana": null }, { "text": "来て", "furigana": "きて" }, { "text": "まだ", "furigana": null }, { "text": "一か月", "furigana": "いっかげつ" }, { "text": "なので、", "furigana": null }, { "text": "日本語", "furigana": "にほんご" }, { "text": "の", "furigana": null }, { "text": "制限", "furigana": "せいげん" }, { "text": "があってあまり", "furigana": null }, { "text": "話せない", "furigana": "はなせない" }, { "text": "。", "furigana": null }]
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -1933,6 +2071,12 @@
                 "国の両親とはたまたま電話します。",
                 "彼はたまたま遅刻をしていつも先生に注意されている。",
                 "彼女とはもうたまたま会っていません。"
+              ],
+              "optionsFurigana": [
+                [{ "text": "たまたま", "furigana": null }, { "text": "入った", "furigana": "はいった" }, { "text": "古本屋", "furigana": "ふるほんや" }, { "text": "で、", "furigana": null }, { "text": "読みたかった", "furigana": "よみたかった" }, { "text": "本", "furigana": "ほん" }, { "text": "を", "furigana": null }, { "text": "見つけた", "furigana": "みつけた" }, { "text": "。", "furigana": null }],
+                [{ "text": "国", "furigana": "くに" }, { "text": "の", "furigana": null }, { "text": "両親", "furigana": "りょうしん" }, { "text": "とはたまたま", "furigana": null }, { "text": "電話", "furigana": "でんわ" }, { "text": "します。", "furigana": null }],
+                [{ "text": "彼", "furigana": "かれ" }, { "text": "はたまたま", "furigana": null }, { "text": "遅刻", "furigana": "ちこく" }, { "text": "をしていつも", "furigana": null }, { "text": "先生", "furigana": "せんせい" }, { "text": "に", "furigana": null }, { "text": "注意", "furigana": "ちゅうい" }, { "text": "されている。", "furigana": null }],
+                [{ "text": "彼女", "furigana": "かのじょ" }, { "text": "とはもうたまたま", "furigana": null }, { "text": "会って", "furigana": "あって" }, { "text": "いません。", "furigana": null }]
               ],
               "correctIndex": 0,
               "points": 1,
@@ -2099,6 +2243,7 @@
                 "のうちに",
                 "によって"
               ],
+              "optionsFurigana": [[{"text":"に","furigana":null},{"text":"対","furigana":"たい"},{"text":"して","furigana":null}],[],[],[]],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -2233,6 +2378,7 @@
                 "きちんと",
                 "決して"
               ],
+              "optionsFurigana": [[],[],[],[{"text":"決","furigana":"けっ"},{"text":"して","furigana":null}]],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -2278,6 +2424,7 @@
                 "終わってからでないと",
                 "終わるたびに"
               ],
+              "optionsFurigana": [[{"text":"終わり","furigana":"おわり"},{"text":"次第","furigana":"しだい"}],[{"text":"終わる","furigana":"おわる"},{"text":"としたら","furigana":null}],[{"text":"終わって","furigana":"おわって"},{"text":"からでないと","furigana":null}],[{"text":"終わる","furigana":"おわる"},{"text":"たびに","furigana":null}]],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -2424,6 +2571,7 @@
                 "読むことになっている",
                 "読むほかない"
               ],
+              "optionsFurigana": [[{"text":"読んで","furigana":"よんで"},{"text":"しまう","furigana":null}],[{"text":"読んで","furigana":"よんで"},{"text":"ほしい","furigana":null}],[{"text":"読む","furigana":"よむ"},{"text":"ことになっている","furigana":null}],[{"text":"読む","furigana":"よむ"},{"text":"ほかない","furigana":null}]],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -2481,6 +2629,7 @@
                 "喜びとともに",
                 "喜びであればあるほど"
               ],
+              "optionsFurigana": [[{"text":"喜ぶ","furigana":"よろこぶ"},{"text":"にしたがって","furigana":null}],[{"text":"喜んで","furigana":"よろこんで"},{"text":"ばかりで","furigana":null}],[{"text":"喜び","furigana":"よろこび"},{"text":"とともに","furigana":null}],[{"text":"喜び","furigana":"よろこび"},{"text":"であればあるほど","furigana":null}]],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -2554,6 +2703,7 @@
                 "教えてほしいんですが",
                 "教えてもらっていますか"
               ],
+              "optionsFurigana": [[{"text":"教え","furigana":"おしえ"},{"text":"たいんですが","furigana":null}],[{"text":"教えて","furigana":"おしえて"},{"text":"いいですか","furigana":null}],[{"text":"教えて","furigana":"おしえて"},{"text":"ほしいんですが","furigana":null}],[{"text":"教えて","furigana":"おしえて"},{"text":"もらっていますか","furigana":null}]],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -2683,6 +2833,7 @@
                 "便利なわけではないが",
                 "便利なわけがなく"
               ],
+              "optionsFurigana": [[{"text":"便利","furigana":"べんり"},{"text":"なはずがなく","furigana":null}],[{"text":"便利","furigana":"べんり"},{"text":"な","furigana":null},{"text":"反面","furigana":"はんめん"}],[{"text":"便利","furigana":"べんり"},{"text":"なわけではないが","furigana":null}],[{"text":"便利","furigana":"べんり"},{"text":"なわけがなく","furigana":null}]],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -2812,6 +2963,7 @@
                 "到着したはずだよ",
                 "到着したところだよ"
               ],
+              "optionsFurigana": [[{"text":"到着","furigana":"とうちゃく"},{"text":"したそうだよ","furigana":null}],[{"text":"到着","furigana":"とうちゃく"},{"text":"したみたいだよ","furigana":null}],[{"text":"到着","furigana":"とうちゃく"},{"text":"したはずだよ","furigana":null}],[{"text":"到着","furigana":"とうちゃく"},{"text":"したところだよ","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -2905,6 +3057,7 @@
                 "お渡し申し上げます",
                 "お渡しします"
               ],
+              "optionsFurigana": [[{"text":"お","furigana":null},{"text":"渡し","furigana":"わたし"},{"text":"いただきます","furigana":null}],[{"text":"お","furigana":null},{"text":"渡し","furigana":"わたし"},{"text":"になります","furigana":null}],[{"text":"お","furigana":null},{"text":"渡し","furigana":"わたし"},{"text":"申し上げ","furigana":"もうしあげ"},{"text":"ます","furigana":null}],[{"text":"お","furigana":null},{"text":"渡し","furigana":"わたし"},{"text":"します","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -3006,6 +3159,7 @@
                 "買いたがっています",
                 "買うことにしました"
               ],
+              "optionsFurigana": [[{"text":"買いたい","furigana":"かいたい"},{"text":"には","furigana":null},{"text":"違い","furigana":"ちがい"},{"text":"ありません","furigana":null}],[{"text":"買う","furigana":"かう"},{"text":"ということです","furigana":null}],[{"text":"買いたがっています","furigana":"かいたがっています"}],[{"text":"買う","furigana":"かう"},{"text":"ことにしました","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -3139,6 +3293,7 @@
                 "県を",
                 "回る"
               ],
+              "optionsFurigana": [[{"text":"友達","furigana":"ともだち"},{"text":"と","furigana":null}],[],[{"text":"県","furigana":"けん"},{"text":"を","furigana":null}],[{"text":"回る","furigana":"まわる"}]],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -3219,6 +3374,7 @@
                 "バスを待って",
                 "冷えきって"
               ],
+              "optionsFurigana": [[{"text":"40分","furigana":"よんじゅっぷん"},{"text":"も","furigana":null}],[{"text":"体","furigana":"からだ"},{"text":"がすっかり","furigana":null}],[{"text":"バスを","furigana":null},{"text":"待って","furigana":"まって"}],[{"text":"冷え","furigana":"ひえ"},{"text":"きって","furigana":null}]],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -3267,6 +3423,7 @@
                 "特に忙しいので",
                 "決まりましたら"
               ],
+              "optionsFurigana": [[{"text":"ご","furigana":null},{"text":"連絡","furigana":"れんらく"}],[{"text":"年末","furigana":"ねんまつ"},{"text":"は","furigana":null}],[{"text":"特に","furigana":"とくに"},{"text":"忙しい","furigana":"いそがしい"},{"text":"ので","furigana":null}],[{"text":"決まりましたら","furigana":"きまりましたら"}]],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -3315,6 +3472,7 @@
                 "新鮮な",
                 "魚がとれる"
               ],
+              "optionsFurigana": [[],[{"text":"建物","furigana":"たてもの"}],[{"text":"新鮮","furigana":"しんせん"},{"text":"な","furigana":null}],[{"text":"魚","furigana":"さかな"},{"text":"がとれる","furigana":null}]],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -3375,6 +3533,7 @@
                 "ことにした",
                 "レストランで"
               ],
+              "optionsFurigana": [[{"text":"料理","furigana":"りょうり"},{"text":"はせずに","furigana":null}],[{"text":"ご飯","furigana":"ごはん"},{"text":"を","furigana":null},{"text":"食べる","furigana":"たべる"}],[],[]],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -3423,6 +3582,7 @@
                 "紹介していた",
                 "紹介させてくれた"
               ],
+              "optionsFurigana": [[{"text":"紹介","furigana":"しょうかい"},{"text":"された","furigana":null}],[{"text":"紹介","furigana":"しょうかい"},{"text":"してあげる","furigana":null}],[{"text":"紹介","furigana":"しょうかい"},{"text":"していた","furigana":null}],[{"text":"紹介","furigana":"しょうかい"},{"text":"させてくれた","furigana":null}]],
               "correctIndex": 0,
               "points": 1,
               "passage": "日本のドア\n\nマリア・フセイン\n\n私が日本に来て初めて住んだ家は、小さな一人暮らし用の家だった。駅からは少し遠かったのだが、家賃が安く、また新しい建物だということで、不動産会社の人からその家を【19】。\n\nその家には、不思議なドアがあった。木や鉄ではなく、紙のようなものでできていて、押しても引いても開かなかったので、管理人さんに電話した。【20】管理人さんは、「そのドアはふすまといって、横に動かして開けたり閉めたりするものです。」と教えてくれた。私はこのような形のドアを初めて見たので、とてもおどろいた。\n\nある日、友達と京都へ遊びに行ったとき、泊まったホテルにまた不思議なドアがあった。それは、少し当たったらやぶれそうなくらいのうすい紙と、細かい木でできたドアだった。不思議に思って見ていると、友達が「【21】障子と言って、うすい紙を細い木にはり付けて作るんだよ。」と教えてくれた。さらに、木を同じ大きさに切ったり、やぶれないように丁寧に紙をはったりする作業は、簡単な仕事ではないということも教えてくれた。\n\n夜になって外からホテルを見ると、障子がある部屋の明かりが優しく見えた。木や鉄のドアにはない、紙のあたたかさがとても気に入った。その夜はとても気持ちよく寝ることができた。\n\n最初はおどろいたが、今では横に動かす日本のドアが大好きになった。いつか自分で家を建てるときは、ふすまや障子がある【22】と思った。",
@@ -4358,6 +4518,7 @@
                 "すると",
                 "さらに"
               ],
+              "optionsFurigana": [[{"text":"一方","furigana":"いっぽう"}],[],[],[]],
               "correctIndex": 2,
               "points": 1,
               "passage": "（同上）",
@@ -4444,6 +4605,7 @@
                 "家にするらしい",
                 "家にしてみたい"
               ],
+              "optionsFurigana": [[{"text":"家","furigana":"いえ"},{"text":"にするしかない","furigana":null}],[{"text":"家","furigana":"いえ"},{"text":"にさせてもらう","furigana":null}],[{"text":"家","furigana":"いえ"},{"text":"にするらしい","furigana":null}],[{"text":"家","furigana":"いえ"},{"text":"にしてみたい","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": "（同上）",
@@ -4513,6 +4675,7 @@
                 "8月1日から11月30日まで、会社の営業を休むこと。",
                 "8月1日から11月30日まで、会社が別の場所で営業すること。"
               ],
+              "optionsFurigana": [[{"text":"8月","furigana":"はちがつ"},{"text":"1日","furigana":"ついたち"},{"text":"以降","furigana":"いこう"},{"text":"、","furigana":null},{"text":"新しく","furigana":"あたらしく"},{"text":"建て直した","furigana":"たてなおした"},{"text":"建物","furigana":"たてもの"},{"text":"に","furigana":null},{"text":"引っ越し","furigana":"ひっこし"},{"text":"すること。","furigana":null}],[{"text":"8月","furigana":"はちがつ"},{"text":"1日","furigana":"ついたち"},{"text":"以降","furigana":"いこう"},{"text":"、","furigana":null},{"text":"住所","furigana":"じゅうしょ"},{"text":"と","furigana":null},{"text":"電話番号","furigana":"でんわばんごう"},{"text":"とファックス","furigana":null},{"text":"番号","furigana":"ばんごう"},{"text":"が","furigana":null},{"text":"変わる","furigana":"かわる"},{"text":"こと。","furigana":null}],[{"text":"8月","furigana":"はちがつ"},{"text":"1日","furigana":"ついたち"},{"text":"から","furigana":null},{"text":"11月","furigana":"じゅういちがつ"},{"text":"30日","furigana":"さんじゅうにち"},{"text":"まで、","furigana":null},{"text":"会社","furigana":"かいしゃ"},{"text":"の","furigana":null},{"text":"営業","furigana":"えいぎょう"},{"text":"を","furigana":null},{"text":"休む","furigana":"やすむ"},{"text":"こと。","furigana":null}],[{"text":"8月","furigana":"はちがつ"},{"text":"1日","furigana":"ついたち"},{"text":"から","furigana":null},{"text":"11月","furigana":"じゅういちがつ"},{"text":"30日","furigana":"さんじゅうにち"},{"text":"まで、","furigana":null},{"text":"会社","furigana":"かいしゃ"},{"text":"が","furigana":null},{"text":"別","furigana":"べつ"},{"text":"の","furigana":null},{"text":"場所","furigana":"ばしょ"},{"text":"で","furigana":null},{"text":"営業","furigana":"えいぎょう"},{"text":"すること。","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": "東山機械\nタオ 様\n\nいつもお世話になっております。\n\n池中電気では、現在の建物が古くなったため、同じ場所で建て直しを行うことにいたしました。工事期間中は、以下の住所で営業いたします。電話番号とファックス番号は今までと変わりません。\n\nしばらくの間ご不便をおかけしますが、どうぞよろしくお願い申し上げます。\n\n＜工事期間＞\n8月1日から11月30日まで\n\n＜工事期間中の住所・連絡先＞\n〒148-0015\n中区緑町 3-2-1\n電話／ファックス：014-853-1982\n\n池中電気\n池中 正 (ikenaka.t@ikenaka-denki.co.jp)",
@@ -4909,6 +5072,7 @@
                 "食事に長い時間をかけない。",
                 "たくさんかんで食べる。"
               ],
+              "optionsFurigana": [[{"text":"甘い","furigana":"あまい"},{"text":"ものを","furigana":null},{"text":"食べ","furigana":"たべ"},{"text":"すぎない。","furigana":null}],[{"text":"食後","furigana":"しょくご"},{"text":"に","furigana":null},{"text":"歯磨き","furigana":"はみがき"},{"text":"をする。","furigana":null}],[{"text":"食事","furigana":"しょくじ"},{"text":"に","furigana":null},{"text":"長い","furigana":"ながい"},{"text":"時間","furigana":"じかん"},{"text":"をかけない。","furigana":null}],[{"text":"たくさんかんで","furigana":null},{"text":"食べる。","furigana":"たべる"}]],
               "correctIndex": 3,
               "points": 1,
               "passage": "歯を守るには、甘いものを食べすぎないことや、食後の歯磨きが大切なのはもちろんだが、かむ回数を増やす努力も重要だと聞いた。時間をかけて、何度もかむことで、あごの力が強くなり、歯も丈夫になるそうだ。\n\nそれで最近、私はハンバーグをステーキに替えたり、りんごの皮をむかないで食べたりしている。ハンバーグなどの柔らかい食べ物は、かむ必要があまりないので、歯にいいとは言えないからだ。いろいろな工夫で、かむ回数は増やせるのだ。",
@@ -5276,6 +5440,7 @@
                 "できるだけ早く管理人に伝えて、土曜日に変える。",
                 "いないということを管理人に伝えておく。"
               ],
+              "optionsFurigana": [[{"text":"今回","furigana":"こんかい"},{"text":"は、","furigana":null},{"text":"ガス","furigana":null},{"text":"器具","furigana":"きぐ"},{"text":"の","furigana":null},{"text":"点検","furigana":"てんけん"},{"text":"はしない。","furigana":null}],[{"text":"管理人","furigana":"かんりにん"},{"text":"に","furigana":null},{"text":"伝えて","furigana":"つたえて"},{"text":"、","furigana":null},{"text":"別","furigana":"べつ"},{"text":"の","furigana":null},{"text":"日","furigana":"ひ"},{"text":"に","furigana":null},{"text":"変える。","furigana":"かえる"}],[{"text":"できるだけ","furigana":null},{"text":"早く","furigana":"はやく"},{"text":"管理人","furigana":"かんりにん"},{"text":"に","furigana":null},{"text":"伝えて","furigana":"つたえて"},{"text":"、","furigana":null},{"text":"土曜日","furigana":"どようび"},{"text":"に","furigana":null},{"text":"変える。","furigana":"かえる"}],[{"text":"いないということを","furigana":null},{"text":"管理人","furigana":"かんりにん"},{"text":"に","furigana":null},{"text":"伝えて","furigana":"つたえて"},{"text":"おく。","furigana":null}]],
               "correctIndex": 1,
               "points": 1,
               "passage": "ガス器具定期点検のお知らせ\n\n下記のように、各部屋のガス器具について、定期点検を行います。\n\n2019年6月 13日 (木) 午前中：1階 午後：2階\n14日 (金) 午前中：3階 午後：4階\n15日 (土) 午前中：5階\n\n必ず行わなければならない点検ですので、住民の方のご協力をお願いします。上の時間帯には、部屋にいて点検に立ち会ってください。上の時間帯に立ち会うことができない場合は、13日～15日の間で日程を変更することができます。変更をご希望の方は、管理人までご連絡ください。土曜日は混みやすいので、土曜日をご希望の方は早めにお知らせください。先着順となります。\n\nまた、どうしても日程が合わない場合は、管理人が部屋のかぎを開けて入らせていただきます。その場合は、必ずご連絡ください。\n管理人",
@@ -5991,6 +6156,7 @@
                 "一回の食事で栄養をとるのは難しいし、健康に悪いので、一日3回食べたほうがいい。",
                 "食事の内容に注意する必要はあるが、一日3回ご飯を食べる必要はない。"
               ],
+              "optionsFurigana": [[{"text":"一日","furigana":"いちにち"},{"text":"3","furigana":null},{"text":"回","furigana":"かい"},{"text":"ご飯","furigana":"ごはん"},{"text":"を","furigana":null},{"text":"食べる","furigana":"たべる"},{"text":"べきだと","furigana":null},{"text":"言われた","furigana":"いわれた"},{"text":"が、","furigana":null},{"text":"面倒","furigana":"めんどう"},{"text":"だったら","furigana":null},{"text":"食べなく","furigana":"たべなく"},{"text":"てもいい。","furigana":null}],[{"text":"一日","furigana":"いちにち"},{"text":"3","furigana":null},{"text":"回","furigana":"かい"},{"text":"食べたい","furigana":"たべたい"},{"text":"が、","furigana":null},{"text":"食事","furigana":"しょくじ"},{"text":"よりも","furigana":null},{"text":"仕事","furigana":"しごと"},{"text":"のほうが","furigana":null},{"text":"大切","furigana":"たいせつ"},{"text":"だ。","furigana":null}],[{"text":"一回","furigana":"いっかい"},{"text":"の","furigana":null},{"text":"食事","furigana":"しょくじ"},{"text":"で","furigana":null},{"text":"栄養","furigana":"えいよう"},{"text":"をとるのは","furigana":null},{"text":"難しい","furigana":"むずかしい"},{"text":"し、","furigana":null},{"text":"健康","furigana":"けんこう"},{"text":"に","furigana":null},{"text":"悪い","furigana":"わるい"},{"text":"ので、","furigana":null},{"text":"一日","furigana":"いちにち"},{"text":"3","furigana":null},{"text":"回","furigana":"かい"},{"text":"食べた","furigana":"たべた"},{"text":"ほうがいい。","furigana":null}],[{"text":"食事","furigana":"しょくじ"},{"text":"の","furigana":null},{"text":"内容","furigana":"ないよう"},{"text":"に","furigana":null},{"text":"注意","furigana":"ちゅうい"},{"text":"する","furigana":null},{"text":"必要","furigana":"ひつよう"},{"text":"はあるが、","furigana":null},{"text":"一日","furigana":"いちにち"},{"text":"3","furigana":null},{"text":"回","furigana":"かい"},{"text":"ご飯","furigana":"ごはん"},{"text":"を","furigana":null},{"text":"食べる","furigana":"たべる"},{"text":"必要","furigana":"ひつよう"},{"text":"はない。","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": "3か月前から、食事の回数を一日一回にしている。「一日3回食べないと、体の具合が悪くなる」と子どものころから言われてきたが、それは人によって違うと思う。\n\n以前は「一日3回しっかりご飯を食べるべきだ」と考えていた。しかし、一日中座って仕事をしていて、あまりお腹が空かないときがあったため、お腹が空いたときだけ食べるようにしてみたのだ。すると、自然に体重が減って、体が軽くなった。\n\n一回の食事で、一日に必要な栄養をとる必要があるし、無理をしたら本当に体の具合が悪くなるので注意が必要だ。でも、今は自分の運動量に合った食事ができているので、これからもこの生活を続けたい。",
@@ -6508,6 +6674,7 @@
                 "商品がたくさん売れたから。",
                 "猫の形をしたものがかざってあったから。"
               ],
+              "optionsFurigana": [[{"text":"店員","furigana":"てんいん"},{"text":"さんが","furigana":null},{"text":"猫","furigana":"ねこ"},{"text":"を","furigana":null},{"text":"飼って","furigana":"かって"},{"text":"いたから。","furigana":null}],[{"text":"猫","furigana":"ねこ"},{"text":"の","furigana":null},{"text":"形","furigana":"かたち"},{"text":"の","furigana":null},{"text":"商品","furigana":"しょうひん"},{"text":"を","furigana":null},{"text":"売って","furigana":"うって"},{"text":"いたから。","furigana":null}],[{"text":"商品","furigana":"しょうひん"},{"text":"がたくさん","furigana":null},{"text":"売れた","furigana":"うれた"},{"text":"から。","furigana":null}],[{"text":"猫","furigana":"ねこ"},{"text":"の","furigana":null},{"text":"形","furigana":"かたち"},{"text":"をしたものがかざってあったから。","furigana":null}]],
               "correctIndex": 3,
               "points": 1,
               "passage": "祖母と一緒に買い物に出かけたときのことだ。店に入ると、猫の形をしたものがたくさんかざってあった。それを見た祖母は「いいお店だね」と言った。そして、「猫の形のものを置くと、商品がよく売れるようになるんだよ。」と教えてくれた。\n\n昔から、猫は家の野菜やお米を食べるネズミや虫などを捕まえてくれるいい動物だと言われてきた。それで、猫を飼っていない家でも、入り口などに猫の形のものをかざるようになったらしい。特に店を経営している人は、商売がうまくいくようにと願って、猫をかざるという。八百屋を経営している祖母も、家のたんすの上に猫の置物を置いていて、「うちの八百屋がうまくいくように」と願っているそうだ。\n\n祖母の話を聞いてから、猫を見るたび、私も猫から守られているように感じる。しかし、本当にそのような効果があるかわからない。猫が何でも助けてくれるわけではないし、自分で努力することも必要だと思う。",
@@ -7161,6 +7328,7 @@
                 "商売がうまくいってほしいから。",
                 "必ず店の経営が成功するから。"
               ],
+              "optionsFurigana": [[{"text":"野菜","furigana":"やさい"},{"text":"や","furigana":null},{"text":"お米","furigana":"おこめ"},{"text":"をたくさん","furigana":null},{"text":"食べたい","furigana":"たべたい"},{"text":"から。","furigana":null}],[{"text":"猫","furigana":"ねこ"},{"text":"にたくさんの","furigana":null},{"text":"虫","furigana":"むし"},{"text":"を","furigana":null},{"text":"捕まえて","furigana":"つかまえて"},{"text":"ほしいから。","furigana":null}],[{"text":"商売","furigana":"しょうばい"},{"text":"がうまくいってほしいから。","furigana":null}],[{"text":"必ず","furigana":"かならず"},{"text":"店","furigana":"みせ"},{"text":"の","furigana":null},{"text":"経営","furigana":"けいえい"},{"text":"が","furigana":null},{"text":"成功","furigana":"せいこう"},{"text":"するから。","furigana":null}]],
               "correctIndex": 2,
               "points": 1,
               "passage": "（同上）",
@@ -7226,6 +7394,7 @@
                 "効果があるかわからないが、守られているような気持ちになる。",
                 "だいたいはずが守ってくれるようになるので、安心している。"
               ],
+              "optionsFurigana": [[{"text":"効果","furigana":"こうか"},{"text":"はないが、","furigana":null},{"text":"心","furigana":"こころ"},{"text":"を","furigana":null},{"text":"落ち着かせる","furigana":"おちつかせる"},{"text":"ためにかざりたい。","furigana":null}],[{"text":"猫","furigana":"ねこ"},{"text":"も","furigana":null},{"text":"努力","furigana":"どりょく"},{"text":"しているので、","furigana":null},{"text":"自分","furigana":"じぶん"},{"text":"もがんばろうという","furigana":null},{"text":"気持ち","furigana":"きもち"},{"text":"になる。","furigana":null}],[{"text":"効果","furigana":"こうか"},{"text":"があるかわからないが、","furigana":null},{"text":"守られて","furigana":"まもられて"},{"text":"いるような","furigana":null},{"text":"気持ち","furigana":"きもち"},{"text":"になる。","furigana":null}],[{"text":"だいたいはずが","furigana":null},{"text":"守って","furigana":"まもって"},{"text":"くれるようになるので、","furigana":null},{"text":"安心","furigana":"あんしん"},{"text":"している。","furigana":null}]],
               "correctIndex": 2,
               "points": 1,
               "passage": "（同上）",
@@ -7279,6 +7448,7 @@
                 "魚料理に対して「美味しい」というイメージを持つ人は、「体にいい」と思う人より多い。",
                 "肉料理より魚料理のほうが「体にいい」という知識が、1年前よりも広がっている。"
               ],
+              "optionsFurigana": [[{"text":"最近","furigana":"さいきん"},{"text":"の","furigana":null},{"text":"日本人","furigana":"にほんじん"},{"text":"は、","furigana":null},{"text":"魚料理","furigana":"さかなりょうり"},{"text":"を","furigana":null},{"text":"食べない","furigana":"たべない"},{"text":"で","furigana":null},{"text":"肉料理","furigana":"にくりょうり"},{"text":"を","furigana":null},{"text":"多く","furigana":"おおく"},{"text":"食べる","furigana":"たべる"},{"text":"ようになってきた。","furigana":null}],[{"text":"1年","furigana":"いちねん"},{"text":"前","furigana":"まえ"},{"text":"より","furigana":null},{"text":"自宅","furigana":"じたく"},{"text":"で","furigana":null},{"text":"魚料理","furigana":"さかなりょうり"},{"text":"を","furigana":null},{"text":"食べる","furigana":"たべる"},{"text":"人","furigana":"ひと"},{"text":"が「","furigana":null},{"text":"増えた","furigana":"ふえた"},{"text":"」という","furigana":null},{"text":"人","furigana":"ひと"},{"text":"は、「","furigana":null},{"text":"減った","furigana":"へった"},{"text":"」という","furigana":null},{"text":"人","furigana":"ひと"},{"text":"より","furigana":null},{"text":"多い","furigana":"おおい"},{"text":"。","furigana":null}],[{"text":"魚料理","furigana":"さかなりょうり"},{"text":"に","furigana":null},{"text":"対","furigana":"たい"},{"text":"して「","furigana":null},{"text":"美味しい","furigana":"おいしい"},{"text":"」という","furigana":null},{"text":"イメージを","furigana":null},{"text":"持つ","furigana":"もつ"},{"text":"人","furigana":"ひと"},{"text":"は、「","furigana":null},{"text":"体","furigana":"からだ"},{"text":"にいい」と","furigana":null},{"text":"思う","furigana":"おもう"},{"text":"人","furigana":"ひと"},{"text":"より","furigana":null},{"text":"多い","furigana":"おおい"},{"text":"。","furigana":null}],[{"text":"肉料理","furigana":"にくりょうり"},{"text":"より","furigana":null},{"text":"魚料理","furigana":"さかなりょうり"},{"text":"のほうが「","furigana":null},{"text":"体","furigana":"からだ"},{"text":"にいい」という","furigana":null},{"text":"知識","furigana":"ちしき"},{"text":"が、","furigana":null},{"text":"1年","furigana":"いちねん"},{"text":"前","furigana":"まえ"},{"text":"よりも","furigana":null},{"text":"広がって","furigana":"ひろがって"},{"text":"いる。","furigana":null}]],
               "correctIndex": 1,
               "points": 1,
               "passage": "日本人は、魚をあまり食べなくなり、肉を食べるようになったと言われているが、実際はどうなのだろうか。\n\nある研究所が、料理の材料について男女約1,000人を対象に①調査を行った。それによると、1年前に比べて自宅で魚料理を食べることが増えた人は27.0%で、減ったと答えた人(15.0%)よりかなり多い。魚料理のイメージとしては「体にいい」が82.7%で、最も多かった。魚は健康にいいという知識が広がっているからだろう。その次に多かったのは、「おいしい」(72.1%)だった。私は、年をとればとるほど、魚が好きになると思っていたが、②そうではないらしい。魚を「おいしい」と思う人が多い年代は、60代、20代、30代、50代、40代の順であった。\n\n①調査からわかることはどれか。",
@@ -7804,6 +7974,12 @@
                 "年をとった人より、若い人のほうが魚が好きだ。",
                 "魚が好きか嫌いかは、年齢に関係がない。"
               ],
+              "optionsFurigana": [
+                [{"text":"年","furigana":"とし"},{"text":"をとると","furigana":null},{"text":"次第","furigana":"しだい"},{"text":"に、","furigana":null},{"text":"魚","furigana":"さかな"},{"text":"が","furigana":null},{"text":"好","furigana":"す"},{"text":"きになる。","furigana":null}],
+                [{"text":"若","furigana":"わか"},{"text":"い","furigana":null},{"text":"人","furigana":"ひと"},{"text":"は、あまり","furigana":null},{"text":"魚","furigana":"さかな"},{"text":"を","furigana":null},{"text":"食","furigana":"た"},{"text":"べたがらない。","furigana":null}],
+                [{"text":"年","furigana":"とし"},{"text":"をとった","furigana":null},{"text":"人","furigana":"ひと"},{"text":"より、","furigana":null},{"text":"若","furigana":"わか"},{"text":"い","furigana":null},{"text":"人","furigana":"ひと"},{"text":"のほうが","furigana":null},{"text":"魚","furigana":"さかな"},{"text":"が","furigana":null},{"text":"好","furigana":"す"},{"text":"きだ。","furigana":null}],
+                [{"text":"魚","furigana":"さかな"},{"text":"が","furigana":null},{"text":"好","furigana":"す"},{"text":"きか","furigana":null},{"text":"嫌","furigana":"きら"},{"text":"いかは、","furigana":null},{"text":"年齢","furigana":"ねんれい"},{"text":"に","furigana":null},{"text":"関係","furigana":"かんけい"},{"text":"がない。","furigana":null}]
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": "（同上）",
@@ -7835,6 +8011,12 @@
                 "肉好きと年齢の関係。",
                 "魚料理が嫌いな若者。",
                 "魚料理を食べる人の増加。"
+              ],
+              "optionsFurigana": [
+                [{"text":"肉料理","furigana":"にくりょうり"},{"text":"を","furigana":null},{"text":"食","furigana":"た"},{"text":"べる","furigana":null},{"text":"若者","furigana":"わかもの"},{"text":"。","furigana":null}],
+                [{"text":"肉","furigana":"にく"},{"text":"好","furigana":"ず"},{"text":"きと","furigana":null},{"text":"年齢","furigana":"ねんれい"},{"text":"の","furigana":null},{"text":"関係","furigana":"かんけい"},{"text":"。","furigana":null}],
+                [{"text":"魚料理","furigana":"さかなりょうり"},{"text":"が","furigana":null},{"text":"嫌","furigana":"きら"},{"text":"いな","furigana":null},{"text":"若者","furigana":"わかもの"},{"text":"。","furigana":null}],
+                [{"text":"魚料理","furigana":"さかなりょうり"},{"text":"を","furigana":null},{"text":"食","furigana":"た"},{"text":"べる","furigana":null},{"text":"人","furigana":"ひと"},{"text":"の","furigana":null},{"text":"増加","furigana":"ぞうか"},{"text":"。","furigana":null}]
               ],
               "correctIndex": 3,
               "points": 1,
@@ -7884,6 +8066,12 @@
                 "日本語ができなかったこと。",
                 "日本人の友達がいなかったこと。",
                 "まだ若かったこと。"
+              ],
+              "optionsFurigana": [
+                [{"text":"日本","furigana":"にほん"},{"text":"の","furigana":null},{"text":"文化","furigana":"ぶんか"},{"text":"がわかったこと。","furigana":null}],
+                [{"text":"日本語","furigana":"にほんご"},{"text":"ができなかったこと。","furigana":null}],
+                [{"text":"日本人","furigana":"にほんじん"},{"text":"の","furigana":null},{"text":"友達","furigana":"ともだち"},{"text":"がいなかったこと。","furigana":null}],
+                [{"text":"まだ","furigana":null},{"text":"若","furigana":"わか"},{"text":"かったこと。","furigana":null}]
               ],
               "correctIndex": 1,
               "points": 1,
@@ -8835,6 +9023,12 @@
                 "言いたいことが店員に通じなかったこと。",
                 "簡単な単語しか話せなかったこと。"
               ],
+              "optionsFurigana": [
+                [{"text":"小","furigana":"ちい"},{"text":"さい","furigana":null},{"text":"子","furigana":"こ"},{"text":"どもに","furigana":null},{"text":"笑","furigana":"わら"},{"text":"われたこと。","furigana":null}],
+                [{"text":"お","furigana":null},{"text":"金","furigana":"かね"},{"text":"が","furigana":null},{"text":"足","furigana":"た"},{"text":"りなかったこと。","furigana":null}],
+                [{"text":"言","furigana":"い"},{"text":"いたいことが","furigana":null},{"text":"店員","furigana":"てんいん"},{"text":"に","furigana":null},{"text":"通","furigana":"つう"},{"text":"じなかったこと。","furigana":null}],
+                [{"text":"簡単","furigana":"かんたん"},{"text":"な","furigana":null},{"text":"単語","furigana":"たんご"},{"text":"しか","furigana":null},{"text":"話","furigana":"はな"},{"text":"せなかったこと。","furigana":null}]
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": "（同上）",
@@ -8890,6 +9084,12 @@
                 "バスを間違えたので、家への帰り方を教えてほしい。",
                 "家の場所がわからないので、私の家の住所を教えてほしい。",
                 "バスを降りる場所を間違えたので、家に連絡してほしい。"
+              ],
+              "optionsFurigana": [
+                [{"text":"バスがなくなったので、","furigana":null},{"text":"家","furigana":"いえ"},{"text":"に","furigana":null},{"text":"連","furigana":"つ"},{"text":"れて","furigana":null},{"text":"行","furigana":"い"},{"text":"ってほしい。","furigana":null}],
+                [{"text":"バスを","furigana":null},{"text":"間違","furigana":"まちが"},{"text":"えたので、","furigana":null},{"text":"家","furigana":"いえ"},{"text":"への","furigana":null},{"text":"帰","furigana":"かえ"},{"text":"り","furigana":null},{"text":"方","furigana":"かた"},{"text":"を","furigana":null},{"text":"教","furigana":"おし"},{"text":"えてほしい。","furigana":null}],
+                [{"text":"家","furigana":"いえ"},{"text":"の","furigana":null},{"text":"場所","furigana":"ばしょ"},{"text":"がわからないので、","furigana":null},{"text":"私","furigana":"わたし"},{"text":"の","furigana":null},{"text":"家","furigana":"いえ"},{"text":"の","furigana":null},{"text":"住所","furigana":"じゅうしょ"},{"text":"を","furigana":null},{"text":"教","furigana":"おし"},{"text":"えてほしい。","furigana":null}],
+                [{"text":"バスを","furigana":null},{"text":"降","furigana":"お"},{"text":"りる","furigana":null},{"text":"場所","furigana":"ばしょ"},{"text":"を","furigana":null},{"text":"間違","furigana":"まちが"},{"text":"えたので、","furigana":null},{"text":"家","furigana":"いえ"},{"text":"に","furigana":null},{"text":"連絡","furigana":"れんらく"},{"text":"してほしい。","furigana":null}]
               ],
               "correctIndex": 1,
               "points": 1,
@@ -8963,6 +9163,12 @@
                 "「私」は助けてくれたたくさんの人に感謝している。",
                 "「私」は日本語の勉強をしなかったことを後悔している。"
               ],
+              "optionsFurigana": [
+                [{"text":"「","furigana":null},{"text":"私","furigana":"わたし"},{"text":"」は","furigana":null},{"text":"今","furigana":"いま"},{"text":"でも","furigana":null},{"text":"日本語","furigana":"にほんご"},{"text":"がまったく","furigana":null},{"text":"話","furigana":"はな"},{"text":"せない。","furigana":null}],
+                [{"text":"「","furigana":null},{"text":"私","furigana":"わたし"},{"text":"」は","furigana":null},{"text":"日本語","furigana":"にほんご"},{"text":"の","furigana":null},{"text":"問題","furigana":"もんだい"},{"text":"で","furigana":null},{"text":"困","furigana":"こま"},{"text":"ったときは","furigana":null},{"text":"英語","furigana":"えいご"},{"text":"で","furigana":null},{"text":"話","furigana":"はな"},{"text":"す。","furigana":null}],
+                [{"text":"「","furigana":null},{"text":"私","furigana":"わたし"},{"text":"」は","furigana":null},{"text":"助","furigana":"たす"},{"text":"けてくれたたくさんの","furigana":null},{"text":"人","furigana":"ひと"},{"text":"に","furigana":null},{"text":"感謝","furigana":"かんしゃ"},{"text":"している。","furigana":null}],
+                [{"text":"「","furigana":null},{"text":"私","furigana":"わたし"},{"text":"」は","furigana":null},{"text":"日本語","furigana":"にほんご"},{"text":"の","furigana":null},{"text":"勉強","furigana":"べんきょう"},{"text":"をしなかったことを","furigana":null},{"text":"後悔","furigana":"こうかい"},{"text":"している。","furigana":null}]
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": "（同上）",
@@ -9015,6 +9221,12 @@
                 "氏名だけ。",
                 "氏名と性別。",
                 "氏名と年齢と性別。"
+              ],
+              "optionsFurigana": [
+                [{"text":"氏名","furigana":"しめい"},{"text":"と","furigana":null},{"text":"国籍","furigana":"こくせき"},{"text":"と","furigana":null},{"text":"年齢","furigana":"ねんれい"},{"text":"。","furigana":null}],
+                [{"text":"氏名","furigana":"しめい"},{"text":"だけ。","furigana":null}],
+                [{"text":"氏名","furigana":"しめい"},{"text":"と","furigana":null},{"text":"性別","furigana":"せいべつ"},{"text":"。","furigana":null}],
+                [{"text":"氏名","furigana":"しめい"},{"text":"と","furigana":null},{"text":"年齢","furigana":"ねんれい"},{"text":"と","furigana":null},{"text":"性別","furigana":"せいべつ"},{"text":"。","furigana":null}]
               ],
               "correctIndex": 3,
               "points": 1,
@@ -10594,6 +10806,12 @@
                 "参加費用とバス代。",
                 "参加費用と保険料。"
               ],
+              "optionsFurigana": [
+                [{"text":"参加費用","furigana":"さんかひよう"},{"text":"だけ。","furigana":null}],
+                [{"text":"参加費用","furigana":"さんかひよう"},{"text":"と","furigana":null},{"text":"登山靴","furigana":"とざんぐつ"},{"text":"。","furigana":null}],
+                [{"text":"参加費用","furigana":"さんかひよう"},{"text":"と","furigana":null},{"text":"バス","furigana":null},{"text":"代","furigana":"だい"},{"text":"。","furigana":null}],
+                [{"text":"参加費用","furigana":"さんかひよう"},{"text":"と","furigana":null},{"text":"保険料","furigana":"ほけんりょう"},{"text":"。","furigana":null}]
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": "（同上）",
@@ -10707,6 +10925,12 @@
                 "本だなをくみたてる",
                 "本だなにペンキをぬる"
               ],
+              "optionsFurigana": [
+                [{"text":"ほんだなを","furigana":null},{"text":"運","furigana":"はこ"},{"text":"ぶ","furigana":null}],
+                [{"text":"本","furigana":"ほん"},{"text":"だなをえらぶ","furigana":null}],
+                [{"text":"本","furigana":"ほん"},{"text":"だなをくみたてる","furigana":null}],
+                [{"text":"本","furigana":"ほん"},{"text":"だなにペンキをぬる","furigana":null}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -10799,6 +11023,12 @@
                 "夕食を作る",
                 "犬のさんぽをする"
               ],
+              "optionsFurigana": [
+                [{"text":"ふくをとりに","furigana":null},{"text":"行","furigana":"い"},{"text":"く","furigana":null}],
+                [{"text":"スーパーで","furigana":null},{"text":"買い物","furigana":"かいもの"},{"text":"をする","furigana":null}],
+                [{"text":"夕食","furigana":"ゆうしょく"},{"text":"を","furigana":null},{"text":"作","furigana":"つく"},{"text":"る","furigana":null}],
+                [{"text":"犬","furigana":"いぬ"},{"text":"のさんぽをする","furigana":null}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -10830,6 +11060,12 @@
                 "散歩する",
                 "メールを送る",
                 "ご飯を食べる"
+              ],
+              "optionsFurigana": [
+                [{"text":"電車","furigana":"でんしゃ"},{"text":"に","furigana":null},{"text":"乗","furigana":"の"},{"text":"る","furigana":null}],
+                [{"text":"散歩","furigana":"さんぽ"},{"text":"する","furigana":null}],
+                [{"text":"メールを","furigana":null},{"text":"送","furigana":"おく"},{"text":"る","furigana":null}],
+                [{"text":"ご","furigana":null},{"text":"飯","furigana":"はん"},{"text":"を","furigana":null},{"text":"食","furigana":"た"},{"text":"べる","furigana":null}]
               ],
               "correctIndex": null,
               "points": 0,
@@ -10895,6 +11131,12 @@
                 "けまり",
                 "空手が柔道"
               ],
+              "optionsFurigana": [
+                [{"text":"日本","furigana":"にほん"},{"text":"の","furigana":null},{"text":"音楽","furigana":"おんがく"}],
+                [{"text":"日本","furigana":"にほん"},{"text":"の","furigana":null},{"text":"料理","furigana":"りょうり"}],
+                [{"text":"けまり","furigana":null}],
+                [{"text":"空手","furigana":"からて"},{"text":"が","furigana":null},{"text":"柔道","furigana":"じゅうどう"}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -10927,6 +11169,12 @@
                 "せいりけんをもらう",
                 "8時に受付に行く"
               ],
+              "optionsFurigana": [
+                [{"text":"イベントかいじょうに","furigana":null},{"text":"行","furigana":"い"},{"text":"く","furigana":null}],
+                [{"text":"時間","furigana":"じかん"},{"text":"をかくにんする","furigana":null}],
+                [{"text":"せいりけんをもらう","furigana":null}],
+                [{"text":"8","furigana":null},{"text":"時","furigana":"じ"},{"text":"に","furigana":null},{"text":"受付","furigana":"うけつけ"},{"text":"に","furigana":null},{"text":"行","furigana":"い"},{"text":"く","furigana":null}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -10958,6 +11206,12 @@
                 "こうえんの花の写真",
                 "いけにいた鳥の写真",
                 "めずらしい魚の写真"
+              ],
+              "optionsFurigana": [
+                [{"text":"にわであそび","furigana":null},{"text":"子","furigana":"こ"},{"text":"どもの","furigana":null},{"text":"写真","furigana":"しゃしん"}],
+                [{"text":"こうえんの","furigana":null},{"text":"花","furigana":"はな"},{"text":"の","furigana":null},{"text":"写真","furigana":"しゃしん"}],
+                [{"text":"いけにいた","furigana":null},{"text":"鳥","furigana":"とり"},{"text":"の","furigana":null},{"text":"写真","furigana":"しゃしん"}],
+                [{"text":"めずらしい","furigana":null},{"text":"魚","furigana":"さかな"},{"text":"の","furigana":null},{"text":"写真","furigana":"しゃしん"}]
               ],
               "correctIndex": null,
               "points": 0,
@@ -10995,6 +11249,12 @@
                 "大阪のホテルの値段を知りたいから",
                 "来月、大阪に行くことになったと伝えたいから"
               ],
+              "optionsFurigana": [
+                [{"text":"この","furigana":null},{"text":"間","furigana":"あいだ"},{"text":"会","furigana":"あ"},{"text":"った","furigana":null},{"text":"時","furigana":"とき"},{"text":"のお","furigana":null},{"text":"礼","furigana":"れい"},{"text":"を","furigana":null},{"text":"言","furigana":"い"},{"text":"いたいから","furigana":null}],
+                [{"text":"大阪","furigana":"おおさか"},{"text":"のホテルの","furigana":null},{"text":"名前","furigana":"なまえ"},{"text":"を","furigana":null},{"text":"教","furigana":"おし"},{"text":"えてもらいたいから","furigana":null}],
+                [{"text":"大阪","furigana":"おおさか"},{"text":"のホテルの","furigana":null},{"text":"値段","furigana":"ねだん"},{"text":"を","furigana":null},{"text":"知","furigana":"し"},{"text":"りたいから","furigana":null}],
+                [{"text":"来月","furigana":"らいげつ"},{"text":"、","furigana":null},{"text":"大阪","furigana":"おおさか"},{"text":"に","furigana":null},{"text":"行","furigana":"い"},{"text":"くことになったと","furigana":null},{"text":"伝","furigana":"つた"},{"text":"えたいから","furigana":null}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -11026,6 +11286,12 @@
                 "もう若くないから",
                 "山にのぼるためのくつを持っていないから",
                 "山にのぼるためのくつがかりられないから"
+              ],
+              "optionsFurigana": [
+                [{"text":"高","furigana":"たか"},{"text":"い","furigana":null},{"text":"山","furigana":"やま"},{"text":"はすきじゃないから","furigana":null}],
+                [{"text":"もう","furigana":null},{"text":"若","furigana":"わか"},{"text":"くないから","furigana":null}],
+                [{"text":"山","furigana":"やま"},{"text":"にのぼるためのくつを","furigana":null},{"text":"持","furigana":"も"},{"text":"っていないから","furigana":null}],
+                [{"text":"山","furigana":"やま"},{"text":"にのぼるためのくつがかりられないから","furigana":null}]
               ],
               "correctIndex": null,
               "points": 0,
@@ -11059,6 +11325,12 @@
                 "あしたカレーを食べるから",
                 "カレーが好きではないから"
               ],
+              "optionsFurigana": [
+                [{"text":"おいしくなさそうだから","furigana":null}],
+                [{"text":"女","furigana":"おんな"},{"text":"の","furigana":null},{"text":"人","furigana":"ひと"},{"text":"がカレーを","furigana":null},{"text":"食","furigana":"た"},{"text":"べるとから","furigana":null}],
+                [{"text":"あしたカレーを","furigana":null},{"text":"食","furigana":"た"},{"text":"べるから","furigana":null}],
+                [{"text":"カレーが","furigana":null},{"text":"好","furigana":"す"},{"text":"きではないから","furigana":null}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -11091,6 +11363,12 @@
                 "日帰りでおいしいものを食べに行く",
                 "日帰りで温泉に行く"
               ],
+              "optionsFurigana": [
+                [{"text":"一","furigana":"いっ"},{"text":"泊","furigana":"ぱく"},{"text":"でりょこうをする","furigana":null}],
+                [{"text":"二","furigana":"に"},{"text":"泊","furigana":"はく"},{"text":"でりょこうをする","furigana":null}],
+                [{"text":"日帰","furigana":"ひがえ"},{"text":"りでおいしいものを","furigana":null},{"text":"食","furigana":"た"},{"text":"べに","furigana":null},{"text":"行","furigana":"い"},{"text":"く","furigana":null}],
+                [{"text":"日帰","furigana":"ひがえ"},{"text":"りで","furigana":null},{"text":"温泉","furigana":"おんせん"},{"text":"に","furigana":null},{"text":"行","furigana":"い"},{"text":"く","furigana":null}]
+              ],
               "correctIndex": null,
               "points": 0,
               "passage": null,
@@ -11122,6 +11400,12 @@
                 "おいしいケーキが食べられるから",
                 "店の主人の話を聞きたいから",
                 "山の本がたくさん見られるから"
+              ],
+              "optionsFurigana": [
+                [{"text":"好","furigana":"す"},{"text":"きな","furigana":null},{"text":"音楽","furigana":"おんがく"},{"text":"が","furigana":null},{"text":"ながれているから","furigana":null}],
+                [{"text":"おいしいケーキが","furigana":null},{"text":"食","furigana":"た"},{"text":"べられるから","furigana":null}],
+                [{"text":"店","furigana":"みせ"},{"text":"の","furigana":null},{"text":"主人","furigana":"しゅじん"},{"text":"の","furigana":null},{"text":"話","furigana":"はなし"},{"text":"を","furigana":null},{"text":"聞","furigana":"き"},{"text":"きたいから","furigana":null}],
+                [{"text":"山","furigana":"やま"},{"text":"の","furigana":null},{"text":"本","furigana":"ほん"},{"text":"がたくさん","furigana":null},{"text":"見","furigana":"み"},{"text":"られるから","furigana":null}]
               ],
               "correctIndex": null,
               "points": 0,

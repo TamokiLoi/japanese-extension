@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, RotateCcw, BookOpenText } from "lucide-react";
 import { ALL_EXAMS } from "../../popup/dethiCatalog.ts";
 import {
   clearJlptQuestionPracticeAnswer,
@@ -9,6 +9,7 @@ import {
   type JlptQuestionPracticeStatus,
 } from "../../popup/jlptQuestionPracticeState.ts";
 import type { DeThiExam, DeThiPaper, DeThiQuestion } from "../../types/dethi.ts";
+import type { ReadingBodySegment } from "../../types/reading.ts";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { StatCard } from "../components/StatCard.tsx";
 import { Card } from "../components/ui/card.tsx";
@@ -98,6 +99,17 @@ function renderEmphasizedText(text: string, terms: Array<string | undefined>) {
       {text.slice(match.index + match.term.length)}
     </>
   );
+}
+
+function renderFuriganaText(text: string, segments: ReadingBodySegment[] | undefined, visible: boolean, terms: Array<string | undefined> = []) {
+  if (!visible || !segments?.length || segments.map((segment) => segment.text).join("") !== text) {
+    return renderEmphasizedText(text, terms);
+  }
+  return segments.map((segment, index) => (
+    <span key={index}>
+      {segment.furigana ? <ruby>{renderEmphasizedText(segment.text, terms)}<rt className="text-[10px] font-normal text-neutral-400">{segment.furigana}</rt></ruby> : renderEmphasizedText(segment.text, terms)}
+    </span>
+  ));
 }
 
 function statusLabel(status: JlptQuestionPracticeStatus | undefined): string {
@@ -386,10 +398,14 @@ function QuestionDetail({
   previous?: PracticeQuestion;
   next?: PracticeQuestion;
 }) {
+  const [showFurigana, setShowFurigana] = useState(false);
   const question = item.question;
   const orderingReconstruction = reconstructOrderingQuestion(question);
   const answered = savedIndex !== undefined;
   const locked = answered || saving;
+  const officialExam = item.exam.source === "cac-nam";
+  const furiganaVisible = showFurigana && (!officialExam || answered);
+  const hasFurigana = !!question.questionFurigana?.length || !!question.passageFurigana?.length || !!question.optionsFurigana?.some((segments) => segments?.length);
   const categoryLabel = item.category === "goi" ? "Goi - Kanji & Tango" : "Bunpo";
   const paletteItems = questions.map((candidate, candidateIndex) => {
     const candidateStatus = progress[candidate.key]?.status;
@@ -417,11 +433,22 @@ function QuestionDetail({
         items={paletteItems}
       />
 
+      {hasFurigana ? (
+        <button
+          type="button"
+          aria-pressed={showFurigana}
+          onClick={() => setShowFurigana((value) => !value)}
+          className={`mt-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${showFurigana ? "bg-rose-50 text-rose-700" : "bg-neutral-100 text-neutral-500"}`}
+        >
+          <BookOpenText size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+        </button>
+      ) : null}
+
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0 sm:p-6">
         <div className="flex items-start gap-3">
           <span className="shrink-0 rounded-lg bg-neutral-100 px-2 py-1 text-sm font-bold text-neutral-600">{question.number}.</span>
           <div className="whitespace-pre-line text-lg font-semibold leading-relaxed text-neutral-800">
-            {renderEmphasizedText(question.question, [question.underline])}
+            {renderFuriganaText(question.question, question.questionFurigana, furiganaVisible, [question.underline])}
           </div>
         </div>
         {answered && question.questionVi ? <p className="mt-2 pl-10 text-sm text-neutral-500">{question.questionVi}</p> : null}
@@ -446,7 +473,7 @@ function QuestionDetail({
                 className={`min-h-12 rounded-xl border px-3 py-2.5 text-left text-sm font-medium text-neutral-800 transition-colors disabled:cursor-default ${optionClass}`}
               >
                 <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-current/20 text-xs text-neutral-400">{optionIndex + 1}</span>
-                {renderEmphasizedText(option, [question.underlineForms?.[optionIndex], question.underline])}
+                {renderFuriganaText(option, question.optionsFurigana?.[optionIndex] ?? undefined, furiganaVisible, [question.underlineForms?.[optionIndex], question.underline])}
                 {answered && question.optionsVi?.[optionIndex] ? <span className="mt-1 block pl-8 text-xs font-normal text-neutral-500">{question.optionsVi[optionIndex]}</span> : null}
               </button>
             );

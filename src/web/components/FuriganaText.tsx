@@ -1,8 +1,9 @@
-export interface FuriganaAnnotation {
-  /** Exact word or inflected word as it appears in the source sentence. */
-  word: string;
-  reading: string;
-}
+import type { ListeningFuriganaAnnotation } from "../../types/listening.ts";
+
+export type FuriganaAnnotation = ListeningFuriganaAnnotation;
+
+const KANA_ONLY = /^[\u3041-\u3096\u30a1-\u30faー]+$/u;
+const HAS_KANJI = /[\u3400-\u9fff々〆ヶ]/u;
 
 export function FuriganaText({
   annotations,
@@ -21,7 +22,7 @@ export function FuriganaText({
   } else {
     for (const annotation of annotations) {
       const index = text?.indexOf(annotation.word, cursor) ?? -1;
-      if (index < cursor || index < 0) {
+      if (index < cursor || index < 0 || !HAS_KANJI.test(annotation.word) || !KANA_ONLY.test(annotation.reading)) {
         valid = false;
         break;
       }

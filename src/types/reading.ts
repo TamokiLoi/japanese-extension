@@ -11,8 +11,9 @@ export type ReadingLength = "short" | "medium" | "long" | "info-search";
 export interface ReadingBodySegment {
   text: string;
   furigana: string | null;
-  // Marks the first run of a paragraph in an editorial/news passage. Existing
-  // datasets omit this and keep their historical inline/PDF formatting.
+  // Marks the first run of a paragraph in an editorial/news passage. `false`
+  // explicitly preserves an embedded line-wrap after furigana re-segmentation.
+  // Existing datasets omit this and keep their historical inline/PDF formatting.
   paragraphStart?: boolean;
 }
 
@@ -34,11 +35,17 @@ export interface ReadingQuestion {
   // omit it and keep the local per-passage numbering in the UI.
   sourceNumber?: number;
   question: string;
+  // Optional exact-source ruby for the question prompt. The same reader
+  // toggle used by the passage controls these annotations.
+  questionFurigana?: ReadingBodySegment[];
   // Source-emphasized substring, copied from the exam prompt or conservatively
   // inferred from an exact quote in the associated passage.
   underline?: string;
   questionVi: string;
   options: string[];
+  // Parallel to `options`; entries are omitted when the source has not yet
+  // been annotated.
+  optionsFurigana?: Array<ReadingBodySegment[] | null>;
   optionsVi: string[];
   correctIndex: number;
   explanation: string;

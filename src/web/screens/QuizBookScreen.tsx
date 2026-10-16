@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Shuffle, Undo2, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, RotateCcw, BookOpenText } from "lucide-react";
 import type { QuizBookQuestion } from "../../types/quizBook.ts";
+import type { ReadingBodySegment } from "../../types/reading.ts";
 import {
   ALL_QUIZBOOK,
   AVAILABLE_CATEGORIES,
@@ -43,6 +44,15 @@ import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalet
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
+
+function furiganaText(text: string, segments: ReadingBodySegment[] | null | undefined, visible: boolean) {
+  if (!visible || !segments?.length || segments.map((segment) => segment.text).join("") !== text) return text;
+  return segments.map((segment, index) => (
+    <span key={index}>
+      {segment.furigana ? <ruby>{segment.text}<rt className="text-[10px] font-normal text-neutral-400">{segment.furigana}</rt></ruby> : segment.text}
+    </span>
+  ));
+}
 
 export function QuizBookScreen({
   targetId,
@@ -476,6 +486,10 @@ function QuestionView({
   const session = state.sessionIds;
   const sessionPos = session ? session.indexOf(q.id) : -1;
   const isLastInSession = session !== null && sessionPos === session.length - 1;
+  // Official JLPT papers expose annotations only in post-answer review. A
+  // kanji reading question also stays gated until answered, so the ruby text
+  // cannot reveal its tested reading while the learner is choosing.
+  const furiganaAllowed = state.showFurigana && (answered !== null || (q.category !== "moji" && !q.book.startsWith("dethi-n3-")));
   const prevId = session && sessionPos > 0 ? session[sessionPos - 1] : undefined;
   const nextId = session && sessionPos >= 0 && sessionPos < session.length - 1 ? session[sessionPos + 1] : undefined;
 
@@ -530,6 +544,15 @@ function QuestionView({
         ) : null}
       </div>
 
+      <button
+        type="button"
+        aria-pressed={state.showFurigana}
+        onClick={() => mutate({ showFurigana: !state.showFurigana })}
+        className={`mt-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${state.showFurigana ? "bg-rose-50 text-rose-700" : "bg-neutral-100 text-neutral-500"}`}
+      >
+        <BookOpenText size={13} /> {state.showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+      </button>
+
       {session ? (
         <QuestionPalette
           onJump={jumpTo}
@@ -549,10 +572,10 @@ function QuestionView({
 
       <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
         {q.passage ? (
-          <div className="mb-4 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{q.passage}</div>
+          <div className="mb-4 rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed whitespace-pre-line text-neutral-700">{furiganaText(q.passage, q.passageFurigana, furiganaAllowed)}</div>
         ) : null}
         <div className={`whitespace-pre-line font-semibold ${q.question ? "text-neutral-800" : "text-neutral-400 italic"}`}>
-          {q.question || "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc — vẫn có thể chọn đáp án bên dưới)"}
+          {q.question ? furiganaText(q.question, q.questionFurigana, furiganaAllowed) : "(Thiếu đề bài do lỗi trích xuất dữ liệu gốc — vẫn có thể chọn đáp án bên dưới)"}
         </div>
         <div
           className={`mt-4 grid gap-2 ${q.options.every((o) => o.length <= 10) ? "grid-cols-2" : "grid-cols-1 sm:grid-cols-2"}`}
@@ -575,7 +598,7 @@ function QuestionView({
                 }}
                 className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
               >
-                {opt}
+                {furiganaText(opt, q.optionsFurigana?.[oi], furiganaAllowed)}
               </button>
             );
           })}

@@ -85,7 +85,10 @@ export function splitBodyIntoSentences(body: ReadingBodySegment[]): ReadingBodyS
     // trailing piece (a segment never starts mid-word right after a kanji
     // compound and then continues into an earlier sentence). Every earlier
     // piece carries no reading of its own.
-    const startsParagraph = seg.paragraphStart === true || segStartsWithNewline;
+    // `paragraphStart: false` is an explicit marker used when a data refresh
+    // splits an old line-wrap into a new segment; it must not become a new
+    // translation boundary just because that segment begins with a newline.
+    const startsParagraph = seg.paragraphStart === true || (seg.paragraphStart !== false && segStartsWithNewline);
     pieces.forEach((piece, i) => addPiece(piece, i === pieces.length - 1 ? seg.furigana : null, i === 0 && startsParagraph));
   }
   if (current.length > 0) groups.push(current);

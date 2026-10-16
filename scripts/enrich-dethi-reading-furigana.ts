@@ -10,6 +10,8 @@ import { existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { DeThiDataset, DeThiPaper, DeThiQuestion } from "../src/types/dethi.ts";
 import { enrichmentQuestionId } from "./jlptEnrichmentIds.ts";
+import { splitBodyIntoSentences } from "../src/lib/readingSentences.ts";
+import { stableHash } from "../src/lib/jlptReading.ts";
 
 const ROOT = join(import.meta.dirname, "..");
 const MODEL = "gemini-3.5-flash-lite";
@@ -162,6 +164,33 @@ function validExistingFurigana(passage: string, segments: DeThiQuestion["passage
   }
   if (offset !== passage.length) return false;
   return Array.from(passage).every((char, index) => !HAS_KANJI.test(char) || covered[index]);
+}
+
+function sentenceText(body: NonNullable<DeThiQuestion["passageFurigana"]>): string[] {
+  return splitBodyIntoSentences(body).map((group) => group.map(({ text }) => text).join(""));
+}
+
+function preservePassageBoundaries(
+  before: NonNullable<DeThiQuestion["passageFurigana"]>,
+  after: NonNullable<DeThiQuestion["passageFurigana"]>,
+): NonNullable<DeThiQuestion["passageFurigana"]> {
+  const starts = new Set<number>();
+  let oldOffset = 0;
+  for (const segment of before) {
+    if (segment.paragraphStart || segment.text.startsWith("\n")) starts.add(oldOffset);
+    oldOffset += segment.text.length;
+  }
+  let newOffset = 0;
+  return after.map((segment) => {
+    const originalStart = starts.has(newOffset);
+    const lineWrapBoundary = segment.text.startsWith("\n");
+    const copy = {
+      ...segment,
+      ...(originalStart ? { paragraphStart: true } : lineWrapBoundary ? { paragraphStart: false } : {}),
+    };
+    newOffset += segment.text.length;
+    return copy;
+  });
 }
 
 function cachedResultMatchesTarget(target: Target, entry: CachedEnrichment | undefined): boolean {
@@ -501,7 +530,22 @@ async function main() {
 
   const updatedPaths = new Set(runTargets.map((target) => target.file));
   for (const target of runTargets) {
-    target.questions[0].question.passageFurigana = results.get(target.id)!.segments;
+    const oldBody = target.questions.find(({ question }) => question.passageFurigana?.length)?.question.passageFurigana
+      ?? [{ text: target.passage, furigana: null }];
+    const newBody = preservePassageBoundaries(oldBody, results.get(target.id)!.segments);
+    const previousSentences = sentenceText(oldBody);
+    const nextSentences = sentenceText(newBody);
+    if (previousSentences.length !== nextSentences.length || previousSentences.some((sentence, index) => sentence !== nextSentences[index])) {
+      throw new Error(`${target.id}: adding furigana would change sentence boundaries; source and translations were not written`);
+    }
+    for (const { question } of target.questions) {
+      if (!question.readingPresentation) continue;
+      if (question.readingPresentation.sentencesVi.length !== nextSentences.length) {
+        throw new Error(`${target.id}: reading presentation has ${question.readingPresentation.sentencesVi.length} translations for ${nextSentences.length} sentences; source was not written`);
+      }
+      question.readingPresentation.bodySignature = stableHash(JSON.stringify(newBody));
+    }
+    target.questions[0].question.passageFurigana = newBody;
   }
   for (const source of sources) {
     if (!updatedPaths.has(source.path)) continue;

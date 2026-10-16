@@ -6,10 +6,16 @@ import type { JlptLevel } from "./kanji.ts";
 // actual 問題4/問題5 structure.
 export type ListeningTaskType = "kadai" | "point" | "gaiyou" | "hatsugen" | "sokuji" | "sougou";
 
+/** Exact source substring and its kana reading; listening data validators require ordered, full kanji coverage. */
+export interface ListeningFuriganaAnnotation {
+  word: string;
+  reading: string;
+}
+
 export interface ListeningTurn {
   speaker: string;
   text: string;
-  furigana?: { word: string; reading: string }[];
+  furigana?: ListeningFuriganaAnnotation[];
   // Vietnamese translation of `text`, shown under the Japanese line in the
   // transcript panel. Optional since older data may not have it yet --
   // see scripts/translate-listening-turns.ts.
@@ -31,16 +37,16 @@ export interface ListeningQuestion {
   audioStartSec?: number;
   audioEndSec?: number;
   scenario: string;
-  scenarioFurigana?: { word: string; reading: string }[];
+  scenarioFurigana?: ListeningFuriganaAnnotation[];
   scenarioVi: string;
   turns: ListeningTurn[];
   question: string;
-  questionFurigana?: { word: string; reading: string }[];
+  questionFurigana?: ListeningFuriganaAnnotation[];
   questionVi: string;
   // Explicit spoken question stem when the source transcript does not store
   // the prompt as a separate final turn (e.g. N1 JLPT Mondai 2).
   questionPrompt?: string;
-  questionPromptFurigana?: { word: string; reading: string }[];
+  questionPromptFurigana?: ListeningFuriganaAnnotation[];
   questionPromptVi?: string;
   // Some 課題理解-style items use illustrated (picture) answer choices --
   // the book never prints those as text anywhere, so there's nothing to OCR.
@@ -50,7 +56,7 @@ export interface ListeningQuestion {
   // set means "ignore options/optionsVi, render optionCount numbered
   // buttons under this image instead."
   options: string[];
-  optionFurigana?: { word: string; reading: string }[][];
+  optionFurigana?: ListeningFuriganaAnnotation[][];
   optionsVi: string[];
   // Optional explanation for each answer choice, shown after the learner
   // answers. This is useful for listening questions where several choices

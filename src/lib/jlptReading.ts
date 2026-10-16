@@ -64,9 +64,15 @@ function toReadingQuestions(questions: DeThiQuestion[], passage: string): Readin
     return {
       sourceNumber: question.number,
       question: question.question,
+      ...(question.questionFurigana?.length ? { questionFurigana: question.questionFurigana.map((segment) => ({ ...segment })) } : {}),
       underline: readingQuestionUnderline(question.question, question.underline, passage),
       questionVi: question.questionVi ?? "",
       options: [...question.options],
+      ...(question.optionsFurigana?.length ? {
+        optionsFurigana: question.optionsFurigana.map((option) =>
+          option?.map((segment) => ({ ...segment })) ?? null,
+        ),
+      } : {}),
       optionsVi: question.options.map((_, index) => question.optionsVi?.[index] ?? ""),
       correctIndex: question.correctIndex,
       explanation: question.explanation ?? "",

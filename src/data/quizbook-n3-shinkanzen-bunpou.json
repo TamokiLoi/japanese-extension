@@ -22,7 +22,10 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「でも」 dùng để đưa ra một ví dụ cực đoan hoặc tối thiểu, ngụ ý rằng \"ngay cả điều này cũng...\".",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        { "text": "一度", "furigana": "いちど" }, { "text": "（　）", "furigana": null }, { "text": "会", "furigana": "あ" }, { "text": "ったことがあれば、", "furigana": null }, { "text": "友", "furigana": "とも" }, { "text": "だちだと", "furigana": null }, { "text": "考える", "furigana": "かんがえる" }, { "text": "人", "furigana": "ひと" }, { "text": "もいる。", "furigana": null }
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-2",
@@ -39,7 +42,52 @@
       "correctIndex": 2,
       "explanation": "Mẫu 「によって」 diễn tả sự khác biệt, thay đổi hoặc phân loại tùy thuộc vào từng đối tượng hoặc điều kiện.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        { "text": "ここにたくさんのびんがあります。", "furigana": null }, { "text": "大きさ", "furigana": "おおきさ" }, { "text": "（　）", "furigana": null }, { "text": "三", "furigana": "みっ" }, { "text": "つに", "furigana": null }, { "text": "分", "furigana": "わ" }, { "text": "けてください。", "furigana": null }
+      ],
+      "optionsFurigana": [
+        [
+          {
+            "text": "に",
+            "furigana": null
+          },
+          {
+            "text": "比",
+            "furigana": "くら"
+          },
+          {
+            "text": "べて",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "について",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "によって",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "に",
+            "furigana": null
+          },
+          {
+            "text": "対",
+            "furigana": "たい"
+          },
+          {
+            "text": "して",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-3",
@@ -56,7 +104,16 @@
       "correctIndex": 2,
       "explanation": "Thể sai khiến 「読ませて」 kết hợp với 「ほしい」 dùng để xin phép người nghe cho phép mình làm việc gì đó.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [
+        { "text": "A「この", "furigana": null }, { "text": "本", "furigana": "ほん" }, { "text": "、", "furigana": null }, { "text": "面白", "furigana": "おもしろ" }, { "text": "かったですよ。」\nB「じゃ、わたしにも（　）ほしいです。お", "furigana": null }, { "text": "借", "furigana": "か" }, { "text": "りしてもいいですか。」", "furigana": null }
+      ],
+      "optionsFurigana": [
+        [{ "text": "読", "furigana": "よ" }, { "text": "んで", "furigana": null }],
+        [{ "text": "読", "furigana": "よ" }, { "text": "まれて", "furigana": null }],
+        [{ "text": "読", "furigana": "よ" }, { "text": "ませて", "furigana": null }],
+        [{ "text": "読む", "furigana": "よむ" }, { "text": "のが", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-4",
@@ -73,7 +130,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜のに」 dùng để đánh giá hoặc nêu lên tính chất, mục đích phù hợp (tốt, tiện lợi, v.v.) để làm việc gì đó.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "日本", "furigana": "にほん" }, { "text": "では、", "furigana": null }, { "text": "秋", "furigana": "あき" }, { "text": "は（　）とてもいい", "furigana": null }, { "text": "季節", "furigana": "きせつ" }, { "text": "だと", "furigana": null }, { "text": "言", "furigana": "い" }, { "text": "われている。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "読書", "furigana": "どくしょ" }, { "text": "するのに", "furigana": null }],
+        [{ "text": "読書", "furigana": "どくしょ" }, { "text": "することで", "furigana": null }],
+        [{ "text": "読書", "furigana": "どくしょ" }, { "text": "できるように", "furigana": null }],
+        [{ "text": "読書", "furigana": "どくしょ" }, { "text": "できるうちに", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-5",
@@ -90,7 +154,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜つもりだった」 diễn tả hành động/suy nghĩ thực tế khác với phỏng đoán hoặc ý định ban đầu của bản thân.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "きのうの", "furigana": null }, { "text": "試験", "furigana": "しけん" }, { "text": "で", "furigana": null }, { "text": "自分", "furigana": "じぶん" }, { "text": "では", "furigana": null }, { "text": "正", "furigana": "ただ" }, { "text": "しい", "furigana": null }, { "text": "答", "furigana": "こた" }, { "text": "えを（　）が、わたしの", "furigana": null }, { "text": "答", "furigana": "こた" }, { "text": "えは", "furigana": null }, { "text": "間違", "furigana": "まちが" }, { "text": "いだった。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "書", "furigana": "か" }, { "text": "くつもりになった", "furigana": null }],
+        [{ "text": "書", "furigana": "か" }, { "text": "いたつもりだった", "furigana": null }],
+        [{ "text": "書", "furigana": "か" }, { "text": "いたことになった", "furigana": null }],
+        [{ "text": "書", "furigana": "か" }, { "text": "いたことだった", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-6",
@@ -107,7 +178,14 @@
       "correctIndex": 3,
       "explanation": "Dạng kính ngữ 「行かれた」 dùng để hỏi về hành động đi của người đối thoại một cách lịch sự.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "後輩", "furigana": "こうはい" }, { "text": "「それ、", "furigana": null }, { "text": "何", "furigana": "なん" }, { "text": "ですか。」\n先輩", "furigana": "せんぱい" }, { "text": "「", "furigana": null }, { "text": "京都", "furigana": "きょうと" }, { "text": "の", "furigana": null }, { "text": "写真", "furigana": "しゃしん" }, { "text": "だよ。」\n後輩", "furigana": "こうはい" }, { "text": "「あ、", "furigana": null }, { "text": "京都", "furigana": "きょうと" }, { "text": "へ（　）んですか。", "furigana": null }, { "text": "桜", "furigana": "さくら" }, { "text": "がきれいだったでしょう。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "参", "furigana": "まい" }, { "text": "られた", "furigana": null }],
+        null,
+        [{ "text": "伺", "furigana": "うかが" }, { "text": "われた", "furigana": null }],
+        [{ "text": "行", "furigana": "い" }, { "text": "かれた", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-7",
@@ -124,7 +202,8 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜ばかりいると」 dùng để đưa ra cảnh báo về một kết quả tiêu cực sẽ xảy ra nếu cứ tiếp tục lặp lại hành động đó.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "そんなに", "furigana": null }, { "text": "仕事", "furigana": "しごと" }, { "text": "を（　）、", "furigana": null }, { "text": "体", "furigana": "からだ" }, { "text": "をこわしますよ。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r1-8",
@@ -141,7 +220,8 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜というものだ」 dùng để khẳng định một chân lý, định nghĩa hoặc nêu lên cảm xúc mạnh mẽ về bản chất của sự việc.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "球技", "furigana": "きゅうぎ" }, { "text": "というのは、ボールを", "furigana": null }, { "text": "使", "furigana": "つか" }, { "text": "うスポーツ（　）。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r1-9",
@@ -158,7 +238,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜からなんです」 dùng để nhấn mạnh lý do hoặc nguyên nhân cho sự việc vừa được nhắc đến trước đó.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしがこの", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "のことをよく", "furigana": null }, { "text": "知", "furigana": "し" }, { "text": "っているのは、", "furigana": null }, { "text": "前", "furigana": "まえ" }, { "text": "に（　）。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "住", "furigana": "す" }, { "text": "んでいたんですから", "furigana": null }],
+        [{ "text": "住", "furigana": "す" }, { "text": "んでいたからなんです", "furigana": null }],
+        [{ "text": "住", "furigana": "す" }, { "text": "んでいたんです", "furigana": null }],
+        [{ "text": "住", "furigana": "す" }, { "text": "んでいました", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-10",
@@ -175,7 +262,8 @@
       "correctIndex": 2,
       "explanation": "Dạng khả năng phủ định 「わかってもらえない」 dùng để diễn tả việc người khác không thể hiểu hoặc tiếp thu được nội dung.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "報告書", "furigana": "ほうこくしょ" }, { "text": "はこのような", "furigana": null }, { "text": "書", "furigana": "か" }, { "text": "き", "furigana": null }, { "text": "方", "furigana": "かた" }, { "text": "では（　）と", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "います。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r1-11",
@@ -192,7 +280,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜とのことです」 dùng để truyền đạt lại thông tin, lời nhắn nhận được từ người khác một cách khách quan.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "店長", "furigana": "てんちょう" }, { "text": "「あれ、", "furigana": null }, { "text": "田中", "furigana": "たなか" }, { "text": "君は？」\n店員", "furigana": "てんいん" }, { "text": "「さっき", "furigana": null }, { "text": "電話", "furigana": "でんわ" }, { "text": "があって、", "furigana": null }, { "text": "少", "furigana": "すこ" }, { "text": "し（　）。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "遅", "furigana": "おく" }, { "text": "れることです", "furigana": null }],
+        [{ "text": "遅", "furigana": "おく" }, { "text": "れるとのことです", "furigana": null }],
+        [{ "text": "遅", "furigana": "おく" }, { "text": "れようとしています", "furigana": null }],
+        [{ "text": "遅", "furigana": "おく" }, { "text": "れようと", "furigana": null }, { "text": "言", "furigana": "い" }, { "text": "っています", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-12",
@@ -209,7 +304,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜ようにしている」 dùng để diễn tả thói quen hoặc sự cố gắng rèn luyện làm một việc gì đó thường xuyên.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしは", "furigana": null }, { "text": "疲", "furigana": "つか" }, { "text": "れたら", "furigana": null }, { "text": "無理", "furigana": "むり" }, { "text": "をしないで", "furigana": null }, { "text": "十分", "furigana": "じゅうぶん" }, { "text": "（　）。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "寝", "furigana": "ね" }, { "text": "るようにしている", "furigana": null }],
+        [{ "text": "寝", "furigana": "ね" }, { "text": "るようになっている", "furigana": null }],
+        [{ "text": "寝", "furigana": "ね" }, { "text": "るということだ", "furigana": null }],
+        [{ "text": "寝", "furigana": "ね" }, { "text": "るというところだ", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-13",
@@ -226,7 +328,8 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜わけではない」 dùng để phủ định một phần, mang ý nghĩa \"không hẳn là...\" nhằm đính chính hiểu lầm.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "A「", "furigana": null }, { "text": "今度", "furigana": "こんど" }, { "text": "の", "furigana": null }, { "text": "試験", "furigana": "しけん" }, { "text": "、", "furigana": null }, { "text": "受", "furigana": "う" }, { "text": "けないんですか。」\nB「ええ。でも、", "furigana": null }, { "text": "合格", "furigana": "ごうかく" }, { "text": "を（　）。", "furigana": null }, { "text": "次回", "furigana": "じかい" }, { "text": "受", "furigana": "う" }, { "text": "けます。」", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r1-14",
@@ -243,7 +346,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜ように」 kết hợp với động từ thể mệnh lệnh/chỉ thị dùng để truyền đạt lại nội dung được nhắc nhở, khuyên bảo.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "子", "furigana": "こ" }, { "text": "どものころから、＿＿＿★＿＿＿と", "furigana": null }, { "text": "言", "furigana": "い" }, { "text": "われてきた。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "考", "furigana": "かんが" }, { "text": "えて", "furigana": null }],
+        [{ "text": "行動", "furigana": "こうどう" }, { "text": "する", "furigana": null }],
+        [{ "text": "周", "furigana": "まわ" }, { "text": "りのことを", "furigana": null }],
+        null
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-15",
@@ -260,7 +370,33 @@
       "correctIndex": 0,
       "explanation": "Cấu trúc giả định nhấn mạnh 「たとえ〜ても」 diễn tả ý nghĩa \"cho dù... đi chăng nữa thì vẫn...\".",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしは＿＿＿★＿＿＿", "furigana": null }, { "text": "必", "furigana": "かなら" }, { "text": "ず", "furigana": null }, { "text": "答", "furigana": "こた" }, { "text": "えはあると", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "う。", "furigana": null }],
+      "optionsFurigana": [
+        [
+          {
+            "text": "難",
+            "furigana": "むずか"
+          },
+          {
+            "text": "しい",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "どんなに",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "たとえ",
+            "furigana": null
+          }
+        ],
+        [{ "text": "問題", "furigana": "もんだい" }, { "text": "でも", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-16",
@@ -277,7 +413,46 @@
       "correctIndex": 3,
       "explanation": "Mẫu trích dẫn gián tiếp 「〜という」 dùng để giải thích hoặc làm rõ nội dung của danh từ đứng trước nó.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "会", "furigana": "あ" }, { "text": "う", "furigana": null }, { "text": "約束", "furigana": "やくそく" }, { "text": "をした", "furigana": null }, { "text": "友", "furigana": "とも" }, { "text": "だちから＿＿＿★＿＿＿メールが", "furigana": null }, { "text": "来", "furigana": "き" }, { "text": "た。", "furigana": null }],
+      "optionsFurigana": [
+        [
+          {
+            "text": "電車",
+            "furigana": "でんしゃ"
+          },
+          {
+            "text": "が",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "乗",
+            "furigana": "の"
+          },
+          {
+            "text": "っている",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "という",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "止",
+            "furigana": "と"
+          },
+          {
+            "text": "まっている",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-17",
@@ -294,7 +469,14 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「〜として」 kết hợp với danh từ chỉ vai trò, tư cách hoặc mục đích sử dụng (\"với tư cách là / để làm...\").",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "古", "furigana": "ふる" }, { "text": "くなった", "furigana": null }, { "text": "歯", "furigana": "は" }, { "text": "ブラシを", "furigana": null }, { "text": "掃除用具", "furigana": "そうじようぐ" }, { "text": "＿＿＿★＿＿＿した。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "使", "furigana": "つか" }, { "text": "う", "furigana": null }],
+        [{ "text": "として", "furigana": null }],
+        [{ "text": "に", "furigana": null }],
+        [{ "text": "こと", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-18",
@@ -311,7 +493,42 @@
       "correctIndex": 2,
       "explanation": "Mẫu 「〜に関する」 diễn tả ý nghĩa \"liên quan đến\" hoặc \"về vấn đề...\" được nhắc tới.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "学生", "furigana": "がくせい" }, { "text": "「", "furigana": null }, { "text": "先生", "furigana": "せんせい" }, { "text": "、スピーチではわたしの", "furigana": null }, { "text": "家族", "furigana": "かぞく" }, { "text": "の", "furigana": null }, { "text": "話", "furigana": "はなし" }, { "text": "をしたいんですが……。」\n", "furigana": null }, { "text": "先生", "furigana": "せんせい" }, { "text": "「うーん。スピーチのテーマは", "furigana": null }, { "text": "何", "furigana": "なん" }, { "text": "でも＿＿＿★＿＿＿ことだけです。」", "furigana": null }],
+      "optionsFurigana": [
+        [
+          {
+            "text": "わけではなく",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "に",
+            "furigana": null
+          },
+          {
+            "text": "関",
+            "furigana": "かん"
+          },
+          {
+            "text": "する",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "日本文化",
+            "furigana": "にほんぶんか"
+          }
+        ],
+        [
+          {
+            "text": "いいという",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-19",
@@ -328,7 +545,14 @@
       "correctIndex": 2,
       "explanation": "Sử dụng chủ ngữ là tác giả (わたし) với động từ ý chí 「〜を考えます」 để diễn tả hành động suy ngẫm của bản thân.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "米", "furigana": "こめ" }, { "text": "（リー・リサ）\nわたしは", "furigana": null }, { "text": "毎日", "furigana": "まいにち" }, { "text": "昼", "furigana": "ひる" }, { "text": "ごはんにはおにぎりを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べます。おにぎりを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べると、", "furigana": null }, { "text": "元気", "furigana": "げんき" }, { "text": "が", "furigana": null }, { "text": "出", "furigana": "で" }, { "text": "るような", "furigana": null }, { "text": "気", "furigana": "き" }, { "text": "がします。おにぎりを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べながら、", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "について［19］。\n", "furigana": null }, { "text": "米作", "furigana": "こめづく" }, { "text": "りは", "furigana": null }, { "text": "大昔", "furigana": "おおむかし" }, { "text": "、アジアの", "furigana": null }, { "text": "暖", "furigana": "あたた" }, { "text": "かい", "furigana": null }, { "text": "地方", "furigana": "ちほう" }, { "text": "で", "furigana": null }, { "text": "始", "furigana": "はじ" }, { "text": "まったと", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えられています。そして、", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "、", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "は［20］", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べられています。エネルギーの", "furigana": null }, { "text": "素", "furigana": "もと" }, { "text": "になり、また、", "furigana": null }, { "text": "栄養", "furigana": "えいよう" }, { "text": "のバランスがいいということも", "furigana": null }, { "text": "主食", "furigana": "しゅしょく" }, { "text": "になっている", "furigana": null }, { "text": "理由", "furigana": "りゆう" }, { "text": "の", "furigana": null }, { "text": "一", "furigana": "ひと" }, { "text": "つだと", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "います。\n［21］", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "、", "furigana": null }, { "text": "日本", "furigana": "にほん" }, { "text": "では、", "furigana": null }, { "text": "若", "furigana": "わか" }, { "text": "い", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちを", "furigana": null }, { "text": "中心", "furigana": "ちゅうしん" }, { "text": "に", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "を", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べる", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "が", "furigana": null }, { "text": "減", "furigana": "へ" }, { "text": "っていると", "furigana": null }, { "text": "聞", "furigana": "き" }, { "text": "きました。ご", "furigana": null }, { "text": "飯", "furigana": "はん" }, { "text": "を", "furigana": null }, { "text": "炊", "furigana": "た" }, { "text": "いておかずを", "furigana": null }, { "text": "作", "furigana": "つく" }, { "text": "るより、パン、うどん、ラーメンなどの", "furigana": null }, { "text": "方", "furigana": "ほう" }, { "text": "が", "furigana": null }, { "text": "簡単", "furigana": "かんたん" }, { "text": "に", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べられるからでしょう。もちろんいろいろな", "furigana": null }, { "text": "種類", "furigana": "しゅるい" }, { "text": "の", "furigana": null }, { "text": "食事", "furigana": "しょくじ" }, { "text": "ができることはとても", "furigana": null }, { "text": "楽", "furigana": "たの" }, { "text": "しいことですが、わたしは", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "のよさがもっと［22］と", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "います。", "furigana": null }, { "text": "日本", "furigana": "にほん" }, { "text": "の", "furigana": null }, { "text": "気候", "furigana": "きこう" }, { "text": "は", "furigana": null }, { "text": "米作", "furigana": "こめづく" }, { "text": "りに", "furigana": null }, { "text": "合", "furigana": "あ" }, { "text": "っているので、", "furigana": null }, { "text": "国内", "furigana": "こくない" }, { "text": "でおいしい", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "ができます。わたしはその", "furigana": null }, { "text": "土地", "furigana": "とち" }, { "text": "で", "furigana": null }, { "text": "昔", "furigana": "むかし" }, { "text": "から", "furigana": null }, { "text": "作", "furigana": "つく" }, { "text": "られてきたものを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べるのがいちばん", "furigana": null }, { "text": "体", "furigana": "からだ" }, { "text": "に", "furigana": null }, { "text": "合", "furigana": "あ" }, { "text": "っていて", "furigana": null }, { "text": "健康", "furigana": "けんこう" }, { "text": "だと", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えています。そういう", "furigana": null }, { "text": "意味", "furigana": "いみ" }, { "text": "で、", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "は", "furigana": null }, { "text": "日本人", "furigana": "にほんじん" }, { "text": "にとって", "furigana": null }, { "text": "最", "furigana": "もっと" }, { "text": "も", "furigana": null }, { "text": "健康的", "furigana": "けんこうてき" }, { "text": "な", "furigana": null }, { "text": "食品", "furigana": "しょくひん" }, { "text": "［23］。\n\n［19］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "いろいろなことを", "furigana": null }, { "text": "知", "furigana": "し" }, { "text": "っています", "furigana": null }],
+        [{ "text": "いろいろなことが", "furigana": null }, { "text": "知", "furigana": "し" }, { "text": "られています", "furigana": null }],
+        [{ "text": "いろいろなことを", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えます", "furigana": null }],
+        [{ "text": "いろいろなことが", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えられます", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-20",
@@ -345,7 +569,14 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「〜として」 dùng để chỉ tư cách hoặc vai trò của gạo là \"lương thực chính\" đối với người châu Á.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "米", "furigana": "こめ" }, { "text": "（リー・リサ）\nわたしは", "furigana": null }, { "text": "毎日", "furigana": "まいにち" }, { "text": "昼", "furigana": "ひる" }, { "text": "ごはんにはおにぎりを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べます。おにぎりを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べると、", "furigana": null }, { "text": "元気", "furigana": "げんき" }, { "text": "が", "furigana": null }, { "text": "出", "furigana": "で" }, { "text": "るような", "furigana": null }, { "text": "気", "furigana": "き" }, { "text": "がします。おにぎりを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べながら、", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "について［19］。\n", "furigana": null }, { "text": "米作", "furigana": "こめづく" }, { "text": "りは", "furigana": null }, { "text": "大昔", "furigana": "おおむかし" }, { "text": "、アジアの", "furigana": null }, { "text": "暖", "furigana": "あたた" }, { "text": "かい", "furigana": null }, { "text": "地方", "furigana": "ちほう" }, { "text": "で", "furigana": null }, { "text": "始", "furigana": "はじ" }, { "text": "まったと", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えられています。そして、", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "、", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "は［20］", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べられています。エネルギーの", "furigana": null }, { "text": "素", "furigana": "もと" }, { "text": "になり、また、", "furigana": null }, { "text": "栄養", "furigana": "えいよう" }, { "text": "のバランスがいいということも", "furigana": null }, { "text": "主食", "furigana": "しゅしょく" }, { "text": "になっている", "furigana": null }, { "text": "理由", "furigana": "りゆう" }, { "text": "の", "furigana": null }, { "text": "一", "furigana": "ひと" }, { "text": "つだと", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "います。\n\n［20］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "アジアの", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちが", "furigana": null }, { "text": "主食", "furigana": "しゅしょく" }, { "text": "が", "furigana": null }],
+        [{ "text": "アジアの", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちが", "furigana": null }, { "text": "主食", "furigana": "しゅしょく" }, { "text": "で", "furigana": null }],
+        [{ "text": "アジアの", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちが", "furigana": null }, { "text": "主食", "furigana": "しゅしょく" }, { "text": "として", "furigana": null }],
+        [{ "text": "アジアの", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちの", "furigana": null }, { "text": "主食", "furigana": "しゅしょく" }, { "text": "として", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-21",
@@ -362,7 +593,8 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「ところが」 dùng để diễn tả sự việc xảy ra trái ngược với dự đoán hoặc thực tế trước đó.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "米", "furigana": "こめ" }, { "text": "（リー・リサ）\n［21］", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "、", "furigana": null }, { "text": "日本", "furigana": "にほん" }, { "text": "では、", "furigana": null }, { "text": "若", "furigana": "わか" }, { "text": "い", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちを", "furigana": null }, { "text": "中心", "furigana": "ちゅうしん" }, { "text": "に", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "を", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べる", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "が", "furigana": null }, { "text": "減", "furigana": "へ" }, { "text": "っていると", "furigana": null }, { "text": "聞", "furigana": "き" }, { "text": "きました。ご", "furigana": null }, { "text": "飯", "furigana": "はん" }, { "text": "を", "furigana": null }, { "text": "炊", "furigana": "た" }, { "text": "いておかずを", "furigana": null }, { "text": "作", "furigana": "つく" }, { "text": "るより、パン、うどん、ラーメンなどの", "furigana": null }, { "text": "方", "furigana": "ほう" }, { "text": "が", "furigana": null }, { "text": "簡単", "furigana": "かんたん" }, { "text": "に", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べられるからでしょう。\n\n［21］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r1-22",
@@ -379,7 +611,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜たらいいのに」 diễn tả mong ước, hy vọng một việc gì đó sẽ xảy ra hoặc thay đổi theo chiều hướng tốt.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "米", "furigana": "こめ" }, { "text": "（リー・リサ）\nもちろんいろいろな", "furigana": null }, { "text": "種類", "furigana": "しゅるい" }, { "text": "の", "furigana": null }, { "text": "食事", "furigana": "しょくじ" }, { "text": "ができることはとても", "furigana": null }, { "text": "楽", "furigana": "たの" }, { "text": "しいことですが、わたしは", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "のよさがもっと［22］と", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "います。", "furigana": null }, { "text": "日本", "furigana": "にほん" }, { "text": "の", "furigana": null }, { "text": "気候", "furigana": "きこう" }, { "text": "は", "furigana": null }, { "text": "米作", "furigana": "こめづく" }, { "text": "りに", "furigana": null }, { "text": "合", "furigana": "あ" }, { "text": "っているので、", "furigana": null }, { "text": "国内", "furigana": "こくない" }, { "text": "でおいしい", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "ができます。\n\n［22］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "見直", "furigana": "みなお" }, { "text": "されたからいい", "furigana": null }],
+        [{ "text": "見直", "furigana": "みなお" }, { "text": "されたらいいのに", "furigana": null }],
+        [{ "text": "見直", "furigana": "みなお" }, { "text": "せるからいい", "furigana": null }],
+        [{ "text": "見直", "furigana": "みなお" }, { "text": "してあればどうか", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r1-23",
@@ -396,7 +635,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜のではないだろうか」 dùng để nêu lên phỏng đoán hoặc ý kiến một cách lịch sự, nhẹ nhàng.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "米", "furigana": "こめ" }, { "text": "（リー・リサ）\nわたしはその", "furigana": null }, { "text": "土地", "furigana": "とち" }, { "text": "で", "furigana": null }, { "text": "昔", "furigana": "むかし" }, { "text": "から", "furigana": null }, { "text": "作", "furigana": "つく" }, { "text": "られてきたものを", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べるのがいちばん", "furigana": null }, { "text": "体", "furigana": "からだ" }, { "text": "に", "furigana": null }, { "text": "合", "furigana": "あ" }, { "text": "っていて", "furigana": null }, { "text": "健康", "furigana": "けんこう" }, { "text": "だと", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えています。そういう", "furigana": null }, { "text": "意味", "furigana": "いみ" }, { "text": "で、", "furigana": null }, { "text": "米", "furigana": "こめ" }, { "text": "は", "furigana": null }, { "text": "日本人", "furigana": "にほんじん" }, { "text": "にとって", "furigana": null }, { "text": "最", "furigana": "もっと" }, { "text": "も", "furigana": null }, { "text": "健康的", "furigana": "けんこうてき" }, { "text": "な", "furigana": null }, { "text": "食品", "furigana": "しょくひん" }, { "text": "［23］。\n\n［23］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "なのではないでしょうか", "furigana": null }],
+        [{ "text": "だと", "furigana": null }, { "text": "言", "furigana": "い" }, { "text": "えるのでしょうか", "furigana": null }],
+        [{ "text": "なのではないでしょう", "furigana": null }],
+        [{ "text": "のわけではないでしょう", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-1",
@@ -413,7 +659,8 @@
       "correctIndex": 2,
       "explanation": "Mẫu 「〜ところで」 diễn tả hành động vừa đúng lúc một sự việc khác xảy ra.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "最後", "furigana": "さいご" }, { "text": "の", "furigana": null }, { "text": "問題", "furigana": "もんだい" }, { "text": "の", "furigana": null }, { "text": "答", "furigana": "こた" }, { "text": "えを", "furigana": null }, { "text": "書", "furigana": "か" }, { "text": "いた（　）、", "furigana": null }, { "text": "試験", "furigana": "しけん" }, { "text": "の", "furigana": null }, { "text": "終", "furigana": "お" }, { "text": "わりのベルが", "furigana": null }, { "text": "鳴", "furigana": "な" }, { "text": "った。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r2-2",
@@ -430,7 +677,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜ようとしたが」 diễn tả ý định làm gì nhưng kết quả không thành công.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "虫", "furigana": "むし" }, { "text": "がいたので（　）、どこかに", "furigana": null }, { "text": "逃", "furigana": "に" }, { "text": "げられてしまった。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "捕", "furigana": "つか" }, { "text": "まえるようにしたら", "furigana": null }],
+        [{ "text": "捕", "furigana": "つか" }, { "text": "まえようとしたが", "furigana": null }],
+        [{ "text": "捕", "furigana": "つか" }, { "text": "まえることにして", "furigana": null }],
+        [{ "text": "捕", "furigana": "つか" }, { "text": "まえるようになって", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-3",
@@ -447,7 +701,14 @@
       "correctIndex": 2,
       "explanation": "Mẫu 「〜ことにした」 diễn tả quyết định làm một việc gì đó dựa trên ý chí của bản thân.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "A「", "furigana": null }, { "text": "昼", "furigana": "ひる" }, { "text": "ごはん、もう", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べた？」\nB「うん、（　）けど、まだ、おなかがすいている。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "食", "furigana": "た" }, { "text": "べるようにした", "furigana": null }],
+        [{ "text": "食", "furigana": "た" }, { "text": "べようとした", "furigana": null }],
+        [{ "text": "食", "furigana": "た" }, { "text": "べることにした", "furigana": null }],
+        [{ "text": "食", "furigana": "た" }, { "text": "べたことは", "furigana": null }, { "text": "食", "furigana": "た" }, { "text": "べた", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-4",
@@ -464,7 +725,8 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「〜のこと」 dùng để nhắc lại một sự việc, vấn đề mà ai cũng biết.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "皆", "furigana": "みな" }, { "text": "さんご", "furigana": null }, { "text": "存", "furigana": "ぞん" }, { "text": "じ（　）、この", "furigana": null }, { "text": "学校", "furigana": "がっこう" }, { "text": "ができてから", "furigana": null }, { "text": "来年", "furigana": "らいねん" }, { "text": "で60", "furigana": null }, { "text": "年", "furigana": "ねん" }, { "text": "になります。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r2-5",
@@ -481,7 +743,14 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜のに」 diễn tả sự tiếc nuối hoặc bất mãn khi thực tế trái ngược với mong đợi.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "A「", "furigana": null }, { "text": "突然", "furigana": "とつぜん" }, { "text": "おじゃまして、すみませんでした。」\nB「こちらこそ、せっかく（　）、", "furigana": null }, { "text": "時間", "furigana": "じかん" }, { "text": "がなくてすみませんでした。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "来", "furigana": "き" }, { "text": "てくれて", "furigana": null }],
+        [{ "text": "来", "furigana": "き" }, { "text": "てくれたのに", "furigana": null }],
+        [{ "text": "来", "furigana": "き" }, { "text": "てくれたら", "furigana": null }],
+        [{ "text": "来", "furigana": "き" }, { "text": "てくれたなら", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-6",
@@ -498,7 +767,8 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜というより」 dùng để đính chính lại, nói là A thì đúng hơn là B.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "虫", "furigana": "むし" }, { "text": "に", "furigana": null }, { "text": "刺", "furigana": "さ" }, { "text": "されたところが", "furigana": null }, { "text": "赤", "furigana": "あか" }, { "text": "くなって、かゆい（　）", "furigana": null }, { "text": "痛", "furigana": "いた" }, { "text": "くなった。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r2-7",
@@ -515,7 +785,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu giả định 「〜していれば」 dùng để diễn tả điều kiện trái ngược với quá khứ.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "あのとき", "furigana": null }, { "text": "君", "furigana": "きみ" }, { "text": "に（　）、ぼくの", "furigana": null }, { "text": "人生", "furigana": "じんせい" }, { "text": "はきっと", "furigana": null }, { "text": "全然", "furigana": "ぜんぜん" }, { "text": "違", "furigana": "ちが" }, { "text": "っていただろう。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "会", "furigana": "あ" }, { "text": "っていなければ", "furigana": null }],
+        [{ "text": "会", "furigana": "あ" }, { "text": "ってからでなければ", "furigana": null }],
+        [{ "text": "会", "furigana": "あ" }, { "text": "ったことから", "furigana": null }],
+        [{ "text": "会", "furigana": "あ" }, { "text": "ったのだから", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-8",
@@ -532,7 +809,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜ことはない」 dùng để khuyên nhủ ai đó rằng không cần thiết phải lo lắng hay làm gì.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "A「ああ、どうしよう。あしたのスピーチ、うまくできるかなあ。」\nB「（　）よ。お", "furigana": null }, { "text": "客", "furigana": "きゃく" }, { "text": "さんみんな", "furigana": null }, { "text": "知", "furigana": "し" }, { "text": "っている", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちばかりだから。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "心配", "furigana": "しんぱい" }, { "text": "することはない", "furigana": null }],
+        [{ "text": "心配", "furigana": "しんぱい" }, { "text": "するわけではない", "furigana": null }],
+        [{ "text": "心配", "furigana": "しんぱい" }, { "text": "しないことがある", "furigana": null }],
+        [{ "text": "心配", "furigana": "しんぱい" }, { "text": "しないわけだよ", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-9",
@@ -549,7 +833,8 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「〜はずだ」 diễn tả sự suy đoán chắc chắn dựa trên cơ sở logic.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "日本", "furigana": "にほん" }, { "text": "は", "furigana": null }, { "text": "朝", "furigana": "あさ" }, { "text": "だが、わたしの", "furigana": null }, { "text": "国", "furigana": "くに" }, { "text": "と", "furigana": null }, { "text": "時差", "furigana": "じさ" }, { "text": "が5", "furigana": null }, { "text": "時間", "furigana": "じかん" }, { "text": "あるから、", "furigana": null }, { "text": "母", "furigana": "はは" }, { "text": "はまだ", "furigana": null }, { "text": "寝", "furigana": "ね" }, { "text": "ている（　）。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r2-10",
@@ -566,7 +851,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜てからでなければ」 diễn tả ý nghĩa nếu không làm việc A trước thì không thể làm việc B.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "来週", "furigana": "らいしゅう" }, { "text": "の", "furigana": null }, { "text": "予定", "furigana": "よてい" }, { "text": "を（　）、その", "furigana": null }, { "text": "日", "furigana": "ひ" }, { "text": "行", "furigana": "い" }, { "text": "けるかどうかお", "furigana": null }, { "text": "返事", "furigana": "へんじ" }, { "text": "できません。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "確認", "furigana": "かくにん" }, { "text": "するのでは", "furigana": null }],
+        [{ "text": "確認", "furigana": "かくにん" }, { "text": "するなら", "furigana": null }],
+        [{ "text": "確認", "furigana": "かくにん" }, { "text": "しようとしてから", "furigana": null }],
+        [{ "text": "確認", "furigana": "かくにん" }, { "text": "してからでなければ", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-11",
@@ -583,7 +875,14 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜させてもらいたかった」 diễn tả mong muốn được phép làm gì đó trong quá khứ.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "時間", "furigana": "じかん" }, { "text": "があればわたしにも", "furigana": null }, { "text": "意見", "furigana": "いけん" }, { "text": "を（　）です。", "furigana": null }, { "text": "言", "furigana": "い" }, { "text": "いたいことがあったんです。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "言", "furigana": "い" }, { "text": "わせてもらいたかった", "furigana": null }],
+        [{ "text": "言", "furigana": "い" }, { "text": "ってもらいたかった", "furigana": null }],
+        [{ "text": "言", "furigana": "い" }, { "text": "ってくれたらよかった", "furigana": null }],
+        [{ "text": "言", "furigana": "い" }, { "text": "わせたかった", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-12",
@@ -600,7 +899,14 @@
       "correctIndex": 2,
       "explanation": "Từ kính ngữ 「おたずねください」 dùng để lịch sự yêu cầu hoặc hỏi thông tin.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "病院", "furigana": "びょういん" }, { "text": "に", "furigana": null }, { "text": "来", "furigana": "き" }, { "text": "た", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "「あのう、", "furigana": null }, { "text": "診察", "furigana": "しんさつ" }, { "text": "の", "furigana": null }, { "text": "申", "furigana": "もう" }, { "text": "し", "furigana": null }, { "text": "込", "furigana": "こ" }, { "text": "みはどうすればいいんでしょうか。」\n", "furigana": null }, { "text": "病院", "furigana": "びょういん" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "「あ、", "furigana": null }, { "text": "初", "furigana": "はじ" }, { "text": "めてなんですね。では、あそこの", "furigana": null }, { "text": "窓口", "furigana": "まどぐち" }, { "text": "で（　）。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "お", "furigana": null }, { "text": "参", "furigana": "まい" }, { "text": "りください", "furigana": null }],
+        [{ "text": "伺", "furigana": "うかが" }, { "text": "いませんか", "furigana": null }],
+        [{ "text": "おたずねください", "furigana": null }],
+        [{ "text": "お", "furigana": null }, { "text": "聞", "furigana": "き" }, { "text": "きしませんか", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-13",
@@ -617,7 +923,8 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜わけがない」 diễn tả sự phủ định mạnh mẽ, tuyệt đối không có lý nào lại như vậy.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "ぼくがいいかげんな", "furigana": null }, { "text": "気持", "furigana": "きも" }, { "text": "ちだったら、", "furigana": null }, { "text": "親", "furigana": "おや" }, { "text": "がこの", "furigana": null }, { "text": "結婚", "furigana": "けっこん" }, { "text": "に", "furigana": null }, { "text": "賛成", "furigana": "さんせい" }, { "text": "して（　）。", "furigana": null }]
     },
     {
       "id": "shinkanzen-bunpou-r2-14",
@@ -634,7 +941,33 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「〜ときから」 diễn tả mốc thời gian bắt đầu từ khi còn nhỏ.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "祖父", "furigana": "そふ" }, { "text": "は", "furigana": null }, { "text": "子", "furigana": "こ" }, { "text": "どもの＿＿＿★＿＿＿わたしにくれた。", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "時計", "furigana": "とけい" }, { "text": "を", "furigana": null }],
+        [
+          {
+            "text": "大切",
+            "furigana": "たいせつ"
+          },
+          {
+            "text": "に",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "ときから",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "していた",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-15",
@@ -651,7 +984,33 @@
       "correctIndex": 2,
       "explanation": "Mẫu 「〜ば〜ほど」 diễn tả mức độ thay đổi tương ứng khi điều kiện thay đổi.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "値段", "furigana": "ねだん" }, { "text": "が", "furigana": null }, { "text": "高", "furigana": "たか" }, { "text": "ければ＿＿＿★＿＿＿というわけではない。", "furigana": null }],
+      "optionsFurigana": [
+        [
+          {
+            "text": "いい",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "高",
+            "furigana": "たか"
+          },
+          {
+            "text": "い",
+            "furigana": null
+          }
+        ],
+        [{ "text": "品質", "furigana": "ひんしつ" }, { "text": "が", "furigana": null }],
+        [
+          {
+            "text": "ほど",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-16",
@@ -668,7 +1027,36 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「〜ばかりでなく」 diễn tả không chỉ cái này mà còn cả cái khác (hơn thế nữa).",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "先生", "furigana": "せんせい" }, { "text": "「", "furigana": null }, { "text": "君", "furigana": "きみ" }, { "text": "は、＿＿＿★＿＿＿やることも", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えなさい。」\n", "furigana": null }, { "text": "生徒", "furigana": "せいと" }, { "text": "「はい、わかりました。」", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "手伝", "furigana": "てつだ" }, { "text": "ってもらう", "furigana": null }],
+        [
+          {
+            "text": "自分",
+            "furigana": "じぶん"
+          },
+          {
+            "text": "の",
+            "furigana": null
+          },
+          {
+            "text": "力",
+            "furigana": "ちから"
+          },
+          {
+            "text": "で",
+            "furigana": null
+          }
+        ],
+        [{ "text": "ほかの", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "に", "furigana": null }],
+        [
+          {
+            "text": "ばかりでなく",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-17",
@@ -685,7 +1073,37 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜ようになっている」 diễn tả chức năng hoặc quy định đã được thiết lập sẵn.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "この", "furigana": null }, { "text": "図書館", "furigana": "としょかん" }, { "text": "で＿＿＿★＿＿＿ようになっている。", "furigana": null }],
+      "optionsFurigana": [
+        [
+          {
+            "text": "本",
+            "furigana": "ほん"
+          },
+          {
+            "text": "は",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "コンビニでも",
+            "furigana": null
+          }
+        ],
+        [{ "text": "返", "furigana": "かえ" }, { "text": "せる", "furigana": null }],
+        [
+          {
+            "text": "借",
+            "furigana": "か"
+          },
+          {
+            "text": "りた",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-18",
@@ -702,7 +1120,41 @@
       "correctIndex": 0,
       "explanation": "Mẫu 「〜て直接...と言って」 dùng để trích dẫn trực tiếp lời nói khi từ chối.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "彼", "furigana": "かれ" }, { "text": "に", "furigana": null }, { "text": "会", "furigana": "あ" }, { "text": "って", "furigana": null }, { "text": "直接", "furigana": "ちょくせつ" }, { "text": "＿＿＿★＿＿＿", "furigana": null }, { "text": "断", "furigana": "ことわ" }, { "text": "られた。", "furigana": null }],
+      "optionsFurigana": [
+        [
+          {
+            "text": "会",
+            "furigana": "あ"
+          },
+          {
+            "text": "いたくない",
+            "furigana": null
+          }
+        ],
+        [{ "text": "話", "furigana": "はな" }, { "text": "し", "furigana": null }, { "text": "合", "furigana": "あ" }, { "text": "おう", "furigana": null }],
+        [
+          {
+            "text": "と",
+            "furigana": null
+          },
+          {
+            "text": "言っ",
+            "furigana": "いっ"
+          },
+          {
+            "text": "て",
+            "furigana": null
+          }
+        ],
+        [
+          {
+            "text": "としたが",
+            "furigana": null
+          }
+        ]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-19",
@@ -719,7 +1171,14 @@
       "correctIndex": 0,
       "explanation": "Dùng 「〜町です」 để định nghĩa hoặc giới thiệu tên địa điểm.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしが", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれた", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "\nわたしが", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれたのは、", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "のそばの", "furigana": null }, { "text": "小", "furigana": "ちい" }, { "text": "さな", "furigana": null }, { "text": "［19］。この", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "はだいたい", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "に", "furigana": null }, { "text": "関係", "furigana": "かんけい" }, { "text": "がある", "furigana": null }, { "text": "仕事", "furigana": "しごと" }, { "text": "をしています。わたしの", "furigana": null }, { "text": "父", "furigana": "ちち" }, { "text": "と", "furigana": null }, { "text": "祖父", "furigana": "そふ" }, { "text": "は", "furigana": null }, { "text": "船", "furigana": "ふね" }, { "text": "に", "furigana": null }, { "text": "乗", "furigana": "の" }, { "text": "って", "furigana": null }, { "text": "遠", "furigana": "とお" }, { "text": "くの", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "まで", "furigana": null }, { "text": "魚", "furigana": "さかな" }, { "text": "を", "furigana": null }, { "text": "捕", "furigana": "と" }, { "text": "りに", "furigana": null }, { "text": "行", "furigana": "い" }, { "text": "っていますし、", "furigana": null }, { "text": "母", "furigana": "はは" }, { "text": "は", "furigana": null }, { "text": "港", "furigana": "みなと" }, { "text": "の", "furigana": null }, { "text": "近", "furigana": "ちか" }, { "text": "くの", "furigana": null }, { "text": "工場", "furigana": "こうじょう" }, { "text": "で", "furigana": null }, { "text": "貝", "furigana": "かい" }, { "text": "をむいています。", "furigana": null }, { "text": "小", "furigana": "ちい" }, { "text": "さな", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "なので、", "furigana": null }, { "text": "大", "furigana": "おお" }, { "text": "きい", "furigana": null }, { "text": "病院", "furigana": "びょういん" }, { "text": "やデパートなどはありません。", "furigana": null }, { "text": "必要", "furigana": "ひつよう" }, { "text": "なときは", "furigana": null }, { "text": "車", "furigana": "くるま" }, { "text": "で", "furigana": null }, { "text": "遠", "furigana": "とお" }, { "text": "くまで", "furigana": null }, { "text": "行", "furigana": "い" }, { "text": "かなければなりません。ですから、", "furigana": null }, { "text": "大人", "furigana": "おとな" }, { "text": "になると、みんな", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "を", "furigana": null }, { "text": "出", "furigana": "で" }, { "text": "ていってしまいます。［20］。\n", "furigana": null }, { "text": "子", "furigana": "こ" }, { "text": "どものころは、わたしの", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "はどの", "furigana": null }, { "text": "都市", "furigana": "とし" }, { "text": "からも", "furigana": null }, { "text": "遠", "furigana": "とお" }, { "text": "くて、どこにも", "furigana": null }, { "text": "簡単", "furigana": "かんたん" }, { "text": "に", "furigana": null }, { "text": "行", "furigana": "い" }, { "text": "けないさびしい", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "だと", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "っていました。［21］、", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "では", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えが", "furigana": null }, { "text": "変", "furigana": "か" }, { "text": "わりました。この", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "は、", "furigana": null }, { "text": "小", "furigana": "ちい" }, { "text": "さい", "furigana": null }, { "text": "子", "furigana": "こ" }, { "text": "どもでも、", "furigana": null }, { "text": "世界", "furigana": "せかい" }, { "text": "のいろいろな", "furigana": null }, { "text": "港", "furigana": "みなと" }, { "text": "の", "furigana": null }, { "text": "名前", "furigana": "なまえ" }, { "text": "やそこでどんなものが", "furigana": null }, { "text": "捕", "furigana": "と" }, { "text": "れるかをよく", "furigana": null }, { "text": "知", "furigana": "し" }, { "text": "っています。", "furigana": null }, { "text": "周", "furigana": "まわ" }, { "text": "りの", "furigana": null }, { "text": "大人", "furigana": "おとな" }, { "text": "が", "furigana": null }, { "text": "世界中", "furigana": "せかいじゅう" }, { "text": "の", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "の", "furigana": null }, { "text": "話", "furigana": "はなし" }, { "text": "を［22］", "furigana": null }, { "text": "育", "furigana": "そだ" }, { "text": "つからです。わたしたちは", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "の", "furigana": null }, { "text": "様子", "furigana": "ようす" }, { "text": "や", "furigana": null }, { "text": "捕", "furigana": "と" }, { "text": "れた", "furigana": null }, { "text": "魚", "furigana": "さかな" }, { "text": "の", "furigana": null }, { "text": "量", "furigana": "りょう" }, { "text": "を", "furigana": null }, { "text": "見", "furigana": "み" }, { "text": "て、", "furigana": null }, { "text": "地球", "furigana": "ちきゅう" }, { "text": "の", "furigana": null }, { "text": "反対側", "furigana": "はんたいがわ" }, { "text": "の", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "の", "furigana": null }, { "text": "温度", "furigana": "おんど" }, { "text": "や、", "furigana": null }, { "text": "海水", "furigana": "かいすい" }, { "text": "の", "furigana": null }, { "text": "流", "furigana": "なが" }, { "text": "れなどを", "furigana": null }, { "text": "想像", "furigana": "そうぞう" }, { "text": "することができます。どこからも", "furigana": null }, { "text": "離", "furigana": "はな" }, { "text": "れていると", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "っていたわたしの", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "は、", "furigana": null }, { "text": "実", "furigana": "じつ" }, { "text": "は、", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "の", "furigana": null }, { "text": "向", "furigana": "む" }, { "text": "こうの", "furigana": null }, { "text": "世界", "furigana": "せかい" }, { "text": "と［23］。\n\n［19］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "町", "furigana": "まち" }, { "text": "です", "furigana": null }],
+        [{ "text": "町", "furigana": "まち" }, { "text": "があります", "furigana": null }],
+        [{ "text": "町", "furigana": "まち" }, { "text": "にあります", "furigana": null }],
+        [{ "text": "町", "furigana": "まち" }, { "text": "で", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれました", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-20",
@@ -736,7 +1195,14 @@
       "correctIndex": 1,
       "explanation": "Dùng 「〜そうでした」 để đồng tình với tình trạng hoặc sự việc được nhắc đến trước đó (tôi cũng vậy).",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしが", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれた", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "\n", "furigana": null }, { "text": "必要", "furigana": "ひつよう" }, { "text": "なときは", "furigana": null }, { "text": "車", "furigana": "くるま" }, { "text": "で", "furigana": null }, { "text": "遠", "furigana": "とお" }, { "text": "くまで", "furigana": null }, { "text": "行", "furigana": "い" }, { "text": "かなければなりません。ですから、", "furigana": null }, { "text": "大人", "furigana": "おとな" }, { "text": "になると、みんな", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "を", "furigana": null }, { "text": "出", "furigana": "で" }, { "text": "ていってしまいます。［20］。\n\n［20］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "わたしもそれでした", "furigana": null }],
+        [{ "text": "わたしもそうでした", "furigana": null }],
+        [{ "text": "みんなもそうでした", "furigana": null }],
+        [{ "text": "みんなもその", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "たちでした", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-21",
@@ -753,7 +1219,9 @@
       "correctIndex": 3,
       "explanation": "Mẫu 「けれども」 dùng để nối hai vế có ý nghĩa trái ngược nhau (nhưng mà).",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしが", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれた", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "\n", "furigana": null }, { "text": "子", "furigana": "こ" }, { "text": "どものころは、わたしの", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "はどの", "furigana": null }, { "text": "都市", "furigana": "とし" }, { "text": "からも", "furigana": null }, { "text": "遠", "furigana": "とお" }, { "text": "くて、どこにも", "furigana": null }, { "text": "簡単", "furigana": "かんたん" }, { "text": "に", "furigana": null }, { "text": "行", "furigana": "い" }, { "text": "けないさびしい", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "だと", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "っていました。［21］、", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "では", "furigana": null }, { "text": "考", "furigana": "かんが" }, { "text": "えが", "furigana": null }, { "text": "変", "furigana": "か" }, { "text": "わりました。\n\n［21］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [null, null, [{ "text": "一方", "furigana": "いっぽう" }], null]
     },
     {
       "id": "shinkanzen-bunpou-r2-22",
@@ -770,7 +1238,14 @@
       "correctIndex": 2,
       "explanation": "Mẫu thể bị động 「〜させられる」 diễn tả hành động bị ai đó bắt làm hoặc chịu tác động từ người khác.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしが", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれた", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "\nこの", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "は、", "furigana": null }, { "text": "小", "furigana": "ちい" }, { "text": "さい", "furigana": null }, { "text": "子", "furigana": "こ" }, { "text": "どもでも、", "furigana": null }, { "text": "世界", "furigana": "せかい" }, { "text": "のいろいろな", "furigana": null }, { "text": "港", "furigana": "みなと" }, { "text": "の", "furigana": null }, { "text": "名前", "furigana": "なまえ" }, { "text": "やそこでどんなものが", "furigana": null }, { "text": "捕", "furigana": "と" }, { "text": "れるかをよく", "furigana": null }, { "text": "知", "furigana": "し" }, { "text": "っています。", "furigana": null }, { "text": "周", "furigana": "まわ" }, { "text": "りの", "furigana": null }, { "text": "大人", "furigana": "おとな" }, { "text": "が", "furigana": null }, { "text": "世界中", "furigana": "せかいじゅう" }, { "text": "の", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "の", "furigana": null }, { "text": "話", "furigana": "はなし" }, { "text": "を［22］", "furigana": null }, { "text": "育", "furigana": "そだ" }, { "text": "つからです。\n\n［22］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }],
+      "optionsFurigana": [
+        [{ "text": "聞", "furigana": "き" }, { "text": "かれて", "furigana": null }],
+        [{ "text": "聞", "furigana": "き" }, { "text": "かせて", "furigana": null }],
+        [{ "text": "聞", "furigana": "き" }, { "text": "かされて", "furigana": null }],
+        [{ "text": "聞", "furigana": "き" }, { "text": "いていって", "furigana": null }]
+      ]
     },
     {
       "id": "shinkanzen-bunpou-r2-23",
@@ -787,7 +1262,8 @@
       "correctIndex": 1,
       "explanation": "Mẫu 「〜ているのです」 dùng để giải thích hoặc khẳng định một trạng thái đang tiếp diễn.",
       "explanationEn": "",
-      "notes": []
+      "notes": [],
+      "questionFurigana": [{ "text": "わたしが", "furigana": null }, { "text": "生", "furigana": "う" }, { "text": "まれた", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "\nどこからも", "furigana": null }, { "text": "離", "furigana": "はな" }, { "text": "れていると", "furigana": null }, { "text": "思", "furigana": "おも" }, { "text": "っていたわたしの", "furigana": null }, { "text": "町", "furigana": "まち" }, { "text": "は、", "furigana": null }, { "text": "実", "furigana": "じつ" }, { "text": "は、", "furigana": null }, { "text": "海", "furigana": "うみ" }, { "text": "の", "furigana": null }, { "text": "向", "furigana": "む" }, { "text": "こうの", "furigana": null }, { "text": "世界", "furigana": "せかい" }, { "text": "と［23］。\n\n［23］に", "furigana": null }, { "text": "入", "furigana": "はい" }, { "text": "るもの", "furigana": null }]
     }
   ]
 }

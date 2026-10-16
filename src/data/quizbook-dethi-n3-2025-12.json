@@ -13,6 +13,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "これは西洋の建物の写真です。",
+      "questionFurigana": [{ "text": "これは", "furigana": null }, { "text": "西洋", "furigana": "せいよう" }, { "text": "の", "furigana": null }, { "text": "建物", "furigana": "たてもの" }, { "text": "の", "furigana": null }, { "text": "写真", "furigana": "しゃしん" }, { "text": "です。", "furigana": null }],
       "options": [
         "せよう",
         "せいゆう",
@@ -32,6 +33,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "今回はとても苦しい試合だった。",
+      "questionFurigana": [{ "text": "今回", "furigana": "こんかい" }, { "text": "はとても", "furigana": null }, { "text": "苦しい", "furigana": "くるしい" }, { "text": "試合", "furigana": "しあい" }, { "text": "だった。", "furigana": null }],
       "options": [
         "おしい",
         "くるしい",
@@ -51,6 +53,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "この手紙は他人に見せないでください。",
+      "questionFurigana": [{ "text": "この", "furigana": null }, { "text": "手紙", "furigana": "てがみ" }, { "text": "は", "furigana": null }, { "text": "他人", "furigana": "たにん" }, { "text": "に", "furigana": null }, { "text": "見せ", "furigana": "みせ" }, { "text": "ないでください。", "furigana": null }],
       "options": [
         "たんじん",
         "たじん",
@@ -70,6 +73,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "昨日は腹痛で学校を休みました。",
+      "questionFurigana": [{ "text": "昨日", "furigana": "きのう" }, { "text": "は", "furigana": null }, { "text": "腹痛", "furigana": "ふくつう" }, { "text": "で", "furigana": null }, { "text": "学校", "furigana": "がっこう" }, { "text": "を", "furigana": null }, { "text": "休みました。", "furigana": "やすみました" }],
       "options": [
         "ふくつう",
         "ふくつ",
@@ -89,6 +93,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "次の駅が終点です。",
+      "questionFurigana": [{ "text": "次", "furigana": "つぎ" }, { "text": "の", "furigana": null }, { "text": "駅", "furigana": "えき" }, { "text": "が", "furigana": null }, { "text": "終点", "furigana": "しゅうてん" }, { "text": "です。", "furigana": null }],
       "options": [
         "しゅうでん",
         "しゅうてん",
@@ -108,6 +113,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "森田さんが泣いていました。",
+      "questionFurigana": [{ "text": "森田", "furigana": "もりた" }, { "text": "さんが", "furigana": null }, { "text": "泣いて", "furigana": "ないて" }, { "text": "いました。", "furigana": null }],
       "options": [
         "はたらいて",
         "おどろいて",
@@ -127,6 +133,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "この着物の帯は美しいです。",
+      "questionFurigana": [{ "text": "この", "furigana": null }, { "text": "着物", "furigana": "きもの" }, { "text": "の", "furigana": null }, { "text": "帯", "furigana": "おび" }, { "text": "は", "furigana": null }, { "text": "美しい", "furigana": "うつくしい" }, { "text": "です。", "furigana": null }],
       "options": [
         "おび",
         "えり",
@@ -146,6 +153,7 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "昨日母から郵便が届いた。",
+      "questionFurigana": [{ "text": "昨日", "furigana": "きのう" }, { "text": "母", "furigana": "はは" }, { "text": "から", "furigana": null }, { "text": "郵便", "furigana": "ゆうびん" }, { "text": "が", "furigana": null }, { "text": "届いた。", "furigana": "とどいた" }],
       "options": [
         "ようべん",
         "ようびん",
@@ -165,12 +173,14 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "このあたりはマンションが多い。",
+      "questionFurigana": [{ "text": "このあたりはマンションが", "furigana": null }, { "text": "多い", "furigana": "おおい" }, { "text": "。", "furigana": null }],
       "options": [
         "通り",
         "辺り",
         "返り",
         "迎え"
       ],
+      "optionsFurigana": [[{ "text": "通り", "furigana": "とおり" }], [{ "text": "辺り", "furigana": "あたり" }], [{ "text": "返り", "furigana": "かえり" }], [{ "text": "迎え", "furigana": "むかえ" }]],
       "correctIndex": 1,
       "explanation": "あたり nghĩa là vùng lân cận, viết là 辺り.",
       "explanationEn": "",
@@ -184,12 +194,14 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "次のずを見てください。",
+      "questionFurigana": [{ "text": "次", "furigana": "つぎ" }, { "text": "のずを", "furigana": null }, { "text": "見て", "furigana": "みて" }, { "text": "ください。", "furigana": null }],
       "options": [
         "絵",
         "図",
         "表",
         "例"
       ],
+      "optionsFurigana": [[{ "text": "絵", "furigana": "え" }], [{ "text": "図", "furigana": "ず" }], [{ "text": "表", "furigana": "ひょう" }], [{ "text": "例", "furigana": "れい" }]],
       "correctIndex": 1,
       "explanation": "ず (zu) viết là 図.",
       "explanationEn": "",
@@ -203,12 +215,14 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "貯金が少しへりました。",
+      "questionFurigana": [{ "text": "貯金", "furigana": "ちょきん" }, { "text": "が", "furigana": null }, { "text": "少し", "furigana": "すこし" }, { "text": "へりました。", "furigana": null }],
       "options": [
         "細りました",
         "低りました",
         "消りました",
         "減りました"
       ],
+      "optionsFurigana": [[{ "text": "細りました", "furigana": "へりました" }], [{ "text": "低りました", "furigana": "へりました" }], [{ "text": "消りました", "furigana": "へりました" }], [{ "text": "減りました", "furigana": "へりました" }]],
       "correctIndex": 3,
       "explanation": "へる (giảm) viết là 減る.",
       "explanationEn": "",
@@ -222,12 +236,14 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "来年、ここにほどうができそうだ。",
+      "questionFurigana": [{ "text": "来年", "furigana": "らいねん" }, { "text": "、ここにほどうができそうだ。", "furigana": null }],
       "options": [
         "歩動",
         "走道",
         "歩道",
         "走動"
       ],
+      "optionsFurigana": [[{ "text": "歩動", "furigana": "ほどう" }], [{ "text": "走道", "furigana": "ほどう" }], [{ "text": "歩道", "furigana": "ほどう" }], [{ "text": "走動", "furigana": "ほどう" }]],
       "correctIndex": 2,
       "explanation": "ほどう (vỉa hè) viết là 歩道.",
       "explanationEn": "",
@@ -241,12 +257,14 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "パソコンのキーボードをうつ音が聞こえる。",
+      "questionFurigana": [{ "text": "パソコンのキーボードをうつ", "furigana": null }, { "text": "音", "furigana": "おと" }, { "text": "が", "furigana": null }, { "text": "聞こえる。", "furigana": "きこえる" }],
       "options": [
         "打つ",
         "押つ",
         "指つ",
         "折つ"
       ],
+      "optionsFurigana": [[{ "text": "打つ", "furigana": "うつ" }], [{ "text": "押つ", "furigana": "うつ" }], [{ "text": "指つ", "furigana": "うつ" }], [{ "text": "折つ", "furigana": "うつ" }]],
       "correctIndex": 0,
       "explanation": "うつ (đánh phím) viết là 打つ.",
       "explanationEn": "",
@@ -260,12 +278,14 @@
       "book": "dethi-n3-2025-12",
       "category": "moji",
       "question": "山田さんは、まじめなせいかくだ。",
+      "questionFurigana": [{ "text": "山田", "furigana": "やまだ" }, { "text": "さんは、まじめなせいかくだ。", "furigana": null }],
       "options": [
         "姓格",
         "性各",
         "性格",
         "姓各"
       ],
+      "optionsFurigana": [[{ "text": "姓格", "furigana": "せいかく" }], [{ "text": "性各", "furigana": "せいかく" }], [{ "text": "性格", "furigana": "せいかく" }], [{ "text": "姓各", "furigana": "せいかく" }]],
       "correctIndex": 2,
       "explanation": "せいかく (tính cách) viết là 性格.",
       "explanationEn": "",
@@ -279,12 +299,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "私の国と日本は（　　）が12時間あるので、昼と夜が反対だ。",
+      "questionFurigana": [{ "text": "私", "furigana": "わたし" }, { "text": "の", "furigana": null }, { "text": "国", "furigana": "くに" }, { "text": "と", "furigana": null }, { "text": "日本", "furigana": "にほん" }, { "text": "は（　　）が12", "furigana": null }, { "text": "時間", "furigana": "じかん" }, { "text": "あるので、", "furigana": null }, { "text": "昼", "furigana": "ひる" }, { "text": "と", "furigana": null }, { "text": "夜", "furigana": "よる" }, { "text": "が", "furigana": null }, { "text": "反対", "furigana": "はんたい" }, { "text": "だ。", "furigana": null }],
       "options": [
         "時代",
         "時期",
         "時速",
         "時差"
       ],
+      "optionsFurigana": [[{ "text": "時代", "furigana": "じだい" }], [{ "text": "時期", "furigana": "じき" }], [{ "text": "時速", "furigana": "じそく" }], [{ "text": "時差", "furigana": "じさ" }]],
       "correctIndex": 3,
       "explanation": "時差 (chênh lệch múi giờ) phù hợp với việc昼と夜が反対だ.",
       "explanationEn": "",
@@ -298,6 +320,7 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "自転車が壊れてしまい、（　　）ので歩いて家に帰りました。",
+      "questionFurigana": [{ "text": "自転車", "furigana": "じてんしゃ" }, { "text": "が", "furigana": null }, { "text": "壊れて", "furigana": "こわれて" }, { "text": "しまい、（　　）ので", "furigana": null }, { "text": "歩いて", "furigana": "あるいて" }, { "text": "家", "furigana": "いえ" }, { "text": "に", "furigana": null }, { "text": "帰りました。", "furigana": "かえりました" }],
       "options": [
         "くわしい",
         "だらしない",
@@ -317,12 +340,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "病気の人を治したくて、高校生のときに医者になることを（　　）した。",
+      "questionFurigana": [{ "text": "病気", "furigana": "びょうき" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "を", "furigana": null }, { "text": "治したくて", "furigana": "なおしたくて" }, { "text": "、", "furigana": null }, { "text": "高校生", "furigana": "こうこうせい" }, { "text": "のときに", "furigana": null }, { "text": "医者", "furigana": "いしゃ" }, { "text": "になることを（　　）した。", "furigana": null }],
       "options": [
         "予想",
         "決心",
         "証明",
         "仮定"
       ],
+      "optionsFurigana": [[{ "text": "予想", "furigana": "よそう" }], [{ "text": "決心", "furigana": "けっしん" }], [{ "text": "証明", "furigana": "しょうめい" }], [{ "text": "仮定", "furigana": "かてい" }]],
       "correctIndex": 1,
       "explanation": "決心する (quyết tâm) làm bác sĩ.",
       "explanationEn": "",
@@ -336,12 +361,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "彼は、いつも（　　）を言って、みんなを笑わせる面白い人だ。",
+      "questionFurigana": [{ "text": "彼", "furigana": "かれ" }, { "text": "は、いつも（　　）を", "furigana": null }, { "text": "言って", "furigana": "いって" }, { "text": "、みんなを", "furigana": null }, { "text": "笑わせる", "furigana": "わらわせる" }, { "text": "面白い", "furigana": "おもしろい" }, { "text": "人", "furigana": "ひと" }, { "text": "だ。", "furigana": null }],
       "options": [
         "感想",
         "文句",
         "冗談",
         "自慢"
       ],
+      "optionsFurigana": [[{ "text": "感想", "furigana": "かんそう" }], [{ "text": "文句", "furigana": "もんく" }], [{ "text": "冗談", "furigana": "じょうだん" }], [{ "text": "自慢", "furigana": "じまん" }]],
       "correctIndex": 2,
       "explanation": "冗談を言う (nói đùa) để làm mọi người cười.",
       "explanationEn": "",
@@ -354,13 +381,15 @@
       "level": "N3",
       "book": "dethi-n3-2025-12",
       "category": "goi",
-      "question": "ホテルに到着したが、まだ部屋に入れなかったので、受付に荷物を（　　）出けた。",
+      "question": "ホテルに到着したが、まだ部屋に入れなかったので、受付に荷物を（　　）出かけた。",
+      "questionFurigana": [{ "text": "ホテルに", "furigana": null }, { "text": "到着", "furigana": "とうちゃく" }, { "text": "したが、まだ", "furigana": null }, { "text": "部屋", "furigana": "へや" }, { "text": "に", "furigana": null }, { "text": "入れなかった", "furigana": "いれなかった" }, { "text": "ので、", "furigana": null }, { "text": "受付", "furigana": "うけつけ" }, { "text": "に", "furigana": null }, { "text": "荷物", "furigana": "にもつ" }, { "text": "を（　　）", "furigana": null }, { "text": "出かけた。", "furigana": "でかけた" }],
       "options": [
         "預けて",
         "泊めて",
         "配って",
         "与えて"
       ],
+      "optionsFurigana": [[{ "text": "預けて", "furigana": "あずけて" }], [{ "text": "泊めて", "furigana": "とめて" }], [{ "text": "配って", "furigana": "くばって" }], [{ "text": "与えて", "furigana": "あたえて" }]],
       "correctIndex": 0,
       "explanation": "荷物を預ける (gửi/gửi gắm hành lý ở quầy lễ tân).",
       "explanationEn": "",
@@ -374,6 +403,7 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "空港に着いたとき、飛行機の出発が遅れるという（　　）が聞こえた。",
+      "questionFurigana": [{ "text": "空港", "furigana": "くうこう" }, { "text": "に", "furigana": null }, { "text": "着いた", "furigana": "ついた" }, { "text": "とき、", "furigana": null }, { "text": "飛行機", "furigana": "ひこうき" }, { "text": "の", "furigana": null }, { "text": "出発", "furigana": "しゅっぱつ" }, { "text": "が", "furigana": null }, { "text": "遅れる", "furigana": "おくれる" }, { "text": "という（　　）が", "furigana": null }, { "text": "聞こえた。", "furigana": "きこえた" }],
       "options": [
         "ガイダンス",
         "アナウンス",
@@ -393,12 +423,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "休日で渋滞すると思いましたが、（　　）道はすいていた。",
+      "questionFurigana": [{ "text": "休日", "furigana": "きゅうじつ" }, { "text": "で", "furigana": null }, { "text": "渋滞", "furigana": "じゅうたい" }, { "text": "すると", "furigana": null }, { "text": "思いました", "furigana": "おもいました" }, { "text": "が、（　　）", "furigana": null }, { "text": "道", "furigana": "みち" }, { "text": "はすいていた。", "furigana": null }],
       "options": [
         "突然",
         "当然",
         "年中",
         "案外"
       ],
+      "optionsFurigana": [[{ "text": "突然", "furigana": "とつぜん" }], [{ "text": "当然", "furigana": "とうぜん" }], [{ "text": "年中", "furigana": "ねんじゅう" }], [{ "text": "案外", "furigana": "あんがい" }]],
       "correctIndex": 3,
       "explanation": "案外 (ngoài dự đoán, bất ngờ là đường thoáng).",
       "explanationEn": "",
@@ -412,12 +444,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "彼は若いとき非常に苦労したが、一生懸命（　　）して、立派な政治家になった。",
+      "questionFurigana": [{ "text": "彼", "furigana": "かれ" }, { "text": "は", "furigana": null }, { "text": "若い", "furigana": "わかい" }, { "text": "とき", "furigana": null }, { "text": "非常", "furigana": "ひじょう" }, { "text": "に", "furigana": null }, { "text": "苦労", "furigana": "くろう" }, { "text": "したが、", "furigana": null }, { "text": "一生懸命", "furigana": "いっしょうけんめい" }, { "text": "（　　）して、", "furigana": null }, { "text": "立派", "furigana": "りっぱ" }, { "text": "な", "furigana": null }, { "text": "政治家", "furigana": "せいじか" }, { "text": "になった。", "furigana": null }],
       "options": [
         "努力",
         "納得",
         "期待",
         "注意"
       ],
+      "optionsFurigana": [[{ "text": "努力", "furigana": "どりょく" }], [{ "text": "納得", "furigana": "なっとく" }], [{ "text": "期待", "furigana": "きたい" }], [{ "text": "注意", "furigana": "ちゅうい" }]],
       "correctIndex": 0,
       "explanation": "努力する (nỗ lực).",
       "explanationEn": "",
@@ -431,6 +465,7 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "時間がなくて、朝も昼もご飯を食べられなかったので、おなかが（　　）だ。",
+      "questionFurigana": [{ "text": "時間", "furigana": "じかん" }, { "text": "がなくて、", "furigana": null }, { "text": "朝", "furigana": "あさ" }, { "text": "も", "furigana": null }, { "text": "昼", "furigana": "ひる" }, { "text": "も", "furigana": null }, { "text": "ご飯", "furigana": "ごはん" }, { "text": "を", "furigana": null }, { "text": "食べられなかった", "furigana": "たべられなかった" }, { "text": "ので、おなかが（　　）だ。", "furigana": null }],
       "options": [
         "ぺらぺら",
         "からから",
@@ -450,12 +485,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "林さんが会社を辞めるというのは、林さんから直接聞いたので（　　）情報です。",
+      "questionFurigana": [{ "text": "林", "furigana": "はやし" }, { "text": "さんが", "furigana": null }, { "text": "会社", "furigana": "かいしゃ" }, { "text": "を", "furigana": null }, { "text": "辞める", "furigana": "やめる" }, { "text": "というのは、", "furigana": null }, { "text": "林", "furigana": "はやし" }, { "text": "さんから", "furigana": null }, { "text": "直接", "furigana": "ちょくせつ" }, { "text": "聞いた", "furigana": "きいた" }, { "text": "ので（　　）", "furigana": null }, { "text": "情報", "furigana": "じょうほう" }, { "text": "です。", "furigana": null }],
       "options": [
         "満足な",
         "正常な",
         "完全な",
         "確実な"
       ],
+      "optionsFurigana": [[{ "text": "満足", "furigana": "まんぞく" }, { "text": "な", "furigana": null }], [{ "text": "正常", "furigana": "せいじょう" }, { "text": "な", "furigana": null }], [{ "text": "完全", "furigana": "かんぜん" }, { "text": "な", "furigana": null }], [{ "text": "確実", "furigana": "かくじつ" }, { "text": "な", "furigana": null }]],
       "correctIndex": 3,
       "explanation": "確実な情報 (thông tin chắc chắn/chính xác vì nghe trực tiếp).",
       "explanationEn": "",
@@ -469,12 +506,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "電気の工事の人が来て、部屋の壁にエアコンを（　　）くれた。",
+      "questionFurigana": [{ "text": "電気", "furigana": "でんき" }, { "text": "の", "furigana": null }, { "text": "工事", "furigana": "こうじ" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "が", "furigana": null }, { "text": "来て", "furigana": "きて" }, { "text": "、", "furigana": null }, { "text": "部屋", "furigana": "へや" }, { "text": "の", "furigana": null }, { "text": "壁", "furigana": "かべ" }, { "text": "にエアコンを（　　）くれた。", "furigana": null }],
       "options": [
         "取り付けて",
         "取り上げて",
         "受け入れて",
         "引き受けて"
       ],
+      "optionsFurigana": [[{ "text": "取り付けて", "furigana": "とりつけて" }], [{ "text": "取り上げて", "furigana": "とりあげて" }], [{ "text": "受け入れて", "furigana": "うけいれて" }], [{ "text": "引き受けて", "furigana": "ひきうけて" }]],
       "correctIndex": 0,
       "explanation": "エアコンを取り付ける (lắp đặt điều hòa).",
       "explanationEn": "",
@@ -488,12 +527,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "清潔なタオルで拭いてください。",
+      "questionFurigana": [{ "text": "清潔", "furigana": "せいけつ" }, { "text": "なタオルで", "furigana": null }, { "text": "拭いて", "furigana": "ふいて" }, { "text": "ください。", "furigana": null }],
       "options": [
         "柔らかい",
         "ぬれた",
         "乾いた",
         "きれいな"
       ],
+      "optionsFurigana": [[{ "text": "柔らかい", "furigana": "やわらかい" }], [{ "text": "ぬれた", "furigana": null }], [{ "text": "乾いた", "furigana": "かわいた" }], [{ "text": "きれいな", "furigana": null }]],
       "correctIndex": 2,
       "explanation": "清潔な (thanh khiết/sạch khô) tương đương với 乾いた (khô).",
       "explanationEn": "",
@@ -507,12 +548,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "さっきご飯を食べました。",
+      "questionFurigana": [{ "text": "さっき", "furigana": null }, { "text": "ご飯", "furigana": "ごはん" }, { "text": "を", "furigana": null }, { "text": "食べました。", "furigana": "たべました" }],
       "options": [
         "急いで",
         "少し遅れて",
         "少し前に",
         "ゆっくり"
       ],
+      "optionsFurigana": [[{ "text": "急いで", "furigana": "いそいで" }], [{ "text": "少し", "furigana": "すこし" }, { "text": "遅れて", "furigana": "おくれて" }], [{ "text": "少し", "furigana": "すこし" }, { "text": "前", "furigana": "まえ" }, { "text": "に", "furigana": null }], [{ "text": "ゆっくり", "furigana": null }]],
       "correctIndex": 2,
       "explanation": "さっき (vừa nãy) đồng nghĩa với 少し前に (một lúc trước).",
       "explanationEn": "",
@@ -526,12 +569,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "これはキッチンに置いてください。",
+      "questionFurigana": [{ "text": "これはキッチンに", "furigana": null }, { "text": "置いて", "furigana": "おいて" }, { "text": "ください。", "furigana": null }],
       "options": [
         "居間",
         "台所",
         "廊下",
         "風呂"
       ],
+      "optionsFurigana": [[{ "text": "居間", "furigana": "いま" }], [{ "text": "台所", "furigana": "だいどころ" }], [{ "text": "廊下", "furigana": "ろうか" }], [{ "text": "風呂", "furigana": "ふろ" }]],
       "correctIndex": 1,
       "explanation": "キッチン (kitchen) đồng nghĩa với 台所 (phòng bếp).",
       "explanationEn": "",
@@ -545,12 +590,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "今、野口さんが指導しています。",
+      "questionFurigana": [{ "text": "今", "furigana": "いま" }, { "text": "、", "furigana": null }, { "text": "野口", "furigana": "のぐち" }, { "text": "さんが", "furigana": null }, { "text": "指導", "furigana": "しどう" }, { "text": "しています。", "furigana": null }],
       "options": [
         "調べて",
         "答えて",
         "聞いて",
         "教えて"
       ],
+      "optionsFurigana": [[{ "text": "調べて", "furigana": "しらべて" }], [{ "text": "答えて", "furigana": "こたえて" }], [{ "text": "聞いて", "furigana": "きいて" }], [{ "text": "教えて", "furigana": "おしえて" }]],
       "correctIndex": 3,
       "explanation": "指導する (hướng dẫn/chỉ bảo) tương ứng với 教える (dạy/chỉ dẫn).",
       "explanationEn": "",
@@ -570,6 +617,7 @@
         "終わりにしましょう",
         "寝ましょう"
       ],
+      "optionsFurigana": [[{ "text": "休みましょう", "furigana": "やすみましょう" }], [{ "text": "食事", "furigana": "しょくじ" }, { "text": "にしましょう", "furigana": null }], [{ "text": "終わり", "furigana": "おわり" }, { "text": "にしましょう", "furigana": null }], [{ "text": "寝ましょう", "furigana": "ねましょう" }]],
       "correctIndex": 2,
       "explanation": "おしまい (kết thúc) tương đương với 終わりにする.",
       "explanationEn": "",
@@ -583,12 +631,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "にぎる",
+      "questionFurigana": [{ "text": "にぎる", "furigana": null }],
       "options": [
         "昨日の引っ越しで何度も重い家具をにぎったので体が痛い。",
         "お祭りで弟が迷子にならないように、弟の手をしっかりととにぎった。",
         "風で帽子が飛ばされたが、石原さんが走ってにぎってくれた。",
         "母親が、生まれたばかりの赤ちゃんだ大事そうににぎっている。"
       ],
+      "optionsFurigana": [[{ "text": "昨日", "furigana": "きのう" }, { "text": "の", "furigana": null }, { "text": "引っ越し", "furigana": "ひっこし" }, { "text": "で", "furigana": null }, { "text": "何度", "furigana": "なんど" }, { "text": "も", "furigana": null }, { "text": "重い", "furigana": "おもい" }, { "text": "家具", "furigana": "かぐ" }, { "text": "をにぎったので", "furigana": null }, { "text": "体", "furigana": "からだ" }, { "text": "が", "furigana": null }, { "text": "痛い", "furigana": "いたい" }, { "text": "。", "furigana": null }], [{ "text": "お祭り", "furigana": "おまつり" }, { "text": "で", "furigana": null }, { "text": "弟", "furigana": "おとうと" }, { "text": "が", "furigana": null }, { "text": "迷子", "furigana": "まいご" }, { "text": "にならないように、", "furigana": null }, { "text": "弟", "furigana": "おとうと" }, { "text": "の", "furigana": null }, { "text": "手", "furigana": "て" }, { "text": "をしっかりととにぎった。", "furigana": null }], [{ "text": "風", "furigana": "かぜ" }, { "text": "で", "furigana": null }, { "text": "帽子", "furigana": "ぼうし" }, { "text": "が", "furigana": null }, { "text": "飛ばされた", "furigana": "とばされた" }, { "text": "が、", "furigana": null }, { "text": "石原", "furigana": "いしはら" }, { "text": "さんが", "furigana": null }, { "text": "走って", "furigana": "はしって" }, { "text": "にぎってくれた。", "furigana": null }], [{ "text": "母親", "furigana": "ははおや" }, { "text": "が、", "furigana": null }, { "text": "生まれた", "furigana": "うまれた" }, { "text": "ばかりの", "furigana": null }, { "text": "赤ちゃん", "furigana": "あかちゃん" }, { "text": "だ", "furigana": null }, { "text": "大事", "furigana": "だいじ" }, { "text": "そうににぎっている。", "furigana": null }]],
       "correctIndex": 1,
       "explanation": "握る dùng khi nắm chặt tay ai (手を握る).",
       "explanationEn": "",
@@ -602,12 +652,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "修理",
+      "questionFurigana": [{ "text": "修理", "furigana": "しゅうり" }],
       "options": [
         "今朝、妻とけんかしたので、早く仲を修理したい。",
         "腕をけがしたとき、この病院で修理してもらった。",
         "自転車が壊れたので、買ったお店で修理してもらった。",
         "私が間違えた漢字を、先生が赤いペンで修理してくれた。"
       ],
+      "optionsFurigana": [[{ "text": "今朝", "furigana": "けさ" }, { "text": "、", "furigana": null }, { "text": "妻", "furigana": "つま" }, { "text": "とけんかしたので、", "furigana": null }, { "text": "早く", "furigana": "はやく" }, { "text": "仲", "furigana": "なか" }, { "text": "を", "furigana": null }, { "text": "修理", "furigana": "しゅうり" }, { "text": "したい。", "furigana": null }], [{ "text": "腕", "furigana": "うで" }, { "text": "をけがしたとき、この", "furigana": null }, { "text": "病院", "furigana": "びょういん" }, { "text": "で", "furigana": null }, { "text": "修理", "furigana": "しゅうり" }, { "text": "してもらった。", "furigana": null }], [{ "text": "自転車", "furigana": "じてんしゃ" }, { "text": "が", "furigana": null }, { "text": "壊れた", "furigana": "こわれた" }, { "text": "ので、", "furigana": null }, { "text": "買った", "furigana": "かった" }, { "text": "お店", "furigana": "おみせ" }, { "text": "で", "furigana": null }, { "text": "修理", "furigana": "しゅうり" }, { "text": "してもらった。", "furigana": null }], [{ "text": "私", "furigana": "わたし" }, { "text": "が", "furigana": null }, { "text": "間違えた", "furigana": "まちがえた" }, { "text": "漢字", "furigana": "かんじ" }, { "text": "を、", "furigana": null }, { "text": "先生", "furigana": "せんせい" }, { "text": "が", "furigana": null }, { "text": "赤い", "furigana": "あかい" }, { "text": "ペンで", "furigana": null }, { "text": "修理", "furigana": "しゅうり" }, { "text": "してくれた。", "furigana": null }]],
       "correctIndex": 2,
       "explanation": "修理 dùng cho đồ vật bị hỏng như xe đạp (自転車を修理する).",
       "explanationEn": "",
@@ -621,12 +673,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "目的",
+      "questionFurigana": [{ "text": "目的", "furigana": "もくてき" }],
       "options": [
         "今日はたくさん商品が売れて、目的の10万円を超えました。",
         "お店を予約するとき、窓際の席がいいと目的を伝えた。",
         "来週から1か月海外に出張する目的なので、準備が忙しい。",
         "この研究の目的は、新しい薬の効果を調べることです。"
       ],
+      "optionsFurigana": [[{ "text": "今日", "furigana": "きょう" }, { "text": "はたくさん", "furigana": null }, { "text": "商品", "furigana": "しょうひん" }, { "text": "が", "furigana": null }, { "text": "売れて", "furigana": "うれて" }, { "text": "、", "furigana": null }, { "text": "目的", "furigana": "もくてき" }, { "text": "の10", "furigana": null }, { "text": "万円", "furigana": "まんえん" }, { "text": "を", "furigana": null }, { "text": "超えました", "furigana": "こえました" }, { "text": "。", "furigana": null }], [{ "text": "お店", "furigana": "おみせ" }, { "text": "を", "furigana": null }, { "text": "予約するとき", "furigana": "よやくするとき" }, { "text": "、", "furigana": null }, { "text": "窓際", "furigana": "まどぎわ" }, { "text": "の", "furigana": null }, { "text": "席", "furigana": "せき" }, { "text": "がいいと", "furigana": null }, { "text": "目的", "furigana": "もくてき" }, { "text": "を", "furigana": null }, { "text": "伝えた", "furigana": "つたえた" }, { "text": "。", "furigana": null }], [{ "text": "来週", "furigana": "らいしゅう" }, { "text": "から", "furigana": null }, { "text": "1か月", "furigana": "いっかげつ" }, { "text": "海外", "furigana": "かいがい" }, { "text": "に", "furigana": null }, { "text": "出張する", "furigana": "しゅっちょうする" }, { "text": "目的", "furigana": "もくてき" }, { "text": "なので、", "furigana": null }, { "text": "準備", "furigana": "じゅんび" }, { "text": "が", "furigana": null }, { "text": "忙しい。", "furigana": "いそがしい" }], [{ "text": "この", "furigana": null }, { "text": "研究", "furigana": "けんきゅう" }, { "text": "の", "furigana": null }, { "text": "目的", "furigana": "もくてき" }, { "text": "は、", "furigana": null }, { "text": "新しい", "furigana": "あたらしい" }, { "text": "薬", "furigana": "くすり" }, { "text": "の", "furigana": null }, { "text": "効果", "furigana": "こうか" }, { "text": "を", "furigana": null }, { "text": "調べる", "furigana": "しらべる" }, { "text": "ことです。", "furigana": null }]],
       "correctIndex": 3,
       "explanation": "目的 dùng đúng trong ngữ cảnh chỉ mục đích của một nghiên cứu (研究の目的).",
       "explanationEn": "",
@@ -640,12 +694,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "懐かしい",
+      "questionFurigana": [{ "text": "懐かしい", "furigana": "なつかしい" }],
       "options": [
         "子どものときの写真を見て、懐かしい気持ちになった。",
-        "ここは800前に建てられた懐かしい寺なので、見学の人が多い。",
-        "結婚して30年たつの所以、妻とは懐かしい関係だ。",
+        "ここは800年前に建てられた懐かしい寺なので、見学の人が多い。",
+        "結婚して30年たったので、妻とは懐かしい関係だ。",
         "私と田村さんは、会ってすぐに懐かしい友達になった。"
       ],
+      "optionsFurigana": [[{ "text": "子", "furigana": "こ" }, { "text": "どものときの", "furigana": null }, { "text": "写真", "furigana": "しゃしん" }, { "text": "を", "furigana": null }, { "text": "見て", "furigana": "みて" }, { "text": "、", "furigana": null }, { "text": "懐かしい", "furigana": "なつかしい" }, { "text": "気持ち", "furigana": "きもち" }, { "text": "になった。", "furigana": null }], [{ "text": "ここは800", "furigana": null }, { "text": "年", "furigana": "ねん" }, { "text": "前", "furigana": "まえ" }, { "text": "に", "furigana": null }, { "text": "建てられた", "furigana": "たてられた" }, { "text": "懐かしい", "furigana": "なつかしい" }, { "text": "寺", "furigana": "てら" }, { "text": "なので、", "furigana": null }, { "text": "見学", "furigana": "けんがく" }, { "text": "の", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "が", "furigana": null }, { "text": "多い。", "furigana": "おおい" }], [{ "text": "結婚", "furigana": "けっこん" }, { "text": "して30", "furigana": null }, { "text": "年", "furigana": "ねん" }, { "text": "たったので、", "furigana": null }, { "text": "妻", "furigana": "つま" }, { "text": "とは", "furigana": null }, { "text": "懐かしい", "furigana": "なつかしい" }, { "text": "関係", "furigana": "かんけい" }, { "text": "だ。", "furigana": null }], [{ "text": "私", "furigana": "わたし" }, { "text": "と", "furigana": null }, { "text": "田村", "furigana": "たむら" }, { "text": "さんは、", "furigana": null }, { "text": "会って", "furigana": "あって" }, { "text": "すぐに", "furigana": null }, { "text": "懐かしい", "furigana": "なつかしい" }, { "text": "友達", "furigana": "ともだち" }, { "text": "になった。", "furigana": null }]],
       "correctIndex": 0,
       "explanation": "懐かしい diễn tả cảm giác hoài niệm khi nhớ về quá khứ (子どものときの写真).",
       "explanationEn": "",
@@ -659,12 +715,14 @@
       "book": "dethi-n3-2025-12",
       "category": "goi",
       "question": "変化",
+      "questionFurigana": [{ "text": "変化", "furigana": "へんか" }],
       "options": [
         "友達の都合が悪くなって、食事の約束が来週に変化してしまった。",
         "引っ越しして住所が変化したので、みんなに知らせた。",
         "インターネットが登場して、人々の生活は大きく変化した。",
         "会議の司会は、水野さんから高橋さんに変化するそうだ。"
       ],
+      "optionsFurigana": [[{ "text": "友達", "furigana": "ともだち" }, { "text": "の", "furigana": null }, { "text": "都合", "furigana": "つごう" }, { "text": "が", "furigana": null }, { "text": "悪く", "furigana": "わるく" }, { "text": "なって、", "furigana": null }, { "text": "食事", "furigana": "しょくじ" }, { "text": "の", "furigana": null }, { "text": "約束", "furigana": "やくそく" }, { "text": "が", "furigana": null }, { "text": "来週", "furigana": "らいしゅう" }, { "text": "に", "furigana": null }, { "text": "変化", "furigana": "へんか" }, { "text": "してしまった。", "furigana": null }], [{ "text": "引っ越し", "furigana": "ひっこし" }, { "text": "して", "furigana": null }, { "text": "住所", "furigana": "じゅうしょ" }, { "text": "が", "furigana": null }, { "text": "変化", "furigana": "へんか" }, { "text": "したので、みんなに", "furigana": null }, { "text": "知らせた", "furigana": "しらせた" }, { "text": "。", "furigana": null }], [{ "text": "インターネットが", "furigana": null }, { "text": "登場", "furigana": "とうじょう" }, { "text": "して、", "furigana": null }, { "text": "人々", "furigana": "ひとびと" }, { "text": "の", "furigana": null }, { "text": "生活", "furigana": "せいかつ" }, { "text": "は", "furigana": null }, { "text": "大きく", "furigana": "おおきく" }, { "text": "変化", "furigana": "へんか" }, { "text": "した。", "furigana": null }], [{ "text": "会議", "furigana": "かいぎ" }, { "text": "の", "furigana": null }, { "text": "司会", "furigana": "しかい" }, { "text": "は、", "furigana": null }, { "text": "水野", "furigana": "みずの" }, { "text": "さんから", "furigana": null }, { "text": "高橋", "furigana": "たかはし" }, { "text": "さんに", "furigana": null }, { "text": "変化", "furigana": "へんか" }, { "text": "するそうだ。", "furigana": null }]],
       "correctIndex": 2,
       "explanation": "変化 dùng khi cuộc sống thay đổi lớn quy mô xã hội (生活は大きく変化した).",
       "explanationEn": "",
@@ -678,6 +736,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "友人の田中さんは京都が大好きで、今までに何度（　　）行ったことがあるそうだ。",
+      "questionFurigana": [{ "text": "友人", "furigana": "ゆうじん" }, { "text": "の", "furigana": null }, { "text": "田中", "furigana": "たなか" }, { "text": "さんは", "furigana": null }, { "text": "京都", "furigana": "きょうと" }, { "text": "が", "furigana": null }, { "text": "大好き", "furigana": "だいすき" }, { "text": "で、", "furigana": null }, { "text": "今まで", "furigana": "いままで" }, { "text": "に", "furigana": null }, { "text": "何度", "furigana": "なんど" }, { "text": "（　　）", "furigana": null }, { "text": "行った", "furigana": "いった" }, { "text": "ことがあるそうだ。", "furigana": null }],
       "options": [
         "も",
         "は",
@@ -697,6 +756,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "A「ねえ、お昼ご飯、一緒に行かない？」\nB「うん、行こう。何食べる？」\nA「寒いから、温かいうどん（　　）どう？」",
+      "questionFurigana": [{ "text": "A「ねえ、", "furigana": null }, { "text": "お昼ご飯", "furigana": "おひるごはん" }, { "text": "、", "furigana": null }, { "text": "一緒", "furigana": "いっしょ" }, { "text": "に", "furigana": null }, { "text": "行かない", "furigana": "いかない" }, { "text": "？」\nB「うん、", "furigana": null }, { "text": "行こう", "furigana": "いこう" }, { "text": "。", "furigana": null }, { "text": "何", "furigana": "なに" }, { "text": "食べる", "furigana": "たべる" }, { "text": "？」\nA「", "furigana": null }, { "text": "寒い", "furigana": "さむい" }, { "text": "から、", "furigana": null }, { "text": "温かい", "furigana": "あたたかい" }, { "text": "うどん（　　）どう？」", "furigana": null }],
       "options": [
         "に",
         "だけ",
@@ -716,6 +776,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "私は両親の誕生日にいつも手紙を書く。手紙（　　）、普段は恥ずかしくてもなかなか言えない感謝の気持ちを伝えられるからだ。",
+      "questionFurigana": [{ "text": "私", "furigana": "わたし" }, { "text": "は", "furigana": null }, { "text": "両親", "furigana": "りょうしん" }, { "text": "の", "furigana": null }, { "text": "誕生日", "furigana": "たんじょうび" }, { "text": "にいつも", "furigana": null }, { "text": "手紙", "furigana": "てがみ" }, { "text": "を", "furigana": null }, { "text": "書く", "furigana": "かく" }, { "text": "。", "furigana": null }, { "text": "手紙", "furigana": "てがみ" }, { "text": "（　　）、", "furigana": null }, { "text": "普段", "furigana": "ふだん" }, { "text": "は", "furigana": null }, { "text": "恥ずかしくても", "furigana": "はずかしくても" }, { "text": "なかなか", "furigana": null }, { "text": "言えない", "furigana": "いえない" }, { "text": "感謝", "furigana": "かんしゃ" }, { "text": "の", "furigana": null }, { "text": "気持ち", "furigana": "きもち" }, { "text": "を", "furigana": null }, { "text": "伝えられる", "furigana": "つたえられる" }, { "text": "からだ。", "furigana": null }],
       "options": [
         "でなら",
         "になら",
@@ -735,12 +796,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "いつもは雨でも自転車で大学に行くが、今朝は（　　）雨が強かったので、バスで行った。",
+      "questionFurigana": [{ "text": "いつもは", "furigana": null }, { "text": "雨", "furigana": "あめ" }, { "text": "でも", "furigana": null }, { "text": "自転車", "furigana": "じてんしゃ" }, { "text": "で", "furigana": null }, { "text": "大学", "furigana": "だいがく" }, { "text": "に", "furigana": null }, { "text": "行く", "furigana": "いく" }, { "text": "が、", "furigana": null }, { "text": "今朝", "furigana": "けさ" }, { "text": "は（　　）", "furigana": null }, { "text": "雨", "furigana": "あめ" }, { "text": "が", "furigana": null }, { "text": "強かった", "furigana": "つよかった" }, { "text": "ので、バスで", "furigana": null }, { "text": "行った", "furigana": "いった" }, { "text": "。", "furigana": null }],
       "options": [
         "ちっとも",
         "あまりに",
         "次第に",
         "今にも"
       ],
+      "optionsFurigana": [[{ "text": "ちっとも", "furigana": null }], [{ "text": "あまりに", "furigana": null }], [{ "text": "次第", "furigana": "しだい" }, { "text": "に", "furigana": null }], [{ "text": "今", "furigana": "いま" }, { "text": "にも", "furigana": null }]],
       "correctIndex": 1,
       "explanation": "あまりに...ので: vì quá... nên...",
       "explanationEn": "",
@@ -754,12 +817,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "先週、登山をした。暑い日だったが、登っていく（　　）風が冷たくなり、とても気持ちがよかった。",
+      "questionFurigana": [{ "text": "先週", "furigana": "せんしゅう" }, { "text": "、", "furigana": null }, { "text": "登山", "furigana": "とざん" }, { "text": "をした。", "furigana": null }, { "text": "暑い", "furigana": "あつい" }, { "text": "日", "furigana": "ひ" }, { "text": "だったが、", "furigana": null }, { "text": "登っていく", "furigana": "のぼっていく" }, { "text": "（　　）", "furigana": null }, { "text": "風", "furigana": "かぜ" }, { "text": "が", "furigana": null }, { "text": "冷たく", "furigana": "つめたく" }, { "text": "なり、とても", "furigana": null }, { "text": "気持ち", "furigana": "きもち" }, { "text": "がよかった。", "furigana": null }],
       "options": [
         "とすると",
         "のと比べると",
         "にしたがって",
         "のに対して"
       ],
+      "optionsFurigana": [[{ "text": "とすると", "furigana": null }], [{ "text": "のと", "furigana": null }, { "text": "比べる", "furigana": "くらべる" }, { "text": "と", "furigana": null }], [{ "text": "にしたがって", "furigana": null }], [{ "text": "のに", "furigana": null }, { "text": "対して", "furigana": "たいして" }]],
       "correctIndex": 2,
       "explanation": "～にしたがって: càng... càng...",
       "explanationEn": "",
@@ -773,6 +838,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "（姉の部屋で）\n妹「お姉ちゃん、この漫画、もう読んだ？ 借りてもいい？」\n姉「あ、それ、まだ途中なんだ。（　　）、貸してあげるね。」",
+      "questionFurigana": [{ "text": "（", "furigana": null }, { "text": "姉", "furigana": "あね" }, { "text": "の", "furigana": null }, { "text": "部屋", "furigana": "へや" }, { "text": "で）\n", "furigana": null }, { "text": "妹", "furigana": "いもうと" }, { "text": "「お", "furigana": null }, { "text": "姉", "furigana": "ねえ" }, { "text": "ちゃん、この", "furigana": null }, { "text": "漫画", "furigana": "まんが" }, { "text": "、もう", "furigana": null }, { "text": "読んだ", "furigana": "よんだ" }, { "text": "？ ", "furigana": null }, { "text": "借りても", "furigana": "かりても" }, { "text": "いい？」\n", "furigana": null }, { "text": "姉", "furigana": "あね" }, { "text": "「あ、それ、まだ", "furigana": null }, { "text": "途中", "furigana": "とちゅう" }, { "text": "なんだ。（　　）、", "furigana": null }, { "text": "貸して", "furigana": "かして" }, { "text": "あげるね。」", "furigana": null }],
       "options": [
         "読んでいたら",
         "読み続けたら",
@@ -780,6 +846,7 @@
         "読み終わったら"
       ],
       "correctIndex": 3,
+      "optionsFurigana": [[{ "text": "読んでいたら", "furigana": "よんでいたら" }], [{ "text": "読み", "furigana": "よみ" }, { "text": "続けたら", "furigana": "つづけたら" }], [{ "text": "読んでおいたら", "furigana": "よんでおいたら" }], [{ "text": "読み", "furigana": "よみ" }, { "text": "終わったら", "furigana": "おわったら" }]],
       "explanation": "読み終わったら: khi đọc xong thì sẽ cho mượn.",
       "explanationEn": "",
       "notes": [
@@ -792,6 +859,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "来月、留学生の友達が日本での留学生活を終えて国に帰る。友達が国に（　　）、いろいろなことを一緒にしたい。",
+      "questionFurigana": [{ "text": "来月", "furigana": "らいげつ" }, { "text": "、", "furigana": null }, { "text": "留学生", "furigana": "りゅうがくせい" }, { "text": "の", "furigana": null }, { "text": "友達", "furigana": "ともだち" }, { "text": "が", "furigana": null }, { "text": "日本", "furigana": "にほん" }, { "text": "での", "furigana": null }, { "text": "留学生活", "furigana": "りゅうがくせいかつ" }, { "text": "を", "furigana": null }, { "text": "終えて", "furigana": "おえて" }, { "text": "国", "furigana": "くに" }, { "text": "に", "furigana": null }, { "text": "帰る。", "furigana": "かえる" }, { "text": "友達", "furigana": "ともだち" }, { "text": "が", "furigana": null }, { "text": "国", "furigana": "くに" }, { "text": "に（　　）、いろいろなことを", "furigana": null }, { "text": "一緒", "furigana": "いっしょ" }, { "text": "にしたい。", "furigana": null }],
       "options": [
         "帰っていて",
         "帰ってしまえば",
@@ -799,6 +867,7 @@
         "帰ってしまう前に"
       ],
       "correctIndex": 3,
+      "optionsFurigana": [[{ "text": "帰っていて", "furigana": "かえっていて" }], [{ "text": "帰ってしまえば", "furigana": "かえってしまえば" }], [{ "text": "帰っている", "furigana": "かえっている" }, { "text": "間", "furigana": "あいだ" }], [{ "text": "帰ってしまう", "furigana": "かえってしまう" }, { "text": "前", "furigana": "まえ" }, { "text": "に", "furigana": null }]],
       "explanation": "～前に: trước khi bạn về nước, muốn làm nhiều việc cùng nhau.",
       "explanationEn": "",
       "notes": [
@@ -811,6 +880,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "この寺は、県内で最も古い寺で、（　　）今から1000年以上前だそうだ。",
+      "questionFurigana": [{ "text": "この", "furigana": null }, { "text": "寺", "furigana": "てら" }, { "text": "は、", "furigana": null }, { "text": "県内", "furigana": "けんない" }, { "text": "で", "furigana": null }, { "text": "最も", "furigana": "もっとも" }, { "text": "古い", "furigana": "ふるい" }, { "text": "寺", "furigana": "てら" }, { "text": "で、（　　）", "furigana": null }, { "text": "今", "furigana": "いま" }, { "text": "から1000", "furigana": null }, { "text": "年", "furigana": "ねん" }, { "text": "以上", "furigana": "いじょう" }, { "text": "前", "furigana": "まえ" }, { "text": "だそうだ。", "furigana": null }],
       "options": [
         "建てられてからは",
         "建てられたのは",
@@ -818,6 +888,7 @@
         "建てさせたときは"
       ],
       "correctIndex": 1,
+      "optionsFurigana": [[{ "text": "建てられてからは", "furigana": "たてられてからは" }], [{ "text": "建てられたのは", "furigana": "たてられたのは" }], [{ "text": "建てさせるまでは", "furigana": "たてさせるまでは" }], [{ "text": "建てさせたときは", "furigana": "たてさせたときは" }]],
       "explanation": "建てられたのは...だ: ngôi đền này được xây dựng là từ hơn 1000 năm trước.",
       "explanationEn": "",
       "notes": [
@@ -830,6 +901,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "兄「駅前にドーナツ屋ができたらしいね。知ってる？」\n弟「うん。人気がある（　　）よ。昨日店の前を通ったけど、たくさん人が並んででたよ。」",
+      "questionFurigana": [{ "text": "兄", "furigana": "あに" }, { "text": "「", "furigana": null }, { "text": "駅前", "furigana": "えきまえ" }, { "text": "にドーナツ", "furigana": null }, { "text": "屋", "furigana": "や" }, { "text": "ができたらしいね。", "furigana": null }, { "text": "知ってる", "furigana": "しってる" }, { "text": "？」\n", "furigana": null }, { "text": "弟", "furigana": "おとうと" }, { "text": "「うん。", "furigana": null }, { "text": "人気", "furigana": "にんき" }, { "text": "がある（　　）よ。", "furigana": null }, { "text": "昨日", "furigana": "きのう" }, { "text": "店", "furigana": "みせ" }, { "text": "の", "furigana": null }, { "text": "前", "furigana": "まえ" }, { "text": "を", "furigana": null }, { "text": "通った", "furigana": "とおった" }, { "text": "けど、たくさん", "furigana": null }, { "text": "人", "furigana": "ひと" }, { "text": "が", "furigana": null }, { "text": "並んででたよ。」", "furigana": "ならんででた" }],
       "options": [
         "ことだ",
         "せいだ",
@@ -849,6 +921,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "（会社で）\n森「すみません、大下さん。この近くで、いい眼科を知っていたら（　　）。朝から目がかゆくて。」\n大下「え、大丈夫ですか。駅前のABC眼科はよかったですよ。」",
+      "questionFurigana": [{ "text": "（", "furigana": null }, { "text": "会社", "furigana": "かいしゃ" }, { "text": "で）\n", "furigana": null }, { "text": "森", "furigana": "もり" }, { "text": "「すみません、", "furigana": null }, { "text": "大下", "furigana": "おおした" }, { "text": "さん。この", "furigana": null }, { "text": "近く", "furigana": "ちかく" }, { "text": "で、いい", "furigana": null }, { "text": "眼科", "furigana": "がんか" }, { "text": "を", "furigana": null }, { "text": "知っていたら", "furigana": "しっていたら" }, { "text": "（　　）。", "furigana": null }, { "text": "朝", "furigana": "あさ" }, { "text": "から", "furigana": null }, { "text": "目", "furigana": "め" }, { "text": "がかゆくて。」\n", "furigana": null }, { "text": "大下", "furigana": "おおした" }, { "text": "「え、", "furigana": null }, { "text": "大丈夫", "furigana": "だいじょうぶ" }, { "text": "ですか。", "furigana": null }, { "text": "駅前", "furigana": "えきまえ" }, { "text": "のABC", "furigana": null }, { "text": "眼科", "furigana": "がんか" }, { "text": "はよかったですよ。」", "furigana": null }],
       "options": [
         "教えたいんですが",
         "教えてもいいですか",
@@ -856,6 +929,7 @@
         "教えてほしいんですが"
       ],
       "correctIndex": 3,
+      "optionsFurigana": [[{ "text": "教えたいんですが", "furigana": "おしえたいんですが" }], [{ "text": "教えてもいいですか", "furigana": "おしえてもいいですか" }], [{ "text": "教えてもらうんですが", "furigana": "おしえてもらうんですが" }], [{ "text": "教えてほしいんですが", "furigana": "おしえてほしいんですが" }]],
       "explanation": "～てほしいんですが: dùng khi muốn nhờ vả lịch sự.",
       "explanationEn": "",
       "notes": [
@@ -868,6 +942,7 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "林さんは、会議で資料のグラフについて質問されたときに、わからないと言っていたが、林さんが作ったグラフなのだから、（　　）と思う。",
+      "questionFurigana": [{ "text": "林", "furigana": "はやし" }, { "text": "さんは、", "furigana": null }, { "text": "会議", "furigana": "かいぎ" }, { "text": "で", "furigana": null }, { "text": "資料", "furigana": "しりょう" }, { "text": "のグラフについて", "furigana": null }, { "text": "質問", "furigana": "しつもん" }, { "text": "されたときに、わからないと", "furigana": null }, { "text": "言っていた", "furigana": "いっていた" }, { "text": "が、", "furigana": null }, { "text": "林", "furigana": "はやし" }, { "text": "さんが", "furigana": null }, { "text": "作った", "furigana": "つくった" }, { "text": "グラフなのだから、（　　）と", "furigana": null }, { "text": "思う", "furigana": "おもう" }, { "text": "。", "furigana": null }],
       "options": [
         "わからないに違いない",
         "わからないはずがない",
@@ -875,6 +950,7 @@
         "わからなくてもしかたない"
       ],
       "correctIndex": 1,
+      "optionsFurigana": [[{ "text": "わからないに", "furigana": null }, { "text": "違い", "furigana": "ちがい" }, { "text": "ない", "furigana": null }], [{ "text": "わからないはずがない", "furigana": null }], [{ "text": "わからないかもしれない", "furigana": null }], [{ "text": "わからなくてもしかたない", "furigana": null }]],
       "explanation": "～はずがない: không có lý nào mà không hiểu (vì do chính cô ấy làm).",
       "explanationEn": "",
       "notes": [
@@ -887,12 +963,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "父は、出張に行くと、母と私に必ずお土産を（　　）。",
+      "questionFurigana": [{ "text": "父", "furigana": "ちち" }, { "text": "は、", "furigana": null }, { "text": "出張", "furigana": "しゅっちょう" }, { "text": "に", "furigana": null }, { "text": "行く", "furigana": "いく" }, { "text": "と、", "furigana": null }, { "text": "母", "furigana": "はは" }, { "text": "と", "furigana": null }, { "text": "私", "furigana": "わたし" }, { "text": "に", "furigana": null }, { "text": "必ず", "furigana": "かならず" }, { "text": "お", "furigana": null }, { "text": "土産", "furigana": "みやげ" }, { "text": "を（　　）。", "furigana": null }],
       "options": [
         "買ってきてあげる",
         "買っていってあげる",
         "買ってきてくれる",
         "買ってくれる"
       ],
+      "optionsFurigana": [[{ "text": "買って", "furigana": "かって" }, { "text": "きてあげる", "furigana": null }], [{ "text": "買って", "furigana": "かって" }, { "text": "いってあげる", "furigana": null }], [{ "text": "買って", "furigana": "かって" }, { "text": "きてくれる", "furigana": null }], [{ "text": "買って", "furigana": "かって" }, { "text": "くれる", "furigana": null }]],
       "correctIndex": 2,
       "explanation": "～てくれる: hành động hướng về phía người nói (bố mua quà mang về cho chúng tôi).",
       "explanationEn": "",
@@ -906,12 +984,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "風邪をひいて、今日は授業を休んでしまったが、一日家で寝ていたら、かなりよくなってきた。明日は授業に（　　）。",
+      "questionFurigana": [{ "text": "風邪", "furigana": "かぜ" }, { "text": "をひいて、", "furigana": null }, { "text": "今日", "furigana": "きょう" }, { "text": "は", "furigana": null }, { "text": "授業", "furigana": "じゅぎょう" }, { "text": "を", "furigana": null }, { "text": "休んで", "furigana": "やすんで" }, { "text": "しまったが、", "furigana": null }, { "text": "一日", "furigana": "いちにち" }, { "text": "家", "furigana": "いえ" }, { "text": "で", "furigana": null }, { "text": "寝ていたら", "furigana": "ねていたら" }, { "text": "、かなりよくなってきた。", "furigana": null }, { "text": "明日", "furigana": "あした" }, { "text": "は", "furigana": null }, { "text": "授業", "furigana": "じゅぎょう" }, { "text": "に（　　）。", "furigana": null }],
       "options": [
         "出られそうだ",
         "出られるそうだ",
         "出そうだ",
         "出るそうだ"
       ],
+      "optionsFurigana": [[{ "text": "出られそうだ", "furigana": "でられそうだ" }], [{ "text": "出られるそうだ", "furigana": "でられるそうだ" }], [{ "text": "出そうだ", "furigana": "でそうだ" }], [{ "text": "出るそうだ", "furigana": "でるそうだ" }]],
       "correctIndex": 0,
       "explanation": "～そうだ (dự đoán có căn cứ dựa trên tình trạng cơ thể đã tốt hơn): có vẻ có thể đi học được.",
       "explanationEn": "",
@@ -925,12 +1005,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "昨日、本屋で小説2冊 [　　] [　　] [ ★ ] [　　] 本を1冊買った。",
+      "questionFurigana": [{ "text": "昨日", "furigana": "きのう" }, { "text": "、", "furigana": null }, { "text": "本屋", "furigana": "ほんや" }, { "text": "で", "furigana": null }, { "text": "小説", "furigana": "しょうせつ" }, { "text": "2冊", "furigana": "にさつ" }, { "text": " [　　] [　　] [ ★ ] [　　] ", "furigana": null }, { "text": "本", "furigana": "ほん" }, { "text": "を", "furigana": null }, { "text": "1冊", "furigana": "いっさつ" }, { "text": "買った。", "furigana": "かった" }],
       "options": [
         "と",
         "の",
         "について",
         "レポートの書き方"
       ],
+      "optionsFurigana": [[{ "text": "と", "furigana": null }], [{ "text": "の", "furigana": null }], [{ "text": "について", "furigana": null }], [{ "text": "レポートの", "furigana": null }, { "text": "書き方", "furigana": "かきかた" }]],
       "correctIndex": 2,
       "explanation": "Thứ tự đúng là 1 → 4 → 3 → 2:「小説二冊とレポートの書き方についての本を一冊買った」(Tôi mua hai quyển tiểu thuyết và một quyển sách về cách viết báo cáo). Ô ★ ở vị trí thứ ba nên chọn 「について」 (đáp án 3).",
       "explanationEn": "",
@@ -944,12 +1026,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "（道で）\nA「あの喫茶店、[　　] [　　] [ ★ ] [　　] があるよ。入ってみない？」\nB「いいね。」",
+      "questionFurigana": [{ "text": "（", "furigana": null }, { "text": "道", "furigana": "みち" }, { "text": "で）\nA「あの", "furigana": null }, { "text": "喫茶店", "furigana": "きっさてん" }, { "text": "、[　　] [　　] [ ★ ] [　　] があるよ。", "furigana": null }, { "text": "入って", "furigana": "はいって" }, { "text": "みない？」\nB「いいね。」", "furigana": null }],
       "options": [
         "で",
         "か何か",
         "テレビ",
         "見たこと"
       ],
+      "optionsFurigana": [[{ "text": "で", "furigana": null }], [{ "text": "か", "furigana": null }, { "text": "何", "furigana": "なに" }, { "text": "か", "furigana": null }], [{ "text": "テレビ", "furigana": null }], [{ "text": "見た", "furigana": "みた" }, { "text": "こと", "furigana": null }]],
       "correctIndex": 0,
       "explanation": "Thứ tự đúng là 3 → 2 → 1 → 4:「あの喫茶店、テレビか何かで見たことがあるよ」(Tớ từng thấy quán cà phê đó trên TV hay đâu đó). Ô ★ ở vị trí thứ ba nên chọn 「で」 (đáp án 1), chỉ phương tiện/kênh mà người nói đã thấy quán.",
       "explanationEn": "",
@@ -963,12 +1047,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "半年前にギターを習い始めてから、毎日練習している。弾けば [　　] [　　] [ ★ ] [　　] 自分でもわかり、とても楽しい。",
+      "questionFurigana": [{ "text": "半年前", "furigana": "はんとしまえ" }, { "text": "にギターを", "furigana": null }, { "text": "習い始めて", "furigana": "ならいはじめて" }, { "text": "から、", "furigana": null }, { "text": "毎日", "furigana": "まいにち" }, { "text": "練習", "furigana": "れんしゅう" }, { "text": "している。", "furigana": null }, { "text": "弾けば", "furigana": "ひけば" }, { "text": " [　　] [　　] [ ★ ] [　　] ", "furigana": null }, { "text": "自分", "furigana": "じぶん" }, { "text": "でも", "furigana": null }, { "text": "わかり、とても", "furigana": null }, { "text": "楽しい", "furigana": "たのしい" }, { "text": "。", "furigana": null }],
       "options": [
         "上手に",
         "弾くほど",
         "なっていくのが",
         "弾けるように"
       ],
+      "optionsFurigana": [[{ "text": "上手", "furigana": "じょうず" }, { "text": "に", "furigana": null }], [{ "text": "弾く", "furigana": "ひく" }, { "text": "ほど", "furigana": null }], [{ "text": "なっていくのが", "furigana": null }], [{ "text": "弾ける", "furigana": "ひける" }, { "text": "ように", "furigana": null }]],
       "correctIndex": 3,
       "explanation": "Thứ tự đúng là 2 → 1 → 4 → 3:「弾けば弾くほど上手に弾けるようになっていくのが自分でもわかり、とても楽しい」(Tôi cảm nhận được mình ngày càng chơi đàn giỏi hơn khi luyện tập, điều đó rất vui). Ô ★ ở vị trí thứ ba nên chọn 「弾けるように」 (đáp án 4).",
       "explanationEn": "",
@@ -982,12 +1068,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "今の会社に就職したときに、北町で一人暮らしを始めた。会社から遠い [　　] [　　] [ ★ ] [　　] からだ。",
+      "questionFurigana": [{ "text": "今", "furigana": "いま" }, { "text": "の", "furigana": null }, { "text": "会社", "furigana": "かいしゃ" }, { "text": "に", "furigana": null }, { "text": "就職", "furigana": "しゅうしょく" }, { "text": "したときに、", "furigana": null }, { "text": "北町", "furigana": "きたまち" }, { "text": "で", "furigana": null }, { "text": "一人暮らし", "furigana": "ひとりぐらし" }, { "text": "を", "furigana": null }, { "text": "始めた。", "furigana": "はじめた" }, { "text": "会社", "furigana": "かいしゃ" }, { "text": "から", "furigana": null }, { "text": "遠い", "furigana": "とおい" }, { "text": " [　　] [　　] [ ★ ] [　　] からだ。", "furigana": null }],
       "options": [
         "北町を選んだ",
         "のは",
         "ずっと北町に住んでみたかった",
         "のに"
       ],
+      "optionsFurigana": [[{ "text": "北町", "furigana": "きたまち" }, { "text": "を", "furigana": null }, { "text": "選んだ", "furigana": "えらんだ" }], [{ "text": "のは", "furigana": null }], [{ "text": "ずっと北町に住んでみたかった", "furigana": "ずっときたまちにすんでみたかった" }], [{ "text": "のに", "furigana": null }]],
       "correctIndex": 1,
       "explanation": "Thứ tự đúng là 4 → 1 → 2 → 3:「会社から遠いのに北町を選んだのは、ずっと北町に住んでみたかったからだ」(Dù xa công ty, tôi chọn Kitamachi vì đã luôn muốn thử sống ở đó). Ô ★ ở vị trí thứ ba nên chọn 「のは」 (đáp án 2), mở đầu mệnh đề giải thích lý do.",
       "explanationEn": "",
@@ -1001,12 +1089,14 @@
       "book": "dethi-n3-2025-12",
       "category": "bunpou",
       "question": "お風呂は家の中でも特にかびが生えやすい場所だ。かびを防ぐ [　　] [　　] [ ★ ] [　　] 重要らしい。",
+      "questionFurigana": [{ "text": "お", "furigana": null }, { "text": "風呂", "furigana": "ふろ" }, { "text": "は", "furigana": null }, { "text": "家", "furigana": "いえ" }, { "text": "の", "furigana": null }, { "text": "中", "furigana": "なか" }, { "text": "でも", "furigana": null }, { "text": "特に", "furigana": "とくに" }, { "text": "かびが", "furigana": null }, { "text": "生えやすい", "furigana": "はえやすい" }, { "text": "場所", "furigana": "ばしょ" }, { "text": "だ。かびを", "furigana": null }, { "text": "防ぐ", "furigana": "ふせぐ" }, { "text": " [　　] [　　] [ ★ ] [　　] ", "furigana": null }, { "text": "重要", "furigana": "じゅうよう" }, { "text": "らしい。", "furigana": null }],
       "options": [
         "ことが",
         "使った後",
         "ぬれたままにしない",
         "ためには"
       ],
+      "optionsFurigana": [[{ "text": "ことが", "furigana": null }], [{ "text": "使った", "furigana": "つかった" }, { "text": "後", "furigana": "あと" }], [{ "text": "ぬれたままにしない", "furigana": null }], [{ "text": "ためには", "furigana": null }]],
       "correctIndex": 2,
       "explanation": "Thứ tự đúng là 4 → 2 → 3 → 1:「かびを防ぐためには、使った後ぬれたままにしないことが重要らしい」(Để ngăn nấm mốc, có vẻ điều quan trọng là không để đồ vật ướt sau khi sử dụng). Ô ★ ở vị trí thứ ba nên chọn 「ぬれたままにしない」 (đáp án 3).",
       "explanationEn": "",

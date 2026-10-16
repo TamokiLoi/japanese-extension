@@ -97,7 +97,10 @@ export interface DeThiQuestion {
   // is just the bare tested word there, not a sentence, so furigana applies
   // to the options instead of `questionFurigana`. Same toggle/rendering
   // convention as `questionFurigana`.
-  optionsFurigana?: ReadingBodySegment[][];
+  optionsFurigana?: Array<ReadingBodySegment[] | null>;
+  // Legacy furigana annotations on exam listening answer choices. These use
+  // word/reading pairs and are normalized to optionsFurigana at render time.
+  optionFurigana?: { word: string; reading: string }[][];
   // Context or prompt illustration for a listening question whose answer
   // choices are still text (for example, JLPT Mondai 4 situation pictures).
   questionImage?: string;

@@ -306,7 +306,9 @@ function listeningFuriganaSegments(
   text: string,
   annotations: { word: string; reading: string }[] | undefined,
 ): { text: string; furigana: string | null }[] | undefined {
-  if (!annotations?.length || !text) return undefined;
+  if (!text) return undefined;
+  const hasKanji = /[\u3400-\u9fff々〆ヶ]/u;
+  if (!annotations?.length) return hasKanji.test(text) ? undefined : [{ text, furigana: null }];
   const segments: { text: string; furigana: string | null }[] = [];
   let cursor = 0;
   for (const annotation of annotations) {
@@ -317,12 +319,36 @@ function listeningFuriganaSegments(
     cursor = index + annotation.word.length;
   }
   if (cursor < text.length) segments.push({ text: text.slice(cursor), furigana: null });
+  if (segments.some((segment) => hasKanji.test(segment.text) && !segment.furigana)) return undefined;
   return segments;
 }
 
+function legacyListeningOptionFurigana(question: DeThiQuestion): DeThiQuestion {
+  const annotations = question.optionFurigana;
+  if (!annotations || annotations.length !== question.options.length || question.optionsFurigana?.length) return question;
+
+  const hasKanji = /[\u3400-\u9fff々〆ヶ]/u;
+  const optionsFurigana = question.options.map((option, index) => {
+    if (!option) return [];
+    const optionAnnotations = annotations[index] ?? [];
+    if (!optionAnnotations.length) {
+      return hasKanji.test(option) ? undefined : [{ text: option, furigana: null }];
+    }
+    const segments = listeningFuriganaSegments(option, optionAnnotations);
+    if (!segments || segments.map((segment) => segment.text).join("") !== option) return undefined;
+    if (segments.some((segment) => hasKanji.test(segment.text) && !segment.furigana)) return undefined;
+    return segments;
+  });
+
+  if (optionsFurigana.some((segments) => !segments)) return question;
+  return { ...question, optionsFurigana: optionsFurigana as NonNullable<DeThiQuestion["optionsFurigana"]> };
+}
+
 function withListeningContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
+  if (paperId !== "choukai") return question;
+  const questionWithLegacyFurigana = legacyListeningOptionFurigana(question);
   const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
-  if (paperId !== "choukai" || !book) return question;
+  if (!book) return questionWithLegacyFurigana;
 
   // Some converted JLPT datasets use Mondai-local IDs after the first two
   // groups (for example `m3-1` instead of `q13`). The exam paper numbers are
@@ -330,19 +356,20 @@ function withListeningContent(examId: string, paperId: string, question: DeThiQu
   // in a global question number.
   const bookQuestions = ALL_LISTENING.filter((item) => item.book === book);
   const source = bookQuestions[question.number - 1];
-  if (!source) return question;
+  if (!source) return questionWithLegacyFurigana;
 
-  const expectedOptionCount = question.optionsImage ? question.optionCount ?? 0 : question.options.length;
-  if (source.correctIndex !== question.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return question;
-  const normalizeChoice = (choice: string) => choice.normalize("NFKC").trim()
+  const expectedOptionCount = questionWithLegacyFurigana.optionsImage ? questionWithLegacyFurigana.optionCount ?? 0 : questionWithLegacyFurigana.options.length;
+  if (source.correctIndex !== questionWithLegacyFurigana.correctIndex || source.optionCount && source.optionCount !== expectedOptionCount) return questionWithLegacyFurigana;
+  const normalizeChoice = (choice: string) => choice.trim()
     .replace(/^[\s　]*[①②③④⑤⑥⑦⑧⑨⑩]/u, "")
+    .normalize("NFKC")
     .replace(/^\s*[1-4][.、]\s*/u, "")
     .replace(/[。！？!?….]+$/u, "")
     .replace(/\s+/gu, "");
-  const imageOptionsMatch = !question.optionsImage && !source.optionsImage
-    || question.optionsImage === source.optionsImage && (source.optionCount ?? 0) === expectedOptionCount;
+  const imageOptionsMatch = !questionWithLegacyFurigana.optionsImage && !source.optionsImage
+    || questionWithLegacyFurigana.optionsImage === source.optionsImage && (source.optionCount ?? 0) === expectedOptionCount;
   const optionsMatch = imageOptionsMatch && source.options.length === question.options.length && source.options.every(
-    (option, index) => normalizeChoice(option) === normalizeChoice(question.options[index] ?? ""),
+    (option, index) => normalizeChoice(option) === normalizeChoice(questionWithLegacyFurigana.options[index] ?? ""),
   );
 
   const transcriptTurns = source.turns.map((turn) => ({ ...turn }));
@@ -366,14 +393,14 @@ function withListeningContent(examId: string, paperId: string, question: DeThiQu
     : undefined;
 
   return {
-    ...question,
+    ...questionWithLegacyFurigana,
     question: enrichedQuestion,
     questionVi: spokenQuestionVi || source.questionVi || question.questionVi,
     questionFurigana: questionFurigana ?? question.questionFurigana,
     optionsVi: optionsMatch && source.optionsVi.length === question.options.length ? source.optionsVi : question.optionsVi,
     optionsFurigana: optionsMatch && optionsFurigana?.every((segments) => !!segments)
       ? optionsFurigana as NonNullable<DeThiQuestion["optionsFurigana"]>
-      : question.optionsFurigana,
+      : questionWithLegacyFurigana.optionsFurigana,
     explanation: source.explanation || question.explanation,
     optionExplanations: optionsMatch && source.optionExplanations?.length === expectedOptionCount
       ? source.optionExplanations
@@ -2229,7 +2256,7 @@ function ReviewQuestion({
                     text={opt}
                     underline={optionUnderline(question.problemGroup, question.question, question.underlineForms, opt)}
                     keepUnderlineTogether
-                    furigana={question.optionsFurigana?.[oi]}
+                    furigana={question.optionsFurigana?.[oi] ?? undefined}
                     showFurigana={showFurigana}
                   />
                   {question.optionsVi?.[oi] && (!isListeningReview || showListeningTranslation) ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}

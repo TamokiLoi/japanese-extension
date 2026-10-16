@@ -7,6 +7,8 @@
   "scripts": {
     "data:sync": "node --experimental-strip-types scripts/copy-data.ts",
     "data:validate:try-n3": "node --experimental-strip-types scripts/validate-try-n3-chapters.ts",
+    "quizbook:furigana:enrich": "node --experimental-strip-types scripts/enrich-quizbook-furigana.ts",
+    "quizbook:furigana:validate": "node --experimental-strip-types scripts/validate-quizbook-furigana.ts",
     "reading:extract-jlpt": "node --experimental-strip-types scripts/extract-jlpt-reading.ts",
     "reading:test-jlpt": "node --experimental-strip-types scripts/test-jlpt-reading.ts",
     "exam-tips:validate": "node --experimental-strip-types scripts/validate-exam-tips.ts",
@@ -15,6 +17,7 @@
     "news:sync:rss": "node --experimental-strip-types scripts/news-sync.ts --rss --enrich",
     "news:publish": "node --experimental-strip-types scripts/news-publish.ts",
     "listening:enrich": "node --experimental-strip-types scripts/enrich-listening-content.ts",
+    "listening:validate-furigana": "node --experimental-strip-types scripts/validate-listening-furigana.ts",
     "podcast:fetch": "node --experimental-strip-types scripts/fetch-podcast-episodes.ts",
     "podcast:transcript:fetch": "node --experimental-strip-types scripts/fetch-podcast-transcript.ts",
     "podcast:transcript:translate": "node --experimental-strip-types scripts/translate-podcast-transcript.ts",

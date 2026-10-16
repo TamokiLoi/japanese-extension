@@ -14,11 +14,13 @@
         {
           "speaker": "ナレーション",
           "text": "1番授業が終わった後教室で女の先生と男の学生が話しています。男の学生はこれから何をしますか?",
+          "furigana": [{ "word": "1番", "reading": "いちばん" }, { "word": "授業", "reading": "じゅぎょう" }, { "word": "終わった", "reading": "おわった" }, { "word": "後", "reading": "あと" }, { "word": "教室", "reading": "きょうしつ" }, { "word": "女", "reading": "おんな" }, { "word": "先生", "reading": "せんせい" }, { "word": "男", "reading": "おとこ" }, { "word": "学生", "reading": "がくせい" }, { "word": "話しています", "reading": "はなしています" }, { "word": "男", "reading": "おとこ" }, { "word": "学生", "reading": "がくせい" }, { "word": "何", "reading": "なに" }],
           "textVi": "Câu 1. Sau khi giờ học kết thúc, nữ giáo viên và nam sinh đang nói chuyện với nhau. Nam sinh sẽ làm gì từ bây giờ?"
         },
         {
           "speaker": "話者1",
           "text": "リンさんすみません。今ちょっと時間ありますか?この後用事があってすぐに行かなきゃいけないのでちょっと手伝ってほしいんですけど。",
+          "furigana": [{ "word": "今", "reading": "いま" }, { "word": "時間", "reading": "じかん" }, { "word": "後", "reading": "あと" }, { "word": "用事", "reading": "ようじ" }, { "word": "行かなきゃ", "reading": "いかなきゃ" }, { "word": "手伝って", "reading": "てつだって" }],
           "textVi": "Linh san, xin lỗi em. Bây giờ em có chút thời gian không? Sau đây cô có việc phải đi ngay nên muốn em giúp một chút."
         },
         {
@@ -29,16 +31,19 @@
         {
           "speaker": "話者1",
           "text": "教室の窓を全部閉めておいてもらえませんか?",
+          "furigana": [{ "word": "教室", "reading": "きょうしつ" }, { "word": "窓", "reading": "まど" }, { "word": "全部", "reading": "ぜんぶ" }, { "word": "閉めて", "reading": "しめて" }],
           "textVi": "Em đóng toàn bộ cửa sổ của phòng học giúp cô được không?"
         },
         {
           "speaker": "話者2",
           "text": "はい。わかりました。みんなが出した宿題のノート先生のオフィスまで運びましょうか?",
+          "furigana": [{ "word": "出した", "reading": "だした" }, { "word": "宿題", "reading": "しゅくだい" }, { "word": "先生", "reading": "せんせい" }, { "word": "運びましょう", "reading": "はこびましょう" }],
           "textVi": "Vâng. Em hiểu rồi. Sách bài tập mà mọi người đã nộp, em mang đến phòng làm việc của cô nhé?"
         },
         {
           "speaker": "話者1",
           "text": "ありがとう。でも大丈夫です。これは自分で運べるので。あ黒板も消しておいてもらってもいいですか?",
+          "furigana": [{ "word": "大丈夫", "reading": "だいじょうぶ" }, { "word": "自分", "reading": "じぶん" }, { "word": "運べる", "reading": "はこべる" }, { "word": "黒板", "reading": "こくばん" }, { "word": "消して", "reading": "けして" }],
           "textVi": "Cảm ơn em. Nhưng không sao đâu. Cái này tự cô mang đi được. À, em xóa luôn bảng đen giúp cô được không?"
         },
         {
@@ -49,16 +54,19 @@
         {
           "speaker": "話者1",
           "text": "すみませんがお願いします。",
+          "furigana": [{ "word": "お願いします", "reading": "おねがいします" }],
           "textVi": "Xin lỗi em và nhờ em nhé."
         },
         {
           "speaker": "ナレーション",
           "text": "男の学生はこれから何をしますか?",
+          "furigana": [{ "word": "男", "reading": "おとこ" }, { "word": "学生", "reading": "がくせい" }, { "word": "何", "reading": "なに" }],
           "textVi": "Nam sinh sẽ làm gì từ bây giờ?"
         }
       ],
       "question": "1番",
       "questionVi": "Câu 1",
+      "questionFurigana": [{ "word": "1番", "reading": "いちばん" }],
       "options": [
         "ア　イ",
         "ア　ウ",
@@ -98,62 +106,74 @@
         {
           "speaker": "ナレーション",
           "text": "2番市役所で係の女の人と男の人が市民祭りの準備について話しています。女の人はこれから何をしますか?",
+          "furigana": [{ "word": "2番", "reading": "にばん" }, { "word": "市役所", "reading": "しやくしょ" }, { "word": "係", "reading": "かかり" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "市民祭り", "reading": "しみんまつり" }, { "word": "準備", "reading": "じゅんび" }, { "word": "話しています", "reading": "はなしています" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "何", "reading": "なに" }],
           "textVi": "Số 2. Tại tòa thị chính, một nhân viên nữ và một nam đang nói chuyện về việc chuẩn bị cho lễ hội thành phố. Người phụ nữ sẽ làm gì từ bây giờ?"
         },
         {
           "speaker": "話者1",
           "text": "市民祭りのクイズ大会で出す問題見ていただけましたか?",
+          "furigana": [{ "word": "市民祭り", "reading": "しみんまつり" }, { "word": "大会", "reading": "たいかい" }, { "word": "出す", "reading": "だす" }, { "word": "問題", "reading": "もんだい" }, { "word": "見て", "reading": "みて" }],
           "textVi": "Anh đã xem qua các câu hỏi sẽ dùng trong cuộc thi đố vui của lễ hội thành phố chưa?"
         },
         {
           "speaker": "話者2",
           "text": "うん。見たよ。",
+          "furigana": [{ "word": "見た", "reading": "みた" }],
           "textVi": "Ừ, anh xem rồi."
         },
         {
           "speaker": "話者1",
           "text": "市民祭りのテーマが環境なのでそれに合わせて考えてみたんですが。",
+          "furigana": [{ "word": "市民祭り", "reading": "しみんまつり" }, { "word": "環境", "reading": "かんきょう" }, { "word": "合わせて", "reading": "あわせて" }, { "word": "考えて", "reading": "かんがえて" }],
           "textVi": "Vì chủ đề của lễ hội thành phố là môi trường nên em đã thử suy nghĩ các câu hỏi sao cho phù hợp với chủ đề đó."
         },
         {
           "speaker": "話者2",
           "text": "うん。良い問題が多いね。ただちょっと難しいよね。小さい子でもわかるような簡単な問題も入れられるといいね。",
+          "furigana": [{ "word": "良い", "reading": "よい" }, { "word": "問題", "reading": "もんだい" }, { "word": "多い", "reading": "おおい" }, { "word": "難しい", "reading": "むずかしい" }, { "word": "小さい", "reading": "ちいさい" }, { "word": "子", "reading": "こ" }, { "word": "簡単", "reading": "かんたん" }, { "word": "問題", "reading": "もんだい" }, { "word": "入れられる", "reading": "いれられる" }],
           "textVi": "Ừ, có nhiều câu hỏi hay đấy. Chỉ có điều là hơi khó nhỉ. Giá mà thêm được mấy câu hỏi dễ mà cả trẻ con cũng hiểu được thì tốt quá."
         },
         {
           "speaker": "話者1",
           "text": "確かにそうですね。考えてみます。",
+          "furigana": [{ "word": "確か", "reading": "たしか" }, { "word": "考えて", "reading": "かんがえて" }],
           "textVi": "Công nhận là vậy nhỉ. Để em suy nghĩ xem sao."
         },
         {
           "speaker": "話者2",
           "text": "あ優勝した人に渡すプレゼントは準備できてる?",
+          "furigana": [{ "word": "優勝", "reading": "ゆうしょう" }, { "word": "人", "reading": "ひと" }, { "word": "渡す", "reading": "わたす" }, { "word": "準備", "reading": "じゅんび" }],
           "textVi": "À, quà trao cho người chiến thắng đã chuẩn bị xong chưa?"
         },
         {
           "speaker": "話者1",
           "text": "それは準備してあります。",
+          "furigana": [{ "word": "準備", "reading": "じゅんび" }],
           "textVi": "Cái đó thì đã được chuẩn bị xong rồi ạ."
         },
         {
           "speaker": "話者2",
           "text": "そっか。それと会場の公園に立てる看板も必要だね。大きくてわかりやすいものがいいよね。これは僕が頑張って作るよ。",
+          "furigana": [{ "word": "会場", "reading": "かいじょう" }, { "word": "公園", "reading": "こうえん" }, { "word": "立てる", "reading": "たてる" }, { "word": "看板", "reading": "かんばん" }, { "word": "必要", "reading": "ひつよう" }, { "word": "大きくて", "reading": "おおきくて" }, { "word": "僕", "reading": "ぼく" }, { "word": "頑張って", "reading": "がんばって" }, { "word": "作る", "reading": "つくる" }],
           "textVi": "Thế à. Với cả, cũng cần có bảng hiệu dựng ở công viên nơi tổ chức nữa nhỉ. Loại to và dễ hiểu thì tốt hơn. Cái này để anh cố gắng tự làm vậy."
         },
         {
           "speaker": "ナレーション",
           "text": "女の人はこれから何をしますか?",
+          "furigana": [{ "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "何", "reading": "なに" }],
           "textVi": "Người phụ nữ sẽ làm gì từ bây giờ?"
         }
       ],
       "question": "2番",
       "questionVi": "Câu 2",
+      "questionFurigana": [{ "word": "2番", "reading": "にばん" }],
       "options": [
         "テーマに合った問題にかえる",
         "やさしい問題を作る",
         "プレゼントを用意する",
         "かばんを作る"
       ],
+      "optionFurigana": [[{ "word": "合った", "reading": "あった" }, { "word": "問題", "reading": "もんだい" }], [{ "word": "問題", "reading": "もんだい" }, { "word": "作る", "reading": "つくる" }], [{ "word": "用意する", "reading": "よういする" }], [{ "word": "作る", "reading": "つくる" }]],
       "optionsVi": [
         "Thay đổi câu hỏi cho phù hợp với chủ đề",
         "Tạo thêm các câu hỏi dễ",
@@ -186,16 +206,19 @@
         {
           "speaker": "ナレーション",
           "text": "3番大学の写真部で女の学生と男の学生が話しています。女の学生はポスターをどう直しますか?",
+          "furigana": [{ "word": "3番", "reading": "さんばん" }, { "word": "大学", "reading": "だいがく" }, { "word": "写真部", "reading": "しゃしんぶ" }, { "word": "女", "reading": "おんな" }, { "word": "学生", "reading": "がくせい" }, { "word": "男", "reading": "おとこ" }, { "word": "学生", "reading": "がくせい" }, { "word": "話しています", "reading": "はなしています" }, { "word": "女", "reading": "おんな" }, { "word": "学生", "reading": "がくせい" }, { "word": "直します", "reading": "なおします" }],
           "textVi": "Số 3. Tại câu lạc bộ nhiếp ảnh của trường đại học, một nữ sinh viên và một nam sinh viên đang nói chuyện với nhau. Nữ sinh viên sẽ chỉnh sửa poster như thế nào?"
         },
         {
           "speaker": "話者1",
           "text": "川村さん春の展覧会用のポスターだけどこの間送った案どうだった?",
+          "furigana": [{ "word": "川村", "reading": "かわむら" }, { "word": "春", "reading": "はる" }, { "word": "展覧会用", "reading": "てんらんかいよう" }, { "word": "この間", "reading": "このあいだ" }, { "word": "送った", "reading": "おくった" }, { "word": "案", "reading": "あん" }],
           "textVi": "Kawamura này, về tấm poster dùng cho buổi triển lãm mùa xuân, ý tưởng mà tôi gửi đợt trước thế nào?"
         },
         {
           "speaker": "話者2",
           "text": "うん。良い感じだったよ。ありがとう。鈴木さんああいうの作るの得意だよね。ただ展覧会のタイトルはもう少し大きい方がいいと思った。",
+          "furigana": [{ "word": "良い", "reading": "よい" }, { "word": "感じ", "reading": "かんじ" }, { "word": "鈴木", "reading": "すずき" }, { "word": "作る", "reading": "つくる" }, { "word": "得意", "reading": "とくい" }, { "word": "展覧会", "reading": "てんらんかい" }, { "word": "少し", "reading": "すこし" }, { "word": "大きい", "reading": "おおきい" }, { "word": "方", "reading": "ほう" }, { "word": "思った", "reading": "おもった" }],
           "textVi": "Ừ, cảm giác rất được đấy. Cảm ơn nhé. Suzuki-san, bạn giỏi làm mấy cái kiểu đó thật đấy. Chỉ là tôi nghĩ tiêu đề của buổi triển lãm nên lớn hơn một chút."
         },
         {
@@ -206,16 +229,19 @@
         {
           "speaker": "話者2",
           "text": "ポスターの色は黒にして正解だね。写真がはっきり見えるから。春だから薄い色がいいっていう意見もあったけど。",
+          "furigana": [{ "word": "色", "reading": "いろ" }, { "word": "黒", "reading": "くろ" }, { "word": "正解", "reading": "せいかい" }, { "word": "写真", "reading": "しゃしん" }, { "word": "見える", "reading": "みえる" }, { "word": "春", "reading": "はる" }, { "word": "薄い", "reading": "うすい" }, { "word": "色", "reading": "いろ" }, { "word": "意見", "reading": "いけん" }],
           "textVi": "Màu sắc của poster chọn màu đen là chuẩn xác rồi đấy. Vì ảnh được nhìn thấy rất rõ ràng. Dù cũng có ý kiến cho rằng vì là mùa xuân nên dùng màu nhạt thì hơn."
         },
         {
           "speaker": "話者1",
           "text": "そうだね。写真はどうだった?",
+          "furigana": [{ "word": "写真", "reading": "しゃしん" }],
           "textVi": "Đúng vậy nhỉ. Thế còn bức ảnh thì sao?"
         },
         {
           "speaker": "話者2",
           "text": "真ん中にみんなで選んだ写真を入れてくれたんだね。サイズも大きめでいいと思ったよ。日時や会場の情報が間違っていないか僕の方でもう一度確認しておくね。",
+          "furigana": [{ "word": "真ん中", "reading": "まんなか" }, { "word": "選んだ", "reading": "えらんだ" }, { "word": "写真", "reading": "しゃしん" }, { "word": "入れて", "reading": "いれて" }, { "word": "大きめ", "reading": "おおきめ" }, { "word": "思った", "reading": "おもった" }, { "word": "日時", "reading": "にちじ" }, { "word": "会場", "reading": "かいじょう" }, { "word": "情報", "reading": "じょうほう" }, { "word": "間違って", "reading": "まちがって" }, { "word": "僕", "reading": "ぼく" }, { "word": "方", "reading": "ほう" }, { "word": "一度", "reading": "いちど" }, { "word": "確認", "reading": "かくにん" }],
           "textVi": "Bạn đã đưa bức ảnh mà mọi người cùng chọn vào chính giữa nhỉ. Kích thước cũng khá lớn nên tôi thấy rất ổn. Về thông tin ngày giờ và địa điểm có bị nhầm lẫn gì không, để tôi kiểm tra lại một lần nữa nhé."
         },
         {
@@ -226,17 +252,20 @@
         {
           "speaker": "ナレーション",
           "text": "女の学生はポスターをどう直しますか?",
+          "furigana": [{ "word": "女", "reading": "おんな" }, { "word": "学生", "reading": "がくせい" }, { "word": "直します", "reading": "なおします" }],
           "textVi": "Nữ sinh viên sẽ chỉnh sửa poster như thế nào?"
         }
       ],
       "question": "3番",
       "questionVi": "Câu 3",
+      "questionFurigana": [{ "word": "3番", "reading": "さんばん" }],
       "options": [
         "タイトルを大きくする",
         "ポスターの色をうすくする",
         "写真のサイズを小さくする",
         "会場のじょうほうをかえる"
       ],
+      "optionFurigana": [[{ "word": "大きく", "reading": "おおきく" }], [{ "word": "色", "reading": "いろ" }], [{ "word": "写真", "reading": "しゃしん" }, { "word": "小さく", "reading": "ちいさく" }], [{ "word": "会場", "reading": "かいじょう" }]],
       "optionsVi": [
         "Làm cho tiêu đề lớn hơn",
         "Làm cho màu sắc poster nhạt đi",
@@ -269,36 +298,43 @@
         {
           "speaker": "ナレーション",
           "text": "4番日本語学校で女の学生と男の先生が進学について話しています。女の学生はこの後まず何をしますか?",
+          "furigana": [{ "word": "4番", "reading": "よんばん" }, { "word": "日本語学校", "reading": "にほんごがっこう" }, { "word": "女", "reading": "おんな" }, { "word": "学生", "reading": "がくせい" }, { "word": "男", "reading": "おとこ" }, { "word": "先生", "reading": "せんせい" }, { "word": "進学", "reading": "しんがく" }, { "word": "話しています", "reading": "はなしています" }, { "word": "女", "reading": "おんな" }, { "word": "学生", "reading": "がくせい" }, { "word": "後", "reading": "あと" }, { "word": "何", "reading": "なに" }],
           "textVi": "Số 4. Tại trường Nhật ngữ, một nữ sinh viên và nam giáo viên đang nói chuyện về việc học lên cao. Nữ sinh viên sẽ làm gì trước tiên sau đây?"
         },
         {
           "speaker": "話者1",
           "text": "先生私卒業したら日本の大学に進学したいと思ってるんですけどどうやって大学を選んでいいかわからなくて。",
+          "furigana": [{ "word": "先生", "reading": "せんせい" }, { "word": "私", "reading": "わたし" }, { "word": "卒業", "reading": "そつぎょう" }, { "word": "日本", "reading": "にほん" }, { "word": "大学", "reading": "だいがく" }, { "word": "進学", "reading": "しんがく" }, { "word": "思ってる", "reading": "おもってる" }, { "word": "大学", "reading": "だいがく" }, { "word": "選んで", "reading": "えらんで" }],
           "textVi": "Thưa thầy, sau khi tốt nghiệp em muốn học lên đại học ở Nhật Bản nhưng em không biết phải chọn trường đại học như thế nào."
         },
         {
           "speaker": "話者2",
           "text": "うん。将来どのような仕事をしたいかイメージはありますか?",
+          "furigana": [{ "word": "将来", "reading": "しょうらい" }, { "word": "仕事", "reading": "しごと" }],
           "textVi": "Ừ. Em đã hình dung được mình muốn làm công việc gì trong tương lai chưa?"
         },
         {
           "speaker": "話者1",
           "text": "建築関係の仕事をしたいと思っています。インターネットで建築が学べる大学を調べてみたんですが自分の興味や希望に合う大学かどうかわからなくて。",
+          "furigana": [{ "word": "建築関係", "reading": "けんちくかんけい" }, { "word": "仕事", "reading": "しごと" }, { "word": "思っています", "reading": "おもっています" }, { "word": "建築", "reading": "けんちく" }, { "word": "学べる", "reading": "まなべる" }, { "word": "大学", "reading": "だいがく" }, { "word": "調べて", "reading": "しらべて" }, { "word": "自分", "reading": "じぶん" }, { "word": "興味", "reading": "きょうみ" }, { "word": "希望", "reading": "きぼう" }, { "word": "合う", "reading": "あう" }, { "word": "大学", "reading": "だいがく" }],
           "textVi": "Em muốn làm công việc liên quan đến kiến trúc. Em đã tìm kiếm trên internet các trường đại học có thể học về kiến trúc nhưng không biết liệu đó có phải là trường phù hợp với sở thích và mong muốn của mình hay không."
         },
         {
           "speaker": "話者2",
           "text": "今週の日曜日いくつかの大学が集まって留学生のための進学説明会を行うのでそこで直接話を聞いてみてはどうですか?",
+          "furigana": [{ "word": "今週", "reading": "こんしゅう" }, { "word": "日曜日", "reading": "にちようび" }, { "word": "大学", "reading": "だいがく" }, { "word": "集まって", "reading": "あつまって" }, { "word": "留学生", "reading": "りゅうがくせい" }, { "word": "進学説明会", "reading": "しんがくせつめいかい" }, { "word": "行う", "reading": "おこなう" }, { "word": "直接", "reading": "ちょくせつ" }, { "word": "話", "reading": "はなし" }, { "word": "聞いて", "reading": "きいて" }],
           "textVi": "Tuần này vào chủ nhật, một số trường đại học sẽ tập trung lại để tổ chức buổi giới thiệu tuyển sinh dành cho du học sinh, em có muốn đến đó để nghe trực tiếp trao đổi không?"
         },
         {
           "speaker": "話者1",
           "text": "是非行ってみたいです。",
+          "furigana": [{ "word": "是非", "reading": "ぜひ" }, { "word": "行って", "reading": "いって" }],
           "textVi": "Em rất muốn đi thử ạ."
         },
         {
           "speaker": "話者2",
           "text": "うちの卒業生で日本の大学に通っている人も紹介できますが個人の話を聞く前に大学の人から話を聞いた方がいいと思います。",
+          "furigana": [{ "word": "卒業生", "reading": "そつぎょうせい" }, { "word": "日本", "reading": "にほん" }, { "word": "大学", "reading": "だいがく" }, { "word": "通っている", "reading": "かよっている" }, { "word": "人", "reading": "ひと" }, { "word": "紹介", "reading": "しょうかい" }, { "word": "個人", "reading": "こじん" }, { "word": "話", "reading": "はなし" }, { "word": "聞く", "reading": "きく" }, { "word": "前", "reading": "まえ" }, { "word": "大学", "reading": "だいがく" }, { "word": "人", "reading": "ひと" }, { "word": "話", "reading": "はなし" }, { "word": "聞いた", "reading": "きいた" }, { "word": "方", "reading": "ほう" }, { "word": "思います", "reading": "おもいます" }],
           "textVi": "Thầy cũng có thể giới thiệu những cựu học sinh của trường chúng ta hiện đang học tại các đại học Nhật Bản, nhưng thầy nghĩ em nên nghe thông tin từ phía trường đại học trước khi nghe câu chuyện cá nhân."
         },
         {
@@ -309,17 +345,20 @@
         {
           "speaker": "ナレーション",
           "text": "女の学生はこの後まず何をしますか?",
+          "furigana": [{ "word": "女", "reading": "おんな" }, { "word": "学生", "reading": "がくせい" }, { "word": "後", "reading": "あと" }, { "word": "何", "reading": "なに" }],
           "textVi": "Nữ sinh viên sẽ làm gì trước tiên sau đây?"
         }
       ],
       "question": "4番",
       "questionVi": "Câu 4",
+      "questionFurigana": [{ "word": "4番", "reading": "よんばん" }],
       "options": [
         "どんな仕事をしたいか決める",
         "インターネットで大学を調べる",
         "大学の説明会に行く",
         "そつぎょうせいに話を聞く"
       ],
+      "optionFurigana": [[{ "word": "仕事", "reading": "しごと" }, { "word": "決める", "reading": "きめる" }], [{ "word": "大学", "reading": "だいがく" }, { "word": "調べる", "reading": "しらべる" }], [{ "word": "大学", "reading": "だいがく" }, { "word": "説明会", "reading": "せつめいかい" }, { "word": "行く", "reading": "いく" }], [{ "word": "話", "reading": "はなし" }, { "word": "聞く", "reading": "きく" }]],
       "optionsVi": [
         "Quyết định muốn làm công việc gì",
         "Tìm kiếm trường đại học trên internet",
@@ -352,36 +391,43 @@
         {
           "speaker": "ナレーション",
           "text": "5番会社で男の人と女の人が話しています。男の人はまず何をしなければなりませんか?",
+          "furigana": [{ "word": "5番", "reading": "ごばん" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "話しています", "reading": "はなしています" }, { "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "何", "reading": "なに" }],
           "textVi": "Số 5. Tại công ty, một nam nhân viên và một nữ nhân viên đang nói chuyện. Người nam trước tiên phải làm gì?"
         },
         {
           "speaker": "話者1",
           "text": "林さん来週の金曜日の部長との会議で使う部屋第1会議室と第3会議室が空いてたんですけどどちらがいいですか?",
+          "furigana": [{ "word": "林", "reading": "はやし" }, { "word": "来週", "reading": "らいしゅう" }, { "word": "金曜日", "reading": "きんようび" }, { "word": "部長", "reading": "ぶちょう" }, { "word": "会議", "reading": "かいぎ" }, { "word": "使う", "reading": "つかう" }, { "word": "部屋", "reading": "へや" }, { "word": "第1会議室", "reading": "だいいちかいぎしつ" }, { "word": "第3会議室", "reading": "だいさんかいぎしつ" }, { "word": "空いてた", "reading": "あいてた" }],
           "textVi": "Chị Hayashi này, phòng dùng cho cuộc họp với trưởng phòng vào thứ Sáu tuần sau, phòng họp 1 và phòng họp 3 đang trống, chị thấy phòng nào tốt hơn ạ?"
         },
         {
           "speaker": "話者2",
           "text": "ううん。第3会議室って少し狭いですよね。3人だけですけど大きい部屋も空いてるならその方がいいと思いますよ。",
+          "furigana": [{ "word": "第3会議室", "reading": "だいさんかいぎしつ" }, { "word": "少し", "reading": "すこし" }, { "word": "狭い", "reading": "せまい" }, { "word": "3人", "reading": "さんにん" }, { "word": "大きい", "reading": "おおきい" }, { "word": "部屋", "reading": "へや" }, { "word": "空いてる", "reading": "あいてる" }, { "word": "方", "reading": "ほう" }, { "word": "思います", "reading": "おもいます" }],
           "textVi": "Ừm. Phòng họp 3 thì hơi nhỏ nhỉ. Dù chỉ có 3 người nhưng nếu phòng lớn cũng trống thì dùng phòng lớn vẫn tốt hơn."
         },
         {
           "speaker": "話者1",
           "text": "はい。じゃあ第1会議室を予約しときますね。10時からですよね。",
+          "furigana": [{ "word": "第1会議室", "reading": "だいいちかいぎしつ" }, { "word": "予約", "reading": "よやく" }, { "word": "10時", "reading": "じゅうじ" }],
           "textVi": "Vâng. Vậy để em đặt trước phòng họp 1 nhé. Lúc 10 giờ phải không ạ?"
         },
         {
           "speaker": "話者2",
           "text": "あ部長がもしかしたらその日は午前予定が入るかもしれないとおっしゃってましたよね。その場合は3時ぐらいがいいって。",
+          "furigana": [{ "word": "部長", "reading": "ぶちょう" }, { "word": "日", "reading": "ひ" }, { "word": "午前", "reading": "ごぜん" }, { "word": "予定", "reading": "よてい" }, { "word": "入る", "reading": "はいる" }, { "word": "場合", "reading": "ばあい" }, { "word": "3時", "reading": "さんじ" }],
           "textVi": "À, trưởng phòng đã nói là có khả năng ngày hôm đó ông ấy có lịch trình vào buổi sáng đấy. Trong trường hợp đó thì tầm 3 giờ chiều là tốt."
         },
         {
           "speaker": "話者1",
           "text": "あすみません。忘れてました。確か午後はどちらの部屋も予約が入ってたと思います。",
+          "furigana": [{ "word": "忘れてました", "reading": "わすれてました" }, { "word": "確か", "reading": "たしか" }, { "word": "午後", "reading": "ごご" }, { "word": "部屋", "reading": "へや" }, { "word": "予約", "reading": "よやく" }, { "word": "入ってた", "reading": "はいってた" }, { "word": "思います", "reading": "おもいます" }],
           "textVi": "À, em xin lỗi. Em quên mất. Hình như buổi chiều thì cả hai phòng đều đã có người đặt rồi."
         },
         {
           "speaker": "話者2",
           "text": "じゃあ部長に確認して午前なら第1会議室にしてもし午後だったらもう一度空いてる部屋を探してください。",
+          "furigana": [{ "word": "部長", "reading": "ぶちょう" }, { "word": "確認", "reading": "かくにん" }, { "word": "午前", "reading": "ごぜん" }, { "word": "第1会議室", "reading": "だいいちかいぎしつ" }, { "word": "午後", "reading": "ごご" }, { "word": "一度", "reading": "いちど" }, { "word": "空いてる", "reading": "あいてる" }, { "word": "部屋", "reading": "へや" }, { "word": "探して", "reading": "さがして" }],
           "textVi": "Thế thì anh hãy xác nhận lại với trưởng phòng, nếu là buổi sáng thì chọn phòng họp 1, còn nếu là buổi chiều thì hãy tìm lại phòng nào đang trống nhé."
         },
         {
@@ -392,17 +438,20 @@
         {
           "speaker": "ナレーション",
           "text": "男の人はまず何をしなければなりませんか?",
+          "furigana": [{ "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "何", "reading": "なに" }],
           "textVi": "Người nam trước tiên phải làm gì?"
         }
       ],
       "question": "5番",
       "questionVi": "Câu 5",
+      "questionFurigana": [{ "word": "5番", "reading": "ごばん" }],
       "options": [
         "大きいへやをよやくする",
         "小さいへやをよやくする",
         "ぶちょうに予定を聞く",
         "空いているへやをさがす"
       ],
+      "optionFurigana": [[{ "word": "大きい", "reading": "おおきい" }], [{ "word": "小さい", "reading": "ちいさい" }], [{ "word": "予定", "reading": "よてい" }, { "word": "聞く", "reading": "きく" }], [{ "word": "空いている", "reading": "あいている" }]],
       "optionsVi": [
         "Đặt phòng lớn",
         "Đặt phòng nhỏ",
@@ -435,27 +484,32 @@
         {
           "speaker": "ナレーション",
           "text": "6番大学の授業で先生が話しています。学生は今日グループで何をしなければなりませんか?",
+          "furigana": [{ "word": "6番", "reading": "ろくばん" }, { "word": "大学", "reading": "だいがく" }, { "word": "授業", "reading": "じゅぎょう" }, { "word": "先生", "reading": "せんせい" }, { "word": "話しています", "reading": "はなしています" }, { "word": "学生", "reading": "がくせい" }, { "word": "今日", "reading": "きょう" }, { "word": "何", "reading": "なに" }],
           "textVi": "Số 6. Thầy/cô giáo đang nói chuyện trong giờ học đại học. Hôm nay học sinh phải làm gì trong nhóm?"
         },
         {
           "speaker": "話者1",
           "text": "この授業ではこれまで生活の中のデザインについて講義をしてきました。来週からグループ発表の準備を始めます。今日あと少し時間があるのでこれまでの講義で興味を持ったテーマをグループの中で話し合ってみてください。来週の授業でテーマを1つに決めてそれからそれについて調べたり話し合ったりしてもらいます。皆さん自分のグループはわかりますね。グループの代表の人のところに集まってください。",
+          "furigana": [{ "word": "授業", "reading": "じゅぎょう" }, { "word": "生活", "reading": "せいかつ" }, { "word": "中", "reading": "なか" }, { "word": "講義", "reading": "こうぎ" }, { "word": "来週", "reading": "らいしゅう" }, { "word": "発表", "reading": "はっぴょう" }, { "word": "準備", "reading": "じゅんび" }, { "word": "始めます", "reading": "はじめます" }, { "word": "今日", "reading": "きょう" }, { "word": "少し", "reading": "すこし" }, { "word": "時間", "reading": "じかん" }, { "word": "講義", "reading": "こうぎ" }, { "word": "興味", "reading": "きょうみ" }, { "word": "持った", "reading": "もった" }, { "word": "中", "reading": "なか" }, { "word": "話し合って", "reading": "はなしあって" }, { "word": "来週", "reading": "らいしゅう" }, { "word": "授業", "reading": "じゅぎょう" }, { "word": "決めて", "reading": "きめて" }, { "word": "調べたり", "reading": "しらべたり" }, { "word": "話し合ったり", "reading": "はなしあったり" }, { "word": "皆", "reading": "みな" }, { "word": "自分", "reading": "じぶん" }, { "word": "代表", "reading": "だいひょう" }, { "word": "人", "reading": "ひと" }, { "word": "集まって", "reading": "あつまって" }],
           "textVi": "Trong giờ học này, từ trước đến nay chúng ta đã có các bài giảng về thiết kế trong cuộc sống. Từ tuần sau, chúng ta sẽ bắt đầu chuẩn bị cho bài thuyết trình nhóm. Hôm nay vẫn còn chút thời gian nên các em hãy thử thảo luận trong nhóm về những chủ đề mà mình cảm thấy hứng thú trong các bài giảng từ trước đến nay. Trong buổi học tuần tới, hãy quyết định một chủ đề rồi sau đó tiến hành tìm hiểu và thảo luận về chủ đề đó. Mọi người đều biết nhóm của mình rồi chứ? Xin mời tập trung lại ở chỗ đại diện của nhóm."
         },
         {
           "speaker": "ナレーション",
           "text": "学生は今日グループで何をしなければなりませんか?",
+          "furigana": [{ "word": "学生", "reading": "がくせい" }, { "word": "今日", "reading": "きょう" }, { "word": "何", "reading": "なに" }],
           "textVi": "Hôm nay học sinh phải làm gì trong nhóm?"
         }
       ],
       "question": "6番",
       "questionVi": "Câu 6",
+      "questionFurigana": [{ "word": "6番", "reading": "ろくばん" }],
       "options": [
         "きょうみを持ったテーマを出し合う",
         "はっぴょうのテーマを決める",
         "決めたテーマについて調べる",
         "だいひょう者を決める"
       ],
+      "optionFurigana": [[{ "word": "持った", "reading": "もった" }, { "word": "出し合う", "reading": "だしあう" }], [{ "word": "決める", "reading": "きめる" }], [{ "word": "決めた", "reading": "きめた" }, { "word": "調べる", "reading": "しらべる" }], [{ "word": "者", "reading": "しゃ" }, { "word": "決める", "reading": "きめる" }]],
       "optionsVi": [
         "Đưa ra các chủ đề cảm thấy hứng thú",
         "Quyết định chủ đề thuyết trình",
@@ -488,11 +542,13 @@
         {
           "speaker": "ナレーション",
           "text": "1番マラソン教室で先生と女の人が話しています。先生はまずどんなことに気をつけたらいいといっていますか?",
+          "furigana": [{ "word": "1番", "reading": "いちばん" }, { "word": "教室", "reading": "きょうしつ" }, { "word": "先生", "reading": "せんせい" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "話しています", "reading": "はなしています" }, { "word": "先生", "reading": "せんせい" }, { "word": "気", "reading": "き" }],
           "textVi": "Số 1. Thầy giáo và một người phụ nữ đang nói chuyện ở lớp học chạy marathon. Thầy giáo nói trước tiên cần chú ý đến điều gì?"
         },
         {
           "speaker": "話者1",
           "text": "いま走っているところを見せてもらいましたが今日は1回目なので基本的な走り方を確認しましょう。",
+          "furigana": [{ "word": "走っている", "reading": "はしっている" }, { "word": "見せて", "reading": "みせて" }, { "word": "今日", "reading": "きょう" }, { "word": "1回目", "reading": "いっかいめ" }, { "word": "基本的", "reading": "きほんてき" }, { "word": "走り方", "reading": "はしりかた" }, { "word": "確認", "reading": "かくにん" }],
           "textVi": "Tôi vừa xem cách bạn chạy lúc nãy, vì hôm nay là buổi đầu tiên nên chúng ta hãy cùng xác nhận cách chạy cơ bản nhé."
         },
         {
@@ -503,16 +559,19 @@
         {
           "speaker": "話者1",
           "text": "腕はよく振れていましたね。よかったですよ。でも肩が上がっていました。肩に力を入れないようにしましょう。",
+          "furigana": [{ "word": "腕", "reading": "うで" }, { "word": "振れて", "reading": "ふれて" }, { "word": "肩", "reading": "かた" }, { "word": "上がって", "reading": "あがって" }, { "word": "肩", "reading": "かた" }, { "word": "力", "reading": "ちから" }, { "word": "入れない", "reading": "いれない" }],
           "textVi": "Tay bạn đánh khá tốt rồi. Rất tốt đấy. Nhưng vai của bạn bị nhô lên cao. Chúng ta hãy cố gắng không dùng lực vào vai nhé."
         },
         {
           "speaker": "話者2",
           "text": "はい。足の上げ方は大丈夫でしょうか?",
+          "furigana": [{ "word": "足", "reading": "あし" }, { "word": "上げ方", "reading": "あげかた" }, { "word": "大丈夫", "reading": "だいじょうぶ" }],
           "textVi": "Vâng. Cách nâng chân thì có ổn không ạ?"
         },
         {
           "speaker": "話者1",
           "text": "ええそのままでいいですよ。それからもうちょっと前を見るようにした方がいいんですがいろいろ気をつけようとすると難しいですからそれは後で直していきましょう。",
+          "furigana": [{ "word": "前", "reading": "まえ" }, { "word": "見る", "reading": "みる" }, { "word": "方", "reading": "ほう" }, { "word": "気", "reading": "き" }, { "word": "難しい", "reading": "むずかしい" }, { "word": "後", "reading": "あと" }, { "word": "直して", "reading": "なおして" }],
           "textVi": "À, cứ giữ nguyên như thế là được rồi. Sau đó thì bạn nên nhìn về phía trước hơn một chút nữa, nhưng nếu cố gắng chú ý quá nhiều thứ sẽ rất khó, nên chuyện đó chúng ta sẽ sửa sau nhé."
         },
         {
@@ -523,17 +582,20 @@
         {
           "speaker": "ナレーション",
           "text": "先生はまずどんなことに気をつけたらいいといっていますか?",
+          "furigana": [{ "word": "先生", "reading": "せんせい" }, { "word": "気", "reading": "き" }],
           "textVi": "Thầy giáo nói trước tiên cần chú ý đến điều gì?"
         }
       ],
       "question": "1番",
       "questionVi": "Câu 7",
+      "questionFurigana": [{ "word": "1番", "reading": "いちばん" }],
       "options": [
         "うでをよくふること",
         "かたに力を入れないこと",
         "足を高く上げること",
         "前を見ること"
       ],
+      "optionFurigana": [[], [{ "word": "力", "reading": "ちから" }, { "word": "入れない", "reading": "いれない" }], [{ "word": "足", "reading": "あし" }, { "word": "高く", "reading": "たかく" }, { "word": "上げる", "reading": "あげる" }], [{ "word": "前", "reading": "まえ" }, { "word": "見る", "reading": "みる" }]],
       "optionsVi": [
         "Vung tay thật tốt",
         "Không dùng lực vào vai",
@@ -566,21 +628,25 @@
         {
           "speaker": "ナレーション",
           "text": "2番 女の人と男の人が温泉について話しています。女の人はこの温泉について最近どう変わったと言っていますか?",
+          "furigana": [{ "word": "2番", "reading": "にばん" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "温泉", "reading": "おんせん" }, { "word": "話しています", "reading": "はなしています" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "温泉", "reading": "おんせん" }, { "word": "最近", "reading": "さいきん" }, { "word": "変わった", "reading": "かわった" }, { "word": "言っています", "reading": "いっています" }],
           "textVi": "Câu 2. Người phụ nữ và người đàn ông đang nói chuyện về suối nước nóng. Người phụ nữ nói rằng suối nước nóng này gần đây đã thay đổi như thế nào?"
         },
         {
           "speaker": "女",
           "text": "隣の町の桜温泉って行ったことある?",
+          "furigana": [{ "word": "隣", "reading": "となり" }, { "word": "町", "reading": "まち" }, { "word": "桜温泉", "reading": "さくらおんせん" }, { "word": "行った", "reading": "いった" }],
           "textVi": "Cậu đã đến suối nước nóng Sakura ở thị trấn bên cạnh chưa?"
         },
         {
           "speaker": "男",
           "text": "行ったことないな。かなり古い日帰りの温泉だよね?近くに住んでるお年寄りしか行かないって聞いたけど。",
+          "furigana": [{ "word": "行った", "reading": "いった" }, { "word": "古い", "reading": "ふるい" }, { "word": "日帰り", "reading": "ひがえり" }, { "word": "温泉", "reading": "おんせん" }, { "word": "近く", "reading": "ちかく" }, { "word": "住んでる", "reading": "すんでる" }, { "word": "年寄り", "reading": "としより" }, { "word": "行かない", "reading": "いかない" }, { "word": "聞いた", "reading": "きいた" }],
           "textVi": "Tớ chưa đến bao giờ. Đó là một khu suối nước nóng đi về trong ngày khá cũ phải không? Tớ nghe nói chỉ có người cao tuổi sống gần đó mới đến thôi."
         },
         {
           "speaker": "女",
           "text": "最近、前とはずいぶんと様子が変わったんだよ。",
+          "furigana": [{ "word": "最近", "reading": "さいきん" }, { "word": "前", "reading": "まえ" }, { "word": "様子", "reading": "ようす" }, { "word": "変わった", "reading": "かわった" }],
           "textVi": "Gần đây, tình hình đã thay đổi khá nhiều so với trước đấy."
         },
         {
@@ -591,6 +657,7 @@
         {
           "speaker": "女",
           "text": "温泉の近くにある大学の学生たちが、歴史がある温泉を利用する人が少ないのはもったいないって建物の壁を塗ったり掃除したり、お風呂の壁に絵を描いたりしたんだって。",
+          "furigana": [{ "word": "温泉", "reading": "おんせん" }, { "word": "近く", "reading": "ちかく" }, { "word": "大学", "reading": "だいがく" }, { "word": "学生", "reading": "がくせい" }, { "word": "歴史", "reading": "れきし" }, { "word": "温泉", "reading": "おんせん" }, { "word": "利用", "reading": "りよう" }, { "word": "人", "reading": "ひと" }, { "word": "少ない", "reading": "すくない" }, { "word": "建物", "reading": "たてもの" }, { "word": "壁", "reading": "かべ" }, { "word": "塗ったり", "reading": "ぬったり" }, { "word": "掃除", "reading": "そうじ" }, { "word": "風呂", "reading": "ふろ" }, { "word": "壁", "reading": "かべ" }, { "word": "絵", "reading": "え" }, { "word": "描いたり", "reading": "かいたり" }],
           "textVi": "Nghe nói các sinh viên của một trường đại học gần suối nước nóng đã thấy tiếc khi một suối nước nóng có lịch sử lâu đời lại ít người sử dụng, nên họ đã sơn lại tường và dọn dẹp tòa nhà, rồi vẽ tranh lên tường của bồn tắm nữa."
         },
         {
@@ -601,27 +668,32 @@
         {
           "speaker": "女",
           "text": "この間行ったんだけど、すごくきれいになってた。前は薄暗くて入りにくかったけど明るい感じになってたよ。",
+          "furigana": [{ "word": "この間", "reading": "このあいだ" }, { "word": "行った", "reading": "いった" }, { "word": "前", "reading": "まえ" }, { "word": "薄暗くて", "reading": "うすぐらくて" }, { "word": "入りにくかった", "reading": "はいりにくかった" }, { "word": "明るい", "reading": "あかるい" }, { "word": "感じ", "reading": "かんじ" }],
           "textVi": "Hôm nọ tớ đã đến đó, nó đã trở nên rất sạch sẽ. Trước đây thì hơi tối và khó vào, nhưng giờ đã có cảm giác tươi sáng hơn rồi."
         },
         {
           "speaker": "男",
           "text": "そうなんだ。これからお客さんが増えるといいね。",
+          "furigana": [{ "word": "客", "reading": "きゃく" }, { "word": "増える", "reading": "ふえる" }],
           "textVi": "Thế à. Mong là từ giờ khách hàng sẽ đến nhiều hơn."
         },
         {
           "speaker": "ナレーション",
           "text": "女の人はこの温泉について最近どう変わったと言っていますか?",
+          "furigana": [{ "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "温泉", "reading": "おんせん" }, { "word": "最近", "reading": "さいきん" }, { "word": "変わった", "reading": "かわった" }, { "word": "言っています", "reading": "いっています" }],
           "textVi": "Người phụ nữ nói rằng suối nước nóng này gần đây đã thay đổi như thế nào?"
         }
       ],
       "question": "2番",
       "questionVi": "Câu 8",
+      "questionFurigana": [{ "word": "2番", "reading": "にばん" }],
       "options": [
         "近くに住んでいる人が来なくなった",
         "きれいで明るくなった",
         "入りにくい いんしょうになった",
         "りようきゃくがふえた"
       ],
+      "optionFurigana": [[{ "word": "近く", "reading": "ちかく" }, { "word": "住んでいる", "reading": "すんでいる" }, { "word": "人", "reading": "ひと" }, { "word": "来なく", "reading": "こなく" }], [{ "word": "明るく", "reading": "あかるく" }], [{ "word": "入り", "reading": "はいり" }], []],
       "optionsVi": [
         "Lựa chọn 1: Những người sống gần đó không đến nữa",
         "Lựa chọn 2: Trở nên sạch sẽ và sáng sủa hơn",
@@ -654,36 +726,43 @@
         {
           "speaker": "ナレーション",
           "text": "3番男の人と女の人が話しています。女の人がプールに通うのをやめた理由は何ですか?",
+          "furigana": [{ "word": "3番", "reading": "さんばん" }, { "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "話しています", "reading": "はなしています" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "通う", "reading": "かよう" }, { "word": "理由", "reading": "りゆう" }, { "word": "何", "reading": "なに" }],
           "textVi": "Nam và nữ đang nói chuyện với nhau. Lý do người phụ nữ dừng việc đi bơi ở hồ bơi là gì?"
         },
         {
           "speaker": "話者1",
           "text": "この間何か運動したいからプールに通い始めたって言ってたよね。どう?",
+          "furigana": [{ "word": "この間", "reading": "このあいだ" }, { "word": "何", "reading": "なに" }, { "word": "運動", "reading": "うんどう" }, { "word": "通い始めた", "reading": "かよいはじめた" }, { "word": "言ってた", "reading": "いってた" }],
           "textVi": "Hôm trước cậu có nói là muốn tập thể dục gì đó nên đã bắt đầu đi bơi ở hồ bơi phải không? Thế nào rồi?"
         },
         {
           "speaker": "話者2",
           "text": "あああれ実は行くのやめちゃったんだ。",
+          "furigana": [{ "word": "実は", "reading": "じつは" }, { "word": "行く", "reading": "いく" }],
           "textVi": "À, chuyện đó thật ra tớ đã dừng đi rồi."
         },
         {
           "speaker": "話者1",
           "text": "え?そうなの?市民プールだから料金が安くていいとか言ってなかった?",
+          "furigana": [{ "word": "市民", "reading": "しみん" }, { "word": "料金", "reading": "りょうきん" }, { "word": "安くて", "reading": "やすくて" }, { "word": "言って", "reading": "いって" }],
           "textVi": "Ể? Thật á? Chẳng phải cậu từng nói hồ bơi thành phố nên giá rẻ rất tốt sao?"
         },
         {
           "speaker": "話者2",
           "text": "ううん。それはそうなんだけど1人で泳ぎ続けるだけっていうのがね。",
+          "furigana": [{ "word": "1人", "reading": "ひとり" }, { "word": "泳ぎ続ける", "reading": "およぎつづける" }],
           "textVi": "Ừ, đúng là vậy thật, nhưng mà cứ phải bơi một mình liên tục thì..."
         },
         {
           "speaker": "話者1",
           "text": "体力的にきついっていうこと?",
+          "furigana": [{ "word": "体力的", "reading": "たいりょくてき" }],
           "textVi": "Ý cậu là xét về thể lực thì thấy đuối đúng không?"
         },
         {
           "speaker": "話者2",
           "text": "そうじゃなくて、水泳って基本的に1人でするスポーツでしょ?でも1人だと面白くなくて。テニスみたいに相手がいるスポーツの方が私には向いているのかもしれない。",
+          "furigana": [{ "word": "水泳", "reading": "すいえい" }, { "word": "基本的", "reading": "きほんてき" }, { "word": "1人", "reading": "ひとり" }, { "word": "1人", "reading": "ひとり" }, { "word": "面白くなくて", "reading": "おもしろくなくて" }, { "word": "相手", "reading": "あいて" }, { "word": "方", "reading": "ほう" }, { "word": "私", "reading": "わたし" }, { "word": "向いている", "reading": "むいている" }],
           "textVi": "Không phải thế. Bơi lội vốn dĩ là môn thể thao tự mình làm một mình mà phải không? Nhưng mà cứ một mình thì chán lắm. Những môn thể thao có đối thủ như tennis có lẽ sẽ phù hợp với tớ hơn."
         },
         {
@@ -694,22 +773,26 @@
         {
           "speaker": "話者2",
           "text": "近くて行きやすかったから近いところでまた何か探してみる。",
+          "furigana": [{ "word": "近くて", "reading": "ちかくて" }, { "word": "行きやすかった", "reading": "いきやすかった" }, { "word": "近い", "reading": "ちかい" }, { "word": "何", "reading": "なに" }, { "word": "探して", "reading": "さがして" }],
           "textVi": "Vì nó gần và dễ đi nên tớ sẽ thử tìm kiếm cái gì đó ở gần một lần nữa xem sao."
         },
         {
           "speaker": "ナレーション",
           "text": "女の人がプールに通うのをやめた理由は何ですか?",
+          "furigana": [{ "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "通う", "reading": "かよう" }, { "word": "理由", "reading": "りゆう" }, { "word": "何", "reading": "なに" }],
           "textVi": "Lý do người phụ nữ dừng việc đi bơi ở hồ bơi là gì?"
         }
       ],
       "question": "3番",
       "questionVi": "Câu 9",
+      "questionFurigana": [{ "word": "3番", "reading": "さんばん" }],
       "options": [
         "料金が高いから",
         "体力的にきついから",
         "一人で泳ぐのはつまらないから",
         "場所が遠いから"
       ],
+      "optionFurigana": [[{ "word": "料金", "reading": "りょうきん" }, { "word": "高い", "reading": "たかい" }], [{ "word": "体力的", "reading": "たいりょくてき" }], [{ "word": "一人", "reading": "ひとり" }, { "word": "泳ぐ", "reading": "およぐ" }], [{ "word": "場所", "reading": "ばしょ" }, { "word": "遠い", "reading": "とおい" }]],
       "optionsVi": [
         "Vì giá cả đắt đỏ",
         "Vì đuối sức về mặt thể lực",
@@ -742,31 +825,37 @@
         {
           "speaker": "ナレーション",
           "text": "4番会社で男の人と女の人が話しています。女の人は会社ができて20年の年に何をしたいと言っていますか?女の人です。",
+          "furigana": [{ "word": "4番", "reading": "よんばん" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "男", "reading": "おとこ" }, { "word": "人", "reading": "ひと" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "話しています", "reading": "はなしています" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "20年", "reading": "にじゅうねん" }, { "word": "年", "reading": "とし" }, { "word": "何", "reading": "なに" }, { "word": "言っています", "reading": "いっています" }, { "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }],
           "textVi": "Số 4. Tại công ty, một nam nhân viên và một nữ nhân viên đang nói chuyện với nhau. Người phụ nữ muốn làm gì vào năm kỷ niệm 20 năm thành lập công ty? Người phụ nữ."
         },
         {
           "speaker": "話者1",
           "text": "うちの会社ができて来年でちょうど20年の記念の年だから会社で何かしようって課長がみんなからアイデアを募集しているらしいよ。",
+          "furigana": [{ "word": "会社", "reading": "かいしゃ" }, { "word": "来年", "reading": "らいねん" }, { "word": "20年", "reading": "にじゅうねん" }, { "word": "記念", "reading": "きねん" }, { "word": "年", "reading": "とし" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "何", "reading": "なに" }, { "word": "課長", "reading": "かちょう" }, { "word": "募集", "reading": "ぼしゅう" }],
           "textVi": "Năm sau công ty chúng ta tròn 20 năm kỷ niệm thành lập nên nghe nói trưởng phòng đang kêu gọi mọi người đóng góp ý tưởng để làm gì đó ở công ty đấy."
         },
         {
           "speaker": "話者2",
           "text": "そうなんだ。確か10年目の年は会社の歴史を本にして社員に配ったって聞いたことがあるよ。",
+          "furigana": [{ "word": "確か", "reading": "たしか" }, { "word": "10年目", "reading": "じゅうねんめ" }, { "word": "年", "reading": "とし" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "歴史", "reading": "れきし" }, { "word": "本", "reading": "ほん" }, { "word": "社員", "reading": "しゃいん" }, { "word": "配った", "reading": "くばった" }, { "word": "聞いた", "reading": "きいた" }],
           "textVi": "Vậy sao. Tớ nghe nói hình như vào năm kỷ niệm 10 năm, công ty đã làm cuốn sách lịch sử công ty và phát cho nhân viên."
         },
         {
           "speaker": "話者1",
           "text": "じゃあ20年目は会社のホームページを新しくするとか今のはちょっと古い感じがするし。",
+          "furigana": [{ "word": "20年目", "reading": "にじゅうねんめ" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "新しく", "reading": "あたらしく" }, { "word": "今", "reading": "いま" }, { "word": "古い", "reading": "ふるい" }, { "word": "感じ", "reading": "かんじ" }],
           "textVi": "Thế thì năm 20 năm làm mới trang web của công ty chẳng hạn, trang hiện tại có cảm giác hơi cũ rồi."
         },
         {
           "speaker": "話者2",
           "text": "うーん、そういうのより社員で記念パーティーができたらいいな。うちの会社小さいし、できそうじゃない?",
+          "furigana": [{ "word": "社員", "reading": "しゃいん" }, { "word": "記念", "reading": "きねん" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "小さい", "reading": "ちいさい" }],
           "textVi": "Không. Thay vì những thứ đó, nếu toàn thể nhân viên có thể tổ chức một bữa tiệc kỷ niệm thì hay biết mấy. Công ty chúng ta nhỏ nên chắc là làm được chứ nhỉ?"
         },
         {
           "speaker": "話者1",
           "text": "僕は記念として残るものがいいなあ。Tシャツを作るとか。",
+          "furigana": [{ "word": "僕", "reading": "ぼく" }, { "word": "記念", "reading": "きねん" }, { "word": "残る", "reading": "のこる" }, { "word": "作る", "reading": "つくる" }],
           "textVi": "Anh thì thích những thứ còn lại làm kỷ niệm cơ. Ví dụ như làm áo T-shirt chẳng hạn."
         },
         {
@@ -777,22 +866,26 @@
         {
           "speaker": "話者1",
           "text": "うん。今出たアイデア課長に言ってみよう。",
+          "furigana": [{ "word": "今", "reading": "いま" }, { "word": "出た", "reading": "でた" }, { "word": "課長", "reading": "かちょう" }, { "word": "言って", "reading": "いって" }],
           "textVi": "Ừ. Đi nói với trưởng phòng những ý tưởng vừa đưa ra thôi."
         },
         {
           "speaker": "話者3",
           "text": "女の人は会社ができて20年の年に何をしたいといっていますか?",
+          "furigana": [{ "word": "女", "reading": "おんな" }, { "word": "人", "reading": "ひと" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "20年", "reading": "にじゅうねん" }, { "word": "年", "reading": "とし" }, { "word": "何", "reading": "なに" }],
           "textVi": "Người phụ nữ muốn làm gì vào năm kỷ niệm 20 năm thành lập công ty?"
         }
       ],
       "question": "4番",
       "questionVi": "Câu 10",
+      "questionFurigana": [{ "word": "4番", "reading": "よんばん" }],
       "options": [
         "会社のれきしの本を作る",
         "ホームページを新しくする",
         "パーティーをする",
         "Tシャツを作る"
       ],
+      "optionFurigana": [[{ "word": "会社", "reading": "かいしゃ" }, { "word": "本", "reading": "ほん" }, { "word": "作る", "reading": "つくる" }], [{ "word": "新しく", "reading": "あたらしく" }], [], [{ "word": "作る", "reading": "つくる" }]],
       "optionsVi": [
         "Làm cuốn sách về lịch sử công ty",
         "Làm mới trang web",
@@ -825,16 +918,20 @@
         {
           "speaker": "話者1",
           "text": "5番テレビでうどんを作る会社の社長が話しています。社長はこの会社のうどんが売れた理由は何だといっていますか?うちでは10年前から茹でて冷凍した冷凍うどんを作っていてお客様に喜ばれています。ただ他の会社も似た製品を作っていたためはじめは売れませんでした。うどんの太さや硬さを変えてみたんですがやっぱりダメで袋のデザインを工夫しインターネットで宣伝しても効果がなかったんですが原料の小麦粉の種類を変えたら美味しくなったという声が増えて売れ始めたんです。今後は美味しさをもっと宣伝していくつもりです。",
+          "furigana": [{ "word": "5番", "reading": "ごばん" }, { "word": "作る", "reading": "つくる" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "社長", "reading": "しゃちょう" }, { "word": "話しています", "reading": "はなしています" }, { "word": "社長", "reading": "しゃちょう" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "売れた", "reading": "うれた" }, { "word": "理由", "reading": "りゆう" }, { "word": "何", "reading": "なに" }, { "word": "10年前", "reading": "じゅうねんまえ" }, { "word": "茹でて", "reading": "ゆでて" }, { "word": "冷凍", "reading": "れいとう" }, { "word": "冷凍", "reading": "れいとう" }, { "word": "作って", "reading": "つくって" }, { "word": "お客様", "reading": "おきゃくさま" }, { "word": "喜ばれて", "reading": "よろこばれて" }, { "word": "他", "reading": "ほか" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "似た", "reading": "にた" }, { "word": "製品", "reading": "せいひん" }, { "word": "作って", "reading": "つくって" }, { "word": "売れませんでした", "reading": "うれませんでした" }, { "word": "太さ", "reading": "ふとさ" }, { "word": "硬さ", "reading": "かたさ" }, { "word": "変えて", "reading": "かえて" }, { "word": "袋", "reading": "ふくろ" }, { "word": "工夫し", "reading": "くふうし" }, { "word": "宣伝して", "reading": "せんでんして" }, { "word": "効果", "reading": "こうか" }, { "word": "原料", "reading": "げんりょう" }, { "word": "小麦粉", "reading": "こむぎこ" }, { "word": "種類", "reading": "しゅるい" }, { "word": "変えたら", "reading": "かえたら" }, { "word": "美味しく", "reading": "おいしく" }, { "word": "声", "reading": "こえ" }, { "word": "増えて", "reading": "ふえて" }, { "word": "売れ始めた", "reading": "うれはじめた" }, { "word": "今後", "reading": "こんご" }, { "word": "美味しさ", "reading": "おいしさ" }, { "word": "宣伝して", "reading": "せんでんして" }],
           "textVi": "Số 5. Trên tivi, giám đốc của một công ty sản xuất mì udon đang nói chuyện. Giám đốc nói lý do mì udon của công ty này bán chạy là gì? Ở công ty chúng tôi, từ 10 năm trước đã sản xuất mì udon luộc chín rồi đông lạnh và được khách hàng đón nhận. Tuy nhiên, vì các công ty khác cũng làm sản phẩm tương tự nên lúc đầu sản phẩm không bán được. Chúng tôi đã thử thay đổi độ dày và độ cứng của sợi mì nhưng quả nhiên vẫn không hiệu quả, việc cải tiến thiết kế bao bì và quảng cáo trên internet cũng không mang lại kết quả, nhưng khi chúng tôi thay đổi loại bột mì nguyên liệu thì số lượng ý kiến khen ngon tăng lên và sản phẩm bắt đầu bán chạy. Từ nay về sau, chúng tôi dự định sẽ quảng bá nhiều hơn nữa về độ ngon của sản phẩm."
         },
         {
           "speaker": "ナレーション",
           "text": "社長はこの会社のうどんが売れた理由は何だといっていますか?",
+          "furigana": [{ "word": "社長", "reading": "しゃちょう" }, { "word": "会社", "reading": "かいしゃ" }, { "word": "売れた", "reading": "うれた" }, { "word": "理由", "reading": "りゆう" }, { "word": "何", "reading": "なに" }],
           "textVi": "Giám đốc nói lý do mì udon của công ty này bán chạy là gì?"
         }
       ],
       "question": "5番",
       "questionVi": "Câu 11",
+      "questionFurigana": [{ "word": "5番", "reading": "ごばん" }],
+      "optionFurigana": [[{ "word": "太さ", "reading": "ふとさ" }], [], [], []],
       "options": [
         "うどんの太さやかたさをかえたから",
         "ふくろのデザインをくふうしたから",
@@ -873,21 +970,25 @@
         {
           "speaker": "ナレーション",
           "text": "6番男の人と女の人が自然教室について話しています。男の人はこの教室に参加して何が良かったと言っていますか?",
+          "furigana": [{ "word": "6番", "reading": "ろくばん" }, { "word": "男の人", "reading": "おとこのひと" }, { "word": "女の人", "reading": "おんなのひと" }, { "word": "自然教室", "reading": "しぜんきょうしつ" }, { "word": "話しています", "reading": "はなしています" }, { "word": "男の人", "reading": "おとこのひと" }, { "word": "教室", "reading": "きょうしつ" }, { "word": "参加", "reading": "さんか" }, { "word": "何", "reading": "なに" }, { "word": "良かった", "reading": "よかった" }, { "word": "言っています", "reading": "いっています" }],
           "textVi": "Câu 6. Người đàn ông và người phụ nữ đang nói chuyện về lớp học thiên nhiên. Người đàn ông đã nói điều gì là tuyệt vời khi tham gia lớp học này?"
         },
         {
           "speaker": "話者1",
           "text": "日曜日に白木山の自然教室に参加したんですよ。森の中をキノコを探しながら歩いたんです。",
+          "furigana": [{ "word": "日曜日", "reading": "にちようび" }, { "word": "白木山", "reading": "しらきやま" }, { "word": "自然教室", "reading": "しぜんきょうしつ" }, { "word": "参加", "reading": "さんか" }, { "word": "森", "reading": "もり" }, { "word": "中", "reading": "なか" }, { "word": "探しながら", "reading": "さがしながら" }, { "word": "歩いた", "reading": "あるいた" }],
           "textVi": "Chủ Nhật vừa rồi tôi đã tham gia lớp học thiên nhiên ở núi Shiraki. Chúng tôi đã đi bộ trong rừng vừa tìm kiếm nấm đấy."
         },
         {
           "speaker": "話者2",
           "text": "面白そうですね。",
+          "furigana": [{ "word": "面白", "reading": "おもしろ" }],
           "textVi": "Nghe có vẻ thú vị nhỉ."
         },
         {
           "speaker": "話者1",
           "text": "ええ。キノコて木の下とか落ち葉の間とかに生えてていろんな色や形のがあるんですよ。途中で変わった形のキノコを見つけたんですが案内の先生に聞いたらたまにしか見られない種類だって教えてくれて。",
+          "furigana": [{ "word": "木", "reading": "き" }, { "word": "下", "reading": "した" }, { "word": "落ち葉", "reading": "おちば" }, { "word": "間", "reading": "あいだ" }, { "word": "生えてて", "reading": "はえてて" }, { "word": "色", "reading": "いろ" }, { "word": "形", "reading": "かたち" }, { "word": "途中", "reading": "とちゅう" }, { "word": "変わった", "reading": "かわった" }, { "word": "形", "reading": "かたち" }, { "word": "見つけた", "reading": "みつけた" }, { "word": "案内", "reading": "あんない" }, { "word": "先生", "reading": "せんせい" }, { "word": "聞いたら", "reading": "きいたら" }, { "word": "見られない", "reading": "みられない" }, { "word": "種類", "reading": "しゅるい" }, { "word": "教えて", "reading": "おしえて" }],
           "textVi": "Vâng. Nấm mọc ở dưới gốc cây hay giữa những chiếc lá rụng, và có đủ màu sắc lẫn hình dáng khác nhau. Giữa đường tôi tìm thấy một cây nấm có hình thù lạ, khi hỏi hướng dẫn viên thì được biết đó là loại hiếm khi mới thấy được."
         },
         {
@@ -898,16 +999,19 @@
         {
           "speaker": "話者1",
           "text": "ええ。言って良かったです。",
+          "furigana": [{ "word": "言って", "reading": "いって" }, { "word": "良かった", "reading": "よかった" }],
           "textVi": "Vâng. Thật tốt vì tôi đã đi."
         },
         {
           "speaker": "話者2",
           "text": "他にもいろいろな種類がありましたか?",
+          "furigana": [{ "word": "他", "reading": "ほか" }, { "word": "種類", "reading": "しゅるい" }],
           "textVi": "Ở đó còn có nhiều loại khác nữa không?"
         },
         {
           "speaker": "話者1",
           "text": "たくさんはなかったですが食べられるキノコが少しありましたよ。どれも見るだけで取っちゃいけないって言われたんですけどね。",
+          "furigana": [{ "word": "食べられる", "reading": "たべられる" }, { "word": "少し", "reading": "すこし" }, { "word": "見る", "reading": "みる" }, { "word": "取っちゃ", "reading": "とっちゃ" }, { "word": "言われた", "reading": "いわれた" }],
           "textVi": "Không có nhiều lắm, nhưng có một ít nấm ăn được. Tuy nhiên, họ dặn là tất cả chỉ để ngắm thôi chứ không được hái."
         },
         {
@@ -918,16 +1022,20 @@
         {
           "speaker": "話者1",
           "text": "一緒に参加した人の中には見たかったキノコが見られたって喜んでる人もいました。",
+          "furigana": [{ "word": "一緒", "reading": "いっしょ" }, { "word": "参加", "reading": "さんか" }, { "word": "人", "reading": "ひと" }, { "word": "中", "reading": "なか" }, { "word": "見たかった", "reading": "みたかった" }, { "word": "見られた", "reading": "みられた" }, { "word": "喜んでる", "reading": "よろこんでる" }, { "word": "人", "reading": "ひと" }],
           "textVi": "Trong số những người cùng tham gia, có người đã rất vui mừng vì tìm thấy loại nấm mà mình muốn ngắm."
         },
         {
           "speaker": "ナレーション",
           "text": "男の人はこの教室に参加して何が良かったといっていますか?",
+          "furigana": [{ "word": "男の人", "reading": "おとこのひと" }, { "word": "教室", "reading": "きょうしつ" }, { "word": "参加", "reading": "さんか" }, { "word": "何", "reading": "なに" }, { "word": "良かった", "reading": "よかった" }],
           "textVi": "Người đàn ông đã nói điều gì là tuyệt vời khi tham gia lớp học này?"
         }
       ],
       "question": "6番",
       "questionVi": "Câu 12",
+      "questionFurigana": [{ "word": "6番", "reading": "ろくばん" }],
+      "optionFurigana": [[{ "word": "見つけた", "reading": "みつけた" }], [], [{ "word": "自分", "reading": "じぶん" }, { "word": "食べた", "reading": "たべた" }], [{ "word": "見たかった", "reading": "みたかった" }, { "word": "見られた", "reading": "みられた" }]],
       "options": [
         "めずらしいきのこを見つけたこと",
         "たくさんのきのこがとれたこと",
@@ -966,26 +1074,31 @@
         {
           "speaker": "ナレーション",
           "text": "1番男の学生と女の学生が昨日の講演会について話しています。",
+          "furigana": [{ "word": "1番", "reading": "いちばん" }, { "word": "男の学生", "reading": "おとこのがくせい" }, { "word": "女の学生", "reading": "おんなのがくせい" }, { "word": "昨日", "reading": "きのう" }, { "word": "講演会", "reading": "こうえんかい" }, { "word": "話しています", "reading": "はなしています" }],
           "textVi": "Số 1. Một nam sinh viên và một nữ sinh viên đang nói chuyện về buổi thuyết giảng ngày hôm qua."
         },
         {
           "speaker": "話者1",
           "text": "昨日のロボットについての講演会行ったんでしょ?どうだった?",
+          "furigana": [{ "word": "昨日", "reading": "きのう" }, { "word": "講演会", "reading": "こうえんかい" }, { "word": "行った", "reading": "いった" }],
           "textVi": "Cậu đã đi dự buổi thuyết giảng về robot ngày hôm qua phải không? Thế nào vậy?"
         },
         {
           "speaker": "話者2",
           "text": "ああロボットの最新技術の話ていうから期待してたんだけどね。",
+          "furigana": [{ "word": "最新", "reading": "さいしん" }, { "word": "技術", "reading": "ぎじゅつ" }, { "word": "話", "reading": "はなし" }, { "word": "期待", "reading": "きたい" }],
           "textVi": "À, vì bảo là nói về kỹ thuật mới nhất của robot nên tớ đã kỳ vọng cơ."
         },
         {
           "speaker": "話者1",
           "text": "それほど面白くなかったの?",
+          "furigana": [{ "word": "面白く", "reading": "おもしろく" }],
           "textVi": "Không thú vị đến thế sao?"
         },
         {
           "speaker": "話者2",
           "text": "ううん。なるほどと思うことも少しあったけど知ってることが多かったから。一緒に行った友達は最新のロボットが社会にどう役に立っているのかわかってすごく面白かったって言ってたけどね。",
+          "furigana": [{ "word": "思う", "reading": "おもう" }, { "word": "少し", "reading": "すこし" }, { "word": "知ってる", "reading": "しってる" }, { "word": "多かった", "reading": "おおかった" }, { "word": "一緒", "reading": "いっしょ" }, { "word": "行った", "reading": "いった" }, { "word": "友達", "reading": "ともだち" }, { "word": "最新", "reading": "さいしん" }, { "word": "社会", "reading": "しゃかい" }, { "word": "役に立って", "reading": "やくにたって" }, { "word": "面白かった", "reading": "おもしろかった" }, { "word": "言って", "reading": "いって" }],
           "textVi": "Không hẳn. Cũng có vài điều tớ nghĩ là hay ho, nhưng vì những chuyện tớ biết thì nhiều hơn. Còn đứa bạn đi cùng tớ thì bảo là hiểu được robot mới nhất có ích cho xã hội như thế nào nên rất thú vị."
         },
         {
@@ -996,11 +1109,13 @@
         {
           "speaker": "ナレーション",
           "text": "女の学生は講演会についてどう言っていますか?1",
+          "furigana": [{ "word": "女の学生", "reading": "おんなのがくせい" }, { "word": "講演会", "reading": "こうえんかい" }, { "word": "言っています", "reading": "いっています" }],
           "textVi": "Nữ sinh viên nói thế nào về buổi thuyết giảng? 1"
         },
         {
           "speaker": "話者3",
           "text": "とても面白かった。",
+          "furigana": [{ "word": "面白かった", "reading": "おもしろかった" }],
           "textVi": "Rất thú vị."
         },
         {
@@ -1011,6 +1126,7 @@
         {
           "speaker": "話者3",
           "text": "思ったより面白かった。",
+          "furigana": [{ "word": "思った", "reading": "おもった" }, { "word": "面白かった", "reading": "おもしろかった" }],
           "textVi": "Thú vị hơn tôi nghĩ."
         },
         {
@@ -1021,6 +1137,7 @@
         {
           "speaker": "話者3",
           "text": "思ったより面白くなかった。",
+          "furigana": [{ "word": "思った", "reading": "おもった" }, { "word": "面白く", "reading": "おもしろく" }],
           "textVi": "Không thú vị như tôi nghĩ."
         },
         {
@@ -1031,17 +1148,20 @@
         {
           "speaker": "話者3",
           "text": "全く面白くなかった。",
+          "furigana": [{ "word": "全く", "reading": "まったく" }, { "word": "面白く", "reading": "おもしろく" }],
           "textVi": "Hoàn toàn không thú vị."
         }
       ],
       "question": "1番",
       "questionVi": "Câu 13",
+      "questionFurigana": [{ "word": "1番", "reading": "いちばん" }],
       "options": [
         "とても面白かった",
         "思ったより面白かった",
         "思ったより面白くなかった",
         "全く面白くなかった"
       ],
+      "optionFurigana": [[{ "word": "面白かった", "reading": "おもしろかった" }], [{ "word": "思った", "reading": "おもった" }, { "word": "面白かった", "reading": "おもしろかった" }], [{ "word": "思った", "reading": "おもった" }, { "word": "面白く", "reading": "おもしろく" }], [{ "word": "全く", "reading": "まったく" }, { "word": "面白く", "reading": "おもしろく" }]],
       "optionsVi": [
         "Rất thú vị.",
         "Thú vị hơn tưởng tượng.",
@@ -1074,21 +1194,25 @@
         {
           "speaker": "ナレーション",
           "text": "2番ラジオで女の人が話しています。",
+          "furigana": [{ "word": "2番", "reading": "にばん" }, { "word": "女の人", "reading": "おんなのひと" }, { "word": "話しています", "reading": "はなしています" }],
           "textVi": "Số 2. Một người phụ nữ đang nói chuyện trên đài phát thanh."
         },
         {
           "speaker": "話者1",
           "text": "日記をつけ始めて半年ぐらい経ちました。周りの友達で書いてるって人が多いので私も始めたんです。日記を始める前は寝る前にその日の失敗を思い出したりして暗い気持ちになることがあったんですがそういうことでも日記に書くと自然に気持ちが整理されるんですよね。それで次の日は気持ちを切り替えて明るく1日を始められるんです。",
+          "furigana": [{ "word": "日記", "reading": "にっき" }, { "word": "つけ始めて", "reading": "つけはじめて" }, { "word": "半年", "reading": "はんとし" }, { "word": "経ちました", "reading": "たちました" }, { "word": "周り", "reading": "まわり" }, { "word": "友達", "reading": "ともだち" }, { "word": "書いてる", "reading": "かいてる" }, { "word": "人", "reading": "ひと" }, { "word": "多い", "reading": "おおい" }, { "word": "私", "reading": "わたし" }, { "word": "始めた", "reading": "はじめた" }, { "word": "日記", "reading": "にっき" }, { "word": "始める", "reading": "はじめる" }, { "word": "前", "reading": "まえ" }, { "word": "寝る", "reading": "ねる" }, { "word": "前", "reading": "まえ" }, { "word": "その日", "reading": "そのひ" }, { "word": "失敗", "reading": "しっぱい" }, { "word": "思い出したり", "reading": "おもいだしたり" }, { "word": "暗い", "reading": "くらい" }, { "word": "気持ち", "reading": "きもち" }, { "word": "日記", "reading": "にっき" }, { "word": "書く", "reading": "かく" }, { "word": "自然", "reading": "しぜん" }, { "word": "気持ち", "reading": "きもち" }, { "word": "整理される", "reading": "せいりされる" }, { "word": "次の日", "reading": "つぎのひ" }, { "word": "気持ち", "reading": "きもち" }, { "word": "切り替えて", "reading": "きりかえて" }, { "word": "明るく", "reading": "あかるく" }, { "word": "1日", "reading": "いちにち" }, { "word": "始められる", "reading": "はじめられる" }],
           "textVi": "Đã khoảng nửa năm kể từ khi tôi bắt đầu viết nhật ký. Xung quanh tôi có nhiều bạn bè viết nhật ký nên tôi cũng bắt đầu. Trước khi viết nhật ký, trước khi đi ngủ, tôi thỉnh thoảng nhớ lại những thất bại trong ngày và có tâm trạng u ám, nhưng khi viết những điều như vậy vào nhật ký, cảm xúc của tôi được sắp xếp lại một cách tự nhiên. Nhờ đó, ngày hôm hôm sau tôi có thể thay đổi tâm trạng và bắt đầu một ngày mới tươi sáng."
         },
         {
           "speaker": "ナレーション",
           "text": "女の人は何について話していますか?1",
+          "furigana": [{ "word": "女の人", "reading": "おんなのひと" }, { "word": "何", "reading": "なに" }, { "word": "話しています", "reading": "はなしています" }],
           "textVi": "Người phụ nữ đang nói về điều gì?"
         },
         {
           "speaker": "話者2",
           "text": "日記のおかげでできた友達。",
+          "furigana": [{ "word": "日記", "reading": "にっき" }, { "word": "友達", "reading": "ともだち" }],
           "textVi": "Những người bạn có được nhờ viết nhật ký."
         },
         {
@@ -1099,6 +1223,7 @@
         {
           "speaker": "話者2",
           "text": "日記を始めて良かったこと。",
+          "furigana": [{ "word": "日記", "reading": "にっき" }, { "word": "始めて", "reading": "はじめて" }, { "word": "良かった", "reading": "よかった" }],
           "textVi": "Những điều tốt đẹp khi bắt đầu viết nhật ký."
         },
         {
@@ -1109,6 +1234,7 @@
         {
           "speaker": "話者2",
           "text": "日記を書くのに良い時間。",
+          "furigana": [{ "word": "日記", "reading": "にっき" }, { "word": "書く", "reading": "かく" }, { "word": "良い", "reading": "よい" }, { "word": "時間", "reading": "じかん" }],
           "textVi": "Thời điểm thích hợp để viết nhật ký."
         },
         {
@@ -1119,17 +1245,20 @@
         {
           "speaker": "話者2",
           "text": "日記に書かないようにしていること。",
+          "furigana": [{ "word": "日記", "reading": "にっき" }, { "word": "書かない", "reading": "かかない" }],
           "textVi": "Những điều cố gắng không viết vào nhật ký."
         }
       ],
       "question": "2番",
       "questionVi": "Câu 14",
+      "questionFurigana": [{ "word": "2番", "reading": "にばん" }],
       "options": [
         "日記のおかげでできた友達",
         "日記を始めてよかったこと",
         "日記を書くのに良い時間",
         "日記に書かないようにしていること"
       ],
+      "optionFurigana": [[{ "word": "日記", "reading": "にっき" }, { "word": "友達", "reading": "ともだち" }], [{ "word": "日記", "reading": "にっき" }, { "word": "始めて", "reading": "はじめて" }], [{ "word": "日記", "reading": "にっき" }, { "word": "書く", "reading": "かく" }, { "word": "良い", "reading": "よい" }, { "word": "時間", "reading": "じかん" }], [{ "word": "日記", "reading": "にっき" }, { "word": "書かない", "reading": "かかない" }]],
       "optionsVi": [
         "1. Bạn bè có được nhờ viết nhật ký.",
         "2. Những điều tốt đẹp từ việc bắt đầu viết nhật ký.",
@@ -1162,21 +1291,25 @@
         {
           "speaker": "ナレーション",
           "text": "3番講演会で作家が話しています。",
+          "furigana": [{ "word": "3番", "reading": "さんばん" }, { "word": "講演会", "reading": "こうえんかい" }, { "word": "作家", "reading": "さっか" }, { "word": "話しています", "reading": "はなしています" }],
           "textVi": "Số 3. Một nhà văn đang nói chuyện tại buổi hội thảo."
         },
         {
           "speaker": "話者1",
           "text": "今度出した小説は1人の少年のある夏を描いたものです。私は子供の頃大人しくて消極的な子供だったんです。小学3年の夏休みに1人の少年と知り合って一緒にいろんなことにチャレンジしていたら自信がついて積極的な性格に変わっていきました。その頃のことを最近思い出して残しておきたいと考えたんです。その子は引っ越してしまってそれ以来会ってないんですが会いたいですね。",
+          "furigana": [{ "word": "今度", "reading": "こんど" }, { "word": "出した", "reading": "だした" }, { "word": "小説", "reading": "しょうせつ" }, { "word": "1人", "reading": "ひとり" }, { "word": "少年", "reading": "しょうねん" }, { "word": "夏", "reading": "なつ" }, { "word": "描いた", "reading": "えがいた" }, { "word": "私", "reading": "わたし" }, { "word": "子供", "reading": "こども" }, { "word": "頃", "reading": "ころ" }, { "word": "大人しく", "reading": "おとなしく" }, { "word": "消極的", "reading": "しょうきょくてき" }, { "word": "子供", "reading": "こども" }, { "word": "小学", "reading": "しょうがく" }, { "word": "3年", "reading": "さんねん" }, { "word": "夏休み", "reading": "なつやすみ" }, { "word": "1人", "reading": "ひとり" }, { "word": "少年", "reading": "しょうねん" }, { "word": "知り合って", "reading": "しりあって" }, { "word": "一緒", "reading": "いっしょ" }, { "word": "自信", "reading": "じしん" }, { "word": "積極的", "reading": "せっきょくてき" }, { "word": "性格", "reading": "せいかく" }, { "word": "変わって", "reading": "かわって" }, { "word": "頃", "reading": "ころ" }, { "word": "最近", "reading": "さいきん" }, { "word": "思い出して", "reading": "おもいだして" }, { "word": "残して", "reading": "のこして" }, { "word": "考えた", "reading": "かんがえた" }, { "word": "子", "reading": "こ" }, { "word": "引っ越して", "reading": "ひっこして" }, { "word": "以来", "reading": "いらい" }, { "word": "会ってない", "reading": "あってない" }, { "word": "会いたい", "reading": "あいたい" }],
           "textVi": "Cuốn tiểu thuyết tôi mới xuất bản là câu chuyện viết về một mùa hè của một cậu thiếu niên. Khi còn nhỏ, tôi là một đứa trẻ trầm tính và rụt rè. Vào kỳ nghỉ hè năm lớp 3 tiểu học, tôi quen một cậu bé và cùng nhau thử thách nhiều thứ, nhờ đó tôi trở nên tự tin hơn và thay đổi thành một tính cách tích cực. Gần đây tôi nhớ lại chuyện thời đó và nghĩ rằng mình muốn lưu giữ lại. Cậu bé đó đã chuyển nhà và kể từ đó chúng tôi không gặp lại nhau, nhưng tôi rất muốn gặp lại cậu ấy."
         },
         {
           "speaker": "ナレーション",
           "text": "作家は何について話していますか?1",
+          "furigana": [{ "word": "作家", "reading": "さっか" }, { "word": "何", "reading": "なに" }, { "word": "話しています", "reading": "はなしています" }],
           "textVi": "Nhà văn đang nói về điều gì?"
         },
         {
           "speaker": "話者2",
           "text": "子供の頃の夢。",
+          "furigana": [{ "word": "子供", "reading": "こども" }, { "word": "頃", "reading": "ころ" }, { "word": "夢", "reading": "ゆめ" }],
           "textVi": "Ước mơ thời thơ ấu."
         },
         {
@@ -1187,6 +1320,7 @@
         {
           "speaker": "話者2",
           "text": "作家に向いている性格。",
+          "furigana": [{ "word": "作家", "reading": "さっか" }, { "word": "向いている", "reading": "むいている" }, { "word": "性格", "reading": "せいかく" }],
           "textVi": "Tính cách phù hợp với nghề nhà văn."
         },
         {
@@ -1197,6 +1331,7 @@
         {
           "speaker": "話者2",
           "text": "引っ越しの思い出。",
+          "furigana": [{ "word": "引っ越し", "reading": "ひっこし" }, { "word": "思い出", "reading": "おもいで" }],
           "textVi": "Kỷ niệm về việc chuyển nhà."
         },
         {
@@ -1207,17 +1342,20 @@
         {
           "speaker": "話者2",
           "text": "この小説を書いた理由。",
+          "furigana": [{ "word": "小説", "reading": "しょうせつ" }, { "word": "書いた", "reading": "かいた" }, { "word": "理由", "reading": "りゆう" }],
           "textVi": "Lý do viết cuốn tiểu thuyết này."
         }
       ],
       "question": "3番",
       "questionVi": "Câu 15",
+      "questionFurigana": [{ "word": "3番", "reading": "さんばん" }],
       "options": [
         "子供の頃の夢",
         "作家に向いている性格",
         "引っ越しの思い出",
         "この小説を書いた理由"
       ],
+      "optionFurigana": [[{ "word": "子供", "reading": "こども" }, { "word": "頃", "reading": "ころ" }, { "word": "夢", "reading": "ゆめ" }], [{ "word": "作家", "reading": "さっか" }, { "word": "向いている", "reading": "むいている" }, { "word": "性格", "reading": "せいかく" }], [{ "word": "引っ越し", "reading": "ひっこし" }, { "word": "思い出", "reading": "おもいで" }], [{ "word": "小説", "reading": "しょうせつ" }, { "word": "書いた", "reading": "かいた" }, { "word": "理由", "reading": "りゆう" }]],
       "optionsVi": [
         "Ước mơ thời thơ ấu",
         "Tính cách phù hợp với nhà văn",
@@ -1250,11 +1388,13 @@
         {
           "speaker": "ナレーション",
           "text": "1番大学のパソコンルームです。友達の鞄が置いてあって通れません。何と言いますか?1",
+          "furigana": [{ "word": "1番", "reading": "いちばん" }, { "word": "大学", "reading": "だいがく" }, { "word": "友達", "reading": "ともだち" }, { "word": "鞄", "reading": "かばん" }, { "word": "置いて", "reading": "おいて" }, { "word": "通れません", "reading": "とおれません" }, { "word": "何", "reading": "なに" }, { "word": "言います", "reading": "いいます" }],
           "textVi": "Câu 1. Đây là phòng máy tính của trường đại học. Cặp của người bạn để ở đó nên không đi qua được. Bạn sẽ nói gì?"
         },
         {
           "speaker": "音声",
           "text": "そこ通らないで。",
+          "furigana": [{ "word": "通らない", "reading": "とおらない" }],
           "textVi": "Cậu đừng đi qua lối đó."
         },
         {
@@ -1265,6 +1405,7 @@
         {
           "speaker": "音声",
           "text": "あちょっと鞄どけてくれる?",
+          "furigana": [{ "word": "鞄", "reading": "かばん" }],
           "textVi": "Ơ, cậu dịch chiếc cặp ra một chút được không?"
         },
         {
@@ -1275,11 +1416,14 @@
         {
           "speaker": "音声",
           "text": "ねえ鞄置いたらどう?",
+          "furigana": [{ "word": "鞄", "reading": "かばん" }, { "word": "置いたら", "reading": "おいたら" }],
           "textVi": "Này, cậu thử đặt cặp ở đó xem sao?"
         }
       ],
       "question": "1番",
       "questionVi": "Câu 16",
+      "questionFurigana": [{ "word": "1番", "reading": "いちばん" }],
+      "optionFurigana": [[{ "word": "通らない", "reading": "とおらない" }], [], [{ "word": "置いたら", "reading": "おいたら" }]],
       "options": [
         "そこ、通らないで",
         "あ、ちょっとカバンどけてくれる？",
@@ -1316,11 +1460,13 @@
         {
           "speaker": "ナレーション",
           "text": "2番お客様が帰ります。タクシーが必要かどうか聞きたいです。何と言いますか?1",
+          "furigana": [{ "word": "2番", "reading": "にばん" }, { "word": "お客様", "reading": "おきゃくさま" }, { "word": "帰ります", "reading": "かえります" }, { "word": "必要", "reading": "ひつよう" }, { "word": "聞きたい", "reading": "ききたい" }, { "word": "何", "reading": "なに" }, { "word": "言います", "reading": "いいます" }],
           "textVi": "Câu 2. Khách hàng đang chuẩn bị về. Bạn muốn hỏi xem khách có cần taxi hay không. Bạn sẽ nói gì?"
         },
         {
           "speaker": "音声",
           "text": "タクシーで伺ってもよろしいですか?",
+          "furigana": [{ "word": "伺って", "reading": "うかがって" }],
           "textVi": "1"
         },
         {
@@ -1331,6 +1477,7 @@
         {
           "speaker": "音声",
           "text": "タクシーをお願いできますか?",
+          "furigana": [{ "word": "お願い", "reading": "おねがい" }],
           "textVi": "Tôi đến bằng taxi có được không ạ?"
         },
         {
@@ -1341,16 +1488,19 @@
         {
           "speaker": "音声",
           "text": "タクシーをお呼びしましょうか?",
+          "furigana": [{ "word": "お呼び", "reading": "および" }],
           "textVi": "Bạn có thể gọi giúp tôi một chiếc taxi được không?"
         }
       ],
       "question": "2番",
       "questionVi": "Câu 17",
+      "questionFurigana": [{ "word": "2番", "reading": "にばん" }],
       "options": [
         "タクシーで伺ってもよろしいですか？",
         "タクシーをお願いできますか？",
         "タクシーをお呼びしましょうか？"
       ],
+      "optionFurigana": [[{ "word": "伺って", "reading": "うかがって" }], [{ "word": "お願い", "reading": "おねがい" }], [{ "word": "お呼び", "reading": "および" }]],
       "optionsVi": [
         "1. Tôi đến bằng taxi có được không ạ?",
         "2. Bạn có thể gọi giúp tôi một chiếc taxi được không?",
@@ -1382,11 +1532,13 @@
         {
           "speaker": "ナレーション",
           "text": "3番友達の具合が悪くなったようです。友達に何と言いますか?1",
+          "furigana": [{ "word": "3番", "reading": "さんばん" }, { "word": "友達", "reading": "ともだち" }, { "word": "具合", "reading": "ぐあい" }, { "word": "悪く", "reading": "わるく" }, { "word": "友達", "reading": "ともだち" }, { "word": "何", "reading": "なに" }, { "word": "言います", "reading": "いいます" }],
           "textVi": "Số 3. Bạn của bạn hình như đang cảm thấy không khỏe. Bạn sẽ nói gì với bạn ấy? 1"
         },
         {
           "speaker": "音声",
           "text": "少し休んだ方がいいんじゃない?",
+          "furigana": [{ "word": "少し", "reading": "すこし" }, { "word": "休んだ", "reading": "やすんだ" }, { "word": "方", "reading": "ほう" }],
           "textVi": "Cậu có nghĩ là nên nghỉ ngơi một chút không?"
         },
         {
@@ -1397,6 +1549,7 @@
         {
           "speaker": "音声",
           "text": "もうちょっと休んでほしい?",
+          "furigana": [{ "word": "休んで", "reading": "やすんで" }],
           "textVi": "Cậu có muốn nghỉ ngơi thêm một chút nữa không?"
         },
         {
@@ -1407,16 +1560,19 @@
         {
           "speaker": "音声",
           "text": "ちょっと体の調子が悪いらしいよ。",
+          "furigana": [{ "word": "体", "reading": "からだ" }, { "word": "調子", "reading": "ちょうし" }, { "word": "悪い", "reading": "わるい" }],
           "textVi": "Hình như cậu ấy không khỏe lắm."
         }
       ],
       "question": "3番",
       "questionVi": "Câu 18",
+      "questionFurigana": [{ "word": "3番", "reading": "さんばん" }],
       "options": [
         "少し休んだ方がいいんじゃない？",
         "もうちょっと休んでほしい？",
         "ちょっと体の調子が悪いらしいよ"
       ],
+      "optionFurigana": [[{ "word": "少し", "reading": "すこし" }, { "word": "休んだ", "reading": "やすんだ" }, { "word": "方", "reading": "ほう" }], [{ "word": "休んで", "reading": "やすんで" }], [{ "word": "体", "reading": "からだ" }, { "word": "調子", "reading": "ちょうし" }, { "word": "悪い", "reading": "わるい" }]],
       "optionsVi": [
         "Cậu có nghĩ là nên nghỉ ngơi một chút không?",
         "Cậu có muốn nghỉ ngơi thêm một chút nữa không?",
@@ -1448,11 +1604,13 @@
         {
           "speaker": "ナレーション",
           "text": "4番飛行機で自分が予約した席に他の人が座っています。何と言いますか?1",
+          "furigana": [{ "word": "4番", "reading": "よんばん" }, { "word": "飛行機", "reading": "ひこうき" }, { "word": "自分", "reading": "じぶん" }, { "word": "予約した", "reading": "よやくした" }, { "word": "席", "reading": "せき" }, { "word": "他", "reading": "ほか" }, { "word": "人", "reading": "ひと" }, { "word": "座っています", "reading": "すわっています" }, { "word": "何", "reading": "なに" }, { "word": "言います", "reading": "いいます" }],
           "textVi": "Số 4. Trên máy bay, có người khác đang ngồi vào chỗ ngồi mà bạn đã đặt. Bạn sẽ nói gì? 1"
         },
         {
           "speaker": "音声",
           "text": "あの席空いていますか?",
+          "furigana": [{ "word": "席", "reading": "せき" }, { "word": "空いています", "reading": "あいています" }],
           "textVi": "Ghế đó có trống không ạ?"
         },
         {
@@ -1463,6 +1621,7 @@
         {
           "speaker": "音声",
           "text": "あの席間違えていらっしゃいませんか?",
+          "furigana": [{ "word": "席", "reading": "せき" }, { "word": "間違えて", "reading": "まちがえて" }],
           "textVi": "Có phải anh/chị nhầm ghế rồi không ạ?"
         },
         {
@@ -1473,16 +1632,19 @@
         {
           "speaker": "音声",
           "text": "あのどちらに座りますか?",
+          "furigana": [{ "word": "座ります", "reading": "すわります" }],
           "textVi": "Ờ, anh/chị ngồi ở đâu thế ạ?"
         }
       ],
       "question": "4番",
       "questionVi": "Câu 19",
+      "questionFurigana": [{ "word": "4番", "reading": "よんばん" }],
       "options": [
         "あの、席空いていますか？",
         "あの、席間違えていらっしゃいませんか？",
         "あの、どちらに座りますか？"
       ],
+      "optionFurigana": [[{ "word": "席", "reading": "せき" }, { "word": "空いています", "reading": "あいています" }], [{ "word": "席", "reading": "せき" }, { "word": "間違えて", "reading": "まちがえて" }], [{ "word": "座ります", "reading": "すわります" }]],
       "optionsVi": [
         "Ồ, ghế có trống không ạ?",
         "Ồ, có phải anh/chị ngồi nhầm ghế rồi không ạ?",
@@ -1514,11 +1676,13 @@
         {
           "speaker": "ナレーション",
           "text": "1番\n漢字の授業って昨日は宿題出なかったよね?",
+          "furigana": [{ "word": "1番", "reading": "いちばん" }, { "word": "漢字", "reading": "かんじ" }, { "word": "授業", "reading": "じゅぎょう" }, { "word": "昨日", "reading": "きのう" }, { "word": "宿題", "reading": "しゅくだい" }, { "word": "出なかった", "reading": "でなかった" }],
           "textVi": "Tiết học chữ Hán hôm qua không có bài tập về nhà phải không?"
         },
         {
           "speaker": "音声",
           "text": "え出たよ。",
+          "furigana": [{ "word": "出た", "reading": "でた" }],
           "textVi": "Ơ, có giao mà."
         },
         {
@@ -1529,6 +1693,7 @@
         {
           "speaker": "音声",
           "text": "難しくなかったけど",
+          "furigana": [{ "word": "難しく", "reading": "むずかしく" }],
           "textVi": "Không khó lắm đâu"
         },
         {
@@ -1539,16 +1704,19 @@
         {
           "speaker": "音声",
           "text": "宿題もう出したんだね。",
+          "furigana": [{ "word": "宿題", "reading": "しゅくだい" }, { "word": "出した", "reading": "だした" }],
           "textVi": "Cậu nộp bài tập mất rồi à."
         }
       ],
       "question": "1番",
       "questionVi": "Câu 20",
+      "questionFurigana": [{ "word": "1番", "reading": "いちばん" }],
       "options": [
         "え？出たよ",
         "難しくなかったけど",
         "宿題、もう出したんだね"
       ],
+      "optionFurigana": [[{ "word": "出た", "reading": "でた" }], [{ "word": "難しく", "reading": "むずかしく" }], [{ "word": "宿題", "reading": "しゅくだい" }, { "word": "出した", "reading": "だした" }]],
       "optionsVi": [
         "Ơ? Có giao mà",
         "Không khó lắm đâu",
@@ -1579,31 +1747,38 @@
         {
           "speaker": "ナレーション",
           "text": "2番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Số 2"
         },
         {
           "speaker": "音声",
           "text": "森田さん会議の資料あとどのくらいでできそうですか?1はい。多分できると思います。",
+          "furigana": [{ "word": "森田", "reading": "もりた" }, { "word": "会議", "reading": "かいぎ" }, { "word": "資料", "reading": "しりょう" }, { "word": "多分", "reading": "たぶん" }, { "word": "思います", "reading": "おもいます" }],
+          "furigana": [{ "word": "森田", "reading": "もりた" }, { "word": "会議", "reading": "かいぎ" }, { "word": "資料", "reading": "しりょう" }, { "word": "多分", "reading": "たぶん" }, { "word": "思います", "reading": "おもいます" }],
           "textVi": "Anh Morita, tài liệu cho cuộc họp khoảng bao lâu nữa thì có thể xong vậy? 1 Vâng. Chắc là làm kịp ạ."
         },
         {
           "speaker": "ナレーション",
           "text": "2わかりました。急がなくていいんですね。3",
+          "furigana": [{ "word": "急がなくて", "reading": "いそがなくて" }],
           "textVi": "2 Tôi hiểu rồi. Không cần phải vội đúng không ạ. 3"
         },
         {
           "speaker": "音声",
           "text": "まだもう少しかかりそうです。",
+          "furigana": [{ "word": "少し", "reading": "すこし" }],
           "textVi": "Vẫn còn mất thêm một chút thời gian nữa ạ."
         }
       ],
       "question": "2番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 21",
       "options": [
         "はい、たぶんできると思います",
         "分かりました。急がなくていいんですね",
         "まだ少しかかりそうです"
       ],
+      "optionFurigana": [[{ "word": "思います", "reading": "おもいます" }], [{ "word": "分かりました", "reading": "わかりました" }, { "word": "急がなくて", "reading": "いそがなくて" }], [{ "word": "少し", "reading": "すこし" }]],
       "optionsVi": [
         "Vâng, tôi nghĩ chắc là sẽ làm được",
         "Tôi hiểu rồi. Không cần phải vội đâu nhỉ",
@@ -1634,11 +1809,13 @@
         {
           "speaker": "ナレーション",
           "text": "3番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Câu 3"
         },
         {
           "speaker": "音声",
           "text": "先輩私試験に受かって留学できることになりました。1留学楽しかった?",
+          "furigana": [{ "word": "先輩", "reading": "せんぱい" }, { "word": "私", "reading": "わたし" }, { "word": "試験", "reading": "しけん" }, { "word": "受かって", "reading": "うかって" }, { "word": "留学", "reading": "りゅうがく" }, { "word": "留学", "reading": "りゅうがく" }, { "word": "楽しかった", "reading": "たのしかった" }],
           "textVi": "Tiền bối ơi, em đã đỗ kỳ thi và có thể đi du học rồi ạ."
         },
         {
@@ -1649,6 +1826,7 @@
         {
           "speaker": "音声",
           "text": "そうなんだ。いつから行くの?",
+          "furigana": [{ "word": "行く", "reading": "いく" }],
           "textVi": "Thế à. Em đi từ bao giờ thế?"
         },
         {
@@ -1659,16 +1837,19 @@
         {
           "speaker": "音声",
           "text": "え受かったのに行かないの?",
+          "furigana": [{ "word": "受かった", "reading": "うかった" }, { "word": "行かない", "reading": "いかない" }],
           "textVi": "Hả, đỗ rồi mà lại không đi á?"
         }
       ],
       "question": "3番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 22",
       "options": [
         "留学、楽しかった？",
         "そうなんだ。いつから行くの？",
         "え？受かったのに行かないの？"
       ],
+      "optionFurigana": [[{ "word": "留学", "reading": "りゅうがく" }, { "word": "楽しかった", "reading": "たのしかった" }], [{ "word": "行く", "reading": "いく" }], [{ "word": "受かった", "reading": "うかった" }, { "word": "行かない", "reading": "いかない" }]],
       "optionsVi": [
         "Du học vui không?",
         "Thế à. Em đi từ bao giờ thế?",
@@ -1699,11 +1880,13 @@
         {
           "speaker": "ナレーション",
           "text": "4番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Câu 4"
         },
         {
           "speaker": "音声",
           "text": "山本さん映画はよくご覧になりますか?",
+          "furigana": [{ "word": "山本", "reading": "やまもと" }, { "word": "映画", "reading": "えいが" }, { "word": "覧", "reading": "らん" }],
           "textVi": "Yamamoto-san, anh/chị có hay xem phim không?"
         },
         {
@@ -1714,6 +1897,7 @@
         {
           "speaker": "音声",
           "text": "いいですね。見にいきましょう。",
+          "furigana": [{ "word": "見", "reading": "み" }],
           "textVi": "Hay quá nhỉ. Chúng ta đi xem đi."
         },
         {
@@ -1724,6 +1908,7 @@
         {
           "speaker": "音声",
           "text": "まだ見てないです。",
+          "furigana": [{ "word": "見て", "reading": "みて" }],
           "textVi": "Tôi vẫn chưa xem."
         },
         {
@@ -1734,16 +1919,19 @@
         {
           "speaker": "音声",
           "text": "たまに見ますよ。",
+          "furigana": [{ "word": "見ます", "reading": "みます" }],
           "textVi": "Thỉnh thoảng tôi có xem."
         }
       ],
       "question": "4番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 23",
       "options": [
         "いいですね、見に行きましょう",
         "まだ見てないです",
         "たまに見ますよ"
       ],
+      "optionFurigana": [[{ "word": "見", "reading": "み" }, { "word": "行きましょう", "reading": "いきましょう" }], [{ "word": "見て", "reading": "みて" }], [{ "word": "見ます", "reading": "みます" }]],
       "optionsVi": [
         "Hay quá nhỉ, chúng ta đi xem đi",
         "Tôi vẫn chưa xem",
@@ -1774,11 +1962,13 @@
         {
           "speaker": "ナレーション",
           "text": "5番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Số 5"
         },
         {
           "speaker": "音声",
           "text": "明日数学の試験があるんだ。数学苦手なんだよなあ。",
+          "furigana": [{ "word": "明日", "reading": "あした" }, { "word": "数学", "reading": "すうがく" }, { "word": "試験", "reading": "しけん" }, { "word": "数学", "reading": "すうがく" }, { "word": "苦手", "reading": "にがて" }],
           "textVi": "Ngày mai có bài kiểm tra toán đấy. Tôi kém toán lắm cơ."
         },
         {
@@ -1789,6 +1979,7 @@
         {
           "speaker": "音声",
           "text": "数学の成績いいんだね。",
+          "furigana": [{ "word": "数学", "reading": "すうがく" }, { "word": "成績", "reading": "せいせき" }],
           "textVi": "Thành tích môn toán của bạn tốt nhỉ."
         },
         {
@@ -1799,6 +1990,7 @@
         {
           "speaker": "音声",
           "text": "明日は自信あるんだね。",
+          "furigana": [{ "word": "明日", "reading": "あした" }, { "word": "自信", "reading": "じしん" }],
           "textVi": "Ngày mai bạn tự tin lắm nhỉ."
         },
         {
@@ -1809,16 +2001,19 @@
         {
           "speaker": "音声",
           "text": "試験うまくいくといいね。",
+          "furigana": [{ "word": "試験", "reading": "しけん" }],
           "textVi": "Mong là bài kiểm tra sẽ diễn ra suôn sẻ nhé."
         }
       ],
       "question": "5番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 24",
       "options": [
         "数学の成績いいんだね",
         "明日は自信あるんだね",
         "試験、うまくいくといいね"
       ],
+      "optionFurigana": [[{ "word": "数学", "reading": "すうがく" }, { "word": "成績", "reading": "せいせき" }], [{ "word": "明日", "reading": "あした" }, { "word": "自信", "reading": "じしん" }], [{ "word": "試験", "reading": "しけん" }]],
       "optionsVi": [
         "Thành tích môn toán tốt nhỉ",
         "Ngày mai có vẻ tự tin nhỉ",
@@ -1849,11 +2044,13 @@
         {
           "speaker": "ナレーション",
           "text": "6番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Số 6"
         },
         {
           "speaker": "音声",
           "text": "私ちょっと飲み物買ってくるけどお茶かなんかいる?",
+          "furigana": [{ "word": "私", "reading": "わたし" }, { "word": "飲み物", "reading": "のみもの" }, { "word": "買って", "reading": "かって" }, { "word": "茶", "reading": "ちゃ" }],
           "textVi": "Tôi đi mua chút đồ uống đây, lấy trà hay gì không?"
         },
         {
@@ -1864,6 +2061,7 @@
         {
           "speaker": "音声",
           "text": "お茶しかダメなんだね。",
+          "furigana": [{ "word": "茶", "reading": "ちゃ" }],
           "textVi": "Chỉ được uống trà thôi à."
         },
         {
@@ -1874,6 +2072,7 @@
         {
           "speaker": "音声",
           "text": "あコーヒーお願いしていい?",
+          "furigana": [{ "word": "お願い", "reading": "おねがい" }],
           "textVi": "À, tôi nhờ mua cà phê được chứ?"
         },
         {
@@ -1888,12 +2087,14 @@
         }
       ],
       "question": "6番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 25",
       "options": [
         "お茶しかだめなんだね",
         "あ、コーヒーお願いしていい？",
         "どっちもいらないよ"
       ],
+      "optionFurigana": [[{ "word": "茶", "reading": "ちゃ" }], [{ "word": "お願い", "reading": "おねがい" }], []],
       "optionsVi": [
         "Chỉ được uống trà thôi à",
         "À, tôi nhờ mua cà phê được chứ",
@@ -1924,11 +2125,13 @@
         {
           "speaker": "ナレーション",
           "text": "7番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Câu số 7"
         },
         {
           "speaker": "音声",
           "text": "加藤さん、港奨学金っていつまでに申し込めばいいか知ってる?",
+          "furigana": [{ "word": "加藤", "reading": "かとう" }, { "word": "港", "reading": "みなと" }, { "word": "奨学金", "reading": "しょうがくきん" }, { "word": "申し込めば", "reading": "もうしこめば" }, { "word": "知ってる", "reading": "しってる" }],
           "textVi": "Cậu có biết học bổng Minato phải đăng ký đến khi nào không?"
         },
         {
@@ -1939,6 +2142,7 @@
         {
           "speaker": "音声",
           "text": "その方がいいと思うよ。",
+          "furigana": [{ "word": "方", "reading": "ほう" }, { "word": "思う", "reading": "おもう" }],
           "textVi": "Tớ nghĩ làm thế thì tốt hơn đấy."
         },
         {
@@ -1949,6 +2153,7 @@
         {
           "speaker": "音声",
           "text": "もう申し込んだよ。",
+          "furigana": [{ "word": "申し込んだ", "reading": "もうしこんだ" }],
           "textVi": "Tớ đã đăng ký rồi."
         },
         {
@@ -1959,16 +2164,19 @@
         {
           "speaker": "音声",
           "text": "今月中だよ。",
+          "furigana": [{ "word": "今月中", "reading": "こんげつじゅう" }],
           "textVi": "Trong tháng này đấy."
         }
       ],
       "question": "7番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 26",
       "options": [
         "その方がいいと思うよ",
         "もう申し込んだよ",
         "今月中だよ"
       ],
+      "optionFurigana": [[{ "word": "方", "reading": "ほう" }, { "word": "思う", "reading": "おもう" }], [{ "word": "申し込んだ", "reading": "もうしこんだ" }], [{ "word": "今月中", "reading": "こんげつじゅう" }]],
       "optionsVi": [
         "Tớ nghĩ làm thế thì tốt hơn đấy",
         "Tớ đã đăng ký rồi",
@@ -1999,11 +2207,13 @@
         {
           "speaker": "ナレーション",
           "text": "8番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Câu số 8"
         },
         {
           "speaker": "音声",
           "text": "週末、実家に帰ったら親に畑の仕事を手伝わされたよ。",
+          "furigana": [{ "word": "週末", "reading": "しゅうまつ" }, { "word": "実家", "reading": "じっか" }, { "word": "帰ったら", "reading": "かえったら" }, { "word": "親", "reading": "おや" }, { "word": "畑", "reading": "はたけ" }, { "word": "仕事", "reading": "しごと" }, { "word": "手伝わされた", "reading": "てつだわされた" }],
           "textVi": "Cuối tuần vừa rồi về quê, tớ bị bố mẹ bắt phụ giúp việc ngoài đồng đấy."
         },
         {
@@ -2014,6 +2224,7 @@
         {
           "speaker": "音声",
           "text": "それは大変だったね。",
+          "furigana": [{ "word": "大変", "reading": "たいへん" }],
           "textVi": "Cực cho cậu quá nhỉ."
         },
         {
@@ -2024,6 +2235,7 @@
         {
           "speaker": "音声",
           "text": "手伝ってくれて良かったね。",
+          "furigana": [{ "word": "手伝って", "reading": "てつだって" }, { "word": "良かった", "reading": "よかった" }],
           "textVi": "Họ chịu giúp cậu thì tốt quá nhỉ."
         },
         {
@@ -2034,16 +2246,19 @@
         {
           "speaker": "音声",
           "text": "手伝いたかったんだね。",
+          "furigana": [{ "word": "手伝いたかった", "reading": "てつだいたかった" }],
           "textVi": "Chắc là cậu muốn giúp lắm nhỉ."
         }
       ],
       "question": "8番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 27",
       "options": [
         "それは大変だったね",
         "手伝ってくれてよかったね",
         "手伝いたかったんだね"
       ],
+      "optionFurigana": [[{ "word": "大変", "reading": "たいへん" }], [{ "word": "手伝って", "reading": "てつだって" }], [{ "word": "手伝いたかった", "reading": "てつだいたかった" }]],
       "optionsVi": [
         "Cực cho cậu quá nhỉ",
         "Họ chịu giúp cậu thì tốt quá nhỉ",
@@ -2074,11 +2289,13 @@
         {
           "speaker": "ナレーション",
           "text": "9番",
+          "furigana": [{ "word": "番", "reading": "ばん" }],
           "textVi": "Số 9"
         },
         {
           "speaker": "音声",
           "text": "さっき頼んだ書類の整理、量が多いから一度にやらなくてもいいですよ。",
+          "furigana": [{ "word": "頼んだ", "reading": "たのんだ" }, { "word": "書類", "reading": "しょるい" }, { "word": "整理", "reading": "せいり" }, { "word": "量", "reading": "りょう" }, { "word": "多い", "reading": "おおい" }, { "word": "一度", "reading": "いちど" }],
           "textVi": "Khối lượng sắp xếp tài liệu tôi nhờ lúc nãy nhiều nên không cần làm một lần hết đâu nhé."
         },
         {
@@ -2089,6 +2306,7 @@
         {
           "speaker": "音声",
           "text": "わかりました。少しずつやります",
+          "furigana": [{ "word": "少し", "reading": "すこし" }],
           "textVi": "Tôi hiểu rồi. Tôi sẽ làm từng chút một."
         },
         {
@@ -2099,6 +2317,7 @@
         {
           "speaker": "音声",
           "text": "何度もやらなくていいんですね。",
+          "furigana": [{ "word": "何度", "reading": "なんど" }],
           "textVi": "Không phải làm lại nhiều lần đúng không ạ?"
         },
         {
@@ -2109,16 +2328,19 @@
         {
           "speaker": "音声",
           "text": "整理、必要なくなったんですか?",
+          "furigana": [{ "word": "整理", "reading": "せいり" }, { "word": "必要", "reading": "ひつよう" }],
           "textVi": "Việc sắp xếp không cần thiết nữa sao ạ?"
         }
       ],
       "question": "9番",
+      "questionFurigana": [{ "word": "番", "reading": "ばん" }],
       "questionVi": "Câu 28",
       "options": [
         "分かりました。少しずつやります",
         "何度もやらなくていいんですね",
         "整理、必要なくなったんですか？"
       ],
+      "optionFurigana": [[{ "word": "分かりました", "reading": "わかりました" }, { "word": "少し", "reading": "すこし" }], [{ "word": "何度", "reading": "なんど" }], [{ "word": "整理", "reading": "せいり" }, { "word": "必要", "reading": "ひつよう" }]],
       "optionsVi": [
         "Tôi hiểu rồi. Tôi sẽ làm từng chút một",
         "Không phải làm lại nhiều lần đúng không ạ",

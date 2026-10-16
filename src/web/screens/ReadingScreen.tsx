@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink, Lightbulb } from "lucide-react";
-import type { ReadingPassage } from "../../types/reading.ts";
+import type { ReadingBodySegment, ReadingPassage } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { sliceReadingBody, splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
@@ -118,6 +118,25 @@ function renderTextWithReferences(
         {content}
       </strong>
     ) : <span key={index}>{content}</span>;
+  });
+}
+
+function renderAnnotatedText(
+  text: string,
+  segments: ReadingBodySegment[] | undefined,
+  showFurigana: boolean,
+  underlineRanges: TextRange[] = [],
+): ReactNode {
+  if (!showFurigana || !segments?.length || segments.map((segment) => segment.text).join("") !== text) {
+    return renderTextWithReferences(text, [], false, underlineRanges);
+  }
+  let offset = 0;
+  return segments.map((segment, index) => {
+    const content = renderTextWithReferences(segment.text, [], false, underlineRanges, offset);
+    offset += segment.text.length;
+    return showFurigana && segment.furigana
+      ? <ruby key={index}>{content}<rt className="text-[10px] text-neutral-400">{segment.furigana}</rt></ruby>
+      : <span key={index}>{content}</span>;
   });
 }
 
@@ -1314,10 +1333,10 @@ function PassageView({
             <Card key={qi} className="gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
               <div className="flex flex-col items-start gap-2">
                 <div className="font-semibold text-neutral-800">
-                  Câu {q.sourceNumber ?? qi + 1}: {renderTextWithReferences(
+                  Câu {q.sourceNumber ?? qi + 1}: {renderAnnotatedText(
                     q.question,
-                    [],
-                    false,
+                    q.questionFurigana,
+                    showFurigana,
                     findUniqueTextRanges(q.question, q.underline ? [q.underline] : []),
                   )}
                 </div>
@@ -1382,7 +1401,7 @@ function PassageView({
                       }}
                       className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
                     >
-                      {opt}
+                      {renderAnnotatedText(opt, q.optionsFurigana?.[oi] ?? undefined, showFurigana)}
                       {state.resultsRevealed && answered !== null ? (
                         <span className="mt-0.5 block text-xs text-neutral-400">{q.optionsVi[oi]}</span>
                       ) : null}

@@ -472,6 +472,10 @@ function QuestionView({
   // the Japanese text is revealed after the learner answers for review.
   const isAudioOnlyOptions = question.book !== "kaiwa-100cau" && ["gaiyou", "hatsugen", "sokuji"].includes(question.taskType);
   const isBlind = (isAudioOnlyOptions || question.optionsInAudio) && !question.optionsImage;
+  // Keep every Japanese furigana surface behind the same gate as its source
+  // text. This also protects future controls from exposing audio-only words
+  // before an answer is submitted.
+  const showVisibleFurigana = showFurigana && (!isBlind || answered);
   const audioPrompt = isBlind && !answered
     ? question.taskType === "hatsugen" && question.scenario
       ? question.scenario
@@ -558,7 +562,7 @@ function QuestionView({
                     Câu hỏi · {question.question}
                   </span>
                 ) : null}
-                {showFurigana && answered ? <FuriganaText annotations={audioPromptFurigana} text={audioPrompt} /> : audioPrompt}
+                {showVisibleFurigana ? <FuriganaText annotations={audioPromptFurigana} text={audioPrompt} /> : audioPrompt}
               </span>
             </div>
             {answered && showTranslation && audioPromptTranslation ? (
@@ -594,7 +598,7 @@ function QuestionView({
       {answered && question.turns.length > 0 ? (
         <ListeningTranscriptCard
           turns={question.turns}
-          showFurigana={showFurigana}
+          showFurigana={showVisibleFurigana}
           onToggleFurigana={() => setShowFurigana((v) => !v)}
           showTranslation={showTranslation}
           onToggleTranslation={() => setShowTranslation((v) => !v)}
@@ -610,7 +614,7 @@ function QuestionView({
         {!isBlind || answered ? (
           <>
             <div className="font-semibold text-neutral-800">
-              {showFurigana ? <FuriganaText annotations={question.questionFurigana} text={question.question} /> : question.question}
+            {showVisibleFurigana ? <FuriganaText annotations={question.questionFurigana} text={question.question} /> : question.question}
             </div>
             {answered && showTranslation ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
           </>
@@ -672,7 +676,7 @@ function QuestionView({
                   onClick={() => selectAnswer(oi)}
                   className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
                 >
-                  {showFurigana ? <FuriganaText annotations={question.optionFurigana?.[oi]} text={opt} /> : opt}
+                  {showVisibleFurigana ? <FuriganaText annotations={question.optionFurigana?.[oi]} text={opt} /> : opt}
                   {answered && showTranslation ? <span className="block text-xs text-neutral-400">{question.optionsVi[oi]}</span> : null}
                 </button>
               );
