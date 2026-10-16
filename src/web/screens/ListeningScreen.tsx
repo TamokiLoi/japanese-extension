@@ -424,6 +424,7 @@ function QuestionView({
   const [progressMap, setProgressMap] = useState<ListeningProgressMap>({});
   const [showTranslation, setShowTranslation] = useState(false);
   const [showFurigana, setShowFurigana] = useState(false);
+  const [floatingNavVisible, setFloatingNavVisible] = useState(false);
   const answered = selected !== null;
   const currentIndex = filtered.findIndex((q) => q.id === question.id);
   const mondaiNumber = getListeningMondaiNumber(question);
@@ -431,7 +432,22 @@ function QuestionView({
   const prevQuestion = currentIndex > 0 ? filtered[currentIndex - 1] : null;
   const nextQuestion = currentIndex >= 0 && currentIndex < filtered.length - 1 ? filtered[currentIndex + 1] : null;
 
-  const floatingNavBottom = useFloatingNav(true);
+  useEffect(() => {
+    let hideTimer: number | undefined;
+    function handleScroll() {
+      setFloatingNavVisible(true);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => setFloatingNavVisible(false), 1000);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+    };
+  }, []);
+
+  const floatingNavBottom = useFloatingNav(true, (!!prevQuestion || !!nextQuestion) && floatingNavVisible);
 
   // Reopening a question you already answered (from the color-coded list)
   // should show that same answered state right away -- your pick, right/
@@ -723,7 +739,9 @@ function QuestionView({
         <button
           onClick={() => onOpen(prevQuestion.id)}
           aria-label="Câu trước"
-          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
+          aria-hidden={!floatingNavVisible}
+          tabIndex={floatingNavVisible ? 0 : -1}
+          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -732,7 +750,9 @@ function QuestionView({
         <button
           onClick={() => onOpen(nextQuestion.id)}
           aria-label="Câu sau"
-          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
+          aria-hidden={!floatingNavVisible}
+          tabIndex={floatingNavVisible ? 0 : -1}
+          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronRight size={18} />
         </button>

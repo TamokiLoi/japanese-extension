@@ -464,12 +464,16 @@ function dayKey(d: Date): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-async function markStudiedToday(): Promise<void> {
+export async function recordStudyDay(): Promise<void> {
   const log: string[] = (await storageGet<string[]>(STUDY_LOG_KEY)) ?? [];
   const today = dayKey(new Date());
   if (log.includes(today)) return;
   const next = [...log, today].sort().slice(-STUDY_LOG_MAX_DAYS);
   await storageSet(STUDY_LOG_KEY, next);
+}
+
+async function markStudiedToday(): Promise<void> {
+  await recordStudyDay();
 }
 
 // Consecutive days ending today. If today hasn't been studied yet, that

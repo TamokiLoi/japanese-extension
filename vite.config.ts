@@ -130,6 +130,17 @@ const pwa = VitePWA({
           expiration: { maxEntries: 1000, maxAgeSeconds: 30 * 24 * 60 * 60 },
         },
       },
+      {
+        // Lesson diagrams from the N3 exam-tips module are fetched only when
+        // their lesson is opened; cache each visited image for offline review
+        // without precaching the entire source-deck image set.
+        urlPattern: /\/japanese-extension\/assets\/exam-tips\/.*\.(?:png|jpe?g|webp|svg)$/i,
+        handler: "StaleWhileRevalidate",
+        options: {
+          cacheName: "exam-tips-images",
+          expiration: { maxEntries: 100, maxAgeSeconds: 90 * 24 * 60 * 60 },
+        },
+      },
     ],
     cleanupOutdatedCaches: true,
   },

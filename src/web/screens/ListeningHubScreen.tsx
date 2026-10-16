@@ -19,10 +19,12 @@ export function ListeningHubScreen({
   initialTab = "listening",
   jumpToId,
   onCurrentItemChange,
+  onOpenExamTips,
 }: {
   initialTab?: Tab;
   jumpToId?: string;
   onCurrentItemChange?: (id: string | undefined) => void;
+  onOpenExamTips?: () => void;
 }) {
   const [tab, setTab] = useState<Tab>(initialTab);
 
@@ -44,6 +46,7 @@ export function ListeningHubScreen({
       >
         <Keyboard size={15} /> Nghe chép chính tả
       </button>
+      {onOpenExamTips ? <button type="button" onClick={onOpenExamTips} className="mt-2 inline-flex min-h-9 items-center gap-1.5 rounded-lg px-2 text-xs font-semibold text-rose-700 hover:bg-rose-50"><Headphones size={14} /> Mẹo nghe N3 <span aria-hidden="true">→</span></button> : null}
     </div>
   );
 

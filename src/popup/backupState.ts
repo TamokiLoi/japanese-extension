@@ -20,6 +20,7 @@ const BACKUP_KEYS = [
   "fptN3TangoFlashcardProgress",
   "flashcardProgressV1",
   "studyLog",
+  "examTipsProgressV1",
   "listeningProgress",
   "dictationProgress",
   "dethiHistory",

@@ -23,6 +23,7 @@ import {
   BookmarkCheck,
   Puzzle,
   Settings,
+  Lightbulb,
 } from "lucide-react";
 
 export interface NavItem {
@@ -49,6 +50,7 @@ export const NAV_ITEMS: NavItem[] = [
   // "translationPractice" deliberately not listed here -- feature is on
   // hold pending reconsideration (see project-translation-practice-poc
   // memory), hide the nav entry without removing the screen/routing.
+  { screen: "examTips", label: "Mẹo làm bài thi", icon: Lightbulb },
   { screen: "quizBook", label: "Luyện đề", icon: GraduationCap },
   { screen: "exams", label: "Đề thi JLPT", icon: ClipboardCheck },
   { screen: "roadmap", label: "Lộ trình N3", icon: CalendarCheck },
@@ -75,7 +77,7 @@ export interface NavGroup {
 export const NAV_GROUPS: NavGroup[] = [
   { screens: ["menu", "search", "roadmap"] },
   { label: "Học", screens: ["kanji", "vocab", "flashcards", "bunpo", "reading", "listening"] },
-  { label: "Luyện thi", screens: ["quizBook", "exams", "quiz", "matchGame", "review"] },
+  { label: "Luyện thi", screens: ["examTips", "quizBook", "exams", "quiz", "matchGame", "review"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },
   { label: "Giải trí", screens: ["news", "aiStories", "savedStories", "podcast"] },
   { label: "Công cụ", screens: ["stats", "backup", "guide", "settings"] },

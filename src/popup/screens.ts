@@ -4,6 +4,7 @@ export type Screen =
   | "vocab"
   | "flashcards"
   | "quiz"
+  | "examTips"
   | "search"
   | "jlptHistory"
   | "stats"
@@ -34,6 +35,7 @@ export const VALID_SCREENS: Screen[] = [
   "vocab",
   "flashcards",
   "quiz",
+  "examTips",
   "search",
   "jlptHistory",
   "stats",

@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink } from "lucide-react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink, Lightbulb } from "lucide-react";
 import type { ReadingPassage } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
@@ -303,6 +303,7 @@ export function ReadingScreen({
   targetId,
   onOpenSavedStories,
   onOpenStories,
+  onOpenExamTips,
   onOpenVocab,
   onOpenBunpo,
   onCurrentItemChange,
@@ -312,6 +313,7 @@ export function ReadingScreen({
   targetId?: string;
   onOpenSavedStories?: () => void;
   onOpenStories?: () => void;
+  onOpenExamTips?: () => void;
   onOpenVocab: (vocabId: string) => void;
   onOpenBunpo: (bunpoId: string, senseId?: string) => void;
   onCurrentItemChange?: (id: string | undefined) => void;
@@ -435,6 +437,7 @@ export function ReadingScreen({
       savedOnlyView={savedOnlyView}
       onOpenSavedStories={onOpenSavedStories}
       onOpenStories={onOpenStories}
+      onOpenExamTips={onOpenExamTips}
     />
   );
 }
@@ -451,6 +454,7 @@ function ListView({
   savedOnlyView,
   onOpenSavedStories,
   onOpenStories,
+  onOpenExamTips,
 }: {
   state: ReadingViewerState;
   mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
@@ -463,6 +467,7 @@ function ListView({
   savedOnlyView: boolean;
   onOpenSavedStories?: () => void;
   onOpenStories?: () => void;
+  onOpenExamTips?: () => void;
 }) {
   const confirm = useConfirm();
   const [filterOpen, setFilterOpen] = useState(false);
@@ -531,7 +536,7 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"} subtitle={`${filtered.length} ${savedOnlyView ? "truyện" : "bài"}`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} />
+      <PageHeader title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"} subtitle={`${filtered.length} ${savedOnlyView ? "truyện" : "bài"}`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} action={collection === "all" && !savedOnlyView && onOpenExamTips ? <Button size="sm" variant="outline" onClick={onOpenExamTips}><Lightbulb size={14} /> Mẹo đọc N3</Button> : undefined} />
 
       {collection === "news" && !ALL_READING.some((p) => p.book === "news") ? (
         <p className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-600">

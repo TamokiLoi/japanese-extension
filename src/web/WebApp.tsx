@@ -41,6 +41,7 @@ const ItBookVocabScreen = lazy(() => import("./screens/ItBookVocabScreen.tsx").t
 const ItBookLessonsScreen = lazy(() => import("./screens/ItBookLessonsScreen.tsx").then((module) => ({ default: module.ItBookLessonsScreen })));
 const RoadmapScreen = lazy(() => import("./screens/RoadmapScreen.tsx").then((module) => ({ default: module.RoadmapScreen })));
 const PodcastScreen = lazy(() => import("./screens/PodcastScreen.tsx").then((module) => ({ default: module.PodcastScreen })));
+const ExamTipsScreen = lazy(() => import("./screens/ExamTipsScreen.tsx").then((module) => ({ default: module.ExamTipsScreen })));
 const MatchGameScreen = lazy(() => import("./screens/MatchGameScreen.tsx").then((module) => ({ default: module.MatchGameScreen })));
 const SettingsScreen = lazy(() => import("./screens/SettingsScreen.tsx").then((module) => ({ default: module.SettingsScreen })));
 const LegacyApp = lazy(() => import("../popup/App.tsx").then((module) => ({ default: module.App })));
@@ -75,6 +76,7 @@ function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; titl
   }
   if (screen === "stats") return { variant: "stats", title: "Thống kê" };
   if (screen === "guide") return { variant: "guide", title: "Hướng dẫn" };
+  if (screen === "examTips") return { variant: "exam", title: "Mẹo làm bài thi" };
   if (screen === "roadmap") return { variant: "roadmap", title: "Lộ trình N3" };
   if (screen === "matchGame") return { variant: "match", title: "Ghép cặp" };
 
@@ -244,7 +246,7 @@ export function WebApp() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string } = {}) {
+  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string; examTipsLevel?: "N3"; examTipsSkill?: "reading" | "listening"; examTipsLesson?: string } = {}) {
     if (next !== "quizBook") setQuizBookJlptMode(false);
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
@@ -294,6 +296,10 @@ export function WebApp() {
       if (opts.searchTypes?.length) params.set("types", opts.searchTypes.join(","));
       const query = params.toString();
       if (query) path += `?${query}`;
+    } else if (next === "examTips") {
+      const params = new URLSearchParams({ level: opts.examTipsLevel ?? "N3", skill: opts.examTipsSkill ?? "reading" });
+      if (opts.examTipsLesson) params.set("lesson", opts.examTipsLesson);
+      path += `?${params.toString()}`;
     } else if (next === "bunpo" && opts.senseId) {
       path += `?${new URLSearchParams({ sense: opts.senseId })}`;
     }
@@ -429,6 +435,7 @@ export function WebApp() {
         targetId={targetId}
         onOpenSavedStories={() => go("savedStories")}
         onOpenStories={() => go("aiStories")}
+        onOpenExamTips={() => go("examTips", undefined, { examTipsSkill: "reading" })}
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenBunpo={(bunpoId, senseId) => go("bunpo", bunpoId, { senseId })}
         onCurrentItemChange={syncCurrentItem}
@@ -447,12 +454,14 @@ export function WebApp() {
     );
   } else if (screen === "guide") {
     content = <GuideScreen onNavigate={navigate} />;
+  } else if (screen === "examTips") {
+    content = <ExamTipsScreen onNavigate={go} />;
   } else if (screen === "backup") {
     content = <BackupScreen />;
   } else if (screen === "listening") {
-    content = <ListeningHubScreen initialTab="listening" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
+    content = <ListeningHubScreen initialTab="listening" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} onOpenExamTips={() => go("examTips", undefined, { examTipsSkill: "listening" })} />;
   } else if (screen === "dictation") {
-    content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} />;
+    content = <ListeningHubScreen initialTab="dictation" jumpToId={targetId} onCurrentItemChange={syncCurrentItem} onOpenExamTips={() => go("examTips", undefined, { examTipsSkill: "listening" })} />;
   } else if (screen === "exams") {
     content = <DeThiScreen targetId={targetId} onNavigate={go} onCurrentItemChange={syncCurrentItem} />;
   } else if (screen === "itBookVocab") {

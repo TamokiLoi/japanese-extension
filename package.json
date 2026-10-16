@@ -9,6 +9,7 @@
     "data:validate:try-n3": "node --experimental-strip-types scripts/validate-try-n3-chapters.ts",
     "reading:extract-jlpt": "node --experimental-strip-types scripts/extract-jlpt-reading.ts",
     "reading:test-jlpt": "node --experimental-strip-types scripts/test-jlpt-reading.ts",
+    "exam-tips:validate": "node --experimental-strip-types scripts/validate-exam-tips.ts",
     "news:sync": "node --experimental-strip-types scripts/news-sync.ts",
     "news:sync:enrich": "node --experimental-strip-types scripts/news-sync.ts --enrich",
     "news:sync:rss": "node --experimental-strip-types scripts/news-sync.ts --rss --enrich",
