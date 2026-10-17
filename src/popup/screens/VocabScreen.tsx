@@ -492,7 +492,7 @@ export function VocabScreen({
               <div className="vocab-more-body">
           {vocabExamples.length > 0 ? (
             <section className="vocab-info vocab-info-example">
-              <strong>Mẫu câu</strong>
+              <strong>Ví dụ</strong>
               {vocabExamples.map((example, index) => (
                 <div className="vocab-example-item" key={`${example.jp}-${index}`}>
                   <span className="example-jp">{example.jp}</span>

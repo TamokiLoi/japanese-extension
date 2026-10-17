@@ -1,0 +1,50 @@
+.kanji-book-resources {
+  --kll-accent: #3689b1;
+  --kll-dark: #216786;
+  display: grid;
+  min-width: 0;
+  gap: 9px;
+  border: 1px solid #e8ebef;
+  border-radius: 13px;
+  background: #fff;
+  padding: 10px;
+}
+.kanji-book-entry[data-tone="b2"] { --kll-accent: #8870c1; --kll-dark: #604a94; }
+.kanji-book-entry[data-tone="b3"] { --kll-accent: #39987e; --kll-dark: #236b58; }
+.kanji-book-resources-heading,
+.kanji-book-words-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.kanji-book-resources-heading h3 { margin: 0; color: #374151; font-size: 12px; font-weight: 800; }
+.kanji-book-resources-heading > div:first-child { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.kanji-book-resources-heading > div:first-child span { color: #9aa2ad; font-size: 9px; }
+.kanji-book-source-tabs { display: flex; max-width: 62%; gap: 4px; overflow-x: auto; padding: 2px; scrollbar-width: thin; }
+.kanji-book-source-tabs button { min-height: 25px; flex: 0 0 auto; border: 1px solid #e6e8ed; border-radius: 999px; background: #fff; padding: 3px 8px; color: #7b8491; font-size: 9px; font-weight: 750; }
+.kanji-book-source-tabs button.is-active { border-color: var(--kll-accent); background: color-mix(in srgb, var(--kll-accent) 9%, white); color: var(--kll-dark); box-shadow: 0 0 0 1px color-mix(in srgb, var(--kll-accent) 20%, transparent); }
+.kanji-book-source-tabs button[data-source="b2"].is-active { border-color: #8870c1; background: #f5f1ff; color: #604a94; }
+.kanji-book-source-tabs button[data-source="b3"].is-active { border-color: #39987e; background: #eff9f5; color: #236b58; }
+.kanji-book-entry { display: grid; min-width: 0; gap: 9px; }
+.kanji-book-illustration { display: grid; gap: 4px; margin: 0; overflow: hidden; border: 1px solid color-mix(in srgb, var(--kll-accent) 20%, white); border-radius: 10px; background: #fbfcfd; }
+.kanji-book-illustration img { display: block; width: 100%; max-height: 230px; object-fit: contain; }
+.kanji-book-illustration figcaption { padding: 0 8px 7px; color: #87909c; font-size: 9px; line-height: 1.3; }
+.kanji-book-words { display: grid; gap: 4px; }
+.kanji-book-words-heading { color: #596476; font-size: 10px; }
+.kanji-book-words-heading span { color: #9ba3ad; }
+.kanji-book-words-list { display: grid; max-height: 220px; gap: 2px; overflow-y: auto; }
+.kanji-book-words-list button { display: grid; min-width: 0; grid-template-columns: minmax(55px, auto) minmax(0, 1fr); align-items: baseline; gap: 2px 8px; border-radius: 7px; padding: 5px 6px; text-align: left; }
+.kanji-book-words-list button:hover:not(:disabled) { background: color-mix(in srgb, var(--kll-accent) 7%, white); }
+.kanji-book-words-list button:disabled { cursor: default; opacity: .65; }
+.kanji-book-words-list strong { color: #303b4b; font-size: 11px; font-weight: 800; }
+.kanji-book-words-list span { min-width: 0; overflow: hidden; color: #7d8794; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.kanji-book-source-note { margin: 0; color: #8993a0; font-size: 9px; line-height: 1.35; }
+
+@media (max-width: 767px) {
+  .kanji-book-resources { gap: 8px; padding: 9px; }
+  .kanji-book-source-tabs { max-width: 68%; }
+  .kanji-book-illustration img { max-height: 250px; }
+  .kanji-book-words-list { max-height: 250px; }
+}

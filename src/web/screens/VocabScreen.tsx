@@ -3,6 +3,7 @@ import { VocabPartOfSpeechTag } from "../../components/vocabpartofspeechtag.tsx"
 import { VocabVerbMetadata } from "../../components/vocabverbmetadata.tsx";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus } from "lucide-react";
 import { speakJapanese } from "../lib/speak.ts";
+import { getVocabFuriganaAnnotations } from "../lib/vocabFurigana.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { VerbConjugations } from "../../types/vocab.ts";
 import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS } from "../../popup/quizState.ts";
@@ -50,6 +51,7 @@ import { Badge } from "../components/ui/badge.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+import { FuriganaText } from "../components/FuriganaText.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
@@ -180,6 +182,8 @@ export function VocabScreen({
   const [filterOpen, setFilterOpen] = useState(false);
   const [correctionOpen, setCorrectionOpen] = useState(false);
   const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
+  const [furiganaCardId, setFuriganaCardId] = useState<string | null>(null);
+  const [floatingNavVisible, setFloatingNavVisible] = useState(false);
   // See KanjiScreen.tsx's identical field for why this is local/display-only
   // instead of living in state.progressFilter.
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
@@ -345,7 +349,22 @@ export function VocabScreen({
 
 
 
-  const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid");
+  useEffect(() => {
+    let hideTimer: number | undefined;
+    function handleScroll() {
+      setFloatingNavVisible(true);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => setFloatingNavVisible(false), 1000);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+    };
+  }, []);
+
+  const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid", floatingNavVisible);
 
   const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
   const currentText = state && state.viewMode !== "grid" ? list[state.index]?.word : undefined;
@@ -373,6 +392,7 @@ export function VocabScreen({
 
   const v = list[state.index];
   const vocabExamples = v ? getVocabExamples(v) : [];
+  const showExampleFurigana = !!v && furiganaCardId === v.id;
   const vocabMnemonics = v ? getVocabMnemonic(v) : [];
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
@@ -538,7 +558,9 @@ export function VocabScreen({
         <button
           onClick={() => mutate({ index: state.index - 1 }, false)}
           aria-label="Trước"
-          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
+          aria-hidden={!floatingNavVisible}
+          tabIndex={floatingNavVisible ? 0 : -1}
+          className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 transition-opacity duration-200 active:bg-neutral-50 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronLeft size={18} />
         </button>
@@ -547,7 +569,9 @@ export function VocabScreen({
         <button
           onClick={() => mutate({ index: state.index + 1 }, false)}
           aria-label="Tiếp"
-          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
+          aria-hidden={!floatingNavVisible}
+          tabIndex={floatingNavVisible ? 0 : -1}
+          className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg transition-opacity duration-200 active:bg-rose-700 md:hidden ${floatingNavVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <ChevronRight size={18} />
         </button>
@@ -699,6 +723,53 @@ export function VocabScreen({
             </section>
           ) : null}
 
+          {vocabMnemonics.length > 0 ? (
+            <div className="mt-3 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-3 text-sm text-amber-900">
+              <span className="font-semibold">Mẹo nhớ:</span> {vocabMnemonics.join(" / ")}
+            </div>
+          ) : null}
+
+          {vocabExamples.length > 0 ? (
+            <div className="mt-3 rounded-xl border-l-4 border-sky-600 bg-sky-50 p-3 text-sm">
+              <div className="mb-1 flex items-center justify-between gap-2">
+                <div className="font-semibold text-sky-700">Ví dụ</div>
+                <button
+                  type="button"
+                  aria-pressed={showExampleFurigana}
+                  onClick={() => setFuriganaCardId(showExampleFurigana ? null : v.id)}
+                  className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${showExampleFurigana ? "bg-sky-100 text-sky-800" : "text-sky-700 hover:bg-sky-100"}`}
+                >
+                  <BookOpenText size={13} /> {showExampleFurigana ? "Ẩn furigana" : "Hiện furigana"}
+                </button>
+              </div>
+              <div className="space-y-3">
+                {vocabExamples.map((example, index) => (
+                  <div key={example.jp + index}>
+                    <div className="flex items-start justify-between gap-2">
+                      {showExampleFurigana ? (
+                        <FuriganaText
+                          text={example.jp}
+                          annotations={getVocabFuriganaAnnotations(example.jp, v)}
+                          className="text-neutral-800"
+                        />
+                      ) : (
+                        <div className="text-neutral-800">{example.jp}</div>
+                      )}
+                      <button
+                        onClick={() => speakJapanese(example.jp)}
+                        aria-label={`Phát âm ví dụ ${index + 1}`}
+                        className="shrink-0 text-sky-600 hover:text-sky-800"
+                      >
+                        <Volume2 size={16} />
+                      </button>
+                    </div>
+                    {example.vi ? <div className="mt-1 text-sky-800">{example.vi}</div> : null}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
           <CorrectionEditorSheet
             open={correctionOpen}
             onClose={() => setCorrectionOpen(false)}
@@ -783,12 +854,10 @@ export function VocabScreen({
               </div>
             </details>
           ) : null}
-          {(v.synonym || v.pairVerb || corrections.length > 0 || vocabMnemonics.length > 0 || vocabExamples.length > 0 || v.conjugations) ? (
+          {(v.synonym || v.pairVerb || corrections.length > 0 || v.conjugations) ? (
             <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
               <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
                 Thông tin bổ sung <span className="ml-2 font-normal text-neutral-400">{[
-                  vocabExamples.length > 0 && `Ví dụ (${vocabExamples.length})`,
-                  vocabMnemonics.length > 0 && "Ghi nhớ",
                   (v.synonym || v.pairVerb) && "Từ liên quan",
                   v.conjugations && "Chia thể",
                   corrections.length > 0 && `${corrections.length} góp ý`,
@@ -853,35 +922,6 @@ export function VocabScreen({
                 ))}
               </div>
               {corrections.length > 3 ? <div className="mt-2 text-xs text-amber-700">Còn {corrections.length - 3} góp ý trong Cài đặt.</div> : null}
-            </div>
-          ) : null}
-
-          {vocabMnemonics.length > 0 ? (
-            <div className="mt-3 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-3 text-sm text-amber-900">
-              <span className="font-semibold">Mẹo nhớ:</span> {vocabMnemonics.join(" / ")}
-            </div>
-          ) : null}
-
-          {vocabExamples.length > 0 ? (
-            <div className="mt-3 rounded-xl border-l-4 border-sky-600 bg-sky-50 p-3 text-sm">
-              <div className="mb-1 font-semibold text-sky-700">Mẫu câu · {vocabExamples.length}</div>
-              <div className="space-y-3">
-                {vocabExamples.map((example, index) => (
-                  <div key={example.jp + index}>
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="text-neutral-800">{example.jp}</div>
-                      <button
-                        onClick={() => speakJapanese(example.jp)}
-                        aria-label={`Phát âm ví dụ ${index + 1}`}
-                        className="shrink-0 text-sky-600 hover:text-sky-800"
-                      >
-                        <Volume2 size={16} />
-                      </button>
-                    </div>
-                    {example.vi ? <div className="mt-1 text-sky-800">{example.vi}</div> : null}
-                  </div>
-                ))}
-              </div>
             </div>
           ) : null}
 

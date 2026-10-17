@@ -141,6 +141,17 @@ const pwa = VitePWA({
           expiration: { maxEntries: 100, maxAgeSeconds: 90 * 24 * 60 * 60 },
         },
       },
+      {
+        // Kanji Look and Learn illustrations are fetched only for selected
+        // book entries. Cache viewed WebP crops for offline study; do not add
+        // the full source image set to the PWA precache.
+        urlPattern: /\/japanese-extension\/assets\/(?:b1|b2|b3)-\d+-.*\.webp$/i,
+        handler: "CacheFirst",
+        options: {
+          cacheName: "kanji-book-images",
+          expiration: { maxEntries: 1500, maxAgeSeconds: 180 * 24 * 60 * 60 },
+        },
+      },
     ],
     cleanupOutdatedCaches: true,
   },

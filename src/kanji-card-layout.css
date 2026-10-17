@@ -109,12 +109,32 @@
 .kanji-redesign .kanji-hanviet p { margin: 0; color: #ad470e; font-weight: 800; white-space: nowrap; }
 .kanji-redesign .kanji-structure { --kanji-accent: #337fb2; --kanji-accent-dark: #236994; --kanji-bg: #edf7fd; }
 .kanji-redesign .kanji-mnemonic { --kanji-accent: #c99a26; --kanji-accent-dark: #8f6c12; --kanji-bg: #fff9e9; }
+.kanji-redesign .kanji-mnemonic-choice { --kanji-accent: #c99a26; --kanji-accent-dark: #8f6c12; --kanji-bg: #fff9e9; }
+.kanji-mnemonic-choice[data-tone="app"] { --kanji-accent: #df4770; --kanji-accent-dark: #a82b4c; --kanji-bg: #fff1f5; }
+.kanji-mnemonic-choice[data-tone="soumatome"] { --kanji-accent: #4386c4; --kanji-accent-dark: #285e8e; --kanji-bg: #eff7ff; }
+.kanji-mnemonic-choice[data-tone="b1"] { --kanji-accent: #3689b1; --kanji-accent-dark: #216786; --kanji-bg: #edf8fc; }
+.kanji-mnemonic-choice[data-tone="b2"] { --kanji-accent: #8870c1; --kanji-accent-dark: #604a94; --kanji-bg: #f5f1ff; }
+.kanji-mnemonic-choice[data-tone="b3"] { --kanji-accent: #39987e; --kanji-accent-dark: #236b58; --kanji-bg: #eff9f5; }
 .kanji-redesign .kanji-related { --kanji-accent: #38856b; --kanji-accent-dark: #247055; --kanji-bg: #eff9f4; }
 .kanji-redesign .kanji-more-details .kanji-related {
   border: 1px solid #c8e2d4;
   border-left: 5px solid var(--kanji-accent);
 }
 .kanji-redesign .kanji-extra { --kanji-accent: #9a8c7d; --kanji-accent-dark: #66584c; --kanji-bg: #f7f5f2; }
+
+.kanji-mnemonic-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.kanji-mnemonic-heading > span { color: #9b8b60; font-size: 10px; font-weight: 650; }
+.kanji-mnemonic-options { display: flex; gap: 5px; overflow-x: auto; margin-top: 7px; padding: 1px 1px 4px; scrollbar-width: thin; }
+.kanji-mnemonic-options button { min-height: 28px; flex: 0 0 auto; border: 1px solid #e9dfc4; border-radius: 999px; background: #fff; padding: 4px 9px; color: #82775c; font-size: 10px; font-weight: 700; }
+.kanji-mnemonic-options button.is-active { border-color: #ccab53; background: #fff2ca; color: #785d15; }
+.kanji-mnemonic-options button[data-tone="app"] { border-color: #f0bfcc; background: #fff8fa; color: #a83a58; }
+.kanji-mnemonic-options button[data-tone="soumatome"] { border-color: #bfd7ed; background: #f7fbff; color: #356c9c; }
+.kanji-mnemonic-options button[data-tone="b1"] { border-color: #bddce9; background: #f6fcff; color: #2c6f8e; }
+.kanji-mnemonic-options button[data-tone="b2"] { border-color: #d6cdec; background: #fbf9ff; color: #685395; }
+.kanji-mnemonic-options button[data-tone="b3"] { border-color: #c2e2d8; background: #f7fcfa; color: #2c725f; }
+.kanji-mnemonic-options button[data-tone].is-active { border-color: var(--kanji-accent); background: var(--kanji-bg); color: var(--kanji-accent-dark); box-shadow: 0 0 0 1px var(--kanji-accent); }
+.kanji-mnemonic-choice .kanji-mnemonic-text { margin: 7px 0 0; white-space: pre-line; }
+.kanji-mnemonic-source { display: flex; flex-wrap: wrap; gap: 3px 9px; margin-top: 5px; color: #9b8d69; font-size: 9px; line-height: 1.35; }
 
 .kanji-redesign .kanji-meta-row {
   display: flex;

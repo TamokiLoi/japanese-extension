@@ -27,6 +27,7 @@ import fptN3TangoWeek6Raw from "../data/fpt-n3-kanji-week-6.json";
 import fptN3TangoExamplesA from "../data/fpt-n3-tango-examples-a.json";
 import fptN3TangoExamplesB from "../data/fpt-n3-tango-examples-b.json";
 import fptN3TangoMnemonicsRaw from "../data/fpt-n3-tango-mnemonics.json";
+import kanjiLookAndLearnVocabRaw from "../data/vocab-kanji-look-and-learn.json";
 import type {
   TanoshiiVocabDataset,
   MimikaraDataset,
@@ -57,7 +58,10 @@ export type VocabSource =
   | "doicap-tudongtu"
   | "dongnghia-n3-kosei"
   | "jlpt-n3-dethi"
-  | "fpt-n3-tango";
+  | "fpt-n3-tango"
+  | "kll-n5n4"
+  | "kll-n3n2"
+  | "kll-n2n1";
 
 export interface VocabCard {
   id: string;
@@ -109,6 +113,9 @@ export const SOURCE_LABELS: Record<VocabSource, string> = {
   "dongnghia-n3-kosei": "Từ đồng nghĩa N3 (Kosei)",
   "jlpt-n3-dethi": "JLPT-N3",
   "fpt-n3-tango": "FPT-N3-Tango",
+  "kll-n5n4": "Kanji Look and Learn N5–N4",
+  "kll-n3n2": "Kanji Look and Learn N3–N2",
+  "kll-n2n1": "Kanji Look and Learn N2–N1",
 };
 
 // Order sources are listed/filtered in throughout the vocab screen.
@@ -130,6 +137,9 @@ export const AVAILABLE_SOURCES: VocabSource[] = [
   "dongnghia-n3-kosei",
   "jlpt-n3-dethi",
   "fpt-n3-tango",
+  "kll-n5n4",
+  "kll-n3n2",
+  "kll-n2n1",
 ];
 
 // Gộp hiển thị cho bộ lọc "Nguồn" -- KHÔNG đổi VocabSource gốc (vẫn giữ
@@ -198,6 +208,36 @@ const tangoNewDataset = tangoNewRaw as unknown as TanoshiiVocabDataset;
 // án phần 文字・語彙 nhưng chưa có ở bất kỳ nguồn nào khác (kể cả dạng な/する).
 const jlptN3DethiDataset = jlptN3DethiRaw as unknown as TanoshiiVocabDataset;
 const fptN3TangoMissingDataset = fptN3TangoMissingRaw as unknown as TanoshiiVocabDataset;
+type KanjiLookAndLearnVocabDataset = {
+  words: {
+    id: string;
+    word: string;
+    reading: string;
+    level: JlptLevel;
+    source: Extract<VocabSource, "kll-n5n4" | "kll-n3n2" | "kll-n2n1">;
+    hanViet: string[];
+    meaningVi: string;
+  }[];
+};
+const kanjiLookAndLearnVocabDataset = kanjiLookAndLearnVocabRaw as KanjiLookAndLearnVocabDataset;
+
+function fromKanjiLookAndLearnVocab(dataset: KanjiLookAndLearnVocabDataset): VocabCard[] {
+  return dataset.words.map((word) => ({
+    id: word.id,
+    word: word.word,
+    reading: word.reading,
+    level: word.level,
+    partOfSpeech: "Khác",
+    sources: [word.source],
+    hanViet: word.hanViet,
+    meaningVi: word.meaningVi,
+    mnemonic: [],
+    example: null,
+    exampleVi: null,
+    synonym: null,
+    pairVerb: null,
+  }));
+}
 
 type FptN3TangoWeek = { words: { word: string }[] };
 type FptN3TangoExample = { jp: string; vi: string };
@@ -446,6 +486,7 @@ const FPT_N3_TANGO_SUPPLEMENTAL = fromTanoshiiVocab("fpt-n3-tango", fptN3TangoMi
 export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
   ...TAGGED_EXISTING_VOCAB,
   ...FPT_N3_TANGO_SUPPLEMENTAL,
+  ...fromKanjiLookAndLearnVocab(kanjiLookAndLearnVocabDataset),
 ]).map(addFptTangoExamples);
 
 export function getVocabExamples(card: Pick<VocabCard, "example" | "exampleVi" | "additionalExamples">): FptN3TangoExample[] {

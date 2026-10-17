@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle } from "lucide-react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, Network } from "lucide-react";
 import type { Kanji } from "../../types/kanji.ts";
 import { KANJI_STUDY_SETS, type KanjiStudySetId } from "../../data/kanjiStudySets.ts";
 import { storageGet, storageSet } from "../../platform/storage.ts";
@@ -46,7 +46,11 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import { KanjiMnemonicChoice } from "../components/KanjiMnemonicChoice.tsx";
 import "../../kanji-card-layout.css";
+
+const KanjiMapScreen = lazy(() => import("./KanjiMapScreen.tsx").then((module) => ({ default: module.KanjiMapScreen })));
+const KanjiBookResources = lazy(() => import("../components/KanjiBookResources.tsx").then((module) => ({ default: module.KanjiBookResources })));
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -128,6 +132,8 @@ export function KanjiScreen({
 }) {
   const [state, setState] = useState<KanjiViewerState | null>(null);
   const [list, setList] = useState<Kanji[]>([]);
+  const [mapMode, setMapMode] = useState(false);
+  const [mapCharacter, setMapCharacter] = useState<string | null>(null);
   const [studySetId, setStudySetId] = useState<KanjiStudySetId | null>(null);
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
@@ -276,10 +282,11 @@ export function KanjiScreen({
     setProgress(p);
   }
 
-  const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid");
+  const floatingNavBottom = useFloatingNav(!!state && !mapMode && state.viewMode !== "grid");
 
-  const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
-  const currentText = state && state.viewMode !== "grid" ? list[state.index]?.character : undefined;
+  const selectedMapKanji = mapMode && mapCharacter ? ALL_KANJI.find((item) => item.character === mapCharacter) : undefined;
+  const currentId = mapMode ? selectedMapKanji?.id : state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
+  const currentText = mapMode ? selectedMapKanji?.character : state && state.viewMode !== "grid" ? list[state.index]?.character : undefined;
   useEffect(() => {
     onCurrentItemChange?.(currentId, currentText);
   }, [currentId, currentText, onCurrentItemChange]);
@@ -296,6 +303,41 @@ export function KanjiScreen({
   const activeFilterCount = studySetId ? 1 : allChecked ? 0 : state.selectedLevels.length;
   const related = k ? vocabForKanjiChar(k.character) : null;
 
+  async function openMapKanjiCard() {
+    if (!state || !mapCharacter) {
+      setMapMode(false);
+      return;
+    }
+    const target = ALL_KANJI.find((item) => item.character === mapCharacter);
+    if (!target) {
+      setMapMode(false);
+      return;
+    }
+    baseFilterRef.current = null;
+    setStudySetId(null);
+    await storageSet(STUDY_SET_STORAGE_KEY, null);
+    const jumped = resolveJumpState({ ...state, viewMode: "card", index: 0 }, target.id) ?? { ...state, viewMode: "card" as const, index: 0 };
+    const nextList = await getFilteredList(jumped, null);
+    const nextState = { ...jumped, index: Math.max(0, nextList.findIndex((item) => item.id === target.id)), viewMode: "card" as const };
+    await saveViewerState(nextState);
+    setList(nextList);
+    setState(nextState);
+    setMapMode(false);
+  }
+
+  if (mapMode) {
+    return (
+      <Suspense fallback={<LoadingScreen variant="study" title="Kanji Map" />}>
+        <KanjiMapScreen
+          initialCharacter={mapCharacter ?? k?.character}
+          onSelectCharacter={setMapCharacter}
+          onBackToCards={() => void openMapKanjiCard()}
+          onOpenVocab={onOpenVocab}
+        />
+      </Suspense>
+    );
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
@@ -308,6 +350,22 @@ export function KanjiScreen({
           </Button>
         }
       />
+
+      <div className="mt-3 inline-flex max-w-full items-center gap-1 rounded-xl border border-neutral-200 bg-neutral-100 p-1" role="group" aria-label="Chế độ xem Kanji">
+        <button type="button" className="rounded-lg bg-white px-3 py-2 text-xs font-semibold text-rose-600 shadow-sm" aria-pressed="true">
+          <span className="inline-flex items-center gap-1.5"><Layers size={14} /> Thẻ Kanji</span>
+        </button>
+        <button
+          type="button"
+          className="rounded-lg px-3 py-2 text-xs font-semibold text-neutral-600 hover:bg-white/70"
+          onClick={() => {
+            setMapCharacter(k?.character ?? ALL_KANJI[0]?.character ?? null);
+            setMapMode(true);
+          }}
+        >
+          <span className="inline-flex items-center gap-1.5"><Network size={14} /> Kanji Map</span>
+        </button>
+      </div>
 
       <FilterBar>
         <FilterTrigger count={activeFilterCount} onClick={() => setFilterOpen(true)} />
@@ -544,8 +602,20 @@ export function KanjiScreen({
                 {k.strokeCount != null ? <span><small>Số nét</small><strong>{k.strokeCount}</strong></span> : null}
                 {k.frequency != null ? <span><small>Tần suất</small><strong>{k.frequency}</strong></span> : null}
               </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setMapCharacter(k.character);
+                  setMapMode(true);
+                }}
+                aria-label={`Mở Kanji Map cho ${k.character}`}
+                className="mt-3 inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-sky-700 transition-colors hover:bg-sky-50"
+              >
+                <Network size={13} /> Xem Kanji Map
+              </button>
             </section>
-            {k.mnemonic ? <section className="kanji-info-block kanji-mnemonic"><h3>Mẹo nhớ</h3><p>{k.mnemonic}</p></section> : null}
+            <KanjiMnemonicChoice kanji={k} />
+            <Suspense fallback={null}><KanjiBookResources kanji={k} onOpenVocab={onOpenVocab} /></Suspense>
             {k.meanings.en.length > 0 ? (
               <section className="kanji-info-block kanji-extra">
                 <h3>English:</h3><p>{k.meanings.en.join(", ")}</p>
