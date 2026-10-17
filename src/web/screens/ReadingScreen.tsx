@@ -1409,12 +1409,19 @@ function PassageView({
                   );
                 })}
               </div>
-              {state.resultsRevealed && answered !== null && q.explanation ? (
+              {state.resultsRevealed && answered !== null && (q.explanation || q.answerSourceNote) ? (
                 <div className="mt-3 space-y-3 border-t border-neutral-100 pt-3 text-sm">
-                  <div>
-                    <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Giải thích</div>
-                    <div className="mt-1 text-neutral-600">{q.explanation}</div>
-                  </div>
+                  {q.explanation ? (
+                    <div>
+                      <div className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">Giải thích</div>
+                      <div className="mt-1 text-neutral-600">{q.explanation}</div>
+                    </div>
+                  ) : null}
+                  {q.answerSourceNote ? (
+                    <div className="rounded-lg bg-amber-50 p-2 text-xs leading-relaxed text-amber-700">
+                      <span className="font-semibold">Đối chiếu PDF: </span>{q.answerSourceNote}
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
             </Card>

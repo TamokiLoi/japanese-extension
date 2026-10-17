@@ -2286,6 +2286,17 @@ body.tab-mode .jlpt-list {
   color: #555;
 }
 
+.reading-source-note {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid #f3e3b8;
+  border-radius: 8px;
+  background: #fff8e6;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #a3720c;
+}
+
 .reading-another-btn {
   margin-top: 20px;
 }

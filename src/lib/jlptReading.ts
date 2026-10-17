@@ -76,6 +76,7 @@ function toReadingQuestions(questions: DeThiQuestion[], passage: string): Readin
       optionsVi: question.options.map((_, index) => question.optionsVi?.[index] ?? ""),
       correctIndex: question.correctIndex,
       explanation: question.explanation ?? "",
+      ...(question.answerSourceNote ? { answerSourceNote: question.answerSourceNote } : {}),
     };
   });
 }

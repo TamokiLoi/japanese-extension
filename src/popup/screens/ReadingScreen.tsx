@@ -780,7 +780,12 @@ function PassageView({
                 {answered !== null ? (
                   <>
                     <div className="reading-question-vi">{q.questionVi}</div>
-                    <div className="reading-explanation">{q.explanation}</div>
+                    {q.explanation ? <div className="reading-explanation">{q.explanation}</div> : null}
+                    {q.answerSourceNote ? (
+                      <div className="reading-source-note">
+                        <strong>Đối chiếu PDF: </strong>{q.answerSourceNote}
+                      </div>
+                    ) : null}
                   </>
                 ) : null}
               </div>

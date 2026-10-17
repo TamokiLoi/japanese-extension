@@ -49,6 +49,9 @@ export interface ReadingQuestion {
   optionsVi: string[];
   correctIndex: number;
   explanation: string;
+  // Source/page verification note from exam data, shown with the explanation
+  // after the learner reveals their result.
+  answerSourceNote?: string;
   questionType?: ReadingQuestionType;
 }
 
