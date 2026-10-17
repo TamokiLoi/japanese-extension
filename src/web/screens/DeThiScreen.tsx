@@ -375,8 +375,8 @@ function withListeningContent(examId: string, paperId: string, question: DeThiQu
   );
 
   const transcriptTurns = source.turns.map((turn) => ({ ...turn }));
-  const transcript = transcriptTurns.map((turn) => `${turn.speaker}：${turn.text}`).join("\n");
-  const transcriptVi = transcriptTurns.map((turn) => turn.textVi ? `${turn.speaker}：${turn.textVi}` : "").filter(Boolean).join("\n");
+  const transcript = transcriptTurns.map((turn) => turn.speaker ? `${turn.speaker}：${turn.text}` : turn.text).join("\n");
+  const transcriptVi = transcriptTurns.map((turn) => turn.textVi ? (turn.speaker ? `${turn.speaker}：${turn.textVi}` : turn.textVi) : "").filter(Boolean).join("\n");
   const pointQuestionPrompt = getJlptPointQuestionPrompt(source);
   const hasQuestionSentence = source.question.trim() && !/^\d+番$/u.test(source.question.trim());
   const listeningPrompt = source.scenario.trim();

@@ -80,6 +80,7 @@ const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
       if (question.correctIndex === null) throw new Error(`${exam.examLabel} question ${question.number} has no verified answer key.`);
       const taskType = DE_N3_GROUP_TASK_TYPES[question.problemGroup];
       if (!taskType) throw new Error(`Unknown listening group ${question.problemGroup} in ${exam.examLabel}.`);
+      const transcript = question.transcript?.trim();
       return {
         id: question.listeningQuestionId ?? `${exam.id}-q${String(question.number).padStart(2, "0")}`,
         level: exam.level,
@@ -90,7 +91,7 @@ const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
         audioEndSec: question.audioEndSec,
         scenario: "",
         scenarioVi: "",
-        turns: [],
+        turns: transcript ? [{ speaker: "", text: transcript }] : [],
         question: question.question,
         questionFurigana: toListeningFurigana(question.questionFurigana),
         questionVi: question.questionVi?.startsWith("Chưa có MP3") ? "" : question.questionVi ?? "",
