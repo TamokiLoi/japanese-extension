@@ -4,7 +4,7 @@ import { ALL_VOCAB } from "../vocabState.ts";
 import { ALL_JLPT_HISTORY } from "../jlptHistoryState.ts";
 import { ALL_READING } from "../readingState.ts";
 import { ALL_QUIZBOOK } from "../quizBookState.ts";
-import { ALL_BUNPO } from "../bunpoState.ts";
+import { ALL_BUNPO_SENSES } from "../bunpoState.ts";
 import { countMastered, getStudyStreak } from "../progressState.ts";
 import { exportBackupJson, importBackupJson, type ImportResult } from "../backupState.ts";
 import {
@@ -115,7 +115,7 @@ export function MenuScreen({ onSelect }: { onSelect: (screen: MenuScreen) => voi
       const [kanjiMastered, vocabMastered, bunpoMastered, streak] = await Promise.all([
         countMastered(ALL_KANJI.map((k) => k.id)),
         countMastered(ALL_VOCAB.map((v) => v.id)),
-        countMastered(ALL_BUNPO.map((g) => g.id)),
+        countMastered(ALL_BUNPO_SENSES.map((item) => item.id)),
         getStudyStreak(),
       ]);
       if (cancelled) return;
@@ -324,7 +324,7 @@ export function MenuScreen({ onSelect }: { onSelect: (screen: MenuScreen) => voi
           <span className="menu-item-body">
             <span className="menu-item-title">Bunpo</span>
             <span className="menu-item-desc">
-              {ALL_BUNPO.length} mẫu ngữ pháp N3{counts && counts.bunpoMastered > 0 ? ` · ${counts.bunpoMastered} đã thuộc` : ""}
+              {ALL_BUNPO_SENSES.length} nghĩa ngữ pháp{counts && counts.bunpoMastered > 0 ? ` · ${counts.bunpoMastered} đã thuộc` : ""}
             </span>
           </span>
         </button>

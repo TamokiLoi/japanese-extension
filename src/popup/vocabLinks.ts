@@ -3,22 +3,20 @@ import type { ReadingPassage } from "../types/reading.ts";
 import type { QuizBookQuestion } from "../types/quizBook.ts";
 import { ALL_READING } from "./readingState.ts";
 import { ALL_QUIZBOOK } from "./quizBookState.ts";
+import { getVocabReferenceTerms } from "./readingLinks.ts";
 
 const MAX_MATCHES = 5;
 
-// Unlike bunpo patterns (which are templates with a "〜" placeholder and
-// conjugate in real text), a vocab word is a literal string -- so a plain
-// substring match against the word itself is enough for words that don't
-// conjugate (nouns, adverbs). Verbs/adjectives will under-match since the
-// dictionary form often isn't what appears in running text (e.g. "選び直す"
-// shows up as "選び直した"), but that's an acceptable false-negative for a
-// "here's where it's used" hint rather than a completeness guarantee.
+// Use the same dictionary and conjugated forms as the references shown inside
+// a reading passage, so a vocabulary card can link back even when the word is
+// inflected in the passage (e.g. 届ける → 届けた).
 export function findMatchingReadingPassages(v: VocabCard, limit = MAX_MATCHES): ReadingPassage[] {
   if (!v.word) return [];
   const matches: ReadingPassage[] = [];
+  const terms = getVocabReferenceTerms(v);
   for (const passage of ALL_READING) {
     const text = passage.body.map((seg) => seg.text).join("");
-    if (text.includes(v.word)) {
+    if (terms.some((term) => text.includes(term))) {
       matches.push(passage);
       if (matches.length >= limit) break;
     }

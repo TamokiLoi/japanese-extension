@@ -27,7 +27,7 @@ import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } f
 import { isCorrectAnswer } from "../reviewState.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById } from "../kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS } from "../vocabState.ts";
-import { loadViewerState as loadBunpoViewerState, findBunpoById, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../bunpoState.ts";
+import { loadViewerState as loadBunpoViewerState, findBunpoById, findBunpoSense, SOURCE_LABELS as BUNPO_SOURCE_LABELS } from "../bunpoState.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 
 type QuizStep = "setup" | "play" | "result";
@@ -35,7 +35,7 @@ type QuizStep = "setup" | "play" | "result";
 type OpenCallbacks = {
   onOpenKanji: (kanjiId: string) => void;
   onOpenVocab: (vocabId: string) => void;
-  onOpenBunpo: (bunpoId: string) => void;
+  onOpenBunpo: (bunpoId: string, senseId?: string) => void;
 };
 
 // "Which step is showing" is owned by the app's outer navigation stack
@@ -442,30 +442,34 @@ function QuestionDetail({ q, ...open }: { q: QuizQuestion } & OpenCallbacks) {
     );
   }
   if (q.kind === "bunpo") {
-    const g = findBunpoById(q.id);
-    if (!g) return null;
+    const resolved = findBunpoSense(q.contentId ?? q.id, q.senseId);
+    const g = resolved?.grammar ?? findBunpoById(q.contentId ?? q.id);
+    const sense = resolved?.sense ?? g?.senses?.[0];
+    if (!g || !sense) return null;
     return (
       <div className="quiz-detail">
-        {g.usage ? (
+        {sense.usage ? (
           <div className="quiz-detail-row">
-            <b>Cách dùng:</b> {g.usage}
+            <b>Cách dùng:</b> {sense.usage}
           </div>
         ) : null}
-        {g.examTip ? (
+        {sense.examTip ? (
           <div className="quiz-detail-row">
-            <b>Key JLPT:</b> {g.examTip}
+            <b>Key JLPT:</b> {sense.examTip}
           </div>
         ) : null}
-        <div className="quiz-detail-row">
-          {g.example}
-          {g.exampleVi ? (
+        {sense.examples.slice(0, 2).map((example, index) => (
+          <div key={index} className="quiz-detail-row">
+          {example.jp}
+          {example.vi ? (
             <>
               <br />
-              <span className="muted">{g.exampleVi}</span>
+              <span className="muted">{example.vi}</span>
             </>
           ) : null}
-        </div>
-        <button className="quiz-detail-link" onClick={() => open.onOpenBunpo(g.id)}>
+          </div>
+        ))}
+        <button className="quiz-detail-link" onClick={() => open.onOpenBunpo(g.id, sense.id)}>
           Xem thẻ đầy đủ →
         </button>
       </div>

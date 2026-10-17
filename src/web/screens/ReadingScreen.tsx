@@ -1,10 +1,10 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink, Lightbulb } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink, Pause, Play, Square, Lightbulb } from "lucide-react";
 import type { ReadingBodySegment, ReadingPassage } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { sliceReadingBody, splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
-import { translatedReadingUnits } from "../../lib/readingSentences.ts";
+import { splitBodyIntoSentences, translatedReadingUnits } from "../../lib/readingSentences.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
 import {
   ALL_READING,
@@ -51,6 +51,7 @@ import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
+import { hasJapaneseVoice, onVoicesChanged, speakJapanese } from "../lib/speak.ts";
 
 function timelineLabel(passage: ReadingPassage): string {
   const min = passage.estimatedMinutes;
@@ -314,6 +315,169 @@ function ReadingBodyInterleaved({
           ) : null}
         </div>
       ))}
+    </div>
+  );
+}
+
+function AiStoryReadingBody({
+  passage,
+  showFurigana,
+  showTranslation,
+  referenceTerms,
+  highlightReferences,
+  activeSentenceIndex,
+  canSpeak,
+  onSpeakSentence,
+}: {
+  passage: ReadingPassage;
+  showFurigana: boolean;
+  showTranslation: boolean;
+  referenceTerms: ReferenceTerm[];
+  highlightReferences: boolean;
+  activeSentenceIndex: number;
+  canSpeak: boolean;
+  onSpeakSentence: (index: number) => void;
+}) {
+  const sentenceGroups = splitBodyIntoSentences(passage.body);
+  const passageText = passage.body.map((segment) => segment.text).join("");
+  const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
+  const sentenceRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  useEffect(() => {
+    const active = sentenceRefs.current[activeSentenceIndex];
+    if (!active) return;
+    const bounds = active.getBoundingClientRect();
+    if (bounds.top < 80 || bounds.bottom > window.innerHeight - 80) {
+      active.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }, [activeSentenceIndex]);
+
+  const paragraphs: { index: number; segments: typeof sentenceGroups[number] }[][] = [];
+  sentenceGroups.forEach((segments, index) => {
+    if (paragraphs.length === 0 || segments[0]?.paragraphStart) paragraphs.push([]);
+    paragraphs[paragraphs.length - 1].push({ index, segments });
+  });
+
+  let sourceSearchFrom = 0;
+  const renderSentence = (segments: typeof sentenceGroups[number], index: number) => (
+    <button
+      key={index}
+      ref={(element) => { sentenceRefs.current[index] = element; }}
+      type="button"
+      disabled={!canSpeak}
+      title={canSpeak ? "Bấm để nghe từ câu này" : undefined}
+      aria-label={canSpeak ? `Nghe câu ${index + 1}` : undefined}
+      onClick={() => onSpeakSentence(index)}
+      className={`inline rounded px-0.5 py-0.5 align-baseline transition-colors ${
+        activeSentenceIndex === index ? "bg-amber-100 text-amber-950 ring-1 ring-amber-300" : ""
+      } ${canSpeak ? "cursor-pointer hover:bg-amber-50 focus-visible:outline-2 focus-visible:outline-rose-400" : "cursor-text"}`}
+      style={{ font: "inherit", color: "inherit" }}
+    >
+      {segments.map((segment, segmentIndex) => {
+        const text = segment.paragraphStart ? segment.text.replace(/^\n+/u, "") : segment.text;
+        const foundAt = passageText.indexOf(segment.text, sourceSearchFrom);
+        const sourceOffset = foundAt >= 0 ? foundAt : sourceSearchFrom;
+        sourceSearchFrom = sourceOffset + segment.text.length;
+        const content = renderTextWithReferences(text, referenceTerms, highlightReferences, underlineRanges, sourceOffset);
+        return showFurigana && segment.furigana ? (
+          <ruby key={segmentIndex}>{content}<rt className="text-[10px] text-neutral-400">{segment.furigana}</rt></ruby>
+        ) : <span key={segmentIndex}>{content}</span>;
+      })}
+    </button>
+  );
+
+  if (showTranslation && passage.sentencesVi?.length) {
+    return (
+      <div className="flex flex-col gap-3">
+        {sentenceGroups.map((segments, index) => (
+          <div key={index} className={index > 0 && segments[0]?.paragraphStart ? "pt-3" : undefined}>
+            <div>{renderSentence(segments, index)}</div>
+            {passage.sentencesVi?.[index] ? (
+              <div className="mt-1 border-l-2 border-neutral-300 pl-3 text-sm leading-snug text-neutral-500 italic">
+                {passage.sentencesVi[index]}
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-5">
+      {paragraphs.map((paragraph, paragraphIndex) => (
+        <p key={paragraphIndex}>
+          {paragraph.map(({ index, segments }) => renderSentence(segments, index))}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function StorySpeechControls({
+  available,
+  status,
+  activeSentenceIndex,
+  sentenceCount,
+  rate,
+  error,
+  onToggle,
+  onStop,
+  onRateChange,
+}: {
+  available: boolean;
+  status: "idle" | "playing" | "paused";
+  activeSentenceIndex: number;
+  sentenceCount: number;
+  rate: number;
+  error?: string;
+  onToggle: () => void;
+  onStop: () => void;
+  onRateChange: (rate: number) => void;
+}) {
+  return (
+    <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          type="button"
+          disabled={!available}
+          onClick={onToggle}
+          className="inline-flex items-center gap-1.5 rounded-full bg-rose-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-700 disabled:cursor-not-allowed disabled:bg-neutral-300"
+        >
+          {status === "playing" ? <Pause size={14} /> : <Play size={14} />}
+          {status === "playing" ? "Tạm dừng" : status === "paused" ? "Tiếp tục" : "Nghe truyện"}
+        </button>
+        {status !== "idle" ? (
+          <button
+            type="button"
+            onClick={onStop}
+            className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
+          >
+            <Square size={12} fill="currentColor" /> Dừng
+          </button>
+        ) : null}
+        <label className="flex items-center gap-1.5 text-xs text-neutral-500">
+          Tốc độ
+          <select
+            aria-label="Tốc độ đọc truyện"
+            value={rate}
+            onChange={(event) => onRateChange(Number(event.target.value))}
+            className="rounded-lg border border-neutral-200 bg-white px-2 py-1 text-xs text-neutral-700"
+          >
+            {[0.75, 0.9, 1, 1.1, 1.25].map((value) => <option key={value} value={value}>{value}×</option>)}
+          </select>
+        </label>
+        <span className="text-xs text-neutral-400">
+          {activeSentenceIndex >= 0 ? `Câu ${activeSentenceIndex + 1}/${sentenceCount}` : `${sentenceCount} câu`}
+        </span>
+      </div>
+      {error ? (
+        <p className="mt-2 text-xs text-rose-600">{error}</p>
+      ) : !available ? (
+        <p className="mt-2 text-xs text-neutral-500">Thiết bị chưa có giọng đọc tiếng Nhật. Hãy bật/cài giọng Japanese trong cài đặt đọc văn bản của thiết bị.</p>
+      ) : (
+        <p className="mt-2 text-xs text-neutral-400">Bấm vào câu bất kỳ để đọc từ câu đó. Giọng đọc tùy theo trình duyệt và thiết bị.</p>
+      )}
     </div>
   );
 }
@@ -1013,6 +1177,18 @@ function PassageView({
   ];
   const [referenceTab, setReferenceTab] = useState<"questions" | "references" | "vocabulary" | "grammar">("questions");
   const [floatingNavVisible, setFloatingNavVisible] = useState(false);
+  const speechSentences = useMemo(
+    () => splitBodyIntoSentences(passage.body).map((segments) => segments.map((segment) => segment.text).join("").replace(/\s+/gu, " ").trim()),
+    [passage.id],
+  );
+  const [speechAvailable, setSpeechAvailable] = useState(hasJapaneseVoice);
+  const [speechStatus, setSpeechStatus] = useState<"idle" | "playing" | "paused">("idle");
+  const [activeSpeechSentence, setActiveSpeechSentence] = useState(-1);
+  const [speechRate, setSpeechRate] = useState(0.9);
+  const [speechError, setSpeechError] = useState<string | undefined>();
+  const speechRunRef = useRef(0);
+  const speechRateRef = useRef(speechRate);
+  speechRateRef.current = speechRate;
   const viewOptions = state.passageViewOptions[passage.id] ?? {};
   const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
   const showTranslation = viewOptions.showTranslation ?? state.showTranslation;
@@ -1026,6 +1202,88 @@ function PassageView({
     setReferenceTab("questions");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [passage.id]);
+
+  useEffect(() => {
+    const refreshVoices = () => setSpeechAvailable(hasJapaneseVoice());
+    refreshVoices();
+    return onVoicesChanged(refreshVoices);
+  }, []);
+
+  useEffect(() => {
+    speechRunRef.current++;
+    window.speechSynthesis?.cancel();
+    setSpeechStatus("idle");
+    setActiveSpeechSentence(-1);
+    setSpeechError(undefined);
+  }, [passage.id]);
+
+  useEffect(() => () => {
+    speechRunRef.current++;
+    window.speechSynthesis?.cancel();
+  }, []);
+
+  function speakSentenceAt(index: number, runId: number) {
+    if (runId !== speechRunRef.current) return;
+    const text = speechSentences[index];
+    if (!text) {
+      setSpeechStatus("idle");
+      setActiveSpeechSentence(-1);
+      return;
+    }
+    setActiveSpeechSentence(index);
+    const started = speakJapanese(text, {
+      rate: speechRateRef.current,
+      onEnd: () => {
+        if (runId !== speechRunRef.current) return;
+        if (index + 1 < speechSentences.length) {
+          speakSentenceAt(index + 1, runId);
+        } else {
+          setSpeechStatus("idle");
+          setActiveSpeechSentence(-1);
+        }
+      },
+      onError: () => {
+        if (runId !== speechRunRef.current) return;
+        speechRunRef.current++;
+        setSpeechStatus("idle");
+        setActiveSpeechSentence(-1);
+        setSpeechError("Trình duyệt không thể phát giọng đọc tiếng Nhật lúc này.");
+      },
+    });
+    if (!started) {
+      setSpeechStatus("idle");
+      setActiveSpeechSentence(-1);
+      setSpeechError("Trình duyệt không hỗ trợ đọc văn bản trên thiết bị này.");
+    }
+  }
+
+  function startSpeechAt(index: number) {
+    if (!speechAvailable || speechSentences.length === 0) return;
+    const runId = ++speechRunRef.current;
+    window.speechSynthesis?.cancel();
+    setSpeechError(undefined);
+    setSpeechStatus("playing");
+    speakSentenceAt(index, runId);
+  }
+
+  function toggleStorySpeech() {
+    if (speechStatus === "playing") {
+      window.speechSynthesis?.pause();
+      setSpeechStatus("paused");
+    } else if (speechStatus === "paused") {
+      window.speechSynthesis?.resume();
+      setSpeechStatus("playing");
+    } else {
+      startSpeechAt(0);
+    }
+  }
+
+  function stopStorySpeech() {
+    speechRunRef.current++;
+    window.speechSynthesis?.cancel();
+    setSpeechStatus("idle");
+    setActiveSpeechSentence(-1);
+  }
 
   useEffect(() => {
     let hideTimer: number | undefined;
@@ -1158,9 +1416,34 @@ function PassageView({
         ) : null}
       </div> : null}
 
+      {isAiStory && !isLinkOnly ? (
+        <StorySpeechControls
+          available={speechAvailable}
+          status={speechStatus}
+          activeSentenceIndex={activeSpeechSentence}
+          sentenceCount={speechSentences.length}
+          rate={speechRate}
+          error={speechError}
+          onToggle={toggleStorySpeech}
+          onStop={stopStorySpeech}
+          onRateChange={setSpeechRate}
+        />
+      ) : null}
+
       {!isLinkOnly ? <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
-          {showTranslation && passage.sentencesVi && !hasMarkdownTable ? (
+          {isAiStory ? (
+            <AiStoryReadingBody
+              passage={passage}
+              showFurigana={showFurigana}
+              showTranslation={showTranslation && !hasMarkdownTable}
+              referenceTerms={referenceTerms}
+              highlightReferences={highlightReferences}
+              activeSentenceIndex={activeSpeechSentence}
+              canSpeak={speechAvailable}
+              onSpeakSentence={startSpeechAt}
+            />
+          ) : showTranslation && passage.sentencesVi && !hasMarkdownTable ? (
             <ReadingBodyInterleaved
               passage={passage}
               showFurigana={showFurigana}

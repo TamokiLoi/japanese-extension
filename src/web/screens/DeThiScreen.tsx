@@ -347,7 +347,7 @@ function legacyListeningOptionFurigana(question: DeThiQuestion): DeThiQuestion {
 function withListeningContent(examId: string, paperId: string, question: DeThiQuestion): DeThiQuestion {
   if (paperId !== "choukai") return question;
   const questionWithLegacyFurigana = legacyListeningOptionFurigana(question);
-  const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId];
+  const book = LISTENING_REVIEW_BOOK_BY_EXAM[examId] ?? (examId.startsWith("de-n3-") ? examId : undefined);
   if (!book) return questionWithLegacyFurigana;
 
   // Some converted JLPT datasets use Mondai-local IDs after the first two
@@ -355,7 +355,9 @@ function withListeningContent(examId: string, paperId: string, question: DeThiQu
   // continuous, so align by source order rather than assuming every ID ends
   // in a global question number.
   const bookQuestions = ALL_LISTENING.filter((item) => item.book === book);
-  const source = bookQuestions[question.number - 1];
+  const source = question.listeningQuestionId
+    ? ALL_LISTENING.find((item) => item.id === question.listeningQuestionId)
+    : bookQuestions[question.number - 1];
   if (!source) return questionWithLegacyFurigana;
 
   const expectedOptionCount = questionWithLegacyFurigana.optionsImage ? questionWithLegacyFurigana.optionCount ?? 0 : questionWithLegacyFurigana.options.length;

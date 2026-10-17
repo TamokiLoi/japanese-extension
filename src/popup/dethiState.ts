@@ -106,12 +106,83 @@ export interface DeThiHistoryEntry {
   // field existed don't have it (those still show in the list, just without
   // a working "xem lại" for that one attempt).
   answers?: (number | null)[];
+  // Fingerprint of the key used to calculate the score. A changed fingerprint
+  // triggers a safe regrade from `answers` the next time history is loaded.
+  answerKeyFingerprint?: string;
 }
 
 const DETHI_HISTORY_KEY = "dethiHistory";
 const DETHI_HISTORY_MAX = 500;
+const DETHI_HISTORY_REGRADE_BACKUP_KEY = "dethiHistoryBeforeAnswerKeyRegrade";
+
+function answerKeyFingerprint(paper: DeThiPaper): string {
+  return JSON.stringify({
+    totalPoints: paper.totalPoints,
+    questions: paper.questions.map((question) => ({ correctIndex: question.correctIndex, points: question.points })),
+  });
+}
+
+let historyRegradeInFlight: Promise<void> | null = null;
+
+async function regradeSavedHistoryIfNeeded(): Promise<void> {
+  if (historyRegradeInFlight) return historyRegradeInFlight;
+  historyRegradeInFlight = (async () => {
+    const history = (await storageGet<DeThiHistoryEntry[]>(DETHI_HISTORY_KEY)) ?? [];
+    const updated = history.map((entry): DeThiHistoryEntry => {
+      if (!entry.answers) return entry;
+      const found = findPaper(entry.examId, entry.paperId);
+      if (!found) return entry;
+      const { paper } = found;
+      if (entry.answers.length !== paper.questions.length || paper.questions.some((question) => question.correctIndex === null)) {
+        return entry;
+      }
+
+      const fingerprint = answerKeyFingerprint(paper);
+      if (entry.answerKeyFingerprint === fingerprint) return entry;
+
+      let correctPoints = 0;
+      let correctCount = 0;
+      paper.questions.forEach((question, index) => {
+        if (entry.answers?.[index] === question.correctIndex) {
+          correctPoints += question.points;
+          correctCount += 1;
+        }
+      });
+      return {
+        ...entry,
+        correctPoints,
+        totalPoints: paper.totalPoints,
+        percent: paper.totalPoints > 0 ? Math.round((correctPoints / paper.totalPoints) * 100) : 0,
+        correctCount,
+        totalQuestions: paper.questions.length,
+        answerKeyFingerprint: fingerprint,
+      };
+    });
+
+    const changed = updated.some((entry, index) => {
+      const previous = history[index];
+      return entry.correctPoints !== previous?.correctPoints ||
+        entry.totalPoints !== previous?.totalPoints ||
+        entry.percent !== previous?.percent ||
+        entry.correctCount !== previous?.correctCount ||
+        entry.totalQuestions !== previous?.totalQuestions ||
+        entry.answerKeyFingerprint !== previous?.answerKeyFingerprint;
+    });
+    if (!changed) return;
+
+    const existingBackup = await storageGet<{ capturedAt: number; entries: DeThiHistoryEntry[] }>(DETHI_HISTORY_REGRADE_BACKUP_KEY);
+    if (!existingBackup) {
+      await storageSet(DETHI_HISTORY_REGRADE_BACKUP_KEY, { capturedAt: Date.now(), entries: history });
+    }
+    await storageSet(DETHI_HISTORY_KEY, updated);
+  })().finally(() => {
+    historyRegradeInFlight = null;
+  });
+  return historyRegradeInFlight;
+}
 
 export async function loadDeThiHistory(): Promise<DeThiHistoryEntry[]> {
+  await regradeSavedHistoryIfNeeded();
   return (await storageGet<DeThiHistoryEntry[]>(DETHI_HISTORY_KEY)) ?? [];
 }
 
@@ -206,6 +277,7 @@ export async function submitPaper(session: DeThiSession): Promise<DeThiHistoryEn
     durationSec: Math.round((Date.now() - session.startedAt) / 1000),
     finishedAt: Date.now(),
     answers: session.answers,
+    answerKeyFingerprint: answerKeyFingerprint(paper),
   };
 
   if (!session.practiceMode && paper.gradingAvailable !== false) await appendHistory(entry);

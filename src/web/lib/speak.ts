@@ -40,14 +40,20 @@ export function onVoicesChanged(callback: () => void): () => void {
   return () => changeListeners.delete(callback);
 }
 
-export function speakJapanese(text: string): void {
-  if (typeof window === "undefined" || !window.speechSynthesis || !text) return;
+export function speakJapanese(
+  text: string,
+  options: { rate?: number; onEnd?: () => void; onError?: () => void } = {},
+): boolean {
+  if (typeof window === "undefined" || !window.speechSynthesis || !text) return false;
   window.speechSynthesis.cancel(); // stop any previous utterance before starting a new one
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "ja-JP";
   const voices = cachedVoices ?? loadVoices();
   const jaVoice = voices.find((v) => v.lang === "ja-JP") ?? voices.find((v) => v.lang.startsWith("ja"));
   if (jaVoice) utterance.voice = jaVoice;
-  utterance.rate = 0.9;
+  utterance.rate = options.rate ?? 0.9;
+  if (options.onEnd) utterance.onend = options.onEnd;
+  if (options.onError) utterance.onerror = options.onError;
   window.speechSynthesis.speak(utterance);
+  return true;
 }

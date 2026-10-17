@@ -124,6 +124,7 @@ export interface DeThiQuestion {
   audioEndSec?: number;
   // Per-question audio and prompt/transcript mapped from a converted listening
   // dataset. These are only populated for post-submit review/history.
+  listeningQuestionId?: string;
   listeningAudioUrl?: string;
   listeningPrompt?: string;
   listeningPromptVi?: string;

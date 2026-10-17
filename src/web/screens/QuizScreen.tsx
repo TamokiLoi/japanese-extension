@@ -36,7 +36,7 @@ import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } f
 import { isCorrectAnswer, isCorrectHanVietAnswer } from "../../popup/reviewState.ts";
 import { speakJapanese } from "../lib/speak.ts";
 import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
-import { loadViewerState as loadVocabViewerState, findVocabById, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
+import { loadViewerState as loadVocabViewerState, findVocabById, getVocabExamples, getVocabMnemonic, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
 import {
   loadViewerState as loadBunpoViewerState,
   findBunpoById,
@@ -636,6 +636,8 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
   }
   const v = findVocabById(q.id);
   if (!v) return null;
+  const vocabExamples = getVocabExamples(v);
+  const vocabMnemonics = getVocabMnemonic(v);
   return (
     <div className="mt-4 space-y-1.5 rounded-xl bg-neutral-50 p-4 text-sm">
       {v.hanViet.length > 0 ? (
@@ -653,20 +655,24 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
           <b className="text-neutral-700">Cách đọc:</b> {v.reading}
         </div>
       ) : null}
-      {v.mnemonic.length > 0 ? (
+      {vocabMnemonics.length > 0 ? (
         <div>
-          <b className="text-neutral-700">Mẹo nhớ:</b> {v.mnemonic.join(" / ")}
+          <b className="text-neutral-700">Mẹo nhớ:</b> {vocabMnemonics.join(" / ")}
         </div>
       ) : null}
-      {v.example ? (
-        <div>
-          {v.example}
-          {v.exampleVi ? (
-            <>
-              <br />
-              <span className="text-neutral-400">{v.exampleVi}</span>
-            </>
-          ) : null}
+      {vocabExamples.length > 0 ? (
+        <div className="space-y-2">
+          {vocabExamples.map((example, index) => (
+            <div key={example.jp + index}>
+              {example.jp}
+              {example.vi ? (
+                <>
+                  <br />
+                  <span className="text-neutral-400">{example.vi}</span>
+                </>
+              ) : null}
+            </div>
+          ))}
         </div>
       ) : null}
       <button onClick={() => open.onOpenVocab(v.id)} className="flex items-center gap-1 pt-1 font-semibold text-rose-600">

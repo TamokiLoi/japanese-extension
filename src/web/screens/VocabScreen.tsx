@@ -9,6 +9,7 @@ import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS } 
 import {
   ALL_VOCAB,
   getVocabExamples,
+  getVocabMnemonic,
   AVAILABLE_SOURCES,
   AVAILABLE_LEVELS,
   SOURCE_LABELS,
@@ -372,6 +373,7 @@ export function VocabScreen({
 
   const v = list[state.index];
   const vocabExamples = v ? getVocabExamples(v) : [];
+  const vocabMnemonics = v ? getVocabMnemonic(v) : [];
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
@@ -781,12 +783,12 @@ export function VocabScreen({
               </div>
             </details>
           ) : null}
-          {(v.synonym || v.pairVerb || corrections.length > 0 || v.mnemonic.length > 0 || vocabExamples.length > 0 || v.conjugations) ? (
+          {(v.synonym || v.pairVerb || corrections.length > 0 || vocabMnemonics.length > 0 || vocabExamples.length > 0 || v.conjugations) ? (
             <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
               <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
                 Thông tin bổ sung <span className="ml-2 font-normal text-neutral-400">{[
                   vocabExamples.length > 0 && `Ví dụ (${vocabExamples.length})`,
-                  v.mnemonic.length > 0 && "Ghi nhớ",
+                  vocabMnemonics.length > 0 && "Ghi nhớ",
                   (v.synonym || v.pairVerb) && "Từ liên quan",
                   v.conjugations && "Chia thể",
                   corrections.length > 0 && `${corrections.length} góp ý`,
@@ -854,9 +856,9 @@ export function VocabScreen({
             </div>
           ) : null}
 
-          {v.mnemonic.length > 0 ? (
+          {vocabMnemonics.length > 0 ? (
             <div className="mt-3 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-3 text-sm text-amber-900">
-              <span className="font-semibold">Mẹo nhớ:</span> {v.mnemonic.join(" / ")}
+              <span className="font-semibold">Mẹo nhớ:</span> {vocabMnemonics.join(" / ")}
             </div>
           ) : null}
 

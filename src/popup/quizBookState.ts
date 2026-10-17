@@ -212,6 +212,7 @@ export interface QuizBookViewerState {
   questionCount: number;
   sessionIds: string[] | null;
   sessionIndex: number;
+  showFurigana: boolean;
 }
 
 const STORAGE_KEY = "quizBookViewer";
@@ -237,6 +238,7 @@ export function defaultViewerState(): QuizBookViewerState {
     questionCount: DEFAULT_QUESTION_COUNT,
     sessionIds: null,
     sessionIndex: 0,
+    showFurigana: false,
   };
 }
 
@@ -267,6 +269,7 @@ export async function loadViewerState(): Promise<QuizBookViewerState> {
     questionCount: saved?.questionCount && saved.questionCount > 0 ? saved.questionCount : fallback.questionCount,
     sessionIds: sessionIds && sessionIds.length > 0 ? sessionIds : null,
     sessionIndex: saved?.sessionIndex ?? fallback.sessionIndex,
+    showFurigana: saved?.showFurigana ?? fallback.showFurigana,
   };
 }
 
