@@ -29,6 +29,8 @@ import {
   matchesFilters,
   matchesReadingSources,
   readingExamIdsForBook,
+  initialReadingExamIds,
+  initialReadingExamIdsForBook,
   isReadingExamBook,
   type ReadingPassageViewOptions,
   type ReadingViewerState,
@@ -675,7 +677,7 @@ function ListView({
         open={filterOpen && collection !== "stories"}
         onClose={() => setFilterOpen(false)}
         title={collection === "news" ? "Bộ lọc đọc báo" : "Bộ lọc luyện đọc"}
-        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], ...(collection === "news" ? {} : { selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: AVAILABLE_READING_EXAMS.map((exam) => exam.id) }), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
+        onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], ...(collection === "news" ? {} : { selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: initialReadingExamIds() }), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
       >
         {AVAILABLE_LEVELS.length > 1 ? (
           <FilterGroup title="Cấp độ">
@@ -734,7 +736,7 @@ function ListView({
                     const nextExamIds = isReadingExamBook(book)
                       ? checked
                         ? state.selectedExamIds.filter((id) => !familyIds.includes(id))
-                        : [...new Set([...state.selectedExamIds, ...familyIds])]
+                        : [...new Set([...state.selectedExamIds, ...initialReadingExamIdsForBook(book)])]
                       : state.selectedExamIds;
                     const nextLevels = pruneToggle(state.selectedLevels, AVAILABLE_LEVELS, (level) =>
                       ALL_READING.some((p) => p.level === level && state.selectedLengths.includes(p.length) && matchesReadingSources(p, next, nextExamIds)),
@@ -762,6 +764,20 @@ function ListView({
                 <span>{title}</span>
                 <span className="shrink-0 text-xs font-normal text-neutral-400">{selectedCount}/{options.length} · {countForBook} bài</span>
               </summary>
+              <div className="mt-2 flex justify-end">
+                <button
+                  type="button"
+                  disabled={selectedCount === options.length}
+                  onClick={() => {
+                    const nextExamIds = [...new Set([...state.selectedExamIds, ...readingExamIdsForBook(book)])];
+                    const nextBooks = [...new Set([...state.selectedBooks, book])];
+                    mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks });
+                  }}
+                  className="text-xs font-semibold text-rose-600 hover:underline disabled:cursor-default disabled:text-neutral-400 disabled:no-underline"
+                >
+                  {selectedCount === options.length ? "Đã chọn tất cả" : "Chọn tất cả"}
+                </button>
+              </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {options.map((exam) => {
                   const checked = state.selectedExamIds.includes(exam.id);

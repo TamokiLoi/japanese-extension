@@ -25,6 +25,7 @@ import {
   matchesFilters,
   matchesReadingSources,
   readingExamIdsForBook,
+  initialReadingExamIdsForBook,
   isReadingExamBook,
   type ReadingViewerState,
 } from "../readingState.ts";
@@ -370,7 +371,7 @@ function ListView({
                       const nextExamIds = isReadingExamBook(book)
                         ? checked
                           ? state.selectedExamIds.filter((id) => !familyIds.includes(id))
-                          : [...new Set([...state.selectedExamIds, ...familyIds])]
+                          : [...new Set([...state.selectedExamIds, ...initialReadingExamIdsForBook(book)])]
                         : state.selectedExamIds;
                       mutate({ selectedBooks: next, selectedExamIds: nextExamIds });
                     }}
@@ -399,6 +400,19 @@ function ListView({
                 <span>{title}</span>
                 <span className="muted">{selectedCount}/{options.length} · {totalCount} bài</span>
               </summary>
+              <div className="reading-exam-filter-actions">
+                <button
+                  type="button"
+                  disabled={selectedCount === options.length}
+                  onClick={() => {
+                    const nextExamIds = [...new Set([...state.selectedExamIds, ...readingExamIdsForBook(book)])];
+                    const nextBooks = [...new Set([...state.selectedBooks, book])];
+                    mutate({ selectedExamIds: nextExamIds, selectedBooks: nextBooks });
+                  }}
+                >
+                  {selectedCount === options.length ? "Đã chọn tất cả" : "Chọn tất cả"}
+                </button>
+              </div>
               <div className="quiz-radio-row reading-exam-filter-options">
                 {options.map((exam) => {
                   const checked = state.selectedExamIds.includes(exam.id);

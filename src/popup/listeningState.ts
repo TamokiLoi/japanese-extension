@@ -40,6 +40,7 @@ import listeningCacNam202012Raw from "../data/listening-cacnam-2020-12.json";
 // này khỏi quy tắc audio-only của 問題3/4/5: các lựa chọn nghĩa tiếng Việt là
 // dữ liệu quiz tự sinh, không hề được đọc trong audio.
 import listeningKaiwa100cauRaw from "../data/listening-kaiwa-100cau.json";
+import { ALL_EXAMS } from "./dethiCatalog.ts";
 import type { ListeningDataset, ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
@@ -56,6 +57,58 @@ const dethiN1July2026Dataset = listeningDethiN1July2026Raw as unknown as Listeni
 const dethiN3July2026Dataset = listeningDethiN3July2026Raw as unknown as ListeningDataset;
 const cacNam202012Dataset = listeningCacNam202012Raw as unknown as ListeningDataset;
 const kaiwa100cauDataset = listeningKaiwa100cauRaw as unknown as ListeningDataset;
+
+const DE_N3_GROUP_TASK_TYPES: Record<string, ListeningTaskType> = {
+  "問題1": "kadai",
+  "問題2": "point",
+  "問題3": "gaiyou",
+  "問題4": "hatsugen",
+  "問題5": "sokuji",
+};
+
+function toListeningFurigana(segments: { text: string; furigana: string | null }[] | undefined) {
+  return segments?.filter((segment) => segment.furigana).map((segment) => ({ word: segment.text, reading: segment.furigana! }));
+}
+
+const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
+  .filter((exam) => exam.source === "de-n3")
+  .sort((left, right) => left.id.localeCompare(right.id))
+  .flatMap((exam) => {
+    const paper = exam.papers.find((candidate) => candidate.id === "choukai");
+    if (!paper?.audioUrl) throw new Error(`${exam.examLabel} is missing its continuous listening audio.`);
+    return paper.questions.map((question) => {
+      if (question.correctIndex === null) throw new Error(`${exam.examLabel} question ${question.number} has no verified answer key.`);
+      const taskType = DE_N3_GROUP_TASK_TYPES[question.problemGroup];
+      if (!taskType) throw new Error(`Unknown listening group ${question.problemGroup} in ${exam.examLabel}.`);
+      return {
+        id: question.listeningQuestionId ?? `${exam.id}-q${String(question.number).padStart(2, "0")}`,
+        level: exam.level,
+        book: exam.listeningBook ?? exam.id,
+        taskType,
+        audioUrl: paper.audioUrl,
+        audioStartSec: question.audioStartSec,
+        audioEndSec: question.audioEndSec,
+        scenario: "",
+        scenarioVi: "",
+        turns: [],
+        question: question.question,
+        questionFurigana: toListeningFurigana(question.questionFurigana),
+        questionVi: question.questionVi?.startsWith("Chưa có MP3") ? "" : question.questionVi ?? "",
+        options: question.options,
+        optionFurigana: question.optionsFurigana?.map((segments) => toListeningFurigana(segments ?? []) ?? []),
+        optionsVi: question.optionsVi ?? question.options.map(() => ""),
+        optionsImage: question.optionsImage,
+        questionImage: question.questionImage,
+        optionCount: question.optionCount,
+        optionsInAudio: ["gaiyou", "hatsugen", "sokuji"].includes(taskType),
+        correctIndex: question.correctIndex,
+        explanation: question.explanation ?? "",
+        optionExplanations: question.optionExplanations,
+        notes: question.answerSourceNote,
+        dictationDisabled: true,
+      } satisfies ListeningQuestion;
+    });
+  });
 
 // Shinkanzen 039-053 are unfinished source-book placeholders: they have no
 // real choices/audio-derived answers yet (only numbered labels/instructions),
@@ -81,6 +134,7 @@ export const ALL_LISTENING: ListeningQuestion[] = [
   ...dethiN3July2025Dataset.questions,
   ...dethiN1July2026Dataset.questions,
   ...dethiN3July2026Dataset.questions,
+  ...deN3ExamListeningQuestions,
   // N3 T12/2020 remains a 6/28 pilot and stays out of the book filter until
   // its complete listening section has been converted.
   ...kaiwa100cauDataset.questions,
@@ -119,6 +173,10 @@ export const BOOK_LABELS: Record<string, string> = {
   "dethi-n3-2026-07": "Đề thi thật N3 T7/2026 (28 câu nghe)",
   "cacnam-2020-12": "Đề thi thật N3 T12/2020 (聴解, 6/28 câu -- Mondai 1)",
   "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
+  ...Object.fromEntries(Array.from({ length: 10 }, (_, index) => {
+    const setNumber = String(index + 1).padStart(2, "0");
+    return [`de-n3-${setNumber}`, `Đề luyện thi N3 · Đề ${setNumber}`] as const;
+  })),
 };
 
 // Keep study books grouped first, then show official exams newest-first so
@@ -127,6 +185,7 @@ const BOOK_ORDER: string[] = [
   "soumatome",
   "speedmaster",
   "shinkanzen",
+  ...Array.from({ length: 10 }, (_, index) => `de-n3-${String(index + 1).padStart(2, "0")}`),
   "dethi-n3-2026-07",
   "dethi-n1-2026-07",
   "dethi-2025-12",
@@ -138,25 +197,49 @@ const BOOK_ORDER: string[] = [
   "kaiwa-100cau",
 ];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
+export const AVAILABLE_DE_N3_PRACTICE_BOOKS = AVAILABLE_BOOKS.filter((book) => /^de-n3-\d{2}$/u.test(book));
+export const AVAILABLE_DICTATION_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b && !q.dictationDisabled));
+
+function initialListeningBooks(): string[] {
+  const regularBooks = AVAILABLE_BOOKS.filter((book) => !AVAILABLE_DE_N3_PRACTICE_BOOKS.includes(book));
+  return [...regularBooks, ...(AVAILABLE_DE_N3_PRACTICE_BOOKS[0] ? [AVAILABLE_DE_N3_PRACTICE_BOOKS[0]] : [])];
+}
 
 export interface ListeningViewerState {
   selectedBooks: string[];
   selectedTaskTypes: ListeningTaskType[];
+  practiceSetSelectionVersion?: number;
 }
 
 const STORAGE_KEY = "listeningViewer";
 
 export function defaultViewerState(): ListeningViewerState {
   return {
-    selectedBooks: [...AVAILABLE_BOOKS],
+    selectedBooks: initialListeningBooks(),
     selectedTaskTypes: [...AVAILABLE_TASK_TYPES],
+    practiceSetSelectionVersion: 1,
   };
 }
 
 export async function loadViewerState(): Promise<ListeningViewerState> {
   const saved = await storageGet<Partial<ListeningViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
-  const selectedBooks = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_BOOKS.includes(b));
+  const savedBooks = saved?.selectedBooks;
+  const legacyBooks = AVAILABLE_BOOKS.filter((book) => !/^de-n3-\d{2}$/u.test(book));
+  const legacySelectionContainedAllBooks = !!savedBooks &&
+    legacyBooks.every((book) => savedBooks.includes(book)) &&
+    savedBooks.every((book) => legacyBooks.includes(book));
+  const booksToLoad = legacySelectionContainedAllBooks ? fallback.selectedBooks : savedBooks ?? fallback.selectedBooks;
+  let selectedBooks = booksToLoad.filter((b) => AVAILABLE_BOOKS.includes(b));
+  if (saved?.practiceSetSelectionVersion !== 1 && AVAILABLE_DE_N3_PRACTICE_BOOKS.length > 1) {
+    const selectedPracticeBooks = selectedBooks.filter((book) => AVAILABLE_DE_N3_PRACTICE_BOOKS.includes(book));
+    if (selectedPracticeBooks.length === AVAILABLE_DE_N3_PRACTICE_BOOKS.length) {
+      selectedBooks = [
+        ...selectedBooks.filter((book) => !AVAILABLE_DE_N3_PRACTICE_BOOKS.includes(book)),
+        AVAILABLE_DE_N3_PRACTICE_BOOKS[0],
+      ];
+    }
+  }
   // Before the five-way split, "all types" was persisted as these four
   // values. Add the new bucket only for that legacy all-types selection;
   // preserve a deliberate single-type/custom filter such as sokuji-only.
@@ -176,6 +259,7 @@ export async function loadViewerState(): Promise<ListeningViewerState> {
   return {
     selectedBooks: selectedBooks.length > 0 ? selectedBooks : fallback.selectedBooks,
     selectedTaskTypes: selectedTaskTypes.length > 0 ? selectedTaskTypes : fallback.selectedTaskTypes,
+    practiceSetSelectionVersion: 1,
   };
 }
 

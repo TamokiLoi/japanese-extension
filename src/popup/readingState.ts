@@ -165,6 +165,15 @@ export function readingExamIdsForBook(book: ReadingBook): string[] {
   return AVAILABLE_READING_EXAMS.filter((exam) => exam.book === book).map((exam) => exam.id);
 }
 
+export function initialReadingExamIdsForBook(book: ReadingBook): string[] {
+  const firstId = readingExamIdsForBook(book)[0];
+  return firstId ? [firstId] : [];
+}
+
+export function initialReadingExamIds(): string[] {
+  return READING_EXAM_BOOKS.flatMap((book) => initialReadingExamIdsForBook(book));
+}
+
 export function isReadingExamBook(book: ReadingBook): book is (typeof READING_EXAM_BOOKS)[number] {
   return READING_EXAM_BOOKS.some((examBook) => examBook === book);
 }
@@ -242,6 +251,8 @@ export interface ReadingViewerState {
   selectedBooks: ReadingBook[];
   // IDs for the secondary filters under both official JLPT cycles and the 10 N3 sets.
   selectedExamIds: string[];
+  // One-time migration marker for the default child-exam selection behavior.
+  examFilterDefaultsVersion?: number;
   selectedTopics: string[];
   currentPassageId: string | null;
   lastPassageId: string | null;
@@ -276,7 +287,8 @@ export function defaultViewerState(): ReadingViewerState {
     selectedLevels: [...AVAILABLE_LEVELS],
     selectedLengths: [...AVAILABLE_LENGTHS],
     selectedBooks: [...AVAILABLE_BOOKS],
-    selectedExamIds: AVAILABLE_READING_EXAMS.map((exam) => exam.id),
+    selectedExamIds: initialReadingExamIds(),
+    examFilterDefaultsVersion: 1,
     selectedTopics: [...AVAILABLE_TOPICS],
     currentPassageId: null,
     lastPassageId: null,
@@ -306,14 +318,30 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     savedExamIds ??
     (saved?.selectedBooks === undefined
       ? fallback.selectedExamIds
-      : AVAILABLE_READING_EXAMS.filter((exam) => selectedBooks.includes(exam.book)).map((exam) => exam.id))
+      : READING_EXAM_BOOKS.flatMap((book) => selectedBooks.includes(book) ? initialReadingExamIdsForBook(book) : []))
   ).filter((id) => AVAILABLE_READING_EXAMS.some((exam) => exam.id === id));
   // Existing saves predate per-set selection for the 10 đề N3 collection.
   // If that source was enabled but has no stored set IDs yet, select its sets.
   for (const book of READING_EXAM_BOOKS) {
     const idsForBook = readingExamIdsForBook(book);
     if (selectedBooks.includes(book) && idsForBook.length > 0 && !selectedExamIds.some((id) => idsForBook.includes(id))) {
-      selectedExamIds.push(...idsForBook);
+      selectedExamIds.push(...initialReadingExamIdsForBook(book));
+    }
+  }
+  // Older versions selected every child exam when a parent source was enabled.
+  // Narrow only untouched all-selected groups once; people can immediately
+  // restore that choice with the explicit “Chọn tất cả” control.
+  if (saved?.examFilterDefaultsVersion !== 1) {
+    for (const book of READING_EXAM_BOOKS) {
+      const idsForBook = readingExamIdsForBook(book);
+      const selectedForBook = selectedExamIds.filter((id) => idsForBook.includes(id));
+      if (idsForBook.length > 1 && selectedForBook.length === idsForBook.length) {
+        for (const id of idsForBook) {
+          const index = selectedExamIds.indexOf(id);
+          if (index >= 0) selectedExamIds.splice(index, 1);
+        }
+        selectedExamIds.push(...initialReadingExamIdsForBook(book));
+      }
     }
   }
   for (const book of READING_EXAM_BOOKS) {
@@ -333,7 +361,7 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     for (const newBook of ["jlpt-exam", "de-n3", "news", "custom"] as const) {
       if (AVAILABLE_BOOKS.includes(newBook) && !selectedBooks.includes(newBook)) selectedBooks.push(newBook);
       if ((newBook === "jlpt-exam" && !saved?.selectedExamIds) || newBook === "de-n3") {
-        for (const id of readingExamIdsForBook(newBook)) {
+        for (const id of initialReadingExamIdsForBook(newBook)) {
           if (!selectedExamIds.includes(id)) selectedExamIds.push(id);
         }
       }
@@ -354,6 +382,7 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     selectedLengths: selectedLengths.length > 0 ? selectedLengths : fallback.selectedLengths,
     selectedBooks: selectedBooks.length > 0 ? selectedBooks : fallback.selectedBooks,
     selectedExamIds: selectedBooks.length > 0 ? selectedExamIds : fallback.selectedExamIds,
+    examFilterDefaultsVersion: 1,
     selectedTopics: selectedTopics.length > 0 ? selectedTopics : fallback.selectedTopics,
     currentPassageId:
       saved?.currentPassageId && findReadingById(saved.currentPassageId) ? saved.currentPassageId : null,

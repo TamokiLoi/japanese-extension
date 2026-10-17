@@ -28,6 +28,9 @@ export interface ListeningQuestion {
   // Which source book this came from -- drives the "Sách" filter, same as
   // QuizBook's `book` field.
   book: string;
+  // Some source sets have question audio and choices but no transcript, so
+  // they are useful for listening comprehension but not for dictation.
+  dictationDisabled?: boolean;
   taskType: ListeningTaskType;
   // Path resolved via assetUrl() -- see platform/assetUrl.ts.
   audioUrl: string;

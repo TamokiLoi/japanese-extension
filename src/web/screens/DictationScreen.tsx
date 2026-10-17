@@ -15,7 +15,7 @@ import {
   type DictationProgressMap,
   type CharDiff,
 } from "../../popup/dictationState.ts";
-import { AVAILABLE_BOOKS, AVAILABLE_TASK_TYPES, BOOK_LABELS, TASK_TYPE_LABELS, ALL_LISTENING } from "../../popup/listeningState.ts";
+import { AVAILABLE_DICTATION_BOOKS as AVAILABLE_BOOKS, AVAILABLE_TASK_TYPES, BOOK_LABELS, TASK_TYPE_LABELS, ALL_LISTENING } from "../../popup/listeningState.ts";
 import { recordAnswer as recordSharedAnswer } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { ListeningQuestion } from "../../types/listening.ts";
@@ -223,7 +223,7 @@ function ListView({
         <FilterGroup title="Sách">
           {AVAILABLE_BOOKS.map((book) => {
             const checked = state.selectedBooks.includes(book);
-            const count = ALL_LISTENING.filter((q) => q.book === book && state.selectedTaskTypes.includes(q.taskType)).length;
+            const count = ALL_LISTENING.filter((q) => !q.dictationDisabled && q.book === book && state.selectedTaskTypes.includes(q.taskType)).length;
             return (
               <FilterChipOption
                 key={book}
@@ -233,7 +233,7 @@ function ListView({
                   const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
                   if (next.length === 0) return;
                   const nextTaskTypes = pruneToggle(state.selectedTaskTypes, AVAILABLE_TASK_TYPES, (t) =>
-                    ALL_LISTENING.some((q) => q.taskType === t && next.includes(q.book)),
+                    ALL_LISTENING.some((q) => !q.dictationDisabled && q.taskType === t && next.includes(q.book)),
                   );
                   mutate({ selectedBooks: next, selectedTaskTypes: nextTaskTypes });
                 }}
@@ -245,7 +245,7 @@ function ListView({
         <FilterGroup title="Dạng câu hỏi">
           {AVAILABLE_TASK_TYPES.map((t) => {
             const checked = state.selectedTaskTypes.includes(t);
-            const count = ALL_LISTENING.filter((q) => q.taskType === t && state.selectedBooks.includes(q.book)).length;
+            const count = ALL_LISTENING.filter((q) => !q.dictationDisabled && q.taskType === t && state.selectedBooks.includes(q.book)).length;
             return (
               <FilterChipOption
                 key={t}
@@ -255,7 +255,7 @@ function ListView({
                   const next = checked ? state.selectedTaskTypes.filter((x) => x !== t) : [...new Set([...state.selectedTaskTypes, t])];
                   if (next.length === 0) return;
                   const nextBooks = pruneToggle(state.selectedBooks, AVAILABLE_BOOKS, (b) =>
-                    ALL_LISTENING.some((q) => q.book === b && next.includes(q.taskType)),
+                    ALL_LISTENING.some((q) => !q.dictationDisabled && q.book === b && next.includes(q.taskType)),
                   );
                   mutate({ selectedTaskTypes: next, selectedBooks: nextBooks });
                 }}

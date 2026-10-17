@@ -3,11 +3,13 @@ import { Headphones, ChevronLeft, ChevronRight, Info, BookOpenText, RotateCcw, U
 import {
   ALL_LISTENING,
   AVAILABLE_BOOKS,
+  AVAILABLE_DE_N3_PRACTICE_BOOKS,
   AVAILABLE_TASK_TYPES,
   BOOK_LABELS,
   TASK_TYPE_LABELS,
   findListeningById,
   getFilteredList,
+  defaultViewerState,
   loadViewerState,
   saveViewerState,
   loadListeningProgress,
@@ -71,6 +73,8 @@ const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; descripti
     description: "Nghe hội thoại/bài nói dài, kết hợp nhiều thông tin để trả lời câu hỏi.",
   },
 };
+
+const LISTENING_PRACTICE_EXAM_BOOKS = AVAILABLE_DE_N3_PRACTICE_BOOKS;
 
 function ListeningTypeInfo({ taskType }: { taskType: ListeningTaskType }) {
   const [open, setOpen] = useState(false);
@@ -224,13 +228,60 @@ function ListView({
 
   if (!state) return <LoadingScreen variant="listening" title="Luyện nghe" />;
 
-  const allBooksChecked = state.selectedBooks.length === AVAILABLE_BOOKS.length;
+  const currentState = state;
+  const regularBooks = AVAILABLE_BOOKS.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book));
+  const selectedRegularBooks = state.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book));
+  const allRegularBooksChecked = selectedRegularBooks.length === regularBooks.length;
   const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;
-  const filterCount = (allBooksChecked ? 0 : state.selectedBooks.length) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
   const correctCount = filtered.filter((q) => progress[q.id]?.status === "correct").length;
   const wrongCount = filtered.filter((q) => progress[q.id]?.status === "wrong").length;
   const notStartedCount = filtered.length - correctCount - wrongCount;
   const attemptedCount = correctCount + wrongCount;
+  const selectedPracticeExamBooks = LISTENING_PRACTICE_EXAM_BOOKS.filter((book) => currentState.selectedBooks.includes(book));
+  const allPracticeExamBooksSelected = LISTENING_PRACTICE_EXAM_BOOKS.length > 0 && selectedPracticeExamBooks.length === LISTENING_PRACTICE_EXAM_BOOKS.length;
+  const filterCount = (allRegularBooksChecked ? 0 : 1) + (allPracticeExamBooksSelected ? 0 : 1) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
+  const practiceExamQuestionCount = ALL_LISTENING.filter((q) =>
+    LISTENING_PRACTICE_EXAM_BOOKS.includes(q.book) && currentState.selectedTaskTypes.includes(q.taskType),
+  ).length;
+
+  function applyBookSelection(nextBooks: string[]) {
+    if (nextBooks.length === 0) return;
+    const nextTaskTypes = pruneToggle(currentState.selectedTaskTypes, AVAILABLE_TASK_TYPES, (t) =>
+      ALL_LISTENING.some((q) => q.taskType === t && nextBooks.includes(q.book)),
+    );
+    mutate({ selectedBooks: nextBooks, selectedTaskTypes: nextTaskTypes });
+  }
+
+  function togglePracticeExamCollection() {
+    if (LISTENING_PRACTICE_EXAM_BOOKS.length === 0) return;
+    const nextBooks = selectedPracticeExamBooks.length > 0
+      ? currentState.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book))
+      : [...new Set([...currentState.selectedBooks, LISTENING_PRACTICE_EXAM_BOOKS[0]])];
+    applyBookSelection(nextBooks);
+  }
+
+  function toggleAllPracticeExamBooks() {
+    const nextBooks = allPracticeExamBooksSelected
+      ? currentState.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book))
+      : [...new Set([...currentState.selectedBooks, ...LISTENING_PRACTICE_EXAM_BOOKS])];
+    applyBookSelection(nextBooks);
+  }
+
+  function renderBookOption(book: string) {
+    const checked = currentState.selectedBooks.includes(book);
+    const count = ALL_LISTENING.filter((q) => q.book === book && currentState.selectedTaskTypes.includes(q.taskType)).length;
+    return (
+      <FilterChipOption
+        key={book}
+        label={`${BOOK_LABELS[book]} (${count})`}
+        active={checked}
+        onClick={() => {
+          const next = checked ? currentState.selectedBooks.filter((b) => b !== book) : [...new Set([...currentState.selectedBooks, book])];
+          applyBookSelection(next);
+        }}
+      />
+    );
+  }
 
   async function resetAllFiltered() {
     if (!(await confirm(`Đặt lại toàn bộ ${attemptedCount} câu đã làm trong bộ lọc hiện tại về "chưa làm"? Không thể hoàn tác.`))) return;
@@ -283,9 +334,10 @@ function ListView({
 
       <ActiveFilters
         chips={[
-          ...(allBooksChecked
+          ...(allRegularBooksChecked && allPracticeExamBooksSelected
             ? []
-            : state.selectedBooks.map((book) => ({
+            : [
+              ...(!allRegularBooksChecked ? selectedRegularBooks.map((book) => ({
                 key: `book-${book}`,
                 label: BOOK_LABELS[book],
                 onRemove: () => {
@@ -293,7 +345,13 @@ function ListView({
                   if (next.length === 0) return;
                   mutate({ selectedBooks: next });
                 },
-              }))),
+              })) : []),
+              ...(!allPracticeExamBooksSelected && selectedPracticeExamBooks.length > 0 ? [{
+                key: "book-jlpt-n3-practice",
+                label: `JLPT N3 · ${selectedPracticeExamBooks.length}/${LISTENING_PRACTICE_EXAM_BOOKS.length} đề`,
+                onRemove: () => applyBookSelection(state.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book))),
+              }] : []),
+            ]),
           ...(allTaskTypesChecked
             ? []
             : state.selectedTaskTypes.map((t) => ({
@@ -312,28 +370,32 @@ function ListView({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         title="Bộ lọc luyện nghe"
-        onReset={() => mutate({ selectedBooks: [...AVAILABLE_BOOKS], selectedTaskTypes: [...AVAILABLE_TASK_TYPES] })}
+        onReset={() => {
+          const defaults = defaultViewerState();
+          mutate({ selectedBooks: defaults.selectedBooks, selectedTaskTypes: defaults.selectedTaskTypes });
+        }}
       >
         <FilterGroup title="Sách">
-          {AVAILABLE_BOOKS.map((book) => {
-            const checked = state.selectedBooks.includes(book);
-            const count = ALL_LISTENING.filter((q) => q.book === book && state.selectedTaskTypes.includes(q.taskType)).length;
-            return (
+          {AVAILABLE_BOOKS.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book)).map(renderBookOption)}
+        </FilterGroup>
+
+        <FilterGroup title="JLPT N3">
+          <div className="w-full">
+            <FilterChipOption
+              label={`JLPT N3 · Đề luyện thi (${practiceExamQuestionCount})`}
+              active={selectedPracticeExamBooks.length > 0}
+              onClick={togglePracticeExamCollection}
+            />
+            <div className="mb-2 text-xs font-medium text-neutral-500">Đề luyện thi</div>
+            <div className="flex flex-wrap gap-2">
               <FilterChipOption
-                key={book}
-                label={`${BOOK_LABELS[book]} (${count})`}
-                active={checked}
-                onClick={() => {
-                  const next = checked ? state.selectedBooks.filter((b) => b !== book) : [...new Set([...state.selectedBooks, book])];
-                  if (next.length === 0) return;
-                  const nextTaskTypes = pruneToggle(state.selectedTaskTypes, AVAILABLE_TASK_TYPES, (t) =>
-                    ALL_LISTENING.some((q) => q.taskType === t && next.includes(q.book)),
-                  );
-                  mutate({ selectedBooks: next, selectedTaskTypes: nextTaskTypes });
-                }}
+                label={`Chọn tất cả (${practiceExamQuestionCount})`}
+                active={allPracticeExamBooksSelected}
+                onClick={toggleAllPracticeExamBooks}
               />
-            );
-          })}
+              {LISTENING_PRACTICE_EXAM_BOOKS.map(renderBookOption)}
+            </div>
+          </div>
         </FilterGroup>
 
         <FilterGroup title="Dạng câu hỏi">

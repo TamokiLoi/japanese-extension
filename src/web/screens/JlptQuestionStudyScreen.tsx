@@ -135,7 +135,9 @@ export function JlptQuestionStudyScreen({
       return index < 0 ? SOURCE_ORDER.length : index;
     };
     return [...ALL_EXAMS]
-      .sort((a, b) => sourceRank(a.source) - sourceRank(b.source) || b.id.localeCompare(a.id))
+      .sort((a, b) => sourceRank(a.source) - sourceRank(b.source) || (a.source === "de-n3"
+        ? a.id.localeCompare(b.id, undefined, { numeric: true })
+        : b.id.localeCompare(a.id)))
       .map(buildExamQuestionSets);
   }, []);
   const initialItem = targetId

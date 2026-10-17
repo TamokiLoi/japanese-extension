@@ -8,7 +8,7 @@
 // filter to sokuji-only so a first-time user lands on short, dictation-
 // sized content; the same filter UI as Luyện nghe lets them opt into the
 // longer dialogue types.
-import { ALL_LISTENING, AVAILABLE_BOOKS, AVAILABLE_TASK_TYPES } from "./listeningState.ts";
+import { ALL_LISTENING, AVAILABLE_DICTATION_BOOKS, AVAILABLE_TASK_TYPES } from "./listeningState.ts";
 import type { ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 import { storageGet, storageSet } from "../platform/storage";
 
@@ -35,7 +35,7 @@ const VIEWER_STORAGE_KEY = "dictationViewer";
 export function defaultViewerState(): DictationViewerState {
   const sokujiAvailable = AVAILABLE_TASK_TYPES.includes("sokuji");
   return {
-    selectedBooks: [...AVAILABLE_BOOKS],
+    selectedBooks: [...AVAILABLE_DICTATION_BOOKS],
     selectedTaskTypes: sokujiAvailable ? ["sokuji"] : [...AVAILABLE_TASK_TYPES],
     autoAdvance: true,
   };
@@ -44,7 +44,7 @@ export function defaultViewerState(): DictationViewerState {
 export async function loadViewerState(): Promise<DictationViewerState> {
   const saved = await storageGet<Partial<DictationViewerState>>(VIEWER_STORAGE_KEY);
   const fallback = defaultViewerState();
-  const selectedBooks = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_BOOKS.includes(b));
+  const selectedBooks = (saved?.selectedBooks ?? fallback.selectedBooks).filter((b) => AVAILABLE_DICTATION_BOOKS.includes(b));
   const selectedTaskTypes = (saved?.selectedTaskTypes ?? fallback.selectedTaskTypes).filter((t) =>
     AVAILABLE_TASK_TYPES.includes(t),
   );
@@ -60,7 +60,7 @@ export async function saveViewerState(state: DictationViewerState): Promise<void
 }
 
 export function getFilteredList(state: DictationViewerState): ListeningQuestion[] {
-  return ALL_LISTENING.filter((q) => state.selectedBooks.includes(q.book) && state.selectedTaskTypes.includes(q.taskType));
+  return ALL_LISTENING.filter((q) => !q.dictationDisabled && state.selectedBooks.includes(q.book) && state.selectedTaskTypes.includes(q.taskType));
 }
 
 // The text a dictation item is graded against -- everything actually spoken

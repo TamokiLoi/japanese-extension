@@ -139,7 +139,7 @@ function buildEntries(contentType: StatsContentType): StatEntry[] {
   // tracked practice mode (see dictationProgressId) -- id is the prefixed
   // progress key, navId is the real question id ListeningHubScreen needs to
   // jump to.
-  return ALL_LISTENING.map((q) => ({
+  return ALL_LISTENING.filter((q) => !q.dictationDisabled).map((q) => ({
     id: dictationProgressId(q.id),
     level: q.level,
     char: TASK_TYPE_LABELS[q.taskType].split(" -- ")[0],
@@ -208,7 +208,7 @@ function buildGroupBars(contentType: StatsContentType): GroupBar[] {
     key: t,
     label: TASK_TYPE_LABELS[t].split(" -- ")[0],
     isLevel: false,
-    ids: ALL_LISTENING.filter((q) => q.taskType === t).map((q) => idOf(q.id)),
+    ids: ALL_LISTENING.filter((q) => (contentType !== "dictation" || !q.dictationDisabled) && q.taskType === t).map((q) => idOf(q.id)),
   }));
 }
 

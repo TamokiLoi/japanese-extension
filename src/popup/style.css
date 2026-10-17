@@ -1362,6 +1362,24 @@ body.tab-mode .jlpt-list {
   content: "▾";
 }
 
+.reading-exam-filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.reading-exam-filter-actions button {
+  padding: 4px 0;
+  color: #e11d48;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reading-exam-filter-actions button:disabled {
+  color: #999;
+  cursor: default;
+}
+
 .reading-exam-filter-options {
   margin-top: 8px;
 }
