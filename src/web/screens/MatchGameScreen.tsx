@@ -300,7 +300,7 @@ export function MatchGameScreen() {
 
   if (phase === "resume") {
     return (
-      <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
         <PageHeader title="Ghép cặp" icon={{ img: "icon-practice.png", bg: "#fae8ff" }} />
         <p className="mt-3 text-neutral-500">Bạn có {resumeSlots.length} ván đang chơi dở:</p>
         <div className="mt-4 flex flex-col gap-2">
@@ -454,7 +454,7 @@ export function MatchGameScreen() {
 
   if (pool.length === 0) {
     return (
-      <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
         {header}
         {filterUi}
         <p className="mt-6 text-center text-neutral-500">
@@ -470,7 +470,7 @@ export function MatchGameScreen() {
   const allDone = batchDone && isLastBatch;
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       {header}
       {filterUi}
 

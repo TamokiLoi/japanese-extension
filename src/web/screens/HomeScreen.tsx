@@ -709,8 +709,6 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
     if (content) setPlan(computePlan(content, next));
   }
 
-  const totalDue = stats ? stats.due.kanji + stats.due.vocab + stats.due.bunpo : 0;
-
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-4">
       <h1 className="text-2xl font-bold text-neutral-800">{greeting()} 🌸</h1>
@@ -816,13 +814,13 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                     </span>
                     <div className="mt-2 text-base font-bold text-neutral-800 md:mt-3 md:text-2xl">Bắt đầu hành trình của bạn</div>
                     <p className="mt-1 text-[11px] text-neutral-600 md:text-sm">
-                      Ôn đều mỗi ngày -- dù chỉ vài phút -- giúp Kanji, từ vựng và ngữ pháp ở lại lâu hơn trong đầu.
+                      Học đều mỗi ngày -- dù chỉ vài phút -- giúp Kanji, từ vựng và ngữ pháp ở lại lâu hơn trong đầu.
                     </p>
                     <button
-                      onClick={() => onNavigate(totalDue > 0 ? "review" : "kanji")}
+                      onClick={() => onNavigate("kanji")}
                       className="mt-3 inline-flex items-center gap-2 rounded-full bg-rose-600 px-4 py-2 text-xs font-semibold text-white hover:bg-rose-700 md:mt-4 md:px-5 md:py-2.5 md:text-sm"
                     >
-                      {totalDue > 0 ? "Bắt đầu ôn tập" : "Bắt đầu học ngay"}
+                      Bắt đầu học ngay
                       <ArrowRight size={14} />
                     </button>
                   </div>

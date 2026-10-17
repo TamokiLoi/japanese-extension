@@ -70,7 +70,7 @@ export function SettingsScreen({
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-3 py-3 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-3 py-3 md:px-8 md:py-6">
       <div className="flex items-center gap-3">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] bg-rose-100 text-rose-600">
           <Settings size={21} />

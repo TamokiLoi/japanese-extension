@@ -16,7 +16,6 @@ export const BOTTOM_NAV_CHOICES: Screen[] = [
   "roadmap",
   "quiz",
   "matchGame",
-  "review",
   "itBookLessons",
   "itBookVocab",
   "stats",

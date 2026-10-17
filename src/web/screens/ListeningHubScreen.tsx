@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Headphones, Keyboard } from "lucide-react";
+import { Headphones, Keyboard, Lightbulb } from "lucide-react";
 import { ListeningScreen } from "./ListeningScreen.tsx";
 import { DictationScreen } from "./DictationScreen.tsx";
+import { Button } from "../components/ui/button.tsx";
 
 type Tab = "listening" | "dictation";
 
@@ -11,10 +12,8 @@ type Tab = "listening" | "dictation";
 // two separate nav items. WebApp.tsx routes both the legacy "listening" and
 // "dictation" hash values here so old deep links still land on the right tab.
 //
-// The switcher is passed down as `topBar` and rendered *inside* each
-// screen's own top-level wrapper (rather than this component adding a
-// second mx-auto max-w-3xl wrapper around them) -- nesting two of those
-// would double up the horizontal/vertical padding.
+// The switcher and title action are passed into each screen so the page can
+// keep its title first, then the mode switcher, in the same content column.
 export function ListeningHubScreen({
   initialTab = "listening",
   jumpToId,
@@ -28,8 +27,8 @@ export function ListeningHubScreen({
 }) {
   const [tab, setTab] = useState<Tab>(initialTab);
 
-  const topBar = (
-    <div className="mb-4 flex items-center gap-1 rounded-full border border-neutral-200 p-1">
+  const tabs = (
+    <div className="flex items-center gap-1 rounded-full border border-neutral-200 p-1">
       <button
         onClick={() => setTab("listening")}
         className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-1.5 text-sm font-semibold ${
@@ -46,13 +45,17 @@ export function ListeningHubScreen({
       >
         <Keyboard size={15} /> Nghe chép chính tả
       </button>
-      {onOpenExamTips ? <button type="button" onClick={onOpenExamTips} className="mt-2 inline-flex min-h-9 items-center gap-1.5 rounded-lg px-2 text-xs font-semibold text-rose-700 hover:bg-rose-50"><Headphones size={14} /> Mẹo nghe N3 <span aria-hidden="true">→</span></button> : null}
     </div>
   );
+  const headerAction = onOpenExamTips ? (
+    <Button size="sm" variant="outline" onClick={onOpenExamTips}>
+      <Lightbulb size={14} /> Mẹo nghe N3
+    </Button>
+  ) : undefined;
 
   return tab === "listening" ? (
-    <ListeningScreen topBar={topBar} jumpToId={tab === initialTab ? jumpToId : undefined} onCurrentItemChange={onCurrentItemChange} />
+    <ListeningScreen tabs={tabs} headerAction={headerAction} jumpToId={tab === initialTab ? jumpToId : undefined} onCurrentItemChange={onCurrentItemChange} />
   ) : (
-    <DictationScreen topBar={topBar} jumpToId={tab === initialTab ? jumpToId : undefined} onCurrentItemChange={onCurrentItemChange} />
+    <DictationScreen tabs={tabs} headerAction={headerAction} jumpToId={tab === initialTab ? jumpToId : undefined} onCurrentItemChange={onCurrentItemChange} />
   );
 }

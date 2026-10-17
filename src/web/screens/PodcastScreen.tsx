@@ -207,7 +207,7 @@ function ListView({
       : statusFiltered;
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader title="Podcast" subtitle={`${visible.length} tập`} />
 
       <div className="relative mt-4">
@@ -648,7 +648,7 @@ function EpisodeView({
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       {/* Sticky on both mobile and desktop -- with a transcript that can
           run to hundreds of lines, losing the video off-screen while
           scrolling to follow along defeats the point either way. `md:top-4`

@@ -49,11 +49,13 @@ function gridCellStyle(status: GridStatus, current: boolean): string {
 }
 
 export function DictationScreen({
-  topBar,
+  tabs,
+  headerAction,
   jumpToId,
   onCurrentItemChange,
 }: {
-  topBar?: React.ReactNode;
+  tabs?: React.ReactNode;
+  headerAction?: React.ReactNode;
   // Opens straight into a specific question (e.g. from Stats' "Cần ôn lại"
   // list). Widens the book/task-type filter to include it if it's excluded
   // (e.g. a kadai item while the filter is still sokuji-only) -- otherwise
@@ -115,18 +117,20 @@ export function DictationScreen({
     );
   }
 
-  return <ListView topBar={topBar} state={state} onStateChange={setState} progress={progress} list={list} onOpen={setCurrentId} />;
+  return <ListView tabs={tabs} headerAction={headerAction} state={state} onStateChange={setState} progress={progress} list={list} onOpen={setCurrentId} />;
 }
 
 function ListView({
-  topBar,
+  tabs,
+  headerAction,
   state,
   onStateChange,
   progress,
   list,
   onOpen,
 }: {
-  topBar?: React.ReactNode;
+  tabs?: React.ReactNode;
+  headerAction?: React.ReactNode;
   state: DictationViewerState;
   onStateChange: (s: DictationViewerState) => void;
   progress: DictationProgressMap;
@@ -155,9 +159,9 @@ function ListView({
   const avgAccuracy = accuracies.length > 0 ? Math.round(accuracies.reduce((a, b) => a + b, 0) / accuracies.length) : 0;
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
-      {topBar}
-      <PageHeader title="Nghe chép chính tả" subtitle={`${list.length} câu`} icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
+      <PageHeader title="Nghe chép chính tả" subtitle={`${list.length} câu`} icon={{ img: "icon-listening.png", bg: "#fce7f3" }} action={headerAction} />
+      <div className="mt-4">{tabs}</div>
 
       <div className="mt-4 grid grid-cols-2 gap-3">
         <StatCard
@@ -364,7 +368,7 @@ function PracticeView({
   const pctColor = pct === null ? "" : pct === 100 ? "text-emerald-600" : pct >= 60 ? "text-amber-600" : "text-rose-600";
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
           <ChevronLeft size={15} /> Nghe chép chính tả

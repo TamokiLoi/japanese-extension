@@ -75,6 +75,7 @@ const LISTENING_TYPE_NOTES: Record<ListeningTaskType, { title: string; descripti
 };
 
 const LISTENING_PRACTICE_EXAM_BOOKS = AVAILABLE_DE_N3_PRACTICE_BOOKS;
+const LISTENING_OFFICIAL_EXAM_BOOKS = AVAILABLE_BOOKS.filter((book) => /^(?:dethi-|cacnam-)/u.test(book));
 
 function ListeningTypeInfo({ taskType }: { taskType: ListeningTaskType }) {
   const [open, setOpen] = useState(false);
@@ -146,11 +147,13 @@ function FuriganaToggle({ active, onToggle }: { active: boolean; onToggle: () =>
 // screen's own coloring, and the shared progressState.ts map (see
 // selectAnswer below) plugs it into Home/Stats like every other content type.
 export function ListeningScreen({
-  topBar,
+  tabs,
+  headerAction,
   jumpToId,
   onCurrentItemChange,
 }: {
-  topBar?: React.ReactNode;
+  tabs?: React.ReactNode;
+  headerAction?: React.ReactNode;
   // Opens straight into a specific question (e.g. from Stats' "Cần ôn lại"
   // list) instead of the filtered list -- initial value only, doesn't
   // fight the user's own in-screen navigation afterward.
@@ -184,17 +187,19 @@ export function ListeningScreen({
       />
     );
   }
-  return <ListView topBar={topBar} state={state} setState={setState} filtered={filtered} onOpen={setCurrentId} />;
+  return <ListView tabs={tabs} headerAction={headerAction} state={state} setState={setState} filtered={filtered} onOpen={setCurrentId} />;
 }
 
 function ListView({
-  topBar,
+  tabs,
+  headerAction,
   state,
   setState,
   filtered,
   onOpen,
 }: {
-  topBar?: React.ReactNode;
+  tabs?: React.ReactNode;
+  headerAction?: React.ReactNode;
   state: ListeningViewerState | null;
   setState: (s: ListeningViewerState) => void;
   filtered: ListeningQuestion[];
@@ -229,8 +234,9 @@ function ListView({
   if (!state) return <LoadingScreen variant="listening" title="Luyện nghe" />;
 
   const currentState = state;
-  const regularBooks = AVAILABLE_BOOKS.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book));
-  const selectedRegularBooks = state.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book));
+  const groupedExamBooks = [...LISTENING_PRACTICE_EXAM_BOOKS, ...LISTENING_OFFICIAL_EXAM_BOOKS];
+  const regularBooks = AVAILABLE_BOOKS.filter((book) => !groupedExamBooks.includes(book));
+  const selectedRegularBooks = state.selectedBooks.filter((book) => !groupedExamBooks.includes(book));
   const allRegularBooksChecked = selectedRegularBooks.length === regularBooks.length;
   const allTaskTypesChecked = state.selectedTaskTypes.length === AVAILABLE_TASK_TYPES.length;
   const correctCount = filtered.filter((q) => progress[q.id]?.status === "correct").length;
@@ -239,9 +245,14 @@ function ListView({
   const attemptedCount = correctCount + wrongCount;
   const selectedPracticeExamBooks = LISTENING_PRACTICE_EXAM_BOOKS.filter((book) => currentState.selectedBooks.includes(book));
   const allPracticeExamBooksSelected = LISTENING_PRACTICE_EXAM_BOOKS.length > 0 && selectedPracticeExamBooks.length === LISTENING_PRACTICE_EXAM_BOOKS.length;
-  const filterCount = (allRegularBooksChecked ? 0 : 1) + (allPracticeExamBooksSelected ? 0 : 1) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
+  const selectedOfficialExamBooks = LISTENING_OFFICIAL_EXAM_BOOKS.filter((book) => currentState.selectedBooks.includes(book));
+  const allOfficialExamBooksSelected = LISTENING_OFFICIAL_EXAM_BOOKS.length > 0 && selectedOfficialExamBooks.length === LISTENING_OFFICIAL_EXAM_BOOKS.length;
+  const filterCount = (allRegularBooksChecked ? 0 : 1) + (allPracticeExamBooksSelected ? 0 : 1) + (allOfficialExamBooksSelected ? 0 : 1) + (allTaskTypesChecked ? 0 : state.selectedTaskTypes.length);
   const practiceExamQuestionCount = ALL_LISTENING.filter((q) =>
     LISTENING_PRACTICE_EXAM_BOOKS.includes(q.book) && currentState.selectedTaskTypes.includes(q.taskType),
+  ).length;
+  const officialExamQuestionCount = ALL_LISTENING.filter((q) =>
+    LISTENING_OFFICIAL_EXAM_BOOKS.includes(q.book) && currentState.selectedTaskTypes.includes(q.taskType),
   ).length;
 
   function applyBookSelection(nextBooks: string[]) {
@@ -264,6 +275,21 @@ function ListView({
     const nextBooks = allPracticeExamBooksSelected
       ? currentState.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book))
       : [...new Set([...currentState.selectedBooks, ...LISTENING_PRACTICE_EXAM_BOOKS])];
+    applyBookSelection(nextBooks);
+  }
+
+  function toggleOfficialExamCollection() {
+    if (LISTENING_OFFICIAL_EXAM_BOOKS.length === 0) return;
+    const nextBooks = selectedOfficialExamBooks.length > 0
+      ? currentState.selectedBooks.filter((book) => !LISTENING_OFFICIAL_EXAM_BOOKS.includes(book))
+      : [...new Set([...currentState.selectedBooks, ...LISTENING_OFFICIAL_EXAM_BOOKS])];
+    applyBookSelection(nextBooks);
+  }
+
+  function toggleAllOfficialExamBooks() {
+    const nextBooks = allOfficialExamBooksSelected
+      ? currentState.selectedBooks.filter((book) => !LISTENING_OFFICIAL_EXAM_BOOKS.includes(book))
+      : [...new Set([...currentState.selectedBooks, ...LISTENING_OFFICIAL_EXAM_BOOKS])];
     applyBookSelection(nextBooks);
   }
 
@@ -296,9 +322,9 @@ function ListView({
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
-      {topBar}
-      <PageHeader title="Luyện nghe" subtitle={`${filtered.length} câu`} icon={{ img: "icon-listening.png", bg: "#fce7f3" }} />
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
+      <PageHeader title="Luyện nghe" subtitle={`${filtered.length} câu`} icon={{ img: "icon-listening.png", bg: "#fce7f3" }} action={headerAction} />
+      <div className="mt-4">{tabs}</div>
 
       <div className="mt-4 grid grid-cols-3 gap-3">
         <StatCard
@@ -334,7 +360,7 @@ function ListView({
 
       <ActiveFilters
         chips={[
-          ...(allRegularBooksChecked && allPracticeExamBooksSelected
+          ...(allRegularBooksChecked && allPracticeExamBooksSelected && allOfficialExamBooksSelected
             ? []
             : [
               ...(!allRegularBooksChecked ? selectedRegularBooks.map((book) => ({
@@ -346,9 +372,14 @@ function ListView({
                   mutate({ selectedBooks: next });
                 },
               })) : []),
+              ...(!allOfficialExamBooksSelected && selectedOfficialExamBooks.length > 0 ? [{
+                key: "book-jlpt-official",
+                label: `Đề JLPT · ${selectedOfficialExamBooks.length}/${LISTENING_OFFICIAL_EXAM_BOOKS.length} kỳ`,
+                onRemove: () => applyBookSelection(state.selectedBooks.filter((book) => !LISTENING_OFFICIAL_EXAM_BOOKS.includes(book))),
+              }] : []),
               ...(!allPracticeExamBooksSelected && selectedPracticeExamBooks.length > 0 ? [{
                 key: "book-jlpt-n3-practice",
-                label: `JLPT N3 · ${selectedPracticeExamBooks.length}/${LISTENING_PRACTICE_EXAM_BOOKS.length} đề`,
+                label: `10 đề N3 · ${selectedPracticeExamBooks.length}/${LISTENING_PRACTICE_EXAM_BOOKS.length} đề`,
                 onRemove: () => applyBookSelection(state.selectedBooks.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book))),
               }] : []),
             ]),
@@ -376,27 +407,66 @@ function ListView({
         }}
       >
         <FilterGroup title="Sách">
-          {AVAILABLE_BOOKS.filter((book) => !LISTENING_PRACTICE_EXAM_BOOKS.includes(book)).map(renderBookOption)}
-        </FilterGroup>
-
-        <FilterGroup title="JLPT N3">
-          <div className="w-full">
+          {regularBooks.map(renderBookOption)}
+          {LISTENING_OFFICIAL_EXAM_BOOKS.length > 0 ? (
             <FilterChipOption
-              label={`JLPT N3 · Đề luyện thi (${practiceExamQuestionCount})`}
+              label={`Đề JLPT (${officialExamQuestionCount})`}
+              active={selectedOfficialExamBooks.length > 0}
+              onClick={toggleOfficialExamCollection}
+            />
+          ) : null}
+          {LISTENING_PRACTICE_EXAM_BOOKS.length > 0 ? (
+            <FilterChipOption
+              label={`10 đề N3 (${practiceExamQuestionCount})`}
               active={selectedPracticeExamBooks.length > 0}
               onClick={togglePracticeExamCollection}
             />
-            <div className="mb-2 text-xs font-medium text-neutral-500">Đề luyện thi</div>
-            <div className="flex flex-wrap gap-2">
-              <FilterChipOption
-                label={`Chọn tất cả (${practiceExamQuestionCount})`}
-                active={allPracticeExamBooksSelected}
+          ) : null}
+        </FilterGroup>
+
+        {selectedOfficialExamBooks.length > 0 ? (
+          <details className="rounded-xl border border-neutral-200 px-3 py-2">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 text-sm font-semibold text-neutral-700">
+              <span>Đề JLPT theo kỳ</span>
+              <span className="shrink-0 text-xs font-normal text-neutral-400">{selectedOfficialExamBooks.length}/{LISTENING_OFFICIAL_EXAM_BOOKS.length} · {officialExamQuestionCount} câu</span>
+            </summary>
+            <div className="mt-2 flex justify-end">
+              <button
+                type="button"
+                disabled={allOfficialExamBooksSelected}
+                onClick={toggleAllOfficialExamBooks}
+                className="text-xs font-semibold text-rose-600 hover:underline disabled:cursor-default disabled:text-neutral-400 disabled:no-underline"
+              >
+                {allOfficialExamBooksSelected ? "Đã chọn tất cả" : "Chọn tất cả"}
+              </button>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {LISTENING_OFFICIAL_EXAM_BOOKS.map(renderBookOption)}
+            </div>
+          </details>
+        ) : null}
+
+        {selectedPracticeExamBooks.length > 0 ? (
+          <details className="rounded-xl border border-neutral-200 px-3 py-2">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-1 text-sm font-semibold text-neutral-700">
+              <span>10 đề N3 theo đề</span>
+              <span className="shrink-0 text-xs font-normal text-neutral-400">{selectedPracticeExamBooks.length}/{LISTENING_PRACTICE_EXAM_BOOKS.length} · {practiceExamQuestionCount} câu</span>
+            </summary>
+            <div className="mt-2 flex justify-end">
+              <button
+                type="button"
+                disabled={allPracticeExamBooksSelected}
                 onClick={toggleAllPracticeExamBooks}
-              />
+                className="text-xs font-semibold text-rose-600 hover:underline disabled:cursor-default disabled:text-neutral-400 disabled:no-underline"
+              >
+                {allPracticeExamBooksSelected ? "Đã chọn tất cả" : "Chọn tất cả"}
+              </button>
+            </div>
+            <div className="mt-3 flex flex-wrap gap-2">
               {LISTENING_PRACTICE_EXAM_BOOKS.map(renderBookOption)}
             </div>
-          </div>
-        </FilterGroup>
+          </details>
+        ) : null}
 
         <FilterGroup title="Dạng câu hỏi">
           {AVAILABLE_TASK_TYPES.map((t) => {
@@ -573,7 +643,7 @@ function QuestionView({
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
           <ChevronLeft size={15} /> Luyện nghe

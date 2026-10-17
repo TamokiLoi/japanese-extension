@@ -122,7 +122,7 @@ export function BackupScreen() {
         </div>
       </div>
 
-      <Tabs defaultValue="offline" className="mt-5 gap-5">
+      <Tabs defaultValue="online" className="mt-5 gap-5">
         <TabsList className="h-11 w-full max-w-md rounded-xl bg-neutral-100 p-1">
           <TabsTrigger value="online" className="h-full rounded-lg px-4 data-active:bg-white data-active:text-sky-700">
             <Cloud size={15} /> Online
@@ -136,7 +136,7 @@ export function BackupScreen() {
           <div className="mb-4 flex items-start gap-2 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
             <ShieldCheck size={16} className="mt-0.5 shrink-0" />
             <div>
-              Đây là cách sao lưu mặc định. Dữ liệu chỉ được xuất thành file JSON trên thiết bị và không gửi đến dịch vụ bên ngoài.
+              Với sao lưu Offline, dữ liệu chỉ được xuất thành file JSON trên thiết bị và không gửi đến dịch vụ bên ngoài.
             </div>
           </div>
 

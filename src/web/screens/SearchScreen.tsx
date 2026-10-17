@@ -271,10 +271,12 @@ export function SearchScreen({
             {q ? <p className="text-sm text-neutral-500">{results.length} kết quả</p> : null}
           </div>
         </div>
-        <Button variant="outline" className="rounded-xl" onClick={() => setNewVocabOpen(true)}>
-          <Plus size={15} /> <span className="hidden sm:inline">Thêm từ mới</span>
-          <span className="sm:hidden">Thêm từ</span>
-        </Button>
+        {!popup ? (
+          <Button variant="outline" className="rounded-xl" onClick={() => setNewVocabOpen(true)}>
+            <Plus size={15} /> <span className="hidden sm:inline">Thêm từ mới</span>
+            <span className="sm:hidden">Thêm từ</span>
+          </Button>
+        ) : null}
       </div>
 
       <input

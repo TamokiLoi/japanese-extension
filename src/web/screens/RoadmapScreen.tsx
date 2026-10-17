@@ -8,7 +8,6 @@ import {
   Headphones,
   GraduationCap,
   ClipboardCheck,
-  RotateCcw,
   ChevronRight,
   CheckCircle2,
   NotebookText,
@@ -432,13 +431,6 @@ export function RoadmapScreen({ onNavigate }: { onNavigate: (screen: Screen) => 
                 accent="#2563eb"
               />
             ) : null}
-            <PlanRow
-              icon={RotateCcw}
-              title="Ôn lại lỗi sai"
-              subtitle="Ôn tập các thẻ cần ôn lại (SRS)"
-              onClick={() => onNavigate("review")}
-              accent="#e11d48"
-            />
           </div>
         </div>
       ) : null}
