@@ -6,9 +6,12 @@ import {
   BookMarked,
   Check,
   CheckCircle2,
+  Clock3,
   Layers,
+  Play,
   RotateCcw,
   Shuffle,
+  Trash2,
   XCircle,
 } from "lucide-react";
 import {
@@ -34,10 +37,15 @@ import { markViewed } from "../../popup/progressState.ts";
 import { speakJapanese } from "../lib/speak.ts";
 import {
   loadFlashcardProgress,
+  loadFlashcardSessionSlots,
+  saveFlashcardSession,
+  deleteFlashcardSession,
   saveFlashcardProgress,
+  type FlashcardSession,
   type FlashcardProgress,
   type FlashcardStatus,
 } from "../../popup/flashcardState.ts";
+import { newSlotId, MAX_SLOTS_PER_FEATURE, type SessionSlot } from "../../popup/sessionSlots.ts";
 import week1Raw from "../../data/fpt-n3-kanji-week-1.json";
 import week2Raw from "../../data/fpt-n3-kanji-week-2.json";
 import week3Raw from "../../data/fpt-n3-kanji-week-3.json";
@@ -424,22 +432,26 @@ export function FlashcardScreen() {
   // remain available through the explicit "Tất cả" / "Đã thuộc" filters.
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("not-yet");
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress>({});
+  const [resumeSlots, setResumeSlots] = useState<SessionSlot<FlashcardSession>[]>([]);
   const [progressLoaded, setProgressLoaded] = useState(false);
   const [progressSaveFailed, setProgressSaveFailed] = useState(false);
   const [dragOffsetX, setDragOffsetX] = useState(0);
   const [swipeExitStatus, setSwipeExitStatus] = useState<FlashcardStatus | null>(null);
   const progressRef = useRef<FlashcardProgress>({});
   const saveQueueRef = useRef<Promise<void>>(Promise.resolve());
+  const sessionSaveQueueRef = useRef<Promise<void>>(Promise.resolve());
+  const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
   const pointerStartXRef = useRef<number | null>(null);
   const suppressCardClickRef = useRef(false);
 
   useEffect(() => {
     let isMounted = true;
-    void loadFlashcardProgress()
-      .then((saved) => {
+    void Promise.all([loadFlashcardProgress(), loadFlashcardSessionSlots()])
+      .then(([saved, sessions]) => {
         if (!isMounted) return;
         progressRef.current = saved;
         setFlashcardProgress(saved);
+        setResumeSlots(sessions);
       })
       .catch(() => undefined)
       .finally(() => {
@@ -460,6 +472,33 @@ export function FlashcardScreen() {
   const current = cards[index];
   const currentStatus = current ? flashcardProgress[current.statusKey] : undefined;
 
+  useEffect(() => {
+    if (!activeSessionId || !sessionDeck || !selectedCollection || cards.length === 0) return;
+    const session: FlashcardSession = {
+      id: activeSessionId,
+      categoryId,
+      collectionId: selectedCollection.id,
+      deckId: sessionDeck.id,
+      deckTitle: sessionDeck.title,
+      cardIds: cards.map((card) => card.id),
+      currentIndex: index,
+      revealed,
+    };
+    sessionSaveQueueRef.current = sessionSaveQueueRef.current.then(async () => {
+      if (completed) {
+        await deleteFlashcardSession(session.id);
+        setResumeSlots((slots) => slots.filter((slot) => slot.id !== session.id));
+        return;
+      }
+      const slot = await saveFlashcardSession(session);
+      setResumeSlots((slots) => [slot, ...slots.filter((item) => item.id !== slot.id)]
+        .sort((left, right) => right.savedAt - left.savedAt)
+        .slice(0, MAX_SLOTS_PER_FEATURE));
+    }).catch(() => {
+      setProgressSaveFailed(true);
+    });
+  }, [activeSessionId, categoryId, cards, completed, index, revealed, selectedCollection, sessionDeck]);
+
   // Reveal is the meaningful study action: it updates the shared item-level
   // activity used by Home and the common study-day log used by the streak.
   useEffect(() => {
@@ -478,6 +517,7 @@ export function FlashcardScreen() {
     setSessionDeck(null);
     setCards([]);
     setCompleted(false);
+    setActiveSessionId(null);
   }
 
   function startDeck(deck: FlashcardDeck) {
@@ -490,6 +530,7 @@ export function FlashcardScreen() {
       : orderedCards.slice(0, flashcardCount);
     setSessionDeck(deck);
     setCards(cardsForSession);
+    setActiveSessionId(newSlotId());
     setIndex(0);
     setRevealed(false);
     setAnimateFlip(false);
@@ -503,6 +544,47 @@ export function FlashcardScreen() {
     setRevealed(false);
     setAnimateFlip(false);
     setCompleted(false);
+    setActiveSessionId(null);
+  }
+
+  function resumeSession(slot: SessionSlot<FlashcardSession>) {
+    const saved = slot.data;
+    const category = CATEGORIES.find((item) => item.id === saved.categoryId);
+    const collection = category?.collections.find((item) => item.id === saved.collectionId);
+    const deck = collection?.decks.find((item) => item.id === saved.deckId);
+    if (!category || !collection || !deck) {
+      void deleteFlashcardSession(slot.id).then(() => {
+        setResumeSlots((slots) => slots.filter((item) => item.id !== slot.id));
+      }).catch(() => setProgressSaveFailed(true));
+      return;
+    }
+    const deckCards = new Map(deck.cards.map((card) => [card.id, card]));
+    const restoredCards = saved.cardIds.flatMap((id) => {
+      const card = deckCards.get(id);
+      return card ? [card] : [];
+    });
+    if (restoredCards.length === 0) {
+      void deleteFlashcardSession(slot.id).then(() => {
+        setResumeSlots((slots) => slots.filter((item) => item.id !== slot.id));
+      }).catch(() => setProgressSaveFailed(true));
+      return;
+    }
+    setCategoryId(category.id);
+    setSelectedCollectionId(collection.id);
+    setSessionDeck(deck);
+    setCards(restoredCards);
+    const savedCurrentCardId = saved.cardIds[saved.currentIndex];
+    const restoredIndex = restoredCards.findIndex((card) => card.id === savedCurrentCardId);
+    setIndex(restoredIndex >= 0 ? restoredIndex : Math.min(Math.max(0, saved.currentIndex), restoredCards.length - 1));
+    setRevealed(saved.revealed);
+    setAnimateFlip(false);
+    setCompleted(false);
+    setActiveSessionId(slot.id);
+  }
+
+  async function discardSession(id: string) {
+    await deleteFlashcardSession(id);
+    setResumeSlots((slots) => slots.filter((slot) => slot.id !== id));
   }
 
   function backToCollections() {
@@ -753,7 +835,7 @@ export function FlashcardScreen() {
               </Button>
             </div>
           ) : null}
-          <p className="mt-3 text-center text-xs text-neutral-400">Đánh dấu được lưu trên thiết bị này. Vuốt phải để đánh dấu đã thuộc, vuốt trái để đưa vào cần ôn.</p>
+          <p className="mt-3 text-center text-xs text-neutral-400">Phiên học và trạng thái thẻ tự lưu trên thiết bị này. Vuốt phải để đánh dấu đã thuộc, vuốt trái để đưa vào cần ôn.</p>
           {progressSaveFailed ? <p role="status" className="mt-2 text-center text-xs text-rose-600">Không lưu được trạng thái flashcard. Hãy thử lại hoặc kiểm tra bộ nhớ trình duyệt.</p> : null}
         </div>
       </div>
@@ -800,6 +882,35 @@ export function FlashcardScreen() {
           );
         })}
       </div>
+
+      {resumeSlots.length > 0 ? (
+        <section className="mt-4 rounded-2xl border border-rose-200 bg-rose-50/60 p-4 md:p-5">
+          <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-neutral-800">
+            <Clock3 size={17} className="text-rose-600" />
+            Phiên học đang dở
+          </div>
+          <div className="grid gap-2">
+            {resumeSlots.map((slot) => (
+              <div key={slot.id} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white bg-white px-3 py-3 shadow-sm">
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold text-neutral-800">
+                    {CATEGORIES.find((item) => item.id === slot.data.categoryId)?.label} · {slot.title}
+                  </p>
+                  <p className="mt-0.5 text-xs text-neutral-500">{slot.subtitle}</p>
+                </div>
+                <div className="flex shrink-0 items-center gap-2">
+                  <Button type="button" size="sm" onClick={() => resumeSession(slot)}>
+                    <Play size={14} /> Tiếp tục
+                  </Button>
+                  <Button type="button" variant="outline" size="sm" aria-label={`Xoá phiên ${slot.title}`} onClick={() => void discardSession(slot.id)}>
+                    <Trash2 size={14} />
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="mt-4 rounded-2xl border border-rose-100 bg-gradient-to-r from-rose-50 to-orange-50 p-4 md:p-5">
         <div className="flex items-start gap-3">

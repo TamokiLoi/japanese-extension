@@ -19,6 +19,7 @@ const BACKUP_KEYS = [
   "itemProgress",
   "fptN3TangoFlashcardProgress",
   "flashcardProgressV1",
+  "flashcardSessionSlots",
   "studyLog",
   "examTipsProgressV1",
   "listeningProgress",
