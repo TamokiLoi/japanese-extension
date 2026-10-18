@@ -683,26 +683,26 @@ export function VocabScreen({
             </div>
           </div>
 
-          <div className="mt-5 rounded-2xl border border-[#e8b96e] bg-[#fff5dc] px-4 py-5 text-center">
-            {v.reading ? <div className="text-sm text-[#675d51]">{v.reading}</div> : null}
-            <div className="mt-1 break-words font-serif text-4xl font-bold text-[#194e75] sm:text-5xl">
+          <div className="mt-5 rounded-2xl border border-[#e8b96e] bg-[#fff5dc] px-4 py-5 text-center dark:border-[#70552e] dark:bg-[#302719]">
+            {v.reading ? <div className="text-sm text-[#675d51] dark:text-[#c4b9aa]">{v.reading}</div> : null}
+            <div className="mt-1 break-words font-serif text-4xl font-bold text-[#194e75] sm:text-5xl dark:text-[#c3e2ff]">
               <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
             </div>
-            <div className="mx-auto mt-3 h-px max-w-[280px] bg-[#dfc796]" />
-            <div className="mt-3 text-base font-semibold text-[#125b86] italic">{v.meaningVi || "—"}</div>
+            <div className="mx-auto mt-3 h-px max-w-[280px] bg-[#dfc796] dark:bg-[#70552e]" />
+            <div className="mt-3 text-base font-semibold text-[#125b86] italic dark:text-[#a9d6f5]">{v.meaningVi || "—"}</div>
           </div>
 
           {v.hanViet.length > 0 ? (
-            <section className="mt-3 rounded-xl border-l-4 border-[#e86916] bg-[#fff0e5] px-3 py-2.5 text-sm">
-              <span className="font-semibold text-[#bd4a0c]">Hán Việt:</span>{" "}
-              <span className="font-bold text-[#ad470e]">{formatHanViet(v.hanViet)}</span>
+            <section className="mt-3 rounded-xl border-l-4 border-[#e86916] bg-[#fff0e5] px-3 py-2.5 text-sm dark:bg-[#39281f]">
+              <span className="font-semibold text-[#bd4a0c] dark:text-[#fdba8c]">Hán Việt:</span>{" "}
+              <span className="font-bold text-[#ad470e] dark:text-[#fdba8c]">{formatHanViet(v.hanViet)}</span>
             </section>
           ) : null}
           {((v.partOfSpeech && v.partOfSpeech !== "Khác") || v.verbGroup || v.transitivity || (v.verbForms?.length ?? 0) > 0) ? (
-            <section className="mt-2 rounded-xl border-l-4 border-[#8b43b0] bg-[#fbf6ff] px-3 py-2.5 text-sm">
+            <section className="mt-2 rounded-xl border-l-4 border-[#8b43b0] bg-[#fbf6ff] px-3 py-2.5 text-sm dark:bg-[#2a2440]">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 font-semibold text-[#8238a7]">
-                  <span aria-hidden="true" className="text-[#359fe5]">▣</span>
+                <span className="inline-flex items-center gap-1.5 font-semibold text-[#8238a7] dark:text-[#d0b8f5]">
+                  <span aria-hidden="true" className="text-[#359fe5] dark:text-[#60a5fa]">▣</span>
                   Từ loại:
                 </span>
                 <VocabPartOfSpeechTag
@@ -717,8 +717,8 @@ export function VocabScreen({
           ) : null}
 
           {v.english ? (
-            <section className="mt-3 rounded-xl border-l-4 border-[#8a786b] bg-[#f7f5f3] px-3 py-2.5 text-sm">
-              <span className="font-semibold text-[#756558]">English:</span>{" "}
+            <section className="mt-3 rounded-xl border-l-4 border-[#8a786b] bg-[#f7f5f3] px-3 py-2.5 text-sm dark:bg-[#292a2c]">
+              <span className="font-semibold text-[#756558] dark:text-[#c4b9aa]">English:</span>{" "}
               <span className="italic text-neutral-700">{v.english}</span>
             </section>
           ) : null}

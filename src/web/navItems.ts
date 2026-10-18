@@ -64,16 +64,16 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 // Groups the sidebar/drawer nav into labeled sections (per
-// UI_REVIEW_V2.md §11) so 9 destinations don't read as one flat, equally
-// weighted list. "Trang chủ" stays ungrouped/first since it's not a content
-// category. Screen membership only -- label/icon still comes from NAV_ITEMS.
+// UI_REVIEW_V2.md §11). "Trang chủ" and "Tra cứu" stay ungrouped/first;
+// the N3 roadmap remains reachable elsewhere but is omitted from this nav.
+// Screen membership only -- label/icon still comes from NAV_ITEMS.
 export interface NavGroup {
   label?: string;
   screens: Screen[];
 }
 
 export const NAV_GROUPS: NavGroup[] = [
-  { screens: ["menu", "search", "roadmap"] },
+  { screens: ["menu", "search"] },
   { label: "Học", screens: ["kanji", "vocab", "flashcards", "bunpo", "reading", "listening"] },
   { label: "Luyện thi", screens: ["examTips", "quizBook", "exams", "quiz", "matchGame"] },
   { label: "IT Book", screens: ["itBookLessons", "itBookVocab"] },

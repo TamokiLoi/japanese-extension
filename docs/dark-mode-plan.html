@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kế hoạch dark mode · Nihongo Nin</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#243247;background:#f4f6fa;line-height:1.65;font-size:15px}*{box-sizing:border-box}body{margin:0}main{max-width:1120px;margin:auto;padding:40px 24px 70px}h1,h2,h3,p{margin:0 0 12px}h1{font-size:34px;line-height:1.25;color:#182132}h2{font-size:23px;color:#182132}h3{font-size:17px;color:#182132}section{margin-top:28px}.lead{max-width:790px;font-size:17px}.muted,small{color:#64748b}.tag{display:inline-block;border-radius:99px;background:#ffe4ec;color:#ad2451;font-size:12px;padding:4px 10px;font-weight:700}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:white;border:1px solid #dfe5ed;padding:22px;border-radius:18px}.wide{grid-column:1/-1}.note{border-left:4px solid #e04879;padding:12px 16px;background:#fff3f7;border-radius:4px 12px 12px 4px}.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{display:inline-grid;place-items:center;background:#fce7ef;color:#a72650;width:30px;height:30px;border-radius:10px;font-weight:800;margin-bottom:10px}ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}code{font-size:12px;background:#f0f3f7;border-radius:5px;padding:2px 5px;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px 10px;border-bottom:1px solid #e6ebf1;vertical-align:top}th{font-size:12px;color:#64748b;text-transform:uppercase}.table-wrap{overflow-x:auto}button{font:inherit;cursor:pointer}.modebar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.modebar button{background:white;color:#43506a;border:1px solid #d8e0ea;border-radius:10px;padding:7px 14px}.modebar button[aria-pressed="true"]{background:#a72650;color:white;border-color:#a72650}.demo{--page:#f7f8fb;--surface:#fff;--fg:#243247;--subtle:#68758a;--line:#dce3ed;--tip:#fff1f5;--tipfg:#a82b4c;background:var(--page);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:20px}.demo[data-dark="true"]{--page:#111827;--surface:#1f2937;--fg:#e5e7eb;--subtle:#a6b1c1;--line:#3a4658;--tip:#39232f;--tipfg:#f7a9c1}.demo .samplecard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}.demo .kanji{font-size:54px;text-align:center;line-height:1.3}.demo .sub{color:var(--subtle)}.demo .tip{background:var(--tip);color:var(--tipfg);border-left:3px solid #df4770;border-radius:10px;padding:12px;margin-top:12px}.swatches{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.swatches span{border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:12px}.paper{background:white;color:#334155;padding:12px;margin-top:12px;border-radius:8px;font-size:13px;border:1px solid #dce3ed}.foot{margin-top:28px;font-size:13px;color:#64748b}@media(max-width:760px){main{padding:24px 16px 45px}h1{font-size:27px}.grid,.phases{grid-template-columns:1fr}.card{padding:18px}td,th{min-width:130px}}
+</style>
+</head>
+<body><main>
+<span class="tag">KẾ HOẠCH · WEB + MOBILE PWA</span>
+<h1 style="margin-top:14px">Dark mode cho Nihongo Nin</h1>
+<p class="lead">Thêm ba lựa chọn <strong>Theo hệ thống · Sáng · Tối</strong>, ghi nhớ lựa chọn và đổi giao diện đồng bộ từ menu đến thẻ học, bản đồ và cửa sổ tra cứu.</p>
+<p class="muted">Trạng thái: đã triển khai POC trên branch <code>feature/dark-mode-poc</code>. Đã có ba lựa chọn Sáng · Tối · Theo hệ thống, lưu lựa chọn trên trình duyệt và cập nhật màu khởi động cùng thanh trình duyệt.</p>
+
+<section class="grid">
+<article class="card"><h2>Hiện trạng đã khảo sát</h2><ul>
+<li>Đã có biến màu sáng/tối và biến thể <code>dark:</code> trong Tailwind.</li>
+<li>Chưa có cơ chế chọn theme. Trang khởi động và PWA hiện đặt màu sáng.</li>
+<li>Nhiều màn hình dùng màu trắng, xám và mã màu cố định; thẻ cũ được dùng chung với giao diện web.</li>
+<li>Kanji Map, Bunpo Map, ảnh sách và popup cần xử lý riêng.</li>
+</ul><p class="note">Chỉ thêm class <code>dark</code> sẽ làm một số vùng tối trong khi các vùng khác vẫn sáng. Cần chuyển màu theo từng nhóm giao diện trước khi phát hành toàn app.</p></article>
+<article class="card"><h2>Hành vi đề xuất</h2><ul>
+<li>Đặt mục <strong>Giao diện</strong> trong Cài đặt, gồm ba lựa chọn rõ tên.</li>
+<li>Mặc định <strong>Theo hệ thống</strong> cho người chưa từng chọn.</li>
+<li>Chọn Sáng/Tối thủ công sẽ được ưu tiên; chỉ theo đổi màu hệ điều hành khi chọn Theo hệ thống.</li>
+<li>Lưu trên trình duyệt, dùng lại khi mở web/PWA và khi offline; xử lý đồng bộ lựa chọn giữa các tab cùng trình duyệt.</li>
+<li>Áp dụng ngay khi đổi, giữ nguyên trang, bộ lọc và tiến trình học.</li>
+</ul><small>Chưa cần thêm nút theme vào sidebar ở giai đoạn đầu để giữ sidebar gọn. Có thể bổ sung nút đổi nhanh sau khi theme ổn định.</small></article>
+</section>
+
+<section class="card"><h2>Hướng màu để duyệt</h2><p>Dùng nền xám xanh tối, thẻ sáng hơn nền một mức; giữ rose làm màu thương hiệu và giữ ý nghĩa của màu mẹo, level, đúng/sai. Bảng màu dưới đây là bản gợi ý để chốt khi triển khai.</p>
+<div class="modebar" role="group" aria-label="Xem thử màu trong bản kế hoạch"><button data-mode="system" aria-pressed="false">Theo hệ thống</button><button data-mode="light" aria-pressed="true">Sáng</button><button data-mode="dark" aria-pressed="false">Tối</button></div>
+<div class="demo" id="demo" data-dark="false"><div class="samplecard"><div class="sub">N3 · Kanji</div><div class="kanji">警</div><div style="text-align:center">CẢNH · cảnh sát</div><div class="tip"><strong>Mẹo nhớ</strong><br>Lời nói được tôn kính là của ông cảnh sát.</div><div class="paper">Ảnh gợi nhớ / trang sách: giữ nền giấy và màu ảnh gốc. Chỉ đổi khung, chú thích và nền xung quanh.</div></div><div class="swatches"><span>Nền trang</span><span style="background:var(--surface)">Nền thẻ</span><span style="color:var(--subtle)">Chữ phụ</span><span style="background:var(--tip);color:var(--tipfg)">Mẹo nhớ</span></div></div>
+<p class="muted" style="margin-top:12px">Các nút trên chỉ đổi màu phần minh họa trong tài liệu này.</p></section>
+
+<section><h2>Thứ tự triển khai</h2><div class="phases">
+<article class="card"><span class="step">1</span><h3>Nền tảng theme</h3><p>Thêm trạng thái Sáng/Tối/Hệ thống, khóa lưu cục bộ và mục Cài đặt. Đọc lựa chọn từ đầu trang trước khi giao diện hiện ra, đồng bộ class theme và <code>color-scheme</code>.</p><small>Đạt khi: mở mới, reload, đổi hệ thống và chọn thủ công đều cho đúng theme, không chớp nền trắng lúc tải.</small></article>
+<article class="card"><span class="step">2</span><h3>Màu chung và khung app</h3><p>Chuẩn hóa nền trang, nền thẻ, chữ chính/phụ, viền, hover, focus, overlay. Chuyển sidebar, drawer, header, bottom nav, nút nổi, form và dialog sang dùng các màu này.</p><small>Đạt khi: điều hướng PC/mobile, tra cứu popup và các điều khiển chung có màu nhất quán.</small></article>
+<article class="card"><span class="step">3</span><h3>Các màn học chính</h3><p>Ưu tiên Kanji, từ vựng, flashcard, ngữ pháp và tra cứu. Đổi màu mẹo, ví dụ, furigana, phần bổ sung, bộ lọc, đáp án và trạng thái học trong cả component web lẫn component cũ được tái sử dụng.</p><small>Đạt khi: chữ Nhật nhỏ vẫn rõ, màu trạng thái còn phân biệt được và không đổi tiến trình học.</small></article>
+<article class="card"><span class="step">4</span><h3>Map và các màn còn lại</h3><p>Xử lý riêng canvas, node, đường nối động, tooltip và nút điều khiển của Kanji/Bunpo Map. Tiếp tục với đọc, nghe, podcast, quiz, đề thi, IT Book, thống kê, lộ trình, sao lưu và hướng dẫn.</p><small>Đạt khi: toàn bộ màn điều hướng có thể truy cập đều được rà soát, kể cả trạng thái trống, lỗi và đang tải.</small></article>
+<article class="card"><span class="step">5</span><h3>Ảnh, nội dung và PWA</h3><p>Giữ nguyên ảnh gốc, ảnh scan, PDF và sơ đồ. Kiểm tra nội dung HTML/bảng được nhúng. Đổi màu splash, nền khi tải, theme-color của trang và kiểm tra màu thanh trình duyệt/PWA trên thiết bị thực tế.</p><small>Đạt khi: ảnh sách không bị đảo màu; mở app offline và cập nhật PWA vẫn giữ lựa chọn theme.</small></article>
+<article class="card"><span class="step">6</span><h3>Kiểm tra và phát hành</h3><p>Build web, chụp Playwright PC/mobile cho Sáng/Tối; kiểm tra chế độ Hệ thống, tương phản, hover/focus, modal, cuộn và reload. Sửa các điểm sai rồi mới mở lựa chọn theme cho toàn app.</p><small>Đạt khi: bản sáng cũng được kiểm tra lại; không phát hành trạng thái chỉ có một phần app hỗ trợ dark mode.</small></article>
+</div></section>
+
+<section class="card"><h2>Các điểm cần xử lý cẩn thận</h2><div class="table-wrap"><table><thead><tr><th>Khu vực</th><th>Cách xử lý</th><th>Kiểm tra khi xong</th></tr></thead><tbody>
+<tr><td>Thẻ màu / mẹo nhớ</td><td>Nền tối cùng sắc độ, chữ sáng hơn; giữ màu phân loại.</td><td>Mẹo, âm Hán Việt, ví dụ và badge đọc được khi chọn/hover.</td></tr>
+<tr><td>Map / tooltip</td><td>Đặt màu riêng cho canvas, node, viền và nhánh; tooltip có nền tương phản.</td><td>Node bổ sung nhạt vẫn rõ, đường nối không biến mất, pan/zoom không đổi.</td></tr>
+<tr><td>Đề thi / trạng thái</td><td>Giữ ý nghĩa đúng, sai, đánh dấu và lựa chọn; thêm nền/viền phù hợp.</td><td>Không dùng màu làm tín hiệu duy nhất; chữ và icon vẫn rõ.</td></tr>
+<tr><td>Ảnh scan / PDF</td><td>Không áp dụng bộ lọc đảo màu toàn trang; giữ vùng giấy sáng có giới hạn.</td><td>Nét chữ, hình minh họa và tương tác phóng ảnh không bị ảnh hưởng.</td></tr>
+<tr><td>CSS dùng chung</td><td>Giới hạn theme cho web/PWA, chuyển component sang màu có ý nghĩa; tránh override toàn bộ <code>div/button</code>.</td><td>Giao diện cũ dùng trong web được phủ đủ; hỗ trợ extension hiện có được bảo toàn.</td></tr>
+</tbody></table></div></section>
+
+<section class="grid"><article class="card"><h2>Ma trận nghiệm thu</h2><ul><li>PC: sidebar mở/thu gọn; mobile: drawer và bottom nav.</li><li>Ba lựa chọn theme; thay đổi giao diện hệ điều hành khi đang mở app.</li><li>Reload, link trực tiếp vào thẻ, mở tab thứ hai và mở PWA offline.</li><li>Kanji/vocab/flashcard: mặt trước/sau, mẹo, ví dụ và furigana.</li><li>Hai map: tooltip, đường nối, zoom, pan và node ngoài bộ thẻ.</li><li>Tra cứu, modal, bộ lọc, câu trả lời, loading, trạng thái trống/lỗi.</li><li>Kiểm tra focus bàn phím, chữ phụ và độ tương phản trên ảnh chụp sáng/tối.</li></ul></article>
+<article class="card"><h2>Điểm sửa trong mã nguồn</h2><ul><li><code>index.html:6–36</code> — màu khởi động, color-scheme và splash.</li><li><code>src/web/tailwind.css:7,218,257</code> — biến thể dark và bộ màu hiện có.</li><li><code>src/web/WebAppShell.tsx</code> — khung app, menu, nút nổi.</li><li><code>src/web/screens/SettingsScreen.tsx</code> — lựa chọn giao diện.</li><li><code>src/web/WebApp.tsx</code> và file theme mới — quản lý lựa chọn, nghe thay đổi hệ thống/tab.</li><li><code>src/popup/style.css</code>, <code>src/kanji-card-layout.css</code> — CSS dùng chung và thẻ cũ.</li><li><code>src/web/screens/kanji-map.css</code>, <code>bunpo-map.css</code> — map.</li><li><code>vite.config.ts:67–79</code> — màu mặc định PWA; kiểm tra riêng màu manifest và theme-color động.</li></ul></article></section>
+<p class="foot">POC hiện áp dụng theme cho khung app, các màn học chính, hai map, nội dung ảnh/sách và các màn legacy dùng chung. Không thay đổi backend hay dữ liệu học. Màu splash PWA trước khi trang được tải còn phụ thuộc cấu hình manifest và trình duyệt; trang cập nhật theme-color ngay khi chạy.</p>
+</main>
+<script>
+const media=matchMedia('(prefers-color-scheme: dark)');let mode='light';const buttons=document.querySelectorAll('[data-mode]');function render(){document.getElementById('demo').dataset.dark=String(mode==='dark'||(mode==='system'&&media.matches));buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)))}buttons.forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;render()}));media.addEventListener('change',render);
+</script>
+</body></html>

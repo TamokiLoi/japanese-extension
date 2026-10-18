@@ -579,7 +579,7 @@ export function KanjiMapScreen({
   ) : null;
 
   return (
-    <div className="kanji-map-page mx-auto max-w-[1500px] px-2.5 py-3 md:px-8 md:py-6">
+    <div className="kanji-map-page mx-auto max-w-6xl px-2.5 py-3 md:px-8 md:py-6">
       <div className="kanji-map-header">
         <PageHeader
           title="Kanji Map"

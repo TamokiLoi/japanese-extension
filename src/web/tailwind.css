@@ -256,37 +256,250 @@
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: var(--color-rose-500);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    color-scheme: dark;
+    --background: #111827;
+    --foreground: #f9fafb;
+    --card: #1f2937;
+    --card-foreground: #f9fafb;
+    --popover: #1f2937;
+    --popover-foreground: #f9fafb;
+    --primary: #256b86;
+    --primary-foreground: #f9fafb;
+    --secondary: #273449;
+    --secondary-foreground: #e5e7eb;
+    --muted: #273449;
+    --muted-foreground: #a6b1c1;
+    --accent: #273449;
+    --accent-foreground: #e5e7eb;
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --border: #374151;
+    --input: #374151;
+    --ring: #38bdf8;
     --chart-1: oklch(0.87 0 0);
     --chart-2: oklch(0.556 0 0);
     --chart-3: oklch(0.439 0 0);
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --sidebar: #1f2937;
+    --sidebar-foreground: #e5e7eb;
+    --sidebar-primary: #256b86;
+    --sidebar-primary-foreground: #f9fafb;
+    --sidebar-accent: #273449;
+    --sidebar-accent-foreground: #e5e7eb;
+    --sidebar-border: #374151;
+    --sidebar-ring: #9ca3af;
+
+    /* Map the app's existing neutral utilities onto the dark surface scale.
+       This keeps both the redesigned Tailwind screens and legacy cards
+       consistent without changing the shared extension UI. */
+    --color-neutral-50: #111827;
+    --color-neutral-100: #1f2937;
+    --color-neutral-200: #374151;
+    --color-neutral-300: #4b5563;
+    --color-neutral-400: #9ca3af;
+    --color-neutral-500: #b6c1d2;
+    --color-neutral-600: #cbd5e1;
+    --color-neutral-700: #e5e7eb;
+    --color-neutral-800: #f3f4f6;
+    --color-neutral-900: #f9fafb;
+    --color-neutral-950: #ffffff;
+    --color-gray-50: var(--color-neutral-50);
+    --color-gray-100: var(--color-neutral-100);
+    --color-gray-200: var(--color-neutral-200);
+    --color-gray-300: var(--color-neutral-300);
+    --color-gray-400: var(--color-neutral-400);
+    --color-gray-500: var(--color-neutral-500);
+    --color-gray-600: var(--color-neutral-600);
+    --color-gray-700: var(--color-neutral-700);
+    --color-gray-800: var(--color-neutral-800);
+    --color-gray-900: var(--color-neutral-900);
+    --color-gray-950: var(--color-neutral-950);
+    --color-slate-50: var(--color-neutral-50);
+    --color-slate-100: var(--color-neutral-100);
+    --color-slate-200: var(--color-neutral-200);
+    --color-slate-300: var(--color-neutral-300);
+    --color-slate-400: var(--color-neutral-400);
+    --color-slate-500: var(--color-neutral-500);
+    --color-slate-600: var(--color-neutral-600);
+    --color-slate-700: var(--color-neutral-700);
+    --color-slate-800: var(--color-neutral-800);
+    --color-slate-900: var(--color-neutral-900);
+    --color-slate-950: var(--color-neutral-950);
+    --color-stone-50: var(--color-neutral-50);
+    --color-stone-100: var(--color-neutral-100);
+    --color-stone-200: var(--color-neutral-200);
+    --color-stone-300: var(--color-neutral-300);
+    --color-stone-400: var(--color-neutral-400);
+    --color-stone-500: var(--color-neutral-500);
+    --color-stone-600: var(--color-neutral-600);
+    --color-stone-700: var(--color-neutral-700);
+    --color-stone-800: var(--color-neutral-800);
+    --color-stone-900: var(--color-neutral-900);
+    --color-stone-950: var(--color-neutral-950);
+
+    /* Preserve color meaning while making pastel badges, tips and callouts
+       legible against dark surfaces. */
+    --color-rose-50: #3a1d2b;
+    --color-rose-100: #512235;
+    --color-rose-200: #71314d;
+    --color-rose-300: #9f4769;
+    --color-rose-400: #fb7185;
+    --color-rose-500: #fb7185;
+    --color-rose-600: #fb7185;
+    --color-rose-700: #fda4af;
+    --color-rose-800: #fecdd3;
+    --color-rose-900: #ffe4e6;
+    --color-rose-950: #fff1f2;
+    --color-amber-50: #352a17;
+    --color-amber-100: #49371a;
+    --color-amber-200: #665027;
+    --color-amber-300: #8e6c2e;
+    --color-amber-500: #fbbf24;
+    --color-amber-600: #fbbf24;
+    --color-amber-700: #fcd34d;
+    --color-amber-800: #fde68a;
+    --color-amber-900: #fef3c7;
+    --color-amber-950: #fffbeb;
+    --color-orange-50: #39261d;
+    --color-orange-100: #4e2f1c;
+    --color-orange-200: #704022;
+    --color-orange-300: #98552b;
+    --color-orange-400: #c07038;
+    --color-orange-500: #fb923c;
+    --color-orange-600: #fb923c;
+    --color-orange-700: #fdba74;
+    --color-orange-800: #fed7aa;
+    --color-orange-900: #ffedd5;
+    --color-orange-950: #fff7ed;
+    --color-emerald-50: #17332c;
+    --color-emerald-100: #1e4438;
+    --color-emerald-200: #2c5c4b;
+    --color-emerald-300: #34745b;
+    --color-emerald-500: #34d399;
+    --color-emerald-600: #34d399;
+    --color-emerald-700: #6ee7b7;
+    --color-emerald-800: #a7f3d0;
+    --color-emerald-900: #d1fae5;
+    --color-blue-50: #17283c;
+    --color-blue-100: #1d3553;
+    --color-blue-200: #29486b;
+    --color-blue-600: #60a5fa;
+    --color-blue-700: #93c5fd;
+    --color-blue-800: #bfdbfe;
+    --color-blue-900: #dbeafe;
+    --color-sky-50: #142f3d;
+    --color-sky-100: #1b3d50;
+    --color-sky-200: #28536a;
+    --color-sky-600: #38bdf8;
+    --color-sky-700: #7dd3fc;
+    --color-sky-800: #bae6fd;
+    --color-sky-900: #e0f2fe;
+    --color-violet-50: #29213d;
+    --color-violet-100: #382b52;
+    --color-violet-200: #514071;
+    --color-violet-700: #c4b5fd;
+    --color-violet-800: #ddd6fe;
+    --color-purple-50: #29213d;
+    --color-purple-100: #382b52;
+    --color-purple-200: #514071;
+}
+
+html.dark body.web-shell {
+  background: #111827;
+  color: #e5e7eb;
+  color-scheme: dark;
+}
+
+html.dark body.web-shell .bg-white {
+  background-color: #1f2937 !important;
+}
+html.dark body.web-shell [class~="md:bg-white"] {
+  background-color: #1f2937 !important;
+}
+html.dark body.web-shell [class~="hover:bg-white"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/10"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/50"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/60"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/70"]:hover {
+  background-color: rgb(55 65 81 / 70%) !important;
+}
+
+/* In dark mode, thick ink-like borders on editorial lesson cards become
+   slate outlines instead of near-white borders. */
+html.dark body.web-shell [class~="border-neutral-800"] {
+  border-color: #4b5563 !important;
+}
+html.dark body.web-shell :is(.tip-comparison-source, .tip-comparison-analysis) {
+  border-color: #4b5563;
+  box-shadow: 3px 4px 0 #111827;
+}
+html.dark body.web-shell .tip-comparison-analysis {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell .flashcard-face {
+  border-color: #4b5563;
+  background: linear-gradient(135deg, #1f2937 0%, #30212c 58%, #34271b 100%);
+  box-shadow: 0 12px 34px rgb(0 0 0 / 22%);
+}
+html.dark body.web-shell .flashcard-setup-panel {
+  border-color: #573548;
+  background: #1f2937;
+  background-image: none;
+}
+
+/* Exam Tips uses editorial pastel swatches as literal arbitrary utilities;
+   remap those exact surfaces while retaining their semantic rose/gold/green
+   hues and readable light text. */
+html.dark body.web-shell [class~="bg-[#ffeb8a]"] { background-color: #433718 !important; }
+html.dark body.web-shell [class~="bg-[#fbd0e1]"] { background-color: #3d2430 !important; }
+html.dark body.web-shell [class~="bg-[#d7f1e6]"] { background-color: #1d3a32 !important; }
+html.dark body.web-shell [class~="bg-[#e6dcff]"] { background-color: #2c2540 !important; }
+html.dark body.web-shell [class~="bg-[#faf7ed]"] { background-color: #262a31 !important; }
+
+/* Responsive utilities compile into separate classes (for example
+   md:bg-white), so they need their own web-only dark surface override. */
+html.dark body.web-shell [class~="md:bg-white"] {
+  background-color: #1f2937 !important;
+}
+html.dark body.web-shell [class~="hover:bg-white"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/10"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/50"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/60"]:hover,
+html.dark body.web-shell [class~="hover:bg-white/70"]:hover {
+  background-color: rgb(55 65 81 / 70%) !important;
+}
+
+/* Dark slate controls and overlays retain their dark backgrounds; the
+   inverted neutral text scale must not turn these into pale surfaces. */
+html.dark body.web-shell :is(.bg-neutral-700, .bg-neutral-800) { background-color: #374151 !important; }
+html.dark body.web-shell .bg-neutral-900 { background-color: #111827 !important; }
+html.dark body.web-shell .bg-neutral-950 { background-color: #030712 !important; }
+html.dark body.web-shell [class~="active:bg-neutral-700"]:active { background-color: #374151 !important; }
+
+/* Dark mode uses a calmer blue-teal for filled primary actions. Rose remains
+   available for warning/error states and selected content markers. */
+html.dark body.web-shell :is(.bg-rose-500, .bg-rose-600) { background-color: #256b86 !important; }
+html.dark body.web-shell .bg-rose-700 { background-color: #1f596f !important; }
+html.dark body.web-shell [class~="hover:bg-rose-700"]:hover,
+html.dark body.web-shell [class~="active:bg-rose-700"]:active { background-color: #1f596f !important; }
+html.dark body.web-shell .bg-emerald-600 { background-color: #047857 !important; }
+html.dark body.web-shell [class~="hover:bg-emerald-700"]:hover,
+html.dark body.web-shell [class~="active:bg-emerald-700"]:active { background-color: #065f46 !important; }
+html.dark body.web-shell .bg-sky-600 { background-color: #0369a1 !important; }
+html.dark body.web-shell [class~="hover:bg-sky-700"]:hover { background-color: #075985 !important; }
+html.dark body.web-shell .bg-amber-500 { background-color: #92400e !important; }
+
+html.dark body.web-shell [class~="bg-white/50"] { background-color: rgb(31 41 55 / 50%) !important; }
+html.dark body.web-shell [class~="bg-white/60"] { background-color: rgb(31 41 55 / 60%) !important; }
+html.dark body.web-shell [class~="bg-white/70"] { background-color: rgb(31 41 55 / 70%) !important; }
+html.dark body.web-shell [class~="bg-white/80"] { background-color: rgb(31 41 55 / 80%) !important; }
+html.dark body.web-shell [class~="bg-white/90"] { background-color: rgb(31 41 55 / 90%) !important; }
+html.dark body.web-shell [class~="bg-white/95"] { background-color: rgb(31 41 55 / 95%) !important; }
+
+html.dark body.web-shell #app {
+  color: #e5e7eb;
 }
 
 @layer base {

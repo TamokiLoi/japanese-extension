@@ -112,13 +112,41 @@ function unique<T>(items: T[], keyOf: (item: T) => string): T[] {
   });
 }
 
+function normalizeExampleText(text: string): string {
+  return text.normalize("NFKC").replace(/\s+/gu, "").trim();
+}
+
+function uniqueExamples(items: { jp: string; vi: string }[]): { jp: string; vi: string }[] {
+  const examples: { jp: string; vi: string }[] = [];
+  const indexByKey = new Map<string, number>();
+  for (const item of items) {
+    const jp = normalizeExampleText(item.jp);
+    const vi = normalizeExampleText(item.vi);
+    const key = jp ? `jp:${jp}` : vi ? `vi:${vi}` : "";
+    if (!key) continue;
+
+    const existingIndex = indexByKey.get(key);
+    if (existingIndex === undefined) {
+      indexByKey.set(key, examples.length);
+      examples.push(item);
+      continue;
+    }
+
+    // Keep one rendering per Japanese sentence, but recover a translation if
+    // an earlier source supplied the same sentence without one.
+    if (!examples[existingIndex]!.vi.trim() && item.vi.trim()) {
+      examples[existingIndex] = { ...examples[existingIndex]!, vi: item.vi };
+    }
+  }
+  return examples;
+}
+
 function asSourceDetails(record: BunpoGrammarPoint): BunpoSenseSource[] {
-  const examples = unique(
+  const examples = uniqueExamples(
     [
       ...(record.example.trim() || record.exampleVi.trim() ? [{ jp: record.example, vi: record.exampleVi }] : []),
       ...(record.moreExamples ?? []),
-    ].filter((example) => example.jp.trim() || example.vi.trim()),
-    (example) => `${example.jp}\u0000${example.vi}`,
+    ],
   );
   return (record.sources ?? []).map((source) => ({
     source,
@@ -136,7 +164,7 @@ function makeSense(id: string, records: BunpoGrammarPoint[]): BunpoSense {
   const ranked = [...records].sort((a, b) => recordScore(b) - recordScore(a));
   const best = ranked[0]!;
   const sourceDetails = records.flatMap(asSourceDetails);
-  const examples = unique(sourceDetails.flatMap((detail) => detail.examples), (example) => `${example.jp}\u0000${example.vi}`);
+  const examples = uniqueExamples(sourceDetails.flatMap((detail) => detail.examples));
   const levels = unique(records.map((record) => record.level), (level) => level).sort((a, b) => LEVEL_ORDER.indexOf(a) - LEVEL_ORDER.indexOf(b));
   const sources = unique(sourceDetails.map((detail) => detail.source), (source) => source);
   const chapters = unique(

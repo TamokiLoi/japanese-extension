@@ -268,7 +268,7 @@ export function BunpoMapScreen({
   }
 
   return (
-    <div className="bunpo-map-page mx-auto max-w-7xl px-3 py-4 md:px-6 md:py-6">
+    <div className="bunpo-map-page mx-auto max-w-6xl px-3 py-4 md:px-6 md:py-6">
       <PageHeader
         title={`Sơ đồ ngữ pháp ${level}`}
         subtitle={level === "N3" ? "15 chương trong lộ trình ngữ pháp N3 của Nihongo Nin." : "Chạm vào một nhánh để xem các mẫu câu liên quan."}

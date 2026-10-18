@@ -1328,7 +1328,7 @@ function PassageView({
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => mutate({ currentPassageId: null })}

@@ -159,7 +159,7 @@ export function ExamTipsScreen({ onNavigate }: { onNavigate: (screen: Screen, id
 
   if (route.lessonId && data && !lesson) {
     return (
-      <div className="mx-auto max-w-5xl px-3 py-3 md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-3 py-3 md:px-8 md:py-6">
         <PageHeader title="Mẹo làm bài thi" subtitle={`${route.level} · ${route.skill === "reading" ? "Đọc hiểu" : "Nghe hiểu"}`} />
         <section className="mt-6 rounded-2xl border-2 border-neutral-800 bg-[#fffdf9] p-5 shadow-[4px_4px_0_#262330]">
           <h2 className="text-lg font-bold">Không tìm thấy bài học này</h2>

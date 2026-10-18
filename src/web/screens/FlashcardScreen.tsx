@@ -637,7 +637,7 @@ export function FlashcardScreen() {
   if (sessionDeck && current) {
     const progress = Math.round(((index + (completed ? 1 : 0)) / cards.length) * 100);
     return (
-      <div className="mx-auto max-w-4xl px-3 py-3 md:px-8 md:py-6">
+      <div className="mx-auto max-w-6xl px-3 py-3 md:px-8 md:py-6">
         <PageHeader
           title="Flashcard"
           subtitle={sessionDeck.title + " · " + (index + 1) + " / " + cards.length}
@@ -848,7 +848,7 @@ export function FlashcardScreen() {
   const filterCounts = selectedCollectionCounts;
 
   return (
-    <div className="mx-auto max-w-5xl px-3 py-3 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-3 py-3 md:px-8 md:py-6">
       <PageHeader
         title="Flashcard"
         subtitle={headerSubtitle}
@@ -912,7 +912,7 @@ export function FlashcardScreen() {
         </section>
       ) : null}
 
-      <section className="mt-4 rounded-2xl border border-rose-100 bg-gradient-to-r from-rose-50 to-orange-50 p-4 md:p-5">
+      <section className="flashcard-setup-panel mt-4 rounded-2xl border border-rose-100 bg-gradient-to-r from-rose-50 to-orange-50 p-4 md:p-5">
         <div className="flex items-start gap-3">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-rose-600 shadow-sm">
             <Layers size={19} />

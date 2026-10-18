@@ -1,0 +1,437 @@
+/* These overrides are intentionally scoped to the web/PWA shell. The same
+   legacy styles are shared with the browser extension, which stays light. */
+html.dark body.web-shell {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell :is(input, select, textarea) {
+  color-scheme: dark;
+}
+
+html.dark body.web-shell :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell :is(input, textarea)::placeholder {
+  color: #9ca3af;
+}
+
+html.dark body.web-shell :is(button, a):focus-visible {
+  outline-color: #fb7185;
+}
+
+/* Legacy popup screens can still be opened from the web dashboard. */
+html.dark body.web-shell :is(
+  .toolbar,
+  .card,
+  .author-info-modal,
+  .collapsible-section,
+  .level-selector,
+  .level-selector-inline,
+  .quiz-setup,
+  .quiz-setup-group,
+  .quiz-choice,
+  .quiz-question,
+  .quiz-prompt,
+  .quiz-result,
+  .quiz-resume-card,
+  .quiz-review-item,
+  .search-result,
+  .reading-card,
+  .reading-detail,
+  .reading-tile,
+  .reading-passage,
+  .reading-explanation,
+  .stat-card,
+  .stat-list-item,
+  .backup-panel,
+  .reminder,
+  .related-vocab-item,
+  .compare-with-item,
+  .example,
+  .jlpt-entry
+) {
+  border-color: #374151;
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell :is(
+  .counter,
+  .details dd,
+  .usage-jp,
+  .usage-vi,
+  .english-gloss,
+  .menu-title,
+  .menu-item-title,
+  .collapsible-title,
+  .quiz-prompt,
+  .quiz-question,
+  .quiz-detail,
+  .reading-title,
+  .reading-detail-title,
+  .reading-body,
+  .reading-article-paragraphs,
+  .reading-question-prompt,
+  .reading-translation,
+  .reading-question-vi,
+  .stat-list-item-title,
+  .search-result-main,
+  .search-result-meaning-text,
+  .search-result-han-viet,
+  .jlpt-entry-word,
+  .jlpt-entry-meaning
+) {
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell :is(
+  .muted,
+  .details dt,
+  .menu-item-desc,
+  .collapsible-summary,
+  .usage-source-tag,
+  .reading-meta,
+  .reading-detail-meta,
+  .reading-study-note,
+  .reading-source-note,
+  .reading-news-source,
+  .reading-list-summary,
+  .reading-progress-label,
+  .reading-question-prompt small,
+  .stat-card-label,
+  .stat-list-item-stat,
+  .search-result-reading,
+  .search-result-han-viet,
+  .jlpt-entry-occurrences
+) {
+  color: #a6b1c1;
+}
+
+html.dark body.web-shell :is(.empty, .reading-empty, .reading-detail-empty) {
+  border-color: #374151;
+  background: #1f2937;
+  color: #a6b1c1;
+}
+
+html.dark body.web-shell :is(.toolbar, .author-info-modal, .collapsible-header, .stat-list-header) {
+  border-color: #374151;
+}
+
+html.dark body.web-shell .jlpt-filter-row {
+  border-color: #374151;
+  background: #1f2937;
+}
+html.dark body.web-shell .jlpt-filter-row :is(select, input[type="text"]) {
+  border-color: #4b5563;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell :is(.nav button:not(:disabled), .icon-btn, .flag-btn, .usage-glossary-close) {
+  color: #cbd5e1;
+}
+
+html.dark body.web-shell :is(.nav button:not(:disabled):hover, .icon-btn:hover, .menu-item:not(:disabled):hover) {
+  background: #273449;
+}
+
+html.dark body.web-shell :is(.quiz-typed-input, .quiz-radio, .reminder-select, .reading-book-radio, .reading-status-filter-btn) {
+  border-color: #4b5563;
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+html.dark body.web-shell :is(.reading-markdown-table-scroll, .reading-markdown-table th, .reading-markdown-table td) {
+  border-color: #374151;
+}
+
+html.dark body.web-shell .reading-markdown-table th {
+  background: #273449;
+  color: #e5e7eb;
+}
+
+/* Kanji card: keep the familiar colored information groups, but soften each
+   pastel surface for night mode. Images and scanned pages remain untouched. */
+html.dark body.web-shell .kanji-redesign .kanji-hero {
+  border-color: #38556f;
+  background: #192b3d;
+}
+
+html.dark body.web-shell .kanji-redesign .kanji-character { color: #c3e2ff; }
+html.dark body.web-shell .kanji-redesign .kanji-hero-divider { background: #38556f; }
+html.dark body.web-shell .kanji-redesign .kanji-meaning { color: #a9d6f5; }
+html.dark body.web-shell .kanji-redesign .kanji-reading-chip { border-color: #38556f; background: #1f3348; color: #c6d9ea; }
+html.dark body.web-shell .kanji-redesign .kanji-reading-chip strong { color: #8ec9ef; }
+html.dark body.web-shell .kanji-redesign .kanji-info-block { color: #e5e7eb; }
+html.dark body.web-shell .kanji-redesign .kanji-hanviet { --kanji-bg: #39281f; --kanji-accent-dark: #fdba8c; }
+html.dark body.web-shell .kanji-redesign .kanji-structure { --kanji-bg: #192f40; --kanji-accent-dark: #9bd7f6; }
+html.dark body.web-shell .kanji-redesign .kanji-mnemonic,
+html.dark body.web-shell .kanji-redesign .kanji-mnemonic-choice { --kanji-bg: #342d1d; --kanji-accent-dark: #f8d98b; }
+html.dark body.web-shell .kanji-mnemonic-choice[data-tone="app"] { --kanji-bg: #39232f; --kanji-accent-dark: #f9a9c0; }
+html.dark body.web-shell .kanji-mnemonic-choice[data-tone="soumatome"] { --kanji-bg: #1d2e40; --kanji-accent-dark: #a8d3fb; }
+html.dark body.web-shell .kanji-mnemonic-choice[data-tone="b1"] { --kanji-bg: #19313d; --kanji-accent-dark: #9dd9ef; }
+html.dark body.web-shell .kanji-mnemonic-choice[data-tone="b2"] { --kanji-bg: #2a2440; --kanji-accent-dark: #c7b6f6; }
+html.dark body.web-shell .kanji-mnemonic-choice[data-tone="b3"] { --kanji-bg: #19342f; --kanji-accent-dark: #9de0c9; }
+html.dark body.web-shell .kanji-redesign .kanji-related { --kanji-bg: #19342f; --kanji-accent-dark: #9de0c9; }
+html.dark body.web-shell .kanji-redesign .kanji-extra { --kanji-bg: #292a2c; --kanji-accent-dark: #d1c5b9; }
+html.dark body.web-shell .kanji-redesign .kanji-hanviet p,
+html.dark body.web-shell .kanji-redesign .kanji-extra strong { color: var(--kanji-accent-dark); }
+html.dark body.web-shell .kanji-mnemonic-heading > span,
+html.dark body.web-shell .kanji-mnemonic-source { color: #c5b98f; }
+html.dark body.web-shell .kanji-mnemonic-options button { border-color: #4b5563; background: #273449; color: #cbd5e1; }
+html.dark body.web-shell .kanji-mnemonic-options button.is-active { border-color: var(--kanji-accent); background: var(--kanji-bg); color: var(--kanji-accent-dark); }
+html.dark body.web-shell .kanji-redesign .kanji-meta-row small { color: #a6b1c1; }
+html.dark body.web-shell .kanji-redesign .kanji-meta-row strong { color: #dbe7f1; }
+html.dark body.web-shell .kanji-redesign .kanji-vocab-list button { border-color: #315546; background: #1c332a; color: #a9e0c5; }
+html.dark body.web-shell .kanji-redesign .kanji-vocab-list button:hover { background: #244536; }
+html.dark body.web-shell .kanji-redesign .kanji-vocab-list button span { color: #9db8a9; }
+html.dark body.web-shell .kanji-redesign .kanji-more-details { border-color: #374151; background: #1f2937; }
+html.dark body.web-shell .kanji-redesign .kanji-more-details summary { color: #cbd5e1; }
+html.dark body.web-shell .kanji-redesign .kanji-more-details summary span { color: #9ca3af; }
+html.dark body.web-shell .kanji-redesign .kanji-more-details .kanji-info-sections { border-color: #374151; }
+
+/* Vocabulary card and its example, mnemonic, English, and related-word panels. */
+html.dark body.web-shell .vocab-layout .vocab-hero { border-color: #70552e; background: #302719; }
+html.dark body.web-shell .vocab-layout .vocab-word { color: #c3e2ff; }
+html.dark body.web-shell .vocab-layout .vocab-reading { color: #c4b9aa; }
+html.dark body.web-shell .vocab-layout .vocab-hero-divider { background: #70552e; }
+html.dark body.web-shell .vocab-layout .vocab-hero-meaning { color: #a9d6f5; }
+html.dark body.web-shell .vocab-layout .vocab-info { color: #e5e7eb; }
+html.dark body.web-shell .vocab-layout .vocab-info-hanviet { background: #39281f; }
+html.dark body.web-shell .vocab-layout .vocab-info-pos { background: #2a2440; }
+html.dark body.web-shell .vocab-layout .vocab-pos-line { color: #d0b8f5; }
+html.dark body.web-shell .vocab-layout .vocab-info-example { background: #192f40; color: #d3e7f3; }
+html.dark body.web-shell .vocab-layout .vocab-info-example .example-jp { color: #e5e7eb; }
+html.dark body.web-shell .vocab-layout .vocab-info-example .example-vi { color: #a9d6f5; }
+html.dark body.web-shell .vocab-layout .vocab-example-item + .vocab-example-item { border-color: #38556f; }
+html.dark body.web-shell .vocab-layout .vocab-info-mnemonic { background: #342d1d; }
+html.dark body.web-shell .vocab-layout .vocab-info-english { background: #292a2c; }
+html.dark body.web-shell .vocab-layout .vocab-info-english span { color: #e5e7eb; }
+html.dark body.web-shell .vocab-layout .vocab-info-related { background: #19342f; }
+html.dark body.web-shell .vocab-layout .related-vocab--reading { background: #192f40; }
+html.dark body.web-shell .vocab-layout .related-vocab--reading .related-vocab-item { border-color: #38556f; color: #a9d6f5; }
+html.dark body.web-shell .vocab-layout .related-vocab--reading .related-vocab-item:hover { background: #24435d; }
+html.dark body.web-shell .vocab-layout .related-vocab--quiz { background: #2a2440; }
+html.dark body.web-shell .vocab-layout .related-vocab--quiz .related-vocab-item { border-color: #514071; color: #d0c5f4; }
+html.dark body.web-shell .vocab-layout .related-vocab--quiz .related-vocab-item:hover { background: #392f58; }
+html.dark body.web-shell .vocab-layout .vocab-more-details { border-color: #374151; background: #1f2937; }
+html.dark body.web-shell .vocab-layout .vocab-more-details summary { color: #cbd5e1; }
+html.dark body.web-shell .vocab-layout .vocab-more-details summary span { color: #9ca3af; }
+html.dark body.web-shell .vocab-layout .vocab-more-body { border-color: #374151; }
+
+/* Kanji Map surfaces and controls. Node/edge colors stay distinct from the
+   neutral canvas, and the inactive/missing nodes remain intentionally dim. */
+html.dark body.web-shell :is(.kanji-map-search-wrap, .kanji-map-search-results, .kanji-map-search-empty,
+  .kanji-map-map-panel, .kanji-map-detail-panel, .kanji-map-level-picker, .kanji-map-flow-canvas,
+  .kanji-map-flow-canvas.is-mobile, .kanji-map-mobile-actions button, .kanji-map-flow-pager button) {
+  border-color: #374151;
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+html.dark body.web-shell .kanji-map-search-wrap input { color: #e5e7eb; }
+html.dark body.web-shell .kanji-map-search-results button:hover,
+html.dark body.web-shell .kanji-map-vocab button:hover { background: #273449; }
+html.dark body.web-shell .kanji-map-search-results strong,
+html.dark body.web-shell .kanji-map-selected-strip strong,
+html.dark body.web-shell .kanji-map-detail-hero h2,
+html.dark body.web-shell .kanji-map-detail-facts strong,
+html.dark body.web-shell .kanji-map-vocab button strong { color: #e5e7eb; }
+html.dark body.web-shell :is(.kanji-map-search-results span, .kanji-map-search-empty, .kanji-map-selected-strip small,
+  .kanji-map-detail-hero p, .kanji-map-detail-facts span, .kanji-map-english, .kanji-map-vocab button span,
+  .kanji-map-attribution, .kanji-map-legend) { color: #a6b1c1; }
+html.dark body.web-shell .kanji-map-search-results small { background: #273449; color: #cbd5e1; }
+html.dark body.web-shell .kanji-map-level-picker { background: #111827; }
+html.dark body.web-shell .kanji-map-level-picker button { color: #a6b1c1; }
+html.dark body.web-shell .kanji-map-level-picker button.is-active { background: #203548; color: #7dd3fc; }
+html.dark body.web-shell .kanji-map-selected-strip { border-color: #374151; }
+html.dark body.web-shell .kanji-map-flow-canvas { background: #111827; }
+html.dark body.web-shell .kanji-map-flow-canvas .react-flow__controls { border-color: #4b5563; background: #1f2937; }
+html.dark body.web-shell .kanji-map-flow-canvas .react-flow__controls-button {
+  border-color: #4b5563;
+  background: #273449;
+  color: #e5e7eb;
+  fill: #e5e7eb;
+}
+html.dark body.web-shell .kanji-map-flow-canvas .react-flow__controls-button:hover { background: #374151; }
+html.dark body.web-shell .kanji-map-flow-canvas .react-flow__edge-path { stroke: #64748b; }
+html.dark body.web-shell .kanji-map-flow-dot { filter: drop-shadow(0 0 1.5px #111827); }
+html.dark body.web-shell .kanji-map-node-orb { background: #1f2937; }
+html.dark body.web-shell .kanji-map-flow-node.is-center { --map-accent: #65c8f3; --map-dark: #d8f4ff; --map-bg: #18394d; }
+html.dark body.web-shell .kanji-map-flow-node.tone-b1 { --map-accent: #52b8e1; --map-dark: #c9f0ff; --map-bg: #163344; }
+html.dark body.web-shell .kanji-map-flow-node.tone-b2 { --map-accent: #a995e8; --map-dark: #e4dcff; --map-bg: #302743; }
+html.dark body.web-shell .kanji-map-flow-node.tone-b3 { --map-accent: #55c7a4; --map-dark: #c5f5e4; --map-bg: #1b382f; }
+html.dark body.web-shell .kanji-map-flow-node.is-muted { --map-accent: #79aebe; --map-dark: #c5e7ef; --map-bg: #19313c; }
+html.dark body.web-shell .kanji-map-flow-node.is-muted .kanji-map-node-orb { background: #19313c; }
+html.dark body.web-shell .kanji-map-flow-node.is-muted .kanji-map-node-label { color: #b5deea; }
+html.dark body.web-shell .kanji-map-legend-dot.is-center { background: #65c8f3; }
+html.dark body.web-shell .kanji-map-flow-node .react-flow__handle { border-color: #111827; }
+html.dark body.web-shell .kanji-map-flow-pager.is-mobile { border-color: #374151; background: #1f2937; }
+html.dark body.web-shell .kanji-map-flow-pager > span { border-color: #4b5563; background: #273449; color: #cbd5e1; }
+html.dark body.web-shell .kanji-map-mobile-actions button:hover { background: #273449; }
+html.dark body.web-shell .kanji-map-detail-character { border-color: #31566c; background: linear-gradient(145deg, #18394d, #1f2937); color: #d8f4ff; }
+html.dark body.web-shell .kanji-map-detail-facts > div { border-color: #374151; background: #273449; }
+html.dark body.web-shell .kanji-map-data-note { background: #352a17; color: #fcd34d; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice { --kanji-bg: #342d1d; --kanji-accent-dark: #f8d98b; color: #e5e7eb; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice[data-tone="app"] { --kanji-bg: #39232f; --kanji-accent-dark: #f9a9c0; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice[data-tone="soumatome"] { --kanji-bg: #1d2e40; --kanji-accent-dark: #a8d3fb; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice[data-tone="b1"] { --kanji-bg: #19313d; --kanji-accent-dark: #9dd9ef; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice[data-tone="b2"] { --kanji-bg: #2a2440; --kanji-accent-dark: #c7b6f6; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice[data-tone="b3"] { --kanji-bg: #19342f; --kanji-accent-dark: #9de0c9; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-text { color: #e5e7eb; }
+html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-options button { border-color: #4b5563; background: #273449; color: #cbd5e1; }
+html.dark body.web-shell .kanji-map-vocab { border-color: #374151; }
+
+/* Bunpo Map has a separate hand-drawn graph and mobile list, so theme both
+   renderings explicitly instead of applying a filter to the graph. */
+html.dark body.web-shell :is(.bunpo-map-level-picker, .bunpo-map-branch-chip, .bunpo-map-canvas,
+  .bunpo-map-mobile, .bunpo-map-mobile-root, .bunpo-map-mobile-group-card,
+  .bunpo-map-mobile-group, .bunpo-map-mobile-item, .bunpo-map-root,
+  .bunpo-map-group, .bunpo-map-item) {
+  border-color: #374151;
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+html.dark body.web-shell .bunpo-map-canvas { background: radial-gradient(ellipse at 50% 40%, #1f2937 0, #17202f 60%, #111827 100%); }
+html.dark body.web-shell .bunpo-map-mobile { background: linear-gradient(150deg, #1f2937 0%, #17202f 100%); }
+html.dark body.web-shell .bunpo-map-mobile-root,
+html.dark body.web-shell .bunpo-map-root { border-color: #4b83b1; background: linear-gradient(145deg, #26384b, #1b2938); color: #dbeafe; }
+html.dark body.web-shell .bunpo-map-mobile-root > span,
+html.dark body.web-shell .bunpo-map-root-kicker { color: #a9d1f2; }
+html.dark body.web-shell :is(.bunpo-map-mobile-root > small, .bunpo-map-root > span:last-child,
+  .bunpo-map-mobile-group-copy small, .bunpo-map-mobile-group small,
+  .bunpo-map-group-copy small, .bunpo-map-item-copy small, .bunpo-map-branch-heading,
+  .bunpo-map-legend, .bunpo-map-note) { color: #a6b1c1; }
+html.dark body.web-shell .bunpo-map-mobile-group-card,
+html.dark body.web-shell .bunpo-map-mobile-group,
+html.dark body.web-shell .bunpo-map-group { background: color-mix(in srgb, var(--map-accent) 12%, #1f2937); }
+html.dark body.web-shell .bunpo-map-mobile-item,
+html.dark body.web-shell .bunpo-map-item { background: color-mix(in srgb, var(--map-accent) 9%, #1f2937); color: #e5e7eb; }
+html.dark body.web-shell :is(.bunpo-map-mobile-group-copy strong, .bunpo-map-group-copy strong,
+  .bunpo-map-mobile-copy strong, .bunpo-map-item-copy strong) { color: #e5e7eb; }
+html.dark body.web-shell .bunpo-map-mobile-mark,
+html.dark body.web-shell .bunpo-map-item-mark { background: color-mix(in srgb, var(--map-accent) 20%, #1f2937); color: #dbeafe; }
+html.dark body.web-shell .bunpo-map-mobile-item.is-unlinked,
+html.dark body.web-shell .bunpo-map-item.is-unlinked { background: #17202f; color: #a6b1c1; }
+html.dark body.web-shell .bunpo-map-canvas .react-flow__controls { border-color: #4b5563; background: #1f2937; }
+html.dark body.web-shell .bunpo-map-canvas .react-flow__controls-button { border-color: #4b5563; background: #273449; color: #e5e7eb; fill: #e5e7eb; }
+html.dark body.web-shell .bunpo-map-canvas .react-flow__controls-button:hover { background: #374151; }
+html.dark body.web-shell .bunpo-map-item-status { background: #273449; color: #cbd5e1; }
+html.dark body.web-shell .bunpo-map-item-status.is-missing { background: #303846; color: #a6b1c1; }
+html.dark body.web-shell .bunpo-map-item.status-mastered .bunpo-map-item-status { background: #17332c; color: #6ee7b7; }
+html.dark body.web-shell .bunpo-map-item.status-learning .bunpo-map-item-status { background: #352a17; color: #fcd34d; }
+html.dark body.web-shell .bunpo-map-item.status-flagged .bunpo-map-item-status { background: #3a1d2b; color: #fda4af; }
+
+/* Dashboard illustrations stay untouched; overlays darken their text areas
+   so labels keep contrast without filtering or recoloring the source images. */
+html.dark body.web-shell .home-streak-overlay {
+  background: linear-gradient(115deg, #1f2937 0%, #1f2937e8 45%, #1f2937a8 75%, transparent 100%);
+}
+html.dark body.web-shell .home-daily-plan { background: #1f2937 !important; }
+html.dark body.web-shell .home-daily-plan-overlay { background: rgb(17 24 39 / 82%); }
+html.dark body.web-shell .home-progress-overlay {
+  background: linear-gradient(100deg, #111827f5 0%, #111827e8 50%, #1118279c 75%, #11182730 100%) !important;
+}
+html.dark body.web-shell .home-hero-overlay-mobile {
+  background: linear-gradient(180deg, #111827f5 0%, #111827e8 55%, #111827b8 80%, transparent 100%) !important;
+}
+html.dark body.web-shell .home-hero-overlay-desktop {
+  background: linear-gradient(90deg, #111827f5 0%, #111827e8 40%, #11182788 65%, transparent 82%) !important;
+}
+html.dark body.web-shell .home-quote-overlay { background: rgb(17 24 39 / 68%); }
+
+/* Home dashboard: lift small neutral labels and make the dark primary blue-teal
+   instead of rose. Keep subject colors as restrained accents so the original
+   artwork remains recognizable without overpowering nearby text. */
+html.dark body.web-shell .home-screen :is(.text-neutral-900, .text-neutral-800) { color: #f1f5f9 !important; }
+html.dark body.web-shell .home-screen .text-neutral-700 { color: #dbe4ef !important; }
+html.dark body.web-shell .home-screen .text-neutral-600 { color: #cbd5e1 !important; }
+html.dark body.web-shell .home-screen .text-neutral-500 { color: #b8c4d3 !important; }
+html.dark body.web-shell .home-screen .text-neutral-400 { color: #a6b1c1 !important; }
+html.dark body.web-shell .home-screen :is(.text-rose-600, .text-rose-700, .text-rose-800, .text-rose-400) { color: #7dd3fc !important; }
+html.dark body.web-shell .home-screen [class~="dark:text-rose-700"] { color: #b8c4d3 !important; }
+html.dark body.web-shell .home-screen .bg-rose-600 { background-color: #256b86 !important; }
+html.dark body.web-shell .home-screen [class~="hover:bg-rose-700"]:hover { background-color: #2f7892 !important; }
+html.dark body.web-shell .home-screen :is(.bg-rose-50, .bg-rose-100) { background-color: #172d3b !important; }
+html.dark body.web-shell .home-screen .border-rose-200 { border-color: #31566c !important; }
+html.dark body.web-shell .home-screen .border-rose-600 { border-color: #38bdf8 !important; }
+html.dark body.web-shell .home-screen .home-progress-card { border-color: #3a4b5f; background-color: #1b2735; }
+html.dark body.web-shell .home-screen .home-progress-icon,
+html.dark body.web-shell .home-screen .home-subject-icon,
+html.dark body.web-shell .home-screen .home-stat-icon,
+html.dark body.web-shell .home-screen .home-decoration-icon { opacity: .66; filter: saturate(.55) brightness(.94); }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="kanji"] .home-progress-value { color: #7dd3fc !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="kanji"] .home-progress-fill { background: #7dd3fc !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="vocab"] .home-progress-value { color: #fdba74 !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="vocab"] .home-progress-fill { background: #fdba74 !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="bunpo"] .home-progress-value { color: #6ee7b7 !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="bunpo"] .home-progress-fill { background: #6ee7b7 !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="reading"] .home-progress-value { color: #c4b5fd !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="reading"] .home-progress-fill { background: #c4b5fd !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="listening"] .home-progress-value { color: #f0abfc !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="listening"] .home-progress-fill { background: #f0abfc !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="exams"] .home-progress-value { color: #93c5fd !important; }
+html.dark body.web-shell .home-screen .home-progress-card[data-tone="exams"] .home-progress-fill { background: #93c5fd !important; }
+html.dark body.web-shell .home-screen .home-target-icon { color: #7dd3fc !important; }
+html.dark body.web-shell .home-screen .home-quote-overlay { background: rgb(17 24 39 / 78%); }
+
+/* Bunpo detail cards used light editorial pastels that were still glaring on
+   the dark canvas. Keep the section hues, but move every panel onto a dark
+   tinted surface and lift its text contrast. */
+html.dark body.web-shell .grammar-detail-card .grammar-hero { border-color: #514071; background: #28243a; }
+html.dark body.web-shell .grammar-detail-card .grammar-pattern { color: #e4dcff; }
+html.dark body.web-shell .grammar-detail-card .grammar-hero-divider { background: #514071; }
+html.dark body.web-shell .grammar-detail-card .grammar-meaning { color: #c4b5fd; }
+html.dark body.web-shell .grammar-detail-card .grammar-chapter-tag { border-color: #514071; background: #302743; color: #d8ccff; }
+html.dark body.web-shell .grammar-detail-card :is(.grammar-usage-formula, .grammar-formula-line) { color: #c4dcf4; }
+html.dark body.web-shell .grammar-detail-card .grammar-formula-line + .grammar-formula-line { border-color: #3e526a; }
+html.dark body.web-shell .grammar-detail-card .grammar-section { --grammar-accent: #7c6a9e; --grammar-ink: #e5ddf5; --grammar-bg: #242538; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--formula { --grammar-accent: #6b91c6; --grammar-ink: #bfdbfe; --grammar-bg: #1d2b3b; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--usage { --grammar-accent: #4fa18a; --grammar-ink: #a7f3d0; --grammar-bg: #1b332f; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--tip { --grammar-accent: #bd8b36; --grammar-ink: #fcd34d; --grammar-bg: #322a1c; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--example { --grammar-accent: #4f9fc7; --grammar-ink: #bae6fd; --grammar-bg: #1b2e3c; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--related { --grammar-accent: #4c9b7c; --grammar-ink: #a7f3d0; --grammar-bg: #1b332d; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--notes { --grammar-accent: #bd8b36; --grammar-ink: #fcd34d; --grammar-bg: #322a1c; }
+html.dark body.web-shell .grammar-detail-card .grammar-section--study { --grammar-accent: #7d8bb7; --grammar-ink: #c7d2fe; --grammar-bg: #252b3b; }
+html.dark body.web-shell .grammar-detail-card .grammar-section-body { color: #dbe4ef; }
+html.dark body.web-shell .grammar-detail-card .grammar-tag { background: #273449; color: #dbe4ef; }
+html.dark body.web-shell .grammar-detail-card .grammar-entry + .grammar-entry { border-color: #354559; }
+html.dark body.web-shell .grammar-detail-card .grammar-example-jp { color: #f1f5f9; }
+html.dark body.web-shell .grammar-detail-card .grammar-example-vi { color: #a9d6f5; }
+html.dark body.web-shell .grammar-detail-card .grammar-example-jp mark { background: #1e4438; color: #d1fae5; }
+html.dark body.web-shell .grammar-detail-card .grammar-link-list button { border-color: #3e5b4c; background: #1f2937; color: #a7f3d0; }
+html.dark body.web-shell .grammar-detail-card .grammar-link-list button:hover { background: #273d35; }
+html.dark body.web-shell .grammar-detail-card .grammar-document-group { background: #1f2937; color: #dbe4ef; }
+html.dark body.web-shell .grammar-detail-card .grammar-document-group--reading { --doc-accent: #4f9fc7; --doc-bg: #1b2e3c; --doc-ink: #bae6fd; }
+html.dark body.web-shell .grammar-detail-card .grammar-document-group--quiz { --doc-accent: #a995e8; --doc-bg: #302743; --doc-ink: #e4dcff; }
+html.dark body.web-shell .grammar-detail-card .grammar-document-group .grammar-link-list button { border-color: #3f5265; color: var(--doc-ink); }
+html.dark body.web-shell .grammar-detail-card .grammar-link-pattern { color: #86efac !important; }
+html.dark body.web-shell .grammar-detail-card .grammar-source-line { color: #a6b1c1; }
+html.dark body.web-shell .grammar-detail-card .grammar-study-status { color: #c7d2fe; }
+html.dark body.web-shell .grammar-detail-card .grammar-popup-action { border-color: #4b5563; background: #273449; color: #cbd5e1; }
+html.dark body.web-shell .grammar-detail-card .grammar-popup-action.active { border-color: #514071; background: #302743; color: #e4dcff; }
+html.dark body.web-shell .grammar-detail-card :is(.grammar-popup-title, .grammar-popup-title) { color: #e4dcff; }
+html.dark body.web-shell .grammar-detail-card .grammar-popup-sources { color: #a6b1c1; }
+html.dark body.web-shell .grammar-detail-card .grammar-correction-trigger { color: #fcd34d; }
+
+/* Book scans and illustrations remain unchanged; theme only their interface
+   chrome, source selectors, captions, and word-list text. */
+html.dark body.web-shell :is(.kanji-book-resources, .kanji-book-resource, .vocab-book-resources) {
+  border-color: #374151;
+  background: #1f2937;
+  color: #e5e7eb;
+}
+html.dark body.web-shell .kanji-book-resources-heading h3,
+html.dark body.web-shell .kanji-book-words-list strong { color: #e5e7eb; }
+html.dark body.web-shell :is(.kanji-book-resources-heading > div:first-child span,
+  .kanji-book-illustration figcaption, .kanji-book-words-heading span,
+  .kanji-book-words-list span) { color: #a6b1c1; }
+html.dark body.web-shell .kanji-book-source-tabs button { border-color: #4b5563; background: #111827; color: #cbd5e1; }
+html.dark body.web-shell .kanji-book-source-tabs button.is-active { border-color: var(--kll-accent); background: #273449; color: #e5e7eb; }
+html.dark body.web-shell .kanji-book-source-tabs button[data-source="b2"].is-active { border-color: #a78bfa; background: #33284b; color: #ddd6fe; }
+html.dark body.web-shell .kanji-book-source-tabs button[data-source="b3"].is-active { border-color: #6ee7b7; background: #17382f; color: #a7f3d0; }
+html.dark body.web-shell .kanji-book-illustration { border-color: #374151; background: #161e2b; }
+html.dark body.web-shell .kanji-book-words-heading { color: #cbd5e1; }
+html.dark body.web-shell .kanji-book-words-list button:hover:not(:disabled) { background: #273449; }

@@ -266,7 +266,7 @@ export function JlptQuestionStudyScreen({
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       {onBack ? (
         <button onClick={onBack} className="mb-2 flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
           <ArrowLeft size={15} /> {onBackLabel}
@@ -416,7 +416,7 @@ function QuestionDetail({
   });
 
   return (
-    <div className="mx-auto max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
         <ArrowLeft size={15} /> Danh sách câu hỏi
       </button>

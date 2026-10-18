@@ -1671,7 +1671,7 @@ function ResultView({
   }
 
   return (
-    <div className={`mx-auto px-2.5 py-2 text-center md:px-8 md:py-6 ${practiceMode ? "max-w-3xl" : "max-w-2xl"}`}>
+    <div className="mx-auto max-w-6xl px-2.5 py-2 text-center md:px-8 md:py-6">
       <h1 className="text-2xl font-bold text-neutral-800">{practiceMode ? "Kết quả ôn tập" : "Kết quả"}</h1>
       <p className="mt-1 text-sm text-neutral-500">
         {found ? `${found.exam.examLabel} · ${found.paper.label}` : ""}
@@ -1827,7 +1827,7 @@ function HistoryListView({
   if (!found) return <div className="p-6 text-neutral-400">Không tìm thấy đề này.</div>;
 
   return (
-    <div className="mx-auto max-w-2xl px-2.5 py-2 md:px-8 md:py-6">
+    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <button onClick={onBack} className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700">
         <ChevronLeft size={15} /> {found.exam.examLabel}
       </button>

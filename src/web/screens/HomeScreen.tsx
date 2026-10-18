@@ -369,16 +369,13 @@ function StreakCard({ streak, weekDays, onNavigate }: { streak: number; weekDays
   }, [view, monthDate]);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl p-4 md:min-h-55 md:p-5">
+    <div className="home-streak-card relative overflow-hidden rounded-2xl p-4 md:min-h-55 md:p-5">
       <img
         src={`${DASH_IMG}streak-bg.png`}
         alt=""
         className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
       />
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(115deg, #fff1f2 0%, #fff1f2d9 45%, #fff1f255 75%, transparent 100%)" }}
-      />
+      <div className="home-streak-overlay absolute inset-0" />
       <div className="relative flex items-center justify-between">
         <div className="flex items-center gap-2" style={{ color: "#f97316" }}>
           <Flame size={16} />
@@ -397,7 +394,7 @@ function StreakCard({ streak, weekDays, onNavigate }: { streak: number; weekDays
       <div className="relative mt-1.5 text-xl font-bold text-neutral-800 md:text-[21px]">
         {streak} ngày{streak > 0 ? " liên tiếp" : ""}
       </div>
-      <p className="relative mt-0.5 text-xs" style={{ color: "#9f1239" }}>
+      <p className="relative mt-0.5 text-xs text-rose-800 dark:text-rose-700">
         {streak > 0 ? "Học mỗi ngày để giữ chuỗi streak và ghi nhớ lâu hơn." : "Bắt đầu học hôm nay để tạo streak!"}
       </p>
       <div className="relative mt-2.5">
@@ -522,12 +519,13 @@ function DailyPlanCard({
   const enabledTypes = PLAN_TYPES.filter((type) => goals[type].enabled);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl p-4.5" style={{ background: "#F2FAF4" }}>
+    <div className="home-daily-plan relative overflow-hidden rounded-2xl p-4.5" style={{ background: "#F2FAF4" }}>
       <img src={`${DASH_IMG}muc-tieu-moi-ngay-bg.png`} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="home-daily-plan-overlay absolute inset-0" />
       <div className="relative flex items-center justify-between">
         <div className="flex items-center gap-1.5">
-          <Target size={14} style={{ color: "#E91E4D" }} />
-          <h2 className="text-[13px] font-bold" style={{ color: "#111827" }}>
+          <Target className="home-target-icon" size={14} style={{ color: "#E91E4D" }} />
+          <h2 className="text-[13px] font-bold text-neutral-900">
             Hoạt động học hôm nay
           </h2>
         </div>
@@ -555,11 +553,11 @@ function DailyPlanCard({
             return (
               <button key={type} onClick={() => onNavigate(meta.screen)} className="rounded-xl px-1 py-0.75 text-left hover:bg-white/50">
                 <div className="flex items-center gap-2">
-                  <img src={`${ICON_IMG}${meta.img}`} alt="" className="h-5.5 w-5.5 shrink-0" />
-                  <span className="min-w-0 flex-1 truncate text-xs" style={{ color: "#111827" }}>
+                  <img src={`${ICON_IMG}${meta.img}`} alt="" className="home-subject-icon h-5.5 w-5.5 shrink-0" />
+                  <span className="min-w-0 flex-1 truncate text-xs text-neutral-900">
                     {meta.label}
                   </span>
-                  <span className="shrink-0 text-[11px]" style={{ color: "#374151" }}>
+                  <span className="shrink-0 text-[11px] text-neutral-700">
                     {item.doneToday} / {item.goal} {meta.unit}
                   </span>
                 </div>
@@ -586,6 +584,7 @@ function ProgressCard({
   label,
   progress,
   suffix,
+  tone,
   onClick,
 }: {
   bgImage: string;
@@ -595,36 +594,38 @@ function ProgressCard({
   label: string;
   progress: { mastered: number; total: number };
   suffix: string;
+  tone: "kanji" | "vocab" | "bunpo" | "reading" | "listening" | "exams";
   onClick: () => void;
 }) {
   const pct = progress.total > 0 ? Math.round((progress.mastered / progress.total) * 100) : 0;
   return (
     <button
       onClick={onClick}
-      className="relative w-[calc(100vw-3rem)] shrink-0 snap-start overflow-hidden rounded-2xl border border-neutral-200/50 bg-white p-4 text-left md:min-h-39 md:w-auto md:shrink md:p-4.5"
+      data-tone={tone}
+      className="home-progress-card relative w-[calc(100vw-3rem)] shrink-0 snap-start overflow-hidden rounded-2xl border border-neutral-200/50 bg-white p-4 text-left md:min-h-39 md:w-auto md:shrink md:p-4.5"
     >
       <img src={`${DASH_IMG}${bgImage}`} alt="" className="absolute inset-0 h-full w-full object-cover object-[68%_center]" />
       <div
-        className="absolute inset-0"
+        className="home-progress-overlay absolute inset-0"
         style={{ background: `linear-gradient(100deg, ${tint} 0%, ${tint}d9 50%, ${tint}55 75%, transparent 92%)` }}
       />
       <div className="relative max-w-[70%]">
         <div className="flex items-center gap-1.5">
-          <img src={`${ICON_IMG}${img}`} alt="" className="h-6 w-6 shrink-0 md:h-6.75 md:w-6.75" />
+          <img src={`${ICON_IMG}${img}`} alt="" className="home-progress-icon h-6 w-6 shrink-0 md:h-6.75 md:w-6.75" />
           {/* Wraps instead of truncating -- "Từ vựng"/"Ngữ pháp" truncated to
               2-3 letters lost all meaning at narrower widths; there's
               vertical room in the card (min-h-39) before the % line, so 2
               lines reads fine regardless of column width. */}
           <span className="text-xs leading-tight font-bold text-neutral-800 md:text-sm">{label}</span>
         </div>
-        <div className="mt-1.5 text-xl font-bold md:mt-2 md:text-[27px]" style={{ color: accent }}>
+        <div className="home-progress-value mt-1.5 text-xl font-bold md:mt-2 md:text-[27px]" style={{ color: accent }}>
           {pct}%
         </div>
         <div className="mt-0.5 text-[10px] text-neutral-600 md:text-xs">
           {progress.mastered.toLocaleString("vi-VN")} / {progress.total.toLocaleString("vi-VN")} {suffix}
         </div>
         <div className="mt-1.5 h-1.5 rounded-full bg-white/70 md:mt-2 md:h-[7px]">
-          <div className="h-full rounded-full" style={{ width: `${pct}%`, background: accent }} />
+          <div className="home-progress-fill h-full rounded-full" style={{ width: `${pct}%`, background: accent }} />
         </div>
       </div>
     </button>
@@ -663,13 +664,14 @@ function ContinueCard({
 // per request.
 function QuoteCard() {
   return (
-    <div className="relative flex min-h-30 items-center justify-center overflow-hidden rounded-2xl p-3.5 md:min-h-39">
+    <div className="home-quote-card relative flex min-h-30 items-center justify-center overflow-hidden rounded-2xl p-3.5 md:min-h-39">
       <img src={`${DASH_IMG}nihongo-nin-quote-flower-bg.png`} alt="" className="absolute inset-0 h-full w-full object-cover" />
-      <img src={`${DASH_IMG}icon-quote.png`} alt="" className="absolute top-2.5 left-2.5 h-5.5 w-5.5" />
-      <img src={`${DASH_IMG}icon-pin.png`} alt="" className="absolute right-2.5 bottom-2.5 h-7.5 w-7.5" />
+      <div className="home-quote-overlay absolute inset-0" />
+      <img src={`${DASH_IMG}icon-quote.png`} alt="" className="home-decoration-icon absolute top-2.5 left-2.5 h-5.5 w-5.5" />
+      <img src={`${DASH_IMG}icon-pin.png`} alt="" className="home-decoration-icon absolute right-2.5 bottom-2.5 h-7.5 w-7.5" />
       <div className="relative mx-auto text-center">
         <div className="text-xl font-bold text-neutral-800 md:text-2xl">継続は力なり。</div>
-        <div className="mt-1.5 text-center text-[15px] italic md:text-base" style={{ color: "#9a3412" }}>
+        <div className="mt-1.5 text-center text-[15px] text-orange-800 italic dark:text-orange-300 md:text-base">
           Kiên trì là sức mạnh.
         </div>
       </div>
@@ -710,7 +712,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-4">
+    <div className="home-screen mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-4">
       <h1 className="text-2xl font-bold text-neutral-800">{greeting()} 🌸</h1>
       <p className="mt-1 text-neutral-500">Hôm nay học tiếp một chút nhé. Kiên trì mỗi ngày, kết quả sẽ đến!</p>
 
@@ -751,18 +753,18 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                 claim -- screens without a tracked % (Quiz/Luyện đề/Nghe
                 chép chính tả) just get a generic CTA. First-ever visit (no
                 lastActive yet) falls back to the plain welcome banner. */}
-            <div className="relative overflow-hidden rounded-2xl p-4 md:flex md:h-57 md:items-center md:p-0 md:px-7">
+            <div className="home-hero relative overflow-hidden rounded-2xl p-4 md:flex md:h-57 md:items-center md:p-0 md:px-7">
               <img
                 src={`${DASH_IMG}hero-japan.png`}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-[68%_center] md:object-[center_35%]"
               />
               <div
-                className="absolute inset-0 md:hidden"
+                className="home-hero-overlay-mobile absolute inset-0 md:hidden"
                 style={{ background: "linear-gradient(180deg, #fff5f6f2 0%, #fff5f6e6 55%, #fff5f699 80%, transparent 100%)" }}
               />
               <div
-                className="absolute inset-0 hidden md:block"
+                className="home-hero-overlay-desktop absolute inset-0 hidden md:block"
                 style={{ background: "linear-gradient(90deg, #fff5f6 0%, #fff5f6cc 40%, transparent 75%)" }}
               />
               {lastActive && stats && RESUME_META[lastActive.screen]
@@ -856,6 +858,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Kanji"
                   progress={stats.progress.kanji}
                   suffix="từ"
+                  tone="kanji"
                   onClick={() => onNavigate("kanji")}
                 />
                 <ProgressCard
@@ -866,6 +869,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Từ vựng"
                   progress={stats.progress.vocab}
                   suffix="từ"
+                  tone="vocab"
                   onClick={() => onNavigate("vocab")}
                 />
                 <ProgressCard
@@ -876,6 +880,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Ngữ pháp"
                   progress={stats.progress.bunpo}
                   suffix="nghĩa"
+                  tone="bunpo"
                   onClick={() => onNavigate("bunpo")}
                 />
                 <ProgressCard
@@ -886,6 +891,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Luyện đọc"
                   progress={stats.progress.reading}
                   suffix="bài"
+                  tone="reading"
                   onClick={() => onNavigate("reading")}
                 />
                 <ProgressCard
@@ -896,6 +902,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Luyện nghe"
                   progress={stats.progress.listening}
                   suffix="bài"
+                  tone="listening"
                   onClick={() => onNavigate("listening")}
                 />
                 <ProgressCard
@@ -906,6 +913,7 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
                   label="Đề thi JLPT"
                   progress={stats.progress.dethi}
                   suffix="phần"
+                  tone="exams"
                   onClick={() => onNavigate("exams")}
                 />
               </div>
@@ -917,28 +925,28 @@ export function HomeScreen({ onNavigate }: { onNavigate: (screen: Screen, id?: s
               </h2>
               <div className="mt-2.5 grid grid-cols-2 gap-3 rounded-2xl border border-neutral-200/50 bg-white p-4 md:grid-cols-4">
                 <div className="flex items-center gap-2 rounded-xl bg-blue-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
+                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="home-stat-icon hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Chuỗi học</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.streak} ngày</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-done.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
+                  <img src={`${ICON_IMG}icon-done.png`} alt="" className="home-stat-icon hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Tổng bài đã học</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.quickStats.lessonsDone}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-purple-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-practice.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
+                  <img src={`${ICON_IMG}icon-practice.png`} alt="" className="home-stat-icon hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Tổng câu đã luyện</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.quickStats.questionsPracticed}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-5">
-                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="hidden h-8.5 w-8.5 shrink-0 md:block" />
+                  <img src={`${ICON_IMG}icon-today.png`} alt="" className="home-stat-icon hidden h-8.5 w-8.5 shrink-0 md:block" />
                   <div className="min-w-0">
                     <div className="truncate text-[11px] text-neutral-600">Mục có hoạt động hôm nay</div>
                     <div className="mt-0.5 text-xl font-bold text-neutral-800">{stats.studiedToday} mục</div>

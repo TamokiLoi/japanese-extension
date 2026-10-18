@@ -3,22 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <!-- Explicit light-only signal, declared as early as possible (before
-         any CSS/JS) so nothing downstream -- browser auto-dark heuristics
-         included -- has a window to guess otherwise. style.css's own
-         `color-scheme: light` on :root is a redundant second signal for
-         everything that arrives after this. -->
-    <meta name="color-scheme" content="light" />
+    <!-- Both schemes are supported; the saved/system preference is applied
+         before styles and the first app paint. -->
+    <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#fafafa" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="icon" type="image/png" href="%BASE_URL%icons/icon48.png" />
     <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-icon-180x180.png" />
     <title>Nihongo Nin</title>
+    <script>
+      (function () {
+        // The extension popup keeps its established light appearance. Web and
+        // PWA builds apply the persisted theme before the app bundle loads.
+        if (window.location.protocol === "chrome-extension:") return;
+        var mode = "system";
+        try {
+          var stored = window.localStorage.getItem("nihongo-theme-mode");
+          if (stored === "light" || stored === "dark" || stored === "system") mode = stored;
+        } catch (_) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var isDark = mode === "dark" || (mode === "system" && prefersDark);
+        document.documentElement.classList.toggle("dark", !!isDark);
+        document.documentElement.dataset.themeMode = mode;
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.content = isDark ? "#111827" : "#fafafa";
+      })();
+    </script>
     <link rel="stylesheet" href="/src/popup/style.css" />
     <style>
       html {
-        color-scheme: light;
+        color-scheme: light dark;
+        --app-boot-bg: #fafafa;
+        --app-boot-fg: #262626;
+        --app-boot-muted: #737373;
+        --app-spinner-border: #f3dede;
+        --app-spinner-top: #e11d48;
+      }
+      html.dark {
+        color-scheme: dark;
+        --app-boot-bg: #111827;
+        --app-boot-fg: #e5e7eb;
+        --app-boot-muted: #a6b1c1;
+        --app-spinner-border: #4b3440;
+        --app-spinner-top: #fb7185;
       }
       /* Shown immediately from the static HTML, before any JS parses or the
          web build's dynamically-imported WebApp chunk arrives -- replaces
@@ -33,7 +62,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #fafafa;
+        background: var(--app-boot-bg);
         transition: opacity 0.15s ease-out;
       }
       #splash[data-hide] {
@@ -67,7 +96,7 @@
       }
       #splash .splash-caption {
         margin: 0;
-        color: #737373;
+        color: var(--app-boot-muted);
         font: 14px/1.4 system-ui, sans-serif;
       }
       #splash .spinner-ring::before {
@@ -75,8 +104,8 @@
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        border: 3px solid #f3dede;
-        border-top-color: #e11d48;
+        border: 3px solid var(--app-spinner-border);
+        border-top-color: var(--app-spinner-top);
         animation: splash-spin 0.8s linear infinite;
       }
       /* icon128.png is a fully opaque square (no transparent corners) --
@@ -127,7 +156,7 @@
           var panel = document.createElement("main");
           panel.setAttribute("role", "alert");
           panel.style.cssText =
-            "position:fixed;inset:0;z-index:10000;display:grid;place-content:center;gap:12px;padding:24px;background:#fafafa;color:#262626;text-align:center;font:16px/1.5 system-ui,sans-serif";
+            "position:fixed;inset:0;z-index:10000;display:grid;place-content:center;gap:12px;padding:24px;background:var(--app-boot-bg);color:var(--app-boot-fg);text-align:center;font:16px/1.5 system-ui,sans-serif";
           panel.innerHTML =
             '<strong style="font-size:22px">Không tải được phiên bản mới</strong>' +
             '<span>Ứng dụng sẽ giữ nguyên dữ liệu học. Hãy thử tải lại để đồng bộ bản cập nhật.</span>' +
@@ -151,7 +180,7 @@
             panel.id = "app-load-error";
             panel.setAttribute("role", "alert");
             panel.style.cssText =
-              "position:fixed;inset:0;z-index:10001;display:grid;place-content:center;justify-items:center;gap:12px;padding:24px;background:#fafafa;color:#262626;text-align:center;font:16px/1.5 system-ui,sans-serif";
+              "position:fixed;inset:0;z-index:10001;display:grid;place-content:center;justify-items:center;gap:12px;padding:24px;background:var(--app-boot-bg);color:var(--app-boot-fg);text-align:center;font:16px/1.5 system-ui,sans-serif";
 
             var title = document.createElement("strong");
             title.style.fontSize = "22px";
@@ -159,7 +188,7 @@
             var message = document.createElement("span");
             message.textContent = "Có lỗi khi tải trang hoặc nội dung cần thiết. Hãy kiểm tra kết nối mạng rồi thử tải lại.";
             var reassurance = document.createElement("span");
-            reassurance.style.color = "#737373";
+            reassurance.style.color = "var(--app-boot-muted)";
             reassurance.textContent = "Dữ liệu học của bạn vẫn được giữ nguyên.";
             var button = document.createElement("button");
             button.type = "button";

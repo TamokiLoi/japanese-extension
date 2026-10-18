@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check, DatabaseZap, Download, Pencil, Plus, Settings, Trash2 } from "lucide-react";
+import { Check, DatabaseZap, Download, Monitor, Moon, Pencil, Plus, Settings, Sun, Trash2 } from "lucide-react";
 import type { Screen } from "../../popup/App.tsx";
 import { NAV_ITEMS } from "../navItems.ts";
 import { BOTTOM_NAV_CHOICES } from "../lib/bottomNavSettings.ts";
@@ -15,17 +15,22 @@ import { NewVocabCorrectionSheet } from "../components/NewVocabCorrectionSheet.t
 import { Button } from "../components/ui/button.tsx";
 import { useConfirm } from "../components/ConfirmDialog.tsx";
 import type { SearchDisplayMode } from "../lib/searchSettings.ts";
+import type { ThemeMode } from "../lib/themeSettings.ts";
 
 export function SettingsScreen({
   shortcuts,
   onChange,
   searchDisplayMode,
   onSearchDisplayModeChange,
+  themeMode,
+  onThemeModeChange,
 }: {
   shortcuts: Screen[];
   onChange: (shortcuts: Screen[]) => void;
   searchDisplayMode: SearchDisplayMode;
   onSearchDisplayModeChange: (mode: SearchDisplayMode) => void;
+  themeMode: ThemeMode;
+  onThemeModeChange: (mode: ThemeMode) => void;
 }) {
   const confirm = useConfirm();
   const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
@@ -165,6 +170,41 @@ export function SettingsScreen({
         <div className="mt-4 flex items-center gap-2 text-sm text-emerald-600">
           <Check size={16} />
           Chế độ được lưu tự động trên trình duyệt này.
+        </div>
+      </section>
+
+      <section className="mt-5 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm md:p-5">
+        <h2 className="font-semibold text-neutral-800">Giao diện</h2>
+        <p className="mt-1 text-sm text-neutral-500">
+          Chọn giao diện cho web và PWA. Lựa chọn được lưu trên trình duyệt này.
+        </p>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          {([
+            { value: "system" as const, title: "Theo hệ thống", description: "Tự đổi theo giao diện thiết bị.", Icon: Monitor },
+            { value: "light" as const, title: "Sáng", description: "Nền sáng như giao diện mặc định.", Icon: Sun },
+            { value: "dark" as const, title: "Tối", description: "Nền tối dịu mắt khi học buổi tối.", Icon: Moon },
+          ] satisfies { value: ThemeMode; title: string; description: string; Icon: typeof Monitor }[]).map((option) => {
+            const active = themeMode === option.value;
+            const Icon = option.Icon;
+            return (
+              <button
+                key={option.value}
+                type="button"
+                aria-pressed={active}
+                onClick={() => onThemeModeChange(option.value)}
+                className={`rounded-xl border p-3 text-left transition ${
+                  active ? "border-rose-300 bg-rose-50/70 ring-2 ring-rose-100" : "border-neutral-200 bg-neutral-50 hover:border-rose-200"
+                }`}
+              >
+                <span className="flex items-center gap-2 text-sm font-semibold text-neutral-800">
+                  <Icon size={17} className={active ? "text-rose-600" : "text-neutral-500"} />
+                  {option.title}
+                </span>
+                <span className="mt-1 block pl-6 text-xs leading-relaxed text-neutral-500">{option.description}</span>
+              </button>
+            );
+          })}
         </div>
       </section>
 

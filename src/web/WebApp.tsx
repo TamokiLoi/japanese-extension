@@ -18,6 +18,15 @@ import {
   saveSearchDisplayMode,
   type SearchDisplayMode,
 } from "./lib/searchSettings.ts";
+import "./dark-mode.css";
+import {
+  applyThemeMode,
+  isThemeMode,
+  readThemeMode,
+  saveThemeMode,
+  THEME_MODE_STORAGE_KEY,
+  type ThemeMode,
+} from "./lib/themeSettings.ts";
 import "./tailwind.css";
 
 const HomeScreen = lazy(() => import("./screens/HomeScreen.tsx").then((module) => ({ default: module.HomeScreen })));
@@ -146,6 +155,7 @@ export function WebApp() {
   const [quizBookJlptMode, setQuizBookJlptMode] = useState(false);
   const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
   const [searchDisplayMode, setSearchDisplayMode] = useState<SearchDisplayMode>(DEFAULT_SEARCH_DISPLAY_MODE);
+  const [themeMode, setThemeMode] = useState<ThemeMode>(readThemeMode);
   const [searchPopupOpen, setSearchPopupOpen] = useState(() => new URLSearchParams(location.search).get("lookup") === "1");
   const routeSyncPendingRef = useRef(true);
   // Several screens (Kanji/Vocab/Bunpo/QuizBook/Reading/Listening/Dictation)
@@ -167,6 +177,30 @@ export function WebApp() {
     return () => document.body.classList.remove("web-shell");
   }, []);
 
+  useEffect(() => {
+    applyThemeMode(themeMode);
+
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const onSystemThemeChange = () => {
+      if (themeMode === "system") applyThemeMode("system");
+    };
+    if (typeof media.addEventListener === "function") media.addEventListener("change", onSystemThemeChange);
+    else media.addListener(onSystemThemeChange);
+    return () => {
+      if (typeof media.removeEventListener === "function") media.removeEventListener("change", onSystemThemeChange);
+      else media.removeListener(onSystemThemeChange);
+    };
+  }, [themeMode]);
+
+  useEffect(() => {
+    function onStorage(event: StorageEvent) {
+      if (event.key !== THEME_MODE_STORAGE_KEY) return;
+      setThemeMode(isThemeMode(event.newValue) ? event.newValue : "system");
+    }
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+
   function updateBottomNavShortcuts(shortcuts: Screen[]) {
     setBottomNavShortcuts(shortcuts);
     void saveBottomNavShortcuts(shortcuts);
@@ -175,6 +209,11 @@ export function WebApp() {
   function updateSearchDisplayMode(mode: SearchDisplayMode) {
     setSearchDisplayMode(mode);
     void saveSearchDisplayMode(mode);
+  }
+
+  function updateThemeMode(mode: ThemeMode) {
+    setThemeMode(mode);
+    saveThemeMode(mode);
   }
 
   // Keeps the address bar honest (a manual refresh or copied link still
@@ -488,6 +527,8 @@ export function WebApp() {
         onChange={updateBottomNavShortcuts}
         searchDisplayMode={searchDisplayMode}
         onSearchDisplayModeChange={updateSearchDisplayMode}
+        themeMode={themeMode}
+        onThemeModeChange={updateThemeMode}
       />
     );
   } else {
@@ -505,6 +546,8 @@ export function WebApp() {
           onGoBack={goBack}
           bottomNavShortcuts={bottomNavShortcuts}
           searchPopupEnabled={searchDisplayMode === "popup"}
+          themeMode={themeMode}
+          onThemeModeChange={updateThemeMode}
         >
           <Suspense fallback={<LoadingScreen {...loadingPresentation} />}>{content}</Suspense>
         </WebAppShell>
