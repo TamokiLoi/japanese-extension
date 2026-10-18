@@ -128,7 +128,6 @@ export function KanjiBookResources({ kanji, onOpenVocab }: { kanji: Kanji; onOpe
               </div>
             </div>
           ) : null}
-          {activeBook?.id === "b1" ? <p className="kanji-book-source-note">Mẹo nhớ được ghép theo số mục từ bản scan tiếng Việt; các mục OCR có thể sai ký tự nên hãy đối chiếu. Ảnh minh họa lấy từ sách gốc. Từ ghép của bản gốc chưa trích xuất đủ tin cậy để nhập vào app.</p> : null}
         </div>
       ) : null}
     </section>

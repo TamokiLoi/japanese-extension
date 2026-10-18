@@ -40,7 +40,6 @@
 .kanji-book-words-list button:disabled { cursor: default; opacity: .65; }
 .kanji-book-words-list strong { color: #303b4b; font-size: 11px; font-weight: 800; }
 .kanji-book-words-list span { min-width: 0; overflow: hidden; color: #7d8794; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
-.kanji-book-source-note { margin: 0; color: #8993a0; font-size: 9px; line-height: 1.35; }
 
 @media (max-width: 767px) {
   .kanji-book-resources { gap: 8px; padding: 9px; }

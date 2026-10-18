@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, Network } from "lucide-react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, Network, BookOpen } from "lucide-react";
 import type { Kanji } from "../../types/kanji.ts";
 import { KANJI_STUDY_SETS, type KanjiStudySetId } from "../../data/kanjiStudySets.ts";
+import { RADICAL_CARDS } from "../../data/radicalCards.ts";
 import { storageGet, storageSet } from "../../platform/storage.ts";
 import {
   ALL_KANJI,
@@ -51,6 +52,32 @@ import "../../kanji-card-layout.css";
 
 const KanjiMapScreen = lazy(() => import("./KanjiMapScreen.tsx").then((module) => ({ default: module.KanjiMapScreen })));
 const KanjiBookResources = lazy(() => import("../components/KanjiBookResources.tsx").then((module) => ({ default: module.KanjiBookResources })));
+const RadicalLibraryScreen = lazy(() => import("./RadicalLibraryScreen.tsx").then((module) => ({ default: module.RadicalLibraryScreen })));
+
+type KanjiViewMode = "cards" | "radicals" | "map";
+
+function KanjiModeSelector({ active, onSelect }: { active: KanjiViewMode; onSelect: (mode: KanjiViewMode) => void }) {
+  const modes: { id: KanjiViewMode; label: string; icon: typeof Layers }[] = [
+    { id: "cards", label: "Thẻ Kanji", icon: Layers },
+    { id: "radicals", label: "Bộ thủ", icon: BookOpen },
+    { id: "map", label: "Kanji Map", icon: Network },
+  ];
+  return (
+    <div className="mt-3 inline-flex max-w-full flex-wrap items-center gap-1 rounded-xl border border-neutral-200 bg-neutral-100 p-1" role="group" aria-label="Chế độ xem Kanji">
+      {modes.map(({ id, label, icon: Icon }) => (
+        <button
+          key={id}
+          type="button"
+          className={`rounded-lg px-3 py-2 text-xs font-semibold transition-colors ${active === id ? "bg-white text-rose-600 shadow-sm" : "text-neutral-600 hover:bg-white/70"}`}
+          aria-pressed={active === id}
+          onClick={() => onSelect(id)}
+        >
+          <span className="inline-flex items-center gap-1.5"><Icon size={14} /> {label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -134,6 +161,12 @@ export function KanjiScreen({
   const [list, setList] = useState<Kanji[]>([]);
   const [mapMode, setMapMode] = useState(false);
   const [mapCharacter, setMapCharacter] = useState<string | null>(null);
+  const [radicalMode, setRadicalMode] = useState(false);
+  const [radicalCharacter, setRadicalCharacter] = useState<string | null>(null);
+  // Opening a card from the map is a temporary viewing context. Keep the
+  // Kanji filter/list state intact even when that card is outside the filter.
+  const [mapCardCharacter, setMapCardCharacter] = useState<string | null>(null);
+  const mapCard = mapCardCharacter ? ALL_KANJI.find((item) => item.character === mapCardCharacter) : undefined;
   const [studySetId, setStudySetId] = useState<KanjiStudySetId | null>(null);
   const [progress, setProgress] = useState<ItemProgress | null>(null);
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
@@ -208,8 +241,8 @@ export function KanjiScreen({
   useEffect(() => {
     let cancelled = false;
     if (!state) return;
-    const k = list[state.index];
-    if (state.viewMode === "grid") {
+    const k = mapCard ?? list[state.index];
+    if (state.viewMode === "grid" && !mapCard) {
       loadProgressMap().then((m) => {
         if (!cancelled) setGridMap(m);
       });
@@ -229,7 +262,7 @@ export function KanjiScreen({
     return () => {
       cancelled = true;
     };
-  }, [state, list]);
+  }, [mapCard, state, list]);
 
   async function mutate(
     partial: Partial<KanjiViewerState>,
@@ -247,6 +280,7 @@ export function KanjiScreen({
       baseFilterRef.current = { ...baseFilterRef.current, progressFilter: toPersist.progressFilter, viewMode: toPersist.viewMode };
     }
     const newList = recomputeList ? await getFilteredList(next, listStudySetId) : list;
+    setMapCardCharacter(null);
     setState(next);
     setList(newList);
   }
@@ -276,17 +310,19 @@ export function KanjiScreen({
   }
 
   async function refreshProgress() {
-    const k = list[state!.index];
+    const k = mapCard ?? list[state!.index];
     if (!k) return;
     const p = await getProgress(k.id);
     setProgress(p);
   }
 
-  const floatingNavBottom = useFloatingNav(!!state && !mapMode && state.viewMode !== "grid");
+  const floatingNavBottom = useFloatingNav(!!state && !mapMode && (!!mapCard || state.viewMode !== "grid"));
 
   const selectedMapKanji = mapMode && mapCharacter ? ALL_KANJI.find((item) => item.character === mapCharacter) : undefined;
-  const currentId = mapMode ? selectedMapKanji?.id : state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
-  const currentText = mapMode ? selectedMapKanji?.character : state && state.viewMode !== "grid" ? list[state.index]?.character : undefined;
+  const mapCardIndex = mapCard ? list.findIndex((item) => item.id === mapCard.id) : -1;
+  const cardIndex = mapCard ? mapCardIndex : state?.index ?? 0;
+  const currentId = radicalMode ? undefined : mapMode ? selectedMapKanji?.id : mapCard?.id ?? (state && state.viewMode !== "grid" ? list[state.index]?.id : undefined);
+  const currentText = radicalMode ? undefined : mapMode ? selectedMapKanji?.character : mapCard?.character ?? (state && state.viewMode !== "grid" ? list[state.index]?.character : undefined);
   useEffect(() => {
     onCurrentItemChange?.(currentId, currentText);
   }, [currentId, currentText, onCurrentItemChange]);
@@ -295,15 +331,15 @@ export function KanjiScreen({
     return <LoadingScreen variant="study" title="Kanji" />;
   }
 
-  const k = list[state.index];
+  const k = mapCard ?? list[state.index];
   const totalSelected = list.length;
-  const isGrid = state.viewMode === "grid";
+  const isGrid = state.viewMode === "grid" && !mapCard;
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
   const allChecked = !studySetId && state.selectedLevels.length === AVAILABLE_LEVELS.length;
   const activeFilterCount = studySetId ? 1 : allChecked ? 0 : state.selectedLevels.length;
   const related = k ? vocabForKanjiChar(k.character) : null;
 
-  async function openMapKanjiCard() {
+  function openMapKanjiCard() {
     if (!state || !mapCharacter) {
       setMapMode(false);
       return;
@@ -313,16 +349,30 @@ export function KanjiScreen({
       setMapMode(false);
       return;
     }
-    baseFilterRef.current = null;
-    setStudySetId(null);
-    await storageSet(STUDY_SET_STORAGE_KEY, null);
-    const jumped = resolveJumpState({ ...state, viewMode: "card", index: 0 }, target.id) ?? { ...state, viewMode: "card" as const, index: 0 };
-    const nextList = await getFilteredList(jumped, null);
-    const nextState = { ...jumped, index: Math.max(0, nextList.findIndex((item) => item.id === target.id)), viewMode: "card" as const };
-    await saveViewerState(nextState);
-    setList(nextList);
-    setState(nextState);
+    setMapCardCharacter(target.character);
     setMapMode(false);
+  }
+
+  function openMapRadicalCard(character: string) {
+    setRadicalCharacter(character);
+    setMapMode(false);
+    setRadicalMode(true);
+  }
+
+  function selectKanjiView(mode: KanjiViewMode) {
+    if (mode === "radicals") {
+      setMapMode(false);
+      setRadicalMode(true);
+      return;
+    }
+    if (mode === "map") {
+      setRadicalMode(false);
+      setMapCharacter(mapCharacter ?? k?.character ?? ALL_KANJI[0]?.character ?? null);
+      setMapMode(true);
+      return;
+    }
+    setMapMode(false);
+    setRadicalMode(false);
   }
 
   if (mapMode) {
@@ -332,9 +382,28 @@ export function KanjiScreen({
           initialCharacter={mapCharacter ?? k?.character}
           onSelectCharacter={setMapCharacter}
           onBackToCards={() => void openMapKanjiCard()}
+          onSelectRadical={openMapRadicalCard}
           onOpenVocab={onOpenVocab}
         />
       </Suspense>
+    );
+  }
+
+  if (radicalMode) {
+    return (
+      <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
+        <PageHeader title="Bộ thủ" subtitle={`${RADICAL_CARDS.length} bộ · thẻ tham khảo`} icon={{ img: "icon-kanji.png", bg: "#ffe4e6" }} />
+        <KanjiModeSelector active="radicals" onSelect={selectKanjiView} />
+        <Suspense fallback={<LoadingScreen variant="study" title="Bộ thủ" />}>
+          <RadicalLibraryScreen
+            initialCharacter={radicalCharacter}
+            onOpenKanji={(character) => {
+              setMapCardCharacter(character);
+              setRadicalMode(false);
+            }}
+          />
+        </Suspense>
+      </div>
     );
   }
 
@@ -342,7 +411,7 @@ export function KanjiScreen({
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <PageHeader
         title="Kanji"
-        subtitle={isGrid ? `${list.length} thẻ` : `${list.length > 0 ? state.index + 1 : 0} / ${totalSelected}`}
+        subtitle={isGrid ? `${list.length} thẻ` : mapCard && mapCardIndex < 0 ? "Ngoài bộ lọc hiện tại" : `${list.length > 0 ? cardIndex + 1 : 0} / ${totalSelected}`}
         icon={{ img: "icon-kanji.png", bg: "#ffe4e6" }}
         action={
           <Button variant="outline" size="icon" onClick={() => mutate({ viewMode: isGrid ? "card" : "grid" }, false)}>
@@ -351,21 +420,7 @@ export function KanjiScreen({
         }
       />
 
-      <div className="mt-3 inline-flex max-w-full items-center gap-1 rounded-xl border border-neutral-200 bg-neutral-100 p-1" role="group" aria-label="Chế độ xem Kanji">
-        <button type="button" className="rounded-lg bg-white px-3 py-2 text-xs font-semibold text-rose-600 shadow-sm" aria-pressed="true">
-          <span className="inline-flex items-center gap-1.5"><Layers size={14} /> Thẻ Kanji</span>
-        </button>
-        <button
-          type="button"
-          className="rounded-lg px-3 py-2 text-xs font-semibold text-neutral-600 hover:bg-white/70"
-          onClick={() => {
-            setMapCharacter(k?.character ?? ALL_KANJI[0]?.character ?? null);
-            setMapMode(true);
-          }}
-        >
-          <span className="inline-flex items-center gap-1.5"><Network size={14} /> Kanji Map</span>
-        </button>
-      </div>
+      <KanjiModeSelector active="cards" onSelect={selectKanjiView} />
 
       <FilterBar>
         <FilterTrigger count={activeFilterCount} onClick={() => setFilterOpen(true)} />
@@ -462,32 +517,32 @@ export function KanjiScreen({
 
       {isGrid ? null : (
         <div className="mt-3 hidden items-center gap-2 md:flex">
-          <Button variant="outline" disabled={state.index === 0} onClick={() => mutate({ index: state.index - 1 }, false)}>
+          <Button variant="outline" disabled={cardIndex <= 0} onClick={() => mutate({ index: cardIndex - 1, viewMode: "card" }, false)}>
             <ChevronLeft size={16} /> Trước
           </Button>
           <Button
             variant="outline"
             className="ml-auto"
-            disabled={state.index >= list.length - 1}
-            onClick={() => mutate({ index: state.index + 1 }, false)}
+            disabled={cardIndex < 0 || cardIndex >= list.length - 1}
+            onClick={() => mutate({ index: cardIndex + 1, viewMode: "card" }, false)}
           >
             Tiếp <ChevronRight size={16} />
           </Button>
         </div>
       )}
 
-      {isGrid || state.index === 0 ? null : (
+      {isGrid || cardIndex <= 0 ? null : (
         <button
-          onClick={() => mutate({ index: state.index - 1 }, false)}
+          onClick={() => mutate({ index: cardIndex - 1, viewMode: "card" }, false)}
           aria-label="Trước"
           className={`fixed ${floatingNavBottom} left-4 z-20 floating-action-button bg-white text-neutral-600 shadow-lg ring-1 ring-neutral-200 active:bg-neutral-50 md:hidden`}
         >
           <ChevronLeft size={18} />
         </button>
       )}
-      {isGrid || state.index >= list.length - 1 ? null : (
+      {isGrid || cardIndex < 0 || cardIndex >= list.length - 1 ? null : (
         <button
-          onClick={() => mutate({ index: state.index + 1 }, false)}
+          onClick={() => mutate({ index: cardIndex + 1, viewMode: "card" }, false)}
           aria-label="Tiếp"
           className={`fixed right-4 ${floatingNavBottom} z-20 floating-action-button bg-rose-600 text-white shadow-lg active:bg-rose-700 md:hidden`}
         >

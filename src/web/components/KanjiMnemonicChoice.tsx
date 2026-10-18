@@ -11,10 +11,6 @@ type MnemonicOption = {
   id: string;
   label: string;
   text: string;
-  kind?: KanjiMapMnemonicTip["kind"];
-  transcription?: KanjiMapMnemonicTip["transcription"];
-  sourceEdition?: KanjiMapMnemonicTip["sourceEdition"];
-  ocrConfidence?: number;
   source?: string;
   reference?: string;
   visualNote?: boolean;
@@ -55,11 +51,7 @@ export function KanjiMnemonicChoice({ kanji }: { kanji: Kanji }) {
         id: tip.id,
         label: `${isOldN5N4Tip ? "Bản cũ · N5–N4" : source.label} #${tip.entry}`,
         text: tip.text,
-        kind: tip.kind,
-        transcription: tip.transcription,
-        sourceEdition: tip.sourceEdition,
-        ocrConfidence: tip.ocrConfidence,
-        source: `${isOldN5N4Tip ? "Kanji Look and Learn · N5–N4 · bản gốc (mẹo đã có trong app)" : source.title} · mục ${tip.entry}`,
+        source: `${isOldN5N4Tip ? "Kanji Look and Learn · N5–N4 · bản gốc" : source.title} · mục ${tip.entry}`,
         tone: tip.book,
         reference: tip.printedPage
           ? `PDF trang ${tip.pdfPage} · trang in ${tip.printedPage}`
@@ -108,20 +100,6 @@ export function KanjiMnemonicChoice({ kanji }: { kanji: Kanji }) {
       <div className="kanji-mnemonic-source">
         <span>{active.visualNote ? "Ghi chú hình minh họa" : "Nguồn"}: {active.source}</span>
         {active.reference ? <span>{active.reference}</span> : null}
-        {active.kind === "paraphrase" ? (
-          <span>{active.sourceEdition === "original" ? "Diễn giải cũ từ nguồn sách" : "Diễn giải tiếng Việt từ trang sách"}</span>
-        ) : null}
-        {active.kind === "excerpt" ? (
-          <span>
-            {active.sourceEdition === "original"
-              ? "Mẹo cũ đã có trong app"
-              : active.transcription === "visual-check"
-                ? "Tiếng Việt đã đối chiếu trực tiếp với bản scan"
-                : active.sourceEdition === "vietnamese-scan" && active.transcription === "ocr"
-                  ? `OCR tiếng Việt từ bản scan${active.ocrConfidence ? ` · điểm nhận dạng ${Math.round(active.ocrConfidence * 100)}%` : ""} · nên đối chiếu`
-              : "Câu gợi nhớ trong sách"}
-          </span>
-        ) : null}
       </div>
     </section>
   );
