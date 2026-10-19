@@ -19,6 +19,12 @@
         "よごして",
         "のこして"
       ],
+      "optionsVi": [
+        "làm vỡ; phá hỏng",
+        "đánh thức; gây ra",
+        "làm bẩn",
+        "để lại; giữ lại"
+      ],
       "correctIndex": 2,
       "explanation": "Từ 「汚す」 đọc là 「よごして」 có nghĩa là làm bẩn.",
       "explanationEn": "",
@@ -52,8 +58,14 @@
         "せんしゅ",
         "ぜんしゅう"
       ],
-      "correctIndex": 1,
-      "explanation": "Từ 「選手」 đọc là 「せんしゅう」 chỉ vận động viên.",
+      "optionsVi": [
+        "Không phải cách đọc đúng của 「選手」.",
+        "Tuần trước (先週); không khớp với 「選手」.",
+        "Vận động viên; tuyển thủ.",
+        "Tuần trước (前週); không khớp với 「選手」."
+      ],
+      "correctIndex": 2,
+      "explanation": "Từ 「選手」 đọc là 「せんしゅ」, nghĩa là vận động viên hoặc tuyển thủ.",
       "explanationEn": "",
       "notes": [
         "⚠️ Đề thi thật không kèm đáp án gốc — đáp án do Gemini suy luận (độ tin cậy cao, câu khách quan)."
@@ -102,6 +114,12 @@
         "げつまつ",
         "がつのつ",
         "がつのつ"
+      ],
+      "optionsVi": [
+        "Không phải cách đọc đúng của 「月末」.",
+        "Cuối tháng.",
+        "Không phải cách đọc đúng của 「月末」.",
+        "Không phải cách đọc đúng của 「月末」."
       ],
       "correctIndex": 1,
       "explanation": "Từ 「月末」 đọc là 「げつまつ」 nghĩa là cuối tháng.",
@@ -154,6 +172,12 @@
         "ふた",
         "よこ"
       ],
+      "optionsVi": [
+        "Mặt sau; mặt trái.",
+        "Bên trong; phía sâu bên trong.",
+        "Nắp.",
+        "Bên cạnh; phía ngang."
+      ],
       "correctIndex": 0,
       "explanation": "Từ 「裏」 đọc là 「うら」 nghĩa là mặt sau, mặt trái.",
       "explanationEn": "",
@@ -204,6 +228,12 @@
         "ざんぎょう",
         "しょうぎょう",
         "さんぎょう"
+      ],
+      "optionsVi": [
+        "Không phải cách đọc đúng của 「産業」.",
+        "Làm thêm giờ; tăng ca (残業).",
+        "Thương mại; kinh doanh (商業).",
+        "Ngành công nghiệp; ngành sản xuất."
       ],
       "correctIndex": 3,
       "explanation": "Từ 「産業」 đọc là 「さんぎょう」 nghĩa là ngành công nghiệp/sản xuất.",
@@ -268,6 +298,12 @@
         "ちゅうかん",
         "ちゅうがん"
       ],
+      "optionsVi": [
+        "Không phải cách đọc đúng của 「朝刊」.",
+        "Báo buổi sáng.",
+        "Giữa trưa; khoảng giữa (中間).",
+        "Không phải cách đọc đúng của 「朝刊」."
+      ],
       "correctIndex": 1,
       "explanation": "Từ 「朝刊」 đọc là 「ちょうかん」 nghĩa là báo ra buổi sáng.",
       "explanationEn": "",
@@ -314,6 +350,12 @@
         "あやまった",
         "うたがった",
         "ことわった"
+      ],
+      "optionsVi": [
+        "Đã sợ; đã lo sợ.",
+        "Đã xin lỗi.",
+        "Đã nghi ngờ.",
+        "Đã từ chối."
       ],
       "correctIndex": 3,
       "explanation": "Từ 「断った」 đọc là 「ことわった」 nghĩa là từ chối.",
@@ -378,6 +420,12 @@
         "こうば",
         "こうじょう"
       ],
+      "optionsVi": [
+        "Quảng trường; bãi đất rộng.",
+        "Không phải cách đọc đúng của 「広場」.",
+        "Xưởng; nhà máy nhỏ (工場・作業場).",
+        "Nhà máy; công xưởng."
+      ],
       "correctIndex": 0,
       "explanation": "Từ 「広場」 đọc là 「ひろば」 nghĩa là quảng trường, khoảng đất rộng.",
       "explanationEn": "",
@@ -432,6 +480,12 @@
         "乗りましょう",
         "降りましょう",
         "移りましょう"
+      ],
+      "optionsVi": [
+        "Hãy dừng lại (xe/tàu).",
+        "Hãy lên; hãy đi (bằng phương tiện).",
+        "Hãy xuống (khỏi phương tiện).",
+        "Hãy chuyển sang; hãy di chuyển."
       ],
       "correctIndex": 2,
       "explanation": "「おりましょう」 ở ngữ cảnh xuống tàu/xe dùng chữ Hán 「降りましょう」.",
@@ -500,6 +554,12 @@
         "帰宅",
         "着室"
       ],
+      "optionsVi": [
+        "Đến nhà (cách dùng không thông dụng).",
+        "Trở về phòng.",
+        "Trở về nhà.",
+        "Đến phòng (cách dùng không thông dụng)."
+      ],
       "correctIndex": 2,
       "explanation": "「きたく」 viết bằng chữ Hán là 「帰宅」 (về nhà).",
       "explanationEn": "",
@@ -558,6 +618,12 @@
         "平かく",
         "丸かく",
         "細かく"
+      ],
+      "optionsVi": [
+        "Cách viết không đúng của 「こまかく」.",
+        "Cách viết không đúng của 「こまかく」.",
+        "Cách viết không đúng của 「こまかく」.",
+        "Nhỏ; mịn; chi tiết."
       ],
       "correctIndex": 3,
       "explanation": "「こまかく」 viết bằng chữ Hán là 「細かく」 (nhỏ/chi tiết).",
@@ -638,6 +704,12 @@
         "規則",
         "規律"
       ],
+      "optionsVi": [
+        "Pháp luật.",
+        "Quy luật; định luật.",
+        "Quy tắc; nội quy.",
+        "Kỷ luật; quy chế."
+      ],
       "correctIndex": 0,
       "explanation": "「ほうりつ」 viết bằng chữ Hán là 「法律」 (pháp luật).",
       "explanationEn": "",
@@ -697,6 +769,12 @@
         "欠",
         "穴"
       ],
+      "optionsVi": [
+        "Không có; vô.",
+        "Trống rỗng; không có gì bên trong.",
+        "Thiếu; khuyết.",
+        "Cái lỗ; hang."
+      ],
       "correctIndex": 1,
       "explanation": "「から」 trong trường hợp túi trống rỗng viết bằng chữ Hán là 「空」 (karappo / karasu).",
       "explanationEn": "",
@@ -727,6 +805,12 @@
         "会費",
         "回費",
         "回賃"
+      ],
+      "optionsVi": [
+        "Cách viết không đúng của 「かいひ」.",
+        "Hội phí; phí thành viên.",
+        "Cách viết không đúng của 「かいひ」.",
+        "Cách viết không đúng của 「かいひ」."
       ],
       "correctIndex": 1,
       "explanation": "「かいひ」 chỉ tiền hội phí viết bằng chữ Hán là 「会費」.",
@@ -801,6 +885,12 @@
         "希望",
         "想像"
       ],
+      "optionsVi": [
+        "Biết; hiểu; chấp thuận.",
+        "Hiểu và chấp nhận; cảm thấy thuyết phục.",
+        "Hy vọng; mong muốn.",
+        "Tưởng tượng."
+      ],
       "correctIndex": 3,
       "explanation": "Hãy thử tưởng tượng (sōzō) thế giới 100 năm sau.",
       "explanationEn": "",
@@ -831,6 +921,12 @@
         "扱って",
         "振って",
         "押して"
+      ],
+      "optionsVi": [
+        "Chỉ vào; trỏ vào.",
+        "Xử lý; đối xử.",
+        "Vẫy (tay).",
+        "Đẩy; ấn."
       ],
       "correctIndex": 2,
       "explanation": "Vẫy tay (te o futte) chào tạm biệt.",
@@ -870,6 +966,12 @@
         "そっと",
         "きちんと"
       ],
+      "optionsVi": [
+        "Rõ ràng.",
+        "Cố gắng hết mức có thể; càng ... càng tốt.",
+        "Nhẹ nhàng; khẽ khàng.",
+        "Ngăn nắp; cẩn thận; đúng cách."
+      ],
       "correctIndex": 3,
       "explanation": "「きちんと」 nghĩa là ngăn nắp, gọn gàng cẩn thận.",
       "explanationEn": "",
@@ -907,6 +1009,12 @@
         "感激",
         "感心"
       ],
+      "optionsVi": [
+        "Sự xúc động; cảm động.",
+        "Cảm giác; giác quan.",
+        "Sự cảm kích; xúc động mạnh.",
+        "Sự khâm phục; thán phục."
+      ],
       "correctIndex": 1,
       "explanation": "Do lạnh nên ngón tay bị mất cảm giác (kankaku).",
       "explanationEn": "",
@@ -939,6 +1047,12 @@
         "効果的",
         "人工的",
         "消極的"
+      ],
+      "optionsVi": [
+        "Tự động.",
+        "Có hiệu quả; hiệu nghiệm.",
+        "Nhân tạo.",
+        "Tiêu cực; thụ động."
       ],
       "correctIndex": 1,
       "explanation": "Đánh răng sau khi ăn là phương pháp có hiệu quả nhất (kōkateki) để phòng ngừa sâu răng.",
@@ -981,6 +1095,12 @@
         "おたがいに",
         "おもに"
       ],
+      "optionsVi": [
+        "Thỉnh thoảng.",
+        "Nhân tiện.",
+        "Lẫn nhau; cả hai.",
+        "Chủ yếu."
+      ],
       "correctIndex": 2,
       "explanation": "「おたがいに」 nghĩa là cả hai/lẫn nhau đều biết mặt nhau.",
       "explanationEn": "",
@@ -1017,6 +1137,12 @@
         "運",
         "段",
         "番"
+      ],
+      "optionsVi": [
+        "Đường; tuyến; nét.",
+        "Vận may; số phận.",
+        "Bậc; cấp; giai đoạn.",
+        "Lượt; phiên."
       ],
       "correctIndex": 3,
       "explanation": "Đến lượt tôi phát biểu: 「番だ」.",
@@ -1059,6 +1185,12 @@
         "検査",
         "解決"
       ],
+      "optionsVi": [
+        "Giới hạn; hạn chế.",
+        "Cấm; sự cấm đoán.",
+        "Kiểm tra; kiểm định.",
+        "Giải quyết."
+      ],
       "correctIndex": 0,
       "explanation": "Hành lý mang theo được giới hạn (seigen) trong vòng 20kg.",
       "explanationEn": "",
@@ -1099,6 +1231,12 @@
         "かんで",
         "まぜて"
       ],
+      "optionsVi": [
+        "Cắn thử.",
+        "Liếm; nếm.",
+        "Nhai.",
+        "Trộn; pha."
+      ],
       "correctIndex": 1,
       "explanation": "Nếm thử bằng lưỡi dùng động từ 「なめてみた」.",
       "explanationEn": "",
@@ -1133,6 +1271,12 @@
         "まぶしい",
         "ぬるい",
         "にがい"
+      ],
+      "optionsVi": [
+        "Uể oải; mệt mỏi.",
+        "Chói mắt; sáng lóa.",
+        "Âm ấm; không đủ nóng.",
+        "Đắng."
       ],
       "correctIndex": 0,
       "explanation": "Cơ thể mệt mỏi, uể oải (darui) do sốt.",
@@ -1174,6 +1318,12 @@
         "にげて",
         "急いで"
       ],
+      "optionsVi": [
+        "Xếp hàng.",
+        "Đi vào; bước vào.",
+        "Chạy trốn; sơ tán.",
+        "Nhanh lên; vội lên."
+      ],
       "correctIndex": 2,
       "explanation": "「避難する」 (tỵ nạn/sơ tán) tương đương với nghĩa trốn chạy, lánh nạn 「にげて」.",
       "explanationEn": "",
@@ -1205,6 +1355,12 @@
         "メニュー",
         "サービス"
       ],
+      "optionsVi": [
+        "Quy tắc; luật lệ.",
+        "Ý tưởng.",
+        "Thực đơn; danh sách lựa chọn.",
+        "Dịch vụ."
+      ],
       "correctIndex": 1,
       "explanation": "「案」 (án/ý kiến) đồng nghĩa với ý tưởng 「アイデア」.",
       "explanationEn": "",
@@ -1235,6 +1391,12 @@
         "笑わなかった",
         "動かなかった",
         "怒らなかった"
+      ],
+      "optionsVi": [
+        "Đã không nói.",
+        "Đã không cười.",
+        "Đã không cử động.",
+        "Đã không tức giận."
       ],
       "correctIndex": 0,
       "explanation": "「だまる」 có nghĩa là im lặng, không nói gì (hanasanakatta).",
@@ -1270,6 +1432,12 @@
         "最もよくない",
         "最も難しい",
         "最も難しくない"
+      ],
+      "optionsVi": [
+        "Tốt nhất.",
+        "Tệ nhất; không tốt nhất.",
+        "Khó nhất.",
+        "Không khó nhất."
       ],
       "correctIndex": 0,
       "explanation": "「ベスト」 (best) có nghĩa là tốt nhất (最もよい).",
@@ -1312,6 +1480,12 @@
         "手伝って",
         "貸して",
         "届けて"
+      ],
+      "optionsVi": [
+        "Lắp ráp.",
+        "Giúp đỡ.",
+        "Cho mượn.",
+        "Giao đến; chuyển đến."
       ],
       "correctIndex": 3,
       "explanation": "「配達する」 (giao hàng) đồng nghĩa với 「届ける」 (chuyển đến/giao đến).",
@@ -1727,6 +1901,12 @@
         "から",
         "からの"
       ],
+      "optionsVi": [
+        "Ở/tại (chỉ nơi diễn ra hành động).",
+        "Ở/tại ... (dùng để bổ nghĩa cho danh từ phía sau).",
+        "Từ (chỉ điểm xuất phát hoặc nguồn gốc).",
+        "Đến từ ... (dùng để bổ nghĩa cho danh từ phía sau)."
+      ],
       "correctIndex": 1,
       "explanation": "「外国での観光客」 dùng trợ từ 「での」 để nối định ngữ chỉ phạm vi.",
       "explanationEn": "",
@@ -1768,6 +1948,12 @@
         "までで",
         "にまで",
         "のまで"
+      ],
+      "optionsVi": [
+        "Cho đến ... thì (cách kết hợp không phù hợp trong câu này).",
+        "Đến ... là kết thúc; cho đến mốc ... .",
+        "Đến tận ...; tăng đến mức ... .",
+        "Của ... đến (cách kết hợp không tự nhiên trong câu này)."
       ],
       "correctIndex": 2,
       "explanation": "Mẫu 「〜にまで」 dùng để chỉ mức độ đạt tới một mốc nào đó (tăng đến tận 100 người).",
@@ -1821,6 +2007,12 @@
         "において",
         "に比べて"
       ],
+      "optionsVi": [
+        "Về; liên quan đến.",
+        "Tùy theo; do/bởi.",
+        "Tại; trong (cách nói trang trọng).",
+        "So với."
+      ],
       "correctIndex": 1,
       "explanation": "Mẫu 「〜によって」 thể hiện sự thay đổi tùy thuộc vào cái gì đó.",
       "explanationEn": "",
@@ -1862,6 +2054,12 @@
         "ついに",
         "今にも"
       ],
+      "optionsVi": [
+        "Bằng cách nào đó; xin hãy (tùy ngữ cảnh).",
+        "Nhất định không; tuyệt đối không (thường đi với phủ định).",
+        "Cuối cùng; rốt cuộc.",
+        "Bất cứ lúc nào; sắp sửa."
+      ],
       "correctIndex": 2,
       "explanation": "「ついに」 diễn tả sự việc cuối cùng cũng đã thành hiện thực sau thời gian dài mong mỏi.",
       "explanationEn": "",
@@ -1898,6 +2096,12 @@
         "ときに",
         "までに",
         "たびに"
+      ],
+      "optionsVi": [
+        "Trong khi; trước khi tình trạng thay đổi.",
+        "Khi; vào lúc.",
+        "Trước hạn; trước thời điểm.",
+        "Mỗi lần."
       ],
       "correctIndex": 0,
       "explanation": "Mẫu 「〜うちに」 nghĩa là \"trong khi chưa...\", khuyên nên làm trước khi tình trạng trở nên tồi tệ.",
@@ -1938,6 +2142,12 @@
         "考えて",
         "考えたのに",
         "考えるのか"
+      ],
+      "optionsVi": [
+        "Để suy nghĩ; sao cho có thể cân nhắc.",
+        "Sau khi cân nhắc; cân nhắc đến ... rồi.",
+        "Dù đã cân nhắc; mặc dù đã nghĩ.",
+        "Liệu có cân nhắc hay không; tại sao lại nghĩ ... ."
       ],
       "correctIndex": 1,
       "explanation": "Sử dụng thể te 「考えて」 để chỉ nguyên nhân/cách thức: \"Nghĩ đến sự tiện lợi khi đi học nên tôi đã chọn nơi có thể đi bộ đến trường\".",
@@ -1983,6 +2193,12 @@
         "食べられるだろう",
         "食べられたほうがいい"
       ],
+      "optionsVi": [
+        "Có vẻ không thể ăn được.",
+        "Sẽ trở nên không ăn được.",
+        "Có lẽ ăn được.",
+        "Tốt hơn là đã/có thể ăn được (cách kết hợp không tự nhiên trong câu này)."
+      ],
       "correctIndex": 0,
       "explanation": "Mẫu 「〜そうにない」 biểu thị khả năng khó có thể làm được (có vẻ như không thể ăn hết).",
       "explanationEn": "",
@@ -2022,6 +2238,12 @@
         "喜びたくて",
         "喜ばせたら",
         "喜ばしたくて"
+      ],
+      "optionsVi": [
+        "Nếu vui mừng; khi vui.",
+        "Vì muốn vui; muốn cảm thấy vui.",
+        "Nếu làm cho ai đó vui.",
+        "Vì muốn làm cho ai đó vui (cách nói ít chuẩn hơn 「喜ばせたくて」)."
       ],
       "correctIndex": 3,
       "explanation": "Dùng thể sai khiến kết hợp với したい: 「喜ばせたかったので」 (vì muốn làm cho con vui).",
@@ -2064,6 +2286,12 @@
         "踊れるようにして",
         "踊れるようになるのに"
       ],
+      "optionsVi": [
+        "Làm cho có thể nhảy được.",
+        "Ngay cả khi đã có thể nhảy được.",
+        "Làm cho (ai đó) có thể nhảy được.",
+        "Để có thể nhảy được; cần ... để trở nên nhảy được."
+      ],
       "correctIndex": 3,
       "explanation": "Mẫu 「〜ようになるのに」 chỉ thời gian hoặc công sức cần thiết để đạt được trạng thái nào đó.",
       "explanationEn": "",
@@ -2098,6 +2326,12 @@
         "行きたがらない",
         "行ってもかまわない",
         "行くに違いない"
+      ],
+      "optionsVi": [
+        "Phải đi.",
+        "Không muốn đi (biểu hiện mong muốn của người/vật khác).",
+        "Đi cũng không sao; có thể đi.",
+        "Chắc chắn sẽ đi."
       ],
       "correctIndex": 1,
       "explanation": "Ghét bị ướt mưa nên chó tỏ thái độ không muốn đi: 「行きたがらない」.",
@@ -2141,6 +2375,12 @@
         "でございます",
         "でいらっしゃいます"
       ],
+      "optionsVi": [
+        "Có ... (cách nói trang trọng; không phù hợp để nêu vị trí tầng).",
+        "Ngài/anh/chị ... có mặt (kính ngữ dùng cho người).",
+        "Là/ở ... ạ (cách nói lịch sự, phù hợp để chỉ tầng).",
+        "Ngài/anh/chị ... là/ở ... (kính ngữ dùng cho người)."
+      ],
       "correctIndex": 2,
       "explanation": "Khi nhân viên nói vị trí tầng, dùng thể lịch sự 「でございます」.",
       "explanationEn": "",
@@ -2180,6 +2420,12 @@
         "買いにいってくる",
         "買っていってしまう"
       ],
+      "optionsVi": [
+        "Mua rồi mang về để sẵn (cách ghép sai).",
+        "Đang đến để mua.",
+        "Đi mua rồi quay về.",
+        "Mua rồi mang đi mất."
+      ],
       "correctIndex": 2,
       "explanation": "Mẫu 「〜てくる」 thể hiện hành động đi đâu đó rồi quay lại (đi mua rồi về ngay).",
       "explanationEn": "",
@@ -2214,6 +2460,12 @@
         "思っているところです",
         "思っていたからでした",
         "思っているからです"
+      ],
+      "optionsVi": [
+        "Tôi vừa định/đang tính làm ... thì ... .",
+        "Tôi đang nghĩ/đang định ... .",
+        "Là vì tôi đã nghĩ như vậy.",
+        "Là vì tôi đang nghĩ như vậy."
       ],
       "correctIndex": 0,
       "explanation": "Mẫu 「〜ようと思っていたところです」 diễn tả ý định vừa định làm gì ngay lúc đó thì có người gọi tới.",
@@ -2262,6 +2514,12 @@
         "歌手",
         "ほど"
       ],
+      "optionsVi": [
+        "Có giọng hát hay/đẹp.",
+        "Trợ từ chủ đề: thì/là.",
+        "Ca sĩ.",
+        "Đến mức; như (dùng để so sánh mức độ)."
+      ],
       "correctIndex": 3,
       "explanation": "Thứ tự đúng là 4 → 1 → 3 → 2:「彼女ほど声が綺麗な歌手はいないと思う」(Tôi nghĩ không có ca sĩ nào có giọng hát hay như cô ấy). Ô ★ là vị trí đầu tiên nên chọn 「ほど」 (đáp án 4).",
       "explanationEn": "",
@@ -2301,6 +2559,12 @@
         "インターネットで買う",
         "ということを"
       ],
+      "optionsVi": [
+        "Người (thì).",
+        "Đang ngày càng tăng.",
+        "Mua qua Internet.",
+        "Việc/rằng ... ."
+      ],
       "correctIndex": 1,
       "explanation": "Thứ tự đúng là 3 → 1 → 2 → 4:「食料品もインターネットで買う人が増えてきているということをニュースで知った」(Tôi biết qua tin tức rằng ngày càng có nhiều người mua thực phẩm như rau và cá qua Internet). Ô ★ là vị trí thứ ba, chọn 「増えてきている」 (đáp án 2).",
       "explanationEn": "",
@@ -2336,6 +2600,12 @@
         "ところがあるので",
         "一度チェックして",
         "自信がない"
+      ],
+      "optionsVi": [
+        "Không thể nhận được/nhờ được ... không? (phần kết lời nhờ).",
+        "Vì có chỗ ... .",
+        "Hãy kiểm tra một lần.",
+        "Không tự tin."
       ],
       "correctIndex": 2,
       "explanation": "Thứ tự đúng là 4 → 2 → 3 → 1:「自信がないところがあるので、一度チェックしてもらえないでしょうか」(Em có vài chỗ chưa yên tâm, anh/chị kiểm tra giúp em một lần được không?). Ô ★ là vị trí thứ ba, chọn 「一度チェックして」 (đáp án 3).",
@@ -2381,6 +2651,12 @@
         "家を出て",
         "忘れて"
       ],
+      "optionsVi": [
+        "Việc tắt đèn ở lối vào nhà.",
+        "Rồi đến/đi đến (phần kết của 「出てきて」).",
+        "Rời khỏi nhà.",
+        "Quên."
+      ],
       "correctIndex": 2,
       "explanation": "Thứ tự đúng là 1 → 4 → 3 → 2:「玄関の電気を消すのを忘れて家を出てきてしまった」(Sáng nay vì vội nên tôi đã ra khỏi nhà mà quên tắt đèn ở lối vào). Ô ★ là vị trí thứ ba, chọn 「家を出て」 (đáp án 3).",
       "explanationEn": "",
@@ -2422,6 +2698,12 @@
         "忘れない",
         "ように",
         "ことにしている"
+      ],
+      "optionsVi": [
+        "Nhất định ghi lại vào sổ.",
+        "Không quên.",
+        "Để; sao cho.",
+        "Quyết định làm thành thói quen."
       ],
       "correctIndex": 0,
       "explanation": "Thứ tự đúng là 2 → 3 → 1 → 4:「忘れないように必ずノートに記録することにしているそうだ」(Nghe nói người bạn thích đọc sách luôn ghi vào sổ để không quên mình đã đọc sách nào và khi nào). Ô ★ là vị trí thứ ba, chọn 「必ずノートに記録する」 (đáp án 1).",

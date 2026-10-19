@@ -151666,6 +151666,12 @@
                 "よごして",
                 "のこして"
               ],
+              "optionsVi": [
+                "làm vỡ; phá hỏng",
+                "đánh thức; gây ra",
+                "làm bẩn",
+                "để lại; giữ lại"
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -151697,10 +151703,16 @@
                 "せんしゅ",
                 "ぜんしゅう"
               ],
+              "optionsVi": [
+                "Không phải cách đọc đúng của 「選手」.",
+                "Tuần trước (先週); không khớp với 「選手」.",
+                "Vận động viên; tuyển thủ.",
+                "Tuần trước (前週); không khớp với 「選手」."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
-              "explanation": "Từ 「選手」 đọc là 「せんしゅう」 chỉ vận động viên.",
+              "explanation": "Từ 「選手」 đọc là 「せんしゅ」, nghĩa là vận động viên hoặc tuyển thủ.",
               "underline": "選手",
               "questionVi": "Các vận động viên đã đi vào nhà thi đấu.",
               "questionFurigana": [
@@ -151740,6 +151752,12 @@
                 "がつまつ",
                 "がつもつ"
               ],
+              "optionsVi": [
+                "Không phải cách đọc đúng của 「月末」.",
+                "Cuối tháng.",
+                "Không phải cách đọc đúng của 「月末」.",
+                "Không phải cách đọc đúng của 「月末」."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -151778,6 +151796,12 @@
                 "おく",
                 "ふた",
                 "よこ"
+              ],
+              "optionsVi": [
+                "Mặt sau; mặt trái.",
+                "Bên trong; phía sâu bên trong.",
+                "Nắp.",
+                "Bên cạnh; phía ngang."
               ],
               "correctIndex": 0,
               "points": 1,
@@ -151821,6 +151845,12 @@
                 "ざんぎょう",
                 "しょうぎょう",
                 "さんぎょう"
+              ],
+              "optionsVi": [
+                "Không phải cách đọc đúng của 「産業」.",
+                "Làm thêm giờ; tăng ca (残業).",
+                "Thương mại; kinh doanh (商業).",
+                "Ngành công nghiệp; ngành sản xuất."
               ],
               "correctIndex": 3,
               "points": 1,
@@ -151877,6 +151907,12 @@
                 "ちゅうかん",
                 "ちゅうがん"
               ],
+              "optionsVi": [
+                "Không phải cách đọc đúng của 「朝刊」.",
+                "Báo buổi sáng.",
+                "Giữa trưa; khoảng giữa (中間).",
+                "Không phải cách đọc đúng của 「朝刊」."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -151915,6 +151951,12 @@
                 "あやまった",
                 "うたがった",
                 "ことわった"
+              ],
+              "optionsVi": [
+                "Đã sợ; đã lo sợ.",
+                "Đã xin lỗi.",
+                "Đã nghi ngờ.",
+                "Đã từ chối."
               ],
               "correctIndex": 3,
               "points": 1,
@@ -151971,6 +152013,12 @@
                 "こうば",
                 "こうじょう"
               ],
+              "optionsVi": [
+                "Quảng trường; bãi đất rộng.",
+                "Không phải cách đọc đúng của 「広場」.",
+                "Xưởng; nhà máy nhỏ (工場・作業場).",
+                "Nhà máy; công xưởng."
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -152017,6 +152065,12 @@
                 "乗りましょう",
                 "降りましょう",
                 "移りましょう"
+              ],
+              "optionsVi": [
+                "Hãy dừng lại (xe/tàu).",
+                "Hãy lên; hãy đi (bằng phương tiện).",
+                "Hãy xuống (khỏi phương tiện).",
+                "Hãy chuyển sang; hãy di chuyển."
               ],
               "correctIndex": 2,
               "points": 1,
@@ -152083,6 +152137,12 @@
                 "帰宅",
                 "着室"
               ],
+              "optionsVi": [
+                "Đến nhà (cách dùng không thông dụng).",
+                "Trở về phòng.",
+                "Trở về nhà.",
+                "Đến phòng (cách dùng không thông dụng)."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -152139,6 +152199,12 @@
                 "平かく",
                 "丸かく",
                 "細かく"
+              ],
+              "optionsVi": [
+                "Cách viết không đúng của 「こまかく」.",
+                "Cách viết không đúng của 「こまかく」.",
+                "Cách viết không đúng của 「こまかく」.",
+                "Nhỏ; mịn; chi tiết."
               ],
               "correctIndex": 3,
               "points": 1,
@@ -152217,6 +152283,12 @@
                 "規則",
                 "規律"
               ],
+              "optionsVi": [
+                "Pháp luật.",
+                "Quy luật; định luật.",
+                "Quy tắc; nội quy.",
+                "Kỷ luật; quy chế."
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -152274,6 +152346,12 @@
                 "欠",
                 "穴"
               ],
+              "optionsVi": [
+                "Không có; vô.",
+                "Trống rỗng; không có gì bên trong.",
+                "Thiếu; khuyết.",
+                "Cái lỗ; hang."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -152329,6 +152407,12 @@
                 "会費",
                 "回費",
                 "回賃"
+              ],
+              "optionsVi": [
+                "Cách viết không đúng của 「かいひ」.",
+                "Hội phí; phí thành viên.",
+                "Cách viết không đúng của 「かいひ」.",
+                "Cách viết không đúng của 「かいひ」."
               ],
               "correctIndex": 1,
               "points": 1,
@@ -152451,6 +152535,12 @@
                 "希望",
                 "想像"
               ],
+              "optionsVi": [
+                "Chấp thuận; phê duyệt.",
+                "Hiểu và chấp nhận; cảm thấy thuyết phục.",
+                "Hy vọng; mong muốn.",
+                "Tưởng tượng."
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -152514,6 +152604,12 @@
                 "扱って",
                 "振って",
                 "押して"
+              ],
+              "optionsVi": [
+                "Chỉ vào; trỏ vào.",
+                "Xử lý; đối xử.",
+                "Vẫy (tay).",
+                "Đẩy; ấn."
               ],
               "correctIndex": 2,
               "points": 1,
@@ -152607,6 +152703,12 @@
                 "そっと",
                 "きちんと"
               ],
+              "optionsVi": [
+                "Rõ ràng.",
+                "Cố gắng hết mức có thể; càng ... càng tốt.",
+                "Nhẹ nhàng; khẽ khàng.",
+                "Ngăn nắp; cẩn thận; đúng cách."
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -152664,6 +152766,12 @@
                 "感覚",
                 "感激",
                 "感心"
+              ],
+              "optionsVi": [
+                "Sự xúc động; cảm động.",
+                "Cảm giác; giác quan.",
+                "Sự cảm kích; xúc động mạnh.",
+                "Sự khâm phục; thán phục."
               ],
               "correctIndex": 1,
               "points": 1,
@@ -152732,6 +152840,12 @@
                 "効果的",
                 "人工的",
                 "消極的"
+              ],
+              "optionsVi": [
+                "Tự động.",
+                "Có hiệu quả; hiệu nghiệm.",
+                "Nhân tạo.",
+                "Tiêu cực; thụ động."
               ],
               "correctIndex": 1,
               "points": 1,
@@ -152837,6 +152951,12 @@
                 "おたがいに",
                 "おもに"
               ],
+              "optionsVi": [
+                "Thỉnh thoảng.",
+                "Nhân tiện.",
+                "Lẫn nhau; cả hai.",
+                "Chủ yếu."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -152894,6 +153014,12 @@
                 "運",
                 "段",
                 "番"
+              ],
+              "optionsVi": [
+                "Đường; tuyến; nét.",
+                "Vận may; số phận.",
+                "Bậc; cấp; giai đoạn.",
+                "Lượt; phiên."
               ],
               "correctIndex": 3,
               "points": 1,
@@ -152995,6 +153121,12 @@
                 "検査",
                 "解決"
               ],
+              "optionsVi": [
+                "Giới hạn; hạn chế.",
+                "Cấm; sự cấm đoán.",
+                "Kiểm tra; kiểm định.",
+                "Giải quyết."
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -153083,6 +153215,12 @@
                 "かんで",
                 "まぜて"
               ],
+              "optionsVi": [
+                "Cắn thử.",
+                "Liếm; nếm.",
+                "Nhai.",
+                "Trộn; pha."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -153132,6 +153270,12 @@
                 "まぶしい",
                 "ぬるい",
                 "にがい"
+              ],
+              "optionsVi": [
+                "Uể oải; mệt mỏi.",
+                "Chói mắt; sáng lóa.",
+                "Âm ấm; không đủ nóng.",
+                "Đắng."
               ],
               "correctIndex": 0,
               "points": 1,
@@ -153207,6 +153351,12 @@
                 "にげて",
                 "急いで"
               ],
+              "optionsVi": [
+                "Xếp hàng.",
+                "Đi vào; bước vào.",
+                "Chạy trốn; sơ tán.",
+                "Nhanh lên; vội lên."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -153268,6 +153418,12 @@
                 "メニュー",
                 "サービス"
               ],
+              "optionsVi": [
+                "Quy tắc; luật lệ.",
+                "Ý tưởng.",
+                "Thực đơn; danh sách lựa chọn.",
+                "Dịch vụ."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -153302,6 +153458,12 @@
                 "笑わなかった",
                 "動かなかった",
                 "怒らなかった"
+              ],
+              "optionsVi": [
+                "Đã không nói.",
+                "Đã không cười.",
+                "Đã không cử động.",
+                "Đã không tức giận."
               ],
               "correctIndex": 0,
               "points": 1,
@@ -153380,6 +153542,12 @@
                 "最も難しい",
                 "最も難しくない"
               ],
+              "optionsVi": [
+                "Tốt nhất.",
+                "Tệ nhất; không tốt nhất.",
+                "Khó nhất.",
+                "Không khó nhất."
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -153452,6 +153620,12 @@
                 "手伝って",
                 "貸して",
                 "届けて"
+              ],
+              "optionsVi": [
+                "Lắp ráp.",
+                "Giúp đỡ.",
+                "Cho mượn.",
+                "Giao đến; chuyển đến."
               ],
               "correctIndex": 3,
               "points": 1,
@@ -154564,6 +154738,12 @@
                 "から",
                 "からの"
               ],
+              "optionsVi": [
+                "Ở/tại (chỉ nơi diễn ra hành động).",
+                "Ở/tại ... (dùng để bổ nghĩa cho danh từ phía sau).",
+                "Từ (chỉ điểm xuất phát hoặc nguồn gốc).",
+                "Đến từ ... (dùng để bổ nghĩa cho danh từ phía sau)."
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -154651,6 +154831,12 @@
                 "までで",
                 "にまで",
                 "のまで"
+              ],
+              "optionsVi": [
+                "Cho đến ... thì (cách kết hợp không phù hợp trong câu này).",
+                "Đến ... là kết thúc; cho đến mốc ... .",
+                "Đến tận ...; tăng đến mức ... .",
+                "Của ... đến (cách kết hợp không tự nhiên trong câu này)."
               ],
               "correctIndex": 2,
               "points": 1,
@@ -154780,6 +154966,12 @@
                 "において",
                 "に比べて"
               ],
+              "optionsVi": [
+                "Về; liên quan đến.",
+                "Tùy theo; do/bởi.",
+                "Tại; trong (cách nói trang trọng).",
+                "So với."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -154894,6 +155086,12 @@
                 "ついに",
                 "今にも"
               ],
+              "optionsVi": [
+                "Bằng cách nào đó; xin hãy (tùy ngữ cảnh).",
+                "Nhất định không; tuyệt đối không (thường đi với phủ định).",
+                "Cuối cùng; rốt cuộc.",
+                "Bất cứ lúc nào; sắp sửa."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -154982,6 +155180,12 @@
                 "までに",
                 "たびに"
               ],
+              "optionsVi": [
+                "Trong khi; trước khi tình trạng thay đổi.",
+                "Khi; vào lúc.",
+                "Trước hạn; trước thời điểm.",
+                "Mỗi lần."
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -155053,6 +155257,12 @@
                 "考えて",
                 "考えたのに",
                 "考えるのか"
+              ],
+              "optionsVi": [
+                "Để suy nghĩ; sao cho có thể cân nhắc.",
+                "Sau khi cân nhắc; cân nhắc đến ... rồi.",
+                "Dù đã cân nhắc; mặc dù đã nghĩ.",
+                "Liệu có cân nhắc hay không; tại sao lại nghĩ ... ."
               ],
               "correctIndex": 1,
               "points": 1,
@@ -155188,6 +155398,12 @@
                 "食べられるだろう",
                 "食べられたほうがいい"
               ],
+              "optionsVi": [
+                "Có vẻ không thể ăn được.",
+                "Sẽ trở nên không ăn được.",
+                "Có lẽ ăn được.",
+                "Tốt hơn là đã/có thể ăn được (cách kết hợp không tự nhiên trong câu này)."
+              ],
               "correctIndex": 0,
               "points": 1,
               "passage": null,
@@ -155310,6 +155526,12 @@
                 "喜ばせたら",
                 "喜ばせたくて"
               ],
+              "optionsVi": [
+                "Nếu vui mừng; khi vui.",
+                "Vì muốn vui; muốn cảm thấy vui.",
+                "Nếu làm cho ai đó vui.",
+                "Vì muốn làm cho ai đó vui."
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -155424,6 +155646,12 @@
                 "踊れるようにして",
                 "踊れるようになるのに"
               ],
+              "optionsVi": [
+                "Làm cho có thể nhảy được.",
+                "Ngay cả khi đã có thể nhảy được.",
+                "Làm cho (ai đó) có thể nhảy được.",
+                "Để có thể nhảy được; cần ... để trở nên nhảy được."
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -155533,6 +155761,12 @@
                 "行きたがらない",
                 "行ってもかまわない",
                 "行くに違いない"
+              ],
+              "optionsVi": [
+                "Phải đi.",
+                "Không muốn đi (biểu hiện mong muốn của người/vật khác).",
+                "Đi cũng không sao; có thể đi.",
+                "Chắc chắn sẽ đi."
               ],
               "correctIndex": 1,
               "points": 1,
@@ -155656,6 +155890,12 @@
                 "でございます",
                 "でいらっしゃいます"
               ],
+              "optionsVi": [
+                "Có ... (cách nói trang trọng; không phù hợp để nêu vị trí tầng).",
+                "Ngài/anh/chị ... có mặt (kính ngữ dùng cho người).",
+                "Là/ở ... ạ (cách nói lịch sự, phù hợp để chỉ tầng).",
+                "Ngài/anh/chị ... là/ở ... (kính ngữ dùng cho người)."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -155731,6 +155971,12 @@
                 "買いにきている",
                 "買いにいってくる",
                 "買っていってしまう"
+              ],
+              "optionsVi": [
+                "Mua sẵn (và để đó).",
+                "Đang đến để mua.",
+                "Đi mua rồi quay về.",
+                "Mua rồi mang đi mất."
               ],
               "correctIndex": 2,
               "points": 1,
@@ -155841,6 +156087,12 @@
                 "思っているところです",
                 "思っていたからでした",
                 "思っているからです"
+              ],
+              "optionsVi": [
+                "Tôi vừa định/đang tính làm ... thì ... .",
+                "Tôi đang nghĩ/đang định ... .",
+                "Là vì tôi đã nghĩ như vậy.",
+                "Là vì tôi đang nghĩ như vậy."
               ],
               "correctIndex": 0,
               "points": 1,
@@ -156000,6 +156252,12 @@
                 "歌手",
                 "ほど"
               ],
+              "optionsVi": [
+                "Có giọng hát hay/đẹp.",
+                "Trợ từ chủ đề: thì/là.",
+                "Ca sĩ.",
+                "Đến mức; như (dùng để so sánh mức độ)."
+              ],
               "correctIndex": 3,
               "points": 1,
               "passage": null,
@@ -156103,6 +156361,12 @@
                 "インターネットで買う",
                 "ということを"
               ],
+              "optionsVi": [
+                "Người (thì).",
+                "Đang ngày càng tăng.",
+                "Mua qua Internet.",
+                "Việc/rằng ... ."
+              ],
               "correctIndex": 1,
               "points": 1,
               "passage": null,
@@ -156205,6 +156469,12 @@
                 "ところがあるので",
                 "一度チェックして",
                 "自信がない"
+              ],
+              "optionsVi": [
+                "Không thể nhận được/nhờ được ... không? (phần kết lời nhờ).",
+                "Vì có chỗ ... .",
+                "Hãy kiểm tra một lần.",
+                "Không tự tin."
               ],
               "correctIndex": 2,
               "points": 1,
@@ -156341,6 +156611,12 @@
                 "家を出て",
                 "忘れて"
               ],
+              "optionsVi": [
+                "Việc tắt đèn ở lối vào nhà.",
+                "Rồi đến/đi đến (phần kết của 「出てきて」).",
+                "Rời khỏi nhà.",
+                "Quên."
+              ],
               "correctIndex": 2,
               "points": 1,
               "passage": null,
@@ -156434,6 +156710,12 @@
                 "忘れない",
                 "ように",
                 "ことにしている"
+              ],
+              "optionsVi": [
+                "Nhất định ghi lại vào sổ.",
+                "Không quên.",
+                "Để; sao cho.",
+                "Quyết định làm thành thói quen."
               ],
               "correctIndex": 0,
               "points": 1,
@@ -167173,6 +167455,12 @@
                 "せんぱいの本をかりる",
                 "本屋に行く"
               ],
+              "optionsVi": [
+                "Tra cứu trên internet",
+                "Ghi chép lại công thức",
+                "Mượn sách của tiền bối",
+                "Đi đến hiệu sách"
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 3,
@@ -167252,6 +167540,12 @@
                 "3時半",
                 "4時半",
                 "5時"
+              ],
+              "optionsVi": [
+                "3 giờ",
+                "3 giờ rưỡi",
+                "4 giờ rưỡi",
+                "5 giờ"
               ],
               "isPicture": false,
               "optionCount": 4,
@@ -167336,6 +167630,12 @@
                 "しりょうをいんさつする",
                 "しゅっせきしゃのかくにんをする"
               ],
+              "optionsVi": [
+                "Đặt phòng họp.",
+                "Gửi email cho những người liên quan.",
+                "In tài liệu.",
+                "Xác nhận người tham dự."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 0,
@@ -167362,6 +167662,12 @@
                 "しろの門の前に行く",
                 "ビデオを見る",
                 "レストランに行く"
+              ],
+              "optionsVi": [
+                "Mua vé ở lối vào lâu đài.",
+                "Đi đến trước cổng lâu đài.",
+                "Xem video.",
+                "Đi đến nhà hàng."
               ],
               "isPicture": false,
               "optionCount": 4,
@@ -167480,6 +167786,12 @@
                 "しゃちょう",
                 "しゃちょうのむすめ"
               ],
+              "optionsVi": [
+                "Họa sĩ mà giám đốc yêu thích.",
+                "Họa sĩ đại diện cho Nhật Bản.",
+                "Giám đốc.",
+                "Con gái của giám đốc."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 0,
@@ -167558,6 +167870,12 @@
                 "友人がわすれものをとりに来るから",
                 "カフェで友人と会わなければいけないから",
                 "おりる駅をまちがえたから"
+              ],
+              "optionsVi": [
+                "Vì ngủ quên.",
+                "Vì bạn đến lấy đồ để quên.",
+                "Vì phải gặp bạn ở quán cà phê.",
+                "Vì xuống nhầm ga."
               ],
               "isPicture": false,
               "optionCount": 4,
@@ -167695,6 +168013,12 @@
                 "日本料理の作り方を習いたい",
                 "しんかんせんに乗りたい"
               ],
+              "optionsVi": [
+                "Muốn đi suối nước nóng.",
+                "Muốn học cách mặc kimono.",
+                "Muốn học cách nấu món ăn Nhật.",
+                "Muốn đi tàu Shinkansen."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 1,
@@ -167828,6 +168152,12 @@
                 "軽くて歩きやすかったから",
                 "ねだんが安かったから"
               ],
+              "optionsVi": [
+                "Vì là họa tiết đang thịnh hành.",
+                "Vì là màu sắc phù hợp với bản thân.",
+                "Vì nhẹ và dễ đi.",
+                "Vì giá rẻ."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 2,
@@ -167943,6 +168273,12 @@
                 "好きな映画がとられた場所に行けたこと",
                 "日本人の友だちができたこと",
                 "友だちと旅行できたこと"
+              ],
+              "optionsVi": [
+                "Việc có thể xem phim Nhật ở rạp chiếu phim.",
+                "Việc có thể đến những nơi quay bộ phim yêu thích.",
+                "Việc kết được bạn bè người Nhật.",
+                "Việc có thể đi du lịch cùng bạn bè."
               ],
               "isPicture": false,
               "optionCount": 4,
@@ -168113,6 +168449,12 @@
                 "ホテルのへやが不便なこと",
                 "入れない店があること"
               ],
+              "optionsVi": [
+                "Ga tàu không có nhiều thang máy.",
+                "Nhà vệ sinh ở ga khó sử dụng.",
+                "Phòng khách sạn bất tiện.",
+                "Có những cửa hàng không thể vào được."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 3,
@@ -168258,6 +168600,12 @@
                 "今している仕事の大変さ",
                 "アルバイトで学んだこと"
               ],
+              "optionsVi": [
+                "Cách thức làm việc vui vẻ.",
+                "Lý do làm việc ở công ty hiện tại.",
+                "Sự vất vả của công việc hiện tại.",
+                "Những điều học được từ công việc làm thêm."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 1,
@@ -168391,6 +168739,12 @@
                 "川をきれいにする方法",
                 "水が不足しないようにする工夫"
               ],
+              "optionsVi": [
+                "Loại hình nông nghiệp.",
+                "Sự thay đổi của lượng mưa.",
+                "Cách làm sạch sông ngòi.",
+                "Biện pháp xoay sở để không bị thiếu nước."
+              ],
               "isPicture": false,
               "optionCount": 4,
               "correctIndex": 3,
@@ -168511,6 +168865,12 @@
                 "考え方を変える方法",
                 "自分の考え方の癖を知る方法",
                 "相手に伝わる話し方"
+              ],
+              "optionsVi": [
+                "Cách sử dụng từ ngữ chính xác.",
+                "Phương pháp thay đổi cách suy nghĩ.",
+                "Phương pháp nhận biết thói quen suy nghĩ của bản thân.",
+                "Cách nói chuyện để truyền đạt đến đối phương."
               ],
               "isPicture": false,
               "optionCount": 4,
