@@ -43,6 +43,7 @@ import { useCountdown } from "../lib/useCountdown.ts";
 import { readingPassageUnderlineRange, readingPassageUnderlineRanges, readingQuestionUnderline } from "../../lib/jlptReadingAnnotations.ts";
 import { splitBodyIntoSentences, translatedReadingUnits } from "../../lib/readingSentences.ts";
 import { stableHash } from "../../lib/jlptReading.ts";
+import { alignTextSegmentsToLineBreaks } from "../../lib/alignTextSegments.ts";
 import { splitPassageParagraphs } from "../../lib/passageParagraphs.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
 import { MarkdownTableText } from "../../components/markdowntabletext.tsx";
@@ -163,8 +164,20 @@ function addQuestionTranslationLineBreaks(translation: string, insertions: Set<n
 function formatExamFurigana(
   segments: ({ text: string; furigana: string | null } | null)[] | undefined,
   problemGroup: string,
+  questionText: string,
 ): { text: string; furigana: string | null }[] | undefined {
   if (!segments) return undefined;
+  // Data now stores explicit turn breaks. Furigana annotations are often
+  // tokenized independently and may still concatenate the same text without
+  // those breaks, so mirror only the known line-break positions when the
+  // non-whitespace content matches exactly.
+  const formattedQuestion = formatExamQuestion(questionText, problemGroup);
+  const annotationText = segments.flatMap((segment) => segment ? [segment.text] : []).join("");
+  const alignedSegments = alignTextSegmentsToLineBreaks(segments, formattedQuestion);
+  if (alignedSegments && annotationText !== formattedQuestion) return alignedSegments;
+
+  // Preserve the legacy ordering-question formatting when annotations do not
+  // exactly match the prompt (for example, partial furigana data).
   const isOrderingGroup = ["問題2", "問題6", "問題Ⅱ"].includes(problemGroup);
   let previousText = "";
   return segments.flatMap((segment) => {
@@ -2199,7 +2212,7 @@ function ReviewQuestion({
         <div className="mt-3 flex items-start gap-2 whitespace-pre-line text-base font-semibold leading-loose text-neutral-800">
           <span className="mt-0.5 shrink-0 rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-bold text-neutral-600">{question.number}.</span>
           <div className="min-w-0 flex-1">
-            <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={sourceUnderline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup)} showFurigana={showFurigana} />
+            <QuestionText text={formatExamQuestion(question.question, question.problemGroup)} underline={sourceUnderline} furigana={formatExamFurigana(question.questionFurigana, question.problemGroup, question.question)} showFurigana={showFurigana} />
           </div>
         </div>
       ) : null}

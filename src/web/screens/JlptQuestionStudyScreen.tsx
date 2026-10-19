@@ -17,6 +17,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
 import { reconstructOrderingQuestion } from "../../lib/jlptOrdering.ts";
+import { alignTextSegmentsToLineBreaks } from "../../lib/alignTextSegments.ts";
 
 type QuestionCategory = "goi" | "grammar";
 type StatusFilter = "all" | "correct" | "wrong" | "not-started";
@@ -102,10 +103,11 @@ function renderEmphasizedText(text: string, terms: Array<string | undefined>) {
 }
 
 function renderFuriganaText(text: string, segments: ReadingBodySegment[] | undefined, visible: boolean, terms: Array<string | undefined> = []) {
-  if (!visible || !segments?.length || segments.map((segment) => segment.text).join("") !== text) {
+  const alignedSegments = alignTextSegmentsToLineBreaks(segments, text);
+  if (!visible || !alignedSegments?.length) {
     return renderEmphasizedText(text, terms);
   }
-  return segments.map((segment, index) => (
+  return alignedSegments.map((segment, index) => (
     <span key={index}>
       {segment.furigana ? <ruby>{renderEmphasizedText(segment.text, terms)}<rt className="text-[10px] font-normal text-neutral-400">{segment.furigana}</rt></ruby> : renderEmphasizedText(segment.text, terms)}
     </span>
@@ -453,7 +455,7 @@ function QuestionDetail({
             {renderFuriganaText(question.question, question.questionFurigana, furiganaVisible, [question.underline])}
           </div>
         </div>
-        {answered && question.questionVi ? <p className="mt-2 pl-10 text-sm text-neutral-500">{question.questionVi}</p> : null}
+        {answered && question.questionVi ? <p className="mt-2 whitespace-pre-line pl-10 text-sm text-neutral-500">{question.questionVi}</p> : null}
 
         <div className={`mt-5 grid gap-2 ${question.options.every((option) => option.length <= 14) ? "grid-cols-2" : "grid-cols-1 sm:grid-cols-2"}`}>
           {question.options.map((option, optionIndex) => {

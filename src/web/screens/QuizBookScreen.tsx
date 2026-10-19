@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Shuffle, Undo2, ChevronLeft, ChevronRight, RotateCcw, BookOpenText } from "lucide-react";
 import type { QuizBookQuestion } from "../../types/quizBook.ts";
 import type { ReadingBodySegment } from "../../types/reading.ts";
+import { alignTextSegmentsToLineBreaks } from "../../lib/alignTextSegments.ts";
 import {
   ALL_QUIZBOOK,
   AVAILABLE_CATEGORIES,
@@ -46,8 +47,9 @@ import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
 
 function furiganaText(text: string, segments: ReadingBodySegment[] | null | undefined, visible: boolean) {
-  if (!visible || !segments?.length || segments.map((segment) => segment.text).join("") !== text) return text;
-  return segments.map((segment, index) => (
+  const alignedSegments = alignTextSegmentsToLineBreaks(segments, text);
+  if (!visible || !alignedSegments?.length) return text;
+  return alignedSegments.map((segment, index) => (
     <span key={index}>
       {segment.furigana ? <ruby>{segment.text}<rt className="text-[10px] font-normal text-neutral-400">{segment.furigana}</rt></ruby> : segment.text}
     </span>

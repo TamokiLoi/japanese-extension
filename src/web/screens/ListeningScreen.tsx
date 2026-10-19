@@ -686,7 +686,7 @@ function QuestionView({
       <Card className="mt-4 gap-3.5 rounded-2xl border-neutral-200 p-5 ring-0">
         {showAudioPrompt ? (
           <>
-            <div className="flex items-start gap-2 text-sm font-semibold text-neutral-700">
+            <div className="flex items-start gap-2 whitespace-pre-line text-sm font-semibold text-neutral-700">
               <Headphones size={17} className="mt-0.5 shrink-0 text-neutral-400" />
               <span>
                 {jlptPointQuestionPrompt ? (
@@ -698,7 +698,7 @@ function QuestionView({
               </span>
             </div>
             {answered && showTranslation && audioPromptTranslation ? (
-              <div className="ml-[25px] text-sm text-neutral-400">{audioPromptTranslation}</div>
+              <div className="ml-[25px] whitespace-pre-line text-sm text-neutral-400">{audioPromptTranslation}</div>
             ) : null}
           </>
         ) : null}
@@ -746,10 +746,10 @@ function QuestionView({
         ) : null}
         {!isBlind || answered ? (
           <>
-            <div className="font-semibold text-neutral-800">
+            <div className="whitespace-pre-line font-semibold text-neutral-800">
             {showVisibleFurigana ? <FuriganaText annotations={question.questionFurigana} text={question.question} /> : question.question}
             </div>
-            {answered && showTranslation ? <div className="mt-1 text-sm text-neutral-500">{question.questionVi}</div> : null}
+            {answered && showTranslation ? <div className="mt-1 whitespace-pre-line text-sm text-neutral-500">{question.questionVi}</div> : null}
           </>
         ) : null}
 
