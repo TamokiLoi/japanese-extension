@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import { Flag, CheckCircle2, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus, GitBranch } from "lucide-react";
+import { Flag, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, BookOpenText, GraduationCap, Info, X, MessageSquarePlus, GitBranch, Lightbulb } from "lucide-react";
 import type { BunpoGrammarPoint, BunpoRelatedKind, BunpoSense, BunpoSource } from "../../types/bunpo.ts";
 import type { JlptLevel } from "../../types/kanji.ts";
 import {
@@ -38,7 +38,7 @@ import {
   type ProgressMap,
   type ProgressBucket,
 } from "../../popup/progressState.ts";
-import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findBunpoByPattern, findRelatedBunpo, highlightPatternInExample, parseUsage, isGrammarFormula, splitGrammarFormula, formatGrammarFormulaInline } from "../../popup/bunpoLinks.ts";
+import { findMatchingReadingPassages, findMatchingQuizBookQuestions, findRelatedBunpo, highlightPatternInExample, parseUsage, isGrammarFormula, splitGrammarFormula, formatGrammarFormulaInline } from "../../popup/bunpoLinks.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { Badge } from "../components/ui/badge.tsx";
@@ -46,6 +46,7 @@ import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { useFloatingNav } from "../WebAppShell.tsx";
+import { getBunpoMemoryCue } from "../data/bunpoMemory.ts";
 import { FilterBar, FilterTrigger } from "../components/FilterBar.tsx";
 import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
@@ -546,6 +547,42 @@ function ListView({
   );
 }
 
+function isConciseVietnameseMemoryCue(value?: string): boolean {
+  const text = value?.trim() ?? "";
+  if (!text || text.length > 120 || /[\r\n]|[①-⑳]/u.test(text)) return false;
+  const hasVietnameseText = /[A-Za-zÀ-ỹ]/u.test(text);
+  const japaneseCharacterCount = (text.match(/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/gu) ?? []).length;
+  return hasVietnameseText && japaneseCharacterCount <= 8;
+}
+
+function getMemoryAnchor(authoredCue: string | undefined, examTip: string, usage: string | undefined, meaning: string): { label: string; text: string } {
+  if (authoredCue?.trim()) return { label: "Mẹo ghi nhớ", text: authoredCue.trim() };
+  if (isConciseVietnameseMemoryCue(examTip)) return { label: "Điểm cần nhớ", text: examTip };
+
+  // examTip is source material, not necessarily a mnemonic. When it is not a
+  // concise Vietnamese cue, use the Vietnamese explanation already supplied
+  // by the grammar source as a short takeaway instead of relabelling it.
+  const parsedUsage = usage ? parseUsage(usage) : null;
+  const usageText = usage && !isGrammarFormula(usage) ? parsedUsage?.vi ?? usage : "";
+  const vietnameseLines = usageText
+    .split(/\r?\n/u)
+    .map((line) => line.trim())
+    .filter((line) => /[A-Za-zÀ-ỹ]/u.test(line));
+  const sourceText = (vietnameseLines.at(-1) ?? usageText).replace(/\s+/gu, " ").trim();
+  if (sourceText) return { label: "Điểm cốt lõi", text: shortenMemoryAnchor(sourceText) };
+
+  return { label: "Ý chính", text: shortenMemoryAnchor(meaning) };
+}
+
+function shortenMemoryAnchor(value: string): string {
+  const text = value.replace(/\s+/gu, " ").trim();
+  if (text.length <= 220) return text;
+  const firstSentence = text.match(/^.{1,220}?[.!?。！？](?=\s|$)/u)?.[0];
+  if (firstSentence) return firstSentence;
+  const cutAt = text.lastIndexOf(" ", 220);
+  return `${text.slice(0, cutAt > 140 ? cutAt : 220).trimEnd()}…`;
+}
+
 function DetailView({
   g: grammar,
   state,
@@ -615,14 +652,21 @@ function DetailView({
 
   const readingMatches = findMatchingReadingPassages(g);
   const quizBookMatches = findMatchingQuizBookQuestions(g);
-  const relatedBunpo = (g.levels ?? [g.level]).includes("N3") ? findRelatedBunpo(g) : [];
+  const relatedBunpo = findRelatedBunpo(g);
+  const confusableBunpo = relatedBunpo.filter(({ relation }) => relation === "confusable");
+  const otherRelatedBunpo = relatedBunpo.filter(({ relation }) => relation !== "confusable");
+  const compareEntries = confusableBunpo.map(({ target, note }) => ({ pattern: target.pattern, target, note }));
+  const examTipText = g.examTip?.trim() ?? "";
+  const authoredMemoryCue = activeSense ? getBunpoMemoryCue(grammar.id, activeSense.id) : undefined;
+  const memoryAnchor = getMemoryAnchor(authoredMemoryCue, examTipText, g.usage, g.meaningVi);
+  const memoryTip = authoredMemoryCue ?? "";
+  const sourceExamTip = examTipText && !isConciseVietnameseMemoryCue(examTipText) ? examTipText : "";
   const parsedUsage = g.usage ? parseUsage(g.usage) : null;
   const usageIsFormula = g.usage ? isGrammarFormula(g.usage) : false;
   const formulaLines = [
     ...(g.formula ? [formatGrammarFormulaInline(g.formula)] : []),
     ...(usageIsFormula && g.usage !== g.formula ? [formatGrammarFormulaInline(g.usage!)] : []),
   ];
-
   const currentIndex = visibleList.findIndex((item) => item.id === g.id);
   const prevItem = currentIndex > 0 ? visibleList[currentIndex - 1] : null;
   const nextItem = currentIndex >= 0 && currentIndex < visibleList.length - 1 ? visibleList[currentIndex + 1] : null;
@@ -802,7 +846,7 @@ function DetailView({
               </div>
             </section>
           ) : null}
-          {g.examTip ? <section className="grammar-section grammar-section--tip"><h3 className="grammar-section-title">✦ Mẹo làm JLPT</h3><p className="grammar-section-body">{g.examTip}</p></section> : null}
+          {sourceExamTip ? <section className="grammar-section grammar-section--tip"><h3 className="grammar-section-title">✦ Ghi chú từ tài liệu</h3><p className="grammar-section-body whitespace-pre-line">{sourceExamTip}</p></section> : null}
         </div>
 
         <CorrectionEditorSheet
@@ -857,12 +901,74 @@ function DetailView({
         </section>
         </div> : null}
 
-        {relatedBunpo.length > 0 ? (
+        <details open className="grammar-memory-panel group mt-3 overflow-hidden rounded-xl border border-emerald-200 bg-emerald-50/70">
+            <summary className="flex cursor-pointer list-none items-center gap-3 px-3 py-3">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                <Lightbulb size={18} />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-bold text-emerald-950">Mẹo ghi nhớ &amp; phân biệt</span>
+                <span className="mt-0.5 block text-xs text-emerald-900/70">
+                  {[
+                    memoryTip ? "Mẹo riêng cho mẫu này" : "Điểm cốt lõi từ nội dung thẻ",
+                    compareEntries.length ? `${compareEntries.length} mẫu dễ nhầm` : "Chưa có mẫu đối chiếu nổi bật",
+                  ].filter(Boolean).join(" · ")}
+                </span>
+              </span>
+              <ChevronDown size={16} className="grammar-memory-chevron shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="grammar-memory-body space-y-3 border-t border-emerald-200 px-3 py-3">
+              {memoryAnchor.text ? (
+                <p className="grammar-memory-tip rounded-lg bg-white/70 px-3 py-2 text-sm leading-relaxed text-emerald-950">
+                  <strong>{memoryAnchor.label}:</strong> {memoryAnchor.text}
+                </p>
+              ) : <p className="grammar-memory-tip rounded-lg bg-white/70 px-3 py-2 text-sm leading-relaxed text-emerald-950">Chưa có mẹo riêng được biên soạn cho mẫu này.</p>}
+              {compareEntries.map(({ pattern, target, note }, index) => {
+                const targetCard = (
+                  <>
+                    <span className="grammar-compare-label block text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                      {target ? "Mẫu đối chiếu · nhấn để xem" : "Mẫu đối chiếu"}
+                    </span>
+                    <span className="grammar-compare-pattern mt-1 block font-semibold text-neutral-900">{pattern}</span>
+                    {target?.meaningVi ? <span className="grammar-compare-meaning mt-1 block text-xs text-neutral-600">{target.meaningVi}</span> : null}
+                  </>
+                );
+                return (
+                  <div key={`${pattern}-${index}`} className="space-y-2">
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      <div className="grammar-compare-card rounded-xl border border-emerald-200 bg-white/70 p-3">
+                        <span className="grammar-compare-label block text-[10px] font-bold uppercase tracking-wide text-emerald-700">Mẫu đang học</span>
+                        <span className="grammar-compare-pattern mt-1 block font-semibold text-neutral-900">{g.pattern}</span>
+                        <span className="grammar-compare-meaning mt-1 block text-xs text-neutral-600">{g.meaningVi}</span>
+                      </div>
+                      {target ? (
+                        <button type="button" onClick={() => openGrammar(target)} className="grammar-compare-card w-full rounded-xl border border-emerald-200 bg-white/70 p-3 text-left transition-colors hover:border-emerald-300 hover:bg-emerald-50">
+                          {targetCard}
+                        </button>
+                      ) : (
+                        <div className="grammar-compare-card rounded-xl border border-emerald-200 bg-white/70 p-3">{targetCard}</div>
+                      )}
+                    </div>
+                    <p className="grammar-compare-note rounded-lg bg-emerald-100/70 px-3 py-2 text-xs leading-relaxed text-emerald-950">
+                      <strong>Cách phân biệt:</strong> {note}
+                    </p>
+                  </div>
+                );
+              })}
+              {compareEntries.length === 0 ? (
+                <p className="grammar-compare-note rounded-lg bg-emerald-100/70 px-3 py-2 text-xs leading-relaxed text-emerald-950">
+                  Chưa có mẫu dễ nhầm nổi bật được biên soạn cho mục này.
+                </p>
+              ) : null}
+            </div>
+        </details>
+
+        {otherRelatedBunpo.length > 0 ? (
           <div className="grammar-sections">
             <section className="grammar-section grammar-section--related">
             <h3 className="grammar-section-title">↗ Mẫu liên quan</h3>
             <div className="mt-2 space-y-2.5">
-              {relatedBunpo.map(({ target, relation, note }) => (
+              {otherRelatedBunpo.map(({ target, relation, note }) => (
                 <div key={target.id}>
                   <div className="flex flex-wrap items-center gap-2">
                     {relatedSenseButtons(target)}
@@ -874,29 +980,6 @@ function DetailView({
                 </div>
               ))}
             </div></section>
-          </div>
-        ) : null}
-
-        {g.level !== "N3" && g.compareWith && g.compareWith.length > 0 ? (
-          <div className="grammar-sections">
-            <section className="grammar-section grammar-section--related">
-            <h3 className="grammar-section-title">Dễ nhầm với</h3>
-            <div className="mt-2 space-y-2.5">
-              {g.compareWith.map((c, i) => {
-                const target = findBunpoByPattern(c.pattern, g.level);
-                return (
-                  <div key={i}>
-                    {target ? (
-                      <div className="flex flex-wrap items-center gap-2">{relatedSenseButtons(target)}</div>
-                    ) : (
-                      <span className="grammar-link-pattern">{c.pattern}</span>
-                    )}
-                    <div className="grammar-section-body">{c.note}</div>
-                  </div>
-                );
-              })}
-            </div>
-            </section>
           </div>
         ) : null}
 

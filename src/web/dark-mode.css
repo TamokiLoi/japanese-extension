@@ -222,6 +222,23 @@ html.dark body.web-shell .vocab-layout .vocab-more-details summary { color: #cbd
 html.dark body.web-shell .vocab-layout .vocab-more-details summary span { color: #9ca3af; }
 html.dark body.web-shell .vocab-layout .vocab-more-body { border-color: #374151; }
 
+/* The vocabulary memory-aid prototype uses its own card because it is not
+   part of the legacy `.vocab-layout` wrapper. Keep its amber accent, but
+   lift the text and move the surfaces onto dark tinted colors. */
+html.dark body.web-shell .vocab-memory-panel { border-color: #705b31; background: #28271f; color: #e5e7eb; }
+html.dark body.web-shell .vocab-memory-panel summary { color: #fef3c7; }
+html.dark body.web-shell .vocab-memory-panel summary > span:first-child { background: #40351f; color: #fcd34d; }
+html.dark body.web-shell .vocab-memory-panel summary > span:nth-child(2) > span:first-child { color: #fef3c7; }
+html.dark body.web-shell .vocab-memory-panel summary > span:nth-child(2) > span:last-child { color: #d6c7a3; }
+html.dark body.web-shell .vocab-memory-panel > div { border-color: #594b2c; }
+html.dark body.web-shell .vocab-memory-piece { border-color: #594b2c; background: #1f2937; }
+html.dark body.web-shell .vocab-memory-piece:hover { border-color: #9a7837; background: #273449; }
+html.dark body.web-shell .vocab-memory-piece-character { color: #bae6fd; }
+html.dark body.web-shell .vocab-memory-piece-hv { color: #fcd34d; }
+html.dark body.web-shell .vocab-memory-piece-meaning { color: #cbd5e1; }
+html.dark body.web-shell .vocab-memory-panel p { color: #e5d8b8; }
+html.dark body.web-shell .vocab-memory-panel p span { color: #fcd34d; }
+
 /* Kanji Map surfaces and controls. Node/edge colors stay distinct from the
    neutral canvas, and the inactive/missing nodes remain intentionally dim. */
 html.dark body.web-shell :is(.kanji-map-search-wrap, .kanji-map-search-results, .kanji-map-search-empty,
@@ -401,6 +418,20 @@ html.dark body.web-shell .grammar-detail-card .grammar-section--related { --gram
 html.dark body.web-shell .grammar-detail-card .grammar-section--notes { --grammar-accent: #bd8b36; --grammar-ink: #fcd34d; --grammar-bg: #322a1c; }
 html.dark body.web-shell .grammar-detail-card .grammar-section--study { --grammar-accent: #7d8bb7; --grammar-ink: #c7d2fe; --grammar-bg: #252b3b; }
 html.dark body.web-shell .grammar-detail-card .grammar-section-body { color: #dbe4ef; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-panel { border-color: #3f6655; background: #1b2928; color: #dbe4ef; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-panel > summary { color: #d1fae5; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-panel > summary > span:first-child { background: #1e4037; color: #86efac; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-panel > summary > span:nth-child(2) > span:first-child { color: #d1fae5; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-panel > summary > span:nth-child(2) > span:last-child { color: #a8cfc0; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-body { border-color: #345448; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-tip { background: #202c31; color: #d1fae5; }
+html.dark body.web-shell .grammar-detail-card .grammar-memory-chevron { color: #a7f3d0; }
+html.dark body.web-shell .grammar-detail-card .grammar-compare-card { border-color: #3f6655; background: #1f2937; color: #dbe4ef; }
+html.dark body.web-shell .grammar-detail-card .grammar-compare-card:hover { border-color: #4c9b7c; background: #24382f; }
+html.dark body.web-shell .grammar-detail-card .grammar-compare-label { color: #86efac; }
+html.dark body.web-shell .grammar-detail-card .grammar-compare-pattern { color: #f1f5f9; }
+html.dark body.web-shell .grammar-detail-card .grammar-compare-meaning { color: #cbd5e1; }
+html.dark body.web-shell .grammar-detail-card .grammar-compare-note { background: #1b3a31; color: #d1fae5; }
 html.dark body.web-shell .grammar-detail-card .grammar-tag { background: #273449; color: #dbe4ef; }
 html.dark body.web-shell .grammar-detail-card .grammar-entry + .grammar-entry { border-color: #354559; }
 html.dark body.web-shell .grammar-detail-card .grammar-example-jp { color: #f1f5f9; }

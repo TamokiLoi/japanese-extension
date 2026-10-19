@@ -75,7 +75,7 @@ export interface BunpoGrammarPoint {
   meaningVi: string; // Nghĩa / Ý nghĩa
   usage?: string; // Giải thích cách dùng, sắc thái hoặc lưu ý
   formula?: string; // Công thức/các dạng kết hợp của mẫu ngữ pháp
-  examTip?: string; // Key JLPT (chỉ "theo-chuong")
+  examTip?: string; // Ghi chú/điểm nhận biết từ nguồn; không mặc định là mẹo ghi nhớ.
   example: string; // Ví dụ (JP)
   exampleVi: string; // Nghĩa tiếng Việt của ví dụ
   // Ví dụ bổ sung ngoài `example` chính -- thêm sau vì 1 ví dụ là hơi ít để

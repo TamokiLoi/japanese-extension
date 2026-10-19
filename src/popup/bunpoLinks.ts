@@ -29,17 +29,24 @@ export interface ResolvedBunpoReference {
   note: string;
 }
 
+/**
+ * N3 has a generated relation index; every level can also supply curated
+ * same-level `compareWith` references on the active sense.
+ */
 export function findRelatedBunpo(g: BunpoGrammarPoint): ResolvedBunpoReference[] {
-  if (g.level !== "N3") return [];
-
+  const levels = g.levels ?? [g.level];
   const byId = new Map<string, ResolvedBunpoReference>();
-  for (const reference of N3_RELATED_BY_PATTERN.get(g.pattern) ?? []) {
-    const target = findBunpoByPattern(reference.pattern, "N3");
-    if (!target || target.id === g.id) continue;
-    byId.set(target.id, { target, relation: reference.relation, note: reference.note });
+  if (levels.includes("N3")) {
+    for (const reference of N3_RELATED_BY_PATTERN.get(g.pattern) ?? []) {
+      const target = findBunpoByPattern(reference.pattern, "N3");
+      if (!target || target.id === g.id) continue;
+      byId.set(target.id, { target, relation: reference.relation, note: reference.note });
+    }
   }
   for (const reference of g.compareWith ?? []) {
-    const target = findBunpoByPattern(reference.pattern, "N3");
+    const target = levels
+      .map((level) => findBunpoByPattern(reference.pattern, level))
+      .find((candidate) => candidate && candidate.id !== g.id);
     if (!target || target.id === g.id) continue;
     byId.set(target.id, { target, relation: "confusable", note: reference.note });
   }

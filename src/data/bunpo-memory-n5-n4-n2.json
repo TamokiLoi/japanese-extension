@@ -1,0 +1,2685 @@
+{
+  "tips": [
+    {
+      "grammarId": "bunpo-12s7kx4",
+      "senseId": "sense-1crjnh7",
+      "pattern": "〜てみる",
+      "meaningVi": "Thử làm...",
+      "tip": "Làm thử bằng Vて + みる; có thể gắn với câu hỏi xin phép thử trước."
+    },
+    {
+      "grammarId": "bunpo-1b8h37z",
+      "senseId": "sense-1wp2323",
+      "pattern": "〜ために",
+      "meaningVi": "Để / vì...",
+      "tip": "Đi cùng với động từ dạng nguyên thể bao hàm ý chí của người nói"
+    },
+    {
+      "grammarId": "bunpo-1tpod02",
+      "senseId": "sense-10piix3",
+      "pattern": "〜ようにする",
+      "meaningVi": "Cố gắng...",
+      "tip": "V辞書形／Vない + ようにする đặt mục tiêu hình thành hoặc duy trì một thói quen."
+    },
+    {
+      "grammarId": "bunpo-1hp1xwv",
+      "senseId": "sense-1w8d7",
+      "pattern": "〜ように",
+      "meaningVi": "Để, nhằm; mong đạt trạng thái",
+      "tip": "V辞書形／Vない + ように nêu trạng thái mong đạt hoặc điều muốn tránh xảy ra."
+    },
+    {
+      "grammarId": "bunpo-nadse3",
+      "senseId": "sense-w7waae",
+      "pattern": "〜途中で",
+      "meaningVi": "Trên đường...",
+      "tip": "Giữa đường hoặc chừng đang làm dở, một việc khác chen vào."
+    },
+    {
+      "grammarId": "bunpo-yi8cgh",
+      "senseId": "sense-1dular7",
+      "pattern": "〜しかない",
+      "meaningVi": "chỉ, chỉ có ~ Chỉ có ~ thôi, ngoài ra không có",
+      "tip": "Nhấn mạnh sự ít ỏi hoặc giới hạn của đối tượng, đi kèm động từ bắt buộc chia ở thể phủ định"
+    },
+    {
+      "grammarId": "bunpo-v80v7l",
+      "senseId": "sense-mlsokq",
+      "pattern": "〜によって",
+      "meaningVi": "Do bởi / tùy theo ~",
+      "tip": "N + によって đặt nguyên nhân hoặc yếu tố tác động ngay sau danh từ."
+    },
+    {
+      "grammarId": "bunpo-1wse4wp",
+      "senseId": "sense-h9ai64",
+      "pattern": "〜ばかりか",
+      "meaningVi": "Không chỉ...mà còn...",
+      "tip": "Sau vế A, vế B thêm yếu tố bất ngờ hoặc đẩy mức độ lên cao hơn."
+    },
+    {
+      "grammarId": "bunpo-19s4lfj",
+      "senseId": "sense-1lolemv",
+      "pattern": "〜かもしれない",
+      "meaningVi": "Có lẽ...",
+      "tip": "Lưu ý không thêm だ sau tính từ -な và danh từ"
+    },
+    {
+      "grammarId": "bunpo-2ko9cf",
+      "senseId": "sense-1s978wm",
+      "pattern": "〜ことなく",
+      "meaningVi": "Không hề..., mà không...",
+      "tip": "Nhấn mạnh sự việc diễn ra mà không kèm theo một hành động nào đó, thường mang sắc thái trang trọng"
+    },
+    {
+      "grammarId": "bunpo-1obb4f5",
+      "senseId": "sense-dmzz1x",
+      "pattern": "〜というものだ",
+      "meaningVi": "Thật đúng là...",
+      "tip": "Dùng để khẳng định mạnh mẽ một sự thật hoặc một quy tắc khách quan"
+    },
+    {
+      "grammarId": "bunpo-6u405r",
+      "senseId": "sense-9b2ht8",
+      "pattern": "〜ものの",
+      "meaningVi": "Mặc dù...nhưng mà",
+      "tip": "Thừa nhận sự thật ở vế trước nhưng vế sau lại có kết quả trái ngược hoặc ngoài mong đợi"
+    },
+    {
+      "grammarId": "bunpo-afciq",
+      "senseId": "sense-1a6f4ks",
+      "pattern": "〜なら",
+      "meaningVi": "Nếu là... (Giới hạn chủ đề trong câu khuyên nhủ, gợi ý)",
+      "tip": "~なら giới hạn phạm vi như “trường hợp ~ thì” rồi đưa ra lời khuyên hoặc đề nghị"
+    },
+    {
+      "grammarId": "bunpo-168sa8j",
+      "senseId": "sense-46186y",
+      "pattern": "〜ば〜ほど",
+      "meaningVi": "Càng...càng...",
+      "tip": "~ば~ほど sử dụng khi nói một sự việc gì khác sẽ thay đổi tương ứng với mức độ của một sự việc gì đó"
+    },
+    {
+      "grammarId": "bunpo-19tg02z",
+      "senseId": "sense-oiyikd",
+      "pattern": "〜ので",
+      "meaningVi": "Vì...",
+      "tip": "ので nối lý do với hệ quả, thường làm câu xin phép/ngỏ lời nghe nhẹ nhàng hơn."
+    },
+    {
+      "grammarId": "bunpo-5caglj",
+      "senseId": "sense-17u2lav",
+      "pattern": "〜たらいいです",
+      "meaningVi": "Dùng để đưa lời khuyên: “Nên...”",
+      "tip": "Vたら + いいです là gợi ý nhẹ cho người chưa biết nên xử lý ra sao."
+    },
+    {
+      "grammarId": "bunpo-gn2i07",
+      "senseId": "sense-kzqqir",
+      "pattern": "んですか",
+      "meaningVi": "Dùng để nhấn mạnh ý quan tâm, ngạc nhiên khi hỏi về lí do, nguyên nhân hoặc tình trạng.",
+      "tip": "Tránh dùng với người bề trên vì có thể tạo cảm giác soi mói"
+    },
+    {
+      "grammarId": "bunpo-9clvyo",
+      "senseId": "sense-auf35k",
+      "pattern": "〜んです",
+      "meaningVi": "Trả lời cho câu hỏi nhấn mạnh どうして và どうした, trình bày nguyên nhân cho điều đã nói phía trước.",
+      "tip": "Dùng khi người nghe hỏi どうして／どうした để nêu lý do hoặc bối cảnh."
+    },
+    {
+      "grammarId": "bunpo-9clvyo",
+      "senseId": "sense-8pygfm",
+      "pattern": "〜んです",
+      "meaningVi": "Dùng để giải thích, nhấn mạnh lý do hoặc hoàn cảnh.",
+      "tip": "Đưa nền cảnh hoặc lý do sau câu hỏi どうして／んですか."
+    },
+    {
+      "grammarId": "bunpo-16avhp9",
+      "senseId": "sense-10frdi4",
+      "pattern": "〜ていただけませんか",
+      "meaningVi": "Làm ... giúp tôi được không? (đề nghị người khác một cách lịch sự)",
+      "tip": "Thường kết hợp với vế giải thích lý do đi trước (〜んですが)"
+    },
+    {
+      "grammarId": "bunpo-31tcnd",
+      "senseId": "sense-1w33gxr",
+      "pattern": "〜疑問詞＋たらいいですか",
+      "meaningVi": "Xin lời gợi ý từ người khác (Học ai, mua ở đâu, làm thế nào...)",
+      "tip": "Dùng khi người nói lúng túng hoặc chưa biết cách xử lý, muốn tham khảo lời khuyên"
+    },
+    {
+      "grammarId": "bunpo-bu8wsf",
+      "senseId": "sense-1ohkwjd",
+      "pattern": "〜可能形",
+      "meaningVi": "Có thể (Thể hiện năng lực, điều kiện thực hiện hoạt động nào đó)",
+      "tip": "Trợ từ を thường chuyển thành が khi đi với thể khả năng"
+    },
+    {
+      "grammarId": "bunpo-1j2rmnk",
+      "senseId": "sense-18m5ubw",
+      "pattern": "N が見える・聞こえる",
+      "meaningVi": "Nhìn thấy, nghe thấy một cách tự nhiên",
+      "tip": "Danh từ + が + 見える／聞こえる đặt vật/cảnh tự nhiên lọt vào giác quan."
+    },
+    {
+      "grammarId": "bunpo-1mxh31v",
+      "senseId": "sense-14wmwbt",
+      "pattern": "N1は…が、N2は",
+      "meaningVi": "N1 thì... nhưng N2 thì... (2 đối tượng có tính chất trái ngược)",
+      "tip": "Trợ từ は được nhấn mạnh ở cả hai vế để thể hiện rõ sự đối chiếu"
+    },
+    {
+      "grammarId": "bunpo-1khyq9s",
+      "senseId": "sense-12ci2o",
+      "pattern": "V1ながら、V2",
+      "meaningVi": "Vừa làm V1 vừa làm V2",
+      "tip": "Diễn tả 2 hành động diễn ra song song do cùng một chủ thể thực hiện, trong đó V2 là hành động chính"
+    },
+    {
+      "grammarId": "bunpo-vo9f8o",
+      "senseId": "sense-l0i5v4",
+      "pattern": "〜し",
+      "meaningVi": "Dùng để liệt kê",
+      "tip": "Xâu các lý do cùng chiều bằng し, rồi chốt nhận xét sau danh sách."
+    },
+    {
+      "grammarId": "bunpo-7nbgp7",
+      "senseId": "sense-xy4yb2",
+      "pattern": "〜それで",
+      "meaningVi": "Vị thế..., Vì vậy...",
+      "tip": "Đặt đầu câu kết quả tự nhiên từ sự việc trước; đây là liên từ mở câu sau."
+    },
+    {
+      "grammarId": "bunpo-6jd1xb",
+      "senseId": "sense-11hemi8",
+      "pattern": "〜それに",
+      "meaningVi": "Hơn nữa..., thêm nữa..., thêm vào đó...",
+      "tip": "Liên từ đứng đầu câu dùng để bổ sung thêm một ý kiến"
+    },
+    {
+      "grammarId": "bunpo-9hfvnr",
+      "senseId": "sense-wa5dwr",
+      "pattern": "〜状態動詞（Vている）",
+      "meaningVi": "Trạng thái của sự vật, hiện tượng (tự động từ)",
+      "tip": "Tự động từ + ている giữ lại trạng thái còn lưu sau một biến đổi."
+    },
+    {
+      "grammarId": "bunpo-1leiabj",
+      "senseId": "sense-sbwyqd",
+      "pattern": "〜てしまう",
+      "meaningVi": "Làm hết V, hoặc tiếc nuối khi V xảy ra...",
+      "tip": "Dùng diễn tả một hành động đã hoàn thành trọn vẹn, hoặc thể hiện sự tiếc nuối"
+    },
+    {
+      "grammarId": "bunpo-1f8wg4c",
+      "senseId": "sense-179rdya",
+      "pattern": "〜Vてある",
+      "meaningVi": "Trạng thái của sự vật, hiện tượng do ai đó gây ra (tha động từ)",
+      "tip": "Tập trung vào vật đang ở trạng thái đã được ai đó cố ý chuẩn bị."
+    },
+    {
+      "grammarId": "bunpo-1la2alp",
+      "senseId": "sense-6bft7j",
+      "pattern": "〜ておく",
+      "meaningVi": "Chuẩn bị trước, giải pháp tạm thời hoặc giữ nguyên hiện trạng",
+      "tip": "Chuẩn bị sẵn việc cần cho kế hoạch tới; khi nói nhanh ておく rút thành とく."
+    },
+    {
+      "grammarId": "bunpo-1p12jyr",
+      "senseId": "sense-16b3kl7",
+      "pattern": "〜意向形",
+      "meaningVi": "Thể ý chí, dạng ngắn của V ましょう",
+      "tip": "Là dạng ngắn của 〜ましょう, dùng để rủ rê hoặc biểu thị ý chí cá nhân trong hội thoại thân mật"
+    },
+    {
+      "grammarId": "bunpo-x28i3b",
+      "senseId": "sense-1v5atx5",
+      "pattern": "〜V意向形＋と思っています",
+      "meaningVi": "Định làm V",
+      "tip": "Ý định đã nghĩ từ trước và vẫn còn giữ đến hiện tại."
+    },
+    {
+      "grammarId": "bunpo-v4mdmh",
+      "senseId": "sense-16dwd3o",
+      "pattern": "〜つもりです",
+      "meaningVi": "Định làm V, không định làm V",
+      "tip": "Không dùng cho dự định của người khác"
+    },
+    {
+      "grammarId": "bunpo-15rw145",
+      "senseId": "sense-1px12sk",
+      "pattern": "〜予定です",
+      "meaningVi": "Dự định, kế hoạch...",
+      "tip": "Biểu thị lịch trình, kế hoạch đã được ấn định sẵn (thường do công việc"
+    },
+    {
+      "grammarId": "bunpo-1nffjso",
+      "senseId": "sense-gz8uiw",
+      "pattern": "〜でしょう",
+      "meaningVi": "Có lẽ...",
+      "tip": "Cuối câu でしょう giúp dự đoán với giọng lịch sự, khả năng được xem là khá cao."
+    },
+    {
+      "grammarId": "bunpo-1nffjso",
+      "senseId": "sense-17o6tfu",
+      "pattern": "〜でしょう",
+      "meaningVi": "Có lẽ ~ / Chắc là ~",
+      "tip": "Khi có căn cứ như dự báo thời tiết, dùng でしょう để kết luận phỏng đoán."
+    },
+    {
+      "grammarId": "bunpo-wwaanw",
+      "senseId": "sense-tz6bxj",
+      "pattern": "〜命令形",
+      "meaningVi": "Làm V đi (thể mệnh lệnh) thể hiện sắc thái áp đặt mạnh mẽ như ép buộc ai đó làm gì",
+      "tip": "Mang sắc thái ra lệnh trực tiếp, áp đặt mạnh mẽ; thường dùng trong tình huống khẩn cấp"
+    },
+    {
+      "grammarId": "bunpo-5rasum",
+      "senseId": "sense-1cruaoy",
+      "pattern": "〜禁止形",
+      "meaningVi": "Không được làm (thể cấm chỉ) sắc thái áp đặt mạnh cấm ai đó làm gì",
+      "tip": "Thường dùng trong tình huống khẩn cấp"
+    },
+    {
+      "grammarId": "bunpo-1cvb1co",
+      "senseId": "sense-kw1v0w",
+      "pattern": "〜と読みます・〜と書いてあります",
+      "meaningVi": "Đọc là..., Viết là...",
+      "tip": "Dùng để giải thích cách đọc của chữ Hán hoặc trích dẫn thông tin được ghi trên biển báo, tài liệu"
+    },
+    {
+      "grammarId": "bunpo-1nuraa1",
+      "senseId": "sense-1sm64xh",
+      "pattern": "〜どういう意味ですか。〜という意味です",
+      "meaningVi": "Ý nghĩa như thế nào? Nghĩa là...",
+      "tip": "Hỏi このマークはどういう意味ですか, rồi đáp theo khung 〜という意味です."
+    },
+    {
+      "grammarId": "bunpo-247ah2",
+      "senseId": "sense-1nawumz",
+      "pattern": "〜と言っていました",
+      "meaningVi": "Nói là...",
+      "tip": "Đặt lời nói trực tiếp trong ngoặc rồi nối と言っていました để thuật lại."
+    },
+    {
+      "grammarId": "bunpo-247ah2",
+      "senseId": "sense-a3rp4v",
+      "pattern": "〜と言っていました",
+      "meaningVi": "Nói rằng ~",
+      "tip": "Câu thể thường + と言っていました báo lại thông tin người khác đã nói."
+    },
+    {
+      "grammarId": "bunpo-1eu24aj",
+      "senseId": "sense-mitqwx",
+      "pattern": "Vたほうがいいです・〜ないほうがいいです",
+      "meaningVi": "Nên..., không nên làm V",
+      "tip": "Dùng khi đưa ra lời khuyên hoặc gợi ý cho ai đó nên hay không nên làm gì"
+    },
+    {
+      "grammarId": "bunpo-1b8uw4v",
+      "senseId": "sense-1dpigv2",
+      "pattern": "〜しかVません",
+      "meaningVi": "Chỉ V",
+      "tip": "Dùng để nhấn mạnh sự ít ỏi, giới hạn chỉ có duy nhất"
+    },
+    {
+      "grammarId": "bunpo-18ii9dq",
+      "senseId": "sense-fokvkr",
+      "pattern": "〜まだVています",
+      "meaningVi": "Vẫn đang V.",
+      "tip": "まだ + Vている báo rằng việc/trạng thái vẫn tiếp diễn tại thời điểm nói."
+    },
+    {
+      "grammarId": "bunpo-1dkfuhd",
+      "senseId": "sense-g5ib9f",
+      "pattern": "〜まだVていません",
+      "meaningVi": "Vẫn chưa V.",
+      "tip": "Diễn tả một hành động chưa được thực hiện tính đến thời điểm hiện tại"
+    },
+    {
+      "grammarId": "bunpo-83gol1",
+      "senseId": "sense-14bn8io",
+      "pattern": "〜と伝えていただけませんか",
+      "meaningVi": "Có thể nhắn giùm, chuyển lời là... giúp tôi được không?",
+      "tip": "Lời nhắn dạng câu trực tiếp + と伝えていただけませんか nhờ chuyển cho người thứ ba."
+    },
+    {
+      "grammarId": "bunpo-83gol1",
+      "senseId": "sense-2z1ztt",
+      "pattern": "〜と伝えていただけませんか",
+      "meaningVi": "Nhắn lại giúp tôi ~ được không?",
+      "tip": "Mệnh đề thể thường + と nhờ người nghe chuyển lời một cách lịch sự."
+    },
+    {
+      "grammarId": "bunpo-1k22q62",
+      "senseId": "sense-q9c8nl",
+      "pattern": "〜とおりに",
+      "meaningVi": "Theo đúng như...",
+      "tip": "Vる／Vた + とおりに; với danh từ dùng の, như 聞いたとおりに書く."
+    },
+    {
+      "grammarId": "bunpo-1y9qmny",
+      "senseId": "sense-1z0wosq",
+      "pattern": "〜あとで",
+      "meaningVi": "Sau khi...",
+      "tip": "Vた／Nの + あとで: mốc trước đã hoàn tất rồi mới chuyển sang việc sau."
+    },
+    {
+      "grammarId": "bunpo-1xx78ep",
+      "senseId": "sense-fm4f0t",
+      "pattern": "V1て、V2・V1ないで、V2",
+      "meaningVi": "Làm V2 trong trạng thái V1, làm V2 mà không V1",
+      "tip": "Vế Vて/ないで nêu cách thức hoặc trạng thái khi làm hành động chính."
+    },
+    {
+      "grammarId": "bunpo-1qqyale",
+      "senseId": "sense-1r3v87",
+      "pattern": "〜条件形",
+      "meaningVi": "Nếu (Dùng thể điều kiện)",
+      "tip": "\" làm tiền đề để vế sau xảy ra"
+    },
+    {
+      "grammarId": "bunpo-c02v36",
+      "senseId": "sense-k7cp3p",
+      "pattern": "〜疑問詞＋V条件形いいですか",
+      "meaningVi": "Xin lời khuyên (giống 疑問詞＋Vたらいいですか)",
+      "tip": "Dùng khi hỏi xin lời khuyên, gợi ý hoặc hướng dẫn từ người nghe về cách thức"
+    },
+    {
+      "grammarId": "bunpo-1lsds27",
+      "senseId": "sense-kudhu2",
+      "pattern": "〜ようになります",
+      "meaningVi": "Trở nên có thể... (có năng lực, thói quen mà trước không có)",
+      "tip": "Động từ khả năng + ようになる đánh dấu năng lực mới hoặc thói quen vừa hình thành."
+    },
+    {
+      "grammarId": "bunpo-f2c5ct",
+      "senseId": "sense-1my1qyg",
+      "pattern": "〜なくなります",
+      "meaningVi": "Trở nên không thể... (mất đi năng lực vốn có trước kia)",
+      "tip": "Biểu thị sự chuyển biến sang trạng thái không còn thực hiện được hành động đó nữa"
+    },
+    {
+      "grammarId": "bunpo-9dzm5m",
+      "senseId": "sense-wwu0ai",
+      "pattern": "〜ようにします",
+      "meaningVi": "Cố gắng...",
+      "tip": "Nhấn mạnh sự nỗ lực, ý chí của bản thân để duy trì hoặc hình thành một thói quen"
+    },
+    {
+      "grammarId": "bunpo-184snii",
+      "senseId": "sense-1cp9dxk",
+      "pattern": "〜とか",
+      "meaningVi": "Như là...như là... (dùng để liệt kê)",
+      "tip": "Dùng để nói ra những điều không rõ ràng, được nghe qua tin đồn, v"
+    },
+    {
+      "grammarId": "bunpo-1prggke",
+      "senseId": "sense-m14v2",
+      "pattern": "S1はS2にV受身形",
+      "meaningVi": "S1 bị S2 V (hành động tác động trực tiếp vào S1) (bị động trực tiếp)",
+      "tip": "Nhấn mạnh vào đối tượng chịu tác động; thường mang sắc thái phiền phức, khó chịu đối với chủ ngữ"
+    },
+    {
+      "grammarId": "bunpo-1ma35ge",
+      "senseId": "sense-3bsc1b",
+      "pattern": "S1はS2にNをV受身形",
+      "meaningVi": "S1 bị S2 làm V ảnh hưởng đến N thuộc S1 (bị động gián tiếp)",
+      "tip": "Lưu ý không lấy N3 làm chủ ngữ"
+    },
+    {
+      "grammarId": "bunpo-1003c5c",
+      "senseId": "sense-1i94ayh",
+      "pattern": "NはV受身形",
+      "meaningVi": "N được, bị... (bị động không quan tâm đến tác nhân thực hiện)",
+      "tip": "Đưa vật/sự việc lên は; lược tác nhân khi không rõ hoặc tin tức chỉ nêu sự thật."
+    },
+    {
+      "grammarId": "bunpo-i8ir1y",
+      "senseId": "sense-1sjk574",
+      "pattern": "SによってV受身形",
+      "meaningVi": "V được làm bởi S (V là động từ mang tính sáng tạo, S là người nổi tiếng)",
+      "tip": "Bắt buộc dùng によって thay cho に"
+    },
+    {
+      "grammarId": "bunpo-svtffj",
+      "senseId": "sense-x8rbgl",
+      "pattern": "〜から・でV受身形",
+      "meaningVi": "Được làm bằng..., được làm từ...",
+      "tip": "Dùng 「で」 khi nhận biết được vật liệu bằng mắt thường"
+    },
+    {
+      "grammarId": "bunpo-1orjoj8",
+      "senseId": "sense-h5r7sl",
+      "pattern": "〜のは",
+      "meaningVi": "Danh từ hóa động từ.",
+      "tip": "Biến cả mệnh đề động từ thành chủ ngữ để đưa ra nhận xét, đánh giá"
+    },
+    {
+      "grammarId": "bunpo-1gpv7f1",
+      "senseId": "sense-tlrzyw",
+      "pattern": "〜のが",
+      "meaningVi": "Danh từ hóa động từ.",
+      "tip": "Dùng のが trước 好き／上手／下手 để biến hành động thành điều được đánh giá."
+    },
+    {
+      "grammarId": "bunpo-wphxut",
+      "senseId": "sense-1c5yc4w",
+      "pattern": "〜のを知っていますか",
+      "meaningVi": "Có biết... (danh từ hóa động từ)",
+      "tip": "Dùng để hỏi đối phương có biết một sự việc/thông tin cụ thể nào đó không"
+    },
+    {
+      "grammarId": "bunpo-8qbqe9",
+      "senseId": "sense-1h8agd2",
+      "pattern": "〜のを忘れました",
+      "meaningVi": "Quên... (danh từ hóa động từ)",
+      "tip": "Diễn tả việc lỡ quên thực hiện một hành động hoặc một nghĩa vụ cần làm"
+    },
+    {
+      "grammarId": "bunpo-qyckko",
+      "senseId": "sense-ou0suh",
+      "pattern": "〜て（Vて・Aくて・Aで・Nで）",
+      "meaningVi": "Vì...",
+      "tip": "V/A/N + て nối nguyên nhân khách quan sang hệ quả; vế sau tránh mệnh lệnh/ý chí."
+    },
+    {
+      "grammarId": "bunpo-b8sfd8",
+      "senseId": "sense-1rvyht0",
+      "pattern": "〜疑問詞＋か、〜",
+      "meaningVi": "Chèn câu nghi vấn có từ để hỏi",
+      "tip": ") vào làm thành phần của câu lớn"
+    },
+    {
+      "grammarId": "bunpo-16pmpel",
+      "senseId": "sense-bbd3d6",
+      "pattern": "〜かどうか",
+      "meaningVi": "Chèn câu nghi vấn không có từ để hỏi",
+      "tip": "Dùng lồng một câu hỏi nghi vấn Đúng/Sai (có hay không) vào trong câu lớn"
+    },
+    {
+      "grammarId": "bunpo-1fkqusm",
+      "senseId": "sense-4nlhz0",
+      "pattern": "やります",
+      "meaningVi": "Mình cho người dưới, động vật, thực vật cái gì đó...",
+      "tip": "Là dạng thân mật của あげます, chỉ dùng khi cho/tặng đối tượng là cấp dưới, em nhỏ"
+    },
+    {
+      "grammarId": "bunpo-1qf6hmm",
+      "senseId": "sense-1hm55ax",
+      "pattern": "それ・その",
+      "meaningVi": "Dùng khi đề cập đến điều đã nói trước đó.",
+      "tip": "Dùng để chỉ định lại sự vật"
+    },
+    {
+      "grammarId": "bunpo-199re6",
+      "senseId": "sense-j81kex",
+      "pattern": "Vてくださいませんか",
+      "meaningVi": "Bạn làm V giúp tôi được không?",
+      "tip": "Mẫu câu nhờ vả lịch sự, thể hiện thái độ tôn trọng đối phương hơn so với Vてください"
+    },
+    {
+      "grammarId": "bunpo-17mgx4p",
+      "senseId": "sense-1hw3tvx",
+      "pattern": "〜のに",
+      "meaningVi": "Trình bày công dụng, đánh giá... (danh từ hóa động từ)",
+      "tip": "Dùng biểu thị mục đích, công dụng; thường đi kèm với các từ như 使う, 便利だ, 役に立つ, 時間/お金がかかる"
+    },
+    {
+      "grammarId": "bunpo-17mgx4p",
+      "senseId": "sense-1n4nvu1",
+      "pattern": "〜のに",
+      "meaningVi": "Thế mà...",
+      "tip": "Sắc thái: Bày tỏ cảm xúc bất ngờ"
+    },
+    {
+      "grammarId": "bunpo-116xpbu",
+      "senseId": "sense-frdjsh",
+      "pattern": "〜数量詞＋で",
+      "meaningVi": "Làm gì đó với 1 lượng sẵn có (thời gian, tiền...)",
+      "tip": "Trợ từ で biểu thị phạm vi, giới hạn về thời gian hoặc tiền bạc cần thiết để hoàn thành một hành động"
+    },
+    {
+      "grammarId": "bunpo-yz0vs2",
+      "senseId": "sense-3f3jjw",
+      "pattern": "〜数量詞＋は",
+      "meaningVi": "Lượng tối thiểu khi làm 1 việc gì đó.",
+      "tip": "Trợ từ は đứng sau lượng từ để nhấn mạnh mức độ tối thiểu (ít nhất phải cần/có bấy nhiêu)"
+    },
+    {
+      "grammarId": "bunpo-1qzuj8h",
+      "senseId": "sense-1ejpwz1",
+      "pattern": "〜数量詞＋も",
+      "meaningVi": "Lượng mà người nói cho rằng là nhiều khi làm 1 việc gì đó.",
+      "tip": "Sắc thái: Thể hiện tâm lý kinh ngạc"
+    },
+    {
+      "grammarId": "bunpo-1ld2jev",
+      "senseId": "sense-u80j2d",
+      "pattern": "〜そうです",
+      "meaningVi": "Có vẻ..., sắp... (thể様態)",
+      "tip": "KHÔNG dùng đi kèm danh từ"
+    },
+    {
+      "grammarId": "bunpo-1ld2jev",
+      "senseId": "sense-1ck1q2m",
+      "pattern": "〜そうです",
+      "meaningVi": "Nghe nói...",
+      "tip": "Thường đi kèm nguồn thông tin ~によると"
+    },
+    {
+      "grammarId": "bunpo-145k9bv",
+      "senseId": "sense-q95etc",
+      "pattern": "〜Vてきます",
+      "meaningVi": "Làm gì đó rồi quay lại...",
+      "tip": "Hình dung ghé コンビニ mua nước rồi quay về; mẫu gói cả lượt đi và về."
+    },
+    {
+      "grammarId": "bunpo-1qyij4q",
+      "senseId": "sense-193n09l",
+      "pattern": "〜すぎる",
+      "meaningVi": "Quá...",
+      "tip": "Sắc thái: Thể hiện sự vượt quá mức độ bình thường hoặc kỳ vọng, đa phần mang sắc thái phàn nàn"
+    },
+    {
+      "grammarId": "bunpo-p2nkbw",
+      "senseId": "sense-1vxiqu",
+      "pattern": "〜Vやすいです",
+      "meaningVi": "Dễ V",
+      "tip": "Chỉ thuộc tính của đối tượng giúp thao tác dễ dàng"
+    },
+    {
+      "grammarId": "bunpo-1m00u07",
+      "senseId": "sense-2d71ts",
+      "pattern": "〜Vにくいです",
+      "meaningVi": "Khó V...",
+      "tip": "Khó do tính chất của đối tượng, như chữ khó đọc hay nắp khó mở."
+    },
+    {
+      "grammarId": "bunpo-dn1liu",
+      "senseId": "sense-1ps53i4",
+      "pattern": "Aくします・Aにします・Nにします",
+      "meaningVi": "Làm...",
+      "tip": "Sắc thái: Biểu thị chủ thể cố ý tác động trực tiếp để làm biến đổi trạng thái của đối tượng"
+    },
+    {
+      "grammarId": "bunpo-1jqz3is",
+      "senseId": "sense-12165vd",
+      "pattern": "AくV・AにV",
+      "meaningVi": "Làm V một cách...",
+      "tip": "Đổi tính từ sang trạng từ để tả cách hành động diễn ra."
+    },
+    {
+      "grammarId": "bunpo-1dvah3g",
+      "senseId": "sense-9zcceu",
+      "pattern": "〜場合は",
+      "meaningVi": "Trong trường hợp...",
+      "tip": "Nêu một hoàn cảnh giả định trước rồi chỉ cách xử lý tương ứng."
+    },
+    {
+      "grammarId": "bunpo-1e92ajt",
+      "senseId": "sense-ruf3w6",
+      "pattern": "〜るところ",
+      "meaningVi": "Sắp làm V...",
+      "tip": "Nhấn mạnh khoảnh khắc ngay trước khi bắt đầu thực hiện hành động, thường kết hợp với 今から, これから, ちょうど"
+    },
+    {
+      "grammarId": "bunpo-145hh6p",
+      "senseId": "sense-txykrq",
+      "pattern": "〜ているところ",
+      "meaningVi": "Đang làm V...",
+      "tip": "Nhấn mạnh tiến trình hành động đang thực sự diễn ra đúng ngay tại thời điểm nói"
+    },
+    {
+      "grammarId": "bunpo-d861kd",
+      "senseId": "sense-1w2p1qd",
+      "pattern": "〜のが見える・聞こえる・感じる",
+      "meaningVi": "Nhìn, nghe, cảm thấy...",
+      "tip": "Diễn tả việc nhận biết một sự việc hay hành động đang diễn ra trực tiếp qua thị giác"
+    },
+    {
+      "grammarId": "bunpo-1kgehvk",
+      "senseId": "sense-lyhmjk",
+      "pattern": "〜Vたところ",
+      "meaningVi": "Vừa mới làm V (chính xác là vừa làm xong)",
+      "tip": "Thường đi kèm với các từ chỉ thời gian như たった今, さっき"
+    },
+    {
+      "grammarId": "bunpo-1kgehvk",
+      "senseId": "sense-9i6j6a",
+      "pattern": "〜Vたところ",
+      "meaningVi": "Vừa mới ~",
+      "tip": "Vたところです: việc vừa xong, như vừa mới trở về."
+    },
+    {
+      "grammarId": "bunpo-hx711g",
+      "senseId": "sense-192g6am",
+      "pattern": "〜たばかり",
+      "meaningVi": "Vừa mới làm V (chỉ là cảm nhận của người nói)",
+      "tip": "ばかり gắn với cảm nhận của người nói: thấy việc ấy vẫn còn mới xảy ra."
+    },
+    {
+      "grammarId": "bunpo-12s1bli",
+      "senseId": "sense-j6oona",
+      "pattern": "〜はずです",
+      "meaningVi": "Chắc chắn...",
+      "tip": "Diễn tả sự phán đoán hoặc suy luận có căn cứ logic"
+    },
+    {
+      "grammarId": "bunpo-1xaie2h",
+      "senseId": "sense-1tliycs",
+      "pattern": "〜ようです",
+      "meaningVi": "Hình như...",
+      "tip": "Phỏng đoán từ điều đang quan sát hoặc cảm nhận được."
+    },
+    {
+      "grammarId": "bunpo-1xaie2h",
+      "senseId": "sense-1hsjies",
+      "pattern": "〜ようです",
+      "meaningVi": "Dường như ~",
+      "tip": "Bám vào dấu hiệu đang thấy để suy đoán; danh từ cần の trước ようです."
+    },
+    {
+      "grammarId": "bunpo-d8xr7h",
+      "senseId": "sense-1qmbmzj",
+      "pattern": "〜S1はS2をV使役形",
+      "meaningVi": "S1 bắt hoặc cho phép S2 làm gì (V là tự động từ)",
+      "tip": "Tự động từ: người chịu tác động đi với を trong khung S1は S2を V使役形."
+    },
+    {
+      "grammarId": "bunpo-cb98sy",
+      "senseId": "sense-1pk7q1s",
+      "pattern": "〜S1はS2にV使役形",
+      "meaningVi": "S1 bắt hoặc cho phép S2 làm gì (V là tha động từ)",
+      "tip": "Tha động từ: người làm đi với に, còn tân ngữ giữ を."
+    },
+    {
+      "grammarId": "bunpo-1f7036k",
+      "senseId": "sense-1xrp2y5",
+      "pattern": "〜Vさせていただけませんか",
+      "meaningVi": "Cho phép tôi làm V được không?",
+      "tip": "Dùng khi muốn xin phép đối phương một cách lịch sự để mình (người nói) được phép thực hiện hành động"
+    },
+    {
+      "grammarId": "bunpo-1jrk3c7",
+      "senseId": "sense-2i78gs",
+      "pattern": "V受身形",
+      "meaningVi": "Thể bị động - tôn kính ngữ đơn giản nhất.",
+      "tip": "Ngoài nghĩa bị động thông thường"
+    },
+    {
+      "grammarId": "bunpo-i7ynty",
+      "senseId": "sense-11sdxef",
+      "pattern": "おVになります・ごVになります",
+      "meaningVi": "Tôn kính ngữ của Vます。",
+      "tip": "Hình thức tôn kính ngữ mức độ cao hơn thể bị động"
+    },
+    {
+      "grammarId": "bunpo-17xb9i2",
+      "senseId": "sense-1b0ixnk",
+      "pattern": "おVですか",
+      "meaningVi": "Tôn kính ngữ của Vていますか。",
+      "tip": "Hỏi hành động/trạng thái của người trên bằng kính ngữ ngắn gọn."
+    },
+    {
+      "grammarId": "bunpo-xkrjlk",
+      "senseId": "sense-11g9evc",
+      "pattern": "おVください・ごVください",
+      "meaningVi": "Tôn kính ngữ của Vてください...",
+      "tip": "Dùng để đề nghị, yêu cầu người trên hoặc khách hàng thực hiện hành động một cách tôn kính, lịch sự"
+    },
+    {
+      "grammarId": "bunpo-4bjoov",
+      "senseId": "sense-2ezxm3",
+      "pattern": "〜特別な尊敬語",
+      "meaningVi": "Tôn kính ngữ đặc biệt...",
+      "tip": "Dùng để thể hiện sự kính trọng khi nói về hành động của cấp trên, người lớn tuổi hoặc khách hàng"
+    },
+    {
+      "grammarId": "bunpo-1v7yj9e",
+      "senseId": "sense-1q9jsnm",
+      "pattern": "おVします・ごVします",
+      "meaningVi": "Khiêm nhường ngữ...",
+      "tip": "Dùng khi mình làm việc gì cho người trên; hạ hành động của bản thân."
+    },
+    {
+      "grammarId": "bunpo-eq2ksm",
+      "senseId": "sense-sn37fi",
+      "pattern": "おVいただきます・ごVいただきます",
+      "meaningVi": "Tôn kính ngữ, ai đó là V cho mình...",
+      "tip": "Dùng khi nhận được hành động giúp đỡ/hợp tác từ người khác với thái độ vô cùng tôn kính"
+    },
+    {
+      "grammarId": "bunpo-h2eybh",
+      "senseId": "sense-pqcuxl",
+      "pattern": "〜Vてもよろしいでしょうか",
+      "meaningVi": "Tôi làm V có được không?",
+      "tip": "Dùng khi người nói muốn xin phép người trên hoặc đối tác làm việc gì đó, lịch sự hơn hẳn 〜てもいいですか"
+    },
+    {
+      "grammarId": "bunpo-1ff3s3s",
+      "senseId": "sense-7msbsw",
+      "pattern": "SにNをいただきます",
+      "meaningVi": "Mình nhận gì từ người trên.",
+      "tip": "Là khiêm nhường ngữ của もらいます, dùng khi người nói nhận được vật gì từ người có vị thế cao hơn"
+    },
+    {
+      "grammarId": "bunpo-5g9ih8",
+      "senseId": "sense-2s0g3a",
+      "pattern": "SはNをくださいます",
+      "meaningVi": "Người trên cho, tặng mình (hoặc người nhà mình) cái gì đó...",
+      "tip": "Người trên は + N をくださる: vật được trao cho mình/người nhà; nhìn từ phía người nhận."
+    },
+    {
+      "grammarId": "bunpo-1qhrtz6",
+      "senseId": "sense-16u8f5a",
+      "pattern": "SはNをさしあげます",
+      "meaningVi": "Mình cho, tặng, biếu người trên cái gì.",
+      "tip": "Mình は + người trên に + N をさしあげる: vật được trao từ phía người nói."
+    },
+    {
+      "grammarId": "bunpo-cjrbt4",
+      "senseId": "sense-qs14dd",
+      "pattern": "〜てくださいます",
+      "meaningVi": "Người trên làm gì cho mình.",
+      "tip": "Là tôn kính ngữ của 〜てくれます"
+    },
+    {
+      "grammarId": "bunpo-198wm2u",
+      "senseId": "sense-e14fqe",
+      "pattern": "〜てさしあげます",
+      "meaningVi": "Làm gì cho người trên.",
+      "tip": "Là khiêm nhường ngữ của 〜てあげます"
+    },
+    {
+      "grammarId": "bunpo-1n11248",
+      "senseId": "sense-13rk6q6",
+      "pattern": "〜てやります",
+      "meaningVi": "Làm gì cho người dưới, cho động, thực vật...",
+      "tip": "てやる hợp khi làm việc cho em nhỏ hoặc chăm cây, vật nuôi như cho ăn/tưới nước."
+    },
+    {
+      "grammarId": "bunpo-1x5daix",
+      "senseId": "sense-14ut9ul",
+      "pattern": "〜際に…",
+      "meaningVi": "Khi..., dịp...",
+      "tip": "Là cách nói trang trọng của 'toki' (lúc, khi), thường dùng trong thông báo"
+    },
+    {
+      "grammarId": "bunpo-1hte89y",
+      "senseId": "sense-118obpm",
+      "pattern": "〜に際して…",
+      "meaningVi": "Khi..., dịp...",
+      "tip": "Dùng trong các tình huống trang trọng, mang tính nghi thức hoặc dịp đặc biệt"
+    },
+    {
+      "grammarId": "bunpo-3t8gdg",
+      "senseId": "sense-6mvfif",
+      "pattern": "〜にあたって…",
+      "meaningVi": "Khi...",
+      "tip": "Thường dùng khi bắt đầu một sự kiện quan trọng, một công việc mới hoặc dự định mang tính tích cực"
+    },
+    {
+      "grammarId": "bunpo-1jlpwhu",
+      "senseId": "sense-15b1tmz",
+      "pattern": "〜たとたん（に）",
+      "meaningVi": "Vừa...thì...",
+      "tip": "Vたとたん(に) đặt biến cố liền sau hành động đầu; không dùng với ý chí/mệnh lệnh."
+    },
+    {
+      "grammarId": "bunpo-1ltnyqx",
+      "senseId": "sense-nqnjz0",
+      "pattern": "〜（か）と思うと、〜（か）と思ったら…",
+      "meaningVi": "Vừa thấy... thì đã...",
+      "tip": "Vế sau と思うと／と思ったら cho biết sự việc đổi ngay lập tức, gây bất ngờ."
+    },
+    {
+      "grammarId": "bunpo-1mnqbf7",
+      "senseId": "sense-bx3e69",
+      "pattern": "〜か〜ないかのうちに",
+      "meaningVi": "Chưa kịp...đã..., vừa mới...đã",
+      "tip": "Diễn tả hành động tiếp theo xảy ra gần như cùng lúc với hành động trước"
+    },
+    {
+      "grammarId": "bunpo-1ukszgi",
+      "senseId": "sense-15tk6s1",
+      "pattern": "〜（よう）としている",
+      "meaningVi": "Sắp...",
+      "tip": "Dùng cho các sự vật, hiện tượng đang ở thời điểm chuẩn bị bắt đầu hoặc kết thúc ngay tức thì"
+    },
+    {
+      "grammarId": "bunpo-zshz10",
+      "senseId": "sense-1az2g4p",
+      "pattern": "〜つつある",
+      "meaningVi": "Ngày càng..., dần dần",
+      "tip": "Vます bỏ ます + つつある: quá trình thay đổi đang diễn tiến dần dần."
+    },
+    {
+      "grammarId": "bunpo-7yfkuv",
+      "senseId": "sense-1nfcbh2",
+      "pattern": "〜つつ。",
+      "meaningVi": "Vừa...vừa...",
+      "tip": "vừa', còn có thể dùng để diễn tả sự đối lập"
+    },
+    {
+      "grammarId": "bunpo-jbst4x",
+      "senseId": "sense-1xzvgap",
+      "pattern": "〜上（で）…",
+      "meaningVi": "Sau khi...",
+      "tip": "Nhấn mạnh việc thực hiện hành động ở vế trước là điều kiện tiên quyết"
+    },
+    {
+      "grammarId": "bunpo-13a22bk",
+      "senseId": "sense-mubzpg",
+      "pattern": "〜次第…",
+      "meaningVi": "Sau khi...",
+      "tip": "Vừa xong việc trước là làm ngay việc kế tiếp."
+    },
+    {
+      "grammarId": "bunpo-xeuy3s",
+      "senseId": "sense-18vwjlf",
+      "pattern": "〜からして…",
+      "meaningVi": "Ngay từ...",
+      "tip": "Lấy một dấu hiệu cụ thể làm căn cứ đánh giá cả sự việc."
+    },
+    {
+      "grammarId": "bunpo-mtz14p",
+      "senseId": "sense-1q1rnd7",
+      "pattern": "〜限り…",
+      "meaningVi": "Trong phạm vi...",
+      "tip": "Diễn tả giới hạn của phạm vi hoặc mức độ, thường kết hợp với 'できる限り' (trong phạm vi có thể)"
+    },
+    {
+      "grammarId": "bunpo-fp9e2i",
+      "senseId": "sense-br025p",
+      "pattern": "〜だけ…",
+      "meaningVi": "Giới hạn phạm vi",
+      "tip": "Nhấn vào việc làm đến mức tối đa hoặc tận dụng hết khả năng."
+    },
+    {
+      "grammarId": "bunpo-amqdfe",
+      "senseId": "sense-15srooz",
+      "pattern": "〜に限り",
+      "meaningVi": "Chỉ riêng...",
+      "tip": "Hay gặp trên biển báo/thông báo để khoanh ngoại lệ dành riêng."
+    },
+    {
+      "grammarId": "bunpo-1bxtnlf",
+      "senseId": "sense-ae3892",
+      "pattern": "〜限り（は）",
+      "meaningVi": "Chừng nào...thì...",
+      "tip": "Diễn tả một trạng thái kéo dài liên tục trong suốt khoảng thời gian điều kiện ở vế trước còn đúng"
+    },
+    {
+      "grammarId": "bunpo-sw5wyz",
+      "senseId": "sense-1eeulmp",
+      "pattern": "〜限りでは",
+      "meaningVi": "Trong phạm vi...",
+      "tip": "Dùng để giới hạn nguồn tin hoặc phạm vi quan sát làm căn cứ cho một phán đoán hoặc kết luận"
+    },
+    {
+      "grammarId": "bunpo-pz8oll",
+      "senseId": "sense-10jcimx",
+      "pattern": "〜に限って",
+      "meaningVi": "Riêng..., đúng vào..., ai chứ riêng...",
+      "tip": "Dùng để chỉ ra một sự việc trái ngược với lẽ thường hoặc kỳ vọng"
+    },
+    {
+      "grammarId": "bunpo-ycu9hj",
+      "senseId": "sense-31u5aj",
+      "pattern": "〜に限らず",
+      "meaningVi": "Không chỉ...mà...",
+      "tip": "Bắt đầu từ đối tượng nêu ra rồi mở rộng sang những đối tượng khác."
+    },
+    {
+      "grammarId": "bunpo-1eq2pvh",
+      "senseId": "sense-mysx41",
+      "pattern": "〜のみならず…",
+      "meaningVi": "Không chỉ...mà...",
+      "tip": "Cách diễn đạt trang trọng"
+    },
+    {
+      "grammarId": "bunpo-ha43q2",
+      "senseId": "sense-i5s92q",
+      "pattern": "〜はもとより…",
+      "meaningVi": "Thì đương nhiên...cũng...",
+      "tip": "Dùng để khẳng định vế A là điều đương nhiên"
+    },
+    {
+      "grammarId": "bunpo-n9ltpl",
+      "senseId": "sense-13mpm2e",
+      "pattern": "〜上（に）",
+      "meaningVi": "Không những...mà còn...",
+      "tip": "Dùng để liệt kê hai tính chất cùng tốt hoặc cùng xấu, cho thấy sự cộng hưởng của các sự việc"
+    },
+    {
+      "grammarId": "bunpo-8taboz",
+      "senseId": "sense-c5yu3w",
+      "pattern": "〜に関して",
+      "meaningVi": "Liên quan đến...",
+      "tip": "Nに関して mở chủ đề của nội dung đang được hỏi, khảo sát hoặc trình bày."
+    },
+    {
+      "grammarId": "bunpo-fyf2fb",
+      "senseId": "sense-1qcnvsu",
+      "pattern": "〜をめぐって…",
+      "meaningVi": "Xoay quanh...",
+      "tip": "Diễn tả việc có nhiều người cùng quan tâm"
+    },
+    {
+      "grammarId": "bunpo-1ev0y6r",
+      "senseId": "sense-mynnpp",
+      "pattern": "〜にかけては",
+      "meaningVi": "Về...thì...",
+      "tip": "Nにかけては giới hạn lĩnh vực được nhận xét là sở trường nổi bật."
+    },
+    {
+      "grammarId": "bunpo-5o4vii",
+      "senseId": "sense-jpiqdr",
+      "pattern": "〜にこたえて…",
+      "meaningVi": "Đáp ứng với..., đáp lại...",
+      "tip": "Dùng khi thực hiện hành động để đáp lại yêu cầu, sự kỳ vọng hoặc mong đợi của người khác"
+    },
+    {
+      "grammarId": "bunpo-1fdce6m",
+      "senseId": "sense-4w6nn5",
+      "pattern": "〜に沿って…",
+      "meaningVi": "Theo..., dọc theo..., theo sát...",
+      "tip": "Dùng để chỉ hành động dựa trên, tuân theo một tiêu chuẩn, lộ trình hoặc phương châm đã định sẵn"
+    },
+    {
+      "grammarId": "bunpo-7vzoqw",
+      "senseId": "sense-jh919b",
+      "pattern": "〜のもとで・〜のもとに",
+      "meaningVi": "Dưới...",
+      "tip": "Dùng để chỉ phạm vi ảnh hưởng hoặc điều kiện (như sự chỉ dẫn"
+    },
+    {
+      "grammarId": "bunpo-jjqwq8",
+      "senseId": "sense-1fk2ed2",
+      "pattern": "〜に伴って・〜と共に…",
+      "meaningVi": "Cùng với...",
+      "tip": "Dùng khi hai sự thay đổi cùng tiến triển theo thời gian."
+    },
+    {
+      "grammarId": "bunpo-71gir8",
+      "senseId": "sense-1fh49k3",
+      "pattern": "〜次第だ…",
+      "meaningVi": "Tùy thuộc vào...",
+      "tip": "Dùng để chỉ kết quả của một sự việc thay đổi tùy theo các yếu tố hoặc điều kiện khác nhau"
+    },
+    {
+      "grammarId": "bunpo-1qbihwo",
+      "senseId": "sense-145vs0e",
+      "pattern": "〜に応じて…",
+      "meaningVi": "Ứng với..., hợp với...",
+      "tip": "Mức độ hay cách ứng xử thay đổi theo điều kiện được nêu."
+    },
+    {
+      "grammarId": "bunpo-1vpzrj",
+      "senseId": "sense-5fxg8w",
+      "pattern": "〜につけて。",
+      "meaningVi": "Mỗi lần...thì..., cứ...thì...",
+      "tip": "Mỗi lần gặp/nghe việc ấy, cảm xúc hoặc ký ức lại trỗi lên."
+    },
+    {
+      "grammarId": "bunpo-1h9g13n",
+      "senseId": "sense-1jm88ha",
+      "pattern": "〜やら〜やら",
+      "meaningVi": "Nào là...nào là..., như là...như là...",
+      "tip": "Dùng để liệt kê nhiều ví dụ nhằm nhấn mạnh sự vất vả, hoang mang hoặc hỗn loạn của tình huống"
+    },
+    {
+      "grammarId": "bunpo-13fhj83",
+      "senseId": "sense-wy6x7n",
+      "pattern": "〜というか〜というか…",
+      "meaningVi": "Hoặc là...hoặc là..., có thể nói là...cũng có thể nói là...",
+      "tip": "Dùng khi người nói đang lưỡng lự, không chắc chắn về cách diễn đạt chính xác cho một sự vật, sự việc"
+    },
+    {
+      "grammarId": "bunpo-2ul20v",
+      "senseId": "sense-1bygqrd",
+      "pattern": "〜にしても〜にしても・〜にしろ〜にしろ・〜にせよ〜にせよ",
+      "meaningVi": "Cho dù là...hay là...",
+      "tip": "Dùng để liệt kê các trường hợp khác nhau và khẳng định rằng dù trường hợp nào xảy ra thì kết quả"
+    },
+    {
+      "grammarId": "bunpo-9ipc31",
+      "senseId": "sense-1jn6i4u",
+      "pattern": "〜を問わず。",
+      "meaningVi": "Không liên quan đến..., không là vấn đề..., bất kể...",
+      "tip": "Dùng để nói rằng điều gì đó có thể thực hiện hoặc áp dụng mà không cần phân biệt"
+    },
+    {
+      "grammarId": "bunpo-1tfxro6",
+      "senseId": "sense-1kw81k4",
+      "pattern": "〜にかかわりなく・〜にかかわらず。",
+      "meaningVi": "Bất kể..., không liên quan...",
+      "tip": "Kết quả không bị chi phối bởi điều kiện hay tiêu chí được nêu."
+    },
+    {
+      "grammarId": "bunpo-3hgi1n",
+      "senseId": "sense-2emr3y",
+      "pattern": "〜もかまわず。",
+      "meaningVi": "Chả quan tâm đến..., chả cần biết...",
+      "tip": "Nhấn mạnh việc hành động một cách quyết liệt, không màng đến xung quanh hoặc hậu quả"
+    },
+    {
+      "grammarId": "bunpo-16lf9nk",
+      "senseId": "sense-51nhv3",
+      "pattern": "〜はともかく（として）",
+      "meaningVi": "Khoan bàn đến..., để sau",
+      "tip": "Dùng khi muốn tạm gác lại một vấn đề để tập trung ưu tiên cho vấn đề quan trọng hơn"
+    },
+    {
+      "grammarId": "bunpo-128k5bc",
+      "senseId": "sense-zflk2t",
+      "pattern": "〜はさておき…",
+      "meaningVi": "Tạm thời không nhắc đến...",
+      "tip": "Tương tự như 'tạm thời để đó', dùng để chuyển chủ đề hoặc trì hoãn một việc chưa cần kíp"
+    },
+    {
+      "grammarId": "bunpo-m7pbpt",
+      "senseId": "sense-1o02njx",
+      "pattern": "〜どころではない・〜どころか…",
+      "meaningVi": "Hóa ra không phải...",
+      "tip": "Dùng để phủ định hoàn toàn tình huống trước đó và đưa ra mức độ khác biệt, nghiêm trọng hơn"
+    },
+    {
+      "grammarId": "bunpo-18ceuk6",
+      "senseId": "sense-1hzflhx",
+      "pattern": "〜ものか…",
+      "meaningVi": "...sao,...á, không bao giờ..., đời nào mà...",
+      "tip": "ものか ở cuối câu biến phủ định thành lời cương quyết."
+    },
+    {
+      "grammarId": "bunpo-tk6dmi",
+      "senseId": "sense-1hs483x",
+      "pattern": "〜とは…。",
+      "meaningVi": "Là...",
+      "tip": "Dùng khi muốn định nghĩa hoặc đưa ra một phát biểu mang tính triết lý, cảm thán về danh từ đó"
+    },
+    {
+      "grammarId": "bunpo-1w9ca0u",
+      "senseId": "sense-1398bht",
+      "pattern": "〜（のこと）となると…",
+      "meaningVi": "Cứ nói tới..., cứ nhắc đến...",
+      "tip": "Dùng khi muốn nói đến một chủ đề cụ thể mà thái độ"
+    },
+    {
+      "grammarId": "bunpo-1o31fq2",
+      "senseId": "sense-1vuf2n7",
+      "pattern": "〜といったら。",
+      "meaningVi": "Nhắc đến..., nói đến...",
+      "tip": "Nといったら mở chủ đề rồi nhấn mức cảm xúc về điều được nhắc đến."
+    },
+    {
+      "grammarId": "bunpo-1velpmw",
+      "senseId": "sense-204hdg",
+      "pattern": "〜にもかかわらず。",
+      "meaningVi": "Dù cho..., dẫu cho...",
+      "tip": "Dùng trong văn viết để biểu thị sự trái ngược giữa tình huống và kết quả, mang sắc thái trang trọng"
+    },
+    {
+      "grammarId": "bunpo-1s94lj9",
+      "senseId": "sense-12ngw5",
+      "pattern": "〜ながら（も）。",
+      "meaningVi": "Mặc dù...nhưng...",
+      "tip": "Lưu ý: Mẫu này nhấn mạnh sự đối lập của trạng thái đối tượng"
+    },
+    {
+      "grammarId": "bunpo-ibhws2",
+      "senseId": "sense-rkxb2a",
+      "pattern": "〜つつ（も）。",
+      "meaningVi": "Dù ...",
+      "tip": "Dùng trong văn viết, diễn tả sự mâu thuẫn giữa hành động thực tế và suy nghĩ trái ngược trong lòng"
+    },
+    {
+      "grammarId": "bunpo-16ucsko",
+      "senseId": "sense-18g7elk",
+      "pattern": "〜としたら・〜とすれば・〜というと・〜となったら・〜となれば・〜となると",
+      "meaningVi": "Nếu mà...",
+      "tip": "Dùng khi giả định một tình huống cụ thể để suy luận ra kết quả hoặc hành động tiếp theo"
+    },
+    {
+      "grammarId": "bunpo-tbvwms",
+      "senseId": "sense-5x7g23",
+      "pattern": "〜ものなら。",
+      "meaningVi": "Nếu...",
+      "tip": "Vようものなら nêu giả định khó xảy ra, thường kéo theo hệ quả nghiêm trọng."
+    },
+    {
+      "grammarId": "bunpo-th2x1d",
+      "senseId": "sense-175bhte",
+      "pattern": "〜（よ）うものなら。",
+      "meaningVi": "Nếu...",
+      "tip": "Dùng để nói về một hành động giả định nếu xảy ra thì sẽ dẫn đến kết quả tồi tệ hoặc nghiêm trọng"
+    },
+    {
+      "grammarId": "bunpo-7euz9u",
+      "senseId": "sense-1vlo4kr",
+      "pattern": "〜ないことには。",
+      "meaningVi": "Nếu không...",
+      "tip": "ないことには đặt điều kiện thiếu ở đầu; thiếu điều kiện ấy thì hệ quả không thành."
+    },
+    {
+      "grammarId": "bunpo-fyxmg5",
+      "senseId": "sense-10utfz6",
+      "pattern": "〜を抜きにしては。",
+      "meaningVi": "Nếu không có...",
+      "tip": "Dùng để khẳng định một sự vật, sự việc là yếu tố không thể thiếu để đạt được trạng thái nào đó"
+    },
+    {
+      "grammarId": "bunpo-325xi7",
+      "senseId": "sense-pe8nqx",
+      "pattern": "〜にしても・〜にしても・〜にしろ・〜にせよ。",
+      "meaningVi": "Cho dù...",
+      "tip": "Dùng để liệt kê hoặc thừa nhận một sự việc"
+    },
+    {
+      "grammarId": "bunpo-gm8jli",
+      "senseId": "sense-7ny9uv",
+      "pattern": "〜ものだから・〜もので・〜もの…",
+      "meaningVi": "Vì...",
+      "tip": "Dùng khi muốn biện minh cho lý do của bản thân, thường đi kèm với thái độ thanh minh hoặc xin lỗi"
+    },
+    {
+      "grammarId": "bunpo-1r6cjh9",
+      "senseId": "sense-oy87nn",
+      "pattern": "〜あまり・〜あまりの〜に…",
+      "meaningVi": "Vì quá...",
+      "tip": "Nのあまり／あまりのNに gắn cảm xúc cực độ với hệ quả ngoài ý muốn."
+    },
+    {
+      "grammarId": "bunpo-1hzqdkf",
+      "senseId": "sense-tb519b",
+      "pattern": "〜につき",
+      "meaningVi": "Vì ..., vì đang...",
+      "tip": "「~につき...」は、「使用料は1時間につき1000円」のように「~」の数の単位(1時間)で「...」の数(1000円)と言うときなどに使う"
+    },
+    {
+      "grammarId": "bunpo-1y77tih",
+      "senseId": "sense-9thvfa",
+      "pattern": "〜ことだし。",
+      "meaningVi": "Vì...",
+      "tip": "Dùng để đưa ra lý do chính yếu, ngoài ra còn có những lý do khác chưa được liệt kê hết"
+    },
+    {
+      "grammarId": "bunpo-w9izps",
+      "senseId": "sense-mepel3",
+      "pattern": "〜のことだから",
+      "meaningVi": "Ai chứ...",
+      "tip": "~のことだから sử dụng khi nêu tên một người mà bạn biết rất rõ"
+    },
+    {
+      "grammarId": "bunpo-196msel",
+      "senseId": "sense-1k6b8eg",
+      "pattern": "〜だけに。",
+      "meaningVi": "Vì..., chính vì...",
+      "tip": "Vì đúng là như thế nên kết quả hoặc cảm xúc càng mạnh hơn."
+    },
+    {
+      "grammarId": "bunpo-1qsfdi9",
+      "senseId": "sense-14756lo",
+      "pattern": "〜ばかりに。",
+      "meaningVi": "Chỉ vì...",
+      "tip": "ばかりに gắn một nguyên nhân duy nhất với kết quả tiêu cực đáng tiếc."
+    },
+    {
+      "grammarId": "bunpo-t926hf",
+      "senseId": "sense-1t9x8qa",
+      "pattern": "〜からには・〜以上（は）・〜上は。",
+      "meaningVi": "Một khi...thì phải...",
+      "tip": "Sau khi nhận tình huống ở vế đầu, nêu trách nhiệm hoặc quyết tâm ở vế sau."
+    },
+    {
+      "grammarId": "bunpo-xbbwg0",
+      "senseId": "sense-msg2w1",
+      "pattern": "〜がたい。",
+      "meaningVi": "Khó...",
+      "tip": "Thể hiện cảm giác khó lòng thực hiện được, thiên về trạng thái tâm lý hoặc sự thật khó chấp nhận"
+    },
+    {
+      "grammarId": "bunpo-yghgu6",
+      "senseId": "sense-9ztllc",
+      "pattern": "〜かねる。",
+      "meaningVi": "Không thể..., khó mà có thể...",
+      "tip": "Cách nói lịch sự để từ chối hoặc báo rằng mình khó xử lý việc đó."
+    },
+    {
+      "grammarId": "bunpo-3s7y8p",
+      "senseId": "sense-1ryx833",
+      "pattern": "〜ようがない。",
+      "meaningVi": "Không thể..., không có cách nào...",
+      "tip": "Diễn tả việc muốn thực hiện hành động đó nhưng không tìm ra phương pháp hoặc công cụ để thực hiện"
+    },
+    {
+      "grammarId": "bunpo-1vdlj0",
+      "senseId": "sense-1m30ht9",
+      "pattern": "〜どころではない。",
+      "meaningVi": "Không phải lúc để..., không thể...",
+      "tip": "Dùng khi hoàn cảnh khách quan không cho phép thực hiện hành động"
+    },
+    {
+      "grammarId": "bunpo-112reit",
+      "senseId": "sense-dltkbt",
+      "pattern": "〜得る・〜得ない。",
+      "meaningVi": "Có thể... / không thể...",
+      "tip": "Chỉ khả năng khách quan có thể hoặc không thể xảy ra dựa trên bản chất sự việc"
+    },
+    {
+      "grammarId": "bunpo-yexkz8",
+      "senseId": "sense-1ckb20u",
+      "pattern": "〜にしては。",
+      "meaningVi": "Tuy là...nhưng..., dù...nhưng...",
+      "tip": "Thường mang ý nghĩa 'so với tiêu chuẩn đó thì"
+    },
+    {
+      "grammarId": "bunpo-hn4xe8",
+      "senseId": "sense-68m2m6",
+      "pattern": "〜だけ（のことは）ある。",
+      "meaningVi": "Quả đúng là...",
+      "tip": "Dùng để khen ngợi kết quả tương xứng với nỗ lực hoặc điều kiện sẵn có"
+    },
+    {
+      "grammarId": "bunpo-8jd8v0",
+      "senseId": "sense-1s7zg9c",
+      "pattern": "〜として…。",
+      "meaningVi": "Tư cách là..., như là...",
+      "tip": "Chỉ tư cách, vị trí, chức vụ hoặc vai trò của đối tượng trong một tình huống cụ thể"
+    },
+    {
+      "grammarId": "bunpo-1roorj9",
+      "senseId": "sense-13yw4pf",
+      "pattern": "〜にとって…。",
+      "meaningVi": "Đối với...",
+      "tip": "Xác định phạm vi, quan điểm hoặc sự vật"
+    },
+    {
+      "grammarId": "bunpo-1czbaen",
+      "senseId": "sense-xf6kfb",
+      "pattern": "〜にしたら〜・〜にすれば〜・〜にしてみれば・〜にしても…",
+      "meaningVi": "Đối với..., nếu là..., ở vị trí của",
+      "tip": "Đặt bản thân vào vị trí, lập trường hoặc hoàn cảnh của người khác để suy xét vấn đề"
+    },
+    {
+      "grammarId": "bunpo-1j0az02",
+      "senseId": "sense-1tpe692",
+      "pattern": "〜たところ。",
+      "meaningVi": "Sau khi...",
+      "tip": "Làm thử trước, rồi nêu kết quả vừa phát hiện (thường ngoài dự đoán)."
+    },
+    {
+      "grammarId": "bunpo-uxdaoi",
+      "senseId": "sense-4iyc3b",
+      "pattern": "〜きり。",
+      "meaningVi": "Sau khi..., kể từ khi ...",
+      "tip": "Nhấn mạnh trạng thái kéo dài không thay đổi từ một thời điểm trong quá khứ"
+    },
+    {
+      "grammarId": "bunpo-1wx2cfq",
+      "senseId": "sense-1kfw3ci",
+      "pattern": "〜あげく。",
+      "meaningVi": "Sau khi...",
+      "tip": "Diễn tả kết quả không mong đợi, thường là tiêu cực"
+    },
+    {
+      "grammarId": "bunpo-yz9ak2",
+      "senseId": "sense-x01aue",
+      "pattern": "〜末（に）。",
+      "meaningVi": "Sau khi...",
+      "tip": "Nhấn mạnh quá trình đấu tranh, cân nhắc kéo dài trước khi đạt được kết quả cuối cùng"
+    },
+    {
+      "grammarId": "bunpo-1opm5xp",
+      "senseId": "sense-1x3k1k0",
+      "pattern": "〜ずじまいだ。",
+      "meaningVi": "Cuối cùng cũng không..., rốt cuộc cũng không...",
+      "tip": "Thể hiện sự tiếc nuối khi một việc dự định làm nhưng rốt cuộc đã không thực hiện được"
+    },
+    {
+      "grammarId": "bunpo-1cmzrrj",
+      "senseId": "sense-ekspxh",
+      "pattern": "〜など・〜なんか・〜なんて",
+      "meaningVi": "Cỡ như..., loại như...",
+      "tip": "Dùng để xem nhẹ, hạ thấp giá trị của danh từ được nhắc đến"
+    },
+    {
+      "grammarId": "bunpo-1khr5an",
+      "senseId": "sense-87dzmr",
+      "pattern": "〜まで・〜までして・〜てまで。",
+      "meaningVi": "Đến cả, tới mức, thậm chí...",
+      "tip": "Nhấn mạnh mức độ cực đoan của hành động, thể hiện sự bất ngờ hoặc khâm phục vì làm đến mức đó"
+    },
+    {
+      "grammarId": "bunpo-z3dor6",
+      "senseId": "sense-bi8ihg",
+      "pattern": "〜てでも",
+      "meaningVi": "Dù có phải...",
+      "tip": "Thể hiện quyết tâm mãnh liệt, chấp nhận dùng đến cả những biện pháp cực đoan để đạt được mục đích"
+    },
+    {
+      "grammarId": "bunpo-1tx667v",
+      "senseId": "sense-ok85ar",
+      "pattern": "〜とみえる",
+      "meaningVi": "Có vẻ...",
+      "tip": "Dùng để suy đoán dựa trên những gì mắt thấy, bằng chứng thực tế tại hiện trường"
+    },
+    {
+      "grammarId": "bunpo-7ifqpp",
+      "senseId": "sense-cjoubj",
+      "pattern": "〜かねない。",
+      "meaningVi": "Có lẽ..., có khi...",
+      "tip": "Dùng để cảnh báo khả năng cao sẽ dẫn đến kết quả xấu, mang tính chất lo ngại của người nói"
+    },
+    {
+      "grammarId": "bunpo-1vtbg8y",
+      "senseId": "sense-jtwoyo",
+      "pattern": "〜まい・〜ではあるまいか",
+      "meaningVi": "Có lẽ không...",
+      "tip": "Diễn tả sự phỏng đoán mang tính chủ quan của người nói, thường mang sắc thái cứng nhắc hoặc cổ điển"
+    },
+    {
+      "grammarId": "bunpo-1gkyfkl",
+      "senseId": "sense-1v7ovlv",
+      "pattern": "〜に相違ない。",
+      "meaningVi": "Chắc chắn là...",
+      "tip": "Diễn tả suy luận chắc chắn của người nói dựa trên căn cứ rõ ràng"
+    },
+    {
+      "grammarId": "bunpo-z4yfsp",
+      "senseId": "sense-1ut5fc0",
+      "pattern": "〜ものだ。",
+      "meaningVi": "Đúng là...",
+      "tip": "Nêu lẽ thường, hoặc dùng để gợi lại thói quen trong quá khứ."
+    },
+    {
+      "grammarId": "bunpo-t1exdp",
+      "senseId": "sense-1iw9nmu",
+      "pattern": "〜にすぎない。",
+      "meaningVi": "Chỉ ...",
+      "tip": "Nhấn mạnh việc chỉ giới hạn ở mức độ đó, không hơn"
+    },
+    {
+      "grammarId": "bunpo-10o71tx",
+      "senseId": "sense-11pzkvk",
+      "pattern": "〜にほかならない。",
+      "meaningVi": "Chính là..., không gì khác là...",
+      "tip": "Nhấn mạnh sự vật, sự việc này chính là thứ đó, không có khả năng nào khác"
+    },
+    {
+      "grammarId": "bunpo-m6wfay",
+      "senseId": "sense-1kfgllk",
+      "pattern": "〜に越したことはない",
+      "meaningVi": "Nên...thì hơn",
+      "tip": "Khẳng định đây là phương án tốt nhất hoặc lý tưởng nhất"
+    },
+    {
+      "grammarId": "bunpo-1b5ftyl",
+      "senseId": "sense-r11da8",
+      "pattern": "〜（よ）うではないか。",
+      "meaningVi": "Hãy...",
+      "tip": "Dùng để kêu gọi, rủ rê người khác thực hiện một việc gì đó một cách trang trọng"
+    },
+    {
+      "grammarId": "bunpo-net9iy",
+      "senseId": "sense-2cjii7",
+      "pattern": "〜ことだ。",
+      "meaningVi": "Phải..., nên...",
+      "tip": "Dùng để đưa ra lời khuyên, sự chỉ dẫn hoặc mệnh lệnh nhẹ nhàng về những việc nên làm"
+    },
+    {
+      "grammarId": "bunpo-18r2cqy",
+      "senseId": "sense-17s3px8",
+      "pattern": "〜ものだ・〜ものではない",
+      "meaningVi": "Phải..., nên..., không được...",
+      "tip": "Dùng để nêu ra các quy tắc xã hội, đạo đức hoặc lời khuyên nên/không nên làm điều gì đó"
+    },
+    {
+      "grammarId": "bunpo-1insdmp",
+      "senseId": "sense-1rfw3b7",
+      "pattern": "〜まい・〜（よ）うか〜まいか",
+      "meaningVi": "Quyết không..., không có ý định...",
+      "tip": "Diễn tả ý chí quyết tâm không làm gì hoặc dự đoán tiêu cực, thường dùng cho ngôi thứ nhất hoặc ba"
+    },
+    {
+      "grammarId": "bunpo-17epu6u",
+      "senseId": "sense-1mjc77w",
+      "pattern": "〜ものか。",
+      "meaningVi": "Không được...",
+      "tip": "Thể hiện sự phủ định mạnh mẽ, thái độ tức giận hoặc quyết tâm không bao giờ làm điều đó"
+    },
+    {
+      "grammarId": "bunpo-1w8fjfd",
+      "senseId": "sense-1382mao",
+      "pattern": "〜てしかたがない・〜でしょうがない・〜てたまらない",
+      "meaningVi": "Không thể chịu được..., quá...",
+      "tip": "Diễn tả cảm giác, cảm xúc tự nhiên của bản thân đang ở mức độ rất cao, không thể kìm nén được"
+    },
+    {
+      "grammarId": "bunpo-1fsssmm",
+      "senseId": "sense-7ivtvd",
+      "pattern": "〜てならない。",
+      "meaningVi": "Không thể kìm được...",
+      "tip": "Dùng với các động từ hoặc tính từ chỉ cảm xúc"
+    },
+    {
+      "grammarId": "bunpo-1fsc7g0",
+      "senseId": "sense-4hgmco",
+      "pattern": "〜ないではいられない・〜ずにはいられない。",
+      "meaningVi": "Không thể không...",
+      "tip": "Thể hiện sự thúc bách của cảm xúc khiến chủ thể không thể giữ mình mà phải thực hiện hành động"
+    },
+    {
+      "grammarId": "bunpo-127ogsq",
+      "senseId": "sense-10hvmmd",
+      "pattern": "〜ざるをえない。",
+      "meaningVi": "Phải...",
+      "tip": "Nhấn mạnh việc phải làm dù bản thân không muốn"
+    },
+    {
+      "grammarId": "bunpo-1aqkrw9",
+      "senseId": "sense-6vo9pe",
+      "pattern": "〜たいものだ・〜てほしいものだ。",
+      "meaningVi": "Rất muốn, muốn...quá",
+      "tip": "Thể hiện mong muốn mạnh mẽ, chân thành của người nói về một điều gì đó từ đáy lòng"
+    },
+    {
+      "grammarId": "bunpo-1bxdymp",
+      "senseId": "sense-1f3wa47",
+      "pattern": "〜ものだ。（thật là）",
+      "meaningVi": "Thật là...",
+      "tip": "Dùng để nhấn mạnh cảm xúc hoặc sự đồng cảm trước một sự thật hiển nhiên"
+    },
+    {
+      "grammarId": "bunpo-10tzj9o",
+      "senseId": "sense-utrb53",
+      "pattern": "〜ないもの（だろう）か。",
+      "meaningVi": "Không thể...sao",
+      "tip": "Biểu thị tâm trạng lo âu hoặc hy vọng tha thiết, mong muốn tìm ra giải pháp cho một vấn đề khó khăn"
+    },
+    {
+      "grammarId": "bunpo-5n6sp4",
+      "senseId": "sense-19wdl54",
+      "pattern": "〜ものがある。",
+      "meaningVi": "Có cảm giác...",
+      "tip": "Gắn sau mô tả để nêu cảm xúc/tính chất nổi bật mà sự việc gợi lên."
+    },
+    {
+      "grammarId": "bunpo-j8j0em",
+      "senseId": "sense-12cdjv8",
+      "pattern": "〜ことだ。（thật sự）",
+      "meaningVi": "Thật sự là...",
+      "tip": "Tính từ + ことだ tạo lời cảm thán trước điều đáng kinh ngạc."
+    },
+    {
+      "grammarId": "bunpo-n65smm",
+      "senseId": "sense-lx9u4v",
+      "pattern": "〜ことだろう・〜ことか。",
+      "meaningVi": "Không biết bao nhiêu...",
+      "tip": "Thường đi kèm các từ nghi vấn (bao nhiêu, thế nào)"
+    },
+    {
+      "grammarId": "bunpo-okdn44",
+      "senseId": "sense-q89402",
+      "pattern": "〜に於いて。",
+      "meaningVi": "Tại, ở...",
+      "tip": "Dùng trong văn viết, thông báo chính thức để chỉ thời gian hoặc địa điểm xảy ra sự kiện"
+    },
+    {
+      "grammarId": "bunpo-13f8pkq",
+      "senseId": "sense-xo795",
+      "pattern": "〜に先立って。",
+      "meaningVi": "Trước khi",
+      "tip": "Nに先立って đặt hoạt động trước một sự kiện quan trọng."
+    },
+    {
+      "grammarId": "bunpo-q5hfzv",
+      "senseId": "sense-19ba7rj",
+      "pattern": "〜とはいいながら。",
+      "meaningVi": "Dù là...",
+      "tip": "Công nhận vế đầu, rồi chuyển sang ý trái chiều ở vế sau."
+    },
+    {
+      "grammarId": "bunpo-o39nxo",
+      "senseId": "sense-11wiavy",
+      "pattern": "〜からすると・〜からいうと",
+      "meaningVi": "Nhìn vào, xét về...",
+      "tip": "Dùng để chỉ căn cứ hoặc quan điểm khi đánh giá hay suy đoán về một vấn đề"
+    },
+    {
+      "grammarId": "bunpo-by2c6l",
+      "senseId": "sense-lx3coz",
+      "pattern": "〜ことに",
+      "meaningVi": "Thật là...",
+      "tip": "Tính từ/cảm xúc + ことに mở lời nhận xét cảm thán về tình huống."
+    },
+    {
+      "grammarId": "bunpo-1fkk4mp",
+      "senseId": "sense-we61bw",
+      "pattern": "〜だの〜だの。",
+      "meaningVi": "Nào là...nào là",
+      "tip": "Dùng liệt kê các ví dụ với sắc thái phê phán, bất mãn của người nói"
+    },
+    {
+      "grammarId": "bunpo-1kbq1fo",
+      "senseId": "sense-1j7bwa7",
+      "pattern": "〜のみ",
+      "meaningVi": "Chỉ...",
+      "tip": "Hình thức trang trọng hơn của \"dake\", dùng trong văn viết hoặc thông báo"
+    },
+    {
+      "grammarId": "bunpo-1iqf4sc",
+      "senseId": "sense-15y060",
+      "pattern": "〜おそらく。",
+      "meaningVi": "E rằng...",
+      "tip": "おそらく đứng trước một phỏng đoán có xác suất cao."
+    },
+    {
+      "grammarId": "bunpo-1o6pymj",
+      "senseId": "sense-ta7ne7",
+      "pattern": "〜まさか",
+      "meaningVi": "Chắc chắn rằng...không",
+      "tip": "Dùng để khẳng định mạnh mẽ sự ngạc nhiên hoặc niềm tin rằng điều gì đó không thể xảy ra"
+    },
+    {
+      "grammarId": "bunpo-16jdend",
+      "senseId": "sense-85ovax",
+      "pattern": "〜徐々に",
+      "meaningVi": "Dần dần, thong thả, chậm chậm...",
+      "tip": "Chỉ sự thay đổi trạng thái diễn ra một cách chậm rãi, từ từ theo thời gian"
+    },
+    {
+      "grammarId": "bunpo-18noc3v",
+      "senseId": "sense-1a2lehh",
+      "pattern": "〜果たして。",
+      "meaningVi": "Quả nhiên, quả thực...",
+      "tip": "Dùng để xác nhận lại một nghi vấn hoặc sự việc mà bản thân từng dự đoán trước đó"
+    },
+    {
+      "grammarId": "bunpo-1ajgzi1",
+      "senseId": "sense-8zn32s",
+      "pattern": "〜しかも。",
+      "meaningVi": "Hơn nữa, thêm nữa...",
+      "tip": "Nhấn mạnh rằng ngoài đặc điểm trước đó, còn có thêm một đặc điểm khác (thường cùng chiều)"
+    },
+    {
+      "grammarId": "bunpo-1cmpjpw",
+      "senseId": "sense-1on7uz1",
+      "pattern": "〜更に。",
+      "meaningVi": "Thêm nữa, hơn nữa...",
+      "tip": "Diễn tả hành động hoặc trạng thái tiếp nối tăng tiến hơn so với thông tin phía trước"
+    },
+    {
+      "grammarId": "bunpo-1ah3vf1",
+      "senseId": "sense-npmzn5",
+      "pattern": "〜あるいは",
+      "meaningVi": "Hoặc là...",
+      "tip": "あるいは nối các khả năng/giải pháp được nêu như lựa chọn thay thế."
+    },
+    {
+      "grammarId": "bunpo-wmdpkm",
+      "senseId": "sense-1fm9tsv",
+      "pattern": "〜それとも。",
+      "meaningVi": "Hay là...",
+      "tip": "Dùng để đưa ra sự lựa chọn giữa các phương án khác nhau"
+    },
+    {
+      "grammarId": "bunpo-1agl0tz",
+      "senseId": "sense-1tg265j",
+      "pattern": "〜こうして。",
+      "meaningVi": "Cứ thế...",
+      "tip": "Diễn tả trình tự diễn biến sự việc hoặc cách thức thực hiện dẫn đến kết quả hiện tại"
+    },
+    {
+      "grammarId": "bunpo-dovayz",
+      "senseId": "sense-pt5645",
+      "pattern": "〜それでも。",
+      "meaningVi": "Tuy thế...",
+      "tip": "Diễn tả sự tương phản, thực hiện một hành động hoặc suy nghĩ dù tình huống trước đó gây trở ngại"
+    },
+    {
+      "grammarId": "bunpo-kz4sof",
+      "senseId": "sense-1bcnrp9",
+      "pattern": "〜要するに。",
+      "meaningVi": "Tóm lại, nói một cách ngắn gọn...",
+      "tip": "Đặt ở đầu câu kết để gói ý trước thành một nhận xét ngắn."
+    },
+    {
+      "grammarId": "bunpo-3z0qac",
+      "senseId": "sense-121a2dy",
+      "pattern": "〜いわば。",
+      "meaningVi": "Có thể nói...",
+      "tip": "Dùng khi muốn dùng cách nói ví von hoặc ẩn dụ để định nghĩa lại một sự vật, sự việc"
+    },
+    {
+      "grammarId": "bunpo-14l8j9u",
+      "senseId": "sense-1tgrufz",
+      "pattern": "〜及び。",
+      "meaningVi": "Và",
+      "tip": "Dùng trong văn viết trang trọng, tài liệu chính thức hoặc thông báo để liệt kê các danh từ"
+    },
+    {
+      "grammarId": "bunpo-a03f7n",
+      "senseId": "sense-1er1cfz",
+      "pattern": "〜なお（更に）",
+      "meaningVi": "Ngoài ra, hơn nữa...",
+      "tip": "Nhấn mạnh mức độ cao hơn hoặc tình trạng vẫn tiếp diễn/gia tăng bất chấp sự việc trước đó"
+    },
+    {
+      "grammarId": "bunpo-nys7ck",
+      "senseId": "sense-1er2jwq",
+      "pattern": "〜さて…。",
+      "meaningVi": "Nào..., à...",
+      "tip": "Dùng để chuyển chủ đề hoặc bắt đầu một nội dung mới sau khi kết thúc phần chào hỏi"
+    },
+    {
+      "grammarId": "bunpo-1aor2q1",
+      "senseId": "sense-gtb99u",
+      "pattern": "〜あえて。",
+      "meaningVi": "Dám...",
+      "tip": "Nhấn mạnh việc thực hiện một hành động mang tính thử thách, dũng cảm hoặc khác với lẽ thường"
+    },
+    {
+      "grammarId": "bunpo-3d023k",
+      "senseId": "sense-k6enkz",
+      "pattern": "〜以外の。",
+      "meaningVi": "Ngoài...ra thì",
+      "tip": "Chỉ ra ngoại lệ, ngoài đối tượng được nhắc đến thì không còn cái nào khác"
+    },
+    {
+      "grammarId": "bunpo-1526go3",
+      "senseId": "sense-1ebo0l4",
+      "pattern": "〜思うように。",
+      "meaningVi": "Như đã nghĩ",
+      "tip": "Diễn tả việc thực tế không giống như kỳ vọng hoặc dự định ban đầu"
+    },
+    {
+      "grammarId": "bunpo-9rdudi",
+      "senseId": "sense-10gm976",
+      "pattern": "〜あっての。",
+      "meaningVi": "Vì, chính vì, do có...",
+      "tip": "Vế sau chỉ thành hiện thực nhờ có điều kiện/nền tảng ở vế trước."
+    },
+    {
+      "grammarId": "bunpo-6t6tvr",
+      "senseId": "sense-ahqlu3",
+      "pattern": "〜（で）すら。",
+      "meaningVi": "Thậm chí..., ngay cả...",
+      "tip": "Nですら／Vことすら nhấn ngay cả trường hợp cực đoan cũng có giới hạn."
+    },
+    {
+      "grammarId": "bunpo-w2hefj",
+      "senseId": "sense-n2c0si",
+      "pattern": "〜何といっても。",
+      "meaningVi": "Dù thế nào thì..., nói gì thì nói...",
+      "tip": "Dùng để nhấn mạnh ý kiến cá nhân là quan trọng nhất, không gì có thể thay đổi được"
+    },
+    {
+      "grammarId": "bunpo-gsf142",
+      "senseId": "sense-1suaoe3",
+      "pattern": "〜ゆえに・がゆえに。",
+      "meaningVi": "Vì...",
+      "tip": "Văn phong cổ, trang trọng, dùng để chỉ nguyên nhân dẫn đến một kết quả"
+    },
+    {
+      "grammarId": "bunpo-1vqnl9w",
+      "senseId": "sense-v6nhte",
+      "pattern": "〜ような気がする。",
+      "meaningVi": "Có cảm giác là..., dường như là...",
+      "tip": "Thể hiện suy đoán chủ quan dựa trên cảm tính cá nhân, không có bằng chứng cụ thể"
+    },
+    {
+      "grammarId": "bunpo-bray0",
+      "senseId": "sense-1rgh81v",
+      "pattern": "〜ろくに〜ない。",
+      "meaningVi": "Không...một chút gì",
+      "tip": "Diễn tả sự không đầy đủ, không đủ mức tối thiểu; thường mang cảm giác bực bội hoặc thất vọng"
+    },
+    {
+      "grammarId": "bunpo-1h8n7fp",
+      "senseId": "sense-jh1rtv",
+      "pattern": "〜を〜に任せる。",
+      "meaningVi": "Phó thác...",
+      "tip": "Nhấn mạnh việc giao phó trách nhiệm hoặc quyền quyết định cho đối phương"
+    },
+    {
+      "grammarId": "bunpo-1t8b1en",
+      "senseId": "sense-ldde5f",
+      "pattern": "〜別に〜ない。",
+      "meaningVi": "Không hề...",
+      "tip": "Dùng để phủ nhận một cách nhẹ nhàng, tránh gây gắt hoặc tỏ ý không quan tâm"
+    },
+    {
+      "grammarId": "bunpo-b80m7m",
+      "senseId": "sense-xitjdg",
+      "pattern": "〜でいいです。",
+      "meaningVi": "Là được, ...là đủ",
+      "tip": "Nhấn mạnh rằng lựa chọn này là đủ, không cần hơn, thường dùng khi chấp nhận một điều gì đó"
+    },
+    {
+      "grammarId": "bunpo-m4rhu4",
+      "senseId": "sense-13brgq0",
+      "pattern": "〜確か",
+      "meaningVi": "Chắc chắn là...",
+      "tip": "Dùng để khẳng định sự việc là đúng thực tế, không sai lệch"
+    },
+    {
+      "grammarId": "bunpo-kesq6b",
+      "senseId": "sense-qdxvse",
+      "pattern": "〜せめて。",
+      "meaningVi": "Dù chỉ...cũng muốn, ít nhất thì muốn...",
+      "tip": "Thể hiện nguyện vọng tối thiểu, dù điều kiện không tốt nhưng ít nhất vẫn muốn làm điều đó"
+    },
+    {
+      "grammarId": "bunpo-j6nmqu",
+      "senseId": "sense-xstph3",
+      "pattern": "〜いったん〜ば・と・たら。",
+      "meaningVi": "Một khi...",
+      "tip": "Diễn tả một hành động đã hoàn tất thì trạng thái tiếp theo sẽ xảy ra"
+    },
+    {
+      "grammarId": "bunpo-17zhfix",
+      "senseId": "sense-1s924z8",
+      "pattern": "〜かたわら。",
+      "meaningVi": "Bên cạnh..., ngoài...còn...",
+      "tip": "Dùng khi làm hai công việc song song đòi hỏi sự đầu tư thời gian và kỹ năng đáng kể"
+    },
+    {
+      "grammarId": "bunpo-1yrud7u",
+      "senseId": "sense-y988fe",
+      "pattern": "〜がてら。",
+      "meaningVi": "Nhân tiện, tiện thể...",
+      "tip": "Dùng khi kết hợp làm một việc phụ trong khi thực hiện một mục đích chính"
+    },
+    {
+      "grammarId": "bunpo-1g4ycwa",
+      "senseId": "sense-p74cmf",
+      "pattern": "〜からなる。",
+      "meaningVi": "Tạo thành từ..., hình thành từ...",
+      "tip": "Diễn tả các bộ phận cấu thành nên một chỉnh thể"
+    },
+    {
+      "grammarId": "bunpo-1t2f2vh",
+      "senseId": "sense-1snrsdh",
+      "pattern": "〜さすが（に）。",
+      "meaningVi": "Quả là...",
+      "tip": "Dùng để thừa nhận một sự thật đúng như mong đợi hoặc khen ngợi đối phương dựa trên kết quả thực tế"
+    },
+    {
+      "grammarId": "bunpo-1a21l9q",
+      "senseId": "sense-1924gac",
+      "pattern": "～はず",
+      "meaningVi": "chắc chắn là ~",
+      "tip": "~はず sử dụng khi muốn nói rằng vì có lý do xác thực nào đó, chắc chắn là “~”"
+    },
+    {
+      "grammarId": "bunpo-jk5b4a",
+      "senseId": "sense-6hldzb",
+      "pattern": "Động từ có chủ ý và không có chủ ý",
+      "meaningVi": "Hành động cố ý & trạng thái tự nhiên",
+      "tip": "Giúp phân biệt việc cố ý làm gì đó và sự vật tự thay đổi"
+    },
+    {
+      "grammarId": "bunpo-8skdhb",
+      "senseId": "sense-1lm5e0h",
+      "pattern": "Động từ thể Khả năng",
+      "meaningVi": "Có thể làm được",
+      "tip": "Diễn tả năng lực cá nhân hoặc hoàn cảnh cho phép thực hiện hành động"
+    },
+    {
+      "grammarId": "bunpo-11jsov7",
+      "senseId": "sense-o2oway",
+      "pattern": "~V可能形",
+      "meaningVi": "có thể ~ Thể “có thể” của động từ",
+      "tip": "Thể này chuyển đổi động từ sang dạng biểu đạt năng lực"
+    },
+    {
+      "grammarId": "bunpo-7h3ael",
+      "senseId": "sense-1g133r7",
+      "pattern": "~が みえます・きこえます",
+      "meaningVi": "nhìn thấy, nghe thấy ~ Nhìn thấy / nghe thấy tự nhiên",
+      "tip": "Dùng dạng lịch sự 見えます／聞こえます; が đánh dấu cảnh hoặc âm thanh nhận ra được."
+    },
+    {
+      "grammarId": "bunpo-1cwh21k",
+      "senseId": "sense-1tkdic",
+      "pattern": "~が できます",
+      "meaningVi": "~ hoàn thành Hoàn thành / xuất hiện",
+      "tip": "Dùng để diễn tả sự hình thành, hoàn thiện của một sự vật hoặc công trình mới xuất hiện"
+    },
+    {
+      "grammarId": "bunpo-19981w6",
+      "senseId": "sense-oby7sa",
+      "pattern": "~は~が、~は~",
+      "meaningVi": "đối sánh Đối sánh hai vế",
+      "tip": "Sử dụng trợ từ 'wa' để nhấn mạnh sự đối lập hoặc so sánh giữa các vế trong câu"
+    },
+    {
+      "grammarId": "bunpo-bqb8n0",
+      "senseId": "sense-r8bvvp",
+      "pattern": "~Vながら",
+      "meaningVi": "Vừa ~ vừa ~",
+      "tip": "Dùng để nối hai hành động xảy ra cùng lúc, hành động chính thường nằm ở vế sau"
+    },
+    {
+      "grammarId": "bunpo-v9ir6e",
+      "senseId": "sense-1vbsoqt",
+      "pattern": "~Vている",
+      "meaningVi": "Diễn tả thói quen / hành động thường xuyên",
+      "tip": "Diễn tả các thói quen, hành động lặp đi lặp lại hoặc các trạng thái đang duy trì trong hiện tại"
+    },
+    {
+      "grammarId": "bunpo-wngdxm",
+      "senseId": "sense-512oo7",
+      "pattern": "~も~し、~も~し~",
+      "meaningVi": "Không những ~ mà còn ~",
+      "tip": "Dùng để liệt kê nhiều lý do hoặc tính chất, thường kết thúc bằng một kết luận hoặc đánh giá"
+    },
+    {
+      "grammarId": "bunpo-1pi9yd1",
+      "senseId": "sense-15qgsj9",
+      "pattern": "それで",
+      "meaningVi": "Vì thế / do đó",
+      "tip": "Đứng sau một câu trần thuật để chỉ ra kết quả hoặc hành động phát sinh từ tình huống trước đó"
+    },
+    {
+      "grammarId": "bunpo-16cbib7",
+      "senseId": "sense-1tk5i5x",
+      "pattern": "Phân biệt Tha động từ & Tự động từ",
+      "meaningVi": "Tha động từ: có tác động Tự động từ: tự xảy ra",
+      "tip": "Tha động từ tác động trực tiếp lên tân ngữ (trợ từ を)"
+    },
+    {
+      "grammarId": "bunpo-1xg5dt4",
+      "senseId": "sense-1cgpdpk",
+      "pattern": "~Vて(tự)いる",
+      "meaningVi": "Trạng thái sau khi tự động từ xảy ra",
+      "tip": "Mô tả trạng thái hiện tại của sự vật như một kết quả tự nhiên, không quan tâm đến tác nhân gây ra"
+    },
+    {
+      "grammarId": "bunpo-1o9bey5",
+      "senseId": "sense-1sar0rd",
+      "pattern": "~N(địa điểm)に 行きます / 来ます / 帰ります / 出張します",
+      "meaningVi": "Đi / đến / về / công tác ở địa điểm nào đó",
+      "tip": "Dùng với các động từ di chuyển để chỉ hướng đích hoặc địa điểm đến của hành động"
+    },
+    {
+      "grammarId": "bunpo-1wnfnqo",
+      "senseId": "sense-1d3latj",
+      "pattern": "それ / その / そう",
+      "meaningVi": "Chỉ sự vật / tình huống gần người nghe",
+      "tip": "Dùng để thay thế hoặc bổ nghĩa cho sự vật"
+    },
+    {
+      "grammarId": "bunpo-ypc3nu",
+      "senseId": "sense-j4zjxx",
+      "pattern": "V他てある",
+      "meaningVi": "Có ~ (do ai đó làm sẵn)",
+      "tip": "Nhấn mạnh trạng thái có sẵn của sự vật do ai đó đã chủ ý thực hiện trước đó"
+    },
+    {
+      "grammarId": "bunpo-62rg0h",
+      "senseId": "sense-113g2q4",
+      "pattern": "Phân biệt V他てある và Vて(tự)いる",
+      "meaningVi": "• ~てある: có chủ ý làm sẵn • ~ている: trạng thái tự nhiên",
+      "tip": "~てある tập trung vào kết quả của hành động có chủ ý (trợ từ が)"
+    },
+    {
+      "grammarId": "bunpo-2nzg0c",
+      "senseId": "sense-6idl45",
+      "pattern": "まだ~Vている",
+      "meaningVi": "Vẫn còn ~",
+      "tip": "Dùng để nhấn mạnh trạng thái của hành động vẫn đang tiếp diễn tính đến thời điểm hiện tại"
+    },
+    {
+      "grammarId": "bunpo-7jlh65",
+      "senseId": "sense-yc0jio",
+      "pattern": "Thể ý định (sẽ ~ / định ~)",
+      "meaningVi": "行きます → 行こう。 → Cùng đi thôi / sẽ đi.",
+      "tip": "Dùng để thể hiện quyết tâm thực hiện hành động của bản thân hoặc lời rủ rê, đề nghị đối phương"
+    },
+    {
+      "grammarId": "bunpo-1o0g2ff",
+      "senseId": "sense-1w1e6dd",
+      "pattern": "V意向形 (cùng nhau ~)",
+      "meaningVi": "Cùng nhau ~",
+      "tip": "Dùng khi muốn đưa ra lời mời hoặc đề nghị người nghe cùng thực hiện hành động với mình"
+    },
+    {
+      "grammarId": "bunpo-1x6s4eg",
+      "senseId": "sense-2mc1pa",
+      "pattern": "V意向形と思っています",
+      "meaningVi": "Đang định ~",
+      "tip": "Dùng để nói về dự định cá nhân đã cân nhắc từ trước, thể hiện ý chí sẽ thực hiện hành động đó"
+    },
+    {
+      "grammarId": "bunpo-2sspnd",
+      "senseId": "sense-1ay2cmh",
+      "pattern": "~つもり",
+      "meaningVi": "Dự định ~",
+      "tip": "Dùng để thể hiện ý chí hoặc dự định chắc chắn của bản thân, thường đã có suy nghĩ kỹ lưỡng"
+    },
+    {
+      "grammarId": "bunpo-1x37g4t",
+      "senseId": "sense-ic6y5j",
+      "pattern": "~予定",
+      "meaningVi": "Kế hoạch / dự định",
+      "tip": "Diễn tả kế hoạch đã được định sẵn hoặc lịch trình cụ thể, khách quan"
+    },
+    {
+      "grammarId": "bunpo-3842rc",
+      "senseId": "sense-6yz53d",
+      "pattern": "Vます → N",
+      "meaningVi": "Chuyển động từ thành danh từ",
+      "tip": "Biến đổi động từ thành danh từ để có thể kết hợp với các trợ từ hoặc các từ chỉ tính chất như 好き, 上手"
+    },
+    {
+      "grammarId": "bunpo-jmzshq",
+      "senseId": "sense-1mh4dn6",
+      "pattern": "~ほうがいいです",
+      "meaningVi": "Nên / Không nên ~",
+      "tip": "Vた／Vない + ほうがいい đóng gói lời khuyên nên làm hoặc nên tránh."
+    },
+    {
+      "grammarId": "bunpo-1un6z7",
+      "senseId": "sense-ehyrx5",
+      "pattern": "~かもしれません",
+      "meaningVi": "Không chừng ~ / có thể ~",
+      "tip": "Dùng để phỏng đoán khả năng xảy ra sự việc, mức độ chắc chắn thấp (khoảng 50%)"
+    },
+    {
+      "grammarId": "bunpo-11hhi86",
+      "senseId": "sense-w6518k",
+      "pattern": "Lượng từ + で",
+      "meaningVi": "Tầm, trong vòng ~",
+      "tip": "Dùng để chỉ giới hạn, phạm vi tối đa hoặc mức chi phí cần thiết để hoàn thành hành động"
+    },
+    {
+      "grammarId": "bunpo-9l0d53",
+      "senseId": "sense-wxrael",
+      "pattern": "Thể Mệnh lệnh",
+      "meaningVi": "Ra lệnh mạnh (Cách chia động từ ở Thể Mệnh lệnh)",
+      "tip": "Dùng khi ra lệnh dứt khoát, thường là người trên nói với người dưới, hoặc trong tình huống khẩn cấp"
+    },
+    {
+      "grammarId": "bunpo-1drbz3p",
+      "senseId": "sense-10b7zte",
+      "pattern": "Thể Cấm chỉ",
+      "meaningVi": "Cấm làm gì đó (Cách chia động từ ở Thể Cấm chỉ)",
+      "tip": "Dùng để cấm đoán quyết liệt, giọng điệu mạnh và cứng nhắc"
+    },
+    {
+      "grammarId": "bunpo-16304fe",
+      "senseId": "sense-pjn40a",
+      "pattern": "Cách dùng Thể Mệnh lệnh và Thể Cấm chỉ",
+      "meaningVi": "Dùng trong biển báo / cảnh báo / cổ vũ",
+      "tip": "Dùng trong biển báo cấm, khẩu lệnh quân đội, hoặc khi cổ vũ thể thao; hạn chế dùng với người trên"
+    },
+    {
+      "grammarId": "bunpo-bj9jm",
+      "senseId": "sense-2fnlke",
+      "pattern": "~Vなさい",
+      "meaningVi": "Hãy ~ (mềm hơn mệnh lệnh)",
+      "tip": "Cách ra lệnh nhẹ nhàng, lịch sự hơn"
+    },
+    {
+      "grammarId": "bunpo-1pk1uar",
+      "senseId": "sense-wu28qi",
+      "pattern": "~と読みます ~と書いてあります",
+      "meaningVi": "Đọc là ~ / Có viết là ~",
+      "tip": "Dùng để tường thuật lại cách đọc hoặc nội dung được ghi chép trên văn bản, biển báo"
+    },
+    {
+      "grammarId": "bunpo-6b62fd",
+      "senseId": "sense-f98lcj",
+      "pattern": "~という意味です",
+      "meaningVi": "Nghĩa là ~",
+      "tip": "Sau một từ/ký hiệu, という意味です nêu phần giải nghĩa."
+    },
+    {
+      "grammarId": "bunpo-1v93b4i",
+      "senseId": "sense-jgytdo",
+      "pattern": "~とおりに~",
+      "meaningVi": "Làm theo như ~",
+      "tip": "Nのとおりに + する／してください là khung làm theo hướng dẫn có sẵn."
+    },
+    {
+      "grammarId": "bunpo-1wt1hee",
+      "senseId": "sense-1hjzaxk",
+      "pattern": "~Vたあとで、",
+      "meaningVi": "Sau khi ~",
+      "tip": "Vたあとで nối thứ tự hai việc: hoàn tất việc trước, rồi mới làm việc sau."
+    },
+    {
+      "grammarId": "bunpo-uenynb",
+      "senseId": "sense-foaadq",
+      "pattern": "~Vて",
+      "meaningVi": "Chỉ cách thức / phương tiện",
+      "tip": "Nêu công cụ/cách làm bằng Vて trước động từ chính; phương tiện đi lại ở ví dụ dùng で."
+    },
+    {
+      "grammarId": "bunpo-14ne1do",
+      "senseId": "sense-1kv0qff",
+      "pattern": "~V1ないで、V2",
+      "meaningVi": "Không làm V1 mà làm V2",
+      "tip": "Diễn tả hành động thực hiện mà không kèm theo hoặc bỏ qua một hành động khác thường lệ"
+    },
+    {
+      "grammarId": "bunpo-1dfg9ql",
+      "senseId": "sense-153330w",
+      "pattern": "Cách chia động từ ở Thể Điều kiện",
+      "meaningVi": "Cách chia",
+      "tip": "Nhớ đuôi điều kiện: Vる→れば, Vない→なければ; する→すれば."
+    },
+    {
+      "grammarId": "bunpo-1byvoi7",
+      "senseId": "sense-1b16s2o",
+      "pattern": "Thể điều kiện",
+      "meaningVi": "Nếu ~ thì ~",
+      "tip": "Dùng để nêu điều kiện giả định; lưu ý vế sau không dùng ý chí chủ quan mạnh như dự định hay yêu cầu"
+    },
+    {
+      "grammarId": "bunpo-fh99sm",
+      "senseId": "sense-1s8go8b",
+      "pattern": "~Nなら",
+      "meaningVi": "Nếu là N thì ~",
+      "tip": "Dùng để giới hạn phạm vi, chủ đề khi muốn đưa ra ý kiến, phán đoán hoặc lời khuyên về N đó"
+    },
+    {
+      "grammarId": "bunpo-16w8qkh",
+      "senseId": "sense-1unk7z2",
+      "pattern": "~Vばいいです",
+      "meaningVi": "Nên V ~",
+      "tip": "Vば + いいです nêu hành động nên làm như một lối giải quyết."
+    },
+    {
+      "grammarId": "bunpo-eyeppt",
+      "senseId": "sense-myqvpc",
+      "pattern": "~ようにしてください",
+      "meaningVi": "Xin hãy cố gắng ~",
+      "tip": "Dùng để nhờ vả, yêu cầu người khác nỗ lực thực hiện một việc gì đó; mang sắc thái lịch sự"
+    },
+    {
+      "grammarId": "bunpo-1tzv4qi",
+      "senseId": "sense-zzdtye",
+      "pattern": "~ようになりました",
+      "meaningVi": "Đã trở nên ~",
+      "tip": "ようになりました chốt thay đổi đã thành hiện thực nhờ luyện tập hoặc hoàn cảnh."
+    },
+    {
+      "grammarId": "bunpo-5htwr2",
+      "senseId": "sense-1qsvjnu",
+      "pattern": "~V可能形ようになりました",
+      "meaningVi": "Đã có thể ~",
+      "tip": "Nhấn mạnh vào việc năng lực đã được hình thành hoặc thói quen đã được thiết lập sau một quá trình"
+    },
+    {
+      "grammarId": "bunpo-1ec2xxs",
+      "senseId": "sense-1k7kfzu",
+      "pattern": "~V可能形なくなりました",
+      "meaningVi": "Đã không thể ~",
+      "tip": "Chỉ trạng thái trước đây có thể làm nhưng hiện tại thì không thể"
+    },
+    {
+      "grammarId": "bunpo-1fxy1k8",
+      "senseId": "sense-1ubn7t6",
+      "pattern": "Tính từ → Trạng từ",
+      "meaningVi": "Chuyển tính từ thành trạng từ",
+      "tip": "Dùng để bổ nghĩa cho động từ nhằm mô tả tính chất hoặc phương thức của hành động đó"
+    },
+    {
+      "grammarId": "bunpo-1q3iv1r",
+      "senseId": "sense-dg7zm9",
+      "pattern": "Cách chia động từ ở Thể bị động",
+      "meaningVi": "Dạng “bị / được ~”",
+      "tip": "Ở nhóm II, ます→られます; する→されます, 来る→来られます."
+    },
+    {
+      "grammarId": "bunpo-r7fymv",
+      "senseId": "sense-krgt70",
+      "pattern": "N1 người は N2 người に Động từ bị động",
+      "meaningVi": "N1 bị N2 làm gì đó",
+      "tip": "Dùng để diễn tả sự việc xảy ra khiến người nói cảm thấy phiền toái hoặc bị ảnh hưởng trực tiếp"
+    },
+    {
+      "grammarId": "bunpo-1i4m70k",
+      "senseId": "sense-1a013f9",
+      "pattern": "N1 người は N2 người に N3 を Động từ bị động",
+      "meaningVi": "Bị ai đó làm ảnh hưởng đến mình",
+      "tip": "Dùng khi một vật sở hữu của mình bị người khác làm ảnh hưởng hoặc lấy mất, gây cảm giác khó chịu"
+    },
+    {
+      "grammarId": "bunpo-p8pka",
+      "senseId": "sense-111s6st",
+      "pattern": "N は/が Động từ bị động",
+      "meaningVi": "Diễn tả sự việc / thông báo khách quan",
+      "tip": "Tập trung vào đối tượng chịu tác động thay vì chủ thể thực hiện hành động"
+    },
+    {
+      "grammarId": "bunpo-acvmb5",
+      "senseId": "sense-19j11k2",
+      "pattern": "~から・で",
+      "meaningVi": "Bằng / từ ~",
+      "tip": "'から' dùng khi nguyên liệu bị biến đổi hoàn toàn"
+    },
+    {
+      "grammarId": "bunpo-1s25n4e",
+      "senseId": "sense-139cnz9",
+      "pattern": "N1 の N2",
+      "meaningVi": "N2 của N1",
+      "tip": "Dùng để chỉ sự sở hữu hoặc mối quan hệ giữa hai danh từ"
+    },
+    {
+      "grammarId": "bunpo-n9ullz",
+      "senseId": "sense-1yajxwy",
+      "pattern": "の Danh từ hóa",
+      "meaningVi": "Danh từ hóa động từ / câu. V (辞書形) + の",
+      "tip": "Chuyển động từ thành danh từ để có thể làm chủ ngữ hoặc tân ngữ trong câu"
+    },
+    {
+      "grammarId": "bunpo-z9gn3o",
+      "senseId": "sense-hagqvh",
+      "pattern": "VるのはAです",
+      "meaningVi": "Việc V thì A.",
+      "tip": "Dùng để nhận xét, đánh giá về một hành động cụ thể"
+    },
+    {
+      "grammarId": "bunpo-1lc4gtj",
+      "senseId": "sense-1cvj3ut",
+      "pattern": "VるのがAです",
+      "meaningVi": "Giỏi / thích / ghét việc V.",
+      "tip": "Dùng với các từ như 上手, 下手, 好き, 嫌い để diễn tả trình độ hoặc sở thích"
+    },
+    {
+      "grammarId": "bunpo-pin4ti",
+      "senseId": "sense-1r29oe9",
+      "pattern": "Vるのを 忘れました",
+      "meaningVi": "V.",
+      "tip": "Biến hành động thành danh từ để bổ trợ cho động từ 'quên'"
+    },
+    {
+      "grammarId": "bunpo-1g8nnak",
+      "senseId": "sense-plpjbp",
+      "pattern": "V thông thường のを 知っていますか",
+      "meaningVi": "Có biết V không?",
+      "tip": "Dùng để xác nhận thông tin về một sự việc đã/đang xảy ra"
+    },
+    {
+      "grammarId": "bunpo-t2aot2",
+      "senseId": "sense-cv822j",
+      "pattern": "~のはNです",
+      "meaningVi": "Người / vật làm V là N.",
+      "tip": "Đặt のは ở đầu phần được nêu và N ở cuối để xác định người/vật thực hiện."
+    },
+    {
+      "grammarId": "bunpo-ims3mz",
+      "senseId": "sense-1yotx5o",
+      "pattern": "~て",
+      "meaningVi": "Chỉ nguyên nhân / lý do",
+      "tip": "Diễn tả nguyên nhân dẫn đến kết quả, thường là tình huống ngoài ý muốn"
+    },
+    {
+      "grammarId": "bunpo-9k5xld",
+      "senseId": "sense-dx1qoq",
+      "pattern": "~か、~",
+      "meaningVi": "Hay là ~ / hoặc ~",
+      "tip": "か kẹp giữa các phương án còn cân nhắc: コーヒーかお茶."
+    },
+    {
+      "grammarId": "bunpo-3ikjja",
+      "senseId": "sense-1aga1ur",
+      "pattern": "Aい → Aいさ",
+      "meaningVi": "Danh từ hóa tính từ",
+      "tip": "Chuyển đổi tính từ thành danh từ chỉ mức độ hoặc tính chất của sự vật, sự việc"
+    },
+    {
+      "grammarId": "bunpo-pns8z2",
+      "senseId": "sense-6r1nnq",
+      "pattern": "あげます さしあげます やります",
+      "meaningVi": "さしあげます : biếu (người trên) あげます : tặng (thông thường) やります : cho (động vật, cây cối...)",
+      "tip": "N1 は N2 に N3 を: người cho là chủ ngữ; chọn động từ theo đối tượng nhận."
+    },
+    {
+      "grammarId": "bunpo-eu1n4c",
+      "senseId": "sense-1mkdogh",
+      "pattern": "くれます くださいます",
+      "meaningVi": "くださいます : kính ngữ くれます : thông thường",
+      "tip": "N1 は 私に N2 をくれる: người cho đứng は, món quà hướng về phía tôi."
+    },
+    {
+      "grammarId": "bunpo-pi3nkq",
+      "senseId": "sense-dgycqo",
+      "pattern": "もらいます いただきます",
+      "meaningVi": "いただきます : khiêm nhường ngữ もらいます : thông thường",
+      "tip": "私は N に N をもらう: người nhận đứng は, người cho đứng に."
+    },
+    {
+      "grammarId": "bunpo-qk26hs",
+      "senseId": "sense-mztlq7",
+      "pattern": "~Vてくださいませんか",
+      "meaningVi": "Có thể làm ~ giúp tôi được không?",
+      "tip": "Vてくださいませんか biến lời nhờ thành câu hỏi lịch sự có thể từ chối."
+    },
+    {
+      "grammarId": "bunpo-wftkr8",
+      "senseId": "sense-km9ks5",
+      "pattern": "NにV",
+      "meaningVi": "Làm ~ để kỷ niệm / làm quà cho ~",
+      "tip": "N に đánh dấu người nhận hoặc mục đích; ví dụ đan áo len để tặng mẹ."
+    },
+    {
+      "grammarId": "bunpo-15oqtxn",
+      "senseId": "sense-4ovd19",
+      "pattern": "は・も",
+      "meaningVi": "Nhấn mạnh số lượng",
+      "tip": "は đặt mức làm mốc; も nhấn con số vượt mức thường nghĩ, như học tới 3 tiếng."
+    },
+    {
+      "grammarId": "bunpo-1yykwqr",
+      "senseId": "sense-2ybkwu",
+      "pattern": "~Vて来ます",
+      "meaningVi": "Đi ~ rồi quay lại",
+      "tip": "Vて来ます gom vào một cụm việc đi mua đồ uống rồi trở lại."
+    },
+    {
+      "grammarId": "bunpo-1o3w5it",
+      "senseId": "sense-trxefc",
+      "pattern": "~Vてくれませんか",
+      "meaningVi": "Làm ơn ~",
+      "tip": "Vてくれませんか nhờ người khác làm việc đem lợi ích về phía mình."
+    },
+    {
+      "grammarId": "bunpo-1ocg2ks",
+      "senseId": "sense-n9ix81",
+      "pattern": "~Vやすいです ~Vにくいです",
+      "meaningVi": "Dễ V / Khó V",
+      "tip": "Gắn やすい／にくい vào gốc V để tả thao tác dễ hay khó thực hiện."
+    },
+    {
+      "grammarId": "bunpo-zjb2u9",
+      "senseId": "sense-180yzu0",
+      "pattern": "~します",
+      "meaningVi": "Làm cho ~ / biến thành ~",
+      "tip": "N をします nêu việc sẽ làm; với trạng thái phòng, dùng Aく／Aに + します."
+    },
+    {
+      "grammarId": "bunpo-vyxblc",
+      "senseId": "sense-sz930k",
+      "pattern": "~Nにします",
+      "meaningVi": "Quyết định / chọn ~",
+      "tip": "N にします đánh dấu lựa chọn được chốt, như chọn cà phê khi gọi món."
+    },
+    {
+      "grammarId": "bunpo-1fd7o6j",
+      "senseId": "sense-19ablxc",
+      "pattern": "~場合",
+      "meaningVi": "Khi / trường hợp ~",
+      "tip": "Nêu Vる/N trước 場合 để đóng khung tình huống rồi nói kết quả xử lý."
+    },
+    {
+      "grammarId": "bunpo-1fd7o6j",
+      "senseId": "sense-zu1qyz",
+      "pattern": "~場合",
+      "meaningVi": "Trong trường hợp",
+      "tip": "Đặt trường hợp ở đầu câu, rồi nêu việc sẽ làm nếu hoàn cảnh ấy xảy ra."
+    },
+    {
+      "grammarId": "bunpo-c504jh",
+      "senseId": "sense-936gfs",
+      "pattern": "~ところ",
+      "meaningVi": "Lúc / thời điểm ~",
+      "tip": "Vる／Vている／Vた trước ところ lần lượt định vị trước, giữa, sau hành động."
+    },
+    {
+      "grammarId": "bunpo-ofv81h",
+      "senseId": "sense-1o371n9",
+      "pattern": "~Nがする",
+      "meaningVi": "Có ~ (âm thanh / mùi vị / cảm giác...)",
+      "tip": "Mùi, âm thanh hay vị làm chủ ngữ với が; gắn する để nói cảm nhận xuất hiện."
+    },
+    {
+      "grammarId": "bunpo-6so4b3",
+      "senseId": "sense-nfy166",
+      "pattern": "Cách chia động từ ở Thể Sai Khiến",
+      "meaningVi": "Dạng sai khiến: bắt / cho phép / để ai làm gì",
+      "tip": "Nhớ cặp sai khiến: Vせる／Vさせる; ví dụ bắt ai đó đi là 行かせる."
+    },
+    {
+      "grammarId": "bunpo-ecwxyj",
+      "senseId": "sense-s3d93o",
+      "pattern": "~使役形",
+      "meaningVi": "Sai / bắt / phân công / cho phép ~",
+      "tip": "N1 は N2 に V使役形: に chỉ người được/bị khiến thực hiện hành động."
+    },
+    {
+      "grammarId": "bunpo-1xevlaw",
+      "senseId": "sense-1yy5d8r",
+      "pattern": "~V使役形ていただけませんか",
+      "meaningVi": "Làm ơn cho phép tôi ~",
+      "tip": "Xin quyền tự mình làm việc gì: V使役形て + いただけませんか."
+    },
+    {
+      "grammarId": "bunpo-1c6sabk",
+      "senseId": "sense-1h5ucpq",
+      "pattern": "Giới thiệu về Kính ngữ (敬語)",
+      "meaningVi": "Cách nói lịch sự trong tiếng Nhật",
+      "tip": "Dùng để thể hiện sự tôn trọng đối phương hoặc hạ thấp bản thân tùy theo quan hệ xã hội"
+    },
+    {
+      "grammarId": "bunpo-1czszv0",
+      "senseId": "sense-1i465i2",
+      "pattern": "Tôn kính ngữ (尊敬語)",
+      "meaningVi": "Nâng người khác lên",
+      "tip": "Nói về hành động người trên: お／ご + gốc Vます + になります."
+    },
+    {
+      "grammarId": "bunpo-vhdovs",
+      "senseId": "sense-1airr3m",
+      "pattern": "Tôn kính ngữ của Vてください",
+      "meaningVi": "Xin hãy ~ (lịch sự)",
+      "tip": "Đề nghị người trên làm: お／ご + gốc Vます + ください."
+    },
+    {
+      "grammarId": "bunpo-1m0n27",
+      "senseId": "sense-djoeuc",
+      "pattern": "~ます trong cách nói lịch sự",
+      "meaningVi": "Cách nói lịch sự cơ bản",
+      "tip": "Dùng trong giao tiếp xã hội, với người lạ hoặc cấp trên để thể hiện thái độ lịch sự, chừng mực"
+    },
+    {
+      "grammarId": "bunpo-a4cnu4",
+      "senseId": "sense-1vb5cos",
+      "pattern": "Khiêm nhường ngữ (謙譲語)",
+      "meaningVi": "Hạ mình để thể hiện sự lịch sự",
+      "tip": "Nói việc mình làm để phục vụ người trên: お／ご + gốc Vます + します."
+    },
+    {
+      "grammarId": "bunpo-afc5sa",
+      "senseId": "sense-19h91oh",
+      "pattern": "Lịch sự ngữ (丁寧語)",
+      "meaningVi": "Cách nói lịch sự cơ bản",
+      "tip": "Đưa です／ます vào cuối câu để giữ giọng lịch sự khi nói thường ngày."
+    },
+    {
+      "grammarId": "bunpo-7bznki",
+      "senseId": "sense-kqzbjo",
+      "pattern": "ます形",
+      "meaningVi": "Thể lịch sự",
+      "tip": "Ngoại lệ: 起きます, 見ます, 降ります, 足ります, できます, 浴びます, 借ります, います, 着ます"
+    },
+    {
+      "grammarId": "bunpo-do6xvy",
+      "senseId": "sense-45xd8",
+      "pattern": "て形・Vて",
+      "meaningVi": "Thể て",
+      "tip": "Nối tiếp/yêu cầu: 行きます→行って; nhớ động từ 行く chuyển thành って."
+    },
+    {
+      "grammarId": "bunpo-1ldivbj",
+      "senseId": "sense-uax5nb",
+      "pattern": "辞書形・Vる",
+      "meaningVi": "Thể từ điển",
+      "tip": "Dạng từ điển nhóm I về âm hàng う: 飲みます→飲む; nhóm II giữ る."
+    },
+    {
+      "grammarId": "bunpo-ixxpzy",
+      "senseId": "sense-19rqv07",
+      "pattern": "た形・Vた",
+      "meaningVi": "Thể た",
+      "tip": "Quá khứ: 聞きます→聞いた, 読みます→読んだ; đuôi là た／だ."
+    },
+    {
+      "grammarId": "bunpo-1xqc8xi",
+      "senseId": "sense-cxn8wj",
+      "pattern": "ない - Vない",
+      "meaningVi": "Thể phủ định",
+      "tip": "Phủ định nhóm I: đổi hàng い sang あ rồi + ない; います thành わない."
+    },
+    {
+      "grammarId": "bunpo-3u0a2a",
+      "senseId": "sense-k2cr7j",
+      "pattern": "意向形・Vよう",
+      "meaningVi": "Thể ý chí",
+      "tip": "Ý chí/rủ rê: 書きます→書こう, nhóm I đổi đuôi sang お + う."
+    },
+    {
+      "grammarId": "bunpo-1mv337f",
+      "senseId": "sense-md74t2",
+      "pattern": "命令形・Vる/Vえ",
+      "meaningVi": "Thể mệnh lệnh",
+      "tip": "Mệnh lệnh ngắn: 書きます→書け, nhóm I dùng âm hàng え không thêm る."
+    },
+    {
+      "grammarId": "bunpo-qjnj0",
+      "senseId": "sense-1j3fqs1",
+      "pattern": "禁止形・Vるな/Vないで",
+      "meaningVi": "Thể cấm chỉ",
+      "tip": "Nhóm III: する → するな, N+する → N+するな, 来る → 来るな (くるな)"
+    },
+    {
+      "grammarId": "bunpo-bglhhu",
+      "senseId": "sense-10l092",
+      "pattern": "可能形・Vられる/Vえる",
+      "meaningVi": "Thể khả năng",
+      "tip": "Khả năng: 書きます→書ける, nhóm I thêm る sau âm hàng え."
+    },
+    {
+      "grammarId": "bunpo-19dfgho",
+      "senseId": "sense-atmjws",
+      "pattern": "使役形・Vせる/Vさせる",
+      "meaningVi": "Thể sai khiến",
+      "tip": "Sai khiến: 書きます→書かせる, nhóm I thêm せる sau âm hàng あ."
+    },
+    {
+      "grammarId": "bunpo-18q2o9g",
+      "senseId": "sense-d3yvdt",
+      "pattern": "仮定形・Vば",
+      "meaningVi": "Thể điều kiện",
+      "tip": "Điều kiện: 書きます→書けば, nhóm I thêm ば sau âm hàng え."
+    },
+    {
+      "grammarId": "bunpo-1htxy8o",
+      "senseId": "sense-10l038o",
+      "pattern": "受身形・Vられる/Vれる",
+      "meaningVi": "Thể bị động",
+      "tip": "Bị động: 書きます→書かれる, nhóm I thêm れる sau âm hàng あ."
+    },
+    {
+      "grammarId": "bunpo-5mtvk3",
+      "senseId": "sense-12czpk4",
+      "pattern": "Thể Thông Thường + ～し、～し",
+      "meaningVi": "Vừa ～ vừa",
+      "tip": "Nối các lý do cùng chiều bằng し; phần kết luận thường đứng sau chuỗi lý do."
+    },
+    {
+      "grammarId": "bunpo-qsbu4c",
+      "senseId": "sense-1wr34pm",
+      "pattern": "Vてあげます",
+      "meaningVi": "Làm V cho ai đó",
+      "tip": "Vてあげる: người nói làm việc có lợi cho người khác; người nhận thường đi với に."
+    },
+    {
+      "grammarId": "bunpo-1gi56sd",
+      "senseId": "sense-138r09e",
+      "pattern": "Vてもらいます",
+      "meaningVi": "Nhận V từ ai",
+      "tip": "Vてもらう: đặt người giúp sau に, người nói là bên nhận sự giúp đỡ."
+    },
+    {
+      "grammarId": "bunpo-188vq3b",
+      "senseId": "sense-18h7enu",
+      "pattern": "Vてくれます",
+      "meaningVi": "Ai đó làm V cho tôi",
+      "tip": "Vてくれる: người giúp làm chủ ngữ が, lợi ích hướng về phía người nói."
+    },
+    {
+      "grammarId": "bunpo-1dcoixe",
+      "senseId": "sense-1e764es",
+      "pattern": "Vる/Nの + 予定",
+      "meaningVi": "Dự định",
+      "tip": "Vる／Nの + 予定 đóng gói kế hoạch đã định, thường kèm mốc thời gian."
+    },
+    {
+      "grammarId": "bunpo-15z7u4m",
+      "senseId": "sense-10pvexv",
+      "pattern": "Vる/Nない + つもり",
+      "meaningVi": "Định",
+      "tip": "つもり đi với Vる／Vない để nói dự định của chính người nói."
+    },
+    {
+      "grammarId": "bunpo-142rqgc",
+      "senseId": "sense-s8c4yb",
+      "pattern": "Vよう + と思います",
+      "meaningVi": "Định là",
+      "tip": "V意向形 + と思います diễn đạt quyết định vừa nêu ra lúc nói."
+    },
+    {
+      "grammarId": "bunpo-1jvihk7",
+      "senseId": "sense-c0df35",
+      "pattern": "V/Aな/Nの + ようだ",
+      "meaningVi": "Có vẻ như",
+      "tip": "Trước ようだ: động từ thể thường, tính từ な, danh từ の."
+    },
+    {
+      "grammarId": "bunpo-gc4xlh",
+      "senseId": "sense-tsa77h",
+      "pattern": "Vておきます",
+      "meaningVi": "Làm sẵn",
+      "tip": "Vておく để chuẩn bị trước; ghi sẵn địa chỉ là ví dụ điển hình."
+    },
+    {
+      "grammarId": "bunpo-3zolaz",
+      "senseId": "sense-ir6lms",
+      "pattern": "ば",
+      "meaningVi": "Nếu... thì",
+      "tip": "Vば nêu điều kiện; đọc vế sau như kết quả phát sinh khi điều kiện đúng."
+    },
+    {
+      "grammarId": "bunpo-1doi6ts",
+      "senseId": "sense-1f4utsf",
+      "pattern": "なら",
+      "meaningVi": "Nếu... thì",
+      "tip": "なら khoanh đúng chủ đề được nhắc đến rồi đưa lời khuyên cho chủ đề ấy."
+    },
+    {
+      "grammarId": "bunpo-1wd26mr",
+      "senseId": "sense-895ymm",
+      "pattern": "と",
+      "meaningVi": "Hễ mà... thì",
+      "tip": "と gắn điều kiện kích hoạt với kết quả tự động, như bấm nút thì nước chảy."
+    },
+    {
+      "grammarId": "bunpo-1g8t6n0",
+      "senseId": "sense-13g6km1",
+      "pattern": "によると～そうです",
+      "meaningVi": "Theo như... thì",
+      "tip": "Đưa nguồn tin với によると trước phần được thuật lại bằng そうです."
+    },
+    {
+      "grammarId": "bunpo-m0n45b",
+      "senseId": "sense-1etg3v0",
+      "pattern": "V受身",
+      "meaningVi": "Bị, được",
+      "tip": "Bị động: đặt người bị tác động làm chủ đề; tác nhân thường đánh dấu bằng に."
+    },
+    {
+      "grammarId": "bunpo-17cv9aq",
+      "senseId": "sense-vzwh3g",
+      "pattern": "V禁止",
+      "meaningVi": "Cấm",
+      "tip": "Để cấm trực tiếp, giữ Vる rồi thêm な: 入るな／使うな."
+    },
+    {
+      "grammarId": "bunpo-17ivkap",
+      "senseId": "sense-19hz7rv",
+      "pattern": "V可能",
+      "meaningVi": "Có thể",
+      "tip": "Khả năng thường đổi を thành が: このすしが食べられます."
+    },
+    {
+      "grammarId": "bunpo-bx26v1",
+      "senseId": "sense-uavqh6",
+      "pattern": "V使役",
+      "meaningVi": "Bắt, cho phép",
+      "tip": "Sai khiến đặt người bị/được khiến làm với に trước động từ sai khiến."
+    },
+    {
+      "grammarId": "bunpo-pejv6k",
+      "senseId": "sense-169y20k",
+      "pattern": "Vなさい",
+      "meaningVi": "Hãy làm V",
+      "tip": "Vます bỏ ます + なさい tạo lời chỉ dẫn trực tiếp, như 静かにしなさい."
+    },
+    {
+      "grammarId": "bunpo-1148t3h",
+      "senseId": "sense-x1qo3v",
+      "pattern": "ても",
+      "meaningVi": "Cho dù",
+      "tip": "Vて + も giữ nguyên trở ngại mà vẫn nhấn mạnh kết quả không đổi."
+    },
+    {
+      "grammarId": "bunpo-1ylfxcp",
+      "senseId": "sense-a7yrhp",
+      "pattern": "Vてしまいます",
+      "meaningVi": "Làm V cho xong",
+      "tip": "Vてしまう đánh dấu việc làm trọn vẹn; xong bài rồi mới tính chuyện đi chơi."
+    },
+    {
+      "grammarId": "bunpo-g7baxm",
+      "senseId": "sense-lr1eus",
+      "pattern": "Vずに",
+      "meaningVi": "Không làm V",
+      "tip": "Vずに nối sang hành động chính với nghĩa không làm V trước đó."
+    },
+    {
+      "grammarId": "bunpo-1vlroac",
+      "senseId": "sense-1rkhs41",
+      "pattern": "Vてあります",
+      "meaningVi": "Có (thứ) gì",
+      "tip": "Vてある cho thấy kết quả cố ý còn lưu lại; ví dụ hướng dẫn đã được ghi ở đó."
+    },
+    {
+      "grammarId": "bunpo-qchfm0",
+      "senseId": "sense-1egng8h",
+      "pattern": "Aい→く / Aな→にする",
+      "meaningVi": "Làm A",
+      "tip": "Aい đổi thành く, Aな thành に trước する để tạo ra trạng thái mong muốn."
+    },
+    {
+      "grammarId": "bunpo-1p0fjfx",
+      "senseId": "sense-2m4fb9",
+      "pattern": "Vたほうがいい",
+      "meaningVi": "Nên làm",
+      "tip": "Vた + ほうがいい: dùng thể た để khuyên nên làm việc ấy."
+    },
+    {
+      "grammarId": "bunpo-e5fjoi",
+      "senseId": "sense-s7utsg",
+      "pattern": "Vないほうがいい",
+      "meaningVi": "Không nên làm",
+      "tip": "Vない + ほうがいい khuyên tránh hành động, như tránh uống rượu."
+    },
+    {
+      "grammarId": "bunpo-95dxms",
+      "senseId": "sense-87uf1a",
+      "pattern": "V始めます",
+      "meaningVi": "Bắt đầu làm V",
+      "tip": "Gốc Vます + 始める đánh dấu thời điểm một hoạt động bắt đầu."
+    },
+    {
+      "grammarId": "bunpo-8evj9",
+      "senseId": "sense-x6avlx",
+      "pattern": "V終わります",
+      "meaningVi": "Làm xong V",
+      "tip": "Gốc Vます + 終わる đánh dấu lúc hoàn tất hành động."
+    },
+    {
+      "grammarId": "bunpo-ol9bw",
+      "senseId": "sense-ec2snt",
+      "pattern": "V方",
+      "meaningVi": "Cách làm V",
+      "tip": "Gốc Vます + 方 biến hành động thành danh từ chỉ cách làm, như 作り方."
+    }
+  ]
+}
