@@ -67,7 +67,7 @@
       "hantuTanoshii": {
         "name": "Han tu Tanoshii (personal Vietnamese-authored Kanji flashcard PDF set, NOT an open/licensed dataset)",
         "url": "n/a -- user-supplied PDF, transcribed by hand/OCR into scripts/data/hantu-tanoshii/*.json for personal use only",
-        "usedFor": "meanings.vi (verified Vietnamese meaning), mnemonic, an additional Han-Viet cross-check merged into hanViet, AND (new in this pass) the level assignment itself for characters Tanoshii covers but the tanos.co.uk/jlpt_new grouping does not -- see hantuTanoshiiLevelGrouping below",
+        "usedFor": "Base meanings.vi glosses and mnemonic for 2104 kanji, with 63 meanings.vi entries subsequently broadened/reordered in a separate editorial pass; an additional Han-Viet cross-check merged into hanViet; and (new in this pass) the level assignment itself for characters Tanoshii covers but the tanos.co.uk/jlpt_new grouping does not -- see hantuTanoshiiLevelGrouping below",
         "license": "Unknown/unverified copyright status -- transcribed and used at the user's own instruction for personal, non-published use only. Do NOT redistribute or publish this dataset/derivative extension while this field is populated from this source without separately clearing rights."
       },
       "hantuTanoshiiLevelGrouping": {
@@ -75,15 +75,41 @@
         "url": "n/a -- same source as hantuTanoshii",
         "usedFor": "level assignment for 170 kanji present in the Tanoshii books but not in the tanos.co.uk-derived jlpt_new list. For the single-level N3, N2, and N1 Tanoshii books this is unambiguous. For the combined N5+N4 Tanoshii book, which does not mark which of its kanji are N5 vs N4, the remaining 11 kanji were assigned N4 as an EDITORIAL DEFAULT (N5 treated as the tighter, more standardized set) -- this is NOT sourced data. See notes.",
         "license": "Same unverified/personal-use-only status as hantuTanoshii above."
+      },
+      "meaningsViEditorial": {
+        "name": "Editorial Vietnamese gloss revisions cross-checked against KANJIDIC2 English meanings",
+        "url": "https://www.edrdg.org/wiki/KANJIDIC_Project.html",
+        "usedFor": "Reordering and broadening the core/alternate Vietnamese glosses for 63 kanji entries; KANJIDIC2 meanings are a cross-check, not a Vietnamese frequency ranking.",
+        "license": "Vietnamese wording is original editorial text; underlying KANJIDIC2 data is distributed under the EDRDG license noted in sources.kanji."
+      },
+      "hanVietEditorial": {
+        "name": "Editorial Hán-Việt reading correction cross-checked against HVDIC",
+        "url": "https://hvdic.thivien.net/",
+        "usedFor": "Prioritizing hợp for 合 in this Japanese-learning context and removing chị (a Nôm reading/meaning, not a Hán-Việt reading) from 姉.",
+        "license": "Editorial changes to existing app data; HVDIC is cited as a reference, not copied in bulk."
+      },
+      "userProvidedMissingKanjiGlosses": {
+        "name": "User-provided Vietnamese gloss list for previously missing kanji",
+        "url": "n/a — pasted text supplied by the user in this conversation",
+        "usedFor": "meanings.vi for 255 N1 kanji and 13 N2/N3/N4 kanji; supplementary Hán-Việt readings for blank entries when the provided value is a Hán-Việt reading",
+        "license": "User-provided text; external provenance and licensing were not specified."
+      },
+      "hanVietJapaneseCharacterLookup": {
+        "name": "HVDIC lookup for 匁 and 麿",
+        "url": "https://hvdic.thivien.net/whv/%E5%8C%81 ; https://hvdic.thivien.net/whv/%E9%BA%BF",
+        "usedFor": "Related Hán-Việt readings for 匁 (lạng, lưỡng) and 麿 (mi, my), plus Japanese readings monme and maro; HVDIC presents these under variant lookup for characters with no direct Hán-Việt definition.",
+        "license": "Reference only; no dictionary definitions copied."
       }
     },
     "notes": [
       "JLPT publishes no official kanji list for N5/N4/N3/N2 post-2010; this dataset uses a widely-used community-compiled grouping. See README for details.",
       "170 of 2381 kanji were added from Han tu Tanoshii's own broader grouping (not present in the tanos.co.uk/jlpt_new list). Of those, 11 came from the combined N5+N4 Tanoshii book and were assigned N4 as an editorial default (that book does not distinguish N5 from N4 per character) -- see sources.hantuTanoshiiLevelGrouping. The N3, N2, and N1 Tanoshii-only extras are unambiguous (single-level source books).",
       "19 kanji have no entry in either the CC-CEDICT or Unihan Han-Viet sources (mostly Japan-only shinjitai forms with no matching Chinese-character-set entry) and were left with hanViet: [] rather than guessed.",
-      "meanings.vi is populated for 2104 kanji from the Han tu Tanoshii personal PDF source (see sources.hantuTanoshii) -- NOT an open dataset, personal use only. Nine additional entries (難, 救, 費, 製, 賞, 停, 粉, 告, 型) use concise original Vietnamese glosses cross-checked against sources.kanjipediaVerifiedGlosses; all other entries still have empty meanings.vi, and only some have an unverified meanings.viDraft.",
+      "The 268 kanji that previously had empty meanings.vi are now populated from sources.userProvidedMissingKanjiGlosses. These Vietnamese glosses were supplied by the user and have not been independently cross-checked with external dictionaries. meanings.viDraft remains unverified.",
       "1402 kanji have no meanings.viDraft entry: 刀 丁 又 分 矢 里 羊 氏 身 仮 級 功 第 暑 整 詩 器 士 標 鏡 養 謝 松 的 基 妥 雰 頑 司 泣 紀 典 保 弁 証 冒 冗 阪 梅 無 結 是 渉 虚 幻 弓 汽 僧 禅 可 句 節 昆 閥 舌 宙 履 善 災 率 妨 裕 尻 尾 嫌 臭 穴 笛 敵 挙 派 岡 素 評 批 検 審 条 企 義 罰 誕 脱 坊 宮 案 価 統 策 藤 姿 応 提 援 態 賀 鬼 護 裁 崎 看 幹 張 沢 施 俳 秀 製 狭 載 視 環 展 株 影 響 票 訴 訟 逮 模 鮮 属 肥 絞 輩 隠 授 創 往 較 鉛 故 障 従 我 激 励 討 徴 怪 獣 振 豚 独 屈 暇 織 惑 誘 就 睡 症 締 迫 端 健 康 郎 稚 博 潔 隊 修 奇 妙 麗 微 益 憲 衆 傘 浜 撃 攻 監 催 促 江 請 雄 韓 壊 診 閣 僚 督 街 宗 緊 宴 添 猛 烈 索 詳 魅 渇 系 旗 乏 覧 懐 枕 漏 購 飾 騒 撮 離 融 華 既 豪 鑑 尋 廊 驚 嘆 倉 巣 径 救 脈 墓 徳 偵 綺 序 志 恩 桜 眼 興 衛 酸 銭 飼 傷 厳 密 暖 秘 訳 染 筋 垂 宣 忠 拡 操 熟 異 皇 盛 漠 糖 納 肺 賃 貴 丼 吐 奴 隷 芋 縮 縦 粋 聖 磁 射 幕 薦 推 揮 沿 源 歓 爪 豆 腐 彫 舎 滞 己 厄 亀 剣 寿 杉 汁 炎 為 熊 獄 酔 酢 鍋 盟 遺 債 及 奈 廃 摘 核 沖 縄 津 献 継 維 伎 踏 鹿 諾 牙 跳 昭 償 刑 執 塁 崩 抗 抵 旬 弾 聴 遣 闘 陣 臨 削 契 恵 掲 狙 葬 需 宜 繰 避 妊 娠 致 奏 伴 併 却 慮 懸 房 扱 抑 択 描 盤 称 緩 託 賄 賂 還 邦 鈴 阜 岐 隆 控 壁 棋 渋 仙 充 免 勧 圏 埼 奪 慎 拒 枠 甲 斐 祉 稲 譲 謙 躍 銃 項 鋼 顧 駆 唱 孝 俊 兼 剤 堀 巡 戒 排 携 敏 敷 犠 獲 茂 繁 頻 殖 衝 誉 褒 透 隣 雅 遜 徹 瀬 撤 措 拠 儀 樹 棄 虎 蛍 蜂 酎 蜜 艦 潜 拳 畑 仁 至 誠 郷 侵 偽 克 哲 喪 堅 括 弧 挑 揚 握 揺 斎 暫 析 枢 軸 柄 滑 潟 焦 範 紛 糾 綱 網 肝 芝 誰 裂 襲 貢 趣 距 露 牧 朗 潮 即 垣 威 岳 慰 懇 懲 摩 擦 撲 斉 旨 沼 泰 滅 滋 炉 琴 寸 竜 縁 翼 吉 刃 忍 桃 謎 侍 俺 叱 娯 斗 朱 丘 梨 僕 釣 嵐 姫 棚 砲 雷 芽 澄 矛 鐘 凶 塊 狩 頃 魂 脚 也 井 呪 嬢 暦 眺 裸 賭 塾 卓 菌 陰 霊 稼 嫁 溝 滝 狂 翔 墨 鳩 穏 魔 寮 盆 棟 斬 寧 椅 猿 瞳 鍵 碁 租 幽 泡 癖 鍛 錬 穂 帝 瞬 菊 誇 庄 阻 黙 俵 架 砕 粘 粧 欺 詐 霧 柳 伊 佐 尺 哀 唇 塀 墜 如 婆 崖 幣 恨 憩 扇 扉 挿 掌 炊 爽 瞭 箸 胴 芯 虹 帳 蚊 蛇 貼 辱 鉢 闇 隙 霜 飢 餓 迅 騎 蓄 尽 彩 憶 耐 輝 脅 麻 培 悔 脇 遂 班 斜 殴 盾 穫 巾 駒 紫 抽 誓 悟 拓 拘 礎 鶴 刈 剛 唯 壇 尼 概 浸 淡 煮 覆 謀 陶 隔 征 陛 俗 桑 潤 珠 衰 奨 劣 勘 妃 丈 峰 巧 邪 駄 唐 廷 鬱 簿 彰 漫 訂 諮 銘 堤 漂 翻 軌 后 奮 亭 仰 伯 墳 壮 把 搬 晶 洞 涯 疫 孔 邸 郡 釈 肪 喚 媛 貞 玄 苗 渦 慈 襟 蓮 亮 聡 浦 塚 陥 貫 覇 呂 茨 擁 孤 賠 鎖 噴 祥 牲 秩 唆 膨 芳 恒 倫 陳 須 偏 遇 糧 殊 慢 没 怠 遭 惰 猟 乃 綾 颯 隼 輔 寛 胞 浄 随 稿 丹 壌 舗 騰 緯 艇 披 錦 准 剰 繊 諭 惨 虐 据 徐 搭 鯉 戴 緋 曙 胡 帥 啓 葵 駿 諒 莉 鯨 荘 栽 拐 冠 勲 酬 紋 卸 欄 逸 尚 顕 粛 愚 庶 践 呈 疎 疾 謡 鎌 酷 叙 且 痴 哺 傲 茎 阿 悠 杏 茜 栞 伏 鎮 奉 憂 朴 栃 惜 佳 悼 該 赴 髄 傍 累 癒 郭 尿 賓 虜 憾 弥 粗 循 凝 脊 昌 旦 愉 抹 栓 之 遼 瑛 那 拍 猶 宰 寂 縫 呉 凡 恭 錯 穀 陵 弊 舶 窮 悦 縛 轄 弦 窒 洪 摂 飽 紳 庸 靖 嘉 搾 蝶 碑 尉 匠 遥 智 賊 鼓 旋 腸 槽 伐 漬 坪 紺 羅 峡 俸 醸 弔 乙 遍 衡 款 閲 喝 敢 膜 盲 胎 酵 堕 遮 凸 凹 楓 哉 蒼 瑠 萌 硫 赦 窃 慨 扶 戯 忌 濁 奔 肖 朽 殻 享 藩 媒 鶏 嘱 迭 椎 絹 陪 剖 譜 淑 帆 憤 酌 暁 傑 錠 凌 瑞 璃 遷 拙 峠 篤 叔 雌 堪 吟 甚 崇 漆 岬 紡 礁 屯 姻 擬 睦 閑 曹 詠 卑 侮 鋳 蔑 胆 浪 禍 酪 憧 慶 亜 汰 梓 沙 逝 匿 寡 痢 坑 藍 畔 唄 拷 渓 廉 謹 湧 醜 升 殉 煩 劾 桟 婿 慕 罷 矯 某 囚 泌 漸 藻 妄 蛮 倹 挨 渥 旭 宛 絢 鮎 惟 畏 萎 亥 郁 磯 壱 允 咽 淫 胤 韻 卯 丑 臼 餌 叡 謁 怨 艶 苑 於 旺 翁 臆 伽 箇 苛 茄 霞 魁 凱 蓋 骸 馨 柿 嚇 顎 葛 褐 叶 樺 釜 茅 瓦 侃 棺 莞 巌 玩 嬉 毅 畿 稀 誼 鞠 橘 亨 匡 喬 尭 桐 僅 斤 欣 欽 芹 衿 玖 虞 串 窟 栗 薫 袈 圭 慧 桂 稽 詣 桁 絃 舷 股 伍 梧 瑚 乞 侯 倖 勾 喉 宏 弘 慌 昂 晃 梗 浩 紘 鴻 墾 痕 嵯 瑳 裟 挫 塞 采 冴 朔 柵 笹 拶 皐 燦 蚕 嗣 肢 賜 爾 蒔 汐 嫉 偲 紗 勺 爵 腫 儒 愁 洲 蹴 峻 竣 舜 淳 遵 渚 恕 宵 抄 捷 梢 硝 菖 蕉 詔 丞 穣 拭 晋 榛 秦 薪 腎 翠 錘 嵩 雛 裾 畝 凄 醒 戚 斥 碩 煎 羨 腺 詮 銑 繕 膳 塑 曽 遡 惣 痩 綜 捉 袖 唾 堆 黛 鯛 鷹 啄 琢 只 但 辰 巽 綻 檀 逐 嫡 衷 猪 暢 脹 勅 捗 朕 掴 槻 蔦 椿 潰 紬 悌 禎 諦 逓 溺 填 妬 杜 痘 謄 寅 酉 惇 敦 頓 凪 捺 楠 弐 匂 捻 巴 罵 萩 剥 肇 斑 汎 頒 眉 柊 彦 膝 肘 彪 彬 芙 賦 附 蕗 丙 蔽 碧 甫 倣 朋 鳳 鵬 貌 頬 勃 昧 槙 柾 亦 繭 麿 巳 稔 椋 冥 麺 孟 耗 餅 匁 冶 耶 佑 宥 柚 祐 邑 妖 楊 窯 耀 蓉 沃 濫 蘭 吏 李 琉 侶 稜 厘 琳 麟 伶 嶺 怜 玲 弄 楼 麓 禄 倭 亘 侑 刹 勁 喩 嗅 嘲 毀 奎 崚 彗 彙 恣 惧 慄 憬 拉 摯 昴 晏 晨 晟 暉 曖 楷 椰 毬 洸 洵 滉 漱 澪 燎 燿 瑶 璧 瘍 皓 眸 笙 箋 籠 綸 緻 脩 茉 菫 訃 詢 諄 諧 貪 赳 踪 辣 迪 錮 頌 黎 凜 熙",
-      "mnemonic is populated for 2104 kanji from the same Han tu Tanoshii source; remaining entries are null. words and examples are intentionally left empty: no source integrated yet."
+      "mnemonic is populated for 2104 kanji from the same Han tu Tanoshii source; remaining entries are null. words and examples are intentionally left empty: no source integrated yet.",
+      "Two Hán-Việt display entries were editorially corrected: 合 now prioritizes hợp for its common Japanese kanji sense while retaining cáp/hiệp; 姉 now keeps tỷ and excludes chị from the Hán-Việt-only field (see sources.hanVietEditorial).",
+      "For 匁 and 麿, HVDIC does not provide a direct Hán-Việt definition but lists related readings through variant lookup: lạng/lưỡng for 匁 and mi/my for 麿. The Japanese readings are monme and maro. The user-provided Mao/Ma readings were not entered because the HVDIC pages do not support them."
     ]
   },
   "kanji": [
@@ -270,7 +296,8 @@
       ],
       "meanings": {
         "vi": [
-          "trượng phu"
+          "chiều dài; tầm vóc",
+          "trượng (đơn vị đo cổ)"
         ],
         "en": [
           "Length",
@@ -485,7 +512,8 @@
       ],
       "meanings": {
         "vi": [
-          "không có"
+          "không; chẳng",
+          "tiền tố phủ định bất-/phi-"
         ],
         "en": [
           "Negative",
@@ -584,7 +612,9 @@
         "xú"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ hai trong Thập nhị địa chi (trâu)."
+        ],
         "en": [
           "Sign Of The Ox Or Cow",
           "1-3am",
@@ -786,7 +816,9 @@
         "chưng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trợ giúp, phò tá; chức quan (thừa tướng)."
+        ],
         "en": [
           "Help"
         ]
@@ -824,7 +856,8 @@
       ],
       "meanings": {
         "vi": [
-          "2 bên, lưỡng tính"
+          "cả hai; hai bên",
+          "đôi; hai (đơn vị đếm)"
         ],
         "en": [
           "Both",
@@ -1196,7 +1229,9 @@
         "ái"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bèn, mới, là, của (chỉ sở hữu)."
+        ],
         "en": [
           "From",
           "Possessive Particle",
@@ -1280,7 +1315,9 @@
         "chi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đi đến; của (trợ từ sở hữu); từ chỉ định (này/ấy)."
+        ],
         "en": [
           "Of",
           "This"
@@ -1538,7 +1575,9 @@
         "dã"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cũng, vậy (trợ từ ngữ khí cuối câu thời cổ)."
+        ],
         "en": [
           "To Be (classical)"
         ]
@@ -1669,7 +1708,8 @@
       ],
       "meanings": {
         "vi": [
-          "cạn"
+          "khô; làm khô",
+          "trời; quẻ Càn"
         ],
         "en": [
           "Drought",
@@ -1800,7 +1840,9 @@
       ],
       "meanings": {
         "vi": [
-          "dự báo"
+          "trước; trước đó",
+          "dự định; dự tính",
+          "ta; bản thân (nghĩa cổ)"
         ],
         "en": [
           "Beforehand",
@@ -1845,7 +1887,8 @@
       ],
       "meanings": {
         "vi": [
-          "chiến tranh"
+          "tranh chấp; tranh giành",
+          "đấu tranh; tranh luận"
         ],
         "en": [
           "Contend",
@@ -2102,7 +2145,9 @@
         "cắng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trải dài, kéo dài liên tục từ nơi này đến nơi khác."
+        ],
         "en": [
           "Span",
           "Range",
@@ -2182,7 +2227,8 @@
       ],
       "meanings": {
         "vi": [
-          "tử vong"
+          "mất; chết",
+          "tiêu vong; người đã khuất"
         ],
         "en": [
           "Deceased",
@@ -2231,7 +2277,8 @@
       ],
       "meanings": {
         "vi": [
-          "cắt nhau"
+          "gặp gỡ; qua lại; giao nhau",
+          "trao đổi; kết giao"
         ],
         "en": [
           "Mingle",
@@ -2283,7 +2330,9 @@
         "hợi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ mười hai trong Thập nhị địa chi (heo)."
+        ],
         "en": [
           "Sign Of The Hog",
           "9-11pm",
@@ -2320,7 +2369,9 @@
         "diệc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cũng, lại."
+        ],
         "en": [
           "Also",
           "Again"
@@ -2358,7 +2409,9 @@
         "phanh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hanh thông, thuận lợi, trôi chảy."
+        ],
         "en": [
           "Pass Through",
           "Go Smoothly"
@@ -2526,7 +2579,9 @@
         "lượng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sáng sủa, thành thật, rõ ràng."
+        ],
         "en": [
           "Clear",
           "Help"
@@ -2952,7 +3007,9 @@
       ],
       "meanings": {
         "vi": [
-          "hiện đại"
+          "thay thế; đại diện",
+          "thời đại; thế hệ",
+          "giá; tiền công"
         ],
         "en": [
           "Substitute",
@@ -3054,7 +3111,8 @@
       ],
       "meanings": {
         "vi": [
-          "cái mốc"
+          "bằng; theo; từ... trở đi",
+          "dùng; lấy... làm"
         ],
         "en": [
           "By Means Of",
@@ -3141,7 +3199,9 @@
       ],
       "meanings": {
         "vi": [
-          "tín ngưỡng"
+          "ngước nhìn",
+          "ngưỡng mộ; kính phục",
+          "nương tựa; tin cậy"
         ],
         "en": [
           "Face-up",
@@ -3363,7 +3423,9 @@
         "y"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Kia, ấy, ông ấy/bà ấy (từ chỉ ngôi thứ ba)."
+        ],
         "en": [
           "Italy",
           "That One"
@@ -3399,7 +3461,9 @@
         "ngũ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hàng ngũ, nhóm 5 người."
+        ],
         "en": [
           "Five",
           "Five-man Squad",
@@ -3564,7 +3628,8 @@
       ],
       "meanings": {
         "vi": [
-          "nghỉ hưu"
+          "nghỉ ngơi; nghỉ",
+          "ngày nghỉ; tạm ngừng"
         ],
         "en": [
           "Rest",
@@ -3791,7 +3856,9 @@
         "linh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Khéo léo; người làm ca xướng, diễn viên thời cổ."
+        ],
         "en": [
           "Actor"
         ]
@@ -3965,7 +4032,9 @@
         "già"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiếng Phạn (trong già lam - chùa); hầu hạ, làm bạn."
+        ],
         "en": [
           "Nursing",
           "Attending",
@@ -4216,7 +4285,9 @@
         "hựu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trợ giúp, phù hộ (thường dùng cho thần phật)."
+        ],
         "en": [
           "Help",
           "Assist"
@@ -4479,7 +4550,8 @@
       ],
       "meanings": {
         "vi": [
-          "nhưng, tuy nhiên"
+          "gộp lại; hợp nhất",
+          "cùng; cùng với"
         ],
         "en": [
           "Join",
@@ -4567,7 +4639,9 @@
         "khản"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cương trực, thẳng thắn, ôn hòa."
+        ],
         "en": [
           "Strong",
           "Just",
@@ -4688,7 +4762,9 @@
         "hựu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Giúp đỡ, khuyên mời ăn uống."
+        ],
         "en": [
           "Urge To Eat"
         ]
@@ -5265,7 +5341,8 @@
       ],
       "meanings": {
         "vi": [
-          "tín dụng"
+          "tin; tin tưởng; đáng tin",
+          "niềm tin; lòng tin"
         ],
         "en": [
           "Faith",
@@ -5669,7 +5746,9 @@
         "hãnh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "May mắn (hãnh tiến, may mắn ngoài dự kiến)."
+        ],
         "en": [
           "Happiness",
           "Luck"
@@ -5910,7 +5989,9 @@
         "nụy"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tên gọi nước Nhật Bản thời cổ đại."
+        ],
         "en": [
           "Yamato",
           "Ancient Japan"
@@ -6155,7 +6236,9 @@
         "tai"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tài năng; tưởng nhớ, nhớ nhung."
+        ],
         "en": [
           "Recollect",
           "Remember"
@@ -7121,7 +7204,9 @@
       ],
       "meanings": {
         "vi": [
-          "ưu tú"
+          "ưu tú; vượt trội",
+          "dịu dàng; nhân hậu",
+          "diễn viên"
         ],
         "en": [
           "Tenderness",
@@ -7170,7 +7255,9 @@
         "doãn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bằng lòng, cho phép, thành thực."
+        ],
         "en": [
           "License",
           "Sincerity",
@@ -8492,9 +8579,13 @@
       "id": "kanji-冴",
       "character": "冴",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "ngà"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rét mướt, trong trẻo, sắc sảo (chữ riêng của tiếng Nhật)."
+        ],
         "en": [
           "Be Clear",
           "Serene",
@@ -8704,7 +8795,9 @@
         "lăng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vượt lên, lấn át, khinh rẻ; băng giá."
+        ],
         "en": [
           "Endure",
           "Keep (rain)out",
@@ -8791,7 +8884,9 @@
         "lẫm"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lạnh lẽo, uy nghiêm, đáng sợ."
+        ],
         "en": [
           "Cold",
           "Strict",
@@ -8957,9 +9052,13 @@
       "id": "kanji-凪",
       "character": "凪",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "chỉ"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Gió lặng, sóng yên (chữ do người Nhật tự tạo)."
+        ],
         "en": [
           "Lull",
           "Calm",
@@ -8994,7 +9093,9 @@
         "khải"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thắng trận, ca khúc khải hoàn."
+        ],
         "en": [
           "Victory Song"
         ]
@@ -11011,7 +11112,9 @@
         "kính"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Mạnh mẽ, cứng cỏi, có lực."
+        ],
         "en": [
           "Strong"
         ]
@@ -11600,7 +11703,9 @@
         "thược"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cái gáo múc rượu; đơn vị đo thể tích thời xưa."
+        ],
         "en": [
           "Ladle",
           "One Tenth Of A Go",
@@ -11672,9 +11777,14 @@
       "id": "kanji-匁",
       "character": "匁",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "lạng",
+        "lưỡng"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đơn vị đo khối lượng cổ của Nhật, đọc monme (もんめ), khoảng 3,75 g."
+        ],
         "en": [
           "Monme",
           "3.75 Grams",
@@ -11923,7 +12033,9 @@
         "khuông"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sửa sang cho đúng, cứu giúp, phò trợ."
+        ],
         "en": [
           "Correct",
           "Save",
@@ -12673,7 +12785,9 @@
         "mẹo"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ tư trong Thập nhị địa chi (mèo/thỏ)."
+        ],
         "en": [
           "Sign Of The Hare Or Rabbit",
           "Fourth Sign Of Chinese Zodiac",
@@ -12712,7 +12826,9 @@
       ],
       "meanings": {
         "vi": [
-          "ấn tượng"
+          "dấu; con dấu",
+          "dấu ấn; ký hiệu",
+          "Ấn Độ"
         ],
         "en": [
           "Stamp",
@@ -13097,6 +13213,8 @@
       ],
       "meanings": {
         "vi": [
+          "cánh đồng; đồng bằng",
+          "gốc; nguyên thủy",
           "nguyên nhân"
         ],
         "en": [
@@ -13190,7 +13308,9 @@
       ],
       "meanings": {
         "vi": [
-          "quá khứ"
+          "đi; rời khỏi",
+          "bỏ; loại bỏ",
+          "đã qua; quá khứ"
         ],
         "en": [
           "Gone",
@@ -13725,7 +13845,9 @@
         "duệ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sáng suốt, thông tuệ (thường chỉ trí tuệ nhà vua)."
+        ],
         "en": [
           "Intelligence",
           "Imperial"
@@ -13885,7 +14007,9 @@
         "kì"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chỉ là, chỉ có; đơn độc."
+        ],
         "en": [
           "Only",
           "Free",
@@ -14146,7 +14270,9 @@
         "sử"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lịch sử; sử sách; ghi chép sự kiện."
+        ],
         "en": [
           "History",
           "Chronicle"
@@ -14394,13 +14520,14 @@
       "character": "合",
       "level": "N3",
       "hanViet": [
-        "cáp",
         "hợp",
+        "cáp",
         "hiệp"
       ],
       "meanings": {
         "vi": [
-          "phù hợp"
+          "hợp; vừa khớp; phù hợp",
+          "gộp lại; kết hợp"
         ],
         "en": [
           "Fit",
@@ -15354,7 +15481,9 @@
       ],
       "meanings": {
         "vi": [
-          "Số mệnh"
+          "mạng sống; sinh mệnh",
+          "mệnh lệnh; chỉ thị",
+          "số mệnh; bổ nhiệm"
         ],
         "en": [
           "Fate",
@@ -15631,7 +15760,9 @@
         "tai"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hỡi ôi, thay (trợ từ cảm thán cuối câu)."
+        ],
         "en": [
           "How",
           "What",
@@ -16067,7 +16198,9 @@
         "trác"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim mổ thức ăn."
+        ],
         "en": [
           "Peck",
           "Pick Up"
@@ -16354,7 +16487,9 @@
         "hi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vui mừng; hạnh phúc; chuyện tốt lành."
+        ],
         "en": [
           "Rejoice",
           "Take Pleasure In"
@@ -16554,7 +16689,9 @@
         "kiêu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cao lớn, cao vút."
+        ],
         "en": [
           "High",
           "Boasting"
@@ -16750,7 +16887,9 @@
         "gia"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Khen ngợi, tốt đẹp, vui mừng."
+        ],
         "en": [
           "Applaud",
           "Praise",
@@ -16869,7 +17008,9 @@
       ],
       "meanings": {
         "vi": [
-          "vũ khí"
+          "dụng cụ; đồ dùng",
+          "vật chứa",
+          "khả năng; năng lực"
         ],
         "en": [
           "Utensil",
@@ -17251,9 +17392,13 @@
       "id": "kanji-囲",
       "character": "囲",
       "level": "N2",
-      "hanViet": [],
+      "hanViet": [
+        "vi"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vây quanh; bao bọc; phạm vi (chữ gốc là 圍)."
+        ],
         "en": [
           "Surround",
           "Besiege",
@@ -17656,7 +17801,9 @@
         "khuê"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngọc khuê (phiến ngọc nhọn đầu thời xưa)."
+        ],
         "en": [
           "Square Jewel",
           "Corner",
@@ -18382,7 +18529,9 @@
         "đường"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi nhà lớn; gian phòng rộng; nơi tôn nghiêm (như từ đường, phật đường)."
+        ],
         "en": [
           "Public Chamber",
           "Hall"
@@ -19593,7 +19742,9 @@
         "sĩ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Người học trò, trí thức, quan lại, chiến sĩ."
+        ],
         "en": [
           "Gentleman",
           "Scholar",
@@ -20479,7 +20630,9 @@
         "khuê"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sao Khuê (một ngôi sao trong Nhị thập bát tú)."
+        ],
         "en": [
           "Star",
           "God Of Literature"
@@ -21364,7 +21517,6 @@
       "character": "姉",
       "level": "N4",
       "hanViet": [
-        "chị",
         "tỷ"
       ],
       "meanings": {
@@ -22188,7 +22340,9 @@
         "hi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vui vẻ, chơi đùa, hớn hở."
+        ],
         "en": [
           "Glad",
           "Pleased",
@@ -22486,7 +22640,9 @@
         "mãng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lớn (anh cả); khởi đầu (tháng đầu mùa)."
+        ],
         "en": [
           "Chief",
           "Beginning"
@@ -22902,7 +23058,9 @@
         "hoành"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "To lớn, rộng rãi, bao la."
+        ],
         "en": [
           "Wide",
           "Large"
@@ -23398,7 +23556,9 @@
         "hựu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tha thứ, khoan dung, giảm nhẹ hình phạt."
+        ],
         "en": [
           "Soothe",
           "Calm",
@@ -23865,7 +24025,9 @@
         "dần"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ ba trong Thập nhị địa chi (hổ)."
+        ],
         "en": [
           "Sign Of The Tiger",
           "3-5am",
@@ -24613,6 +24775,8 @@
       ],
       "meanings": {
         "vi": [
+          "tướng; người chỉ huy",
+          "sắp; sẽ",
           "tương lai"
         ],
         "en": [
@@ -24954,9 +25118,13 @@
       "id": "kanji-尭",
       "character": "尭",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "nghiêu"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cao; tên vua Nghiêu thời Trung Cổ (chữ gốc là 堯)."
+        ],
         "en": [
           "High",
           "Far"
@@ -25285,7 +25453,9 @@
       ],
       "meanings": {
         "vi": [
-          "bưu cục"
+          "cục; cơ quan; văn phòng",
+          "tình hình; sự việc",
+          "ván; cuộc chơi"
         ],
         "en": [
           "Bureau",
@@ -26150,7 +26320,9 @@
         "tuấn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cao nghiêm, hiểm trở, nghiêm khắc."
+        ],
         "en": [
           "High",
           "Steep"
@@ -26309,7 +26481,9 @@
         "lăng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cao vút, hiểm trở (dáng núi)."
+        ],
         "en": [
           "Mountains Towering In A Row"
         ]
@@ -26419,7 +26593,9 @@
         "tung"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cao lớn, đỉnh núi cao; tôn sùng."
+        ],
         "en": [
           "Be Aggravated",
           "Grow Worse",
@@ -26459,7 +26635,9 @@
         "tha"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Gập ghềnh, nhấp nhô (dáng núi)."
+        ],
         "en": [
           "Steep",
           "Craggy",
@@ -26494,7 +26672,9 @@
         "lĩnh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đỉnh núi, dãy núi cao."
+        ],
         "en": [
           "Peak",
           "Summit"
@@ -26526,9 +26706,13 @@
       "id": "kanji-巌",
       "character": "巌",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "nham"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vách đá hiểm trở, đá lớn (chữ gốc là 巖)."
+        ],
         "en": [
           "Rock",
           "Crag",
@@ -26987,7 +27171,9 @@
         "tị"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ sáu trong Thập nhị địa chi (rắn)."
+        ],
         "en": [
           "Sign Of The Snake Or Serpent",
           "9-11am",
@@ -27023,7 +27209,9 @@
         "ba"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Mong ước; hình cái đuôi xoáy (hoa văn Tomoe)."
+        ],
         "en": [
           "Comma-design"
         ]
@@ -27110,7 +27298,9 @@
         "tốn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Quẻ Tốn trong Kinh Dịch (hướng Đông Nam, gió)."
+        ],
         "en": [
           "Southeast"
         ]
@@ -28181,7 +28371,8 @@
       ],
       "meanings": {
         "vi": [
-          "Tối tăm"
+          "kín đáo; vắng lặng",
+          "sâu xa; tối tăm"
         ],
         "en": [
           "Seclude",
@@ -28363,7 +28554,9 @@
         "trang"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trang trại, làng xóm, cửa hàng."
+        ],
         "en": [
           "Level",
           "In The Country",
@@ -28948,7 +29141,8 @@
       ],
       "meanings": {
         "vi": [
-          "liêm khiết"
+          "thanh liêm; trong sạch",
+          "rẻ; giá thấp"
         ],
         "en": [
           "Bargain",
@@ -29157,7 +29351,9 @@
       ],
       "meanings": {
         "vi": [
-          "biện luận"
+          "van; cánh hoa",
+          "biện giải; diễn đạt",
+          "phân biệt; xử lý"
         ],
         "en": [
           "Valve",
@@ -29502,7 +29698,9 @@
         "hoằng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rộng lớn, mở rộng, phát triển."
+        ],
         "en": [
           "Vast",
           "Broad",
@@ -29927,7 +30125,9 @@
         "tuệ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cái chổi; sao chổi (tuệ tinh)."
+        ],
         "en": [
           "Comet"
         ]
@@ -30052,7 +30252,9 @@
         "ngạn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Người đàn ông có tài đức."
+        ],
         "en": [
           "Lad",
           "Boy (ancient)"
@@ -30126,7 +30328,9 @@
         "bưu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vằn hổ, rực rỡ, to lớn."
+        ],
         "en": [
           "Spotted",
           "Mottled",
@@ -30203,7 +30407,9 @@
         "bân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Nho nhã, văn nhã, phú quý lịch sự."
+        ],
         "en": [
           "Refined",
           "Gentle"
@@ -30700,7 +30906,9 @@
       ],
       "meanings": {
         "vi": [
-          "sinh đồ"
+          "đi bộ",
+          "người; môn đồ; nhóm",
+          "vô ích; trống rỗng"
         ],
         "en": [
           "On Foot",
@@ -30798,7 +31006,9 @@
         "đắc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đạt được; nhận được; thích hợp."
+        ],
         "en": [
           "Gain",
           "Get",
@@ -31558,7 +31768,9 @@
       ],
       "meanings": {
         "vi": [
-          "kỉ niệm"
+          "ý nghĩ; ý niệm",
+          "ghi nhớ; nghĩ đến",
+          "mong muốn; chú ý"
         ],
         "en": [
           "Wish",
@@ -31693,7 +31905,9 @@
         "lân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thông minh, lanh lợi; thương xót."
+        ],
         "en": [
           "Wise"
         ]
@@ -32117,7 +32331,9 @@
         "thứ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lòng vị tha, khoan dung, tha thứ."
+        ],
         "en": [
           "Excuse",
           "Tolerate",
@@ -32280,7 +32496,8 @@
       ],
       "meanings": {
         "vi": [
-          "ân nhân"
+          "ơn; ân huệ",
+          "lòng tốt; sự tử tế"
         ],
         "en": [
           "Grace",
@@ -32440,7 +32657,9 @@
         "đễ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Kính trọng anh chị, nhường nhịn."
+        ],
         "en": [
           "Serving Our Elders"
         ]
@@ -32901,7 +33120,9 @@
         "đôn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hậu hĩnh, thật thà, đôn hậu."
+        ],
         "en": [
           "Sincere",
           "Kind",
@@ -33018,7 +33239,9 @@
         "duy"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Nghĩ ngợi; chỉ có, duy nhất."
+        ],
         "en": [
           "Consider",
           "Reflect",
@@ -33053,9 +33276,13 @@
       "id": "kanji-惣",
       "character": "惣",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "tổng"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tất cả, gộp lại (chữ cổ của chữ 総)."
+        ],
         "en": [
           "All"
         ]
@@ -33821,7 +34048,9 @@
         "huệ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trí tuệ, thông minh, lanh lợi."
+        ],
         "en": [
           "Wise"
         ]
@@ -34422,7 +34651,9 @@
       ],
       "meanings": {
         "vi": [
-          "hoài niệm"
+          "túi áo; lòng",
+          "nhớ; mong nhớ",
+          "tình cảm; tâm tư"
         ],
         "en": [
           "Pocket",
@@ -37476,7 +37707,9 @@
         "thiệp"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thắng trận, nhanh nhẹn, mau lẹ."
+        ],
         "en": [
           "Victory",
           "Fast"
@@ -37512,7 +37745,9 @@
         "nại"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ấn xuống, đè xuống; nét mác trong chữ Hán."
+        ],
         "en": [
           "Press",
           "Print",
@@ -39459,7 +39694,10 @@
       ],
       "meanings": {
         "vi": [
-          "sự cố, biến cố"
+          "nguyên do; nguyên nhân",
+          "cố tình",
+          "người đã khuất",
+          "vì thế; do đó"
         ],
         "en": [
           "Happenstance",
@@ -39766,7 +40004,9 @@
         "đối"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thành thật, đôn hậu, đôn đốc."
+        ],
         "en": [
           "Industry",
           "Kindliness"
@@ -40167,7 +40407,9 @@
         "phỉ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Có văn hóa, rực rỡ, có hoa văn đẹp."
+        ],
         "en": [
           "Beautiful",
           "Patterned"
@@ -40485,7 +40727,9 @@
       ],
       "meanings": {
         "vi": [
-          "đoạn tuyệt"
+          "cắt; ngắt",
+          "từ chối; khước từ",
+          "quyết định; cấm"
         ],
         "en": [
           "Severance",
@@ -40624,7 +40868,9 @@
         "ô"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ở tại, đối với, chốn."
+        ],
         "en": [
           "At",
           "In",
@@ -41169,7 +41415,9 @@
         "húc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ánh bình minh, mặt trời mới mọc."
+        ],
         "en": [
           "Rising Sun",
           "Morning Sun"
@@ -41247,7 +41495,9 @@
         "ngang"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cao lên, ngẩng lên, chí khí cao."
+        ],
         "en": [
           "Rise"
         ]
@@ -41360,7 +41610,9 @@
         "xương"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thịnh vượng, tươi tốt, sáng sủa."
+        ],
         "en": [
           "Prosperous",
           "Bright",
@@ -41827,7 +42079,9 @@
         "mão"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sao Mão (tên một chòm sao trong Nhị thập bát tú)."
+        ],
         "en": [
           "The Pleiades"
         ]
@@ -41947,7 +42201,9 @@
         "hoàng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sáng lòa, rực rỡ, chiếu sáng."
+        ],
         "en": [
           "Clear"
         ]
@@ -41981,7 +42237,9 @@
         "tấn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiến lên, thăng tiến; tên một triều đại Trung Quốc."
+        ],
         "en": [
           "Advance"
         ]
@@ -42015,7 +42273,9 @@
         "yến"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trời trong sáng; muộn, trễ; yên ổn."
+        ],
         "en": [
           "Late",
           "Quiet",
@@ -42052,7 +42312,9 @@
         "thạnh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sáng sủa, thịnh vượng, rực rỡ."
+        ],
         "en": [
           "Clear"
         ]
@@ -42087,7 +42349,9 @@
         "thần"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Buổi sớm mai, bình minh."
+        ],
         "en": [
           "Morning",
           "Early"
@@ -42327,7 +42591,9 @@
         "trí"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trí tuệ, thông minh, hiểu biết sâu rộng."
+        ],
         "en": [
           "Wisdom",
           "Intellect",
@@ -42442,7 +42708,9 @@
         "huy"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ánh sáng mặt trời, chiếu sáng rực rỡ."
+        ],
         "en": [
           "Shine",
           "Light"
@@ -42604,7 +42872,9 @@
         "sướng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thông suốt, thoải mái, vui vẻ, trôi chảy."
+        ],
         "en": [
           "Stretch"
         ]
@@ -42763,7 +43033,8 @@
       ],
       "meanings": {
         "vi": [
-          "Bạo lộ"
+          "bạo lực; hung bạo",
+          "bùng phát; cơn dữ"
         ],
         "en": [
           "Outburst",
@@ -42890,7 +43161,9 @@
         "thự"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ánh bình minh, lúc tảng sáng."
+        ],
         "en": [
           "Dawn",
           "Daybreak"
@@ -42963,7 +43236,9 @@
       ],
       "meanings": {
         "vi": [
-          "khúc nhạc"
+          "uốn; cong",
+          "khúc; bản nhạc",
+          "sai trái; quanh co"
         ],
         "en": [
           "Bend",
@@ -43017,7 +43292,9 @@
       ],
       "meanings": {
         "vi": [
-          "Canh tân"
+          "đổi mới; thay đổi",
+          "thêm nữa; càng",
+          "canh khuya"
         ],
         "en": [
           "Grow Late",
@@ -43373,7 +43650,9 @@
         "bằng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bạn bè, bằng hữu, người cùng chí hướng."
+        ],
         "en": [
           "Companion",
           "Friend"
@@ -43449,7 +43728,9 @@
         "sóc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngày mồng một âm lịch; phương Bắc."
+        ],
         "en": [
           "Conjunction (astronomy)",
           "First Day Of Month",
@@ -44133,7 +44414,9 @@
         "lí"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây mận, quả mận; họ Lý."
+        ],
         "en": [
           "Plum"
         ]
@@ -44167,7 +44450,9 @@
         "hạnh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây mơ, quả mơ (hạnh nhân)."
+        ],
         "en": [
           "Apricot"
         ]
@@ -44287,7 +44572,9 @@
         "đỗ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngăn chặn; cây đỗ; họ Đỗ."
+        ],
         "en": [
           "Woods",
           "Grove"
@@ -45056,7 +45343,9 @@
       ],
       "meanings": {
         "vi": [
-          "Chuôi cán"
+          "kiểu dáng; hoa văn",
+          "tính cách; bản chất",
+          "cán; tay cầm"
         ],
         "en": [
           "Design",
@@ -45102,7 +45391,9 @@
         "dông"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây bồng bồng / cây đông thanh (loại cây xanh vào mùa đông)."
+        ],
         "en": [
           "Holly"
         ]
@@ -45272,7 +45563,9 @@
         "trục"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây bưởi chùm, quả quýt Nhật (Yuzu)."
+        ],
         "en": [
           "Citron"
         ]
@@ -45467,9 +45760,13 @@
       "id": "kanji-柾",
       "character": "柾",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "chính"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây gỗ thẳng (chữ do người Nhật tự tạo)."
+        ],
         "en": [
           "Straight Grain",
           "Spindle Tree",
@@ -45668,7 +45965,9 @@
         "lật"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây hạt dẻ, quả hạt dẻ."
+        ],
         "en": [
           "Chestnut"
         ]
@@ -45704,7 +46003,9 @@
         "san"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thẻ đánh dấu trang sách (bookmark); dấu chỉ đường."
+        ],
         "en": [
           "Bookmark",
           "Guidebook"
@@ -45905,7 +46206,8 @@
       ],
       "meanings": {
         "vi": [
-          "Tính cách"
+          "khuôn phép; tiêu chuẩn; cấp bậc",
+          "phẩm cách; tư cách; tính cách"
         ],
         "en": [
           "Status",
@@ -46029,7 +46331,9 @@
         "quế"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây quế, hoa quế."
+        ],
         "en": [
           "Japanese Judas-tree",
           "Cinnamon Tree"
@@ -46101,7 +46405,9 @@
       ],
       "meanings": {
         "vi": [
-          "đề án"
+          "kế hoạch; phương án",
+          "đề xuất; bản thảo",
+          "bàn"
         ],
         "en": [
           "Plan",
@@ -46146,7 +46452,9 @@
         "đồng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây ngô đồng."
+        ],
         "en": [
           "Paulownia"
         ]
@@ -46332,7 +46640,9 @@
         "tử"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây tử (gỗ dùng để in sách); quê hương (tử lý)."
+        ],
         "en": [
           "Catalpa Tree",
           "Woodblock Printing"
@@ -46411,7 +46721,9 @@
         "tiêu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngọn cây, ngọn tre."
+        ],
         "en": [
           "Treetops",
           "Twig"
@@ -46448,7 +46760,9 @@
         "ngộ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây ngô đồng (thường đi liền với chữ 桐)."
+        ],
         "en": [
           "Chinese Parasol Tree",
           "Phoenix Tree"
@@ -46874,9 +47188,13 @@
       "id": "kanji-椋",
       "character": "椋",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "lương"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây sếu (gỗ cứng); chim sáo đá Nhật Bản."
+        ],
         "en": [
           "Type Of Deciduous Tree",
           "Grey Starling"
@@ -47030,7 +47348,9 @@
         "da"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây dừa, quả dừa."
+        ],
         "en": [
           "Coconut Tree"
         ]
@@ -47065,7 +47385,9 @@
         "thung"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây hoa trà (đối với Nhật); cây thọ (đối với Trung Quốc)."
+        ],
         "en": [
           "Camellia"
         ]
@@ -47100,7 +47422,9 @@
         "dương"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây dương liễu, cây liễu."
+        ],
         "en": [
           "Willow"
         ]
@@ -47134,7 +47458,9 @@
         "phong"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây phong (lá đỏ vào mùa thu)."
+        ],
         "en": [
           "Maple"
         ]
@@ -47168,7 +47494,9 @@
         "nam"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây gỗ nam (loại gỗ quý)."
+        ],
         "en": [
           "Camphor Tree"
         ]
@@ -47252,7 +47580,9 @@
       ],
       "meanings": {
         "vi": [
-          "cực đoan"
+          "cực độ; tột cùng",
+          "cực; đỉnh",
+          "rất; vô cùng"
         ],
         "en": [
           "Poles",
@@ -47470,7 +47800,9 @@
         "trăn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây phỉ (hazelnut), bụi cây rậm rạp."
+        ],
         "en": [
           "Hazelnut",
           "Filbert"
@@ -47593,9 +47925,13 @@
       "id": "kanji-槙",
       "character": "槙",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "điên"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây thông gai Nhật Bản (chữ cổ là 槇)."
+        ],
         "en": [
           "Twig",
           "Ornamental Evergreen"
@@ -47628,9 +47964,13 @@
       "id": "kanji-槻",
       "character": "槻",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "quy"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây đuôi ngựa, cây zelkova Nhật Bản."
+        ],
         "en": [
           "Zelkova Tree"
         ]
@@ -47704,7 +48044,9 @@
       ],
       "meanings": {
         "vi": [
-          "tiêu chuẩn"
+          "mốc; dấu hiệu",
+          "biểu tượng; dấu ấn",
+          "biển chỉ dẫn; mục tiêu"
         ],
         "en": [
           "Signpost",
@@ -47919,7 +48261,9 @@
         "hoa"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây bạch dương."
+        ],
         "en": [
           "Birch",
           "Dark Red"
@@ -47996,7 +48340,9 @@
         "quất"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây quất, cây quýt."
+        ],
         "en": [
           "Mandarin Orange"
         ]
@@ -48032,7 +48378,9 @@
       ],
       "meanings": {
         "vi": [
-          "cơ khí"
+          "máy; cơ cấu",
+          "cơ hội; dịp",
+          "tác dụng; năng lực"
         ],
         "en": [
           "Loom",
@@ -48079,7 +48427,9 @@
         "đàn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Gỗ đàn hương, gỗ quý."
+        ],
         "en": [
           "Cedar",
           "Sandlewood",
@@ -48246,7 +48596,9 @@
         "hân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vui vẻ, hớn hở, vui mừng (hân hoan)."
+        ],
         "en": [
           "Take Pleasure In",
           "Rejoice"
@@ -48408,7 +48760,9 @@
         "khâm"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Kính trọng, khâm phục, tôn kính (khâm sai)."
+        ],
         "en": [
           "Respect",
           "Revere",
@@ -48845,7 +49199,9 @@
         "lịch"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trải qua; từng trải; lịch sử (chữ gốc là 歷)."
+        ],
         "en": [
           "Curriculum",
           "Continuation",
@@ -49169,7 +49525,9 @@
         "tát"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Giết chóc; tiêu diệt; làm giảm bớt."
+        ],
         "en": [
           "Kill",
           "Murder",
@@ -49354,7 +49712,9 @@
         "nghị"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cương nghị, kiên cường, quả quyết."
+        ],
         "en": [
           "Strong"
         ]
@@ -49471,7 +49831,9 @@
         "đốc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chất độc; độc hại; ác hại."
+        ],
         "en": [
           "Poison",
           "Virus",
@@ -49603,7 +49965,9 @@
         "cầu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Quả bóng làm bằng da hoặc lông, vật hình cầu."
+        ],
         "en": [
           "Burr",
           "Ball"
@@ -50029,7 +50393,9 @@
         "tịch"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thủy triều rút vào buổi tối; nước triều lên xuống."
+        ],
         "en": [
           "Eventide",
           "Tide",
@@ -51261,7 +51627,9 @@
       ],
       "meanings": {
         "vi": [
-          "chú ý"
+          "rót; đổ vào",
+          "chú ý; tập trung",
+          "chú giải; ghi chú"
         ],
         "en": [
           "Pour",
@@ -51311,7 +51679,9 @@
       ],
       "meanings": {
         "vi": [
-          "To lớn"
+          "yên bình; bình thản",
+          "thái bình; an hòa",
+          "to lớn"
         ],
         "en": [
           "Peaceful",
@@ -51590,7 +51960,9 @@
         "châu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vùng đất nổi trên nước, bãi sông, châu lục."
+        ],
         "en": [
           "Continent",
           "Sandbar",
@@ -51628,7 +52000,9 @@
         "tuân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chân thật, đúng là, quả thực."
+        ],
         "en": [
           "Alike",
           "Truth"
@@ -51666,7 +52040,9 @@
         "hoảng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Nước chảy mạnh; dũng cảm, oai võ."
+        ],
         "en": [
           "Sparkling Water"
         ]
@@ -51998,7 +52374,9 @@
         "hạo"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rộng lớn, bao la, nhiều (hạo nhiên)."
+        ],
         "en": [
           "Wide Expanse",
           "Abundance",
@@ -52627,7 +53005,9 @@
         "thuần"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thuần khiết, chất phác, mộc mạc."
+        ],
         "en": [
           "Pure"
         ]
@@ -53018,7 +53398,9 @@
         "chử"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bãi sông, bờ bãi nhỏ ven sông hồ."
+        ],
         "en": [
           "Strand",
           "Beach",
@@ -53149,7 +53531,9 @@
         "ác"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thấm đẫm, nồng hậu, ban ơn dày."
+        ],
         "en": [
           "Kindness",
           "Moisten"
@@ -53863,7 +54247,9 @@
         "hoảng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vùng nước sâu và rộng; sáng sủa."
+        ],
         "en": [
           "Deep And Broad"
         ]
@@ -54463,7 +54849,9 @@
         "thấu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Súc miệng, rửa sạch."
+        ],
         "en": [
           "Gargle",
           "Rinse Mouth"
@@ -54835,9 +55223,13 @@
       "id": "kanji-澪",
       "character": "澪",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "linh"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lạch nước, đường luồng cho thuyền bè đi (chữ Nhật)."
+        ],
         "en": [
           "Water Route",
           "Shipping Channel"
@@ -55506,7 +55898,8 @@
       ],
       "meanings": {
         "vi": [
-          "hành vi"
+          "làm; thực hiện; tạo ra",
+          "vì; có ích; có lợi"
         ],
         "en": [
           "Do",
@@ -56040,7 +56433,9 @@
         "hi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sáng sủa, hòa bình, thịnh vượng."
+        ],
         "en": [
           "Bright",
           "Sunny",
@@ -56212,7 +56607,9 @@
         "liệu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đốt cháy, lửa thiêu rụi ruộng đồng."
+        ],
         "en": [
           "Burn",
           "Bonfire"
@@ -56288,7 +56685,9 @@
         "xán"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rực rỡ, chói lọi, sáng sủa (xán lạn)."
+        ],
         "en": [
           "Brilliant"
         ]
@@ -56325,7 +56724,9 @@
         "diệu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chiếu sáng, vinh quang, rực rỡ."
+        ],
         "en": [
           "Shine"
         ]
@@ -56565,7 +56966,9 @@
         "nhĩ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Mày, ngươi (đại từ nhân xưng); như thế vậy."
+        ],
         "en": [
           "You",
           "Thou",
@@ -57336,9 +57739,13 @@
       "id": "kanji-猟",
       "character": "猟",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "liệp"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Săn bắn, tìm kiếm (chữ gốc là 獵)."
+        ],
         "en": [
           "Game-hunting",
           "Shooting",
@@ -57376,7 +57783,9 @@
         "trư"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Con lợn, con heo rừng."
+        ],
         "en": [
           "Boar"
         ]
@@ -57640,7 +58049,8 @@
       ],
       "meanings": {
         "vi": [
-          "săn bắt"
+          "bắt được; đoạt được",
+          "thu được; kiếm được"
         ],
         "en": [
           "Seize",
@@ -57857,7 +58267,9 @@
         "cửu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đá quý màu đen; số 9 (viết dạng trang trọng)."
+        ],
         "en": [
           "Beautiful Black Jewel",
           "Nine"
@@ -57933,7 +58345,9 @@
         "linh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiếng ngọc va chạm leng keng; trong trẻo, lanh lợi."
+        ],
         "en": [
           "Sound Of Jewels"
         ]
@@ -58215,7 +58629,9 @@
         "lưu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngọc lưu ly (khoáng vật quý màu xanh)."
+        ],
         "en": [
           "Precious Stone",
           "Gem",
@@ -58250,7 +58666,9 @@
         "trác"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Mài ngọc, gọt giũa, rèn luyện (trau trốt)."
+        ],
         "en": [
           "Polish"
         ]
@@ -58284,7 +58702,9 @@
         "lâm"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thứ ngọc đẹp, tiếng ngọc va vào nhau."
+        ],
         "en": [
           "Jewel",
           "Tinkling Of Jewelry"
@@ -58356,7 +58776,9 @@
         "hồ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "San hô; cái bình đựng ngọc trong miếu đường cổ."
+        ],
         "en": [
           "Ancestral Offering Receptacle",
           "Coral"
@@ -58390,7 +58812,9 @@
         "anh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ánh sáng của ngọc quý, ngọc thạch đẹp."
+        ],
         "en": [
           "Sparkle Of Jewelry",
           "Crystal"
@@ -58423,7 +58847,9 @@
         "thụy"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Điềm lành, điềm tốt, may mắn."
+        ],
         "en": [
           "Congratulations"
         ]
@@ -58490,9 +58916,13 @@
       "id": "kanji-瑳",
       "character": "瑳",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "sa"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngọc trắng bóng mượt; răng trắng đẹp cười tươi."
+        ],
         "en": [
           "Polish",
           "Brilliant White Luster Of A Gem",
@@ -58528,7 +58958,9 @@
         "dao"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngọc dao, loại ngọc quý đẹp (chữ gốc là 瑤)."
+        ],
         "en": [
           "Beautiful As A Jewel"
         ]
@@ -59004,7 +59436,9 @@
         "phủ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vừa mới bắt đầu; tên gọi tôn kính của nam giới thời xưa."
+        ],
         "en": [
           "For The First Time",
           "Not Until"
@@ -60852,7 +61286,9 @@
         "cao"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bờ sông, đầm lầy; tháng năm âm lịch."
+        ],
         "en": [
           "Swamp",
           "Shore"
@@ -60888,7 +61324,9 @@
         "cảo"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trắng phao, sáng sủa, sạch sẽ."
+        ],
         "en": [
           "White",
           "Clear"
@@ -61205,7 +61643,9 @@
         "giám"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Giam giữ / Xem xét, đốc thúc, quản lý."
+        ],
         "en": [
           "Oversee",
           "Official",
@@ -61423,7 +61863,9 @@
       ],
       "meanings": {
         "vi": [
-          "tương tự"
+          "lẫn nhau; cùng",
+          "tướng mạo; diện mạo",
+          "tướng; chức vụ"
         ],
         "en": [
           "Inter-",
@@ -61756,7 +62198,9 @@
         "mâu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Con ngươi mắt, ánh mắt."
+        ],
         "en": [
           "Pupil Of The Eye"
         ]
@@ -62788,7 +63232,9 @@
         "bích"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Màu xanh ngọc lục bảo, xanh bích."
+        ],
         "en": [
           "Blue",
           "Green"
@@ -62822,7 +63268,9 @@
         "thạc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rộng lớn, học vấn uyên thâm (thạc sĩ)."
+        ],
         "en": [
           "Large",
           "Great",
@@ -62988,7 +63436,9 @@
         "ki"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đá ngầm ven bờ biển, bãi đá nhô ra nước."
+        ],
         "en": [
           "Seashore",
           "Beach"
@@ -63305,7 +63755,9 @@
         "hựu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Được trời phật phù hộ, giúp đỡ."
+        ],
         "en": [
           "Help"
         ]
@@ -63637,7 +64089,9 @@
         "lộc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bổng lộc, quan lộc, tài lộc của vua ban."
+        ],
         "en": [
           "Fief",
           "Allowance",
@@ -63755,7 +64209,9 @@
         "trinh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Điềm lành do trời ban ban xuống."
+        ],
         "en": [
           "Happiness",
           "Blessed",
@@ -64109,7 +64565,9 @@
         "tần"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Nước Tần, triều đại nhà Tần của Tần Thủy Hoàng."
+        ],
         "en": [
           "Manchu Dynasty",
           "Name Given To Naturalized Foreigners"
@@ -64276,7 +64734,9 @@
         "hi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hiếm có, ít ỏi, thưa thớt."
+        ],
         "en": [
           "Rare",
           "Phenomenal",
@@ -64403,7 +64863,9 @@
         "nẫm"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lúa chín, mùa màng bội thu; quen thuộc."
+        ],
         "en": [
           "Harvest",
           "Ripen"
@@ -64482,7 +64944,9 @@
         "lăng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cạnh sắc của vật thể, góc cạnh, oai nghiêm."
+        ],
         "en": [
           "Angle",
           "Edge",
@@ -64885,9 +65349,13 @@
       "id": "kanji-穣",
       "character": "穣",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "nhương"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Trúng mùa lớn, lúa mì bội thu; số lượng cực lớn (10²⁸)."
+        ],
         "en": [
           "Good Crops",
           "Prosperity",
@@ -65524,7 +65992,9 @@
         "thuyên"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoàn thành công việc, xong xuôi, kết thúc."
+        ],
         "en": [
           "End",
           "Finish"
@@ -65777,7 +66247,9 @@
         "sanh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ống sanh (một loại nhạc cụ thổi bằng hơi cổ đại)."
+        ],
         "en": [
           "A Reed Instrument"
         ]
@@ -65927,9 +66399,13 @@
       "id": "kanji-笹",
       "character": "笹",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "thế"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây trúc nhỏ, lá tre nhỏ (chữ do người Nhật tự tạo)."
+        ],
         "en": [
           "Bamboo Grass",
           "(kokuji)"
@@ -66471,7 +66947,9 @@
       ],
       "meanings": {
         "vi": [
-          "tiết kiệm"
+          "đốt; khớp; nút",
+          "tiết; giai đoạn; dịp",
+          "điều; câu thơ; âm điệu"
         ],
         "en": [
           "Node",
@@ -67137,7 +67615,9 @@
       ],
       "meanings": {
         "vi": [
-          "tinh luyện"
+          "tinh túy; tinh chất",
+          "sức lực; tinh thần",
+          "tinh luyện; tinh khiết"
         ],
         "en": [
           "Refined",
@@ -67373,7 +67853,9 @@
         "kỉ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Kỷ luật, ghi chép thời gian, thế kỷ."
+        ],
         "en": [
           "Chronicle",
           "Account",
@@ -67625,7 +68107,9 @@
         "sa"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Lụa mỏng, vải voan mỏng thoáng mát."
+        ],
         "en": [
           "Gauze",
           "Gossamer"
@@ -67661,7 +68145,9 @@
         "hoành"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Dây mũ bọc đầu; rộng lớn, bao la."
+        ],
         "en": [
           "Large"
         ]
@@ -67966,7 +68452,9 @@
         "trừu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vải lụa thô dệt từ tơ tằm vụn."
+        ],
         "en": [
           "Pongee (a Knotted Silk Cloth)"
         ]
@@ -68247,7 +68735,9 @@
         "huyền"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Dây đàn (chữ biến thể của chữ 弦)."
+        ],
         "en": [
           "String",
           "Cord",
@@ -68385,7 +68875,9 @@
       ],
       "meanings": {
         "vi": [
-          "kết hôn"
+          "buộc; thắt; kết lại",
+          "kết hợp; tổ chức",
+          "giao ước; ký kết"
         ],
         "en": [
           "Tie",
@@ -68513,7 +69005,9 @@
         "huyến"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rực rỡ, lộng lẫy, có hoa văn đẹp."
+        ],
         "en": [
           "Brilliant Fabric Design"
         ]
@@ -68850,7 +69344,9 @@
         "tông"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tổng hợp lại, quản lý toàn bộ."
+        ],
         "en": [
           "Rule",
           "Synthesize"
@@ -69000,7 +69496,9 @@
         "quan"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Dây tơ, dây câu; đạo lý lớn."
+        ],
         "en": [
           "Thread",
           "Silk Cloth"
@@ -69037,7 +69535,9 @@
         "ỷ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đẹp đẽ, hoa lệ, lụa có hoa văn (ỷ lệ)."
+        ],
         "en": [
           "Figured Cloth",
           "Beautiful"
@@ -69115,7 +69615,9 @@
         "lăng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vải lụa dệt vân chéo, hoa văn dệt nổi."
+        ],
         "en": [
           "Design",
           "Figured Cloth",
@@ -69232,7 +69734,9 @@
         "phi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Màu đỏ thắm, đỏ rực."
+        ],
         "en": [
           "Scarlet",
           "Cardinal"
@@ -70160,7 +70664,9 @@
         "kiển"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Kén tằm."
+        ],
         "en": [
           "Cocoon"
         ]
@@ -70944,7 +71450,9 @@
         "tường"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bay lượn trên cao, tung cánh bay."
+        ],
         "en": [
           "Soar",
           "Fly"
@@ -70980,7 +71488,9 @@
         "thúy"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Màu xanh ngọc thúy, chim bói cá."
+        ],
         "en": [
           "Green",
           "Kingfisher"
@@ -71096,7 +71606,9 @@
         "diệu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chiếu sáng rực rỡ, làm rạng rỡ danh tiếng."
+        ],
         "en": [
           "Shine",
           "Sparkle",
@@ -71417,7 +71929,9 @@
         "gia"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiếng trợ từ nghi vấn cuối câu (trong chữ Da-tô/Gia-tô)."
+        ],
         "en": [
           "Question Mark"
         ]
@@ -71539,7 +72053,9 @@
         "thông"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thính tai, thông minh, nhạy bén (chữ gốc là 聰)."
+        ],
         "en": [
           "Wise",
           "Fast Learner"
@@ -71657,7 +72173,9 @@
         "triệu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bắt đầu, khơi mào, mở ra."
+        ],
         "en": [
           "Beginning"
         ]
@@ -72208,7 +72726,9 @@
         "vị"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Dạ dày; bao tử."
+        ],
         "en": [
           "Stomach",
           "Paunch",
@@ -72407,7 +72927,9 @@
         "hồ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tộc người phương Bắc/Tây thời cổ; râu cằm; vô cớ."
+        ],
         "en": [
           "Barbarian",
           "Foreign"
@@ -72444,7 +72966,9 @@
         "dận"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Con cháu đời sau, dòng dõi kế thừa."
+        ],
         "en": [
           "Descendent",
           "Issue",
@@ -72735,7 +73259,9 @@
         "mạch"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Mạch máu, mạch nước, sự liên kết liên tục."
+        ],
         "en": [
           "Vein",
           "Pulse",
@@ -72853,7 +73379,9 @@
         "tu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thịt khô; sửa sang, rèn luyện (đồng nghĩa với 修)."
+        ],
         "en": [
           "Dried Meat"
         ]
@@ -72973,7 +73501,9 @@
         "trướng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Sưng phù lên, căng phồng ra."
+        ],
         "en": [
           "Dilate",
           "Distend",
@@ -73225,7 +73755,9 @@
         "trường"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ruột trong hệ tiêu hóa."
+        ],
         "en": [
           "Intestines",
           "Guts",
@@ -73578,9 +74110,13 @@
       "id": "kanji-臓",
       "character": "臓",
       "level": "N2",
-      "hanViet": [],
+      "hanViet": [
+        "tạng"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cơ quan nội tạng bên trong cơ thể (như tim, gan, phèo, phổi; chữ gốc là 臟)."
+        ],
         "en": [
           "Entrails",
           "Viscera",
@@ -73748,7 +74284,9 @@
       ],
       "meanings": {
         "vi": [
-          "mùi hôi, xú uế"
+          "mùi; mùi hôi",
+          "hôi; có mùi",
+          "mùi thơm (nghĩa ít gặp)"
         ],
         "en": [
           "Stinking",
@@ -73837,7 +74375,9 @@
       ],
       "meanings": {
         "vi": [
-          "nhất trí"
+          "đến; đạt tới",
+          "gây ra; khiến",
+          "gửi; chuyển"
         ],
         "en": [
           "Doth",
@@ -74077,7 +74617,9 @@
         "thuấn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tên vua Thuấn thời cổ đại Trung Quốc; hoa râm bụt."
+        ],
         "en": [
           "Type Of Morning Glory",
           "Rose Of Sharon",
@@ -74198,7 +74740,9 @@
         "hàng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thuyền bè; máy bay; việc đi lại trên nước hoặc trên không (hàng hải, hàng không)."
+        ],
         "en": [
           "Navigate",
           "Sail",
@@ -74636,7 +75180,9 @@
         "phù"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa sen (phù dung, phù cừ)."
+        ],
         "en": [
           "Lotus",
           "Mt Fuji"
@@ -74871,7 +75417,9 @@
         "cần"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Rau cần tây."
+        ],
         "en": [
           "Parsley"
         ]
@@ -74946,7 +75494,9 @@
         "uẩn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vườn thượng uyển, vườn cây nuôi thú của vua."
+        ],
         "en": [
           "Garden",
           "Farm",
@@ -75258,7 +75808,9 @@
         "cà"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Quả cà tím."
+        ],
         "en": [
           "Eggplant"
         ]
@@ -75290,7 +75842,9 @@
         "mao"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cỏ tranh (dùng để lợp nhà)."
+        ],
         "en": [
           "Miscanthus Reed"
         ]
@@ -75326,7 +75880,9 @@
         "mạt"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa nhài (mạt ly)."
+        ],
         "en": [
           "Jasmine"
         ]
@@ -75399,7 +75955,9 @@
         "tê"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cỏ thiến thảo (dùng nhuộm màu đỏ thắm); màu đỏ sẫm."
+        ],
         "en": [
           "Madder",
           "Red Dye",
@@ -75657,6 +76215,8 @@
       ],
       "meanings": {
         "vi": [
+          "gánh; mang",
+          "tải; hàng hóa",
           "hành lý"
         ],
         "en": [
@@ -75702,7 +76262,9 @@
         "lị"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa nhài (mạt lị)."
+        ],
         "en": [
           "Jasmine"
         ]
@@ -75738,7 +76300,9 @@
         "hoản"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây cỏ lác dệt chiếu; mỉm cười (hoàn nhĩ)."
+        ],
         "en": [
           "Smiling",
           "Reed Used To Cover Tatami"
@@ -75882,7 +76446,9 @@
         "xương"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây xương bồ (loại cây trừ tà mọc ven nước)."
+        ],
         "en": [
           "Iris"
         ]
@@ -75955,7 +76521,9 @@
         "cận"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa violet (hoa tím Tam sắc)."
+        ],
         "en": [
           "The Violet"
         ]
@@ -75991,7 +76559,9 @@
       ],
       "meanings": {
         "vi": [
-          "hoa mĩ"
+          "hoa; rực rỡ",
+          "hoa lệ; lộng lẫy",
+          "phô trương"
         ],
         "en": [
           "Splendor",
@@ -76035,7 +76605,9 @@
         "manh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Nảy mầm, đâm chồi; khởi phát."
+        ],
         "en": [
           "Show Symptoms Of",
           "Sprout",
@@ -76121,7 +76693,9 @@
         "thu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây bụi hoa bụi mùa thu Nhật Bản (Lespedeza)."
+        ],
         "en": [
           "Bush Clover"
         ]
@@ -76252,7 +76826,9 @@
       ],
       "meanings": {
         "vi": [
-          "trứ danh"
+          "viết; xuất bản",
+          "nổi tiếng; nổi bật",
+          "mặc vào"
         ],
         "en": [
           "Renowned",
@@ -76383,7 +76959,9 @@
         "quỳ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa hướng dương, hoa dâm bụt tây."
+        ],
         "en": [
           "Hollyhock"
         ]
@@ -76418,7 +76996,9 @@
         "thi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Gieo hạt, trồng cây; kỹ thuật sơn mài dát vàng (Maki-e)."
+        ],
         "en": [
           "Sow (seeds)"
         ]
@@ -76502,7 +77082,9 @@
         "thưởng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Màu xanh lam sẫm, xanh xám của bầu trời/nước biển."
+        ],
         "en": [
           "Blue",
           "Pale"
@@ -76576,7 +77158,9 @@
         "dung"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa sen, hoa phù dung."
+        ],
         "en": [
           "Lotus"
         ]
@@ -76655,7 +77239,9 @@
         "liên"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa sen, hạt sen."
+        ],
         "en": [
           "Lotus"
         ]
@@ -76734,7 +77320,9 @@
         "điểu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây dây leo, cây thường xuân Nhật Bản."
+        ],
         "en": [
           "Vine",
           "Ivy"
@@ -76862,7 +77450,9 @@
         "tiêu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây chuối (ba tiêu)."
+        ],
         "en": [
           "Banana",
           "Plantain"
@@ -76891,9 +77481,13 @@
       "id": "kanji-蕗",
       "character": "蕗",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "lộ"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cây kiệu Nhật, cây bắt ruồi."
+        ],
         "en": [
           "Butterbur",
           "Bog Rhubarb"
@@ -77287,7 +77881,9 @@
         "lan"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hoa lan, hoa phong lan."
+        ],
         "en": [
           "Orchid",
           "Holland"
@@ -77874,7 +78470,9 @@
         "điệp"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Con bướm."
+        ],
         "en": [
           "Butterfly"
         ]
@@ -78206,7 +78804,9 @@
       ],
       "meanings": {
         "vi": [
-          "Xung đột"
+          "va chạm; đâm",
+          "xông tới; thúc",
+          "xung đột"
         ],
         "en": [
           "Collide",
@@ -78457,7 +79057,9 @@
         "câm"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cổ áo."
+        ],
         "en": [
           "Neck",
           "Collar",
@@ -78494,7 +79096,9 @@
         "ca"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Áo cà sa của nhà sư."
+        ],
         "en": [
           "A Coarse Camlet"
         ]
@@ -78613,7 +79217,9 @@
       ],
       "meanings": {
         "vi": [
-          "bị hại"
+          "phủ; che",
+          "chịu; bị (cấu trúc bị động)",
+          "mặc; đội"
         ],
         "en": [
           "Incur",
@@ -78921,7 +79527,9 @@
         "sa"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vải sa (may áo cà sa cho nhà sư)."
+        ],
         "en": [
           "Buddhist Surplice"
         ]
@@ -80368,7 +80976,9 @@
         "hổ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cho phép; chấp nhận; hứa hẹn."
+        ],
         "en": [
           "Permit",
           "Approve"
@@ -80755,7 +81365,9 @@
         "tuân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Hỏi han, bàn bạc kỹ lưỡng, tư vấn."
+        ],
         "en": [
           "Consult With"
         ]
@@ -81054,7 +81666,9 @@
         "cai"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Bao gồm; tương ứng, chính cái đó (nêu trên)."
+        ],
         "en": [
           "Above-stated",
           "The Said",
@@ -81718,7 +82332,9 @@
         "nghị"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tình cảm bạn bè, chính nghĩa, mối quan hệ tốt."
+        ],
         "en": [
           "Friendship",
           "Intimacy"
@@ -81756,7 +82372,9 @@
       ],
       "meanings": {
         "vi": [
-          "điều hành"
+          "điều chỉnh; chuẩn bị",
+          "giai điệu; âm điệu",
+          "điều tra; hòa hợp"
         ],
         "en": [
           "Tune",
@@ -81808,7 +82426,9 @@
         "chuân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ân cần, khuyên bảo hết lòng, nhắc đi nhắc lại."
+        ],
         "en": [
           "Tedious"
         ]
@@ -81926,7 +82546,9 @@
         "lượng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thấu hiểu, cảm thông, thành thật."
+        ],
         "en": [
           "Fact",
           "Reality",
@@ -83215,7 +83837,9 @@
       ],
       "meanings": {
         "vi": [
-          "thua"
+          "chịu; gánh",
+          "mang nợ",
+          "thua; âm (toán học)"
         ],
         "en": [
           "Defeat",
@@ -83595,7 +84219,9 @@
         "trữ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tích trữ; để dành; cất giữ (như lưu trữ, tích trữ)."
+        ],
         "en": [
           "Savings",
           "Store",
@@ -84702,7 +85328,9 @@
         "củ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Dũng mãnh, oai hùng, mạnh mẽ."
+        ],
         "en": [
           "Strong And Brave"
         ]
@@ -85843,7 +86471,9 @@
       ],
       "meanings": {
         "vi": [
-          "vận tải"
+          "chở; đặt lên",
+          "đăng; ghi lại",
+          "chứa; truyền tải"
         ],
         "en": [
           "Ride",
@@ -85886,7 +86516,9 @@
         "phụ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Xe giúp đỡ nhau; trợ giúp, phò tá."
+        ],
         "en": [
           "Help"
         ]
@@ -86260,7 +86892,9 @@
         "thìn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ năm trong Thập nhị địa chi (rồng); các vì sao."
+        ],
         "en": [
           "Sign Of The Dragon",
           "7-9am",
@@ -86633,7 +87267,9 @@
         "địch"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiến lên, dẫn dắt, noi theo đạo lý."
+        ],
         "en": [
           "Edify",
           "Way",
@@ -87578,7 +88214,9 @@
       ],
       "meanings": {
         "vi": [
-          "ẩn dật"
+          "thoát; lẩn tránh",
+          "lệch; đi chệch",
+          "nhàn rỗi"
         ],
         "en": [
           "Deviate",
@@ -88241,7 +88879,9 @@
         "dao"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Xa xôi, thăm thẳm."
+        ],
         "en": [
           "Far Off",
           "Distant",
@@ -88564,7 +89204,9 @@
         "liêu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Xa tít tắp, rộng lớn bao la."
+        ],
         "en": [
           "Distant"
         ]
@@ -88677,7 +89319,9 @@
         "ấp"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Vùng đất, làng xóm, kinh đô nhỏ thời xưa."
+        ],
         "en": [
           "Village",
           "Rural Community",
@@ -88753,7 +89397,9 @@
         "bang"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đất nước, quốc gia, liên bang."
+        ],
         "en": [
           "Home Country",
           "Country",
@@ -88868,7 +89514,9 @@
         "úc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thơm tho, nồng nàn; rực rỡ, văn minh."
+        ],
         "en": [
           "Cultural Progress",
           "Perfume"
@@ -89016,7 +89664,9 @@
       ],
       "meanings": {
         "vi": [
-          "bộ trưởng"
+          "bộ phận; phần",
+          "ban; cục; cơ quan",
+          "bản (báo/sách)"
         ],
         "en": [
           "Section",
@@ -89225,7 +89875,9 @@
         "dậu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngôi thứ mười trong Thập nhị địa chi (gà)."
+        ],
         "en": [
           "West",
           "Bird",
@@ -90617,7 +91269,9 @@
         "tiển"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thép đúc, gang; kim loại sáng bóng."
+        ],
         "en": [
           "Pig Iron"
         ]
@@ -90846,7 +91500,9 @@
         "chùy"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Quả cân, cái chùy, quả dọi nặng."
+        ],
         "en": [
           "Weight",
           "Plumb Bob",
@@ -92130,7 +92786,9 @@
         "á"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiếng đệm trước tên; hùa theo, nịnh hót; bờ dốc."
+        ],
         "en": [
           "Africa",
           "Flatter",
@@ -92995,7 +93653,8 @@
       ],
       "meanings": {
         "vi": [
-          "tùy tùng"
+          "đi theo; tuân theo",
+          "tùy theo; theo"
         ],
         "en": [
           "Follow",
@@ -93130,7 +93789,9 @@
       ],
       "meanings": {
         "vi": [
-          "quốc tế"
+          "bờ; rìa; bên",
+          "dịp; thời điểm",
+          "khi; vào lúc"
         ],
         "en": [
           "Occasion",
@@ -93380,7 +94041,9 @@
         "chuẩn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim ưng, chim cắt (loại chim săn mồi bay rất nhanh)."
+        ],
         "en": [
           "Falcon"
         ]
@@ -93666,7 +94329,9 @@
         "sồ"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim non, gà con; búp bê nhỏ Hina của Nhật."
+        ],
         "en": [
           "Chick",
           "Squab",
@@ -94233,7 +94898,9 @@
         "hà"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ráng chiều, sương mù, mây hồng."
+        ],
         "en": [
           "Be Hazy",
           "Grow Dim",
@@ -94393,7 +95060,9 @@
         "tĩnh"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Yên ổn, dẹp yên bình định đất nước."
+        ],
         "en": [
           "Peaceful"
         ]
@@ -94649,7 +95318,9 @@
         "cúc"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Quả bóng da cổ; nuôi nấng; cung kính cúi mình."
+        ],
         "en": [
           "Ball"
         ]
@@ -95062,7 +95733,9 @@
         "tụng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ca ngợi, khen tụng công đức (ca tụng)."
+        ],
         "en": [
           "Eulogy"
         ]
@@ -95861,7 +96534,9 @@
         "táp"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Tiếng gió thổi vù vù; nhanh nhẹn, oai phong."
+        ],
         "en": [
           "Sudden",
           "Quick",
@@ -96526,7 +97201,9 @@
         "hấn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Mùi thơm bay xa, hương thơm của đức hạnh."
+        ],
         "en": [
           "Fragrant",
           "Balmy",
@@ -96802,7 +97479,9 @@
         "tuấn"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Ngựa hay, ngựa chạy nhanh, tài ba xuất chúng."
+        ],
         "en": [
           "A Good Horse",
           "Speed",
@@ -97331,7 +98010,9 @@
         "khôi"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đứng đầu, thủ lĩnh, to lớn kỳ vĩ."
+        ],
         "en": [
           "Charging Ahead Of Others"
         ]
@@ -97517,7 +98198,9 @@
         "niêm"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cá da trơn, cá ngọt (Ayu) của Nhật Bản."
+        ],
         "en": [
           "Freshwater Trout",
           "Smelt"
@@ -97595,7 +98278,9 @@
         "lí"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cá chép."
+        ],
         "en": [
           "Carp"
         ]
@@ -97629,7 +98314,9 @@
         "điêu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Cá tráp (loại cá biển quý ở Nhật)."
+        ],
         "en": [
           "Sea Bream",
           "Red Snapper"
@@ -97740,7 +98427,9 @@
         "cưu"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim bồ câu."
+        ],
         "en": [
           "Pigeon",
           "Dove"
@@ -97778,7 +98467,9 @@
         "phượng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim phượng hoàng đực."
+        ],
         "en": [
           "Male Mythical Bird"
         ]
@@ -97860,7 +98551,9 @@
         "hồng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim hồng (loại ngỗng trời lớn); to lớn, sâu rộng."
+        ],
         "en": [
           "Large Bird",
           "Wild Goose",
@@ -97902,7 +98595,9 @@
         "bằng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim bành (loại chim khổng lồ trong truyền thuyết)."
+        ],
         "en": [
           "Phoenix"
         ]
@@ -98010,7 +98705,9 @@
         "ưng"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Chim ưng, chim diều hâu."
+        ],
         "en": [
           "Hawk"
         ]
@@ -98161,7 +98858,9 @@
         "lân"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Con kỳ lân (linh vật huyền thoại)."
+        ],
         "en": [
           "Chinese Unicorn",
           "Genius",
@@ -98312,9 +99011,14 @@
       "id": "kanji-麿",
       "character": "麿",
       "level": "N1",
-      "hanViet": [],
+      "hanViet": [
+        "mi",
+        "my"
+      ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đại từ cổ “tôi” trong tiếng Nhật, đọc maro (まろ); cũng xuất hiện như hậu tố trong tên riêng cổ."
+        ],
         "en": [
           "I",
           "You",
@@ -98389,7 +99093,9 @@
         "lê"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Đen sẫm; đông đúc (lê dân); buổi đầu (lê minh)."
+        ],
         "en": [
           "Dark",
           "Black",
@@ -98508,7 +99214,9 @@
         "đại"
       ],
       "meanings": {
-        "vi": [],
+        "vi": [
+          "Thuốc kẻ lông mày màu đen xanh của phụ nữ thời cổ."
+        ],
         "en": [
           "Blackened Eyebrows"
         ]

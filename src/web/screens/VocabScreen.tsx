@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { VocabPartOfSpeechTag } from "../../components/vocabpartofspeechtag.tsx";
 import { VocabVerbMetadata } from "../../components/vocabverbmetadata.tsx";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus } from "lucide-react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus, Lightbulb } from "lucide-react";
 import { speakJapanese } from "../lib/speak.ts";
 import { getVocabFuriganaAnnotations } from "../lib/vocabFurigana.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
@@ -44,6 +44,7 @@ import {
   type ProgressBucket,
 } from "../../popup/progressState.ts";
 import { kanjiIdForChar } from "../../popup/kanjiVocabLinks.ts";
+import { findKanjiById } from "../../popup/kanjiState.ts";
 import { findMatchingReadingPassages, findMatchingQuizBookQuestions } from "../../popup/vocabLinks.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { Card, CardContent } from "../components/ui/card.tsx";
@@ -152,6 +153,25 @@ function WordWithKanjiLinks({ word, onOpenKanji }: { word: string; onOpenKanji: 
       })}
     </>
   );
+}
+
+function renderVocabMnemonic(hint: string, word: string) {
+  if (!word || !hint.includes(word)) return hint;
+  const parts = hint.split(word);
+  return parts.flatMap((part, index) => index < parts.length - 1
+    ? [part, <strong key={`mnemonic-word-${index}`} className="font-extrabold text-amber-950 dark:text-amber-50">{word}</strong>]
+    : [part]);
+}
+
+function getVocabKanjiBreakdown(word: string) {
+  const seen = new Set<string>();
+  return [...word].flatMap((character) => {
+    if (seen.has(character)) return [];
+    seen.add(character);
+    const id = kanjiIdForChar(character);
+    const kanji = id ? findKanjiById(id) : undefined;
+    return kanji ? [{ id: kanji.id, character, hanViet: kanji.hanViet, meanings: kanji.meanings.vi.slice(0, 2) }] : [];
+  });
 }
 
 async function getFilteredList(state: VocabViewerState): Promise<VocabCard[]> {
@@ -393,7 +413,12 @@ export function VocabScreen({
   const v = list[state.index];
   const vocabExamples = v ? getVocabExamples(v) : [];
   const showExampleFurigana = !!v && furiganaCardId === v.id;
-  const vocabMnemonics = v ? getVocabMnemonic(v) : [];
+  // Roll out the memory-aid panel to the FPT-N3 collection first. Other
+  // vocabulary sources keep their existing detail layout until that rollout
+  // is reviewed.
+  const showVocabMemoryAid = !!v?.sources.includes("fpt-n3-tango");
+  const vocabMnemonics = showVocabMemoryAid && v ? getVocabMnemonic(v) : [];
+  const vocabKanjiBreakdown = showVocabMemoryAid && v ? getVocabKanjiBreakdown(v.word) : [];
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
@@ -723,10 +748,57 @@ export function VocabScreen({
             </section>
           ) : null}
 
-          {vocabMnemonics.length > 0 ? (
-            <div className="mt-3 rounded-xl border-l-4 border-amber-500 bg-amber-50 p-3 text-sm text-amber-900">
-              <span className="font-semibold">Mẹo nhớ:</span> {vocabMnemonics.join(" / ")}
-            </div>
+          {vocabMnemonics.length > 0 || vocabKanjiBreakdown.length > 0 ? (
+            <details className="vocab-memory-panel group mt-3 overflow-hidden rounded-xl border border-amber-200 bg-amber-50/80 text-sm dark:border-amber-900/70 dark:bg-amber-950/25">
+              <summary className="flex cursor-pointer list-none items-center gap-2.5 px-3 py-3 text-amber-950 marker:hidden dark:text-amber-100 [&::-webkit-details-marker]:hidden">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/60 dark:text-amber-200">
+                  <Lightbulb size={17} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-bold">Gợi ý ghi nhớ</span>
+                  <span className="block text-xs text-amber-800/75 dark:text-amber-200/75">
+                    {vocabKanjiBreakdown.length > 0 ? `${vocabKanjiBreakdown.length} chữ Kanji` : "Mẹo nhớ"}
+                    {vocabMnemonics.length > 0 && vocabKanjiBreakdown.length > 0 ? " · Mẹo nhớ" : ""}
+                  </span>
+                </span>
+                <ChevronDown size={17} className="shrink-0 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="border-t border-amber-200/80 px-3 pb-3 pt-3 dark:border-amber-900/70">
+                {vocabKanjiBreakdown.length > 0 ? (
+                  <div className={`grid grid-cols-2 gap-2 ${vocabKanjiBreakdown.length > 2 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
+                    {vocabKanjiBreakdown.map((piece) => (
+                      <button
+                        key={piece.id}
+                        type="button"
+                        onClick={() => onOpenKanji(piece.id)}
+                        className="vocab-memory-piece flex min-w-0 items-center gap-2 rounded-lg border border-amber-200/80 bg-white/80 px-2.5 py-2 text-left transition-colors hover:border-amber-400 hover:bg-white dark:border-amber-900/60 dark:bg-slate-900/45 dark:hover:border-amber-700 dark:hover:bg-slate-900"
+                        aria-label={`Xem Kanji ${piece.character}`}
+                      >
+                        <span className="vocab-memory-piece-character font-serif text-2xl font-bold leading-none text-sky-800 dark:text-sky-200">{piece.character}</span>
+                        <span className="min-w-0">
+                          <span className="vocab-memory-piece-hv block truncate text-[11px] font-bold uppercase tracking-wide text-amber-800 dark:text-amber-200">
+                            {piece.hanViet[0] ?? "Kanji"}
+                          </span>
+                          {piece.meanings.length > 0 ? (
+                            <span className="vocab-memory-piece-meaning mt-0.5 block line-clamp-2 text-[11px] leading-snug text-neutral-600 dark:text-slate-300">{piece.meanings.join(" · ")}</span>
+                          ) : null}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
+                {vocabMnemonics.length > 0 ? (
+                  <div className={`${vocabKanjiBreakdown.length > 0 ? "mt-3 border-t border-amber-200/80 pt-3 dark:border-amber-900/70" : ""} space-y-2`}>
+                    {vocabMnemonics.map((hint, index) => (
+                      <p key={`${index}-${hint}`} className="leading-relaxed text-amber-950 dark:text-amber-100">
+                        {vocabMnemonics.length > 1 ? <span className="mr-1 font-semibold text-amber-700 dark:text-amber-300">Mẹo {index + 1}:</span> : <span className="mr-1 font-semibold text-amber-700 dark:text-amber-300">Mẹo nhớ:</span>}
+                        {renderVocabMnemonic(hint, v?.word ?? "")}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </details>
           ) : null}
 
           {vocabExamples.length > 0 ? (
@@ -746,15 +818,12 @@ export function VocabScreen({
                 {vocabExamples.map((example, index) => (
                   <div key={example.jp + index}>
                     <div className="flex items-start justify-between gap-2">
-                      {showExampleFurigana ? (
-                        <FuriganaText
-                          text={example.jp}
-                          annotations={getVocabFuriganaAnnotations(example.jp, v)}
-                          className="text-neutral-800"
-                        />
-                      ) : (
-                        <div className="text-neutral-800">{example.jp}</div>
-                      )}
+                      <FuriganaText
+                        text={example.jp}
+                        annotations={showExampleFurigana ? getVocabFuriganaAnnotations(example.jp, v) : undefined}
+                        highlightWord={v.word.replace(/[～〜]/gu, "")}
+                        className="text-neutral-800"
+                      />
                       <button
                         onClick={() => speakJapanese(example.jp)}
                         aria-label={`Phát âm ví dụ ${index + 1}`}

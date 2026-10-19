@@ -35,6 +35,7 @@ import { newSlotId, type SessionSlot } from "../../popup/sessionSlots.ts";
 import { recordAnswer, loadProgressMap, bucketForDirection, type ProgressMap } from "../../popup/progressState.ts";
 import { isCorrectAnswer, isCorrectHanVietAnswer } from "../../popup/reviewState.ts";
 import { speakJapanese } from "../lib/speak.ts";
+import { FuriganaText } from "../components/FuriganaText.tsx";
 import { loadViewerState as loadKanjiViewerState, findKanjiById, getOrderedList as getKanjiOrderedList } from "../../popup/kanjiState.ts";
 import { loadViewerState as loadVocabViewerState, findVocabById, getVocabExamples, getVocabMnemonic, SOURCE_LABELS, getOrderedList as getVocabOrderedList } from "../../popup/vocabState.ts";
 import {
@@ -664,7 +665,11 @@ export function QuestionDetail({ q, ...open }: { q: { id: string; kind: QuizCont
         <div className="space-y-2">
           {vocabExamples.map((example, index) => (
             <div key={example.jp + index}>
-              {example.jp}
+              <FuriganaText
+                text={example.jp}
+                highlightWord={v.word.replace(/[～〜]/gu, "")}
+                className="text-neutral-800"
+              />
               {example.vi ? (
                 <>
                   <br />
