@@ -734,6 +734,7 @@ function QuestionView({
           onToggleFurigana={() => setShowFurigana((v) => !v)}
           showTranslation={showTranslation}
           onToggleTranslation={() => setShowTranslation((v) => !v)}
+          showTranslationToggle={question.optionsVi.some((text) => text.trim() && !/^Lựa chọn\s+/iu.test(text.trim()))}
         />
       ) : null}
 

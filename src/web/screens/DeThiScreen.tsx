@@ -2261,7 +2261,7 @@ function ReviewQuestion({
                     furigana={question.optionsFurigana?.[oi] ?? undefined}
                     showFurigana={showFurigana}
                   />
-                  {question.optionsVi?.[oi] && (!isListeningReview || showListeningTranslation) ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}
+                  {question.optionsVi?.[oi] ? <div className="mt-0.5 text-xs opacity-80 italic">{question.optionsVi[oi]}</div> : null}
                 </div>
               </div>
             );

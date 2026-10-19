@@ -13,6 +13,9 @@ export interface QuizBookQuestion {
   question: string;
   questionFurigana?: ReadingBodySegment[];
   options: string[];
+  // Vietnamese glosses aligned with each Japanese answer choice. Shown after
+  // the learner answers, just like `optionsVi` on JLPT exam questions.
+  optionsVi?: string[];
   // `null` keeps the option index aligned when this quiz book has only been
   // partially annotated; non-null entries always reconstruct the option.
   optionsFurigana?: Array<ReadingBodySegment[] | null>;

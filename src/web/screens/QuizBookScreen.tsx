@@ -599,6 +599,9 @@ function QuestionView({
                 className={`rounded-lg border px-3 py-2 text-left text-sm ${cls}`}
               >
                 {furiganaText(opt, q.optionsFurigana?.[oi], furiganaAllowed)}
+                {answered !== null && q.optionsVi?.[oi] ? (
+                  <span className="mt-1 block text-xs font-normal opacity-80">{q.optionsVi[oi]}</span>
+                ) : null}
               </button>
             );
           })}

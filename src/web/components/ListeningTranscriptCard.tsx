@@ -9,6 +9,7 @@ export function ListeningTranscriptCard({
   onToggleFurigana,
   showTranslation,
   onToggleTranslation,
+  showTranslationToggle = false,
   className = "mt-4",
 }: {
   turns: ListeningTurn[];
@@ -16,10 +17,12 @@ export function ListeningTranscriptCard({
   onToggleFurigana: () => void;
   showTranslation: boolean;
   onToggleTranslation: () => void;
+  showTranslationToggle?: boolean;
   className?: string;
 }) {
   const hasFurigana = turns.some((turn) => turn.furigana?.length);
   const hasTranslation = turns.some((turn) => turn.textVi?.trim());
+  const canToggleTranslation = hasTranslation || showTranslationToggle;
 
   return (
     <Card className={`${className} gap-0 rounded-2xl border-neutral-200 p-5 ring-0`}>
@@ -38,7 +41,7 @@ export function ListeningTranscriptCard({
               <BookOpenText size={13} /> {showFurigana ? "Ẩn furigana" : "Hiện furigana"}
             </button>
           ) : null}
-          {hasTranslation ? (
+          {canToggleTranslation ? (
             <button
               type="button"
               onClick={onToggleTranslation}
