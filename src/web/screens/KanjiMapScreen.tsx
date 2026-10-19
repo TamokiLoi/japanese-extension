@@ -11,7 +11,7 @@ import {
   type NodeProps,
   type ReactFlowInstance,
 } from "@xyflow/react";
-import { ArrowLeft, ArrowRight, BookOpen, Focus, Search, X, ZoomIn, ZoomOut } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, ChevronDown, ChevronUp, Focus, Move, Search, X, ZoomIn, ZoomOut } from "lucide-react";
 import graphRaw from "../../data/kanji-map-components.json";
 import { radicalForCharacter, type RadicalCardRecord } from "../../data/radicalCards.ts";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
@@ -347,6 +347,8 @@ export function KanjiMapScreen({
   const [level, setLevel] = useState<JlptLevel | "All">("All");
   const [compoundPage, setCompoundPage] = useState(0);
   const [flowInstance, setFlowInstance] = useState<KanjiMapFlowInstance | null>(null);
+  const [mobileMapMoveEnabled, setMobileMapMoveEnabled] = useState(false);
+  const [mobileDetailsOpen, setMobileDetailsOpen] = useState(false);
 
   useEffect(() => {
     const next = resolveCharacter(initialCharacter);
@@ -634,7 +636,7 @@ export function KanjiMapScreen({
             {relationships.length > 7 ? <span>{relationships.length} chữ có chứa thành phần này</span> : null}
           </div>
 
-          <section className={`kanji-map-flow-canvas${smallScreen ? " is-mobile" : ""}`} aria-label="Sơ đồ tương tác; kéo để di chuyển, chụm hai ngón tay hoặc dùng nút bấm để phóng to">
+          <section className={`kanji-map-flow-canvas${smallScreen ? " is-mobile" : ""}${smallScreen && mobileMapMoveEnabled ? " is-move-enabled" : ""}`} aria-label={smallScreen && !mobileMapMoveEnabled ? "Sơ đồ Kanji; vuốt dọc để cuộn trang" : "Sơ đồ tương tác; kéo để di chuyển, chụm hai ngón tay hoặc dùng nút bấm để phóng to"}>
             <ReactFlow<KanjiMapNodeType, KanjiMapEdgeType>
               key={`${selected.character}-${compoundPage}-${smallScreen ? "mobile" : "desktop"}`}
               nodes={nodes}
@@ -643,10 +645,10 @@ export function KanjiMapScreen({
               edgeTypes={edgeTypes}
               nodesDraggable={false}
               nodesConnectable={false}
-              panOnDrag
+              panOnDrag={!smallScreen || mobileMapMoveEnabled}
               panOnScroll={false}
               zoomOnScroll={false}
-              zoomOnPinch
+              zoomOnPinch={!smallScreen || mobileMapMoveEnabled}
               zoomOnDoubleClick={false}
               minZoom={smallScreen ? 0.18 : 0.32}
               maxZoom={1.35}
@@ -665,9 +667,10 @@ export function KanjiMapScreen({
             <span><i className="kanji-map-legend-dot is-component" /> Thành phần có thẻ Kanji</span>
             <span><i className="kanji-map-legend-dot is-fragment" /> Bộ thủ / mảnh cấu tạo</span>
             <span><i className="kanji-map-legend-dot is-related" /> Chữ này → chữ có chứa nó</span>
-            {smallScreen ? <span className="kanji-map-gesture-hint">Kéo để di chuyển · chụm hai ngón để phóng to</span> : null}
+            {smallScreen ? <span className="kanji-map-gesture-hint">{mobileMapMoveEnabled ? "Kéo map bằng một ngón · chạm Xong để cuộn trang" : "Vuốt dọc để xem nội dung · bật Di chuyển map để kéo sơ đồ"}</span> : null}
             {smallScreen ? (
               <div className="kanji-map-mobile-actions" aria-label="Điều khiển sơ đồ">
+                <button type="button" className={mobileMapMoveEnabled ? "is-active" : ""} aria-label={mobileMapMoveEnabled ? "Xong di chuyển sơ đồ" : "Bật di chuyển sơ đồ"} aria-pressed={mobileMapMoveEnabled} onClick={() => setMobileMapMoveEnabled((enabled) => !enabled)}><Move size={14} /> {mobileMapMoveEnabled ? "Xong" : "Di chuyển map"}</button>
                 <button type="button" aria-label="Thu nhỏ sơ đồ" title="Thu nhỏ" onClick={() => void flowInstance?.zoomOut({ duration: 140 })}><ZoomOut size={14} /></button>
                 <button type="button" aria-label="Phóng to sơ đồ" title="Phóng to" onClick={() => void flowInstance?.zoomIn({ duration: 140 })}><ZoomIn size={14} /></button>
                 <button type="button" aria-label="Căn giữa sơ đồ" title="Căn giữa" onClick={() => void flowInstance?.fitView({ padding: 0.04, duration: 200, minZoom: 0.18, maxZoom: 1.15 })}><Focus size={14} /> Căn giữa</button>
@@ -676,7 +679,15 @@ export function KanjiMapScreen({
           </div>
         </section>
 
-        <aside className="kanji-map-detail-panel" aria-label={`Thông tin chữ ${selected.character}`}>
+        <aside className={`kanji-map-detail-panel${smallScreen ? " is-mobile-sheet" : ""}${smallScreen && mobileDetailsOpen ? " is-expanded" : ""}`} aria-label={`Thông tin chữ ${selected.character}`}>
+          {smallScreen ? (
+            <button type="button" className="kanji-map-mobile-sheet-toggle" aria-expanded={mobileDetailsOpen} aria-label={`${mobileDetailsOpen ? "Thu gọn" : "Xem"} thông tin chữ ${selected.character}`} onClick={() => setMobileDetailsOpen((open) => !open)}>
+              <span className="kanji-map-mobile-sheet-character">{selected.character}</span>
+              <span className="kanji-map-mobile-sheet-copy"><small>Thông tin chữ</small><strong>{formatHanViet(selected.hanViet, "Chưa có Hán Việt")}</strong><span>{selected.meanings.vi[0] || selected.meanings.viDraft?.[0] || "Chạm để xem âm đọc, mẹo nhớ và từ vựng"}</span></span>
+              {mobileDetailsOpen ? <ChevronDown size={19} aria-hidden="true" /> : <ChevronUp size={19} aria-hidden="true" />}
+            </button>
+          ) : null}
+          <div className="kanji-map-detail-content">
           <div className="kanji-map-detail-hero">
             <div className="kanji-map-detail-character">{selected.character}</div>
             <div>
@@ -710,6 +721,7 @@ export function KanjiMapScreen({
             </section>
           ) : null}
           <Button className="kanji-map-open-card" onClick={onBackToCards}><BookOpen size={16} /> Mở thẻ Kanji</Button>
+          </div>
         </aside>
       </div>
 

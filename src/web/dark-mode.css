@@ -272,6 +272,11 @@ html.dark body.web-shell .kanji-map-flow-pager.is-mobile { border-color: #374151
 html.dark body.web-shell .kanji-map-flow-pager > span { border-color: #4b5563; background: #273449; color: #cbd5e1; }
 html.dark body.web-shell .kanji-map-mobile-actions button:hover { background: #273449; }
 html.dark body.web-shell .kanji-map-detail-character { border-color: #31566c; background: linear-gradient(145deg, #18394d, #1f2937); color: #d8f4ff; }
+html.dark body.web-shell .kanji-map-mobile-sheet-toggle { background: #1f2937; color: #e5e7eb; }
+html.dark body.web-shell .kanji-map-mobile-sheet-character { border-color: #31566c; background: #18394d; color: #d8f4ff; }
+html.dark body.web-shell .kanji-map-mobile-sheet-copy strong { color: #e5e7eb; }
+html.dark body.web-shell .kanji-map-detail-panel.is-mobile-sheet.is-expanded .kanji-map-mobile-sheet-toggle { border-color: #374151; }
+html.dark body.web-shell .kanji-map-mobile-actions button.is-active { border-color: #397b95; background: #18394d; color: #a9e2f8; }
 html.dark body.web-shell .kanji-map-detail-facts > div { border-color: #374151; background: #273449; }
 html.dark body.web-shell .kanji-map-data-note { background: #352a17; color: #fcd34d; }
 html.dark body.web-shell .kanji-map-detail-panel .kanji-mnemonic-choice { --kanji-bg: #342d1d; --kanji-accent-dark: #f8d98b; color: #e5e7eb; }

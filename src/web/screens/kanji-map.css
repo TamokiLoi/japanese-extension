@@ -261,6 +261,8 @@
 .kanji-map-mobile-actions button:hover { border-color: #c7c0e0; background: #f8f6ff; }
 
 .kanji-map-detail-panel { display: flex; flex-direction: column; gap: 12px; padding: 14px; }
+.kanji-map-detail-content { display: flex; flex-direction: column; gap: 12px; }
+.kanji-map-mobile-sheet-toggle { display: none; }
 .kanji-map-detail-hero { display: flex; align-items: center; gap: 12px; }
 .kanji-map-detail-character { display: grid; width: 82px; height: 82px; flex: 0 0 auto; place-items: center; border: 1px solid #f3d3da; border-radius: 20px; background: linear-gradient(145deg, #fff5f7, #fff); color: #292632; font-family: "Noto Serif JP", serif; font-size: 54px; line-height: 1; }
 .kanji-map-level-badge { display: inline-flex; border-radius: 999px; background: #f5efff; padding: 3px 7px; color: #7660ac; font-size: 10px; font-weight: 800; }
@@ -333,8 +335,12 @@
 }
 
 @media (max-width: 767px) {
-  .kanji-map-flow-canvas.is-mobile { height: 450px; background: #fff; touch-action: none; }
-  .kanji-map-flow-canvas.is-mobile .react-flow { touch-action: none; }
+  .kanji-map-flow-canvas.is-mobile { height: clamp(280px, 40vh, 340px); background: #fff; touch-action: pan-y; }
+  .kanji-map-flow-canvas.is-mobile .react-flow,
+  .kanji-map-flow-canvas.is-mobile .react-flow__pane { touch-action: pan-y; }
+  .kanji-map-flow-canvas.is-mobile.is-move-enabled,
+  .kanji-map-flow-canvas.is-mobile.is-move-enabled .react-flow,
+  .kanji-map-flow-canvas.is-mobile.is-move-enabled .react-flow__pane { touch-action: none; }
   .kanji-map-flow-canvas.is-mobile .react-flow__pane { cursor: grab; }
   .kanji-map-flow-canvas.is-mobile .react-flow__pane:active { cursor: grabbing; }
   .kanji-map-flow-node { width: 78px; height: 40px; --map-orb-size: 40px; --map-orb-midpoint: 20px; }
@@ -356,6 +362,29 @@
   .kanji-map-flow-pager.is-mobile button { min-height: 30px; padding: 0 8px; }
   .kanji-map-gesture-hint { flex: 1 0 100%; color: #9889b8; }
   .kanji-map-mobile-actions { margin-left: 0; }
+  .kanji-map-mobile-actions button.is-active { border-color: #55a8c5; background: #eaf7fb; color: #176684; }
+  .kanji-map-detail-panel.is-mobile-sheet {
+    position: fixed;
+    z-index: 29;
+    right: 10px;
+    bottom: calc(4.5rem + env(safe-area-inset-bottom) + 8px);
+    left: 10px;
+    max-height: 60px;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 8px 28px #1f29373b;
+    transition: max-height 220ms ease;
+  }
+  .kanji-map-detail-panel.is-mobile-sheet.is-expanded { max-height: min(64vh, 560px); overflow-y: auto; overscroll-behavior: contain; padding: 8px 10px 12px; }
+  .kanji-map-mobile-sheet-toggle { position: sticky; top: -8px; z-index: 2; display: flex; width: 100%; min-height: 46px; align-items: center; gap: 10px; border-radius: 11px; background: #fff; padding: 3px 7px; color: #354052; text-align: left; }
+  .kanji-map-mobile-sheet-character { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border: 1px solid #f0d6dc; border-radius: 11px; background: #fff5f7; color: #a82b4c; font-family: "Noto Serif JP", serif; font-size: 25px; line-height: 1; }
+  .kanji-map-mobile-sheet-copy { display: grid; min-width: 0; flex: 1; gap: 1px; }
+  .kanji-map-mobile-sheet-copy small { color: #929baa; font-size: 9px; line-height: 1.2; }
+  .kanji-map-mobile-sheet-copy strong { overflow: hidden; color: #263244; font-size: 12px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+  .kanji-map-mobile-sheet-copy > span { overflow: hidden; color: #6f7b8c; font-size: 10px; line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+  .kanji-map-detail-panel.is-mobile-sheet:not(.is-expanded) .kanji-map-detail-content { display: none; }
+  .kanji-map-detail-panel.is-mobile-sheet.is-expanded .kanji-map-mobile-sheet-toggle { margin-bottom: 8px; border-bottom: 1px solid #eef0f3; border-radius: 0; padding-bottom: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
