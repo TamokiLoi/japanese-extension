@@ -47,7 +47,11 @@ export const LESSON_LABELS: Record<number, string> = {
 export const AVAILABLE_LESSONS: number[] = Object.keys(LESSON_LABELS).map(Number);
 
 export function countForLesson(lesson: number): number {
-  return ALL_IT_BOOK_VOCAB.filter((w) => w.lesson === lesson).length;
+  return new Set(ALL_IT_BOOK_VOCAB.filter((w) => w.lesson === lesson).map((w) => w.word)).size;
+}
+
+export function countAllItBookWords(): number {
+  return new Set(ALL_IT_BOOK_VOCAB.map((word) => word.word)).size;
 }
 
 const IT_BOOK_VOCAB_BY_ID = new Map(ALL_IT_BOOK_VOCAB.map((w) => [w.id, w]));

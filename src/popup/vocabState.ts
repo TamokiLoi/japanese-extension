@@ -40,6 +40,8 @@ import type {
 import type { JlptLevel } from "../types/kanji.ts";
 import type { ProgressFilter } from "./progressState.ts";
 import { storageGet, storageSet } from "../platform/storage";
+import { getJmdictReadingVariants } from "../lib/jmdictVocabReading.ts";
+import { getVocabReadingLabels } from "../lib/vocabReading.ts";
 
 export type VocabSource =
   | "tinhtu-n3"
@@ -93,6 +95,17 @@ export interface VocabCard {
   // (tango-new: từ mượn katakana, xem fromTanoshiiVocab; mimikara-n3: nghĩa
   // từ jisho.org, xem fromMimikara). Optional vì hầu hết nguồn khác không có.
   english?: string;
+}
+
+export interface VocabReadingVariant {
+  reading: string;
+  meaningVi: string;
+  english?: string;
+  jmdictEnglish?: string;
+  jmdictId?: string;
+  appCard?: VocabCard;
+  examples?: { jp: string; vi: string }[];
+  mnemonic?: string[];
 }
 
 export const SOURCE_LABELS: Record<VocabSource, string> = {
@@ -268,7 +281,52 @@ const FPT_N3_TANGO_EXAMPLES = canonicalizeFptWordMap<FptN3TangoExample[]>({
 });
 const FPT_N3_TANGO_MNEMONICS = canonicalizeFptWordMap<string>(fptN3TangoMnemonicsRaw as FptN3TangoMnemonicMap);
 
-function addFptTangoExamples(card: VocabCard): VocabCard {
+// The FPT sentence bank is indexed by spelling, while the vocabulary viewer
+// now exposes one tab per reading. These source-order indexes keep each
+// sentence with the reading it actually demonstrates. Empty arrays explicitly
+// prevent a sentence for a neighboring reading from leaking into this tab.
+const FPT_N3_TANGO_EXAMPLE_READINGS: Record<string, Record<string, number[]>> = {
+  "両親": { "りょうしん": [0, 1], "ふたおや": [0, 1] },
+  "君": { "きみ": [0, 1], "くん": [] },
+  "塩": { "しお": [0, 1], "えん": [] },
+  "心": { "こころ": [0, 1], "しん": [] },
+  "昨夜": { "ゆうべ": [0, 1], "さくや": [0, 1] },
+  "昨日": { "きのう": [0, 1], "さくじつ": [0, 1] },
+  "汚す": { "よごす": [0, 1], "けがす": [] },
+  "着替える": { "きがえる": [0, 1], "きかえる": [0, 1] },
+  "石": { "いし": [0, 1], "こく": [] },
+  "米": { "こめ": [0, 1], "べい": [] },
+  "表": { "ひょう": [0], "おもて": [1] },
+  "角": { "かど": [0, 1], "すみ": [] },
+};
+
+const FPT_N3_TANGO_MNEMONIC_READINGS: Record<string, string[]> = {
+  "両親": ["りょうしん", "ふたおや"],
+  "君": ["きみ"],
+  "塩": ["しお", "えん"],
+  "心": ["こころ", "しん"],
+  "昨夜": ["ゆうべ", "さくや"],
+  "昨日": ["きのう", "さくじつ"],
+  "汚す": ["よごす"],
+  "着替える": ["きがえる", "きかえる"],
+  "石": ["いし"],
+  "米": ["こめ"],
+  "表": ["ひょう"],
+  "角": ["かど"],
+};
+
+// These examples came from source cards whose reading field lists alternatives
+// with ・. Once those become separate tabs, retain the sentence only where its
+// natural in-context reading agrees with the tab.
+const COMPOSITE_READING_EXAMPLE_INDEXES: Record<string, Record<string, number[]>> = {
+  "四": { "し": [0], "よん": [] },
+  "七": { "しち": [], "なな": [] },
+  "九": { "く": [0], "きゅう": [] },
+  "後": { "ご": [], "あと": [0] },
+  "内": { "うち": [], "ない": [0] },
+};
+
+function addFptTangoExamples(card: VocabCard, hasMultipleReadings: boolean): VocabCard {
   if (!card.sources.includes("fpt-n3-tango")) return card;
   // FPT marks counters and suffixes with ～; generated usage sentences use
   // concrete forms (e.g. 三冊, 二十歳), so match the lexical suffix itself.
@@ -276,13 +334,30 @@ function addFptTangoExamples(card: VocabCard): VocabCard {
   // Treat the curated FPT pair as authoritative. Legacy dictionary examples
   // can contain OCR debris or fragments, and must not count toward the two
   // full-sentence examples shown on the vocabulary card and flashcard.
-  const examples = (FPT_N3_TANGO_EXAMPLES[card.word] ?? [])
-    .map((example) => ({ jp: example.jp.trim(), vi: example.vi.trim() }))
-    .filter((example) => (example.jp.includes(card.word) || (target && example.jp.includes(target)))
-      && example.vi
-      && /[。！？!?]$/.test(example.jp))
+  const examplesForWord = FPT_N3_TANGO_EXAMPLES[card.word] ?? [];
+  const readingIndexes = FPT_N3_TANGO_EXAMPLE_READINGS[card.word];
+  const allowedIndexes = hasMultipleReadings && readingIndexes
+    ? new Set(getVocabReadingLabels(card.word, card.reading).flatMap((reading) => readingIndexes[reading] ?? []))
+    : undefined;
+  const examples = examplesForWord
+    .flatMap((example, index) => {
+      const cleaned = { jp: example.jp.trim(), vi: example.vi.trim() };
+      const valid = (cleaned.jp.includes(card.word) || (target && cleaned.jp.includes(target)))
+        && cleaned.vi
+        && /[。！？!?]$/.test(cleaned.jp);
+      return valid && (!allowedIndexes || allowedIndexes.has(index)) ? [cleaned] : [];
+    })
     .filter((example, index, all) => all.findIndex((candidate) => candidate.jp === example.jp) === index)
     .slice(0, 2);
+  if (hasMultipleReadings && readingIndexes) {
+    if (examples.length === 0) return card;
+    return {
+      ...card,
+      example: examples[0].jp,
+      exampleVi: examples[0].vi,
+      additionalExamples: examples.slice(1),
+    };
+  }
   if (examples.length < 2) return card;
   return {
     ...card,
@@ -483,11 +558,113 @@ const TAGGED_EXISTING_VOCAB = BASE_VOCAB.map((card) => {
 
 const FPT_N3_TANGO_SUPPLEMENTAL = fromTanoshiiVocab("fpt-n3-tango", fptN3TangoMissingDataset);
 
-export const ALL_VOCAB: VocabCard[] = mergeDuplicateVocab([
+const MERGED_VOCAB = mergeDuplicateVocab([
   ...TAGGED_EXISTING_VOCAB,
   ...FPT_N3_TANGO_SUPPLEMENTAL,
   ...fromKanjiLookAndLearnVocab(kanjiLookAndLearnVocabDataset),
-]).map(addFptTangoExamples);
+]);
+
+const VOCAB_READING_LABELS_BY_WORD = new Map<string, Set<string>>();
+for (const card of MERGED_VOCAB) {
+  const readings = VOCAB_READING_LABELS_BY_WORD.get(card.word) ?? new Set<string>();
+  for (const reading of getVocabReadingLabels(card.word, card.reading)) readings.add(reading);
+  VOCAB_READING_LABELS_BY_WORD.set(card.word, readings);
+}
+for (const word of VOCAB_READING_LABELS_BY_WORD.keys()) {
+  for (const variant of getJmdictReadingVariants(word)) {
+    const readings = VOCAB_READING_LABELS_BY_WORD.get(word)!;
+    readings.add(variant.reading);
+  }
+}
+const MULTI_READING_WORDS = new Set(
+  [...VOCAB_READING_LABELS_BY_WORD]
+    .filter(([, readings]) => readings.size > 1)
+    .map(([word]) => word),
+);
+
+export const ALL_VOCAB: VocabCard[] = MERGED_VOCAB.map((card) =>
+  addFptTangoExamples(card, MULTI_READING_WORDS.has(card.word)),
+);
+
+const READING_VARIANTS_BY_WORD = new Map<string, Map<string, VocabReadingVariant>>();
+for (const card of ALL_VOCAB) {
+  if (!card.reading) continue;
+  const variants = READING_VARIANTS_BY_WORD.get(card.word) ?? new Map<string, VocabReadingVariant>();
+  for (const reading of getVocabReadingLabels(card.word, card.reading)) {
+    const existing = variants.get(reading);
+    if (existing) {
+      existing.appCard ??= card;
+      existing.meaningVi ||= card.meaningVi;
+      existing.english ||= card.english;
+    } else {
+      variants.set(reading, {
+        reading,
+        meaningVi: card.meaningVi,
+        english: card.english,
+        appCard: card,
+      });
+    }
+  }
+  READING_VARIANTS_BY_WORD.set(card.word, variants);
+}
+for (const variant of [...new Set(ALL_VOCAB.map((card) => card.word))].flatMap((word) => getJmdictReadingVariants(word))) {
+  const variants = READING_VARIANTS_BY_WORD.get(variant.word) ?? new Map<string, VocabReadingVariant>();
+  const existing = variants.get(variant.reading);
+  if (existing) {
+    existing.jmdictEnglish = variant.glossEn;
+    existing.jmdictId = variant.jmdictId;
+  } else {
+    variants.set(variant.reading, {
+      reading: variant.reading,
+      meaningVi: variant.meaningVi,
+      jmdictEnglish: variant.glossEn,
+      jmdictId: variant.jmdictId,
+    });
+  }
+  READING_VARIANTS_BY_WORD.set(variant.word, variants);
+}
+
+for (const [word, readings] of Object.entries(FPT_N3_TANGO_EXAMPLE_READINGS)) {
+  const variants = READING_VARIANTS_BY_WORD.get(word);
+  const sourceExamples = FPT_N3_TANGO_EXAMPLES[word] ?? [];
+  if (!variants) continue;
+  for (const [reading, indexes] of Object.entries(readings)) {
+    const variant = variants.get(reading);
+    if (!variant) continue;
+    variant.examples = indexes
+      .map((index) => sourceExamples[index])
+      .filter((example): example is FptN3TangoExample => !!example)
+      .map((example) => ({ jp: example.jp.trim(), vi: example.vi.trim() }));
+  }
+}
+
+for (const [word, readings] of Object.entries(COMPOSITE_READING_EXAMPLE_INDEXES)) {
+  const variants = READING_VARIANTS_BY_WORD.get(word);
+  if (!variants) continue;
+  for (const [reading, indexes] of Object.entries(readings)) {
+    const variant = variants.get(reading);
+    if (!variant?.appCard) continue;
+    variant.examples = getVocabExamples(variant.appCard).filter((_, index) => indexes.includes(index));
+  }
+}
+
+for (const [word, allowedReadings] of Object.entries(FPT_N3_TANGO_MNEMONIC_READINGS)) {
+  const variants = READING_VARIANTS_BY_WORD.get(word);
+  const hint = FPT_N3_TANGO_MNEMONICS[word];
+  if (!variants || !hint) continue;
+  for (const variant of variants.values()) {
+    variant.mnemonic = allowedReadings.includes(variant.reading) ? [hint] : [];
+  }
+}
+
+export function getVocabReadingVariants(card: Pick<VocabCard, "word" | "reading">): VocabReadingVariant[] {
+  const variants = READING_VARIANTS_BY_WORD.get(card.word);
+  const defaultReading = getVocabReadingLabels(card.word, card.reading)[0];
+  if (!variants) {
+    return defaultReading ? getVocabReadingLabels(card.word, card.reading).map((reading) => ({ reading, meaningVi: "" })) : [];
+  }
+  return [...variants.values()].sort((a, b) => Number(b.reading === defaultReading) - Number(a.reading === defaultReading));
+}
 
 export function getVocabExamples(card: Pick<VocabCard, "example" | "exampleVi" | "additionalExamples">): FptN3TangoExample[] {
   const examples: FptN3TangoExample[] = [];
@@ -505,10 +682,21 @@ export function getVocabExamples(card: Pick<VocabCard, "example" | "exampleVi" |
   return examples;
 }
 
-export function getVocabMnemonic(card: Pick<VocabCard, "word" | "sources" | "mnemonic">): string[] {
-  if (card.sources.includes("fpt-n3-tango")) {
-    const hint = FPT_N3_TANGO_MNEMONICS[card.word];
-    if (hint) return [hint];
+export function getVocabMnemonic(
+  card: Pick<VocabCard, "word" | "sources" | "mnemonic" | "reading">,
+  selectedReading?: string,
+): string[] {
+  const reading = selectedReading ?? getVocabReadingLabels(card.word, card.reading)[0];
+  const cardReadings = getVocabReadingLabels(card.word, card.reading);
+  if (reading && cardReadings.length > 0 && !cardReadings.includes(reading)) return [];
+  const fptHint = FPT_N3_TANGO_MNEMONICS[card.word];
+  if (fptHint) {
+    const allowedReadings = FPT_N3_TANGO_MNEMONIC_READINGS[card.word];
+    if (allowedReadings) {
+      if (allowedReadings.includes(reading ?? "")) return [fptHint];
+    } else if (card.sources.includes("fpt-n3-tango")) {
+      return [fptHint];
+    }
   }
   // A couple of older vocabulary records stored this as a single string
   // despite the schema requiring an array. Normalize defensively so one bad
@@ -521,14 +709,14 @@ export function getVocabMnemonic(card: Pick<VocabCard, "word" | "sources" | "mne
 }
 
 export function countForSource(source: VocabSource): number {
-  return ALL_VOCAB.filter((v) => v.sources.includes(source)).length;
+  return new Set(ALL_VOCAB.filter((v) => v.sources.includes(source)).map((v) => v.word)).size;
 }
 
 const LEVEL_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 export const AVAILABLE_LEVELS: JlptLevel[] = LEVEL_ORDER.filter((level) => ALL_VOCAB.some((v) => v.level === level));
 
 export function countForLevel(level: JlptLevel): number {
-  return ALL_VOCAB.filter((v) => v.level === level).length;
+  return new Set(ALL_VOCAB.filter((v) => v.level === level).map((v) => v.word)).size;
 }
 
 const VOCAB_BY_ID = new Map(ALL_VOCAB.map((v) => [v.id, v]));
@@ -624,6 +812,19 @@ function matchesFilters(v: VocabCard, state: VocabViewerState): boolean {
 export function getOrderedList(state: VocabViewerState): VocabCard[] {
   const filtered = ALL_VOCAB.filter((v) => matchesFilters(v, state));
   return state.randomOrder ? seededShuffle(filtered, state.shuffleSeed) : filtered;
+}
+
+// A spelling with multiple readings is one study card with reading tabs.
+// The first eligible entry remains the representative so its saved viewer
+// order and progress ID stay stable; alternate reading cards remain attached
+// through getVocabReadingVariants() and keep their own progress IDs.
+export function groupVocabCardsBySpelling(cards: VocabCard[]): VocabCard[] {
+  const seen = new Set<string>();
+  return cards.filter((card) => {
+    if (seen.has(card.word)) return false;
+    seen.add(card.word);
+    return true;
+  });
 }
 
 // Used when jumping to a specific vocab card from elsewhere (a "chữ Hán

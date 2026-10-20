@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { VocabPartOfSpeechTag } from "../../components/vocabpartofspeechtag.tsx";
 import { VocabVerbMetadata } from "../../components/vocabverbmetadata.tsx";
 import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus } from "lucide-react";
 import { speakJapanese } from "../lib/speak.ts";
 import { getVocabFuriganaAnnotations } from "../lib/vocabFurigana.ts";
+import { defaultVocabReading, vocabReadingProgressId } from "../../lib/vocabReading.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import type { VerbConjugations } from "../../types/vocab.ts";
 import { VOCAB_MASTERY_DIRECTIONS, VOCAB_MODE_LABELS, VOCAB_MODE_SHORT_LABELS } from "../../popup/quizState.ts";
@@ -18,10 +19,12 @@ import {
   countForSource,
   countForLevel,
   getOrderedList,
+  groupVocabCardsBySpelling,
   loadViewerState,
   saveViewerState,
   resolveJumpState,
   findVocabByWordReading,
+  getVocabReadingVariants,
   type VocabCard,
   type VocabSource,
   type VocabViewerState,
@@ -156,7 +159,7 @@ function WordWithKanjiLinks({ word, onOpenKanji }: { word: string; onOpenKanji: 
 
 async function getFilteredList(state: VocabViewerState): Promise<VocabCard[]> {
   const map = await loadProgressMap();
-  return filterByProgress(getOrderedList(state), map, state.progressFilter);
+  return groupVocabCardsBySpelling(filterByProgress(getOrderedList(state), map, state.progressFilter));
 }
 
 export function VocabScreen({
@@ -165,6 +168,7 @@ export function VocabScreen({
   onOpenQuizBook,
   onOpenVocab,
   jumpToId,
+  jumpToReading,
   onCurrentItemChange,
 }: {
   onOpenKanji: (kanjiId: string) => void;
@@ -173,7 +177,8 @@ export function VocabScreen({
   onOpenQuiz: () => void;
   onOpenVocab: (vocabId: string) => void;
   jumpToId?: string;
-  onCurrentItemChange?: (id: string | undefined, text?: string) => void;
+  jumpToReading?: string;
+  onCurrentItemChange?: (id: string | undefined, text?: string, senseId?: string, reading?: string) => void;
 }) {
   const [state, setState] = useState<VocabViewerState | null>(null);
   const [list, setList] = useState<VocabCard[]>([]);
@@ -183,10 +188,39 @@ export function VocabScreen({
   const [correctionOpen, setCorrectionOpen] = useState(false);
   const [corrections, setCorrections] = useState<DataCorrectionEntry[]>([]);
   const [furiganaCardId, setFuriganaCardId] = useState<string | null>(null);
+  const [readingTab, setReadingTab] = useState<{ cardId: string; reading: string } | null>(null);
   const [floatingNavVisible, setFloatingNavVisible] = useState(false);
   // See KanjiScreen.tsx's identical field for why this is local/display-only
   // instead of living in state.progressFilter.
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
+  const currentListCard = state && state.viewMode !== "grid" ? list[state.index] : undefined;
+  const routeTargetCard = useMemo(
+    () => jumpToId ? ALL_VOCAB.find((card) => card.id === jumpToId || card.word === jumpToId) : undefined,
+    [jumpToId],
+  );
+  const routeCardId = routeTargetCard?.id;
+  const selectedReadingValue = currentListCard
+    ? readingTab?.cardId === currentListCard.id
+      ? readingTab.reading
+      : routeTargetCard?.word === currentListCard.word
+        ? jumpToReading ?? routeTargetCard.reading ?? currentListCard.reading ?? ""
+        : currentListCard.reading ?? ""
+    : "";
+  const selectedReading = currentListCard
+    ? defaultVocabReading(currentListCard.word, selectedReadingValue)
+    : "";
+  const readingVariants = currentListCard ? getVocabReadingVariants(currentListCard) : [];
+  const selectedReadingVariant = readingVariants.find((variant) => variant.reading === selectedReading);
+  const activeCard = selectedReadingVariant?.appCard ?? currentListCard;
+  const progressCardId = currentListCard
+    ? selectedReadingVariant?.appCard?.id ??
+      (selectedReadingVariant ? vocabReadingProgressId(currentListCard.word, selectedReadingVariant.reading) : currentListCard.id)
+    : undefined;
+  // An alternate reading from JMdict has no app example or mnemonic yet.
+  // Keep the shared word card visible, but never attach its other reading's
+  // examples or memory hint to this tab.
+  const contentCard = selectedReadingVariant?.appCard ??
+    (currentListCard?.reading === selectedReading ? currentListCard : undefined);
   // Voice availability can change after mount (voice list loads
   // asynchronously on some browsers, or the device finishes downloading a
   // Japanese TTS voice pack while this screen is still open), so keep
@@ -204,6 +238,10 @@ export function VocabScreen({
   const baseFilterRef = useRef<Pick<VocabViewerState, "selectedSources" | "selectedLevels" | "progressFilter" | "viewMode"> | null>(null);
 
   useEffect(() => {
+    setReadingTab(routeCardId && jumpToReading ? { cardId: routeCardId, reading: jumpToReading } : null);
+  }, [routeCardId, jumpToReading]);
+
+  useEffect(() => {
     let cancelled = false;
     (async () => {
       let s = await loadViewerState();
@@ -215,12 +253,15 @@ export function VocabScreen({
       // newer one and clobber the ref with its stale base filter.
       let nextBase: typeof baseFilterRef.current = null;
       if (jumpToId) {
-        const jumpTargetId = ALL_VOCAB.find((v) => v.id === jumpToId || v.word === jumpToId)?.id ?? jumpToId;
+        const jumpTarget = ALL_VOCAB.find((v) => v.id === jumpToId || v.word === jumpToId);
+        const jumpTargetId = jumpTarget?.id ?? jumpToId;
         const jumped = resolveJumpState(s, jumpTargetId);
         if (jumped) {
           nextBase = { selectedSources: s.selectedSources, selectedLevels: s.selectedLevels, progressFilter: s.progressFilter, viewMode: s.viewMode };
           s = jumped;
-          l = getOrderedList(s);
+          l = groupVocabCardsBySpelling(getOrderedList(s));
+          const targetIndex = l.findIndex((card) => card.word === jumpTarget?.word);
+          s = { ...s, index: targetIndex >= 0 ? targetIndex : 0 };
         } else {
           l = await getFilteredList(s);
           s = { ...s, index: Math.min(s.index, Math.max(l.length - 1, 0)) };
@@ -247,19 +288,18 @@ export function VocabScreen({
   useEffect(() => {
     let cancelled = false;
     if (!state) return;
-    const v = list[state.index];
     if (state.viewMode === "grid") {
       loadProgressMap().then((m) => {
         if (!cancelled) setGridMap(m);
       });
       setProgress(null);
-    } else if (v) {
-      getProgress(v.id).then((p) => {
+    } else if (progressCardId) {
+      getProgress(progressCardId).then((p) => {
         if (!cancelled) setProgress(p);
       });
       // Fire-and-forget -- looking at a card's detail is itself "studying"
       // it today, independent of whether the user also flags/masters it.
-      void markViewed(v.id);
+      void markViewed(progressCardId);
       setGridMap(null);
     } else {
       setProgress(null);
@@ -268,7 +308,7 @@ export function VocabScreen({
     return () => {
       cancelled = true;
     };
-  }, [state, list]);
+  }, [state, list, progressCardId]);
 
   async function mutate(partial: Partial<VocabViewerState>, recomputeList = true) {
     if (!state) return;
@@ -341,9 +381,8 @@ export function VocabScreen({
   }
 
   async function refreshProgress() {
-    const v = list[state!.index];
-    if (!v) return;
-    const p = await getProgress(v.id);
+    if (!progressCardId) return;
+    const p = await getProgress(progressCardId);
     setProgress(p);
   }
 
@@ -366,41 +405,48 @@ export function VocabScreen({
 
   const floatingNavBottom = useFloatingNav(!!state && state.viewMode !== "grid", floatingNavVisible);
 
-  const currentId = state && state.viewMode !== "grid" ? list[state.index]?.id : undefined;
-  const currentText = state && state.viewMode !== "grid" ? list[state.index]?.word : undefined;
+  const currentId = currentListCard?.id;
+  const currentText = currentListCard?.word;
   useEffect(() => {
-    onCurrentItemChange?.(currentId, currentText);
-  }, [currentId, currentText, onCurrentItemChange]);
+    onCurrentItemChange?.(currentId, currentText, undefined, currentListCard ? selectedReading : undefined);
+  }, [currentId, currentText, selectedReading, currentListCard, onCurrentItemChange]);
 
   useEffect(() => {
     let cancelled = false;
-    if (!currentId) {
+    if (!progressCardId) {
       setCorrections([]);
       return;
     }
-    void loadCorrectionsForEntity(currentId).then((entries) => {
+    void loadCorrectionsForEntity(progressCardId).then((entries) => {
       if (!cancelled) setCorrections(entries);
     });
     return () => {
       cancelled = true;
     };
-  }, [currentId]);
+  }, [progressCardId]);
 
   if (!state) {
     return <LoadingScreen variant="study" title="Từ vựng" />;
   }
 
   const v = list[state.index];
-  const vocabExamples = v ? getVocabExamples(v) : [];
-  const showExampleFurigana = !!v && furiganaCardId === v.id;
-  const vocabMnemonics = v ? getVocabMnemonic(v) : [];
+  const displayedCard = activeCard ?? v!;
+  const displayedMeaning = selectedReadingVariant?.meaningVi || contentCard?.meaningVi || (selectedReading === v?.reading ? v?.meaningVi : "Chưa có nghĩa cho cách đọc này.") || "—";
+  const displayedEnglish = selectedReadingVariant?.jmdictEnglish ?? contentCard?.english ?? displayedCard?.english;
+  const vocabExamples = selectedReadingVariant?.examples ?? (contentCard ? getVocabExamples(contentCard) : []);
+  const readingContextId = currentListCard && selectedReading
+    ? vocabReadingProgressId(currentListCard.word, selectedReading)
+    : contentCard?.id;
+  const showExampleFurigana = !!readingContextId && furiganaCardId === readingContextId;
+  const vocabMnemonics = selectedReadingVariant?.mnemonic ??
+    (contentCard ? getVocabMnemonic(contentCard, selectedReading) : displayedCard ? getVocabMnemonic(displayedCard, selectedReading) : []);
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
   const allChecked = state.selectedSources.length === AVAILABLE_SOURCES.length;
   const allLevelsChecked = state.selectedLevels.length === AVAILABLE_LEVELS.length;
-  const readingMatches = v ? findMatchingReadingPassages(v) : [];
-  const quizBookMatches = v ? findMatchingQuizBookQuestions(v) : [];
+  const readingMatches = contentCard ? findMatchingReadingPassages(contentCard) : [];
+  const quizBookMatches = contentCard ? findMatchingQuizBookQuestions(contentCard) : [];
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
@@ -476,7 +522,7 @@ export function VocabScreen({
       >
         <FilterGroup title="Cấp độ">
           <FilterChipOption
-            label={`Tất cả cấp độ (${ALL_VOCAB.length})`}
+            label={`Tất cả cấp độ (${new Set(ALL_VOCAB.map((v) => v.word)).size})`}
             active={allLevelsChecked}
             onClick={() => applyLevelSelection(allLevelsChecked ? state.selectedLevels : [...AVAILABLE_LEVELS])}
           />
@@ -497,7 +543,7 @@ export function VocabScreen({
         </FilterGroup>
         <FilterGroup title="Nguồn">
           <FilterChipOption
-            label={`Tất cả (${ALL_VOCAB.filter((v) => state.selectedLevels.includes(v.level)).length})`}
+            label={`Tất cả (${new Set(ALL_VOCAB.filter((v) => state.selectedLevels.includes(v.level)).map((v) => v.word)).size})`}
             active={allChecked}
             onClick={() =>
               applySourceSelection(
@@ -509,7 +555,7 @@ export function VocabScreen({
           />
           {SOURCE_GROUPS.map((group) => {
             const checked = group.sources.every((s) => state.selectedSources.includes(s));
-            const count = ALL_VOCAB.filter((v) => group.sources.some((s) => v.sources.includes(s)) && state.selectedLevels.includes(v.level)).length;
+            const count = new Set(ALL_VOCAB.filter((v) => group.sources.some((s) => v.sources.includes(s)) && state.selectedLevels.includes(v.level)).map((v) => v.word)).size;
             return (
               <FilterChipOption
                 key={group.id}
@@ -624,8 +670,8 @@ export function VocabScreen({
         <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-2">
-              <Badge style={levelBadgeStyle(v.level)}>{v.level}</Badge>
-              <Badge variant="secondary">{v.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}</Badge>
+              <Badge style={levelBadgeStyle(displayedCard.level)}>{displayedCard.level}</Badge>
+              <Badge variant="secondary">{displayedCard.sources.map((s) => SOURCE_LABELS[s]).join(" · ")}</Badge>
               {isDueForReview(progress ?? undefined) ? (
                 <span className="flex items-center gap-1 text-xs font-semibold text-amber-600">
                   <Clock size={13} /> Đến hạn ôn lại
@@ -634,7 +680,7 @@ export function VocabScreen({
             </div>
             <div className="flex shrink-0 items-center gap-1.5">
               <button
-                onClick={() => speakJapanese(v.reading || v.word)}
+                onClick={() => speakJapanese(selectedReading || v.word)}
                 aria-label="Phát âm"
                 title="Phát âm tiếng Nhật"
                 className="flex h-7.5 w-7.5 items-center justify-center rounded-full text-neutral-400 hover:bg-neutral-100 hover:text-rose-500"
@@ -659,7 +705,7 @@ export function VocabScreen({
               <button
                 title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
                 onClick={async () => {
-                  await toggleFlag(v.id);
+                  await toggleFlag(progressCardId ?? displayedCard.id);
                   await refreshProgress();
                 }}
                 className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
@@ -671,7 +717,7 @@ export function VocabScreen({
               <button
                 title={progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
                 onClick={async () => {
-                  await toggleMastered(v.id);
+                  await toggleMastered(progressCardId ?? displayedCard.id);
                   await refreshProgress();
                 }}
                 className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
@@ -684,21 +730,43 @@ export function VocabScreen({
           </div>
 
           <div className="mt-5 rounded-2xl border border-[#e8b96e] bg-[#fff5dc] px-4 py-5 text-center dark:border-[#70552e] dark:bg-[#302719]">
-            {v.reading ? <div className="text-sm text-[#675d51] dark:text-[#c4b9aa]">{v.reading}</div> : null}
+            {readingVariants.length > 1 ? (
+              <div role="tablist" aria-label={`Cách đọc của ${v.word}`} className="mb-3 flex flex-wrap justify-center gap-2">
+                {readingVariants.map((variant) => (
+                  <button
+                    key={variant.reading}
+                    type="button"
+                    role="tab"
+                    aria-selected={selectedReading === variant.reading}
+                    onClick={() => setReadingTab({ cardId: v.id, reading: variant.reading })}
+                    className={`rounded-full border px-3 py-1 text-sm font-medium transition-colors ${
+                      selectedReading === variant.reading
+                        ? "border-sky-500 bg-sky-600 text-white shadow-sm"
+                        : "border-[#d5c8ad] bg-white/80 text-[#31566f] hover:border-sky-400 hover:bg-sky-50 dark:border-[#70552e] dark:bg-[#29251d] dark:text-[#c3e2ff]"
+                    }`}
+                  >
+                    {variant.reading}
+                  </button>
+                ))}
+              </div>
+            ) : selectedReading ? <div className="text-sm text-[#675d51] dark:text-[#c4b9aa]">{selectedReading}</div> : null}
             <div className="mt-1 break-words font-serif text-4xl font-bold text-[#194e75] sm:text-5xl dark:text-[#c3e2ff]">
               <WordWithKanjiLinks word={v.word} onOpenKanji={onOpenKanji} />
             </div>
             <div className="mx-auto mt-3 h-px max-w-[280px] bg-[#dfc796] dark:bg-[#70552e]" />
-            <div className="mt-3 text-base font-semibold text-[#125b86] italic dark:text-[#a9d6f5]">{v.meaningVi || "—"}</div>
+            <div className="mt-3 text-base font-semibold text-[#125b86] italic dark:text-[#a9d6f5]">{displayedMeaning}</div>
+            {selectedReadingVariant?.jmdictId ? (
+              <div className="mt-1 text-[11px] text-[#746a5d] dark:text-[#b7a990]">Nghĩa tham khảo từ JMdict</div>
+            ) : null}
           </div>
 
-          {v.hanViet.length > 0 ? (
+          {displayedCard.hanViet.length > 0 ? (
             <section className="mt-3 rounded-xl border-l-4 border-[#e86916] bg-[#fff0e5] px-3 py-2.5 text-sm dark:bg-[#39281f]">
               <span className="font-semibold text-[#bd4a0c] dark:text-[#fdba8c]">Hán Việt:</span>{" "}
-              <span className="font-bold text-[#ad470e] dark:text-[#fdba8c]">{formatHanViet(v.hanViet)}</span>
+              <span className="font-bold text-[#ad470e] dark:text-[#fdba8c]">{formatHanViet(displayedCard.hanViet)}</span>
             </section>
           ) : null}
-          {((v.partOfSpeech && v.partOfSpeech !== "Khác") || v.verbGroup || v.transitivity || (v.verbForms?.length ?? 0) > 0) ? (
+          {contentCard && ((displayedCard.partOfSpeech && displayedCard.partOfSpeech !== "Khác") || displayedCard.verbGroup || displayedCard.transitivity || (displayedCard.verbForms?.length ?? 0) > 0) ? (
             <section className="mt-2 rounded-xl border-l-4 border-[#8b43b0] bg-[#fbf6ff] px-3 py-2.5 text-sm dark:bg-[#2a2440]">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 font-semibold text-[#8238a7] dark:text-[#d0b8f5]">
@@ -706,20 +774,20 @@ export function VocabScreen({
                   Từ loại:
                 </span>
                 <VocabPartOfSpeechTag
-                  word={v.word}
-                  partOfSpeech={v.partOfSpeech}
-                  verbGroup={v.verbGroup}
-                  transitivity={v.transitivity}
+                  word={displayedCard.word}
+                  partOfSpeech={displayedCard.partOfSpeech}
+                  verbGroup={displayedCard.verbGroup}
+                  transitivity={displayedCard.transitivity}
                 />
               </div>
-              <VocabVerbMetadata forms={v.verbForms} />
+              <VocabVerbMetadata forms={displayedCard.verbForms} />
             </section>
           ) : null}
 
-          {v.english ? (
+          {displayedEnglish ? (
             <section className="mt-3 rounded-xl border-l-4 border-[#8a786b] bg-[#f7f5f3] px-3 py-2.5 text-sm dark:bg-[#292a2c]">
-              <span className="font-semibold text-[#756558] dark:text-[#c4b9aa]">English:</span>{" "}
-              <span className="italic text-neutral-700">{v.english}</span>
+              <span className="font-semibold text-[#756558] dark:text-[#c4b9aa]">{selectedReadingVariant?.jmdictEnglish ? "English · JMdict:" : "English:"}</span>{" "}
+              <span className="italic text-neutral-700">{displayedEnglish}</span>
             </section>
           ) : null}
 
@@ -736,7 +804,7 @@ export function VocabScreen({
                 <button
                   type="button"
                   aria-pressed={showExampleFurigana}
-                  onClick={() => setFuriganaCardId(showExampleFurigana ? null : v.id)}
+                  onClick={() => setFuriganaCardId(showExampleFurigana ? null : readingContextId!)}
                   className={`inline-flex shrink-0 items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${showExampleFurigana ? "bg-sky-100 text-sky-800" : "text-sky-700 hover:bg-sky-100"}`}
                 >
                   <BookOpenText size={13} /> {showExampleFurigana ? "Ẩn furigana" : "Hiện furigana"}
@@ -749,7 +817,10 @@ export function VocabScreen({
                       {showExampleFurigana ? (
                         <FuriganaText
                           text={example.jp}
-                          annotations={getVocabFuriganaAnnotations(example.jp, v)}
+                          annotations={getVocabFuriganaAnnotations(example.jp, {
+                            word: currentListCard?.word ?? displayedCard.word,
+                            reading: selectedReading || displayedCard.reading,
+                          })}
                           className="text-neutral-800"
                         />
                       ) : (
@@ -773,12 +844,12 @@ export function VocabScreen({
           <CorrectionEditorSheet
             open={correctionOpen}
             onClose={() => setCorrectionOpen(false)}
-            entityId={v.id}
+            entityId={progressCardId ?? displayedCard.id}
             snapshot={{
               word: v.word,
-              reading: v.reading,
-              meaningVi: v.meaningVi,
-              sources: v.sources.map((source) => SOURCE_LABELS[source]),
+              reading: selectedReading || displayedCard.reading,
+              meaningVi: displayedMeaning,
+              sources: displayedCard.sources.map((source) => SOURCE_LABELS[source]),
             }}
             onSaved={(saved) => setCorrections((current) => [saved, ...current.filter((entry) => entry.id !== saved.id)])}
           />
@@ -854,34 +925,34 @@ export function VocabScreen({
               </div>
             </details>
           ) : null}
-          {(v.synonym || v.pairVerb || corrections.length > 0 || v.conjugations) ? (
+          {(contentCard?.synonym || contentCard?.pairVerb || corrections.length > 0 || contentCard?.conjugations) ? (
             <details className="mt-2.5 rounded-xl border border-neutral-200 bg-white text-sm">
               <summary className="cursor-pointer px-3 py-2.5 font-semibold text-neutral-600">
                 Thông tin bổ sung <span className="ml-2 font-normal text-neutral-400">{[
-                  (v.synonym || v.pairVerb) && "Từ liên quan",
-                  v.conjugations && "Chia thể",
+                  (contentCard?.synonym || contentCard?.pairVerb) && "Từ liên quan",
+                  contentCard?.conjugations && "Chia thể",
                   corrections.length > 0 && `${corrections.length} góp ý`,
                 ].filter(Boolean).join(" · ")}</span>
               </summary>
               <div className="border-t border-neutral-100 px-3 pb-3">
 
-          {v.synonym || v.pairVerb ? <dl className="mt-3 grid grid-cols-[100px_1fr] gap-y-2 rounded-xl border-l-4 border-[#38856b] bg-[#eff9f4] px-3 py-2.5 text-sm">
-            {v.synonym ? (
+          {contentCard?.synonym || contentCard?.pairVerb ? <dl className="mt-3 grid grid-cols-[100px_1fr] gap-y-2 rounded-xl border-l-4 border-[#38856b] bg-[#eff9f4] px-3 py-2.5 text-sm">
+            {contentCard.synonym ? (
               <>
                 <dt className="text-neutral-400">Đồng nghĩa</dt>
                 <dd className="text-neutral-800">
-                  {v.synonym.word}
-                  {v.synonym.reading ? ` (${v.synonym.reading})` : ""}
+                  {contentCard.synonym.word}
+                  {contentCard.synonym.reading ? ` (${contentCard.synonym.reading})` : ""}
                 </dd>
               </>
             ) : null}
-            {v.pairVerb
+            {contentCard.pairVerb
               ? (() => {
-                  const target = findVocabByWordReading(v.pairVerb.word, v.pairVerb.reading);
+                  const target = findVocabByWordReading(contentCard.pairVerb.word, contentCard.pairVerb.reading);
                   return (
                     <>
                       <dt className="text-neutral-400">
-                        {v.transitivity === "Tự động từ" ? "Tha động từ" : v.transitivity === "Tha động từ" ? "Tự động từ" : "Cặp tự/tha động từ"}
+                        {contentCard.transitivity === "Tự động từ" ? "Tha động từ" : contentCard.transitivity === "Tha động từ" ? "Tự động từ" : "Cặp tự/tha động từ"}
                       </dt>
                       <dd className="text-neutral-800">
                         {target ? (
@@ -889,13 +960,13 @@ export function VocabScreen({
                             onClick={() => onOpenVocab(target.id)}
                             className="cursor-pointer font-medium text-rose-600 decoration-dotted decoration-2 underline-offset-4 hover:underline"
                           >
-                            {v.pairVerb.word}
-                            {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                            {contentCard.pairVerb.word}
+                            {contentCard.pairVerb.reading ? ` (${contentCard.pairVerb.reading})` : ""}
                           </button>
                         ) : (
                           <>
-                            {v.pairVerb.word}
-                            {v.pairVerb.reading ? ` (${v.pairVerb.reading})` : ""}
+                            {contentCard.pairVerb.word}
+                            {contentCard.pairVerb.reading ? ` (${contentCard.pairVerb.reading})` : ""}
                           </>
                         )}
                       </dd>

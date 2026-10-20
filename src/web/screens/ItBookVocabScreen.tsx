@@ -4,6 +4,7 @@ import {
   ALL_IT_BOOK_VOCAB,
   AVAILABLE_LESSONS,
   LESSON_LABELS,
+  countAllItBookWords,
   countForLesson,
   getOrderedList,
   loadViewerState,
@@ -36,6 +37,8 @@ import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import type { ItBookVocabWord } from "../../types/itBook.ts";
+import { getJmdictReadingVariants } from "../../lib/jmdictVocabReading.ts";
+import { defaultVocabReading, getVocabReadingLabels, vocabReadingProgressId } from "../../lib/vocabReading.ts";
 
 const BUCKET_ORDER: ProgressBucket[] = ["mastered", "learning", "flagged", "new"];
 const BUCKET_LABEL: Record<ProgressBucket, string> = {
@@ -65,7 +68,13 @@ const BUCKET_ACTIVE_RING: Record<ProgressBucket, string> = {
 
 async function getFilteredList(state: ItBookViewerState): Promise<ItBookVocabWord[]> {
   const map = await loadProgressMap();
-  return filterByProgress(getOrderedList(state), map, state.progressFilter);
+  const filtered = filterByProgress(getOrderedList(state), map, state.progressFilter);
+  const seen = new Set<string>();
+  return filtered.filter((word) => {
+    if (seen.has(word.word)) return false;
+    seen.add(word.word);
+    return true;
+  });
 }
 
 export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = {}) {
@@ -75,6 +84,36 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   const [gridMap, setGridMap] = useState<ProgressMap | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
   const [bucketFilter, setBucketFilter] = useState<ProgressBucket | null>(null);
+  const [readingTab, setReadingTab] = useState<{ cardId: string; reading: string } | null>(null);
+  const currentListCard = state && state.viewMode !== "grid" ? list[state.index] : undefined;
+  const appReadings = currentListCard
+    ? ALL_IT_BOOK_VOCAB.filter((card) => card.word === currentListCard.word)
+    : [];
+  const readingTabs = currentListCard
+    ? [...new Set([
+        ...appReadings.flatMap((card) => getVocabReadingLabels(card.word, card.reading)),
+        ...getJmdictReadingVariants(currentListCard.word).map((variant) => variant.reading),
+      ])]
+    : [];
+  const selectedReadingValue = currentListCard
+    ? readingTab?.cardId === currentListCard.id ? readingTab.reading : currentListCard.reading
+    : "";
+  const selectedReading = currentListCard
+    ? defaultVocabReading(currentListCard.word, selectedReadingValue)
+    : "";
+  const selectedAppCard = currentListCard
+    ? appReadings.find((card) => card.id === currentListCard.id && getVocabReadingLabels(card.word, card.reading).includes(selectedReading)) ??
+      appReadings.find((card) => getVocabReadingLabels(card.word, card.reading).includes(selectedReading)) ??
+      (getVocabReadingLabels(currentListCard.word, currentListCard.reading).includes(selectedReading) ? currentListCard : undefined)
+    : undefined;
+  const selectedJmdictVariant = currentListCard
+    ? getJmdictReadingVariants(currentListCard.word).find((variant) => variant.reading === selectedReading)
+    : undefined;
+  const activeCard = selectedAppCard ?? currentListCard;
+  const progressCardId = selectedAppCard?.id ??
+    (currentListCard && selectedJmdictVariant
+      ? vocabReadingProgressId(currentListCard.word, selectedReading)
+      : currentListCard?.id);
 
   // See web VocabScreen.tsx's identical field: keeps mutate() persisting the
   // pre-jump lesson filter instead of the one-lesson narrowing below, which
@@ -118,17 +157,16 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   useEffect(() => {
     let cancelled = false;
     if (!state) return;
-    const v = list[state.index];
     if (state.viewMode === "grid") {
       loadProgressMap().then((m) => {
         if (!cancelled) setGridMap(m);
       });
       setProgress(null);
-    } else if (v) {
-      getProgress(v.id).then((p) => {
+    } else if (progressCardId) {
+      getProgress(progressCardId).then((p) => {
         if (!cancelled) setProgress(p);
       });
-      void markViewed(v.id);
+      void markViewed(progressCardId);
       setGridMap(null);
     } else {
       setProgress(null);
@@ -137,7 +175,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
     return () => {
       cancelled = true;
     };
-  }, [state, list]);
+  }, [state, list, progressCardId]);
 
   async function mutate(partial: Partial<ItBookViewerState>, recomputeList = true) {
     if (!state) return;
@@ -159,9 +197,8 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   }
 
   async function refreshProgress() {
-    const v = list[state!.index];
-    if (!v) return;
-    const p = await getProgress(v.id);
+    if (!progressCardId) return;
+    const p = await getProgress(progressCardId);
     setProgress(p);
   }
 
@@ -172,6 +209,8 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
   }
 
   const v = list[state.index];
+  const displayedMeaning = selectedAppCard?.meaningVi ?? selectedJmdictVariant?.meaningVi ??
+    (selectedReading === v?.reading ? v?.meaningVi : "Chưa có nghĩa cho cách đọc này.");
   const totalSelected = list.length;
   const isGrid = state.viewMode === "grid";
   const bucketCounts = gridMap ? countBuckets(list, gridMap) : null;
@@ -244,7 +283,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
       >
         <FilterGroup title="Bài học">
           <FilterChipOption
-            label={`Tất cả (${ALL_IT_BOOK_VOCAB.length})`}
+            label={`Tất cả (${countAllItBookWords()})`}
             active={allChecked}
             onClick={() => applyLessonSelection(allChecked ? state.selectedLessons : [...AVAILABLE_LESSONS])}
           />
@@ -358,7 +397,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
         <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-6 ring-0">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-2">
-              <Badge variant="secondary">{LESSON_LABELS[v.lesson]}</Badge>
+              <Badge variant="secondary">{LESSON_LABELS[selectedAppCard?.lesson ?? v.lesson]}</Badge>
               {isDueForReview(progress ?? undefined) ? (
                 <span className="flex items-center gap-1 text-xs font-semibold text-amber-600">
                   <Clock size={13} /> Đến hạn ôn lại
@@ -369,7 +408,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
               <button
                 title={isFlagged(progress) ? "Bỏ đánh dấu khó" : "Đánh dấu khó, cần học lại"}
                 onClick={async () => {
-                  await toggleFlag(v.id);
+                  await toggleFlag(progressCardId ?? v.id);
                   await refreshProgress();
                 }}
                 className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
@@ -381,7 +420,7 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
               <button
                 title={progress?.mastered ? "Đã thuộc" : "Đánh dấu đã thuộc"}
                 onClick={async () => {
-                  await toggleMastered(v.id);
+                  await toggleMastered(progressCardId ?? v.id);
                   await refreshProgress();
                 }}
                 className={`flex h-7.5 w-7.5 items-center justify-center rounded-full ${
@@ -393,8 +432,24 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
             </div>
           </div>
 
-          <div className="mt-6 text-center text-4xl font-bold text-neutral-800">{v.word}</div>
-          {v.reading ? <div className="mt-1 text-center text-neutral-500">{v.reading}</div> : null}
+          {readingTabs.length > 1 ? (
+            <div role="tablist" aria-label={`Cách đọc của ${v.word}`} className="mt-6 flex flex-wrap justify-center gap-2">
+              {readingTabs.map((reading) => (
+                <button
+                  key={reading}
+                  type="button"
+                  role="tab"
+                  aria-selected={selectedReading === reading}
+                  onClick={() => setReadingTab({ cardId: v.id, reading })}
+                  className={`rounded-full border px-3 py-1 text-sm font-medium ${selectedReading === reading ? "border-indigo-500 bg-indigo-600 text-white" : "border-neutral-200 bg-white text-neutral-600 hover:bg-indigo-50"}`}
+                >
+                  {reading}
+                </button>
+              ))}
+            </div>
+          ) : null}
+          <div className={`${readingTabs.length > 1 ? "mt-3" : "mt-6"} text-center text-4xl font-bold text-neutral-800`}>{v.word}</div>
+          {readingTabs.length <= 1 && selectedReading ? <div className="mt-1 text-center text-neutral-500">{selectedReading}</div> : null}
 
           <dl className="mt-6 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
             {v.hanViet.length > 0 ? (
@@ -404,13 +459,19 @@ export function ItBookVocabScreen({ jumpToLesson }: { jumpToLesson?: number } = 
               </>
             ) : null}
             <dt className="text-neutral-400">Nghĩa</dt>
-            <dd className="text-neutral-800">{v.meaningVi || "—"}</dd>
+            <dd className="text-neutral-800">{displayedMeaning || "—"}</dd>
           </dl>
 
-          {v.example ? (
+          {selectedJmdictVariant ? (
+            <div className="mt-3 rounded-lg bg-neutral-50 px-3 py-2 text-xs text-neutral-500">
+              English · JMdict: {selectedJmdictVariant.glossEn}
+            </div>
+          ) : null}
+
+          {selectedAppCard?.example ? (
             <div className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm text-neutral-800">
-              <div>{v.example}</div>
-              {v.exampleVi ? <div className="mt-1 text-emerald-700">{v.exampleVi}</div> : null}
+              <div>{selectedAppCard.example}</div>
+              {selectedAppCard.exampleVi ? <div className="mt-1 text-emerald-700">{selectedAppCard.exampleVi}</div> : null}
             </div>
           ) : null}
         </Card>
