@@ -383,7 +383,7 @@ export function WebAppShell({
             >
               <Menu size={22} />
             </button>
-            <div className="truncate px-2 text-center text-sm font-semibold text-neutral-800 dark:text-[#e5e7eb]">
+            <div className={`truncate px-2 text-center ${active === "menu" ? "text-base font-bold text-rose-600 dark:text-[#c3e2ff]" : "text-sm font-semibold text-neutral-800 dark:text-[#e5e7eb]"}`}>
               {active === "menu" ? "Nihongo Nin" : (NAV_ITEMS.find((item) => item.screen === active)?.label ?? "Nihongo Nin")}
             </div>
             <div className="flex items-center justify-end gap-0.5">
