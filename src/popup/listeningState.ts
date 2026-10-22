@@ -70,6 +70,27 @@ function toListeningFurigana(segments: { text: string; furigana: string | null }
   return segments?.filter((segment) => segment.furigana).map((segment) => ({ word: segment.text, reading: segment.furigana! }));
 }
 
+// One turn per transcript line so each Japanese line gets its Vietnamese line
+// directly underneath. Numbered answer choices are sometimes glued onto the
+// previous choice in the source ("...芳送4. 大会..."), so split before "N. " too.
+// If the translation line count doesn't match, fall back to a single
+// unannotated turn rather than pairing lines incorrectly.
+function splitTranscriptLines(text: string) {
+  return text
+    .split("\n")
+    .flatMap((line) => line.trim().split(/(?<=\S)(?=[1-4]\.\s)/u))
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function buildTranscriptTurns(transcript: string | undefined, transcriptVi: string | undefined) {
+  if (!transcript) return [];
+  const jaLines = splitTranscriptLines(transcript);
+  const viLines = splitTranscriptLines(transcriptVi ?? "");
+  if (viLines.length !== jaLines.length) return [{ speaker: "", text: transcript }];
+  return jaLines.map((text, index) => ({ speaker: "", text, textVi: viLines[index] }));
+}
+
 const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
   .filter((exam) => exam.source === "de-n3")
   .sort((left, right) => left.id.localeCompare(right.id))
@@ -91,7 +112,7 @@ const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
         audioEndSec: question.audioEndSec,
         scenario: "",
         scenarioVi: "",
-        turns: transcript ? [{ speaker: "", text: transcript }] : [],
+        turns: buildTranscriptTurns(transcript, question.transcriptVi),
         question: question.question,
         questionFurigana: toListeningFurigana(question.questionFurigana),
         questionVi: question.questionVi?.startsWith("Chưa có MP3") ? "" : question.questionVi ?? "",

@@ -40,6 +40,22 @@ export async function recordJlptQuestionPracticeAnswer(
   return attempt;
 }
 
+export interface JlptQuestionPracticeSelection {
+  source?: string;
+  category?: string;
+  examId?: string;
+}
+
+const SELECTION_KEY = "jlptQuestionPracticeSelection";
+
+export async function loadJlptQuestionPracticeSelection(): Promise<JlptQuestionPracticeSelection> {
+  return (await storageGet<JlptQuestionPracticeSelection>(SELECTION_KEY)) ?? {};
+}
+
+export async function saveJlptQuestionPracticeSelection(selection: JlptQuestionPracticeSelection): Promise<void> {
+  await storageSet(SELECTION_KEY, selection);
+}
+
 export async function clearJlptQuestionPracticeAnswer(questionId: string): Promise<void> {
   await updateProgress((progress) => {
     const { [questionId]: _removed, ...remaining } = progress;

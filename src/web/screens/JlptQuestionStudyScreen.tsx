@@ -4,7 +4,9 @@ import { ALL_EXAMS } from "../../popup/dethiCatalog.ts";
 import {
   clearJlptQuestionPracticeAnswer,
   loadJlptQuestionPracticeProgress,
+  loadJlptQuestionPracticeSelection,
   recordJlptQuestionPracticeAnswer,
+  saveJlptQuestionPracticeSelection,
   type JlptQuestionPracticeProgress,
   type JlptQuestionPracticeStatus,
 } from "../../popup/jlptQuestionPracticeState.ts";
@@ -155,16 +157,33 @@ export function JlptQuestionStudyScreen({
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [progress, setProgress] = useState<JlptQuestionPracticeProgress | null>(null);
   const [savingQuestionId, setSavingQuestionId] = useState<string | null>(null);
+  const [selectionRestored, setSelectionRestored] = useState(Boolean(targetId));
 
   useEffect(() => {
     let cancelled = false;
-    loadJlptQuestionPracticeProgress().then((saved) => {
-      if (!cancelled) setProgress(saved);
+    Promise.all([loadJlptQuestionPracticeProgress(), loadJlptQuestionPracticeSelection()]).then(([saved, selection]) => {
+      if (cancelled) return;
+      setProgress(saved);
+      if (!targetId) {
+        const restoredExam = selection.examId ? catalog.find((set) => set.exam.id === selection.examId) : undefined;
+        const restoredCategory = selection.category === "goi" || selection.category === "grammar" ? selection.category : undefined;
+        if (restoredExam && restoredCategory && restoredExam.exam.source === selection.source && restoredExam[restoredCategory].length > 0) {
+          setSource(restoredExam.exam.source);
+          setCategory(restoredCategory);
+          setExamId(restoredExam.exam.id);
+        }
+      }
+      setSelectionRestored(true);
     });
     return () => {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (!selectionRestored) return;
+    saveJlptQuestionPracticeSelection({ source, category, examId });
+  }, [source, category, examId, selectionRestored]);
 
   useEffect(() => {
     onCurrentItemChange?.(selectedQuestionId ?? undefined);
