@@ -161,6 +161,7 @@ function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
     frontLabel: "Kanji",
     primaryLabel: "Hán Việt",
     primary: formatHanViet(kanji.hanViet, "Chưa có Hán Việt"),
+    pronunciation: kanji.readings.on[0] || kanji.readings.kun[0]?.replace(/[.-]/g, "") || kanji.character,
     secondaryLabel: "Nghĩa",
     secondary: kanji.meanings.vi.join(" · ") || "Chưa có nghĩa",
     backReference: kanji.character,
@@ -185,6 +186,7 @@ function toGrammarFlashcard(item: BunpoStudyItem): FlashcardItem {
     frontLabel: "Ngữ pháp",
     primaryLabel: "Ý nghĩa",
     primary: item.meaningVi || "Chưa có nghĩa",
+    pronunciation: item.pattern.replace(/^[〜～]/, ""),
     secondaryLabel: item.sense.formula ? "Cấu trúc" : undefined,
     secondary: item.sense.formula,
     memoryHints: [],
@@ -507,9 +509,9 @@ export function FlashcardScreen() {
   }, [current?.progressId, revealed]);
 
   useEffect(() => {
-    if (!revealed || !current?.pronunciation || selectedCollection?.id !== "vocab:fpt-n3-tango") return;
+    if (!revealed || !current?.pronunciation) return;
     speakJapanese(current.pronunciation);
-  }, [current?.id, current?.pronunciation, revealed, selectedCollection?.id]);
+  }, [current?.id, current?.pronunciation, revealed]);
 
   function chooseCategory(nextCategory: FlashcardCategoryId) {
     setCategoryId(nextCategory);
