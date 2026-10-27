@@ -4353,15 +4353,34 @@
     },
     {
       "id": "tango-vocab-n2-326-なめる",
-      "word": "なめる",
-      "reading": null,
+      "word": "舐める",
+      "reading": "なめる",
       "level": "N2",
       "partOfSpeech": "Động từ",
-      "hanViet": [],
-      "meaningVi": "liếm, nếm",
+      "hanViet": [
+        "THỊ"
+      ],
+      "meaningVi": "Liếm; nếm; (nghĩa bóng) coi thường, xem nhẹ.",
       "mnemonic": [],
       "example": "ソースを作りながら、少しなめて、味を確かめる。",
-      "exampleVi": "Tôi vừa làm nước sốt vừa nếm một chút để kiểm tra vị."
+      "exampleVi": "Tôi vừa làm nước sốt vừa nếm một chút để kiểm tra vị.",
+      "verbGroup": "Nhóm 2 (Ichidan)",
+      "transitivity": "Tha động từ",
+      "conjugations": {
+        "masu": "舐めます",
+        "te": "舐めて",
+        "ta": "舐めた",
+        "nai": "舐めない",
+        "potential": "舐められる",
+        "passive": "舐められる",
+        "causative": "舐めさせる",
+        "causativePassive": "舐めさせられる",
+        "conditionalBa": "舐めれば",
+        "conditionalTara": "舐めたら",
+        "volitional": "舐めよう",
+        "imperative": "舐めろ",
+        "prohibitive": "舐めるな"
+      }
     },
     {
       "id": "tango-vocab-n2-327-臭い",
@@ -6077,14 +6096,14 @@
     },
     {
       "id": "tango-vocab-n2-455-横断する",
-      "word": "横断する",
-      "reading": "おうだんする",
+      "word": "横断",
+      "reading": "おうだん",
       "level": "N2",
       "partOfSpeech": "Danh từ",
       "hanViet": [
         "HOÀNH ĐOẠN"
       ],
-      "meaningVi": "sự băng qua",
+      "meaningVi": "Sự băng qua; cắt ngang/băng qua (đường...).",
       "mnemonic": [],
       "example": "車が行き来する道を横断するときは注意しよう。",
       "exampleVi": "Khi băng qua đường có xe hơi qua lại, hãy cẩn thận."
@@ -18030,7 +18049,7 @@
       "level": "N2",
       "partOfSpeech": "Tính từ",
       "hanViet": [],
-      "meaningVi": "yếu đuối",
+      "meaningVi": "yếu đuối; lôi thôi, luộm thuộm; vô kỷ luật.",
       "mnemonic": [],
       "example": "①あの人の服装は、いつもだらしない。②部下にできないなんて、部長はだらしない。",
       "exampleVi": "① Trang phục của người đó lúc nào cũng lôi thôi. ② Không thể lưu ý được cấp dưới thì trưởng phòng thật yếu đuối."
@@ -19770,11 +19789,11 @@
       "word": "口が堅い",
       "reading": "くちがかたい",
       "level": "N2",
-      "partOfSpeech": "Động từ",
+      "partOfSpeech": "Cụm từ",
       "hanViet": [
         "KHẨU KIÊN"
       ],
-      "meaningVi": "kín miệng",
+      "meaningVi": "Kín miệng; giữ kín bí mật.",
       "mnemonic": [],
       "example": "親友は口が堅いので、何でも相談できる。",
       "exampleVi": "Bạn thân tôi rất kín miệng nên có thể trao đổi bất kỳ chuyện gì."
