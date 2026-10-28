@@ -87,7 +87,11 @@ function buildTranscriptTurns(transcript: string | undefined, transcriptVi: stri
   if (!transcript) return [];
   const jaLines = splitTranscriptLines(transcript);
   const viLines = splitTranscriptLines(transcriptVi ?? "");
-  if (viLines.length !== jaLines.length) return [{ speaker: "", text: transcript }];
+  if (viLines.length !== jaLines.length) {
+    // Keep the complete translation available without guessing which lines
+    // correspond. The transcript card renders this as one full-script block.
+    return [{ speaker: "", text: transcript, ...(transcriptVi ? { textVi: transcriptVi } : {}) }];
+  }
   return jaLines.map((text, index) => ({ speaker: "", text, textVi: viLines[index] }));
 }
 
@@ -96,8 +100,10 @@ const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
   .sort((left, right) => left.id.localeCompare(right.id))
   .flatMap((exam) => {
     const paper = exam.papers.find((candidate) => candidate.id === "choukai");
-    if (!paper?.audioUrl) throw new Error(`${exam.examLabel} is missing its continuous listening audio.`);
-    return paper.questions.map((question) => {
+    const questions = paper?.questions;
+    const audioUrl = paper?.audioUrl;
+    if (!questions || !audioUrl) throw new Error(`${exam.examLabel} is missing its continuous listening audio.`);
+    return questions.map((question) => {
       if (question.correctIndex === null) throw new Error(`${exam.examLabel} question ${question.number} has no verified answer key.`);
       const taskType = DE_N3_GROUP_TASK_TYPES[question.problemGroup];
       if (!taskType) throw new Error(`Unknown listening group ${question.problemGroup} in ${exam.examLabel}.`);
@@ -107,7 +113,7 @@ const deN3ExamListeningQuestions: ListeningQuestion[] = ALL_EXAMS
         level: exam.level,
         book: exam.listeningBook ?? exam.id,
         taskType,
-        audioUrl: paper.audioUrl,
+        audioUrl,
         audioStartSec: question.audioStartSec,
         audioEndSec: question.audioEndSec,
         scenario: "",
@@ -161,6 +167,19 @@ export const ALL_LISTENING: ListeningQuestion[] = [
   // its complete listening section has been converted.
   ...kaiwa100cauDataset.questions,
 ];
+
+// Restrict exam-only review UI to the official exam listening datasets and
+// the ten converted N3 practice sets; source-book question banks use other
+// book keys and keep their existing presentation.
+const jlptExamListeningBooks = new Set(
+  ALL_LISTENING
+    .map((question) => question.book)
+    .filter((book) => /^dethi-/u.test(book) || /^de-n3-\d{2}$/u.test(book) || /^cacnam-n[13]-\d{4}-\d{2}$/u.test(book)),
+);
+
+export function isJlptExamListeningBook(book: string): boolean {
+  return jlptExamListeningBooks.has(book);
+}
 
 const LISTENING_BY_ID = new Map(ALL_LISTENING.map((q) => [q.id, q]));
 export function findListeningById(id: string): ListeningQuestion | undefined {

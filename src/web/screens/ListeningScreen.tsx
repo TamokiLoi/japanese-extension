@@ -16,6 +16,7 @@ import {
   recordListeningAnswer,
   clearListeningAnswer,
   clearListeningAnswers,
+  isJlptExamListeningBook,
   type ListeningViewerState,
   type ListeningProgressMap,
 } from "../../popup/listeningState.ts";
@@ -44,6 +45,7 @@ import { FilterSheet, FilterGroup, FilterChipOption } from "../components/Filter
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { FuriganaText } from "../components/FuriganaText.tsx";
 import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
+import { QuestionExplanationBlock } from "../components/QuestionExplanationBlock.tsx";
 import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
 import { getJlptPointQuestionPrompt, getListeningMondaiNumber } from "../../lib/listeningMondai.ts";
 
@@ -621,6 +623,7 @@ function QuestionView({
   const showAudioPrompt = !(answered && question.taskType === "sokuji" && Boolean(question.question));
   const optionExplanations = question.optionExplanations ?? [];
   const hasOptionExplanations = optionExplanations.some((explanation) => explanation.trim());
+  const isJlptExamQuestion = isJlptExamListeningBook(question.book);
   const audioPromptTranslation = question.scenario ? question.scenarioVi : question.questionPromptVi;
   const audioPromptFurigana = question.scenario
     ? question.scenarioFurigana
@@ -822,30 +825,42 @@ function QuestionView({
             <div className={selected === question.correctIndex ? "font-semibold text-emerald-700" : "font-semibold text-rose-700"}>
               {selected === question.correctIndex ? "✓ Đúng" : "✗ Sai"}
             </div>
-            {question.explanation ? <div className="text-neutral-600">{question.explanation}</div> : null}
-            {hasOptionExplanations ? (
-              <div className="border-t border-neutral-100 pt-3">
-                <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Giải thích từng đáp án</div>
-                <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
-                  {optionExplanations.map((explanation, oi) =>
-                    explanation.trim() ? (
-                      <div key={oi} className="flex gap-2">
-                        <span
-                          className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
-                            oi === question.correctIndex
-                              ? "bg-emerald-100 text-emerald-700"
-                              : "bg-rose-50 text-rose-600"
-                          }`}
-                        >
-                          {oi + 1}
-                        </span>
-                        <span>{explanation}</span>
-                      </div>
-                    ) : null,
-                  )}
-                </div>
-              </div>
-            ) : null}
+            {isJlptExamQuestion ? (
+              <QuestionExplanationBlock
+                explanation={question.explanation}
+                optionExplanations={optionExplanations}
+                correctIndex={question.correctIndex}
+                showMissing
+                className="space-y-3"
+              />
+            ) : (
+              <>
+                {question.explanation ? <div className="text-neutral-600">{question.explanation}</div> : null}
+                {hasOptionExplanations ? (
+                  <div className="border-t border-neutral-100 pt-3">
+                    <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Giải thích từng đáp án</div>
+                    <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
+                      {optionExplanations.map((explanation, oi) =>
+                        explanation.trim() ? (
+                          <div key={oi} className="flex gap-2">
+                            <span
+                              className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                                oi === question.correctIndex
+                                  ? "bg-emerald-100 text-emerald-700"
+                                  : "bg-rose-50 text-rose-600"
+                              }`}
+                            >
+                              {oi + 1}
+                            </span>
+                            <span>{explanation}</span>
+                          </div>
+                        ) : null,
+                      )}
+                    </div>
+                  </div>
+                ) : null}
+              </>
+            )}
             {question.notes ? <div className="rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.notes}</div> : null}
           </div>
         ) : null}

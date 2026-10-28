@@ -42,6 +42,7 @@ import { recordAnswer } from "../../popup/progressState.ts";
 import { pruneToggle } from "../../popup/filterUtils.ts";
 import { Card } from "../components/ui/card.tsx";
 import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
+import { QuestionExplanationBlock } from "../components/QuestionExplanationBlock.tsx";
 import { Button } from "../components/ui/button.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
@@ -1710,7 +1711,21 @@ function PassageView({
                   );
                 })}
               </div>
-              {state.resultsRevealed && answered !== null && (q.explanation || q.answerSourceNote) ? (
+              {state.resultsRevealed && answered !== null && isReadingExamBook(passage.book) ? (
+                <div className="mt-3 space-y-3 border-t border-neutral-100 pt-3 text-sm">
+                  <QuestionExplanationBlock
+                    explanation={q.explanation}
+                    correctIndex={q.correctIndex}
+                    showMissing
+                    className="space-y-3"
+                  />
+                  {q.answerSourceNote ? (
+                    <div className="rounded-lg bg-amber-50 p-2 text-xs leading-relaxed text-amber-700">
+                      <span className="font-semibold">Đối chiếu PDF: </span>{q.answerSourceNote}
+                    </div>
+                  ) : null}
+                </div>
+              ) : state.resultsRevealed && answered !== null && (q.explanation || q.answerSourceNote) ? (
                 <div className="mt-3 space-y-3 border-t border-neutral-100 pt-3 text-sm">
                   {q.explanation ? (
                     <div>

@@ -35,6 +35,7 @@ import { useConfirm } from "../components/ConfirmDialog.tsx";
 import { AudioPlayer } from "../components/AudioPlayer.tsx";
 import { FuriganaText } from "../components/FuriganaText.tsx";
 import { ListeningTranscriptCard } from "../components/ListeningTranscriptCard.tsx";
+import { QuestionExplanationBlock } from "../components/QuestionExplanationBlock.tsx";
 import { assetUrl } from "../../platform/assetUrl";
 import { useFloatingNav } from "../WebAppShell.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
@@ -2290,41 +2291,24 @@ function ReviewQuestion({
           </div>
         )
       ) : null}
-      {question.explanation || orderingReconstruction ? (
+      {orderingReconstruction ? (
         <div className="mt-2 text-sm text-neutral-600">
-          {question.explanation ? <p>{question.explanation}</p> : null}
-          {orderingReconstruction ? (
-            <div className={question.explanation ? "mt-2 border-t border-neutral-200 pt-2" : ""}>
-              <p className="font-semibold">
-                Thứ tự ghép: {orderingReconstruction.order.map((optionIndex) => optionIndex + 1).join(" → ")} (★ ở phương án {question.correctIndex === null ? "?" : question.correctIndex + 1}).
-              </p>
-              <p className="mt-1 whitespace-pre-line">
-                <span className="font-semibold">Câu hoàn chỉnh: </span>{orderingReconstruction.sentence}
-              </p>
-              {question.orderingSentenceVi ? <p className="mt-1 whitespace-pre-line text-neutral-500"><span className="font-semibold">Dịch: </span>{question.orderingSentenceVi}</p> : null}
-            </div>
-          ) : null}
+          <p className="font-semibold">
+            Thứ tự ghép: {orderingReconstruction.order.map((optionIndex) => optionIndex + 1).join(" → ")} (★ ở phương án {question.correctIndex === null ? "?" : question.correctIndex + 1}).
+          </p>
+          <p className="mt-1 whitespace-pre-line">
+            <span className="font-semibold">Câu hoàn chỉnh: </span>{orderingReconstruction.sentence}
+          </p>
+          {question.orderingSentenceVi ? <p className="mt-1 whitespace-pre-line text-neutral-500"><span className="font-semibold">Dịch: </span>{question.orderingSentenceVi}</p> : null}
         </div>
       ) : null}
-      {question.optionExplanations?.length === optionExplanationCount && question.optionExplanations.some((explanation) => explanation.trim()) ? (
-        <div className="mt-4 border-t border-neutral-100 pt-3">
-          <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Giải thích từng đáp án</div>
-          <div className="mt-2 space-y-2 text-xs leading-relaxed text-neutral-600">
-            {question.optionExplanations.map((explanation, oi) => explanation.trim() ? (
-              <div key={oi} className="flex gap-2">
-                <span
-                  className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
-                    oi === question.correctIndex ? "bg-emerald-100 text-emerald-700" : "bg-rose-50 text-rose-600"
-                  }`}
-                >
-                  {oi + 1}
-                </span>
-                <span>{explanation}</span>
-              </div>
-            ) : null)}
-          </div>
-        </div>
-      ) : null}
+      <QuestionExplanationBlock
+        explanation={question.explanation}
+        optionExplanations={question.optionExplanations?.length === optionExplanationCount ? question.optionExplanations : undefined}
+        correctIndex={question.correctIndex}
+        showMissing={question.correctIndex !== null && !orderingReconstruction}
+        className="mt-3 border-t border-neutral-100 pt-3"
+      />
       {question.answerSourceNote ? <div className="mt-3 rounded-lg bg-amber-50 p-2 text-xs text-amber-700">{question.answerSourceNote}</div> : null}
       {question.transcriptUncertainty?.length ? (
         <div className="mt-2 text-xs text-amber-700">Chưa xác minh: {question.transcriptUncertainty.join(" ")}</div>

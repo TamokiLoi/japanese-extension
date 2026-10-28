@@ -18,6 +18,7 @@ import { Card } from "../components/ui/card.tsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { QuestionPalette, type PaletteStatus } from "../components/QuestionPalette.tsx";
+import { QuestionExplanationBlock } from "../components/QuestionExplanationBlock.tsx";
 import { reconstructOrderingQuestion } from "../../lib/jlptOrdering.ts";
 import { alignTextSegmentsToLineBreaks } from "../../lib/alignTextSegments.ts";
 
@@ -519,17 +520,14 @@ function QuestionDetail({
                 {question.orderingSentenceVi ? <p className="mt-1 leading-relaxed text-neutral-500"><span className="font-semibold not-italic">Dịch: </span>{question.orderingSentenceVi}</p> : null}
               </div>
             ) : null}
-            {question.explanation ? (
-              <p className={`${orderingReconstruction ? "mt-3 border-t border-neutral-200/70 pt-3" : "mt-2"} leading-relaxed text-neutral-700`}>{question.explanation}</p>
-            ) : !orderingReconstruction ? <p className="mt-2 text-neutral-500">Câu này chưa có giải thích riêng.</p> : null}
+            <QuestionExplanationBlock
+              explanation={question.explanation}
+              optionExplanations={question.optionExplanations}
+              correctIndex={question.correctIndex}
+              showMissing={!orderingReconstruction}
+              className={orderingReconstruction ? "mt-3 border-t border-neutral-200/70 pt-3" : "mt-2"}
+            />
             {question.answerSourceNote ? <p className="mt-3 rounded-lg bg-amber-50 p-2 text-xs leading-relaxed text-amber-700">{question.answerSourceNote}</p> : null}
-            {question.optionExplanations?.some((text) => !!text.trim()) ? (
-              <div className="mt-3 space-y-1 border-t border-neutral-200/70 pt-3">
-                {question.optionExplanations.map((text, optionIndex) => text.trim() ? (
-                  <p key={optionIndex} className="text-xs leading-relaxed text-neutral-600">{optionIndex + 1}. {text}</p>
-                ) : null)}
-              </div>
-            ) : null}
             <button type="button" onClick={onRedo} className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-500 hover:text-rose-700">
               <RotateCcw size={13} /> Làm lại câu này
             </button>
