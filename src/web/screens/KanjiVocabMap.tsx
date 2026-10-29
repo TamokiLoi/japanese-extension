@@ -15,7 +15,8 @@ type Segment = { start: Point; end: Point };
 type MapGeometry = { width: number; height: number; segments: Segment[] };
 type Pan = { x: number; y: number };
 type PanGesture = { pointerId: number; startX: number; startY: number; startPan: Pan; moved: boolean };
-type MobilePreview = { type: "word"; id: string } | { type: "center" } | null;
+type VocabNodeGroup = { label: string; cards: VocabCard[] };
+type MapPreview = { type: "word"; label: string } | { type: "center" } | null;
 
 function rectCenter(rect: DOMRect): Point {
   return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
@@ -96,7 +97,7 @@ export function KanjiVocabMap({
   const [pan, setPan] = useState<Pan>({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const [isMobileLayout, setIsMobileLayout] = useState(() => typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches);
-  const [mobilePreview, setMobilePreview] = useState<MobilePreview>(null);
+  const [selection, setSelection] = useState<MapPreview>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const zoomRef = useRef(1);
@@ -144,13 +145,24 @@ export function KanjiVocabMap({
     panGestureRef.current = null;
     setIsPanning(false);
   };
+  const groups = useMemo(() => {
+    const byLabel = new Map<string, VocabCard[]>();
+    for (const card of vocab) {
+      const label = kanjiOnly(card.word);
+      if (!label) continue;
+      const cards = byLabel.get(label);
+      if (cards) cards.push(card);
+      else byLabel.set(label, [card]);
+    }
+    return [...byLabel].map(([label, cards]) => ({ label, cards }));
+  }, [vocab]);
   const filtered = useMemo(() => {
     const needle = normalize(query.trim());
-    if (!needle) return vocab;
-    return vocab.filter((word) =>
-      [word.word, word.reading ?? "", word.meaningVi, ...word.hanViet].some((value) => normalize(value).includes(needle)),
-    );
-  }, [query, vocab]);
+    if (!needle) return groups;
+    return groups.filter((group) => group.cards.some((card) =>
+      [card.word, card.reading ?? "", card.meaningVi, ...card.hanViet].some((value) => normalize(value).includes(needle)),
+    ));
+  }, [groups, query]);
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount - 1);
   const visibleWords = useMemo(
@@ -159,11 +171,11 @@ export function KanjiVocabMap({
   );
   const firstItem = filtered.length ? currentPage * PAGE_SIZE + 1 : 0;
   const lastItem = Math.min((currentPage + 1) * PAGE_SIZE, filtered.length);
-  const useEllipses = vocab.length > PAGE_SIZE;
+  const useEllipses = groups.length > PAGE_SIZE;
 
   useEffect(() => {
     setPage(0);
-    setMobilePreview(null);
+    setSelection(null);
   }, [kanji.character, query]);
 
   useEffect(() => {
@@ -174,7 +186,7 @@ export function KanjiVocabMap({
   }, [kanji.character]);
 
   useEffect(() => {
-    setMobilePreview(null);
+    setSelection(null);
   }, [currentPage]);
 
   useEffect(() => {
@@ -186,20 +198,20 @@ export function KanjiVocabMap({
   }, []);
 
   useEffect(() => {
-    if (!isMobileLayout || !mobilePreview) return;
+    if (!selection) return;
     const dismissOnOutsideTap = (event: PointerEvent) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
       if (previewRef.current?.contains(target)) return;
-      if (target.closest(".goi-map-word-node, .goi-map-center")) return;
-      setMobilePreview(null);
+      if (target.closest(".goi-map-word-node, .goi-map-center, .goi-map-zoom-controls")) return;
+      setSelection(null);
     };
     document.addEventListener("pointerdown", dismissOnOutsideTap);
     return () => document.removeEventListener("pointerdown", dismissOnOutsideTap);
-  }, [isMobileLayout, mobilePreview]);
+  }, [selection]);
 
   useEffect(() => {
-    if (!isMobileLayout || !mobilePreview) return;
+    if (!isMobileLayout || !selection) return;
     const frame = window.requestAnimationFrame(() => {
       const rect = previewRef.current?.getBoundingClientRect();
       const safeBottom = window.innerHeight - 72;
@@ -208,11 +220,7 @@ export function KanjiVocabMap({
       }
     });
     return () => window.cancelAnimationFrame(frame);
-  }, [isMobileLayout, mobilePreview]);
-
-  useEffect(() => {
-    if (!isMobileLayout) setMobilePreview(null);
-  }, [isMobileLayout]);
+  }, [isMobileLayout, selection]);
 
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
@@ -246,18 +254,24 @@ export function KanjiVocabMap({
   }, [kanji.character, visibleWords]);
 
   const centerMeaning = kanji.meanings.vi[0] || kanji.meanings.viDraft?.[0] || "";
-  const previewWord = mobilePreview?.type === "word" ? vocab.find((word) => word.id === mobilePreview.id) : undefined;
-  const previewMeaning = previewWord?.meaningVi.split(/[;；。]/)[0]?.trim() || "Chưa có nghĩa";
-  const previewReading = previewWord?.reading || "Chưa có cách đọc";
-  const previewHanViet = previewWord ? formatHanViet(previewWord.hanViet, "Chưa có Hán Việt") : "";
-  const previewTone = previewWord ? relatedWordTone(previewWord.word, kanji.character) : "center";
+  const previewGroup = selection?.type === "word" ? visibleWords.find((group) => group.label === selection.label) : undefined;
+  const previewTone = previewGroup ? relatedWordTone(previewGroup.label, kanji.character) : "center";
+  const selectWordGroup = (group: VocabNodeGroup) => {
+    if (!isMobileLayout && group.cards.length === 1) {
+      onOpenVocab(group.cards[0].id);
+      return;
+    }
+    setSelection((current) => current?.type === "word" && current.label === group.label
+      ? null
+      : { type: "word", label: group.label });
+  };
 
   return (
     <section className="goi-map-panel" aria-label={`Từ vựng có chữ ${kanji.character}`}>
       <div className="goi-map-toolbar">
         <div>
           <strong>Từ vựng có chữ {kanji.character}</strong>
-          <span>{filtered.length === vocab.length ? `${vocab.length} từ` : `${filtered.length} / ${vocab.length} từ`}</span>
+          <span>{query.trim() ? `${filtered.length} / ${groups.length} nhóm` : `${groups.length} nhóm · ${vocab.length} thẻ`}</span>
         </div>
         <label className="goi-map-search">
           <Search size={16} aria-hidden="true" />
@@ -284,11 +298,11 @@ export function KanjiVocabMap({
           <div className="goi-map-graph" style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}>
           <svg className="goi-map-connections" viewBox={`0 0 ${Math.max(geometry.width, 1)} ${Math.max(geometry.height, 1)}`} aria-hidden="true">
             {visibleWords.map((word, index) => {
-              const tone = relatedWordTone(word.word, kanji.character);
+              const tone = relatedWordTone(word.label, kanji.character);
               const segment = geometry.segments[index];
               if (!segment) return null;
               return (
-                <g key={word.id}>
+                <g key={word.label}>
                   <line x1={segment.start.x} y1={segment.start.y} x2={segment.end.x} y2={segment.end.y} className={`goi-map-line is-${tone}`} />
                   <circle cx={segment.start.x} cy={segment.start.y} r="2.8" className={`goi-map-flow-dot is-${tone}`}>
                     <animateMotion
@@ -308,15 +322,15 @@ export function KanjiVocabMap({
             style={{ left: "50%", top: "49%" }}
             role={isMobileLayout ? "button" : "img"}
             aria-label={`${kanji.character}, ${formatHanViet(kanji.hanViet, "Chưa có Hán Việt")}, ${centerMeaning || "Chưa có nghĩa"}`}
-            aria-expanded={isMobileLayout ? mobilePreview?.type === "center" : undefined}
+            aria-expanded={isMobileLayout ? selection?.type === "center" : undefined}
             tabIndex={0}
             onClick={() => {
-              if (isMobileLayout) setMobilePreview((current) => current?.type === "center" ? null : { type: "center" });
+              if (isMobileLayout) setSelection((current) => current?.type === "center" ? null : { type: "center" });
             }}
             onKeyDown={(event) => {
               if (isMobileLayout && (event.key === "Enter" || event.key === " ")) {
                 event.preventDefault();
-                setMobilePreview((current) => current?.type === "center" ? null : { type: "center" });
+                setSelection((current) => current?.type === "center" ? null : { type: "center" });
               }
             }}
           >
@@ -330,39 +344,37 @@ export function KanjiVocabMap({
 
           {visibleWords.map((word, index) => {
             const point = nodePoint(index, visibleWords.length);
-            const tone = relatedWordTone(word.word, kanji.character);
-            const hanViet = formatHanViet(word.hanViet, "Chưa có Hán Việt");
-            const meaning = word.meaningVi.split(/[;；。]/)[0]?.trim() || "Chưa có nghĩa";
-            const reading = word.reading || "Chưa có cách đọc";
-            const visibleKanji = kanjiOnly(word.word);
-            const length = [...visibleKanji].length;
+            const tone = relatedWordTone(word.label, kanji.character);
+            const length = [...word.label].length;
             const tooltipPlacement = point.y < 24
               ? point.x > 40 && point.x < 60 ? "tooltip-side" : "tooltip-below"
               : point.x < 28 ? "tooltip-right" : point.x > 72 ? "tooltip-left" : "";
+            const isSelected = selection?.type === "word" && selection.label === word.label;
+            const accessibleLabel = word.cards.length === 1
+              ? `${word.cards[0].word}: ${word.cards[0].reading || "Chưa có cách đọc"}`
+              : `${word.label}: ${word.cards.length} dạng từ, chạm để xem`;
             return (
               <button
-                key={word.id}
+                key={word.label}
                 type="button"
                 data-map-index={index}
                 className={`goi-map-word-node is-${tone}${useEllipses ? " is-many" : " is-few"} ${tooltipPlacement}`}
                 style={{ left: `${point.x}%`, top: `${point.y}%` }}
-                onClick={() => {
-                  if (isMobileLayout) {
-                    setMobilePreview((current) => current?.type === "word" && current.id === word.id ? null : { type: "word", id: word.id });
-                  } else {
-                    onOpenVocab(word.id);
-                  }
-                }}
-                aria-expanded={isMobileLayout ? mobilePreview?.type === "word" && mobilePreview.id === word.id : undefined}
-                aria-label={isMobileLayout ? `Xem thông tin ${word.word}` : `Mở thẻ ${word.word}: ${hanViet}, ${reading}, ${meaning}`}
+                onClick={() => selectWordGroup(word)}
+                aria-expanded={isMobileLayout || word.cards.length > 1 ? isSelected : undefined}
+                aria-label={accessibleLabel}
               >
                 <span className={`goi-map-word-shape length-${Math.min(length, 4)}`} style={{ animationDelay: `${index * 0.18}s` }}>
-                  <strong>{visibleKanji}</strong>
+                  <strong>{word.label}</strong>
                 </span>
                 <span className="goi-map-tooltip" aria-hidden="true">
-                  <strong>{hanViet}</strong>
-                  <span>{reading}</span>
-                  <small>{meaning}</small>
+                  {word.cards.map((card) => (
+                    <span className="goi-map-tooltip-entry" key={card.id}>
+                      <strong>{card.word}</strong>
+                      <span>{card.reading || "Chưa có cách đọc"} · {formatHanViet(card.hanViet, "Chưa có Hán Việt")}</span>
+                      <small>{card.meaningVi.split(/[;；。]/)[0]?.trim() || "Chưa có nghĩa"}</small>
+                    </span>
+                  ))}
                 </span>
               </button>
             );
@@ -380,34 +392,51 @@ export function KanjiVocabMap({
             </button>
           </div>
         </div>
-        {isMobileLayout && mobilePreview && (
+        {selection && (
           <div
             ref={previewRef}
-            className={`goi-map-mobile-preview is-${previewTone}`}
+            className={`goi-map-selection-preview is-${previewTone}`}
             role="group"
-            aria-label={mobilePreview.type === "center" ? `Thông tin Kanji ${kanji.character}` : `Thông tin từ ${previewWord?.word || "từ vựng"}`}
+            aria-label={selection.type === "center" ? `Thông tin Kanji ${kanji.character}` : `Các mục từ có nhãn ${previewGroup?.label || selection.label}`}
             aria-live="polite"
           >
-            {mobilePreview.type === "center" ? (
-              <div className="goi-map-mobile-preview-copy">
-                <strong>{formatHanViet(kanji.hanViet, "Chưa có Hán Việt")}</strong>
-                <span>{kanji.readings.on[0] || kanji.readings.kun[0] || "Chưa có cách đọc"}</span>
-                <small>{centerMeaning || "Chưa có nghĩa"}</small>
+            {selection.type === "center" ? (
+              <div className="goi-map-selection-main">
+                <div className="goi-map-selection-copy is-center">
+                  <strong>{formatHanViet(kanji.hanViet, "Chưa có Hán Việt")}</strong>
+                  <span>{kanji.readings.on[0] || kanji.readings.kun[0] || "Chưa có cách đọc"}</span>
+                  <small>{centerMeaning || "Chưa có nghĩa"}</small>
+                </div>
               </div>
-            ) : previewWord ? (
-              <div className="goi-map-mobile-preview-copy">
-                <strong>{previewHanViet}</strong>
-                <span>{previewReading}</span>
-                <small>{previewMeaning}</small>
+            ) : previewGroup ? (
+              <div className="goi-map-selection-main">
+                <div className="goi-map-selection-heading">
+                  <strong>{previewGroup.label}</strong>
+                  <span>{previewGroup.cards.length} thẻ từ · chọn thẻ để mở</span>
+                </div>
+                <div className="goi-map-selection-list">
+                  {previewGroup.cards.map((card) => (
+                    <div className="goi-map-selection-entry" key={card.id}>
+                      <div className="goi-map-selection-copy">
+                        <strong>{card.word}</strong>
+                        <span>{card.reading || "Chưa có cách đọc"} · {formatHanViet(card.hanViet, "Chưa có Hán Việt")}</span>
+                        <small>{card.meaningVi.split(/[;；。]/)[0]?.trim() || "Chưa có nghĩa"}</small>
+                      </div>
+                      <button
+                        className="goi-map-entry-open"
+                        type="button"
+                        aria-label={"Mở thẻ " + card.word}
+                        onClick={() => onOpenVocab(card.id)}
+                      >
+                        <BookOpen size={15} aria-hidden="true" />
+                        Mở thẻ
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : null}
-            {previewWord && (
-              <button className="goi-map-mobile-open" type="button" onClick={() => onOpenVocab(previewWord.id)}>
-                <BookOpen size={15} aria-hidden="true" />
-                Mở thẻ
-              </button>
-            )}
-            <button className="goi-map-mobile-close" type="button" aria-label="Đóng thông tin" onClick={() => setMobilePreview(null)}>
+            <button className="goi-map-selection-close" type="button" aria-label="Đóng thông tin" onClick={() => setSelection(null)}>
               <X size={15} aria-hidden="true" />
             </button>
           </div>
@@ -418,7 +447,7 @@ export function KanjiVocabMap({
       )}
 
       <div className="goi-map-pager">
-        <span>{firstItem}–{lastItem} / {filtered.length}</span>
+        <span>{firstItem}–{lastItem} / {filtered.length} nhóm</span>
         <div>
           <button type="button" aria-label="Trang trước" disabled={currentPage === 0} onClick={() => setPage((value) => Math.max(0, value - 1))}>
             <ChevronLeft size={16} />
