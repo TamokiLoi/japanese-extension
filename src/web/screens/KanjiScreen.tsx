@@ -146,11 +146,15 @@ async function getFilteredList(state: KanjiViewerState, studySetId: KanjiStudySe
 export function KanjiScreen({
   onOpenVocab,
   jumpToId,
+  initialMapTab,
+  onMapTabChange,
   onCurrentItemChange,
 }: {
   onOpenVocab: (vocabId: string) => void;
   onOpenQuiz: () => void;
   jumpToId?: string;
+  initialMapTab?: "structure" | "vocab";
+  onMapTabChange?: (tab: "structure" | "vocab") => void;
   // Lets the router keep the URL (and its "return to X" bookmark for the
   // floating back button) pointed at whichever card is actually on screen,
   // even though paging Trước/Tiếp is handled entirely by this screen's own
@@ -159,7 +163,8 @@ export function KanjiScreen({
 }) {
   const [state, setState] = useState<KanjiViewerState | null>(null);
   const [list, setList] = useState<Kanji[]>([]);
-  const [mapMode, setMapMode] = useState(false);
+  const [mapMode, setMapMode] = useState(initialMapTab !== undefined);
+  const [mapView, setMapView] = useState<"structure" | "vocab">(initialMapTab ?? "structure");
   const [mapCharacter, setMapCharacter] = useState<string | null>(null);
   const [radicalMode, setRadicalMode] = useState(false);
   const [radicalCharacter, setRadicalCharacter] = useState<string | null>(null);
@@ -380,10 +385,19 @@ export function KanjiScreen({
       <Suspense fallback={<LoadingScreen variant="study" title="Kanji Map" />}>
         <KanjiMapScreen
           initialCharacter={mapCharacter ?? k?.character}
+          initialView={mapView}
           onSelectCharacter={setMapCharacter}
-          onBackToCards={() => void openMapKanjiCard()}
+          onBackToCards={() => {
+            setMapView("structure");
+            onMapTabChange?.("structure");
+            void openMapKanjiCard();
+          }}
           onSelectRadical={openMapRadicalCard}
           onOpenVocab={onOpenVocab}
+          onViewChange={(view) => {
+            setMapView(view);
+            onMapTabChange?.(view);
+          }}
         />
       </Suspense>
     );

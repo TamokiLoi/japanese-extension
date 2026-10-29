@@ -29,3 +29,7 @@ export function vocabForKanjiChar(char: string): { shown: VocabCard[]; total: nu
   const all = VOCAB_BY_KANJI_CHAR.get(char) ?? [];
   return { shown: all.slice(0, RELATED_VOCAB_LIMIT), total: all.length };
 }
+
+export function allVocabForKanjiChar(char: string): VocabCard[] {
+  return VOCAB_BY_KANJI_CHAR.get(char) ?? [];
+}

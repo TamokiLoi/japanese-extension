@@ -60,7 +60,7 @@ const LegacyApp = lazy(() => import("../popup/App.tsx").then((module) => ({ defa
 // the same code works under either.
 const BASE = import.meta.env.BASE_URL;
 
-type ReturnTo = { screen: Screen; targetId?: string; targetSenseId?: string; searchQuery?: string; searchTypes?: string[] };
+type ReturnTo = { screen: Screen; targetId?: string; targetSenseId?: string; searchQuery?: string; searchTypes?: string[]; kanjiMapTab?: "vocab" };
 
 function lookupRouteName(screen: Screen): string {
   return screen === "vocab" ? "goi" : screen;
@@ -105,7 +105,7 @@ function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; titl
   return { variant: "study", title: titles[screen] ?? "nội dung học" };
 }
 
-function readFromPath(): { screen: Screen; targetId?: string; targetSenseId?: string; returnTo: ReturnTo | null } {
+function readFromPath(): { screen: Screen; targetId?: string; targetSenseId?: string; kanjiMapTab?: "vocab"; returnTo: ReturnTo | null } {
   const path = location.pathname.startsWith(BASE) ? location.pathname.slice(BASE.length) : location.pathname.replace(/^\/+/, "");
   // First path segment is the screen, the rest (rejoined) is the target id --
   // see App.tsx's initializer for why this needs decodeURIComponent (a kanji
@@ -127,12 +127,14 @@ function readFromPath(): { screen: Screen; targetId?: string; targetSenseId?: st
           targetSenseId: params.get("fromSense") ?? undefined,
           searchQuery: params.get("fromQ") ?? undefined,
           searchTypes: params.get("fromTypes")?.split(",").filter(Boolean),
+          kanjiMapTab: params.get("fromMap") === "goi" ? "vocab" : undefined,
         }
       : null;
   return {
     screen: VALID_SCREENS.includes(screen) ? screen : "menu",
     targetId: rawTargetId ? decodeURIComponent(rawTargetId) : params.get("param") ?? undefined,
     targetSenseId: params.get("sense") ?? undefined,
+    kanjiMapTab: params.get("map") === "goi" ? "vocab" : undefined,
     returnTo,
   };
 }
@@ -151,7 +153,7 @@ function readFromPath(): { screen: Screen; targetId?: string; targetSenseId?: st
 // screen's own internal back/forward stack (App's `navigate`/`goBack`) still
 // works exactly as before once inside a section rendered via <App/>.
 export function WebApp() {
-  const [{ screen, targetId, targetSenseId, returnTo }, setRoute] = useState(readFromPath);
+  const [{ screen, targetId, targetSenseId, kanjiMapTab, returnTo }, setRoute] = useState(readFromPath);
   const [quizBookJlptMode, setQuizBookJlptMode] = useState(false);
   const [bottomNavShortcuts, setBottomNavShortcuts] = useState<Screen[]>(DEFAULT_BOTTOM_NAV_SHORTCUTS);
   const [searchDisplayMode, setSearchDisplayMode] = useState<SearchDisplayMode>(DEFAULT_SEARCH_DISPLAY_MODE);
@@ -285,7 +287,15 @@ export function WebApp() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string; examTipsLevel?: "N3"; examTipsSkill?: "reading" | "listening"; examTipsLesson?: string } = {}) {
+  function updateKanjiMapTab(tab: "structure" | "vocab") {
+    const url = new URL(location.href);
+    if (tab === "vocab") url.searchParams.set("map", "goi");
+    else url.searchParams.delete("map");
+    history.replaceState(history.state, "", url);
+    setRoute((current) => ({ ...current, kanjiMapTab: tab === "vocab" ? "vocab" : undefined }));
+  }
+
+  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string; kanjiMapTab?: "structure" | "vocab"; examTipsLevel?: "N3"; examTipsSkill?: "reading" | "listening"; examTipsLesson?: string } = {}) {
     if (next !== "quizBook") setQuizBookJlptMode(false);
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
@@ -311,6 +321,7 @@ export function WebApp() {
           targetSenseId: screen === "bunpo" ? currentSenseRef.current : undefined,
           searchQuery: sourceSearch?.get("q") ?? undefined,
           searchTypes: sourceSearch?.get("types")?.split(",").filter(Boolean),
+          kanjiMapTab: screen === "kanji" && new URLSearchParams(location.search).get("map") === "goi" ? "vocab" : undefined,
         }
       : null;
     if (nextReturnTo) {
@@ -322,12 +333,15 @@ export function WebApp() {
         if (currentSearch.has("q")) params.set("fromQ", currentSearch.get("q") ?? "");
         if (currentSearch.has("types")) params.set("fromTypes", currentSearch.get("types") ?? "");
       }
+      if (nextReturnTo.kanjiMapTab === "vocab") params.set("fromMap", "goi");
       if (opts.lookupText !== undefined) params.set("param", opts.lookupText);
       if (opts.senseId) params.set("sense", opts.senseId);
+      if (next === "kanji" && opts.kanjiMapTab === "vocab") params.set("map", "goi");
       path += `?${params}`;
     } else if (opts.lookupText !== undefined) {
       const params = new URLSearchParams({ param: opts.lookupText });
       if (opts.senseId) params.set("sense", opts.senseId);
+      if (next === "kanji" && opts.kanjiMapTab === "vocab") params.set("map", "goi");
       path += `?${params}`;
     } else if (opts.searchQuery !== undefined || opts.searchTypes !== undefined) {
       const params = new URLSearchParams();
@@ -335,6 +349,8 @@ export function WebApp() {
       if (opts.searchTypes?.length) params.set("types", opts.searchTypes.join(","));
       const query = params.toString();
       if (query) path += `?${query}`;
+    } else if (next === "kanji" && opts.kanjiMapTab === "vocab") {
+      path += "?map=goi";
     } else if (next === "examTips") {
       const params = new URLSearchParams({ level: opts.examTipsLevel ?? "N3", skill: opts.examTipsSkill ?? "reading" });
       if (opts.examTipsLesson) params.set("lesson", opts.examTipsLesson);
@@ -346,7 +362,7 @@ export function WebApp() {
     currentItemRef.current = id;
     currentSenseRef.current = opts.senseId;
     routeSyncPendingRef.current = true;
-    setRoute({ screen: next, targetId: id, targetSenseId: opts.senseId, returnTo: nextReturnTo });
+    setRoute({ screen: next, targetId: id, targetSenseId: opts.senseId, kanjiMapTab: opts.kanjiMapTab === "vocab" ? "vocab" : undefined, returnTo: nextReturnTo });
     window.scrollTo(0, 0);
     // Fire-and-forget -- Home's "Tiếp tục học" banner reads this back on its
     // own next mount, nothing here needs to await it.
@@ -371,6 +387,7 @@ export function WebApp() {
       senseId: returnTo.targetSenseId,
       searchQuery: returnTo.searchQuery,
       searchTypes: returnTo.searchTypes,
+      kanjiMapTab: returnTo.kanjiMapTab,
     });
   }
 
@@ -391,7 +408,7 @@ export function WebApp() {
     setSearchPopupOpen(false);
   }
 
-  const navKey = targetId ? `${screen}:${targetId}` : screen;
+  const navKey = targetId ? `${screen}:${targetId}${kanjiMapTab ? `:${kanjiMapTab}` : ""}` : kanjiMapTab ? `${screen}:${kanjiMapTab}` : screen;
   const loadingPresentation = getLoadingPresentation(screen);
 
   let content: React.ReactNode;
@@ -401,6 +418,7 @@ export function WebApp() {
     content = (
       <VocabScreen
         onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
+        onOpenKanjiVocabMap={(kanjiId) => go("kanji", kanjiId, { kanjiMapTab: "vocab" })}
         onOpenReading={(passageId) => go("reading", passageId)}
         onOpenQuizBook={(questionId) => go("quizBook", questionId)}
         onOpenQuiz={() => go("quiz")}
@@ -425,6 +443,8 @@ export function WebApp() {
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenQuiz={() => go("quiz")}
         jumpToId={targetId}
+        initialMapTab={kanjiMapTab}
+        onMapTabChange={updateKanjiMapTab}
         onCurrentItemChange={syncCurrentItem}
       />
     );

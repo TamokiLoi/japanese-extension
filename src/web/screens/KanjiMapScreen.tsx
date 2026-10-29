@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BaseEdge,
   Controls,
@@ -11,16 +11,18 @@ import {
   type NodeProps,
   type ReactFlowInstance,
 } from "@xyflow/react";
-import { ArrowLeft, ArrowRight, BookOpen, Focus, Search, X, ZoomIn, ZoomOut } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Focus, Network, Search, X, ZoomIn, ZoomOut } from "lucide-react";
 import graphRaw from "../../data/kanji-map-components.json";
+import mapNodeInfoRaw from "../../data/kanji-map-node-info.json";
 import { radicalForCharacter, type RadicalCardRecord } from "../../data/radicalCards.ts";
 import { ALL_KANJI } from "../../popup/kanjiState.ts";
-import { vocabForKanjiChar } from "../../popup/kanjiVocabLinks.ts";
+import { allVocabForKanjiChar, vocabForKanjiChar } from "../../popup/kanjiVocabLinks.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import type { Kanji, JlptLevel } from "../../types/kanji.ts";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { KanjiMnemonicChoice } from "../components/KanjiMnemonicChoice.tsx";
+import { KanjiVocabMap } from "./KanjiVocabMap.tsx";
 import "./kanji-map.css";
 
 type ComponentRecord = {
@@ -33,6 +35,22 @@ type ComponentRecord = {
 };
 type GraphRecord = { components: ComponentRecord[]; radicalFallback: string | null };
 type GraphDataset = { meta: { recordCount: number; recordsWithComponents: number; recordsUsingRadicalFallback: number; recordsWithoutDecomposition: number; componentRecordCount?: number }; kanji: Record<string, GraphRecord>; components?: Record<string, GraphRecord> };
+type MapNodeInfo = {
+  aliases: string[];
+  mapRoots: number;
+  appearances: number;
+  decompositionCount: number;
+  kind: "japanese-kanji" | "dictionary-character" | "han-character" | "unverified-character";
+  sources: string[];
+  hanViet?: string[];
+  meaningVi?: string;
+  kanjidic2?: { on: string[]; kun: string[]; meaningsEn: string[]; strokeCount: number | null };
+  unihanDefinitionEn?: string;
+};
+type MapNodeInfoDataset = {
+  meta: { coverage: Record<string, number>; sources: Record<string, { url: string; license?: string; attribution?: string }> };
+  nodes: Record<string, MapNodeInfo>;
+};
 type MapNodeRole = "center" | "component" | "compound";
 type MapHandleSide = "left" | "right" | "top" | "bottom";
 type MapPoint = { x: number; y: number };
@@ -53,6 +71,8 @@ type MapNodeData = {
   tooltip: string[];
   nodeKey: string;
   hasTarget?: boolean;
+  infoOpen?: boolean;
+  onNavigate: () => void;
   onSelect: () => void;
 };
 type KanjiMapNodeType = Node<MapNodeData, "kanjiMapNode">;
@@ -62,6 +82,7 @@ type MapPart = ComponentRecord & { target: string | null; graphKey: string | nul
 type VisiblePart = { part: MapPart; path: string; parentKey: string; parentCharacter: string; depth: number; canExpand: boolean };
 
 const graph = graphRaw as unknown as GraphDataset;
+const mapNodeInfo = mapNodeInfoRaw as unknown as MapNodeInfoDataset;
 const CHARACTER_MAP = new Map(ALL_KANJI.map((kanji) => [kanji.character, kanji]));
 const JLPT_ORDER: JlptLevel[] = ["N5", "N4", "N3", "N2", "N1"];
 const nodeTypes = { kanjiMapNode: KanjiMapNode };
@@ -78,6 +99,29 @@ function kanjiNodeLabels(kanji: Kanji): { hanViet: string; meaning: string } {
   return { hanViet, meaning: normalize(hanViet) === normalize(meaning) ? "" : meaning };
 }
 
+function mapInfoFor(part: MapPart): MapNodeInfo | undefined {
+  return mapNodeInfo.nodes[part.character] ?? mapNodeInfo.nodes[part.canonical];
+}
+
+function shortExternalMeaning(info: MapNodeInfo): string {
+  const meanings = info.kanjidic2?.meaningsEn ?? [];
+  if (meanings.length) return meanings.slice(0, 3).join("; ");
+  const definition = info.unihanDefinitionEn?.trim();
+  if (!definition) return "";
+  if (definition.length <= 105) return definition;
+  const shortened = definition.slice(0, 102).replace(/\s+\S*$/, "");
+  return `${shortened}…`;
+}
+
+function mapInfoKindLabel(info: MapNodeInfo): string {
+  switch (info.kind) {
+    case "japanese-kanji": return "Có mục Kanji tiếng Nhật · ngoài bộ thẻ học";
+    case "dictionary-character": return "Có mục KANJIDIC2 · chưa có âm Nhật";
+    case "han-character": return "Chữ Hán · nghĩa tham khảo, chưa xác minh nghĩa Nhật";
+    default: return "Chưa tìm thấy mục từ trong nguồn đã đối chiếu";
+  }
+}
+
 function componentLabels(part: MapPart, selected: Kanji): { hanViet: string; meaning: string } {
   const kanji = part.target ? CHARACTER_MAP.get(part.target) : undefined;
   if (kanji) return kanjiNodeLabels(kanji);
@@ -91,6 +135,13 @@ function componentLabels(part: MapPart, selected: Kanji): { hanViet: string; mea
     return { hanViet: "Bộ thủ", meaning: `Số ${radical.raw}` };
   }
   if (part.fromRadical) return { hanViet: "Bộ thủ", meaning: selected.radical?.raw ? `Số ${selected.radical.raw}` : "" };
+  const info = mapInfoFor(part);
+  if (info) {
+    const hanViet = info.hanViet?.length
+      ? info.hanViet.map((reading) => reading.toLocaleUpperCase("vi")).join(", ")
+      : info.kind === "japanese-kanji" ? "Kanji hiếm" : info.kind === "unverified-character" ? "Chưa tra được" : "Chữ Hán";
+    return { hanViet, meaning: info.meaningVi || shortExternalMeaning(info) };
+  }
   return { hanViet: "Thành phần", meaning: "" };
 }
 
@@ -127,7 +178,28 @@ function tooltipFor(part: MapPart, owner: Kanji): string[] {
     ? owner.radical
     : undefined;
   if (!target) {
-      const nested = part.graphKey ? graph.kanji[part.graphKey] ?? graph.components?.[part.graphKey] : undefined;
+    const nested = part.graphKey ? graph.kanji[part.graphKey] ?? graph.components?.[part.graphKey] : undefined;
+    const info = mapInfoFor(part);
+    if (!part.radical && info) {
+      const hanViet = info.hanViet?.length
+        ? ` · ${info.hanViet.map((reading) => reading.toLocaleUpperCase("vi")).join(", ")}`
+        : "";
+      const lines = [`${part.character}${hanViet}`];
+      const readings = [
+        ...(info.kanjidic2?.on ?? []).map((reading) => `On ${reading}`),
+        ...(info.kanjidic2?.kun ?? []).map((reading) => `Kun ${reading}`),
+      ];
+      if (readings.length) lines.push(`Âm Nhật: ${readings.slice(0, 4).join(" · ")}`);
+      if (info.meaningVi) lines.push(`Nghĩa: ${info.meaningVi}`);
+      const meaning = shortExternalMeaning(info);
+      if (meaning) lines.push(`${info.meaningVi ? "Tham khảo (EN)" : "Nghĩa (EN)"}: ${meaning}`);
+      lines.push(mapInfoKindLabel(info));
+      if (info.decompositionCount) lines.push(`KanjiVG · ${info.decompositionCount} thành phần`);
+      if (info.sources.length) lines.push(`Nguồn: ${info.sources.join(" · ")}`);
+      if (part.variant) lines.push("Dạng hiển thị biến thể");
+      if (part.partial) lines.push("Chỉ hiện một phần trong chữ này");
+      return lines;
+    }
     const lines = part.radical
       ? [`Bộ ${part.radical.number} · ${part.character} · ${part.radical.nameHanViet}`, part.radical.meaning, `${part.radical.strokes} nét`]
       : [part.character];
@@ -283,9 +355,9 @@ function KanjiMapNode({ data }: NodeProps<KanjiMapNodeType>) {
   const handleSides: MapHandleSide[] = ["left", "right", "top", "bottom"];
   const tooltipId = `kanji-map-tip-${data.nodeKey.replace(/[^a-z0-9_-]/gi, "-")}`;
   return (
-    <div className={`kanji-map-flow-node ${isCenter ? "is-center" : `is-${data.role}`} tone-${data.tone}${data.selectable ? "" : " is-muted"}${data.hasTarget ? " has-target" : ""}`}>
+    <div className={`kanji-map-flow-node ${isCenter ? "is-center" : `is-${data.role}`} tone-${data.tone}${data.selectable ? "" : " is-muted"}${data.hasTarget ? " has-target" : ""}${data.infoOpen ? " is-info-open" : ""}`}>
       {data.role !== "component" || data.hasTarget ? handleSides.map((side) => <Handle key={`target-${side}`} id={`target-${side}`} type="target" position={handlePositions[side]} isConnectable={false} />) : null}
-      <button className="kanji-map-node-main" type="button" onClick={data.onSelect} disabled={!data.selectable} aria-label={`${data.character}: ${data.hanViet}${data.meaning ? `, ${data.meaning}` : ""}`} aria-describedby={tooltipId}>
+      <button className="kanji-map-node-main" type="button" onClick={data.onSelect} aria-disabled={!data.selectable} aria-expanded={data.infoOpen} aria-label={`${data.character}: ${data.hanViet}${data.meaning ? `, ${data.meaning}` : ""}`} aria-describedby={tooltipId}>
         <span className="kanji-map-node-orb"><strong>{data.character}</strong></span>
         <span className="kanji-map-node-label">{data.hanViet}</span>
         {isCenter && data.meaning ? <small>{data.meaning}</small> : null}
@@ -324,16 +396,20 @@ function useSmallScreen() {
 
 export function KanjiMapScreen({
   initialCharacter,
+  initialView,
   onBackToCards,
   onSelectCharacter,
   onSelectRadical,
   onOpenVocab,
+  onViewChange,
 }: {
   initialCharacter?: string;
+  initialView?: "structure" | "vocab";
   onBackToCards: () => void;
   onSelectCharacter: (character: string) => void;
   onSelectRadical: (character: string) => void;
   onOpenVocab: (vocabId: string) => void;
+  onViewChange?: (view: "structure" | "vocab") => void;
 }) {
   const smallScreen = useSmallScreen();
   const resolveCharacter = useCallback((value?: string) => {
@@ -343,17 +419,27 @@ export function KanjiMapScreen({
     return ALL_KANJI.find((kanji) => kanji.id === value)?.character;
   }, []);
   const [selectedCharacter, setSelectedCharacter] = useState(() => resolveCharacter(initialCharacter) ?? "人");
+  const [activeView, setActiveView] = useState<"structure" | "vocab">(initialView ?? "structure");
   const [query, setQuery] = useState("");
   const [level, setLevel] = useState<JlptLevel | "All">("All");
   const [compoundPage, setCompoundPage] = useState(0);
+  const [activeInfoNodeKey, setActiveInfoNodeKey] = useState<string | null>(null);
   const [flowInstance, setFlowInstance] = useState<KanjiMapFlowInstance | null>(null);
+  const nodePreviewRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const next = resolveCharacter(initialCharacter);
-    if (next) setSelectedCharacter(next);
+    if (next) {
+      setSelectedCharacter(next);
+      setActiveInfoNodeKey(null);
+    }
   }, [initialCharacter, resolveCharacter]);
 
   const selected = CHARACTER_MAP.get(selectedCharacter) ?? ALL_KANJI[0]!;
+  const selectView = (view: "structure" | "vocab") => {
+    setActiveView(view);
+    onViewChange?.(view);
+  };
   const selectedGraph = graph.kanji[selected.character] ?? { components: [], radicalFallback: null };
   // Show the complete available decomposition by default, like a kanji-analysis map.
   const visibleParts = useMemo(() => buildVisibleParts(selected.character), [selected.character]);
@@ -377,6 +463,7 @@ export function KanjiMapScreen({
     return compounds;
   }, [selected.character]);
   const vocab = vocabForKanjiChar(selected.character);
+  const allVocab = allVocabForKanjiChar(selected.character);
 
   const searchResults = useMemo(() => {
     const trimmed = query.trim();
@@ -418,6 +505,7 @@ export function KanjiMapScreen({
     setSelectedCharacter(character);
     setQuery("");
     setCompoundPage(0);
+    setActiveInfoNodeKey(null);
     onSelectCharacter(character);
   }, [onSelectCharacter]);
 
@@ -456,7 +544,21 @@ export function KanjiMapScreen({
         id: `center-${selected.character}`,
         type: "kanjiMapNode",
         position: { x: centerPosition.x - centerWidth / 2, y: centerPosition.y - centerOrb / 2 },
-        data: { role: "center", tone: "app", character: selected.character, ...kanjiNodeLabels(selected), selectable: true, tooltip: selectedTooltip, nodeKey: `center-${selected.character}`, onSelect: () => onBackToCards() },
+        data: {
+          role: "center",
+          tone: "app",
+          character: selected.character,
+          ...kanjiNodeLabels(selected),
+          selectable: true,
+          tooltip: selectedTooltip,
+          nodeKey: `center-${selected.character}`,
+          infoOpen: activeInfoNodeKey === `center-${selected.character}`,
+          onNavigate: onBackToCards,
+          onSelect: () => {
+            if (smallScreen) setActiveInfoNodeKey((active) => active === `center-${selected.character}` ? null : `center-${selected.character}`);
+            else onBackToCards();
+          },
+        },
       },
     ];
     visibleParts.forEach((item) => {
@@ -482,8 +584,14 @@ export function KanjiMapScreen({
           // also needs an incoming handle. Without it React Flow drops the
           // child-to-parent arrow for the first expanded level.
           hasTarget: depth > 0 || !!part.graphKey,
-          onSelect: () => {
+          infoOpen: activeInfoNodeKey === path,
+          onNavigate: () => {
             if (part.target) chooseCharacter(part.target);
+            else if (part.radical) onSelectRadical(part.radical.character);
+          },
+          onSelect: () => {
+            if (smallScreen) setActiveInfoNodeKey((active) => active === path ? null : path);
+            else if (part.target) chooseCharacter(part.target);
             else if (part.radical) onSelectRadical(part.radical.character);
           },
         },
@@ -495,11 +603,44 @@ export function KanjiMapScreen({
         id: `compound-${compound.character}`,
         type: "kanjiMapNode",
         position: { x: center.x - partWidth / 2, y: center.y - partOrb / 2 },
-        data: { role: "compound", tone: "b2", character: compound.character, ...kanjiNodeLabels(compound), selectable: true, tooltip: [`${compound.character} · ${formatHanViet(compound.hanViet, "Chưa có Hán Việt")}`, shortMeaning(compound), compound.readings.on[0] || compound.readings.kun[0] || ""].filter(Boolean), nodeKey: `compound-${compound.character}`, onSelect: () => chooseCharacter(compound.character) },
+        data: {
+          role: "compound",
+          tone: "b2",
+          character: compound.character,
+          ...kanjiNodeLabels(compound),
+          selectable: true,
+          tooltip: [`${compound.character} · ${formatHanViet(compound.hanViet, "Chưa có Hán Việt")}`, shortMeaning(compound), compound.readings.on[0] || compound.readings.kun[0] || ""].filter(Boolean),
+          nodeKey: `compound-${compound.character}`,
+          infoOpen: activeInfoNodeKey === `compound-${compound.character}`,
+          onNavigate: () => chooseCharacter(compound.character),
+          onSelect: () => {
+            if (smallScreen) setActiveInfoNodeKey((active) => active === `compound-${compound.character}` ? null : `compound-${compound.character}`);
+            else chooseCharacter(compound.character);
+          },
+        },
       });
     });
     return nextNodes;
-  }, [chooseCharacter, currentCompounds, onBackToCards, onSelectRadical, selected, smallScreen, treeCenters, visibleParts]);
+  }, [activeInfoNodeKey, chooseCharacter, currentCompounds, onBackToCards, onSelectRadical, selected, smallScreen, treeCenters, visibleParts]);
+
+  const activeInfoNode = smallScreen && activeInfoNodeKey
+    ? nodes.find((node) => node.data.nodeKey === activeInfoNodeKey)
+    : undefined;
+  const activeInfoVocab = activeInfoNode?.data.role !== "center" && activeInfoNode
+    ? allVocabForKanjiChar(activeInfoNode.data.character)[0]
+    : undefined;
+
+  useEffect(() => {
+    if (!activeInfoNode) return;
+    const frame = window.requestAnimationFrame(() => {
+      const rect = nodePreviewRef.current?.getBoundingClientRect();
+      const safeBottom = window.innerHeight - 72;
+      if (rect && rect.bottom > safeBottom) {
+        window.scrollBy({ top: rect.bottom - safeBottom + 8, behavior: "smooth" });
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [activeInfoNodeKey, activeInfoNode]);
 
   const edges = useMemo<KanjiMapEdgeType[]>(() => {
     const centerRadius = (smallScreen ? 52 : 64) / 2;
@@ -583,10 +724,19 @@ export function KanjiMapScreen({
       <div className="kanji-map-header">
         <PageHeader
           title="Kanji Map"
-          subtitle={`${graph.meta.recordCount.toLocaleString("vi-VN")} chữ`}
+          subtitle={activeView === "structure" ? `${graph.meta.recordCount.toLocaleString("vi-VN")} chữ` : `Từ vựng quanh ${selected.character}`}
           icon={{ img: "icon-kanji.png", bg: "#ffe4e6" }}
           action={<Button className="kanji-map-back-button" variant="outline" size="sm" aria-label="Quay lại thẻ Kanji" onClick={onBackToCards}><ArrowLeft aria-hidden="true" /><span className="kanji-map-back-label">Thẻ Kanji</span></Button>}
         />
+      </div>
+
+      <div className="kanji-map-tabs" role="tablist" aria-label="Loại sơ đồ Kanji">
+        <button type="button" role="tab" aria-selected={activeView === "structure"} className={activeView === "structure" ? "is-active" : ""} onClick={() => selectView("structure")}>
+          <BookOpen size={15} /> Cấu tạo Kanji
+        </button>
+        <button type="button" role="tab" aria-selected={activeView === "vocab"} className={activeView === "vocab" ? "is-active" : ""} onClick={() => selectView("vocab")}>
+          <Network size={15} /> Từ vựng (Goi)
+        </button>
       </div>
 
       <div className="kanji-map-search-area">
@@ -625,7 +775,8 @@ export function KanjiMapScreen({
       </div>
 
       <div className="kanji-map-workspace">
-        <section className="kanji-map-map-panel" aria-label={`Bản đồ cấu tạo chữ ${selected.character}`}>
+        {activeView === "structure" ? (
+        <section className={`kanji-map-map-panel${activeInfoNode ? " has-node-preview" : ""}`} aria-label={`Bản đồ cấu tạo chữ ${selected.character}`}>
           <div className="kanji-map-selected-strip">
             <div>
               <strong>{selected.character}</strong>
@@ -656,9 +807,47 @@ export function KanjiMapScreen({
             >
               {!smallScreen ? <Controls showInteractive={false} position="bottom-right" /> : null}
             </ReactFlow>
+            {smallScreen ? (
+              <div className="kanji-map-mobile-actions is-overlay" aria-label="Điều khiển sơ đồ">
+                <button type="button" aria-label="Thu nhỏ sơ đồ" title="Thu nhỏ" onClick={() => void flowInstance?.zoomOut({ duration: 140 })}><ZoomOut size={14} /></button>
+                <button type="button" aria-label="Phóng to sơ đồ" title="Phóng to" onClick={() => void flowInstance?.zoomIn({ duration: 140 })}><ZoomIn size={14} /></button>
+                <button type="button" aria-label="Căn giữa sơ đồ" title="Căn giữa" onClick={() => void flowInstance?.fitView({ padding: 0.04, duration: 200, minZoom: 0.18, maxZoom: 1.15 })}><Focus size={14} /> Căn giữa</button>
+              </div>
+            ) : null}
             {!smallScreen ? compoundPager : null}
           </section>
           {smallScreen ? compoundPager : null}
+
+          {activeInfoNode ? (
+            <section ref={nodePreviewRef} className={`kanji-map-node-preview tone-${activeInfoNode.data.tone}`} aria-label={`Thông tin chữ ${activeInfoNode.data.character}`} aria-live="polite">
+              <div className="kanji-map-node-preview-copy">
+                <div className="kanji-map-node-preview-heading">
+                  <strong>{activeInfoNode.data.character}</strong>
+                  <div>
+                    <b>{activeInfoNode.data.hanViet || "Thông tin chữ"}</b>
+                    {activeInfoNode.data.meaning ? <span>{activeInfoNode.data.meaning}</span> : null}
+                  </div>
+                  <button className="kanji-map-node-preview-close" type="button" aria-label="Đóng thông tin chữ" onClick={() => setActiveInfoNodeKey(null)}><X size={16} /></button>
+                </div>
+                {activeInfoNode.data.tooltip.slice(activeInfoNode.data.meaning ? 2 : 1).filter(Boolean).map((line, index) => (
+                  <p key={`${line}-${index}`}>{line}</p>
+                ))}
+              </div>
+              <div className="kanji-map-node-preview-actions">
+                {activeInfoVocab ? (
+                  <Button onClick={() => onOpenVocab(activeInfoVocab.id)}>
+                    <BookOpen size={15} /> Mở thẻ từ {activeInfoVocab.word}
+                  </Button>
+                ) : null}
+                {activeInfoNode.data.role === "center" || activeInfoNode.data.selectable ? (
+                  <Button variant={activeInfoVocab ? "outline" : "default"} onClick={activeInfoNode.data.onNavigate}>
+                    {activeInfoNode.data.role === "center" ? <><BookOpen size={15} /> Mở thẻ Kanji</> : <><Network size={15} /> Xem chữ này trên sơ đồ</>}
+                  </Button>
+                ) : null}
+                {!activeInfoVocab && activeInfoNode.data.role !== "center" ? <span className="kanji-map-node-preview-note">Chưa có thẻ từ vựng liên quan.</span> : null}
+              </div>
+            </section>
+          ) : null}
 
           <div className="kanji-map-legend">
             <span><i className="kanji-map-legend-dot is-center" /> Chữ đang chọn</span>
@@ -666,15 +855,11 @@ export function KanjiMapScreen({
             <span><i className="kanji-map-legend-dot is-fragment" /> Bộ thủ / mảnh cấu tạo</span>
             <span><i className="kanji-map-legend-dot is-related" /> Chữ này → chữ có chứa nó</span>
             {smallScreen ? <span className="kanji-map-gesture-hint">Kéo để di chuyển · chụm hai ngón để phóng to</span> : null}
-            {smallScreen ? (
-              <div className="kanji-map-mobile-actions" aria-label="Điều khiển sơ đồ">
-                <button type="button" aria-label="Thu nhỏ sơ đồ" title="Thu nhỏ" onClick={() => void flowInstance?.zoomOut({ duration: 140 })}><ZoomOut size={14} /></button>
-                <button type="button" aria-label="Phóng to sơ đồ" title="Phóng to" onClick={() => void flowInstance?.zoomIn({ duration: 140 })}><ZoomIn size={14} /></button>
-                <button type="button" aria-label="Căn giữa sơ đồ" title="Căn giữa" onClick={() => void flowInstance?.fitView({ padding: 0.04, duration: 200, minZoom: 0.18, maxZoom: 1.15 })}><Focus size={14} /> Căn giữa</button>
-              </div>
-            ) : null}
           </div>
         </section>
+        ) : (
+          <KanjiVocabMap kanji={selected} vocab={allVocab} onOpenVocab={onOpenVocab} />
+        )}
 
         <aside className="kanji-map-detail-panel" aria-label={`Thông tin chữ ${selected.character}`}>
           <div className="kanji-map-detail-hero">
@@ -691,31 +876,32 @@ export function KanjiMapScreen({
             <div><span>Bộ thủ</span><strong>{selected.radical?.character ?? "—"}</strong></div>
             <div><span>Số nét</span><strong>{selected.strokeCount ?? "—"}</strong></div>
           </div>
-          {graph.kanji[selected.character]?.components.length === 0 && !selectedGraph.radicalFallback ? (
+          {activeView === "structure" && graph.kanji[selected.character]?.components.length === 0 && !selectedGraph.radicalFallback ? (
             <p className="kanji-map-data-note">Nguồn KanjiVG hiện chưa có phân rã thành phần cho chữ này.</p>
-          ) : selectedGraph.radicalFallback && parts[0]?.fromRadical ? (
+          ) : activeView === "structure" && selectedGraph.radicalFallback && parts[0]?.fromRadical ? (
             <p className="kanji-map-data-note">Sơ đồ dùng bộ thủ để gợi liên hệ; đây không phải phân rã thành phần từ KanjiVG.</p>
           ) : null}
           <KanjiMnemonicChoice kanji={selected} />
           <Suspense fallback={null}><KanjiBookResources kanji={selected} onOpenVocab={onOpenVocab} /></Suspense>
           {selected.meanings.en.length > 0 ? <p className="kanji-map-english">{selected.meanings.en.slice(0, 3).join(" · ")}</p> : null}
-          {vocab && vocab.shown.length > 0 ? (
+          {activeView === "structure" && vocab && vocab.total > 0 ? (
             <section className="kanji-map-vocab">
               <div><strong>Từ vựng có chữ {selected.character}</strong><span>{vocab.total}</span></div>
-              {vocab.shown.slice(0, 5).map((word) => (
-                <button type="button" key={word.id} onClick={() => onOpenVocab(word.id)}>
-                  <strong>{word.word}</strong><span>{word.reading ? `${word.reading} · ` : ""}{word.meaningVi}</span>
-                </button>
-              ))}
+              <Button variant="outline" className="kanji-map-vocab-link" onClick={() => selectView("vocab")}>
+                <Network size={15} /> Mở sơ đồ từ vựng
+              </Button>
             </section>
           ) : null}
           <Button className="kanji-map-open-card" onClick={onBackToCards}><BookOpen size={16} /> Mở thẻ Kanji</Button>
         </aside>
       </div>
 
-      <p className="kanji-map-attribution">
+      {activeView === "structure" ? <p className="kanji-map-attribution">
         Dữ liệu thành phần: <a href="https://kanjivg.tagaini.net/" target="_blank" rel="noreferrer">KanjiVG</a> · CC BY-SA 3.0. {graph.meta.recordsWithComponents.toLocaleString("vi-VN")} chữ có phân rã; {graph.meta.recordsUsingRadicalFallback} chữ dùng bộ thủ tham khảo; {graph.meta.recordsWithoutDecomposition} chữ chưa có phân rã trong nguồn.
-      </p>
+      </p> : null}
+      {activeView === "structure" ? <p className="kanji-map-attribution">
+        Thông tin node: <a href={mapNodeInfo.meta.sources.KANJIDIC2.url} target="_blank" rel="noreferrer">KANJIDIC2</a> · CC BY-SA 4.0; <a href={mapNodeInfo.meta.sources.Unihan.url} target="_blank" rel="noreferrer">Unicode Unihan</a> · Unicode License v3; Hán Việt bổ sung có dẫn <a href={mapNodeInfo.meta.sources.HVDIC.url} target="_blank" rel="noreferrer">Từ điển Hán Nôm</a>. Tooltip phân biệt mục Kanji Nhật, nghĩa chữ Hán tham khảo và node chưa tìm thấy mục từ.
+      </p> : null}
     </div>
   );
 }

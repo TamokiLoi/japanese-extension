@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { VocabPartOfSpeechTag } from "../../components/vocabpartofspeechtag.tsx";
 import { VocabVerbMetadata } from "../../components/vocabverbmetadata.tsx";
-import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus } from "lucide-react";
+import { Grid2x2, Layers, Flag, CheckCircle2, Clock, ChevronLeft, ChevronRight, Shuffle, BookOpenText, GraduationCap, ChevronDown, Volume2, MessageSquarePlus, Network } from "lucide-react";
 import { speakJapanese } from "../lib/speak.ts";
 import { getVocabFuriganaAnnotations } from "../lib/vocabFurigana.ts";
 import { defaultVocabReading, vocabReadingProgressId } from "../../lib/vocabReading.ts";
@@ -164,6 +164,7 @@ async function getFilteredList(state: VocabViewerState): Promise<VocabCard[]> {
 
 export function VocabScreen({
   onOpenKanji,
+  onOpenKanjiVocabMap,
   onOpenReading,
   onOpenQuizBook,
   onOpenVocab,
@@ -172,6 +173,7 @@ export function VocabScreen({
   onCurrentItemChange,
 }: {
   onOpenKanji: (kanjiId: string) => void;
+  onOpenKanjiVocabMap: (kanjiId: string) => void;
   onOpenReading: (passageId: string) => void;
   onOpenQuizBook: (questionId: string) => void;
   onOpenQuiz: () => void;
@@ -431,6 +433,10 @@ export function VocabScreen({
 
   const v = list[state.index];
   const displayedCard = activeCard ?? v!;
+  const kanjiVocabMapLinks = [...new Set([...displayedCard.word])].flatMap((character) => {
+    const kanjiId = kanjiIdForChar(character);
+    return kanjiId ? [{ character, kanjiId }] : [];
+  });
   const displayedMeaning = selectedReadingVariant?.meaningVi || contentCard?.meaningVi || (selectedReading === v?.reading ? v?.meaningVi : "Chưa có nghĩa cho cách đọc này.") || "—";
   const displayedEnglish = selectedReadingVariant?.jmdictEnglish ?? contentCard?.english ?? displayedCard?.english;
   const vocabExamples = selectedReadingVariant?.examples ?? (contentCard ? getVocabExamples(contentCard) : []);
@@ -764,6 +770,27 @@ export function VocabScreen({
             <section className="mt-3 rounded-xl border-l-4 border-[#e86916] bg-[#fff0e5] px-3 py-2.5 text-sm dark:bg-[#39281f]">
               <span className="font-semibold text-[#bd4a0c] dark:text-[#fdba8c]">Hán Việt:</span>{" "}
               <span className="font-bold text-[#ad470e] dark:text-[#fdba8c]">{formatHanViet(displayedCard.hanViet)}</span>
+            </section>
+          ) : null}
+          {kanjiVocabMapLinks.length > 0 ? (
+            <section className="mt-3 rounded-xl border border-violet-200 bg-violet-50/70 px-3 py-2.5 dark:border-violet-900 dark:bg-violet-950/30">
+              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-violet-800 dark:text-violet-200">
+                <Network size={14} /> Sơ đồ từ vựng theo Kanji
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {kanjiVocabMapLinks.map(({ character, kanjiId }) => (
+                  <button
+                    key={character}
+                    type="button"
+                    onClick={() => onOpenKanjiVocabMap(kanjiId)}
+                    aria-label={`Mở sơ đồ từ vựng cho Kanji ${character}`}
+                    className="inline-flex min-h-9 items-center gap-2 rounded-lg border border-violet-200 bg-white px-2.5 py-1 text-left text-xs font-semibold text-violet-800 shadow-sm transition-colors hover:border-violet-400 hover:bg-violet-100 dark:border-violet-800 dark:bg-neutral-900 dark:text-violet-200 dark:hover:bg-violet-950"
+                  >
+                    <span className="font-serif text-lg leading-none">{character}</span>
+                    <span>Xem Goi</span>
+                  </button>
+                ))}
+              </div>
             </section>
           ) : null}
           {contentCard && ((displayedCard.partOfSpeech && displayedCard.partOfSpeech !== "Khác") || displayedCard.verbGroup || displayedCard.transitivity || (displayedCard.verbForms?.length ?? 0) > 0) ? (

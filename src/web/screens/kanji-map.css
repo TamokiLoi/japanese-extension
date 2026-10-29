@@ -7,6 +7,10 @@
 .kanji-map-header p { white-space: nowrap; }
 .kanji-map-back-button { flex: 0 0 auto; }
 
+.kanji-map-tabs { display: inline-flex; max-width: 100%; gap: 3px; margin: 12px 0 2px; border: 1px solid #e6e7eb; border-radius: 12px; background: #f5f6f8; padding: 3px; }
+.kanji-map-tabs button { display: inline-flex; min-height: 36px; align-items: center; justify-content: center; gap: 7px; border: 0; border-radius: 9px; background: transparent; padding: 0 12px; color: #687282; font-size: 12px; font-weight: 750; white-space: nowrap; }
+.kanji-map-tabs button.is-active { background: #fff; color: #d41449; box-shadow: 0 1px 4px #26304217; }
+
 .kanji-map-search-area {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(285px, 340px);
@@ -184,6 +188,23 @@
 .kanji-map-flow-pager > span { border: 1px solid #e5e3ee; border-radius: 999px; background: #fffefaed; padding: 7px 10px; color: #777486; font-size: 10px; line-height: 1.2; }
 .kanji-map-flow-pager button { min-height: 32px; background: #ffffffed; }
 
+.kanji-map-node-preview { display: flex; align-items: center; justify-content: space-between; gap: 14px; border-top: 1px solid #eceef2; background: #fcfcfe; padding: 12px 14px; }
+.kanji-map-node-preview-copy { display: grid; min-width: 0; gap: 4px; color: #626d7b; font-size: 11px; line-height: 1.4; }
+.kanji-map-node-preview-heading { display: flex; min-width: 0; align-items: center; gap: 9px; }
+.kanji-map-node-preview-heading > strong { display: grid; width: 40px; height: 40px; flex: 0 0 auto; place-items: center; border: 2px solid var(--preview-accent, #3689b1); border-radius: 50%; background: #fff; color: var(--preview-dark, #216786); font-family: "Noto Serif JP", serif; font-size: 24px; line-height: 1; }
+.kanji-map-node-preview-heading > div { display: grid; min-width: 0; gap: 2px; }
+.kanji-map-node-preview-heading b { overflow: hidden; color: var(--preview-dark, #216786); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.kanji-map-node-preview-heading span { overflow: hidden; color: #616b79; text-overflow: ellipsis; white-space: nowrap; }
+.kanji-map-node-preview-copy p { margin: 0; }
+.kanji-map-node-preview-close { display: grid; width: 30px; height: 30px; flex: 0 0 auto; place-items: center; margin-left: auto; border: 1px solid #e7e8ed; border-radius: 8px; background: #fff; color: #7b8490; }
+.kanji-map-node-preview-actions { display: flex; flex: 0 0 auto; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 6px; }
+.kanji-map-node-preview-actions button { min-height: 34px; gap: 6px; padding: 0 10px; font-size: 11px; }
+.kanji-map-node-preview-note { color: #8c95a1; font-size: 10px; }
+.kanji-map-node-preview.tone-app { --preview-accent: #df4770; --preview-dark: #a82b4c; }
+.kanji-map-node-preview.tone-b1 { --preview-accent: #3689b1; --preview-dark: #216786; }
+.kanji-map-node-preview.tone-b2 { --preview-accent: #8870c1; --preview-dark: #604a94; }
+.kanji-map-node-preview.tone-b3 { --preview-accent: #39987e; --preview-dark: #236b58; }
+
 .kanji-map-flow-node { position: relative; width: 116px; height: 84px; --map-accent: #df4770; --map-dark: #a82b4c; --map-bg: #fff1f5; --map-orb-size: 50px; --map-orb-midpoint: 25px; }
 .kanji-map-flow-node { overflow: visible; }
 .kanji-map-flow-node:not(.is-center) { height: 50px; }
@@ -215,14 +236,16 @@
 .kanji-map-flow-node > .kanji-map-node-main:focus-visible .kanji-map-node-orb { outline: 2px solid var(--map-accent); outline-offset: 3px; }
 .kanji-map-flow-node > .kanji-map-node-main:disabled { cursor: default; }
 .kanji-map-flow-node.is-muted { --map-accent: #b6d7e1; --map-dark: #6697a7; --map-bg: #f0f8fa; }
+.kanji-map-flow-node.is-muted > .kanji-map-node-main { cursor: help; }
 .kanji-map-flow-node.is-muted .kanji-map-node-orb { border-style: dashed; box-shadow: none; }
 .kanji-map-flow-node.is-muted .kanji-map-node-label { color: #55889a; }
-.kanji-map-node-tooltip { position: absolute; z-index: 40; left: 6px; bottom: calc(100% + 7px); display: grid; width: max-content; max-width: 195px; gap: 3px; visibility: hidden; border: 1px solid #e0e7ef; border-radius: 10px; background: #263346; padding: 9px 11px; color: #f7f9fc; opacity: 0; pointer-events: none; box-shadow: 0 8px 24px #1d2a3c30; font-size: 11px; line-height: 1.4; transition: opacity 100ms ease; }
+.kanji-map-node-tooltip { position: absolute; z-index: 40; left: 6px; bottom: calc(100% + 7px); display: grid; width: max-content; max-width: 230px; gap: 3px; visibility: hidden; border: 1px solid #e0e7ef; border-radius: 10px; background: #263346; padding: 9px 11px; color: #f7f9fc; opacity: 0; pointer-events: none; box-shadow: 0 8px 24px #1d2a3c30; font-size: 11px; line-height: 1.4; transition: opacity 100ms ease; }
 .kanji-map-node-tooltip strong { color: #fff; font-size: 12px; }
 .kanji-map-node-tooltip span { color: #dbe5ef; }
+.kanji-map-flow-node.is-info-open .kanji-map-node-tooltip { visibility: visible; opacity: 1; }
 @media (hover: hover) and (pointer: fine) {
   .kanji-map-flow-node:hover .kanji-map-node-tooltip,
-  .kanji-map-flow-node:focus-within .kanji-map-node-tooltip { visibility: visible; opacity: 1; }
+  .kanji-map-flow-node > .kanji-map-node-main:focus-visible ~ .kanji-map-node-tooltip { visibility: visible; opacity: 1; }
 }
 .kanji-map-node-orb { display: grid; width: 50px; height: 50px; flex: 0 0 auto; place-items: center; border: 2px solid var(--map-accent); border-radius: 50%; background: #fff; box-shadow: 0 2px 7px color-mix(in srgb, var(--map-accent) 12%, transparent); transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease; }
 .kanji-map-node-orb strong { position: relative; color: var(--map-dark); font-family: "Noto Serif JP", "Yu Mincho", serif; font-size: 29px; font-weight: 650; line-height: 1; }
@@ -294,6 +317,7 @@
 .kanji-map-vocab button:hover { background: #f8f6fc; }
 .kanji-map-vocab button strong { flex: 0 0 auto; color: #303b4b; font-size: 12px; }
 .kanji-map-vocab button span { overflow: hidden; color: #7d8794; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.kanji-map-vocab .kanji-map-vocab-link { justify-content: center; margin-top: 2px; }
 .kanji-map-open-card { justify-content: center; }
 
 .kanji-map-attribution { margin: 12px 2px 0; color: #8b95a2; font-size: 10px; line-height: 1.5; }
@@ -310,6 +334,8 @@
   .kanji-map-page { padding-top: 12px; }
   .kanji-map-header h1 { font-size: 20px; }
   .kanji-map-header p { font-size: 12px; }
+  .kanji-map-tabs { display: flex; width: 100%; }
+  .kanji-map-tabs button { min-width: 0; flex: 1 1 0; padding: 0 8px; font-size: 11px; }
   .kanji-map-back-button { width: 34px; height: 34px; padding: 0; }
   .kanji-map-back-label { display: none; }
   .kanji-map-search-area { grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 14px 0 10px; }
@@ -326,6 +352,10 @@
   .kanji-map-detail-character { width: 70px; height: 70px; border-radius: 17px; font-size: 46px; }
   .kanji-map-attribution { margin: 9px 2px 0; }
   .kanji-map-legend { padding: 9px 11px; font-size: 9px; }
+  .kanji-map-node-preview { align-items: stretch; flex-direction: column; gap: 9px; padding: 10px 11px; }
+  .kanji-map-node-preview-actions { justify-content: stretch; }
+  .kanji-map-node-preview-actions button { min-width: 0; flex: 1 1 auto; }
+  .kanji-map-map-panel.has-node-preview .kanji-map-flow-node.is-info-open .kanji-map-node-tooltip { display: none; }
 }
 
 @media (max-width: 360px) {
@@ -356,6 +386,10 @@
   .kanji-map-flow-pager.is-mobile button { min-height: 30px; padding: 0 8px; }
   .kanji-map-gesture-hint { flex: 1 0 100%; color: #9889b8; }
   .kanji-map-mobile-actions { margin-left: 0; }
+  .kanji-map-flow-canvas.is-mobile .kanji-map-mobile-actions.is-overlay { position: absolute; z-index: 20; top: 8px; right: 8px; display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 0; border: 1px solid #e6e5ec; border-radius: 11px; background: #ffffffed; padding: 4px; box-shadow: 0 4px 13px #28354a16; }
+  .kanji-map-flow-canvas.is-mobile .kanji-map-mobile-actions.is-overlay button { width: 30px; min-height: 30px; justify-content: center; padding: 0; }
+  .kanji-map-flow-canvas.is-mobile .kanji-map-mobile-actions.is-overlay button:last-child { font-size: 0; }
+  .kanji-map-flow-canvas.is-mobile .kanji-map-mobile-actions.is-overlay button:last-child svg { width: 14px; height: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
