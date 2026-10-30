@@ -285,7 +285,7 @@ export function WebApp() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string; examTipsLevel?: "N3"; examTipsSkill?: "reading" | "listening"; examTipsLesson?: string } = {}) {
+  function go(next: Screen, id?: string, opts: { linking?: boolean; lookupText?: string; searchQuery?: string; searchTypes?: string[]; senseId?: string; kanjiView?: "map"; examTipsLevel?: "N3"; examTipsSkill?: "reading" | "listening"; examTipsLesson?: string } = {}) {
     if (next !== "quizBook") setQuizBookJlptMode(false);
     // Menu is the root ("/japanese-extension/"), not "/japanese-extension/menu"
     // -- it's the landing page, not a content category.
@@ -341,6 +341,13 @@ export function WebApp() {
       path += `?${params.toString()}`;
     } else if (next === "bunpo" && opts.senseId) {
       path += `?${new URLSearchParams({ sense: opts.senseId })}`;
+    }
+    if (next === "kanji" && opts.kanjiView === "map") {
+      const queryIndex = path.indexOf("?");
+      const basePath = queryIndex >= 0 ? path.slice(0, queryIndex) : path;
+      const params = new URLSearchParams(queryIndex >= 0 ? path.slice(queryIndex + 1) : "");
+      params.set("view", "map");
+      path = `${basePath}?${params.toString()}`;
     }
     history.pushState({ lookupPopup: false }, "", path);
     currentItemRef.current = id;
@@ -401,6 +408,7 @@ export function WebApp() {
     content = (
       <VocabScreen
         onOpenKanji={(kanjiId) => go("kanji", kanjiId)}
+        onOpenKanjiMap={(kanjiId) => go("kanji", kanjiId, { kanjiView: "map" })}
         onOpenReading={(passageId) => go("reading", passageId)}
         onOpenQuizBook={(questionId) => go("quizBook", questionId)}
         onOpenQuiz={() => go("quiz")}
@@ -410,7 +418,7 @@ export function WebApp() {
       />
     );
   } else if (screen === "flashcards") {
-    content = <FlashcardScreen />;
+    content = <FlashcardScreen onOpenVocab={(vocabId) => go("vocab", vocabId)} />;
   } else if (screen === "search") {
     content = (
       <SearchScreen
@@ -425,6 +433,7 @@ export function WebApp() {
         onOpenVocab={(vocabId) => go("vocab", vocabId)}
         onOpenQuiz={() => go("quiz")}
         jumpToId={targetId}
+        initialMapMode={new URLSearchParams(location.search).get("view") === "map"}
         onCurrentItemChange={syncCurrentItem}
       />
     );

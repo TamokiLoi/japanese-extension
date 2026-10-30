@@ -146,21 +146,26 @@ async function getFilteredList(state: KanjiViewerState, studySetId: KanjiStudySe
 export function KanjiScreen({
   onOpenVocab,
   jumpToId,
+  initialMapMode = false,
   onCurrentItemChange,
 }: {
   onOpenVocab: (vocabId: string) => void;
   onOpenQuiz: () => void;
   jumpToId?: string;
+  initialMapMode?: boolean;
   // Lets the router keep the URL (and its "return to X" bookmark for the
   // floating back button) pointed at whichever card is actually on screen,
   // even though paging Trước/Tiếp is handled entirely by this screen's own
   // `mutate()` state rather than a route change.
   onCurrentItemChange?: (id: string | undefined, text?: string) => void;
 }) {
+  const initialMapCharacter = initialMapMode && jumpToId
+    ? ALL_KANJI.find((kanji) => kanji.id === jumpToId || kanji.character === jumpToId)?.character ?? null
+    : null;
   const [state, setState] = useState<KanjiViewerState | null>(null);
   const [list, setList] = useState<Kanji[]>([]);
-  const [mapMode, setMapMode] = useState(false);
-  const [mapCharacter, setMapCharacter] = useState<string | null>(null);
+  const [mapMode, setMapMode] = useState(initialMapMode);
+  const [mapCharacter, setMapCharacter] = useState<string | null>(initialMapCharacter);
   const [radicalMode, setRadicalMode] = useState(false);
   const [radicalCharacter, setRadicalCharacter] = useState<string | null>(null);
   // Opening a card from the map is a temporary viewing context. Keep the
