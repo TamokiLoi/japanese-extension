@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -12,6 +12,7 @@ import {
   RotateCcw,
   Shuffle,
   Trash2,
+  Network,
   XCircle,
 } from "lucide-react";
 import {
@@ -34,6 +35,7 @@ import type { Kanji, JlptLevel } from "../../types/kanji.ts";
 import { formatHanViet } from "../../hanVietFormat.ts";
 import { FPT_SOMATOME_MNEMONICS, KANJI_STUDY_SETS } from "../../data/kanjiStudySets.ts";
 import { markViewed } from "../../popup/progressState.ts";
+import { kanjiIdForChar } from "../../popup/kanjiVocabLinks.ts";
 import { speakJapanese } from "../lib/speak.ts";
 import {
   loadFlashcardProgress,
@@ -54,6 +56,8 @@ import week5Raw from "../../data/fpt-n3-kanji-week-5.json";
 import week6Raw from "../../data/fpt-n3-kanji-week-6.json";
 import { Button } from "../components/ui/button.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
+
+const KanjiMapViewer = lazy(() => import("./KanjiMapScreen.tsx").then((module) => ({ default: module.KanjiMapScreen })));
 
 interface FptWeekDataset {
   week: number;
@@ -76,6 +80,7 @@ interface FlashcardItem {
   secondaryLabel?: string;
   secondary?: string;
   backReference?: string;
+  kanjiLinks?: { id: string; character: string }[];
   memoryHints: string[];
   details: string[];
   levels: string[];
@@ -139,11 +144,22 @@ function toVocabFlashcard(card: VocabCard): FlashcardItem {
     pronunciation: card.reading || card.word,
     secondaryLabel: "Nghĩa",
     secondary: card.meaningVi || "Chưa có nghĩa",
+    kanjiLinks: getFlashcardKanjiLinks(card.word),
     memoryHints: getVocabMnemonic(card),
     details,
     levels: [card.level],
     chapters: [],
   };
+}
+
+function getFlashcardKanjiLinks(word: string): { id: string; character: string }[] {
+  const seen = new Set<string>();
+  return [...word].flatMap((character) => {
+    if (seen.has(character)) return [];
+    seen.add(character);
+    const id = kanjiIdForChar(character);
+    return id ? [{ id, character }] : [];
+  });
 }
 
 function toKanjiFlashcard(kanji: Kanji): FlashcardItem {
@@ -419,13 +435,14 @@ function shuffleCards(cards: FlashcardItem[]): FlashcardItem[] {
   return result;
 }
 
-export function FlashcardScreen() {
+export function FlashcardScreen({ onOpenVocab }: { onOpenVocab: (vocabId: string) => void }) {
   const [categoryId, setCategoryId] = useState<FlashcardCategoryId>("vocab");
   const [selectedCollectionId, setSelectedCollectionId] = useState<string | null>(null);
   const [sessionDeck, setSessionDeck] = useState<FlashcardDeck | null>(null);
   const [cards, setCards] = useState<FlashcardItem[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const [kanjiMapCharacter, setKanjiMapCharacter] = useState<string | null>(null);
   const [animateFlip, setAnimateFlip] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [shuffleOnStart, setShuffleOnStart] = useState(false);
@@ -636,6 +653,25 @@ export function FlashcardScreen() {
 
   const categoryLabel = category.label;
 
+  if (sessionDeck && current && kanjiMapCharacter) {
+    return (
+      <Suspense fallback={<div className="mx-auto max-w-6xl px-3 py-8 text-center text-sm text-neutral-500">Đang mở Kanji Map…</div>}>
+        <KanjiMapViewer
+          initialCharacter={kanjiMapCharacter}
+          onSelectCharacter={setKanjiMapCharacter}
+          onBackToCards={() => setKanjiMapCharacter(null)}
+          onSelectRadical={(character) => {
+            const id = kanjiIdForChar(character);
+            if (id) setKanjiMapCharacter(id);
+          }}
+          onOpenVocab={onOpenVocab}
+          backLabel="Flashcard"
+          openCardLabel="Quay lại Flashcard"
+        />
+      </Suspense>
+    );
+  }
+
   if (sessionDeck && current) {
     const progress = Math.round(((index + (completed ? 1 : 0)) / cards.length) * 100);
     return (
@@ -789,6 +825,32 @@ export function FlashcardScreen() {
               ) : null}
             </button>
           </div>
+
+          {revealed && current.kanjiLinks && current.kanjiLinks.length > 0 ? (
+            <section className="mt-3 rounded-2xl border border-violet-200 bg-violet-50/80 p-3 text-left dark:border-violet-900/70 dark:bg-violet-950/25">
+              <div className="mb-1 flex items-center gap-1.5 text-xs font-semibold text-violet-800 dark:text-violet-200">
+                <Network size={14} aria-hidden="true" className="text-violet-600 dark:text-violet-300" />
+                Kanji cấu thành
+              </div>
+              <p className="mb-2 text-[11px] text-violet-700/75 dark:text-violet-300/75">Mở Kanji Map để xem các từ vựng cùng chữ.</p>
+              <div className="flex flex-wrap gap-2">
+                {current.kanjiLinks.map((link) => (
+                  <Button
+                    key={link.id}
+                    type="button"
+                    variant="outline"
+                    disabled={Boolean(swipeExitStatus)}
+                    onClick={() => setKanjiMapCharacter(link.id)}
+                    aria-label={`Mở Kanji Map cho ${link.character}`}
+                    className="border-violet-200 bg-white text-violet-800 hover:border-violet-400 hover:bg-violet-50 dark:border-violet-800 dark:bg-slate-900/70 dark:text-violet-200 dark:hover:border-violet-600 dark:hover:bg-slate-900"
+                  >
+                    <span className="font-serif text-lg font-bold leading-none">{link.character}</span>
+                    <span>Xem Kanji</span>
+                  </Button>
+                ))}
+              </div>
+            </section>
+          ) : null}
 
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs">
             {currentStatus === "known" ? (

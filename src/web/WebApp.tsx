@@ -428,7 +428,7 @@ export function WebApp() {
       />
     );
   } else if (screen === "flashcards") {
-    content = <FlashcardScreen />;
+    content = <FlashcardScreen onOpenVocab={(vocabId) => go("vocab", vocabId)} />;
   } else if (screen === "search") {
     content = (
       <SearchScreen

@@ -402,6 +402,8 @@ export function KanjiMapScreen({
   onSelectRadical,
   onOpenVocab,
   onViewChange,
+  backLabel = "Thẻ Kanji",
+  openCardLabel = "Mở thẻ Kanji",
 }: {
   initialCharacter?: string;
   initialView?: "structure" | "vocab";
@@ -410,6 +412,8 @@ export function KanjiMapScreen({
   onSelectRadical: (character: string) => void;
   onOpenVocab: (vocabId: string) => void;
   onViewChange?: (view: "structure" | "vocab") => void;
+  backLabel?: string;
+  openCardLabel?: string;
 }) {
   const smallScreen = useSmallScreen();
   const resolveCharacter = useCallback((value?: string) => {
@@ -726,7 +730,7 @@ export function KanjiMapScreen({
           title="Kanji Map"
           subtitle={activeView === "structure" ? `${graph.meta.recordCount.toLocaleString("vi-VN")} chữ` : `Từ vựng quanh ${selected.character}`}
           icon={{ img: "icon-kanji.png", bg: "#ffe4e6" }}
-          action={<Button className="kanji-map-back-button" variant="outline" size="sm" aria-label="Quay lại thẻ Kanji" onClick={onBackToCards}><ArrowLeft aria-hidden="true" /><span className="kanji-map-back-label">Thẻ Kanji</span></Button>}
+          action={<Button className="kanji-map-back-button" variant="outline" size="sm" aria-label={`Quay lại ${backLabel}`} onClick={onBackToCards}><ArrowLeft aria-hidden="true" /><span className="kanji-map-back-label">{backLabel}</span></Button>}
         />
       </div>
 
@@ -892,7 +896,7 @@ export function KanjiMapScreen({
               </Button>
             </section>
           ) : null}
-          <Button className="kanji-map-open-card" onClick={onBackToCards}><BookOpen size={16} /> Mở thẻ Kanji</Button>
+          <Button className="kanji-map-open-card" onClick={onBackToCards}><BookOpen size={16} /> {openCardLabel}</Button>
         </aside>
       </div>
 
