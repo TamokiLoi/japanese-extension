@@ -6,7 +6,7 @@
  * the exam and Listening practice datasets.
  *
  * Usage:
- *   node scripts/build-de-n3-10-audio.mjs --ffmpeg <path> --output <dir>
+ *   node scripts/build-de-n3-10-audio.mjs --ffmpeg <path> --output <dir> [--sets 10]
  */
 
 import { spawnSync } from "node:child_process";
@@ -38,13 +38,15 @@ const SET_10_MONDAI_5_SEGMENTS = [
 ];
 
 function parseArgs(argv) {
-  const result = { source: DEFAULT_SOURCE, output: "", ffmpeg: process.env.FFMPEG_PATH || "ffmpeg" };
+  const result = { sets: Array.from({ length: 10 }, (_, i) => i + 1), source: DEFAULT_SOURCE, output: "", ffmpeg: process.env.FFMPEG_PATH || "ffmpeg" };
   for (let i = 0; i < argv.length; i += 1) {
-    if (argv[i] === "--source") result.source = path.resolve(argv[++i]);
+    if (argv[i] === "--sets") result.sets = argv[++i].split(",").map(Number);
+    else if (argv[i] === "--source") result.source = path.resolve(argv[++i]);
     else if (argv[i] === "--output") result.output = path.resolve(argv[++i]);
     else if (argv[i] === "--ffmpeg") result.ffmpeg = path.resolve(argv[++i]);
     else throw new Error(`Unknown argument: ${argv[i]}`);
   }
+  if (!result.sets.length || result.sets.some((n) => !Number.isInteger(n) || n < 1 || n > 10)) throw new Error("--sets must contain set numbers 1–10.");
   if (!result.output) throw new Error("Pass --output <directory>.");
   return result;
 }
@@ -148,7 +150,7 @@ function main() {
   mkdirSync(args.output, { recursive: true });
 
   const tracks = {};
-  for (let setNumber = 1; setNumber <= 10; setNumber += 1) {
+  for (const setNumber of args.sets) {
     const examDir = path.join(args.source, `Đề ${setNumber}`);
     const { exam, paper } = paperForSet(setNumber);
     const groups = [];
@@ -167,10 +169,22 @@ function main() {
       const files = getQuestionSources(examDir, setNumber, mondaiNumber, expectedCount);
       const groupStart = cursor;
       if (setNumber === 10 && mondaiNumber === 5) {
-        const fullFile = files[0];
+        // Q28 in the supplied full recording omits response 3. Set 2 Q28
+        // has the same dialogue and a complete recording; replace the entire item.
+        const replacement = getQuestionSources(path.join(args.source, "Đề 2"), 2, 5, 9)[8];
+        const originalQ28 = paperForSet(2).paper.questions.find((q) => q.number === 28);
+        if (originalQ28.transcript !== paperQuestions[8].transcript) {
+          throw new Error("Set 2 and Set 10 Q28 transcripts differ; review the replacement source.");
+        }
+        const replacementStart = SET_10_MONDAI_5_SEGMENTS[8][0];
+        const fullFile = path.join(args.output, "set-10-mondai-5-repaired.wav");
+        run(args.ffmpeg, ["-y", "-hide_banner", "-loglevel", "error", "-i", files[0], "-i", replacement,
+          "-filter_complex", `[0:a]atrim=end=${replacementStart},asetpts=PTS-STARTPTS,aresample=24000,aformat=channel_layouts=mono[prefix];[1:a]asetpts=PTS-STARTPTS,aresample=24000,aformat=channel_layouts=mono[item];[prefix][item]concat=n=2:v=0:a=1[out]`,
+          "-map", "[out]", "-c:a", "pcm_s16le", fullFile]);
         const duration = getDurationSeconds(args.ffmpeg, fullFile);
         for (let index = 0; index < paperQuestions.length; index += 1) {
-          const [localStart, localEnd] = SET_10_MONDAI_5_SEGMENTS[index];
+          const [localStart, oldEnd] = SET_10_MONDAI_5_SEGMENTS[index];
+          const localEnd = index === 8 ? duration : oldEnd;
           if (localEnd > duration + 0.1) throw new Error(`Set 10 M5 q${index + 1} offset exceeds file duration ${duration}`);
           questionSegments.push({
             number: paperQuestions[index].number,
@@ -180,12 +194,12 @@ function main() {
             audioEndSec: Number((groupStart + localEnd).toFixed(3)),
             localAudioStartSec: localStart,
             localAudioEndSec: localEnd,
-            sourceFiles: [path.relative(args.source, fullFile).split(path.sep).join("/")],
+            sourceFiles: [index === 8 ? replacement : files[0]].map((f) => path.relative(args.source, f).split(path.sep).join("/")),
           });
         }
         inputFiles.push(fullFile);
         cursor += duration;
-        groups.push({ problemGroup: groupLabel, questionCount: paperQuestions.length, audioStartSec: groupStart, audioEndSec: cursor, sourceFiles: [path.relative(args.source, fullFile).split(path.sep).join("/")] });
+        groups.push({ problemGroup: groupLabel, questionCount: paperQuestions.length, audioStartSec: groupStart, audioEndSec: cursor, sourceFiles: [files[0], replacement].map((f) => path.relative(args.source, f).split(path.sep).join("/")) });
         continue;
       }
 
@@ -212,7 +226,7 @@ function main() {
       });
     }
 
-    const fileName = `de-n3-set-${String(setNumber).padStart(2, "0")}.mp3`;
+    const fileName = `de-n3-set-${String(setNumber).padStart(2, "0")}${setNumber === 10 ? "-v2" : ""}.mp3`;
     const outputPath = path.join(args.output, fileName);
     console.log(`Building ${exam.examLabel}: ${inputFiles.length} source audio file(s) ...`);
     buildTrack(args.ffmpeg, inputFiles, outputPath);
@@ -237,7 +251,7 @@ function main() {
     sourceDirectory: path.relative(REPO_ROOT, args.source).split(path.sep).join("/"),
     notes: [
       "Question audio offsets are for question-level practice and review only; timed exam playback uses each full continuous track.",
-      "Set 10 問題5 comes from one full recording. The first M5 instructions block is intentionally excluded from question 1's replay segment but retained in the continuous exam audio.",
+      "Set 10 Q28 uses the complete, identical dialogue from Set 2 Q28 because the supplied recording omits response 3. Set 10 問題5 comes from one full recording. The first M5 instructions block is intentionally excluded from question 1's replay segment but retained in the continuous exam audio.",
     ],
     tracks,
   };
