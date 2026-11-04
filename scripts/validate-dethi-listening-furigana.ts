@@ -17,6 +17,11 @@ const BOOK_BY_EXAM: Record<string, string> = {
   "cacnam-n3-2025-07": "dethi-n3-2025-07",
   "cacnam-n3-2025-12": "dethi-2025-12",
   "cacnam-n1-2026-07": "dethi-n1-2026-07",
+  "cacnam-n1-2023-07": "dethi-n1-2023-07",
+  "cacnam-n1-2023-12": "dethi-n1-2023-12",
+  "cacnam-n1-2024-07": "dethi-n1-2024-07",
+  "cacnam-n1-2024-12": "dethi-n1-2024-12",
+  "cacnam-n1-2025-07": "dethi-n1-2025-07",
   "cacnam-n3-2026-07": "dethi-n3-2026-07",
 };
 const HAS_KANJI = /[\u3400-\u9fff々〆ヶ]/u;

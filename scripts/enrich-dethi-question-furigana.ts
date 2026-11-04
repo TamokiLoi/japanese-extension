@@ -418,10 +418,13 @@ async function main() {
   if (setIndex >= 0 && (!setNumber || !/^\d{2}$/u.test(setNumber))) throw new Error("--set must be a two-digit collection number");
   const idsIndex = args.indexOf("--ids");
   const ids = idsIndex >= 0 ? args[idsIndex + 1]?.split(",").filter(Boolean) : undefined;
+  const examPrefixesValue = args.find((arg) => arg.startsWith("--exam-prefixes="))?.slice("--exam-prefixes=".length);
+  const examPrefixes = examPrefixesValue?.split(",").filter(Boolean);
   if (idsIndex >= 0 && (!ids?.length || ids.some((id) => id.startsWith("--")))) throw new Error("--ids must be followed by comma-separated stable question IDs");
+  if (examPrefixes?.some((prefix) => !/^cacnam-n1-\d{4}-\d{2}$/u.test(prefix))) throw new Error("--exam-prefixes must contain comma-separated official N1 exam ids");
   const sources = DATA_FILES.map((path) => ({ path, data: JSON.parse(readFileSync(join(ROOT, path), "utf8")) as DeThiDataset }))
     .filter((source) => !level || source.data.meta.level === level);
-  const allTargets = collectTargets(sources);
+  const allTargets = collectTargets(sources).filter((target) => !examPrefixes || examPrefixes.some((prefix) => target.id.startsWith(`${prefix}/`)));
   const setTargets = setNumber ? allTargets.filter((target) => target.id.startsWith(`de-n3-${setNumber}/`)) : allTargets;
   const targets = ids ? setTargets.filter((target) => ids.includes(target.id)) : setTargets;
   const missingIds = ids?.filter((id) => !targets.some((target) => target.id === id));

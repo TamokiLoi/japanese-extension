@@ -13,6 +13,11 @@ const DATA_FILES = [
   "listening-dethi-n3-2024-12.json",
   "listening-dethi-n3-2025-07.json",
   "listening-dethi-n1-2026-07.json",
+  "listening-dethi-n1-2023-07.json",
+  "listening-dethi-n1-2023-12.json",
+  "listening-dethi-n1-2024-07.json",
+  "listening-dethi-n1-2024-12.json",
+  "listening-dethi-n1-2025-07.json",
   "listening-dethi-n3-2026-07.json",
   "listening-kaiwa-100cau.json",
 ];

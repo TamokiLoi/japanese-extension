@@ -15,6 +15,7 @@ const DATA_FILES = [
 const RUNTIME_LISTENING_EXAMS = new Set([
   "cacnam-n3-2024-07", "cacnam-n3-2024-12", "cacnam-n3-2023-07", "cacnam-n3-2023-12",
   "cacnam-n3-2025-07", "cacnam-n3-2025-12", "cacnam-n1-2026-07", "cacnam-n3-2026-07",
+  "cacnam-n1-2023-07", "cacnam-n1-2023-12", "cacnam-n1-2024-07", "cacnam-n1-2024-12", "cacnam-n1-2025-07",
 ]);
 const SAME_PASSAGE_MARKERS = new Set(["（上記と同じ）", "（同上）"]);
 const HAS_KANJI = /[\u3400-\u9fff々〆ヶ]/u;

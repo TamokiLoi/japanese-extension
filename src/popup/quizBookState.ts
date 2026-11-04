@@ -9,6 +9,11 @@ import quizbookN3DoriruBunpouRaw from "../data/quizbook-n3-doriru-bunpou.json";
 import quizbookN3Dongnghia60Raw from "../data/quizbook-n3-dongnghia-60.json";
 import quizbookDethiN3202312Raw from "../data/quizbook-dethi-n3-2023-12.json";
 import quizbookDethiN3202512Raw from "../data/quizbook-dethi-n3-2025-12.json";
+import quizbookDethiN1202307Raw from "../data/quizbook-dethi-n1-2023-07.json";
+import quizbookDethiN1202312Raw from "../data/quizbook-dethi-n1-2023-12.json";
+import quizbookDethiN1202407Raw from "../data/quizbook-dethi-n1-2024-07.json";
+import quizbookDethiN1202412Raw from "../data/quizbook-dethi-n1-2024-12.json";
+import quizbookDethiN1202507Raw from "../data/quizbook-dethi-n1-2025-07.json";
 import quizbookN3KanjiDrillRaw from "../data/quizbook-n3-kanji-drill.json";
 import quizbookN2KanjiDrillRaw from "../data/quizbook-n2-kanji-drill.json";
 import quizbookN1KanjiDrillRaw from "../data/quizbook-n1-kanji-drill.json";
@@ -30,6 +35,11 @@ const n3DoriruBunpouDataset = quizbookN3DoriruBunpouRaw as unknown as QuizBookDa
 const n3Dongnghia60Dataset = quizbookN3Dongnghia60Raw as unknown as QuizBookDataset;
 const dethiN3202312Dataset = quizbookDethiN3202312Raw as unknown as QuizBookDataset;
 const dethiN3202512Dataset = quizbookDethiN3202512Raw as unknown as QuizBookDataset;
+const dethiN1202307Dataset = quizbookDethiN1202307Raw as unknown as QuizBookDataset;
+const dethiN1202312Dataset = quizbookDethiN1202312Raw as unknown as QuizBookDataset;
+const dethiN1202407Dataset = quizbookDethiN1202407Raw as unknown as QuizBookDataset;
+const dethiN1202412Dataset = quizbookDethiN1202412Raw as unknown as QuizBookDataset;
+const dethiN1202507Dataset = quizbookDethiN1202507Raw as unknown as QuizBookDataset;
 const n3KanjiDrillDataset = quizbookN3KanjiDrillRaw as unknown as QuizBookDataset;
 const n2KanjiDrillDataset = quizbookN2KanjiDrillRaw as unknown as QuizBookDataset;
 const n1KanjiDrillDataset = quizbookN1KanjiDrillRaw as unknown as QuizBookDataset;
@@ -48,6 +58,11 @@ export const ALL_QUIZBOOK: QuizBookQuestion[] = [
   ...n3Dongnghia60Dataset.questions,
   ...dethiN3202312Dataset.questions,
   ...dethiN3202512Dataset.questions,
+  ...dethiN1202307Dataset.questions,
+  ...dethiN1202312Dataset.questions,
+  ...dethiN1202407Dataset.questions,
+  ...dethiN1202412Dataset.questions,
+  ...dethiN1202507Dataset.questions,
   ...n3KanjiDrillDataset.questions,
   ...n2KanjiDrillDataset.questions,
   ...n1KanjiDrillDataset.questions,
@@ -82,6 +97,11 @@ export const BOOK_LABELS: Record<string, string> = {
   "dongnghia-60-n3": n3Dongnghia60Dataset.meta.bookLabel,
   "dethi-n3-2023-12": dethiN3202312Dataset.meta.bookLabel,
   "dethi-n3-2025-12": dethiN3202512Dataset.meta.bookLabel,
+  "dethi-n1-2023-07": dethiN1202307Dataset.meta.bookLabel,
+  "dethi-n1-2023-12": dethiN1202312Dataset.meta.bookLabel,
+  "dethi-n1-2024-07": dethiN1202407Dataset.meta.bookLabel,
+  "dethi-n1-2024-12": dethiN1202412Dataset.meta.bookLabel,
+  "dethi-n1-2025-07": dethiN1202507Dataset.meta.bookLabel,
   "kanji-drill-n3": n3KanjiDrillDataset.meta.bookLabel,
   "kanji-drill-n2": n2KanjiDrillDataset.meta.bookLabel,
   "kanji-drill-n1": n1KanjiDrillDataset.meta.bookLabel,
@@ -104,6 +124,11 @@ export const BOOK_LEVELS: Record<string, JlptLevel> = {
   "dongnghia-60-n3": n3Dongnghia60Dataset.meta.level,
   "dethi-n3-2023-12": dethiN3202312Dataset.meta.level,
   "dethi-n3-2025-12": dethiN3202512Dataset.meta.level,
+  "dethi-n1-2023-07": dethiN1202307Dataset.meta.level,
+  "dethi-n1-2023-12": dethiN1202312Dataset.meta.level,
+  "dethi-n1-2024-07": dethiN1202407Dataset.meta.level,
+  "dethi-n1-2024-12": dethiN1202412Dataset.meta.level,
+  "dethi-n1-2025-07": dethiN1202507Dataset.meta.level,
   "kanji-drill-n3": n3KanjiDrillDataset.meta.level,
   "kanji-drill-n2": n2KanjiDrillDataset.meta.level,
   "kanji-drill-n1": n1KanjiDrillDataset.meta.level,
@@ -135,6 +160,11 @@ export const BOOK_GROUP: Record<string, QuizBookGroup> = {
   "dongnghia-60-n3": "de",
   "dethi-n3-2023-12": "de",
   "dethi-n3-2025-12": "de",
+  "dethi-n1-2023-07": "de",
+  "dethi-n1-2023-12": "de",
+  "dethi-n1-2024-07": "de",
+  "dethi-n1-2024-12": "de",
+  "dethi-n1-2025-07": "de",
   "kanji-drill-n3": "sach",
   "kanji-drill-n2": "sach",
   "kanji-drill-n1": "sach",

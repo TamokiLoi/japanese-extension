@@ -24,6 +24,11 @@ import listeningDethiN3Dec2023Raw from "../data/listening-dethi-n3-2023-12.json"
 // source answer keys; Q18 uses the audio-verified answer after a key typo.
 import listeningDethiN3July2025Raw from "../data/listening-dethi-n3-2025-07.json";
 import listeningDethiN1July2026Raw from "../data/listening-dethi-n1-2026-07.json";
+import listeningDethiN1July2023Raw from "../data/listening-dethi-n1-2023-07.json";
+import listeningDethiN1Dec2023Raw from "../data/listening-dethi-n1-2023-12.json";
+import listeningDethiN1July2024Raw from "../data/listening-dethi-n1-2024-07.json";
+import listeningDethiN1Dec2024Raw from "../data/listening-dethi-n1-2024-12.json";
+import listeningDethiN1July2025Raw from "../data/listening-dethi-n1-2025-07.json";
 import listeningDethiN3July2026Raw from "../data/listening-dethi-n3-2026-07.json";
 // listening-cacnam-2020-12.json: Mondai 1 (6 cau) cua phan 聴解 de thi that
 // N3 T12/2020, tu assets/data/de-thi-cac-nam/ -- KHAC listening-dethi-2025-12
@@ -54,6 +59,11 @@ const dethiN3July2023Dataset = listeningDethiN3July2023Raw as unknown as Listeni
 const dethiN3Dec2023Dataset = listeningDethiN3Dec2023Raw as unknown as ListeningDataset;
 const dethiN3July2025Dataset = listeningDethiN3July2025Raw as unknown as ListeningDataset;
 const dethiN1July2026Dataset = listeningDethiN1July2026Raw as unknown as ListeningDataset;
+const dethiN1July2023Dataset = listeningDethiN1July2023Raw as unknown as ListeningDataset;
+const dethiN1Dec2023Dataset = listeningDethiN1Dec2023Raw as unknown as ListeningDataset;
+const dethiN1July2024Dataset = listeningDethiN1July2024Raw as unknown as ListeningDataset;
+const dethiN1Dec2024Dataset = listeningDethiN1Dec2024Raw as unknown as ListeningDataset;
+const dethiN1July2025Dataset = listeningDethiN1July2025Raw as unknown as ListeningDataset;
 const dethiN3July2026Dataset = listeningDethiN3July2026Raw as unknown as ListeningDataset;
 const cacNam202012Dataset = listeningCacNam202012Raw as unknown as ListeningDataset;
 const kaiwa100cauDataset = listeningKaiwa100cauRaw as unknown as ListeningDataset;
@@ -160,6 +170,11 @@ export const ALL_LISTENING: ListeningQuestion[] = [
   ...dethiN3Dec2023Dataset.questions,
   ...completeDethi202512Questions,
   ...dethiN3July2025Dataset.questions,
+  ...dethiN1July2025Dataset.questions,
+  ...dethiN1Dec2024Dataset.questions,
+  ...dethiN1July2024Dataset.questions,
+  ...dethiN1Dec2023Dataset.questions,
+  ...dethiN1July2023Dataset.questions,
   ...dethiN1July2026Dataset.questions,
   ...dethiN3July2026Dataset.questions,
   ...deN3ExamListeningQuestions,
@@ -211,6 +226,11 @@ export const BOOK_LABELS: Record<string, string> = {
   "dethi-2025-12": "Đề thi thật N3 T12/2025 (28 câu nghe)",
   "dethi-n3-2025-07": "Đề thi thật N3 T7/2025 (28 câu nghe)",
   "dethi-n1-2026-07": "Đề thi thật N1 T7/2026 (30 câu nghe)",
+  "dethi-n1-2025-07": "Đề thi thật N1 T7/2025 (30 câu nghe)",
+  "dethi-n1-2024-12": "Đề thi thật N1 T12/2024 (31 câu nghe)",
+  "dethi-n1-2024-07": "Đề thi thật N1 T7/2024 (29 câu nghe)",
+  "dethi-n1-2023-12": "Đề thi thật N1 T12/2023 (30 câu nghe)",
+  "dethi-n1-2023-07": "Đề thi thật N1 T7/2023 (30 câu nghe)",
   "dethi-n3-2026-07": "Đề thi thật N3 T7/2026 (28 câu nghe)",
   "cacnam-2020-12": "Đề thi thật N3 T12/2020 (聴解, 6/28 câu -- Mondai 1)",
   "kaiwa-100cau": "100 câu giao tiếp thường ngày (Kaiwa)",
@@ -230,10 +250,15 @@ const BOOK_ORDER: string[] = [
   "dethi-n3-2026-07",
   "dethi-n1-2026-07",
   "dethi-2025-12",
+  "dethi-n1-2025-07",
   "dethi-n3-2025-07",
+  "dethi-n1-2024-12",
   "dethi-n3-2024-12",
+  "dethi-n1-2024-07",
   "dethi-n3-2024-07",
+  "dethi-n1-2023-12",
   "dethi-n3-2023-12",
+  "dethi-n1-2023-07",
   "dethi-n3-2023-07",
   "kaiwa-100cau",
 ];
@@ -253,6 +278,13 @@ export interface ListeningViewerState {
 }
 
 const STORAGE_KEY = "listeningViewer";
+const newlyAddedN1Books = new Set([
+  "dethi-n1-2023-07",
+  "dethi-n1-2023-12",
+  "dethi-n1-2024-07",
+  "dethi-n1-2024-12",
+  "dethi-n1-2025-07",
+]);
 
 export function defaultViewerState(): ListeningViewerState {
   return {
@@ -266,7 +298,7 @@ export async function loadViewerState(): Promise<ListeningViewerState> {
   const saved = await storageGet<Partial<ListeningViewerState>>(STORAGE_KEY);
   const fallback = defaultViewerState();
   const savedBooks = saved?.selectedBooks;
-  const legacyBooks = AVAILABLE_BOOKS.filter((book) => !/^de-n3-\d{2}$/u.test(book));
+  const legacyBooks = AVAILABLE_BOOKS.filter((book) => !/^de-n3-\d{2}$/u.test(book) && !newlyAddedN1Books.has(book));
   const legacySelectionContainedAllBooks = !!savedBooks &&
     legacyBooks.every((book) => savedBooks.includes(book)) &&
     savedBooks.every((book) => legacyBooks.includes(book));

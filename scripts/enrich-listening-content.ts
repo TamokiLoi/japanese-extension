@@ -24,6 +24,11 @@ const DATA_FILES = [
   "listening-dethi-n3-2025-07.json",
   "listening-dethi-n3-2026-07.json",
   "listening-dethi-n1-2026-07.json",
+  "listening-dethi-n1-2023-07.json",
+  "listening-dethi-n1-2023-12.json",
+  "listening-dethi-n1-2024-07.json",
+  "listening-dethi-n1-2024-12.json",
+  "listening-dethi-n1-2025-07.json",
 ];
 const BATCH_SIZE = 8;
 const CACHE_PATH = join(ROOT, `_scratch/listening-enrichment-cache-${MODEL}.json`);
@@ -547,7 +552,11 @@ async function repairMissingFurigana(apiKeys: string[], questions: Question[], r
           }
           const seenAdditions = new Set<string>();
           const additionRanges: { position: number; end: number; annotation: Annotation }[] = [];
-          for (const addition of additions) {
+          for (const rawAddition of additions) {
+            const addition = rawAddition.word === "好" && rawAddition.reading === "好" &&
+              slot.source.startsWith("好まれる", rawAddition.position)
+              ? { ...rawAddition, reading: "この" }
+              : rawAddition;
             if (!Number.isInteger(addition.position) || addition.position < 0 || addition.position >= slot.source.length || !addition.word) {
               throw new Error(`${question.id} ${slot.field}: repair has an invalid position or word`);
             }

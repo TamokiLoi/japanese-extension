@@ -84,6 +84,8 @@ function parseArgs() {
   const preview = args.includes("--preview");
   const limitIndex = args.indexOf("--limit");
   const idIndex = args.indexOf("--id");
+  const examPrefixesValue = args.find((arg) => arg.startsWith("--exam-prefixes="))?.slice("--exam-prefixes=".length);
+  const examPrefixes = examPrefixesValue?.split(",").filter(Boolean);
   const limit = limitIndex >= 0 ? Number(args[limitIndex + 1]) : undefined;
   const id = idIndex >= 0 ? args[idIndex + 1] : undefined;
   if (limitIndex >= 0 && (!Number.isInteger(limit) || (limit ?? 0) < 1)) {
@@ -91,7 +93,8 @@ function parseArgs() {
   }
   if (idIndex >= 0 && (!id || id.startsWith("--"))) throw new Error("--id must be followed by a stable question id");
   if (dryRun && preview) throw new Error("Use either --dry-run or --preview, not both");
-  return { dryRun, preview, limit, id };
+  if (examPrefixes?.some((prefix) => !/^cacnam-n1-\d{4}-\d{2}$/u.test(prefix))) throw new Error("--exam-prefixes must contain comma-separated official N1 exam ids");
+  return { dryRun, preview, limit, id, examPrefixes };
 }
 
 function sleep(ms: number): Promise<void> {
@@ -272,8 +275,8 @@ async function generateBatch(apiKeys: string[], targets: Target[]): Promise<Enri
 }
 
 async function main() {
-  const { dryRun, preview, limit, id } = parseArgs();
-  const allTargets = collectTargets();
+  const { dryRun, preview, limit, id, examPrefixes } = parseArgs();
+  const allTargets = collectTargets().filter((target) => !examPrefixes || examPrefixes.some((prefix) => target.id.startsWith(`${prefix}/`)));
   const targets = id ? allTargets.filter((target) => target.id === id) : allTargets;
   if (id && targets.length === 0) throw new Error(`No eligible grammar question found for id: ${id}`);
   const cache = loadCache();
