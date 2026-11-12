@@ -219,10 +219,16 @@ export function VocabScreen({
       (selectedReadingVariant ? vocabReadingProgressId(currentListCard.word, selectedReadingVariant.reading) : currentListCard.id)
     : undefined;
   // An alternate reading from JMdict has no app example or mnemonic yet.
-  // Keep the shared word card visible, but never attach its other reading's
-  // examples or memory hint to this tab.
+  // Keep the shared word card visible, but never attach another explicitly
+  // recorded reading's examples or memory hint to this tab. Cards without a
+  // reading field still own their meaning/examples (kana-only words may omit
+  // the redundant reading), so keep them available when no alternate reading
+  // has been selected.
   const contentCard = selectedReadingVariant?.appCard ??
-    (currentListCard?.reading === selectedReading ? currentListCard : undefined);
+    (currentListCard && (
+      currentListCard.reading === selectedReading ||
+      (!currentListCard.reading && !selectedReading)
+    ) ? currentListCard : undefined);
   // Voice availability can change after mount (voice list loads
   // asynchronously on some browsers, or the device finishes downloading a
   // Japanese TTS voice pack while this screen is still open), so keep
