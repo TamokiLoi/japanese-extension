@@ -267,6 +267,9 @@ export interface ReadingViewerState {
   // Web reading view options are kept per passage so review resumes with the
   // same furigana, translations, and emphasis the learner enabled previously.
   passageViewOptions: Record<string, ReadingPassageViewOptions>;
+  // Current page in the leisure reader; kept separate from exam answers.
+  leisurePageByPassage: Record<string, number>;
+  leisureCompletedPassageIds: string[];
   // User-pinned news and manually imported passages.
   savedPassageIds: string[];
   savedOnly: boolean;
@@ -298,6 +301,8 @@ export function defaultViewerState(): ReadingViewerState {
     resultsRevealed: false,
     answers: {},
     passageViewOptions: {},
+    leisurePageByPassage: {},
+    leisureCompletedPassageIds: [],
     savedPassageIds: [],
     savedOnly: false,
     articleCollectionsInitialized: true,
@@ -396,6 +401,8 @@ export async function loadViewerState(): Promise<ReadingViewerState> {
     resultsRevealed: saved?.resultsRevealed ?? fallback.resultsRevealed,
     answers: saved?.answers ?? fallback.answers,
     passageViewOptions: saved?.passageViewOptions ?? fallback.passageViewOptions,
+    leisurePageByPassage: saved?.leisurePageByPassage ?? fallback.leisurePageByPassage,
+    leisureCompletedPassageIds: saved?.leisureCompletedPassageIds ?? fallback.leisureCompletedPassageIds,
     savedPassageIds: (saved?.savedPassageIds ?? fallback.savedPassageIds).filter((id) => READING_BY_ID.has(id)),
     savedOnly: saved?.savedOnly ?? fallback.savedOnly,
     articleCollectionsInitialized: true,

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Shuffle, Undo2, ChevronLeft, ChevronRight, Sparkles, BarChart3, Library, PenSquare, CheckCircle2, Languages, Bookmark, BookmarkCheck, ExternalLink, Pause, Play, Square, Lightbulb } from "lucide-react";
-import type { ReadingBodySegment, ReadingPassage } from "../../types/reading.ts";
+import type { ReadingBodySegment, ReadingPassage, ReadingLength } from "../../types/reading.ts";
 import { findUniqueTextRanges, type TextRange } from "../../lib/textRanges.ts";
 import { alignTextSegmentsToLineBreaks } from "../../lib/alignTextSegments.ts";
 import { findMarkdownPipeTables } from "../../lib/markdownpipetable.ts";
@@ -44,6 +44,7 @@ import { Card } from "../components/ui/card.tsx";
 import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
 import { QuestionExplanationBlock } from "../components/QuestionExplanationBlock.tsx";
 import { Button } from "../components/ui/button.tsx";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select.tsx";
 import { levelBadgeStyle } from "../lib/levelColors.tsx";
 import { PageHeader } from "../components/PageHeader.tsx";
 import { StatCard } from "../components/StatCard.tsx";
@@ -54,6 +55,7 @@ import { ActiveFilters } from "../components/ActiveFilters.tsx";
 import { FilterSheet, FilterGroup, FilterChipOption } from "../components/FilterSheet.tsx";
 import { LoadingScreen } from "../components/LoadingScreen.tsx";
 import { hasJapaneseVoice, onVoicesChanged, speakJapanese } from "../lib/speak.ts";
+import { JLPT_LEISURE_BY_ID } from "../data/jlptLeisurePilot.ts";
 
 function timelineLabel(passage: ReadingPassage): string {
   const min = passage.estimatedMinutes;
@@ -61,10 +63,33 @@ function timelineLabel(passage: ReadingPassage): string {
   return `${LENGTH_LABELS[passage.length]} · ~${min}-${max} phút`;
 }
 
-function isInCollection(passage: ReadingPassage, collection: "all" | "news" | "stories"): boolean {
+function isInCollection(passage: ReadingPassage, collection: "all" | "news" | "stories" | "library"): boolean {
   if (collection === "news") return passage.book === "news";
   if (collection === "stories") return passage.book === "ai-story";
+  if (collection === "library") return passage.book === "ai-story" || JLPT_LEISURE_BY_ID.has(passage.id);
   return passage.book !== "ai-story";
+}
+
+function leisurePageRanges(body: ReadingBodySegment[], maxSentences = 2): { start: number; end: number }[] {
+  const sentences = splitBodyIntoSentences(body);
+  const pages: { start: number; end: number }[] = [];
+  let start = 0;
+  let count = 0;
+  sentences.forEach((segments, index) => {
+    if (index > start && segments[0]?.paragraphStart && count > 0) {
+      pages.push({ start, end: index });
+      start = index;
+      count = 0;
+    }
+    count++;
+    if (count >= maxSentences) {
+      pages.push({ start, end: index + 1 });
+      start = index + 1;
+      count = 0;
+    }
+  });
+  if (start < sentences.length) pages.push({ start, end: sentences.length });
+  return pages;
 }
 
 type ReferenceTerm = { text: string; kind: "vocab" | "bunpo" };
@@ -329,6 +354,7 @@ function AiStoryReadingBody({
   referenceTerms,
   highlightReferences,
   activeSentenceIndex,
+  sentenceRange,
   canSpeak,
   onSpeakSentence,
 }: {
@@ -338,10 +364,13 @@ function AiStoryReadingBody({
   referenceTerms: ReferenceTerm[];
   highlightReferences: boolean;
   activeSentenceIndex: number;
+  sentenceRange?: { start: number; end: number };
   canSpeak: boolean;
   onSpeakSentence: (index: number) => void;
 }) {
-  const sentenceGroups = splitBodyIntoSentences(passage.body);
+  const allSentenceGroups = splitBodyIntoSentences(passage.body);
+  const sentenceStart = sentenceRange?.start ?? 0;
+  const sentenceGroups = allSentenceGroups.slice(sentenceStart, sentenceRange?.end ?? allSentenceGroups.length);
   const passageText = passage.body.map((segment) => segment.text).join("");
   const underlineRanges = findUniqueTextRanges(passageText, passage.underlinedPhrases, passage.underlinedRanges);
   const sentenceRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -353,12 +382,12 @@ function AiStoryReadingBody({
     if (bounds.top < 80 || bounds.bottom > window.innerHeight - 80) {
       active.scrollIntoView({ block: "center", behavior: "smooth" });
     }
-  }, [activeSentenceIndex]);
+  }, [activeSentenceIndex, sentenceRange?.start]);
 
   const paragraphs: { index: number; segments: typeof sentenceGroups[number] }[][] = [];
-  sentenceGroups.forEach((segments, index) => {
+  sentenceGroups.forEach((segments, localIndex) => {
     if (paragraphs.length === 0 || segments[0]?.paragraphStart) paragraphs.push([]);
-    paragraphs[paragraphs.length - 1].push({ index, segments });
+    paragraphs[paragraphs.length - 1].push({ index: sentenceStart + localIndex, segments });
   });
 
   let sourceSearchFrom = 0;
@@ -392,7 +421,9 @@ function AiStoryReadingBody({
   if (showTranslation && passage.sentencesVi?.length) {
     return (
       <div className="flex flex-col gap-3">
-        {sentenceGroups.map((segments, index) => (
+        {sentenceGroups.map((segments, localIndex) => {
+          const index = sentenceStart + localIndex;
+          return (
           <div key={index} className={index > 0 && segments[0]?.paragraphStart ? "pt-3" : undefined}>
             <div>{renderSentence(segments, index)}</div>
             {passage.sentencesVi?.[index] ? (
@@ -401,7 +432,8 @@ function AiStoryReadingBody({
               </div>
             ) : null}
           </div>
-        ))}
+          );
+        })}
       </div>
     );
   }
@@ -496,7 +528,7 @@ export function ReadingScreen({
   onOpenBunpo,
   onCurrentItemChange,
 }: {
-  collection?: "all" | "news" | "stories";
+  collection?: "all" | "news" | "stories" | "library";
   savedOnlyView?: boolean;
   targetId?: string;
   onOpenSavedStories?: () => void;
@@ -508,6 +540,10 @@ export function ReadingScreen({
 }) {
   const [state, setState] = useState<ReadingViewerState | null>(null);
   const [error, setError] = useState<string | undefined>(undefined);
+  const [libraryTab, setLibraryTab] = useState<"stories" | "jlpt">("stories");
+  const [leisureLevel, setLeisureLevel] = useState<"all" | "N1" | "N3">("all");
+  const [leisureLength, setLeisureLength] = useState<"all" | ReadingLength>("all");
+  const [leisureExamId, setLeisureExamId] = useState("all");
 
   useEffect(() => {
     let cancelled = false;
@@ -516,6 +552,7 @@ export function ReadingScreen({
       const foundTarget = targetId ? findReadingById(targetId) : undefined;
       const passage = foundTarget && isInCollection(foundTarget, collection) && (!savedOnlyView || s.savedPassageIds.includes(foundTarget.id)) ? foundTarget : undefined;
       if (passage) {
+        if (collection === "library") setLibraryTab(passage.book === "ai-story" ? "stories" : "jlpt");
         s = {
           ...s,
           currentPassageId: passage.id,
@@ -534,6 +571,9 @@ export function ReadingScreen({
         await saveViewerState(s);
       } else if (s.currentPassageId) {
         const currentPassage = findReadingById(s.currentPassageId);
+        if (collection === "library" && currentPassage && isInCollection(currentPassage, collection)) {
+          setLibraryTab(currentPassage.book === "ai-story" ? "stories" : "jlpt");
+        }
         if (currentPassage && getPassageProgress(currentPassage, s.answers).status === "done" && !s.resultsRevealed) {
           s = { ...s, resultsRevealed: true };
           await saveViewerState(s);
@@ -563,18 +603,26 @@ export function ReadingScreen({
     onCurrentItemChange?.(passage?.id);
   }, [isStateLoaded, passage?.id, onCurrentItemChange]);
 
-  if (!state) return <LoadingScreen variant="reading" title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"} />;
+  if (!state) return <LoadingScreen variant="reading" title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : collection === "library" ? "Thư viện đọc" : "Luyện đọc"} />;
 
   // Lifted up from ListView (rather than each screen recomputing its own
   // copy) so PassageView can sequence Trước/Tiếp through the exact same
   // filtered+status-filtered order the user was browsing in the list --
   // same reasoning as BunpoScreen.tsx's DetailView visibleList.
   const filtered = ALL_READING.filter((p) => {
+    if (collection === "library") {
+      if (libraryTab === "stories") return p.book === "ai-story";
+      return JLPT_LEISURE_BY_ID.has(p.id) &&
+        (leisureLevel === "all" || p.level === leisureLevel) &&
+        (leisureLength === "all" || p.length === leisureLength) &&
+        (leisureExamId === "all" || p.examId === leisureExamId);
+    }
     if (collection === "stories") return p.book === "ai-story" && (!savedOnlyView || state.savedPassageIds.includes(p.id));
     if (collection === "news") return p.book === "news" && state.selectedLevels.includes(p.level) && state.selectedLengths.includes(p.length) && (!p.topic || state.selectedTopics.includes(p.topic));
     return p.book !== "ai-story" && matchesFilters(p, state);
   });
   const visiblePassages = filtered.filter((p) => {
+    if (collection === "library") return true;
     if (state.savedOnly && !state.savedPassageIds.includes(p.id)) return false;
     if (state.listStatusFilter === "all") return true;
     const progress = getPassageProgress(p, state.answers);
@@ -583,6 +631,7 @@ export function ReadingScreen({
   });
 
   async function openPassage(passage: ReadingPassage) {
+    if (collection === "library") setLibraryTab(passage.book === "ai-story" ? "stories" : "jlpt");
     await mutate({
       currentPassageId: passage.id,
       lastPassageId: passage.id,
@@ -597,6 +646,16 @@ export function ReadingScreen({
   }
 
   if (passage) {
+    if (collection === "library" && libraryTab === "jlpt" && JLPT_LEISURE_BY_ID.has(passage.id)) {
+      return (
+        <JlptLeisureSlideReader
+          passage={passage}
+          state={state}
+          mutate={mutate}
+          onBack={() => mutate({ currentPassageId: null })}
+        />
+      );
+    }
     return (
       <PassageView
         passage={passage}
@@ -622,11 +681,464 @@ export function ReadingScreen({
       visiblePassages={visiblePassages}
       openPassage={openPassage}
       collection={collection}
+      libraryTab={libraryTab}
+      setLibraryTab={setLibraryTab}
+      leisureLevel={leisureLevel}
+      setLeisureLevel={setLeisureLevel}
+      leisureLength={leisureLength}
+      setLeisureLength={setLeisureLength}
+      leisureExamId={leisureExamId}
+      setLeisureExamId={setLeisureExamId}
       savedOnlyView={savedOnlyView}
       onOpenSavedStories={onOpenSavedStories}
       onOpenStories={onOpenStories}
       onOpenExamTips={onOpenExamTips}
     />
+  );
+}
+
+function JlptLeisureSlideReader({
+  passage,
+  state,
+  mutate,
+  onBack,
+}: {
+  passage: ReadingPassage;
+  state: ReadingViewerState;
+  mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
+  onBack: () => void;
+}) {
+  const entry = JLPT_LEISURE_BY_ID.get(passage.id)!;
+  const skippedLeadingSentences = entry.skipLeadingSentences ?? 0;
+  const readerBody = useMemo(() => {
+    const groups = splitBodyIntoSentences(passage.body).slice(skippedLeadingSentences);
+    const body = groups.flatMap((group) => group);
+    if (body.length) body[0] = { ...body[0], paragraphStart: true };
+    return body;
+  }, [passage.id, skippedLeadingSentences]);
+  const readerPassage = useMemo(() => ({
+    ...passage,
+    body: readerBody,
+    sentencesVi: passage.sentencesVi?.slice(skippedLeadingSentences),
+    underlinedPhrases: undefined,
+    underlinedRanges: undefined,
+  }), [passage.id, readerBody, skippedLeadingSentences]);
+  const ranges = useMemo(() => leisurePageRanges(readerBody), [passage.id, readerBody]);
+  const savedPage = state.leisurePageByPassage[passage.id] ?? 0;
+  const pageIndex = ranges.length ? Math.min(savedPage, ranges.length - 1) : 0;
+  const range = ranges[pageIndex] ?? { start: 0, end: 0 };
+  const scene = [...entry.scenes].reverse().find((item) => item.startSentence <= range.start + skippedLeadingSentences) ?? entry.scenes[0];
+  const isComplete = state.leisureCompletedPassageIds.includes(passage.id);
+  const viewOptions = state.passageViewOptions[passage.id] ?? {};
+  const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
+  const showTranslation = viewOptions.showTranslation ?? state.showTranslation;
+  const speechSentences = useMemo(
+    () => splitBodyIntoSentences(readerBody).map((segments) => segments.map((segment) => segment.text).join("").replace(/\s+/gu, " ").trim()),
+    [readerBody],
+  );
+  const [speechAvailable, setSpeechAvailable] = useState(hasJapaneseVoice);
+  const [speechStatus, setSpeechStatus] = useState<"idle" | "playing" | "paused">("idle");
+  const [activeSpeechSentence, setActiveSpeechSentence] = useState(-1);
+  const [speechRate, setSpeechRate] = useState(0.9);
+  const [speechError, setSpeechError] = useState<string | undefined>();
+  const [showQuestions, setShowQuestions] = useState(false);
+  const speechRunRef = useRef(0);
+  const speechRateRef = useRef(speechRate);
+  speechRateRef.current = speechRate;
+  const hasInlineTranslation = Boolean(passage.sentencesVi?.length);
+
+  useEffect(() => {
+    const refreshVoices = () => setSpeechAvailable(hasJapaneseVoice());
+    refreshVoices();
+    return onVoicesChanged(refreshVoices);
+  }, []);
+
+  useEffect(() => {
+    speechRunRef.current++;
+    window.speechSynthesis?.cancel();
+    setSpeechStatus("idle");
+    setActiveSpeechSentence(-1);
+    setSpeechError(undefined);
+    setShowQuestions(false);
+  }, [passage.id]);
+
+  useEffect(() => () => {
+    speechRunRef.current++;
+    window.speechSynthesis?.cancel();
+  }, []);
+
+  function speakSentenceAt(index: number, runId: number, endIndex: number) {
+    if (runId !== speechRunRef.current) return;
+    const text = speechSentences[index];
+    if (!text) {
+      setSpeechStatus("idle");
+      setActiveSpeechSentence(-1);
+      return;
+    }
+    setActiveSpeechSentence(index);
+    const started = speakJapanese(text, {
+      rate: speechRateRef.current,
+      onEnd: () => {
+        if (runId !== speechRunRef.current) return;
+        if (index + 1 < endIndex) speakSentenceAt(index + 1, runId, endIndex);
+        else {
+          setSpeechStatus("idle");
+          setActiveSpeechSentence(-1);
+        }
+      },
+      onError: () => {
+        if (runId !== speechRunRef.current) return;
+        speechRunRef.current++;
+        setSpeechStatus("idle");
+        setActiveSpeechSentence(-1);
+        setSpeechError("Trình duyệt không thể phát giọng đọc tiếng Nhật lúc này.");
+      },
+    });
+    if (!started) {
+      setSpeechStatus("idle");
+      setActiveSpeechSentence(-1);
+      setSpeechError("Trình duyệt không hỗ trợ đọc văn bản trên thiết bị này.");
+    }
+  }
+
+  function toggleSpeech() {
+    if (!speechAvailable || !speechSentences.length) return;
+    if (speechStatus === "playing") {
+      window.speechSynthesis?.pause();
+      setSpeechStatus("paused");
+      return;
+    }
+    if (speechStatus === "paused") {
+      window.speechSynthesis?.resume();
+      setSpeechStatus("playing");
+      return;
+    }
+    const runId = ++speechRunRef.current;
+    window.speechSynthesis?.cancel();
+    setSpeechError(undefined);
+    setSpeechStatus("playing");
+    speakSentenceAt(range.start, runId, range.end);
+  }
+
+  function stopSpeech() {
+    speechRunRef.current++;
+    window.speechSynthesis?.cancel();
+    setSpeechStatus("idle");
+    setActiveSpeechSentence(-1);
+  }
+
+  function updateViewOptions(partial: Partial<ReadingPassageViewOptions>) {
+    void mutate({
+      passageViewOptions: {
+        ...state.passageViewOptions,
+        [passage.id]: { ...viewOptions, ...partial },
+      },
+    });
+  }
+
+  function changePage(nextPage: number) {
+    stopSpeech();
+    void mutate({ leisurePageByPassage: { ...state.leisurePageByPassage, [passage.id]: nextPage } });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  async function openQuestions() {
+    stopSpeech();
+    await mutate({ leisureCompletedPassageIds: [...new Set([...state.leisureCompletedPassageIds, passage.id])] });
+    setShowQuestions(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  const softButton = "flex h-11 min-w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-sm transition-colors hover:bg-neutral-50 disabled:opacity-35";
+
+  if (showQuestions) {
+    return (
+      <JlptLeisureQuestionStage
+        passage={passage}
+        state={state}
+        mutate={mutate}
+        onBackToReading={() => setShowQuestions(false)}
+        onBackToLibrary={onBack}
+      />
+    );
+  }
+
+  return (
+    <div className="mx-auto min-h-[calc(100dvh-4.5rem)] max-w-4xl px-2.5 py-2 md:px-8 md:py-6">
+      <div className="sticky top-0 z-20 -mx-2.5 flex items-center gap-3 bg-white/95 px-2.5 py-2 backdrop-blur md:static md:mx-0 md:px-0">
+        <button type="button" onClick={onBack} aria-label="Quay lại thư viện đọc" className={softButton}>
+          <ChevronLeft size={20} />
+        </button>
+        <div className="min-w-0 flex-1">
+          <div className="mb-1 flex items-center justify-between gap-2 text-xs font-semibold text-neutral-600">
+            <span className="truncate">{entry.title}</span>
+            <span className="shrink-0">{pageIndex + 1} / {ranges.length}</span>
+          </div>
+          <div
+            role="progressbar"
+            aria-label="Tiến độ bài đọc"
+            aria-valuemin={0}
+            aria-valuemax={ranges.length}
+            aria-valuenow={pageIndex + 1}
+            className="h-2 overflow-hidden rounded-full bg-neutral-200"
+          >
+            <div className="h-full rounded-full bg-emerald-500 transition-all" style={{ width: `${ranges.length ? ((pageIndex + 1) / ranges.length) * 100 : 0}%` }} />
+          </div>
+        </div>
+        <span className="rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-700">{passage.level}</span>
+      </div>
+
+      <main className="mx-auto max-w-3xl pb-[calc(8.5rem+env(safe-area-inset-bottom))] md:pb-24">
+        <div className="mb-2 mt-2 flex items-center justify-between gap-2 text-xs text-neutral-500 md:mt-4">
+          <span>{passage.examLabel} · {timelineLabel(passage)}</span>
+          {isComplete ? <span className="font-semibold text-emerald-700">Đã đọc</span> : null}
+        </div>
+
+        <article className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+          {scene ? (
+            <img
+              src={`${import.meta.env.BASE_URL}${scene.path}`}
+              alt={scene.alt}
+              className="aspect-video w-full bg-neutral-100 object-cover"
+            />
+          ) : null}
+          <div className="px-4 py-4 text-lg leading-[1.7] text-neutral-900 md:px-8 md:py-7 md:text-2xl md:leading-[1.9]">
+            <AiStoryReadingBody
+              passage={readerPassage}
+              showFurigana={showFurigana}
+              showTranslation={showTranslation && hasInlineTranslation}
+              referenceTerms={[]}
+              highlightReferences={false}
+              activeSentenceIndex={activeSpeechSentence}
+              sentenceRange={range}
+              canSpeak={speechAvailable}
+              onSpeakSentence={(index) => {
+                const runId = ++speechRunRef.current;
+                window.speechSynthesis?.cancel();
+                setSpeechStatus("playing");
+                setSpeechError(undefined);
+                speakSentenceAt(index, runId, range.end);
+              }}
+            />
+          </div>
+        </article>
+
+        {pageIndex >= ranges.length - 1 ? (
+          <button type="button" onClick={() => void openQuestions()} className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-rose-600 px-4 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-rose-700">
+            Xem câu hỏi ({passage.questions.length}) <ChevronRight size={17} />
+          </button>
+        ) : null}
+
+        {showTranslation && !hasInlineTranslation ? (
+          <section className="mt-3 max-h-64 overflow-y-auto rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900" aria-label="Bản dịch toàn bài">
+            <h2 className="mb-2 text-xs font-bold uppercase tracking-wide text-amber-700">Bản dịch toàn bài</h2>
+            {passage.translationVi.split("\n").map((line, index, lines) => (
+              <span key={index}>{line}{index < lines.length - 1 ? <br /> : null}</span>
+            ))}
+          </section>
+        ) : null}
+
+        {speechError ? <p className="mt-2 text-center text-xs text-rose-600">{speechError}</p> : null}
+      </main>
+
+      <div className="fixed left-1/2 bottom-[calc(4.25rem+env(safe-area-inset-bottom))] z-20 w-max max-w-[calc(100vw-1rem)] -translate-x-1/2 md:bottom-5 md:left-[calc(50%+var(--sidebar-center-offset,7.5rem))]">
+        <div className="flex max-w-full items-center justify-center gap-1.5 rounded-2xl border border-neutral-200 bg-white/95 p-2 shadow-xl backdrop-blur">
+          <button
+            type="button"
+            aria-label={showFurigana ? "Ẩn furigana" : "Hiện furigana"}
+            aria-pressed={showFurigana}
+            title="Furigana"
+            onClick={() => updateViewOptions({ showFurigana: !showFurigana })}
+            className={`${softButton} ${showFurigana ? "border-blue-300 text-blue-700" : ""}`}
+          ><span className="text-sm font-bold">あ</span></button>
+          <button
+            type="button"
+            aria-label={showTranslation ? "Ẩn bản dịch" : "Hiện bản dịch"}
+            aria-pressed={showTranslation}
+            title="Bản dịch"
+            onClick={() => updateViewOptions({ showTranslation: !showTranslation })}
+            className={`${softButton} ${showTranslation ? "border-blue-300 text-blue-700" : ""}`}
+          ><Languages size={19} /></button>
+          <button
+            type="button"
+            aria-label={speechStatus === "playing" ? "Tạm dừng đọc" : speechStatus === "paused" ? "Tiếp tục đọc" : "Nghe trang"}
+            onClick={toggleSpeech}
+            disabled={!speechAvailable}
+            className={`${softButton} border-rose-300 text-rose-600 disabled:cursor-not-allowed`}
+          >{speechStatus === "playing" ? <Pause size={19} /> : <Play size={19} />}</button>
+          <select
+            aria-label="Tốc độ giọng đọc"
+            value={speechRate}
+            onChange={(event) => setSpeechRate(Number(event.target.value))}
+            className="h-11 max-w-[4.25rem] rounded-xl border border-neutral-200 bg-white px-1 text-center text-xs font-semibold text-neutral-700"
+          >
+            {[0.75, 0.9, 1, 1.1, 1.25].map((rate) => <option key={rate} value={rate}>{rate}×</option>)}
+          </select>
+          <button type="button" aria-label="Trang trước" disabled={pageIndex === 0} onClick={() => changePage(Math.max(0, pageIndex - 1))} className={softButton}>
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            type="button"
+            aria-label={pageIndex >= ranges.length - 1 ? "Xem câu hỏi" : "Trang tiếp"}
+            onClick={() => {
+              if (pageIndex >= ranges.length - 1) void openQuestions();
+              else changePage(pageIndex + 1);
+            }}
+            className="flex h-11 min-w-11 items-center justify-center rounded-xl border border-neutral-900 bg-neutral-900 text-white shadow-sm transition-colors hover:bg-neutral-700 disabled:cursor-default disabled:opacity-60"
+          >{pageIndex >= ranges.length - 1 ? <CheckCircle2 size={19} /> : <ChevronRight size={20} />}</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function JlptLeisureQuestionStage({
+  passage,
+  state,
+  mutate,
+  onBackToReading,
+  onBackToLibrary,
+}: {
+  passage: ReadingPassage;
+  state: ReadingViewerState;
+  mutate: (partial: Partial<ReadingViewerState>) => Promise<void>;
+  onBackToReading: () => void;
+  onBackToLibrary: () => void;
+}) {
+  const answers = state.answers[passage.id] ?? passage.questions.map(() => null);
+  const answeredCount = answers.filter((answer) => answer !== null).length;
+  const correctCount = passage.questions.filter((question, index) => answers[index] === question.correctIndex).length;
+  const allAnswered = answeredCount === passage.questions.length;
+  const viewOptions = state.passageViewOptions[passage.id] ?? {};
+  const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
+  const visibleQuestionTranslations = viewOptions.visibleQuestionTranslations ?? {};
+
+  function updateViewOptions(partial: Partial<ReadingPassageViewOptions>) {
+    void mutate({
+      passageViewOptions: {
+        ...state.passageViewOptions,
+        [passage.id]: { ...viewOptions, ...partial },
+      },
+    });
+  }
+
+  return (
+    <div className="mx-auto max-w-3xl px-2.5 py-3 md:px-8 md:py-6">
+      <div className="flex items-center gap-3">
+        <button type="button" onClick={onBackToReading} aria-label="Quay lại bài đọc" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-neutral-200 bg-white text-neutral-700 shadow-sm hover:bg-neutral-50">
+          <ChevronLeft size={20} />
+        </button>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-2">
+            <h1 className="truncate text-lg font-bold text-neutral-900">Câu hỏi đọc hiểu</h1>
+            <span className="shrink-0 rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-700">Đã đọc xong</span>
+          </div>
+          <p className="truncate text-sm text-neutral-500">{JLPT_LEISURE_BY_ID.get(passage.id)?.titleJa ?? passage.title}</p>
+        </div>
+      </div>
+
+      <div className="mt-4 flex items-center gap-3 rounded-xl bg-neutral-100 p-3 text-sm">
+        <span className="font-semibold">{passage.examLabel}</span>
+        <span className="text-neutral-400">·</span>
+        <span>{answeredCount}/{passage.questions.length} câu đã trả lời</span>
+        <span className="ml-auto rounded-full bg-white px-2 py-1 text-xs font-semibold text-neutral-600">{passage.level}</span>
+      </div>
+
+      <div className="mt-4 flex flex-col gap-4">
+        {passage.questions.map((question, questionIndex) => {
+          const answered = answers[questionIndex];
+          const showQuestionTranslation = visibleQuestionTranslations[questionIndex] === true;
+          return (
+            <Card key={questionIndex} className="gap-0 rounded-2xl border-neutral-200 p-4 ring-0 md:p-5">
+              <div className="flex flex-col items-start gap-2">
+                <div className="whitespace-pre-line font-semibold text-neutral-800">
+                  Câu {question.sourceNumber ?? questionIndex + 1}: {renderAnnotatedText(
+                    question.question,
+                    question.questionFurigana,
+                    showFurigana,
+                    findUniqueTextRanges(question.question, question.underline ? [question.underline] : []),
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  {question.questionVi?.trim() ? (
+                    <button
+                      type="button"
+                      onClick={() => updateViewOptions({ visibleQuestionTranslations: { ...visibleQuestionTranslations, [questionIndex]: !showQuestionTranslation } })}
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${showQuestionTranslation ? "border-sky-200 bg-sky-50 text-sky-700" : "border-neutral-200 text-neutral-500 hover:bg-sky-50"}`}
+                    ><Languages size={13} /> {showQuestionTranslation ? "Ẩn dịch câu hỏi" : "Xem dịch câu hỏi"}</button>
+                  ) : null}
+                  <StudyFeedbackButton
+                    entityId={`study:reading:${readingQuestionId(passage.id, questionIndex)}`}
+                    snapshot={{
+                      title: `Câu ${question.sourceNumber ?? questionIndex + 1}: ${question.question}`,
+                      context: `${passage.title}${passage.examLabel ? ` · ${passage.examLabel}` : ""}`,
+                      currentValue: state.resultsRevealed
+                        ? question.correctIndex >= 0 && question.correctIndex < question.options.length
+                          ? `Phương án ${question.correctIndex + 1}: ${question.options[question.correctIndex]}`
+                          : "Chưa có đáp án trong dữ liệu"
+                        : "Đáp án sẽ hiện sau khi hoàn tất lượt luyện",
+                      sources: [BOOK_LABELS[passage.book], passage.examLabel, passage.source].filter((source): source is string => Boolean(source)),
+                    }}
+                  />
+                </div>
+              </div>
+              {showQuestionTranslation && question.questionVi?.trim() ? <div className="mt-2 whitespace-pre-line rounded-lg bg-sky-50 px-3 py-2 text-sm text-sky-800">{question.questionVi}</div> : null}
+
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                {question.options.map((option, optionIndex) => {
+                  let optionClass = "border-neutral-200 hover:bg-neutral-50";
+                  if (state.resultsRevealed && answered !== null) {
+                    if (optionIndex === question.correctIndex) optionClass = "border-emerald-300 bg-emerald-50 text-emerald-700";
+                    else if (optionIndex === answered) optionClass = "border-rose-300 bg-rose-50 text-rose-700";
+                    else optionClass = "border-neutral-200 opacity-50";
+                  } else if (answered !== null && optionIndex === answered) optionClass = "border-neutral-400 bg-neutral-100 text-neutral-700";
+
+                  return (
+                    <button
+                      key={optionIndex}
+                      type="button"
+                      disabled={answered !== null}
+                      onClick={() => {
+                        void recordAnswer(readingQuestionId(passage.id, questionIndex), optionIndex === question.correctIndex, "answer", ["answer"]);
+                        const nextAnswers = [...answers];
+                        nextAnswers[questionIndex] = optionIndex;
+                        void mutate({ answers: { ...state.answers, [passage.id]: nextAnswers } });
+                      }}
+                      className={`rounded-lg border px-3 py-2 text-left text-sm ${optionClass}`}
+                    >
+                      {renderAnnotatedText(option, question.optionsFurigana?.[optionIndex] ?? undefined, showFurigana)}
+                      {state.resultsRevealed && answered !== null ? <span className="mt-0.5 block text-xs text-neutral-400">{question.optionsVi[optionIndex]}</span> : null}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {state.resultsRevealed && answered !== null ? (
+                <div className="mt-3 space-y-3 border-t border-neutral-100 pt-3 text-sm">
+                  <QuestionExplanationBlock explanation={question.explanation} correctIndex={question.correctIndex} showMissing className="space-y-3" />
+                  {question.answerSourceNote ? <div className="rounded-lg bg-amber-50 p-2 text-xs leading-relaxed text-amber-700"><span className="font-semibold">Đối chiếu PDF: </span>{question.answerSourceNote}</div> : null}
+                </div>
+              ) : null}
+            </Card>
+          );
+        })}
+      </div>
+
+      {state.resultsRevealed && allAnswered ? (
+        <div className={`mt-4 rounded-xl p-3 text-center text-sm font-bold ${correctCount === passage.questions.length ? "bg-emerald-50 text-emerald-700" : "bg-sky-50 text-sky-700"}`}>
+          Đúng {correctCount}/{passage.questions.length} câu ({Math.round((correctCount / passage.questions.length) * 100)}%)
+        </div>
+      ) : null}
+
+      {answeredCount > 0 ? <Button className="mt-4 w-full" onClick={() => void mutate({ resultsRevealed: !state.resultsRevealed })}>
+        <CheckCircle2 size={16} /> {state.resultsRevealed ? "Ẩn kết quả" : "Kiểm tra kết quả"}
+      </Button> : null}
+
+      <div className="mt-4 grid grid-cols-2 gap-2">
+        <Button variant="outline" onClick={onBackToReading}>Đọc lại slide</Button>
+        <Button variant="outline" onClick={onBackToLibrary}>Về thư viện</Button>
+      </div>
+    </div>
   );
 }
 
@@ -639,6 +1151,14 @@ function ListView({
   visiblePassages,
   openPassage,
   collection,
+  libraryTab,
+  setLibraryTab,
+  leisureLevel,
+  setLeisureLevel,
+  leisureLength,
+  setLeisureLength,
+  leisureExamId,
+  setLeisureExamId,
   savedOnlyView,
   onOpenSavedStories,
   onOpenStories,
@@ -651,7 +1171,15 @@ function ListView({
   filtered: ReadingPassage[];
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
-  collection: "all" | "news" | "stories";
+  collection: "all" | "news" | "stories" | "library";
+  libraryTab: "stories" | "jlpt";
+  setLibraryTab: (tab: "stories" | "jlpt") => void;
+  leisureLevel: "all" | "N1" | "N3";
+  setLeisureLevel: (level: "all" | "N1" | "N3") => void;
+  leisureLength: "all" | ReadingLength;
+  setLeisureLength: (length: "all" | ReadingLength) => void;
+  leisureExamId: string;
+  setLeisureExamId: (examId: string) => void;
   savedOnlyView: boolean;
   onOpenSavedStories?: () => void;
   onOpenStories?: () => void;
@@ -698,23 +1226,28 @@ function ListView({
     (allLengthsChecked ? 0 : state.selectedLengths.length) +
     (topicFilterActive ? 1 : 0) +
     (state.savedOnly ? 1 : 0);
+  const libraryShowsJlpt = collection === "library" && libraryTab === "jlpt";
+  const leisureCandidates = ALL_READING.filter((p) => JLPT_LEISURE_BY_ID.has(p.id));
+  const leisureExamOptions = [...new Map(leisureCandidates.map((p) => [p.examId!, p.examLabel ?? p.examId!])).entries()];
 
   async function handleStart() {
-    const randomPool = collection === "stories"
+    const randomPool = collection === "stories" || collection === "library"
       ? (visiblePassages.length ? visiblePassages : filtered)
       : null;
     const passage = randomPool
       ? randomPool[Math.floor(Math.random() * randomPool.length)] ?? null
       : pickRandomPassage(state.selectedLevels, state.selectedLengths, collection === "news" ? ["news"] : state.selectedBooks, undefined, state.selectedTopics, state.selectedExamIds);
     if (!passage) {
-      setError(savedOnlyView ? "Chưa có truyện nào được lưu." : collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : collection === "stories" ? "Chưa có truyện AI nào." : "Không có bài đọc nào khớp bộ lọc này.");
+      setError(savedOnlyView ? "Chưa có truyện nào được lưu." : collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : collection === "stories" || (collection === "library" && libraryTab === "stories") ? "Chưa có truyện nào." : "Không có bài đọc nào khớp bộ lọc này.");
       return;
     }
     await openPassage(passage);
   }
 
   const lastPassageCandidate = state.lastPassageId ? findReadingById(state.lastPassageId) : undefined;
-  const lastPassage = lastPassageCandidate && isInCollection(lastPassageCandidate, collection) && (!savedOnlyView || state.savedPassageIds.includes(lastPassageCandidate.id)) ? lastPassageCandidate : undefined;
+  const lastPassage = lastPassageCandidate && isInCollection(lastPassageCandidate, collection) &&
+    (collection !== "library" || (libraryTab === "stories" ? lastPassageCandidate.book === "ai-story" : JLPT_LEISURE_BY_ID.has(lastPassageCandidate.id))) &&
+    (!savedOnlyView || state.savedPassageIds.includes(lastPassageCandidate.id)) ? lastPassageCandidate : undefined;
   const savedStoryCount = state.savedPassageIds.filter((id) => ALL_READING.some((p) => p.id === id && p.book === "ai-story")).length;
 
   async function handleResetRow(passage: ReadingPassage) {
@@ -724,20 +1257,74 @@ function ListView({
 
   return (
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
-      <PageHeader title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"} subtitle={`${filtered.length} ${savedOnlyView ? "truyện" : "bài"}`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} action={collection === "all" && !savedOnlyView && onOpenExamTips ? <Button size="sm" variant="outline" onClick={onOpenExamTips}><Lightbulb size={14} /> Mẹo đọc N3</Button> : undefined} />
+      <PageHeader title={savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : collection === "library" ? "Thư viện đọc" : "Luyện đọc"} subtitle={`${filtered.length} ${savedOnlyView ? "truyện" : "bài"}`} icon={{ img: "icon-reading.png", bg: "#ede9fe" }} action={collection === "all" && !savedOnlyView && onOpenExamTips ? <Button size="sm" variant="outline" onClick={onOpenExamTips}><Lightbulb size={14} /> Mẹo đọc N3</Button> : undefined} />
+
+      {collection === "library" ? (
+        <div className="mt-4 flex gap-2 rounded-2xl bg-neutral-100 p-1" role="tablist" aria-label="Loại bài đọc">
+          {([{ id: "stories", label: "Truyện AI" }, { id: "jlpt", label: "Bài đọc JLPT" }] as const).map((tab) => (
+            <button key={tab.id} role="tab" aria-selected={libraryTab === tab.id} onClick={() => { setLibraryTab(tab.id); mutate({ listStatusFilter: "all", savedOnly: false }); }} className={`flex-1 rounded-xl px-3 py-2.5 text-sm font-semibold ${libraryTab === tab.id ? "bg-white text-rose-600 shadow-sm" : "text-neutral-500"}`}>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      {libraryShowsJlpt ? (
+        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
+          <Select
+            items={[{ value: "all", label: "Thể loại" }, { value: "N1", label: "N1" }, { value: "N3", label: "N3" }]}
+            value={leisureLevel}
+            onValueChange={(value) => value !== null && setLeisureLevel(value as "all" | "N1" | "N3")}
+          >
+            <SelectTrigger aria-label="Thể loại" className="h-10 w-full rounded-xl bg-white px-3 text-sm font-medium shadow-none">
+              <SelectValue placeholder="Thể loại" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Thể loại</SelectItem><SelectItem value="N1">N1</SelectItem><SelectItem value="N3">N3</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select
+            items={[
+              { value: "all", label: "Tất cả độ dài" },
+              ...(["short", "medium", "long"] as const).map((length) => ({ value: length, label: LENGTH_LABELS[length] })),
+            ]}
+            value={leisureLength}
+            onValueChange={(value) => value !== null && setLeisureLength(value as "all" | ReadingLength)}
+          >
+            <SelectTrigger aria-label="Độ dài bài đọc" className="h-10 w-full rounded-xl bg-white px-3 text-sm font-medium shadow-none">
+              <SelectValue placeholder="Độ dài bài đọc" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Tất cả độ dài</SelectItem>{(["short", "medium", "long"] as const).map((length) => <SelectItem key={length} value={length}>{LENGTH_LABELS[length]}</SelectItem>)}
+            </SelectContent>
+          </Select>
+          <Select
+            items={[{ value: "all", label: "Tất cả kỳ thi" }, ...leisureExamOptions.map(([id, label]) => ({ value: id, label }))]}
+            value={leisureExamId}
+            onValueChange={(value) => value !== null && setLeisureExamId(value)}
+          >
+            <SelectTrigger aria-label="Kỳ thi" className="h-10 w-full rounded-xl bg-white px-3 text-sm font-medium shadow-none">
+              <SelectValue placeholder="Tất cả kỳ thi" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Tất cả kỳ thi</SelectItem>{leisureExamOptions.map(([id, label]) => <SelectItem key={id} value={id}>{label}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
+      ) : null}
 
       {collection === "news" && !ALL_READING.some((p) => p.book === "news") ? (
         <p className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-600">
           Chưa có bài báo nào được đưa vào thư viện. Khi có bài được biên tập và xuất bản, chúng sẽ xuất hiện tại đây.
         </p>
       ) : null}
-      {collection === "stories" && filtered.length === 0 ? (
+      {(collection === "stories" || (collection === "library" && libraryTab === "stories")) && filtered.length === 0 ? (
         <p className="mt-4 rounded-xl border border-neutral-200 bg-white p-4 text-sm leading-relaxed text-neutral-600">
           {savedOnlyView ? "Chưa có truyện nào được lưu. Mở Truyện AI rồi bấm Lưu bài để giữ truyện ở đây." : "Chưa có truyện AI nào được thêm vào thư viện."}
         </p>
       ) : null}
 
-      {!savedOnlyView ? (
+      {!savedOnlyView && collection !== "library" ? (
         <div className="mt-4 grid grid-cols-2 gap-3">
           <StatCard
             label="Đã hoàn thành"
@@ -770,9 +1357,9 @@ function ListView({
       ) : null}
 
       <FilterBar>
-        {collection !== "stories" ? <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} /> : null}
+        {collection === "all" || collection === "news" ? <FilterTrigger count={filterCount} onClick={() => setFilterOpen(true)} /> : null}
         {lastPassage ? <Button size="sm" variant="outline" title={lastPassage.title} onClick={() => openPassage(lastPassage)}>{collection === "news" ? "Tiếp tục đọc báo" : collection === "stories" ? (savedOnlyView ? "Đọc tiếp truyện đã lưu" : "Đọc tiếp truyện") : "Tiếp tục đọc"}</Button> : null}
-        {collection === "stories" ? (
+        {collection === "stories" || (collection === "library" && libraryTab === "stories") ? (
           savedOnlyView ? (
             <Button size="sm" variant="outline" onClick={onOpenStories}>Tất cả truyện</Button>
           ) : (
@@ -786,11 +1373,11 @@ function ListView({
           </Button>
         )}
         {!savedOnlyView ? <Button size="sm" variant="outline" onClick={handleStart}>
-          <Shuffle size={14} /> {collection === "news" ? "Random bài báo" : collection === "stories" ? "Random truyện" : "Random bài đọc"}
+          <Shuffle size={14} /> {collection === "news" ? "Random bài báo" : collection === "stories" || (collection === "library" && libraryTab === "stories") ? "Random truyện" : "Random bài đọc"}
         </Button> : null}
       </FilterBar>
 
-      {collection !== "stories" ? <ActiveFilters
+      {collection === "all" || collection === "news" ? <ActiveFilters
         chips={[
           ...(state.savedOnly ? [{ key: "saved", label: "Chỉ bài đã lưu", onRemove: () => mutate({ savedOnly: false }) }] : []),
           ...(allLevelsChecked
@@ -841,7 +1428,7 @@ function ListView({
       {error ? <p className="mt-3 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">{error}</p> : null}
 
       <FilterSheet
-        open={filterOpen && collection !== "stories"}
+        open={filterOpen && (collection === "all" || collection === "news")}
         onClose={() => setFilterOpen(false)}
         title={collection === "news" ? "Bộ lọc đọc báo" : "Bộ lọc luyện đọc"}
         onReset={() => mutate({ selectedLevels: [...AVAILABLE_LEVELS], ...(collection === "news" ? {} : { selectedBooks: [...AVAILABLE_BOOKS], selectedExamIds: initialReadingExamIds() }), selectedLengths: [...AVAILABLE_LENGTHS], selectedTopics: [...AVAILABLE_TOPICS] })}
@@ -1071,15 +1658,19 @@ function ListView({
       </FilterSheet>
 
       {visiblePassages.length === 0 ? (
-        (collection === "news" && !ALL_READING.some((p) => p.book === "news")) || (collection === "stories" && filtered.length === 0) ? null : (
+        (collection === "news" && !ALL_READING.some((p) => p.book === "news")) || (collection === "stories" && filtered.length === 0) || (collection === "library" && libraryTab === "stories" && filtered.length === 0) ? null : (
           <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-600">
             {savedOnlyView ? "Chưa có truyện nào được lưu. Mở Truyện AI rồi bấm Lưu bài để giữ truyện ở đây." : collection === "news" ? "Không có bài báo nào khớp bộ lọc này." : collection === "stories" ? "Không có truyện nào khớp trạng thái đã chọn." : "Không có bài đọc nào khớp bộ lọc này."}
           </p>
         )
       ) : (
-        <div className="mt-4 flex flex-col gap-2">
+        <div className={`mt-4 ${libraryShowsJlpt ? "grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3" : "flex flex-col gap-2"}`}>
           {visiblePassages.map((p, i) => {
             const isArticle = p.book === "news" || p.book === "custom";
+            const leisureEntry = JLPT_LEISURE_BY_ID.get(p.id);
+            const leisurePageCount = leisureEntry ? leisurePageRanges(p.body).length : 0;
+            const leisureReadPage = state.leisurePageByPassage[p.id] ?? 0;
+            const leisureComplete = state.leisureCompletedPassageIds.includes(p.id);
             const isSaved = state.savedPassageIds.includes(p.id);
             const progress = getPassageProgress(p, state.answers);
             const borderCls =
@@ -1090,6 +1681,27 @@ function ListView({
                   : progress.correct === progress.total
                     ? "border-l-emerald-400"
                     : "border-l-rose-400";
+            if (collection === "library" && libraryTab === "jlpt" && leisureEntry) {
+              return (
+                <button key={p.id} onClick={() => openPassage(p)} className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="relative aspect-[16/8] overflow-hidden bg-neutral-100">
+                    <img loading="lazy" src={`${import.meta.env.BASE_URL}${leisureEntry.scenes[0].path}`} alt={leisureEntry.scenes[0].alt} className="h-full w-full object-cover" />
+                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-rose-700">{p.level}</span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-4">
+                    <div className="flex items-start justify-between gap-2">
+                      <h2 lang="ja" className="min-w-0 flex-1 truncate font-bold text-neutral-800" title={leisureEntry.titleJa}>{leisureEntry.titleJa}</h2>
+                      <span className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-semibold ${leisureComplete ? "bg-emerald-50 text-emerald-700" : state.lastPassageId === p.id ? "bg-amber-50 text-amber-700" : "bg-neutral-100 text-neutral-500"}`}>{leisureComplete ? "Đã đọc" : state.lastPassageId === p.id ? "Đọc tiếp" : "Bắt đầu"}</span>
+                    </div>
+                    <p lang="ja" className="mt-1.5 line-clamp-2 min-h-[2.75rem] text-sm leading-[1.375rem] text-neutral-600">{leisureEntry.summaryJa}</p>
+                    <div className="mt-auto flex min-h-[2.75rem] flex-wrap items-center gap-x-2 gap-y-1 pt-2 text-xs text-neutral-500">
+                      <span>{p.examLabel}</span><span>·</span><span>{timelineLabel(p)}</span><span>·</span><span>{leisureEntry.scenes.length} ảnh</span>
+                    </div>
+                    <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-neutral-100"><div className={`h-full rounded-full ${leisureComplete ? "bg-emerald-500" : "bg-rose-400"}`} style={{ width: leisureComplete ? "100%" : leisureReadPage > 0 ? `${Math.min(95, (leisureReadPage / leisurePageCount) * 100)}%` : "0%" }} /></div>
+                  </div>
+                </button>
+              );
+            }
             return (
               <button
                 key={p.id}
@@ -1159,7 +1771,7 @@ function PassageView({
   onOpenBunpo: (bunpoId: string, senseId?: string) => void;
   visiblePassages: ReadingPassage[];
   openPassage: (passage: ReadingPassage) => Promise<void>;
-  collection: "all" | "news" | "stories";
+  collection: "all" | "news" | "stories" | "library";
   savedOnlyView: boolean;
 }) {
   const confirm = useConfirm();
@@ -1192,6 +1804,17 @@ function PassageView({
   const speechRunRef = useRef(0);
   const speechRateRef = useRef(speechRate);
   speechRateRef.current = speechRate;
+  const leisureEntry = JLPT_LEISURE_BY_ID.get(passage.id);
+  const isLeisureJlpt = !!leisureEntry;
+  const leisureRanges = useMemo(() => leisureEntry ? leisurePageRanges(passage.body) : [], [passage.id]);
+  const savedLeisurePage = state.leisurePageByPassage[passage.id] ?? 0;
+  const leisurePageIndex = leisureRanges.length ? Math.min(savedLeisurePage, leisureRanges.length - 1) : 0;
+  const leisurePageRange = leisureRanges[leisurePageIndex];
+  const [showWholeLeisurePassage, setShowWholeLeisurePassage] = useState(false);
+  const leisureComplete = state.leisureCompletedPassageIds.includes(passage.id);
+  const leisureScene = leisureEntry && leisurePageRange
+    ? [...leisureEntry.scenes].reverse().find((scene) => scene.startSentence <= leisurePageRange.start) ?? leisureEntry.scenes[0]
+    : undefined;
   const viewOptions = state.passageViewOptions[passage.id] ?? {};
   const showFurigana = viewOptions.showFurigana ?? state.showFurigana;
   const showTranslation = viewOptions.showTranslation ?? state.showTranslation;
@@ -1203,6 +1826,7 @@ function PassageView({
 
   useEffect(() => {
     setReferenceTab("questions");
+    setShowWholeLeisurePassage(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [passage.id]);
 
@@ -1225,7 +1849,7 @@ function PassageView({
     window.speechSynthesis?.cancel();
   }, []);
 
-  function speakSentenceAt(index: number, runId: number) {
+  function speakSentenceAt(index: number, runId: number, endIndex = speechSentences.length) {
     if (runId !== speechRunRef.current) return;
     const text = speechSentences[index];
     if (!text) {
@@ -1238,8 +1862,8 @@ function PassageView({
       rate: speechRateRef.current,
       onEnd: () => {
         if (runId !== speechRunRef.current) return;
-        if (index + 1 < speechSentences.length) {
-          speakSentenceAt(index + 1, runId);
+        if (index + 1 < endIndex) {
+          speakSentenceAt(index + 1, runId, endIndex);
         } else {
           setSpeechStatus("idle");
           setActiveSpeechSentence(-1);
@@ -1260,16 +1884,16 @@ function PassageView({
     }
   }
 
-  function startSpeechAt(index: number) {
+  function startSpeechAt(index: number, endIndex = speechSentences.length) {
     if (!speechAvailable || speechSentences.length === 0) return;
     const runId = ++speechRunRef.current;
     window.speechSynthesis?.cancel();
     setSpeechError(undefined);
     setSpeechStatus("playing");
-    speakSentenceAt(index, runId);
+    speakSentenceAt(index, runId, endIndex);
   }
 
-  function toggleStorySpeech() {
+  function toggleStorySpeech(startIndex = 0, endIndex = speechSentences.length) {
     if (speechStatus === "playing") {
       window.speechSynthesis?.pause();
       setSpeechStatus("paused");
@@ -1277,7 +1901,7 @@ function PassageView({
       window.speechSynthesis?.resume();
       setSpeechStatus("playing");
     } else {
-      startSpeechAt(0);
+      startSpeechAt(startIndex, endIndex);
     }
   }
 
@@ -1337,7 +1961,7 @@ function PassageView({
           onClick={() => mutate({ currentPassageId: null })}
           className="flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-neutral-700"
         >
-          <ChevronLeft size={15} /> {savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : "Luyện đọc"}
+          <ChevronLeft size={15} /> {savedOnlyView ? "Truyện đã lưu" : collection === "news" ? "Đọc báo" : collection === "stories" ? "Truyện AI" : collection === "library" ? "Thư viện đọc" : "Luyện đọc"}
         </button>
         <span className="rounded-full px-2.5 py-1 text-xs font-semibold" style={levelBadgeStyle(passage.level)}>
           {passage.level}
@@ -1347,11 +1971,12 @@ function PassageView({
         <span className="text-xs text-neutral-400">{timelineLabel(passage)}</span>
       </div>
 
-      <h1 className="mt-3 text-2xl font-bold text-neutral-800">{passage.title}</h1>
+      <h1 className="mt-3 text-2xl font-bold text-neutral-800">{leisureEntry?.title ?? passage.title}</h1>
+      {leisureEntry ? <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-600">{leisureEntry.summary}</p> : null}
 
-      {isArticle || isAiStory ? (
+      {isArticle || isAiStory || isLeisureJlpt ? (
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500">
-          <span>{passage.source}</span>
+          <span>{isLeisureJlpt ? passage.examLabel : passage.source}</span>
           {passage.publishedAt ? <span>{passage.publishedAt}</span> : null}
           {passage.sourceUrl ? (
             <a href={passage.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-rose-600 hover:text-rose-700">
@@ -1370,7 +1995,11 @@ function PassageView({
         </div>
       ) : null}
 
-      {passage.illustration ? (
+      {leisureScene ? (
+        <Card className="mt-4 overflow-hidden gap-0 rounded-2xl border-neutral-200 p-2 ring-0">
+          <img src={`${import.meta.env.BASE_URL}${leisureScene.path}`} alt={leisureScene.alt} className="max-h-[min(62vw,420px)] w-full rounded-xl object-cover" />
+        </Card>
+      ) : passage.illustration ? (
         <Card className="mt-4 overflow-hidden gap-0 rounded-2xl border-neutral-200 p-2 ring-0">
           <img
             src={`${import.meta.env.BASE_URL}${passage.illustration.path}`}
@@ -1378,6 +2007,13 @@ function PassageView({
             className="max-h-[min(62vw,420px)] w-full rounded-xl object-cover"
           />
         </Card>
+      ) : null}
+
+      {leisureEntry && leisurePageRange ? (
+        <div className="mt-4 flex items-center gap-3" aria-label="Tiến độ đọc">
+          <div className="h-2 flex-1 overflow-hidden rounded-full bg-neutral-100"><div className="h-full rounded-full bg-emerald-500 transition-all" style={{ width: `${((leisurePageIndex + 1) / leisureRanges.length) * 100}%` }} /></div>
+          <span className="shrink-0 text-xs font-semibold text-neutral-600">{leisurePageIndex + 1} / {leisureRanges.length}</span>
+        </div>
       ) : null}
 
       {!isArticle ? <div className="mt-4 flex items-center gap-3">
@@ -1419,7 +2055,7 @@ function PassageView({
         ) : null}
       </div> : null}
 
-      {isAiStory && !isLinkOnly ? (
+      {(isAiStory || isLeisureJlpt) && !isLinkOnly ? (
         <StorySpeechControls
           available={speechAvailable}
           status={speechStatus}
@@ -1427,7 +2063,7 @@ function PassageView({
           sentenceCount={speechSentences.length}
           rate={speechRate}
           error={speechError}
-          onToggle={toggleStorySpeech}
+          onToggle={isLeisureJlpt && leisurePageRange && !showWholeLeisurePassage ? () => toggleStorySpeech(leisurePageRange.start, leisurePageRange.end) : toggleStorySpeech}
           onStop={stopStorySpeech}
           onRateChange={setSpeechRate}
         />
@@ -1435,7 +2071,7 @@ function PassageView({
 
       {!isLinkOnly ? <Card className="mt-4 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
         <div className="rounded-lg bg-neutral-50 p-4 text-sm leading-relaxed text-neutral-700">
-          {isAiStory ? (
+          {isAiStory || isLeisureJlpt ? (
             <AiStoryReadingBody
               passage={passage}
               showFurigana={showFurigana}
@@ -1443,8 +2079,9 @@ function PassageView({
               referenceTerms={referenceTerms}
               highlightReferences={highlightReferences}
               activeSentenceIndex={activeSpeechSentence}
+              sentenceRange={isLeisureJlpt && !showWholeLeisurePassage ? leisurePageRange : undefined}
               canSpeak={speechAvailable}
-              onSpeakSentence={startSpeechAt}
+              onSpeakSentence={isLeisureJlpt && leisurePageRange && !showWholeLeisurePassage ? (index) => startSpeechAt(index, leisurePageRange.end) : startSpeechAt}
             />
           ) : showTranslation && passage.sentencesVi && !hasMarkdownTable ? (
             <ReadingBodyInterleaved
@@ -1476,6 +2113,26 @@ function PassageView({
               {i < arr.length - 1 ? <br /> : null}
             </span>
           ))}
+        </div>
+      ) : null}
+
+      {isLeisureJlpt && leisurePageRange ? (
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <button type="button" disabled={leisurePageIndex === 0 || showWholeLeisurePassage} onClick={() => {
+            stopStorySpeech();
+            void mutate({ leisurePageByPassage: { ...state.leisurePageByPassage, [passage.id]: Math.max(0, leisurePageIndex - 1) } });
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }} className="rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-700 disabled:opacity-40">‹ Trước</button>
+          <button type="button" onClick={() => setShowWholeLeisurePassage((value) => !value)} className="text-sm font-semibold text-rose-600">{showWholeLeisurePassage ? "Xem theo trang" : "Xem toàn bài"}</button>
+          <button type="button" disabled={showWholeLeisurePassage || (leisurePageIndex >= leisureRanges.length - 1 && leisureComplete)} onClick={() => {
+            stopStorySpeech();
+            if (leisurePageIndex >= leisureRanges.length - 1) {
+              void mutate({ leisureCompletedPassageIds: [...new Set([...state.leisureCompletedPassageIds, passage.id])] });
+            } else {
+              void mutate({ leisurePageByPassage: { ...state.leisurePageByPassage, [passage.id]: leisurePageIndex + 1 } });
+            }
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }} className="rounded-xl bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-40">{leisurePageIndex >= leisureRanges.length - 1 ? leisureComplete ? "Đã đọc" : "Hoàn tất" : "Tiếp ›"}</button>
         </div>
       ) : null}
 

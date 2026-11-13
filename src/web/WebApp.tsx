@@ -69,7 +69,7 @@ function lookupRouteName(screen: Screen): string {
 function getLoadingPresentation(screen: Screen): { variant: LoadingVariant; title: string } {
   if (screen === "menu") return { variant: "home", title: "Trang chủ" };
   if (screen === "reading" || screen === "news" || screen === "aiStories" || screen === "savedStories") {
-    const titles = { reading: "Luyện đọc", news: "Đọc báo", aiStories: "Truyện AI", savedStories: "Truyện đã lưu" };
+    const titles = { reading: "Luyện đọc", news: "Đọc báo", aiStories: "Thư viện đọc", savedStories: "Truyện đã lưu" };
     return { variant: "reading", title: titles[screen] };
   }
   if (screen === "listening" || screen === "dictation" || screen === "podcast") {
@@ -489,7 +489,7 @@ export function WebApp() {
   } else if (screen === "reading" || screen === "news" || screen === "aiStories" || screen === "savedStories") {
     content = (
       <ReadingScreen
-        collection={screen === "news" ? "news" : screen === "reading" ? "all" : "stories"}
+        collection={screen === "news" ? "news" : screen === "reading" ? "all" : screen === "aiStories" ? "library" : "stories"}
         savedOnlyView={screen === "savedStories"}
         targetId={targetId}
         onOpenSavedStories={() => go("savedStories")}

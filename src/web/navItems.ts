@@ -42,7 +42,7 @@ export const NAV_ITEMS: NavItem[] = [
   { screen: "bunpo", label: "Ngữ pháp", icon: PenSquare },
   { screen: "reading", label: "Luyện đọc", icon: BookOpenText },
   { screen: "news", label: "Đọc báo", icon: Newspaper },
-  { screen: "aiStories", label: "Truyện AI", icon: Sparkles },
+  { screen: "aiStories", label: "Thư viện đọc", icon: Sparkles },
   { screen: "savedStories", label: "Truyện đã lưu", icon: BookmarkCheck },
   { screen: "listening", label: "Luyện nghe", icon: Headphones },
   { screen: "podcast", label: "Podcast", icon: Podcast },

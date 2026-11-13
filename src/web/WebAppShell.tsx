@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState, type Dispatch, type SetStateAction } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type CSSProperties, type Dispatch, type SetStateAction } from "react";
 import { Menu, X, ArrowUp, ArrowLeft, ChevronDown, Search, PanelLeftClose, PanelLeftOpen, Check, Monitor, Moon, Sun } from "lucide-react";
 import type { Screen } from "../popup/App.tsx";
 import { NAV_ITEMS, NAV_GROUPS } from "./navItems.ts";
@@ -309,7 +309,10 @@ export function WebAppShell({
 
   return (
     <FloatingNavContext.Provider value={{ setState: setFloatingNavState, scrollToTopVisible }}>
-      <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
+      <div
+        className="flex min-h-screen bg-neutral-50 text-neutral-900"
+        style={{ "--sidebar-center-offset": sidebarCollapsed ? "2.25rem" : "7.5rem" } as CSSProperties}
+      >
         {/* Desktop sidebar */}
         <aside className={`hidden shrink-0 border-r border-neutral-200 bg-white md:sticky md:top-0 md:flex md:h-screen md:flex-col dark:border-[#374151] dark:bg-[#111827] ${sidebarCollapsed ? "w-[4.5rem] gap-4 p-2 pt-4" : "w-60 p-4 pt-6"}`}>
           <div className="min-h-0 flex-1 overflow-y-auto">
