@@ -15,8 +15,8 @@ export interface JlptLeisureEntry {
   scenes: JlptLeisureScene[];
 }
 
-// Curated first release of annual N1/N3 passages. The original exam records
-// stay the source of truth; this file only adds leisure titles and artwork.
+// Curated leisure-reading metadata and artwork for selected annual N1/N3 passages.
+// The original exam records stay the source of truth; this file adds display copy and scenes.
 export const JLPT_LEISURE_PILOT: JlptLeisureEntry[] = [
   {
     passageId: "jlpt-cacnam-n1-2025-07-language-reading-pabl7j",
@@ -50,12 +50,103 @@ export const JLPT_LEISURE_PILOT: JlptLeisureEntry[] = [
     ],
   },
   {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-13e5b5c",
+    title: "Kiểm tra lại tài liệu giới thiệu sản phẩm",
+    summary: "Kimura gửi John tài liệu tiếng Anh đã chỉnh sửa cho buổi giới thiệu sản phẩm, với phần bổ sung được đánh dấu đỏ và biểu đồ đã sửa, rồi nhờ anh xem lại trong tuần.",
+    titleJa: "製品発表会の資料をもう一度確認",
+    summaryJa: "木村さんが、赤字の追加とグラフの修正をした英語資料をジョンさんに送り、今週中の再確認を頼む。",
+    skipLeadingSentences: 1,
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-product-review.webp", alt: "Hai đồng nghiệp cùng rà tài liệu giới thiệu sản phẩm với ghi chú sửa màu đỏ và biểu đồ" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-grxzgy",
+    title: "Quầy thư viện tạm trong thời gian sửa chữa",
+    summary: "Thư viện Midori đóng cửa sáu tháng để thi công nhưng mở quầy tại tầng ba tòa nhà ga để cho mượn sách đã đặt trước và tiếp nhận sách trả lại.",
+    titleJa: "休館中の図書館と特別窓口",
+    summaryJa: "工事で休館する緑図書館が、駅ビルに予約本の貸し出しや返却ができる特別窓口を設ける。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-library-counter.webp", alt: "Nhân viên trao sách đặt trước cho khách tại quầy thư viện tạm trong tòa nhà ga" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-apag9p",
+    title: "Đôi tất làm từ giấy",
+    summary: "Bài viết giới thiệu loại tất làm từ sợi giấy đặc biệt, có thể giặt nhiều lần, thấm mồ hôi và nhanh khô.",
+    titleJa: "紙から作られた靴下",
+    summaryJa: "特別な紙の丈夫な糸で作られた靴下は、水に強く、洗って何度も使え、汗を吸って早く乾く。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-paper-socks.webp", alt: "Một người đọc cầm đôi tất sợi giấy bên cạnh tạp chí trong phòng khách" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-18mcbvi",
+    title: "Vì sao cơn đau như chuyển sang chỗ khác?",
+    summary: "Khi vùng đau nặng nhất bắt đầu hồi phục, người bệnh mới có thể nhận ra một vùng đau khác và cảm thấy cơn đau đã chuyển chỗ.",
+    titleJa: "痛みが移ったように感じる理由",
+    summaryJa: "体は同時に最も強い痛みを感じるため、一番悪い部分が治ると次の痛みに気づくことがある。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-pain-consultation.webp", alt: "Bệnh nhân trao đổi với bác sĩ trong phòng khám sáng sủa" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-l9mcax",
+    title: "Hai chị em và bài tập hè",
+    summary: "Hai chị em có cách đối diện trái ngược nhau với những việc mình không thích; một bài tập mùa hè khiến cô em gặp rắc rối vào phút chót.",
+    titleJa: "夏休みの宿題に向き合う姉妹",
+    summaryJa: "嫌なことへの姿勢が正反対の姉妹。夏休みの宿題を通して、妹は意外な形で最後の日を迎えることになる。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-summer-homework.webp", alt: "Hai chị em làm bài tập bên bàn học khi kỳ nghỉ hè sắp kết thúc" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-wgm274",
+    title: "Lý do quạ không còn đến gần",
+    summary: "Một tờ thông báo đơn giản ở tòa nhà nghiên cứu dẫn đến thay đổi bất ngờ trong cách quạ xuất hiện ở đó.",
+    titleJa: "カラスが近づかなくなった理由",
+    summaryJa: "研究所の入口に貼られた紙が、カラスの行動を変えた経緯を紹介する。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-crow-notice.webp", alt: "Một con quạ đậu trên hàng rào gần tòa nhà nghiên cứu, người qua lại bình thường" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-1p17nyl",
+    title: "Những món cá ít được biết đến",
+    summary: "Một gia đình thử món từ những loài cá ít được bày bán ở nhà hàng mới mở và nghe chủ quán giới thiệu về chúng.",
+    titleJa: "未利用魚を味わうレストラン",
+    summaryJa: "一般にはあまり売られてこなかった魚を料理する店を家族で訪れ、珍しい魚料理を味わう。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-underused-fish.webp", alt: "Một gia đình thưởng thức các món cá địa phương trong nhà hàng nhỏ" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-07-bunpou-dokkai-14xixj",
+    title: "Hướng dẫn Trung tâm Thể thao Aoba",
+    summary: "Tờ hướng dẫn nêu giờ mở cửa, phí sử dụng, quy định và lịch hoạt động thể thao tại nhà thi đấu cùng phòng bóng bàn.",
+    titleJa: "青葉市民スポーツセンターの利用案内",
+    summaryJa: "青葉市民スポーツセンターの営業時間、料金、利用方法と、九月の体育館でできるスポーツを案内する。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-2025-07-sports-center.webp", alt: "Một phụ huynh và trẻ nhỏ xem bảng biểu tượng thể thao ở lối vào trung tâm thể thao" }],
+  },
+  {
     passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-fmp3qs",
     title: "Nước dùng từ vỏ rau",
     summary: "Một vị khách bất ngờ khi biết nồi nước dùng được nấu từ vỏ rau củ.",
     titleJa: "野菜の皮で作るだし",
     summaryJa: "友人の家で、野菜の皮から取っただしを使ったスープをごちそうになる。",
     scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-broth.webp", alt: "Người bạn giới thiệu nồi nước dùng nấu từ vỏ rau trong căn bếp gia đình" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-1q1r1wv",
+    title: "Dã ngoại mùa xuân của Câu lạc bộ Giao lưu Quốc tế",
+    summary: "Thông báo mời sinh viên quốc tế và Nhật Bản tham gia dã ngoại mùa xuân, kèm thời gian, chi phí và lưu ý chuẩn bị đồ uống.",
+    titleJa: "国際交流クラブの春のピクニック",
+    summaryJa: "東山大学の国際交流クラブが、留学生と日本人学生向けに春のピクニックを案内している。",
+    skipLeadingSentences: 1,
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-picnic-notice.webp", alt: "Hai sinh viên xem thông báo dã ngoại mùa xuân trên bảng tin ở khuôn viên đại học" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-a57x7b",
+    title: "Lữ quán trả lời yêu cầu đặt phòng",
+    summary: "Lữ quán báo phòng kiểu Nhật đã kín, gợi ý phòng Nhật-Tây còn trống và khuyên đặt sớm vào mùa hoa anh đào.",
+    titleJa: "旅館から届いた予約の返事",
+    summaryJa: "旅館は、満室の和室に代わる和洋室を案内し、桜の季節の予約は早めにするよう勧める。",
+    skipLeadingSentences: 1,
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-ryokan-reply.webp", alt: "Một du khách đọc tin đặt phòng trong phòng lữ quán kiểu Nhật-Tây, bên cửa sổ có hoa anh đào" }],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-1ii2uci",
+    title: "Cách tàu điện ngầm tiết kiệm năng lượng",
+    summary: "Đường ray dốc giữa những ga nông giúp tàu tăng tốc tự nhiên khi xuống dốc và dễ dừng khi lên dốc, nhờ đó tiết kiệm năng lượng.",
+    titleJa: "地下鉄の坂道と省エネルギー",
+    summaryJa: "東京の地下鉄は駅間に坂を設け、下り坂で加速し上り坂で減速しやすくして、エネルギーを節約している。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-subway-slope.webp", alt: "Mặt cắt tuyến tàu điện ngầm với hai ga gần mặt đất và đường ray trũng sâu ở giữa" }],
   },
   {
     passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-1uxyapd",
@@ -69,6 +160,14 @@ export const JLPT_LEISURE_PILOT: JlptLeisureEntry[] = [
     ],
   },
   {
+    passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-1yfque4",
+    title: "Khách sạn phân tán giữa phố cổ",
+    summary: "Những ngôi nhà cổ trong phố được dùng làm phòng nghỉ, quầy lễ tân và nơi ăn uống, để khách đi bộ qua khu phố và góp phần hỗ trợ kinh tế địa phương.",
+    titleJa: "町に広がる分散型ホテル",
+    summaryJa: "古い町家を客室や受付、食事会場として再生する分散型ホテルは、町歩きと地域経済の活性化につながる。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-distributed-hotel.webp", alt: "Du khách kéo vali đi giữa các nhà machiya riêng biệt trên phố cổ Nhật Bản" }],
+  },
+  {
     passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-7tzm9u",
     title: "Bố đọc sách ở lớp con",
     summary: "Một người cha tập đọc sách tranh cho lớp con gái rồi nhận được lời nhắn bất ngờ.",
@@ -79,6 +178,14 @@ export const JLPT_LEISURE_PILOT: JlptLeisureEntry[] = [
       { startSentence: 3, path: "assets/reading/jlpt-pilot/n3-classroom-reading.webp", alt: "Người cha đọc sách tranh cho trẻ em trong lớp học" },
       { startSentence: 6, path: "assets/reading/jlpt-pilot/n3-after-school.webp", alt: "Người cha lắng nghe con gái trên đường về nhà sau giờ học" },
     ],
+  },
+  {
+    passageId: "jlpt-cacnam-n3-2025-12-bunpou-dokkai-v5ndz",
+    title: "Chọn chỗ ngồi ở Thư viện Toriyama",
+    summary: "Thư viện giới thiệu bốn loại chỗ ngồi cùng mục đích, giới hạn thời gian và cách đăng ký sử dụng.",
+    titleJa: "鳥山図書館の座席案内",
+    summaryJa: "鳥山図書館の四種類の席について、用途、利用時間、申し込み方法を説明している。",
+    scenes: [{ startSentence: 0, path: "assets/reading/jlpt-pilot/n3-library-seating.webp", alt: "Khách trao thẻ thư viện cho thủ thư trong không gian có nhiều khu bàn ghế đọc và học" }],
   },
   {
     passageId: "jlpt-cacnam-n3-2026-07-bunpou-dokkai-m5r4s0",
