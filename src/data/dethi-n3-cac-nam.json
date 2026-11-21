@@ -90948,24 +90948,20 @@
                   "text": "番",
                   "furigana": "ばん"
                 }
-              ]
+              ],
+              "questionImage": "public/images/listening/cacnam-n3-2021-12-mondai1-q3.jpg"
             },
             {
               "number": 4,
               "problemGroup": "問題1",
               "question": "4番",
-              "options": [
-                "みんなの予定を聞く",
-                "メールで意見を聞く",
-                "かいぎの日時を知らせる",
-                "かいぎを開いて意見を聞く"
-              ],
-              "isPicture": false,
+              "options": [],
+              "isPicture": true,
               "optionCount": 4,
               "correctIndex": 1,
-              "optionsImage": null,
+              "optionsImage": "public/images/listening/cacnam-n3-2021-12-mondai1-q4.jpg",
               "audioStartSec": 446,
-              "explanation": "Người cấp trên yêu cầu trước tiên hãy nhờ trưởng phòng ký vào tài liệu rồi mới gửi bưu điện.",
+              "explanation": "Cần nhờ trưởng phòng ký tên vào giấy tờ trước khi đem gửi bưu điện.",
               "questionFurigana": [
                 {
                   "text": "4",
@@ -90975,104 +90971,6 @@
                   "text": "番",
                   "furigana": "ばん"
                 }
-              ],
-              "optionsFurigana": [
-                [
-                  {
-                    "text": "みんな",
-                    "furigana": null
-                  },
-                  {
-                    "text": "の",
-                    "furigana": null
-                  },
-                  {
-                    "text": "予定",
-                    "furigana": "よてい"
-                  },
-                  {
-                    "text": "を",
-                    "furigana": null
-                  },
-                  {
-                    "text": "聞く",
-                    "furigana": "きく"
-                  }
-                ],
-                [
-                  {
-                    "text": "メール",
-                    "furigana": null
-                  },
-                  {
-                    "text": "で",
-                    "furigana": null
-                  },
-                  {
-                    "text": "意見",
-                    "furigana": "いけん"
-                  },
-                  {
-                    "text": "を",
-                    "furigana": null
-                  },
-                  {
-                    "text": "聞く",
-                    "furigana": "きく"
-                  }
-                ],
-                [
-                  {
-                    "text": "かい",
-                    "furigana": null
-                  },
-                  {
-                    "text": "ぎの",
-                    "furigana": null
-                  },
-                  {
-                    "text": "日時",
-                    "furigana": "にちじ"
-                  },
-                  {
-                    "text": "を",
-                    "furigana": null
-                  },
-                  {
-                    "text": "知らせる",
-                    "furigana": "しらせる"
-                  }
-                ],
-                [
-                  {
-                    "text": "かい",
-                    "furigana": null
-                  },
-                  {
-                    "text": "ぎを",
-                    "furigana": null
-                  },
-                  {
-                    "text": "開い",
-                    "furigana": "ひらい"
-                  },
-                  {
-                    "text": "て",
-                    "furigana": null
-                  },
-                  {
-                    "text": "意見",
-                    "furigana": "いけん"
-                  },
-                  {
-                    "text": "を",
-                    "furigana": null
-                  },
-                  {
-                    "text": "聞く",
-                    "furigana": "きく"
-                  }
-                ]
               ]
             },
             {
@@ -91080,17 +90978,17 @@
               "problemGroup": "問題1",
               "question": "5番",
               "options": [
-                "ア",
-                "アイ",
-                "イウ",
-                "アイウ"
+                "みんなの予定を聞く",
+                "メールで意見を聞く",
+                "かいぎの日時を知らせる",
+                "かいぎを開いて意見を聞く"
               ],
               "isPicture": false,
               "optionCount": 4,
-              "correctIndex": 2,
+              "correctIndex": 0,
               "optionsImage": null,
               "audioStartSec": 518,
-              "explanation": "Người nữ nói nếu mọi người không sắp xếp được thời gian họp thì cứ liên lạc qua mail để xác nhận trước.",
+              "explanation": "Trước hết cần liên hệ mọi người để xem họ có thể tập trung được không.",
               "questionFurigana": [
                 {
                   "text": "5",
@@ -91100,7 +90998,14 @@
                   "text": "番",
                   "furigana": "ばん"
                 }
-              ]
+              ],
+              "optionsVi": [
+                "Hỏi lịch của mọi người",
+                "Hỏi ý kiến qua email",
+                "Thông báo ngày giờ họp",
+                "Tổ chức họp để hỏi ý kiến"
+              ],
+              "answerSourceNote": "Đối chiếu đề in, script và bảng đáp án T12/2021: Mondai 1 câu 5 chọn phương án 1."
             },
             {
               "number": 6,
@@ -91127,7 +91032,8 @@
                   "text": "番",
                   "furigana": "ばん"
                 }
-              ]
+              ],
+              "questionImage": "public/images/listening/cacnam-n3-2021-12-mondai1-q6.jpg"
             },
             {
               "number": 7,
@@ -128857,10 +128763,10 @@
               ],
               "isPicture": false,
               "optionCount": 4,
-              "correctIndex": 0,
+              "correctIndex": 1,
               "optionsImage": null,
               "audioStartSec": 199,
-              "explanation": "Nam sinh nói mình đã viết xong trên máy tính nhưng chưa in ra, nên cần phải in trước khi gửi cho giáo viên.",
+              "explanation": "Giáo viên yêu cầu gửi bản nháp qua email để cô xem và phản hồi trước.",
               "questionFurigana": [
                 {
                   "text": "2",
@@ -128963,7 +128869,8 @@
                     "furigana": "きめる"
                   }
                 ]
-              ]
+              ],
+              "answerSourceNote": "Đối chiếu đề in, nội dung script và bảng đáp án T12/2022: Mondai 1 câu 2 chọn phương án 2."
             },
             {
               "number": 3,

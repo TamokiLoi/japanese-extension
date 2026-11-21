@@ -1,0 +1,1951 @@
+{
+  "questions": [
+    {
+      "id": "listening-dethi-n3-2020-12-q01",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 48.6,
+      "audioEndSec": 93.55,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "弁当屋で男のアルバイトの人と店長が話しています。男のアルバイトの人はこの後、まず何をしますか。",
+          "textVi": "Tại một cửa hàng cơm hộp, nam nhân viên làm thêm và cửa hàng trưởng đang nói chuyện. Sau đó, việc đầu tiên nam nhân viên làm thêm sẽ làm là gì?"
+        },
+        {
+          "speaker": "男",
+          "text": "お疲れ様です。",
+          "textVi": "Anh vất vả rồi."
+        },
+        {
+          "speaker": "女",
+          "text": "あ、吉田くん。今日11時にお弁当を配達する注文が入ったよ。お弁当はもう出来てるから20個、段ボール箱に詰めてもらえる？",
+          "textVi": "À, Yoshida à. Hôm nay có đơn đặt giao cơm hộp lúc 11 giờ đấy. Cơm hộp làm xong rồi nên cậu xếp 20 hộp vào thùng carton giúp tôi nhé?"
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。",
+          "textVi": "Vâng, tôi hiểu rồi."
+        },
+        {
+          "speaker": "女",
+          "text": "配達は車を使って。今車、店の裏の駐車場にあるから店の前に動かしとくね。",
+          "textVi": "Giao hàng thì dùng xe ô tô nhé. Xe đang ở bãi đỗ phía sau cửa hàng, cậu chuyển ra phía trước cửa hàng giúp tôi."
+        },
+        {
+          "speaker": "男",
+          "text": "はい。",
+          "textVi": "Vâng."
+        },
+        {
+          "speaker": "女",
+          "text": "お茶20本も忘れないで。お茶は冷蔵庫に入れてあるから直前に車に乗せてね。",
+          "textVi": "Đừng quên cả 20 chai trà nữa nhé. Trà để trong tủ lạnh, ngay trước khi đi thì chất lên xe nhé."
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。",
+          "textVi": "Vâng, tôi hiểu rồi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男のアルバイトの人はこの後、まず何をしますか。",
+          "textVi": "Sau đó, việc đầu tiên nam nhân viên làm thêm sẽ làm là gì?"
+        }
+      ],
+      "question": "1番",
+      "questionVi": "Câu 1",
+      "optionCount": 4,
+      "options": [
+        "べんとうを作る",
+        "べんとうをだんボールばこに入れる",
+        "車を店の前にいどうさせる",
+        "車にお茶をのせる"
+      ],
+      "optionsVi": [
+        "Làm cơm hộp",
+        "Xếp cơm hộp vào thùng carton",
+        "Di chuyển xe ra phía trước cửa hàng",
+        "Chất trà lên xe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bà chủ dặn theo thứ tự: xếp cơm hộp vào thùng carton trước, sau đó mới di chuyển xe ra phía trước và chất trà lên xe -- việc đầu tiên là xếp cơm hộp vào thùng.",
+      "optionExplanations": [
+        "Nấu cơm hộp đã xong; công việc đầu tiên không phải nấu thêm.",
+        "Quản lý dặn đóng 20 hộp vào thùng carton.",
+        "Quản lý sẽ tự chuyển xe từ bãi đỗ sau cửa hàng.",
+        "Trà được đưa lên xe ngay trước khi đi."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q02",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 105.02,
+      "audioEndSec": 190.45,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "先生と男の学生が話しています。男の学生は来週までに何をしなければなりませんか。",
+          "textVi": "Giáo viên và một nam sinh viên đang nói chuyện. Nam sinh viên phải làm gì trước tuần sau?"
+        },
+        {
+          "speaker": "男",
+          "text": "先生、すみません。昨日の授業、風邪で休んだんですが宿題はありますか？",
+          "textVi": "Thưa cô, em xin lỗi. Hôm qua em nghỉ học vì bị cảm, không biết có bài tập không ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "えぇ、ありますよ。えー、来月レポートを出してもらいますが、日本の人口減少がテーマですね。",
+          "textVi": "Có chứ. À, tháng sau các em phải nộp báo cáo, chủ đề là về sự suy giảm dân số Nhật Bản."
+        },
+        {
+          "speaker": "男",
+          "text": "はい。",
+          "textVi": "Vâng."
+        },
+        {
+          "speaker": "女",
+          "text": "昨日の授業ではこのテーマの中で特に自分は何について興味があるのか探してきた資料を使いながら簡単に一人一人説明をして意見を出し合ったんですよ。それで自分の知りたいことが具体的になってきたので来週の授業までに1ページくらい下書きを書いてみることにしました。",
+          "textVi": "Trong buổi học hôm qua, mỗi bạn dùng tài liệu đã tìm được để nói ngắn gọn về phần mình quan tâm nhất trong chủ đề này, rồi cùng trao đổi ý kiến. Nhờ vậy mà điều các em muốn tìm hiểu trở nên cụ thể hơn, nên cô đã cho các em viết thử khoảng 1 trang bản nháp trước buổi học tuần sau."
+        },
+        {
+          "speaker": "男",
+          "text": "はい。",
+          "textVi": "Vâng."
+        },
+        {
+          "speaker": "女",
+          "text": "調べたいことはなんですか？",
+          "textVi": "Em muốn tìm hiểu về điều gì?"
+        },
+        {
+          "speaker": "男",
+          "text": "子供の数の減少です。資料も集めてあります。",
+          "textVi": "Em muốn tìm hiểu về sự giảm số lượng trẻ em. Em cũng đã thu thập tài liệu rồi ạ."
+        },
+        {
+          "speaker": "女",
+          "text": "あぁ、そうですか。じゃ、宿題はできますね。今回はグラフや表などは付けなくていいですよ。",
+          "textVi": "À, vậy à. Thế thì em làm bài tập được rồi đấy. Lần này không cần đính kèm biểu đồ hay bảng biểu gì đâu."
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。ありがとうございました。",
+          "textVi": "Em hiểu rồi ạ. Em cảm ơn cô."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男の学生は来週までに何をしなければなりませんか。",
+          "textVi": "Nam sinh viên phải làm gì trước tuần sau?"
+        }
+      ],
+      "question": "2番",
+      "questionVi": "Câu 2",
+      "optionCount": 4,
+      "options": [
+        "レポートのしりょうをさがす",
+        "レポートについてほかの人に意見を聞く",
+        "レポートの下書きを書く",
+        "レポートのグラフやひょうを作る"
+      ],
+      "optionsVi": [
+        "Tìm tài liệu cho báo cáo",
+        "Hỏi ý kiến người khác về báo cáo",
+        "Viết bản nháp báo cáo",
+        "Làm biểu đồ, bảng biểu cho báo cáo"
+      ],
+      "correctIndex": 2,
+      "explanation": "Giáo viên nói ý tưởng đã đủ cụ thể nên yêu cầu viết khoảng 1 trang bản nháp trước buổi học tuần sau, không cần biểu đồ hay bảng biểu.",
+      "optionExplanations": [
+        "Sinh viên đã tìm tài liệu về số trẻ em giảm.",
+        "Sinh viên nghỉ nên đã bỏ lỡ phần trình bày trên lớp buổi trước.",
+        "Cô dặn viết khoảng một trang bản nháp trước buổi học tuần sau.",
+        "Lần này cô nói chưa cần biểu đồ hay bảng."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q03",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 201.9,
+      "audioEndSec": 291.27,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "男の学生と女の学生が話しています。男の学生はどんなお土産を買いますか。",
+          "textVi": "Một nam sinh viên và một nữ sinh viên (tiền bối) đang nói chuyện. Nam sinh viên sẽ mua quà gì?"
+        },
+        {
+          "speaker": "男",
+          "text": "先輩。今度京都に行くので先生にお土産を買ってこようと思ってるんですけど、何がいいと思いますか？",
+          "textVi": "Senpai ơi. Sắp tới em đi Kyoto nên định mua quà cho thầy/cô, senpai nghĩ nên mua gì thì tốt ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "京都はおいしいお菓子がたくさんあるけど、先生、おやつは普段召し上がらないからね。",
+          "textVi": "Kyoto có nhiều bánh kẹo ngon lắm, nhưng thầy/cô lại không hay ăn vặt."
+        },
+        {
+          "speaker": "男",
+          "text": "そうですか。",
+          "textVi": "Vậy ạ."
+        },
+        {
+          "speaker": "女",
+          "text": "そうだ。来年のカレンダーはどう？研究室で使うのが欲しいって先生、おっしゃってたよ。京都のきれいな写真が入ってるのとかいいんじゃない？",
+          "textVi": "À phải rồi. Lịch cho năm sau thì sao? Thầy/cô có nói là muốn có lịch để dùng trong phòng nghiên cứu đấy. Loại có ảnh đẹp của Kyoto chắc sẽ hợp đấy."
+        },
+        {
+          "speaker": "男",
+          "text": "いいですね。あ、茶碗とかはどうですか？",
+          "textVi": "Hay đấy ạ. À, bát trà thì sao ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "んー、でも持って帰る時、割れちゃうかもしれないよ。やめたほうがいいと思うよ。",
+          "textVi": "Ừm, nhưng lúc mang về có thể bị vỡ mất đấy. Senpai nghĩ nên thôi."
+        },
+        {
+          "speaker": "男",
+          "text": "そうですね。",
+          "textVi": "Vâng, đúng vậy ạ."
+        },
+        {
+          "speaker": "女",
+          "text": "あと扇子もいいかもね。京都のはいろんな柄があるから。でも先生お使いになるかわからないよね。",
+          "textVi": "Quạt giấy cũng được đấy nhỉ. Quạt Kyoto có nhiều hoa văn lắm. Nhưng không biết thầy/cô có dùng không."
+        },
+        {
+          "speaker": "男",
+          "text": "そうですね。",
+          "textVi": "Vâng, đúng vậy ạ."
+        },
+        {
+          "speaker": "女",
+          "text": "やっぱり毎日使うものがいいと思うよ。研究室に飾ってあると便利じゃない？",
+          "textVi": "Senpai nghĩ vẫn nên chọn thứ dùng hàng ngày thì hơn. Treo trong phòng nghiên cứu tiện mà nhỉ?"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、わかりました。そうします。",
+          "textVi": "Vâng, em hiểu rồi ạ. Em sẽ làm vậy."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男の学生はどんなお土産を買いますか。",
+          "textVi": "Nam sinh viên sẽ mua quà gì?"
+        }
+      ],
+      "question": "3番",
+      "questionVi": "Câu 3",
+      "optionsImage": "public/images/listening/cacnam-2020-12-m1-choukai-p1.jpg",
+      "optionCount": 4,
+      "options": [],
+      "optionsVi": [],
+      "correctIndex": 3,
+      "explanation": "Sau khi loại bánh kẹo (thầy không hay ăn vặt), bát trà (dễ vỡ khi mang về) và quạt giấy (không chắc thầy có dùng), nữ sinh khuyên chọn thứ dùng hàng ngày -- tức là lịch (tranh số 4).",
+      "optionExplanations": [
+        "Cô giáo thường không ăn đồ ngọt.",
+        "Chưa chắc thầy/cô sẽ dùng quạt.",
+        "Bát dễ vỡ khi mang về.",
+        "Lịch có ảnh Kyoto là món dễ dùng hằng ngày trong phòng nghiên cứu."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q04",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 302.78,
+      "audioEndSec": 383.62,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "会社で女の人と男の人が話しています。男の人は今日この後、何をしなければなりませんか。",
+          "textVi": "Tại công ty, một nữ nhân viên và một nam nhân viên đang nói chuyện. Sau đó, hôm nay nam nhân viên phải làm gì?"
+        },
+        {
+          "speaker": "女",
+          "text": "高木さん。明日の午後の講演会の準備はどう？進んでる？",
+          "textVi": "Anh Takagi, việc chuẩn bị cho buổi diễn thuyết chiều mai thế nào rồi? Có tiến triển không?"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。会場の会議室にマイクをセットして、それから資料もコピーしました。",
+          "textVi": "Vâng. Tôi đã lắp micro ở phòng họp làm hội trường, và cũng đã photo tài liệu rồi."
+        },
+        {
+          "speaker": "女",
+          "text": "どのくらい用意したの？",
+          "textVi": "Anh chuẩn bị bao nhiêu bản rồi?"
+        },
+        {
+          "speaker": "男",
+          "text": "50部ですが足りませんか？",
+          "textVi": "50 bản ạ, có thiếu không ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "んー、申し込み人数はそのぐらいだったけど、当日来る人がいるかもしれないから一応60部準備しといて。今日中にお願いね。",
+          "textVi": "Ừm, số người đăng ký thì cỡ đó thật, nhưng có thể có người đến ngay hôm đó nên chuẩn bị sẵn 60 bản nhé. Làm xong trong hôm nay giúp tôi."
+        },
+        {
+          "speaker": "男",
+          "text": "わかりました。あの、会場の机と椅子はどうしましょうか。まだいつもの会議の時の状態なんですが…",
+          "textVi": "Vâng ạ. À, còn bàn ghế ở hội trường thì sao ạ? Vẫn đang để như lúc họp bình thường..."
+        },
+        {
+          "speaker": "女",
+          "text": "並べ方を変えないといけないね。でもそれは明日みんなでしましょう。えーっと、パソコンは講演者の先生にご自分で用意していただくことになっているから大丈夫だね？",
+          "textVi": "Phải sắp xếp lại cách bày bàn ghế rồi. Nhưng việc đó thì để mai mọi người cùng làm. À, còn máy tính thì diễn giả sẽ tự chuẩn bị nên không sao nhỉ?"
+        },
+        {
+          "speaker": "男",
+          "text": "はい。",
+          "textVi": "Vâng."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男の人は今日この後、何をしなければなりませんか。",
+          "textVi": "Sau đó, hôm nay nam nhân viên phải làm gì?"
+        }
+      ],
+      "question": "4番",
+      "questionVi": "Câu 4",
+      "optionCount": 4,
+      "options": [
+        "マイクをセットする",
+        "しりょうをコピーする",
+        "机といすをならべる",
+        "パソコンを用意する"
+      ],
+      "optionsVi": [
+        "Lắp micro",
+        "Photo tài liệu",
+        "Sắp xếp bàn ghế",
+        "Chuẩn bị máy tính"
+      ],
+      "correctIndex": 1,
+      "explanation": "Số bản photo cần tăng từ 50 lên 60 và phải làm xong trong hôm nay; việc sắp bàn ghế để dành cho ngày mai, còn máy tính do diễn giả tự chuẩn bị.",
+      "optionExplanations": [
+        "Micro đã được lắp đặt.",
+        "Cần in thêm 10 bản để đạt 60 bản trong hôm nay.",
+        "Ngày mai cả nhóm mới sắp lại bàn ghế.",
+        "Người thuyết trình sẽ tự chuẩn bị máy tính."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q05",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 395.07,
+      "audioEndSec": 478.28,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "会社で課長と女の人が話しています。女の人はまず、何をしなければなりませんか。",
+          "textVi": "Tại công ty, trưởng phòng và một nữ nhân viên đang nói chuyện. Trước tiên, nữ nhân viên phải làm gì?"
+        },
+        {
+          "speaker": "男",
+          "text": "鈴木さん、ちょっといい？実はさっきお客さんから連絡があって、明日の朝9時に向こうの事務所に行くことになったんだ。",
+          "textVi": "Suzuki à, có chút việc được không? Thực ra vừa nãy khách hàng liên lạc, tôi phải đến văn phòng bên đó lúc 9 giờ sáng mai."
+        },
+        {
+          "speaker": "女",
+          "text": "そうなんですか。",
+          "textVi": "Vậy ạ."
+        },
+        {
+          "speaker": "男",
+          "text": "それで10時からの会議なんだけど、始まるまでに戻って来られそうにないんだよ。悪いんだけどこの間の調査の報告を会議でしてくれない？",
+          "textVi": "Thế nên cuộc họp bắt đầu lúc 10 giờ, tôi chắc không kịp quay về trước giờ họp. Ngại quá nhưng cô báo cáo kết quả khảo sát hôm trước ở cuộc họp giúp tôi được không?"
+        },
+        {
+          "speaker": "女",
+          "text": "え？私がですか？",
+          "textVi": "Ơ? Tôi ạ?"
+        },
+        {
+          "speaker": "男",
+          "text": "うん、頼むよ。明日は午後にも予定があって、会議の時間は変えられないんだ。一緒にやった調査だから内容はよくわかっているだろう。",
+          "textVi": "Ừ, nhờ cô đấy. Mai chiều tôi còn có việc khác nên không đổi giờ họp được. Khảo sát đó cô cùng làm nên chắc nắm rõ nội dung mà."
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。",
+          "textVi": "Tôi hiểu rồi ạ."
+        },
+        {
+          "speaker": "男",
+          "text": "報告で使う資料はこれからすぐメールで送るよ。説明にくいところとか変えたほうがいいところがないかよく見て。もし何かあったら今日中にメールで教えて。ちょっとなら直せるから。",
+          "textVi": "Tài liệu dùng để báo cáo tôi sẽ gửi email ngay bây giờ. Cô xem kỹ xem có chỗ nào khó giải thích hay cần sửa không nhé. Nếu có gì thì báo qua email trong hôm nay, sửa chút ít thì tôi làm kịp."
+        },
+        {
+          "speaker": "女",
+          "text": "はい。",
+          "textVi": "Vâng."
+        },
+        {
+          "speaker": "男",
+          "text": "資料は15人分印刷すれば足りると思う。",
+          "textVi": "Tài liệu thì in 15 bản là đủ đấy."
+        },
+        {
+          "speaker": "女",
+          "text": "わかりました。",
+          "textVi": "Tôi hiểu rồi ạ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "女の人はまず、何をしなければなりませんか。",
+          "textVi": "Trước tiên, nữ nhân viên phải làm gì?"
+        }
+      ],
+      "question": "5番",
+      "questionVi": "Câu 5",
+      "optionCount": 4,
+      "options": [
+        "しりょうをメールで送る",
+        "しりょうを読む",
+        "しりょうをなおす",
+        "しりょうをいんさつする"
+      ],
+      "optionsVi": [
+        "Gửi tài liệu qua email",
+        "Đọc tài liệu",
+        "Sửa tài liệu",
+        "In tài liệu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trưởng phòng gửi tài liệu qua email và nhờ nữ nhân viên xem kỹ trước, nếu có chỗ cần sửa thì báo trong ngày -- việc đầu tiên của cô là đọc tài liệu.",
+      "optionExplanations": [
+        "Giờ họp đã định và trưởng nhóm nói không đổi được.",
+        "Việc đầu tiên là đọc kỹ tài liệu sắp được gửi qua email.",
+        "Nếu thấy chỗ cần sửa thì mới gửi email phản hồi.",
+        "Việc in 15 bản diễn ra sau khi xem tài liệu."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q06",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "kadai",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 489.78,
+      "audioEndSec": 540.6,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "体操教室で先生が話しています。生徒はどんな姿勢を取りますか。",
+          "textVi": "Tại lớp thể dục, giáo viên đang nói. Học viên sẽ giữ tư thế như thế nào?"
+        },
+        {
+          "speaker": "男",
+          "text": "まずマットの上に仰向けに寝てください。うつぶせじゃなくて仰向けですよ。上を向いて背中を床につけてください。両足は伸ばしたままで、両手は体の横に置いてください。両足をゆっくり上げて、床から10センチのところで止めます。はい、そのままの姿勢で10秒数えます。",
+          "textVi": "Trước tiên hãy nằm ngửa trên thảm. Không phải nằm sấp mà là nằm ngửa nhé. Hãy hướng mặt lên trên và để lưng chạm sàn. Giữ nguyên hai chân duỗi thẳng, hai tay đặt sang hai bên người. Từ từ nâng hai chân lên và dừng lại ở vị trí cách sàn 10cm. Được rồi, giữ nguyên tư thế đó và đếm 10 giây."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "生徒はどんな姿勢を取りますか。",
+          "textVi": "Học viên sẽ giữ tư thế như thế nào?"
+        }
+      ],
+      "question": "6番",
+      "questionVi": "Câu 6",
+      "optionsImage": "public/images/listening/cacnam-2020-12-m1-choukai-p1.jpg",
+      "optionCount": 4,
+      "options": [],
+      "optionsVi": [],
+      "correctIndex": 3,
+      "explanation": "Giáo viên hướng dẫn: nằm ngửa, chân duỗi thẳng, tay đặt hai bên, nâng chân lên cách sàn 10cm và giữ tư thế đó (tranh số 4).",
+      "optionExplanations": [
+        "Hình 1 nằm sấp và duỗi tay lên trên.",
+        "Hình 2 nằm sấp, trong khi giáo viên dặn nằm ngửa.",
+        "Hình 3 co đầu gối và đưa tay lên trên, khác tư thế được hướng dẫn.",
+        "Hình 4 thể hiện đúng tư thế giữ chân duỗi thẳng, hơi nâng khỏi sàn."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q07",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 597.2,
+      "audioEndSec": 730.63,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "皆さん。今からお昼ご飯を食べて、午後は美術館を見学します。",
+          "textVi": "Mọi người. Bây giờ chúng ta sẽ ăn trưa, và buổi chiều sẽ tham quan bảo tàng mỹ thuật."
+        },
+        {
+          "speaker": "男",
+          "text": "あの、すみません。私、午後の美術館はキャンセルしたいんですが…",
+          "textVi": "À, xin lỗi. Tôi muốn hủy phần tham quan bảo tàng mỹ thuật buổi chiều..."
+        },
+        {
+          "speaker": "女",
+          "text": "午前中、足が痛いとおっしゃっていましたが…",
+          "textVi": "Buổi sáng ông/anh có nói là bị đau chân mà..."
+        },
+        {
+          "speaker": "男",
+          "text": "あ、それはもう。ご心配をおかけしました。",
+          "textVi": "À, cái đó thì khỏi rồi. Cảm ơn vì đã lo lắng cho tôi."
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。それはよかったです。あのただいま美術館では特別展覧会をやっていますし、きっと楽しんでいただけると思いますが。",
+          "textVi": "Vậy ạ? Thế thì tốt quá. À, hiện tại bảo tàng đang có triển lãm đặc biệt, tôi nghĩ chắc chắn anh sẽ thích."
+        },
+        {
+          "speaker": "男",
+          "text": "いえ、あの、美術館に興味がないんじゃないんです。実は息子がこの近くの大学に通っていまして今から会いに来るとさっき連絡があって。",
+          "textVi": "Không, à, không phải là tôi không có hứng thú với bảo tàng đâu. Thật ra con trai tôi đang học ở trường đại học gần đây, và vừa nãy nó liên lạc bảo là đến gặp tôi bây giờ."
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。そういうことでしたらこちらは構いませんが。ただ、美術館のチケット代はお返しできませんがよろしいですか？",
+          "textVi": "Vậy ạ. Nếu là lý do đó thì chúng tôi không vẫn đề gì. Chỉ có điều tiền vé bảo tàng sẽ không được hoàn lại, có được không ạ?"
+        },
+        {
+          "speaker": "男",
+          "text": "はい、結構です。じゃ、よろしくお願いします。",
+          "textVi": "Vâng, không sao ạ. Vậy nhờ cô nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男の人はどうして美術館に行きませんか。",
+          "textVi": "Tại sao người đàn ông không đi bảo tàng mỹ thuật?"
+        }
+      ],
+      "question": "1番",
+      "questionVi": "Câu 1",
+      "questionPrompt": "男の人はどうして美術館に行きませんか。",
+      "questionPromptVi": "Tại sao người đàn ông không đi bảo tàng mỹ thuật?",
+      "optionCount": 4,
+      "options": [
+        "足がいたいから",
+        "びじゅつかんにきょうみがないから",
+        "子どもに会うから",
+        "びじゅつかんのチケットだいが高いから"
+      ],
+      "optionsVi": [
+        "Vì đau chân",
+        "Vì không có hứng thú với bảo tàng mỹ thuật",
+        "Vì gặp con",
+        "Vì tiền vé bảo tàng đắt"
+      ],
+      "correctIndex": 2,
+      "explanation": "Người đàn ông giải thích rằng ông muốn hủy chuyến tham quan bảo tàng vì con trai ông đang học gần đó liên lạc bảo đến gặp ông.",
+      "optionExplanations": [
+        "Sai, chân ông đã khỏi đau.",
+        "Sai, ông có hứng thú với bảo tàng.",
+        "Đúng, ông đi gặp con trai.",
+        "Sai, không phải vì giá vé đắt."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q08",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 750.23,
+      "audioEndSec": 841.49,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "来月、市民センターでやるお年寄りとの交流会だけど何をしようか。先月は一緒に体操して楽しかったよね。簡単な体操だったけど、体を動かしながらいろいろ話もできたし。",
+          "textVi": "Buổi giao lưu với người cao tuổi tổ chức ở trung tâm thành phố tháng tới, chúng ta nên làm gì nhỉ? Tháng trước tập thể dục cùng nhau rất vui. Dù là bài tập đơn giản nhưng vừa vận động cơ thể vừa trò chuyện được nhiều thứ."
+        },
+        {
+          "speaker": "女",
+          "text": "そうだね。来月は簡単なバレーボールはどう？柔らかいボールを使ってやるの。",
+          "textVi": "Đúng thế. Tháng tới chơi bóng chuyền đơn giản thì thế nào? Dùng quả bóng mềm để chơi ấy."
+        },
+        {
+          "speaker": "男",
+          "text": "それいいね。",
+          "textVi": "Cái đó hay đấy."
+        },
+        {
+          "speaker": "女",
+          "text": "ねぇ、運動もいいけど楽器をみんなで演奏するのはどう？",
+          "textVi": "Này, vận động thì cũng tốt nhưng mọi người cùng chơi nhạc cụ thì sao?"
+        },
+        {
+          "speaker": "男",
+          "text": "楽器は大きい音が出るから今予約している部屋だと厳しいと思うよ。",
+          "textVi": "Nhạc cụ phát ra tiếng lớn nên phòng chúng ta đặt hiện tại thì e là khó đấy."
+        },
+        {
+          "speaker": "女",
+          "text": "そう。じゃ、歌を歌うのは？昔の歌とか歌うと楽しんでもらえると思うんだけど。",
+          "textVi": "Thế à. Vậy còn hát thì sao? Tôi nghĩ hát các bài hát ngày xưa thì mọi người sẽ thích."
+        },
+        {
+          "speaker": "男",
+          "text": "それもちょっと難しいなぁ。",
+          "textVi": "Cái đó cũng hơi khó nhỉ."
+        },
+        {
+          "speaker": "女",
+          "text": "そう、わかった。じゃ、さっきのにする？",
+          "textVi": "Vậy hả, hiểu rồi. Thế thì làm cái lúc nãy nhé?"
+        },
+        {
+          "speaker": "男",
+          "text": "うん。そうしよう。",
+          "textVi": "Ừ. Làm thế đi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "来月の交流会でお年寄りたちと一緒に何をしますか。",
+          "textVi": "Tháng tới trong buổi giao lưu, mọi người sẽ cùng làm gì với các cụ già?"
+        }
+      ],
+      "question": "2番",
+      "questionVi": "Câu 2",
+      "questionPrompt": "来月の交流会でお年寄りたちと一緒に何をしますか。",
+      "questionPromptVi": "Tháng tới trong buổi giao lưu, mọi người sẽ cùng làm gì với các cụ già?",
+      "optionCount": 4,
+      "options": [
+        "かんたんなたいそうをする",
+        "かんたんなバレーボールをする",
+        "がっきをえんそうする",
+        "むかしの歌を歌う"
+      ],
+      "optionsVi": [
+        "Tập thể dục đơn giản",
+        "Chơi bóng chuyền đơn giản",
+        "Chơi nhạc cụ",
+        "Hát các bài hát ngày xưa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sau khi loại trừ chơi nhạc cụ và hát vì không phù hợp/khó, nam sinh đề xuất chơi bóng chuyền mềm và nữ sinh đồng ý ('さっきのにする？' - làm cái lúc nãy nhé?).",
+      "optionExplanations": [
+        "Sai, đó là hoạt động của tháng trước.",
+        "Đúng, đó là hoạt động được thống nhất cho tháng tới.",
+        "Sai, phòng đặt không phù hợp với tiếng ồn của nhạc cụ.",
+        "Sai, nam sinh bảo cách này cũng hơi khó."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q09",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 861.11,
+      "audioEndSec": 939.39,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "お疲れ様でした。今日は普段よりもたくさんのお客様に来ていただきました。店内もよく掃除されていたと思います。それから売り場の商品の値段も間違いがなかったようです。明日もこの調子でお願いします。また、お客様への挨拶もいつも笑顔で明るくできています。今日はレジがちょっと込んでいて、お客様が並んでいたようですから今後はもっとスピードをあげられるといいですね。",
+          "textVi": "Mọi người vất vả rồi. Hôm nay khách đến đông hơn mọi ngày. Cửa hàng cũng được dọn dẹp rất sạch sẽ. Giá cả hàng hóa trên quầy hình như cũng không có sai sót gì. Ngày mai hãy tiếp tục phát huy phong độ này nhé. Thêm nữa, việc chào hỏi khách hàng luôn được thực hiện với nụ cười tươi sáng. Hôm nay quầy thu ngân hơi đông và khách xếp hàng, nên hy vọng từ nay về sau chúng ta có thể đẩy nhanh tốc độ hơn."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "店長はこれから何に注意してほしいと言っていますか。",
+          "textVi": "Cửa hàng trưởng nói rằng từ nay muốn mọi người chú ý điều gì?"
+        }
+      ],
+      "question": "3番",
+      "questionVi": "Câu 3",
+      "questionPrompt": "店長はこれから何に注意してほしいと言っていますか。",
+      "questionPromptVi": "Cửa hàng trưởng nói rằng từ nay muốn mọi người chú ý điều gì?",
+      "optionCount": 4,
+      "options": [
+        "店内をきれいにそうじすること",
+        "しょうひんのわだんをまちがえないこと",
+        "えがおであいさつすること",
+        "レジできゃくを待たせないこと"
+      ],
+      "optionsVi": [
+        "Dọn dẹp cửa hàng sạch sẽ",
+        "Không nhầm lẫn giá sản phẩm",
+        "Chào hỏi với nụ cười",
+        "Không để khách phải đợi ở quầy thu ngân"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cửa hàng trưởng khen ngợi việc dọn dẹp, giá cả, chào hỏi, nhưng nhắc nhở rằng quầy thu ngân hôm nay hơi đông khách xếp hàng và mong muốn cải thiện tốc độ (không để khách đợi lâu ởレジ).",
+      "optionExplanations": [
+        "Sai, việc dọn dẹp đã được khen là làm tốt.",
+        "Sai, giá cả không có sai sót.",
+        "Sai, việc chào hỏi đã làm tốt.",
+        "Đúng, cần tăng tốc độ ở quầy thu ngân để khách không phải đợi."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q10",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 959,
+      "audioEndSec": 1041.94,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "もしもし。2 月11 日の子供コンサートのチケットを予約したいのですが。",
+          "textVi": "Alo. Tôi muốn đặt vé buổi hòa nhạc thiếu nhi ngày 11 tháng 2."
+        },
+        {
+          "speaker": "男",
+          "text": "はい。2 月11 日、市民センターでのコンサートですね。何枚ご希望ですか。",
+          "textVi": "Vâng. Buổi hòa nhạc tại trung tâm thành phố ngày 11 tháng 2 đúng không ạ. Quý khách muốn đặt mấy vé ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "大人1 枚、子供2 枚。それから高校生なんですが1 枚。",
+          "textVi": "1 vé người lớn, 2 vé trẻ em. Và 1 vé học sinh cấp 3 ạ."
+        },
+        {
+          "speaker": "男",
+          "text": "大人1 枚とお子さん2 名は小学生でしょうか。",
+          "textVi": "1 vé người lớn và 2 cháu nhỏ là học sinh tiểu học phải không ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "いいえ。小学生が1 人と4 歳の子が1 人です。",
+          "textVi": "Không. Có 1 học sinh tiểu học và 1 cháu 4 tuổi."
+        },
+        {
+          "speaker": "男",
+          "text": "では、2 名とも小学生以下なので子供料金で。高校生は大人料金ですがよろしいでしょうか。",
+          "textVi": "Vậy thì cả 2 cháu đều từ tiểu học trở xuống nên tính giá trẻ em. Học sinh cấp 3 thì tính giá người lớn, có được không ạ?"
+        },
+        {
+          "speaker": "女",
+          "text": "あぁ、そうですか。じゃ、それでお願いします。",
+          "textVi": "À, vậy sao. Vậy nhờ anh đặt theo cách đó nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "女の人はどのチケットを何枚予約しますか。",
+          "textVi": "Người phụ nữ đặt loại vé nào và mấy vé?"
+        }
+      ],
+      "question": "4番",
+      "questionVi": "Câu 4",
+      "questionPrompt": "女の人はどのチケットを何枚予約しますか。",
+      "questionPromptVi": "Người phụ nữ đặt loại vé nào và mấy vé?",
+      "optionCount": 4,
+      "options": [
+        "大人1枚と子ども2枚",
+        "大人1枚と子ども3枚",
+        "大人2枚と子ども1枚",
+        "大人2枚と子ども2枚"
+      ],
+      "optionsVi": [
+        "1 vé người lớn và 2 vé trẻ em",
+        "1 vé người lớn và 3 vé trẻ em",
+        "2 vé người lớn và 1 vé trẻ em",
+        "2 vé người lớn và 2 vé trẻ em"
+      ],
+      "correctIndex": 3,
+      "explanation": "Người phụ nữ đặt: 1 vé người lớn thực sự + 1 vé học sinh cấp 3 (được tính theo giá người lớn) = 2 vé giá người lớn; và 2 đứa trẻ (1 tiểu học, 1 bé 4 tuổi) đều được tính theo giá trẻ em = 2 vé trẻ em.",
+      "optionExplanations": [
+        "Sai, thiếu vé cho học sinh cấp 3 (được tính bằng giá người lớn).",
+        "Sai số lượng.",
+        "Sai số lượng trẻ em.",
+        "Đúng, bao gồm 2 vé người lớn (1 người lớn + 1 cấp 3) và 2 vé trẻ em (1 tiểu học + 1 bé 4 tuổi)."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q11",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1061.56,
+      "audioEndSec": 1163.44,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "この間、ちょっと変わった手紙を受け取ったんです。子供の時に将来の自分に手紙を書いて大人になってから読むという話を聞いたことがあります。でも私の場合、差出人は自分ではなく小学校の時の友達で10 年前に書かれた手紙でした。遊園地の特別なサービスで手紙を10 年間預かってから送くれるんだそうです。その友達、去年結婚式に招待してくれた時は何も言ってなかったんですよ。だから本当に驚きました。昔見た映画でどこからか飛んできた風船を拾ってみると手紙が付いていたというのがあって、素敵だなって思いましたがこの手紙もびっくりしました。そして温かい気持ちになりました。",
+          "textVi": "Dạo gần đây tôi đã nhận được một bức thư hơi lạ. Tôi từng nghe câu chuyện về việc viết thư cho bản thân trong tương lai khi còn nhỏ và đọc lại khi trưởng thành. Nhưng trong trường hợp của tôi, người gửi không phải là chính tôi mà là một người bạn thời tiểu học, bức thư được viết từ 10 năm trước. Người ta nói rằng có dịch vụ đặc biệt ở khu vui chơi giữ thư trong 10 năm rồi gửi đi. Người bạn đó năm ngoái lúc mời tôi dự đám cưới không hề nhắc gì đến chuyện này cả. Thế nên tôi thực sự rất ngạc nhiên. Hồi nhỏ xem phim thấy có cảnh nhặt được quả bóng bay bay từ đâu tới có gắn lá thư, tôi đã nghĩ điều đó thật tuyệt, nhưng bức thư này cũng khiến tôi rất bất ngờ. Và tôi cảm thấy thật ấm áp."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "女の人は最近どんな手紙を受け取ったと言っていますか。",
+          "textVi": "Người phụ nữ nói rằng gần đây cô ấy đã nhận được loại thư như thế nào?"
+        }
+      ],
+      "question": "5番",
+      "questionVi": "Câu 5",
+      "questionPrompt": "女の人は最近どんな手紙を受け取ったと言っていますか。",
+      "questionPromptVi": "Người phụ nữ nói rằng gần đây cô ấy đã nhận được loại thư như thế nào?",
+      "optionCount": 4,
+      "options": [
+        "自分が子どものころに書いた手紙",
+        "10年前に友人が書いてくれた手紙",
+        "けっこんしきのしょうたいの手紙",
+        "風船についていた手紙"
+      ],
+      "optionsVi": [
+        "Bức thư do chính mình viết hồi nhỏ",
+        "Bức thư do người bạn viết từ 10 năm trước",
+        "Thư mời đám cưới",
+        "Lá thư được gắn trên bóng bay"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cô ấy nhận được bức thư do người bạn tiểu học viết từ 10 năm trước thông qua dịch vụ giữ thư của khu vui chơi.",
+      "optionExplanations": [
+        "Sai, không phải do cô ấy tự viết cho mình.",
+        "Đúng, do bạn viết từ 10 năm trước.",
+        "Sai, tiệc cưới là năm ngoái và bạn không nhắc gì.",
+        "Sai, đó chỉ là liên tưởng đến bộ phim cũ."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q12",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "point",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1183.04,
+      "audioEndSec": 1252,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "昨日テレビで面白いことをする鳥を見たよ。鳥が小さな枝でコンコンって木を叩いて音を出すんだ。",
+          "textVi": "Hôm qua tớ xem TV thấy một loài chim làm điều rất thú vị. Con chim dùng một nhành cây nhỏ gõ 'cốc cốc' vào thân cây để phát ra âm thanh."
+        },
+        {
+          "speaker": "女",
+          "text": "足を使うの？",
+          "textVi": "Nó dùng chân à?"
+        },
+        {
+          "speaker": "男",
+          "text": "いや、口なんだ。口で枝を持って木を叩いてた。結構大きな音がしてたよ。危険な動物が来た、逃げろって仲間に知らせてるのかと思ったんだけど、そうじゃなくて。",
+          "textVi": "Không, dùng mỏ. Nó ngậm cành cây bằng mỏ để gõ vào cây. Tạo ra âm thanh khá lớn đấy. Tớ cứ tưởng nó báo hiệu cho đồng loại là có động vật nguy hiểm đến, mau chạy đi, nhưng không phải vậy."
+        },
+        {
+          "speaker": "女",
+          "text": "音を出して楽しんでるとか？音楽みたいに。",
+          "textVi": "Nó phát ra âm thanh để giải trí à? Giống như chơi nhạc ấy."
+        },
+        {
+          "speaker": "男",
+          "text": "そうだったら人間の音楽家みたいですごいけど、これは子供を育てる直前だけ見られて自分の子供を育てる木が台風なんかで倒れたりしないか、音で確認してるんだって。",
+          "textVi": "Nếu vậy thì giống nhạc sĩ loài người, siêu thật, nhưng người ta nói hành vi này chỉ diễn ra ngay trước khi nuôi con, nó dùng âm thanh để kiểm tra xem cái cây mà nó nuôi con có bị đổ do bão hay không."
+        },
+        {
+          "speaker": "女",
+          "text": "そんなことがわかるんだね。",
+          "textVi": "Nó có thể nhận biết được chuyện đó cơ à."
+        },
+        {
+          "speaker": "男",
+          "text": "変わった声を出して遠くにいる仲間を呼ぶ鳥も前に本で読んだことあるんだけど、道具を使うのは初めて見たよ。",
+          "textVi": "Trước đây tớ từng đọc trong sách có loài chim phát ra tiếng kêu lạ để gọi đồng loại ở xa, nhưng dùng dụng cụ thì đây là lần đầu tớ thấy."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男の人がテレビで見た鳥はなぜ木を叩いて音を出すのですか。",
+          "textVi": "Tại sao loài chim mà người đàn ông thấy trên TV lại gõ vào cây để phát ra âm thanh?"
+        }
+      ],
+      "question": "6番",
+      "questionVi": "Câu 6",
+      "questionPrompt": "男の人がテレビで見た鳥はなぜ木を叩いて音を出すのですか。",
+      "questionPromptVi": "Tại sao loài chim mà người đàn ông thấy trên TV lại gõ vào cây để phát ra âm thanh?",
+      "optionCount": 4,
+      "options": [
+        "なかまにきけんを知らせるため",
+        "音をならしてあそぶため",
+        "木の強さをたしかめるため",
+        "遠くにいるなかまをよぶため"
+      ],
+      "optionsVi": [
+        "Để báo hiệu nguy hiểm cho đồng loại",
+        "Để phát ra âm thanh chơi đùa",
+        "Để kiểm tra độ cứng của cây",
+        "Để gọi đồng loại ở xa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Người nam giải thích chim gõ vào cây là để kiểm tra xem cái cây nuôi con có vững chắc không, có bị đổ do bão không (kiểm tra độ chắc của cây/木が倒れたりしないか確認).",
+      "optionExplanations": [
+        "Sai, đó là suy đoán ban đầu nhưng không phải.",
+        "Sai, không phải để chơi đùa giống âm nhạc.",
+        "Đúng, để xác định cây có bị đổ hay không (kiểm tra độ bền/chắc của cây).",
+        "Sai, đây là đặc điểm của loài khác được nhắc đến ở cuối câu chuyện."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q13",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1349,
+      "audioEndSec": 1433.43,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "問題３\n１番\nラジオで男の人がカラオケ店について話しています。",
+          "textVi": "Mondai 3\nCâu 1\nNam giới đang nói chuyện về quán karaoke trên đài phát thanh."
+        },
+        {
+          "speaker": "男",
+          "text": "以前はカラオケ店は歌を歌うところでしたが、最近は楽器やスピーチの練習とか中には勉強や昼寝をするために利用する人も出てきたそうです。",
+          "textVi": "Trước đây quán karaoke là nơi để hát, nhưng nghe nói gần đây có người sử dụng để luyện tập nhạc cụ, luyện tập phát biểu, hay thậm chí là học tập và ngủ trưa."
+        },
+        {
+          "speaker": "男",
+          "text": "歌を歌う目的以外での利用は禁止というところもありますが、これまでにない使い方を積極的に宣伝しているところも少なくないそうです。",
+          "textVi": "Cũng có nơi cấm sử dụng ngoài mục đích hát ca, nhưng nghe nói cũng không ít nơi tích cực quảng bá cách sử dụng chưa từng có trước đây."
+        },
+        {
+          "speaker": "男",
+          "text": "平日の昼間のお客さんの少ない時間に少しでも利用客が増えれば店側にとっても悪いことではないですね。",
+          "textVi": "Nếu lượng khách sử dụng có thể tăng lên một chút vào thời gian ít khách ban ngày trong tuần thì đó cũng không phải là điều tệ đối với phía cửa hàng."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "男の人はカラオケ店の何について話していますか。",
+          "textVi": "Người đàn ông đang nói về điều gì của quán karaoke?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．利用目的の変化",
+          "textVi": "1. Sự thay đổi mục đích sử dụng"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．利用者の多い時間",
+          "textVi": "2. Thời gian có nhiều người sử dụng"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．利用者の増加",
+          "textVi": "3. Sự gia tăng số lượng người sử dụng"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "4．新しい宣伝方法",
+          "textVi": "4. Phương pháp quảng cáo mới"
+        }
+      ],
+      "question": "1番",
+      "questionVi": "Câu 1",
+      "optionCount": 4,
+      "options": [
+        "利用目的の変化",
+        "利用者の多い時間",
+        "利用者の増加",
+        "新しい宣伝方法"
+      ],
+      "optionsVi": [
+        "Sự thay đổi mục đích sử dụng",
+        "Thời gian có nhiều người sử dụng",
+        "Sự gia tăng số lượng người sử dụng",
+        "Phương pháp quảng cáo mới"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Đoạn văn nói về việc quán karaoke từ chỗ chỉ dùng để hát nay được dùng cho nhiều mục đích khác nhau như học tập, ngủ trưa, luyện tập nhạc cụ, thể hiện sự thay đổi về mục đích sử dụng của khách hàng.",
+      "optionExplanations": [
+        "Đúng. Nội dung chính là sự thay đổi mục đích sử dụng quán karaoke.",
+        "Sai. Không nói về khung giờ có nhiều người dùng.",
+        "Sai. Không tập trung vào việc tăng tổng lượng khách mà nhấn mạnh mục đích khác.",
+        "Sai. Quảng cáo chỉ là yếu tố phụ được nhắc đến."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q14",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1440.91,
+      "audioEndSec": 1532.91,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "２番\nテレビで小学校の校長先生が話しています。",
+          "textVi": "Câu 2\nHiệu trưởng một trường tiểu học đang nói chuyện trên truyền hình."
+        },
+        {
+          "speaker": "女",
+          "text": "うちの小学校ではもったいないを考えようという活動しています。",
+          "textVi": "Ở trường tiểu học của chúng tôi đang thực hiện hoạt động mang tên 'Hãy suy nghĩ về sự lãng phí' (mottainai)."
+        },
+        {
+          "speaker": "女",
+          "text": "子供たちに環境について考える機会を持ってもらいたいと思っていろいろなことをしています。",
+          "textVi": "Chúng tôi làm nhiều việc với mong muốn tạo cơ hội cho các em học sinh suy nghĩ về môi trường."
+        },
+        {
+          "speaker": "女",
+          "text": "具体的には学校から出た生ごみを使って土を作り、その土を使って野菜を育てています。",
+          "textVi": "Cụ thể là chúng tôi dùng rác thải hữu cơ từ trường để làm đất, rồi dùng đất đó để trồng rau."
+        },
+        {
+          "speaker": "女",
+          "text": "野菜を作る時に使う水も雨の水を溜めて使っているんですよ。",
+          "textVi": "Nước dùng khi trồng rau cũng là nước mưa được tích trữ lại để sử dụng."
+        },
+        {
+          "speaker": "女",
+          "text": "教室を出る時は電気を消すというルールを作ったりもしています。",
+          "textVi": "Chúng tôi cũng đặt ra quy tắc như tắt điện khi ra khỏi lớp học."
+        },
+        {
+          "speaker": "女",
+          "text": "また、教師たちも紙のごみをリサイクルするようにして、全員でもったいないという言葉を意識するようにしています。",
+          "textVi": "Ngoài ra, các giáo viên cũng tái chế rác thải giấy, để tất cả mọi người cùng ý thức về từ 'lãng phí'."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "校長先生は何について話していますか。",
+          "textVi": "Hiệu trưởng đang nói về điều gì?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．ルールに合ったごみの分け方",
+          "textVi": "1. Cách phân loại rác đúng quy định"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．教室でのルールを守る大切さ",
+          "textVi": "2. Tầm quan trọng của việc tuân thủ nội quy lớp học"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．野菜を作ることの面白さ",
+          "textVi": "3. Sự thú vị của việc trồng rau"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "4．資源を無駄にしないための活動",
+          "textVi": "4. Các hoạt động nhằm không lãng phí tài nguyên"
+        }
+      ],
+      "question": "2番",
+      "questionVi": "Câu 2",
+      "optionCount": 4,
+      "options": [
+        "ルールに合ったごみの分け方",
+        "教室でのルールを守る大切さ",
+        "野菜を作ることの面白さ",
+        "資源を無駄にしないための活動"
+      ],
+      "optionsVi": [
+        "Cách phân loại rác đúng quy định",
+        "Tầm quan trọng của việc tuân thủ nội quy lớp học",
+        "Sự thú vị của việc trồng rau",
+        "Các hoạt động nhằm không lãng phí tài nguyên"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 3,
+      "explanation": "Hiệu trưởng giới thiệu các hoạt động giáo dục môi trường tổng thể như tái chế rác làm phân bón trồng rau, dùng nước mưa, tắt điện, và tái chế giấy để tránh lãng phí tài nguyên.",
+      "optionExplanations": [
+        "Sai. Không đề cập chi tiết đến cách phân loại rác.",
+        "Sai. Quy tắc lớp học chỉ là một phần nhỏ trong hoạt động.",
+        "Sai. Trồng rau chỉ là một ví dụ, không phải chủ đề chính.",
+        "Đúng. Nói về các hoạt động tiết kiệm, chống lãng phí tài nguyên (môi trường)."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q15",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "gaiyou",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1540.43,
+      "audioEndSec": 1632.1,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "３番\nアナウンサーが野球の選手にインタビューしています。",
+          "textVi": "Câu 3\nPhát thanh viên đang phỏng vấn một cầu thủ bóng chày."
+        },
+        {
+          "speaker": "女",
+          "text": "今年1 年いかがでしたか。",
+          "textVi": "Một năm qua của anh thế nào?"
+        },
+        {
+          "speaker": "男",
+          "text": "そうですね。去年は怪我で苦労しましたからね。今年は怪我をしないようにいろいろと工夫しました。",
+          "textVi": "Vâng. Năm ngoái tôi đã gặp nhiều khó khăn vì chấn thương. Năm nay tôi đã có nhiều工夫 (cách làm/sự cải tiến) để không bị chấn thương."
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。",
+          "textVi": "Thế ạ."
+        },
+        {
+          "speaker": "男",
+          "text": "簡単なことなんですけどね。食事に気をつけるとか、トレーニングをするとか、やっぱり食べたいものを食べるだけじゃだめなんですよ。体に良いものは何かを考えて食べないと。",
+          "textVi": "Những việc đơn giản thôi ạ. Chẳng hạn như chú ý đến ăn uống, tập luyện. Quả thực không thể cứ ăn những gì mình thích được. Phải suy nghĩ cái gì tốt cho cơ thể rồi mới ăn."
+        },
+        {
+          "speaker": "女",
+          "text": "なるほど。",
+          "textVi": "Ra vậy."
+        },
+        {
+          "speaker": "男",
+          "text": "えぇ。それに新しい運動をトレーニングに入れたんです。これを毎朝1 時間続けているんですよ。この運動のおかげで怪我をしにくくなったんです。",
+          "textVi": "Vâng. Hơn nữa, tôi đã đưa một bài tập mới vào quá trình huấn luyện. Tôi duy trì điều này mỗi tiếng đồng hồ mỗi sáng. Nhờ bài tập này mà tôi ít bị chấn thương hơn."
+        },
+        {
+          "speaker": "女",
+          "text": "そうですか。",
+          "textVi": "Thế ạ."
+        },
+        {
+          "speaker": "男",
+          "text": "専門家にアドバイスをもらっていろいろやってみたんです。",
+          "textVi": "Tôi đã nhận lời khuyên từ chuyên gia và thử nghiệm nhiều cách."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "野球の選手は主に何について話していますか。",
+          "textVi": "Cầu thủ bóng chày chủ yếu nói về điều gì?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．怪我の痛みと苦労",
+          "textVi": "1. Nỗi đau và vất vả khi chấn thương"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．怪我をしないための工夫",
+          "textVi": "2. Những biện pháp để tránh bị chấn thương"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．体に良い食事の取り方",
+          "textVi": "3. Cách ăn uống tốt cho cơ thể"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "4．新しいトレーニングのやり方",
+          "textVi": "4. Cách thực hiện bài tập huấn luyện mới"
+        }
+      ],
+      "question": "3番",
+      "questionVi": "Câu 3",
+      "optionCount": 4,
+      "options": [
+        "怪我の痛みと苦労",
+        "怪我をしないための工夫",
+        "体に良い食事の取り方",
+        "新しいトレーニングのやり方"
+      ],
+      "optionsVi": [
+        "Nỗi đau và vất vả khi chấn thương",
+        "Những biện pháp để tránh bị chấn thương",
+        "Cách ăn uống tốt cho cơ thể",
+        "Cách thực hiện bài tập huấn luyện mới"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Cầu thủ giải thích rằng sau năm ngoái bị chấn thương, năm nay anh ấy đã thay đổi chế độ ăn uống và thêm bài tập mới để không bị thương nữa.",
+      "optionExplanations": [
+        "Sai. Anh ấy chỉ nhắc lại việc năm ngoái bị thương chứ không tập trung nói về nỗi đau.",
+        "Đúng. Cầu thủ chủ yếu nói về các biện pháp anh thực hiện để phòng tránh chấn thương năm nay.",
+        "Sai. Ăn uống chỉ là một phần nhỏ trong các biện pháp phòng tránh chấn thương.",
+        "Sai. Bài tập mới cũng chỉ là một phần bổ trợ."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q16",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "hatsugen",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1658.8,
+      "audioEndSec": 1696.53,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "１番。自己紹介をします。何と言いますか。",
+          "textVi": "Câu 1. Tự giới thiệu bản thân. Sẽ nói thế nào?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．佐藤をお呼びします",
+          "textVi": "1. Tôi sẽ gọi Sato."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．佐藤と申します",
+          "textVi": "2. Tôi tên là Sato."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．佐藤だとおっしゃっています",
+          "textVi": "3. Anh/chị ấy bảo là Sato."
+        }
+      ],
+      "question": "1番",
+      "questionVi": "Câu 1",
+      "questionImage": "public/images/listening/cacnam-n3-2020-12-mondai4-q1.jpg",
+      "optionCount": 3,
+      "options": [
+        "佐藤をお呼びします",
+        "佐藤と申します",
+        "佐藤だとおっしゃっています"
+      ],
+      "optionsVi": [
+        "Tôi sẽ gọi Sato.",
+        "Tôi tên là Sato.",
+        "Anh/chị ấy bảo là Sato."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Khi tự giới thiệu bản thân, ta dùng cấu trúc khiêm nhường ngữ [Tên] + と申します (Tôi tên là...). Do đó phương án 2 là chính xác.",
+      "optionExplanations": [
+        "Dùng khi bạn gọi người khác tên là Sato hoặc gọi người tên Sato đến, không phải tự giới thiệu.",
+        "Cách nói khiêm nhường dùng để tự giới thiệu tên của mình, hoàn toàn phù hợp với ngữ cảnh.",
+        "Dùng để thuật lại lời người khác nói về người tên Sato, không dùng khi tự giới thiệu."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q17",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "hatsugen",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1705.99,
+      "audioEndSec": 1732.18,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "２番。外出していましたが、会社に帰ってきました。何と言いますか。",
+          "textVi": "Câu 2. Tôi đã đi ra ngoài và vừa quay trở lại công ty. Sẽ nói thế nào?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．これから外出します",
+          "textVi": "1. Bây giờ tôi chuẩn bị đi ra ngoài."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．今、戻りました",
+          "textVi": "2. Tôi vừa mới quay về."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．どうぞお気をつけて",
+          "textVi": "3. Xin hãy cẩn thận nhé."
+        }
+      ],
+      "question": "2番",
+      "questionVi": "Câu 2",
+      "questionImage": "public/images/listening/cacnam-n3-2020-12-mondai4-q2.jpg",
+      "optionCount": 3,
+      "options": [
+        "これから外出します",
+        "今、戻りました",
+        "どうぞお気をつけて"
+      ],
+      "optionsVi": [
+        "Bây giờ tôi chuẩn bị đi ra ngoài.",
+        "Tôi vừa mới quay về.",
+        "Xin hãy cẩn thận nhé."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Khi từ bên ngoài quay trở lại công ty, câu chào tiêu chuẩn khi bước vào văn phòng là 「今、戻りました」 (Tôi vừa về đến). Do đó phương án 2 là chính xác.",
+      "optionExplanations": [
+        "Dùng khi bạn chuẩn bị bước ra khỏi công ty để đi ra ngoài, trái ngược với tình huống đề bài.",
+        "Câu nói chuẩn mực khi vừa từ bên ngoài quay trở lại công ty/nơi làm việc.",
+        "Dùng để tiễn người khác hoặc dặn dò người khác cẩn thận, không dùng khi mình vừa về."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q18",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "hatsugen",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1741.63,
+      "audioEndSec": 1772.59,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "３番。友達がケーキを出してくれました。甘いものが好きではありません。友達に何と言いますか。",
+          "textVi": "Câu 3. Bạn mời bánh ngọt. Bạn không thích đồ ngọt. Sẽ nói với bạn thế nào?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．甘いものは嫌いじゃないんだ",
+          "textVi": "1. Đồ ngọt không phải là tôi ghét đâu."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．甘いものほど好きなものはないんだ",
+          "textVi": "2. Không có gì tôi thích bằng đồ ngọt cả."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．甘いものはちょっと苦手んだ",
+          "textVi": "3. Đồ ngọt thì tôi hơi kém (không thích/không ăn được)."
+        }
+      ],
+      "question": "3番",
+      "questionVi": "Câu 3",
+      "questionImage": "public/images/listening/cacnam-n3-2020-12-mondai4-q3.jpg",
+      "optionCount": 3,
+      "options": [
+        "甘いものは嫌いじゃないんだ",
+        "甘いものほど好きなものはないんだ",
+        "甘いものはちょっと苦手なんだ"
+      ],
+      "optionsVi": [
+        "Đồ ngọt không phải là tôi ghét đâu.",
+        "Không có gì tôi thích bằng đồ ngọt cả.",
+        "Đồ ngọt thì tôi hơi kém (không thích/không ăn được)."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Khi được mời đồ ăn mà mình không thích (không ăn được đồ ngọt) và muốn từ chối khéo léo với bạn bè, ta dùng mẫu câu 「〜はちょっと苦手なんだ」. Do đó phương án 3 là chính xác.",
+      "optionExplanations": [
+        "Có nghĩa là 'tôi không ghét đồ ngọt', mâu thuẫn với việc không thích đồ ngọt.",
+        "Có nghĩa là 'thích đồ ngọt nhất', trái ngược hoàn toàn với thực tế.",
+        "Cách nói giảm nói tránh lịch sự 'tôi hơi kém/không hợp với đồ ngọt', phù hợp để từ chối khi bạn bè mời."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q19",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "hatsugen",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1782.15,
+      "audioEndSec": 1812.1,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "ナレーション",
+          "text": "４番。工場です。後輩に一緒に機械を運んでもらいたいです。何と言いますか。",
+          "textVi": "Câu 4. Ở nhà máy. Bạn muốn đàn em cùng khiêng máy móc với mình. Sẽ nói thế nào?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．よかったら一緒に運ぶよ",
+          "textVi": "1. Nếu thích thì tôi sẽ cùng khiêng nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．これ運ぶからそっち持って",
+          "textVi": "2. Tôi khiêng cái này nên cậu cầm đằng kia đi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．運ぶの手伝ってやろうか",
+          "textVi": "3. Để tôi giúp cậu khiêng nhé?"
+        }
+      ],
+      "question": "4番",
+      "questionVi": "Câu 4",
+      "questionImage": "public/images/listening/cacnam-n3-2020-12-mondai4-q4.jpg",
+      "optionCount": 3,
+      "options": [
+        "よかったら一緒に運ぶよ",
+        "これ運ぶからそっち持って",
+        "運ぶの手伝ってやろうか"
+      ],
+      "optionsVi": [
+        "Nếu thích thì tôi sẽ cùng khiêng nhé.",
+        "Tôi khiêng cái này nên cậu cầm đằng kia đi.",
+        "Để tôi giúp cậu khiêng nhé?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Khi muốn nhờ hậu bối cùng phối hợp khiêng một cỗ máy (mình khiêng một đầu, bạn ấy giữ đầu kia), câu nói trực tiếp và tự nhiên nhất trong nhà máy là 「これ運ぶからそっち持って」. Do đó phương án 2 là chính xác.",
+      "optionExplanations": [
+        "Nghĩa là mình giúp người ta hoặc rủ theo hướng mình phục vụ họ, không phù hợp khi kêu họ cùng phối hợp làm việc chung.",
+        "Cách nói phân công công việc cụ thể khi cùng nhau khiêng đồ: 'Tôi khiêng phần này, cậu giữ phần kia nhé'.",
+        "Dùng khi mình muốn giúp đỡ người khác (bề trên nói với bề dưới theo hướng ban ơn), không hợp lý khi rủ cùng làm."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q20",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1864.1,
+      "audioEndSec": 1888.65,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "先生。明日はサッカーの練習、ないんですよね？",
+          "textVi": "Thưa thầy. Ngày mai không có buổi tập bóng đá phải không ạ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．サッカーをするのは久しぶりだね",
+          "textVi": "1. Đã lâu lắm rồi mới chơi bóng đá nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．うん。明日運動場が使えないんだよ",
+          "textVi": "2. Ừ. Ngày mai sân vận động không dùng được."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．わかった。みんなにも伝えとくよ",
+          "textVi": "3. Đã hiểu. Tôi sẽ truyền đạt lại cho mọi người."
+        }
+      ],
+      "question": "1番",
+      "questionVi": "Câu 1",
+      "optionCount": 3,
+      "options": [
+        "サッカーをするのは久しぶりだね",
+        "うん。明日運動場が使えないんだよ",
+        "わかった。みんなにも伝えとくよ"
+      ],
+      "optionsVi": [
+        "Đã lâu lắm rồi mới chơi bóng đá nhỉ.",
+        "Ừ. Ngày mai sân vận động không dùng được.",
+        "Đã hiểu. Tôi sẽ truyền đạt lại cho mọi người."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Nữ hỏi xác nhận ngày mai có tập bóng đá không. Nam đáp xác nhận lý do không có buổi tập (vì sân vận động không dùng được). Phương án 2 là phản hồi phù hợp nhất.",
+      "optionExplanations": [
+        "Không phù hợp vì không trả lời câu hỏi xác nhận.",
+        "Phù hợp, xác nhận và giải thích lý do không có buổi tập.",
+        "Không phù hợp với ngữ cảnh giáo viên/người hướng dẫn trả lời học sinh."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q21",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1896.15,
+      "audioEndSec": 1918.63,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "スピーチ大会に出ようかと思ってるんだ",
+          "textVi": "Tôi đang nghĩ đến việc sẽ tham gia cuộc thi hùng biện."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．もう出たの？",
+          "textVi": "1. Đã tham gia rồi à?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．そう、出ないんだ",
+          "textVi": "2. Vậy à, không tham gia à?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．じゃ、応援に行くね",
+          "textVi": "3. Vậy thì tôi sẽ đến cổ vũ nhé."
+        }
+      ],
+      "question": "2番",
+      "questionVi": "Câu 2",
+      "optionCount": 3,
+      "options": [
+        "もう出たの？",
+        "そう、出ないんだ",
+        "じゃ、応援に行くね"
+      ],
+      "optionsVi": [
+        "Đã tham gia rồi à?",
+        "Vậy à, không tham gia à?",
+        "Vậy thì tôi sẽ đến cổ vũ nhé."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Nam chia sẻ ý định tham gia cuộc thi hùng biện. Phản hồi tự nhiên và lịch sự của người nghe là đề nghị đến cổ vũ.",
+      "optionExplanations": [
+        "Không phù hợp vì nam mới chỉ có ý định tham gia, chưa tham gia.",
+        "Mâu thuẫn với ý định muốn tham gia của nam.",
+        "Phù hợp, thể hiện sự ủng hộ khi nghe bạn có ý định tham gia cuộc thi."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q22",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1926.1,
+      "audioEndSec": 1952.73,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あの、この図書館ではガムを噛んではいけないことになっているんですが…",
+          "textVi": "À, ở thư viện này có quy định là không được nhai kẹo cao su..."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．どうしていいんですか？",
+          "textVi": "1. Làm thế nào thì được ạ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．あ、知りませんでした。すぐ捨てます",
+          "textVi": "2. À, tôi không biết. Tôi sẽ vứt đi ngay đây."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．ガムはだめじゃないんですね",
+          "textVi": "3. Kẹo cao su không bị cấm phải không ạ?"
+        }
+      ],
+      "question": "3番",
+      "questionVi": "Câu 3",
+      "optionCount": 3,
+      "options": [
+        "どうしていいんですか？",
+        "あ、知りませんでした。すぐ捨てます",
+        "ガムはだめじゃないんですね"
+      ],
+      "optionsVi": [
+        "Làm thế nào thì được ạ?",
+        "À, tôi không biết. Tôi sẽ vứt đi ngay đây.",
+        "Kẹo cao su không bị cấm phải không ạ?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Khi được nhắc nhở về quy định cấm nhai kẹo cao su trong thư viện, phản hồi đúng mực là nhận lỗi và xử lý ngay lập tức.",
+      "optionExplanations": [
+        "Không phù hợp với tình huống bị nhắc nhở vi phạm nội quy.",
+        "Phù hợp, thể hiện thái độ tiếp thu, xin lỗi vì không biết và hành động khắc phục ngay.",
+        "Trái ngược với nội dung nhắc nhở của người phụ nữ."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q23",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1960.18,
+      "audioEndSec": 1984.48,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あーあ、休みがもっと長かったらいいんだけどなぁ。",
+          "textVi": "A, giá mà kỳ nghỉ dài hơn một chút thì tốt biết mấy."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．休んじゃったんだ",
+          "textVi": "1. Đã nghỉ rồi à."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．長くてよかったね",
+          "textVi": "2. Dài thì tốt quá nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．本当、ゆっくりしたいよね",
+          "textVi": "3. Thật đấy, muốn được thong thả nghỉ ngơi ghê."
+        }
+      ],
+      "question": "4番",
+      "questionVi": "Câu 4",
+      "optionCount": 3,
+      "options": [
+        "休んじゃったんだ",
+        "長くてよかったね",
+        "本当、ゆっくりしたいよね"
+      ],
+      "optionsVi": [
+        "Đã nghỉ rồi à.",
+        "Dài thì tốt quá nhỉ.",
+        "Thật đấy, muốn được thong thả nghỉ ngơi ghê."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Người phụ nữ bày tỏ mong muốn kỳ nghỉ dài hơn. Người nghe đồng cảm với ước muốn được nghỉ ngơi thoải mái.",
+      "optionExplanations": [
+        "Không phù hợp với ngữ cảnh bày tỏ mong ước.",
+        "Không phù hợp vì thực tế kỳ nghỉ chưa dài như mong muốn.",
+        "Phù hợp, thể hiện sự đồng cảm với mong muốn của người nói."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q24",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 1991.94,
+      "audioEndSec": 2017.3,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あの、この旅行のパンフレット、持って帰っても構いませんか？",
+          "textVi": "Xin lỗi, tờ rơi du lịch này tôi mang về có được không ạ?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．どうぞ。他にもございますよ",
+          "textVi": "1. Xin mời cứ tự nhiên. Vẫn còn những cuốn khác đấy ạ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．あぁ、いらないんですね",
+          "textVi": "2. À, không cần đúng không ạ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．そんなことないですよ",
+          "textVi": "3. Không có chuyện đó đâu."
+        }
+      ],
+      "question": "5番",
+      "questionVi": "Câu 5",
+      "optionCount": 3,
+      "options": [
+        "どうぞ。他にもございますよ",
+        "あぁ、いらないんですね",
+        "そんなことないですよ"
+      ],
+      "optionsVi": [
+        "Xin mời cứ tự nhiên. Vẫn còn những cuốn khác đấy ạ.",
+        "À, không cần đúng không ạ.",
+        "Không có chuyện đó đâu."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Nữ xin phép mang tờ rơi du lịch về. Người trả lời đồng ý và cung cấp thêm thông tin.",
+      "optionExplanations": [
+        "Phù hợp, cho phép mang về và báo còn nhiều bản khác.",
+        "Hiểu nhầm ý người xin phép.",
+        "Không phù hợp với ngữ cảnh xin phép lấy tài liệu."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q25",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 2024.74,
+      "audioEndSec": 2049.24,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "男",
+          "text": "会議の後もパソコン、そのままつけといて",
+          "textVi": "Sau cuộc họp, cứ để nguyên máy tính đang bật thế nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．じゃ、消しておきますね",
+          "textVi": "1. Vậy tôi tắt đi nhé."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．まだお使いになるんですね",
+          "textVi": "2. Vẫn còn dùng nữa cơ à."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．パソコン切ってあるんですね",
+          "textVi": "3. Máy tính đã được tắt rồi nhỉ."
+        }
+      ],
+      "question": "6番",
+      "questionVi": "Câu 6",
+      "optionCount": 3,
+      "options": [
+        "じゃ、消しておきますね",
+        "まだお使いになるんですね",
+        "パソコン切ってあるんですね"
+      ],
+      "optionsVi": [
+        "Vậy tôi tắt đi nhé.",
+        "Vẫn còn dùng nữa cơ à.",
+        "Máy tính đã được tắt rồi nhỉ."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Nam dặn giữ nguyên trạng thái bật máy tính sau cuộc họp, phản hồi xác nhận lại dụng ý vẫn tiếp tục sử dụng của nam.",
+      "optionExplanations": [
+        "Trái ngược với chỉ thị giữ nguyên trạng thái bật.",
+        "Phù hợp, xác nhận lại việc nam vẫn còn sử dụng nên mới giữ nguyên máy tính bật.",
+        "Không đúng với thực tế chỉ thị."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q26",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 2056.75,
+      "audioEndSec": 2080.7,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "あ、雨もう止んでますよ。",
+          "textVi": "À, trời tạnh mưa rồi kìa."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．あー、よく降ってますね",
+          "textVi": "1. A, mưa rơi nhiều nhỉ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．傘させばいいですよ",
+          "textVi": "2. Cứ che ô là được mà."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．じゃ、出かけましょうか",
+          "textVi": "3. Vậy, chúng ta cùng đi ra ngoài nhé."
+        }
+      ],
+      "question": "7番",
+      "questionVi": "Câu 7",
+      "optionCount": 3,
+      "options": [
+        "あー、よく降ってますね",
+        "傘させばいいですよ",
+        "じゃ、出かけましょうか"
+      ],
+      "optionsVi": [
+        "A, mưa rơi nhiều nhỉ.",
+        "Cứ che ô là được mà.",
+        "Vậy, chúng ta cùng đi ra ngoài nhé."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 2,
+      "explanation": "Khi thấy trời đã tạnh mưa, đề xuất phù hợp là rủ nhau ra ngoài.",
+      "optionExplanations": [
+        "Trái ngược với thực tế trời đã tạnh.",
+        "Không cần thiết vì trời đã tạnh mưa.",
+        "Phù hợp, đưa ra hành động tiếp theo khi thời tiết đã thuận lợi."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q27",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 2088.14,
+      "audioEndSec": 2115.47,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "石田さん来ないね。ずっと駅で待っていても仕方ないね。",
+          "textVi": "Anh Ishida vẫn chưa đến nhỉ. Cứ đợi mãi ở nhà ga thế này thì cũng chẳng giải quyết được gì."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．そうだね。もう行っちゃおうか",
+          "textVi": "1. Đúng thế nhỉ. Hay là chúng ta cứ đi thôi."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．待ったほうがいいんだね？",
+          "textVi": "2. Nên đợi thì hơn phải không?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．そう。石田さんそろそろ着くんだね",
+          "textVi": "3. Vậy sao. Anh Ishida sắp đến rồi nhỉ."
+        }
+      ],
+      "question": "8番",
+      "questionVi": "Câu 8",
+      "optionCount": 3,
+      "options": [
+        "そうだね。もう行っちゃおうか",
+        "待ったほうがいいんだね？",
+        "そう。石田さんそろそろ着くんだね"
+      ],
+      "optionsVi": [
+        "Đúng thế nhỉ. Hay là chúng ta cứ đi thôi.",
+        "Nên đợi thì hơn phải không?",
+        "Vậy sao. Anh Ishida sắp đến rồi nhỉ."
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 0,
+      "explanation": "Nữ phàn nàn việc chờ đợi vô ích vì Ishida chưa đến. Nam đồng tình và đưa ra hướng giải quyết rời đi.",
+      "optionExplanations": [
+        "Phù hợp, đồng tình với việc không thể đợi mãi và đề xuất đi thôi.",
+        "Mâu thuẫn với nhận định chán nản việc phải chờ đợi.",
+        "Không đúng với ngữ cảnh Ishida chưa đến."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    },
+    {
+      "id": "listening-dethi-n3-2020-12-q28",
+      "level": "N3",
+      "book": "dethi-n3-2020-12",
+      "taskType": "sokuji",
+      "audioUrl": "https://github.com/TamokiLoi/japanese-extension/releases/download/audio-choukai-cacnam-2020-12-v1/choukai-full.mp3",
+      "audioStartSec": 2122.95,
+      "audioEndSec": 2151,
+      "scenario": "",
+      "scenarioVi": "",
+      "turns": [
+        {
+          "speaker": "女",
+          "text": "夜1人でドライブに行くのは危ないんじゃない？",
+          "textVi": "Lái xe đi dạo một mình vào ban đêm thì nguy hiểm lắm phải không?"
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "1．僕1人に運転させないでよ",
+          "textVi": "1. Đừng bắt một mình tôi lái xe chứ."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "2．気をつけて運転するから平気だよ",
+          "textVi": "2. Tôi sẽ lái xe cẩn thận nên không sao đâu."
+        },
+        {
+          "speaker": "ナレーション",
+          "text": "3．全然心配してないの？",
+          "textVi": "3. Cậu hoàn toàn không lo lắng gì à?"
+        }
+      ],
+      "question": "9番",
+      "questionVi": "Câu 9",
+      "optionCount": 3,
+      "options": [
+        "僕1人に運転させないでよ",
+        "気をつけて運転するから平気だよ",
+        "全然心配してないの？"
+      ],
+      "optionsVi": [
+        "Đừng bắt một mình tôi lái xe chứ.",
+        "Tôi sẽ lái xe cẩn thận nên không sao đâu.",
+        "Cậu hoàn toàn không lo lắng gì à?"
+      ],
+      "optionsInAudio": true,
+      "optionsInTurns": true,
+      "correctIndex": 1,
+      "explanation": "Nữ lo lắng về việc lái xe một mình ban đêm. Nam trấn an bằng cách hứa sẽ lái xe cẩn thận.",
+      "optionExplanations": [
+        "Không phù hợp với câu hỏi về độ an toàn khi lái xe một mình.",
+        "Phù hợp, trấn an người đối thoại rằng bản thân sẽ cẩn thận.",
+        "Không hợp lý trong ngữ cảnh giải tỏa sự lo lắng."
+      ],
+      "notes": "Transcript chép từ PDF Script Nghe N3 T12/2020; đáp án đối chiếu bảng đáp án đi kèm. Bản dịch và lời giải biên soạn cho Luyện nghe; audio dùng khoảng phát trong bản ghi đầy đủ."
+    }
+  ]
+}

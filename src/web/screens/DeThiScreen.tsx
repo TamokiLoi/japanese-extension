@@ -306,6 +306,13 @@ function questionTranslationForQuestion(paper: DeThiPaper, index: number): strin
 }
 
 const LISTENING_REVIEW_BOOK_BY_EXAM: Record<string, string> = {
+  "cacnam-n3-2021-07": "dethi-n3-2021-07",
+  "cacnam-n3-2022-12": "dethi-n3-2022-12",
+  "cacnam-n3-2022-07": "dethi-n3-2022-07",
+  "cacnam-n3-2021-12": "dethi-n3-2021-12",
+  "cacnam-n3-2020-12": "dethi-n3-2020-12",
+  "cacnam-n3-2019-12": "dethi-n3-2019-12",
+  "cacnam-n3-2019-07": "dethi-n3-2019-07",
   "cacnam-n3-2024-07": "dethi-n3-2024-07",
   "cacnam-n3-2024-12": "dethi-n3-2024-12",
   "cacnam-n3-2023-07": "dethi-n3-2023-07",
@@ -1647,7 +1654,14 @@ function ResultView({
   onRetry: () => void;
 }) {
   const found = findPaper(entry.examId, entry.paperId);
-  const [reviewIndex, setReviewIndex] = useState<number | null>(initialReviewIndex ?? null);
+  const [reviewIndex, setReviewIndex] = useState<number | null>(() => {
+    if (initialReviewIndex !== undefined && initialReviewIndex !== null) return initialReviewIndex;
+    if (!found || practiceMode || !answers.length || found.paper.id !== "choukai") return null;
+    const firstQuestion = found.paper.questions[0];
+    if (!firstQuestion) return null;
+    const reviewQuestion = withListeningContent(found.exam.id, found.paper.id, firstQuestion);
+    return reviewQuestion.transcriptTurns?.length || reviewQuestion.transcript?.trim() ? 0 : null;
+  });
   const reviewGroup = found && reviewIndex !== null ? questionDisplayGroup(found.paper, reviewIndex) : null;
   const [showFurigana, setShowFurigana] = useState(false);
   // Entries saved before DeThiHistoryEntry.answers existed have none -- the
@@ -2047,7 +2061,7 @@ function ReviewQuestion({
           onToggleTranslation={() => setShowListeningTranslation((visible) => !visible)}
           className="mt-3"
         />
-      ) : question.transcript && !question.listeningPrompt ? (
+      ) : question.transcript?.trim() && question.transcript.trim() !== question.listeningPrompt?.trim() ? (
         <Card className="mt-3 gap-0 rounded-2xl border-neutral-200 p-5 ring-0">
           <div className="text-xs font-bold tracking-wide text-neutral-400 uppercase">Transcript</div>
           <div className="mt-3 whitespace-pre-line text-sm leading-relaxed text-neutral-700">{question.transcript}</div>

@@ -1,6 +1,13 @@
 import type { ListeningQuestion, ListeningTaskType } from "../types/listening.ts";
 
 const JLPT_LISTENING_BOOKS = new Set([
+  "dethi-n3-2021-07",
+  "dethi-n3-2022-12",
+  "dethi-n3-2022-07",
+  "dethi-n3-2021-12",
+  "dethi-n3-2020-12",
+  "dethi-n3-2019-12",
+  "dethi-n3-2019-07",
   "dethi-n3-2024-07",
   "dethi-n3-2024-12",
   "dethi-2025-12",

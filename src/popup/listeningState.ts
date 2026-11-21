@@ -19,6 +19,13 @@ import listeningDethiN3July2024Raw from "../data/listening-dethi-n3-2024-07.json
 import listeningDethiN3Dec2024Raw from "../data/listening-dethi-n3-2024-12.json";
 import listeningDethiN3July2023Raw from "../data/listening-dethi-n3-2023-07.json";
 import listeningDethiN3Dec2023Raw from "../data/listening-dethi-n3-2023-12.json";
+import listeningDethiN3July2021Raw from "../data/listening-dethi-n3-2021-07.json";
+import listeningDethiN3Dec2022Raw from "../data/listening-dethi-n3-2022-12.json";
+import listeningDethiN3July2022Raw from "../data/listening-dethi-n3-2022-07.json";
+import listeningDethiN3Dec2021Raw from "../data/listening-dethi-n3-2021-12.json";
+import listeningDethiN3Dec2020Raw from "../data/listening-dethi-n3-2020-12.json";
+import listeningDethiN3Dec2019Raw from "../data/listening-dethi-n3-2019-12.json";
+import listeningDethiN3July2019Raw from "../data/listening-dethi-n3-2019-07.json";
 // N3 T7/2025 practice questions use the source's separate script booklet;
 // spoken choices stay audio-only for 問題3/4/5. Q20/Q21 follow the printed
 // source answer keys; Q18 uses the audio-verified answer after a key typo.
@@ -57,6 +64,7 @@ const dethiN3July2024Dataset = listeningDethiN3July2024Raw as unknown as Listeni
 const dethiN3Dec2024Dataset = listeningDethiN3Dec2024Raw as unknown as ListeningDataset;
 const dethiN3July2023Dataset = listeningDethiN3July2023Raw as unknown as ListeningDataset;
 const dethiN3Dec2023Dataset = listeningDethiN3Dec2023Raw as unknown as ListeningDataset;
+const dethiN3July2021Dataset = listeningDethiN3July2021Raw as unknown as ListeningDataset;
 const dethiN3July2025Dataset = listeningDethiN3July2025Raw as unknown as ListeningDataset;
 const dethiN1July2026Dataset = listeningDethiN1July2026Raw as unknown as ListeningDataset;
 const dethiN1July2023Dataset = listeningDethiN1July2023Raw as unknown as ListeningDataset;
@@ -168,6 +176,13 @@ export const ALL_LISTENING: ListeningQuestion[] = [
   ...dethiN3Dec2024Dataset.questions,
   ...dethiN3July2023Dataset.questions,
   ...dethiN3Dec2023Dataset.questions,
+  ...(listeningDethiN3Dec2022Raw as unknown as ListeningDataset).questions,
+  ...(listeningDethiN3July2022Raw as unknown as ListeningDataset).questions,
+  ...(listeningDethiN3Dec2021Raw as unknown as ListeningDataset).questions,
+  ...(listeningDethiN3Dec2020Raw as unknown as ListeningDataset).questions,
+  ...(listeningDethiN3Dec2019Raw as unknown as ListeningDataset).questions,
+  ...(listeningDethiN3July2019Raw as unknown as ListeningDataset).questions,
+  ...dethiN3July2021Dataset.questions,
   ...completeDethi202512Questions,
   ...dethiN3July2025Dataset.questions,
   ...dethiN1July2025Dataset.questions,
@@ -223,6 +238,13 @@ export const BOOK_LABELS: Record<string, string> = {
   "dethi-n3-2024-12": "Đề thi thật N3 T12/2024 (28 câu nghe)",
   "dethi-n3-2023-07": "Đề thi thật N3 T7/2023 (28 câu nghe)",
   "dethi-n3-2023-12": "Đề thi thật N3 T12/2023 (28 câu nghe)",
+  "dethi-n3-2021-07": "Đề thi thật N3 T7/2021 (28 câu nghe)",
+  "dethi-n3-2022-12": "Đề thi thật N3 T12/2022 (28 câu nghe)",
+  "dethi-n3-2022-07": "Đề thi thật N3 T7/2022 (28 câu nghe)",
+  "dethi-n3-2021-12": "Đề thi thật N3 T12/2021 (28 câu nghe)",
+  "dethi-n3-2020-12": "Đề thi thật N3 T12/2020 (28 câu nghe)",
+  "dethi-n3-2019-12": "Đề thi thật N3 T12/2019 (28 câu nghe)",
+  "dethi-n3-2019-07": "Đề thi thật N3 T7/2019 (28 câu nghe)",
   "dethi-2025-12": "Đề thi thật N3 T12/2025 (28 câu nghe)",
   "dethi-n3-2025-07": "Đề thi thật N3 T7/2025 (28 câu nghe)",
   "dethi-n1-2026-07": "Đề thi thật N1 T7/2026 (30 câu nghe)",
@@ -260,6 +282,13 @@ const BOOK_ORDER: string[] = [
   "dethi-n3-2023-12",
   "dethi-n1-2023-07",
   "dethi-n3-2023-07",
+  "dethi-n3-2022-12",
+  "dethi-n3-2022-07",
+  "dethi-n3-2021-12",
+  "dethi-n3-2021-07",
+  "dethi-n3-2020-12",
+  "dethi-n3-2019-12",
+  "dethi-n3-2019-07",
   "kaiwa-100cau",
 ];
 export const AVAILABLE_BOOKS: string[] = BOOK_ORDER.filter((b) => ALL_LISTENING.some((q) => q.book === b));
