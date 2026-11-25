@@ -53,6 +53,7 @@ import { reconstructOrderingQuestion } from "../../lib/jlptOrdering.ts";
 import type { Screen } from "../../popup/screens.ts";
 import type { StudyCorrectionSnapshot } from "../../popup/dataCorrectionState.ts";
 import { StudyFeedbackButton } from "../components/StudyFeedbackButton.tsx";
+import { JlptQuestionStudyScreen } from "./JlptQuestionStudyScreen.tsx";
 
 type Step =
   | { name: "examList" }
@@ -68,6 +69,17 @@ type Step =
 
 const REVIEW_RETURN_TARGET = "__dethi-review-return__";
 const REVIEW_RETURN_STORAGE_KEY = "jlpt-dethi-review-return";
+const GOI_N3_BANK_TARGET = "on-theo-dang-goi-n3";
+const BUNPO_N3_BANK_TARGET = "on-theo-dang-bunpo-n3";
+const READING_N3_BANK_TARGET = "on-theo-dang-doc-hieu-n3";
+const LISTENING_N3_BANK_TARGET = "on-theo-dang-nghe-hieu-n3";
+
+const N3_STUDY_BANKS = [
+  { targetId: GOI_N3_BANK_TARGET, bank: "n3-goi", title: "Goi N3", description: "Kanji và từ vựng qua các kỳ JLPT", icon: BookOpenText, className: "border-rose-200 bg-rose-50 text-rose-800 hover:bg-rose-100" },
+  { targetId: BUNPO_N3_BANK_TARGET, bank: "n3-bunpo", title: "Bunpo N3", description: "Ngữ pháp qua các kỳ JLPT", icon: PenSquare, className: "border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100" },
+  { targetId: READING_N3_BANK_TARGET, bank: "n3-reading", title: "Đọc hiểu N3", description: "Câu hỏi đọc hiểu qua các kỳ JLPT", icon: FileText, className: "border-sky-200 bg-sky-50 text-sky-800 hover:bg-sky-100" },
+  { targetId: LISTENING_N3_BANK_TARGET, bank: "n3-listening", title: "Nghe hiểu N3", description: "Câu hỏi nghe hiểu qua các kỳ JLPT", icon: Headphones, className: "border-violet-200 bg-violet-50 text-violet-800 hover:bg-violet-100" },
+] as const;
 
 // The vocabulary-usage question is 問題4 in N1, but 問題5 in N3. N3 問題4 is
 // a synonym question, so also check the printed usage-question prompt before
@@ -817,10 +829,11 @@ export function DeThiScreen({
   targetId,
   onNavigate,
   onCurrentItemChange,
-}: { targetId?: string; onNavigate?: (screen: Screen, id?: string, opts?: { senseId?: string }) => void; onCurrentItemChange?: (id?: string) => void } = {}) {
+}: { targetId?: string; onNavigate?: (screen: Screen, id?: string, opts?: { senseId?: string; linking?: boolean }) => void; onCurrentItemChange?: (id?: string) => void } = {}) {
   const [step, setStep] = useState<Step | null>(null);
 
   useEffect(() => {
+    if (N3_STUDY_BANKS.some((bank) => bank.targetId === targetId)) return;
     let cancelled = false;
     (async () => {
       if (targetId === REVIEW_RETURN_TARGET && typeof window !== "undefined") {
@@ -877,10 +890,14 @@ export function DeThiScreen({
     };
   }, [targetId]);
 
+  const studyBank = N3_STUDY_BANKS.find((bank) => bank.targetId === targetId);
+  if (studyBank) {
+    return <JlptQuestionStudyScreen key={studyBank.bank} bank={studyBank.bank} onBack={onNavigate && (() => onNavigate("exams"))} onBackLabel="Đề JLPT" />;
+  }
   if (!step) return <LoadingScreen variant="exam" title="Đề thi JLPT" />;
 
   if (step.name === "examList") {
-    return <ExamListView onOpen={(examId) => setStep({ name: "examDetail", examId })} />;
+    return <ExamListView onOpen={(examId) => setStep({ name: "examDetail", examId })} onOpenStudyBank={onNavigate && ((targetId) => onNavigate("exams", targetId, { linking: false }))} />;
   }
   if (step.name === "examDetail") {
     const exam = findExamById(step.examId);
@@ -942,7 +959,7 @@ export function DeThiScreen({
   );
 }
 
-function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
+function ExamListView({ onOpen, onOpenStudyBank }: { onOpen: (examId: string) => void; onOpenStudyBank?: (targetId: string) => void }) {
   const [summaries, setSummaries] = useState<Record<string, Record<string, DeThiPaperSummary>>>({});
   const [history, setHistory] = useState<DeThiHistoryEntry[]>([]);
   const [expandedSources, setExpandedSources] = useState<string[]>([]);
@@ -985,6 +1002,24 @@ function ExamListView({ onOpen }: { onOpen: (examId: string) => void }) {
     <div className="mx-auto max-w-6xl px-2.5 py-2 md:px-8 md:py-6">
       <div className="mb-1 text-xs font-medium text-neutral-400">Luyện thi JLPT</div>
       <PageHeader title="Đề mô phỏng" icon={{ img: "icon-jlpt.png", bg: "#fef3c7" }} />
+
+      {onOpenStudyBank ? (
+        <section className="mt-4" aria-labelledby="study-by-type-heading">
+          <h2 id="study-by-type-heading" className="mb-2 text-sm font-bold text-neutral-700">Ôn theo dạng</h2>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {N3_STUDY_BANKS.map(({ targetId, title, description, icon: Icon, className }) => (
+              <button key={targetId} type="button" onClick={() => onOpenStudyBank(targetId)} className={`flex w-full items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${className}`}>
+                <Icon size={21} className="shrink-0" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-bold">{title}</span>
+                  <span className="block text-xs">{description}</span>
+                </span>
+                <ChevronRight size={18} className="shrink-0" />
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <div className="mt-4 flex gap-2 overflow-x-auto">
         {(["N5", "N4", "N3", "N2", "N1"] as const).map((level) =>

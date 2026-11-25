@@ -12,7 +12,7 @@ interface PassageGroup {
   questions: DeThiQuestion[];
 }
 
-function resolvePassage(paper: DeThiPaper, questionIndex: number): string | null {
+export function resolvePassage(paper: DeThiPaper, questionIndex: number): string | null {
   const current = paper.questions[questionIndex];
   const rawPassage = current?.passage;
   if (!rawPassage) return null;

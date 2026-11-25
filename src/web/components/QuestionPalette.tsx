@@ -54,7 +54,7 @@ export function QuestionPalette({
         <ChevronDown size={16} className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open ? (
-        <div className="mt-2 grid grid-cols-8 gap-1.5 sm:grid-cols-10">
+        <div className={`mt-2 grid grid-cols-8 gap-1.5 sm:grid-cols-10 ${items.length > 80 ? "max-h-64 overflow-y-auto p-1" : ""}`}>
           {items.map((item, i) => (
             <button
               key={item.id}
